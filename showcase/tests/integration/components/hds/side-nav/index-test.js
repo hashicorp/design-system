@@ -240,14 +240,18 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   });
 
   // HAS_HEADER
-  test('it should not include the `hds-side-nav--has-header` class by default', async function (assert) {
+  test('it should not include the `hds-side-nav--with-app-header` class by default', async function (assert) {
     await render(hbs`<Hds::SideNav id="test-side-nav" />`);
-    assert.dom('#test-side-nav').doesNotHaveClass('hds-side-nav--has-header');
+    assert
+      .dom('#test-side-nav')
+      .doesNotHaveClass('hds-side-nav--with-app-header');
   });
 
-  test('it should add the `hds-side-nav--has-header` class if `hasHeader` is true', async function (assert) {
-    await render(hbs`<Hds::SideNav @hasHeader={{true}} id="test-side-nav" />`);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--has-header');
+  test('it should add the `hds-side-nav--with-app-header` class if `withAppHeader` is true', async function (assert) {
+    await render(
+      hbs`<Hds::SideNav @withAppHeader={{true}} id="test-side-nav" />`
+    );
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--with-app-header');
   });
 
   // CALLBACKS

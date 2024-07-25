@@ -1,0 +1,296 @@
+{{! @glint-nocheck: not typesafe yet }}
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "DialogPrimitive Components"}}
+
+<Shw::Text::H1>DialogPrimitive</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>DialogPrimitive::Wrapper</Shw::Text::H2>
+
+  <Shw::Text::H3>With generic content</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Header + Body + Footer">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:header>
+            <Shw::Placeholder @text="header" @height="60px" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @text="body" @height="300px" @background="#fafafa" tabindex="0" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @text="footer" @height="60px" />
+          </:footer>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Body (scrollable) + Footer">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:header>
+            <Shw::Placeholder @height="60px" @text="header" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @height="500px" @text="body" @background="#fafafa" tabindex="0" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="60px" @text="footer" />
+          </:footer>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Without header or footer</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Header + Body (no Footer)">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:header>
+            <Shw::Placeholder @text="header" @height="60px" />
+          </:header>
+          <:body>
+            <Shw::Placeholder @text="body" @height="300px" @background="#fafafa" tabindex="0" />
+          </:body>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Body + Footer (no Header)">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:body>
+            <Shw::Placeholder @height="300px" @text="body" @background="#fafafa" tabindex="0" />
+          </:body>
+          <:footer>
+            <Shw::Placeholder @height="60px" @text="footer" />
+          </:footer>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>With primitives</Shw::Text::H3>
+
+  <Shw::Flex {{style gap="2rem"}} as |SF|>
+    <SF.Item @label="Header + Description + Body + Footer">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:header>
+            <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
+            <Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
+          </:header>
+          <:body>
+            <Hds::DialogPrimitive::Body>
+              <p class="hds-typography-body-300 hds-foreground-primary">Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Libero culpa expedita assumenda at nisi minus unde fuga iure suscipit aut qui, odit
+                natus eum voluptates ut molestiae! Perferendis, impedit qui? Lorem ipsum dolor sit amet?</p>
+            </Hds::DialogPrimitive::Body>
+          </:body>
+          <:footer>
+            <Hds::DialogPrimitive::Footer>
+              <Hds::ButtonSet>
+                <Hds::Button type="submit" @text="Primary" />
+                <Hds::Button type="button" @text="Secondary" @color="secondary" />
+              </Hds::ButtonSet>
+            </Hds::DialogPrimitive::Footer>
+          </:footer>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Header + Description + Body (scrollable) + Footer">
+      <div class="shw-utility-dialog-primitive-base-container">
+        <Hds::DialogPrimitive::Wrapper open>
+          <:header>
+            <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">Title</Hds::DialogPrimitive::Header>
+            <Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
+          </:header>
+          <:body>
+            <Hds::DialogPrimitive::Body>
+              <p class="hds-typography-body-300 hds-foreground-primary" tabindex="0">Lorem ipsum dolor sit amet,
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae
+                vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
+                sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
+                tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
+                nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
+                vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? At vero eos et accusamus et iusto odio
+                dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas
+                molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia
+                deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita
+                distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id
+                quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus
+                autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
+                repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+                reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+            </Hds::DialogPrimitive::Body>
+          </:body>
+          <:footer>
+            <Hds::DialogPrimitive::Footer>
+              <Hds::ButtonSet>
+                <Hds::Button type="submit" @text="Primary" />
+                <Hds::Button type="button" @text="Secondary" @color="secondary" />
+              </Hds::ButtonSet>
+            </Hds::DialogPrimitive::Footer>
+          </:footer>
+        </Hds::DialogPrimitive::Wrapper>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+<section class="shw-utility-dialog-primitive-base-elements-section" data-test-percy>
+
+  <Shw::Text::H2>DialogPrimitive::Header</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="title only">
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="with icon">
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @icon="info" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="with tagline">
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="with tagline and icon">
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @onDismiss={{this.onDismiss}}>
+          Title
+        </Hds::DialogPrimitive::Header>
+      </div>
+    </SF.Item>
+    <SF.Item @label="with very long content">
+      <div class="hds-dialog-primitive__wrapper-header">
+        <Hds::DialogPrimitive::Header
+          @icon="info"
+          @tagline="Tagline with very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element, very, very long content that spans multiple lines to test this element"
+        >
+          Title with very, very long content that spans multiple lines to test this element, very, very long content
+          that spans multiple lines to test this element
+        </Hds::DialogPrimitive::Header>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Description</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item>
+      <Hds::DialogPrimitive::Description>
+        This is a very long
+        <strong>description</strong>
+        to test appropriate text
+        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+        and formatting on this element. This is a very long
+        <strong>description</strong>
+        to test appropriate text
+        <Hds::Link::Inline @href="#">wrapping</Hds::Link::Inline>
+        and formatting on this element.
+      </Hds::DialogPrimitive::Description>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Body</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With basic style">
+      <Hds::DialogPrimitive::Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">HashiCorp uses data collected by cookies and
+          JavaScript libraries to improve your browsing experience, analyze site traffic, and increase the overall
+          performance of our site. By using our website, you’re agreeing to our Privacy Policy and Cookie Policy.</p>
+        <br />
+        <p class="hds-typography-body-300 hds-foreground-primary">The categories below outline which companies and tools
+          we use for collecting data. To opt out of a category of data collection, set the toggle to “Off” and save your
+          preferences.</p>
+      </Hds::DialogPrimitive::Body>
+    </SF.Item>
+    <SF.Item @label="With generic content">
+      <Hds::DialogPrimitive::Body>
+        <Shw::Placeholder @text="some generic content" @height="50" tabindex="0" />
+      </Hds::DialogPrimitive::Body>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Footer</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="One action">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::Button type="submit" @text="Primary" />
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="Two actions">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" />
+        </Hds::ButtonSet>
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="Three actions">
+      <Hds::DialogPrimitive::Footer>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Primary" />
+          <Hds::Button type="button" @text="Secondary" @color="secondary" />
+          <Hds::Button type="button" @text="Tertiary" @color="tertiary" @icon="arrow-right" @iconPosition="trailing" />
+        </Hds::ButtonSet>
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+    <SF.Item @label="Generic footer content">
+      <Hds::DialogPrimitive::Footer>
+        <Shw::Placeholder @text="some generic content" @height="50" />
+      </Hds::DialogPrimitive::Footer>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>DialogPrimitive:Overlay</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Overlay element">
+      <div class="shw-utility-dialog-primitive-overlay-container">
+        <Hds::DialogPrimitive::Overlay />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>

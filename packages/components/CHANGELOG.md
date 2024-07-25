@@ -1,5 +1,80 @@
 # @hashicorp/design-system-components
 
+## 4.7.0
+
+### Minor Changes
+
+`FileInput`, `MaskedInput`, `Select`, `TextInput`, `Textarea` - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2244](https://github.com/hashicorp/design-system/pull/2244)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Loads the `hds-icon` sprite in the `components` package, and ensures it is only loaded once.
+
+<small class="doc-whats-new-changelog-metadata">[#2198](https://github.com/hashicorp/design-system/pull/2198)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::TextInput` - added support for `"month"`, `"week"`, and `"tel"` input types
+
+<small class="doc-whats-new-changelog-metadata">[#2251](https://github.com/hashicorp/design-system/pull/2251)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive` - Added set of utility "dialog" sub-components to act as primitives for `Modal` and `Flyout` (and to be used as standalone subcomponents if needed)
+
+`Modal` - Replaced internal subcomponents to use the `DialogPrimitive` components.
+
+`Flyout` - Replaced internal subcomponents to use the `DialogPrimitive` components.
+
+<small class="doc-whats-new-changelog-metadata">[#2211](https://github.com/hashicorp/design-system/pull/2211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2258](https://github.com/hashicorp/design-system/pull/2258)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Converted form primitives to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2217](https://github.com/hashicorp/design-system/pull/2217)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Checkbox`, `Radio`, `RadioCard`, `Toggle` - Converted components to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2240](https://github.com/hashicorp/design-system/pull/2240)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Flyout`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2264](https://github.com/hashicorp/design-system/pull/2264)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2249](https://github.com/hashicorp/design-system/pull/2249)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Badge`: updated `@text` argument type to include numbers.
+
+<small class="doc-whats-new-changelog-metadata">[#2270](https://github.com/hashicorp/design-system/pull/2270)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.5.0
+- @hashicorp/ember-flight-icons@5.1.3
+
 ## 4.6.0
 
 ### Minor Changes
@@ -35,7 +110,7 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Accordion` - added `@size`, `@type`, and `@isStatic` arguments
+`Accordion` - added `@size`, `@type`, and `@isStatic` arguments. While previously equivalent to `large` the default `Accordion` size is now `medium`; use `@size="large"` to maintain the original appearance.
 
 <small class="doc-whats-new-changelog-metadata">[#2156](https://github.com/hashicorp/design-system/pull/2156)</small>
 

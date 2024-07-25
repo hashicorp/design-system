@@ -1,5 +1,7 @@
 ## Component API
 
+### Reveal
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="text" @required={{true}} @type="string">
     Plain text string that will appear on the toggle button which controls the hiding and showing of the content. If no text value is defined an error will be thrown.

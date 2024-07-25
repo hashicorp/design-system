@@ -2,7 +2,15 @@
 
 This component uses [prism.js](https://prismjs.com/) under the hood.
 
+### CodeBlock
+
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[CB].Title>" @type="yielded component">
+    `ContentBlock::Title` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[CB].Description>" @type="yielded component">
+    `ContentBlock::Description` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="value" @type="string">
     The text/code content for the `CodeBlock`. The component encodes this argument before displaying it.
   </C.Property>
@@ -31,11 +39,28 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
 
 ### Contextual components
 
+#### [CB].Title
+
+The `CodeBlock::Title` component, yielded as contextual component.
+
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[A].Title>" @type="yielded component">
-    A container that yields its content inside the `"title"` block. Content inherits its style.<br/><br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Application teams will need to style the rest of the content.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property @name="yield">
+    Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Content inherits its style. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Consumers will need to style other HTML tags if used as children.
   </C.Property>
-  <C.Property @name="<[A].Description>" @type="yielded component">
-    A container that yields its content inside the `"description"` block. Content inherits its style.<br/><br/>Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Application teams will need to style the rest of the content.<br/><br/>This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [CB].Description
+
+The `CodeBlock::Description` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Content inherits its style. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Consumers will need to style other HTML tags if used as children
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>

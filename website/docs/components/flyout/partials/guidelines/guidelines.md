@@ -114,11 +114,11 @@ The Flyout header features several properties to better communicate the purpose 
 
 **With title icon**
 
-<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+![Flyout header title with icon and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-icon-and-title.jpg)
 
 **Without title icon**
 
-<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+![Flyout header title only and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-title-only.jpg)
 
 #### Usage
 
@@ -130,11 +130,11 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 
 **With tagline**
 
-<Hds::Flyout::Header @tagline="Tagline" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+![Flyout header tagline, title, and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-title.jpg)
 
 **With tagline and icon**
 
-<Hds::Flyout::Header @tagline="Tagline" @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
+![Flyout header title icon, tagline, title, and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-icon-and-title.jpg)
 
 A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 
@@ -151,13 +151,11 @@ A **description** provides additional information about the Flyout.
 
 **With description**
 
-<Hds::Flyout::Header @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
-<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+![Flyout header title and dismiss button with description](/assets/components/dialog-primitives/dialog-primitives-header-title-only-and-description.jpg)
 
 **With description and icon**
 
-<Hds::Flyout::Header @icon="info" @onDismiss={{this.noop}}>Title</Hds::Flyout::Header>
-<Hds::Flyout::Description>Description</Hds::Flyout::Description>
+![Flyout header title and dismiss button with description](/assets/components/dialog-primitives/dialog-primitives-header-icon-and-title-and-description.jpg)
 
 ## Flyout body
 
@@ -179,20 +177,11 @@ The footer is **optional** and should be used sparingly as it increases the comp
 
 **With one action**
 
-<Hds::Flyout::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @color="primary" @text="Primary" />
-  </Hds::ButtonSet>
-</Hds::Flyout::Footer>
+![Flyout footer with one action](/assets/components/dialog-primitives/dialog-primitives-footer-actions-one.png)
 
 **With two actions**
 
-<Hds::Flyout::Footer>
-  <Hds::ButtonSet>
-    <Hds::Button @color="primary" @text="Primary" />
-    <Hds::Button @color="secondary" @text="Secondary" />
-  </Hds::ButtonSet>
-</Hds::Flyout::Footer>
+![Flyout footer with two actions](/assets/components/dialog-primitives/dialog-primitives-footer-actions-two.png)
 
 For more guidance and details around organizing buttons and actions, refer to the [Button organization](/patterns/button-organization) pattern documentation.
 

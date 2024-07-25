@@ -21,6 +21,11 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
+
+  // prevent interaction with AppHeader when SideNav is open/expanded
+  &:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
+    pointer-events: none;
+  }
 }
 
 

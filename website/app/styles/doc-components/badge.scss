@@ -19,14 +19,14 @@
 // sizes
 
 .doc-badge--size-large { // default
-  height: 26px;
+  min-height: 26px;
   padding: 3px 12px 4px 12px;
   font-weight: 600;
   font-size: 14px;
 }
 
 .doc-badge--size-medium {
-  height: 24px;
+  min-height: 24px;
   padding: 3px 8px 4px 8px;
   font-weight: 500;
   font-size: 12px;
@@ -84,3 +84,16 @@
   background-color: var(--doc-color-feedback-critical-400);
 }
 
+
+// add extra spacing for when the badge is associated with an heading
+
+.doc-markdown-h1,
+.doc-markdown-h2,
+.doc-markdown-h3,
+.doc-markdown-h4,
+.doc-markdown-h5,
+.doc-markdown-h6 {
+  > .doc-badge {
+    margin-left: 8px;
+  }
+}

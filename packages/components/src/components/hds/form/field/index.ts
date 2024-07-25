@@ -26,6 +26,7 @@ export const LAYOUT_TYPES = Object.values(HdsFormFieldLayoutValues);
 
 export interface HdsFormFieldSignature {
   Args: {
+    id?: string;
     extraAriaDescribedBy?: string;
     contextualClass?: string;
     isOptional?: boolean;

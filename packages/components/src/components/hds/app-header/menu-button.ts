@@ -12,7 +12,6 @@ export interface HdsAppHeaderMenuButtonSignature {
   Args: {
     isOpen?: boolean;
     menuContentId: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: () => void;
   };
   Element: HdsButtonSignature['Element'];

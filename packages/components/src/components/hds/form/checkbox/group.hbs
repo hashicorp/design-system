@@ -1,19 +1,10 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Form::Fieldset
-  @layout={{@layout}}
-  @name={{@name}}
-  @isRequired={{@isRequired}}
-  @isOptional={{@isOptional}}
-  ...attributes
-  as |F|
->
+<Hds::Form::Fieldset @layout={{@layout}} @isRequired={{@isRequired}} @isOptional={{@isOptional}} ...attributes as |F|>
   {{! Notice: the order of the elements is not relevant here, because it's controlled at "Hds::Form::Fieldset" component level }}
-  {{yield (hash Legend=F.Legend isRequired=F.isRequired isOptional=F.isOptional)}}
-  {{yield (hash HelperText=F.HelperText Error=F.Error)}}
+  {{yield (hash Legend=F.Legend HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     {{yield
       (hash

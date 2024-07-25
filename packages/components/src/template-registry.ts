@@ -37,20 +37,59 @@ import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
+import type HdsDialogPrimitiveBodyComponent from './components/hds/dialog-primitive/body';
+import type HdsDialogPrimitiveDescriptionComponent from './components/hds/dialog-primitive/description';
+import type HdsDialogPrimitiveFooterComponent from './components/hds/dialog-primitive/footer';
+import type HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-primitive/header';
+import type HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay';
+import type HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
+import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
+import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
+import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
+import type HdsFlyoutComponent from './components/hds/flyout';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
+import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
+import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
+import type HdsFormCheckboxGroupComponent from './components/hds/form/checkbox/group';
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
+import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
+import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
+import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
+import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
+import type HdsFormMaskedInputFieldComponent from './components/hds/form/masked-input/field';
+import type HdsFormRadioBaseComponent from './components/hds/form/radio/base';
+import type HdsFormRadioFieldComponent from './components/hds/form/radio/field';
+import type HdsFormRadioGroupComponent from './components/hds/form/radio/group';
+import type HdsFormRadioCardComponent from './components/hds/form/radio-card';
+import type HdsFormRadioCardDescriptionComponent from './components/hds/form/radio-card/description';
+import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
+import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
+import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
+import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
+import type HdsFormTextInputBaseComponent from './components/hds/form/text-input/base';
+import type HdsFormTextInputFieldComponent from './components/hds/form/text-input/field';
+import type HdsFormTextareaBaseComponent from './components/hds/form/textarea/base';
+import type HdsFormTextareaFieldComponent from './components/hds/form/textarea/field';
+import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
+import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
+import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
 import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsModalBodyComponent from './components/hds/modal/body';
+import type HdsModalFooterComponent from './components/hds/modal/footer';
+import type HdsModalHeaderComponent from './components/hds/modal/header';
+import type HdsModalComponent from './components/hds/modal/';
 import type HdsPageHeaderComponent from './components/hds/page-header';
 import type HdsPageHeaderActionsComponent from './components/hds/page-header/actions';
 import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badges';
@@ -211,6 +250,32 @@ export default interface HdsComponentsRegistry {
   'Hds::Copy::Snippet': typeof HdsCopySnippetComponent;
   'hds/copy/snippet': typeof HdsCopySnippetComponent;
 
+  // DIALOG
+
+  // DialogPrimitiveBody
+  'Hds::DialogPrimitive::Body': typeof HdsDialogPrimitiveBodyComponent;
+  'hds/dialog-primitive/body': typeof HdsDialogPrimitiveBodyComponent;
+
+  // DialogPrimitiveDescription
+  'Hds::DialogPrimitive::Description': typeof HdsDialogPrimitiveDescriptionComponent;
+  'hds/dialog-primitive/description': typeof HdsDialogPrimitiveDescriptionComponent;
+
+  // DialogPrimitiveFooter
+  'Hds::DialogPrimitive::Footer': typeof HdsDialogPrimitiveFooterComponent;
+  'hds/dialog-primitive/footer': typeof HdsDialogPrimitiveFooterComponent;
+
+  // DialogPrimitiveHeader
+  'Hds::DialogPrimitive::Header': typeof HdsDialogPrimitiveHeaderComponent;
+  'hds/dialog-primitive/header': typeof HdsDialogPrimitiveHeaderComponent;
+
+  // DialogPrimitiveOverlay
+  'Hds::DialogPrimitive::Overlay': typeof HdsDialogPrimitiveOverlayComponent;
+  'hds/dialog-primitive/overlay': typeof HdsDialogPrimitiveOverlayComponent;
+
+  // DialogPrimitiveWrapper
+  'Hds::DialogPrimitive::Wrapper': typeof HdsDialogPrimitiveWrapperComponent;
+  'hds/dialog-primitive/wrapper': typeof HdsDialogPrimitiveWrapperComponent;
+
   // DisclosurePrimitive
   'Hds::DisclosurePrimitive': typeof HdsDisclosurePrimitiveComponent;
   'hds/disclosure-primitive': typeof HdsDisclosurePrimitiveComponent;
@@ -219,11 +284,37 @@ export default interface HdsComponentsRegistry {
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
 
+  // Flyout
+  'Hds::Flyout': typeof HdsFlyoutComponent;
+  'hds/flyout': typeof HdsFlyoutComponent;
+
+  'Hds::Flyout::Body': typeof HdsFlyoutBodyComponent;
+  'hds/flyout/body': typeof HdsFlyoutBodyComponent;
+
+  'Hds::Flyout::Description': typeof HdsFlyoutDescriptionComponent;
+  'hds/flyout/description': typeof HdsFlyoutDescriptionComponent;
+
+  'Hds::Flyout::Footer': typeof HdsFlyoutFooterComponent;
+  'hds/flyout/footer': typeof HdsFlyoutFooterComponent;
+
+  'Hds::Flyout::Header': typeof HdsFlyoutHeaderComponent;
+  'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
+
   // FORM
 
   // Form CharacterCount
   'Hds::Form::CharacterCount': typeof HdsFormCharacterCountComponent;
   'hds/form/character-count': typeof HdsFormCharacterCountComponent;
+
+  // Form Checkbox
+  'Hds::Form::Checkbox::Base': typeof HdsFormCheckboxBaseComponent;
+  'hds/form/checkbox/base': typeof HdsFormCheckboxBaseComponent;
+
+  'Hds::Form::Checkbox::Field': typeof HdsFormCheckboxFieldComponent;
+  'hds/form/checkbox/field': typeof HdsFormCheckboxFieldComponent;
+
+  'Hds::Form::Checkbox::Group': typeof HdsFormCheckboxGroupComponent;
+  'hds/form/checkbox/group': typeof HdsFormCheckboxGroupComponent;
 
   // Form Error
   'Hds::Form::Error': typeof HdsFormErrorComponent;
@@ -236,6 +327,17 @@ export default interface HdsComponentsRegistry {
   // Form Field
   'Hds::Form::Field': typeof HdsFormFieldComponent;
   'hds/form/field': typeof HdsFormFieldComponent;
+
+  // Form Fieldset
+  'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
+  'hds/form/fieldset': typeof HdsFormFieldsetComponent;
+
+  // Form FileInput
+  'Hds::Form::FileInput::Base': typeof HdsFormFileInputBaseComponent;
+  'hds/form/file-input/base': typeof HdsFormFileInputBaseComponent;
+
+  'Hds::Form::FileInput::Field': typeof HdsFormFileInputFieldComponent;
+  'hds/form/file-input/field': typeof HdsFormFileInputFieldComponent;
 
   // Form HelperText
   'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
@@ -252,6 +354,67 @@ export default interface HdsComponentsRegistry {
   // Form Legend
   'Hds::Form::Legend': typeof HdsFormLegendComponent;
   'hds/form/legend': typeof HdsFormLegendComponent;
+
+  // Form MaskedInput
+  'Hds::Form::MaskedInput::Base': typeof HdsFormMaskedInputBaseComponent;
+  'hds/form/masked-input/base': typeof HdsFormMaskedInputBaseComponent;
+
+  'Hds::Form::MaskedInput::Field': typeof HdsFormMaskedInputFieldComponent;
+  'hds/form/masked-input/field': typeof HdsFormMaskedInputFieldComponent;
+
+  // Form Radio
+  'Hds::Form::Radio::Base': typeof HdsFormRadioBaseComponent;
+  'hds/form/radio/base': typeof HdsFormRadioBaseComponent;
+
+  'Hds::Form::Radio::Field': typeof HdsFormRadioFieldComponent;
+  'hds/form/radio/field': typeof HdsFormRadioFieldComponent;
+
+  'Hds::Form::Radio::Group': typeof HdsFormRadioGroupComponent;
+  'hds/form/radio/group': typeof HdsFormRadioGroupComponent;
+
+  // Form RadioCard
+  'Hds::Form::RadioCard': typeof HdsFormRadioCardComponent;
+  'hds/form/radio-card': typeof HdsFormRadioCardComponent;
+
+  'Hds::Form::RadioCard::Description': typeof HdsFormRadioCardDescriptionComponent;
+  'hds/form/radio-card/description': typeof HdsFormRadioCardDescriptionComponent;
+
+  'Hds::Form::RadioCard::Group': typeof HdsFormRadioCardGroupComponent;
+  'hds/form/radio-card/group': typeof HdsFormRadioCardGroupComponent;
+
+  'Hds::Form::RadioCard::Label': typeof HdsFormRadioCardLabelComponent;
+  'hds/form/radio-card/label': typeof HdsFormRadioCardLabelComponent;
+
+  // Form Select
+  'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;
+  'hds/form/select/base': typeof HdsFormSelectBaseComponent;
+
+  'Hds::Form::Select::Field': typeof HdsFormSelectFieldComponent;
+  'hds/form/select/field': typeof HdsFormSelectFieldComponent;
+
+  // Form TextInput
+  'Hds::Form::TextInput::Base': typeof HdsFormTextInputBaseComponent;
+  'hds/form/text-input/base': typeof HdsFormTextInputBaseComponent;
+
+  'Hds::Form::TextInput::Field': typeof HdsFormTextInputFieldComponent;
+  'hds/form/text-input/field': typeof HdsFormTextInputFieldComponent;
+
+  // Form Textarea
+  'Hds::Form::Textarea::Base': typeof HdsFormTextareaBaseComponent;
+  'hds/form/textarea/base': typeof HdsFormTextareaBaseComponent;
+
+  'Hds::Form::Textarea::Field': typeof HdsFormTextareaFieldComponent;
+  'hds/form/textarea/field': typeof HdsFormTextareaFieldComponent;
+
+  // Form Toggle
+  'Hds::Form::Toggle::Base': typeof HdsFormToggleBaseComponent;
+  'hds/form/toggle/base': typeof HdsFormToggleBaseComponent;
+
+  'Hds::Form::Toggle::Field': typeof HdsFormToggleFieldComponent;
+  'hds/form/toggle/field': typeof HdsFormToggleFieldComponent;
+
+  'Hds::Form::Toggle::Group': typeof HdsFormToggleGroupComponent;
+  'hds/form/toggle/group': typeof HdsFormToggleGroupComponent;
 
   // Form VisibilityToggle
   'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
@@ -272,6 +435,19 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+
+  // Modal
+  'Hds::Modal': typeof HdsModalComponent;
+  'hds/modal': typeof HdsModalComponent;
+
+  'Hds::ModalBoty': typeof HdsModalBodyComponent;
+  'hds/modal/body': typeof HdsModalBodyComponent;
+
+  'Hds::ModalFooter': typeof HdsModalFooterComponent;
+  'hds/modal/footer': typeof HdsModalFooterComponent;
+
+  'Hds::ModalHeader': typeof HdsModalHeaderComponent;
+  'hds/modal/header': typeof HdsModalHeaderComponent;
 
   // PageHeader
   'Hds::PageHeader': typeof HdsPageHeaderComponent;

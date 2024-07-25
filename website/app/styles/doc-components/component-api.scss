@@ -12,6 +12,7 @@
 // SET OF PROPERTIES
 
 .doc-component-api {
+  margin-top: 16px;
   margin-bottom: 24px;
   border: 1px solid var(--doc-color-gray-500);
   border-radius: 3px;
@@ -90,6 +91,10 @@
 .doc-component-api__property-description {
   @include doc-font-style-body-small ();
   padding: 20px 0 0 0;
+
+  &:only-child {
+    padding-top: 0;
+  }
 }
 
 

@@ -12,7 +12,86 @@
   </a>
 </p>
 
+## 4.7.0
+
+[4.7.0 documentation](https://hds-website-4-7-0.vercel.app/)
+
+**Minor changes**
+
+`FileInput`, `MaskedInput`, `Select`, `TextInput`, `Textarea` - Converted to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2244](https://github.com/hashicorp/design-system/pull/2244)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Loads the `hds-icon` sprite in the `components` package, and ensures it is only loaded once.
+
+<small class="doc-whats-new-changelog-metadata">[#2198](https://github.com/hashicorp/design-system/pull/2198)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::TextInput` - added support for `"month"`, `"week"`, and `"tel"` input types
+
+<small class="doc-whats-new-changelog-metadata">[#2251](https://github.com/hashicorp/design-system/pull/2251)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive` - Added set of utility "dialog" sub-components to act as primitives for `Modal` and `Flyout` (and to be used as standalone subcomponents if needed)
+
+`Modal` - Replaced internal subcomponents to use the `DialogPrimitive` components.
+
+`Flyout` - Replaced internal subcomponents to use the `DialogPrimitive` components.
+
+<small class="doc-whats-new-changelog-metadata">[#2211](https://github.com/hashicorp/design-system/pull/2211)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2258](https://github.com/hashicorp/design-system/pull/2258)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Converted form primitives to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2217](https://github.com/hashicorp/design-system/pull/2217)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Checkbox`, `Radio`, `RadioCard`, `Toggle` - Converted components to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2240](https://github.com/hashicorp/design-system/pull/2240)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Flyout`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2264](https://github.com/hashicorp/design-system/pull/2264)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2249](https://github.com/hashicorp/design-system/pull/2249)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Badge`: updated `@text` argument type to include numbers.
+
+<small class="doc-whats-new-changelog-metadata">[#2270](https://github.com/hashicorp/design-system/pull/2270)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.5.0
+- @hashicorp/ember-flight-icons@5.1.3
+
 ## 4.6.0
+
+[4.6.0 documentation](https://hds-website-4-6-0.vercel.app/)
 
 **Minor changes**
 
@@ -47,7 +126,7 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Accordion` - added `@size`, `@type`, and `@isStatic` arguments
+`Accordion` - added `@size`, `@type`, and `@isStatic` arguments. While previously equivalent to `large` the default `Accordion` size is now `medium`; use `@size="large"` to maintain the original appearance.
 
 <small class="doc-whats-new-changelog-metadata">[#2156](https://github.com/hashicorp/design-system/pull/2156)</small>
 
@@ -822,28 +901,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@4.0.4
-
-## 3.1.2
-
-**Patch changes**
-
-`AppFooter` – Fixed predefined statuses by replacing `critical` with `outage` and prevented `statusIconColor` from being overridden by `status`
-
-<small class="doc-whats-new-changelog-metadata">[#1790](https://github.com/hashicorp/design-system/pull/1790)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Fixed visible scrollbar in collapsed SideNav when scroll bar is set to be always visible
-
-<small class="doc-whats-new-changelog-metadata">[#1786](https://github.com/hashicorp/design-system/pull/1786)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Fixed `@hasLineWrapping` style to make long strings wrap when they overflow the container
-
-<small class="doc-whats-new-changelog-metadata">[#1798](https://github.com/hashicorp/design-system/pull/1798)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

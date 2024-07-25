@@ -10,13 +10,13 @@ import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 
 export interface HdsAppHeaderSignature {
+  Args: {
+    breakpoint?: string;
+  };
   Blocks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    logo?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    globalActions?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    utilityActions?: any;
+    logo?: [];
+    globalActions?: [];
+    utilityActions?: [];
   };
   Element: HTMLDivElement;
 }
@@ -26,15 +26,20 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   @tracked isDesktop = true;
   desktopMQ: MediaQueryList;
 
-  desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
-    '--hds-app-desktop-breakpoint'
-  );
+  // Generates a unique ID for the Menu Content
+  menuContentId = 'hds-menu-content-' + guidFor(this);
+
+  desktopMQVal =
+    this.args.breakpoint ??
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--hds-app-desktop-breakpoint'
+    );
 
   constructor(owner: unknown, args: Record<string, never>) {
     super(owner, args);
-    this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
+    this.desktopMQ = window.matchMedia(`(min-width: ${this.desktopMQVal})`);
     this.addEventListeners();
-    registerDestructor(this, () => {
+    registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
   }
@@ -65,9 +70,6 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     return this.isDesktop || this.isOpen;
   }
 
-  // Generates a unique ID for the Menu Content
-  menuContentId = 'hds-menu-content-' + guidFor(this);
-
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
@@ -94,7 +96,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   }
 
   @action
-  updateDesktopVariable(event: MediaQueryListEvent) {
+  updateDesktopVariable(event: MediaQueryListEvent): void {
     this.isDesktop = event.matches;
   }
 }

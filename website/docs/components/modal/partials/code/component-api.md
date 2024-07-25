@@ -1,6 +1,17 @@
 ## Component API
 
+### Modal
+
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[M].Header>" @type="yielded component">
+    `DialogPrimitive::Header` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[M].Body>" @type="yielded component">
+    `DialogPrimitive::Body` yielded as contextual component (see below).
+  </C.Property>
+  <C.Property @name="<[M].Footer>" @type="yielded component">
+    `DialogPrimitive::Footer` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium">
     Sets the width of the Modal.
   </C.Property>
@@ -23,41 +34,38 @@
 
 ### Contextual components
 
-The title, the content of the Modal dialog, and the actions are passed into the Modal as yielded components, using the `Header`, `Body`, `Footer` keys.
+!!! Warning
 
-#### Modal::Header
+The previous `Modal::Header`, `Modal::Body`, and `Modal::Footer` subcomponents are now deprecated. View details in the [version history](/components/modal?tab=version-history) on how to migrate to the equivalent [DialogPrimitive](/utilities/dialog-primitive?tab=code#component-api) subcomponents.
 
-A container that yields its content as the title of the Modal.
+!!!
+
+#### [M].Header
+
+The `DialogPrimitive::Header` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string">
-    Accepts any [icon](/icons/library) name.
-  </C.Property>
-  <C.Property @name="tagline" @type="string">
-    String that helps the user maintain context when a Modal dialog is open.
-    <br/><br/>
-     This is **not** the title text, but a small piece of text above the title text.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Header`](/utilities/dialog-primitive?tab=code#dialogprimitiveheader) component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### Modal::Body
+#### [M].Body
 
-The body is an unstyled, generic container that yields as the main content of the Modal. When the yielded content exceeds the available space, a scrollbar is introduced to the container.
-
-This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-
-#### Modal::Footer
-
-A container that yields its content as the footer of the Modal. We recommend using it exclusively for actions using the [ButtonSet](/components/button-set) component. If a tertiary action is presented, it will always be aligned at the end of the row.
+The `DialogPrimitive::Body` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="close" @type="function">
-    Function to programmatically close the Modal. If an `onClose` callback function is provided it will be invoked when the Modal is closed.
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Body`](/utilities/dialog-primitive?tab=code#dialogprimitivebody) component.
   </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+</Doc::ComponentApi>
+
+#### [M].Footer
+
+The `DialogPrimitive::Footer` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property>
+    It exposes the same API as the [`DialogPrimitive::Footer`](/utilities/dialog-primitive?tab=code#dialogprimitivefooter) component.
   </C.Property>
 </Doc::ComponentApi>

@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { fillIn, visit } from '@ember/test-helpers';
+import { fillIn, visit, click } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 
 module('Acceptance | Sidebar filter', function (hooks) {
@@ -29,15 +29,23 @@ module('Acceptance | Sidebar filter', function (hooks) {
 
   test('should show the "Checkbox" link in the sidebar (under an opened parent container) if filtering using its "page title" (case insensitive)', async function (assert) {
     await visit('/components');
-    let link = this.element.querySelector(
-      '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
-    );
-    assert.dom(link).exists();
-    assert.dom('.doc-table-of-contents__folder[open]').exists({ count: 0 });
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
+      )
+      .exists({ count: 0 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
     await fillIn('.doc-page-sidebar__filter input[type="search"]', 'ChEcKbOx');
-    assert.dom(link).exists();
-    // notice: we can't use `.hasAttribute('open')` here because it returns always false
-    assert.dom('.doc-table-of-contents__folder[open]').exists({ count: 1 });
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
+      )
+      .exists();
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 1 });
   });
 
   test('should still show the filter input after filtering', async function (assert) {
@@ -74,15 +82,64 @@ module('Acceptance | Sidebar filter', function (hooks) {
       .exists();
   });
 
+  test('should expand subsection when click a parent container', async function (assert) {
+    await visit('/components');
+
+    assert.dom('.doc-table-of-contents__folder').exists({ count: 3 });
+    assert.dom('.doc-table-of-contents__button').exists({ count: 3 });
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'false');
+
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
+
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists({ count: 0 });
+
+    await click('.doc-table-of-contents__button');
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'true');
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists();
+
+    await click('.doc-table-of-contents__button');
+    assert
+      .dom('.doc-table-of-contents__button')
+      .hasAttribute('aria-expanded', 'false');
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+      )
+      .exists({ count: 0 });
+  });
+
   // QUERY PARAMS
 
   test('all "folder" containers should be closed by default if the "current route" link is not inside any of them', async function (assert) {
     await visit('/components/alert');
-    assert.dom('.doc-table-of-contents__folder[open]').exists({ count: 0 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 0 });
   });
 
   test('the "folder" container of the "current route" link should be opened by default', async function (assert) {
     await visit('/components/form/radio-card');
-    assert.dom('.doc-table-of-contents__folder[open]').exists({ count: 1 });
+    assert
+      .dom('.doc-table-of-contents__button.doc-table-of-contents__button--open')
+      .exists({ count: 1 });
+    assert
+      .dom(
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/radio-card"]'
+      )
+      .exists();
   });
 });

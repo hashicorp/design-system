@@ -58,6 +58,20 @@ Date and time fields use the native browser functionality for the popovers. Some
   <F.Label>Datetime</F.Label>
 </Hds::Form::TextInput::Field>
 
+<Hds::Form::TextInput::Field @type="month" placeholder="yyyy-mm" as |F|>
+  <F.Label>Month</F.Label>
+</Hds::Form::TextInput::Field>
+
+<Hds::Form::TextInput::Field @type="week" placeholder="yyyy-W00" as |F|>
+  <F.Label>Week</F.Label>
+</Hds::Form::TextInput::Field>
+
+### Telephone
+
+<Hds::Form::TextInput::Field @type="tel" @width="300px" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" as |F|>
+  <F.Label>Tel</F.Label>
+</Hds::Form::TextInput::Field>
+
 ## Required and optional
 
 For complex forms, indicate **required** fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).

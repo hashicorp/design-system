@@ -11,12 +11,6 @@
 
 // ----------------
 
-// TODO: Create app-header tokens:
-:root {
-  --token-app-header-height: 60px;
-  --token-app-header-home-link-padding: 4px;
-}
-
 .hds-app-header {
   position: relative;
   z-index: 20; // needs to stay above the main content
@@ -32,31 +26,15 @@
 
   // RESPONSIVE VIEWS
 
-  // Desktop view:
+  // Desktop/large view:
   &.hds-app-header--is-desktop {
     // Global actions are aligned next to the logo in desktop view
     .hds-app-header__global-actions {
       margin-right: auto;
-
-      // TODO: Delete once collision detection is implemented for Dropdown
-      // Force align dropdown content
-      .hds-dropdown__content {
-        top: calc(100% + 4px);
-        left: 0;
-      }
-    }
-
-    .hds-app-header__utility-actions {
-      // TODO: Delete once collision detection is implemented for Dropdown
-      // Force align dropdown content
-      .hds-dropdown__content {
-        top: calc(100% + 4px);
-        right: 0;
-      }
     }
   }
 
-  // Mobile/small and tablet/medium compound view:
+  // Mobile/small & Tablet/medium compound view:
   &.hds-app-header--is-mobile {
     // Actions content appears as a dropdown menu in mobile/tablet view
     .hds-app-header__actions {
@@ -64,19 +42,15 @@
       top: calc(100% + 1px); // We add 1px to account for the AppHeader bottom border
       right: 0;
       left: 0;
+    }
+
+    .hds-app-header__actions-content {
       flex-wrap: wrap;
       align-content: flex-start;
       height: calc(100vh - var(--token-app-header-height));
       padding: 16px;
       overflow: auto; // allow users to scroll if the content is too long
       background: var(--token-color-palette-neutral-700);
-    }
-
-    // TODO: Delete once collision detection is implemented for Dropdown
-    // Force align dropdown content
-    .hds-dropdown__content {
-      top: calc(100% + 4px);
-      left: 0;
     }
 
     // Force the width of global actions to 100% in mobile/tablet view
@@ -105,16 +79,28 @@
   }
 }
 
+// Logo
+
 .hds-app-header__home-link {
   @include hds-interactive-dark-theme($add-visible-border: false);
-  display: block;
-  width: 36px;
-  height: 36px;
-  padding: calc(var(--token-app-header-home-link-padding) - 1px); // by design - we take in account the transparent border
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Set home link container size:
+  width: var(--token-app-header-home-link-size);
+  height: var(--token-app-header-home-link-size);
+  
+  // Set SVG logo size:
+  svg {
+    width: var(--token-app-header-logo-size);
+    height: var(--token-app-header-logo-size);
+  }
 }
 
+.hds-app-header__actions-content,
 .hds-app-header__actions {
-  display: flex; // may be over-riddden by queries
+  display: flex;
   flex: 1;
   gap: inherit;
 }

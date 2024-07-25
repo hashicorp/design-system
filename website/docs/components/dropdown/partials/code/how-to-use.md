@@ -1,17 +1,17 @@
 ## How to use this component
 
-To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<dd.Separator />`.
+To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<D.Separator />`.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Menu" />
-  <dd.Title @text="Title Text" />
-  <dd.Description @text="Descriptive text goes here." />
-  <dd.Interactive @href="#" @text="Add" />
-  <dd.Interactive @href="#" @text="Add More" />
-  <dd.Interactive @href="#" @text="Add Another Thing Too" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
+<Hds::Dropdown as |D|>
+  <D.ToggleButton @text="Menu" />
+  <D.Title @text="Title Text" />
+  <D.Description @text="Descriptive text goes here." />
+  <D.Interactive @href="#" @text="Add" />
+  <D.Interactive @href="#" @text="Add More" />
+  <D.Interactive @href="#" @text="Add Another Thing Too" />
+  <D.Separator />
+  <D.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
 </Hds::Dropdown>
 ```
 
@@ -20,28 +20,28 @@ To make the invocation more flexible and intuitive, we provide contextual compon
 The basic invocation of ToggleButton requires `@text` to be passed. By default, it renders a primary button with a chevron icon.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="Item One" />
+  <D.Interactive @route="components" @text="Item Two" />
+  <D.Interactive @route="components" @text="Item Three" />
+  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
 Alternatively, pass `secondary` to `@color` to display a secondary button with a chevron icon.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleButton @text="Text Toggle" @color="secondary" />
+  <D.Interactive @route="components" @text="Item One" />
+  <D.Interactive @route="components" @text="Item Two" />
+  <D.Interactive @route="components" @text="Item Three" />
+  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -53,13 +53,13 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
 `@hasChevron={{false}}`. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-  <dd.Interactive @route="components" @text="Create" />
-  <dd.Interactive @route="components" @text="Read" />
-  <dd.Interactive @route="components" @text="Update" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+  <D.Interactive @route="components" @text="Create" />
+  <D.Interactive @route="components" @text="Read" />
+  <D.Interactive @route="components" @text="Update" />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -68,13 +68,13 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
 `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="user" @text="user menu" />
-  <dd.Title @text="Signed In" />
-  <dd.Description @text="email@domain.com" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Settings and Preferences" />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleIcon @icon="user" @text="user menu" />
+  <D.Title @text="Signed In" />
+  <D.Description @text="email@domain.com" />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Settings and Preferences" />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -83,13 +83,13 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
 Pass any [icon](/icons/library) name to `@icon` to change the icon used in ToggleIcon. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="settings" @text="settings menu" />
-  <dd.Title @text="Signed In" />
-  <dd.Description @text="email@domain.com" />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Settings and Preferences" />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleIcon @icon="settings" @text="settings menu" />
+  <D.Title @text="Signed In" />
+  <D.Description @text="email@domain.com" />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Settings and Preferences" />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -98,14 +98,14 @@ Pass any [icon](/icons/library) name to `@icon` to change the icon used in Toggl
 By default, the list is positioned below the button, aligned to the right. To change the list position pass `bottom-left`, `top-left`, or `top-right` to `@listPosition` on the Dropdown component.
 
 ```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @text="Item Four (closes on click)" {{on "click" dd.close}} />
-  <dd.Separator />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown @listPosition="bottom-left" as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="Item One" />
+  <D.Interactive @route="components" @text="Item Two" />
+  <D.Interactive @route="components" @text="Item Three" />
+  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -113,11 +113,11 @@ In contexts where the Dropdown needs to be _inline_, to inherit the alignment fr
 
 ```handlebars
 <div class="doc-dropdown-mock-text-align-right">
-  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
-    <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-    <dd.Interactive @route="components" @text="Item One" />
-    <dd.Interactive @route="components" @text="Item Two" />
-    <dd.Interactive @route="components" @text="Item Three" />
+  <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |D|>
+    <D.ToggleButton @text="Text Toggle" @color="secondary" />
+    <D.Interactive @route="components" @text="Item One" />
+    <D.Interactive @route="components" @text="Item Two" />
+    <D.Interactive @route="components" @text="Item Three" />
   </Hds::Dropdown>
 </div>
 ```
@@ -133,15 +133,15 @@ The `@height` argument actually sets a `max-height` which prevents the list from
 !!!
 
 ```handlebars
-<Hds::Dropdown @isInline={{true}} @height="170px" @width="250px" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" />
-  <dd.Interactive @route="components" @text="Item One" />
-  <dd.Interactive @route="components" @text="Item Two" />
-  <dd.Interactive @route="components" @text="Item Three" />
-  <dd.Interactive @route="components" @text="Item Four" />
-  <dd.Interactive @route="components" @text="Item Five" />
-  <dd.Interactive @route="components" @text="Item Six" />
-  <dd.Interactive @route="components" @text="Item Seven" />
+<Hds::Dropdown @isInline={{true}} @height="170px" @width="250px" as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="Item One" />
+  <D.Interactive @route="components" @text="Item Two" />
+  <D.Interactive @route="components" @text="Item Three" />
+  <D.Interactive @route="components" @text="Item Four" />
+  <D.Interactive @route="components" @text="Item Five" />
+  <D.Interactive @route="components" @text="Item Six" />
+  <D.Interactive @route="components" @text="Item Seven" />
 </Hds::Dropdown>
 ```
 
@@ -150,24 +150,24 @@ The `@height` argument actually sets a `max-height` which prevents the list from
 It is possible that you may want to add a list footer for things like a set of buttons for a filter control:
 
 ```handlebars
-<Hds::Dropdown @height="284px" as |dd|>
-  <dd.ToggleButton @icon="tag" @text="Tags" @color="secondary" />
-  <dd.Checkbox>access</dd.Checkbox>
-  <dd.Checkbox>homework</dd.Checkbox>
-  <dd.Checkbox>discovery</dd.Checkbox>
-  <dd.Checkbox>memories</dd.Checkbox>
-  <dd.Checkbox>music</dd.Checkbox>
-  <dd.Checkbox>pharell</dd.Checkbox>
-  <dd.Checkbox>punk</dd.Checkbox>
-  <dd.Checkbox>random</dd.Checkbox>
-  <dd.Checkbox>robots</dd.Checkbox>
-  <dd.Checkbox>tag</dd.Checkbox>
-  <dd.Footer @hasDivider={{true}}>
+<Hds::Dropdown @height="284px" as |D|>
+  <D.ToggleButton @icon="tag" @text="Tags" @color="secondary" />
+  <D.Checkbox>access</D.Checkbox>
+  <D.Checkbox>homework</D.Checkbox>
+  <D.Checkbox>discovery</D.Checkbox>
+  <D.Checkbox>memories</D.Checkbox>
+  <D.Checkbox>music</D.Checkbox>
+  <D.Checkbox>pharell</D.Checkbox>
+  <D.Checkbox>punk</D.Checkbox>
+  <D.Checkbox>random</D.Checkbox>
+  <D.Checkbox>robots</D.Checkbox>
+  <D.Checkbox>tag</D.Checkbox>
+  <D.Footer @hasDivider={{true}}>
     <Hds::ButtonSet>
       <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
       <Hds::Button @text="Cancel" @color="secondary" @size="small" />
     </Hds::ButtonSet>
-  </dd.Footer>
+  </D.Footer>
 </Hds::Dropdown>
 ```
 
@@ -236,10 +236,10 @@ There may be use cases when it’s necessary to put an item in a “loading” s
 Pass the argument `@isLoading={{true}}` to the item. This will show a “loading” icon (even if an argument `@icon` is provided) and sets the item as non-interactive until the value of `@isLoading` is set to `false` again.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-  <dd.Interactive @route="components" @isLoading={{true}} @text="Edit cluster" @color="action" @icon="edit" />
-  <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+<Hds::Dropdown as |D|>
+  <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
+  <D.Interactive @route="components" @isLoading={{true}} @text="Edit cluster" @color="action" @icon="edit" />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
 </Hds::Dropdown>
 ```
 
@@ -250,13 +250,13 @@ To enable users to copy a snippet of code (eg. URLs, secrets, code blocks, etc.)
 Using the `@isTruncated` argument it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
 
 ```handlebars
-<Hds::Dropdown as |dd|>
-  <dd.ToggleButton @listPosition="bottom-left" @text="Create run task" @color="secondary" />
-  <dd.Title @text="Integrate with Terraform Cloud" />
-  <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
-  <dd.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
-  <dd.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
-  <dd.CopyItem @isTruncated={{false}} @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key (without truncation)" />
+<Hds::Dropdown as |D|>
+  <D.ToggleButton @listPosition="bottom-left" @text="Create run task" @color="secondary" />
+  <D.Title @text="Integrate with Terraform Cloud" />
+  <D.Description @text="Create a new run task in Terraform using the URL and key below." />
+  <D.CopyItem @text="https://api.cloud.hashicorp.com" @copyItemTitle="Endpoint URL" />
+  <D.CopyItem @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key" />
+  <D.CopyItem @isTruncated={{false}} @text="91ee1e8ef65b337f0e70d793f456c71d91ee1e8ef65b337f0e70d793f456c71d" @copyItemTitle="HMAC Key (without truncation)" />
 </Hds::Dropdown>
 ```
 
@@ -267,13 +267,13 @@ Using the `@isTruncated` argument, it is possible to disable the truncation appl
 For switching context (e.g., organization switchers, project switchers, etc.) use `ListItem::Checkmark`.
 
 ```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="HCP Design Sandbox" @color="secondary" />
-  <dd.Checkmark>ACME Org</dd.Checkmark>
-  <dd.Checkmark @selected={{true}}>HCP Design Sandbox</dd.Checkmark>
-  <dd.Footer @hasDivider={{true}}>
+<Hds::Dropdown @listPosition="bottom-left" as |D|>
+  <D.ToggleButton @text="HCP Design Sandbox" @color="secondary" />
+  <D.Checkmark>ACME Org</D.Checkmark>
+  <D.Checkmark @selected={{true}}>HCP Design Sandbox</D.Checkmark>
+  <D.Footer @hasDivider={{true}}>
     <Hds::Link::Standalone @icon="list" @text="All Organizations" @color="secondary" @href="#" />
-  </dd.Footer>
+  </D.Footer>
 </Hds::Dropdown>
 ```
 
@@ -282,15 +282,15 @@ For switching context (e.g., organization switchers, project switchers, etc.) us
 For multi-selection within a form or larger filter pattern use `ListItem::Checkbox`.
 
 ```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @count="2" @text="Status" @color="secondary" />
-  <dd.Checkbox @count="4">Failing</dd.Checkbox>
-  <dd.Checkbox @count="2" checked>Active</dd.Checkbox>
-  <dd.Checkbox @count="1">Starting</dd.Checkbox>
-  <dd.Checkbox @count="3" checked>Pending</dd.Checkbox>
-  <dd.Footer @hasDivider={{true}}>
+<Hds::Dropdown @listPosition="bottom-left" as |D|>
+  <D.ToggleButton @count="2" @text="Status" @color="secondary" />
+  <D.Checkbox @count="4">Failing</D.Checkbox>
+  <D.Checkbox @count="2" checked>Active</D.Checkbox>
+  <D.Checkbox @count="1">Starting</D.Checkbox>
+  <D.Checkbox @count="3" checked>Pending</D.Checkbox>
+  <D.Footer @hasDivider={{true}}>
     <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
-  </dd.Footer>
+  </D.Footer>
 </Hds::Dropdown>
 ```
 
@@ -299,15 +299,15 @@ For multi-selection within a form or larger filter pattern use `ListItem::Checkb
 For single selection within a form or larger filter pattern use `ListItem::Radio`.
 
 ```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Status" @color="secondary" />
-  <dd.Radio name="status" @count="4">Failing</dd.Radio>
-  <dd.Radio name="status" @count="2" checked>Active</dd.Radio>
-  <dd.Radio name="status" @count="1">Starting</dd.Radio>
-  <dd.Radio name="status" @count="3">Pending</dd.Radio>
-  <dd.Footer @hasDivider={{true}}>
+<Hds::Dropdown @listPosition="bottom-left" as |D|>
+  <D.ToggleButton @text="Status" @color="secondary" />
+  <D.Radio name="status" @count="4">Failing</D.Radio>
+  <D.Radio name="status" @count="2" checked>Active</D.Radio>
+  <D.Radio name="status" @count="1">Starting</D.Radio>
+  <D.Radio name="status" @count="3">Pending</D.Radio>
+  <D.Footer @hasDivider={{true}}>
     <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
-  </dd.Footer>
+  </D.Footer>
 </Hds::Dropdown>
 ```
 
@@ -321,12 +321,12 @@ When using the “generic” ListItem, the product team is responsible for imple
 `ListItem::Generic` allows you to pass custom elements to the Dropdown.
 
 ```handlebars
-<Hds::Dropdown @listPosition="bottom-left" as |dd|>
-  <dd.ToggleButton @text="Text Toggle" @color="secondary" />
-  <dd.Title @text="Integrate with Terraform Cloud" />
-  <dd.Description @text="Create a new run task in Terraform using the URL and key below." />
-  <dd.Generic>
+<Hds::Dropdown @listPosition="bottom-left" as |D|>
+  <D.ToggleButton @text="Text Toggle" @color="secondary" />
+  <D.Title @text="Integrate with Terraform Cloud" />
+  <D.Description @text="Create a new run task in Terraform using the URL and key below." />
+  <D.Generic>
     <Hds::Link::Standalone @text="Watch tutorial video" @icon="film" @href="/" />
-  </dd.Generic>
+  </D.Generic>
 </Hds::Dropdown>
 ```

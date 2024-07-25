@@ -2,6 +2,8 @@
 
 This component uses the [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API) under the hood.
 
+### Copy::Button
+
 <Doc::ComponentApi as |C|>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" }} @default="medium"/>
     <C.Property @name="isIconOnly" @type="boolean" @default="false">

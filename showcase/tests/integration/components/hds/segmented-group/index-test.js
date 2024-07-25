@@ -20,15 +20,15 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
 
   test('it renders the contextual components with CSS modifier classes', async function (assert) {
     await render(
-      hbs`<Hds::SegmentedGroup as |S|>
-            <S.Button id="segmented-button" @color="secondary" @text="Button" />
-            <S.Dropdown id="segmented-dropdown" as |DD|>
+      hbs`<Hds::SegmentedGroup as |SG|>
+            <SG.Button id="segmented-button" @color="secondary" @text="Button" />
+            <SG.Dropdown id="segmented-dropdown" as |DD|>
               <DD.ToggleButton @color="secondary" @text="Toggle" />
               <DD.Interactive @href="#" @text="Dropdown Item" />
-            </S.Dropdown>
-            <S.Select id="segmented-select"/>
-            <S.TextInput id="segmented-input" />
-            <S.Generic><span id="segmented-generic"></span></S.Generic>
+            </SG.Dropdown>
+            <SG.Select id="segmented-select"/>
+            <SG.TextInput id="segmented-input" />
+            <SG.Generic><span id="segmented-generic"></span></SG.Generic>
           </Hds::SegmentedGroup>`
     );
     assert.dom('#segmented-button').hasClass('hds-button');

@@ -13,6 +13,8 @@
           <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
         {{else if @status.updated}}
           <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+        {{else if @status.added}}
+          <Doc::Badge class="doc-cards-card__badge" @type="information-inverted" @size="medium">Added</Doc::Badge>
         {{/if}}
         <p class="doc-cards-card_description">{{@caption}}</p>
       </div>
@@ -27,6 +29,8 @@
           <Doc::Badge class="doc-cards-card__badge" @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
         {{else if @status.updated}}
           <Doc::Badge class="doc-cards-card__badge" @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+        {{else if @status.added}}
+          <Doc::Badge class="doc-cards-card__badge" @type="information-inverted" @size="medium">Added</Doc::Badge>
         {{/if}}
         <p class="doc-cards-card_description">{{@caption}}</p>
       </div>

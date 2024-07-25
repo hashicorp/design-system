@@ -8,7 +8,7 @@ export const ID_PREFIX = 'label-';
 
 import type { HdsFormIndicatorSignature } from '../indicator';
 
-interface HdsFormLabelSignature {
+export interface HdsFormLabelSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;

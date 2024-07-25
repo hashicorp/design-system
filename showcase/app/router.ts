@@ -72,9 +72,17 @@ Router.map(function () {
     });
   });
   this.route('layouts', function () {
-    this.route('app-frame');
+    this.route('app-frame', function () {
+      this.route('frameless', function () {
+        this.route('demo-full-app-frame');
+        this.route('demo-full-app-frame-with-modal');
+        this.route('demo-full-app-frame-with-app-header');
+        this.route('demo-full-app-frame-with-side-nav');
+      });
+    });
   });
   this.route('utilities', function () {
+    this.route('dialog-primitive');
     this.route('disclosure-primitive');
     this.route('dismiss-button');
     this.route('interactive');

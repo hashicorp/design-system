@@ -20,9 +20,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it renders the "toggle" sub-components', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.ToggleIcon @icon="user" @text="toggle icon" id="test-toggle-icon" />
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.ToggleIcon @icon="user" @text="toggle icon" id="test-toggle-icon" />
       </Hds::Dropdown>
     `);
     assert.dom('#test-dropdown #test-toggle-button').exists();
@@ -30,15 +30,15 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it renders the "list-item" sub-components', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Description @text="description" id="test-list-item-description" />
-        <dd.Generic>
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Description @text="description" id="test-list-item-description" />
+        <D.Generic>
           <div id="test-list-item-generic" />
-        </dd.Generic>
-        <dd.Interactive @route="components.dropdown" @text="interactive" id="test-list-item-interactive" />
-        <dd.Separator id="test-list-item-separator" />
-        <dd.Title @text="title" id="test-list-item-title" />
+        </D.Generic>
+        <D.Interactive @route="components.dropdown" @text="interactive" id="test-list-item-interactive" />
+        <D.Separator id="test-list-item-separator" />
+        <D.Title @text="title" id="test-list-item-title" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -51,10 +51,10 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it renders the "header"/"footer" sub-components', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Header id="test-header">Header</dd.Header>
-        <dd.Footer id="test-footer">Footer</dd.Footer>
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Header id="test-header">Header</D.Header>
+        <D.Footer id="test-footer">Footer</D.Footer>
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -64,10 +64,10 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it renders the "header"/"footer" sub-components with separators', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Header @hasDivider={{true}} id="test-header">Header</dd.Header>
-        <dd.Footer @hasDivider={{true}} id="test-footer">Footer</dd.Footer>
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Header @hasDivider={{true}} id="test-header">Header</D.Header>
+        <D.Footer @hasDivider={{true}} id="test-footer">Footer</D.Footer>
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -83,9 +83,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it should render the content aligned on the right by default', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @route="components.dropdown" @text="interactive" />
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -95,9 +95,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it should render the content aligned on the left if the value of @listPosition is "bottom-left"', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" @listPosition="bottom-left" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @route="components.dropdown" @text="interactive" />
+      <Hds::Dropdown id="test-dropdown" @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -107,9 +107,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it should render the element as `inline` if the value of @isInline is "true"', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" @isInline={{true}} as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @route="components.dropdown" @text="interactive" />
+      <Hds::Dropdown id="test-dropdown" @isInline={{true}} as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -120,9 +120,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it should render the content with a fixed width if a @width value is passed', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown @width="248px" id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @route="components.dropdown" @text="interactive" />
+      <Hds::Dropdown @width="248px" id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -133,9 +133,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it should hide the content when an interactive element triggers `close`', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" D.close}} />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -148,9 +148,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
 
   test('it should render a list of items without a role if no selectable items are passed in', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" dd.close}} />
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @text="interactive" id="test-list-item-interactive" {{on "click" D.close}} />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -158,9 +158,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it should render a list of items with a `listbox` role, refering an existing `id` via `aria-labelledby` if selectable items are passed in', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <dd.Checkmark>Checkmark</dd.Checkmark>
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Checkmark>Checkmark</D.Checkmark>
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -171,9 +171,9 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   });
   test('it should render a list of items with a `listbox` role, refering an generated `id` via `aria-labelledby` if selectable items are passed in', async function (assert) {
     await render(hbs`
-      <Hds::Dropdown id="test-dropdown" as |dd|>
-        <dd.ToggleButton @text="toggle button" />
-        <dd.Checkmark>Checkmark</dd.Checkmark>
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" />
+        <D.Checkmark>Checkmark</D.Checkmark>
       </Hds::Dropdown>
     `);
     const button = this.element.querySelector('.hds-dropdown-toggle-button');

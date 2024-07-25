@@ -7,7 +7,7 @@ import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
 
 type TextToCopy = string | number | bigint;
-type TargetToCopy = HTMLElement;
+type TargetToCopy = HTMLElement | string;
 
 export interface HdsClipboardModifierSignature {
   Element: HTMLElement;

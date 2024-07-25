@@ -1,5 +1,13 @@
 # @hashicorp/ember-flight-icons
 
+## 5.1.3
+
+### Patch Changes
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.5.0
+
 ## 5.1.2
 
 ### Patch Changes
@@ -83,7 +91,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
 );
 ```
 

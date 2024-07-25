@@ -13,7 +13,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<label>` element.
+    Elements passed as children are yielded as inner content of a `<label>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -27,7 +27,7 @@
     The ID of the form control associated with the helper text. This is used to populate the element’s `id` HTML attribute (with a `helper-text-` prefix). This HelperText ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -50,7 +50,7 @@
     The minimum number of characters required for the associated form element, used to determine the shortfall value.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
+    Elements passed as children are yielded as inner content of the element. We only recommend using the block content for providing custom messages. The following variables are available within the block: `currentLength` (the current number of characters in the associated form control), `maxLength` (the maximum number of characters allowed in the associated form control), `minLength` (the minimum number of characters required in the associated form control), `remaining` (the difference between `maxLength` and `currentLength`), and `shortfall` (the difference between `currentLength` and `minLength`).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -64,7 +64,7 @@
     The ID of the form control associated with the error. This is used to populate the element’s `id` HTML attribute (with an `error-` prefix). This Error ID can then be referenced in the `aria-describedby` attribute of the form control.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the element.
+    Elements passed as children are yielded as inner content of the element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -92,7 +92,7 @@
     Appends an `Optional` indicator next to the label text when user input is optional.
   </C.Property>
   <C.Property @name="yield">
-    Elements passed as children of this component are yielded inside the `<legend>` element.
+    Elements passed as children are yielded as inner content of a `<legend>` HTML element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

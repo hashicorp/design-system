@@ -77,7 +77,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
       <Hds::AppHeader />
     `);
-    assert.dom('.hds-app-header__actions').doesNotExist();
+    assert.dom('.hds-app-header__actions-content').doesNotExist();
   });
 
   test(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
@@ -85,13 +85,25 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
       <Hds::AppHeader />
     `);
-    assert.dom('.hds-app-header__actions').doesNotExist();
+    assert.dom('.hds-app-header__actions-content').doesNotExist();
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions').exists();
+    assert.dom('.hds-app-header__actions-content').exists();
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions').doesNotExist();
+    assert.dom('.hds-app-header__actions-content').doesNotExist();
+  });
+
+  // OPTIONS
+
+  // Breakpoint
+  // Note: We pass in a high custom breakpoint to force the component to render as "mobile"
+
+  test('it uses the custom passed in breakpoint to control menu display', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader @breakpoint="20000px" />
+    `);
+    assert.dom('.hds-app-header__menu-button').exists();
   });
 
   // A11Y
@@ -117,13 +129,13 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
       <Hds::AppHeader />
     `);
-    assert.dom('.hds-app-header__actions').doesNotExist();
+    assert.dom('.hds-app-header__actions-content').doesNotExist();
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions').exists();
+    assert.dom('.hds-app-header__actions-content').exists();
 
     await triggerKeyEvent('.hds-app-header__actions', 'keydown', 'Escape');
-    assert.dom('.hds-app-header__actions').doesNotExist();
+    assert.dom('.hds-app-header__actions-content').doesNotExist();
   });
 
   test('the menu button has an aria-controls attribute with a value matching the menu id', async function (assert) {
