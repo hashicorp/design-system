@@ -414,4 +414,46 @@
     {{/let}}
   </Shw::Flex>
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>In a container</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" @gap="4rem" as |SF|>
+    <SF.Item @label="In a card">
+      <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="40px"}}>
+        <Hds::ApplicationState @align="center" as |A|>
+          <A.Header @title="No stacks" />
+          <A.Body @text="No stacks to show in this project." />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Create stack" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </Hds::Card::Container>
+    </SF.Item>
+    <SF.Item @label="In a table">
+      <Hds::Table @caption="a custom table with no model defined">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="3" {{style padding="40px"}}>
+              <Hds::ApplicationState @align="center" as |A|>
+                <A.Header @title="No stacks" />
+                <A.Body @text="No stacks to show in this project." />
+                <A.Footer as |F|>
+                  <F.Button @color="primary" @text="Create stack" />
+                </A.Footer>
+              </Hds::ApplicationState>
+            </B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
