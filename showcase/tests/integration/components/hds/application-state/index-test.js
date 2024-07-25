@@ -63,8 +63,13 @@ module(
         .hasClass('hds-application-state--align-center');
     });
 
-    test('it should throw an error when alignment is set to an invalid value', async function (assert) {
-      const errorMessage = 'Invalid align value: test';
+    // ASSERTIONS
+
+    test('it should throw an assertion if an incorrect value for @alignment provided', async function (assert) {
+      const errorMessage =
+        '@align for "Hds::ApplicationState" must be one of the following: left, center; received: test';
+
+      assert.expect(2);
 
       setupOnerror(function (error) {
         assert.strictEqual(error.message, errorMessage);
