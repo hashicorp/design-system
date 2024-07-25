@@ -18,6 +18,7 @@ export default class ApplicationController extends Controller {
   }
 
   routeDidChange() {
+    // it's a "framless" page (we infer it from the URL for simplicity)
     this.isFrameless = this.router?.currentURL?.includes('frameless');
   }
 }
