@@ -83,9 +83,9 @@ Toggle `hasCustomContent` on to support any additional custom content, local com
 
 ## Positioning, and responsive behaviour
 
-The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
+The Side Nav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
 
-On smaller viewports, the SideNav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
+On smaller viewports, the Side Nav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
 ![Responsive side-nav](/assets/components/side-nav/sidenav-position-and-responsive.png)
 
@@ -93,15 +93,15 @@ On smaller viewports, the SideNav should collapse to maximize the available real
 
 If the `isCollapsible` property is set to `true`, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
 
-![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
+![Side Nav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
 
-On smaller viewports, the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
+On smaller viewports, the Side Nav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
 
-![SideNav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
+![Side Nav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
 
 ### Collapsed reflow
 
-The collapse functionality of the SideNav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow or reposition to occupy this space if the SideNav is in its collapsed state. If the main page content has a predetermined maximum width that is reached when the SideNav collapses, the content should transition smoothly to the new center of the main page area.
+The collapse functionality of the Side Nav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow or reposition to occupy this space if the Side Nav is in its collapsed state. If the main page content has a predetermined maximum width that is reached when the Side Nav collapses, the content should transition smoothly to the new center of the main page area.
 
 This is handled out of the box by the [AppFrame](/layouts/app-frame) component, but may need to be accounted for in custom implementations of the application/page layout.
 
