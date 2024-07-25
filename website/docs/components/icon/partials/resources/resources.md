@@ -22,6 +22,6 @@ A ZIP file containing all SVG assets of our icons.
 
 ### HDS support
 
-If are unable to find a specific icon, or are noticing a problem with an existing one, reach out to HDS support
+If you are unable to find a specific icon, or notice a problem with an existing one, reach out to HDS support.
 
 [Request an icon or report an issue](https://go.hashi.co/hds-support)

@@ -102,7 +102,7 @@ and then use the component in your code like this:
 <Hds::Icon @name="info" />
 ```
 
-For details about how this component should be used and its API see [the component documentation page](/components/icon).
+For details about how this component should be used and its API, see [the component documentation page](/components/icon).
 
 #### Using the `@hashicorp/ember-flight-icons` addon <Doc::Badge @type="warning" @size="large">Deprecated</Doc::Badge>
 
@@ -130,7 +130,7 @@ The [API of the component](/components/icon?tab=code#component-api) is the same 
 
 #### Deferred loading
 
-In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
+In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
 
 ```js
 module.exports = function(environment) {
@@ -154,7 +154,7 @@ Both the `Hds::Icon` and the `FlightIcon` components expose a `data-test-icon` h
 
 If you want to use the Flight icons without installing the whole `@hashicorp/design-system-components` package, you have to use the `@hashicorp/flight-icons` to import the SVG sprite, and then you will have to build your own Ember component that renders the icons as an `<svg>` HTML element.
 
-You can copy the code for the `Hds::Icon` in your codebase, or you can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component.
+You can copy the code for the `Hds::Icon` into your codebase, or you can [take inspiration from this PR](https://github.com/hashicorp/design-system-metrics/pull/23) to build your own component.
 
 ### React applications
 
@@ -220,7 +220,7 @@ import svgLoading16 from '@hashicorp/flight-icons/svg/loading-16.svg?include'
 <InlineSvg src={svgLoading16} />
 ```
 
-If you need the non-animated version of these icons use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
+If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
 ## Tokens
 
