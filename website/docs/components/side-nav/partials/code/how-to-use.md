@@ -398,7 +398,9 @@ Alternatively, if you want to create a custom transition (or respond in a differ
 
 ### SideNav with AppHeader
 
-When the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot is used. The `@hasHeader` argument should also be included and set to `false` to control the height and position of the SideNav in relation to the fixed position AppHeader.
+When the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot is used. The `@withAppHeader` argument should also be included and set to `false` to control the height and position of the SideNav in relation to the fixed position AppHeader.
+
+<!-- TODO: Update argument name in example after merging latest component code -->
 
 ```handlebars
 <div class="doc-sidenav-demo">

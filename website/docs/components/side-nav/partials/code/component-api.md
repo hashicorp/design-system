@@ -31,7 +31,7 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the SideNav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the SideNav or resize the window) and it is not a suitable way of controlling the SideNav state from outside after render (it’s an internal state).
   </C.Property>
-  <C.Property @name="hasHeader" @type="boolean" @default="false">
+  <C.Property @name="withAppHeader" @type="boolean" @default="false">
     Set to `true` when the SideNav is paired with the [`Hds::AppHeader`](/components/app-header) component. Controls the height and position of the SideNav in relation to the fixed position AppHeader.
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">

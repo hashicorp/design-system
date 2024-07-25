@@ -12,6 +12,9 @@
   <C.Property @name="<:utilityActions>" @type="named block">
     A named block where the utility actions will be rendered. Typically, `Dropdown` or `Button` components should be added here, such as a help menu, user menu, or search button.
   </C.Property>
+  <C.Property @name="breakpoint" @type="string" @default="1088px">
+    Set a custom breakpoint to control the page width at which the UI switches from displaying the mobile/small view vs. the desktop/view.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
