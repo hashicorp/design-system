@@ -161,7 +161,7 @@ A **description** provides additional information about the Flyout.
 
 ## Flyout body
 
-The body of the Flyout supports any generic content, local components, or Helios components via an **instance swap property** (genericInstance) in Figma. In code, `yield` is supported.
+The body of the Flyout supports any generic content, local components, or Helios components via an **instance swap property** (`genericInstance`) in Figma. In code, `yield` is supported.
 
 ## Flyout footer
 
