@@ -39,7 +39,7 @@ export default class HdsApplicationStateComponent extends Component<HdsApplicati
     );
 
     assert(
-      `@align for "Hds::ApplicationState must be one of the following: ${validAlignValues.join(
+      `@align for "Hds::ApplicationState" must be one of the following: ${validAlignValues.join(
         ', '
       )}; received: ${this.args.align}`,
       this.args.align == null || validAlignValues.includes(this.args.align)

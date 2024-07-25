@@ -72,7 +72,7 @@ module(
       assert.expect(2);
 
       setupOnerror(function (error) {
-        assert.strictEqual(error.message, errorMessage);
+        assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
 
       await render(hbs`
