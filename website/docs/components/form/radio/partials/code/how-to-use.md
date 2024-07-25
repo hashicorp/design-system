@@ -19,7 +19,7 @@ The basic invocation creates:
 The `@name` argument offers an easy way to provide the same name for all the Radio controls in a single place.
 
 ```handlebars
-<Hds::Form::Radio::Group @name="datacenter" as |G|>
+<Hds::Form::Radio::Group @name="datacenter-demo1" as |G|>
   <G.Legend>Choose datacenter</G.Legend>
   <G.RadioField as |F|>
     <F.Label>NYC1</F.Label>
