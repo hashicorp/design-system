@@ -8,12 +8,7 @@
     <FlightIcon class="doc-page-banner__icon" @name="message-circle-fill" @size={{24}} />
     <p class="doc-page-banner__text doc-text-body">Got a minute? We’d like your feedback!
       <a href="https://forms.gle/N5ibgGF3zXFFm1Lj9" target="_blank" rel="noopener noreferrer">Take the survey</a></p>
-    <button
-      type="button"
-      class="doc-page-banner__close doc-text-body-small"
-      aria-label="Close banner"
-      {{on "click" this.onClose}}
-    >
+    <button type="button" class="doc-page-banner__close" aria-label="Close banner" {{on "click" this.onClose}}>
       <FlightIcon @name="x" @size={{16}} />
     </button>
   </div>
