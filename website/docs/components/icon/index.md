@@ -2,7 +2,13 @@
 title: Icon
 description: Displays an icon from the Helios icon library to enhance the communication of text and UI elements.
 caption: Used to display an icon.
-previewImage: assets/illustrations/icons/usage-guidelines.jpg
+links:
+  figma: https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0
+  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/icon
+related: ['icons/library']
+previewImage: assets/illustrations/components/icon.jpg
+navigation:
+  keywords: ['icon', 'glyph', 'flight']
 status:
   added: 4.8.0
 ---
