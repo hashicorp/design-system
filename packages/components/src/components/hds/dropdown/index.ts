@@ -29,7 +29,7 @@ import type { HdsDropdownPositions } from './types';
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: string[] = Object.values(HdsDropdownPositionValues);
 
-interface HdsDropdownSignature {
+export interface HdsDropdownSignature {
   Args: MenuPrimitiveSignature['Args'] & {
     height: string;
     isInline: boolean;

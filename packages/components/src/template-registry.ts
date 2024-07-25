@@ -115,6 +115,7 @@ import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/
 import type HdsRichTooltipComponent from './components/hds/rich-tooltip/index.ts';
 import type HdsRichTooltipBubbleComponent from './components/hds/rich-tooltip/bubble.ts';
 import type HdsRichTooltipToggleComponent from './components/hds/rich-tooltip/toggle.ts';
+import type HdsSegmentedGroupComponent from './components/hds/segmented-group';
 import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsSideNavComponent from './components/hds/side-nav';
 import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
@@ -545,6 +546,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
+
+  // Segmented Group
+  'Hds::SegmentedGroup': typeof HdsSegmentedGroupComponent;
+  'hds/segmented-group': typeof HdsSegmentedGroupComponent;
 
   // Separator
   'Hds::Separator': typeof HdsSeparatorComponent;

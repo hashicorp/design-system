@@ -1,21 +1,28 @@
-import templateOnlyComponent from '@ember/component/template-only';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
-interface IndexSignature {
-  Args: {};
+import type { ComponentLike } from '@glint/template';
+import type { HdsButtonSignature } from '../button';
+import type { HdsDropdownSignature } from '../dropdown';
+import type { HdsFormSelectBaseSignature } from '../form/select/base';
+import type { HdsFormTextInputBaseSignature } from '../form/text-input/base';
+import type { HdsYieldSignature } from '../yield';
+
+interface HdsSegmentedGroupSignature {
   Blocks: {
-    default: [unknown];
+    default: [
+      {
+        Button: ComponentLike<HdsButtonSignature>;
+        Dropdown: ComponentLike<HdsDropdownSignature>;
+        Select: ComponentLike<HdsFormSelectBaseSignature>;
+        TextInput: ComponentLike<HdsFormTextInputBaseSignature>;
+        Generic: ComponentLike<HdsYieldSignature>;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }
 
-const IndexComponent =
-  templateOnlyComponent<IndexSignature>();
+const HdsSegmentedGroupComponent =
+  TemplateOnlyComponent<HdsSegmentedGroupSignature>();
 
-export default IndexComponent;
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    'Index': typeof IndexComponent;
-    'index': typeof IndexComponent;
-  }
-}
+export default HdsSegmentedGroupComponent;
