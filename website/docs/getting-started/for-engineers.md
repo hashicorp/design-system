@@ -148,7 +148,7 @@ For more information on why this may be helpful in certain scenarios, see [DS-04
 
 #### Ember test selectors
 
-Both the `Hds::Icon` and the `FlightIcon` components expose a `data-test-icon` helper. For this reason we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+Both the `Hds::Icon` and the `FlightIcon` components expose a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 
 #### Using the icons without importing the whole components package
 
@@ -161,7 +161,7 @@ You can copy the code for the `Hds::Icon` in your codebase, or you can [take ins
 To add icons to a React application, you need to install the `@hashicorp/flight-icons` package:
 
 ```bash
-yarn install @hashicorp/flight-icons
+yarn add @hashicorp/flight-icons
 ```
 
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.

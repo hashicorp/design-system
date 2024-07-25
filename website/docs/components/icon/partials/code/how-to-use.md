@@ -10,17 +10,17 @@ It renders to this (where the `id` will be unique each time):
 
 ```markup
 <svg
-    id="icon-ember115"
-    class="hds-icon icon-alert-circle"
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    aria-hidden="true"
-    data-test-icon="alert-circle"
+  id="icon-ember115"
+  class="hds-icon icon-alert-circle"
+  width="16"
+  height="16"
+  viewBox="0 0 16 16"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="currentColor"
+  aria-hidden="true"
+  data-test-icon="alert-circle"
 >
-    <use href="/@hashicorp/flight-icons/icons/sprite.svg#alert-circle-16"></use>
+  <use href="/@hashicorp/flight-icons/icons/sprite.svg#alert-circle-16"></use>
 </svg>
 ```
 
@@ -58,11 +58,11 @@ To have the icon fill the parent container (width: 100%, height: 100%), set the 
 
 ```handlebars
 <div class="doc-icon-demo--constrain-max-width">
-    <Hds::Icon @name="zap" @size="24" @stretched={{true}} />
+  <Hds::Icon @name="zap" @size="24" @stretched={{true}} />
 </div>
 ```
 
-### isInline
+### Block vs. inline display
 
 To change the default display from `block` to `inline-block`, set `@isInline` to true:
 
@@ -73,7 +73,7 @@ To change the default display from `block` to `inline-block`, set `@isInline` to
 
 ### Aligning icons
 
-Since the `Hds::Icon` component has a `block` display value by default (changeable using the `@isInline` argument), this means that the icon behaves like a block element. So, if you want to horizontally align it in relation to other sibling elements, you will have to use CSS to achieve the expected result.
+Because the `Hds::Icon` component has a `block` display value by default (changeable using the `@isInline` argument), the icon behaves like a block element. So, if you want to horizontally align it in relation to other sibling elements, you will have to use CSS to achieve the expected result.
 
 For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
 
@@ -94,7 +94,7 @@ The [loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/li
 <Hds::Icon @name="loading" @size="24" />
 ```
 
-If you need the non-animated version of these icons use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
+If you need the non-animated version of these icons, use the corresponding [loading-static](/icons/library?searchQuery=icon%3Aloading-static) and [running-static](/icons/library?searchQuery=icon%3Arunning-static):
 
 ```handlebars
 <Hds::Icon @name="loading-static" @size="24" />

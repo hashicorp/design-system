@@ -10,7 +10,7 @@ Accessibility support for SVGs is inconsistent across browsers and assistive tec
 
 ```markup
 <h2>
-    Activity report <Hds::Icon @name="activity" />
+  Activity report <Hds::Icon @name="activity" />
 </h2>
 ```
 
@@ -18,7 +18,7 @@ If you make a custom element, or want to use a `Hds::Icon` inside of a native HT
 
 ```markup
 <button aria-label="Check activity">
-    <Hds::Icon @name="activity" />
+  <Hds::Icon @name="activity" />
 </button>
 ```
 

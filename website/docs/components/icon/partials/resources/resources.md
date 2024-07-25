@@ -6,7 +6,7 @@ Here is a list of resources that are associated with our HDS icon component.
 
 A list of all icons our component supports.
 
-[Go to library](/icons/library)
+[Go to Icon library](/icons/library)
 
 ### Figma library
 
