@@ -46,6 +46,7 @@ body.application.index {
 
     .doc-table-of-contents__link {
       color: var(--doc-color-white);
+      align-items: baseline;
 
       &:hover,
       &:active {
