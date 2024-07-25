@@ -7,17 +7,34 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { HdsDropdownToggleIconSizeValues } from './types.ts';
 
-export const DEFAULT_SIZE = 'medium';
-export const SIZES = ['small', 'medium'];
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsDropdownToggleIconSizes } from './types';
 
-const NOOP = () => {};
+export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
+export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 
-export default class HdsDropdownToggleIconComponent extends Component {
+const NOOP = (): void => {};
+
+export interface HdsDropdownToggleIconSignature {
+  Args: {
+    hasChevron?: boolean;
+    icon: FlightIconSignature['Args']['name'];
+    imageSrc: string;
+    isOpen?: boolean;
+    onClick?: (event: MouseEvent) => void;
+    size?: HdsDropdownToggleIconSizes;
+    text: string;
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsDropdownToggleIconComponent extends Component<HdsDropdownToggleIconSignature> {
   @tracked hasImage = true;
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: HdsDropdownToggleIconSignature['Args']) {
+    super(owner, args);
     if (!(this.args.icon || this.args.imageSrc)) {
       assert(
         '@icon or @imageSrc must be defined for "Hds::Dropdown::Toggle::Icon"'
@@ -26,12 +43,12 @@ export default class HdsDropdownToggleIconComponent extends Component {
   }
 
   @action
-  onDidUpdateImageSrc() {
+  onDidUpdateImageSrc(): void {
     this.hasImage = true;
   }
 
   @action
-  onImageLoadError() {
+  onImageLoadError(): void {
     this.hasImage = false;
   }
 
@@ -40,8 +57,8 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @type {string}
    * @description The text of the `aria-label` applied to the toggle
    */
-  get text() {
-    let { text } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Dropdown::Toggle::Icon" must have a valid value',
@@ -57,8 +74,8 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @default medium
    * @description The size of the button; acceptable values are `small` and `medium`
    */
-  get size() {
-    let { size = DEFAULT_SIZE } = this.args;
+  get size(): HdsDropdownToggleIconSizes {
+    const { size = DEFAULT_SIZE } = this.args;
 
     assert(
       `@size for "Hds::Dropdown::Toggle::Icon" must be one of the following: ${SIZES.join(
@@ -76,7 +93,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @default 24
    * @description ensures that the correct icon size is used
    */
-  get iconSize() {
+  get iconSize(): FlightIconSignature['Args']['size'] {
     if (this.args.size === 'medium' && !this.hasChevron) {
       // in this special case we use a larger SVG
       return '24';
@@ -93,7 +110,7 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @type {boolean}
    * @default true
    */
-  get hasChevron() {
+  get hasChevron(): boolean {
     return this.args.hasChevron ?? true;
   }
 
@@ -102,8 +119,8 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @type {function}
    * @default () => {}
    */
-  get onClick() {
-    let { onClick } = this.args;
+  get onClick(): (event: MouseEvent) => void {
+    const { onClick } = this.args;
 
     // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
     // in reality it's always used inside the Dropdown main component as yielded component, so the onClick handler is always defined
@@ -119,8 +136,8 @@ export default class HdsDropdownToggleIconComponent extends Component {
    * @method ToggleIcon#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-dropdown-toggle-icon'];
+  get classNames(): string {
+    const classes = ['hds-dropdown-toggle-icon'];
 
     // add a class based on the @size argument
     classes.push(`hds-dropdown-toggle-icon--size-${this.size}`);

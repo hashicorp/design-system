@@ -6,17 +6,36 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const DEFAULT_COLOR = 'action';
-export const COLORS = ['action', 'critical'];
+import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
-export default class HdsDropdownListItemInteractiveComponent extends Component {
+import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsDropdownListItemInteractiveColors } from './types.ts';
+
+export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
+export const COLORS: string[] = Object.values(
+  HdsDropdownListItemInteractiveColorValues
+);
+
+export interface HdsDropdownListItemInteractiveSignature {
+  Args: HdsInteractiveSignature['Args'] & {
+    color: HdsDropdownListItemInteractiveColors;
+    icon?: FlightIconSignature['Args']['name'];
+    isLoading?: boolean;
+    text: string;
+    trailingIcon?: FlightIconSignature['Args']['name'];
+  };
+  Element: HTMLDivElement | HdsInteractiveSignature['Element'];
+}
+
+export default class HdsDropdownListItemInteractiveComponent extends Component<HdsDropdownListItemInteractiveSignature> {
   /**
    * @param text
    * @type {string}
    * @description The text of the item. If no text value is defined an error will be thrown
    */
-  get text() {
-    let { text } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value',
@@ -32,8 +51,8 @@ export default class HdsDropdownListItemInteractiveComponent extends Component {
    * @default primary
    * @description Determines the color of the item (when item is set to interactive)
    */
-  get color() {
-    let { color = DEFAULT_COLOR } = this.args;
+  get color(): HdsDropdownListItemInteractiveColors {
+    const { color = DEFAULT_COLOR } = this.args;
 
     assert(
       `@color for "Hds::Dropdown::ListItem::Interactive" must be one of the following: ${COLORS.join(
@@ -50,8 +69,8 @@ export default class HdsDropdownListItemInteractiveComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = [
+  get classNames(): string {
+    const classes = [
       'hds-dropdown-list-item',
       'hds-dropdown-list-item--variant-interactive',
     ];

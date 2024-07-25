@@ -41,6 +41,21 @@ import type HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-prim
 import type HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay';
 import type HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsDropdownComponent from './components/hds/dropdown';
+import type HdsDropdownFooterComponent from './components/hds/dropdown/footer';
+import type HdsDropdownHeaderComponent from './components/hds/dropdown/header';
+import type HdsDropdownListItemCheckboxComponent from './components/hds/dropdown/list-item/checkbox';
+import type HdsDropdownListItemCheckmarkComponent from './components/hds/dropdown/list-item/checkmark';
+import type HdsDropdownListItemCopyItemComponent from './components/hds/dropdown/list-item/copy-item';
+import type HdsDropdownListItemDescriptionComponent from './components/hds/dropdown/list-item/description';
+import type HdsDropdownListItemGenericComponent from './components/hds/dropdown/list-item/generic';
+import type HdsDropdownListItemInteractiveComponent from './components/hds/dropdown/list-item/interactive';
+import type HdsDropdownListItemRadioComponent from './components/hds/dropdown/list-item/radio';
+import type HdsDropdownListItemSeparatorComponent from './components/hds/dropdown/list-item/separator';
+import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/list-item/title';
+import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
+import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
+import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
 import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
 import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
 import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
@@ -83,6 +98,7 @@ import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
 import type HdsModalBodyComponent from './components/hds/modal/body';
 import type HdsModalFooterComponent from './components/hds/modal/footer';
 import type HdsModalHeaderComponent from './components/hds/modal/header';
@@ -271,6 +287,66 @@ export default interface HdsComponentsRegistry {
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
 
+  // Dropdown
+  'Hds::Dropdown': typeof HdsDropdownComponent;
+  'hds/dropdown': typeof HdsDropdownComponent;
+
+  // Dropdown Footer
+  'Hds::Dropdown::Footer': typeof HdsDropdownFooterComponent;
+  'hds/dropdown/footer': typeof HdsDropdownFooterComponent;
+
+  // Dropdown Header
+  'Hds::Dropdown::Header': typeof HdsDropdownHeaderComponent;
+  'hds/dropdown/header': typeof HdsDropdownHeaderComponent;
+
+  // Dropdown ListItem Checkbox
+  'Hds::Dropdown::ListItem::Checkbox': typeof HdsDropdownListItemCheckboxComponent;
+  'hds/dropdown/list-item/checkbox': typeof HdsDropdownListItemCheckboxComponent;
+
+  // Dropdown ListItem Checkmark
+  'Hds::Dropdown::ListItem::Checkmark': typeof HdsDropdownListItemCheckmarkComponent;
+  'hds/dropdown/list-item/checkmark': typeof HdsDropdownListItemCheckmarkComponent;
+
+  // Dropdown ListItem CopyItem
+  'Hds::Dropdown::ListItem::CopyItem': typeof HdsDropdownListItemCopyItemComponent;
+  'hds/dropdown/list-item/copy-item': typeof HdsDropdownListItemCopyItemComponent;
+
+  // Dropdown ListItem Description
+  'Hds::Dropdown::ListItem::Description': typeof HdsDropdownListItemDescriptionComponent;
+  'hds/dropdown/list-item/description': typeof HdsDropdownListItemDescriptionComponent;
+
+  // Dropdown ListItem Generic
+  'Hds::Dropdown::ListItem::Generic': typeof HdsDropdownListItemGenericComponent;
+  'hds/dropdown/list-item/generic': typeof HdsDropdownListItemGenericComponent;
+
+  // Dropdown ListItem Interactive
+  'Hds::Dropdown::ListItem::Interactive': typeof HdsDropdownListItemInteractiveComponent;
+  'hds/dropdown/list-item/interactive': typeof HdsDropdownListItemInteractiveComponent;
+
+  // Dropdown ListItem Radio
+  'Hds::Dropdown::ListItem::Radio': typeof HdsDropdownListItemRadioComponent;
+  'hds/dropdown/list-item/radio': typeof HdsDropdownListItemRadioComponent;
+
+  // Dropdown ListItem Separator
+  'Hds::Dropdown::ListItem::Separator': typeof HdsDropdownListItemSeparatorComponent;
+  'hds/dropdown/list-item/separator': typeof HdsDropdownListItemSeparatorComponent;
+
+  // Dropdown ListItem Title
+  'Hds::Dropdown::ListItem::Title': typeof HdsDropdownListItemTitleComponent;
+  'hds/dropdown/list-item/title': typeof HdsDropdownListItemTitleComponent;
+
+  // Dropdown Toggle Button
+  'Hds::Dropdown::Toggle::Button': typeof HdsDropdownToggleButtonComponent;
+  'hds/dropdown/toggle/button': typeof HdsDropdownToggleButtonComponent;
+
+  // Dropdown Toggle Chevron
+  'Hds::Dropdown::Toggle::Chevron': typeof HdsDropdownToggleChevronComponent;
+  'hds/dropdown/toggle/chevron': typeof HdsDropdownToggleChevronComponent;
+
+  // Dropdown Toggle Icon
+  'Hds::Dropdown::Toggle::Icon': typeof HdsDropdownToggleIconComponent;
+  'hds/dropdown/toggle/icon': typeof HdsDropdownToggleIconComponent;
+
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
   'hds/flyout': typeof HdsFlyoutComponent;
@@ -422,6 +498,10 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+
+  // MenuPrimitive
+  'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;
+  'hds/menu-primitive': typeof HdsMenuPrimitiveComponent;
 
   // Modal
   'Hds::Modal': typeof HdsModalComponent;
