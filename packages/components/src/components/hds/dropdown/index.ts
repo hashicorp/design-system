@@ -29,7 +29,7 @@ import type { HdsDropdownPositions } from './types';
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: string[] = Object.values(HdsDropdownPositionValues);
 
-interface IndexSignature {
+interface HdsDropdownSignature {
   Args: MenuPrimitiveSignature['Args'] & {
     height: string;
     isInline: boolean;
@@ -59,7 +59,7 @@ interface IndexSignature {
   Element: MenuPrimitiveSignature['Element'];
 }
 
-export default class IndexComponent extends Component<IndexSignature> {
+export default class HdsDropdownComponent extends Component<HdsDropdownSignature> {
   /**
    * @param listPosition
    * @type {string}
