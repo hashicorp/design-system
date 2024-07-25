@@ -6,10 +6,10 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsApplicationStateMediaSignature {
-  Element: HTMLDivElement;
   Blocks: {
     default: [];
   };
+  Element: HTMLDivElement;
 }
 
 const HdsApplicationStateMediaComponent =
