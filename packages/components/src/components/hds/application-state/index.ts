@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 import { HdsApplicationStateAlignValues } from './types.ts';
 
 import type { ComponentLike } from '@glint/template';
@@ -32,29 +33,27 @@ export interface HdsApplicationStateSignature {
 }
 
 export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {
-  constructor(owner: unknown, args: HdsApplicationStateSignature['Args']) {
-    super(owner, args);
-
+  get align(): HdsApplicationStateAligns {
     const validAlignValues: HdsApplicationStateAligns[] = Object.values(
       HdsApplicationStateAlignValues
     );
 
-    if (
-      this.args.align != null &&
-      !validAlignValues.includes(this.args.align)
-    ) {
-      throw new Error(`Invalid align value: ${this.args.align}`);
-    }
-  }
+    assert(
+      `@align for "Hds::ApplicationState must be one of the following: ${validAlignValues.join(
+        ', '
+      )}; received: ${this.args.align}`,
+      this.args.align == null || validAlignValues.includes(this.args.align)
+    );
 
-  get align(): HdsApplicationStateAligns {
     return this.args.align ?? HdsApplicationStateAlignValues.Left;
   }
 
   get classNames(): string {
-    return [
-      'hds-application-state',
-      `hds-application-state--align-${this.align}`,
-    ].join(' ');
+    const classes = ['hds-application-state'];
+
+    // add a class based on the @align argument
+    classes.push(`hds-application-state--align-${this.align}`);
+
+    return classes.join(' ');
   }
 }

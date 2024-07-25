@@ -78,7 +78,7 @@ $hds-application-state-content-max-width: 480px;
   gap: 16px;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  padding: 12px 0;
+  padding: 12px 0 0;
 
   // forces the third child and on to be on the right side
   > :nth-child(3) {
