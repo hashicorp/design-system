@@ -69,13 +69,13 @@ $hds-application-state-content-max-width: 480px;
 .hds-application-state__body {
   width: 100%;
   max-width: $hds-application-state-content-max-width;
-  margin: 12px 0;
+  margin: 12px 0 24px;
   color: var(--token-color-foreground-primary);
 }
 
 .hds-application-state__footer {
   display: flex;
-  gap: 8px;
+  gap: 16px;
   width: 100%;
   max-width: $hds-application-state-content-max-width;
   padding: 12px 0;
