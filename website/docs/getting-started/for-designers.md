@@ -138,11 +138,11 @@ Our Figma components are tightly coupled with their code counterparts to maintai
 
 When you detach a component, it no longer receives updates from the library, which can cause designs and production applications to drift out of sync quickly.
 
-[Contact the Helios Design System team](https://go.hashi.co/hds-support) for support or to request a new component if a component doesn’t meet your needs.
+[Contact the Helios Design Systems Team](https://go.hashi.co/hds-support) for support or to request a new component if a component doesn’t meet your needs.
 
 #### Overriding component styles
 
-While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Helios Design Systems team first.
+While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Helios Design Systems Team first.
 
 Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. Overriding styles can have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
 
@@ -208,4 +208,4 @@ Explore more content about libraries, components, and styles directly from Figma
 
 ## Support
 
- <LinkTo class="doc-link-generic" @route="show" @model="about/support">Contact the Helios Design System team</LinkTo> for support if you have questions or need assistance using Helios libraries.
+<LinkTo class="doc-link-generic" @route="show" @model="about/support">Contact the Helios Design Systems Team</LinkTo> for support if you have questions or need assistance using Helios libraries.
