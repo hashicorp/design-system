@@ -106,11 +106,15 @@ Consider trailing icons when guiding the user forward through the product.
 
 Use `chevron-right` to indicate moving forward in a multi-step flow.
 
-<Hds::Button @color="primary" @text="Next" @icon="chevron-right" @iconPosition="trailing" />
+<Doc::Layout>
+  <Hds::Button @color="primary" @text="Next" @icon="chevron-right" @iconPosition="trailing" />
+</Doc::Layout>
 
 Use `arrow-right` when using the Button for internal links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
-<Hds::Button @color="secondary" @text="Continue with HCP account" @icon="arrow-right" @iconPosition="trailing" @href="https://hashicorp.com" />
+<Doc::Layout>
+  <Hds::Button @color="secondary" @text="Continue with HCP account" @icon="arrow-right" @iconPosition="trailing" @href="https://hashicorp.com" />
+</Doc::Layout>
 
 Use `external-link` when using the Button for external links. In most cases, consider using a [Standalone Link](/components/link/standalone) instead. For more details, please refer to the [code documentation](/components/button?tab=code#links).
 
@@ -122,16 +126,17 @@ The Button component accepts an `@href` or `@route` argument, which results in a
 
 For links that require more prominence and CTAs (calls-to-action).
 
-<Hds::Button @color="primary" @text="Sign up for free" @size="large" @href="#" />
-
-<Hds::Alert @type="inline" @color="neutral" as |A|>
-  <A.Title>Modifying user permissions</A.Title>
-  <A.Description>
-    This page displays all users in the organization who have permissions in this project. A user must be invited to the org first before you can change the user’s role at the project level.
-  </A.Description>
-  <A.Button @text="Go to HCP Design Sandbox" @color="secondary" @href="#" />
-  <A.LinkStandalone @text="View documentation" @color="primary" @icon="docs-link" @iconPosition="trailing" @href="#" />
-</Hds::Alert>
+<Doc::Layout @direction="vertical" @spacing="16px">
+  <Hds::Button @color="primary" @text="Sign up for free" @size="large" @href="#" />
+  <Hds::Alert @type="inline" @color="neutral" as |A|>
+    <A.Title>Modifying user permissions</A.Title>
+    <A.Description>
+      This page displays all users in the organization who have permissions in this project. A user must be invited to the org first before you can change the user’s role at the project level.
+    </A.Description>
+    <A.Button @text="Go to HCP Design Sandbox" @color="secondary" @href="#" />
+    <A.LinkStandalone @text="View documentation" @color="primary" @icon="docs-link" @iconPosition="trailing" @href="#" />
+  </Hds::Alert>
+</Doc::Layout>
 
 For links that are part of an [inverse button group](/patterns/button-organization#grouping).
 
@@ -146,10 +151,12 @@ Learn more about [how semantic use helps make our products more conformant](/com
 
 ButtonSet is a layout component that provides consistent spacing between multiple Buttons. Refer to the [ButtonSet](/components/button-set) documentation to learn more. ButtonSet is only available in code.
 
-<Hds::ButtonSet>
-  <Hds::Button @color="primary" @text="Edit cluster" />
-  <Hds::Button @color="secondary" @text="Create cluster" />
-</Hds::ButtonSet>
+<Doc::Layout>
+  <Hds::ButtonSet>
+    <Hds::Button @color="primary" @text="Edit cluster" />
+    <Hds::Button @color="secondary" @text="Create cluster" />
+  </Hds::ButtonSet>
+</Doc::Layout>
 
 More detailed examples and guidance on button organization can be found in the [button organization](/patterns/button-organization) pattern documentation.
 
