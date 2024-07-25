@@ -69,9 +69,7 @@ export default class MenuPrimitiveComponent extends Component<MenuPrimitiveSigna
   onKeyUp(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       this.close();
-      if (this.toggleRef) {
-        this.toggleRef.focus();
-      }
+      this.toggleRef?.focus();
     }
   }
 
