@@ -142,7 +142,7 @@ When you detach a component, it no longer receives updates from the library, whi
 
 #### Overriding component styles
 
-While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Helios Design Systems Team first.
+While you can technically override the styles within a component without detaching it, we recommend against doing so without consulting the Helios Design Systems team first.
 
 Changing a component's color or font size may seem simple, but this can have trickle-down effects in code. Overriding styles forces engineers to create custom classes and styles to implement the changes. Overriding styles can have unexpected long-term effects within the [CSS cascade](https://developer.mozilla.org/en-US/docs/Web/CSS/Cascade#:~:text=The%20cascade%20is%20an%20algorithm,a%20property%20on%20an%20element) and lead to tech debt. In addition to being difficult to scale, overrides nudge the design language of your product out of sync with Helios and the rest of the HashiCorp product suite.
 
