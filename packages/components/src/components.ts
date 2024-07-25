@@ -73,6 +73,7 @@ import HdsPageHeader from './components/hds/page-header/index.ts';
 import HdsPopoverPrimitive from './components/hds/popover-primitive/index.ts';
 import HdsReveal from './components/hds/reveal/index.ts';
 import HdsRichTooltip from './components/hds/rich-tooltip/index.ts';
+import HdsSegmentedGroup from './components/hds/segmented-group/index.ts';
 import HdsSeparator from './components/hds/separator/index.ts';
 import HdsSideNav from './components/hds/side-nav/index.ts';
 import HdsSideNavBase from './components/hds/side-nav/base.ts';
@@ -162,6 +163,7 @@ export {
   HdsPopoverPrimitive,
   HdsReveal,
   HdsRichTooltip,
+  HdsSegmentedGroup,
   HdsSeparator,
   HdsSideNav,
   HdsSideNavBase,
