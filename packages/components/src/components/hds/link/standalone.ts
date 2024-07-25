@@ -141,7 +141,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize(): '24' | '16' {
+  get iconSize(): FlightIconSignature['Args']['size'] {
     if (this.args.size === 'large') {
       return '24';
     } else {
