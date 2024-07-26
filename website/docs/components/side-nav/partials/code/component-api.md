@@ -114,6 +114,7 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
     Used to show an icon. Any [icon](/icons/library) name is accepted. Typically you would add the icon name for your product.
   </C.Property>
   <C.Property @name="color" @type="string">
+    <!-- TODO: Be mindful that once #2221 (https://github.com/hashicorp/design-system/pull/2221) lands in main (very soon) this link will be broken. -->
     Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the Side Nav’s default white text color.
   </C.Property>
   <C.Property @name="href">
