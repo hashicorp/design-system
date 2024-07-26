@@ -3,52 +3,45 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+const { preserveLayout } = JSON.parse(process.env.CODEMOD_CLI_ARGS);
+
 module.exports = function ({ source /*, path*/ }, { parse, visit }) {
   const ast = parse(source);
 
-  const updateIsInlineBlockAttribute = (attributes) => {
-    const indexOfIsInlineBlockAttr = attributes.findIndex((a) => a.name === '@isInlineBlock');
-
-    // @isInlineBlock attr has been set on the element
-    if (indexOfIsInlineBlockAttr !== -1) {
-      const isInlineBlockAttr = attributes[indexOfIsInlineBlockAttr];
-
-      // value is a mustache statement, such as {{this.isInlineBlock}}
-      if (isInlineBlockAttr.value.type === 'MustacheStatement') {
-        const isInlineBlockAttrValue = isInlineBlockAttr.value.path.original;
-
-        // @isInlineBlock is set to {{false}}
-        if (isInlineBlockAttrValue === false) {
-          // {{false}} is the default value for @isInline, so we can remove the attribute
-          attributes.splice(indexOfIsInlineBlockAttr, 1);
-        }
-        // @isInlineBlock is {{true}}, or any other mustache statement
-        else {
-          // rename attribute as @isInline, keep value
-          isInlineBlockAttr.name = '@isInline';
-        }
-      }
-      // @isInlineBlock is a non-mustache value
-      else {
-        attributes.splice(indexOfIsInlineBlockAttr, 1);
-      }
-    }
-
-    return attributes;
-  };
-
   return visit(ast, (env) => {
-    let { builders: build } = env.syntax;
+    let { builders: b } = env.syntax;
 
     return {
       ElementNode(node) {
         if (node.tag === 'FlightIcon') {
+          // filter out the `@isInlineBlock` attribute
+          const outputAttrs = node.attributes.filter((a) => a.name !== '@isInlineBlock');
+
+          // look up for `@isInlineBlock`
+          const attr = node.attributes.find((a) => a.name === '@isInlineBlock');
+          const { value } = attr;
+
+          // @isInlineBlock attr has been set on the element
+          if (attr && value) {
+            if (value === true) {
+              // rename attribute as @isInline, keep value
+              const updatedAttr = b.attr('@isInline', value);
+              outputAttrs.push(updatedAttr);
+            }
+          } else if (preserveLayout) {
+            // FlightIcon has a default display of inline-block
+            // Hds::Icon has a default display of block
+            // we can pass this flag in order to keep the display the same during the conversion
+            const newAttr = b.attr('@isInline', true);
+            outputAttrs.push(newAttr);
+          }
+
           return [
-            build.element(
-              { name: 'Hds::Icon', selfClosing: true },
+            b.element(
+              { name: node.tag, selfClosing: true },
               {
-                attrs: updateIsInlineBlockAttribute(node.attributes),
-                children: [],
+                attrs: outputAttrs,
+                children: node.children,
                 modifiers: node.modifiers,
                 blockParams: node.blockParams,
               }
