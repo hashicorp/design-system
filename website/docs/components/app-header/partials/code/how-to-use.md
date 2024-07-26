@@ -8,7 +8,7 @@ At this time, we do not recommend adoption on your own without the assistance of
 
 ## How to use this component
 
-The `AppHeader` provides persistent global navigation controls and utility links such as to help and user menus. It is meant to be paired with the `SideNav` which provides local or page-level navigation.
+The `AppHeader` provides persistent global navigation controls and utility links such as help and user menus. It is meant to be paired with the `SideNav` which provides local or page-level navigation.
 
 !!! Insight
 
@@ -18,7 +18,7 @@ The `AppHeader` is intended to be used in combination with the [`Hds::AppFrame`]
 
 ### Layout
 
-The AppHeader exposes three “slots” (named blocks) where consumers can yield the navigation content and also add business logic to control the content.
+The `AppHeader` exposes three “slots” (named blocks) where consumers can yield the navigation content and also add business logic to control the content.
 
 The `<:logo>` block should contain the `AppHeader::HomeLink` which is provided as a child component.
 
@@ -101,8 +101,7 @@ The `HomeLink` also accepts optional arguments; for example, it’s possible to 
 
 #### Global actions
 
-Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the 
-`<:globalActions>` block. HDS does not currently provide this component.
+Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the `<:globalActions>` block. HDS does not currently provide this component.
 
 ```handlebars
 <Hds::AppHeader>

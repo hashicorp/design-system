@@ -62,13 +62,13 @@ Avoid placing links to unrelated pages within the user dropdown menu.
 
 ### Search
 
-Search within the App Header is triggered by a standard HDS [Button](/components/button) themed to match the App Header’s styles. The application teams are responsible for building search capabilities themselves.
+Search within the App Header is triggered by a standard HDS [Button](/components/button) themed to match the App Header’s styles. The application teams are responsible for building search capabilities themselves, if and when needed.
 
 ![Search in the App Header](/assets/components/app-header/app-header-search.png)
 
 ## Sizes
 
-The App Header supports basic responsive behavior out of the box with a single breakpoint at 1088px. The Figma component offers two variants:
+The `Hds::AppHeader` component supports basic responsive behavior out of the box with a single breakpoint at 1088px. The Figma component offers two variants:
 
 - `Large`: applicable for most desktop-sized viewports with a minimum width of 1088px.
 - `Small`: applicable for most mobile and some tablet-sized viewports with a maximum width of 1088px.
@@ -89,10 +89,10 @@ In Figma, we publish a separate Menu component for UIs and prototypes for smalle
 
 By default (and if used within the App Frame), the App Header will occupy 100% of the viewport width. As the viewport width condenses, the components' controls will collapse into a menu that can be toggled open/closed with the menu button (shown conditionally based on the viewport width).
 
-At smaller viewports, the menu containing the App Header controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
+At smaller viewports, the menu containing the `AppHeader` controls will occupy 100% of the viewport height and prevent scrolling content on the main page.
 
 ## Usage in the App Frame
 
-The App Header is intended to be used within the [App Frame](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
+The `AppHeader` is intended to be used within the [`AppFrame`](/layouts/app-frame) component (only supported in code), where a location is reserved for the component out of the box.
 
-If you intend to use the App Header without the App Frame, contact the HDS team for assistance and guidance on implementation.
+If you intend to use the `AppHeader` without the `AppFrame`, contact the HDS team for assistance and guidance on implementation.

@@ -1,6 +1,6 @@
 ## Anatomy
 
-### Large
+### Large viewports
 
 ![Anatomy of the large App Header](/assets/components/app-header/app-header-anatomy-large.png)
 
@@ -14,7 +14,7 @@
 | User dropdown    | Required                                  |
 | Search           | Optional                                  |
 
-### Small
+### Small viewports
 
 ![Anatomy of the small App Header](/assets/components/app-header/app-header-anatomy-small.png)
 

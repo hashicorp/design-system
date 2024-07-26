@@ -8,7 +8,7 @@ links:
 related: ['components/side-nav', 'components/app-footer', 'components/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
-  keywords: ['navigation', 'navbar', 'menubar']
+  keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
 ---
 
 <section data-tab="Guidelines">

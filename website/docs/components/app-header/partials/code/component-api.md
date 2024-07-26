@@ -26,10 +26,10 @@ The `AppHeader::HomeLink` component uses the generic `Hds::Interactive` componen
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="icon" @type="string">
-    Used to show an icon. Any [icon](/icons/library) name is accepted. Typically you would add the icon name for your product.
+    Used to show an icon. Any [icon](/icons/library) name is accepted. [See guidance on which icon to use depending on the product](/components/app-header#home-link).
   </C.Property>
   <C.Property @name="color" @type="string">
-    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the AppHeaders’s default white text color.
+    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the App Headers’s default white text color.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
