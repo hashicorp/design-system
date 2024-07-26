@@ -38,7 +38,7 @@ Avoid placing links to unrelated pages or actions, such as support or navigation
 
 ### Generic content
 
-The `generic` type supports any generic content, local components, or Helios components within the header via an instance swap property (genericInstance) in Figma.
+The generic type supports any generic content, local components, or Helios components within the header via an instance swap property (`genericInstance`) in Figma.
 
 ![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
 
@@ -110,7 +110,7 @@ Use external links sparingly. Avoid using this property to link pages that are u
 
 ### Generic content
 
-Toggle `hasGenericContent` on to support any additional generic content, local components, or Helios components within the body container via an instance swap property (genericInstance) in Figma.
+The topGenericInstance and bottomGenericInstance properties support any additional generic content, local components, or Helios components within the body container via instance swap properties (`topGenericInstance`, `bottomGenericInstance`) in Figma.
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 

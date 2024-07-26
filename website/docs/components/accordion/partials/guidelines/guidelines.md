@@ -136,7 +136,7 @@ This example depicts the `isStatic` property being used to prevent interaction w
 The content type property is only relevant within Figma and doesn’t exist as a property in the code.
 !!!
 
-The `content` supports any generic content, local components, or Helios components via an `instance swap` property (`genericInstance`) in Figma. In code, `yield` is supported.
+Content type supports any generic content, local components, or Helios components via an instance swap property (`genericInstance`) in Figma. In code, `yield` is supported.
 
 ### Default
 
