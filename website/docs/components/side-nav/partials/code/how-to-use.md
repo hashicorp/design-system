@@ -51,7 +51,7 @@ Typically the `Hds::SideNav::Header` sub-component should be added here. It prov
 - the `<:logo>` block should contain the `<Hds::SideNav::Header::HomeLink>` (but it could contain also custom content, if necessary)
 - the `<:actions>` block should contain optional top-level actions (eg. global search, user menu, help menu, etc.)
 
-Note: When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` slot is not used.
+Note: When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` slot normally is not used.
 
 ```handlebars
 <div class="doc-sidenav-demo--short">
@@ -95,7 +95,7 @@ It requires a value for the `@icon` and `@ariaLabel` arguments:
 </div>
 ```
 
-It also accepts optional arguments, for example it's possible to provide a custom color for the icon if needed:
+It also accepts optional arguments, for example it’s possible to provide a custom color for the icon if needed:
 
 ```handlebars
 <div class="doc-sidenav-demo--short">
@@ -397,9 +397,9 @@ Alternatively, if you want to create a custom transition (or respond in a differ
 </Hds::SideNav>
 ```
 
-### Used with AppHeader
+### Used with App Header
 
-When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot is used. The `@withAppHeader` argument should also be included and set to `false` to control the height and position of the Side Nav in relation to the fixed position AppHeader.
+When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot need be used. The `@withAppHeader` argument should be set to `false` to control the height and position of the Side Nav in relation to the fixed position App Header.
 
 ```handlebars
 <div class="doc-sidenav-demo">
