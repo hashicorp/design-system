@@ -34,7 +34,7 @@ All HashiCorp **product teams** have adopted Helios as the single source of trut
 
 Helios is **not** meant to be used as a general-purpose UI library.
 
-If you intend to use Helios for **internal products or tools** in HashiCorp, please [contact the Design Systems Team](/about/support) before starting so we can discuss if Helios is a good fit for your team and how this might affect system overhead (changes, maintenance, support, etc).
+If you intend to use Helios for **internal products or tools** in HashiCorp [contact the Design Systems Team](/about/support) before starting so we can discuss if Helios is a good fit for your team and how this might affect system overhead (changes, maintenance, support, etc).
 
 ### External products
 

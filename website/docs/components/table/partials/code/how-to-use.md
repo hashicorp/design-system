@@ -267,7 +267,7 @@ customOnSort(_sortBy, sortOrder) {
 
 !!! Warning
 
-This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or speaking with the [Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
+This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or [contact the Helios Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
 
 !!!
 
@@ -719,7 +719,7 @@ In the second scenario it might not be obvious that all of the rows have been se
 
 Whatever functionality you decide to implement, be mindful of all these possible subtleties and complexities.
 
-At a bare minimum we recommend clearly communicating to the user if they have selected rows outside of their current view and how many out of the total data set are selected. We're working to document these scenarios as they arise, in the meantime [contact the HDS team](/about/support) for assistance.
+At a bare minimum we recommend clearly communicating to the user if they have selected rows outside of their current view and how many out of the total data set are selected. We're working to document these scenarios as they arise, in the meantime [contact the Helios Design Systems Team](/about/support) for assistance.
 
 ### More examples
 
