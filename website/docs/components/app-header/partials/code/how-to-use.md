@@ -1,20 +1,16 @@
 !!! Warning
 
+**Release plan**
+
 The `AppHeader` is being rolled out in a phased approach. In the phase one release, we will assist consumers in adoption spikes to optimize it to their needs. This unique approach is due to how the `AppHeader` tightly integrates into the release plan for the “Enterprise navigation” which includes the `SideNav` and `AppFrame` components.
 
-At this time, we do not recommend adoption on your own without the assistance of HDS team members.
+At this time, we do not recommend adoption on your own. Please [contact the Design Systems Team](/about/support) for assistance.
 
 !!!
 
 ## How to use this component
 
-The `AppHeader` provides persistent global navigation controls and utility links such as help and user menus. It is meant to be paired with the `SideNav` which provides local or page-level navigation.
-
-!!! Insight
-
-The `AppHeader` is intended to be used in combination with the [`Hds::AppFrame`](/layouts/app-frame) component within the `Frame.Header` contextual component.
-
-!!!
+The `AppHeader` provides persistent global navigation controls and utility links such as help and user menus. It is meant to be paired with the `SideNav` which should be used to provide local or page-level navigation. Both these components are intended to be used within the [`Hds::AppFrame`](/layouts/app-frame) component. The `AppHeader` specifically should be used within the `App Frame’s `Frame.Header` contextual component.
 
 ### Layout
 
