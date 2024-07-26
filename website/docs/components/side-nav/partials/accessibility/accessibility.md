@@ -4,14 +4,6 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
-## Focus
-
-When the SideNav receives focus via keyboard, the HomeLink should focus as the first interactive element in the [DOM (document object model)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction). Then, focus will follow through with the rest of the elements according to their order in the DOM.
-
-Since the SideNav is a complex component that holds several nested components and can contain multiple types of content, nested elements must adhere to their individual accessibility criteria.
-
-![Focus order in navigation](/assets/components/side-nav/focus-order.png)
-
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:

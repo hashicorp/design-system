@@ -1,31 +1,38 @@
 ## Component API
 
-### SideNav
+### Side Nav
 
 This is the full-fledged component (responsive and animated).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:header>" @type="named block">
-    A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here. It yields the value of `isMinimized` too.
+    A named block where the content for the “header” area of the Side Nav is rendered. The `SideNav::Header` component should be added here. It yields the value of `isMinimized` too.
+    <br><br>
+    When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` block normally doesn’t need to be included.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    A named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
+    A named block where the content for the “body” or main content of the Side Nav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
-    A named block where the content for the “footer” section of the SideNav is rendered. It yields the value of `isMinimized` too.
+    A named block where the content for the “footer” section of the Side Nav is rendered. It yields the value of `isMinimized` too.
+    <br><br>
+    When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, you may not need to include the `<:footer>` block or related content.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
-    Controls whether the SideNav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
+    Controls whether the Side Nav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
     <br>
     <em>Notice: even if the `@isResponsive` parameter is set to false, some JavaScript is still executed in the background, and event listeners are attached to some DOM elements (even if this functionality is not used).</em>
   </C.Property>
   <C.Property @name="isCollapsible" @type="boolean" @default="false">
-    Controls whether the SideNav is collapsible on large viewports. When this argument and `isResponsive` are set to `true`, a toggle button will permanently be rendered to collapse and expand the SideNav.
+    Controls whether the Side Nav is collapsible on large viewports. When this argument and `isResponsive` are set to `true`, a toggle button will permanently be rendered to collapse and expand the Side Nav.
     <br>
     <em>Notice: if `@isResponsive` is set to false, this argument has no effect.</em>
   </C.Property>
   <C.Property @name="isMinimized" @type="boolean" @default="false">
-    Controls if the SideNav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the SideNav or resize the window) and it is not a suitable way of controlling the SideNav state from outside after render (it’s an internal state).
+    Controls if the Side Nav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the Side Nav or resize the window) and it is not a suitable way of controlling the Side Nav state from outside after render (it’s an internal state).
+  </C.Property>
+  <C.Property @name="withAppHeader" @type="boolean" @default="false">
+    Set to `true` when the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component. Controls the height and position of the Side Nav in relation to the fixed position App Header.
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
     Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`. Warning: if it is set to false, then it will fail Bypass Blocks, [Success Criteria 2.4.1](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html). Since this component appears on every page, the application will not be considered conformant.
@@ -66,16 +73,16 @@ This is the basic component (layout only).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:root>" @type="named block">
-    A named block for rendering content outside of the "header/body/footer" containers of the SideNav.
+    A named block for rendering content outside of the "header/body/footer" containers of the Side Nav.
   </C.Property>
   <C.Property @name="<:header>" @type="named block">
-    A named block where the content for the “header” area of the SideNav is rendered. The `SideNav::Header` component should be added here.
+    A named block where the content for the “header” area of the Side Nav is rendered. The `SideNav::Header` component should be added here.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
-    A named block where the content for the “body” or main content of the SideNav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used.
+    A named block where the content for the “body” or main content of the Side Nav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
-    A named block where the content for the “footer” section of the SideNav is rendered.
+    A named block where the content for the “footer” section of the Side Nav is rendered.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -89,7 +96,7 @@ This is the basic component (layout only).
     A named block where the main product logo linked to your app’s home page will be rendered. The `SideNav::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:actions>" @type="named block">
-    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special SideNav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
+    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special Side Nav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -107,7 +114,8 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
     Used to show an icon. Any [icon](/icons/library) name is accepted. Typically you would add the icon name for your product.
   </C.Property>
   <C.Property @name="color" @type="string">
-    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the SideNav’s default white text color.
+    <!-- TODO: Be mindful that once #2221 (https://github.com/hashicorp/design-system/pull/2221) lands in main (very soon) this link will be broken. -->
+    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [FlightIcon color argument](/icons/usage-guidelines?tab=code#fill). If unspecified, it will use the Side Nav’s default white text color.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.
