@@ -12,9 +12,27 @@
   </a>
 </p>
 
-## 4.7.0
+## 4.8.0
 
-[4.7.0 documentation](https://hds-website-4-7-0.vercel.app/)
+**Minor changes**
+
+`Dropdown` - Converted component to TypeScript
+
+`MenuPrimitive` - Converted component to TypeScript
+
+`TooltipModifier` - Converted modifier to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2272](https://github.com/hashicorp/design-system/pull/2272)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SegmentedGroup` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2094](https://github.com/hashicorp/design-system/pull/2094)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+## 4.7.0
 
 **Minor changes**
 
@@ -90,8 +108,6 @@ Converted form primitives to TypeScript
 - @hashicorp/ember-flight-icons@5.1.3
 
 ## 4.6.0
-
-[4.6.0 documentation](https://hds-website-4-6-0.vercel.app/)
 
 **Minor changes**
 
@@ -871,36 +887,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 <small class="doc-whats-new-changelog-metadata">[#1840](https://github.com/hashicorp/design-system/pull/1840)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 3.2.0
-
-**Minor changes**
-
-`CodeBlock` - Added language support for Ruby syntax
-
-<small class="doc-whats-new-changelog-metadata">[#1834](https://github.com/hashicorp/design-system/pull/1834)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Updated `@columns` object to support `isVisuallyHidden` argument
-
-- `Table::Th` - Updated to support `isVisuallyHidden` argument
-
-<small class="doc-whats-new-changelog-metadata">[#1819](https://github.com/hashicorp/design-system/pull/1819)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`SideNav` - Reduced the width of `SideNav::ToggleButton`
-
-<small class="doc-whats-new-changelog-metadata">[#1807](https://github.com/hashicorp/design-system/pull/1807)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@4.0.4
 
 
 ---

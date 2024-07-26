@@ -1,5 +1,25 @@
 # @hashicorp/design-system-components
 
+## 4.8.0
+
+### Minor Changes
+
+`Dropdown` - Converted component to TypeScript
+
+`MenuPrimitive` - Converted component to TypeScript
+
+`TooltipModifier` - Converted modifier to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2272](https://github.com/hashicorp/design-system/pull/2272)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SegmentedGroup` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2094](https://github.com/hashicorp/design-system/pull/2094)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.7.0
 
 ### Minor Changes
