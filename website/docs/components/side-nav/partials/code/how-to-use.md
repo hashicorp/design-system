@@ -8,6 +8,7 @@ Given the complexity and level of customization that an application's navigation
 !!! Insight
 
 The Side Nav component is intended to be used in combination with the [`Hds::AppFrame`](/layouts/app-frame) component:
+
 - AppFrame takes care of providing a top-level layout for the application's page, but is agnostic of what the actual content is and what dimensions it has.
 - Side Nav takes care of providing the visual elements used to build a top-level navigation for the application, but is agnostic of where it's used (even though it has intrinsic sizing).
 

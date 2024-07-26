@@ -5,7 +5,7 @@ caption: Used as a global and utility navigation within an application.
 links:
   figma: https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Components?node-id=58460-1572
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-header
-related: ['components/side-nav', 'components/app-footer', 'components/app-frame']
+related: ['components/side-nav', 'components/app-footer', 'layouts/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
   keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
