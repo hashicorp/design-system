@@ -4130,6 +4130,7 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-element-helper: "npm:^0.8.5"
     ember-focus-trap: "npm:^1.1.0"
+    ember-get-config: "npm:^2.1.1"
     ember-keyboard: "npm:^8.2.1"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
