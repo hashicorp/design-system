@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+const CODEMOD_ANALYSIS = process.env.CODEMOD_ANALYSIS;
+
 module.exports = function ({ source /*, path*/ }, { parse, visit }) {
   const ast = parse(source);
 
@@ -21,8 +23,8 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
           const attr = node.attributes.find((a) => a.name === '@isInlineBlock');
 
           // @isInlineBlock attr has been set on the element
-          if (attr && attr.value) {
-            if (attr.value === true) {
+          if (attr) {
+            if (attr.value !== false) {
               // rename attribute as @isInline, keep value
               const updatedAttr = b.attr('@isInline', attr.value);
               outputAttrs.push(updatedAttr);
@@ -33,21 +35,23 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
             // FlightIcon has a default display of inline-block
             // Hds::Icon has a default display of block
             // we can pass this flag in order to keep the display the same during the conversion
-            const newAttr = b.attr('@isInline', true);
+            const newAttr = b.attr('@isInline', b.mustache(b.boolean(true)));
             outputAttrs.push(newAttr);
           }
 
-          return [
-            b.element(
-              { name: 'Hds::Icon', selfClosing: true },
-              {
-                attrs: outputAttrs,
-                children: node.children,
-                modifiers: node.modifiers,
-                blockParams: node.blockParams,
-              }
-            ),
-          ];
+          if (!CODEMOD_ANALYSIS) {
+            return [
+              b.element(
+                { name: 'Hds::Icon', selfClosing: true },
+                {
+                  attrs: outputAttrs,
+                  children: node.children,
+                  modifiers: node.modifiers,
+                  blockParams: node.blockParams,
+                }
+              ),
+            ];
+          }
         }
       },
     };
