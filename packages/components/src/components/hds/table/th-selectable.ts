@@ -15,7 +15,7 @@ export interface HdsTableThSelectableArgs {
   Args: {
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
-      selectionKey: string | undefined
+      selectionKey?: string
     ) => void;
     isSelected?: boolean;
     onSelectionChange: (
