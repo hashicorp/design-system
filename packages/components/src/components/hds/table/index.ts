@@ -4,29 +4,95 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { tracked } from '@glimmer/tracking';
+import type { ComponentLike } from '@glint/template';
 
-export const DENSITIES = ['short', 'medium', 'tall'];
-const DEFAULT_DENSITY = 'medium';
-const VALIGNMENTS = ['top', 'middle', 'baseline'];
-const DEFAULT_VALIGN = 'top';
+import {
+  HdsTableDensityValues,
+  HdsTableThSortOrderValues,
+  HdsTableVerticalAlignmentValues,
+} from './types.ts';
+import type {
+  HdsTableColumn,
+  HdsTableDensities,
+  HdsTableHorizontalAlignment,
+  HdsTableOnSelectionChangeArgs,
+  HdsTableSelectableRow,
+  HdsTableSortingFunction,
+  HdsTableThSortOrder,
+  HdsTableVerticalAlignment,
+} from './types';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+import type { HdsTableTdArgs } from './td.ts';
+import type { HdsTableThArgs } from './th.ts';
+import type { HdsTableThSortArgs } from './th-sort.ts';
+import type { HdsTableTrArgs } from './tr.ts';
 
-export default class HdsTableIndexComponent extends Component {
+export const DENSITIES: HdsTableDensities[] = Object.values(
+  HdsTableDensityValues
+);
+export const DEFAULT_DENSITY = HdsTableDensityValues.Medium;
+
+export const VALIGNMENTS: HdsTableVerticalAlignment[] = Object.values(
+  HdsTableVerticalAlignmentValues
+);
+export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
+
+export interface HdsTableArgs {
+  Args: {
+    align?: HdsTableHorizontalAlignment;
+    caption?: string;
+    columns?: HdsTableColumn[];
+    density?: HdsTableDensities;
+    identityKey?: string;
+    isFixedLayout?: boolean;
+    isSelectable?: boolean;
+    isStriped?: boolean;
+    model: Array<Record<string, unknown>>;
+    onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
+    onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
+    selectionAriaLabelSuffix?: string;
+    sortBy?: string;
+    sortedMessageText?: string;
+    sortOrder?: HdsTableThSortOrder;
+    valign?: HdsTableVerticalAlignment;
+  };
+  Blocks: {
+    head?: [
+      {
+        Tr: ComponentLike<HdsTableTrArgs>;
+        Th: ComponentLike<HdsTableThArgs>;
+        ThSort: ComponentLike<HdsTableThSortArgs>;
+        sortBy?: string;
+        sortOrder?: HdsTableThSortOrder;
+        setSortBy: (column: string) => void;
+      },
+    ];
+    body?: [
+      {
+        Td: ComponentLike<HdsTableTdArgs>;
+        Tr: ComponentLike<HdsTableTrArgs>;
+        Th: ComponentLike<HdsTableThArgs>;
+        data?: Record<string, unknown>;
+        sortBy?: string;
+        sortOrder?: HdsTableThSortOrder;
+      },
+    ];
+  };
+  Element: HTMLTableElement;
+}
+
+export default class HdsTableIndexComponent extends Component<HdsTableArgs> {
   @tracked sortBy = this.args.sortBy;
-  @tracked sortOrder = this.args.sortOrder || 'asc';
-  @tracked selectAllCheckbox = undefined;
-  selectableRows = [];
-  @tracked isSelectAllCheckboxSelected = undefined;
+  @tracked sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
+  @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+    undefined;
+  selectableRows: HdsTableSelectableRow[] = [];
+  @tracked isSelectAllCheckboxSelected?: boolean = undefined;
 
-  /**
-   * @param getSortCriteria
-   * @type {string | function}
-   * @default sortBy:sortOrder
-   * @description Returns the sort criteria
-   */
-  get getSortCriteria() {
+  get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this.sortBy
@@ -43,14 +109,7 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param identityKey
-   * @type {string}
-   * @default '@identity'
-   * @description Returns the key to use for the table rows to provide more granular control. If no identityKey is defined, Ember's default `@identity` is used. See https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each
-   * this would be relevant for any table that would have data that could update or change, i.e., polling.
-   */
-  get identityKey() {
+  get identityKey(): string | undefined {
     // we have to provide a way for the consumer to pass undefined because Ember tries to interpret undefined as missing an arg and therefore falls back to the default
     if (this.args.identityKey === 'none') {
       return undefined;
@@ -59,13 +118,7 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param sortedMessageText
-   * @type {string}
-   * @default ''
-   * @description Returns the text to display in the sorted message. If no text is defined, the default text is used.
-   */
-  get sortedMessageText() {
+  get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
     } else if (this.sortBy && this.sortOrder) {
@@ -76,34 +129,16 @@ export default class HdsTableIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param isStriped
-   * @type {boolean}
-   * @default false
-   * @description Determines whether the table rows should have alternating background colors; defaults to false.
-   */
-  get isStriped() {
+  get isStriped(): boolean {
     return this.args.isStriped ?? false;
   }
 
-  /**
-   * @param isFixedLayout
-   * @type {boolean}
-   * @default false
-   * @description Determines whether the table-display should be set to fixed; meaning, the table columns are of equal width no matter the content; defaults to false.
-   */
-  get isFixedLayout() {
+  get isFixedLayout(): boolean {
     return this.args.isFixedLayout ?? false;
   }
 
-  /**
-   * @param density
-   * @type {string}
-   * @default 'medium'
-   * @description Determines the density of the table cells; options are "short", "medium" and "tall". If no density is defined, "medium" is used.
-   */
-  get density() {
-    let { density = DEFAULT_DENSITY } = this.args;
+  get density(): HdsTableDensities {
+    const { density = DEFAULT_DENSITY } = this.args;
 
     assert(
       `@density for "Hds::Table" must be one of the following: ${DENSITIES.join(
@@ -115,14 +150,8 @@ export default class HdsTableIndexComponent extends Component {
     return density;
   }
 
-  /**
-   * @param valign
-   * @type {string}
-   * @default 'top'
-   * @description Determines the vertical alignment of the table cells; options are: "top", "middle", "baseline". If no valign is defined, "top" is used.
-   */
-  get valign() {
-    let { valign = DEFAULT_VALIGN } = this.args;
+  get valign(): HdsTableVerticalAlignment {
+    const { valign = DEFAULT_VALIGN } = this.args;
 
     assert(
       `@valign for "Hds::Table" must be one of the following: ${VALIGNMENTS.join(
@@ -134,13 +163,8 @@ export default class HdsTableIndexComponent extends Component {
     return valign;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    let classes = ['hds-table'];
+  get classNames(): string {
+    const classes = ['hds-table'];
 
     // add a class based on the @isStriped argument
     if (this.isStriped) {
@@ -166,80 +190,102 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  setSortBy(column) {
+  setSortBy(column: string): void {
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
-      this.sortOrder = this.sortOrder === 'asc' ? 'desc' : 'asc';
+      this.sortOrder =
+        this.sortOrder === HdsTableThSortOrderValues.Asc
+          ? HdsTableThSortOrderValues.Desc
+          : HdsTableThSortOrderValues.Asc;
     } else {
       // otherwise, set the sort order to ascending
       this.sortBy = column;
-      this.sortOrder = 'asc';
+      this.sortOrder = HdsTableThSortOrderValues.Asc;
     }
 
-    let { onSort } = this.args;
+    const { onSort } = this.args;
 
     if (typeof onSort === 'function') {
       onSort(this.sortBy, this.sortOrder);
     }
   }
 
-  onSelectionChangeCallback(checkbox, selectionKey) {
-    let { onSelectionChange } = this.args;
+  onSelectionChangeCallback(
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
+    const { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this.selectableRows.reduce((acc, row) => {
+        selectedRowsKeys: this.selectableRows.reduce<string[]>((acc, row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
-        selectableRowsStates: this.selectableRows.reduce((acc, row) => {
-          acc.push({
-            selectionKey: row.selectionKey,
-            isSelected: row.checkbox.checked,
-          });
-          return acc;
-        }, []),
+        selectableRowsStates: this.selectableRows.reduce(
+          (
+            acc: { selectionKey: string; isSelected: boolean | undefined }[],
+            row
+          ) => {
+            acc.push({
+              selectionKey: row.selectionKey,
+              isSelected: row.checkbox.checked,
+            });
+            return acc;
+          },
+          []
+        ),
       });
     }
   }
 
   @action
-  onSelectionAllChange() {
+  onSelectionAllChange(): void {
     this.selectableRows.forEach((row) => {
-      row.checkbox.checked = this.selectAllCheckbox.checked;
+      row.checkbox.checked = this.selectAllCheckbox?.checked ?? false;
       row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
-    this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
+    this.isSelectAllCheckboxSelected = this.selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
   }
 
   @action
-  onSelectionRowChange(checkbox, selectionKey) {
+  onSelectionRowChange(
+    checkbox?: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
     this.setSelectAllState();
     this.onSelectionChangeCallback(checkbox, selectionKey);
   }
 
   @action
-  didInsertSelectAllCheckbox(checkbox) {
+  didInsertSelectAllCheckbox(
+    checkbox: HdsFormCheckboxBaseSignature['Element']
+  ): void {
     this.selectAllCheckbox = checkbox;
   }
 
   @action
-  willDestroySelectAllCheckbox() {
+  willDestroySelectAllCheckbox(): void {
     this.selectAllCheckbox = undefined;
   }
 
   @action
-  didInsertRowCheckbox(checkbox, selectionKey) {
-    this.selectableRows.push({ selectionKey, checkbox });
+  didInsertRowCheckbox(
+    checkbox: HdsFormCheckboxBaseSignature['Element'],
+    selectionKey?: string
+  ): void {
+    if (selectionKey) {
+      this.selectableRows.push({ selectionKey, checkbox });
+    }
     this.setSelectAllState();
   }
 
   @action
-  willDestroyRowCheckbox(selectionKey) {
+  willDestroyRowCheckbox(selectionKey?: string): void {
     this.selectableRows = this.selectableRows.filter(
       (row) => row.selectionKey !== selectionKey
     );
@@ -247,10 +293,10 @@ export default class HdsTableIndexComponent extends Component {
   }
 
   @action
-  setSelectAllState() {
+  setSelectAllState(): void {
     if (this.selectAllCheckbox) {
-      let selectableRowsCount = this.selectableRows.length;
-      let selectedRowsCount = this.selectableRows.filter(
+      const selectableRowsCount = this.selectableRows.length;
+      const selectedRowsCount = this.selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
