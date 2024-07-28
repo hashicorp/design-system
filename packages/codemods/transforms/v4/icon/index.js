@@ -24,13 +24,15 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
           // @isInlineBlock attr has been set on the element
           if (attr) {
-            if (attr.value !== false) {
+            const isHandlebarsAttr = attr.value.type === 'MustacheStatement';
+
+            if (isHandlebarsAttr && attr.value.path.original !== false) {
               // rename attribute as @isInline, keep value
               const updatedAttr = b.attr('@isInline', attr.value);
               outputAttrs.push(updatedAttr);
             }
 
-            // if the value is false, we don't need to add the attribute
+            // if the value is false or not handlebars, we don't need to add the attribute
           } else if (preserveLayout) {
             // FlightIcon has a default display of inline-block
             // Hds::Icon has a default display of block
