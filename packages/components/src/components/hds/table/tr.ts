@@ -20,7 +20,10 @@ export interface BaseHdsTableTrArgs {
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
-    onSelectionChange: () => void;
+    onSelectionChange: (
+      checkbox?: HdsFormCheckboxBaseSignature['Element'],
+      selectionKey?: string
+    ) => void;
     willDestroy: () => void;
   };
   Blocks: {
