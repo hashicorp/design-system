@@ -11,7 +11,7 @@
 
 ## Body
 
-The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any custom content or component is also supported by an additional generic container.
+The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any generic content or component is also supported by an additional generic container.
 
 ### List
 
@@ -75,9 +75,9 @@ Use `isLinkExternal` to show that the list item is a hyperlink pointing to a pag
 Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
 
-### Custom content
+### Generic content
 
-Toggle `hasCustomContent` on to support any additional custom content, local components, or Helios components within the body container via an instance swap property (customInstance) in Figma.
+The topGenericInstance and bottomGenericInstance properties support any additional generic content, local components, or Helios components within the body container via instance swap properties (`topGenericInstance`, `bottomGenericInstance`) in Figma.
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 
