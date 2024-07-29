@@ -4,7 +4,7 @@
   <C.Property @name="type" @type="enum" @values={{array "filled" "inverted" "outlined" }} @default="filled"/>
   <C.Property @name="size" @type="enum" @values={{array "small" "medium" "large" }} @default="medium"/>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "neutral-dark-mode" "highlight" "critical" "success" "warning" }} @default="neutral"/>
-  <C.Property @name="text" @type="string">
+  <C.Property @name="text" @type="string | number">
     The text of the Badge or value of the screen-reader only element if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="icon" @type="string">

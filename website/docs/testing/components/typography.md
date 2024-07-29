@@ -18,17 +18,15 @@ Styling applied to HTML elements using the `doc-text-***` CSS class names
 
 ---
 
-<p class="doc-text-body">This is the "base" body copy (<code>doc-text-body</code>) - lorem ipsum dolor praesent dapibus vitae velit non aliquet aenean feugiat hendrerit nibh quis placerat. in finibus ultricies risus, a sodales velit maximus et aenean commodo.</p>
-<p class="doc-text-body">This is the "base" body copy with <strong>strong text</strong> / <em>emphasized text</em> / <code>inline code</code></p>
+<div class="doc-text-body">This is the "base" body copy (<code>doc-text-body</code>) - lorem ipsum dolor praesent dapibus vitae velit non aliquet aenean feugiat hendrerit nibh quis placerat. in finibus ultricies risus, a sodales velit maximus et aenean commodo.</div>
+<div class="doc-text-body">This is the "base" body copy with <strong>strong text</strong> / <em>emphasized text</em> / <code>inline code</code></div>
 
-<p class="doc-text-body-small">This is the "small" body copy (<code>doc-text-body-small</code>) - lorem ipsum dolor praesent dapibus vitae velit non aliquet aenean feugiat hendrerit nibh quis placerat. in finibus ultricies risus, a sodales velit maximus et aenean commodo</p>
-<p class="doc-text-body-small">This is the "base" body copy with <strong>strong text</strong> / <em>emphasized text</em> / <code>inline code</code></p>
+<div class="doc-text-body-small">This is the "small" body copy (<code>doc-text-body-small</code>) - lorem ipsum dolor praesent dapibus vitae velit non aliquet aenean feugiat hendrerit nibh quis placerat. in finibus ultricies risus, a sodales velit maximus et aenean commodo</div>
+<div class="doc-text-body-small">This is the "base" body copy with <strong>strong text</strong> / <em>emphasized text</em> / <code>inline code</code></div>
 
 ---
 
-<kbd class="doc-text-code">This is the "code" text (diffent from the "inline code" which has a specific styling)</kbd>
-
-<code class="doc-text-code">This is the inline "code" text</code>
+<div class="doc-text-code">This is the "code" text (diffent from the "inline code" which has a specific styling)</div>
 
 ---
 

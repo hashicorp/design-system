@@ -1,0 +1,560 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "AppHeader Component"}}
+
+<Shw::Text::H1>AppHeader</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <Shw::Text::H3>With generic content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader>
+        <:logo>
+          <Shw::Placeholder @height="2em" @width="auto" @text="Logo" />
+        </:logo>
+        <:globalActions>
+          <Shw::Placeholder @height="2em" @width="auto" @text="OrgPicker" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="Misc content" />
+        </:globalActions>
+
+        <:utilityActions>
+          <Shw::Placeholder @height="2em" @width="auto" @text="GeoPicker" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="Search" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="HelpMenu" />
+          <Shw::Placeholder @height="2em" @width="auto" @text="UserMenu" />
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>With typical child component content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+    <SG.Item @label="With minimum recommended phase 1 content">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+
+        <:utilityActions>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item @label="With max recommended phase 1 content & Terraform logo">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+
+        <:utilityActions>
+          <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item @label="With max proposed future content">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+
+        <:utilityActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Europe" @icon="globe" />
+            <dd.Checkmark>
+              Americas
+            </dd.Checkmark>
+          </Hds::Dropdown>
+
+          <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>With long content</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+    <SG.Item @label="40 characters long organization name with dashes">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Long-Organization-Name-Long-Organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item @label="40 characters long organization name with no dashes">
+      <Hds::AppHeader>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Options</Shw::Text::H2>
+
+  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+    <SG.Item @label="With custom breakpoint (menu button is visible at wide screen width)">
+      <Hds::AppHeader @breakpoint="20000px">
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Dropdown as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+
+        <:utilityActions>
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Terraform Provider" @href="#" />
+            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Separator />
+            <dd.Interactive @text="Create support ticket" @href="#" />
+            <dd.Interactive @text="Give feedback" @href="#" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#" @text="Account Settings" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Child components</Shw::Text::H2>
+
+  <Shw::Text::H3>SideNav::Header::HomeLink</Shw::Text::H3>
+
+  <Shw::Text::H4>Content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Icon">
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+      </div>
+    </SF.Item>
+
+    <SF.Item @label="Custom color">
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink
+          @icon="boundary"
+          @ariaLabel="Boundary"
+          @color="var(--token-color-boundary-brand)"
+          @href="#"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header">
+            <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item>
+          <div class="hds-app-header">
+            <Hds::AppHeader::HomeLink
+              @icon="boundary"
+              @ariaLabel="Boundary"
+              @color="var(--token-color-boundary-brand)"
+              @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Buttons within AppHeader</Shw::Text::H3>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Text::Body>Secondary</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header">
+            <Hds::Button
+              @color="secondary"
+              @icon="search"
+              @isIconOnly={{true}}
+              @text="Search"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Text::Body>Primary</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+
+          <div class="hds-app-header">
+            <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Dropdowns within AppHeader</Shw::Text::H3>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SG|>
+    {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
+    {{/each}}
+    <SG.Item>
+      <span class="shw-label">Open</span>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}}">
+          {{#if (eq state "disabled")}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="{{capitalize color}}">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With icon">
+          {{#if (eq state "disabled")}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button
+                @icon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                mock-state-value={{state}}
+              />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With icon">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With count">
+          {{#if (eq state "disabled")}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With count">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With badge">
+          {{#if (eq state "disabled")}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button
+                @badge="Sit"
+                @badgeIcon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                disabled
+              />
+            </div>
+          {{else}}
+            <div class="hds-app-header">
+              <Hds::Dropdown::Toggle::Button
+                @badge="Sit"
+                @badgeIcon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                mock-state-value={{state}}
+              />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With badge">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Sit"
+            @badgeIcon="hexagon"
+            @text="Lorem"
+            @isOpen={{true}}
+            @color={{color}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Icon">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Icon
+            @icon="more-horizontal"
+            @text="overflow menu"
+            @hasChevron={{false}}
+            mock-state-value={{state}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+    <SG.Item @label="Icon">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon
+          @icon="more-horizontal"
+          @text="overflow menu"
+          @hasChevron={{false}}
+          @isOpen={{true}}
+        />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Icon+chevron">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="Icon+chevron">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Avatar+chevron">
+        <div class="hds-app-header">
+          <Hds::Dropdown::Toggle::Icon
+            @text={{state}}
+            @imageSrc="/assets/images/avatar.png"
+            mock-state-value={{state}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="Avatar+chevron">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
+      </div>
+    </SG.Item>
+  </Shw::Grid>
+</section>

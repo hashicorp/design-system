@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.5.0
+
+### Minor Changes
+
+mongodb and twilio icons have been added.
+
+<small class="doc-whats-new-changelog-metadata">[#2260](https://github.com/hashicorp/design-system/pull/2260)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.0
 
 ### Minor Changes

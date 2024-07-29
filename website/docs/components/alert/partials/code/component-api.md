@@ -71,7 +71,7 @@ The `Button` component, yielded as contextual component inside the `"actions"` b
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`Button`](/components/button) component, apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
+    It exposes the same API as the [`Button`](/components/button) component, apart from the `@size` argument, which is pre-defined to be `small`, and the `@color` argument that accepts only `secondary` or `tertiary`.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -81,7 +81,7 @@ The `Link::Standalone` component, yielded as contextual component inside the `"a
 
 <Doc::ComponentApi as |C|>
   <C.Property>
-    It exposes the same API of the [`Link::Standalone`](/components/link/standalone) component, apart from the `@size` argument, which is pre-defined to be
+    It exposes the same API as the [`Link::Standalone`](/components/link/standalone) component, apart from the `@size` argument, which is pre-defined to be
   </C.Property>
 </Doc::ComponentApi>
 

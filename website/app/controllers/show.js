@@ -98,6 +98,10 @@ export default class ShowController extends Controller {
         type = 'neutral';
         label = 'Updated';
         version = this.model.frontmatter?.status?.updated;
+      } else if (this.model.frontmatter?.status?.added) {
+        type = 'information';
+        label = 'Added';
+        version = this.model.frontmatter?.status?.added;
       }
       if (version.match(/^\d+\.\d+\.\d+$/)) {
         label += ` in v${version}`;

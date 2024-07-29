@@ -24,6 +24,8 @@
               <Doc::Badge @type="warning-inverted" @size="medium">Deprecated</Doc::Badge>
             {{else if item.pageAttributes.status.updated}}
               <Doc::Badge @type="neutral-inverted" @size="medium">Updated</Doc::Badge>
+            {{else if item.pageAttributes.status.added}}
+              <Doc::Badge @type="information-inverted" @size="medium">Added</Doc::Badge>
             {{/if}}
           {{/if}}
         </LinkTo>

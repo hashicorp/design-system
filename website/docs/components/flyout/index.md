@@ -5,10 +5,12 @@ caption: Displays additional details and information about an item or object, ov
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=23645%3A53756
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/flyout
-related: ['components/reveal','components/modal','components/accordion']
+related: ['components/reveal','components/modal','components/accordion', 'utilities/dialog-primitive']
 previewImage: assets/illustrations/components/flyout.jpg
 navigation:
   keywords: ['drawer', 'panel', 'side', 'modal']
+status:
+  updated: 4.7.0
 ---
 
 <section data-tab="Guidelines">
@@ -27,4 +29,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.7.0.md"
 </section>

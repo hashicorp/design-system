@@ -8,10 +8,10 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Component | hds/disclosure-primitive', function (hooks) {
+module('Acceptance | Utility | hds/disclosure-primitive', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/disclosure-primitive passes a11y automated checks', async function (assert) {
+  test('Utilities/disclosure-primitive passes a11y automated checks', async function (assert) {
     await visit('/utilities/disclosure-primitive');
     await a11yAudit();
 

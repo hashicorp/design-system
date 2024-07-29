@@ -71,7 +71,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   timer?: ReturnType<typeof setTimeout> | null;
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
-    (element: HTMLElement) => {
+    (element: HTMLElement): void => {
       this.containerElement = element;
 
       // we register the "soft" events
@@ -90,7 +90,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   );
 
   setupPrimitiveToggle = modifier<SetupPrimitiveToggleModifier>(
-    (element: HTMLButtonElement) => {
+    (element: HTMLButtonElement): void => {
       this.toggleElement = element;
 
       assert(
@@ -105,7 +105,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       element: HTMLElement,
       _positional,
       named: { anchoredPositionOptions: FloatingUIOptions }
-    ) => {
+    ): void => {
       this.popoverElement = element;
 
       // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
@@ -155,7 +155,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
       // This modifiers uses the Floating UI library to provide:
       // - positioning of the "popover" in relation to the "toggle"
       // - collision detection (optional)
-      next(() => {
+      next((): void => {
         // @ts-expect-error: known issue with type of invocation
         anchoredPositionModifier(
           this.popoverElement, // element the modifier is attached to
@@ -167,7 +167,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   );
 
   @action
-  showPopover() {
+  showPopover(): void {
     try {
       if (this.popoverElement) {
         this.popoverElement.showPopover();
@@ -185,7 +185,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   }
 
   @action
-  hidePopover() {
+  hidePopover(): void {
     try {
       if (this.popoverElement) {
         this.popoverElement.hidePopover();
@@ -203,7 +203,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   }
 
   @action
-  togglePopover() {
+  togglePopover(): void {
     try {
       if (this.popoverElement) {
         this.popoverElement.togglePopover();
@@ -222,7 +222,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
 
   // fired just _before_ the "popover" is shown or hidden
   @action
-  onBeforeTogglePopover(event: ToggleEvent) {
+  onBeforeTogglePopover(event: ToggleEvent): void {
     if (event.newState === 'closed') {
       // we need this flag to check if it's in the "closing" process,
       // because the browser automatically returns the focus to the "trigger" button
@@ -233,7 +233,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
 
   // fired just _after_ the "popover" is shown or hidden
   @action
-  onTogglePopover(event: ToggleEvent) {
+  onTogglePopover(event: ToggleEvent): void {
     if (event.newState === 'open') {
       this.isOpen = true;
 
@@ -264,7 +264,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   }
 
   @action
-  onMouseEnter() {
+  onMouseEnter(): void {
     if (this.timer) {
       clearTimeout(this.timer);
     }
@@ -272,7 +272,7 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   }
 
   @action
-  onFocusIn() {
+  onFocusIn(): void {
     // don't re-open the popover if the focus is returned because the closing
     if (!this.isClosing) {
       if (this.timer) {
@@ -283,12 +283,12 @@ export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPr
   }
 
   @action
-  onMouseLeave() {
-    this.timer = setTimeout(() => this.hidePopover(), 500);
+  onMouseLeave(): void {
+    this.timer = setTimeout((): void => this.hidePopover(), 500);
   }
 
   @action
-  onFocusOut(event: FocusEvent) {
+  onFocusOut(event: FocusEvent): void {
     if (this.containerElement) {
       let isFocusStillInside = false;
       if (

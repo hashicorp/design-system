@@ -1,11 +1,11 @@
 ---
 title: Side Nav
-description: Used as the primary navigation of an application.
-caption: A side navigation menu that provides access to the main pages of the product.
+description: Used as a contextual navigation for subpages within an application.
+caption: A side navigation menu that provides access to subpages within a product or application.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=26174%3A58558&t=kVEJBi3HIfTpV8nG-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/side-nav
-related: ['components/breadcrumb','components/tabs', 'layouts/app-frame']
+related: ['components/breadcrumb','components/tabs','layouts/app-frame','components/app-header']
 previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
@@ -24,7 +24,6 @@ navigation:
 
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
-  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">

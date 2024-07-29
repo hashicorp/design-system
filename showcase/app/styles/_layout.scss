@@ -41,7 +41,8 @@
 
 // PAGE-SPECIFIC OVERRIDES
 
-body.index {
+// this is the homepage
+body:has(.shw-landing-lists) {
   .shw-page-aside {
     display: none;
   }

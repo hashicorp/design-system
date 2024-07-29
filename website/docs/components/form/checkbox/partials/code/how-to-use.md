@@ -1,12 +1,5 @@
 ## How to use this component
 
-!!! Info
-
-**Examples have been simplified**
-
-We omit the `name` and `ID` attributes in the examples since processing of the data is the responsibility of the product teams.
-!!!
-
 There are three ways to use the Checkbox component:
 
 - `Form::Checkbox::Base` - the base component: the `<input>` control
@@ -28,7 +21,7 @@ The basic invocation creates:
 The `@name` argument offers an easy way to provide the same name for all the Checkbox controls in a single place.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @name="datacenter" as |G|>
+<Hds::Form::Checkbox::Group @name="demo-datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
   <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
@@ -50,7 +43,7 @@ The `@name` argument offers an easy way to provide the same name for all the Che
 To better fit your spacing requirements, choose between two different layout orientations: `vertical` or `horizontal`.
 
 ```handlebars
-<Hds::Form::Checkbox::Group as |G|>
+<Hds::Form::Checkbox::Group @name="demo-datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
   <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
@@ -68,7 +61,7 @@ To better fit your spacing requirements, choose between two different layout ori
 ```
 
 ```handlebars
-<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+<Hds::Form::Checkbox::Group @layout="horizontal" @name="demo-datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
   <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
@@ -97,7 +90,7 @@ The `Legend` and `HelperText` contextual components used in the Field component 
 When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @name="methods-demo2" as |G|>
+<Hds::Form::Checkbox::Group @name="demo-methods" as |G|>
   <G.Legend>Methods <Hds::Badge @size="small" @text="Beta" @color="highlight" /></G.Legend>
   <G.HelperText>All methods are applied by default unless specified. See <Hds::Link::Inline @href="#">HTTP protocol</Hds::Link::Inline> for more details.</G.HelperText>
   <G.CheckboxField checked as |F|>
@@ -117,7 +110,7 @@ When helper text is added, the component automatically adds an `aria-describedby
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is “required” or “optional”.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="methods-demo3" as |G|>
+<Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="demo-methods" as |G|>
   <G.Legend>Methods</G.Legend>
   <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
   <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
@@ -127,7 +120,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 ```
 
 ```handlebars
-<Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="methods-demo4" as |G|>
+<Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="demo-methods" as |G|>
   <G.Legend>Methods</G.Legend>
   <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
   <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
@@ -141,7 +134,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indication tha
 To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @layout="horizontal" as |G|>
+<Hds::Form::Checkbox::Group @layout="horizontal" @name="demo-datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
   <G.CheckboxField as |F|>
     <F.Label>NYC1</F.Label>
@@ -164,7 +157,7 @@ To indicate a field is invalid, provide an error message using the `Error` conte
 A group of Checkboxes is made of one or more `Form::Checkbox::Field` components. All the arguments, attributes, and modifiers that can be passed to `Form::Checkbox::Field` can be passed to the same items in the Group declaration.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @layout="vertical" as |G|>
+<Hds::Form::Checkbox::Group @layout="vertical" @name="demo-datacenter" as |G|>
   <G.Legend>Valid datacenters</G.Legend>
   <G.CheckboxField name="datacenter1" @id="datacenter-NYC1" @value="NYC1" {{on "change" this.yourOnChangeFunction}} as |F|>
     <F.Label>NYC1</F.Label>
@@ -190,7 +183,7 @@ A group of Checkboxes is made of one or more `Form::Checkbox::Field` components.
 There may be use cases in which you need to create a Checkbox group that contains a single field element (e.g., to show the `Legend` in a similar position for other control’s labels). 
 
 ```handlebars
-<Hds::Form::Checkbox::Group as |G|>
+<Hds::Form::Checkbox::Group @name="demo-visibility" as |G|>
   <G.Legend>Visibility</G.Legend>
   <G.CheckboxField name="private" @id="visibility-private" as |F|>
     <F.Label>Private</F.Label>
@@ -211,7 +204,7 @@ The basic invocation requires a `Label`. This creates:
 - an `<input type="checkbox">` control with an automatically generated `ID` attribute.
 
 ```handlebars
-<Hds::Form::Checkbox::Field as |F|>
+<Hds::Form::Checkbox::Field name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -221,7 +214,7 @@ The basic invocation requires a `Label`. This creates:
 Pass a `@value` argument to the checkbox input.
 
 ```handlebars
-<Hds::Form::Checkbox::Field @value="enable" as |F|>
+<Hds::Form::Checkbox::Field @value="enable" name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -231,7 +224,7 @@ Pass a `@value` argument to the checkbox input.
 Use the standard HTML `checked` attribute to mark the input as checked.
 
 ```handlebars
-<Hds::Form::Checkbox::Field checked as |F|>
+<Hds::Form::Checkbox::Field checked name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -241,7 +234,7 @@ Use the standard HTML `checked` attribute to mark the input as checked.
 In addition to the checked and unchecked states, a checkbox can be in an indeterminate state, also referred to as partially checked state. A common use case for this state is when a parent checkbox allows the user to select multiple child checkboxes at once. The visual appearance of the checkbox is determined based on the [`indeterminate` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/checkbox#indeterminate_state_checkboxes).
 
 ```handlebars
-<Hds::Form::Checkbox::Field indeterminate={{true}} as |F|>
+<Hds::Form::Checkbox::Field indeterminate={{true}} name="demo-all-datacenters" as |F|>
   <F.Label>All datacenters</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -258,7 +251,7 @@ The `Label` and `HelperText` contextual components used in the Field component y
 When helper text is added, the component automatically adds an `aria-describedby` attribute to the `fieldset`, associating it with the automatically generated `ID`.
 
 ```handlebars
-<Hds::Form::Checkbox::Field as |F|>
+<Hds::Form::Checkbox::Field name="demo-enable-cost-estimation" as |F|>
   <F.Label>Enable cost estimation <Hds::Badge @size="small" @text="Beta" @color="highlight" /></F.Label>
   <F.HelperText>See <Hds::Link::Inline @href="#">our pricing</Hds::Link::Inline> for more information.</F.HelperText>
 </Hds::Form::Checkbox::Field>
@@ -269,7 +262,7 @@ When helper text is added, the component automatically adds an `aria-describedby
 To indicate a field is invalid, provide an error message using the `Error` contextual component.
 
 ```handlebars
-<Hds::Form::Checkbox::Field as |F|>
+<Hds::Form::Checkbox::Field name="demo-approve-change" as |F|>
   <F.Label>I approve the changes.</F.Label>
   <F.Error>Error: it is necessary to explicitly approve the changes to continue.</F.Error>
 </Hds::Form::Checkbox::Field>
@@ -285,7 +278,7 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 !!!
 
 ```handlebars
-<Hds::Form::Checkbox::Field @id="my-control" as |F|>
+<Hds::Form::Checkbox::Field @id="my-control" name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
   <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
 </Hds::Form::Checkbox::Field>
@@ -296,7 +289,7 @@ In this case all the internal references (`id/for/aria-describedby`) between the
 Pass an `@extraAriaDescribedBy` argument to the field to connect one or more extra elements describing the field to the control. This provides extra ID values to the `aria-describedby` attribute of the control, in addition to those automatically generated by the component.
 
 ```handlebars
-<Hds::Form::Checkbox::Field @extraAriaDescribedBy="my-extra-element-ID" as |F|>
+<Hds::Form::Checkbox::Field @extraAriaDescribedBy="my-extra-element-ID" name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
   <F.HelperText>With this option enabled you will receive an approximate cost estimation.</F.HelperText>
 </Hds::Form::Checkbox::Field>
@@ -307,7 +300,7 @@ Pass an `@extraAriaDescribedBy` argument to the field to connect one or more ext
 This component supports use of `...attributes`. This means you can use all the standard HTML attributes of the `<input>` element. This can be useful in case you want to add specific native behaviors to the field, that are not exposed directly by the component (e.g., providing a `name` for the control).
 
 ```handlebars
-<Hds::Form::Checkbox::Field name="enable" as |F|>
+<Hds::Form::Checkbox::Field name="demo-cost-estimation" as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -317,7 +310,7 @@ This component supports use of `...attributes`. This means you can use all the s
 Because this component supports use of `...attributes`, you can use all the usual Ember techniques for event handling (e.g., `input`, `change`), validation, etc. 
 
 ```handlebars
-<Hds::Form::Checkbox::Field {{on "change" this.yourOnChangeFunction}} as |F|>
+<Hds::Form::Checkbox::Field name="demo-cost-estimation" {{on "change" this.yourOnChangeFunction}} as |F|>
   <F.Label>Enable cost estimation</F.Label>
 </Hds::Form::Checkbox::Field>
 ```
@@ -337,7 +330,7 @@ A basic invocation creates an `<input type="checkbox">` control with an automati
 
 ```handlebars
 <Hds::Form::Checkbox::Base
-  name="enable-cost-estimation"
+  name="demo-cost-estimation"
   aria-label="Enable cost estimation"
   @value="enable"
   {{on "change" this.yourOnChangeFunction}}

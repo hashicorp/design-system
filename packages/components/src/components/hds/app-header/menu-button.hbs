@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Button
+  class="hds-app-header__menu-button"
+  @text="Menu"
+  @icon={{this.icon}}
+  @iconPosition="trailing"
+  {{on "click" this.onClick}}
+  aria-controls={{@menuContentId}}
+  aria-expanded={{if @isOpen "true" "false"}}
+  ...attributes
+/>
