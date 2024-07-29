@@ -33,19 +33,6 @@ This component intends to replace a few different simple error and empty/zero st
 </Hds::ApplicationState>
 ```
 
-#### Empty state with a footer link and divider
-
-```handlebars
-<Hds::ApplicationState as |A|>
-  <A.Header @title="Empty state title text" />
-  <A.Body @text="The item you were looking for was not found." />
-  <A.Footer @hasDivider={{true}} as |F|>
-    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert"
-    @iconPosition="trailing" />
-  </A.Footer>
-</Hds::ApplicationState>
-```
-
 #### Empty state with yielded body block
 
 ```handlebars
@@ -64,6 +51,31 @@ This component intends to replace a few different simple error and empty/zero st
 
 ```handlebars
 <Hds::ApplicationState as |A|>
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="Some sentence that conveys a good message to the user" />
+  <A.Footer as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+#### Empty state with center alignment
+
+```handlebars
+<Hds::ApplicationState @align="center" as |A|>
+  <A.Header @title="Empty state title text" />
+  <A.Body @text="Some sentence that conveys a good message to the user" />
+  <A.Footer as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+#### Empty state with media
+
+```handlebars
+<Hds::ApplicationState as |A|>
+  <A.Media><img src="/assets/images/avatar.png" /></A.Media>
   <A.Header @title="Empty state title text" />
   <A.Body @text="Some sentence that conveys a good message to the user" />
   <A.Footer as |F|>
@@ -124,19 +136,37 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
 </Hds::ApplicationState>
 ```
 
-#### Error state with a footer divider
+#### Error state with center alignment
 
 ```handlebars
-<Hds::ApplicationState as |A|>
+<Hds::ApplicationState @align="center" as |A|>
   <A.Header @title="An error has occurred" @errorCode="404" />
   <A.Body
     @text="Sorry, an unexpected error has occurred.
     Please try again later or contact support for assistance."
   />
-  <A.Footer @hasDivider={{true}} as |F|>
+  <A.Footer as |F|>
     <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-    <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" 
-      @iconPosition="trailing" />
+    <F.LinkStandalone @icon="help" @text="Need Help" 
+      @href="/components/alert" @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+#### Error state with media
+
+```handlebars
+<Hds::ApplicationState as |A|>
+  <A.Media><img src="/assets/images/avatar.png" /></A.Media>
+  <A.Header @title="An error has occurred" @errorCode="404" />
+  <A.Body
+    @text="Sorry, an unexpected error has occurred.
+    Please try again later or contact support for assistance."
+  />
+  <A.Footer as |F|>
+    <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+    <F.LinkStandalone @icon="help" @text="Need Help" 
+      @href="/components/alert" @iconPosition="trailing" />
   </A.Footer>
 </Hds::ApplicationState>
 ```

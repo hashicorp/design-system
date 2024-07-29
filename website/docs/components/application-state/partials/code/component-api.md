@@ -3,6 +3,9 @@
 ### ApplicationState
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[A].Media>" @type="yielded component">
+    `ApplicationState::Media` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="<[A].Header>" @type="yielded component">
     `ApplicationState::Header` yielded as contextual component (see below).
   </C.Property>
@@ -18,6 +21,16 @@
 </Doc::ComponentApi>
 
 ### Contextual components
+
+#### [A].Media
+
+The `ApplicationState::Media` component, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Supports block invocation for custom content (see [Block Content](https://guides.emberjs.com/release/components/block-content/) in Ember docs).
+  </C.Property>
+</Doc::ComponentApi>
 
 #### [A].Header
 
