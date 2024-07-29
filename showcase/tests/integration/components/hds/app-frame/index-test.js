@@ -74,6 +74,24 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-header').doesNotExist();
   });
+
+  // @isHeaderFixed hds-app-frame--is-header-fixed
+  test('it should have the hds-app-frame--is-header-fixed class by default', async function (assert) {
+    await render(hbs`
+        <Hds::AppFrame id="test-app-frame" />
+      `);
+    assert.dom('#test-app-frame').hasClass('hds-app-frame--is-header-fixed');
+  });
+
+  test('it should not add the hds-app-frame--is-header-fixed class when @isHeaderFixed is false', async function (assert) {
+    await render(hbs`
+        <Hds::AppFrame @isHeaderFixed={{false}} id="test-app-frame" />
+    `);
+    assert
+      .dom('#test-app-frame')
+      .doesNotHaveClass('hds-app-frame--is-header-fixed');
+  });
+
   test('it should hide the sidebar when @hasSidebar is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasSidebar={{false}} as |Frame|>
@@ -82,6 +100,7 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-sidebar').doesNotExist();
   });
+
   test('it should hide the sidebar when @hasFooter is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasFooter={{false}} as |Frame|>
@@ -90,6 +109,7 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-sidebar').doesNotExist();
   });
+
   test('it should hide the modals when @hasModals is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasModals={{false}} as |Frame|>

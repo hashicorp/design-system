@@ -23,20 +23,29 @@
   }
 }
 
+// OPTIONS
+
+.hds-app-frame--is-header-fixed {
+  .hds-app-frame__header {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+  // Modify sidenav layout when used together with fixed app-header
+  .hds-side-nav {
+    top: var(--token-app-header-height);
+    height: calc(100vh - var(--token-app-header-height));
+    min-height: calc(100vh - var(--token-app-header-height));
+  }
+}
 
 // FRAME'S CONTAINERS
 
 .hds-app-frame__header {
   z-index: 7;
   grid-area: header;
-
-  // NOTE: May not need to qualify this with .hds-app-header as it may not matter if AppHeader is not present
-  &:has(.hds-app-header) {
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
 }
 
 .hds-app-frame__sidebar {

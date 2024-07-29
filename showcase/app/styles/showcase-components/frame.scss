@@ -6,9 +6,9 @@
 
 $shw-frame-navigation-bar-height: 48px;
 
-.shw-frame {
-  margin-bottom: 2rem;
-}
+// .shw-frame {
+//   margin-bottom: 2rem;
+// }
 
 .shw-frame__browser {
   width: var(--iframe-width);
@@ -52,4 +52,11 @@ $shw-frame-navigation-bar-height: 48px;
   width: 100%;
   height: calc(100% - #{$shw-frame-navigation-bar-height});
   border: none;
+}
+
+// TESTING
+// Make frame wider so desktop view can be seen when included in a showcase page
+// TODO: Consider updating --main-width for all pages
+.showcase-app:has(.shw-frame) {
+  --main-width: calc(1088px + 2 * 2rem);
 }
