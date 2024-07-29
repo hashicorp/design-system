@@ -29,9 +29,9 @@ export default class DocScrollToTopComponent extends Component {
   @action
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    const main = document.getElementById('main');
+    const main = document.getElementsByTagName('main');
     if (main) {
-      const focusable = main.querySelectorAll(
+      const focusable = main[0].querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
       if (focusable.length > 0) focusable[0].focus();
