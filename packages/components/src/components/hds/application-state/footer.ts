@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import type { HdsLinkStandaloneSignature } from '../link/standalone';
 import type { HdsButtonSignature } from '../button';
+import type { HdsDropdownSignature } from 'src/components/hds/dropdown';
 
 export interface HdsApplicationStateFooterSignature {
   Args: {
@@ -16,6 +17,7 @@ export interface HdsApplicationStateFooterSignature {
     default?: [
       {
         Button?: ComponentLike<HdsButtonSignature>;
+        Dropdown?: ComponentLike<HdsDropdownSignature>;
         LinkStandalone?: ComponentLike<HdsLinkStandaloneSignature>;
       },
     ];
