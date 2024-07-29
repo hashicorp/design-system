@@ -16,6 +16,11 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
+
+  // prevent interaction with AppHeader when SideNav is open/expanded
+  &:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
+    pointer-events: none;
+  }
 }
 
 
@@ -24,6 +29,14 @@
 .hds-app-frame__header {
   z-index: 7;
   grid-area: header;
+
+  // NOTE: May not need to qualify this with .hds-app-header as it may not matter if AppHeader is not present
+  &:has(.hds-app-header) {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
 }
 
 .hds-app-frame__sidebar {

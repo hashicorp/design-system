@@ -10,7 +10,7 @@
 
 .hds-side-nav__toggle-button {
   position: absolute;
-  top: 22px;
+  top: 22px; // visually align with :header content
   left: calc(var(--token-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
@@ -102,5 +102,10 @@
 
   .hds-side-nav--is-minimized & {
     transform: translateX(var(--hds-app-sidenav-width-minimized));
+  }
+
+   // adjust the toggle button position to match the vertical padding when :header is empty
+  .hds-side-nav:has(.hds-side-nav__wrapper-header:empty) & {
+    top: var(--token-side-nav-wrapper-padding-vertical);
   }
 }

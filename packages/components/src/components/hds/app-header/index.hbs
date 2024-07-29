@@ -1,0 +1,29 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  {{yield to="logo"}}
+
+  {{#if (not this.isDesktop)}}
+    <Hds::AppHeader::MenuButton
+      @onClickToggle={{this.onClickToggle}}
+      @isOpen={{this.isOpen}}
+      @menuContentId={{this.menuContentId}}
+    />
+  {{/if}}
+  <div class="hds-app-header__actions" id={{this.menuContentId}}>
+    {{#if this.showItems}}
+      <div class="hds-app-header__actions-content">
+        <div class="hds-app-header__global-actions">
+          {{yield to="globalActions"}}
+        </div>
+
+        <div class="hds-app-header__utility-actions">
+          {{yield to="utilityActions"}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
