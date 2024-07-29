@@ -1,9 +1,7 @@
-{{! @glint-nocheck: not typesafe yet }}
 {{!
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
 <li class="hds-dropdown-list-item hds-dropdown-list-item--variant-checkbox">
   <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>
     <Hds::Form::Checkbox::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
@@ -13,7 +11,6 @@
       </span>
     {{/if}}
     <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
-
     {{#if @count}}
       <span class="hds-dropdown-list-item__count hds-typography-body-100 hds-font-weight-medium">{{@count}}</span>
     {{/if}}

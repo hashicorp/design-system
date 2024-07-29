@@ -1,0 +1,106 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APP-HEADER
+//
+
+@use "../mixins/interactive-dark-theme" as *;
+
+// ----------------
+
+.hds-app-header {
+  position: relative;
+  z-index: 20; // needs to stay above the main content
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--token-app-header-height);
+  padding: 12px 16px 11px 16px; // bottom padding of 11px is to account for the bottom border
+  color: var(--token-color-foreground-high-contrast);
+  background: var(--token-color-palette-neutral-700);
+  border-bottom: 1px solid var(--token-color-palette-neutral-500);
+
+  // RESPONSIVE VIEWS
+
+  // Desktop/large view:
+  &.hds-app-header--is-desktop {
+    // Global actions are aligned next to the logo in desktop view
+    .hds-app-header__global-actions {
+      margin-right: auto;
+    }
+  }
+
+  // Mobile/small & Tablet/medium compound view:
+  &.hds-app-header--is-mobile {
+    // Actions content appears as a dropdown menu in mobile/tablet view
+    .hds-app-header__actions {
+      position: absolute;
+      top: calc(100% + 1px); // We add 1px to account for the AppHeader bottom border
+      right: 0;
+      left: 0;
+    }
+
+    .hds-app-header__actions-content {
+      flex-wrap: wrap;
+      align-content: flex-start;
+      height: calc(100vh - var(--token-app-header-height));
+      padding: 16px;
+      overflow: auto; // allow users to scroll if the content is too long
+      background: var(--token-color-palette-neutral-700);
+    }
+
+    // Force the width of global actions to 100% in mobile/tablet view
+    .hds-app-header__global-actions {
+      &,
+      .hds-dropdown,
+      .hds-dropdown-toggle-button {
+        width: 100%;
+      }
+    }
+  }
+
+  // CONTENT
+
+  .hds-app-header__global-actions, 
+  .hds-app-header__utility-actions {
+    display: flex;
+    gap: inherit;
+  }
+
+  // Apply dark theme to child interactive components
+  .hds-button,
+  .hds-dropdown-toggle-button,
+  .hds-dropdown-toggle-icon {
+    @include hds-interactive-dark-theme();
+  }
+}
+
+// Logo
+
+.hds-app-header__home-link {
+  @include hds-interactive-dark-theme($add-visible-border: false);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Set home link container size:
+  width: var(--token-app-header-home-link-size);
+  height: var(--token-app-header-home-link-size);
+  
+  // Set SVG logo size:
+  svg {
+    width: var(--token-app-header-logo-size);
+    height: var(--token-app-header-logo-size);
+  }
+}
+
+.hds-app-header__actions-content,
+.hds-app-header__actions {
+  display: flex;
+  flex: 1;
+  gap: inherit;
+}

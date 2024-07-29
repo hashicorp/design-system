@@ -5,7 +5,7 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormCheckboxBaseSignature {
+export interface HdsFormCheckboxBaseSignature {
   Args: {
     value?: string;
   };

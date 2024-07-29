@@ -107,7 +107,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
   /**
    * Calculates the unique ID to assign to the title
    */
-  get id() {
+  get id(): string {
     return getElementId(this);
   }
 
@@ -116,7 +116,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-modal'];
 
     // add a class based on the @size argument
@@ -128,7 +128,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback(event: Event) {
+  @action registerOnCloseCallback(event: Event): void {
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
@@ -152,7 +152,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
   }
 
   @action
-  didInsert(element: HTMLDialogElement) {
+  didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
     this.element = element;
     this.body = document.body;
@@ -173,7 +173,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
   }
 
   @action
-  willDestroyNode() {
+  willDestroyNode(): void {
     if (this.element) {
       this.element.removeEventListener(
         'close',
@@ -184,7 +184,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
   }
 
   @action
-  open() {
+  open(): void {
     // Make modal dialog visible using the native `showModal` method
     this.element.showModal();
     this.isOpen = true;
@@ -199,7 +199,7 @@ export default class HdsModalIndexComponent extends Component<HdsModalIndexSigna
   }
 
   @action
-  async onDismiss() {
+  async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)

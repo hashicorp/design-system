@@ -22,6 +22,7 @@ Router.map(function () {
     this.route('accordion');
     this.route('alert');
     this.route('app-footer');
+    this.route('app-header');
     this.route('application-state');
     this.route('badge');
     this.route('badge-count');
@@ -75,6 +76,8 @@ Router.map(function () {
       this.route('frameless', function () {
         this.route('demo-full-app-frame');
         this.route('demo-full-app-frame-with-modal');
+        this.route('demo-full-app-frame-with-app-header');
+        this.route('demo-full-app-frame-with-side-nav');
       });
     });
   });

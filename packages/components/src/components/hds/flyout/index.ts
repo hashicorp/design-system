@@ -87,7 +87,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
   /**
    * Calculates the unique ID to assign to the title
    */
-  get id() {
+  get id(): string {
     return getElementId(this);
   }
 
@@ -96,7 +96,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-flyout'];
 
     // add a class based on the @size argument
@@ -114,7 +114,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
   }
 
   @action
-  didInsert(element: HTMLDialogElement) {
+  didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
     this.element = element;
     this.body = document.body;
@@ -135,7 +135,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
   }
 
   @action
-  willDestroyNode() {
+  willDestroyNode(): void {
     if (this.element) {
       this.element.removeEventListener(
         'close',
@@ -146,7 +146,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
   }
 
   @action
-  open() {
+  open(): void {
     // Make flyout dialog visible using the native `showModal` method
     this.element.showModal();
     this.isOpen = true;
@@ -161,7 +161,7 @@ export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSig
   }
 
   @action
-  async onDismiss() {
+  async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)

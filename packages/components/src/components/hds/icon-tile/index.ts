@@ -113,7 +113,7 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize(): '16' | '24' {
+  get iconSize(): FlightIconSignature['Args']['size'] {
     if (this.args.size === 'small') {
       return '16';
     } else {

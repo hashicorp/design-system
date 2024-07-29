@@ -24,6 +24,7 @@ import HdsDialogPrimitiveOverlay from './components/hds/dialog-primitive/overlay
 import HdsDialogPrimitiveWrapper from './components/hds/dialog-primitive/wrapper.ts';
 import HdsDisclosurePrimitive from './components/hds/disclosure-primitive/index.ts';
 import HdsDismissButton from './components/hds/dismiss-button/index.ts';
+import HdsDropdown from './components/hds/dropdown/index.ts';
 import HdsFlyout from './components/hds/flyout/index.ts';
 import HdsFlyoutBody from './components/hds/flyout/body.ts';
 import HdsFlyoutDescription from './components/hds/flyout/description.ts';
@@ -63,6 +64,7 @@ import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
 import HdsLinkStandalone from './components/hds/link/standalone.ts';
+import HdsMenuPrimitive from './components/hds/menu-primitive/index.ts';
 import HdsModal from './components/hds/modal/index.ts';
 import HdsModalBodyComponent from './components/hds/modal/body.ts';
 import HdsModalFooter from './components/hds/modal/footer.ts';
@@ -71,6 +73,7 @@ import HdsPageHeader from './components/hds/page-header/index.ts';
 import HdsPopoverPrimitive from './components/hds/popover-primitive/index.ts';
 import HdsReveal from './components/hds/reveal/index.ts';
 import HdsRichTooltip from './components/hds/rich-tooltip/index.ts';
+import HdsSegmentedGroup from './components/hds/segmented-group/index.ts';
 import HdsSeparator from './components/hds/separator/index.ts';
 import HdsSideNav from './components/hds/side-nav/index.ts';
 import HdsSideNavBase from './components/hds/side-nav/base.ts';
@@ -111,6 +114,7 @@ export {
   HdsDialogPrimitiveWrapper,
   HdsDisclosurePrimitive,
   HdsDismissButton,
+  HdsDropdown,
   HdsFlyout,
   HdsFlyoutBody,
   HdsFlyoutDescription,
@@ -150,6 +154,7 @@ export {
   HdsInteractive,
   HdsLinkInline,
   HdsLinkStandalone,
+  HdsMenuPrimitive,
   HdsModal,
   HdsModalBodyComponent,
   HdsModalFooter,
@@ -158,6 +163,7 @@ export {
   HdsPopoverPrimitive,
   HdsReveal,
   HdsRichTooltip,
+  HdsSegmentedGroup,
   HdsSeparator,
   HdsSideNav,
   HdsSideNavBase,

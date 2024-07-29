@@ -21,7 +21,7 @@ export interface HdsDialogPrimitiveHeaderSignature {
   Element: HTMLDivElement;
 }
 
-const NOOP = () => {};
+const NOOP = (): void => {};
 
 export default class HdsDialogPrimitiveHeaderComponent extends Component<HdsDialogPrimitiveHeaderSignature> {
   /**

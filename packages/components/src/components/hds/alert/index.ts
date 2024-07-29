@@ -148,7 +148,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @type {string}
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize(): '16' | '24' {
+  get iconSize(): FlightIconSignature['Args']['size'] {
     if (this.args.type === 'compact') {
       return '16';
     } else {

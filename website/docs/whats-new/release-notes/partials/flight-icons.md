@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.5.0
+
+**Minor changes**
+
+mongodb and twilio icons have been added.
+
+<small class="doc-whats-new-changelog-metadata">[#2260](https://github.com/hashicorp/design-system/pull/2260)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.4.0
 
 **Minor changes**
@@ -223,22 +233,6 @@ Fix color for `connection-gateway` icon
 Added `ampersand` icon
 
 <small class="doc-whats-new-changelog-metadata">[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
-
-## 2.12.0
-
-**Minor changes**
-
-Remove unnused icons as CSS props
-
-<small class="doc-whats-new-changelog-metadata">[#727](https://github.com/hashicorp/design-system/pull/727)</small>
-
-_Notice: as an exception, we are releasing this change as minor instead of major for the reason that no one is actually using these files._
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `figma` and `loom` icons
-
-<small class="doc-whats-new-changelog-metadata">[#689](https://github.com/hashicorp/design-system/pull/689)</small>
 
 
 ---

@@ -94,7 +94,7 @@ The `Dropdown::Toggle::Button` component, yielded as contextual component.
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="count" @type="string">
+  <C.Property @name="count" @type="string | number">
     Displays an optional count indicator using the [Badge Count](/components/badge-count) component.
   </C.Property>
   <C.Property @name="badge" @type="string">
@@ -259,7 +259,7 @@ The `Dropdown::ListItem::Checkmark` component, yielded as contextual component.
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="count" @type="string">
+  <C.Property @name="count" @type="string | number">
     Displays an optional count indicator.
   </C.Property>
   <C.Property @name="href">
@@ -300,7 +300,7 @@ The `Dropdown::ListItem::Checkbox` component, yielded as contextual component.
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="count" @type="string">
+  <C.Property @name="count" @type="string | number">
     Displays an optional count indicator.
   </C.Property>
   <C.Property @name="...attributes">
@@ -331,7 +331,7 @@ The `Dropdown::ListItem::Radio` component, yielded as contextual component.
   <C.Property @name="icon" @type="string">
     Acceptable value: any [icon](/icons/library) name.
   </C.Property>
-  <C.Property @name="count" @type="string">
+  <C.Property @name="count" @type="string | number">
     Displays an optional count indicator.
   </C.Property>
   <C.Property @name="...attributes">

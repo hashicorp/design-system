@@ -10,6 +10,9 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
+import type HdsAppHeaderComponent from './components/hds/app-header';
+import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
+import type HdsAppHeaderMenuButtonComponent from './components/hds/app-header/menu-button';
 import type HdsAppFooterComponent from './components/hds/app-footer';
 import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
@@ -41,6 +44,21 @@ import type HdsDialogPrimitiveHeaderComponent from './components/hds/dialog-prim
 import type HdsDialogPrimitiveOverlayComponent from './components/hds/dialog-primitive/overlay';
 import type HdsDialogPrimitiveWrapperComponent from './components/hds/dialog-primitive/wrapper';
 import type HdsDismissButtonComponent from './components/hds/dismiss-button';
+import type HdsDropdownComponent from './components/hds/dropdown';
+import type HdsDropdownFooterComponent from './components/hds/dropdown/footer';
+import type HdsDropdownHeaderComponent from './components/hds/dropdown/header';
+import type HdsDropdownListItemCheckboxComponent from './components/hds/dropdown/list-item/checkbox';
+import type HdsDropdownListItemCheckmarkComponent from './components/hds/dropdown/list-item/checkmark';
+import type HdsDropdownListItemCopyItemComponent from './components/hds/dropdown/list-item/copy-item';
+import type HdsDropdownListItemDescriptionComponent from './components/hds/dropdown/list-item/description';
+import type HdsDropdownListItemGenericComponent from './components/hds/dropdown/list-item/generic';
+import type HdsDropdownListItemInteractiveComponent from './components/hds/dropdown/list-item/interactive';
+import type HdsDropdownListItemRadioComponent from './components/hds/dropdown/list-item/radio';
+import type HdsDropdownListItemSeparatorComponent from './components/hds/dropdown/list-item/separator';
+import type HdsDropdownListItemTitleComponent from './components/hds/dropdown/list-item/title';
+import type HdsDropdownToggleButtonComponent from './components/hds/dropdown/toggle/button';
+import type HdsDropdownToggleChevronComponent from './components/hds/dropdown/toggle/chevron';
+import type HdsDropdownToggleIconComponent from './components/hds/dropdown/toggle/icon';
 import type HdsFlyoutBodyComponent from './components/hds/flyout/body';
 import type HdsFlyoutDescriptionComponent from './components/hds/flyout/description';
 import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
@@ -83,6 +101,7 @@ import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
 import type HdsModalBodyComponent from './components/hds/modal/body';
 import type HdsModalFooterComponent from './components/hds/modal/footer';
 import type HdsModalHeaderComponent from './components/hds/modal/header';
@@ -99,6 +118,7 @@ import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/
 import type HdsRichTooltipComponent from './components/hds/rich-tooltip/index.ts';
 import type HdsRichTooltipBubbleComponent from './components/hds/rich-tooltip/bubble.ts';
 import type HdsRichTooltipToggleComponent from './components/hds/rich-tooltip/toggle.ts';
+import type HdsSegmentedGroupComponent from './components/hds/segmented-group';
 import type HdsSeparatorComponent from './components/hds/separator';
 import type HdsSideNavComponent from './components/hds/side-nav';
 import type HdsSideNavBaseComponent from './components/hds/side-nav/base';
@@ -134,6 +154,7 @@ import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
 import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
+import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
 
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
@@ -157,6 +178,16 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
+
+  // AppHeader
+  'Hds::AppHeader': typeof HdsAppHeaderComponent;
+  'hds/app-header': typeof HdsAppHeaderComponent;
+
+  'Hds::AppHeader::HomeLink': typeof HdsAppHeaderHomeLinkComponent;
+  'hds/app-header/home-link': typeof HdsAppHeaderHomeLinkComponent;
+
+  'Hds::AppHeader::MenuButton': typeof HdsAppHeaderMenuButtonComponent;
+  'hds/app-header/menu-button': typeof HdsAppHeaderMenuButtonComponent;
 
   // AppFooter
   'Hds::AppFooter': typeof HdsAppFooterComponent;
@@ -270,6 +301,66 @@ export default interface HdsComponentsRegistry {
   // DismissButton
   'Hds::DismissButton': typeof HdsDismissButtonComponent;
   'hds/dismiss-button': typeof HdsDismissButtonComponent;
+
+  // Dropdown
+  'Hds::Dropdown': typeof HdsDropdownComponent;
+  'hds/dropdown': typeof HdsDropdownComponent;
+
+  // Dropdown Footer
+  'Hds::Dropdown::Footer': typeof HdsDropdownFooterComponent;
+  'hds/dropdown/footer': typeof HdsDropdownFooterComponent;
+
+  // Dropdown Header
+  'Hds::Dropdown::Header': typeof HdsDropdownHeaderComponent;
+  'hds/dropdown/header': typeof HdsDropdownHeaderComponent;
+
+  // Dropdown ListItem Checkbox
+  'Hds::Dropdown::ListItem::Checkbox': typeof HdsDropdownListItemCheckboxComponent;
+  'hds/dropdown/list-item/checkbox': typeof HdsDropdownListItemCheckboxComponent;
+
+  // Dropdown ListItem Checkmark
+  'Hds::Dropdown::ListItem::Checkmark': typeof HdsDropdownListItemCheckmarkComponent;
+  'hds/dropdown/list-item/checkmark': typeof HdsDropdownListItemCheckmarkComponent;
+
+  // Dropdown ListItem CopyItem
+  'Hds::Dropdown::ListItem::CopyItem': typeof HdsDropdownListItemCopyItemComponent;
+  'hds/dropdown/list-item/copy-item': typeof HdsDropdownListItemCopyItemComponent;
+
+  // Dropdown ListItem Description
+  'Hds::Dropdown::ListItem::Description': typeof HdsDropdownListItemDescriptionComponent;
+  'hds/dropdown/list-item/description': typeof HdsDropdownListItemDescriptionComponent;
+
+  // Dropdown ListItem Generic
+  'Hds::Dropdown::ListItem::Generic': typeof HdsDropdownListItemGenericComponent;
+  'hds/dropdown/list-item/generic': typeof HdsDropdownListItemGenericComponent;
+
+  // Dropdown ListItem Interactive
+  'Hds::Dropdown::ListItem::Interactive': typeof HdsDropdownListItemInteractiveComponent;
+  'hds/dropdown/list-item/interactive': typeof HdsDropdownListItemInteractiveComponent;
+
+  // Dropdown ListItem Radio
+  'Hds::Dropdown::ListItem::Radio': typeof HdsDropdownListItemRadioComponent;
+  'hds/dropdown/list-item/radio': typeof HdsDropdownListItemRadioComponent;
+
+  // Dropdown ListItem Separator
+  'Hds::Dropdown::ListItem::Separator': typeof HdsDropdownListItemSeparatorComponent;
+  'hds/dropdown/list-item/separator': typeof HdsDropdownListItemSeparatorComponent;
+
+  // Dropdown ListItem Title
+  'Hds::Dropdown::ListItem::Title': typeof HdsDropdownListItemTitleComponent;
+  'hds/dropdown/list-item/title': typeof HdsDropdownListItemTitleComponent;
+
+  // Dropdown Toggle Button
+  'Hds::Dropdown::Toggle::Button': typeof HdsDropdownToggleButtonComponent;
+  'hds/dropdown/toggle/button': typeof HdsDropdownToggleButtonComponent;
+
+  // Dropdown Toggle Chevron
+  'Hds::Dropdown::Toggle::Chevron': typeof HdsDropdownToggleChevronComponent;
+  'hds/dropdown/toggle/chevron': typeof HdsDropdownToggleChevronComponent;
+
+  // Dropdown Toggle Icon
+  'Hds::Dropdown::Toggle::Icon': typeof HdsDropdownToggleIconComponent;
+  'hds/dropdown/toggle/icon': typeof HdsDropdownToggleIconComponent;
 
   // Flyout
   'Hds::Flyout': typeof HdsFlyoutComponent;
@@ -423,6 +514,10 @@ export default interface HdsComponentsRegistry {
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
 
+  // MenuPrimitive
+  'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;
+  'hds/menu-primitive': typeof HdsMenuPrimitiveComponent;
+
   // Modal
   'Hds::Modal': typeof HdsModalComponent;
   'hds/modal': typeof HdsModalComponent;
@@ -465,6 +560,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Reveal::Toggle::Button': typeof HdsRevealToggleButtonComponent;
   'hds/reveal/toggle/button': typeof HdsRevealToggleButtonComponent;
+
+  // Segmented Group
+  'Hds::SegmentedGroup': typeof HdsSegmentedGroupComponent;
+  'hds/segmented-group': typeof HdsSegmentedGroupComponent;
 
   // Separator
   'Hds::Separator': typeof HdsSeparatorComponent;
@@ -593,4 +692,7 @@ export default interface HdsComponentsRegistry {
 
   // hds-register-event
   'hds-register-event': typeof HdsRegisterEventModifier;
+
+  // hds-tooltip
+  'hds-tooltip': typeof HdsTooltipModifier;
 }

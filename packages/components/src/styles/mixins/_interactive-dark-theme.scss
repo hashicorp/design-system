@@ -1,0 +1,106 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+ @use "../mixins/focus-ring" as *;
+ @use "../mixins/button" as *;
+
+// Used to apply dark theme to interactive elements such as Button & Dropdown
+@mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: false) {
+  // Default:
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  @if ($add-visible-border) {
+    border-color: var(--token-color-palette-neutral-500);
+  }
+
+  @if $is-within-side-nav {
+    // sidenav specific dark theme tokens
+    color: var(--token-side-nav-color-foreground-strong);
+    background-color: transparent; // test
+    border-radius: var(--token-side-nav-body-list-item-border-radius);
+  } @else {
+    // general dark theme tokens
+    color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-palette-neutral-700);
+    border-radius: $hds-button-border-radius; // We don't have a button border-radius token so we use the button mixin sass variable
+  }
+
+  // Hover:
+  &:hover,
+  &.mock-hover {
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-500);
+    }
+
+    @if $is-within-side-nav {
+      // sidenav specific dark theme tokens
+      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-side-nav-color-surface-interactive-hover);
+    } @else {
+      // general dark theme tokens
+      color: var(--token-color-foreground-high-contrast); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-color-palette-neutral-600);
+    }
+  }
+  
+  // Focus:
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+
+    color: var(--token-color-foreground-high-contrast);
+    background-color: var(--token-color-palette-neutral-700);
+
+    @if ($add-visible-border) {
+      border-color: var(--token-color-focus-action-internal);
+    }
+
+    // focus ring:
+    &::before {
+      color: var(--token-color-foreground-high-contrast);
+      border: none;
+      box-shadow: var(--token-focus-ring-action-box-shadow);
+    }
+  }
+
+  // override style removing the focus style
+  &:focus:focus:not(:focus-visible)::before {
+    box-shadow: var(--token-focus-ring-action-box-shadow);
+  }
+
+  // Active:
+  &:active,
+  &.mock-active {
+    @if $is-within-side-nav {
+      // sidenav specific dark theme tokens
+      color: var(--token-side-nav-color-foreground-strong); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-side-nav-color-surface-interactive-active);
+    } @else {
+      // general dark theme tokens
+      color: var(--token-color-foreground-high-contrast); // to avoid overrides by specificity (eg. `a:hover`)
+      background-color: var(--token-color-palette-neutral-500);
+    }
+    
+    @if ($add-visible-border) {
+      border-color: var(--token-color-palette-neutral-400);
+    }
+  }
+
+  // Disabled:
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    color: var(--token-color-foreground-disabled);
+    background-color: var(--token-color-palette-neutral-600);
+    border-color: var(--token-color-palette-neutral-500);
+  }
+}

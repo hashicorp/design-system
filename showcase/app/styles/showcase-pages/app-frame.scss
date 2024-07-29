@@ -15,6 +15,42 @@
 }
 
 body.layouts-app-frame {
+  .shw-component-app-frame-container {
+    position: relative;
+    min-height: 0;
+    border: 1px solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
+
+    .hds-side-nav {
+      height: auto;
+      min-height: 0;
+
+      // For simulating minimize behavior
+      &.hds-side-nav--is-minimized {
+        .hds-side-nav__wrapper { overflow: hidden; }
+
+        .hds-side-nav__wrapper-body {
+          width: var(--hds-app-sidenav-width-expanded);
+          opacity: 0;
+        }
+
+        .hds-side-nav__wrapper-footer { opacity: 0; }
+      }
+    }
+
+    .hds-app-frame__header:has(.hds-app-header) {
+      position: relative; // position is sticky when used within a screen layout
+    }
+
+    .hds-app-header {
+      &.hds-app-header--is-mobile {
+        .hds-app-header__actions {
+          height: auto; // height fills screen minus app header height when used within a screen layout
+        }
+      }
+    }
+  }
+
   .shw-layout-app-frame-wrapper {
     width: 100%;
     aspect-ratio: 4 / 3;
@@ -87,5 +123,34 @@ body.layouts-app-frame {
     height: 160px;
     margin: auto;
     inset: 0;
+  }
+
+  .shw-layout-app-frame-full-width-elem {
+    width: 100%;
+
+    .hds-dropdown-toggle-button {width: 100%;}
+  }
+}
+
+
+// Frameles demo pages
+.layouts-app-frame-frameless-demo-full-app-frame-with-app-header,
+.layouts-app-frame-frameless-demo-full-app-frame-with-side-nav {
+  .shw-layout-app-frame__main-content-padding {
+    padding: 1.5rem 4rem 2.25rem 4rem;
+  }
+
+  .hds-side-nav {
+    // For simulating minimize behavior
+    &.hds-side-nav--is-minimized {
+      .hds-side-nav__wrapper { overflow: hidden; }
+
+      .hds-side-nav__wrapper-body {
+        width: var(--hds-app-sidenav-width-expanded);
+        opacity: 0;
+      }
+
+      .hds-side-nav__wrapper-footer { opacity: 0; }
+    }
   }
 }
