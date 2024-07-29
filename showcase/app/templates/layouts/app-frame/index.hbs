@@ -182,7 +182,7 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  {{!-- <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item @label="With AppHeader & typical child component content" {{style width="100%"}}>
       <Hds::AppFrame class="shw-component-app-frame-container" as |Frame|>
         <Frame.Header>
@@ -338,24 +338,38 @@
         </Frame.Footer>
       </Hds::AppFrame>
     </SG.Item>
-  </Shw::Grid>
+  </Shw::Grid> --}}
 </section>
 
 {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
 <section>
-  <Shw::Divider @level={{2}} />
+  {{!-- <Shw::Divider @level={{2}} /> --}}
 
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
-  <Shw::Frame
-    @id="demo-full-app-frame-with-app-heade"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header"
-    @label="Full AppFrame with AppHeader"
-  />
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item @label="Full AppFrame with fixed AppHeader" {{style width="100%"}}>
+      <Shw::Frame
+        @id="demo-full-app-frame-with-app-header"
+        @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header"
+        @height="780"
+      />
+    </SG.Item>
 
-  <Shw::Frame
-    @id="demo-full-app-frame-with-side-nav"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
-    @label="Full AppFrame with SideNav but without AppHeader"
-  />
+    <SG.Item @label="Full AppFrame with NON fixed AppHeader" {{style width="100%"}}>
+      <Shw::Frame
+        @id="demo-full-app-frame-with-app-header-not-fixed"
+        @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-not-fixed"
+        @height="780"
+      />
+    </SG.Item>
+
+    <SG.Item @label="Full AppFrame with SideNav but without AppHeader" {{style width="100%"}}>
+      <Shw::Frame
+        @id="demo-full-app-frame-with-side-nav"
+        @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
+        @height="780"
+      />
+    </SG.Item>
+  </Shw::Grid>
 </section>

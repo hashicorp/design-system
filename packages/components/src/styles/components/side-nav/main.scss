@@ -18,15 +18,6 @@
 
   // VARIATIONS
 
-  // with-app-header
-  // Modify sidenav layout when used together with app-header
-
-  &.hds-side-nav--with-app-header {
-    top: var(--token-app-header-height);
-    height: calc(100vh - var(--token-app-header-height));
-    min-height: calc(100vh - var(--token-app-header-height));
-  }
-
   // headerless
   // SideNav without a :header block
   &.hds-side-nav--is-headerless {
