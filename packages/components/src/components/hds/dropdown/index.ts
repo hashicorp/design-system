@@ -7,7 +7,10 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-import { HdsDropdownPositionValues } from './types.ts';
+import {
+  HdsDropdownPositionToPlacementValues,
+  HdsDropdownPositionValues,
+} from './types.ts';
 
 import type { ComponentLike } from '@glint/template';
 import type { MenuPrimitiveSignature } from '../menu-primitive';
@@ -26,6 +29,8 @@ import type { HdsDropdownToggleButtonSignature } from './toggle/button';
 import type { HdsDropdownToggleIconSignature } from './toggle/icon';
 import type { HdsDropdownPositions } from './types';
 
+import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: string[] = Object.values(HdsDropdownPositionValues);
 
@@ -33,6 +38,7 @@ export interface HdsDropdownSignature {
   Args: MenuPrimitiveSignature['Args'] & {
     height?: string;
     isInline?: boolean;
+    isOpen?: boolean;
     listPosition?: HdsDropdownPositions;
     width?: string;
   };
@@ -79,6 +85,20 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
     return listPosition;
   }
 
+  get anchoredPositionOptions(): {
+    placement: FloatingUIOptions['placement'];
+    offsetOptions: FloatingUIOptions['offsetOptions'];
+    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
+  } {
+    // custom options specific for the `RichTooltip` component
+    // for details see the `hds-anchored-position` modifier
+    return {
+      placement: HdsDropdownPositionToPlacementValues[this.listPosition],
+      offsetOptions: 4,
+      enableCollisionDetection: true,
+    };
+  }
+
   /**
    * Get the class names to apply to the element
    * @method classNames
@@ -102,9 +122,6 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
    */
   get classNamesContent(): string {
     const classes = ['hds-dropdown__content'];
-
-    // add a class based on the @listPosition argument
-    classes.push(`hds-dropdown__content--position-${this.listPosition}`);
 
     // add a class based on the @width argument
     if (this.args.width) {

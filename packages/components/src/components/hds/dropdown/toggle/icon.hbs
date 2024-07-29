@@ -7,7 +7,7 @@
   aria-label={{this.text}}
   ...attributes
   aria-expanded={{if @isOpen "true" "false"}}
-  {{on "click" this.onClick}}
+  {{@setupPrimitiveToggle}}
   {{did-update this.onDidUpdateImageSrc @imageSrc}}
   type="button"
 >

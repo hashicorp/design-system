@@ -2,22 +2,26 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::MenuPrimitive class={{this.classNames}} @onClose={{@onClose}} ...attributes>
-  <:toggle as |t|>
+<Hds::PopoverPrimitive @isOpen={{@isOpen}} @onClose={{@onClose}} @enableClickEvents={{true}} as |PP|>
+  <div class={{this.classNames}} ...attributes {{PP.setupPrimitiveContainer}}>
     {{yield
       (hash
-        ToggleButton=(component "hds/dropdown/toggle/button" isOpen=t.isOpen onClick=t.onClickToggle)
-        ToggleIcon=(component "hds/dropdown/toggle/icon" isOpen=t.isOpen onClick=t.onClickToggle)
+        ToggleButton=(component
+          "hds/dropdown/toggle/button" isOpen=PP.isOpen setupPrimitiveToggle=PP.setupPrimitiveToggle
+        )
+        ToggleIcon=(component "hds/dropdown/toggle/icon" isOpen=PP.isOpen setupPrimitiveToggle=PP.setupPrimitiveToggle)
       )
     }}
-  </:toggle>
-  <:content as |c|>
-    <div class={{this.classNamesContent}} {{style width=@width max-height=@height}}>
+    <div
+      class={{this.classNamesContent}}
+      {{style width=@width max-height=@height}}
+      {{PP.setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
+    >
       {{yield (hash Header=(component "hds/dropdown/header"))}}
       <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
         {{yield
           (hash
-            close=c.close
+            close=PP.hidePopover
             Checkbox=(component "hds/dropdown/list-item/checkbox")
             Checkmark=(component "hds/dropdown/list-item/checkmark")
             CopyItem=(component "hds/dropdown/list-item/copy-item")
@@ -30,7 +34,7 @@
           )
         }}
       </ul>
-      {{yield (hash close=c.close Footer=(component "hds/dropdown/footer"))}}
+      {{yield (hash close=PP.hidePopover Footer=(component "hds/dropdown/footer"))}}
     </div>
-  </:content>
-</Hds::MenuPrimitive>
+  </div>
+</Hds::PopoverPrimitive>

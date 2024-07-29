@@ -18,6 +18,8 @@ import type {
   HdsDropdownToggleButtonSizes,
   HdsDropdownToggleButtonColors,
 } from './types';
+import type { ModifierLike } from '@glint/template';
+import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsDropdownToggleButtonColorValues.Primary;
@@ -25,8 +27,6 @@ export const SIZES: string[] = Object.values(HdsDropdownToggleButtonSizeValues);
 export const COLORS: string[] = Object.values(
   HdsDropdownToggleButtonColorValues
 );
-
-const NOOP = (): void => {};
 
 export interface HdsDropdownToggleButtonSignature {
   Args: {
@@ -37,9 +37,9 @@ export interface HdsDropdownToggleButtonSignature {
     icon?: FlightIconSignature['Args']['name'];
     isFullWidth?: boolean;
     isOpen?: boolean;
-    onClick?: (event: MouseEvent) => void;
     size: HdsDropdownToggleButtonSizes;
     text: string;
+    setupPrimitiveToggle?: ModifierLike<SetupPrimitiveToggleModifier>;
   };
   Element: HTMLButtonElement;
 }
@@ -114,23 +114,6 @@ export default class HdsDropdownToggleButtonComponent extends Component<HdsDropd
    */
   get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
-  }
-
-  /**
-   * @param onClick
-   * @type {function}
-   * @default () => {}
-   */
-  get onClick(): (event: MouseEvent) => void {
-    const { onClick } = this.args;
-
-    // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
-    // in reality it's always used inside the Dropdown main component as yielded component, so the onClick handler is always defined
-    if (typeof onClick === 'function') {
-      return onClick;
-    } else {
-      return NOOP;
-    }
   }
 
   /**
