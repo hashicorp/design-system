@@ -464,7 +464,7 @@ Some aspects of the responsiveness/animation/transition of the Side Nav are para
 
 Navigation is a cardinal element of the UI of an application, and its standardization across the different HashiCorp products is an important end goal. Also, the implementation of this component has required considerable efforts and investments, and we should preserve it as much as possible as a unifying element across products.
 
-If you find yourself in the situation of wanting/needing to customize or change the aspect or the behavior of the SideNav component, [contact the Design Systems Team](/about/support) for support.
+If you find yourself in the situation of wanting/needing to customize or change the aspect or the behavior of the Side Nav component, [contact the Design Systems Team](/about/support) for support.
 
 ### Accessibility
 
