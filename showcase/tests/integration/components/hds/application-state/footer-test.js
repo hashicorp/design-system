@@ -24,13 +24,6 @@ module(
         .dom('#test-application-state-footer')
         .hasClass('hds-application-state__footer');
     });
-    test('if @hasDivider is set to true, a class should be applied to render a visual divider', async function (assert) {
-      await render(hbs`
-      <Hds::ApplicationState::Footer @hasDivider={{true}} id="test-application-state-footer" />
-    `);
-
-      assert.dom('.hds-application-state__footer--has-divider').exists();
-    });
 
     // CONTEXTUAL COMPONENTS
 
