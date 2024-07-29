@@ -31,10 +31,10 @@ export const POSITIONS: string[] = Object.values(HdsDropdownPositionValues);
 
 export interface HdsDropdownSignature {
   Args: MenuPrimitiveSignature['Args'] & {
-    height: string;
-    isInline: boolean;
-    listPosition: HdsDropdownPositions;
-    width: string;
+    height?: string;
+    isInline?: boolean;
+    listPosition?: HdsDropdownPositions;
+    width?: string;
   };
   Blocks: {
     default: [
