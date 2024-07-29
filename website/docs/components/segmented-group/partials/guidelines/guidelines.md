@@ -50,7 +50,7 @@ Different Segmented Input types can be combined within a Segmented Group to coll
 
 ### Custom elements
 
-If a custom component within a Segmented Group is necessary, ensure that the visual language and styling match the pre-defined Segment primitives, or [contact the Helios Design Systems Team](/about/support) for support.
+If a custom component within a Segmented Group is necessary, ensure that the visual language and styling match the pre-defined Segment primitives, or [contact the Design Systems team](/about/support) for support.
 
 ## Base component
 

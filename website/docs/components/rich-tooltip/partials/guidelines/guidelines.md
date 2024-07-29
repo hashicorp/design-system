@@ -199,7 +199,7 @@ Use the Rich Tooltip to display additional dynamic data within charts, graphs, a
 
 !!! Info
 
-Helios does not currently support foundational styles or components for data visualization. If you have questions about methods or recommendations for implementing these types of features, [Contact the Helios Design Systems Team](/about/support).
+Helios does not currently support foundational styles or components for data visualization. If you have questions about methods or recommendations for implementing these types of features, [contact the Design Systems team](/about/support).
 !!!
 -->
 
