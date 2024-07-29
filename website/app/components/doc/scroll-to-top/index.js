@@ -32,9 +32,13 @@ export default class DocScrollToTopComponent extends Component {
     const main = document.getElementsByTagName('main');
     if (main) {
       const focusable = main[0].querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
       );
-      if (focusable.length > 0) focusable[0].focus();
+      const filteredFocusable = Array.from(focusable).filter(
+        (el) => !el.classList.contains('doc-scroll-to-top')
+      );
+      if (filteredFocusable.length > 0) filteredFocusable[0].focus();
+      else main[0].focus();
     }
   }
 
