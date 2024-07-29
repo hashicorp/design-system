@@ -4,5 +4,11 @@
 }}
 
 <div class="hds-application-state__footer" ...attributes>
-  {{yield (hash Button=(component "hds/button") LinkStandalone=(component "hds/link/standalone"))}}
+  {{yield
+    (hash
+      Button=(component "hds/button")
+      LinkStandalone=(component "hds/link/standalone")
+      Dropdown=(component "hds/dropdown")
+    )
+  }}
 </div>
