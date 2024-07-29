@@ -11,11 +11,11 @@ interface HdsSegmentedGroupSignature {
   Blocks: {
     default: [
       {
-        Button: ComponentLike<HdsButtonSignature>;
-        Dropdown: ComponentLike<HdsDropdownSignature>;
-        Select: ComponentLike<HdsFormSelectBaseSignature>;
-        TextInput: ComponentLike<HdsFormTextInputBaseSignature>;
-        Generic: ComponentLike<HdsYieldSignature>;
+        Button?: ComponentLike<HdsButtonSignature>;
+        Dropdown?: ComponentLike<HdsDropdownSignature>;
+        Select?: ComponentLike<HdsFormSelectBaseSignature>;
+        TextInput?: ComponentLike<HdsFormTextInputBaseSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
       },
     ];
   };
