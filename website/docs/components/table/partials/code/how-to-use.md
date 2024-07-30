@@ -412,7 +412,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
     <B.Tr>
       <B.Td>
         <div class="doc-table-valign-demo">
-          <FlightIcon @name="headphones" /> {{B.data.artist}}
+          <Hds::Icon @name="headphones" /> {{B.data.artist}}
         </div>
       </B.Td>
       <B.Td>{{B.data.album}}</B.Td>
