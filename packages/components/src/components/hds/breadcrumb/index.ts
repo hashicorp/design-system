@@ -5,16 +5,28 @@
 
 import Component from '@glimmer/component';
 
+export interface HdsBreadcrumbSignature {
+  Args: {
+    ariaLabel?: string;
+    itemsCanWrap?: boolean;
+    didInsert?: () => void;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLElement;
+}
+
 const NOOP = () => {};
 
-export default class HdsBreadcrumbComponent extends Component {
+export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSignature> {
   /**
    * @param onDidInsert
    * @type {function}
    * @default () => {}
    */
   get didInsert() {
-    let { didInsert } = this.args;
+    const { didInsert } = this.args;
 
     if (typeof didInsert === 'function') {
       return didInsert;
@@ -47,7 +59,7 @@ export default class HdsBreadcrumbComponent extends Component {
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    let classes = ['hds-breadcrumb'];
+    const classes = ['hds-breadcrumb'];
 
     // add a class based on the @itemsCanWrap argument
     if (this.itemsCanWrap) {

@@ -5,7 +5,17 @@
 
 import Component from '@glimmer/component';
 
-export default class HdsBreadcrumbTruncationComponent extends Component {
+export interface HdsBreadcrumbTruncationSignature {
+  Args: {
+    ariaLabel?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLLIElement;
+}
+
+export default class HdsBreadcrumbTruncationComponent extends Component<HdsBreadcrumbTruncationSignature> {
   /**
    * @param ariaLabel
    * @type {string}

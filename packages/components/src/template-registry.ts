@@ -21,6 +21,9 @@ import type HdsAppFooterLinkComponent from './components/hds/app-footer/link';
 import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/status-link';
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
+import type HdsBreadcrumbComponent from './components/hds/breadcrumb/index.ts';
+import type HdsBreadcrumbItemComponent from './components/hds/breadcrumb/item';
+import type HdsBreadcrumbTruncationComponent from './components/hds/breadcrumb/truncation.ts';
 import type HdsButtonComponent from './components/hds/button';
 import type HdsButtonSetComponent from './components/hds/button-set';
 import type HdsAppFrameComponent from './components/hds/app-frame';
@@ -247,6 +250,16 @@ export default interface HdsComponentsRegistry {
   // BadgeCount
   'Hds::BadgeCount': typeof HdsBadgeCountComponent;
   'hds/badge-count': typeof HdsBadgeCountComponent;
+
+  // Breadcrumb
+  'Hds::Breadcrumb': typeof HdsBreadcrumbComponent;
+  'hds/breadcrumb': typeof HdsBreadcrumbComponent;
+
+  'Hds::Breadcrumb::Item': typeof HdsBreadcrumbItemComponent;
+  'hds/breadcrumb/item': typeof HdsBreadcrumbItemComponent;
+
+  'Hds::Breadcrumb::Truncation': typeof HdsBreadcrumbTruncationComponent;
+  'hds/breadcrumb/truncation': typeof HdsBreadcrumbTruncationComponent;
 
   // Button
   'Hds::Button': typeof HdsButtonComponent;
