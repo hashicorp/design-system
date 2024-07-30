@@ -31,6 +31,7 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 <!--TRANSFORMS_START-->
 * [v4/contextual-components](transforms/v4/contextual-components/README.md)
 * [v4/table](transforms/v4/table/README.md)
+* [v4/icon](transforms/v4/icon/README.md)
 <!--TRANSFORMS_END-->
 
 ## Contributing
