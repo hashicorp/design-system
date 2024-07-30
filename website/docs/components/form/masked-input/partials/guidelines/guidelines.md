@@ -50,23 +50,25 @@ Use `isMultiline` to display multiline textual content. e.g., a Terraform variab
 
 For complex forms, indicate required fields. This is the most explicit and transparent method and ensures users don’t have to make assumptions. Read more about best practices for [marking required fields in forms](https://www.nngroup.com/articles/required-fields/).
 
-<Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isRequired={{true}} @width="300px" as |F|>
-  <F.Label>Label</F.Label>
-</Hds::Form::MaskedInput::Field>
-
-<Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isMultiline={{true}} @isRequired={{true}} @width="300px" as |F|>
-  <F.Label>Label</F.Label>
-</Hds::Form::MaskedInput::Field>
+<Doc::Layout @spacing="16px">
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isRequired={{true}} @width="300px" as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isMultiline={{true}} @isRequired={{true}} @width="300px" as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+</Doc::Layout>
 
 For shorter, simpler forms, indicate optional fields instead.
 
-<Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isOptional={{true}} @width="300px" as |F|>
-  <F.Label>Label</F.Label>
-</Hds::Form::MaskedInput::Field>
-
-<Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isMultiline={{true}} @isOptional={{true}} @width="300px" as |F|>
-  <F.Label>Label</F.Label>
-</Hds::Form::MaskedInput::Field>
+<Doc::Layout @spacing="16px">
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isOptional={{true}} @width="300px" as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+  <Hds::Form::MaskedInput::Field @value="0362df4996ca864b4df9e42cba0d6d" @isMultiline={{true}} @isOptional={{true}} @width="300px" as |F|>
+    <F.Label>Label</F.Label>
+  </Hds::Form::MaskedInput::Field>
+</Doc::Layout>
 
 ## Copying the Masked Input value
 
