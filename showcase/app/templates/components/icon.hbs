@@ -42,46 +42,71 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level={{2}} />
+  <Shw::Divider />
 
   <Shw::Text::H2>Color</Shw::Text::H2>
 
+  <Shw::Text::H4 @tag="h3">Color inheritance</Shw::Text::H4>
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item as |SFI|>
-      <SFI.Label>Unspecified color (<code>currentColor</code>)</SFI.Label>
-      <Hds::Icon @name="bookmark" />
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Custom red color, specified via <code>@color</code> argument</SFI.Label>
-      <Hds::Icon @name="folder-fill" @color="red" />
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Unspecified color (<code>currentColor</code>) + parent with custom blue color (to check inheritance)</SFI.Label>
-      <a {{style color="blue"}} href="#">
-        <Hds::Icon @name="external-link" />
-      </a>
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>Custom orange color, specified via
-        <code>@color</code>
-        argument + parent with
-        <code>!important</code>
-        green color declared (to check overrides not working)</SFI.Label>
-      {{! template-lint-disable no-inline-styles }}
-      <div style="color:green !important">
-        <Hds::Icon @name="heart-fill" @color="orange" />
+      <SFI.Label>unspecified color (<code>currentColor</code>)</SFI.Label>
+      <div>
+        <Hds::Icon @name="lock-fill" @size="24" />
       </div>
-      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label>parent with <code>#e12568</code> color</SGI.Label>
+      <div {{style color="#e12568"}}>
+        <Hds::Icon @name="lock-fill" @size="24" />
+      </div>
     </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H4 @tag="h3">Pre-defined colors</Shw::Text::H4>
+  <Shw::Grid @columns={{5}} as |SG|>
+    {{#each this.model.AVAILABLE_COLORS as |color|}}
+      <SG.Item @label={{color}}>
+        <div class="shw-component-icon-sample-color--{{color}}">
+          <Hds::Icon @name="lock-fill" @color={{color}} @size="24" />
+        </div>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Custom colors</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>#e91e63</code></SGI.Label>
+      <Hds::Icon @name="lock-fill" @color="#e91e63" @size="24" />
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>--token-color-palette-purple-400</code></SGI.Label>
+      <Hds::Icon @name="lock-fill" @color="var(--token-color-palette-purple-400)" @size="24" />
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>orange</code>
+        + parent with
+        <code>green !important</code>
+      </SGI.Label>
+      {{! template-lint-disable no-inline-styles }}
+      <div style="color:green !important">
+        <Hds::Icon @name="lock-fill" @color="orange" @size="24" />
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Display</Shw::Text::H2>
 
   {{#let (array false true) as |booleans|}}
     {{#each booleans as |isInline|}}
-      <Shw::Text::Body>{{if isInline "Inline" "Block (default)"}}</Shw::Text::Body>
+      <Shw::Text::H4 @tag="h3">{{if isInline "Inline" "Block (default)"}}</Shw::Text::H4>
 
       <Shw::Flex class="shw-foundation-outline-icons" as |SF|>
         <SF.Item @label="single icon">
