@@ -26,4 +26,10 @@ body.components-icon {
     gap: 4px;
     align-items: center;
   }
+
+  .shw-component-icon-sample-color--high-contrast {
+    width: fit-content;
+    background: #0c0c0e;
+    outline: 2px solid #0c0c0e;
+  }
 }
