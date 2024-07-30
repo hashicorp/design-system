@@ -98,13 +98,11 @@ Use the `flush` variant where space is limited such as within a [Card](/componen
 
 The toggle accepts many different types of content, from text-based content to nested HDS components or generic content.
 
-#### Text
+![Toggle type with basic text](/assets/components/accordion/toggle-content-text.png =690x*)
+<Doc::ImageCaption @text="Toggle type with basic text"/>
 
-![Example of toggle content](/assets/components/accordion/toggle-content-text.png =690x*)
-
-#### Generic 
-
-![Example of toggle content](/assets/components/accordion/toggle-content-custom.png =690x*)
+![Toggle type with generic content](/assets/components/accordion/toggle-content-custom.png =690x*)
+<Doc::ImageCaption @text="Toggle type with generic content"/>
 
 ### Interactive 
 
@@ -138,13 +136,11 @@ The content type property is only relevant within Figma and doesn’t exist as a
 
 Content type supports any generic content, local components, or Helios components via an instance swap property (`genericInstance`) in Figma. In code, `yield` is supported.
 
-### Default
+![Content type with basic text](/assets/components/accordion/content-text.png =690x*)
+<Doc::ImageCaption @text="Content type with basic text"/>
 
-![Example of default content in accordion item](/assets/components/accordion/content-text.png =690x*)
-
-### Custom
-
-![Example of custom content in accordion item](/assets/components/accordion/content-custom.png =690x*)
+![Content type with generic content](/assets/components/accordion/content-custom.png =690x*)
+<Doc::ImageCaption @text="Content type with generic content"/>
 
 ## Nesting Accordions
 
