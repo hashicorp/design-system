@@ -3,13 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<button
+<a
+  href="#main"
   aria-label="Scroll back to top"
-  class="doc-scroll-to-top {{if this.isButtonVisible 'doc-scroll-to-top--is-visible'}}"
-  type="button"
-  tabindex={{if this.isButtonVisible 0 -1}}
-  {{on "click" this.scrollToTop}}
+  class="doc-scroll-to-top {{if this.isVisible 'doc-scroll-to-top--is-visible'}}"
+  tabindex={{if this.isVisible 0 -1}}
   {{doc-track-event eventName="Navigation - Scroll to Top"}}
 >
   <FlightIcon @name="arrow-up" @color="white" @size="24" @isInlineBlock={{false}} />
-</button>
+</a>
