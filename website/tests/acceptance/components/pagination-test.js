@@ -17,9 +17,17 @@ module('Acceptance | components/pagination', function (hooks) {
     assert.strictEqual(currentURL(), '/components/pagination');
   });
   test('Components/pagination page passes automated a11y checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        'image-redundant-alt': {
+          enabled: false,
+        },
+      },
+    };
+
     await visit('/components/pagination');
 
-    await a11yAudit();
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });

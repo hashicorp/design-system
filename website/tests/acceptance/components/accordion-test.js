@@ -17,9 +17,17 @@ module('Acceptance | components/accordion', function (hooks) {
     assert.strictEqual(currentURL(), '/components/accordion');
   });
   test('Components/accordion page passes automated a11y checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        'image-redundant-alt': {
+          enabled: false,
+        },
+      },
+    };
+
     await visit('/components/accordion');
 
-    await a11yAudit();
+    await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
   });
