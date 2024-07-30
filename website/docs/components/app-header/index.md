@@ -9,13 +9,14 @@ related: ['components/side-nav', 'components/app-footer', 'layouts/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
   keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
+status:
+  added: 4.8.0
 ---
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
 </section>
-
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
