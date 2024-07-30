@@ -100,6 +100,7 @@ import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
 import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
 import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
 import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
+import type HdsIconComponent from './components/hds/icon';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
@@ -510,6 +511,10 @@ export default interface HdsComponentsRegistry {
   // Form VisibilityToggle
   'Hds::Form::VisibilityToggle': typeof HdsFormVisibilityToggleComponent;
   'hds/form/visibility-toggle': typeof HdsFormVisibilityToggleComponent;
+
+  // Icon
+  'Hds::Icon': typeof HdsIconComponent;
+  'hds/icon': typeof HdsIconComponent;
 
   // IconTile
   'Hds::IconTile': typeof HdsIconTileComponent;

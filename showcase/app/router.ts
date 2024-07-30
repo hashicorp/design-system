@@ -46,6 +46,7 @@ Router.map(function () {
       this.route('toggle');
       this.route('radio-card');
     });
+    this.route('icon');
     this.route('icon-tile');
     this.route('link', function () {
       this.route('inline');
