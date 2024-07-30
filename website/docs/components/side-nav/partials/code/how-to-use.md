@@ -3,7 +3,7 @@ This section provides in-depth instructions on how consumers can use the **full-
 
 It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
 
-Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, we suggest contacting the Design Systems Team for [guidance and support](/about/support).
+Given the complexity and level of customization that an application's navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
 
 !!! Insight
 
@@ -464,7 +464,7 @@ Some aspects of the responsiveness/animation/transition of the Side Nav are para
 
 Navigation is a cardinal element of the UI of an application, and its standardization across the different HashiCorp products is an important end goal. Also, the implementation of this component has required considerable efforts and investments, and we should preserve it as much as possible as a unifying element across products.
 
-If you find yourself in the situation of wanting/needing to customize or change the aspect or the behavior of the Side Nav component, contact the Design Systems Team for [guidance](/about/support).
+If you find yourself in the situation of wanting/needing to customize or change the aspect or the behavior of the Side Nav component, [contact the Design Systems Team](/about/support) for support.
 
 ### Accessibility
 

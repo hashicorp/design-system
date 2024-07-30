@@ -6,7 +6,7 @@ A common example of this is a non-modal dialog such as a SplitWindow or Panel, w
 
 !!! Info
 
-If you discover a use case outside of this example, please [contact](/about/support) the HDS team for assistance.
+If you discover a use case outside of this example, [contact the Design Systems Team](/about/support) for assistance.
 !!!
 
 ![Example of a non-modal example](/assets/components/dialog-primitives/dialog-primitive-non-modal-example.png)

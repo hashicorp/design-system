@@ -2,5 +2,5 @@ A dropdown is a flexible component that displays a list of actions or options to
 
 !!! Info
 
-Take care to use dropdowns correctly. A crowded or overly complex dropdown can lead to a frustrating user experience, especially for assistive technology users. Contact the [Design Systems Team](/about/support) to discuss alternative options if a dropdown feels too complex.
+Take care to use dropdowns correctly. A crowded or overly complex dropdown can lead to a frustrating user experience, especially for assistive technology users. [Contact the Design Systems Team](/about/support) to discuss alternative options if a dropdown feels too complex.
 !!!
