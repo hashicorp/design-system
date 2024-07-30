@@ -7,14 +7,16 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
-import { HdsIconSizeValues } from './types.ts';
-import type { HdsIconSizes } from './types';
+import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
+import type { HdsIconSizes, HdsIconColors } from './types';
 import type { IconName } from '@hashicorp/flight-icons/svg';
+
+export const AVAILABLE_COLORS: string[] = Object.values(HdsIconColorValues);
 
 export interface HdsIconSignature {
   Args: {
     name: IconName;
-    color?: string;
+    color?: HdsIconColors | string | undefined;
     size?: HdsIconSizes;
     stretched?: boolean;
     isInline?: boolean;
@@ -24,6 +26,9 @@ export interface HdsIconSignature {
 }
 
 export default class HdsIcon extends Component<HdsIconSignature> {
+  iconId = 'icon-' + guidFor(this);
+  titleId = 'title-' + guidFor(this);
+
   constructor(owner: unknown, args: HdsIconSignature['Args']) {
     super(owner, args);
 
@@ -40,11 +45,23 @@ export default class HdsIcon extends Component<HdsIconSignature> {
     return this.args.isInline ?? false;
   }
 
-  get color(): string {
-    return this.args.color ?? 'currentColor';
+  get predefinedColor(): HdsIconColors | undefined {
+    const { color } = this.args;
+
+    if (color && AVAILABLE_COLORS.includes(color)) {
+      return color as HdsIconColors;
+    } else {
+      return undefined;
+    }
   }
 
-  iconId = 'icon-' + guidFor(this);
+  get fillColor(): string {
+    if (this.predefinedColor !== undefined) {
+      return 'currentColor';
+    } else {
+      return this.args.color ?? 'currentColor';
+    }
+  }
 
   get size(): string {
     return this.args.size ?? HdsIconSizeValues.Sixteen;
@@ -56,8 +73,6 @@ export default class HdsIcon extends Component<HdsIconSignature> {
       height: this.args.stretched ? '100%' : this.size,
     };
   }
-
-  titleId = 'title-' + guidFor(this);
 
   get title(): string | null {
     return this.args.title ?? null;
@@ -80,6 +95,11 @@ export default class HdsIcon extends Component<HdsIconSignature> {
 
     if (this.isInline) {
       classes.push('hds-icon--is-inline');
+    }
+
+    // add a (helper) class based on the @color argument (if pre-defined)
+    if (this.predefinedColor) {
+      classes.push(`hds-foreground-${this.predefinedColor}`);
     }
 
     // add an extra class to control the animation (depends on the icon)
