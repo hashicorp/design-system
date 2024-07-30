@@ -27,11 +27,6 @@ export default class DocScrollToTopComponent extends Component {
   }
 
   @action
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  @action
   checkScroll() {
     this.isVisible = window.scrollY > 200;
   }
