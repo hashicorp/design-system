@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/icon.jpg
 navigation:
   keywords: ['icon', 'glyph', 'flight']
 status:
-  added: 4.8.0
+  added: 4.9.0
 ---
 
 <section data-tab="Guidelines">
@@ -32,5 +32,5 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.8.0.md"
+  @include "partials/version-history/4.9.0.md"
 </section>
