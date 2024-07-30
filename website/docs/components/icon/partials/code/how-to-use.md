@@ -44,7 +44,7 @@ The default value is `currentColor` which uses the inherited text color as the i
 
 For the list of possible foreground colors supported, refer to the [Component API](#component-api) section for details.
 
-It’s also possible to provide a CSS color as string (in this case the color will be applied as SVG `fill` property). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
+It’s also possible to provide a CSS color as a string (in this case the color will be applied as SVG `fill` property). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
 
 ```handlebars
 <Hds::Icon @name="zap" @color="var(--token-color-boundary-brand)" />
