@@ -34,7 +34,8 @@
   }
 
   // Modify sidenav layout when used together with fixed app-header
-  .hds-side-nav {
+  // .hds-side-nav,
+  .hds-app-frame__sidebar {
     top: var(--token-app-header-height);
     height: calc(100vh - var(--token-app-header-height));
     min-height: calc(100vh - var(--token-app-header-height));
@@ -49,8 +50,17 @@
 }
 
 .hds-app-frame__sidebar {
-  z-index: 6;
+  // testing moving SideNav layout styles here...
+  position: sticky;
+  top: 0;
+
+  // frame element layout
+  z-index: 20; // needs to stay above the main content
   grid-area: sidebar;
+
+  // testing moving SideNav layout styles here...
+  height: 100vh;
+  min-height: 100vh;
 }
 
 .hds-app-frame__main {
