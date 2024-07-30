@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class DocScrollToTopComponent extends Component {
   @service fastboot;
-  @tracked isLinkVisible = false;
+  @tracked isVisible = false;
 
   constructor() {
     super(...arguments);
@@ -33,7 +33,7 @@ export default class DocScrollToTopComponent extends Component {
 
   @action
   checkScroll() {
-    this.isLinkVisible = window.scrollY > 200;
+    this.isVisible = window.scrollY > 200;
   }
 
   @action
