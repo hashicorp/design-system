@@ -1,6 +1,14 @@
 ---
-"@hashicorp/design-system-components": major
-"@hashicorp/design-system-codemods": minor
+"@hashicorp/design-system-components": minor
 ---
 
-Add new Hds::Icon component which will eventually replace usage of FlightIcon
+`Icon` - Added component:
+
+`Hds::Icon` is meant to replace usage of the `FlightIcon` component from `ember-flight-icons`.
+
+- Displays `block` by default. (`FlightIcon` displays `inline-block` by default)
+
+Codemod:
+
+Added new v4/icon codemod. Running this codemod will replace instances of `FlightIcon` with `Hds::Icon`.
+See codemod README for documentation.
