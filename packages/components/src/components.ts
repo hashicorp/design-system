@@ -11,6 +11,9 @@ import HdsAppFrame from './components/hds/app-frame/index.ts';
 import HdsApplicationState from './components/hds/application-state/index.ts';
 import HdsBadge from './components/hds/badge/index.ts';
 import HdsBadgeCount from './components/hds/badge-count/index.ts';
+import HdsBreadcrumb from './components/hds/breadcrumb/index.ts';
+import HdsBreadcrumbItem from './components/hds/breadcrumb/item.ts';
+import HdsBreadcrumbTruncation from './components/hds/breadcrumb/truncation.ts';
 import HdsButton from './components/hds/button/index.ts';
 import HdsButtonSet from './components/hds/button-set/index.ts';
 import HdsCard from './components/hds/card/container.ts';
@@ -101,6 +104,9 @@ export {
   HdsApplicationState,
   HdsBadge,
   HdsBadgeCount,
+  HdsBreadcrumb,
+  HdsBreadcrumbItem,
+  HdsBreadcrumbTruncation,
   HdsButton,
   HdsButtonSet,
   HdsCard,

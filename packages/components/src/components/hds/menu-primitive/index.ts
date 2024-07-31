@@ -17,7 +17,7 @@ export interface MenuPrimitiveSignature {
     toggle?: [
       {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+        onClickToggle: (event: MouseEvent, ...args: any[]) => void;
         isOpen?: boolean;
       },
     ];
