@@ -41,6 +41,7 @@ export interface HdsDropdownSignature {
     isOpen?: boolean;
     listPosition?: HdsDropdownPositions;
     width?: string;
+    enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
   };
   Blocks: {
     default: [
@@ -85,6 +86,10 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
     return listPosition;
   }
 
+  get enableCollisionDetection(): FloatingUIOptions['enableCollisionDetection'] {
+    return this.args.enableCollisionDetection ?? false;
+  }
+
   get anchoredPositionOptions(): {
     placement: FloatingUIOptions['placement'];
     offsetOptions: FloatingUIOptions['offsetOptions'];
@@ -95,7 +100,7 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
     return {
       placement: HdsDropdownPositionToPlacementValues[this.listPosition],
       offsetOptions: 4,
-      enableCollisionDetection: true,
+      enableCollisionDetection: this.enableCollisionDetection,
     };
   }
 
