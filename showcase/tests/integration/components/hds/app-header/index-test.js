@@ -108,7 +108,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   // A11Y
 
-  test(`it displays the correct value for aria-expanded when actions are disp vs open`, async function (assert) {
+  test(`it displays the correct value for aria-expanded when actions are displayed vs hidden`, async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
       <Hds::AppHeader />
@@ -153,5 +153,36 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element.querySelector('.hds-app-header__actions').getAttribute('id')
     );
+  });
+
+  // A11Y Refocus
+
+  test('it renders the `a11y-refocus` elements by default', async function (assert) {
+    await render(hbs`<Hds::AppHeader @a11yRefocusSkipTo="foo" />`);
+    assert.dom('#ember-a11y-refocus-nav-message').exists();
+    assert.dom('#ember-a11y-refocus-skip-link').exists();
+  });
+
+  test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader
+        @a11yRefocusSkipTo="test-skip-to"
+        @a11yRefocusSkipText="test-skip-text"
+        @a11yRefocusNavigationText="test-navigation-text"
+      />
+    `);
+    assert
+      .dom('#ember-a11y-refocus-nav-message')
+      .hasText('test-navigation-text');
+    assert.dom('#ember-a11y-refocus-skip-link').hasText('test-skip-text');
+    assert
+      .dom('#ember-a11y-refocus-skip-link')
+      .hasAttribute('href', '#test-skip-to');
+  });
+
+  test('it does not render the `a11y-refocus` elements if `hasA11yRefocus` is false', async function (assert) {
+    await render(hbs`<Hds::AppHeader @hasA11yRefocus={{false}} />`);
+    assert.dom('#ember-a11y-refocus-nav-message').doesNotExist();
+    assert.dom('#ember-a11y-refocus-skip-link').doesNotExist();
   });
 });
