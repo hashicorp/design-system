@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+import type { SafeString } from '@ember/template/-private/handlebars';
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 
 export interface HdsBreadcrumbItemSignature {
@@ -32,7 +33,7 @@ export default class HdsBreadcrumbItemComponent extends Component<HdsBreadcrumbI
    * @default undefined
    * @description A parameter that can be applied to an "item" to limit its max-width
    */
-  get maxWidth() {
+  get maxWidth(): string | undefined {
     const { maxWidth } = this.args;
 
     if (maxWidth) {
@@ -52,7 +53,7 @@ export default class HdsBreadcrumbItemComponent extends Component<HdsBreadcrumbI
    * @method BreadcrumbItem#itemStyle
    * @return {string} The "style" attribute to apply to the item.
    */
-  get itemStyle() {
+  get itemStyle(): SafeString | undefined {
     if (this.maxWidth) {
       return htmlSafe(`max-width: ${this.maxWidth}`);
     } else {
@@ -65,7 +66,7 @@ export default class HdsBreadcrumbItemComponent extends Component<HdsBreadcrumbI
    * @method BreadcrumbItem#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-breadcrumb__item'];
 
     return classes.join(' ');

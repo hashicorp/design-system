@@ -21,7 +21,7 @@ export default class HdsBreadcrumbTruncationComponent extends Component<HdsBread
    * @type {string}
    * @default 'show more'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'show more';
   }
 }

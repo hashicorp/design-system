@@ -25,7 +25,7 @@ export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSigna
    * @type {function}
    * @default () => {}
    */
-  get didInsert() {
+  get didInsert(): () => void {
     const { didInsert } = this.args;
 
     if (typeof didInsert === 'function') {
@@ -40,7 +40,7 @@ export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSigna
    * @type {boolean}
    * @default true
    */
-  get itemsCanWrap() {
+  get itemsCanWrap(): boolean {
     return this.args.itemsCanWrap ?? true;
   }
 
@@ -49,7 +49,7 @@ export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSigna
    * @type {string}
    * @default 'breadcrumbs'
    */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'breadcrumbs';
   }
 
@@ -58,7 +58,7 @@ export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSigna
    * @method Breadcrumb#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-breadcrumb'];
 
     // add a class based on the @itemsCanWrap argument
