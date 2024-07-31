@@ -14,7 +14,13 @@
       <FlightIcon @color="var(--token-color-foreground-strong)" @name={{@icon}} @size="24" />
     </div>
   {{/if}}
-  <Hds::Text::Display class="hds-application-state__title" @tag="div" @size="300" @weight="semibold" @color="strong">
+  <Hds::Text::Display
+    class="hds-application-state__title"
+    @tag={{this.titleTag}}
+    @size="300"
+    @weight="semibold"
+    @color="strong"
+  >
     {{@title}}
   </Hds::Text::Display>
 </div>
