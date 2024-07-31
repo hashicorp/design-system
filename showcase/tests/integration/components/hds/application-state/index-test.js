@@ -63,6 +63,38 @@ module(
         .hasClass('hds-application-state--align-center');
     });
 
+    // CONTEXTUAL COMPONENTS
+
+    test('it renders the contextual components', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState as |A|>
+              <A.Media>ApplicationState Media</A.Media>
+              <A.Header @title="ApplicationState Title" />
+              <A.Body>ApplicationState Body</A.Body>
+              <A.Footer>ApplicationState Footer</A.Footer>
+            </Hds::ApplicationState>`
+      );
+      assert
+        .dom('.hds-application-state__media')
+        .hasText('ApplicationState Media');
+      assert
+        .dom('.hds-application-state__header')
+        .hasText('ApplicationState Title');
+      assert
+        .dom('.hds-application-state__body')
+        .hasText('ApplicationState Body');
+      assert
+        .dom('.hds-application-state__footer')
+        .hasText('ApplicationState Footer');
+    });
+    test('it does not render the contextual components if not provided', async function (assert) {
+      await render(hbs`<Hds::ApplicationState />`);
+      assert.dom('.hds-application-date__media').doesNotExist();
+      assert.dom('.hds-application-date__header').doesNotExist();
+      assert.dom('.hds-application-date__body').doesNotExist();
+      assert.dom('.hds-application-date__footer').doesNotExist();
+    });
+
     // ASSERTIONS
 
     test('it should throw an assertion if an incorrect value for @alignment provided', async function (assert) {
