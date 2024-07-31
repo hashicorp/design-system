@@ -77,7 +77,7 @@ export function initialize(/* application */) {
         let match = languageBlock.match(/(\w+)({(.*)})?/);
         let language = '';
         let attributeString = '';
-        let highlightedCodeBlock = '';
+        let encodedCodeBlock = '';
 
         if(match && match[1]) {
           language = match[1];
@@ -93,19 +93,14 @@ export function initialize(/* application */) {
           language = 'shell';
         }
 
-        if (Prism.languages[language]) {
-          // if the specified language is available in Prism we highlight the codeblock
-          highlightedCodeBlock = Prism.highlight(codeblock, Prism.languages[language], language) + end;
-        } else {
-          // otherwise we encode the codeblock and present it as is (without highlight)
-          highlightedCodeBlock = Prism.util.encode(codeblock) + end;
-        }
+        // we encode the codeblock and present it as is (without highlight)
+        encodedCodeBlock = Prism.util.encode(codeblock) + end;
 
         // escape { and } for the code sample
-        highlightedCodeBlock = highlightedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
+        encodedCodeBlock = encodedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
 
         let blockUniqueId = uniqueId();
-        let preBlock = `<pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${highlightedCodeBlock}</code></pre>`;
+        let preBlock = `<pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>`;
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
