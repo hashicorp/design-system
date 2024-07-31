@@ -31,6 +31,7 @@ By default, the Application State has horizontal auto margins applied to it, alw
 ## Media
 
 The media slot is used to add illustrations to increase the visual impact of the Application State.
+
 This provides additional visual prominence while also elevating the brand experience. If the illustration has a circular container, we recommend setting the `alignment` to `center`.
 
 ![Empty state for Vault Secrets, guiding user to create new secrets or importing them](/assets/components/application-state/application-state-media-slot-spot-illustration-center-alignment.png)
