@@ -65,19 +65,20 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     );
   }
 
-  // Menu items display if is desktop, or if is mobile and the menu is open
-  get showItems(): boolean {
-    return this.isDesktop || this.isOpen;
-  }
-
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
 
-    if (!this.isDesktop) {
-      classes.push('hds-app-header--is-mobile');
-    } else {
+    if (this.isDesktop) {
       classes.push('hds-app-header--is-desktop');
+    } else {
+      classes.push('hds-app-header--is-mobile');
+    }
+
+    if (this.isOpen) {
+      classes.push('hds-app-header--menu-is-open');
+    } else {
+      classes.push('hds-app-header--menu-is-closed');
     }
 
     return classes.join(' ');

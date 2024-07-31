@@ -25,7 +25,7 @@
 
   // RESPONSIVE VIEWS
 
-  // Desktop/large view:
+  // Desktop (large) view:
   &.hds-app-header--is-desktop {
     // Global actions are aligned next to the logo in desktop view
     .hds-app-header__global-actions {
@@ -33,7 +33,7 @@
     }
   }
 
-  // Mobile/small & Tablet/medium compound view:
+  // Mobile/tablet (small/medium) view:
   &.hds-app-header--is-mobile {
     // Actions content appears as a dropdown menu in mobile/tablet view
     .hds-app-header__actions {
@@ -43,14 +43,29 @@
       left: 0;
     }
 
-    .hds-app-header__actions-content {
+    // Display as dropdown menu in mobile/tablet view
+    .hds-app-header__actions {
       flex-wrap: wrap;
       align-content: flex-start;
-      height: calc(100vh - var(--token-app-header-height));
       padding: 16px;
       overflow: auto; // allow users to scroll if the content is too long
       background: var(--token-color-palette-neutral-700);
     }
+
+    &.hds-app-header--menu-is-closed {
+      .hds-app-header__actions {
+        height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &.hds-app-header--menu-is-open {
+      .hds-app-header__actions {
+        height: calc(100vh - var(--token-app-header-height));
+      }
+    }
+
 
     // Force the width of global actions to 100% in mobile/tablet view
     .hds-app-header__global-actions {
