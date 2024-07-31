@@ -38,5 +38,21 @@ module(
 
       assert.dom('.hds-application-state__error-code').exists();
     });
+
+    test('it should render the title with a `div` tag if no `@titleTag` is provided', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" @titleTag="h1" id="test-application-state-header" />`
+      );
+
+      assert.dom('.hds-application-state__title').hasTagName('div');
+    });
+
+    test('it should render the title with the tag set for `@titleTag`', async function (assert) {
+      await render(
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" @titleTag="h1" id="test-application-state-header" />`
+      );
+
+      assert.dom('.hds-application-state__title').hasTagName('h1');
+    });
   }
 );

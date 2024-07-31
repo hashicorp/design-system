@@ -7,8 +7,6 @@
 
 <Shw::Text::H1>ApplicationState</Shw::Text::H1>
 
-<Shw::Text::H1>Application State</Shw::Text::H1>
-
 <section data-test-percy class="{{if this.showHighlight 'shw-component-application-state-layout-highlight'}}">
 
   <Shw::Text::H2>Content</Shw::Text::H2>
@@ -38,17 +36,6 @@
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="With link action and footer divider">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="Empty state title text" />
-        <A.Body
-          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
@@ -69,17 +56,6 @@
           <Shw::Placeholder @text="generic content" @width="320px" @height="120px" />
         </A.Body>
         <A.Footer as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="With generic content + Footer with action and divider">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="Empty state title text" />
-        <A.Body>
-          <Shw::Placeholder @text="generic content" @width="320px" @height="120px" />
-        </A.Body>
-        <A.Footer @hasDivider={{true}} as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
         </A.Footer>
       </Hds::ApplicationState>
@@ -129,6 +105,17 @@
           @icon="alert-circle"
           @errorCode="404"
         />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With custom title tag">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="h1 element instead of the default div" @titleTag="h1" @icon="alert-circle" @errorCode="404" />
         <A.Body
           @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
         />
