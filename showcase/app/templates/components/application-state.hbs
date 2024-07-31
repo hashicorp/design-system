@@ -181,6 +181,60 @@
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
+    <SF.Item @label="Dropdown as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Dropdown + button as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+          <F.Button @color="secondary" @text="Secondary action" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Dropdown + button + link as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+          <F.Button @color="secondary" @text="Secondary action" />
+          <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider />
