@@ -1,1 +1,1 @@
-The Application State is used to communicate status, errors and zero/empty states.
+The Application State is used to communicate status, errors, and zero/empty states.

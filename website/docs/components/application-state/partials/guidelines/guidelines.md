@@ -3,7 +3,7 @@
 ### When to use
 
 - When an application encounters an issue or error during its operation.
-- When an application needs emphasis on the creation of a new object within a null state.
+- When emphasis is needed on the creation of a new object within a null state.
 
 ### When not to use
 
@@ -16,15 +16,15 @@ The Application State supports two alignment options: `left` and `center`. The a
 
 !!! Info
 
-By default, the Application State has horizontal auto margins applied to it, always centering it on the page. This can be overridden with CSS properties.
+By default, the Application State has horizontal auto margins applied to it, always centering it on the page or containing element. This can be overridden with CSS properties.
 
 !!!
 
-**Center alignment**
+### Center alignment
 
 ![Center aligned application state](/assets/components/application-state/application-state-alignment-center.png)
 
-**Left alignment**
+### Left alignment
 
 ![Left aligned application state](/assets/components/application-state/application-state-alignment-left.png)
 
@@ -33,7 +33,7 @@ By default, the Application State has horizontal auto margins applied to it, alw
 The media slot is used to add illustrations to increase the visual impact of the Application State.
 This provides additional visual prominence while also elevating the brand experience. If the illustration has a circular container, we recommend setting the `alignment` to `center`.
 
-![Empty state for vault secrets, guiding user to create new secrets or importing them](/assets/components/application-state/application-state-media-slot-spot-illustration-center-alignment.png)
+![Empty state for Vault Secrets, guiding user to create new secrets or importing them](/assets/components/application-state/application-state-media-slot-spot-illustration-center-alignment.png)
 
 
 ## Header
@@ -56,7 +56,7 @@ If enabled and available, an error code will be shown, providing additional info
 
 ## Body
 
-Focus on relevant information and avoid unnecessary details. If there is an error, include suggestions or guidance for how the user can resolve the issue, if possible. If no objects are found (zero/empty state), provide a brief explanation on how creating this new objective will benefit the user. 
+Focus on relevant information and avoid unnecessary details. If there is an error, include suggestions or guidance for how the user can resolve the issue, if possible. If no objects are found (zero/empty state), provide a brief explanation on how creating this new object will benefit the user. 
 
 The body allows for two types of content: `text` and `generic`.
 
@@ -66,7 +66,7 @@ The body allows for two types of content: `text` and `generic`.
 ## Footer
 The Application State supports up to three actions, including [Dropdown](/components/dropdown), [Standalone Link](/components/link/standalone), and [Button](/components/button) components. Use footer actions to redirect or guide users in solving errors/access issues with actionable steps.
 
-![A button set showing a dropdown, secondary button and stand alone link](/assets/components/application-state/application-state-footer-action-types.png)
+![A button set showing a dropdown, secondary button, and stand alone link](/assets/components/application-state/application-state-footer-action-types.png)
 
 ### Using buttons or links
 
@@ -74,7 +74,7 @@ Buttons, along with links, are used to emphasize the importance of the action in
 
 !!! Dont
 
-When there is an empty state that occupies the majority of the page, do not display two exact actions at the same time in different areas of the UI. In this example, there is a primary button in the Page Header and in the Application State. 
+When there is an empty state that occupies the majority of the page, do not display two similar actions in different areas of the UI. In this example, there is a primary button in the Page Header and in the Application State. 
 
 ![Showing an empty state with a primary button and a page header with a primary button](/assets/components/application-state/application-state-empty-state-dont-duplicate-buttons.png)
 
@@ -104,12 +104,12 @@ Here are some common use cases for the Application State, however, it is not lim
 
 ### Error state
 
-Error states are used when the application encounters an issue or error during its operation. It shows the associated error code, icon, messages and actions to help users find a solution.
+Error states are used when the application encounters an issue or error during its operation. It shows the associated error code, icon, messages, and actions to help users find a solution.
 
 ![Showing an example of an error state with a 404 error code and two links](/assets/components/application-state/application-state-error-state.png)
 
 ### Empty state
 
-Empty states are used when a user has yet to create an object. Illustrations are placed using the `media` slot to further elevate the experience and express the purpose of the object.
+An empty state occurs when a user has yet to create an object. Illustrations are placed using the `media` slot to further elevate the experience and express the purpose of the object.
 
 ![Showing an empty state with a primary and secondary button along with a stand alone link](/assets/components/application-state/application-state-empty-state.png)
