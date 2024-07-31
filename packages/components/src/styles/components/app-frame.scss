@@ -16,11 +16,6 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
-
-  // prevent interaction with AppHeader when SideNav is open/expanded
-  &:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
-    pointer-events: none;
-  }
 }
 
 // OPTIONS
@@ -34,7 +29,6 @@
   }
 
   // Modify sidenav layout when used together with fixed app-header
-  // .hds-side-nav,
   .hds-app-frame__sidebar {
     top: var(--token-app-header-height);
     height: calc(100vh - var(--token-app-header-height));
@@ -45,22 +39,21 @@
 // FRAME'S CONTAINERS
 
 .hds-app-frame__header {
-  z-index: 7;
+  z-index: 21; // needs to stay above the main content & sidebar
   grid-area: header;
 }
 
 .hds-app-frame__sidebar {
-  // testing moving SideNav layout styles here...
   position: sticky;
   top: 0;
-
-  // frame element layout
   z-index: 20; // needs to stay above the main content
   grid-area: sidebar;
-
-  // testing moving SideNav layout styles here...
   height: 100vh;
   min-height: 100vh;
+
+  &:has(.hds-side-nav--is-not-minimized) {
+    z-index: 22; // makes overlay appear above header when sidenav is expanded to block interaction
+  }
 }
 
 .hds-app-frame__main {
@@ -70,7 +63,6 @@
 .hds-app-frame__footer {
   grid-area: footer;
 }
-
 
 // MODALS "CONTAINER"
 
