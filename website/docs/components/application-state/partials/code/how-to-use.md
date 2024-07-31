@@ -75,7 +75,7 @@ This component intends to replace a few different simple error and empty/zero st
 
 ```handlebars
 <Hds::ApplicationState as |A|>
-  <A.Media><img src="/assets/images/avatar.png" /></A.Media>
+  <A.Media><img src="/assets/images/avatar.png" alt="portrait of a cat wearing coat and tie" /></A.Media>
   <A.Header @title="Empty state title text" />
   <A.Body @text="Some sentence that conveys a good message to the user" />
   <A.Footer as |F|>
@@ -157,7 +157,7 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
 
 ```handlebars
 <Hds::ApplicationState as |A|>
-  <A.Media><img src="/assets/images/avatar.png" /></A.Media>
+  <A.Media><img src="/assets/images/avatar.png" alt="portrait of a cat wearing coat and tie" /></A.Media>
   <A.Header @title="An error has occurred" @errorCode="404" />
   <A.Body
     @text="Sorry, an unexpected error has occurred.
