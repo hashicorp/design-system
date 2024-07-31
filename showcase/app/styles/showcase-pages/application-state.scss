@@ -16,16 +16,19 @@ body.application-state {
     }
 
     .hds-application-state {
+      // named color usage purely for layout testing
       outline: 2px dotted magenta;
     }
 
     .hds-application-state__media {
+      // named color usage purely for layout testing
       outline: 1px solid green;
     }
 
     .hds-application-state__header,
     .hds-application-state__body,
     .hds-application-state__footer {
+      // named color usage purely for layout testing
       outline: 1px solid cyan;
     }
   }
