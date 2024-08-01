@@ -20,19 +20,22 @@
 
 // OPTIONS
 
-.hds-app-frame--is-header-fixed {
-  .hds-app-frame__header {
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-  }
-
-  // Modify sidenav layout when used together with fixed app-header
-  .hds-app-frame__sidebar {
-    top: var(--token-app-header-height);
-    height: calc(100vh - var(--token-app-header-height));
-    min-height: calc(100vh - var(--token-app-header-height));
+// Make header position sticky/fixed if is-header-fixed is set and the viewport height is greater than 480px
+@media (height >= 480px) {
+  .hds-app-frame--is-header-fixed {
+    .hds-app-frame__header {
+      position: sticky;
+      top: 0;
+      right: 0;
+      left: 0;
+    }
+  
+    // Modify sidenav layout when used together with fixed app-header
+    .hds-app-frame__sidebar {
+      top: var(--token-app-header-height);
+      height: calc(100vh - var(--token-app-header-height));
+      min-height: calc(100vh - var(--token-app-header-height));
+    }
   }
 }
 
