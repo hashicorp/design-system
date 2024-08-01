@@ -20,13 +20,13 @@ By default, the Application State has horizontal auto margins applied to it, alw
 
 !!!
 
-### Center alignment
-
-![Center aligned application state](/assets/components/application-state/application-state-alignment-center.png)
-
 ### Left alignment
 
 ![Left aligned application state](/assets/components/application-state/application-state-alignment-left.png)
+
+### Center alignment
+
+![Center aligned application state](/assets/components/application-state/application-state-alignment-center.png)
 
 ## Media
 
@@ -71,7 +71,9 @@ The Application State supports up to three actions, including [Dropdown](/compon
 
 ### Using buttons or links
 
-Buttons, along with links, are used to emphasize the importance of the action in the Application State with visual hierarchy, and are the most common actions used in the footer.
+Buttons, along with links, are the most common actions used in the footer. Buttons are more often used in empty state contexts because they provide high visibility for the primary action on the page. Links are more common in error state contexts as a means to provide a solution to the error they encountered. 
+
+Read more about when to use [Buttons](/components/button) and [Links](/components/link/standalone).
 
 !!! Dont
 
