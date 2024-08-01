@@ -2,16 +2,16 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`ApplicationState` - Made changes including:
+`ApplicationState`:
 
 - Spacing and alignment updates
 - New `@align` (`left` (default), `center`) argument for aligning content
 - Added new yielded `Media` child component
 
-`ApplicationState::Header` - Made changes including:
+`ApplicationState::Header`:
 
 - The header now supports an optional `@titleTag` argument that can override the default title element (`div`)
 
-`ApplicationState::Footer` - Made changes including:
+`ApplicationState::Footer`:
 
 - The footer now yields `Button` and `Dropdown` components as well as `LinkStandalone`
