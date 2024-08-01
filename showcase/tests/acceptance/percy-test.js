@@ -22,8 +22,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/typography');
     await percySnapshot('Typography');
 
+    // this will be removed once `ember-flight-icon` is also removed
     await visit('/foundations/icon');
-    await percySnapshot('Icon');
+    await percySnapshot('Icon (old)');
 
     await visit('/foundations/elevation');
     await percySnapshot('Elevation');
