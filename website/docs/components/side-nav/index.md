@@ -10,6 +10,8 @@ previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
+status:
+  updated: 4.8.0
 ---
 
 <section data-tab="Guidelines">
@@ -29,3 +31,8 @@ navigation:
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.8.0.md"
+</section>
+
