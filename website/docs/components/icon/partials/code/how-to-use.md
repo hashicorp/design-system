@@ -11,7 +11,7 @@ It renders to this (where the `id` will be unique each time):
 ```markup
 <svg
   id="icon-ember115"
-  class="hds-icon icon-alert-circle"
+  class="hds-icon hds-icon-alert-circle"
   width="16"
   height="16"
   viewBox="0 0 16 16"
@@ -20,7 +20,7 @@ It renders to this (where the `id` will be unique each time):
   aria-hidden="true"
   data-test-icon="alert-circle"
 >
-  <use href="/@hashicorp/flight-icons/icons/sprite.svg#alert-circle-16"></use>
+  <use href="#flight-alert-circle-16"></use>
 </svg>
 ```
 

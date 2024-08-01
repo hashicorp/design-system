@@ -43,7 +43,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[R].Icon>">
-    Yields an icon inside the Radio Card container. For details about its API, check the [icon](/icons/usage-guidelines?tab=code) component.
+    Yields an icon inside the Radio Card container. For details about its API, check the [icon](/components/icon?tab=code) component.
   </C.Property>
   <C.Property @name="<[R].Label>" @type="yielded component">
     A container that yields its content emphasized inside the Radio Card.

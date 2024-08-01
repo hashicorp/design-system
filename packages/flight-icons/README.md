@@ -6,7 +6,7 @@ A package for the icons from `flight`, which can be used in React or Ember apps.
 
 ## Installation and Usage
 
-See [https://helios.hashicorp.design/icons/usage-guidelines?tab=code](https://helios.hashicorp.design/icons/usage-guidelines?tab=code) for installation and usage instructions.
+See [https://helios.hashicorp.design/components/icon?tab=code](https://helios.hashicorp.design/components/icon?tab=code) for installation and usage instructions.
 
 ## Contributing
 
