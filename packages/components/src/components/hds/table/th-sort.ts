@@ -7,13 +7,14 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
-import type {
-  HdsTableHorizontalAlignment,
-  HdsTableThSortOrder,
-} from './types.ts';
 import {
   HdsTableHorizontalAlignmentValues,
   HdsTableThSortOrderValues,
+  HdsTableThSortOrderLabelValues,
+} from './types.ts';
+import type {
+  HdsTableHorizontalAlignment,
+  HdsTableThSortOrder,
   HdsTableThSortOrderLabels,
 } from './types.ts';
 
@@ -54,12 +55,12 @@ export default class HdsTableThSortComponent extends Component<HdsTableThSortArg
   get ariaSort(): HdsTableThSortOrderLabels {
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
-        return HdsTableThSortOrderLabels.Asc;
+        return HdsTableThSortOrderLabelValues.Asc;
       case HdsTableThSortOrderValues.Desc:
-        return HdsTableThSortOrderLabels.Desc;
+        return HdsTableThSortOrderLabelValues.Desc;
       default:
         // none is the default per the spec.
-        return HdsTableThSortOrderLabels.None;
+        return HdsTableThSortOrderLabelValues.None;
     }
   }
 
