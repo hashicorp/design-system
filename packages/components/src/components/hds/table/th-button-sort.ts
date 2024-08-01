@@ -7,10 +7,13 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import {
   HdsTableThSortOrderIcons,
-  HdsTableThSortOrderLabels,
+  HdsTableThSortOrderLabelValues,
   HdsTableThSortOrderValues,
 } from './types.ts';
-import type { HdsTableThSortOrder } from './types.ts';
+import type {
+  HdsTableThSortOrder,
+  HdsTableThSortOrderLabels,
+} from './types.ts';
 export interface HdsTableThButtonSortArgs {
   Args: {
     labelId?: string;
@@ -56,8 +59,8 @@ export default class HdsTableThButtonSortComponent extends Component<HdsTableThB
    */
   get sortOrderLabel(): HdsTableThSortOrderLabels {
     return this.args.sortOrder === HdsTableThSortOrderValues.Asc
-      ? HdsTableThSortOrderLabels.Desc
-      : HdsTableThSortOrderLabels.Asc;
+      ? HdsTableThSortOrderLabelValues.Desc
+      : HdsTableThSortOrderLabelValues.Asc;
   }
 
   /**
