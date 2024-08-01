@@ -19,11 +19,12 @@ export enum HdsTableThSortOrderLabelValues {
 }
 export type HdsTableThSortOrderLabels = `${HdsTableThSortOrderLabelValues}`;
 
-export enum HdsTableThSortOrderIcons {
+export enum HdsTableThSortOrderIconValues {
   ArrowUp = 'arrow-up',
   ArrowDown = 'arrow-down',
   SwapVertical = 'swap-vertical',
 }
+export type HdsTableThSortOrderIcons = `${HdsTableThSortOrderIconValues}`;
 
 export enum HdsTableScopeValues {
   Row = 'row',
