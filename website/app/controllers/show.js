@@ -154,6 +154,8 @@ export default class ShowController extends Controller {
     let tabs = [];
     let tocs = [];
 
+    this.applyCodeHighlighting();
+
     // check if the content is split in sections (and we need tabs) or is all together
     const documentSections = document.querySelectorAll(
       `.doc-page-content section[data-tab]`
@@ -201,6 +203,20 @@ export default class ShowController extends Controller {
     // leave for debugging
     // console.log('show didInsert', this.sections, this.tabs, this.tocs);
   };
+
+  applyCodeHighlighting() {
+    const codeBlocks = document.querySelectorAll(
+      '.doc-code-block__code-snippet'
+    );
+    if (
+      codeBlocks.length > 0 &&
+      typeof window?.Prism?.highlightAllUnder === 'function'
+    ) {
+      codeBlocks.forEach((codeBlock) => {
+        window.Prism.highlightAllUnder(codeBlock);
+      });
+    }
+  }
 
   @action
   onClickTab(tab) {
