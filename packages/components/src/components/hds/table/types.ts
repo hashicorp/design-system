@@ -6,10 +6,11 @@ export enum HdsTableHorizontalAlignmentValues {
 export type HdsTableHorizontalAlignment =
   `${HdsTableHorizontalAlignmentValues}`;
 
-export enum HdsTableThSortOrder {
+export enum HdsTableThSortOrderValues {
   Asc = 'asc',
   Desc = 'desc',
 }
+export type HdsTableThSortOrder = `${HdsTableThSortOrderValues}`;
 
 export enum HdsTableThSortOrderLabels {
   Asc = 'ascending',

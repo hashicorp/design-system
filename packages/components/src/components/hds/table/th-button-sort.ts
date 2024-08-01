@@ -6,11 +6,11 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import {
-  HdsTableThSortOrder,
   HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
+  HdsTableThSortOrderValues,
 } from './types.ts';
-
+import type { HdsTableThSortOrder } from './types.ts';
 export interface HdsTableThButtonSortArgs {
   Args: {
     labelId?: string;
@@ -40,9 +40,9 @@ export default class HdsTableThButtonSortComponent extends Component<HdsTableThB
    */
   get icon(): HdsTableThSortOrderIcons {
     switch (this.args.sortOrder) {
-      case HdsTableThSortOrder.Asc:
+      case HdsTableThSortOrderValues.Asc:
         return HdsTableThSortOrderIcons.ArrowUp;
-      case HdsTableThSortOrder.Desc:
+      case HdsTableThSortOrderValues.Desc:
         return HdsTableThSortOrderIcons.ArrowDown;
       default:
         return HdsTableThSortOrderIcons.SwapVertical;
@@ -55,7 +55,7 @@ export default class HdsTableThButtonSortComponent extends Component<HdsTableThB
    * @description Determines the label (suffix) to use in the `aria-labelledby` attribute of the button, used to indicate what will happen if the user clicks on the button
    */
   get sortOrderLabel(): HdsTableThSortOrderLabels {
-    return this.args.sortOrder === HdsTableThSortOrder.Asc
+    return this.args.sortOrder === HdsTableThSortOrderValues.Asc
       ? HdsTableThSortOrderLabels.Desc
       : HdsTableThSortOrderLabels.Asc;
   }
@@ -85,8 +85,8 @@ export default class HdsTableThButtonSortComponent extends Component<HdsTableThB
 
     // add a class based on the @sortOrder argument
     if (
-      this.args.sortOrder === HdsTableThSortOrder.Asc ||
-      this.args.sortOrder === HdsTableThSortOrder.Desc
+      this.args.sortOrder === HdsTableThSortOrderValues.Asc ||
+      this.args.sortOrder === HdsTableThSortOrderValues.Desc
     ) {
       classes.push(`hds-table__th-button--is-sorted`);
     }
