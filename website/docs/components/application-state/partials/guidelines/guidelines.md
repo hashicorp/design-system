@@ -12,7 +12,7 @@
 
 ## Alignment
 
-The Application State supports two alignment options: `left` and `center`. The alignment affects text alignment, action placement/alignment in the footer, and media placement; however, it does not change the default page alignment.
+The Application State supports two alignment options: `left` (default) and `center`. The alignment affects text alignment, action placement/alignment in the footer, and media placement; however, it does not change the default page alignment.
 
 !!! Info
 
