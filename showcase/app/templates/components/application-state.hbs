@@ -289,6 +289,47 @@
         </Hds::ApplicationState>
       </SF.Item>
     {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Two actions (1 dropdown) / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Dropdown @listPosition="bottom-right" as |dd|>
+              <dd.ToggleButton @text="Choose an option" />
+              <dd.Title @text="Categories" />
+              <dd.Interactive @text="Documentation" @href="#" />
+              <dd.Interactive @text="Tutorials" @href="#" />
+              <dd.Interactive @text="Changelogs" @href="#" />
+            </F.Dropdown>
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Three actions (1 dropdown) / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Dropdown @listPosition="bottom-right" as |dd|>
+              <dd.ToggleButton @text="Choose an option" />
+              <dd.Title @text="Categories" />
+              <dd.Interactive @text="Documentation" @href="#" />
+              <dd.Interactive @text="Tutorials" @href="#" />
+              <dd.Interactive @text="Changelogs" @href="#" />
+            </F.Dropdown>
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
   </Shw::Flex>
 
   <Shw::Divider />
