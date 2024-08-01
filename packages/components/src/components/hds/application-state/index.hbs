@@ -2,9 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-application-state" ...attributes>
+<div class={{this.classNames}} ...attributes>
   {{yield
     (hash
+      Media=(component "hds/application-state/media")
       Header=(component "hds/application-state/header")
       Body=(component "hds/application-state/body")
       Footer=(component "hds/application-state/footer")

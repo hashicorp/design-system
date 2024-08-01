@@ -3,6 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes>
-  {{yield (hash LinkStandalone=(component "hds/link/standalone"))}}
+<div class="hds-application-state__footer" ...attributes>
+  {{yield
+    (hash
+      Button=(component "hds/button")
+      Dropdown=(component "hds/dropdown")
+      LinkStandalone=(component "hds/link/standalone")
+    )
+  }}
 </div>
