@@ -39,7 +39,9 @@ $hds-application-state-content-max-width: 480px;
 
 .hds-application-state__header {
   display: grid;
-  grid-template-rows: auto auto;
+  grid-template-areas:
+    "error error"
+    "icon title";
   grid-template-columns: min-content 1fr;
   align-items: center;
   width: 100%;
@@ -48,12 +50,12 @@ $hds-application-state-content-max-width: 480px;
 }
 
 .hds-application-state__error-code {
-  grid-column: 1 / -1;
+  grid-area: error;
   margin-bottom: 4px;
 }
 
 .hds-application-state__icon {
-  grid-row: 2;
+  grid-area: icon;
   margin-right: 8px; // instead of column gap
   padding-top: 4px; // this seems to align the icon along with line 21
 }
@@ -63,7 +65,7 @@ $hds-application-state-content-max-width: 480px;
   font-weight: var(--token-typography-font-weight-semibold);
 
   &:not(.hds-application-state__icon + &) {
-    grid-column: 1 / -1;
+    grid-column: icon / title;
   }
 }
 
