@@ -6,10 +6,13 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import { HdsTableHorizontalAlignment } from './types.ts';
+import type { HdsTableHorizontalAlignment } from './types.ts';
+import { HdsTableHorizontalAlignmentValues } from './types.ts';
 
-export const ALIGNMENTS: string[] = Object.values(HdsTableHorizontalAlignment);
-export const DEFAULT_ALIGN = HdsTableHorizontalAlignment.Left;
+export const ALIGNMENTS: string[] = Object.values(
+  HdsTableHorizontalAlignmentValues
+);
+export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 
 export interface HdsTableTdArgs {
   Args: {
