@@ -16,10 +16,8 @@ module('Integration | Component | hds-icon', function (hooks) {
     assert.dom('svg.hds-icon').hasClass('hds-icon');
   });
 
-  test('it has aria-hidden set to true', async function (assert) {
-    await render(hbs`<Hds::Icon @name="activity" />`);
-    assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'true');
-  });
+  // SIZE
+
   test('it renders the 16x16 icon by default', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
     assert
@@ -45,41 +43,60 @@ module('Integration | Component | hds-icon', function (hooks) {
       .hasAttribute('width', '100%')
       .hasAttribute('height', '100%');
   });
+
+  // DISPLAY
+
   test('it does not have the "hds-icon--is-inline" class by default', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" />`);
     assert.dom('svg.hds-icon').doesNotHaveClass('hds-icon--is-inline');
   });
-  test('it does have the "hds-icon--is-inline" class if the @isInline option is set to true', async function (assert) {
+  test('it does have the "hds-icon--is-inline" class if the `@isInline` option is set to `true`', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @isInline={{true}} />`);
     assert.dom('svg.hds-icon').hasClass('hds-icon--is-inline');
   });
-  test('additional classes can be added when component is invoked', async function (assert) {
-    await render(hbs`<Hds::Icon @name="meh" class="demo" />`);
-    assert.dom(`svg.hds-icon`).hasClass('demo');
+
+  // COLOR
+
+  test('the fill color should be `currentColor` if no @color is declared', async function (assert) {
+    await render(hbs`<Hds::Icon @name="alert-circle" />`);
+    assert.dom(`svg.hds-icon`).hasAttribute('fill', 'currentColor');
   });
-  test('the color property should accept :root variable values', async function (assert) {
+  test('it should render the correct CSS color class if the @color prop is declared using a pre-defined color', async function (assert) {
+    await render(hbs`<Hds::Icon @name="alert-circle" @color="highlight" />`);
+    // notice: we use CSS helper classes for the color definitions
+    assert.dom(`svg.hds-icon`).hasClass('hds-foreground-highlight');
+    assert.dom(`svg.hds-icon`).hasAttribute('fill', 'currentColor');
+  });
+  test('it should render the correct style if the @color prop is declared as custom CSS property color', async function (assert) {
     await render(
       hbs`<Hds::Icon @name="alert-circle" @color="var(--doc-color-feedback-critical-100)" />`
     );
-    assert.dom(`svg.hds-icon`).hasStyle({
-      fill: 'rgb(186, 34, 38)',
-    });
+    assert
+      .dom(`svg.hds-icon`)
+      .hasAttribute('fill', 'var(--doc-color-feedback-critical-100)');
   });
-  test('the fill color should be set to black by default', async function (assert) {
-    await render(hbs`<Hds::Icon @name="meh" />`);
-    assert.dom(`svg.hds-icon`).hasStyle({
-      fill: 'rgb(0, 0, 0)',
-    });
+  test('it should render the correct style if the @color prop is declared as custom HEX color', async function (assert) {
+    await render(hbs`<Hds::Icon @name="alert-circle" @color="#FF0000" />`);
+    assert.dom(`svg.hds-icon`).hasAttribute('fill', '#FF0000');
   });
-  test('The fill color should be able to be inherited from parent', async function (assert) {
-    await render(hbs`<div style="color:blue;"><Hds::Icon @name="meh" /></div>`);
+  test('the fill color should be able to be inherited from parent', async function (assert) {
+    await render(
+      hbs`<div style="color:blue;"><Hds::Icon @name="alert-circle" /></div>`
+    );
     assert.dom(`svg.hds-icon`).hasStyle({
       fill: 'rgb(0, 0, 255)',
     });
   });
+
+  // A11Y
+
   test('it renders the title if one is defined', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @title="try to avoid" />`);
     assert.dom('title').containsText('try to avoid');
+  });
+  test('it has aria-hidden set to true', async function (assert) {
+    await render(hbs`<Hds::Icon @name="activity" />`);
+    assert.dom('svg.hds-icon.hds-icon-activity').hasAria('hidden', 'true');
   });
   test('it has aria-hidden set to false if a title is defined', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @title="try to avoid" />`);
@@ -100,6 +117,13 @@ module('Integration | Component | hds-icon', function (hooks) {
   test('it has a g element with role of presentation if a title exists', async function (assert) {
     await render(hbs`<Hds::Icon @name="activity" @title="computer says no" />`);
     assert.dom('svg > g').hasAttribute('role');
+  });
+
+  // ATTRIBUTES
+
+  test('additional classes can be added when component is invoked', async function (assert) {
+    await render(hbs`<Hds::Icon @name="meh" class="demo" />`);
+    assert.dom(`svg.hds-icon`).hasClass('demo');
   });
 
   // ASSERTIONS
