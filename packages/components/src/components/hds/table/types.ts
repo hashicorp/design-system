@@ -1,8 +1,10 @@
-export enum HdsTableHorizontalAlignment {
+export enum HdsTableHorizontalAlignmentValues {
   Left = 'left',
   Center = 'center',
   Right = 'right',
 }
+export type HdsTableHorizontalAlignment =
+  `${HdsTableHorizontalAlignmentValues}`;
 
 export enum HdsTableThSortOrder {
   Asc = 'asc',
