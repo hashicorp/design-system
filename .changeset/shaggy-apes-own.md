@@ -15,3 +15,4 @@
 `ApplicationState::Footer`:
 
 - The footer now yields `Button` and `Dropdown` components as well as `LinkStandalone`
+- The visual separator has been removed to modernize the component’s visual look
