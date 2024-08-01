@@ -6,12 +6,13 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import {
-  HdsTableThSortOrderIcons,
+  HdsTableThSortOrderIconValues,
   HdsTableThSortOrderLabelValues,
   HdsTableThSortOrderValues,
 } from './types.ts';
 import type {
   HdsTableThSortOrder,
+  HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
 } from './types.ts';
 export interface HdsTableThButtonSortArgs {
@@ -44,11 +45,11 @@ export default class HdsTableThButtonSortComponent extends Component<HdsTableThB
   get icon(): HdsTableThSortOrderIcons {
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
-        return HdsTableThSortOrderIcons.ArrowUp;
+        return HdsTableThSortOrderIconValues.ArrowUp;
       case HdsTableThSortOrderValues.Desc:
-        return HdsTableThSortOrderIcons.ArrowDown;
+        return HdsTableThSortOrderIconValues.ArrowDown;
       default:
-        return HdsTableThSortOrderIcons.SwapVertical;
+        return HdsTableThSortOrderIconValues.SwapVertical;
     }
   }
 
