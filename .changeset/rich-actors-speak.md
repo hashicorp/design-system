@@ -4,6 +4,7 @@
 
 `AppFrame` - Made changes including:
 - Added `isHeaderFixed` option to control whether AppHeader is fixed/sticky
+- Modified sticky/fixed position to turn off when viewport height is under 480px in height
 - Refactored styles to make `AppFrame` responsible for sticky/fixed layout of `SideNav` and `AppHeader`
 
 `SideNav` - Made changes including:
