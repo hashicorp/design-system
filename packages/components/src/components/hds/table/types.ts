@@ -12,11 +12,12 @@ export enum HdsTableThSortOrderValues {
 }
 export type HdsTableThSortOrder = `${HdsTableThSortOrderValues}`;
 
-export enum HdsTableThSortOrderLabels {
+export enum HdsTableThSortOrderLabelValues {
   Asc = 'ascending',
   Desc = 'descending',
   None = 'none',
 }
+export type HdsTableThSortOrderLabels = `${HdsTableThSortOrderLabelValues}`;
 
 export enum HdsTableThSortOrderIcons {
   ArrowUp = 'arrow-up',
