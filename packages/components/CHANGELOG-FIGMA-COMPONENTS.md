@@ -1,5 +1,26 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
+## August 2nd, 2024
+
+`ApplicationState` - multiple enhancements to the `ApplicationState` including:
+
+- Added support for a media slot, which when enabled, will be added above the title, allowing yielded illustrations to occupy that space.
+- Added an `alignment` property which can be set at the root level to `left` or `center`. This adjusts the component’s text, footer actions, and media alignment.
+- The footer now supports up to three actions at once, modeled after the Button Set. Previously the actions were justified (one all the way left and one all the way right). Supported actions now include Dropdown, Button, and Standalone Link. Previously Standalone Link was the only supported option.
+
+Notable visual changes in the `ApplicationState`:
+
+- The divider has been removed to modernize the component and align with our visual standards.
+- The title text will be reduced from Display 400 to Display 300 to better fit within the page hierarchy.
+- The icon and title have been changed from `foreground/faint` to `foreground/strong`. The body text has changed from `foreground/faint` to `foreground/primary`. These changes better align with our color standards established with other components.
+
+`Enterprise Navigation` - multiple enhancements to navigation components including:
+
+- Added a new `AppHeader` component to contain global and utility navigation elements.
+- Added a new `AppSideNav` component which shares features and functionality with the legacy `SideNav`
+  - The legacy `SideNav` is marked as **deprecated** and will be removed from the library once adoption of the `AppHeader` is complete.
+- Add a new `Application Template` which provides a consistent starting point for the UI chrome with HDS navigation components (`AppHeader`, `AppSideNav`, and `AppFooter`).
+
 ## February 27th, 2024
 
 ### Breaking changes
