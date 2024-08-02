@@ -150,8 +150,6 @@ export default class HdsCodeBlockIndexComponent extends Component<HdsCodeBlockIn
         if (language && grammar) {
           this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
-          // const test = Prism.util.encode(code);
-          // console.log('test', test.toString());
           this.prismCode = htmlSafe(Prism.util.encode(code).toString());
         }
 
