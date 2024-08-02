@@ -8,6 +8,7 @@
 //
 
 .hds-side-nav {
+  position: relative;
   width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
   height: 100%;
   min-height: 100%;
