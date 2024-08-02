@@ -88,20 +88,6 @@ Lorem ipsum
 
 ----------------
 
-# Web Components
-
-<custom-tag class="div-class">
-  <p><span class="span-class">Hello</span> world</p>
-</custom-tag>
-
-<another-custom-tag />
-
-<CustomTag class="customtag-class">
-  <p><span class="span-class">Hello</span> world</p>
-</CustomTag>
-
-----------------
-
 # DOC Components
 
 <Doc::Content::HdsPrinciples />
