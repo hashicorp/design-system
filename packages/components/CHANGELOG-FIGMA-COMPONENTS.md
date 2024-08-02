@@ -14,6 +14,10 @@ Notable visual changes in the `ApplicationState`:
 - The title text will be reduced from Display 400 to Display 300 to better fit within the page hierarchy.
 - The icon and title have been changed from `foreground/faint` to `foreground/strong`. The body text has changed from `foreground/faint` to `foreground/primary`. These changes better align with our color standards established with other components.
 
+### Breaking change
+
+The changes in the footer of the `ApplicationState` to support a Dropdown, Button, and Standalone Link results in a breaking change. To avoid overwriting in-progress design work, we recommend taking screenshots of legacy instances of the Application state prior to updating your library.
+
 `Enterprise Navigation` - multiple enhancements to navigation components including:
 
 - Added a new `AppHeader` component to contain global and utility navigation elements.
