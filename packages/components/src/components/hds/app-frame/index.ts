@@ -63,7 +63,7 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
   get classNames(): string {
     const classes = ['hds-app-frame'];
 
-    if (this.isHeaderFixed && this.hasHeader) {
+    if (this.hasHeader && this.isHeaderFixed) {
       classes.push('hds-app-frame--is-header-fixed');
     }
 
