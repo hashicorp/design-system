@@ -8,13 +8,14 @@ links:
 previewImage: assets/illustrations/components/application-state.jpg
 navigation:
   keywords: ['empty state', 'error state', 'message']
+status:
+  updated: 4.8.0
 ---
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
 </section>
-
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
