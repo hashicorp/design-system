@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 2.2.0
+
+**Minor changes**
+
+`AppHeader` - Added design tokens:
+
+- `--token-app-header-height`
+- `--token-app-header-home-link-size`
+- `--token-app-header-logo-size`
+
+<small class="doc-whats-new-changelog-metadata">[#2161](https://github.com/hashicorp/design-system/pull/2161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.1.0
 
 **Minor changes**
@@ -186,19 +200,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 **Patch changes**
 
 - [#327](https://github.com/hashicorp/design-system/pull/327) [`a46fc035`](https://github.com/hashicorp/design-system/commit/a46fc03570f51e8375b15571ddcb10e62ba446fb) Thanks [@didoo](https://github.com/didoo)! - removed deprecated design tokens for old semantic colors
-
-## 0.8.0
-
-**Minor changes**
-
-- [#136](https://github.com/hashicorp/design-system/pull/136) [`c17f142c`](https://github.com/hashicorp/design-system/commit/c17f142c0c938b471b696820d1fa440f62f7315b) Thanks [@didoo](https://github.com/didoo)! - Updated the font-stack design tokens in “typography”
-
-  - removed `SF Pro Display/Text` in `Display/Text` (we can rely on `-apple-system + BlinkMacSystemFont`)
-  - replaced `Segoe UI Display/Text` with `Segoe UI` in `Display/Text`
-  - added `Helvetica, Arial` to the `sans` block in `Display/Text`
-  - added explicit emoji support for `Display/Text`
-  - replaced `SF Mono` with `ui-monospace` in Code
-  - added `Menlo` to `Code`
 
 
 ---

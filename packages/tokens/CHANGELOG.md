@@ -1,5 +1,19 @@
 # @hashicorp/design-system-tokens
 
+## 2.2.0
+
+### Minor Changes
+
+`AppHeader` - Added design tokens:
+
+- `--token-app-header-height`
+- `--token-app-header-home-link-size`
+- `--token-app-header-logo-size`
+
+<small class="doc-whats-new-changelog-metadata">[#2161](https://github.com/hashicorp/design-system/pull/2161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.1.0
 
 ### Minor Changes
