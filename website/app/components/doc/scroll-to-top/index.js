@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class DocScrollToTopComponent extends Component {
   @service fastboot;
-  @tracked isButtonVisible = false;
+  @tracked isVisible = false;
 
   constructor() {
     super(...arguments);
@@ -27,13 +27,8 @@ export default class DocScrollToTopComponent extends Component {
   }
 
   @action
-  scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  @action
   checkScroll() {
-    this.isButtonVisible = window.scrollY > 200;
+    this.isVisible = window.scrollY > 200;
   }
 
   @action

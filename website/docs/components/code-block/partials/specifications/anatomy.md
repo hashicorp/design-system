@@ -30,4 +30,4 @@ To aid in understanding how the highlighting theme is applied via Prism's tokens
 
 Working directly with an engineering partner can reveal exactly how a snippet will render in the component and should be the first course of action when creating custom snippets. Understanding Prism's [token hierarchy](https://prismjs.com/tokens.html) can also be helpful when creating examples.
 
-If you have questions or need assistance creating custom examples, don’t hesitate to reach out the the HDS team for [support](/about/support).
+If you have questions or need assistance creating custom examples,  [contact the Design Systems Team](/about/support) for support.

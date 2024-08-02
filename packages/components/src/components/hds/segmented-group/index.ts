@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { ComponentLike } from '@glint/template';
@@ -11,11 +16,11 @@ interface HdsSegmentedGroupSignature {
   Blocks: {
     default: [
       {
-        Button: ComponentLike<HdsButtonSignature>;
-        Dropdown: ComponentLike<HdsDropdownSignature>;
-        Select: ComponentLike<HdsFormSelectBaseSignature>;
-        TextInput: ComponentLike<HdsFormTextInputBaseSignature>;
-        Generic: ComponentLike<HdsYieldSignature>;
+        Button?: ComponentLike<HdsButtonSignature>;
+        Dropdown?: ComponentLike<HdsDropdownSignature>;
+        Select?: ComponentLike<HdsFormSelectBaseSignature>;
+        TextInput?: ComponentLike<HdsFormTextInputBaseSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
       },
     ];
   };

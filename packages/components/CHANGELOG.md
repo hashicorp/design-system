@@ -4,6 +4,14 @@
 
 ### Minor Changes
 
+`AppHeader` - Added new component.
+
+`SideNav` - Added new `withAppHeader` option.
+
+<small class="doc-whats-new-changelog-metadata">[#2161](https://github.com/hashicorp/design-system/pull/2161)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 `Dropdown` - Converted component to TypeScript
 
 `MenuPrimitive` - Converted component to TypeScript
@@ -14,11 +22,48 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
+`Breadcrumb` - Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2304](https://github.com/hashicorp/design-system/pull/2304)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`ApplicationState`:
+
+- Spacing and alignment updates
+- New `@align` (`left` (default), `center`) argument for aligning content
+- Added new yielded `Media` child component
+
+`ApplicationState::Header`:
+
+- The header now supports an optional `@titleTag` argument that can override the default title element (`div`)
+
+`ApplicationState::Footer`:
+
+- The footer now yields `Button` and `Dropdown` components as well as `LinkStandalone`
+- The visual separator has been removed to modernize the component’s visual look
+
+<small class="doc-whats-new-changelog-metadata">[#2274](https://github.com/hashicorp/design-system/pull/2274)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 `SegmentedGroup` - Converted component to TypeScript
 
 <small class="doc-whats-new-changelog-metadata">[#2094](https://github.com/hashicorp/design-system/pull/2094)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Add explicit `ember-get-config` dependency for use in the icon sprite initializer
+
+<small class="doc-whats-new-changelog-metadata">[#2283](https://github.com/hashicorp/design-system/pull/2283)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@2.2.0
 
 ## 4.7.0
 

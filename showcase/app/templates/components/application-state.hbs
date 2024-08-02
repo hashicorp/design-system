@@ -3,100 +3,21 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "Application State Component"}}
+{{page-title "ApplicationState Component"}}
 
-<Shw::Text::H1>Application State</Shw::Text::H1>
+<Shw::Text::H1>ApplicationState</Shw::Text::H1>
 
-<section data-test-percy>
-  <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="Error state (ideal)">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-        <A.Body
-          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Error state with no header icon">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="An error has occurred" @errorCode="404" />
-        <A.Body
-          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Error state with a long title">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="An error has occurred and maybe has a long title" @icon="alert-circle" @errorCode="404" />
-        <A.Body
-          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Error state, block yield body">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-        <A.Body>
-          <Shw::Placeholder @text="block yield" @height="150px" @background="#e1f5fe" />
-        </A.Body>
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go to previous page" @href="/" />
-          <F.LinkStandalone
-            @icon="help"
-            @text="Need Help contact us"
-            @href="/components/alert"
-            @iconPosition="trailing"
-          />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Error state with no footer divider">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
-        <A.Body
-          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
-        />
-        <A.Footer as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go to previous page" @href="/" />
-          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Empty state with link">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="Empty state title text" />
-        <A.Body
-          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
-        />
-        <A.Footer as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Empty state with link and footer divider">
-      <Hds::ApplicationState as |A|>
-        <A.Header @title="Empty state title text" />
-        <A.Body
-          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
-        />
-        <A.Footer @hasDivider={{true}} as |F|>
-          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
-        </A.Footer>
-      </Hds::ApplicationState>
-    </SF.Item>
-    <SF.Item @label="Empty state w/o link">
+<section data-test-percy class="{{if this.showHighlight 'shw-component-application-state-layout-highlight'}}">
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <button type="button" class="shw-component-application-state-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="Without actions">
       <Hds::ApplicationState as |A|>
         <A.Header @title="Empty state title" />
         <A.Body
@@ -104,22 +25,35 @@
         />
       </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="Empty state, block yield body contents">
+    <SF.Item @label="With link action">
       <Hds::ApplicationState as |A|>
         <A.Header @title="Empty state title text" />
-        <A.Body>
-          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
-        </A.Body>
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
         <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
         </A.Footer>
       </Hds::ApplicationState>
     </SF.Item>
-    <SF.Item @label="Empty state, icon in header">
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="With generic body content">
       <Hds::ApplicationState as |A|>
-        <A.Header @title="Empty state title text" @icon="help" />
+        <A.Header @title="Empty state title text" />
         <A.Body>
-          <Shw::Placeholder @text="components and other things" @height="150px" @background="#e1f5fe" />
+          <Shw::Placeholder @text="generic content" @width="320px" @height="120px" />
+        </A.Body>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With generic content + Footer with action">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title text" />
+        <A.Body>
+          <Shw::Placeholder @text="generic content" @width="320px" @height="120px" />
         </A.Body>
         <A.Footer as |F|>
           <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
@@ -127,4 +61,481 @@
       </Hds::ApplicationState>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="With icon in header">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @icon="help" />
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With error code in header">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With icon and error code">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With a multiline title">
+      <Hds::ApplicationState as |A|>
+        <A.Header
+          @title="An error has occurred and maybe it has such a long title that will wrap on multiple lines"
+          @icon="alert-circle"
+          @errorCode="404"
+        />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="With custom title tag">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="h1 element instead of the default div" @titleTag="h1" @icon="alert-circle" @errorCode="404" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="Two links as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.LinkStandalone @icon="arrow-left" @text="Go to previous page" @href="/" />
+          <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Two buttons as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Button @color="primary" @text="Primary action" />
+          <F.Button @color="secondary" @text="Secondary action" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="One button + One link as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Body
+          @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Button @color="primary" @text="Primary action" />
+          <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Two buttons + one link as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Button @color="primary" @text="Primary action" />
+          <F.Button @color="secondary" @text="Secondary action" />
+          <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Dropdown as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Dropdown + button as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+          <F.Button @color="secondary" @text="Secondary action" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+    <SF.Item @label="Dropdown + button + link as actions">
+      <Hds::ApplicationState as |A|>
+        <A.Header @title="Empty state title" />
+        <A.Body
+          @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+        />
+        <A.Footer @hasDivider={{true}} as |F|>
+          <F.Dropdown @listPosition="bottom-right" as |dd|>
+            <dd.ToggleButton @text="Choose an option" />
+            <dd.Title @text="Categories" />
+            <dd.Interactive @text="Documentation" @href="#" />
+            <dd.Interactive @text="Tutorials" @href="#" />
+            <dd.Interactive @text="Changelogs" @href="#" />
+          </F.Dropdown>
+          <F.Button @color="secondary" @text="Secondary action" />
+          <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+        </A.Footer>
+      </Hds::ApplicationState>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Alignment</Shw::Text::H2>
+
+  <button type="button" class="shw-component-application-state-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <Shw::Flex @direction="row" @gap="4rem" as |SF|>
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="{{capitalize align}} aligned {{if (eq align 'left') ' (default)'}}">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Two actions / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Three actions / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Button @color="secondary" @text="Secondary action" />
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Two actions (1 dropdown) / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Dropdown @color="secondary" @listPosition="bottom-right" as |dd|>
+              <dd.ToggleButton @text="Choose an option" />
+              <dd.Title @text="Categories" />
+              <dd.Interactive @text="Documentation" @href="#" />
+              <dd.Interactive @text="Tutorials" @href="#" />
+              <dd.Interactive @text="Changelogs" @href="#" />
+            </F.Dropdown>
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="Three actions (1 dropdown) / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Dropdown @color="secondary" @listPosition="bottom-right" as |dd|>
+              <dd.ToggleButton @text="Choose an option" />
+              <dd.Title @text="Categories" />
+              <dd.Interactive @text="Documentation" @href="#" />
+              <dd.Interactive @text="Tutorials" @href="#" />
+              <dd.Interactive @text="Changelogs" @href="#" />
+            </F.Dropdown>
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>With media</Shw::Text::H2>
+
+  <button type="button" class="shw-component-application-state-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <Shw::Flex @direction="row" @gap="4rem" as |SF|>
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="With image / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Media>
+            <img
+              src="/assets/images/avatar.png"
+              alt="portrait of a cat wearing old-fashioned formal wear"
+              class="shw-component-application-state-avatar"
+            />
+          </A.Media>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+            <F.LinkStandalone @icon="help" @text="Need Help" @href="/components/alert" @iconPosition="trailing" />
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="With icon / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Media>
+            <FlightIcon @name="channel" @size="24" @isInlineBlock={{false}} />
+          </A.Media>
+          <A.Header @title="Empty state title" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="With IconTile / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Media>
+            <Hds::IconTile @logo="terraform" @size="large" />
+          </A.Media>
+          <A.Header @title="Empty state title" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="With generic content / {{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Media>
+            <Shw::Placeholder @text="media" @width="80" @height="80" />
+          </A.Media>
+          <A.Header @title="Empty state title" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.LinkStandalone @icon="arrow-left" @text="Go back" @href="/" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H4 @tag="h3">With wide media (banner-like)</Shw::Text::H4>
+
+  <button type="button" class="shw-component-application-state-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <Shw::Flex @direction="column" @gap="4rem" as |SF|>
+    {{#each @model.ALIGNS as |align|}}
+      <SF.Item @label="{{align}} aligned">
+        <Hds::ApplicationState @align={{align}} as |A|>
+          <A.Media>
+            <img
+              src="/assets/images/cat-banner.png"
+              alt="3 cats wearing old-fashioned formal wear"
+              class="shw-component-application-state-banner"
+            />
+          </A.Media>
+          <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.Button @color="secondary" @text="Secondary action" />
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Responsiveness</Shw::Text::H2>
+
+  <button type="button" class="shw-component-application-state-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
+
+  <Shw::Flex @direction="column" @gap="4rem" as |SF|>
+    {{#let
+      (array
+        (hash value="100%" label="Both media and content smaller than parent container")
+        (hash value="550px" label="Media larger and content smaller than parent container")
+        (hash value="320px" label="Both media and content larger than parent container")
+      )
+      as |widths|
+    }}
+      {{#each widths as |width|}}
+        {{#each @model.ALIGNS as |align|}}
+
+          <SF.Item @label="{{width.label}} / {{align}} aligned">
+            <Shw::Outliner {{style width=width.value}}>
+              <Hds::ApplicationState @align={{align}} as |A|>
+                <A.Media>
+                  <img
+                    src="/assets/images/cat-banner.png"
+                    alt="3 cats wearing old-fashioned formal wear"
+                    class="shw-component-application-state-banner"
+                  />
+                </A.Media>
+                <A.Header @title="An error has occurred" @icon="alert-circle" @errorCode="404" />
+                <A.Body
+                  @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+                />
+                <A.Footer as |F|>
+                  <F.Button @color="primary" @text="Primary action" />
+                  <F.Button @color="secondary" @text="Secondary action" />
+                  <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+                </A.Footer>
+              </Hds::ApplicationState>
+            </Shw::Outliner>
+          </SF.Item>
+        {{/each}}
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>In a container</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" @gap="4rem" as |SF|>
+    <SF.Item @label="In a card">
+      <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="40px"}}>
+        <Hds::ApplicationState @align="center" as |A|>
+          <A.Header @title="No stacks" />
+          <A.Body @text="No stacks to show in this project." />
+          <A.Footer as |F|>
+            <F.Button @color="primary" @text="Create stack" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </Hds::Card::Container>
+    </SF.Item>
+    <SF.Item @label="In a table">
+      <Hds::Table @caption="a custom table with no model defined">
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Lorem</H.Th>
+            <H.Th>Ipsum</H.Th>
+            <H.Th>Dolor</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr>
+            <B.Td colspan="3" {{style padding="40px"}}>
+              <Hds::ApplicationState @align="center" as |A|>
+                <A.Header @title="No stacks" />
+                <A.Body @text="No stacks to show in this project." />
+                <A.Footer as |F|>
+                  <F.Button @color="primary" @text="Create stack" />
+                </A.Footer>
+              </Hds::ApplicationState>
+            </B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>

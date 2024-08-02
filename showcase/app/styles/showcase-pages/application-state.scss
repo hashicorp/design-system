@@ -1,0 +1,45 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APPLICATION-STATE
+
+body.application-state {
+  .shw-component-application-state-button-highlight {
+    margin: 24px 0;
+  }
+
+  .shw-component-application-state-layout-highlight {
+    .shw-flex__item {
+      outline: 1px dashed #78909c;
+    }
+
+    .hds-application-state {
+      // named color usage purely for layout testing
+      outline: 2px dotted magenta;
+    }
+
+    .hds-application-state__media {
+      // named color usage purely for layout testing
+      outline: 1px solid green;
+    }
+
+    .hds-application-state__header,
+    .hds-application-state__body,
+    .hds-application-state__footer {
+      // named color usage purely for layout testing
+      outline: 1px solid cyan;
+    }
+  }
+
+  .shw-component-application-state-avatar {
+    width: 125px;
+    height: 125px;
+    border-radius: 100%;
+  }
+
+  .shw-component-application-state-banner {
+    width: 680px;
+  }
+}

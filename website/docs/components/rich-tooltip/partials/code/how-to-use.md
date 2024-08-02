@@ -8,7 +8,7 @@ While the Rich Tooltip may seem to be a fairly simple component, there is a lot 
 
 As tooltips are notoriously difficult to implement in an accessible way, we have intentionally limited some of the ways in which the Rich Tooltip can be used, while at the same time providing an alternative if some edge cases need to be supported (but in this case, consumers will need to make sure the component is used in a [conformant and accessible way](/components/rich-tooltip?tab=accessibility)).
 
-The component provides several options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, please [speak with the Design System team](/about/support).
+The component provides several options to customize its behavior. Below we have tried to describe the most common examples, but if you find a use case that is not supported by the existing Rich Tooltip implementation, [contact the Design Systems Team](/about/support).
 
 ## How to use this component
 
@@ -32,7 +32,7 @@ The `Bubble` element is a pure container that yields the children inside the "po
 
 !!! Info
 
-Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, please [speak with the Design System team](/about/support).
+Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
 
 !!!
 
@@ -238,11 +238,11 @@ When used in this way, it's up to the consumer to make sure the implementation i
 
 ### Advanced options
 
-There might be special use cases in which consumers may need to fine tune the Rich Tooltip behaviour. Below we provide some some examples.
+There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
 
 !!! Insight
 
-If your use case requires customizing the component behavior or functionality, we suggest [speaking with the Design System team](/about/support) first before actually implementing the changes (as we may already have your case covered).
+If your use case requires customizing the component behavior or functionality, [contact the Design Systems Team](/about/support) first before actually implementing the changes (as we may already have your case covered).
 
 !!!
 

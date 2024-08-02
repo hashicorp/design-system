@@ -10,6 +10,9 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
+import type HdsAppHeaderComponent from './components/hds/app-header';
+import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
+import type HdsAppHeaderMenuButtonComponent from './components/hds/app-header/menu-button';
 import type HdsAppFooterComponent from './components/hds/app-footer';
 import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
@@ -18,6 +21,9 @@ import type HdsAppFooterLinkComponent from './components/hds/app-footer/link';
 import type HdsAppFooterStatusLinkComponent from './components/hds/app-footer/status-link';
 import type HdsBadgeComponent from './components/hds/badge';
 import type HdsBadgeCountComponent from './components/hds/badge-count';
+import type HdsBreadcrumbComponent from './components/hds/breadcrumb/index.ts';
+import type HdsBreadcrumbItemComponent from './components/hds/breadcrumb/item';
+import type HdsBreadcrumbTruncationComponent from './components/hds/breadcrumb/truncation.ts';
 import type HdsButtonComponent from './components/hds/button';
 import type HdsButtonSetComponent from './components/hds/button-set';
 import type HdsAppFrameComponent from './components/hds/app-frame';
@@ -30,6 +36,7 @@ import type HdsApplicationStateComponent from './components/hds/application-stat
 import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
+import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
@@ -176,6 +183,16 @@ export default interface HdsComponentsRegistry {
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
 
+  // AppHeader
+  'Hds::AppHeader': typeof HdsAppHeaderComponent;
+  'hds/app-header': typeof HdsAppHeaderComponent;
+
+  'Hds::AppHeader::HomeLink': typeof HdsAppHeaderHomeLinkComponent;
+  'hds/app-header/home-link': typeof HdsAppHeaderHomeLinkComponent;
+
+  'Hds::AppHeader::MenuButton': typeof HdsAppHeaderMenuButtonComponent;
+  'hds/app-header/menu-button': typeof HdsAppHeaderMenuButtonComponent;
+
   // AppFooter
   'Hds::AppFooter': typeof HdsAppFooterComponent;
   'hds/app-footer': typeof HdsAppFooterComponent;
@@ -227,6 +244,9 @@ export default interface HdsComponentsRegistry {
   'Hds::ApplicationState::Footer': typeof HdsApplicationStateFooterComponent;
   'hds/application-state/footer': typeof HdsApplicationStateFooterComponent;
 
+  'Hds::ApplicationState::Media': typeof HdsApplicationStateMediaComponent;
+  'hds/application-state/media': typeof HdsApplicationStateMediaComponent;
+
   // Badge
   'Hds::Badge': typeof HdsBadgeComponent;
   'hds/badge': typeof HdsBadgeComponent;
@@ -234,6 +254,16 @@ export default interface HdsComponentsRegistry {
   // BadgeCount
   'Hds::BadgeCount': typeof HdsBadgeCountComponent;
   'hds/badge-count': typeof HdsBadgeCountComponent;
+
+  // Breadcrumb
+  'Hds::Breadcrumb': typeof HdsBreadcrumbComponent;
+  'hds/breadcrumb': typeof HdsBreadcrumbComponent;
+
+  'Hds::Breadcrumb::Item': typeof HdsBreadcrumbItemComponent;
+  'hds/breadcrumb/item': typeof HdsBreadcrumbItemComponent;
+
+  'Hds::Breadcrumb::Truncation': typeof HdsBreadcrumbTruncationComponent;
+  'hds/breadcrumb/truncation': typeof HdsBreadcrumbTruncationComponent;
 
   // Button
   'Hds::Button': typeof HdsButtonComponent;

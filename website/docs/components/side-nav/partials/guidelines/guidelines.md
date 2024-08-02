@@ -2,49 +2,16 @@
 
 ### When to use
 
-- To display the primary navigation of the application on a page.
+- When navigating between subpages and nested pages within the application.
 
 ### When not to use
 
-- To move between views within the same context or page, consider [Tabs](#).
-
-## Header
-
-The navigation header displays persistent UI elements that give users quick access to important sections and resources within the application or platform.
-
-### Home link
-
-The home link gives users consistent and quick access to the application's main page or section. Generally, the home or dashboard.
-
-For cloud products, the icon set should always be the HCP service icon. For standalone or open-source products, it should be the product’s service icon (e.g. Terraform).
-
-![Home link in side-nav's header](/assets/components/side-nav/header-logo.png)
-
-### Help dropdown
-
-Use the help dropdown to provide users with access to support and helpful resources that can be easily accessible from anywhere within the application—for example, links to the help center, documentation, or tutorials.
-
-Avoid placing non-help related links or actions, such as user settings or navigation links within the menu.
-
-![Help dropdown menu in side-nav's header](/assets/components/side-nav/help-dropdown.png)
-
-### User dropdown
-
-The user dropdown gives users quick and easy access to their settings and preferences. The menu should contain links or actions related to the user's profile, settings, and/or preferences.
-
-Avoid placing links to unrelated pages or actions, such as support or navigation items within the menu.
-
-![User dropdown menu in side-nav's header](/assets/components/side-nav/user-dropdown.png)
-
-### Custom content
-
-The `custom` type supports any custom content, local components, or Helios components within the header via an instance swap property (customInstance) in Figma.
-
-![Generic container within the side-nav header](/assets/components/side-nav/custom-header.png)
+- For global navigation across an application, use the [App Header](/components/app-header) instead.
+- To move between views within the same context or page, consider [Tabs](/components/tabs).
 
 ## Body
 
-The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any custom content or component is also supported by an additional generic container.
+The body consists of a group of sections with vertical lists of links, typically to the most important parts of the application. Any generic content or component is also supported by an additional generic container.
 
 ### List
 
@@ -108,25 +75,17 @@ Use `isLinkExternal` to show that the list item is a hyperlink pointing to a pag
 Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
 
-### Custom content
+### Generic content
 
-Toggle `hasCustomContent` on to support any additional custom content, local components, or Helios components within the body container via an instance swap property (customInstance) in Figma.
+The topGenericInstance and bottomGenericInstance properties support any additional generic content, local components, or Helios components within the body container via instance swap properties (`topGenericInstance`, `bottomGenericInstance`) in Figma.
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 
-## Footer
-
-### Context switcher
-
-The context switcher allows users to switch between different contexts within your product or application. For example, the navigation or application can change based on a particular organization or workspace the user selects.
-
-![Context switcher](/assets/components/side-nav/footer-context-switcher.png)
-
 ## Positioning, and responsive behaviour
 
-The SideNav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
+The Side Nav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
 
-On smaller viewports, the SideNav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
+On smaller viewports, the Side Nav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
 ![Responsive side-nav](/assets/components/side-nav/sidenav-position-and-responsive.png)
 
@@ -134,15 +93,15 @@ On smaller viewports, the SideNav should collapse to maximize the available real
 
 If the `isCollapsible` property is set to `true`, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
 
-![SideNav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
+![Side Nav collapse function](/assets/components/side-nav/sidenav-collapse-interaction.png)
 
-On smaller viewports, the SideNav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
+On smaller viewports, the Side Nav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
 
-![SideNav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
+![Side Nav overlay on smaller viewports](/assets/components/side-nav/sidenav-overlay-small-viewport.png)
 
 ### Collapsed reflow
 
-The collapse functionality of the SideNav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow or reposition to occupy this space if the SideNav is in its collapsed state. If the main page content has a predetermined maximum width that is reached when the SideNav collapses, the content should transition smoothly to the new center of the main page area.
+The collapse functionality of the Side Nav gives control to the end-user to unlock more horizontal space in the main page. Thus, the main page content should reflow or reposition to occupy this space if the Side Nav is in its collapsed state. If the main page content has a predetermined maximum width that is reached when the Side Nav collapses, the content should transition smoothly to the new center of the main page area.
 
 This is handled out of the box by the [AppFrame](/layouts/app-frame) component, but may need to be accounted for in custom implementations of the application/page layout.
 

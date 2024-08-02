@@ -84,11 +84,9 @@ Filtering on an unrepresented parameter will return results that correspond with
 
 !!!
 
-#### Parameter and value relationship within a data set
+![Parameter and value relationship within a data set](/assets/patterns/filter-patterns/filter-concept-data-set-parameters.png =636x*)
+<Doc::ImageCaption @text="Parameter and value relationship within a data set"/>
 
-![Parameters within a data set](/assets/patterns/filter-patterns/filter-concept-data-set-parameters.png =636x*)
-
-#### Parameter and value relationship as a grid
-
-![Grid data set parameter and value relationship](/assets/patterns/filter-patterns/filter-concept-data-set-parameters-grid.png =913x*)
+![Parameter and value relationship as a grid](/assets/patterns/filter-patterns/filter-concept-data-set-parameters-grid.png =913x*)
+<Doc::ImageCaption @text="Parameter and value relationship as a grid"/>
 

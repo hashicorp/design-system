@@ -96,7 +96,7 @@ Most of the arguments are forwarded as `anchoredPositionOptions` to the underlyi
     Elements passed as children are yielded as inner content of the tooltip's bubble.
     <br />
     <br />
-    _⚠️ Important: We apply a CSS reset (`all: initial`) to the container, to avoid  having styles applied to the parent elements leak into the tooltip content. If you find any issue with this reset, please [speak with the Design System team](/about/support)._
+    _⚠️ Important: We apply a CSS reset (`all: initial`) to the container, to avoid  having styles applied to the parent elements leak into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support)._
   </C.Property>
   <C.Property @name="placement" @type="enum" @values={{array "top" "top-start" "top-end" "right" "right-start" "right-end" "bottom" "bottom-start" "bottom-end" "left" "left-start" "left-end"}} @default="bottom">
     Placement for the preferred starting position of the tooltip's bubble relative to the toggle element.

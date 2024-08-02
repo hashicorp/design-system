@@ -3,18 +3,24 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-application-state__header" ...attributes>
-  {{#if @icon}}
-    <div class="hds-application-state__icon">
-      <FlightIcon @name={{@icon}} @size="24" />
-    </div>
-  {{/if}}
-  <Hds::Text::Display class="hds-application-state__title" @tag="div" @size="400" @weight="semibold">
-    {{@title}}
-  </Hds::Text::Display>
   {{#if @errorCode}}
-    <Hds::Text::Body class="hds-application-state__error-code" @tag="div" @size="100" @weight="medium">
-      Error
+    <Hds::Text::Body class="hds-application-state__error-code" @tag="div" @size="100" @weight="medium" @color="faint">
+      ERROR
       {{@errorCode}}
     </Hds::Text::Body>
   {{/if}}
+  {{#if @icon}}
+    <div class="hds-application-state__icon">
+      <FlightIcon @color="var(--token-color-foreground-strong)" @name={{@icon}} @size="24" />
+    </div>
+  {{/if}}
+  <Hds::Text::Display
+    class="hds-application-state__title"
+    @tag={{this.titleTag}}
+    @size="300"
+    @weight="semibold"
+    @color="strong"
+  >
+    {{@title}}
+  </Hds::Text::Display>
 </div>

@@ -47,11 +47,11 @@ When one or more values are selected, the trigger is populated with the selected
 
 ## Before and after options
 
-The before and after options are areas above and below the list, independent from the list of options. Predefined components (like search) or custom content can occupy these spaces.
+The before and after options are areas above and below the list, independent from the list of options. Predefined components (like search) or generic content can occupy these spaces.
 
 ### BeforeOptions
 
-BeforeOptions allows for either a search field or custom content to be displayed before the options list.
+BeforeOptions allows for either a search field or generic content to be displayed before the options list.
 
 !!! Warning
 
@@ -65,11 +65,11 @@ If enabled, search allows the user to filter results based on a query.
 
 ![Search enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-search.png =836x*)
 
-#### CustomContent
+#### Generic content
 
-If enabled, custom content will occupy this space.
+If enabled, generic content will occupy this space.
 
-![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-custom-content.png =836x*)
+![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-before-options-custom-content.png =836x*)
 
 !!! Dont
 
@@ -81,7 +81,7 @@ We recommend against placing heavy UI elements in custom content as it can draw 
 
 ### AfterOptions
 
-AfterOptions allows for either a standardized footer or custom content to be displayed after the options list. The footer has additional functionality in the Multiple component compared to the Single.
+AfterOptions allows for either a standardized footer or generic content to be displayed after the options list. The footer has additional functionality in the Multiple component compared to the Single.
 
 #### Footer
 
@@ -91,13 +91,13 @@ By default, the footer displays below the options list and contains content and/
 
 The footer for the Single component includes a total count, which is customizable to fit the context.
 
-![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
+![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
 
 ##### Multiple
 
 The footer for the Multiple component includes buttons to modify the options and a count of the number of options selected out of the total.
 
-![Custom content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
+![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
 The “Show selected” button displays only the selected options in the list. When toggled, the text changes to “Show all.”
 
@@ -111,17 +111,17 @@ The “Clear selected” button clears all selections and reverts the Super Sele
 
 ![Flow showing the behavior of the clear selected button and how it reverts the Super Select's state to the default one](/assets/components/form/super-select/super-select-flow-clear-selected.png)
 
-##### Footer with custom content
+##### Footer with generic content
 
-The footer can contain custom content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usage.
+The footer can contain generic content instead of the default content. This is helpful in maintaining the standard appearance of the footer container while allowing for custom usage.
 
-![Showing the footer with custom content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
+![Showing the footer with generic content inside.](/assets/components/form/super-select/super-select-single-multiple-footer-custom-content.png =836x*) 
 
-#### CustomContent
+#### Generic content
 
-If enabled, custom content will occupy this space.
+If enabled, generic content will occupy this space.
 
-![Showing the afterOptions slot with custom content](/assets/components/form/super-select/super-select-after-options-custom-content.png =836x*)
+![Showing the afterOptions slot with generic content](/assets/components/form/super-select/super-select-after-options-custom-content.png =836x*)
 
 ## List
 

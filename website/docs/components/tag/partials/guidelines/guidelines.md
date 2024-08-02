@@ -14,13 +14,11 @@
 - The Tag component can be used in several different layouts, but we commonly see them in a list or a group.
 - Tags will fill the parent container and then wrap, as necessary.
 
-### List
+![Tag layout as a list](/assets/components/tag/tag-layout-list.png =678x*)
+<Doc::ImageCaption @text="Tag layout as a list"/>
 
-![Layout list example](/assets/components/tag/tag-layout-list.png =678x*)
-
-### Group
-
-![Layout group example](/assets/components/tag/tag-layout-group.png =818x*)
+![Tag layout as a group](/assets/components/tag/tag-layout-group.png =818x*)
+<Doc::ImageCaption @text="Tag layout as a group"/>
 
 ## Spacing
 

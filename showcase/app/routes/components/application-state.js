@@ -5,4 +5,12 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsApplicationStateRoute extends Route {}
+import { ALIGNS } from '@hashicorp/design-system-components/components/hds/application-state';
+
+export default class ComponentsApplicationStateRoute extends Route {
+  model() {
+    return {
+      ALIGNS,
+    };
+  }
+}

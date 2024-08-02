@@ -12,16 +12,14 @@ Within a paragraph where an object is referred to.
 
 Use **Neutral** if the object or page is not a specific product feature but something universal. For example, for a “Dashboard” or “User” page.
 
-<Hds::IconTile @color="neutral" @icon="dashboard" />
+<Doc::Layout @spacing="16px">
+  <Hds::IconTile @color="neutral" @icon="dashboard" />
+</Doc::Layout>
 
 Use a **product-specific color** for objects or pages directly related to a product. For example:
 
 - For a page showing a “Consul cluster”
 - In a card or table row that represents a “Consul cluster”
-
-<Hds::IconTile @color="consul" @icon="server-cluster" />
-
-### Examples
 
 <Doc::Layout @spacing="12px">
   <Hds::IconTile @color="neutral" @icon="user" />
@@ -35,6 +33,8 @@ Use a **product-specific color** for objects or pages directly related to a prod
   <Hds::IconTile @color="vault-secrets" @icon="fingerprint" />
   <Hds::IconTile @color="waypoint" @icon="cloud-upload" />
 </Doc::Layout>
+
+<Doc::ImageCaption @text="Examples of product-specific Icon Tiles"/>
 
 ## Size
 
