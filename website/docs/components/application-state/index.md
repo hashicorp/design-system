@@ -16,6 +16,7 @@ status:
   @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
 </section>
+
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
@@ -27,4 +28,8 @@ status:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.8.0.md"
 </section>
