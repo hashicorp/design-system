@@ -11,7 +11,7 @@ import { HdsTooltipPlacementValues } from './types.ts';
 
 export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
 
-export interface HdsTooltipIndexSignature {
+export interface HdsTooltipSignature {
   Args: {
     extraTippyOptions: Omit<TippyProps, 'placement' | 'offset'>;
     isInline?: boolean;
@@ -25,7 +25,7 @@ export interface HdsTooltipIndexSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsTooltipIndexComponent extends Component<HdsTooltipIndexSignature> {
+export default class HdsTooltipIndexComponent extends Component<HdsTooltipSignature> {
   /**
    * @param text
    * @type {string}
