@@ -6,29 +6,33 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-export const PLACEMENTS = [
-  'top',
-  'top-start',
-  'top-end',
-  'right',
-  'right-start',
-  'right-end',
-  'bottom',
-  'bottom-start',
-  'bottom-end',
-  'left',
-  'left-start',
-  'left-end',
-];
+import type { Props as TippyProps } from 'tippy.js';
+import { HdsTooltipPlacementValues } from './types.ts';
 
-export default class HdsTooltipIndexComponent extends Component {
+export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
+
+export interface HdsTooltipIndexSignature {
+  Args: {
+    extraTippyOptions?: TippyProps;
+    isInline?: boolean;
+    offset?: [number, number];
+    placement: HdsTooltipPlacementValues;
+    text: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLButtonElement;
+}
+
+export default class HdsTooltipIndexComponent extends Component<HdsTooltipIndexSignature> {
   /**
    * @param text
    * @type {string}
    * @description text content for tooltip
    */
-  get text() {
-    let { text } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
     assert(
       '@text for "Hds::TooltipButton" must have a valid value',
@@ -39,7 +43,7 @@ export default class HdsTooltipIndexComponent extends Component {
   }
 
   get options() {
-    let { placement } = this.args;
+    const { placement } = this.args;
 
     assert(
       '@placement for "Hds::TooltipButton" must have a valid value',
@@ -61,8 +65,8 @@ export default class HdsTooltipIndexComponent extends Component {
    * @default true
    * @description sets display for the button
    */
-  get isInline() {
-    let { isInline = true } = this.args;
+  get isInline(): boolean {
+    const { isInline = true } = this.args;
     return isInline;
   }
 
@@ -71,8 +75,8 @@ export default class HdsTooltipIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-tooltip-button'];
+  get classNames(): string {
+    const classes = ['hds-tooltip-button'];
 
     // add a class based on the @isInline argument
     if (this.isInline) {

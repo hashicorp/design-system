@@ -146,6 +146,7 @@ import type HdsTextComponent from './components/hds/text';
 import type HdsTextBodyComponent from './components/hds/text/body';
 import type HdsTextDisplayComponent from './components/hds/text/display';
 import type HdsTagComponent from './components/hds/tag';
+import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsYieldComponent from './components/hds/yield';
@@ -682,6 +683,10 @@ export default interface HdsComponentsRegistry {
   // Tag
   'Hds::Tag': typeof HdsTagComponent;
   'hds/tag': typeof HdsTagComponent;
+
+  // TooltipButton
+  'Hds::TooltipButton': typeof HdsTooltipButtonComponent;
+  'hds/tooltip-button': typeof HdsTooltipButtonComponent;
 
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
