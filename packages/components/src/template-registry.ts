@@ -38,6 +38,10 @@ import type HdsApplicationStateFooterComponent from './components/hds/applicatio
 import type HdsApplicationStateHeaderComponent from './components/hds/application-state/header';
 import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
+import type HdsCodeBlockComponent from './components/hds/code-block';
+import type HdsCodeBlockCopyButtonComponent from './components/hds/code-block/copy-button';
+import type HdsCodeBlockDescriptionComponent from './components/hds/code-block/description';
+import type HdsCodeBlockTitleComponent from './components/hds/code-block/title';
 import type HdsCopyButtonComponent from './components/hds/copy/button/index';
 import type HdsCopySnippetComponent from './components/hds/copy/snippet';
 import type HdsDisclosurePrimitiveComponent from './components/hds/disclosure-primitive';
@@ -276,6 +280,19 @@ export default interface HdsComponentsRegistry {
   // Card
   'Hds::Card': typeof HdsCardContainerComponent;
   'hds/card': typeof HdsCardContainerComponent;
+
+  // Code Block
+  'Hds::CodeBlock': typeof HdsCodeBlockComponent;
+  'hds/code-block': typeof HdsCodeBlockComponent;
+
+  'Hds::CodeBlock::CopyButton': typeof HdsCodeBlockCopyButtonComponent;
+  'hds/code-block/copy-button': typeof HdsCodeBlockCopyButtonComponent;
+
+  'Hds::CodeBlock::Description': typeof HdsCodeBlockDescriptionComponent;
+  'hds/code-block/description': typeof HdsCodeBlockDescriptionComponent;
+
+  'Hds::CodeBlock::Title': typeof HdsCodeBlockTitleComponent;
+  'hds/code-block/title': typeof HdsCodeBlockTitleComponent;
 
   // Copy Button
   'Hds::Copy::Button': typeof HdsCopyButtonComponent;

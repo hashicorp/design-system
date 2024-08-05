@@ -21,6 +21,10 @@ import HdsBreadcrumbTruncation from './components/hds/breadcrumb/truncation.ts';
 import HdsButton from './components/hds/button/index.ts';
 import HdsButtonSet from './components/hds/button-set/index.ts';
 import HdsCard from './components/hds/card/container.ts';
+import HdsCodeBlock from './components/hds/code-block/index.ts';
+import HdsCodeBlockCopyButton from './components/hds/code-block/copy-button.ts';
+import HdsCodeBlockDescription from './components/hds/code-block/description.ts';
+import HdsCodeBlockTitle from './components/hds/code-block/title.ts';
 import HdsCopyButton from './components/hds/copy/button/index.ts';
 import HdsCopySnippet from './components/hds/copy/snippet/index.ts';
 import HdsDialogPrimitiveBody from './components/hds/dialog-primitive/body.ts';
@@ -118,6 +122,10 @@ export {
   HdsButton,
   HdsButtonSet,
   HdsCard,
+  HdsCodeBlock,
+  HdsCodeBlockCopyButton,
+  HdsCodeBlockDescription,
+  HdsCodeBlockTitle,
   HdsCopyButton,
   HdsCopySnippet,
   HdsDialogPrimitiveBody,

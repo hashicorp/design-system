@@ -13,6 +13,14 @@ import { guidFor } from '@ember/object/internals';
 
 import Prism from 'prismjs';
 
+import type { SafeString } from '@ember/template/-private/handlebars';
+import type { ComponentLike } from '@glint/template';
+
+import type { HdsCodeBlockTitleSignature } from './title';
+import type { HdsCodeBlockDescriptionSignature } from './description';
+import { HdsCodeBlockLanguageValues } from './types.ts';
+import type { HdsCodeBlockLanguages } from './types.ts';
+
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
 
@@ -31,8 +39,32 @@ import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
 
-export default class HdsCodeBlockIndexComponent extends Component {
-  @tracked prismCode = '';
+export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
+
+export interface HdsCodeBlockSignature {
+  Args: {
+    hasCopyButton?: boolean;
+    hasLineNumbers?: boolean;
+    hasLineWrapping?: boolean;
+    highlightLines?: string;
+    isStandalone?: boolean;
+    language?: HdsCodeBlockLanguages;
+    maxHeight?: string;
+    value: string;
+  };
+  Blocks: {
+    default: [
+      {
+        Title?: ComponentLike<HdsCodeBlockTitleSignature>;
+        Description?: ComponentLike<HdsCodeBlockDescriptionSignature>;
+      },
+    ];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsCodeBlockComponent extends Component<HdsCodeBlockSignature> {
+  @tracked prismCode: SafeString = htmlSafe('');
 
   /**
    * Generates a unique ID for the code content
@@ -46,7 +78,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @type {string}
    * @description code text content for the CodeBlock
    */
-  get code() {
+  get code(): string {
     const code = this.args.value;
 
     assert(
@@ -54,8 +86,8 @@ export default class HdsCodeBlockIndexComponent extends Component {
       code !== undefined
     );
 
-    if (Prism?.plugins?.NormalizeWhitespace) {
-      return Prism.plugins.NormalizeWhitespace.normalize(code);
+    if (Prism?.plugins?.['NormalizeWhitespace']) {
+      return Prism.plugins['NormalizeWhitespace'].normalize(code);
     }
 
     return code;
@@ -67,7 +99,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @default undefined
    * @description name of coding language used within CodeBlock for syntax highlighting
    */
-  get language() {
+  get language(): HdsCodeBlockLanguages | undefined {
     return this.args.language ?? undefined;
   }
 
@@ -77,7 +109,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @default true
    * @description Displays line numbers if true
    */
-  get hasLineNumbers() {
+  get hasLineNumbers(): boolean {
     return this.args.hasLineNumbers ?? true;
   }
 
@@ -87,7 +119,7 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @default true
    * @description Make CodeBlock container corners appear rounded
    */
-  get isStandalone() {
+  get isStandalone(): boolean {
     return this.args.isStandalone ?? true;
   }
 
@@ -97,22 +129,22 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @default false
    * @description Make text content wrap on multiple lines
    */
-  get hasLineWrapping() {
+  get hasLineWrapping(): boolean {
     return this.args.hasLineWrapping ?? false;
   }
 
   @action
-  setPrismCode(element) {
+  setPrismCode(element: HTMLElement): void {
     const code = this.code;
     const language = this.language;
-    const grammar = Prism.languages[language];
+    const grammar = language ? Prism.languages[language] : undefined;
 
     if (code) {
       next(() => {
         if (language && grammar) {
           this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
-          this.prismCode = htmlSafe(Prism.util.encode(code));
+          this.prismCode = htmlSafe(Prism.util.encode(code).toString());
         }
 
         // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
@@ -140,10 +172,10 @@ export default class HdsCodeBlockIndexComponent extends Component {
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
     // In the future, additional themes such as a "light" theme could be added.
-    let classes = ['hds-code-block', 'hds-code-block--theme-dark'];
+    const classes = ['hds-code-block', 'hds-code-block--theme-dark'];
 
     if (this.language) {
       classes.push(`language-${this.language}`);

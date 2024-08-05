@@ -4116,6 +4116,7 @@ __metadata:
     "@types/ember-qunit": "npm:^6.1.1"
     "@types/ember-resolver": "npm:^9.0.0"
     "@types/ember__destroyable": "npm:^4.0.5"
+    "@types/prismjs": "npm:^1.26.4"
     "@types/qunit": "npm:^2.19.10"
     "@types/rsvp": "npm:^4.0.9"
     "@typescript-eslint/eslint-plugin": "npm:^6.21.0"
@@ -6128,6 +6129,13 @@ __metadata:
   version: 4.0.2
   resolution: "@types/parse-json@npm:4.0.2"
   checksum: 10/5bf62eec37c332ad10059252fc0dab7e7da730764869c980b0714777ad3d065e490627be9f40fc52f238ffa3ac4199b19de4127196910576c2fe34dd47c7a470
+  languageName: node
+  linkType: hard
+
+"@types/prismjs@npm:^1.26.4":
+  version: 1.26.4
+  resolution: "@types/prismjs@npm:1.26.4"
+  checksum: 10/fcf7072c56835bfdc9bd9c06acd733440c5198b9fba33c5de09cd7bfe9e6663604120c5d602ffbeb806cdc06447fb711d84fc89c9039b8cc95078702a15e7ff1
   languageName: node
   linkType: hard
 
