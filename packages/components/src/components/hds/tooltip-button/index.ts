@@ -13,7 +13,7 @@ export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
 
 export interface HdsTooltipIndexSignature {
   Args: {
-    extraTippyOptions?: TippyProps;
+    extraTippyOptions: Omit<TippyProps, 'placement' | 'offset'>;
     isInline?: boolean;
     offset?: [number, number];
     placement: HdsTooltipPlacementValues;
@@ -42,7 +42,7 @@ export default class HdsTooltipIndexComponent extends Component<HdsTooltipIndexS
     return text;
   }
 
-  get options() {
+  get options(): TippyProps {
     const { placement } = this.args;
 
     assert(
@@ -52,10 +52,10 @@ export default class HdsTooltipIndexComponent extends Component<HdsTooltipIndexS
 
     return {
       ...this.args.extraTippyOptions,
-      // takes string
       placement: placement,
-      // takes array of 2 numbers (skidding, distance): array(0, 0)
-      offset: this.args.offset,
+      showOnCreate: true,
+      // takes array of 2 numbers (skidding, distance): array(0, 10)
+      offset: this.args.offset ? this.args.offset : [0, 10],
     };
   }
 
