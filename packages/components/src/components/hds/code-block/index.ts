@@ -18,6 +18,8 @@ import type { ComponentLike } from '@glint/template';
 
 import type { HdsCodeBlockTitleSignature } from './title';
 import type { HdsCodeBlockDescriptionSignature } from './description';
+import { HdsCodeBlockLanguageValues } from './types.ts';
+import type { HdsCodeBlockLanguages } from './types.ts';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -37,24 +39,16 @@ import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
 
-type Language =
-  | 'bash'
-  | 'go'
-  | 'hcl'
-  | 'json'
-  | 'log'
-  | 'ruby'
-  | 'shell-session'
-  | 'yaml';
+export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
 
-export interface HdsCodeBlockIndexSignature {
+export interface HdsCodeBlockSignature {
   Args: {
     hasCopyButton?: boolean;
     hasLineNumbers?: boolean;
     hasLineWrapping?: boolean;
     highlightLines?: string;
     isStandalone?: boolean;
-    language?: Language;
+    language?: HdsCodeBlockLanguages;
     maxHeight?: string;
     value: string;
   };
@@ -69,7 +63,7 @@ export interface HdsCodeBlockIndexSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsCodeBlockIndexComponent extends Component<HdsCodeBlockIndexSignature> {
+export default class HdsCodeBlockComponent extends Component<HdsCodeBlockSignature> {
   @tracked prismCode: SafeString = htmlSafe('');
 
   /**
@@ -105,7 +99,7 @@ export default class HdsCodeBlockIndexComponent extends Component<HdsCodeBlockIn
    * @default undefined
    * @description name of coding language used within CodeBlock for syntax highlighting
    */
-  get language(): Language | undefined {
+  get language(): HdsCodeBlockLanguages | undefined {
     return this.args.language ?? undefined;
   }
 
