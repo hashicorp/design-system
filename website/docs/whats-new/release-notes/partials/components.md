@@ -14,6 +14,8 @@
 
 ## 4.8.0
 
+[4.8.0 documentation](https://hds-website-4-8-0.vercel.app/)
+
 **Minor changes**
 
 `AppHeader` - Added new component.
@@ -78,6 +80,8 @@ Add explicit `ember-get-config` dependency for use in the icon sprite initialize
 - @hashicorp/design-system-tokens@2.2.0
 
 ## 4.7.0
+
+[4.7.0 documentation](https://hds-website-4-7-0.vercel.app/)
 
 **Minor changes**
 
@@ -153,6 +157,8 @@ Converted form primitives to TypeScript
 - @hashicorp/ember-flight-icons@5.1.3
 
 ## 4.6.0
+
+[4.6.0 documentation](https://hds-website-4-6-0.vercel.app/)
 
 **Minor changes**
 

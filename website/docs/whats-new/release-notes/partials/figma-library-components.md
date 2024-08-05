@@ -18,13 +18,17 @@
 
 - Added support for a media slot, which when enabled, will be added above the title, allowing yielded illustrations to occupy that space.
 - Added an `alignment` property which can be set at the root level to `left` or `center`. This adjusts the component’s text, footer actions, and media alignment.
-- The footer now supports up to three actions at once, modeled after the Button Set. Previously the actions were justified (one all the way left and one all the way right). Supported actions now include Dropdown, Button, and Standalone Link. Previously Standalone Link was the only supported option.
+- The footer now supports up to three actions at once, modeled after the Button Set. Previously, the actions were justified (one all the way left and one all the way right). The three actions are now organized in accordance with our [Button Organization](/patterns/button-organization) pattern with `primary` and `secondary` grouped on the left, and `tertiary` on the right. Supported actions now include Dropdown, Button, and Standalone Link. Previously Standalone Link was the only supported option.
 
 Notable visual changes in the `ApplicationState`:
 
 - The divider has been removed to modernize the component and align with our visual standards.
-- The title text will be reduced from Display 400 to Display 300 to better fit within the page hierarchy.
+- The title text has been reduced from Display 400 to Display 300 to better fit within the page hierarchy.
 - The icon and title have been changed from `foreground/faint` to `foreground/strong`. The body text has changed from `foreground/faint` to `foreground/primary`. These changes better align with our color standards established with other components.
+
+#### Breaking change
+
+The changes in the footer of the `ApplicationState` to support a Dropdown, Button, and Standalone Link results in a breaking change. To avoid overwriting in-progress design work, we recommend taking screenshots of legacy instances of the Application state prior to updating your library.
 
 `Enterprise Navigation` - multiple enhancements to navigation components including:
 
