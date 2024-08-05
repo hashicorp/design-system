@@ -53,7 +53,6 @@ export default class HdsTooltipIndexComponent extends Component<HdsTooltipIndexS
     return {
       ...this.args.extraTippyOptions,
       placement: placement,
-      showOnCreate: true,
       // takes array of 2 numbers (skidding, distance): array(0, 10)
       offset: this.args.offset ? this.args.offset : [0, 10],
     };
