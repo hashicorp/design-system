@@ -16,6 +16,13 @@
       min-height: 100% !important;
     }
 
+    .hds-app-frame__sidebar {
+      position: relative;
+      top: 0;
+      height: auto;
+      min-height: 0;
+    }
+
     .hds-app-frame__modals {
       position: absolute;
       z-index: 10;
