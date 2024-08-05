@@ -23,6 +23,11 @@ export interface HdsFormSelectBaseSignature {
 }
 
 export default class HdsFormSelectBaseComponent extends Component<HdsFormSelectBaseSignature> {
+  /**
+   * Get the class names to apply to the component.
+   * @method classNames
+   * @return {string} The "class" attribute to apply to the component.
+   */
   get classNames(): string {
     const classes = ['hds-form-select'];
 
