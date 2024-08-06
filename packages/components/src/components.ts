@@ -103,6 +103,7 @@ import HdsTextBody from './components/hds/text/body.ts';
 import HdsTextCode from './components/hds/text/code.ts';
 import HdsTextDisplay from './components/hds/text/display.ts';
 import HdsToast from './components/hds/toast/index.ts';
+import HdsTooltipButton from './components/hds/tooltip-button/index.ts';
 
 export {
   HdsAccordion,
@@ -204,4 +205,5 @@ export {
   HdsTextCode,
   HdsTextDisplay,
   HdsToast,
+  HdsTooltipButton,
 };
