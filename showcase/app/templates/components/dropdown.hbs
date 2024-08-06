@@ -565,6 +565,51 @@
     </Shw::Flex>
   {{/each}}
 
+  <Shw::Text::H4>Yielded content</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Yielded text</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive>
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Yielded text with leading icon</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="terraform-color">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Yielded text with trailing icon</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Yielded text with leading + trailing icons</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="terraform-color" @trailingIcon="external-link">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Generic</Shw::Text::H3>

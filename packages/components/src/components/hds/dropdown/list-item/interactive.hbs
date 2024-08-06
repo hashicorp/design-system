@@ -30,7 +30,11 @@
         </span>
       {{/if}}
       <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="span" @size="200" @weight="medium">
-        {{this.text}}
+        {{#if (has-block)}}
+          {{yield}}
+        {{else}}
+          {{this.text}}
+        {{/if}}
       </Hds::Text::Body>
       {{#if @trailingIcon}}
         <span class="hds-dropdown-list-item__interactive-icon hds-dropdown-list-item__interactive-icon--trailing">
