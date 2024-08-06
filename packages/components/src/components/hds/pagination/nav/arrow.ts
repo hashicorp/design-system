@@ -6,16 +6,26 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import type { HdsPaginationDirections } from '../types.ts';
+import {
+  HdsPaginationDirectionValues,
+  HdsPaginationDirectionAriaLabelValues,
+} from '../types.ts';
+import type {
+  HdsPaginationDirections,
+  HdsPaginationDirectionAriaLabels,
+} from '../types';
 import type { HdsInteractiveSignature } from '../../interactive/index.ts';
 import type { IconName } from '@hashicorp/flight-icons/svg';
 
-export const DIRECTIONS: HdsPaginationDirections[] = ['prev', 'next'];
+export const DIRECTIONS: HdsPaginationDirections[] = [
+  HdsPaginationDirectionValues.Prev,
+  HdsPaginationDirectionValues.Next,
+];
 
 interface HdsPaginationControlArrowContent {
-  label?: 'Previous' | 'Next';
+  label?: HdsPaginationDirections;
   icon?: IconName;
-  ariaLabel?: 'Previous page' | 'Next page';
+  ariaLabel?: HdsPaginationDirectionAriaLabels;
 }
 
 interface HdsPaginationControlArrowSignature {
@@ -34,7 +44,7 @@ interface HdsPaginationControlArrowSignature {
 }
 
 export default class HdsPaginationControlArrowComponent extends Component<HdsPaginationControlArrowSignature> {
-  get content() {
+  get content(): HdsPaginationControlArrowContent {
     const { direction } = this.args;
 
     assert(
@@ -47,40 +57,29 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
     let content: HdsPaginationControlArrowContent = {};
     if (direction === 'prev') {
       content = {
-        label: 'Previous',
+        label: HdsPaginationDirectionValues.Prev,
         icon: 'chevron-left',
-        ariaLabel: 'Previous page',
+        ariaLabel: HdsPaginationDirectionAriaLabelValues.Prev,
       };
     }
     if (direction === 'next') {
       content = {
-        label: 'Next',
+        label: HdsPaginationDirectionValues.Next,
         icon: 'chevron-right',
-        ariaLabel: 'Next page',
+        ariaLabel: HdsPaginationDirectionAriaLabelValues.Next,
       };
     }
 
     return content;
   }
 
-  /**
-   * @param showLabel
-   * @type {boolean}
-   * @default true
-   * @description Show the labels for the control
-   */
   get showLabel(): boolean {
     const { showLabel = true } = this.args;
 
     return showLabel;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
+  get classNames(): string {
     const classes = [
       'hds-pagination-nav__control',
       'hds-pagination-nav__arrow',
@@ -91,7 +90,7 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
   }
 
   @action
-  onClick() {
+  onClick(): void {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {

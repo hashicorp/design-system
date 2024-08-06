@@ -5,6 +5,14 @@ export enum HdsPaginationDirectionValues {
 
 export type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
 
+export enum HdsPaginationDirectionAriaLabelValues {
+  Prev = 'Previous page',
+  Next = 'Next page',
+}
+
+export type HdsPaginationDirectionAriaLabels =
+  `${HdsPaginationDirectionAriaLabelValues}`;
+
 export type HdsPaginationPage = HdsPaginationDirections | number;
 
 export interface HdsPaginationRoutingArgs {

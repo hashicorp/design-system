@@ -155,6 +155,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
 
   @action
   onPageChange(newPage: HdsPaginationDirections) {
+    // TODO: Is this needed for anything?
     // this.currentPage = newPage;
 
     const { onPageChange } = this.args;

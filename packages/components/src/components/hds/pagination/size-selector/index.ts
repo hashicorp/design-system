@@ -19,19 +19,9 @@ interface HdsPaginationSizeSelectorSignature {
 }
 
 export default class HdsPaginationSizeSelectorComponent extends Component<HdsPaginationSizeSelectorSignature> {
-  /**
-   * Generates a unique ID for the pageSize select
-   *
-   * @param SizeSelectorId
-   */
   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
-  /**
-   * @param selectedSize
-   * @type integer
-   * @description The selected ("current") page size
-   */
-  get selectedSize() {
+  get selectedSize(): number | undefined {
     const { pageSizes, selectedSize } = this.args;
 
     assert(
@@ -44,18 +34,12 @@ export default class HdsPaginationSizeSelectorComponent extends Component<HdsPag
     return selectedSize;
   }
 
-  /**
-   * @param label
-   * @type string
-   * @default "Items per page"
-   * @description The label text for the select
-   */
-  get label() {
+  get label(): string {
     return this.args.label ?? 'Items per page';
   }
 
   @action
-  onChange(event: Event) {
+  onChange(event: Event): void {
     const { onChange } = this.args;
 
     if (typeof onChange === 'function') {

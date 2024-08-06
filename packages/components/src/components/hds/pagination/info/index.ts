@@ -17,12 +17,7 @@ interface HdsPaginationInfoSignature {
 }
 
 export default class HdsPaginationInfoComponent extends Component<HdsPaginationInfoSignature> {
-  /**
-   * @param showTotalItems
-   * @type {boolean}
-   * @description Controls the visibility of the total items
-   */
-  get showTotalItems() {
+  get showTotalItems(): boolean {
     return this.args.showTotalItems ?? true;
   }
 }
