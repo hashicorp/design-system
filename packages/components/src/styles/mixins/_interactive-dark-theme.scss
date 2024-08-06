@@ -88,19 +88,10 @@
       border-color: var(--token-color-palette-neutral-400);
     }
   }
+}
 
-  // Disabled:
-  &:disabled,
-  &[disabled],
-  &.mock-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.mock-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.mock-disabled:hover {
-    color: var(--token-color-foreground-disabled);
-    background-color: var(--token-color-palette-neutral-600);
-    border-color: var(--token-color-palette-neutral-500);
-  }
+@mixin hds-interactive-dark-theme-state-disabled() {
+  color: var(--token-color-foreground-disabled);
+  background-color: var(--token-color-palette-neutral-600);
+  border-color: var(--token-color-palette-neutral-500);
 }

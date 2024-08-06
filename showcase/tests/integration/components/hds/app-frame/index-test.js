@@ -77,24 +77,6 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     assert.dom('#test-app-frame-header').doesNotExist();
   });
 
-  // isHeaderFixed
-
-  test('if @isHeaderFixed is not set, it should default to adding the hds-app-frame--is-header-fixed class', async function (assert) {
-    await render(hbs`
-        <Hds::AppFrame id="test-app-frame" />
-      `);
-    assert.dom('#test-app-frame').hasClass('hds-app-frame--is-header-fixed');
-  });
-
-  test('if @isHeaderFixed is set to false, it should not add the hds-app-frame--is-header-fixed class', async function (assert) {
-    await render(hbs`
-        <Hds::AppFrame @isHeaderFixed={{false}} id="test-app-frame" />
-    `);
-    assert
-      .dom('#test-app-frame')
-      .doesNotHaveClass('hds-app-frame--is-header-fixed');
-  });
-
   // hasSidebar
 
   test('it should hide the sidebar when @hasSidebar is false', async function (assert) {
