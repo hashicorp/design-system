@@ -1,0 +1,165 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Icon"}}
+
+<Shw::Text::H1>Icon</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Size</Shw::Text::H2>
+
+  <Shw::Text::Body>Base sizes</Shw::Text::Body>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="16px (default)">
+      <Hds::Icon @name="bug" />
+    </SF.Item>
+    <SF.Item @label="24px">
+      <Hds::Icon @name="bug" @size="24" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::Body>Custom sizes</Shw::Text::Body>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="12px (stretched)">
+      <div {{style width="12px" height="12px"}}>
+        <Hds::Icon @name="bug" @size="16" @stretched={{true}} />
+      </div>
+    </SF.Item>
+    <SF.Item @label="32px (stretched)">
+      <div {{style width="32px" height="32px"}}>
+        <Hds::Icon @name="bug" @size="24" @stretched={{true}} />
+      </div>
+    </SF.Item>
+    <SF.Item @label="32px (stretched + inline)">
+      <div {{style width="32px" height="32px"}}>
+        <Hds::Icon @name="bug" @size="24" @stretched={{true}} @isInline={{true}} />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Color</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Color inheritance</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label>unspecified color (<code>currentColor</code>)</SFI.Label>
+      <div>
+        <Hds::Icon @name="lock-fill" @size="24" />
+      </div>
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label>parent with <code>#e12568</code> color</SGI.Label>
+      <div {{style color="#e12568"}}>
+        <Hds::Icon @name="lock-fill" @size="24" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Pre-defined colors</Shw::Text::H4>
+  <Shw::Grid @columns={{5}} as |SG|>
+    {{#each this.model.AVAILABLE_COLORS as |color|}}
+      <SG.Item @label={{color}}>
+        <div class="shw-component-icon-sample-color--{{color}}">
+          <Hds::Icon @name="lock-fill" @color={{color}} @size="24" />
+        </div>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Custom colors</Shw::Text::H4>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>#e91e63</code></SGI.Label>
+      <Hds::Icon @name="lock-fill" @color="#e91e63" @size="24" />
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>--token-color-palette-purple-400</code></SGI.Label>
+      <Hds::Icon @name="lock-fill" @color="var(--token-color-palette-purple-400)" @size="24" />
+    </SF.Item>
+    <SF.Item as |SGI|>
+      <SGI.Label><code>orange</code>
+        + parent with
+        <code>green !important</code>
+      </SGI.Label>
+      {{! template-lint-disable no-inline-styles }}
+      <div style="color:green !important">
+        <Hds::Icon @name="lock-fill" @color="orange" @size="24" />
+      </div>
+      {{! template-lint-enable no-inline-styles }}
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  {{#let (array false true) as |booleans|}}
+    {{#each booleans as |isInline|}}
+      <Shw::Text::H4 @tag="h3">{{if isInline "Inline" "Block (default)"}}</Shw::Text::H4>
+
+      <Shw::Flex class="shw-foundation-outline-icons" as |SF|>
+        <SF.Item @label="single icon">
+          <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+        </SF.Item>
+        <SF.Item @label="multiple icons">
+          <Hds::Icon @name="alert-circle-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-diamond-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-triangle-fill" @isInline={{isInline}} />
+        </SF.Item>
+      </Shw::Flex>
+
+      <Shw::Flex class="shw-foundation-outline-icons" @gap="4rem" as |SG|>
+        <SG.Item @label="icon + inline text">
+          <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+          <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+        </SG.Item>
+        <SG.Item @label="icon + inline text (inside flexbox)">
+          <div class="shw-foundation-icon-container-flex">
+            <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+            <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          </div>
+        </SG.Item>
+        <SG.Item @label="icon + inline text (inside grid)">
+          <div class="shw-foundation-icon-container-grid">
+            <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+            <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          </div>
+        </SG.Item>
+      </Shw::Flex>
+
+      <Shw::Flex class="shw-foundation-outline-icons" @gap="4rem" as |SF|>
+        <SF.Item @label="icons interleaved with inline text">
+          <span class="hds-typography-body-200">Lorem ipsum dolor</span>
+          <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+          <span class="hds-typography-body-200">Sit amet consectetur</span>
+          <Hds::Icon @name="alert-circle-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-diamond-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-triangle-fill" @isInline={{isInline}} />
+          <span class="hds-typography-body-200">Adipisicing elit</span>
+        </SF.Item>
+        <SF.Item @label="icons interleaved with block text">
+          <p class="hds-typography-body-200">Lorem ipsum dolor</p>
+          <Hds::Icon @name="bookmark" @isInline={{isInline}} />
+          <p class="hds-typography-body-200">Sit amet consectetur</p>
+          <Hds::Icon @name="alert-circle-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-diamond-fill" @isInline={{isInline}} />
+          <Hds::Icon @name="alert-triangle-fill" @isInline={{isInline}} />
+          <p class="hds-typography-body-200">Adipisicing elit</p>
+        </SF.Item>
+      </Shw::Flex>
+
+    {{/each}}
+  {{/let}}
+
+</section>

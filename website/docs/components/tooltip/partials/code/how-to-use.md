@@ -18,7 +18,7 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 #### Icon
 ```handlebars
 <Hds::TooltipButton @text="Hello!" aria-label="More information">
-  <FlightIcon @name="info" />
+  <Hds::Icon @name="info" />
 </Hds::TooltipButton>
 ```
 
@@ -27,7 +27,7 @@ As the `TooltipButton` component wraps its content with an HTML `<button>` eleme
 <h4 class="hds-typography-display-100">
   Header text
   <Hds::TooltipButton @text="Hello!" aria-label="More information">
-    <FlightIcon @name="info" />
+    <Hds::Icon @name="info" />
   </Hds::TooltipButton>
 </h4>
 ```
@@ -62,12 +62,12 @@ You can change the default `inline-block` display to use `flex` display if neede
 ```handlebars
 <p>
   Text before
-  <Hds::TooltipButton 
-    @text="Hello!" 
-    aria-label="HashiCorp" 
+  <Hds::TooltipButton
+    @text="Hello!"
+    aria-label="HashiCorp"
     @isInline={{false}}
   >
-    <FlightIcon @name="hashicorp" />
+    <Hds::Icon @name="hashicorp" />
   </Hds::TooltipButton>
   Text after
 </p>
@@ -104,22 +104,22 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 #### Modifier used on a link
 
 ```handlebars
-<Hds::Link::Standalone 
-  {{hds-tooltip "Hello!"}} 
-  @href="#" 
-  @icon="collections" 
-  @text="Read tutorial" 
+<Hds::Link::Standalone
+  {{hds-tooltip "Hello!"}}
+  @href="#"
+  @icon="collections"
+  @text="Read tutorial"
 />
 ```
 
 #### Placement
 ```handlebars
-<Hds::Button 
-  {{hds-tooltip "Hello!" 
-  options=(hash placement="right")}} 
-  @icon="external-link" 
-  @text="Visit website" 
-  @href="https://hashicorp.com" 
+<Hds::Button
+  {{hds-tooltip "Hello!"
+  options=(hash placement="right")}}
+  @icon="external-link"
+  @text="Visit website"
+  @href="https://hashicorp.com"
 />
 ```
 
@@ -128,14 +128,14 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 <Hds::Form::Field @layout="vertical" as |F|>
   <F.Label @controlId="tooltip-example-control-id">First Name</F.Label>
   <F.Control>
-    <Hds::Form::TextInput::Base 
-      {{hds-tooltip "Hello!" 
-      options=(hash placement="top" 
-      offset=(array 0 30))}} 
-      @type="text" 
-      @value="Jane" 
+    <Hds::Form::TextInput::Base
+      {{hds-tooltip "Hello!"
+      options=(hash placement="top"
+      offset=(array 0 30))}}
+      @type="text"
+      @value="Jane"
       id="tooltip-example-control-id"
-      @width="200px" 
+      @width="200px"
     />
   </F.Control>
 </Hds::Form::Field>
@@ -149,8 +149,8 @@ For example, this is how to enable rich text in the case of the modifier:
 
 ```handlebars
 <p class="hds-typography-body-300">
-  <a 
-    href="#" 
+  <a
+    href="#"
     {{hds-tooltip "<b>Hello</b>!" options=(hash allowHTML=true)}}
   >
     More information

@@ -4,8 +4,10 @@
  */
 
 // ICON
-
-body.foundations-icon {
+// The icon page is currently displayed in 2 places,
+// foundations for FlightIcon and components for Hds::icon
+body.foundations-icon,
+body.components-icon {
   .shw-foundation-outline-icons {
     .flight-icon {
       outline: 1px dotted #CCC;
@@ -23,5 +25,11 @@ body.foundations-icon {
     grid-template-columns: auto 1fr;
     gap: 4px;
     align-items: center;
+  }
+
+  .shw-component-icon-sample-color--high-contrast {
+    width: fit-content;
+    background: #0c0c0e;
+    outline: 2px solid #0c0c0e;
   }
 }

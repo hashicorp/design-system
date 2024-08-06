@@ -115,7 +115,7 @@ Don’t put product or service icons in the trailing position.
 </Doc::Layout>
 !!!
 
-To learn more about icon best practices, review our [Icon usage](/icons/usage-guidelines) guidelines.
+To learn more about icon best practices, review our [Icon usage](/components/icon) guidelines.
 
 ## Spacing between links
 

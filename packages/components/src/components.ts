@@ -71,6 +71,7 @@ import HdsFormToggleBase from './components/hds/form/toggle/base.ts';
 import HdsFormToggleField from './components/hds/form/toggle/field.ts';
 import HdsFormToggleGroup from './components/hds/form/toggle/group.ts';
 import HdsFormVisibilityToggle from './components/hds/form/visibility-toggle/index.ts';
+import HdsIcon from './components/hds/icon/index.ts';
 import HdsIconTile from './components/hds/icon-tile/index.ts';
 import HdsInteractive from './components/hds/interactive/index.ts';
 import HdsLinkInline from './components/hds/link/inline.ts';
@@ -173,6 +174,7 @@ export {
   HdsFormToggleField,
   HdsFormToggleGroup,
   HdsFormVisibilityToggle,
+  HdsIcon,
   HdsIconTile,
   HdsInteractive,
   HdsLinkInline,
