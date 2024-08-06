@@ -38,6 +38,12 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   // Generates a unique ID for the Menu Content
   menuContentId = 'hds-menu-content-' + guidFor(this);
 
+  breakpoint = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--hds-app-desktop-breakpoint'
+    )
+  );
+
   // desktopMQVal =
   //   this.args.breakpoint ??
   //   getComputedStyle(document.documentElement).getPropertyValue(
@@ -134,11 +140,25 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   // Detect if content overflows the container
   @action handleResize(entries: ResizeObserverEntry[]): void {
     entries.forEach((entry): void => {
-      if (entry.target.scrollWidth > entry.target.clientWidth) {
-        // console.log('Content overflows the container');
+      // if theres no overflow content and the content overflows the container then set hasOverflowContent to true and set the breakpoint accordingly
+      if (
+        !this.hasOverflowContent &&
+        entry.target.scrollWidth > entry.target.clientWidth
+      ) {
         this.hasOverflowContent = true;
+        // if the client width is greater than the breakpoint then set the preset breakpoint then use the clientWidth as the breakpoint
+        if (entry.target.clientWidth >= this.breakpoint) {
+          this.breakpoint = entry.target.clientWidth;
+        }
+      } else if (
+        // if hasOverflowContent is set to true, but the content no longer overflows, the set hasOverflowContent to false if past the breakpoint
+        this.hasOverflowContent &&
+        entry.target.scrollWidth <= entry.target.clientWidth
+      ) {
+        if (entry.target.clientWidth >= this.breakpoint) {
+          this.hasOverflowContent = false;
+        }
       } else {
-        // console.log('Content does not overflow the container');
         this.hasOverflowContent = false;
       }
     });
