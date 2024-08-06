@@ -399,11 +399,11 @@ Alternatively, if you want to create a custom transition (or respond in a differ
 
 ### Used with App Header
 
-When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot need be used. The `@withAppHeader` argument should be set to `false` to control the height and position of the Side Nav in relation to the fixed position App Header.
+When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot need be used.
 
 ```handlebars
 <div class="doc-sidenav-demo">
-  <Hds::SideNav @withAppHeader={{true}}>
+  <Hds::SideNav>
     <:body>
       <Doc::Placeholder @height="500px" @text="&lt;:body /&gt;" @background="#e4e4e4" />
     </:body>
