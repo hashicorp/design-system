@@ -17,7 +17,6 @@ export interface HdsAppFrameSignature {
     hasMain?: boolean;
     hasModals?: boolean;
     hasSidebar?: boolean;
-    isHeaderFixed?: boolean;
   };
   Blocks: {
     default: [
@@ -54,18 +53,9 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
     return this.args.hasModals ?? true;
   }
 
-  // Set whether the header should be fixed or not
-  get isHeaderFixed(): boolean {
-    return this.args.isHeaderFixed ?? true;
-  }
-
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-frame'];
-
-    if (this.hasHeader && this.isHeaderFixed) {
-      classes.push('hds-app-frame--is-header-fixed');
-    }
 
     return classes.join(' ');
   }
