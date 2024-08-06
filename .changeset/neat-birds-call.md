@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Pagination` & `Form::Select::Base` - Converted components to TypeScript
+`Pagination` - Converted component to TypeScript

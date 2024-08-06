@@ -76,12 +76,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
     }
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Pagination'
-   */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Pagination';
   }
 
@@ -98,14 +93,13 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
   // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
-  get currentPageSize() {
+  get currentPageSize(): number | undefined {
     if (this.isControlled) {
       return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
     }
   }
-
   set currentPageSize(value) {
     if (this.isControlled) {
       // noop
@@ -114,13 +108,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
     }
   }
 
-  /**
-   * @param pageSizes
-   * @type {array of numbers}
-   * @description Set the page sizes users can select from.
-   * @default [10, 30, 50]
-   */
-  get pageSizes() {
+  get pageSizes(): number[] {
     const { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
     assert(
@@ -139,7 +127,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
     }
   }
 
-  get routing() {
+  get routing(): HdsPaginationRouting {
     const routing: HdsPaginationRouting = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
