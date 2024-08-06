@@ -101,10 +101,26 @@ module(
       );
       assert.dom('.hds-dropdown-list-item').hasText('interactive text');
     });
+    test('it should render the yielded content', async function (assert) {
+      await render(hbs`
+        <Hds::Dropdown::ListItem::Interactive>
+          interactive
+        </Hds::Dropdown::ListItem::Interactive>
+      `);
+      assert.dom('.hds-dropdown-list-item').hasText('interactive');
+    });
+    test('it should render the text passed as @text prop if content is yielded', async function (assert) {
+      await render(hbs`
+        <Hds::Dropdown::ListItem::Interactive @text="erroneous">
+          interactive
+        </Hds::Dropdown::ListItem::Interactive>
+      `);
+      assert.dom('.hds-dropdown-list-item').doesNotHaveText('erroneous');
+    });
 
     // ASSERTIONS
 
-    test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+    test('it should throw an assertion if @text is missing/has no value and the component does not yield content', async function (assert) {
       const errorMessage =
         '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value';
       assert.expect(2);
