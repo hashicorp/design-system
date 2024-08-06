@@ -12,7 +12,36 @@
   </a>
 </p>
 
+## 4.9.0
+
+**Minor changes**
+
+`Icon` - Added component:
+
+`Hds::Icon` is meant to replace usage of the `FlightIcon` component from `ember-flight-icons`.
+
+- Displays `block` by default. (`FlightIcon` displays `inline-block` by default)
+- Exposes a set of predefined "foreground" colors via the `@color` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2207](https://github.com/hashicorp/design-system/pull/2207)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2313](https://github.com/hashicorp/design-system/pull/2313)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`TooltipButton`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2317](https://github.com/hashicorp/design-system/pull/2317)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.8.0
+
+[4.8.0 documentation](https://hds-website-4-8-0.vercel.app/)
 
 **Minor changes**
 
@@ -906,32 +935,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@4.0.5
-
-## 3.3.0
-
-**Minor changes**
-
-`Form::CharacterCount` - Added new component
-`Form::Field` - Added `CharacterCount` contextual component
-`Form::MaskedInput::Field` - Added `CharacterCount` contextual component
-`Form::TextInput::Field` - Added `CharacterCount` contextual component
-`Form::Textarea::Field` - Added `CharacterCount` contextual component
-
-<small class="doc-whats-new-changelog-metadata">[#1802](https://github.com/hashicorp/design-system/pull/1802)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Button` - Updated DOM structure to contain only `span` elements
-
-`Dropdown` - Updated button elements DOM structure to contain only `span` elements
-
-`Link::Standalone` - Updated DOM structure to contain only `span` elements
-
-<small class="doc-whats-new-changelog-metadata">[#1840](https://github.com/hashicorp/design-system/pull/1840)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---

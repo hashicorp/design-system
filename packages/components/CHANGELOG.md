@@ -1,5 +1,32 @@
 # @hashicorp/design-system-components
 
+## 4.9.0
+
+### Minor Changes
+
+`Icon` - Added component:
+
+`Hds::Icon` is meant to replace usage of the `FlightIcon` component from `ember-flight-icons`.
+
+- Displays `block` by default. (`FlightIcon` displays `inline-block` by default)
+- Exposes a set of predefined "foreground" colors via the `@color` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2207](https://github.com/hashicorp/design-system/pull/2207)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2313](https://github.com/hashicorp/design-system/pull/2313)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`TooltipButton`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2317](https://github.com/hashicorp/design-system/pull/2317)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.8.0
 
 [4.8.0 documentation](https://hds-website-4-8-0.vercel.app/)
