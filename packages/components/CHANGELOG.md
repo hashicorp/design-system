@@ -1,5 +1,34 @@
 # @hashicorp/design-system-components
 
+## 4.9.0
+
+[4.9.0 documentation](https://hds-website-4-9-0.vercel.app/)
+
+### Minor Changes
+
+`Icon` - Added component:
+
+`Hds::Icon` is meant to replace usage of the `FlightIcon` component from `ember-flight-icons`.
+
+- Displays `block` by default. (`FlightIcon` displays `inline-block` by default)
+- Exposes a set of predefined "foreground" colors via the `@color` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2207](https://github.com/hashicorp/design-system/pull/2207)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2313](https://github.com/hashicorp/design-system/pull/2313)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`TooltipButton`: Converted component to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2317](https://github.com/hashicorp/design-system/pull/2317)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.8.0
 
 [4.8.0 documentation](https://hds-website-4-8-0.vercel.app/)
@@ -881,7 +910,7 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`AppFooter` - Updated default accessibility URL to https://hashicorp.com/accessibility
+`AppFooter` - Updated default accessibility URL to <https://hashicorp.com/accessibility>
 
 <small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
 
@@ -1877,7 +1906,7 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - [#661](https://github.com/hashicorp/design-system/pull/661) [`2c6024a38`](https://github.com/hashicorp/design-system/commit/2c6024a38f5f457231f7301d219478a4f746de37) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Add new **`Pagination`** component (`Numbered`, `Compact`)
 
-* [#1070](https://github.com/hashicorp/design-system/pull/1070) [`91b004f93`](https://github.com/hashicorp/design-system/commit/91b004f9329034064890f3e7a18e35912312fb5d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Flyout` component
+- [#1070](https://github.com/hashicorp/design-system/pull/1070) [`91b004f93`](https://github.com/hashicorp/design-system/commit/91b004f9329034064890f3e7a18e35912312fb5d) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Flyout` component
 
 ### Patch Changes
 
@@ -1890,17 +1919,17 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - [#1036](https://github.com/hashicorp/design-system/pull/1036) [`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Update design system name to Helios
 
-* [#971](https://github.com/hashicorp/design-system/pull/971) [`fa819fedf`](https://github.com/hashicorp/design-system/commit/fa819fedf22b2dee45e8ee1119b98099f5402524) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix repetitive required field indicator for screen readers
+- [#971](https://github.com/hashicorp/design-system/pull/971) [`fa819fedf`](https://github.com/hashicorp/design-system/commit/fa819fedf22b2dee45e8ee1119b98099f5402524) Thanks [@alex-ju](https://github.com/alex-ju)! - Fix repetitive required field indicator for screen readers
 
 - [#1130](https://github.com/hashicorp/design-system/pull/1130) [`34fb0fe18`](https://github.com/hashicorp/design-system/commit/34fb0fe18895e59676fb208dc6025d2d15353336) Thanks [@MelSumner](https://github.com/MelSumner)! - Moves icon and count inside of tab (button element) for WCAG conformance
 
-* [#1157](https://github.com/hashicorp/design-system/pull/1157) [`39b645296`](https://github.com/hashicorp/design-system/commit/39b64529645110c0980c253c2e01099e2b585bc0) Thanks [@MelSumner](https://github.com/MelSumner)! - Fixes malformed CSS classes in table component
+- [#1157](https://github.com/hashicorp/design-system/pull/1157) [`39b645296`](https://github.com/hashicorp/design-system/commit/39b64529645110c0980c253c2e01099e2b585bc0) Thanks [@MelSumner](https://github.com/MelSumner)! - Fixes malformed CSS classes in table component
 
 - [#1080](https://github.com/hashicorp/design-system/pull/1080) [`1dde47948`](https://github.com/hashicorp/design-system/commit/1dde47948ef2aa2400e8f39e49e060d7507db037) Thanks [@didoo](https://github.com/didoo)! - Added `onSort` callback to `Hds::Table` component
 
-* [#1127](https://github.com/hashicorp/design-system/pull/1127) [`4eaf727e7`](https://github.com/hashicorp/design-system/commit/4eaf727e7b9ac732c1cc5a053d9e5a4b636ffc78) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds missing aria-label to breadcrumb truncation toggle for WCAG conformance.
+- [#1127](https://github.com/hashicorp/design-system/pull/1127) [`4eaf727e7`](https://github.com/hashicorp/design-system/commit/4eaf727e7b9ac732c1cc5a053d9e5a4b636ffc78) Thanks [@MelSumner](https://github.com/MelSumner)! - Adds missing aria-label to breadcrumb truncation toggle for WCAG conformance.
 
-* Updated dependencies [[`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417)]:
+- Updated dependencies [[`b1756288e`](https://github.com/hashicorp/design-system/commit/b1756288e907dd36784fd33921e016d99a1b3417)]:
   - @hashicorp/design-system-tokens@1.3.1
 
 ## 1.5.1
@@ -1934,15 +1963,15 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - [#631](https://github.com/hashicorp/design-system/pull/631) [`5d4b1811`](https://github.com/hashicorp/design-system/commit/5d4b1811a4bcdfe0c2205767aceead9286f5f159) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `Modal` component and `DismissButton` utility component (used by `Alert`, `Toast` and `Modal`)
 
-* [#722](https://github.com/hashicorp/design-system/pull/722) [`58a52103`](https://github.com/hashicorp/design-system/commit/58a521034b0e6a2a421b4c8b79f26a431e13a83b) Thanks [@MelSumner](https://github.com/MelSumner)! - Add `Table` component
+- [#722](https://github.com/hashicorp/design-system/pull/722) [`58a52103`](https://github.com/hashicorp/design-system/commit/58a521034b0e6a2a421b4c8b79f26a431e13a83b) Thanks [@MelSumner](https://github.com/MelSumner)! - Add `Table` component
 
 ### Patch Changes
 
 - [#681](https://github.com/hashicorp/design-system/pull/681) [`6f08ddd2`](https://github.com/hashicorp/design-system/commit/6f08ddd2b491ed13b60e153aa4cc13db8c3884da) Thanks [@KristinLBradley](https://github.com/KristinLBradley)! - Explicitly set `aria-selected` to `true` or `false`
 
-* [#698](https://github.com/hashicorp/design-system/pull/698) [`db8a1caf`](https://github.com/hashicorp/design-system/commit/db8a1caff4553ed3240c0260a831526fd2fe6844) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `@layout` parameter to `RadioCard`
+- [#698](https://github.com/hashicorp/design-system/pull/698) [`db8a1caf`](https://github.com/hashicorp/design-system/commit/db8a1caff4553ed3240c0260a831526fd2fe6844) Thanks [@alex-ju](https://github.com/alex-ju)! - Add `@layout` parameter to `RadioCard`
 
-* Updated dependencies [[`aeff4e02`](https://github.com/hashicorp/design-system/commit/aeff4e02e3c5c738104be326569c110dc2f79618)]:
+- Updated dependencies [[`aeff4e02`](https://github.com/hashicorp/design-system/commit/aeff4e02e3c5c738104be326569c110dc2f79618)]:
   - @hashicorp/ember-flight-icons@3.0.2
 
 ## 1.3.2
@@ -1967,13 +1996,13 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - [#618](https://github.com/hashicorp/design-system/pull/618) [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659) Thanks [@alex-ju](https://github.com/alex-ju)! - Update `ember` to `4.7.0`
 
-* [#660](https://github.com/hashicorp/design-system/pull/660) [`4d0826a6`](https://github.com/hashicorp/design-system/commit/4d0826a6df220031b36f4918c5c5365012672c27) Thanks [@alex-ju](https://github.com/alex-ju)! - Update the `Hds::Button` style when rendered as a link
+- [#660](https://github.com/hashicorp/design-system/pull/660) [`4d0826a6`](https://github.com/hashicorp/design-system/commit/4d0826a6df220031b36f4918c5c5365012672c27) Thanks [@alex-ju](https://github.com/alex-ju)! - Update the `Hds::Button` style when rendered as a link
 
 - [#638](https://github.com/hashicorp/design-system/pull/638) [`90182235`](https://github.com/hashicorp/design-system/commit/901822353453e98c914c8d57e523d64b32a23f75) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - explicitly add ember-style-modifiers as a dependency
 
-* [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
+- [#636](https://github.com/hashicorp/design-system/pull/636) [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda) Thanks [@Dhaulagiri](https://github.com/Dhaulagiri)! - Add copyright notice to license file
 
-* Updated dependencies [[`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1), [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659), [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda), [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0)]:
+- Updated dependencies [[`a079992f`](https://github.com/hashicorp/design-system/commit/a079992fbbed11812fcf4cdd4409a00fa2d246f1), [`11d39410`](https://github.com/hashicorp/design-system/commit/11d39410c40725ff34a291e17eac3f8f8321c659), [`27a283a5`](https://github.com/hashicorp/design-system/commit/27a283a52c2828b32c282401f91df9bd929f9dda), [`ecbe26df`](https://github.com/hashicorp/design-system/commit/ecbe26df6bdbaf7b4f00c70d016eead0da9168f0)]:
   - @hashicorp/design-system-tokens@1.2.0
   - @hashicorp/ember-flight-icons@3.0.1
 
@@ -1997,15 +2026,15 @@ Fix Embroider warnings caused by incorrect export of internal utility functions
 
 - [#539](https://github.com/hashicorp/design-system/pull/539) [`5b548865`](https://github.com/hashicorp/design-system/commit/5b548865ed1000e5f51c22365a81c858576bd2bd) Thanks [@alex-ju](https://github.com/alex-ju)! - Add custom styles for `ember-power-select` add-on
 
-* [#577](https://github.com/hashicorp/design-system/pull/577) [`2f5a2c21`](https://github.com/hashicorp/design-system/commit/2f5a2c214c25be7fd91c2e73c88fb436f72dbd6f) Thanks [@alex-ju](https://github.com/alex-ju)! - Add small variant to `Hds::Dropdown::ToggleButton`
+- [#577](https://github.com/hashicorp/design-system/pull/577) [`2f5a2c21`](https://github.com/hashicorp/design-system/commit/2f5a2c214c25be7fd91c2e73c88fb436f72dbd6f) Thanks [@alex-ju](https://github.com/alex-ju)! - Add small variant to `Hds::Dropdown::ToggleButton`
 
 ### Patch Changes
 
 - [#545](https://github.com/hashicorp/design-system/pull/545) [`6d2a6298`](https://github.com/hashicorp/design-system/commit/6d2a6298c407a74a14a11b3426fd60d673d10954) Thanks [@didoo](https://github.com/didoo)! - Small cleanup (reformatting, linting) of the Sass files. Should have zero visual impact on the components.
 
-* [#565](https://github.com/hashicorp/design-system/pull/565) [`0f5247f0`](https://github.com/hashicorp/design-system/commit/0f5247f0f088ad35f877294089d0c69caaffdb37) Thanks [@didoo](https://github.com/didoo)! - added stylelint to the codebase and re-organized CSS declarations
+- [#565](https://github.com/hashicorp/design-system/pull/565) [`0f5247f0`](https://github.com/hashicorp/design-system/commit/0f5247f0f088ad35f877294089d0c69caaffdb37) Thanks [@didoo](https://github.com/didoo)! - added stylelint to the codebase and re-organized CSS declarations
 
-* Updated dependencies [[`0b245333`](https://github.com/hashicorp/design-system/commit/0b24533369ccc2d02aa5c6c8b8ba4f722e07d236)]:
+- Updated dependencies [[`0b245333`](https://github.com/hashicorp/design-system/commit/0b24533369ccc2d02aa5c6c8b8ba4f722e07d236)]:
   - @hashicorp/design-system-tokens@1.0.1
 
 ## 1.0.4
@@ -2119,7 +2148,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#418](https://github.com/hashicorp/design-system/pull/418) [`981e2bd9`](https://github.com/hashicorp/design-system/commit/981e2bd99d29398a40274d390d1885ebfcd85133) Thanks [@alex-ju](https://github.com/alex-ju)! - Determine an accessible name for `alertdialog` alerts #418
 
-* [#416](https://github.com/hashicorp/design-system/pull/416) [`824e53d1`](https://github.com/hashicorp/design-system/commit/824e53d11678a5bb2544add3d9d1b2a93f9c42c1) Thanks [@alex-ju](https://github.com/alex-ju)! - Remove stray aria-describedby in alert component
+- [#416](https://github.com/hashicorp/design-system/pull/416) [`824e53d1`](https://github.com/hashicorp/design-system/commit/824e53d11678a5bb2544add3d9d1b2a93f9c42c1) Thanks [@alex-ju](https://github.com/alex-ju)! - Remove stray aria-describedby in alert component
 
 - [#415](https://github.com/hashicorp/design-system/pull/415) [`c6842109`](https://github.com/hashicorp/design-system/commit/c68421094991b2d62832cb346b4cf23eca1049e4) Thanks [@didoo](https://github.com/didoo)! - Added `@levelHover` and `@levelActive` arguments to `Card::Container` component
 
@@ -2147,7 +2176,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#391](https://github.com/hashicorp/design-system/pull/391) [`0d8515f0`](https://github.com/hashicorp/design-system/commit/0d8515f06ae15b9955a15e9cafa97dc1d4c87cee) Thanks [@didoo](https://github.com/didoo)! - Fixed bug in `Link::Standalone` and `Link::Inline` components that added `target="_blank"` and `rel="noopener noreferrer”` attributes in any case/condition.
 
-* [#354](https://github.com/hashicorp/design-system/pull/354) [`e7997ee6`](https://github.com/hashicorp/design-system/commit/e7997ee68d7d8b104243c8b6129db1030a3cea57) Thanks [@didoo](https://github.com/didoo)! - small update to the `yield` helper component - this is used in `Alert` and `Toast` but the changes should have no impact
+- [#354](https://github.com/hashicorp/design-system/pull/354) [`e7997ee6`](https://github.com/hashicorp/design-system/commit/e7997ee68d7d8b104243c8b6129db1030a3cea57) Thanks [@didoo](https://github.com/didoo)! - small update to the `yield` helper component - this is used in `Alert` and `Toast` but the changes should have no impact
 
 ## 0.12.4
 
@@ -2155,7 +2184,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#343](https://github.com/hashicorp/design-system/pull/343) [`a74711c8`](https://github.com/hashicorp/design-system/commit/a74711c8c0de6843625781488ed94521c7f8cb7c) Thanks [@MelSumner](https://github.com/MelSumner)! - Fixes copy-item bug in FireFox
 
-* [#328](https://github.com/hashicorp/design-system/pull/328) [`32b36ab1`](https://github.com/hashicorp/design-system/commit/32b36ab132b3356923ef6d1f3f36c2f7036e852c) Thanks [@didoo](https://github.com/didoo)! - updated `font-weight` to `medium` for `Link::Standalone` component (to be in sync with design specs)
+- [#328](https://github.com/hashicorp/design-system/pull/328) [`32b36ab1`](https://github.com/hashicorp/design-system/commit/32b36ab132b3356923ef6d1f3f36c2f7036e852c) Thanks [@didoo](https://github.com/didoo)! - updated `font-weight` to `medium` for `Link::Standalone` component (to be in sync with design specs)
 
 - [#319](https://github.com/hashicorp/design-system/pull/319) [`7c96344f`](https://github.com/hashicorp/design-system/commit/7c96344f3c83baecc56daac6dfdddb809c161c1f) Thanks [@didoo](https://github.com/didoo)! - updated the `Hds::Dropdown::ListItem::Interactive` to support the `isLoading` state
 
@@ -2228,7 +2257,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#284](https://github.com/hashicorp/design-system/pull/284) [`ba409885`](https://github.com/hashicorp/design-system/commit/ba409885468f91d659d10971fa1f34f64f57ddbc) Thanks [@alex-ju](https://github.com/alex-ju)! - Change focus management in disclosure utility component
 
-* [#289](https://github.com/hashicorp/design-system/pull/289) [`bf3a00e5`](https://github.com/hashicorp/design-system/commit/bf3a00e56989bbef92bfa355a42e5775785847a3) Thanks [@didoo](https://github.com/didoo)! - "Alert" and "Toast" components - converted "title" and "description" arguments to be contextual components
+- [#289](https://github.com/hashicorp/design-system/pull/289) [`bf3a00e5`](https://github.com/hashicorp/design-system/commit/bf3a00e56989bbef92bfa355a42e5775785847a3) Thanks [@didoo](https://github.com/didoo)! - "Alert" and "Toast" components - converted "title" and "description" arguments to be contextual components
 
 ## 0.11.0
 
@@ -2333,7 +2362,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#125](https://github.com/hashicorp/design-system/pull/125) [`b0ff180c`](https://github.com/hashicorp/design-system/commit/b0ff180c85ff920e704d46c9b823b3fa261b1b1e) Thanks [@didoo](https://github.com/didoo)! - updated border radius of “Badge” from 4px to 5px
 
-* [#126](https://github.com/hashicorp/design-system/pull/126) [`7b639915`](https://github.com/hashicorp/design-system/commit/7b63991586b242973bad45c6108c447453772d0a) Thanks [@didoo](https://github.com/didoo)! - updated the internal padding of the “Button” component to match design specifications
+- [#126](https://github.com/hashicorp/design-system/pull/126) [`7b639915`](https://github.com/hashicorp/design-system/commit/7b63991586b242973bad45c6108c447453772d0a) Thanks [@didoo](https://github.com/didoo)! - updated the internal padding of the “Button” component to match design specifications
 
 ## 0.4.0
 
@@ -2368,7 +2397,7 @@ This release signifies the first major release of the HashiCorp Design System. M
 
 - [#76](https://github.com/hashicorp/design-system/pull/76) [`48a82d54`](https://github.com/hashicorp/design-system/commit/48a82d545817c280d022cf95b2f3a691dc3c46a3) Thanks [@didoo](https://github.com/didoo)! - Added the "tertiary" color variant to the "Button" component
 
-* [#77](https://github.com/hashicorp/design-system/pull/77) [`c08711e4`](https://github.com/hashicorp/design-system/commit/c08711e4fa3fac0cd3418b8afa1a0c4c254e8fac) Thanks [@didoo](https://github.com/didoo)! - Fixed the "elevation" treatment for the "Button" component
+- [#77](https://github.com/hashicorp/design-system/pull/77) [`c08711e4`](https://github.com/hashicorp/design-system/commit/c08711e4fa3fac0cd3418b8afa1a0c4c254e8fac) Thanks [@didoo](https://github.com/didoo)! - Fixed the "elevation" treatment for the "Button" component
 
 ## 0.1.2
 
