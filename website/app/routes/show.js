@@ -19,9 +19,16 @@ export default class ShowRoute extends Route {
     },
   };
 
+  modelCache = {};
+
   model(params) {
     // remove trailing slash
-    let path = params.path.replace(/\/$/, '');
+    const path = params.path.replace(/\/$/, '');
+
+    // If the model is cached, return it
+    if (this.modelCache[path]) {
+      return this.modelCache[path];
+    }
 
     // redirect if `index` is added to the URL
     if (path.endsWith('/index')) {
@@ -128,7 +135,7 @@ export default class ShowRoute extends Route {
           });
         }
 
-        return {
+        this.modelCache[path] = {
           // IMPORTANT: this is the "component" ID which is used to get the correct backing class for the markdown "component"
           // This ID comes from the markdown-to-json conversion (see `id: relativePath.replace(/\.md$/, '')` in `addons/field-guide/lib/markdown-to-jsonapi.js`)
           id: res.data.id, // eg. 'components/alert/index'
@@ -141,6 +148,8 @@ export default class ShowRoute extends Route {
           hasSidecar,
           relatedComponents,
         };
+
+        return this.modelCache[path];
       });
   }
 
