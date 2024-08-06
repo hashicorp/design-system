@@ -130,11 +130,6 @@ export default class ShwTextIndexComponent extends Component {
       classes.push(`shw-text-align-${this.align}`);
     }
 
-    // Add a class based on the @color argument (if pre-defined)
-    if (this.predefinedColor) {
-      classes.push(`shw-fg-color-${this.predefinedColor}`);
-    }
-
     return classes.join(' ');
   }
 
