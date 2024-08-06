@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} {{hds-resize-observer this.handleResize}} ...attributes>
+<div class={{this.classNames}} ...attributes>
   {{#if this.hasA11yRefocus}}
     {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
     <NavigationNarrator
@@ -17,8 +17,7 @@
 
   {{yield to="logo"}}
 
-  {{! {{#if (not this.isDesktop) }}
-  {{#if this.hasOverflowContent}}
+  {{#if (not this.isDesktop)}}
     <Hds::AppHeader::MenuButton
       @onClickToggle={{this.onClickToggle}}
       @isOpen={{this.isOpen}}

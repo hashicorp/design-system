@@ -165,7 +165,6 @@ import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
-import type HdsResizeObserver from './modifiers/hds-resize-observer.ts';
 
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
@@ -740,7 +739,4 @@ export default interface HdsComponentsRegistry {
 
   // hds-tooltip
   'hds-tooltip': typeof HdsTooltipModifier;
-
-  // hds-resize-observer
-  'hds-resize-observer': typeof HdsResizeObserver;
 }
