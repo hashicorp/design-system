@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 // import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
-// import { registerDestructor } from '@ember/destroyable';
+import { registerDestructor } from '@ember/destroyable';
 
 export interface HdsAppHeaderSignature {
   Args: {
@@ -30,9 +30,9 @@ export interface HdsAppHeaderSignature {
 
 export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;
-  // @tracked isDesktop = true;
+  @tracked isDesktop = true;
   @tracked hasOverflowContent = false;
-  // desktopMQ: MediaQueryList;
+  desktopMQ: MediaQueryList;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
 
   // Generates a unique ID for the Menu Content
@@ -44,19 +44,19 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     )
   );
 
-  // desktopMQVal =
-  //   this.args.breakpoint ??
-  //   getComputedStyle(document.documentElement).getPropertyValue(
-  //     '--hds-app-desktop-breakpoint'
-  //   );
+  desktopMQVal =
+    this.args.breakpoint ??
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--hds-app-desktop-breakpoint'
+    );
 
   constructor(owner: unknown, args: Record<string, never>) {
     super(owner, args);
-    // this.desktopMQ = window.matchMedia(`(min-width: ${this.desktopMQVal})`);
-    // this.addEventListeners();
-    // registerDestructor(this, (): void => {
-    //   this.removeEventListeners();
-    // });
+    this.desktopMQ = window.matchMedia(`(min-width: ${this.desktopMQVal})`);
+    this.addEventListeners();
+    registerDestructor(this, (): void => {
+      this.removeEventListeners();
+    });
 
     // TODO: Determine what defaults should be set:
     // * Should hasA11yRefocus default to "true"? (I assume yes)
@@ -71,38 +71,32 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     // }
   }
 
-  // addEventListeners(): void {
-  //   document.addEventListener('keydown', this.escapePress, true);
-  //   this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+  addEventListeners(): void {
+    document.addEventListener('keydown', this.escapePress, true);
+    this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
 
-  //   // set initial state based on viewport using a "synthetic" event
-  //   const syntheticEvent = new MediaQueryListEvent('change', {
-  //     matches: this.desktopMQ.matches,
-  //     media: this.desktopMQ.media,
-  //   });
-  //   this.updateDesktopVariable(syntheticEvent);
-  // }
+    // set initial state based on viewport using a "synthetic" event
+    const syntheticEvent = new MediaQueryListEvent('change', {
+      matches: this.desktopMQ.matches,
+      media: this.desktopMQ.media,
+    });
+    this.updateDesktopVariable(syntheticEvent);
+  }
 
-  // removeEventListeners(): void {
-  //   document.removeEventListener('keydown', this.escapePress, true);
-  //   this.desktopMQ.removeEventListener(
-  //     'change',
-  //     this.updateDesktopVariable,
-  //     true
-  //   );
-  // }
-
-  // hasOverflowContent
-  // get hasOverflowContent(): boolean {
-  //   return this.hasOverflowContent;
-  // }
+  removeEventListeners(): void {
+    document.removeEventListener('keydown', this.escapePress, true);
+    this.desktopMQ.removeEventListener(
+      'change',
+      this.updateDesktopVariable,
+      true
+    );
+  }
 
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
 
-    // if (this.isDesktop) {
-    if (!this.hasOverflowContent) {
+    if (this.isDesktop) {
       classes.push('hds-app-header--is-desktop');
     } else {
       classes.push('hds-app-header--is-mobile');
@@ -119,10 +113,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
 
   @action
   escapePress(event: KeyboardEvent): void {
-    // if (event.key === 'Escape' && this.isOpen && !this.isDesktop) {
-    //   this.isOpen = false;
-    // }
-    if (event.key === 'Escape' && this.isOpen && !this.hasOverflowContent) {
+    if (event.key === 'Escape' && this.isOpen && !this.isDesktop) {
       this.isOpen = false;
     }
   }
@@ -132,35 +123,8 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     this.isOpen = !this.isOpen;
   }
 
-  // @action
-  // updateDesktopVariable(event: MediaQueryListEvent): void {
-  //   this.isDesktop = event.matches;
-  // }
-
-  // Detect if content overflows the container
-  @action handleResize(entries: ResizeObserverEntry[]): void {
-    entries.forEach((entry): void => {
-      // if theres no overflow content and the content overflows the container then set hasOverflowContent to true and set the breakpoint accordingly
-      if (
-        !this.hasOverflowContent &&
-        entry.target.scrollWidth > entry.target.clientWidth
-      ) {
-        this.hasOverflowContent = true;
-        // if the client width is greater than the breakpoint then set the preset breakpoint then use the clientWidth as the breakpoint
-        if (entry.target.clientWidth >= this.breakpoint) {
-          this.breakpoint = entry.target.clientWidth;
-        }
-      } else if (
-        // if hasOverflowContent is set to true, but the content no longer overflows, the set hasOverflowContent to false if past the breakpoint
-        this.hasOverflowContent &&
-        entry.target.scrollWidth <= entry.target.clientWidth
-      ) {
-        if (entry.target.clientWidth >= this.breakpoint) {
-          this.hasOverflowContent = false;
-        }
-      } else {
-        this.hasOverflowContent = false;
-      }
-    });
+  @action
+  updateDesktopVariable(event: MediaQueryListEvent): void {
+    this.isDesktop = event.matches;
   }
 }
