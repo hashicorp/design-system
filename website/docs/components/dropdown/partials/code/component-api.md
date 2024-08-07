@@ -56,15 +56,23 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="<[D].Footer>" @type="yielded component">
     `Dropdown::Footer` yielded as contextual component (see below).
   </C.Property>
-  <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right"/>
+  <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right">
+    _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._
+  </C.Property>
+  <C.Property @name="isInline" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
+  </C.Property>
+  <C.Property @name="enableCollisionDetection" @type="boolean" @default="false" @values={{array "true" "false"}}>
+     Setting it to `true` will automatically flip the list position to remain visible when near the edges of the viewport.
+  </C.Property>
+  <C.Property @name="isOpen" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    Controls if the list should be rendered initially opened.
+  </C.Property>
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a max-height.
-  </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false">
-    If an `@isInline` parameter is provided, then the element will be displayed as `inline-block` (useful to achieve specific layouts like in a container with right alignment). Otherwise, it will have a `block` layout.
   </C.Property>
   <C.Property @name="close" @type="function">
     Function to programmatically close the Dropdown.
