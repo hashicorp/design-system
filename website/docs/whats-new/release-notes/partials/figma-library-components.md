@@ -14,28 +14,30 @@
 
 ### August 2nd, 2024
 
-`ApplicationState` - multiple enhancements to the `ApplicationState` including:
+`AppHeader` - Added a new navigation component to contain global and utility navigation elements.
 
-- Added support for a media slot, which when enabled, will be added above the title, allowing yielded illustrations to occupy that space.
-- Added an `alignment` property which can be set at the root level to `left` or `center`. This adjusts the component’s text, footer actions, and media alignment.
-- The footer now supports up to three actions at once, modeled after the Button Set. Previously, the actions were justified (one all the way left and one all the way right). The three actions are now organized in accordance with our [Button Organization](/patterns/button-organization) pattern with `primary` and `secondary` grouped on the left, and `tertiary` on the right. Supported actions now include Dropdown, Button, and Standalone Link. Previously Standalone Link was the only supported option.
+`AppSideNav` - Added a new component that shares features and functionality with the legacy `SideNav`.
 
-Notable visual changes in the `ApplicationState`:
+`Application Template` - Added a template component that provides a consistent starting point for the UI chrome.
 
-- The divider has been removed to modernize the component and align with our visual standards.
-- The title text has been reduced from Display 400 to Display 300 to better fit within the page hierarchy.
-- The icon and title have been changed from `foreground/faint` to `foreground/strong`. The body text has changed from `foreground/faint` to `foreground/primary`. These changes better align with our color standards established with other components.
+`SideNav` - **Deprecated** the legacy navigation component. It will be removed from the library once adoption of the `AppHeader` is complete.
+
+#### Breaking changes
+
+`ApplicationState` - multiple enhancements including:
+
+- Added support for a media slot above the title.
+- Added an `alignment` property which can be set at the root level to `left` or `center`.
+- The footer now supports up to three actions at once. The actions are now organized in accordance with our [Button Organization](/patterns/button-organization) pattern.
+- Updated several visual styles including:
+  - Removing the divider
+  - Reducing the title from `Display/400/Bold` to `Display/300/Bold`
+  - Changing the icon and the title color from `Foreground/Faint` to `Foreground/Strong`
+  - Changing the body text color from `Foreground/Faint` to `Foreground/Primary`
 
 #### Breaking change
 
-The changes in the footer of the `ApplicationState` to support a Dropdown, Button, and Standalone Link results in a breaking change. To avoid overwriting in-progress design work, we recommend taking screenshots of legacy instances of the Application state prior to updating your library.
-
-`Enterprise Navigation` - multiple enhancements to navigation components including:
-
-- Added a new `AppHeader` component to contain global and utility navigation elements.
-- Added a new `AppSideNav` component which shares features and functionality with the legacy `SideNav`
-  - The legacy `SideNav` is marked as **deprecated** and will be removed from the library once adoption of the `AppHeader` is complete.
-- Add a new `Application Template` which provides a consistent starting point for the UI chrome with HDS navigation components (`AppHeader`, `AppSideNav`, and `AppFooter`).
+_Adding support for three actions within the `ApplicationState` results in a breaking change to the previous actions. Before updating the library, we recommend annotating the text and icon name (with a comment or otherwise) in files that are in progress or still being referenced by engineering._
 
 ### February 27th, 2024
 
