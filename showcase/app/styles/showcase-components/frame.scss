@@ -36,14 +36,14 @@ $shw-frame-navigation-bar-height: 48px;
 .shw-frame__open-link {
   width: 16px;
   height: 16px;
-  color: var(--doc-color-gray-300);
+  color: var(--shw-color-gray-300);
 
   &:hover {
-    color: var(--doc-color-gray-200);
+    color: var(--shw-color-gray-200);
   }
 
   &:active {
-    color: var(--doc-color-gray-100);
+    color: var(--shw-color-gray-100);
   }
 }
 

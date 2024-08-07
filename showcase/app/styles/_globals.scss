@@ -17,7 +17,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: var(--doc-color-white);
+  background: var(--shw-color-white);
 }
 
 .shw-page-header {
@@ -29,7 +29,7 @@ body {
   width: 100%;
   height: 68px;
   padding: 0 24px;
-  color: var(--doc-color-black);
+  color: var(--shw-color-black);
   border-bottom: 1px solid #eaeaea;
 }
 
@@ -98,7 +98,7 @@ body {
   align-items: center;
   width: fit-content;
   padding: 0.5rem 1rem;
-  color: var(--doc-color-black);
+  color: var(--shw-color-black);
   font-size: 0.9rem;
   border: 2px solid transparent;
   border-radius: 5px;
@@ -147,12 +147,12 @@ body {
       padding-left: 5px;
 
       &::marker {
-        color: var(--doc-color-gray-300);
+        color: var(--shw-color-gray-300);
       }
 
       a {
         padding: 4px 6px;
-        color: var(--doc-color-black);
+        color: var(--shw-color-black);
         border-radius: 4px;
 
         &:hover {
