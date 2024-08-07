@@ -104,29 +104,29 @@ body {
   border-radius: 5px;
 
   &:hover {
-    background-color: aliceblue;
-    border-color: blue;
+    background-color: var(--shw-color-action-active-background);
+    border-color: var(--shw-color-action-active-border);
     border-style: dashed;
   }
 
   &:focus {
     text-decoration: underline;
-    border-color: blue;
+    border-color: var(--shw-color-action-active-border);
   }
 
   &:focus-visible {
-    outline-color: blue;
+    outline-color: var(--shw-color-action-active-border);
     outline-offset: 4px;
   }
 
   &:active {
     text-decoration: underline;
-    background-color: aliceblue;
-    border-color: blue;
+    background-color: var(--shw-color-action-active-background);
+    border-color: var(--shw-color-action-active-border);
   }
 
   .flight-icon {
-    color: blue;
+    color: var(--shw-color-action-active-foreground);
   }
 }
 
@@ -156,8 +156,8 @@ body {
         border-radius: 4px;
 
         &:hover {
-          background-color: aliceblue;
-          outline: 2px dashed blue;
+          background-color: var(--shw-color-action-active-background);
+          outline: 2px dashed var(--shw-color-action-active-border);
         }
       }
 
@@ -213,8 +213,8 @@ body {
 
   &:focus-visible {
     &::after {
-      background-color: aliceblue;
-      border: 2px dashed blue;
+      background-color: var(--shw-color-action-active-background);
+      border: 2px dashed var(--shw-color-action-active-border);
       border-radius: 5px;
       opacity: 1;
     }
