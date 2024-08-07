@@ -98,6 +98,8 @@ Add explicit `ember-get-config` dependency for use in the icon sprite initialize
 
 ## 4.7.0
 
+[4.7.0 documentation](https://hds-website-4-7-0.vercel.app/)
+
 ### Minor Changes
 
 `FileInput`, `MaskedInput`, `Select`, `TextInput`, `Textarea` - Converted to TypeScript
@@ -172,6 +174,8 @@ Converted form primitives to TypeScript
 - @hashicorp/ember-flight-icons@5.1.3
 
 ## 4.6.0
+
+[4.6.0 documentation](https://hds-website-4-6-0.vercel.app/)
 
 ### Minor Changes
 

@@ -1,5 +1,30 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
+## August 2nd, 2024
+
+`AppHeader` - Added a new navigation component to contain global and utility navigation elements.
+
+`AppSideNav` - Added a new component that shares features and functionality with the legacy `SideNav`.
+
+`Application Template` - Added a template component that provides a consistent starting point for the UI chrome.
+
+`SideNav` - **Deprecated** the legacy navigation component. It will be removed from the library once adoption of the `AppHeader` and `AppSideNav` is complete.
+
+### Breaking changes
+
+`ApplicationState` - multiple enhancements including:
+
+- Added support for a media slot above the title.
+- Added an `alignment` property which can be set at the root level to `left` or `center`.
+- The footer now supports up to three actions at once. The actions are now organized in accordance with our [Button Organization](/patterns/button-organization) pattern.
+- Updated several visual styles including:
+    - Removing the divider
+    - Reducing the title from `Display/400/Bold` to `Display/300/Bold`
+    - Changing the icon and the title color from `Foreground/Faint` to `Foreground/Strong`
+    - Changing the body text color from `Foreground/Faint` to `Foreground/Primary`
+
+_Adding support for three actions within the `ApplicationState` results in a breaking change to the previous actions. Before updating the library, we recommend annotating the text and icon name (with a comment or otherwise) in files that are in progress or still being referenced by engineering._
+
 ## February 27th, 2024
 
 ### Breaking changes
