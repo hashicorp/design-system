@@ -100,7 +100,7 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
     return {
       placement: HdsDropdownPositionToPlacementValues[this.listPosition],
       offsetOptions: 4,
-      enableCollisionDetection: this.enableCollisionDetection,
+      enableCollisionDetection: this.enableCollisionDetection ? 'flip' : false,
     };
   }
 
