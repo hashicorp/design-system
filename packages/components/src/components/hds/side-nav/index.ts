@@ -27,7 +27,6 @@ interface HdsSideNavSignature {
     onToggleMinimizedStatus?: (arg: boolean) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDesktopViewportChange?: (arg: boolean) => void;
-    withAppHeader?: boolean;
   };
   Blocks: {
     header?: [
@@ -144,11 +143,6 @@ export default class HdsSideNavComponent extends Component<HdsSideNavSignature> 
     }
     if (this.isAnimating) {
       classes.push('hds-side-nav--is-animating');
-    }
-
-    // Add class based on the presence of app-header
-    if (this.args.withAppHeader) {
-      classes.push('hds-side-nav--with-app-header');
     }
 
     return classes.join(' ');
