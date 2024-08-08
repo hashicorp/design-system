@@ -11,6 +11,8 @@ import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 import type { HdsInteractiveSignature } from '../../interactive';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
+import type { ComponentLike } from '@glint/template';
+import type { HdsBadgeSignature } from '../../badge/index.ts';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
 export const COLORS: string[] = Object.values(
@@ -26,7 +28,11 @@ export interface HdsDropdownListItemInteractiveSignature {
     trailingIcon?: FlightIconSignature['Args']['name'];
   };
   Blocks: {
-    default?: [];
+    default?: [
+      {
+        Badge: ComponentLike<HdsBadgeSignature>;
+      },
+    ];
   };
   Element: HTMLDivElement | HdsInteractiveSignature['Element'];
 }
