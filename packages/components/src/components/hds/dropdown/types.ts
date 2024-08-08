@@ -13,6 +13,7 @@ export enum HdsDropdownPositionValues {
 }
 export type HdsDropdownPositions = `${HdsDropdownPositionValues}`;
 
+// map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values for backwards compatibility
 export const HdsDropdownPositionToPlacementValues: Record<
   HdsDropdownPositionValues,
   FloatingUIOptions['placement']

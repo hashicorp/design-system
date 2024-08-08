@@ -8,7 +8,9 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 import {
-  HdsDropdownPositionToPlacementValues,
+  // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
+  HdsDropdownPositionToPlacementValues, 
+  // Dropdown's `listPosition` values
   HdsDropdownPositionValues,
 } from './types.ts';
 
