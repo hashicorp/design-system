@@ -75,7 +75,7 @@ For error validation recommendations, refer to the [Form patterns](/patterns/for
 
 ## Generic content
 
-Both the radio field and group allow for generic content to be appended below all other sub-components in both the horizontal and vertical variants.
+The radio field and group both support the addition of generic content below all other sub-components in both horizontal and vertical variants.
 
 ![Showing generic instances appending below the radio field and group types and vertical and horizontal variants](/assets/components/form/radio/radio-generic-instance.png)
 
