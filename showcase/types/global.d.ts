@@ -5,6 +5,8 @@
 import '@glint/environment-ember-loose';
 
 import type PageTitle from 'ember-page-title/template-registry';
+import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
+import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
 
 import ShwAutoscrollable from '../app/components/shw/autoscrollable';
 import ShwDivider from '../app/components/shw/divider';
@@ -35,7 +37,9 @@ export default interface EmberStyleModifierRegistry {
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends EmberStyleModifierRegistry,
+      EmberTruthRegistry,
       HdsComponentsRegistry,
+      RenderModifiersRegistry,
       FlightIconsRegistry,
       PageTitle {
     'Shw::Autoscrollable': typeof ShwAutoscrollable;
