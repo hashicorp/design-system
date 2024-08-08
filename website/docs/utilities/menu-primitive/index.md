@@ -6,6 +6,8 @@ related: ['components/breadcrumb', 'components/dropdown', 'utilities/disclosure-
 previewImage: assets/illustrations/utilities/menu-primitive.jpg
 navigation:
   keywords: ['show', 'hide', 'accordion', 'dropdown', 'reveal']
+status:
+  deprecated: 4.10.0
 ---
 
 <section data-tab="Code">
