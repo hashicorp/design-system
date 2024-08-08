@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 
 import {
   // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values
-  HdsDropdownPositionToPlacementValues, 
+  HdsDropdownPositionToPlacementValues,
   // Dropdown's `listPosition` values
   HdsDropdownPositionValues,
 } from './types.ts';
@@ -129,6 +129,11 @@ export default class HdsDropdownComponent extends Component<HdsDropdownSignature
    */
   get classNamesContent(): string {
     const classes = ['hds-dropdown__content'];
+
+    // add a class based on the @listPosition argument
+    // TODO: we preserved these classes to avoid introducing breaking changes for consumers who rely on these classes for tests, but we aim to remove them in the next major release
+    // context: https://github.com/hashicorp/design-system/pull/2309#discussion_r1706941892
+    classes.push(`hds-dropdown__content--position-${this.listPosition}`);
 
     // add a class based on the @width argument
     if (this.args.width) {
