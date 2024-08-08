@@ -47,6 +47,10 @@
   .hds-form-field__character-count {
     margin-bottom: 8px;
   }
+
+  .hds-form-field__error {
+    margin-top: 4px;
+  }
 }
 
 
@@ -60,8 +64,9 @@
   grid-template-areas:
     "control label"
     "control helper-text"
+    "control generic"
     "control error";
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   grid-template-columns: auto 1fr;
   justify-items: start;
 
@@ -73,6 +78,7 @@
   .hds-form-field__helper-text {
     grid-area: helper-text;
     margin-top: 4px;
+    margin-bottom: 4px; // needed to ensure spacing between generic and helper-text
   }
 
   .hds-form-field__control {
@@ -89,6 +95,12 @@
     grid-area: error;
     margin-top: 4px;
   }
+
+    // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+    & + .hds-form-helper-text {
+      margin-top: 2px;
+    }
+
 }
 
 
