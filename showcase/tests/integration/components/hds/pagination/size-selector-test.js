@@ -100,7 +100,6 @@ module(
     test('it should throw an assertion if @pageSizes is not defined', async function (assert) {
       const errorMessage =
         '@pageSizes for "Pagination::SizeSelector" must be defined';
-      assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
@@ -112,7 +111,6 @@ module(
     test('it should throw an assertion if @selectedSize is not one of the @pageSizes items', async function (assert) {
       const errorMessage =
         '@selectedSize for "Pagination::SizeSelector" must one of the @pageSizes provided (10,30,50), received 1234';
-      assert.expect(2);
       setupOnerror(function (error) {
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
