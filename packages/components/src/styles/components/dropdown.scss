@@ -430,8 +430,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 }
 
 .hds-dropdown-list-item__interactive-text {
-  display: block;
+  display: flex;
   flex: 1;
+  gap: 8px;
   text-align: left; // the button element was centering text
 }
 
