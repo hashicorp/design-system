@@ -49,7 +49,7 @@ export default class MenuPrimitiveComponent extends Component<MenuPrimitiveSigna
         url: 'https://helios.hashicorp.design/components/menu-primitive?tab=version%20history#460',
         for: '@hashicorp/design-system-components',
         since: {
-          enabled: '4.8.0',
+          enabled: '4.10.0',
         },
       }
     );
