@@ -610,6 +610,57 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>Yielded content with Badge</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Yielded text</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive as |I|>
+            Lorem ipsum dolor
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Yielded text with leading icon</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="terraform-color" as |I|>
+            Lorem ipsum dolor
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Shw::Label>Yielded text with trailing icon</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" as |I|>
+            Lorem ipsum dolor
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <Shw::Label>Yielded text with leading + trailing icons</Shw::Label>
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="terraform-color" @trailingIcon="external-link" as |I|>
+            Lorem ipsum dolor
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Generic</Shw::Text::H3>

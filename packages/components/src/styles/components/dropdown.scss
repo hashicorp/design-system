@@ -433,6 +433,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   flex: 1;
   gap: 8px;
+  align-items: center;
   text-align: left; // the button element was centering text
 }
 
