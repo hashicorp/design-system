@@ -52,4 +52,15 @@ export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature
   get hasModals(): boolean {
     return this.args.hasModals ?? true;
   }
+
+  // Get the class names to apply to the component.
+  get classNames(): string {
+    const classes = ['hds-app-frame'];
+
+    if (this.hasHeader && this.hasSidebar) {
+      classes.push('hds-app-frame--has-header-with-sidebar');
+    }
+
+    return classes.join(' ');
+  }
 }

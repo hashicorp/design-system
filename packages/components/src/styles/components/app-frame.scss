@@ -7,8 +7,6 @@
 // APP-FRAME
 //
 
-@use "../mixins/interactive-dark-theme" as *;
-
 .hds-app-frame {
   display: grid;
   grid-template-areas:
@@ -32,15 +30,6 @@
     top: 0;
     right: 0;
     left: 0;
-
-    // Modify sidenav layout when used together with fixed app-header
-    &:has(.hds-app-header) {
-      + .hds-app-frame__sidebar {
-        top: var(--token-app-header-height);
-        height: calc(100vh - var(--token-app-header-height));
-        min-height: calc(100vh - var(--token-app-header-height));
-      }
-    }
   }
 }
 
@@ -51,6 +40,15 @@
   grid-area: sidebar;
   height: 100vh;
   min-height: 100vh;
+
+  // Modify sidenav layout when used together with fixed app-header
+  @media (height >= 480px) {
+    .hds-app-frame--has-header-with-sidebar & {
+      top: var(--token-app-header-height);
+      height: calc(100vh - var(--token-app-header-height));
+      min-height: calc(100vh - var(--token-app-header-height));
+    }
+  }
 }
 
 .hds-app-frame__main {
