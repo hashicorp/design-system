@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} ...attributes>
+<div class="hds-app-frame" ...attributes>
   {{#if this.hasHeader}}
     {{yield (hash Header=(component "hds/app-frame/parts/header"))}}
   {{/if}}
