@@ -68,7 +68,7 @@ body.layouts-app-frame {
     }
 
     // remove sticky positioning from examples
-    .hds-app-frame--is-header-fixed .hds-app-frame__header,
+    .hds-app-frame__header,
     .hds-app-frame__sidebar {
       position: relative;
       top: 0;
