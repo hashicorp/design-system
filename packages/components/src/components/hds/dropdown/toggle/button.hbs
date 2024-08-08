@@ -8,7 +8,7 @@
   ...attributes
   type="button"
   aria-expanded={{if @isOpen "true" "false"}}
-  {{on "click" this.onClick}}
+  {{@setupPrimitiveToggle}}
 >
   {{#if @icon}}
     <div class="hds-dropdown-toggle-button__icon">

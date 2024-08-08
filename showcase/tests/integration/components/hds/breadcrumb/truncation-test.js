@@ -44,7 +44,7 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
     );
     assert
       .dom('#test-breadcrumb-truncation .hds-breadcrumb__truncation-content')
-      .doesNotExist();
+      .isNotVisible();
   });
   test('it should yield (and render) the content', async function (assert) {
     await render(

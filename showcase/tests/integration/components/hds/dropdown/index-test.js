@@ -12,7 +12,11 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Dropdown id="test-dropdown" />`);
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" />
+      </Hds::Dropdown>
+    `);
     assert.dom('#test-dropdown').hasClass('hds-dropdown');
   });
 
@@ -141,7 +145,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await click('button#test-toggle-button');
     assert.dom('#test-dropdown #test-list-item-interactive').exists();
     await click('#test-list-item-interactive');
-    assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
+    assert.dom('#test-dropdown #test-list-item-interactive').isNotVisible();
   });
 
   // ACCESSIBILITY

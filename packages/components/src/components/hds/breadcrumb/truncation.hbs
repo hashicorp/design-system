@@ -3,24 +3,25 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation" ...attributes>
-  <Hds::MenuPrimitive>
-    <:toggle as |t|>
+  <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
+    <div {{PP.setupPrimitiveContainer}}>
       <button
         type="button"
         class="hds-breadcrumb__truncation-toggle"
         aria-label={{this.ariaLabel}}
-        aria-expanded={{if t.isOpen "true" "false"}}
-        {{on "click" t.onClickToggle}}
+        aria-expanded={{if PP.isOpen "true" "false"}}
+        {{PP.setupPrimitiveToggle}}
       >
         <FlightIcon @name="more-horizontal" @size="16" @isInlineBlock={{false}} />
       </button>
-    </:toggle>
-    <:content>
-      <div class="hds-breadcrumb__truncation-content">
+      <div
+        class="hds-breadcrumb__truncation-content"
+        {{PP.setupPrimitivePopover anchoredPositionOptions=(hash placement="bottom-start" offsetOptions=4)}}
+      >
         <ol class="hds-breadcrumb__sublist">
           {{yield}}
         </ol>
       </div>
-    </:content>
-  </Hds::MenuPrimitive>
+    </div>
+  </Hds::PopoverPrimitive>
 </li>

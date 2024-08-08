@@ -11,11 +11,11 @@ import { HdsDropdownToggleIconSizeValues } from './types.ts';
 
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 import type { HdsDropdownToggleIconSizes } from './types';
+import type { ModifierLike } from '@glint/template';
+import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
-
-const NOOP = (): void => {};
 
 export interface HdsDropdownToggleIconSignature {
   Args: {
@@ -23,9 +23,9 @@ export interface HdsDropdownToggleIconSignature {
     icon: FlightIconSignature['Args']['name'];
     imageSrc: string;
     isOpen?: boolean;
-    onClick?: (event: MouseEvent) => void;
     size?: HdsDropdownToggleIconSizes;
     text: string;
+    setupPrimitiveToggle?: ModifierLike<SetupPrimitiveToggleModifier>;
   };
   Element: HTMLButtonElement;
 }
@@ -112,23 +112,6 @@ export default class HdsDropdownToggleIconComponent extends Component<HdsDropdow
    */
   get hasChevron(): boolean {
     return this.args.hasChevron ?? true;
-  }
-
-  /**
-   * @param onClick
-   * @type {function}
-   * @default () => {}
-   */
-  get onClick(): (event: MouseEvent) => void {
-    const { onClick } = this.args;
-
-    // notice: this is a guard used in case the toggle is used as standalone element (eg. in the showcase)
-    // in reality it's always used inside the Dropdown main component as yielded component, so the onClick handler is always defined
-    if (typeof onClick === 'function') {
-      return onClick;
-    } else {
-      return NOOP;
-    }
   }
 
   /**
