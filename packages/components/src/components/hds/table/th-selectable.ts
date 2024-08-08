@@ -25,7 +25,7 @@ export interface HdsTableThSelectableArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
-    willDestroy: () => void;
+    willDestroy: (selectionKey?: string) => void;
   };
   Element: HdsTableThArgs['Element'];
 }
@@ -70,7 +70,7 @@ export default class HdsTableThSelectableComponent extends Component<HdsTableThS
     super.willDestroy();
     const { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
-      willDestroy();
+      willDestroy(this.args.selectionKey);
       if (checkbox) {
         checkbox.removeEventListener(
           'toggle',
