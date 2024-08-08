@@ -2,138 +2,27 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-
-/* eslint-disable ember/require-tagless-components */
-/* eslint-disable @typescript-eslint/ban-types */
-
 import '@glint/environment-ember-loose';
-import Component from '@glimmer/component';
 
 import type PageTitle from 'ember-page-title/template-registry';
 
-export interface ShwTxtSignature {
-  Args: {
-    tag?: string;
-    variant?: string;
-    align?: string;
-    weight?: string;
-  };
-  Element: HTMLElement;
-  Blocks: {
-    default: [];
-  };
-}
-export class ShwTxt extends Component<ShwTxtSignature> {}
-
-export interface ShwLabelSignature {
-  Args: {};
-  Element: HTMLParagraphElement;
-  Blocks: {
-    default: [];
-  };
-}
-export class ShwLabel extends Component<ShwLabelSignature> {}
-
-export interface ShwFlexItemSignature {
-  Args: {
-    grow?: boolean;
-    label?: string;
-  };
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [
-      {
-        Label: typeof ShwLabel;
-      },
-    ];
-  };
-}
-export class ShwFlexItem extends Component<ShwFlexItemSignature> {}
-
-export interface ShwFlexSignature {
-  Args: {
-    direction?: string;
-    wrap?: boolean;
-    label?: string;
-    gap?: string;
-  };
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [
-      {
-        Label: typeof ShwLabel;
-        Item: typeof ShwFlexItem;
-      },
-    ];
-  };
-}
-export class ShwFlex extends Component<ShwFlexSignature> {}
-
-export interface ShwGridItemSignature {
-  Args: {
-    grow?: boolean;
-    forceMinWidth?: boolean;
-    label?: string;
-  };
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [
-      {
-        Label: typeof ShwLabel;
-      },
-    ];
-  };
-}
-export class ShwGridItem extends Component<ShwGridItemSignature> {}
-
-export interface ShwGridSignature {
-  Args: {
-    columns: number;
-    label?: string;
-    gap?: string;
-  };
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [
-      {
-        Label: typeof ShwLabel;
-        Item: typeof ShwGridItem;
-      },
-    ];
-  };
-}
-export class ShwGrid extends Component<ShwGridSignature> {}
-
-export interface ShwDividerSignature {
-  Args: {
-    level?: number;
-  };
-}
-export class ShwDivider extends Component<ShwDividerSignature> {}
-
-export interface ShwOutlinerSignature {
-  Args: {};
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [];
-  };
-}
-export class ShwOutliner extends Component<ShwOutlinerSignature> {}
-
-export interface ShwPlaceholderSignature {
-  Args: {
-    text?: string;
-    width?: string;
-    height?: string;
-    background?: string;
-    flex?: string;
-  };
-  Element: HTMLDivElement;
-  Blocks: {
-    default: [];
-  };
-}
-export class ShwPlaceholder extends Component<ShwPlaceholderSignature> {}
+import ShwAutoscrollable from '../app/components/shw/autoscrollable';
+import ShwDivider from '../app/components/shw/divider';
+import ShwFlex from '../app/components/shw/flex';
+import ShwFlexItem from '../app/components/shw/flex/item';
+import ShwFrame from '../app/components/shw/frame';
+import ShwGrid from '../app/components/shw/grid';
+import ShwGridItem from '../app/components/shw/grid/item';
+import ShwLabel from '../app/components/shw/label';
+import ShwLogoDesignSystem from '../app/components/shw/logo/design-system';
+import ShwOutliner from '../app/components/shw/outliner';
+import ShwPlaceholder from '../app/components/shw/placeholder';
+import ShwText from '../app/components/shw/text';
+import ShwTextBody from '../app/components/shw/text/body';
+import ShwTextH1 from '../app/components/shw/text/h1';
+import ShwTextH2 from '../app/components/shw/text/h2';
+import ShwTextH3 from '../app/components/shw/text/h3';
+import ShwTextH4 from '../app/components/shw/text/h4';
 
 import type HdsComponentsRegistry from '@hashicorp/design-system-components/template-registry';
 import type FlightIconsRegistry from '@hashicorp/ember-flight-icons/template-registry';
@@ -149,21 +38,39 @@ declare module '@glint/environment-ember-loose/registry' {
       HdsComponentsRegistry,
       FlightIconsRegistry,
       PageTitle {
-    'Shw::Text': typeof ShwTxt;
-    'Shw::Text::H1': typeof ShwTxt;
-    'Shw::Text::H2': typeof ShwTxt;
-    'Shw::Text::H3': typeof ShwTxt;
-    'Shw::Text::H4': typeof ShwTxt;
-    'Shw::Text::H5': typeof ShwTxt;
-    'Shw::Text::H6': typeof ShwTxt;
-    'Shw::Text::Body': typeof ShwTxt;
-    'Shw::Flex': typeof ShwFlex;
-    'Shw::Flex::Item': typeof ShwFlexItem;
-    'Shw::Grid': typeof ShwGrid;
-    'Shw::Grid::Item': typeof ShwGridItem;
-    'Shw::Label': typeof ShwLabel;
+    'Shw::Autoscrollable': typeof ShwAutoscrollable;
+    'shw/autoscrollable': typeof ShwAutoscrollable;
     'Shw::Divider': typeof ShwDivider;
+    'shw/divider': typeof ShwDivider;
+    'Shw::Flex': typeof ShwFlex;
+    'shw/flex': typeof ShwFlex;
+    'Shw::Flex::Item': typeof ShwFlexItem;
+    'shw/flex/item': typeof ShwFlexItem;
+    'Shw::Frame': typeof ShwFrame;
+    'shw/frame': typeof ShwFrame;
+    'Shw::Grid': typeof ShwGrid;
+    'shw/grid': typeof ShwGrid;
+    'Shw::Grid::Item': typeof ShwGridItem;
+    'shw/grid/item': typeof ShwGridItem;
+    'Shw::Label': typeof ShwLabel;
+    'shw/label': typeof ShwLabel;
+    'Shw::Logo::DesignSystem': typeof ShwLogoDesignSystem;
+    'shw/logo/design-system': typeof ShwLogoDesignSystem;
     'Shw::Outliner': typeof ShwOutliner;
+    'shw/outliner': typeof ShwOutliner;
     'Shw::Placeholder': typeof ShwPlaceholder;
+    'shw/placeholder': typeof ShwPlaceholder;
+    'Shw::Text': typeof ShwText;
+    'shw/text': typeof ShwText;
+    'Shw::Text::H1': typeof ShwTextH1;
+    'shw/text/h1': typeof ShwTextH1;
+    'Shw::Text::H2': typeof ShwTextH2;
+    'shw/text/h2': typeof ShwTextH2;
+    'Shw::Text::H3': typeof ShwTextH3;
+    'shw/text/h3': typeof ShwTextH3;
+    'Shw::Text::H4': typeof ShwTextH4;
+    'shw/text/h4': typeof ShwTextH4;
+    'Shw::Text::Body': typeof ShwTextBody;
+    'shw/text/body': typeof ShwTextBody;
   }
 }
