@@ -10,5 +10,4 @@
 - Styled inoperable actions as disabled (which occurs when the `SideNav` is expanded in mobile view)
 
 `SideNav`:
-- Removed need for `withAppHeader` option when used together with AppHeader
 - Removed the `withAppHeader` option as it is no longer needed.
