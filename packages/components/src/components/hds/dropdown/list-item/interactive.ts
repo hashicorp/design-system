@@ -30,7 +30,7 @@ export interface HdsDropdownListItemInteractiveSignature {
   Blocks: {
     default?: [
       {
-        Badge: ComponentLike<HdsBadgeSignature>;
+        Badge?: ComponentLike<HdsBadgeSignature>;
       },
     ];
   };
