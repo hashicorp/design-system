@@ -38,6 +38,7 @@ export interface HdsFormFieldsetSignature {
           'contextualClass' | 'controlId' | 'onInsert'
         >;
         Control?: ComponentLike<HdsYieldSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
         Error?: WithBoundArgs<
           typeof HdsFormErrorComponent,
           'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'

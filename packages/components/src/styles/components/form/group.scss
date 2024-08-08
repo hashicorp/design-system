@@ -32,6 +32,11 @@
   .hds-form-group__control-fields-wrapper {
     display: flex;
     flex-direction: column;
+    margin-bottom: 12px;
+
+    & + .hds-form-group__error {
+      margin-bottom: 0;
+    }
   }
 
   .hds-form-group__control-field + .hds-form-group__control-field {
@@ -43,12 +48,16 @@
   .hds-form-group__control-fields-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: -4px;
+    margin-bottom: 8px;
   }
 
   .hds-form-group__control-field {
     margin-right: 16px;
     margin-bottom: 4px;
+
+    :last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -57,5 +66,5 @@
 }
 
 .hds-form-group__error {
-  margin-top: 8px;
+  margin-top: 12px;
 }
