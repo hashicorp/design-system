@@ -146,5 +146,24 @@ module(
         throw new Error(errorMessage);
       });
     });
+
+    // CONTEXTUAL COMPONENTS
+
+    test('it renders the contextual components', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Interactive as |I|>
+              <I.Badge>Badge</I.Badge>
+            </Hds::Dropdown::ListItem::Interactive>`
+      );
+      assert.dom('.hds-badge').hasText('Badge');
+    });
+    test('it does not render the contextual components if not provided', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Interactive>
+              interactive
+            </Hds::Dropdown::ListItem::Interactive>`
+      );
+      assert.dom('.hds-badge').doesNotExist();
+    });
   }
 );
