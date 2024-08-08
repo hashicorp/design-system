@@ -31,7 +31,7 @@
       {{/if}}
       <Hds::Text::Body class="hds-dropdown-list-item__interactive-text" @tag="span" @size="200" @weight="medium">
         {{#if (has-block)}}
-          {{yield (hash Badge=(component "hds/badge" class="hds-dropdown-list-item__interactive-badge"))}}
+          {{yield (hash Badge=(component "hds/badge"))}}
         {{else}}
           {{this.text}}
         {{/if}}
