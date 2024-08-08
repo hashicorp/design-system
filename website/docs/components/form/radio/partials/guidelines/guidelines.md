@@ -73,6 +73,12 @@ For shorter, simpler forms (e.g., login/signup and feedback requests), indicate 
 
 For error validation recommendations, refer to the [Form patterns](/patterns/form-patterns?tab=validation) documentation.
 
+## Generic content
+
+Both the radio field and group allow for generic content to be appended below all other sub-components in both the horizontal and vertical variants.
+
+![Showing generic instances appending below the radio field and group types and vertical and horizontal variants](/assets/components/form/radio/radio-generic-instance.png)
+
 ## Content
 
 For general content recommendations, refer to the [Primitives](/components/form/primitives) documentation.

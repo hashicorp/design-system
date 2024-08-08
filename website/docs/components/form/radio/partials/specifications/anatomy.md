@@ -10,6 +10,7 @@
 | Label             | Required                                                    |
 | Helper text       | Optional                                                    |
 | Error message     | Triggered by system                                         |
+| Generic content   | Optional                                                    |
 
 ### Form::Radio::Group
 
@@ -21,3 +22,4 @@
 | Helper text       | Optional                                                    |
 | Fields            | At least one is required                                    |
 | Error message     | Triggered by system                                         |
+| Generic content   | Optional                                                    |
