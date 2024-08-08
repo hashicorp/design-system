@@ -411,7 +411,7 @@
   <Shw::Text::H4>States</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="shw-component-side-nav-home-link-wrapper">
@@ -427,7 +427,7 @@
     {{/let}}
   </Shw::Flex>
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item>
           <div class="shw-component-side-nav-home-link-wrapper">
@@ -452,7 +452,7 @@
 
   <Shw::Text::H4>States</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="shw-component-sim-side-nav-elem-wrapper">

@@ -80,6 +80,19 @@
   .hds-dropdown-toggle-button, 
   .hds-dropdown-toggle-icon {
     @include hds-interactive-dark-theme();
+
+    // disabled state:
+    &:disabled,
+    &[disabled],
+    &.mock-disabled,
+    &:disabled:focus,
+    &[disabled]:focus,
+    &.mock-disabled:focus,
+    &:disabled:hover,
+    &[disabled]:hover,
+    &.mock-disabled:hover {
+      @include hds-interactive-dark-theme-state-disabled();
+    }
   }
 }
 
@@ -94,4 +107,17 @@
   width: 36px; // same height as the dropdown "toggle"
   height: 36px;
   padding: 5px; // we take in account the transparent border
+
+  // disabled state:
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    @include hds-interactive-dark-theme-state-disabled();
+  }
 }
