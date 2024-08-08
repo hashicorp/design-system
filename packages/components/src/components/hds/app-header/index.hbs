@@ -8,7 +8,7 @@
     {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
     <NavigationNarrator
       @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
-      @skipTo="#{{@a11yRefocusSkipTo}}"
+      @skipTo={{this.a11yRefocusSkipTo}}
       @skipText={{@a11yRefocusSkipText}}
       @navigationText={{@a11yRefocusNavigationText}}
       @excludeAllQueryParams={{@a11yRefocusExcludeAllQueryParams}}

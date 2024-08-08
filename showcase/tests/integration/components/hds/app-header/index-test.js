@@ -5,8 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-// import { render, click, triggerKeyEvent } from '@ember/test-helpers';
-import { render } from '@ember/test-helpers';
+import { render, click, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/app-header/index', function (hooks) {
@@ -40,128 +39,131 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   // RESPONSIVENESS
 
-  // DISABLEtest('it is "desktop" by default', async function (assert) {
-  //   await render(hbs`<Hds::AppHeader id="test-app-header" />`);
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
-  // });
+  test('it is "desktop" by default', async function (assert) {
+    await render(hbs`<Hds::AppHeader id="test-app-header" />`);
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-desktop');
+  });
 
-  // DISABLEtest('it does not show a menu button on wide viewports', async function (assert) {
-  //   await render(hbs`
-  //     <Hds::AppHeader />
-  //   `);
-  //   assert.dom('.hds-app-header__menu-button').doesNotExist();
-  // });
+  test('it does not show a menu button on wide viewports', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader />
+    `);
+    assert.dom('.hds-app-header__menu-button').doesNotExist();
+  });
 
   // MOBILE
 
   // Note: We set a high breakpoint to force the component to render as "mobile"
 
-  // DISABLEtest('it is "mobile" on narrow viewports', async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader id="test-app-header" />
-  //   `);
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--is-mobile');
-  // });
+  test('it is "mobile" on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader id="test-app-header" />
+    `);
+    assert.dom('#test-app-header').hasClass('hds-app-header--is-mobile');
+  });
 
-  // DISABLEtest('it shows a menu button on narrow viewports', async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader />
-  //   `);
-  //   assert.dom('.hds-app-header__menu-button').exists();
-  // });
+  test('it shows a menu button on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader />
+    `);
+    assert.dom('.hds-app-header__menu-button').exists();
+  });
 
   // Mobile menu functionality
-  // DISABLEtest(`the actions do not display by default on narrow viewports`, async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader id="test-app-header" />
-  //   `);
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
-  // });
+  test(`the actions do not display by default on narrow viewports`, async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader id="test-app-header" />
+    `);
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  });
 
-  // DISABLEtest(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader id="test-app-header" />
-  //   `);
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  test(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader id="test-app-header" />
+    `);
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
-  //   await click('.hds-app-header__menu-button');
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
 
-  //   await click('.hds-app-header__menu-button');
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
-  // });
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  });
 
   // OPTIONS
 
   // Breakpoint
   // Note: We pass in a high custom breakpoint to force the component to render as "mobile"
 
-  // DISABLEtest('it uses the custom passed in breakpoint to control menu display', async function (assert) {
-  //   await render(hbs`
-  //     <Hds::AppHeader @breakpoint="20000px" />
-  //   `);
-  //   assert.dom('.hds-app-header__menu-button').exists();
-  // });
+  test('it uses the custom passed in breakpoint to control menu display', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader @breakpoint="20000px" />
+    `);
+    assert.dom('.hds-app-header__menu-button').exists();
+  });
 
   // A11Y
 
-  // DISABLEtest(`it displays the correct value for aria-expanded when actions are displayed vs hidden`, async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader />
-  //   `);
-  //   await click('.hds-app-header__menu-button');
-  //   assert
-  //     .dom('.hds-app-header__menu-button')
-  //     .hasAttribute('aria-expanded', 'true');
+  test(`it displays the correct value for aria-expanded when actions are displayed vs hidden`, async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader />
+    `);
+    await click('.hds-app-header__menu-button');
+    assert
+      .dom('.hds-app-header__menu-button')
+      .hasAttribute('aria-expanded', 'true');
 
-  //   await click('.hds-app-header__menu-button');
-  //   assert
-  //     .dom('.hds-app-header__menu-button')
-  //     .hasAttribute('aria-expanded', 'false');
-  // });
+    await click('.hds-app-header__menu-button');
+    assert
+      .dom('.hds-app-header__menu-button')
+      .hasAttribute('aria-expanded', 'false');
+  });
 
-  // DISABLEtest('the actions menu collapses when the ESC key is pressed on narrow viewports', async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader id="test-app-header" />
-  //   `);
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  test('the actions menu collapses when the ESC key is pressed on narrow viewports', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader id="test-app-header" />
+    `);
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
-  //   await click('.hds-app-header__menu-button');
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    await click('.hds-app-header__menu-button');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
 
-  //   await triggerKeyEvent('.hds-app-header__actions', 'keydown', 'Escape');
-  //   assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
-  // });
+    await triggerKeyEvent('.hds-app-header__actions', 'keydown', 'Escape');
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+  });
 
-  // DISABLEtest('the menu button has an aria-controls attribute with a value matching the menu id', async function (assert) {
-  //   await render(hbs`
-  //     <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-  //     <Hds::AppHeader />
-  //   `);
-  //   await click('.hds-app-header__menu-button');
-  //   assert.dom('.hds-app-header__menu-button').hasAttribute('aria-controls');
-  //   assert.dom('.hds-app-header__actions').hasAttribute('id');
+  test('the menu button has an aria-controls attribute with a value matching the menu id', async function (assert) {
+    await render(hbs`
+      <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
+      <Hds::AppHeader />
+    `);
+    await click('.hds-app-header__menu-button');
+    assert.dom('.hds-app-header__menu-button').hasAttribute('aria-controls');
+    assert.dom('.hds-app-header__actions').hasAttribute('id');
 
-  //   assert.strictEqual(
-  //     this.element
-  //       .querySelector('.hds-app-header__menu-button')
-  //       .getAttribute('aria-controls'),
-  //     this.element.querySelector('.hds-app-header__actions').getAttribute('id')
-  //   );
-  // });
+    assert.strictEqual(
+      this.element
+        .querySelector('.hds-app-header__menu-button')
+        .getAttribute('aria-controls'),
+      this.element.querySelector('.hds-app-header__actions').getAttribute('id')
+    );
+  });
 
   // A11Y Refocus
 
-  test('it renders the `a11y-refocus` elements by default', async function (assert) {
-    await render(hbs`<Hds::AppHeader @a11yRefocusSkipTo="foo" />`);
+  test('it renders the `a11y-refocus` elements by default with a default skip link href value of "#main', async function (assert) {
+    await render(hbs`<Hds::AppHeader />`);
     assert.dom('#ember-a11y-refocus-nav-message').exists();
-    assert.dom('#ember-a11y-refocus-skip-link').exists();
+    assert
+      .dom('#ember-a11y-refocus-skip-link')
+      .exists()
+      .hasAttribute('href', '#main');
   });
 
   test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
