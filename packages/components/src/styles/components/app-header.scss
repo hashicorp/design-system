@@ -113,6 +113,19 @@
   // Set home link container size:
   width: var(--token-app-header-home-link-size);
   height: var(--token-app-header-home-link-size);
+
+  // disabled state:
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    @include hds-interactive-dark-theme-state-disabled();
+  }
   
   // Set SVG logo size:
   svg {

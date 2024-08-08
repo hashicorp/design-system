@@ -312,7 +312,7 @@
   <Shw::Text::H4>States</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
@@ -324,7 +324,7 @@
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item>
           <div class="hds-app-header">
@@ -349,7 +349,7 @@
 
   <Shw::Text::Body>Secondary</Shw::Text::Body>
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
@@ -368,7 +368,7 @@
 
   <Shw::Text::Body>Primary</Shw::Text::Body>
   <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus") as |states|}}
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
 
