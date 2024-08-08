@@ -11,6 +11,8 @@ import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
 import type { HdsInteractiveSignature } from '../../interactive';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
+import type { ComponentLike } from '@glint/template';
+import type { HdsBadgeSignature } from '../../badge/index.ts';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
 export const COLORS: string[] = Object.values(
@@ -25,15 +27,17 @@ export interface HdsDropdownListItemInteractiveSignature {
     text: string;
     trailingIcon?: FlightIconSignature['Args']['name'];
   };
+  Blocks: {
+    default?: [
+      {
+        Badge?: ComponentLike<HdsBadgeSignature>;
+      },
+    ];
+  };
   Element: HTMLDivElement | HdsInteractiveSignature['Element'];
 }
 
 export default class HdsDropdownListItemInteractiveComponent extends Component<HdsDropdownListItemInteractiveSignature> {
-  /**
-   * @param text
-   * @type {string}
-   * @description The text of the item. If no text value is defined an error will be thrown
-   */
   get text(): string {
     const { text } = this.args;
 
@@ -45,12 +49,6 @@ export default class HdsDropdownListItemInteractiveComponent extends Component<H
     return text;
   }
 
-  /**
-   * @param color
-   * @type {string}
-   * @default primary
-   * @description Determines the color of the item (when item is set to interactive)
-   */
   get color(): HdsDropdownListItemInteractiveColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -64,11 +62,6 @@ export default class HdsDropdownListItemInteractiveComponent extends Component<H
     return color;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = [
       'hds-dropdown-list-item',
