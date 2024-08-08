@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-// import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
@@ -34,6 +33,7 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   @tracked hasOverflowContent = false;
   desktopMQ: MediaQueryList;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
+  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'main');
 
   // Generates a unique ID for the Menu Content
   menuContentId = 'hds-menu-content-' + guidFor(this);
@@ -57,18 +57,6 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
-
-    // TODO: Determine what defaults should be set:
-    // * Should hasA11yRefocus default to "true"? (I assume yes)
-    // * Should a11yRefocusSkipTo default to a value? (Could add an id to the SideNav then point to that id by default)
-
-    // if a11yRefocus is enabled, ensure that a11yRefocusSkipTo value is set
-    // if (this.hasA11yRefocus) {
-    //   assert(
-    //     '@a11yRefocusSkipTo for NavigatorNarrator (a11y-refocus) in "Hds::SideNav" must have a valid value',
-    //     this.args.a11yRefocusSkipTo !== undefined
-    //   );
-    // }
   }
 
   addEventListeners(): void {
