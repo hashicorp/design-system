@@ -25,7 +25,6 @@ export const MAPPING_VARIANT_TO_TAG: Record<TextVariants, TextTags> = {
   body: 'p',
 };
 
-// A union of all types in the HTMLElementTagNameMap interface
 type AvailableElements =
   | HTMLHeadingElement
   | HTMLParagraphElement
