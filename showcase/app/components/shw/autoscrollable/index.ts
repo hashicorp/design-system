@@ -50,17 +50,12 @@ interface AutoscrollableComponentSignature {
 }
 
 export default class AutoscrollableComponent extends Component<AutoscrollableComponentSignature> {
-  autoscroll = modifier(
-    (element: HTMLElement) => {
-      scheduleOnce('afterRender', this, centerScrollableArea, {
-        element: element,
-        direction: this.args.direction ?? 'both',
-        horizontalShift: this.args.horizontalShift ?? 0,
-        verticalShift: this.args.verticalShift ?? 0,
-      });
-    },
-    // @glint-expect-error
-    // @ts-expect-error - https://github.com/ember-modifier/ember-modifier/issues/774
-    { eager: false }
-  );
+  autoscroll = modifier((element: HTMLElement) => {
+    scheduleOnce('afterRender', this, centerScrollableArea, {
+      element: element,
+      direction: this.args.direction ?? 'both',
+      horizontalShift: this.args.horizontalShift ?? 0,
+      verticalShift: this.args.verticalShift ?? 0,
+    });
+  });
 }
