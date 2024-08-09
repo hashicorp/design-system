@@ -12,7 +12,30 @@
   </a>
 </p>
 
+## 4.10.0
+
+**Minor changes**
+
+`AppFrame`:
+
+- Modified sticky/fixed position to turn off when viewport height is under 480px in height
+- Refactored styles to make `AppFrame` responsible for sticky/fixed layout of `SideNav` and `AppHeader`
+
+`AppHeader`:
+
+- Styled inoperable actions as disabled (which occurs when the `SideNav` is expanded in mobile view)
+
+`SideNav`:
+
+- Removed the `withAppHeader` option as it is no longer needed.
+
+<small class="doc-whats-new-changelog-metadata">[#2299](https://github.com/hashicorp/design-system/pull/2299)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.9.0
+
+[4.9.0 documentation](https://hds-website-4-9-0.vercel.app/)
 
 **Minor changes**
 
@@ -887,58 +910,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 <small class="doc-whats-new-changelog-metadata">[#1892](https://github.com/hashicorp/design-system/pull/1892)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 3.4.0
-
-**Minor changes**
-
-`Button` - Added `@isInline` argument
-
-<small class="doc-whats-new-changelog-metadata">[#1854](https://github.com/hashicorp/design-system/pull/1854)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Added support for `baseline` vertical alignment
-
-<small class="doc-whats-new-changelog-metadata">[#1861](https://github.com/hashicorp/design-system/pull/1861)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`AppFooter` - Changed visual alignment from right-aligned to centered.
-
-<small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tooltip` - Fixed issue with text alignment, which was inherited from the parent container (now it's always left aligned).
-
-<small class="doc-whats-new-changelog-metadata">[#1869](https://github.com/hashicorp/design-system/pull/1869)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Fixed subcomponents' backing-class names
-
-<small class="doc-whats-new-changelog-metadata">[#1883](https://github.com/hashicorp/design-system/pull/1883)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppFooter` - Updated default accessibility URL to https://hashicorp.com/accessibility
-
-<small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - Changed spacing between `legend` and content from 4px to 8px
-
-<small class="doc-whats-new-changelog-metadata">[#1856](https://github.com/hashicorp/design-system/pull/1856)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@4.0.5
 
 
 ---
