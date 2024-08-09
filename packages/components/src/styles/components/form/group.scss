@@ -8,7 +8,8 @@
 //
 
 .hds-form-group { // notice: this is a <fieldset> element
-  display: block;
+  display: grid;
+  row-gap: 8px;
   margin: 0;
   padding: 0;
   border: none;
@@ -32,7 +33,6 @@
   .hds-form-group__control-fields-wrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 12px;
 
     & + .hds-form-group__error {
       margin-bottom: 0;
@@ -48,23 +48,13 @@
   .hds-form-group__control-fields-wrapper {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: 8px;
   }
 
   .hds-form-group__control-field {
     margin-right: 16px;
-    margin-bottom: 4px;
 
     :last-child {
       margin-bottom: 0;
     }
   }
-}
-
-.hds-form-group__helper-text {
-  margin-bottom: 8px;
-}
-
-.hds-form-group__error {
-  margin-top: 12px;
 }
