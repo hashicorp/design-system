@@ -7,8 +7,25 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 
-export default class FrameComponent extends Component {
-  get src() {
+import type { SafeString } from '@ember/template/-private/handlebars';
+
+interface FrameComponentSignature {
+  Args: {
+    height?: string | number;
+    id?: string;
+    label?: string;
+    src: string;
+    title?: string;
+    width?: string | number;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLIFrameElement;
+}
+
+export default class FrameComponent extends Component<FrameComponentSignature> {
+  get src(): SafeString {
     const { src } = this.args;
 
     // for simplicity, we accept only absolute URLs
@@ -22,7 +39,7 @@ export default class FrameComponent extends Component {
     return htmlSafe(src);
   }
 
-  get width() {
+  get width(): string {
     let { width = '100%' } = this.args;
 
     // convert everything to string
@@ -37,7 +54,7 @@ export default class FrameComponent extends Component {
     return width.match(/^[\d]+$/) ? `${width}px` : width;
   }
 
-  get height() {
+  get height(): string {
     let { height = '400' } = this.args;
 
     // convert everything to string
@@ -52,12 +69,12 @@ export default class FrameComponent extends Component {
     return `${height}px`;
   }
 
-  get title() {
+  get title(): string {
     return this.args.title ?? this.args.label ?? 'demo frame';
   }
 
-  get style() {
-    let styles = [];
+  get style(): SafeString | undefined {
+    const styles = [];
     if (this.width) {
       styles.push(`--iframe-width: ${this.width}`);
     }

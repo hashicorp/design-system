@@ -6,7 +6,23 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
-export default class PlaceholderIndexComponent extends Component {
+import type { SafeString } from '@ember/template/-private/handlebars';
+
+interface PlaceholderIndexComponentSignature {
+  Args: {
+    background?: string;
+    flex?: string;
+    height?: string;
+    text?: string;
+    width?: string;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class PlaceholderIndexComponent extends Component<PlaceholderIndexComponentSignature> {
   /**
    * Sets the width for the placeholder
    *
@@ -14,7 +30,7 @@ export default class PlaceholderIndexComponent extends Component {
    * @type {string}
    * @default '100%'
    */
-  get width() {
+  get width(): string {
     let { width = '100%' } = this.args;
 
     if (typeof width === 'string' && width.match(/^[\d]+$/)) {
@@ -31,7 +47,7 @@ export default class PlaceholderIndexComponent extends Component {
    * @type {string}
    * @default '100%'
    */
-  get height() {
+  get height(): string {
     let { height = '100%' } = this.args;
 
     if (typeof height === 'string' && height.match(/^[\d]+$/)) {
@@ -43,10 +59,10 @@ export default class PlaceholderIndexComponent extends Component {
 
   /**
    * Get a style attribute to apply to the placeholder based on the other properties argument.
-   * @return {string} The style attribute to apply to the placeholder
+   * @return {SafeString} The style attribute to apply to the placeholder
    */
-  get style() {
-    let styles = [];
+  get style(): SafeString | undefined {
+    const styles = [];
     if (this.width) {
       styles.push(`width: ${this.width}`);
     }
