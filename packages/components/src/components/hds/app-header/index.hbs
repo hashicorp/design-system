@@ -4,6 +4,17 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
+  {{#if (and this.hasA11yRefocus (not this.isOpen))}}
+    {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
+    <NavigationNarrator
+      @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
+      @skipTo={{this.a11yRefocusSkipTo}}
+      @skipText={{@a11yRefocusSkipText}}
+      @navigationText={{@a11yRefocusNavigationText}}
+      @excludeAllQueryParams={{@a11yRefocusExcludeAllQueryParams}}
+    />
+  {{/if}}
+
   {{yield to="logo"}}
 
   {{#if (not this.isDesktop)}}
@@ -13,17 +24,14 @@
       @menuContentId={{this.menuContentId}}
     />
   {{/if}}
-  <div class="hds-app-header__actions" id={{this.menuContentId}}>
-    {{#if this.showItems}}
-      <div class="hds-app-header__actions-content">
-        <div class="hds-app-header__global-actions">
-          {{yield to="globalActions"}}
-        </div>
 
-        <div class="hds-app-header__utility-actions">
-          {{yield to="utilityActions"}}
-        </div>
-      </div>
-    {{/if}}
+  <div class="hds-app-header__actions" id={{this.menuContentId}}>
+    <div class="hds-app-header__global-actions">
+      {{yield to="globalActions"}}
+    </div>
+
+    <div class="hds-app-header__utility-actions">
+      {{yield to="utilityActions"}}
+    </div>
   </div>
 </div>

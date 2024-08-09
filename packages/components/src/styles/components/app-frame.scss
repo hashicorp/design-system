@@ -53,6 +53,12 @@
 
 .hds-app-frame__main {
   grid-area: main;
+
+  // This prevents content from being hidden behind the fixed app-header when the skip link is used
+  .hds-app-frame--has-header-with-sidebar & {
+    margin-top: calc(var(--token-app-header-height) * -1);
+    padding-top: var(--token-app-header-height);
+  }
 }
 
 .hds-app-frame__footer {

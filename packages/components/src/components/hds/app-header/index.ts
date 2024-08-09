@@ -12,6 +12,12 @@ import { registerDestructor } from '@ember/destroyable';
 export interface HdsAppHeaderSignature {
   Args: {
     breakpoint?: string;
+    hasA11yRefocus?: boolean;
+    a11yRefocusSkipTo?: string;
+    a11yRefocusSkipText?: string;
+    a11yRefocusNavigationText?: string;
+    a11yRefocusRouteChangeValidator?: string;
+    a11yRefocusExcludeAllQueryParams?: boolean;
   };
   Blocks: {
     logo?: [];
@@ -24,10 +30,19 @@ export interface HdsAppHeaderSignature {
 export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;
   @tracked isDesktop = true;
+  @tracked hasOverflowContent = false;
   desktopMQ: MediaQueryList;
+  hasA11yRefocus = this.args.hasA11yRefocus ?? true;
+  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'main');
 
   // Generates a unique ID for the Menu Content
   menuContentId = 'hds-menu-content-' + guidFor(this);
+
+  breakpoint = parseInt(
+    getComputedStyle(document.documentElement).getPropertyValue(
+      '--hds-app-desktop-breakpoint'
+    )
+  );
 
   desktopMQVal =
     this.args.breakpoint ??
@@ -65,19 +80,20 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     );
   }
 
-  // Menu items display if is desktop, or if is mobile and the menu is open
-  get showItems(): boolean {
-    return this.isDesktop || this.isOpen;
-  }
-
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
 
-    if (!this.isDesktop) {
-      classes.push('hds-app-header--is-mobile');
-    } else {
+    if (this.isDesktop) {
       classes.push('hds-app-header--is-desktop');
+    } else {
+      classes.push('hds-app-header--is-mobile');
+    }
+
+    if (this.isOpen) {
+      classes.push('hds-app-header--menu-is-open');
+    } else {
+      classes.push('hds-app-header--menu-is-closed');
     }
 
     return classes.join(' ');
