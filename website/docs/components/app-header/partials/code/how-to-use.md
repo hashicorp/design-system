@@ -22,7 +22,11 @@ The other two slots are intended for consumer-provided controls. The `<:globalAc
 
 
 ```handlebars
-<Hds::AppHeader>
+{{!--
+for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
+probably need to be set to `true` (or omitted to rely on defaults)
+--}}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
     <Doc::Placeholder @height="2em" @width="auto" @text="HomeLink" @background="#e4e4e4" />
   </:logo>
@@ -51,7 +55,11 @@ It is built on top of the [`Hds::Interactive` component](/utilities/interactive)
 Refer to the [Component API section](/components/app-header?tab=code#appheaderhomelink) for details.
 
 ```handlebars
-<Hds::AppHeader>
+{{!--
+for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
+probably need to be set to `true` (or omitted to rely on defaults)
+--}}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
@@ -74,7 +82,11 @@ Refer to the [Component API section](/components/app-header?tab=code#appheaderho
 The `HomeLink` also accepts optional arguments; for example, it’s possible to provide a custom color for the icon if needed:
 
 ```handlebars
-<Hds::AppHeader>
+{{!--
+for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
+probably need to be set to `true` (or omitted to rely on defaults)
+--}}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="terraform" 
@@ -100,7 +112,11 @@ The `HomeLink` also accepts optional arguments; for example, it’s possible to 
 Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the `<:globalActions>` block. HDS does not currently provide this component.
 
 ```handlebars
-<Hds::AppHeader>
+{{!--
+for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
+probably need to be set to `true` (or omitted to rely on defaults)
+--}}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
@@ -130,7 +146,11 @@ Consumers should provide their own “context switcher” (e.g., “org switcher
 Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
 ```handlebars
-<Hds::AppHeader>
+{{!--
+for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
+probably need to be set to `true` (or omitted to rely on defaults)
+--}}
+<Hds::AppHeader @hasA11yRefocus={{false}}>
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
