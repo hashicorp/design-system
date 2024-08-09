@@ -9,6 +9,7 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormErrorSignature } from '../error';
+import type { HdsYieldSignature } from '../../yield';
 
 export interface HdsFormRadioFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'isOptional'> & {
@@ -20,6 +21,7 @@ export interface HdsFormRadioFieldSignature {
       {
         Label?: ComponentLike<HdsFormLabelSignature>;
         HelperText?: ComponentLike<HdsFormHelperTextSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
         Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];

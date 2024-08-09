@@ -49,6 +49,7 @@ export interface HdsFormFieldSignature {
           typeof HdsFormCharacterCountComponent,
           'contextualClass' | 'controlId' | 'onInsert'
         >;
+        Generic?: ComponentLike<HdsYieldSignature>;
         Error?: WithBoundArgs<
           typeof HdsFormErrorComponent,
           'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'

@@ -585,7 +585,7 @@
         <br />
 
         <Shw::Grid @columns={{3}} as |SG|>
-          <SG.Item @albel="Label + Error">
+          <SG.Item @label="Label + Error">
             <Hds::Form::Field @layout={{layout}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.Control>
@@ -599,7 +599,7 @@
               <F.Error>This is the error</F.Error>
             </Hds::Form::Field>
           </SG.Item>
-          <SG.Item @albel="Label + Helper text + Error">
+          <SG.Item @label="Label + Helper text + Error">
             <Hds::Form::Field @layout={{layout}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
@@ -614,7 +614,7 @@
               <F.Error>This is the error</F.Error>
             </Hds::Form::Field>
           </SG.Item>
-          <SG.Item @albel="Label + Helper text + Errors">
+          <SG.Item @label="Label + Helper text + Errors">
             <Hds::Form::Field @layout={{layout}} as |F|>
               <F.Label>This is the label</F.Label>
               <F.HelperText>This is the helper text</F.HelperText>
@@ -630,6 +630,63 @@
                 <E.Message>First error message</E.Message>
                 <E.Message>Second error message</E.Message>
               </F.Error>
+            </Hds::Form::Field>
+          </SG.Item>
+        </Shw::Grid>
+
+        <br />
+
+        <Shw::Grid @columns={{3}} as |SG|>
+
+          <SG.Item @label="Label + Generic">
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
+                {{/if}}
+              </F.Control>
+              <F.Generic>
+                <Shw::Placeholder @text="generic" @width="100%" @height="16" />
+              </F.Generic>
+            </Hds::Form::Field>
+          </SG.Item>
+          <SG.Item @label="Label + Helper text + Generic">
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
+                {{/if}}
+              </F.Control>
+              <F.Generic>
+                <Shw::Placeholder @text="generic" @width="100%" @height="16" />
+              </F.Generic>
+            </Hds::Form::Field>
+          </SG.Item>
+          <SG.Item @label="Label + Helper text + Error + Generic">
+            <Hds::Form::Field @layout={{layout}} as |F|>
+              <F.Label>This is the label text</F.Label>
+              <F.HelperText>This is the helper text</F.HelperText>
+              <F.Control>
+                {{#if (eq layout "vertical")}}
+                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
+                {{/if}}
+                {{#if (eq layout "flag")}}
+                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
+                {{/if}}
+              </F.Control>
+              <F.Generic>
+                <Shw::Placeholder @text="generic" @width="100%" @height="16" />
+              </F.Generic>
+              <F.Error>This is the error</F.Error>
             </Hds::Form::Field>
           </SG.Item>
         </Shw::Grid>

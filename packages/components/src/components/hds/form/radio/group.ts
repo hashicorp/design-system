@@ -10,6 +10,7 @@ import type { HdsFormLegendSignature } from '../legend';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormRadioFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
+import type { HdsYieldSignature } from '../../yield';
 
 interface HdsFormRadioGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -21,6 +22,7 @@ interface HdsFormRadioGroupSignature {
         Legend?: ComponentLike<HdsFormLegendSignature>;
         HelperText?: ComponentLike<HdsFormHelperTextSignature>;
         RadioField?: ComponentLike<HdsFormRadioFieldSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
         Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];

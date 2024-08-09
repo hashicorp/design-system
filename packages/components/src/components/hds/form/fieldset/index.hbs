@@ -24,6 +24,7 @@
     {{! @glint-expect-error }}
     {{yield (hash Control=(component "hds/yield") ariaDescribedBy=this.ariaDescribedBy)}}
   </div>
+  {{yield (hash Generic=(component "hds/yield"))}}
   {{yield
     (hash
       Error=(component
