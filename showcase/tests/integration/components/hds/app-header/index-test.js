@@ -72,26 +72,26 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   });
 
   // Mobile menu functionality
-  test(`the actions do not show by default on narrow viewports`, async function (assert) {
+  test(`the actions do not display by default on narrow viewports`, async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-      <Hds::AppHeader />
+      <Hds::AppHeader id="test-app-header" />
     `);
-    assert.dom('.hds-app-header__actions-content').doesNotExist();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
   });
 
   test(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-      <Hds::AppHeader />
+      <Hds::AppHeader id="test-app-header" />
     `);
-    assert.dom('.hds-app-header__actions-content').doesNotExist();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions-content').exists();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions-content').doesNotExist();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
   });
 
   // OPTIONS
@@ -108,7 +108,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   // A11Y
 
-  test(`it displays the correct value for aria-expanded when actions are disp vs open`, async function (assert) {
+  test(`it displays the correct value for aria-expanded when actions are displayed vs hidden`, async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
       <Hds::AppHeader />
@@ -127,15 +127,15 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   test('the actions menu collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-      <Hds::AppHeader />
+      <Hds::AppHeader id="test-app-header" />
     `);
-    assert.dom('.hds-app-header__actions-content').doesNotExist();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
     await click('.hds-app-header__menu-button');
-    assert.dom('.hds-app-header__actions-content').exists();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
 
     await triggerKeyEvent('.hds-app-header__actions', 'keydown', 'Escape');
-    assert.dom('.hds-app-header__actions-content').doesNotExist();
+    assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
   });
 
   test('the menu button has an aria-controls attribute with a value matching the menu id', async function (assert) {
@@ -153,5 +153,39 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element.querySelector('.hds-app-header__actions').getAttribute('id')
     );
+  });
+
+  // A11Y Refocus
+
+  test('it renders the `a11y-refocus` elements by default with a default skip link href value of "#main', async function (assert) {
+    await render(hbs`<Hds::AppHeader />`);
+    assert.dom('#ember-a11y-refocus-nav-message').exists();
+    assert
+      .dom('#ember-a11y-refocus-skip-link')
+      .exists()
+      .hasAttribute('href', '#main');
+  });
+
+  test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
+    await render(hbs`
+      <Hds::AppHeader
+        @a11yRefocusSkipTo="test-skip-to"
+        @a11yRefocusSkipText="test-skip-text"
+        @a11yRefocusNavigationText="test-navigation-text"
+      />
+    `);
+    assert
+      .dom('#ember-a11y-refocus-nav-message')
+      .hasText('test-navigation-text');
+    assert.dom('#ember-a11y-refocus-skip-link').hasText('test-skip-text');
+    assert
+      .dom('#ember-a11y-refocus-skip-link')
+      .hasAttribute('href', '#test-skip-to');
+  });
+
+  test('it does not render the `a11y-refocus` elements if `hasA11yRefocus` is false', async function (assert) {
+    await render(hbs`<Hds::AppHeader @hasA11yRefocus={{false}} />`);
+    assert.dom('#ember-a11y-refocus-nav-message').doesNotExist();
+    assert.dom('#ember-a11y-refocus-skip-link').doesNotExist();
   });
 });

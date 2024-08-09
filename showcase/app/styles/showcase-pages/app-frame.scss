@@ -18,6 +18,7 @@ body.layouts-app-frame {
   .shw-component-app-frame-container {
     position: relative;
     min-height: 0;
+    overflow: hidden; // hide the skip link which is positioned outside the frame
     border: 1px solid;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 30%);
 

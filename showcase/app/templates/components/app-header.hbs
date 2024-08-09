@@ -14,7 +14,7 @@
 
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item>
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Shw::Placeholder @height="2em" @width="auto" @text="Logo" />
         </:logo>
@@ -39,7 +39,7 @@
 
   <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
@@ -76,7 +76,7 @@
     </SG.Item>
 
     <SG.Item @label="With max recommended phase 1 content & Terraform logo">
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
         </:logo>
@@ -115,7 +115,7 @@
     </SG.Item>
 
     <SG.Item @label="With max proposed future content">
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
@@ -167,7 +167,7 @@
 
   <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
     <SG.Item @label="40 characters long organization name with dashes">
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
@@ -203,7 +203,7 @@
     </SG.Item>
 
     <SG.Item @label="40 characters long organization name with no dashes">
-      <Hds::AppHeader>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
@@ -245,7 +245,7 @@
 
   <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
     <SG.Item @label="With custom breakpoint (menu button is visible at wide screen width)">
-      <Hds::AppHeader @breakpoint="20000px">
+      <Hds::AppHeader @hasA11yRefocus={{false}} @breakpoint="20000px">
         <:logo>
           <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
