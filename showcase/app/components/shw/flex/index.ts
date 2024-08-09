@@ -33,10 +33,7 @@ export default class FlexIndexComponent extends Component<FlexComponentSignature
 
   get itemsStyle(): SafeString | undefined {
     const styles = [];
-    if (this.args.gap) {
-      styles.push(`gap: ${this.args.gap}`);
-    }
-
+    styles.push(`gap: ${this.args.gap ? this.args.gap : '1rem'}`);
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 

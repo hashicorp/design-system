@@ -14,9 +14,9 @@ import type { GridItemComponentSignature } from './item';
 
 interface GridComponentSignature {
   Args: {
-    columns: number;
+    columns: 2 | 3 | 4 | 5 | 6 | 7;
     forceMinWidth?: boolean;
-    gap?: string;
+    gap: string;
     grow?: boolean;
     label?: string;
   };
@@ -42,10 +42,7 @@ export default class GridIndexComponent extends Component<GridComponentSignature
 
   get itemsStyle(): SafeString | undefined {
     const styles = [];
-    if (this.args.gap) {
-      styles.push(`gap: ${this.args.gap}`);
-    }
-
+    styles.push(`gap: ${this.args.gap ? this.args.gap : '1rem'}`);
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 
