@@ -16,22 +16,16 @@
   grid-template-rows: auto 1fr auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
-
-  // prevent interaction with AppHeader when SideNav is open/expanded
-  &:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
-    pointer-events: none;
-  }
 }
-
 
 // FRAME'S CONTAINERS
 
 .hds-app-frame__header {
-  z-index: 7;
+  z-index: 21; // needs to stay above the main content & sidebar
   grid-area: header;
 
-  // NOTE: May not need to qualify this with .hds-app-header as it may not matter if AppHeader is not present
-  &:has(.hds-app-header) {
+  // Make header position sticky/fixed if the viewport height is greater than 480px
+  @media (height >= 480px) {
     position: sticky;
     top: 0;
     right: 0;
@@ -40,8 +34,21 @@
 }
 
 .hds-app-frame__sidebar {
-  z-index: 6;
+  position: sticky;
+  top: 0;
+  z-index: 20; // needs to stay above the main content
   grid-area: sidebar;
+  height: 100vh;
+  min-height: 100vh;
+
+  // Modify sidenav layout when used together with fixed app-header
+  @media (height >= 480px) {
+    .hds-app-frame--has-header-with-sidebar & {
+      top: var(--token-app-header-height);
+      height: calc(100vh - var(--token-app-header-height));
+      min-height: calc(100vh - var(--token-app-header-height));
+    }
+  }
 }
 
 .hds-app-frame__main {
@@ -51,7 +58,6 @@
 .hds-app-frame__footer {
   grid-area: footer;
 }
-
 
 // MODALS "CONTAINER"
 

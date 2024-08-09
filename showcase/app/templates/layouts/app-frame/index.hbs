@@ -182,7 +182,12 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  {{! 
+    Note: The below examples are commented out as they are redundant to the following "Framed" examples.
+    However we still need to find a solution for adding visual regression tests for the framed examples. 
+    (So we may decide to uncomment these examples to add them back to the visual regression tests depending.)
+  }}
+  {{!-- <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     <SG.Item @label="With AppHeader & typical child component content" {{style width="100%"}}>
       <Hds::AppFrame class="shw-component-app-frame-container" as |Frame|>
         <Frame.Header>
@@ -224,7 +229,6 @@
             @isResponsive={{true}}
             @hasA11yRefocus={{false}}
             @isCollapsible={{true}}
-            @withAppHeader={{true}}
           >
             <:body>
               <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
@@ -338,24 +342,26 @@
         </Frame.Footer>
       </Hds::AppFrame>
     </SG.Item>
-  </Shw::Grid>
+  </Shw::Grid> --}}
 </section>
 
 {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
 <section>
-  <Shw::Divider @level={{2}} />
+  {{!-- <Shw::Divider @level={{2}} /> --}}
 
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
   <Shw::Frame
-    @id="demo-full-app-frame-with-app-heade"
+    @id="demo-full-app-frame-with-app-header"
     @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header"
+    @height="780"
     @label="Full AppFrame with AppHeader"
   />
 
   <Shw::Frame
     @id="demo-full-app-frame-with-side-nav"
     @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
+    @height="780"
     @label="Full AppFrame with SideNav but without AppHeader"
   />
 </section>

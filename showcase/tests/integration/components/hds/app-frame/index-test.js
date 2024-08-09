@@ -66,6 +66,8 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
 
   // OPTIONS
 
+  // hasHeader
+
   test('it should hide the header when @hasHeader is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasHeader={{false}} as |Frame|>
@@ -74,6 +76,9 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-header').doesNotExist();
   });
+
+  // hasSidebar
+
   test('it should hide the sidebar when @hasSidebar is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasSidebar={{false}} as |Frame|>
@@ -82,6 +87,9 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-sidebar').doesNotExist();
   });
+
+  // hasFooter
+
   test('it should hide the sidebar when @hasFooter is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasFooter={{false}} as |Frame|>
@@ -90,6 +98,9 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     `);
     assert.dom('#test-app-frame-sidebar').doesNotExist();
   });
+
+  // hasModals
+
   test('it should hide the modals when @hasModals is false', async function (assert) {
     await render(hbs`
         <Hds::AppFrame @hasModals={{false}} as |Frame|>

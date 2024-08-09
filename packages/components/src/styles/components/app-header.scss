@@ -13,7 +13,6 @@
 
 .hds-app-header {
   position: relative;
-  z-index: 20; // needs to stay above the main content
   display: flex;
   gap: 12px;
   align-items: center;
@@ -76,6 +75,30 @@
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon {
     @include hds-interactive-dark-theme();
+
+    // disabled state:
+    &:disabled,
+    &[disabled],
+    &.mock-disabled,
+    &:disabled:focus,
+    &[disabled]:focus,
+    &.mock-disabled:focus,
+    &:disabled:hover,
+    &[disabled]:hover,
+    &.mock-disabled:hover {
+      @include hds-interactive-dark-theme-state-disabled();
+    }
+  }
+}
+
+// prevent interaction with AppHeader when SideNav is open/expanded
+.hds-app-frame:has(.hds-side-nav--is-not-minimized) .hds-app-header--is-mobile {
+  .hds-button,
+  .hds-dropdown-toggle-button,
+  .hds-dropdown-toggle-icon,
+  .hds-app-header__home-link {
+    @include hds-interactive-dark-theme-state-disabled(); // emulate disabled state
+    pointer-events: none;
   }
 }
 
@@ -90,6 +113,19 @@
   // Set home link container size:
   width: var(--token-app-header-home-link-size);
   height: var(--token-app-header-home-link-size);
+
+  // disabled state:
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    @include hds-interactive-dark-theme-state-disabled();
+  }
   
   // Set SVG logo size:
   svg {
