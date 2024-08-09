@@ -4,7 +4,7 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if this.hasA11yRefocus}}
+  {{#if (and this.hasA11yRefocus (not this.isOpen))}}
     {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
     <NavigationNarrator
       @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
