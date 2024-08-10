@@ -9,7 +9,11 @@
         <FlightIcon @name="loading" @isInlineBlock={{false}} />
       </div>
       <Hds::Text::Body @tag="div" @size="100" @weight="regular" class="hds-dropdown-list-item__interactive-text">
-        {{this.text}}
+        {{#if (has-block)}}
+          {{yield (hash Badge=(component "hds/badge"))}}
+        {{else}}
+          {{this.text}}
+        {{/if}}
       </Hds::Text::Body>
     </div>
   {{else}}
