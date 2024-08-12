@@ -1,0 +1,20 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+ // PATTERNS > FILTER PATTERNS
+
+.doc-filter-patterns-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doc-filter-patterns-applied-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 8px;
+  align-items: center;
+}

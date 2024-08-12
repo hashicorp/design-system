@@ -198,3 +198,39 @@ Don't stack multiple filter bars on top of a data set. This can result in unnece
 Given that the page-level sidebar occupies the height of the viewport, take filters within a sidebar should not overflow into an interstitial component like a [Flyout](/components/flyout). Instead, utilize the height of the viewport and the consider introducing a scrollable area within the sidebar if many filters are necessary.
 
 ![Filter sidebar with scroll](/assets/patterns/filter-patterns/filter-sidebar-scrollbar.png =559x*)
+
+### WIP Filter Overflow Code Examples
+
+#### Basic applied filters overflow
+
+```handlebars
+
+<div class="doc-filter-patterns-wrapper">
+
+  <Hds::SegmentedGroup as |SG|>
+    {{#each this.model.demoFilters as |filter|}}
+      <SG.Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @color="secondary" @text={{filter.name}} />
+        {{#each filter.options as |option|}}
+          <D.Checkbox>{{option.name}}</D.Checkbox>
+        {{/each}}
+      </SG.Dropdown>
+    {{/each}}
+    </Hds::SegmentedGroup>
+
+  <div class="doc-filter-patterns-applied-filters">
+    <Hds::Text::Body
+      @color="faint"
+      @size="200"
+    >Applied filters:</Hds::Text::Body>
+      {{#each this.model.demoAppliedFilters as |appliedFilter|}}
+        <Hds::Tag
+          @text={{appliedFilter}}
+          @onDismiss={{this.filterDismissFunction}}
+        />
+      {{/each}}
+  </div>  
+
+</div>
+
+```
