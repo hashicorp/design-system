@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export enum HdsIconSizeValues {
   Sixteen = '16',
   TwentyFour = '24',
