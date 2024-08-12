@@ -24,6 +24,52 @@
   </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Bottom left">
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#">
+          Create
+        </D.Interactive>
+        <D.Interactive @href="#">
+          Edit
+        </D.Interactive>
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Bottom right (default)">
+      <Hds::Dropdown as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#">
+          Create
+        </D.Interactive>
+        <D.Interactive @href="#">
+          Edit
+        </D.Interactive>
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top left">
+      <Hds::Dropdown @listPosition="top-left" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#">
+          Create
+        </D.Interactive>
+        <D.Interactive @href="#">
+          Edit
+        </D.Interactive>
+      </Hds::Dropdown>
+    </SF.Item>
+    <SF.Item @label="Top right">
+      <Hds::Dropdown @listPosition="top-right" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#">
+          Create
+        </D.Interactive>
+        <D.Interactive @href="#">
+          Edit
+        </D.Interactive>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Text::H2>Display</Shw::Text::H2>
 
@@ -32,8 +78,12 @@
       <div class="shw-component-dropdown-display-sample">
         <Hds::Dropdown @listPosition="bottom-left" as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Create" />
-          <D.Interactive @href="#" @text="Edit" />
+          <D.Interactive @href="#">
+            Create
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Edit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SF.Item>
@@ -41,8 +91,12 @@
       <div class="shw-component-dropdown-display-sample">
         <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Create" />
-          <D.Interactive @href="#" @text="Edit" />
+          <D.Interactive @href="#">
+            Create
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Edit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SF.Item>
@@ -1509,8 +1563,12 @@
       <div class="shw-component-dropdown-fixed-height-container">
         <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
-          <D.Interactive @href="#" @text="Consectetur adipisicing elit" />
+          <D.Interactive @href="#">
+            Lorem ipsum dolor sit amet
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Consectetur adipisicing elit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SG.Item>
