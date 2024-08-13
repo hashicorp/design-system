@@ -49,7 +49,7 @@ export default class HdsDropdownListItemInteractiveComponent extends Component<H
         'The `@text` argument for "Hds::Dropdown::ListItem::Interactive" has been deprecated. Please put text in the yielded block.',
         false,
         {
-          id: 'hds.dropdown.list-item.interactive',
+          id: 'hds.dropdown.list-item.interactive.text',
           until: '5.0.0',
           url: 'https://helios.hashicorp.design/components/dropdown?tab=version%20history#deprecated',
           for: '@hashicorp/design-system-components',
