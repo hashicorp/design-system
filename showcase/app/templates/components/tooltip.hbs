@@ -14,7 +14,7 @@
 
   <Shw::Text::H4>On its own</Shw::Text::H4>
   <Shw::Flex as |SF|>
-    <SF.Item @label="With a FlightIcon as content">
+    <SF.Item @label="With Icon as content">
       <Hds::TooltipButton @text="Here is more information" aria-label="Information">
         <Hds::Icon @name="info" />
       </Hds::TooltipButton>
@@ -48,12 +48,16 @@
   <Shw::Text::H4>Used next to text</Shw::Text::H4>
   <p>
     <span class="hds-typography-display-300">Lorem ipsum dolor sit amet consectetur</span>
-    <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
+    <Hds::TooltipButton @text="Here is more info" aria-label="Information">
+      <Hds::Icon @name="info" />
+    </Hds::TooltipButton>
   </p>
 
   <p class="hds-typography-body-300">
     Lorem ipsum dolor sit amet consectetur
-    <Hds::TooltipButton aria-label="more information" @text="Here is more info"><Hds::Icon @name="info" /></Hds::TooltipButton>
+    <Hds::TooltipButton aria-label="more information" @text="Here is more info">
+      <Hds::Icon @name="info" />
+    </Hds::TooltipButton>
     adipisicing elit. Doloremque blanditiis sapiente iste beatae voluptates voluptatum.
   </p>
 
@@ -69,17 +73,24 @@
         <T.Panel>
           <p class="hds-typography-body-300">
             Content 1
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information">
+              <Hds::Icon @name="info" />
+            </Hds::TooltipButton>
           </p>
         </T.Panel>
         <T.Panel><p class="hds-typography-body-300">
             Content 2
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information">
+              <Hds::Icon @name="info" />
+            </Hds::TooltipButton>
           </p></T.Panel>
         <T.Panel><p class="hds-typography-body-300">
             Content 3
-            <Hds::TooltipButton @text="Here is more info" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
-          </p></T.Panel>
+            <Hds::TooltipButton @text="Here is more info" aria-label="Information">
+              <Hds::Icon @name="info" />
+            </Hds::TooltipButton>
+          </p>
+        </T.Panel>
       </Hds::Tabs>
     </SF.Item>
     <SF.Item @label="Used within an alert">
@@ -87,7 +98,9 @@
         <A.Title>Warning</A.Title>
         <A.Description>
           Caution is advised.
-          <Hds::TooltipButton @text="Be careful with this" aria-label="Information"><Hds::Icon @name="info" /></Hds::TooltipButton>
+          <Hds::TooltipButton @text="Be careful with this" aria-label="Information">
+            <Hds::Icon @name="info" />
+          </Hds::TooltipButton>
         </A.Description>
       </Hds::Alert>
     </SF.Item>
@@ -252,7 +265,9 @@
             aria-label="Information"
           ><Hds::Icon @name="info" /></Hds::TooltipButton>
         {{else}}
-          <Hds::TooltipButton @text="More info" aria-label="Information" mock-state-value={{state}}><Hds::Icon @name="info" /></Hds::TooltipButton>
+          <Hds::TooltipButton @text="More info" aria-label="Information" mock-state-value={{state}}>
+            <Hds::Icon @name="info" />
+          </Hds::TooltipButton>
         {{/if}}
       </SF.Item>
     {{/each}}
