@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { assert, deprecate } from '@ember/debug';
 
 import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
@@ -38,6 +38,30 @@ export interface HdsDropdownListItemInteractiveSignature {
 }
 
 export default class HdsDropdownListItemInteractiveComponent extends Component<HdsDropdownListItemInteractiveSignature> {
+  constructor(
+    owner: unknown,
+    args: HdsDropdownListItemInteractiveSignature['Args']
+  ) {
+    super(owner, args);
+
+    if (args.text !== undefined) {
+      deprecate(
+        'The `@text` argument for "Hds::Dropdown::ListItem::Interactive" has been deprecated. Please put text in the yielded block.',
+        false,
+        {
+          id: 'hds.dropdown.list-item.interactive',
+          until: '5.0.0',
+          url: '',
+          for: '@hashicorp/design-system-components',
+          since: {
+            available: '4.10.0',
+            enabled: '5.0.0',
+          },
+        }
+      );
+    }
+  }
+
   get text(): string {
     const { text } = this.args;
 
