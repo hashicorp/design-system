@@ -42,7 +42,7 @@ Use status foreground colors to help contextualize responses from user actions o
 
 ![Image showing different badges with their associated foreground colors](/assets/foundations/color/colors-status-examples.png)
 
-## Border colors
+### Border colors
 
 Use border colors for borders on components, containers or dividers.
 
