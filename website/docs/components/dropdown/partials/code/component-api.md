@@ -3,16 +3,16 @@
 The Dropdown component is composed of different child components each with their own APIs:
 
 - The Dropdown component
-  - Optional header and footer
+    - Optional header and footer
 - Toggle components to open/close the Dropdown
-  - ToggleButton
-  - ToggleIcon
+    - ToggleButton
+    - ToggleIcon
 - ListItem components, to build the Dropdown’s list items
-  - Description
-  - Generic
-  - Interactive
-  - Separator
-  - Title
+    - Description
+    - Generic
+    - Interactive
+    - Separator
+    - Title
 
 ### Dropdown
 
@@ -196,10 +196,10 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of `"interactive"` block.
+    Elements passed as children are yielded as inner content of `interactive` block.
   </C.Property>
   <C.Property @name="<[I].Badge>" @type="yielded component">
-    The `Badge` component, yielded as contextual component inside `"interactive"` blocks of the `Dropdown`. It exposes the same API as the [`Badge` component](/components/badge).
+    The `Badge` component, yielded as contextual component inside `interactive` blocks of the `Dropdown`. It exposes the same API as the [`Badge` component](/components/badge).
   </C.Property>
   <C.Property @name="text" @required={{true}} @type="string">
     Text to be used in the item. If no text value is defined, an error will be thrown.
