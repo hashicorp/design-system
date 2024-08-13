@@ -1,6 +1,7 @@
 !!! Warning
 
-This component is intended only for internal Helios use. If you need to use it, please contact the Design Systems Team.
+The `MenuPrimitive` component is deprecated and will be removed in a future major release. We recommend migrating to [`PopoverPrimitive`](/utilities/popover-primitive).
+
 !!!
 
 ## How to use this component

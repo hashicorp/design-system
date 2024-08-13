@@ -13,6 +13,14 @@ body.components-dropdown {
     outline: 1px dashed #d3d3d3;
   }
 
+  .shw-component-dropdown-collision-detection-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 520px;
+    height: 480px;
+  }
+
   .shw-component-dropdown-fixed-height-container {
     min-height: 200px;
   }

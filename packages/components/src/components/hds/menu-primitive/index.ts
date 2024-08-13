@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { deprecate } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
@@ -35,6 +36,24 @@ export default class MenuPrimitiveComponent extends Component<MenuPrimitiveSigna
   @tracked isOpen: boolean | undefined; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef: HTMLElement | undefined;
   @tracked element!: HTMLElement;
+
+  constructor(owner: unknown, args: MenuPrimitiveSignature['Args']) {
+    super(owner, args);
+
+    deprecate(
+      'The `Hds::MenuPrimitive` component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`.',
+      false,
+      {
+        id: 'hds.components.menu-primitive',
+        until: '5.0.0',
+        url: 'https://helios.hashicorp.design/components/menu-primitive?tab=version%20history#460',
+        for: '@hashicorp/design-system-components',
+        since: {
+          enabled: '4.10.0',
+        },
+      }
+    );
+  }
 
   @action
   didInsert(element: HTMLElement): void {

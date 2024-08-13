@@ -11,36 +11,19 @@
 
   <Shw::Text::H2>Position</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Bottom left">
-      <Hds::Dropdown @listPosition="bottom-left" as |D|>
-        <D.ToggleButton @color="secondary" @text="Menu" />
-        <D.Interactive @href="#" @text="Create" />
-        <D.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Bottom right (default)">
-      <Hds::Dropdown as |D|>
-        <D.ToggleButton @color="secondary" @text="Menu" />
-        <D.Interactive @href="#" @text="Create" />
-        <D.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Top left">
-      <Hds::Dropdown @listPosition="top-left" as |D|>
-        <D.ToggleButton @color="secondary" @text="Menu" />
-        <D.Interactive @href="#" @text="Create" />
-        <D.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-    <SF.Item @label="Top right">
-      <Hds::Dropdown @listPosition="top-right" as |D|>
-        <D.ToggleButton @color="secondary" @text="Menu" />
-        <D.Interactive @href="#" @text="Create" />
-        <D.Interactive @href="#" @text="Edit" />
-      </Hds::Dropdown>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Grid @columns={{2}} as |SG|>
+    {{#each @model.POSITIONS as |position|}}
+      <SG.Item {{style padding="5em"}} @label={{capitalize position}}>
+        <Hds::Dropdown @isOpen={{true}} @listPosition={{position}} as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#" @text="Create" />
+          <D.Interactive @href="#" @text="Edit" />
+        </Hds::Dropdown>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>Display</Shw::Text::H2>
 
@@ -64,6 +47,31 @@
       </div>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Collision detection</Shw::Text::H2>
+
+  <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
+
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SF|>
+    {{#let (array false true) as |detections|}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <Shw::Autoscrollable @verticalShift={{30}}>
+            <div class="shw-component-dropdown-collision-detection-wrapper">
+              <Hds::Dropdown @isOpen={{true}} @enableCollisionDetection={{detection}} as |D|>
+                <D.ToggleButton @color="secondary" @text="Menu" />
+                <D.Interactive @href="#" @text="Create" />
+                <D.Interactive @href="#" @text="Edit" />
+              </Hds::Dropdown>
+            </div>
+          </Shw::Autoscrollable>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+    <SF.Item />
+  </Shw::Grid>
 
   <Shw::Divider />
 

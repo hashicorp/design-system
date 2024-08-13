@@ -122,6 +122,22 @@ In contexts where the Dropdown needs to be _inline_, to inherit the alignment fr
 </div>
 ```
 
+### Collision detection
+
+Setting the `@enableCollisionDetection` argument to `true` will automatically adapt the list position relative to the viewport to avoid collisions with the browser window boundaries. This means that when an end-user scrolls the page, or resizes the browser, the position of the list on the page dynamically adapts to these changes.
+
+```handlebars
+<Hds::Dropdown @enableCollisionDetection={{true}} as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="Item One" />
+  <D.Interactive @route="components" @text="Item Two" />
+  <D.Interactive @route="components" @text="Item Three" />
+  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Separator />
+  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+</Hds::Dropdown>
+```
+
 ### List size
 
 You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared:
