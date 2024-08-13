@@ -7,12 +7,7 @@
   ...attributes
 >
   {{#if @icon}}
-    <FlightIcon
-      class="hds-dialog-primitive__icon {{if @contextualClassPrefix (concat @contextualClassPrefix '__icon')}}"
-      @name={{@icon}}
-      @size="24"
-      @isInlineBlock={{false}}
-    />
+    <Hds::Icon class="hds-dialog-primitive__icon {{if @contextualClassPrefix (concat @contextualClassPrefix '__icon')}}" @name={{@icon}} @size="24" />
   {{/if}}
 
   <div
