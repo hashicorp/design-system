@@ -15,6 +15,7 @@ export type HdsDropdownPositions = `${HdsDropdownPositionValues}`;
 
 // map Dropdown's `listPosition` values to PopoverPrimitive's `placement` values for backwards compatibility
 export const HdsDropdownPositionToPlacementValues: Record<
+  // Dropdown's `listPosition` values
   HdsDropdownPositionValues,
   FloatingUIOptions['placement']
 > = {

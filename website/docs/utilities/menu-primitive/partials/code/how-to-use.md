@@ -1,6 +1,6 @@
 !!! Warning
 
-The `MenuPrimitive` component is deprecated and will be removed in a future major release. We recommend migrating to [PopoverPrimitive](/utilities/popover-primitive).
+The `MenuPrimitive` component is deprecated and will be removed in a future major release. We recommend migrating to [`PopoverPrimitive`](/utilities/popover-primitive).
 
 !!!
 
