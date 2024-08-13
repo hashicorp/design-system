@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 
 import type { ComponentLike } from '@glint/template';
 import type { LabelComponentSignature } from '../label';
-import type { SafeString } from '@ember/template/-private/handlebars';
+import type { SafeString } from '@ember/template';
 import type { GridItemComponentSignature } from './item';
 
 interface GridComponentSignature {
