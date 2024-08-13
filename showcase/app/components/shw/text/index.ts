@@ -7,22 +7,15 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
-export const AVAILABLE_TAGS = [
-  'h1',
-  'h2',
-  'h3',
-  'h4',
-  'h5',
-  'h6',
-  'p',
-  'span',
-  'div',
-];
+import { TextTagValues, TextAlignValues, TextWeightValues } from './types';
 
-export const AVAILABLE_ALIGNS = ['left', 'center', 'right'];
-export const AVAILABLE_WEIGHTS = ['inherit', 'regular', 'bold'];
+import type { TextTags, TextVariants, TextAligns, TextWeights } from './types';
 
-export const MAPPING_VARIANT_TO_TAG = {
+export const AVAILABLE_TAGS: string[] = Object.values(TextTagValues);
+export const AVAILABLE_ALIGNS: string[] = Object.values(TextAlignValues);
+export const AVAILABLE_WEIGHTS: string[] = Object.values(TextWeightValues);
+
+export const MAPPING_VARIANT_TO_TAG: Record<TextVariants, TextTags> = {
   h1: 'h1',
   h2: 'h2',
   h3: 'h3',
@@ -32,15 +25,34 @@ export const MAPPING_VARIANT_TO_TAG = {
   body: 'p',
 };
 
-export default class ShwTextIndexComponent extends Component {
+type AvailableElements =
+  | HTMLHeadingElement
+  | HTMLParagraphElement
+  | HTMLSpanElement
+  | HTMLDivElement;
+
+export interface ShwTextIndexComponentSignature {
+  Args: {
+    tag?: TextTags;
+    variant: TextVariants;
+    align?: TextAligns;
+    weight?: TextWeights;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: AvailableElements;
+}
+
+export default class ShwTextIndexComponent extends Component<ShwTextIndexComponentSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *
    * @method #tag
    * @return {string} The html tag to use in the dynamic render of the component
    */
-  get tag() {
-    let { tag } = this.args;
+  get tag(): TextTags {
+    const { tag } = this.args;
 
     if (tag) {
       assert(
@@ -58,18 +70,18 @@ export default class ShwTextIndexComponent extends Component {
    * Sets the "variant" (style) for the text
    * Accepted values: see AVAILABLE_VARIANTS
    *
-   * @type {string}
+   * @type {TextVariants}
    *
    * @param variant
+   * @return {TextVariants}
    */
-  get variant() {
-    let { variant } = this.args;
+  get variant(): TextVariants {
+    const { variant } = this.args;
 
-    if (variant) {
-      variant = variant.toLowerCase();
-    } else {
-      assert(`You need to provide a @variant arguments to "Shw::Text"`);
-    }
+    assert(
+      `You need to provide a @variant arguments to "Shw::Text"`,
+      variant !== undefined
+    );
 
     return variant;
   }
@@ -79,10 +91,10 @@ export default class ShwTextIndexComponent extends Component {
    * Accepted values: see AVAILABLE_ALIGNS
    *
    * @param align
-   * @type {string}
+   * @type {TextAligns | undefined}
    */
-  get align() {
-    let { align } = this.args;
+  get align(): TextAligns | undefined {
+    const { align } = this.args;
 
     if (align) {
       assert(
@@ -101,10 +113,10 @@ export default class ShwTextIndexComponent extends Component {
    * Accepted values: see AVAILABLE_WEIGHTS
    *
    * @param weight
-   * @type {string}
+   * @type {TextWeights}
    */
-  get weight() {
-    let { weight = 'inherit' } = this.args;
+  get weight(): TextWeights {
+    const { weight = 'inherit' } = this.args;
 
     return weight;
   }
@@ -114,15 +126,15 @@ export default class ShwTextIndexComponent extends Component {
    * @method #classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['shw-text'];
+  get classNames(): string {
+    const classes = ['shw-text'];
 
     // Add a class based on the @variant or @tag arguments
     classes.push(`shw-text-${this.variant}`);
 
     // Add a class based on the @weight argument
     if (this.weight && this.weight !== 'inherit') {
-      classes.push(`shw-text-weight-${this.variant.weight}`);
+      classes.push(`shw-text-weight-${this.weight}`);
     }
 
     // Add a class based on the @align argument
@@ -134,7 +146,7 @@ export default class ShwTextIndexComponent extends Component {
   }
 
   @action
-  addHeadingLink(element) {
+  addHeadingLink(element: HTMLHeadingElement) {
     const innerText = element.innerText;
     const sanitizedId = innerText
       .trim()
@@ -144,7 +156,7 @@ export default class ShwTextIndexComponent extends Component {
       .replace(/^-+|-+$/gm, '')
       .substring(0, 64);
 
-    let uniqueId;
+    let uniqueId = '';
     for (let i = 0; i < 100; i++) {
       uniqueId = i > 0 ? `${sanitizedId}-${i}` : sanitizedId;
       if (!document.getElementById(uniqueId)) {
