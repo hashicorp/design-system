@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
 import type { ComponentLike } from '@glint/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
+import type { SafeString } from '@ember/template';
 import type { LabelComponentSignature } from '../label';
 import type { FlexItemComponentSignature } from './item';
 
