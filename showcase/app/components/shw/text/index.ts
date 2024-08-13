@@ -51,7 +51,7 @@ export default class ShwTextIndexComponent extends Component<ShwTextIndexCompone
    * @method #tag
    * @return {string} The html tag to use in the dynamic render of the component
    */
-  get tag() {
+  get tag(): TextTags {
     const { tag } = this.args;
 
     if (tag) {
@@ -126,7 +126,7 @@ export default class ShwTextIndexComponent extends Component<ShwTextIndexCompone
    * @method #classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['shw-text'];
 
     // Add a class based on the @variant or @tag arguments
