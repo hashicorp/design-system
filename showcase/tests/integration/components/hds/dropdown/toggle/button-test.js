@@ -62,9 +62,7 @@ module(
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
         .hasText('badge');
-      assert
-        .dom('.hds-dropdown-toggle-button__badge .hds-icon')
-        .doesNotExist();
+      assert.dom('.hds-dropdown-toggle-button__badge .hds-icon').doesNotExist();
     });
     test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
       await render(
@@ -74,9 +72,7 @@ module(
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
         .hasText('badge');
       assert
-        .dom(
-          '.hds-dropdown-toggle-button__badge .hds-icon.hds-icon-hexagon'
-        )
+        .dom('.hds-dropdown-toggle-button__badge .hds-icon.hds-icon-hexagon')
         .exists();
     });
 

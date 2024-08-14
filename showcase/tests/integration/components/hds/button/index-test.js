@@ -65,9 +65,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
       hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`
     );
     assert
-      .dom(
-        this.element.querySelector('.hds-icon.hds-icon-clipboard-copy')
-      )
+      .dom(this.element.querySelector('.hds-icon.hds-icon-clipboard-copy'))
       .exists();
   });
   test('if an icon is declared the icon should be in leading position by default', async function (assert) {
