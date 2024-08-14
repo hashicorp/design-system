@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { HdsDropdownToggleIconSizeValues } from './types.ts';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsDropdownToggleIconSizes } from './types';
 import type { ModifierLike } from '@glint/template';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
@@ -20,7 +20,7 @@ export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 export interface HdsDropdownToggleIconSignature {
   Args: {
     hasChevron?: boolean;
-    icon: FlightIconSignature['Args']['name'];
+    icon: HdsIconSignature['Args']['name'];
     imageSrc: string;
     isOpen?: boolean;
     size?: HdsDropdownToggleIconSizes;
@@ -93,7 +93,7 @@ export default class HdsDropdownToggleIconComponent extends Component<HdsDropdow
    * @default 24
    * @description ensures that the correct icon size is used
    */
-  get iconSize(): FlightIconSignature['Args']['size'] {
+  get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'medium' && !this.hasChevron) {
       // in this special case we use a larger SVG
       return '24';

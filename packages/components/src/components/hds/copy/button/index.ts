@@ -11,7 +11,7 @@ import { HdsCopyButtonSizeValues } from './types.ts';
 import type { HdsCopyButtonSizes } from './types.ts';
 import type { HdsButtonSignature } from '../../button/';
 import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-clipboard.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
@@ -40,8 +40,8 @@ export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSigna
    * @type {string}
    * @description The icon to be displayed for each status; automatically calculated based on the tracked property `status`.
    */
-  get icon(): FlightIconSignature['Args']['name'] {
-    let icon: FlightIconSignature['Args']['name'] = DEFAULT_ICON;
+  get icon(): HdsIconSignature['Args']['name'] {
+    let icon: HdsIconSignature['Args']['name'] = DEFAULT_ICON;
     if (this.status === 'success') {
       icon = SUCCESS_ICON;
     } else if (this.status === 'error') {

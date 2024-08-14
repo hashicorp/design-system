@@ -4,14 +4,14 @@
  */
 
 import Component from '@glimmer/component';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export interface HdsDialogPrimitiveHeaderSignature {
   Args: {
     contextualClassPrefix?: string;
     id?: string;
     tagline?: string;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };

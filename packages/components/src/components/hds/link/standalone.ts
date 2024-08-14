@@ -17,14 +17,14 @@ import type {
   HdsLinkIconPositions,
   HdsLinkStandaloneSizes,
 } from './types.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
     size?: HdsLinkStandaloneSizes;
     color?: HdsLinkColors;
     text: string;
-    icon: FlightIconSignature['Args']['name'];
+    icon: HdsIconSignature['Args']['name'];
     iconPosition?: HdsLinkIconPositions;
   };
   Element: HdsInteractiveSignature['Element'];
@@ -86,7 +86,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default null
    * @description The name of the icon to be used. An icon name must be defined.
    */
-  get icon(): FlightIconSignature['Args']['name'] {
+  get icon(): HdsIconSignature['Args']['name'] {
     const { icon } = this.args;
 
     assert(
@@ -141,7 +141,7 @@ export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandal
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize(): FlightIconSignature['Args']['size'] {
+  get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'large') {
       return '24';
     } else {

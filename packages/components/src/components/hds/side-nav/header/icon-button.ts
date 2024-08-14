@@ -6,12 +6,12 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive/';
 
 interface HdsSideNavHeaderIconButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    icon: FlightIconSignature['Args']['name'];
+    icon: HdsIconSignature['Args']['name'];
     ariaLabel: string;
   };
   Element: HdsInteractiveSignature['Element'];

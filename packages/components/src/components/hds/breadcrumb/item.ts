@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 import type { SafeString } from '@ember/template/-private/handlebars';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -15,7 +15,7 @@ export interface HdsBreadcrumbItemSignature {
     maxWidth?: string;
     text: string;
     isRouteExternal?: boolean;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     route?: string;
     models?: Array<string | number>;
     model?: string | number;

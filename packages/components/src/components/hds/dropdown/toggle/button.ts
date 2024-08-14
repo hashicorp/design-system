@@ -11,7 +11,7 @@ import {
   HdsDropdownToggleButtonColorValues,
 } from './types.ts';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsBadgeSignature } from '../../badge';
 import type { HdsBadgeCountSignature } from '../../badge-count';
 import type {
@@ -34,7 +34,7 @@ export interface HdsDropdownToggleButtonSignature {
     badgeIcon?: HdsBadgeSignature['Args']['icon'];
     color: HdsDropdownToggleButtonColors;
     count?: HdsBadgeCountSignature['Args']['text'];
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     isFullWidth?: boolean;
     isOpen?: boolean;
     size: HdsDropdownToggleButtonSizes;
