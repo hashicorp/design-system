@@ -66,7 +66,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
     );
     assert
       .dom(
-        this.element.querySelector('.flight-icon.flight-icon-clipboard-copy')
+        this.element.querySelector('.hds-icon.hds-icon-clipboard-copy')
       )
       .exists();
   });

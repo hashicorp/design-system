@@ -28,7 +28,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="https://www.hashicorp.com/" id="test-home-link" />`
     );
-    assert.dom('.flight-icon-hashicorp').exists();
+    assert.dom('.hds-icon-hashicorp').exists();
     assert
       .dom('#test-home-link')
       .hasAttribute('href', 'https://www.hashicorp.com/')
@@ -40,7 +40,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
       hbs`<Hds::AppHeader::HomeLink @icon="boundary" @ariaLabel="Boundary" @color="var(--token-color-boundary-brand)" @href="#" />`
     );
     assert
-      .dom('.flight-icon-boundary')
+      .dom('.hds-icon-boundary')
       .hasAttribute('fill', 'var(--token-color-boundary-brand)');
   });
 
