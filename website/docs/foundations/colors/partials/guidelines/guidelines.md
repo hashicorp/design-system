@@ -72,7 +72,7 @@ Some common examples of surface colors include:
 
 ### Page colors
 
-Page colors are used for page backgrounds. Our components do not use these tokens, however, we recommend `Page / Primary` as the primary background color and `Page / Faint` as a means to create a secondary level on the page for de-emphasized information, if necessary.
+Page colors are used for page backgrounds. Our components do not use these tokens, however, we recommend `Page / Primary` as the primary background color and `Page / Faint` as a means to create a secondary level on the page for highlighting information, if necessary.
 
 ### Disabled colors
 
