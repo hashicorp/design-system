@@ -1,22 +1,22 @@
 ## Color styles and tokens
 
-Color naming and use can vary depending on context and tooling. This overview will clarify what naming conventions are typically used and how they align to the HDS standards implemented in our libraries.
+Color naming syntax and use can vary depending on context and tooling. This overview will clarify what naming conventions are typically used and how they align to the HDS standards implemented in our libraries.
 
 In Figma, reusable colors are referred to as “Styles.” They are categorized and stored in the right sidebar for fills, borders, and other properties that accept color values. Styles directly reference a HEX value but cannot reference each other (known as aliasing for Tokens). This means when we provide Figma Styles for semantic usage (like `Foreground / Primary`), the HEX value (`#3B3D45`) is directly referenced instead of the Core Palette color (`Palette / Neutral / Neutral 600`). 
 
-In code, we refer to styles as “Tokens.” They are generated from agnostic files, in our case, JSON and create atomic colors regardless of what platform or framework is used. For example, Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`. 
+In code, we refer to styles as “Tokens.” They are generated from agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. For example, Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`. 
 
 ![Image showing a pyramid of how color inheritence works in tokens](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
 
-## What are semantic colors
+## What are semantic colors?
 
 The Semantic Palette helps ensure proper color usage across applications by embedding meaning directly into the name. The **element** and the **role** are referenced in the name to help make more informed color decisions.
 
 HDS organizes semantic tokens into **element** categories:
 
 - **Foreground** - For elements such as text, links, statuses, and icons.
-- **Border** - For borders on components, containers or dividers.
+- **Border** - For borders on components, containers, or dividers.
 - **Surface** - For the background (or surface) of a component or container
 - **Page** - For page backgrounds
 
@@ -37,7 +37,7 @@ Some common examples of semantic foreground colors include:
 - `Foreground / Strong` for headings and secondary links
 - `Foreground / Primary` for body text 
 - `Foreground / Faint` for less prominent text and UI elements.
-- `Foreground / Action` for primary call to actions such as links
+- `Foreground / Action` for primary call to action such as links
 
 ![Image showing different text based components with their color tokens associated to them](/assets/foundations/color/colors-foreground-examples.png)
 
@@ -47,7 +47,6 @@ Use status foreground colors to help contextualize responses from user actions o
 
 ### Border colors
 
-Use border colors for borders on components, containers or dividers.
 
 Some common examples of border colors include:
 
@@ -72,21 +71,21 @@ Some common examples of surface colors include:
 
 ### Page colors
 
-Page colors are used for page backgrounds. Our components do not use these tokens, however, we recommend `Page / Primary` as the primary background color and `Page / Faint` as a means to create a secondary level on the page for highlighting information, if necessary.
+Page colors are used for page backgrounds. HDS components do not use these tokens, however, we recommend `Page / Primary` as the primary background color and `Page / Faint` as a means to create a secondary level on the page for highlighting information, if necessary.
 
 ### Disabled colors
 
 [According to WCAG](https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html), contrast ratios are only necessary for active elements, therefore, disabled colors do not pass color contrast requirements. Even though we [do not recommend the usage of disabled elements](/patterns/disabled-patterns), there may be instances where they are needed.
 
 In rare instances where token usage is necessary outside of the context of a component, following these standards ensures consistency across our UI:
-- `Foreground / Disabled` for disabled text, icons or other foreground elements
+- `Foreground / Disabled` for disabled text, icons, or other foreground elements
 - `Surface / Interactive-Disabled` for disabled backgrounds on interactive elements
 
 ![Image showing a disabled input with all the associated semantic tokens](/assets/foundations/color/colors-disabled-examples.png)
 
 ## Accessible color combinations
 
-We intend to be conformant with WCAG 2.2 Level AA requirements. In terms of color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text. Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). By default, semantic color tokens provide accessible color combinations out of the box with their associated naming conventions, while using palette colors requires manual validation, especially if you plan to mix and match. As an example, if a color has a semantic status name in it, then other associated status colors will be accessible.
+We intend to be conformant with WCAG 2.2 Level AA requirements. In terms of color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text (commonly 22px). Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). By default, semantic color tokens provide accessible color combinations out of the box with their associated naming conventions, while using palette colors requires manual validation, especially if you plan to mix and match. As an example, if a color has a semantic status name in it, then other associated status colors will be accessible.
 
 ### Using semantic tokens
 
