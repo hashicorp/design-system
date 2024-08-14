@@ -11,7 +11,17 @@ In code, we refer to styles as “Tokens.” They are generated from agnostic fi
 
 ## What are semantic colors?
 
-The Semantic Palette helps ensure proper color usage across applications by embedding meaning directly into the name. The **element** and the **role** are referenced in the name to help make more informed color decisions.
+The Semantic Palette helps ensure proper color usage across applications by embedding meaning directly into the name.
+
+Semantic colors were designed to be used together, ensuring they meet accessibility standards and look visually pleasing. For example, foreground colors are intended to be used with surface or page colors. In many cases, it is important to use specific contextual naming conventions, such as status colors, together. Here are some examples of semantic color combinations with their respective contrast ratios:
+- `Foreground / Strong` on `Surface / Primary` nets a ratio of 19.54:1
+- `Foreground / Success-on Surface` on `Surface / Success` nets a ratio of 5.37:1
+- `Foreground / Primary` on `Surface / Primary` nets a ratio of 10.82:1
+- `Foreground / Action` on `Surface / Faint` nets a ratio of 4.86:1
+
+![Image showing color ratios of a card with details inside of it](/assets/foundations/color/colors-semantic-tokens-accessibility-examples.png)
+
+The **element** and the **role** are referenced in the name to help make more informed color decisions.
 
 HDS organizes semantic tokens into **element** categories:
 
@@ -86,16 +96,6 @@ In rare instances where token usage is necessary outside of the context of a com
 ## Accessible color combinations
 
 We intend to be conformant with WCAG 2.2 Level AA requirements. In terms of color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text (commonly 22px). Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). By default, semantic color tokens provide accessible color combinations out of the box with their associated naming conventions, while using palette colors requires manual validation, especially if you plan to mix and match. As an example, if a color has a semantic status name in it, then other associated status colors will be accessible.
-
-### Using semantic tokens
-
-Semantic colors were designed to be used together, ensuring they meet accessibility standards and look visually pleasing. For example, foreground colors are intended to be used with surface or page colors. In many cases, it is important to use specific contextual naming conventions, such as status colors, together. Here are some examples of semantic color combinations with their respective contrast ratios:
-- `Foreground / Strong` on `Surface / Primary` nets a ratio of 19.54:1
-- `Foreground / Success-on Surface` on `Surface / Success` nets a ratio of 5.37:1
-- `Foreground / Primary` on `Surface / Primary` nets a ratio of 10.82:1
-- `Foreground / Action` on `Surface / Faint` nets a ratio of 4.86:1
-
-![Image showing color ratios of a card with details inside of it](/assets/foundations/color/colors-semantic-tokens-accessibility-examples.png)
 
 ### Using palette colors
 
