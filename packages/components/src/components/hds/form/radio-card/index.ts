@@ -11,7 +11,7 @@ import {
 } from './types.ts';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsBadgeSignature } from '../../badge';
 import type { HdsFormRadioBaseSignature } from '../radio/base';
 import type { HdsFormRadioCardDescriptionSignature } from './description';
@@ -46,7 +46,7 @@ export interface HdsFormRadioCardSignature {
   Blocks: {
     default: [
       {
-        Icon?: ComponentLike<FlightIconSignature>;
+        Icon?: ComponentLike<HdsIconSignature>;
         Label?: ComponentLike<HdsFormRadioCardLabelSignature>;
         Badge?: ComponentLike<HdsBadgeSignature>;
         Description?: ComponentLike<HdsFormRadioCardDescriptionSignature>;

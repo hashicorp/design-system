@@ -5,18 +5,18 @@
 <div class={{this.classNames}} aria-hidden="true" ...attributes>
   {{#if @icon}}
     <div class="hds-icon-tile__icon">
-      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
   {{#if @logo}}
     <div class="hds-icon-tile__logo">
-      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
   {{#if this.iconSecondary}}
     <div class="hds-icon-tile__extra">
       <div class="hds-icon-tile__extra-icon">
-        <Hds::Icon @name={{this.iconSecondary}} @size="16" @stretched={{true}} />
+        <FlightIcon @name={{this.iconSecondary}} @size="16" @stretched={{true}} />
       </div>
     </div>
   {{/if}}

@@ -58,16 +58,11 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
     return status;
   }
 
-  /**
-   * @param statusIcon
-   * @type {string}
-   * @description The name for the StatusLink icon
-   */
-  get statusIcon(): HdsIconSignature['Args']['name'] {
-    if (this.status && !this.args.statusIcon) {
-      return STATUSES[this.status]?.iconName;
-    }
-    return this.args.statusIcon;
+  get statusIcon(): HdsIconSignature['Args']['name'] | undefined {
+    return (
+      this.args.statusIcon ??
+      (this.status !== undefined ? STATUSES[this.status]?.iconName : undefined)
+    );
   }
 
   /**
