@@ -19,12 +19,14 @@ export type HdsButtonSize = (typeof SIZES)[number];
 export type HdsButtonColor = (typeof COLORS)[number];
 export type HdsButtonIconPosition = (typeof ICONPOSITIONS)[number];
 
+type IconName = HdsIconSignature['Args']['name'];
+
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
     size?: HdsButtonSize;
     color?: HdsButtonColor;
     text: string;
-    icon?: HdsIconSignature['Args']['name'];
+    icon?: IconName;
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
@@ -88,13 +90,7 @@ export default class HdsButtonComponent extends Component<HdsButtonSignature> {
     return color;
   }
 
-  /**
-   * @param icon
-   * @type {string}
-   * @default null
-   * @description The name of the icon to be used.
-   */
-  get icon() {
+  get icon(): IconName | undefined {
     assert(
       `when the "Hds::Button" @color is "tertiary" an @icon is required`,
       !(this.color === 'tertiary' && !this.args.icon)
