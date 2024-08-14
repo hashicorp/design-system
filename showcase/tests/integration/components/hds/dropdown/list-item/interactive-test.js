@@ -95,7 +95,7 @@ module(
 
     // CONTENT
 
-    test('it should render the text passed as @text prop', async function (assert) {
+    test('it should not render the text passed as @text prop', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" />`
       );
@@ -115,7 +115,7 @@ module(
           interactive
         </Hds::Dropdown::ListItem::Interactive>
       `);
-      assert.dom('.hds-dropdown-list-item').doesNotHaveText('erroneous');
+      assert.dom('.hds-dropdown-list-item').doesNotContainText('erroneous');
     });
 
     // ASSERTIONS
@@ -152,7 +152,7 @@ module(
     test('it renders the contextual components', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive as |I|>
-              <I.Badge>Badge</I.Badge>
+              <I.Badge @text="Badge" />
             </Hds::Dropdown::ListItem::Interactive>`
       );
       assert.dom('.hds-badge').hasText('Badge');
