@@ -7,7 +7,11 @@
   ...attributes
 >
   {{#if @icon}}
-    <Hds::Icon class="hds-dialog-primitive__icon {{if @contextualClassPrefix (concat @contextualClassPrefix '__icon')}}" @name={{@icon}} @size="24" />
+    <Hds::Icon
+      class="hds-dialog-primitive__icon {{if @contextualClassPrefix (concat @contextualClassPrefix '__icon')}}"
+      @name={{@icon}}
+      @size="24"
+    />
   {{/if}}
 
   <div
