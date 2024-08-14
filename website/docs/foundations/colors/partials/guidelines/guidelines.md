@@ -80,7 +80,6 @@ Page colors are used for page backgrounds. Our components do not use these token
 
 In rare instances where token usage is necessary outside of the context of a component, following these standards ensures consistency across our UI:
 - `Foreground / Disabled` for disabled text, icons or other foreground elements
-- `Border / Primary` for disabled borders
 - `Surface / Interactive-Disabled` for disabled backgrounds on interactive elements
 
 ![Image showing a disabled input with all the associated semantic tokens](/assets/foundations/color/colors-disabled-examples.png)
