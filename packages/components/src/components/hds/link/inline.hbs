@@ -17,6 +17,6 @@
       </span>
     {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing")~}}
       <span class="hds-link-inline__icon hds-link-inline__icon--trailing">
-        <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
       </span>
     {{~/if}}{{~/if}}</Hds::Interactive>

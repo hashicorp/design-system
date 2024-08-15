@@ -16,9 +16,11 @@
   aria-label={{if this.isIconOnly this.text null}}
 >
   {{#if this.isIconOnly}}
-    <span class="hds-button__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </span>
+    {{#if this.icon}}
+      <span class="hds-button__icon">
+        <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+      </span>
+    {{/if}}
   {{else}}
     {{#if this.icon}}
       {{#if (eq this.iconPosition "leading")}}
