@@ -3,20 +3,16 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} aria-hidden="true" ...attributes>
-  {{#if @icon}}
-    <div class="hds-icon-tile__icon">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
+  {{#if this.icon}}
+    <div class={{this.iconWrapperClass}}>
+      <Hds::Icon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
     </div>
   {{/if}}
-  {{#if @logo}}
-    <div class="hds-icon-tile__logo">
-      <FlightIcon @name={{this.icon}} @size={{this.iconSize}} @stretched={{true}} />
-    </div>
-  {{/if}}
+
   {{#if this.iconSecondary}}
     <div class="hds-icon-tile__extra">
       <div class="hds-icon-tile__extra-icon">
-        <FlightIcon @name={{this.iconSecondary}} @size="16" @stretched={{true}} />
+        <Hds::Icon @name={{this.iconSecondary}} @size="16" @stretched={{true}} />
       </div>
     </div>
   {{/if}}

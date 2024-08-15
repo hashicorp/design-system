@@ -41,14 +41,6 @@ export interface HdsIconTileSignature {
 }
 
 export default class HdsIconTileComponent extends Component<HdsIconTileSignature> {
-  /**
-   * Sets the size for the component
-   * Accepted values: small, medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
   get size(): HdsIconTileSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
@@ -62,14 +54,6 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     return size;
   }
 
-  /**
-   * Sets the color scheme for the component
-   * Accepted values: see THE COLORS LIST
-   *
-   * @param color
-   * @type {string}
-   * @default 'neutral'
-   */
   get color(): string {
     let { color = DEFAULT_COLOR } = this.args;
 
@@ -89,13 +73,6 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     return color;
   }
 
-  /**
-   * Sets the icon name (one of the FlightIcons)
-   *
-   * @param icon
-   * @type {string|null}
-   * @default null
-   */
   get icon(): HdsIconSignature['Args']['name'] | undefined {
     if (this.args.logo) {
       // for the logo version we use the colored versions directly
@@ -107,12 +84,6 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     }
   }
 
-  /**
-   * @param iconSize
-   * @type {string}
-   * @default 16
-   * @description ensures that the correct icon size is used. Automatically calculated.
-   */
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'small') {
       return '16';
@@ -121,13 +92,16 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     }
   }
 
-  /**
-   * Sets the logo name if there is one
-   *
-   * @param logo
-   * @type {string|null}
-   * @default null
-   */
+  get iconWrapperClass(): string | undefined {
+    if (this.args.logo !== undefined) {
+      return 'hds-icon-tile__logo';
+    }
+
+    if (this.args.icon !== undefined) {
+      return 'hds-icon-tile__icon';
+    }
+  }
+
   get logo(): HdsIconTileProducts | null {
     const { logo } = this.args;
 
@@ -143,11 +117,6 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     return logo ?? null;
   }
 
-  /**
-   * We need to differentiate between a logo and an icon
-   * @method IconTile#entity
-   * @return {string} The kind of entity we're dealing with ("logo" or "icon")
-   */
   get entity(): string | undefined {
     let entity;
 
@@ -171,22 +140,10 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     return entity;
   }
 
-  /**
-   * Sets the "secondary" icon name (one of the FlightIcons)
-   *
-   * @param iconSecondary
-   * @type {string|null}
-   * @default null
-   */
   get iconSecondary(): HdsIconSignature['Args']['name'] | null {
     return this.args.iconSecondary ?? null;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method IconTile#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"
   get classNames(): string {
     const classes = ['hds-icon-tile'];
