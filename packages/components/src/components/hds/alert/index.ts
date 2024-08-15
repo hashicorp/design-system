@@ -122,7 +122,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
 
       return false;
     } else {
-      // If a name for `icon` is passed, set FlightIcon to that name
+      // If a name for `icon` is passed, set HdsIcon to that name
       return icon;
     }
   }
