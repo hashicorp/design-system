@@ -173,7 +173,7 @@ This can be done by adding a "Clear all" action to the [Application State](/comp
 
 ## Filter overflow
 
-Depending on the data complexity and expected user interactions, it may be necessary to consider how filter pattern elements might overflow into other areas of the UI.
+Depending on the data complexity and expected user interactions, it may be necessary to consider how filtering elements might overflow into other areas of the UI.
 
 - What happens when there are many filters applied to a data set?
 - Is there a specific hierarchy or importance in the filter parameters that might determine how they are ordered or displayed to the user?
@@ -209,7 +209,7 @@ In this scenario, consider moving the applied filter [Tags](/components/tag) to 
 
 In complex data sets with numerous filterable parameters, considering establishing a hierarchy of filters by:
 
-1. Prioritizing crucial filters directly in the UI and associating them directly with the Table and data set
+1. Prioritizing crucial filters associate them directly with the Table and data set
 2. Moving less important filter parameters to a [Flyout](/components/flyout), using [Checkbox groups](/components/form/checkbox) for each parameter and its values.
 
 This approach offers a scalable solution for highly complex data sets while communicating a natural hierarchy of filter importance.
@@ -230,18 +230,9 @@ For excessive filter parameters causing a long scroll in the [Flyout](/component
 
 <Doc::ImageCaption @text="Use Accordions within a Flyout to support an excessive number of filter parameters." />
 
-### Filter hierarchy
-
-Filter parameters vary in importance, which should be reflected in their organization in the UI. Moving frequently used filters to a [Flyout](/components/flyout) can be detrimental, as accessing common filters may require multiple steps.
-
-!!! Info
-
-Impact and priority of filters should be determined by each product and application team. User needs and priorities vary across products and user journeys, affecting the prioritization of UI elements.
-!!!
-
 ### Putting it all together
 
-An effective filter pattern support overflow in common scenarios will consist of:
+A holistic approach to supporting overflow in a filter pattern will consist of:
 
 1. A filter bar with high-impact parameters, plus a secondary [Button](/components/button) that triggers a [Flyout](/components/flyout) for less common filters.
 2. An Accordion displaying all applied filters with a bulk dismiss option.
