@@ -4192,6 +4192,7 @@ __metadata:
   dependencies:
     "@changesets/cli": "npm:^2.26.2"
     "@changesets/get-github-info": "npm:^0.5.2"
+    dotenv: "npm:^16.3.1"
   languageName: unknown
   linkType: soft
 
