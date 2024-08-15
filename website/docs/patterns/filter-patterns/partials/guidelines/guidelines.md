@@ -283,7 +283,26 @@ This contextual example demonstrates a comprehensive yet simple method of compos
     >
       <F.Header @icon="filter">More filters</F.Header>
       <F.Body>
-        <Hds::Accordion @type="flush" @size="small" as |A|>
+        <div class="doc-filter-patterns-flyout-label">
+          <Hds::Text::Display
+            @size="300"
+            @color="strong"
+          >Diet</Hds::Text::Display>
+          <Hds::Button
+            @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
+            @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
+            @iconPosition="leading"
+            @size="small"
+            @color="tertiary"
+            {{on "click" this.toggleState}}
+          />
+        </div>
+        <Hds::Accordion
+          @forceState={{this.state}}
+          @type="flush"
+          @size="small"
+          as |A|
+        >
           {{#each this.model.demoOverflowFilters as |overflowFilter|}}
             <A.Item>
               <:toggle>{{overflowFilter.label}}</:toggle>
@@ -352,7 +371,6 @@ This contextual example demonstrates a comprehensive yet simple method of compos
   </Hds::Accordion>
 
 </div>
-
 ```
 
 ### More complex filtering scenarios
