@@ -71,7 +71,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
     assert.dom('.hds-rich-tooltip__toggle--is-block').exists();
     assert
       .dom('.hds-rich-tooltip__toggle-icon')
-      .doesNotHaveClass('flight-icon-display-inline');
+      .doesNotHaveClass('hds-icon--is-inline');
   });
   test('it should render the element as inline if `@isInline` is `true`', async function (assert) {
     await render(
@@ -80,7 +80,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
     assert.dom('.hds-rich-tooltip__toggle--is-inline').exists();
     assert
       .dom('.hds-rich-tooltip__toggle-icon')
-      .hasClass('flight-icon-display-inline');
+      .hasClass('hds-icon--is-inline');
   });
 
   // SIZE
