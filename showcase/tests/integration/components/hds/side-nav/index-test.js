@@ -208,7 +208,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       .hasAttribute('aria-label', 'Close menu');
     assert
       .dom('.hds-side-nav__toggle-button .hds-icon')
-      .hasClass('flight-icon-chevrons-left');
+      .hasClass('hds-icon-chevrons-left');
     assert
       .dom('#test-side-nav-header')
       .doesNotHaveAttribute('data-test-minimized');
@@ -231,7 +231,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       .hasAttribute('aria-label', 'Open menu');
     assert
       .dom('.hds-side-nav__toggle-button .hds-icon')
-      .hasClass('flight-icon-chevrons-right');
+      .hasClass('hds-icon-chevrons-right');
     assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
     assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');

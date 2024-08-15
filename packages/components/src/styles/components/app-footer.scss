@@ -51,19 +51,19 @@ $hds-app-footer-icon-text-gap: 6px;
 
 // preset status types
 .hds-app-footer__status-link--operational {
-  .hds-icon { fill: var(--app-footer-status-link-icon-operational-color); }
+  .flight-icon { fill: var(--app-footer-status-link-icon-operational-color); }
 }
 
 .hds-app-footer__status-link--degraded {
-  .hds-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
+  .flight-icon { fill: var(--app-footer-status-link-icon-degraded-color); }
 }
 
 .hds-app-footer__status-link--maintenance {
-  .hds-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
+  .flight-icon { fill: var(--app-footer-status-link-icon-maintenance-color); }
 }
 
 .hds-app-footer__status-link--outage {
-  .hds-icon { fill: var(--app-footer-status-link-icon-outage-color); }
+  .flight-icon { fill: var(--app-footer-status-link-icon-outage-color); }
 }
 
 

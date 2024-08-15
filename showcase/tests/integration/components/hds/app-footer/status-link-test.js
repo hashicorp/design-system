@@ -31,12 +31,13 @@ module(
         <Hds::AppFooter::StatusLink id="test-maintenance" @status="maintenance" />
         <Hds::AppFooter::StatusLink id="test-outage" @status="outage" />
       </ul>`);
+
       // operational
       assert
         .dom('#test-operational')
         .hasText('System operational')
         .hasClass('hds-app-footer__status-link--operational');
-      assert.dom('#test-operational .hds-icon-check-circle').hasStyle({
+      assert.dom('#test-operational .flight-icon-check-circle').hasStyle({
         fill: 'rgb(0, 138, 34)',
       });
       // degraded
@@ -44,7 +45,7 @@ module(
         .dom('#test-degraded')
         .hasText('System degraded')
         .hasClass('hds-app-footer__status-link--degraded');
-      assert.dom('#test-degraded .hds-icon-alert-triangle').hasStyle({
+      assert.dom('#test-degraded .flight-icon-alert-triangle').hasStyle({
         fill: 'rgb(187, 90, 0)',
       });
       // maintenance
@@ -52,7 +53,7 @@ module(
         .dom('#test-maintenance')
         .hasText('System maintenance')
         .hasClass('hds-app-footer__status-link--maintenance');
-      assert.dom('#test-maintenance .hds-icon-alert-triangle').hasStyle({
+      assert.dom('#test-maintenance .flight-icon-alert-triangle').hasStyle({
         fill: 'rgb(187, 90, 0)',
       });
       // outage
@@ -60,7 +61,7 @@ module(
         .dom('#test-outage')
         .hasText('System outage')
         .hasClass('hds-app-footer__status-link--outage');
-      assert.dom('#test-outage .hds-icon-x-circle').hasStyle({
+      assert.dom('#test-outage .flight-icon-x-circle').hasStyle({
         fill: 'rgb(229, 34, 40)',
       });
     });
@@ -76,7 +77,7 @@ module(
       /></ul>
     `);
       assert.dom('.hds-app-footer__status-link').hasText('Waypoint');
-      assert.dom('.hds-app-footer__status-link .hds-icon').exists();
+      assert.dom('.hds-app-footer__status-link .flight-icon').exists();
       // .hasStyle({'--hds-app-footer-status-icon-color': 'var(--token-color-waypoint-brand)'})
     });
 

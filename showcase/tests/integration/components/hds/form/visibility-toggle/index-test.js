@@ -28,7 +28,7 @@ module(
       );
       assert
         .dom('#test-visibility-toggle .hds-icon')
-        .hasClass('flight-icon-eye-off');
+        .hasClass('hds-icon-eye-off');
     });
 
     test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
@@ -37,7 +37,7 @@ module(
       );
       assert
         .dom('#test-visibility-toggle .hds-icon')
-        .hasClass('flight-icon-eye');
+        .hasClass('hds-icon-eye');
     });
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {

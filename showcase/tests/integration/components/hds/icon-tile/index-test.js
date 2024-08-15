@@ -26,7 +26,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     await render(hbs`<Hds::IconTile @icon="dashboard" id="test-icon-tile" />`);
     assert.dom('div#test-icon-tile .hds-icon-tile__icon').exists();
     assert
-      .dom('div#test-icon-tile .hds-icon-tile__icon svg.hds-icon-dashboard')
+      .dom('div#test-icon-tile .hds-icon-tile__icon svg.flight-icon-dashboard')
       .exists();
   });
 
@@ -83,7 +83,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
     assert.dom('div#test-icon-tile .hds-icon-tile__extra').exists();
     assert.dom('div#test-icon-tile .hds-icon-tile__extra-icon').exists();
     assert
-      .dom('div#test-icon-tile .hds-icon-tile__extra-icon svg.hds-icon-plus')
+      .dom('div#test-icon-tile .hds-icon-tile__extra-icon svg.flight-icon-plus')
       .exists();
   });
 
