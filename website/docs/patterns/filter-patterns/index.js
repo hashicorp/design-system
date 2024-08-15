@@ -9,6 +9,8 @@ import { action } from '@ember/object';
 
 export default class Index extends Component {
   @tracked filterFlyoutActive = false;
+  @tracked state = 'close';
+
   // Mock API
   @tracked demoFilters = [
     {
@@ -766,5 +768,10 @@ export default class Index extends Component {
   @action
   deactivateFlyout(flyout) {
     this[flyout] = false;
+  }
+
+  @action
+  toggleState() {
+    this.state = this.state === 'open' ? 'close' : 'open';
   }
 }

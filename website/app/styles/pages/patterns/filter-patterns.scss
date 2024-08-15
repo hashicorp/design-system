@@ -31,3 +31,10 @@
   gap: 12px 8px;
   align-items: center;
 }
+
+.doc-filter-patterns-flyout-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
