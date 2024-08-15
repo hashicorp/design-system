@@ -35,9 +35,7 @@ module(
       await render(
         hbs`<Hds::Form::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`
       );
-      assert
-        .dom('#test-visibility-toggle .hds-icon')
-        .hasClass('hds-icon-eye');
+      assert.dom('#test-visibility-toggle .hds-icon').hasClass('hds-icon-eye');
     });
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {
