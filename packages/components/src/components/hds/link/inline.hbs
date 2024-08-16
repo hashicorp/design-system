@@ -11,7 +11,7 @@
   @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   ...attributes
->{{#if (eq this.iconPosition "leading"))~}}
+>{{#if (eq this.iconPosition "leading")~}}
     {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--leading">
       <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
     </span>{{~/if}}
