@@ -1,5 +1,4 @@
 ---
-"@hashicorp/design-system-components": minor
 "showcase": minor
 "website": minor
 ---
