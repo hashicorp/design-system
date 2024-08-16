@@ -6,7 +6,7 @@ In Figma, reusable colors are referred to as “Styles.” They are categorized 
 
 In code, we refer to styles as “Tokens.” They are generated from agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. For example, Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`. 
 
-![Image showing a pyramid of how color inheritence works in tokens](/assets/foundations/color/colors-what-are-semantic-tokens.png)
+![Pyramid diagram of token color inheritance with the levels (from bottom to top): hex code, global token, alias token, component token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
 ## What are semantic colors?
 
@@ -18,7 +18,7 @@ Semantic colors were designed to be used together, ensuring they meet accessibil
 - `Foreground/Primary` on `Surface/Primary` nets a ratio of 10.82:1
 - `Foreground/Action` on `Surface/Faint` nets a ratio of 4.86:1
 
-![Image showing color ratios of a card with details inside of it](/assets/foundations/color/colors-semantic-tokens-accessibility-examples.png)
+![A Card component with the color contrast ratios for each of the color combinations labelled](/assets/foundations/color/colors-semantic-tokens-accessibility-examples.png)
 
 The **element** and the **role** are referenced in the name to help make more informed color decisions.
 
@@ -48,11 +48,11 @@ Some common examples of semantic foreground colors include:
 - `Foreground/Faint` for less prominent text and UI elements.
 - `Foreground/Action` for primary call to action such as links
 
-![Image showing different text based components with their color tokens associated to them](/assets/foundations/color/colors-foreground-examples.png)
+![Samples of text with their color tokens labelled](/assets/foundations/color/colors-foreground-examples.png)
 
 Use status foreground colors to help contextualize responses from user actions or to indicate status within a UI. These colors should be used sparingly and within the context of specific components like [Alerts](/components/alert#color), [Toasts](/components/toast#color) or [Badges](/components/badge#color).
 
-![Image showing different badges with their associated foreground colors](/assets/foundations/color/colors-status-examples.png)
+![Sample positive, warning, and error status badges with their associated foreground color tokens labelled.](/assets/foundations/color/colors-status-examples.png)
 
 ### Border colors
 
@@ -62,7 +62,7 @@ Some common examples of border colors include:
 - `Border/Primary` for Card border or divider
 - `Border/{Status color}` for Alert borders
 
-![Image showing different borders applied on a button, card and alert](/assets/foundations/color/colors-border-examples.png)
+![Sample borders applied on a button, card and alert with the border color tokens labelled](/assets/foundations/color/colors-border-examples.png)
 
 ### Surface colors
 
@@ -75,7 +75,7 @@ Some common examples of surface colors include:
 - `Surface/Faint` for the secondary Button.
 - `Surface/{Status color}` for Alert background.
 
-![Image showing different surface colors being applied to a badge, card, button and alert](/assets/foundations/color/colors-surface-examples.png)
+![Sample surface colors being applied to a badge, card, button and alert with the surface color token labelled.](/assets/foundations/color/colors-surface-examples.png)
 
 ### Page colors
 
