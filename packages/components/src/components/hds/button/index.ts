@@ -88,7 +88,7 @@ export default class HdsButtonComponent extends Component<HdsButtonSignature> {
     return color;
   }
 
-  get icon(): IconName | undefined {
+  get icon(): HdsIconSignature['Args']['name'] | undefined {
     assert(
       `when the "Hds::Button" @color is "tertiary" an @icon is required`,
       !(this.color === 'tertiary' && !this.args.icon)
