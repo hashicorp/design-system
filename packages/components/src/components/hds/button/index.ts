@@ -19,14 +19,12 @@ export type HdsButtonSize = (typeof SIZES)[number];
 export type HdsButtonColor = (typeof COLORS)[number];
 export type HdsButtonIconPosition = (typeof ICONPOSITIONS)[number];
 
-type IconName = HdsIconSignature['Args']['name'];
-
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
     size?: HdsButtonSize;
     color?: HdsButtonColor;
     text: string;
-    icon?: IconName;
+    icon?: HdsIconSignature['Args']['name'];
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;

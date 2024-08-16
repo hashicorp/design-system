@@ -31,7 +31,6 @@ module(
         <Hds::AppFooter::StatusLink id="test-maintenance" @status="maintenance" />
         <Hds::AppFooter::StatusLink id="test-outage" @status="outage" />
       </ul>`);
-
       // operational
       assert
         .dom('#test-operational')
