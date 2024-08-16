@@ -8,6 +8,7 @@ import { babel } from '@rollup/plugin-babel';
 import copy from 'rollup-plugin-copy';
 import scss from 'rollup-plugin-scss';
 import process from 'process';
+import path from 'path';
 
 const addon = new Addon({
   srcDir: 'src',
@@ -27,11 +28,16 @@ const plugins = [
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
   // not everything in publicEntrypoints necessarily needs to go here.
-  addon.appReexports([
-    'components/**/!(*types).js',
-    'helpers/**/*.js',
-    'modifiers/**/*.js',
-  ]),
+  addon.appReexports(
+    ['components/**/!(*types).js', 'helpers/**/*.js', 'modifiers/**/*.js'],
+    {
+      mapFilename: (filename) => {
+        if (filename.includes('components/') && filename.endsWith('index.js')) {
+          return `${path.dirname(filename)}.js`;
+        }
+      },
+    }
+  ),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
