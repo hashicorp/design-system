@@ -171,30 +171,206 @@ If applying filters to a data set yields no results, offer users an option to cl
 
 This can be done by adding a "Clear all" action to the [Application State](/components/application-state) or by including dismissible [Tags](/components/tag) for each applied filter.
 
-## Overflow
+## Filter overflow
 
-Depending on the complexity of the data set, it may be necessary to account for the overflow of elements within the filters.
+Depending on the data complexity and expected user interactions, it may be necessary to consider how filtering elements might overflow into other areas of the UI.
 
-### Filter bar overflow
+- What happens when there are many filters applied to a data set?
+- Is there a specific hierarchy or importance in the filter parameters that might determine how they are ordered or displayed to the user?
+- What happens when there are many parameters that can be filtered upon?
 
-If the number of filterable parameters exceeds the available space, consider prioritizing the most commonly used filters in the filter bar and moving less important or more complex filters to a [Flyout](/components/flyout) that can be triggered via an action in the filter bar.
+These scenarios can clutter the UI, detracting from a table's primary purpose: organizing data categorically, relationally, and structurally.
 
-![Hiding additional filters behind an action](/assets/patterns/filter-patterns/overflow-filter-bar.png =559x*)
-<Doc::ImageCaption @text="Hiding additional filters behind an action"/>
+### Applied filters overflow
 
-![Triggering a Flyout with additional filter parameters](/assets/patterns/filter-patterns/overflow-filter-bar-flyout.png =559x*)
-<Doc::ImageCaption @text="Triggering a Flyout with additional filter parameters"/>
+#### Basic example
 
-!!! Dont
+For simple data sets or Tables with a few columns, managing filter overflow may not be necessary. As more filters are applied, wrapping to new lines follows a common browser reflow pattern. This approach is predictable: the user's explicit filter action is directly reflected in the UI, providing positive reinforcement and allowing easy scanning of applied filters.
 
-Don't stack multiple filter bars on top of a data set. This can result in unnecessary complexity in the UI.
+![Basic example of applied filters and reflow](/assets/patterns/filter-patterns/applied-filters-overflow-basic-example.png)
 
-![Multiple filter bar rows](/assets/patterns/filter-patterns/overflow-filter-bar-multiple-rows.png =559x*)
+<Doc::ImageCaption @text="Allowing applied filters to wrap and reflow naturally." />
 
-!!!
+#### Intermediate example
 
-### Sidebar overflow
+Filtering a complex data set may result in numerous filters overwhelming the UI and detracting from the Table's content.
 
-Given that the page-level sidebar occupies the height of the viewport, take filters within a sidebar should not overflow into an interstitial component like a [Flyout](/components/flyout). Instead, utilize the height of the viewport and the consider introducing a scrollable area within the sidebar if many filters are necessary.
+In this scenario, consider moving the applied filter [Tags](/components/tag) to a `small`, `card` [Accordion](/components/accordion) using the `containsInteractive` variant. This pattern:
 
-![Filter sidebar with scroll](/assets/patterns/filter-patterns/filter-sidebar-scrollbar.png =559x*)
+- Accommodates numerous applied filters
+- Simplifies the UI, reducing cognitive load
+- Supports complex, interactive content within the Accordion (e.g., a "Clear all filters" function)
+
+![Intermediate example of applied filters within an open Accordion](/assets/patterns/filter-patterns/applied-filters-overflow-intermediate-example-open.png)
+
+<Doc::ImageCaption @text="Moving the applied filters to an Accordion." />
+
+### Filter parameters overflow
+
+In complex data sets with numerous filterable parameters, considering establishing a hierarchy of filters by:
+
+1. Prioritizing crucial filters associate them directly with the Table and data set
+2. Moving less important filter parameters to a [Flyout](/components/flyout), using [Checkbox groups](/components/form/checkbox) for each parameter and its values.
+
+This approach offers a scalable solution for highly complex data sets while communicating a natural hierarchy of filter importance.
+
+![Trigger the overflow of filter parameters with a Button](/assets/patterns/filter-patterns/filter-parameters-overflow-more-filters.png)
+
+<Doc::ImageCaption @text="Use a secondary Button to trigger a Flyout." />
+
+![Display the overflow of filter parameters within a Flyout](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout.png)
+
+<Doc::ImageCaption @text="Display the overflow of filter parameters in a Flyout" />
+
+#### Accordions within a Flyout
+
+For excessive filter parameters causing a long scroll in the [Flyout](/components/flyout), consider placing each parameter in a `flush`, `small` [Accordion](/components/accordion), and optionally, add an "Expand/Collapse All" Button. This approach gives users more control over the UI and allows for visual comparison between filter parameters.
+
+![Accordions within a Flyout containing filter parameters](/assets/patterns/filter-patterns/filter-parameters-overflow-flyout-accordion.png)
+
+<Doc::ImageCaption @text="Use Accordions within a Flyout to support an excessive number of filter parameters." />
+
+### Putting it all together
+
+A holistic approach to supporting overflow in a filter pattern will consist of:
+
+1. A filter bar with high-impact parameters, plus a secondary [Button](/components/button) that triggers a [Flyout](/components/flyout) for less common filters.
+2. An Accordion displaying all applied filters with a bulk dismiss option.
+
+![A holistic filter pattern support overflow](/assets/patterns/filter-patterns/filter-overflow-holistic-example.png)
+
+This contextual example demonstrates a comprehensive yet simple method of composing multiple Helios components to support these overflow concepts. It is interactive but doesn't include any functional logic.
+
+```handlebars
+
+<div class="doc-filter-patterns-wrapper">
+
+  <div class="doc-filter-patterns-filter-bar">
+
+    <Hds::SegmentedGroup as |SG|>
+      {{#each this.model.demoFilters as |filter|}}
+        <SG.Dropdown @listPosition="bottom-left" as |D|>
+          <D.ToggleButton @color="secondary" @text={{filter.name}} />
+          {{#each filter.options as |option|}}
+            <D.Checkbox>{{option.name}}</D.Checkbox>
+          {{/each}}
+        </SG.Dropdown>
+      {{/each}}
+    </Hds::SegmentedGroup>
+    <Hds::Button
+      @text="More filters"
+      @icon="filter"
+      @iconPosition="leading"
+      @color="secondary"
+      {{on "click" (fn this.activateFlyout "filterFlyoutActive")}}
+    />
+  </div>
+
+  {{#if this.filterFlyoutActive}}
+    <Hds::Flyout
+      id="filter-flyout"
+      @onClose={{fn this.deactivateFlyout "filterFlyoutActive"}}
+      as |F|
+    >
+      <F.Header @icon="filter">More filters</F.Header>
+      <F.Body>
+        <div class="doc-filter-patterns-flyout-label">
+          <Hds::Text::Display
+            @size="300"
+            @color="strong"
+          >Diet</Hds::Text::Display>
+          <Hds::Button
+            @text={{if (eq this.state "open") "Collapse all" "Expand all"}}
+            @icon={{if (eq this.state "open") "unfold-close" "unfold-open"}}
+            @iconPosition="leading"
+            @size="small"
+            @color="tertiary"
+            {{on "click" this.toggleState}}
+          />
+        </div>
+        <Hds::Accordion
+          @forceState={{this.state}}
+          @type="flush"
+          @size="small"
+          as |A|
+        >
+          {{#each this.model.demoOverflowFilters as |overflowFilter|}}
+            <A.Item>
+              <:toggle>{{overflowFilter.label}}</:toggle>
+              <:content>
+                <Hds::Form::Checkbox::Group
+                  @name={{overflowFilter.label}} as |G|
+                >
+                  {{#each overflowFilter.values as |value|}}
+                    <G.CheckboxField as |F|>
+                      <F.Label>{{value.name}}</F.Label>
+                    </G.CheckboxField>
+                  {{/each}}
+                </Hds::Form::Checkbox::Group>
+              </:content>
+            </A.Item>
+          {{/each}}
+        </Hds::Accordion>
+      </F.Body>
+      <F.Footer>
+        <Hds::ButtonSet>
+          <Hds::Button
+            @color="primary"
+            @text="Apply filters"
+            {{on "click" (fn this.deactivateFlyout "filterFlyoutActive")}}
+          />
+          <Hds::Button
+            @text="Cancel"
+            @color="secondary"
+            {{on "click" (fn this.deactivateFlyout "filterFlyoutActive")}}
+          />
+        </Hds::ButtonSet>
+      </F.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <Hds::Accordion @size="small" @type="card" as |A|>
+    <A.Item @containsInteractive={{true}}>
+      <:toggle>
+        <div class="doc-filter-patterns-accordion-toggle">
+          <Hds::Text::Body
+            @color="strong"
+            @size="200"
+            @weight="semibold"
+          >Applied filters (25)</Hds::Text::Body>
+          <Hds::Button
+            @size="small"
+            @color="tertiary"
+            @icon="x"
+            @iconPosition="leading"
+            @text="Clear all filters"
+            {{on "click" this.clearAllFilters}}
+          />
+        </div>
+      </:toggle>
+      <:content>
+        <div class="doc-filter-patterns-applied-filters">
+          {{#each this.model.demoAppliedFilters as |appliedFilter|}}
+            <Hds::Tag
+              @text={{appliedFilter}}
+              @onDismiss={{this.filterDismissFunction}}
+            />
+          {{/each}}
+        </div>
+      </:content>
+    </A.Item>
+  </Hds::Accordion>
+
+</div>
+```
+
+### More complex filtering scenarios
+
+These guidelines cover common methods for handling overflow in filter patterns, but exclude more complex scenarios such as:
+
+- Filtering based on complex queries
+- Conditional statement-dependent filtering
+- Saving and recalling applied filters
+- Product and business logic-specific use cases.
+
+For projects exceeding the complexity outlined here, please [contact the HDS team](/about/support) for support and recommendations.

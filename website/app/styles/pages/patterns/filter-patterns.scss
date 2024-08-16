@@ -1,0 +1,40 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+ // PATTERNS > FILTER PATTERNS
+
+.doc-filter-patterns-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doc-filter-patterns-filter-bar {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.doc-filter-patterns-accordion-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.doc-filter-patterns-applied-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 8px;
+  align-items: center;
+}
+
+.doc-filter-patterns-flyout-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
