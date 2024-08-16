@@ -95,7 +95,7 @@ module(
 
     // CONTENT
 
-    test('it should not render the text passed as @text prop', async function (assert) {
+    test('it should render the text passed as @text prop', async function (assert) {
       await render(
         hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" />`
       );
