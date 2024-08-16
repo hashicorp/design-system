@@ -13,10 +13,10 @@
   ...attributes
 >{{#if (eq this.iconPosition "leading")~}}
     {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--leading">
-      <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
-    </span>{{~/if}}
-  {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing"))~}}
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
+  {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing")~}}
     {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--trailing">
-      <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
-    </span>{{~/if}}
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
   {{~/if}}</Hds::Interactive>
