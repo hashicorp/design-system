@@ -13,6 +13,9 @@
       {{#if @required}}
         <Doc::Badge @type="critical-inverted">Required</Doc::Badge>
       {{/if}}
+      {{#if @deprecated}}
+        <Doc::Badge @type="warning">Deprecated</Doc::Badge>
+      {{/if}}
     </div>
   {{/if}}
   {{#if (or @values @valueNote)}}
