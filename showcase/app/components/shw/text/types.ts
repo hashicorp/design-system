@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export enum TextTagValues {
   H1 = 'h1',
   H2 = 'h2',
