@@ -4,7 +4,7 @@ Color-naming syntax and usage can vary depending on context and tooling. This ov
 
 In Figma, reusable colors are referred to as “Styles.” They are categorized and stored in the right sidebar for fills, borders, and other properties that accept color values. Styles directly reference a HEX value but cannot reference each other (known as aliasing for Tokens). This means when we provide Figma Styles for semantic usage (like `Foreground/Primary`), the HEX value (`#3B3D45`) is directly referenced instead of the Core Palette color (`Palette/Neutral/Neutral 600`). 
 
-In code, we refer to styles as “Tokens.” They are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. For example, Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`. 
+In code, we refer to reusable colors as “Tokens.” They are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. For example, Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`. 
 
 ![Pyramid diagram of token color inheritance with the levels (from bottom to top): hex code, global token, alias token, component token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
