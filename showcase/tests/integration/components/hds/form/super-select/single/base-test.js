@@ -63,7 +63,7 @@ module(
         .dom(
           '.hds-form-super-select__after-options .hds-form-super-select__result-count'
         )
-        .hasText('3 results');
+        .hasText('3 total');
     });
 
     test('it should render custom content in the after options block when `@afterOptionsContent` exists', async function (assert) {
