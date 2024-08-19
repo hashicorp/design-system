@@ -85,10 +85,10 @@ Page colors are used for page backgrounds. HDS components do not use these token
 
 We intend to be conformant with WCAG 2.2 Level AA requirements. In terms of color contrast, this means a luminosity ratio of 4.5:1 for normal sized text, and 3:1 for large text (commonly 22px). Further details are outlined on [WCAG’s understanding of Contrast (Minimum)](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html). By default, semantic color tokens provide accessible color combinations out of the box with their associated naming conventions, while using palette colors requires manual validation, especially if you plan to mix and match. As an example, if a color has a semantic status name in it, then other associated status colors will be accessible. 
 
-It is important to note that we [do not recommend the usage of disabled elements](/patterns/disabled-patterns) especially isolating disabled colors out of context, as they are not accessible.
+It is important to note that we [do not recommend the usage of disabled elements](/patterns/disabled-patterns), especially isolating disabled colors out of context, as they are not accessible.
 
 ### Using palette colors
 
-The Core Palette is available if semantic colors do not meet your needs. These styles are usage-agnostic, which can introduce challenges in consistently scaling designs but allow more freedom and flexibility in color pairing. 
+The Core Palette is available if semantic colors do not meet your needs. These styles are usage-agnostic, which can introduce challenges in consistently scaling designs but also allow more freedom and flexibility in color pairing. 
 
 When pairing colors from the Core Palette, ensure adjacent colors meet accessible contrast ratios. To validate your color combinations, use free tools like the [WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) or [Stark’s Figma plugin](https://www.figma.com/community/plugin/732603254453395948/stark-contrast-accessibility-checker).
