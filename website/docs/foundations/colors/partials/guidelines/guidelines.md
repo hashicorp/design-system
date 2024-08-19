@@ -1,6 +1,6 @@
 ## Color styles and tokens
 
-Color naming syntax and use can vary depending on context and tooling. This overview will clarify what naming conventions are typically used and how they align to the HDS standards implemented in our libraries.
+Color-naming syntax and usage can vary depending on context and tooling. This overview will clarify what naming conventions are typically used and how they align with the HDS standards implemented in our libraries.
 
 In Figma, reusable colors are referred to as “Styles.” They are categorized and stored in the right sidebar for fills, borders, and other properties that accept color values. Styles directly reference a HEX value but cannot reference each other (known as aliasing for Tokens). This means when we provide Figma Styles for semantic usage (like `Foreground/Primary`), the HEX value (`#3B3D45`) is directly referenced instead of the Core Palette color (`Palette/Neutral/Neutral 600`). 
 
@@ -50,7 +50,7 @@ Some common examples of semantic foreground colors include:
 
 ![Samples of text with their color tokens labelled](/assets/foundations/color/colors-foreground-examples.png)
 
-Use status foreground colors to help contextualize responses from user actions or to indicate status within a UI. These colors should be used sparingly and within the context of specific components like [Alerts](/components/alert#color), [Toasts](/components/toast#color) or [Badges](/components/badge#color).
+Use status foreground colors to help contextualize responses from user actions or to indicate status within a UI. These colors should be used sparingly and within the context of specific components like [Alerts](/components/alert#color), [Toasts](/components/toast#color), or [Badges](/components/badge#color).
 
 ![Sample positive, warning, and error status badges with their associated foreground color tokens labelled.](/assets/foundations/color/colors-status-examples.png)
 
@@ -62,7 +62,7 @@ Some common examples of border colors include:
 - `Border/Primary` for Card border or divider
 - `Border/{Status color}` for Alert borders
 
-![Sample borders applied on a button, card and alert with the border color tokens labelled](/assets/foundations/color/colors-border-examples.png)
+![Sample borders applied on a button, card, and alert with the border color tokens labelled](/assets/foundations/color/colors-border-examples.png)
 
 ### Surface colors
 
@@ -75,11 +75,11 @@ Some common examples of surface colors include:
 - `Surface/Faint` for the secondary Button.
 - `Surface/{Status color}` for Alert background.
 
-![Sample surface colors being applied to a badge, card, button and alert with the surface color token labelled.](/assets/foundations/color/colors-surface-examples.png)
+![Sample surface colors being applied to a badge, card, button, and alert with the surface color token labelled.](/assets/foundations/color/colors-surface-examples.png)
 
 ### Page colors
 
-Page colors are used for page backgrounds. HDS components do not use these tokens, however, we recommend `Page/Primary` as the primary background color and `Page/Faint` as a means to create a secondary level on the page for highlighting information, if necessary.
+Page colors are used for page backgrounds. HDS components do not use these tokens; however, we recommend `Page/Primary` as the primary background color and `Page/Faint` as a means to create a secondary level on the page for highlighting information, if necessary.
 
 ## Accessible color combinations
 
