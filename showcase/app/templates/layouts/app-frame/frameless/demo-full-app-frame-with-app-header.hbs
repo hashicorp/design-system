@@ -13,7 +13,7 @@
         <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
       </:logo>
       <:globalActions>
-        <Hds::Dropdown as |dd|>
+        <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleButton @text="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" @icon="org" />
           <dd.Checkmark>
             organizationName
@@ -21,7 +21,7 @@
         </Hds::Dropdown>
       </:globalActions>
       <:utilityActions>
-        <Hds::Dropdown as |dd|>
+        <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleButton @text="Europe" @icon="globe" />
           <dd.Checkmark>
             Americas
@@ -29,7 +29,7 @@
         </Hds::Dropdown>
 
         <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
-        <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+        <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleIcon @icon="help" @text="help menu" />
           <dd.Title @text="Help & Support" />
           <dd.Interactive @text="Documentation" @href="#" />
@@ -40,7 +40,7 @@
           <dd.Interactive @text="Create support ticket" @href="#" />
           <dd.Interactive @text="Give feedback" @href="#" />
         </Hds::Dropdown>
-        <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+        <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleIcon @icon="user" @text="user menu" />
           <dd.Title @text="Signed In" />
           <dd.Description @text="email@domain.com" />
