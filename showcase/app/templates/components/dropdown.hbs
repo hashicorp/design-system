@@ -556,7 +556,7 @@
     <SF.Item @label="With long content that might push the badge down">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @icon="settings" @trailingIcon="settings" as |I|>
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @trailingIcon="external-link" as |I|>
             Lorem ipsum dolor sit amet, consectetur adipisici tempor incidunt ut labore et dolore
             <I.Badge @text="Badge" />
           </Hds::Dropdown::ListItem::Interactive>
@@ -606,6 +606,10 @@
                 <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}}>
                   Loading
                 </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}} as |I|>
+                  Loading
+                  <I.Badge @text="With Badge" />
+                </Hds::Dropdown::ListItem::Interactive>
               </ul>
             </div>
           </SF.Item>
@@ -629,6 +633,15 @@
                   @isLoading={{true}}
                 >
                   loading with icon
+                </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive
+                  @icon={{if (eq color "critical") "trash" "settings"}}
+                  @color={{color}}
+                  @isLoading={{true}}
+                  as |I|
+                >
+                  Loading
+                  <I.Badge @text="With Badge" />
                 </Hds::Dropdown::ListItem::Interactive>
               </ul>
             </div>

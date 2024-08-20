@@ -155,7 +155,10 @@ module(
               <I.Badge @text="Badge" />
             </Hds::Dropdown::ListItem::Interactive>`
       );
-      assert.dom('.hds-badge').hasText('Badge');
+      assert
+        .dom('.hds-badge')
+        .hasText('Badge')
+        .hasClass('hds-badge--size-small');
     });
     test('it does not render the contextual components if not provided', async function (assert) {
       await render(
