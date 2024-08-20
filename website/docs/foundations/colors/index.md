@@ -7,6 +7,7 @@ previewImage: assets/illustrations/foundations/colors.jpg
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
+  @include "partials/guidelines/guidelines.md"
 </section>
 
 <section data-tab="Code">
