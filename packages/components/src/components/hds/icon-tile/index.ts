@@ -140,8 +140,8 @@ export default class HdsIconTileComponent extends Component<HdsIconTileSignature
     return entity;
   }
 
-  get iconSecondary(): HdsIconSignature['Args']['name'] | null {
-    return this.args.iconSecondary ?? null;
+  get iconSecondary(): HdsIconSignature['Args']['name'] | undefined {
+    return this.args.iconSecondary;
   }
 
   // hds-icon-tile {{this.entityClass}} {{this.sizeClass}} {{this.colorClass}}"

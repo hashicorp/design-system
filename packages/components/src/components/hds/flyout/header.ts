@@ -12,7 +12,7 @@ export interface HdsFlyoutHeaderSignature {
     id?: string;
     tagline?: string;
     onDismiss: (event: MouseEvent) => void;
-    icon?: HdsIconSignature['Args']['name'] | false;
+    icon?: HdsIconSignature['Args']['name'];
   };
   Blocks: {
     default: [];

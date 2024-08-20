@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Migration from `FlightIcon` to `Hds::Icon`
+Migrated all internal instances of `FlightIcon` to `Hds::Icon`
