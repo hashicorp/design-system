@@ -141,7 +141,7 @@ Here is an example of some possible actions:
         </:logo>
         <:actions>
           <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -152,7 +152,7 @@ Here is an example of some possible actions:
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
@@ -168,7 +168,7 @@ Here is an example of some possible actions:
 
 The `Hds::SideNav::Header::IconButton` is a specialized sub-component that can be used to add a button (or link) as "action" with a visual style specific to the Side Nav. It requires a value for the `@icon` and `@ariaLabel` arguments. The IconButton is built on top of the [`Hds::Interactive` component](/utilities/interactive), so it accepts all its routing arguments (eg. `@href`, `@route`, `@query`, `@model(s)`, etc.).
 
-The dropdown elements instead (in this case) are using the standard [`Hds::Dropdown` component](/components/dropdown). An extra `hds-side-nav__dropdown` class needs to be applied to it, so that the "toggle" button takes the visual style of the other interactive elements in the Side Nav.
+The dropdown elements instead (in this case) are using the standard [`Hds::Dropdown` component](/components/dropdown). We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the Side Nav.
 
 You can also add custom elements to the `<:actions>` block, if these two don't cover your specific needs, but in this case you will have to take care of their styling so that they blend in with the rest of the Side Nav elements.
 
@@ -280,7 +280,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
           <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
         </:logo>
         <:actions>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
             <dd.Interactive @text="Documentation" @href="#" />
@@ -291,7 +291,7 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
             <dd.Interactive @text="Create support ticket" @href="#" />
             <dd.Interactive @text="Give feedback" @href="#" />
           </Hds::Dropdown>
-          <Hds::Dropdown class="hds-side-nav__dropdown" @listPosition="bottom-left" as |dd|>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
