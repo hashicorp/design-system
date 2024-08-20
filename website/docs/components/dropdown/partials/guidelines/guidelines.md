@@ -327,6 +327,7 @@ Avoid inconsistent icon use.
 ![Dropdown use case examples](/assets/components/dropdown/dropdown-interactive-badge-example.png)
 
 !!! Info
+
 The Figma component will not fully reflect the Badge wrapping behavior expected in the Ember component due to current known limitations in Figma’s autolayout settings.
 !!!
 
