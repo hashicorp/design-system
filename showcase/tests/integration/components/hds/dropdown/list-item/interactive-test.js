@@ -101,10 +101,26 @@ module(
       );
       assert.dom('.hds-dropdown-list-item').hasText('interactive text');
     });
+    test('it should render the yielded content', async function (assert) {
+      await render(hbs`
+        <Hds::Dropdown::ListItem::Interactive>
+          interactive
+        </Hds::Dropdown::ListItem::Interactive>
+      `);
+      assert.dom('.hds-dropdown-list-item').hasText('interactive');
+    });
+    test('it should render the text passed as @text prop if content is yielded', async function (assert) {
+      await render(hbs`
+        <Hds::Dropdown::ListItem::Interactive @text="erroneous">
+          interactive
+        </Hds::Dropdown::ListItem::Interactive>
+      `);
+      assert.dom('.hds-dropdown-list-item').doesNotContainText('erroneous');
+    });
 
     // ASSERTIONS
 
-    test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+    test('it should throw an assertion if @text is missing/has no value and the component does not yield content', async function (assert) {
       const errorMessage =
         '@text for "Hds::Dropdown::ListItem::Interactive" must have a valid value';
       assert.expect(2);
@@ -129,6 +145,28 @@ module(
       assert.throws(function () {
         throw new Error(errorMessage);
       });
+    });
+
+    // CONTEXTUAL COMPONENTS
+
+    test('it renders the contextual components', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Interactive as |I|>
+              <I.Badge @text="Badge" />
+            </Hds::Dropdown::ListItem::Interactive>`
+      );
+      assert
+        .dom('.hds-badge')
+        .hasText('Badge')
+        .hasClass('hds-badge--size-small');
+    });
+    test('it does not render the contextual components if not provided', async function (assert) {
+      await render(
+        hbs`<Hds::Dropdown::ListItem::Interactive>
+              interactive
+            </Hds::Dropdown::ListItem::Interactive>`
+      );
+      assert.dom('.hds-badge').doesNotExist();
     });
   }
 );

@@ -32,8 +32,12 @@
       <div class="shw-component-dropdown-display-sample">
         <Hds::Dropdown @listPosition="bottom-left" as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Create" />
-          <D.Interactive @href="#" @text="Edit" />
+          <D.Interactive @href="#">
+            Create
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Edit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SF.Item>
@@ -41,8 +45,12 @@
       <div class="shw-component-dropdown-display-sample">
         <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Create" />
-          <D.Interactive @href="#" @text="Edit" />
+          <D.Interactive @href="#">
+            Create
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Edit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SF.Item>
@@ -422,7 +430,9 @@
       <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @text="Lorem ipsum dolor" />
+          <Hds::Dropdown::ListItem::Interactive>
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -433,7 +443,9 @@
         <code>&lt;a&gt;</code></Shw::Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @href="/" @text="Lorem ipsum dolor" />
+          <Hds::Dropdown::ListItem::Interactive @href="/">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -446,7 +458,9 @@
         <code>&lt;a&gt;</code></Shw::Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components.dropdown" @text="Lorem ipsum dolor" />
+          <Hds::Dropdown::ListItem::Interactive @route="components.dropdown">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -458,32 +472,94 @@
     <SF.Item @label="No icon (default)">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @text="Basic" />
+          <Hds::Dropdown::ListItem::Interactive>
+            Basic
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
     <SF.Item @label="Leading icon">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Settings" />
+          <Hds::Dropdown::ListItem::Interactive @icon="settings">
+            Settings
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
     <SF.Item @label="Trailing icon">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" @text="Documentation" />
+          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link">
+            Documentation
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
     <SF.Item @label="Leading + Trailing icons">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive
-            @icon="terraform-color"
-            @trailingIcon="external-link"
-            @text="Terraform"
-          />
+          <Hds::Dropdown::ListItem::Interactive @icon="terraform-color" @trailingIcon="external-link">
+            Terraform
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Badge</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="No icon (default)">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive as |I|>
+            With badge
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Leading icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" as |I|>
+            With leading icon
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Trailing icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @trailingIcon="external-link" as |I|>
+            With trailing icon
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+    <SF.Item @label="Leading + Trailing icon">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @trailingIcon="external-link" as |I|>
+            With leading + trailing icons
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
+        </ul>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="With long content that might push the badge down">
+      <div class="hds-dropdown__content">
+        <ul class="hds-dropdown__list">
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @trailingIcon="external-link" as |I|>
+            Lorem ipsum dolor sit amet, consectetur adipisici tempor incidunt ut labore et dolore
+            <I.Badge @text="Badge" />
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -495,14 +571,18 @@
     <SF.Item @label="Action (default)">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @icon="settings" @text="Lorem ipsum dolor" @color="action" />
+          <Hds::Dropdown::ListItem::Interactive @icon="settings" @color="action">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
     <SF.Item @label="Critical">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @icon="trash" @text="Lorem ipsum dolor" @color="critical" />
+          <Hds::Dropdown::ListItem::Interactive @icon="trash" @color="critical">
+            Lorem ipsum dolor
+          </Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -518,10 +598,18 @@
             <div class="hds-dropdown__content">
               <ul class="hds-dropdown__list">
                 {{#each @model.ITEM_STATES as |state|}}
-                  <Hds::Dropdown::ListItem::Interactive @text={{state}} @color={{color}} mock-state-value={{state}} />
+                  <Hds::Dropdown::ListItem::Interactive @color={{color}} mock-state-value={{state}}>
+                    {{state}}
+                  </Hds::Dropdown::ListItem::Interactive>
                 {{/each}}
                 <Hds::Dropdown::ListItem::Separator />
-                <Hds::Dropdown::ListItem::Interactive @text="loading" @color={{color}} @isLoading={{true}} />
+                <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}}>
+                  Loading
+                </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}} as |I|>
+                  Loading
+                  <I.Badge @text="With Badge" />
+                </Hds::Dropdown::ListItem::Interactive>
               </ul>
             </div>
           </SF.Item>
@@ -531,18 +619,30 @@
                 {{#each @model.ITEM_STATES as |state|}}
                   <Hds::Dropdown::ListItem::Interactive
                     @icon={{if (eq color "critical") "trash" "settings"}}
-                    @text="{{state}} with icon"
                     @color={{color}}
                     mock-state-value={{state}}
-                  />
+                  >
+                    {{state}}
+                    with icon
+                  </Hds::Dropdown::ListItem::Interactive>
                 {{/each}}
                 <Hds::Dropdown::ListItem::Separator />
                 <Hds::Dropdown::ListItem::Interactive
                   @icon={{if (eq color "critical") "trash" "settings"}}
-                  @text="loading with icon"
                   @color={{color}}
                   @isLoading={{true}}
-                />
+                >
+                  loading with icon
+                </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive
+                  @icon={{if (eq color "critical") "trash" "settings"}}
+                  @color={{color}}
+                  @isLoading={{true}}
+                  as |I|
+                >
+                  Loading
+                  <I.Badge @text="With Badge" />
+                </Hds::Dropdown::ListItem::Interactive>
               </ul>
             </div>
           </SF.Item>
@@ -552,10 +652,12 @@
                 {{#each @model.ITEM_STATES as |state|}}
                   <Hds::Dropdown::ListItem::Interactive
                     @icon={{if (eq color "critical") "trash" "settings"}}
-                    @text="{{state}} with a longer text string that may wrap since max-width is defined on the container"
                     @color={{color}}
                     mock-state-value={{state}}
-                  />
+                  >
+                    {{state}}
+                    with a longer text string that may wrap since max-width is defined on the container
+                  </Hds::Dropdown::ListItem::Interactive>
                 {{/each}}
               </ul>
             </div>
@@ -1428,8 +1530,12 @@
       <div class="shw-component-dropdown-fixed-height-container">
         <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Lorem ipsum dolor sit amet" />
-          <D.Interactive @href="#" @text="Consectetur adipisicing elit" />
+          <D.Interactive @href="#">
+            Lorem ipsum dolor sit amet
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Consectetur adipisicing elit
+          </D.Interactive>
         </Hds::Dropdown>
       </div>
     </SG.Item>
