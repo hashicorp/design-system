@@ -187,7 +187,7 @@
                     <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
                   </:logo>
                   <:actions>
-                    <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+                    <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
                     <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
                       <dd.ToggleIcon @icon="help" @text="help menu" />
                       <dd.Title @text="Help & Support" />
@@ -364,7 +364,7 @@
             <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
           </:logo>
           <:actions>
-            <Hds::SideNav::Header::IconButton @icon="terminal-screen" @ariaLabel="Terminal" />
+            <Hds::Button @icon="terminal-screen" @isIconOnly={{true}} @text="Terminal" />
             <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
               <dd.ToggleButton @text="Help" />
               <dd.Title @text="Help & Support" />
@@ -448,7 +448,8 @@
 <Shw::Divider @level={{2}} />
 
 <section data-test-percy>
-  <Shw::Text::H3>SideNav::Header::IconButton</Shw::Text::H3>
+  {{! TODO: IconButton is deprecated, remove from examples }}
+  <Shw::Text::H3>SideNav::Header::IconButton (deprecated)</Shw::Text::H3>
 
   <Shw::Text::H4>States</Shw::Text::H4>
   <Shw::Flex as |SF|>
@@ -869,6 +870,227 @@
             </Hds::ButtonSet>
           </D.Footer>
         </Hds::Dropdown>
+      </div>
+    </SG.Item>
+  </Shw::Grid>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Nested interactive components</Shw::Text::H2>
+
+  <Shw::Text::H3>Buttons within SideNav</Shw::Text::H3>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Text::Body>Secondary</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="hds-side-nav">
+            <Hds::Button
+              @color="secondary"
+              @icon="search"
+              @isIconOnly={{true}}
+              @text="Search"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Text::Body>Primary</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+
+          <div class="hds-side-nav">
+            <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>Dropdowns within SideNav</Shw::Text::H3>
+
+  <Shw::Text::H4>States</Shw::Text::H4>
+
+  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SG|>
+    {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
+    {{/each}}
+    <SG.Item>
+      <span class="shw-label">Open</span>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}}">
+          {{#if (eq state "disabled")}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="{{capitalize color}}">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With icon">
+          {{#if (eq state "disabled")}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button
+                @icon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                mock-state-value={{state}}
+              />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With icon">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With count">
+          {{#if (eq state "disabled")}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+            </div>
+          {{else}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With count">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+        </div>
+      </SG.Item>
+
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With badge">
+          {{#if (eq state "disabled")}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button
+                @badge="Sit"
+                @badgeIcon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                disabled
+              />
+            </div>
+          {{else}}
+            <div class="hds-side-nav">
+              <Hds::Dropdown::Toggle::Button
+                @badge="Sit"
+                @badgeIcon="hexagon"
+                @text="Lorem"
+                @color={{color}}
+                mock-state-value={{state}}
+              />
+            </div>
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+
+      <SG.Item @label="With badge">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Button
+            @badge="Sit"
+            @badgeIcon="hexagon"
+            @text="Lorem"
+            @isOpen={{true}}
+            @color={{color}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Icon">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Icon
+            @icon="more-horizontal"
+            @text="overflow menu"
+            @hasChevron={{false}}
+            mock-state-value={{state}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+    <SG.Item @label="Icon">
+      <div class="hds-side-nav">
+        <Hds::Dropdown::Toggle::Icon
+          @icon="more-horizontal"
+          @text="overflow menu"
+          @hasChevron={{false}}
+          @isOpen={{true}}
+        />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Icon+chevron">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="Icon+chevron">
+      <div class="hds-side-nav">
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+      <SG.Item @label="Avatar+chevron">
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Icon
+            @text={{state}}
+            @imageSrc="/assets/images/avatar.png"
+            mock-state-value={{state}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="Avatar+chevron">
+      <div class="hds-side-nav">
+        <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
       </div>
     </SG.Item>
   </Shw::Grid>
