@@ -409,6 +409,27 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Custom title tag</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    {{#each @model.TYPES as |type|}}
+      <SG.Item @label="With a custom title tag">
+        <Hds::Accordion @type={{type}} @titleTag="h2" as |A|>
+          <A.Item>
+            <:toggle>
+              Item one
+            </:toggle>
+            <:content>
+              <Shw::Placeholder @text="generic content" @height="40" />
+            </:content>
+          </A.Item>
+        </Hds::Accordion>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Edge cases</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>

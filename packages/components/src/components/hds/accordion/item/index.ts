@@ -12,6 +12,7 @@ import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
   HdsAccordionTypes,
+  HdsAccordionItemTags,
 } from '../types.ts';
 
 export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
@@ -29,14 +30,15 @@ const TEXT_SIZE_MAP = {
 export interface HdsAccordionItemSignature {
   Args: {
     ariaLabel?: string;
+    containsInteractive?: boolean;
+    forceState?: HdsAccordionForceStates;
     isOpen?: boolean;
     isStatic?: boolean;
-    containsInteractive?: boolean;
-    size?: HdsAccordionSizes;
-    type?: HdsAccordionTypes;
-    forceState?: HdsAccordionForceStates;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+    size?: HdsAccordionSizes;
+    titleTag?: HdsAccordionItemTags;
+    type?: HdsAccordionTypes;
   };
   Blocks: {
     toggle?: [];
@@ -124,6 +126,15 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
     );
 
     return type;
+  }
+
+  /**
+   * @param titleTag
+   * @type {HdsAccordionItemTags}
+   * @default 'div'
+   */
+  get titleTag(): HdsAccordionItemTags {
+    return this.args.titleTag ?? 'div';
   }
 
   /**

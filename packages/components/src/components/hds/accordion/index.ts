@@ -14,6 +14,7 @@ import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
   HdsAccordionTypes,
+  HdsAccordionItemTags,
 } from './types.ts';
 
 interface HdsAccordionSignature {
@@ -21,6 +22,7 @@ interface HdsAccordionSignature {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
     forceState?: HdsAccordionForceStates;
+    titleTag?: HdsAccordionItemTags;
   };
   Blocks: {
     default: [
@@ -51,6 +53,15 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
     );
 
     return size;
+  }
+
+  /**
+   * @param titleTag
+   * @type {HdsAccordionItemTags}
+   * @default 'div'
+   */
+  get titleTag(): HdsAccordionItemTags {
+    return this.args.titleTag ?? 'div';
   }
 
   /**
