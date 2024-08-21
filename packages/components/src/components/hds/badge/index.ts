@@ -115,26 +115,16 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
   }
 
   /**
-   * Sets the icon name if there is one
-   *
-   * @param icon
-   * @type {string|null}
-   * @default null
-   */
-  get icon(): HdsIconSignature['Args']['name'] | null {
-    return this.args.icon ?? null;
-  }
-
-  /**
    * @param isIconOnly
    * @type {boolean}
    * @default false
    * @description Indicates if the badge will only contain an icon; component will also ensure that accessible text is still applied to the component.
    */
   get isIconOnly(): boolean {
-    if (this.icon) {
+    if (this.args.icon) {
       return this.args.isIconOnly ?? false;
     }
+
     return false;
   }
 
