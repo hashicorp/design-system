@@ -320,9 +320,9 @@ Avoid inconsistent icon use.
 
 [Badges](/components/badge) in ListItems are optional. We recommend using only the `small` Badge option in order to more closely align with the text line height. Badges should be used sparingly and only when their use adds contextual value. Examples of appropriate use of Badge inside an Interactive ListItem include:
 
-- When an item is in beta or behind a feature flag (e.g., a new item that users should be able to easily locate).
-- When an item has vital information associated with it that users should be able to see at a glance (e.g. a unique status).
-- When an item should be distinguished from others in the list (e.g. an item view being Public vs Private).
+- When an item is in beta or behind a feature flag, i.e., a new item that users should be able to locate easily.
+- When an item has vital information associated with it that users should be able to see at a glance, i.e., a unique status.
+- When an item should be distinguished from others in the list, e.g., an item view is Public vs Private.
 
 ![Dropdown use case examples](/assets/components/dropdown/dropdown-interactive-badge-example.png)
 
