@@ -62,7 +62,6 @@ console.log(`I am ${codeLang} code`);"
         <CB.Title>Title</CB.Title>
       </Hds::CodeBlock>
     </SG.Item>
-
     <SG.Item @label="description">
       <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
         <CB.Description>Description</CB.Description>
@@ -80,6 +79,11 @@ console.log(`I am ${codeLang} code`);"
           or even
           <code>code</code>.
         </CB.Description>
+      </Hds::CodeBlock>
+    </SG.Item>
+    <SG.Item @label="custom title tag">
+      <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
+        <CB.Title @tag="h2">Title</CB.Title>
       </Hds::CodeBlock>
     </SG.Item>
   </Shw::Grid>

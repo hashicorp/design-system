@@ -3,6 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Text::Body @size="200" @tag="p" @weight="semibold" class="hds-code-block__title" ...attributes>
+<Hds::Text::Body @size="200" @tag={{this.componentTag}} @weight="semibold" class="hds-code-block__title" ...attributes>
   {{yield}}
 </Hds::Text::Body>
