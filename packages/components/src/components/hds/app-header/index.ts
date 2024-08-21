@@ -88,12 +88,13 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
       classes.push('hds-app-header--is-desktop');
     } else {
       classes.push('hds-app-header--is-mobile');
-    }
 
-    if (this.isOpen) {
-      classes.push('hds-app-header--menu-is-open');
-    } else {
-      classes.push('hds-app-header--menu-is-closed');
+      // open and closed menu states are only relevant on mobile
+      if (this.isOpen) {
+        classes.push('hds-app-header--menu-is-open');
+      } else {
+        classes.push('hds-app-header--menu-is-closed');
+      }
     }
 
     return classes.join(' ');

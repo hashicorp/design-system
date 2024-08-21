@@ -76,9 +76,7 @@
 
     &.hds-app-header--menu-is-closed {
       .hds-app-header__actions {
-        height: 0;
-        padding-top: 0;
-        padding-bottom: 0;
+        display: none;
       }
     }
 
