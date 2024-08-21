@@ -5,15 +5,17 @@
 
 import Component from '@glimmer/component';
 import type { HdsIconSignature } from '../icon';
+import type { HdsDialogPrimitiveHeaderTitleTags } from './types';
 
 export interface HdsDialogPrimitiveHeaderSignature {
   Args: {
     contextualClassPrefix?: string;
     id?: string;
-    tagline?: string;
     icon?: HdsIconSignature['Args']['name'];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+    titleTag?: HdsDialogPrimitiveHeaderTitleTags;
+    tagline?: string;
   };
   Blocks: {
     default: [];
@@ -24,6 +26,15 @@ export interface HdsDialogPrimitiveHeaderSignature {
 const NOOP = (): void => {};
 
 export default class HdsDialogPrimitiveHeaderComponent extends Component<HdsDialogPrimitiveHeaderSignature> {
+  /**
+   * @param titleTag
+   * @type {HdsDialogPrimitiveHeaderTags}
+   * @default 'div'
+   */
+  get titleTag(): HdsDialogPrimitiveHeaderTitleTags {
+    return this.args.titleTag ?? 'div';
+  }
+
   /**
    * @param onDismiss
    * @type {function}
