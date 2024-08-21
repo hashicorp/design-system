@@ -78,6 +78,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       <Hds::AppHeader id="test-app-header" />
     `);
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+    assert.dom('.hds-app-header__actions').hasAttribute('aria-hidden', 'true');
   });
 
   test(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
@@ -89,9 +90,11 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
     await click('.hds-app-header__menu-button');
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-open');
+    assert.dom('.hds-app-header__actions').doesNotHaveAttribute('aria-hidden');
 
     await click('.hds-app-header__menu-button');
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
+    assert.dom('.hds-app-header__actions').hasAttribute('aria-hidden', 'true');
   });
 
   // OPTIONS

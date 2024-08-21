@@ -29,7 +29,7 @@
   <div
     class="hds-app-header__actions"
     id={{this.menuContentId}}
-    aria-hidden="{{(and (not this.isDesktop) (not this.isOpen))}}"
+    aria-hidden={{(and (not this.isDesktop) (not this.isOpen) "true")}}
   >
     <div class="hds-app-header__global-actions">
       {{yield to="globalActions"}}
