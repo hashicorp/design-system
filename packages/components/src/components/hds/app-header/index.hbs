@@ -25,12 +25,7 @@
     />
   {{/if}}
 
-  {{! if it's not desktop view and the menu is not open, we want to hide the actions from assistive tech }}
-  <div
-    class="hds-app-header__actions"
-    id={{this.menuContentId}}
-    aria-hidden={{(and (not this.isDesktop) (not this.isOpen) "true")}}
-  >
+  <div class="hds-app-header__actions" id={{this.menuContentId}}>
     <div class="hds-app-header__global-actions">
       {{yield to="globalActions"}}
     </div>
