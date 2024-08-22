@@ -48,6 +48,30 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     assert.dom('#test-em').exists().hasText('Content one');
   });
 
+  test('it renders a div when the @titleTag argument is not provided', async function (assert) {
+    await render(hbs`
+      <Hds::Accordion as |A|>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+        </A.Item>
+      </Hds::Accordion>
+    `);
+    assert.dom('.hds-accordion-item__toggle-content').hasTagName('div');
+  });
+
+  test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
+    await render(hbs`
+      <Hds::Accordion @titleTag='h2' as |A|>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+        </A.Item>
+      </Hds::Accordion>
+    `);
+    assert.dom('.hds-accordion-item__toggle-content').hasTagName('h2');
+  });
+
   // SIZE
 
   test('it should render the medium size as the default if no @size is declared', async function (assert) {
