@@ -177,6 +177,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');
 
+    await visit('/utilities/dialog-primitive');
+    await percySnapshot('DialogPrimitive');
+
     await visit('/utilities/dismiss-button');
     await percySnapshot('DismissButton');
 
