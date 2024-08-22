@@ -3,4 +3,7 @@
 "@hashicorp/design-system-components": minor
 ---
 
-Placeholder
+`Dropdown::ListItem::Interactive`
+- Adds a yielded block.
+- Yields the `Hds::Badge` component.
+- Deprecates the `@text` argument.
