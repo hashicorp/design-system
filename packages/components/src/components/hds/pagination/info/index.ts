@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-
 interface HdsPaginationInfoSignature {
   Args: {
     // TODO: Convert this to be the parent arg

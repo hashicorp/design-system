@@ -7,71 +7,44 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { elliptize } from '../elliptize.ts';
+
+import type {
+  HdsPaginationPage,
+  HdsPaginationRoutingProps,
+  HdsPaginationElliptizedPageArray,
+  HdsPaginationElliptizedPageArrayItem,
+} from '../types';
+interface HdsPaginationNumberedSignature {
+  Args: {
+    ariaLabel?: string;
+    totalItems: number;
+    showLabels?: boolean;
+    isTruncated?: boolean;
+    currentPage?: number;
+    showInfo?: boolean; //TODO: Add this to the docs
+    showPageNumbers?: boolean; //TODO: Add this to the docs
+    showSizeSelector?: boolean;
+    sizeSelectorLabel?: string;
+    pageSizes?: number[];
+    currentPageSize?: number;
+    // route stuff
+    route?: string;
+    model?: unknown;
+    models?: unknown[];
+    replace?: boolean;
+    queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
+    // end route stuff
+    onPageChange?: (page: number, pageSize: number) => unknown;
+    onPageSizeChange?: (pageSize: number) => unknown;
+  };
+  Element: HTMLDivElement;
+}
 
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
-
-/**
- * Elliptize a list of pages
- *
- * @param pages - array with all the "pages" (integer numbers)
- * @param current - "current" page (array's index)
- * @param limit - number of "page numbers" to be shown at a time (should always be an odd number!)
- *
- * @return - array of integers ("pages") + `...` strings ("ellipsis")
- */
-export const elliptize = ({ pages, current, limit = 7 }) => {
-  const length = pages.length;
-  const ellipsis = '…';
-  let result = [];
-  let start;
-  let end;
-
-  if (length <= limit) {
-    return pages;
-  }
-
-  if (current <= length / 2) {
-    start = Math.ceil(limit / 2);
-    end = limit - start;
-  } else {
-    end = Math.ceil(limit / 2);
-    start = limit - end;
-  }
-
-  const sliceStart = pages.slice(0, start);
-  const sliceEnd = pages.slice(-end);
-
-  if (sliceStart.includes(current) && sliceStart.includes(current + 1)) {
-    // "current" (and its next sibling) is contained within the "sliceStart" block
-    sliceEnd.splice(0, 1, ellipsis);
-    result = [].concat(sliceStart, sliceEnd);
-  } else if (sliceEnd.includes(current - 1) && sliceEnd.includes(current)) {
-    // "current" (and its prev sibling) is contained within the "sliceEnd" block
-    sliceStart.splice(-1, 1, ellipsis);
-    result = [].concat(sliceStart, sliceEnd);
-  } else {
-    // this is a bit more tricky :)
-    // we need to calculate how many items there are before/after the current item
-    // since both the initial and ending blocks are always 2 items long (number + ellipsis)
-    // and there is always the "current" item, we can just subtract 5 from the limit
-    const delta = (limit - 5) / 2; // this is why the limit needs to be an odd number
-    // we slice the array starting at the "current" index, minus the delta, minus one because it's an array (zero-based)
-    const sliceCurr = pages.slice(current - delta - 1, current + delta);
-    result = [].concat(
-      sliceStart.shift(),
-      ellipsis,
-      sliceCurr,
-      ellipsis,
-      sliceEnd.pop()
-    );
-  }
-
-  return result;
-};
-
-export default class HdsPaginationNumberedIndexComponent extends Component {
+export default class HdsPaginationNumberedComponent extends Component<HdsPaginationNumberedSignature> {
   // These two private variables are used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -81,7 +54,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
   @tracked _currentPage = this.args.currentPage ?? 1;
-  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+  // we assert that `this.pageSizes` will always be an array with at least one item
+  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0]!;
   @tracked isControlled;
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
@@ -90,10 +64,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
   isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: HdsPaginationNumberedSignature['Args']) {
+    super(owner, args);
 
-    let { queryFunction } = this.args;
+    const { queryFunction } = this.args;
 
     // This component works in two different ways, depending if we need to support
     // routing through links (`LinkTo`) for the "navigation controls", or not.
@@ -149,7 +123,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
   get currentPage() {
     if (this.isControlled) {
-      return this.args.currentPage;
+      // if the component is controlled, `@currentPage` is asserted to be a number
+      return this.args.currentPage as number;
     } else {
       return this._currentPage;
     }
@@ -159,13 +134,15 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     if (this.isControlled) {
       // noop
     } else {
-      this._currentPage = value;
+      // if `this.isControlled` is `false`
+      this._currentPage = value as number;
     }
   }
 
   get currentPageSize() {
     if (this.isControlled) {
-      return this.args.currentPageSize;
+      // if the component is controlled, `@currentPageSize` is asserted to be a number
+      return this.args.currentPageSize as number;
     } else {
       return this._currentPageSize;
     }
@@ -179,18 +156,13 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param pageSizes
-   * @type {array of numbers}
-   * @description Set the page sizes users can select from.
-   * @default [10, 30, 50]
-   */
   get pageSizes() {
-    let { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
+    const { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
     assert(
-      `pageSizes argument must be an array. Received: ${pageSizes}`,
-      Array.isArray(pageSizes) === true
+      // TODO: Add test for this
+      `pageSizes argument must be an array with at least one item. Received: ${pageSizes}`,
+      Array.isArray(pageSizes) === true && pageSizes.length > 0
     );
 
     return pageSizes;
@@ -217,8 +189,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     }
   }
 
-  get pages() {
-    let pages = [];
+  get pages(): HdsPaginationElliptizedPageArray {
+    const pages = [];
 
     for (let i = 1; i <= this.totalPages; i++) {
       pages.push(i);
@@ -235,16 +207,21 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
     return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
   }
 
-  buildQueryParamsObject(page, pageSize) {
-    if (this.isControlled) {
-      return this.args.queryFunction(page, pageSize);
+  buildQueryParamsObject(
+    page: HdsPaginationElliptizedPageArrayItem,
+    pageSize: number
+  ): Record<string, unknown> {
+    // `page` may also be ellipsis
+    if (this.isControlled && typeof page === 'number') {
+      // if the component is controlled, `@queryFunction` is asserted to be a function
+      return this.args.queryFunction!(page, pageSize);
     } else {
       return {};
     }
   }
 
-  get routing() {
-    let routing = {
+  get routing(): HdsPaginationRoutingProps {
+    const routing: HdsPaginationRoutingProps = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,
@@ -267,7 +244,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
       routing.queryPages = {};
       this.pages.forEach(
         (page) =>
-          (routing.queryPages[page] = this.buildQueryParamsObject(
+          (routing.queryPages![page] = this.buildQueryParamsObject(
             page,
             this.currentPageSize
           ))
@@ -290,7 +267,7 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   @action
-  onPageChange(page) {
+  onPageChange(page: HdsPaginationPage) {
     let gotoPageNumber;
     if (page === 'prev' && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;
@@ -302,9 +279,10 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
 
     // we want to invoke the `onPageChange` callback only on actual page change
     if (gotoPageNumber !== this.currentPage) {
-      this.currentPage = gotoPageNumber;
+      // we have already determined that `gotoPageNumber` is not `prev` or `next`
+      this.currentPage = gotoPageNumber as number;
 
-      let { onPageChange } = this.args;
+      const { onPageChange } = this.args;
 
       if (typeof onPageChange === 'function') {
         onPageChange(this.currentPage, this.currentPageSize);
@@ -313,8 +291,8 @@ export default class HdsPaginationNumberedIndexComponent extends Component {
   }
 
   @action
-  onPageSizeChange(newPageSize) {
-    let { onPageSizeChange } = this.args;
+  onPageSizeChange(newPageSize: number) {
+    const { onPageSizeChange } = this.args;
 
     if (!this.isControlled) {
       // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)

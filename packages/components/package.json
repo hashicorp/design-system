@@ -240,6 +240,7 @@
       "./components/hds/page-header/subtitle.js": "./dist/_app_/components/hds/page-header/subtitle.js",
       "./components/hds/page-header/title.js": "./dist/_app_/components/hds/page-header/title.js",
       "./components/hds/pagination/compact/index.js": "./dist/_app_/components/hds/pagination/compact/index.js",
+      "./components/hds/pagination/elliptize.js": "./dist/_app_/components/hds/pagination/elliptize.js",
       "./components/hds/pagination/info/index.js": "./dist/_app_/components/hds/pagination/info/index.js",
       "./components/hds/pagination/nav/arrow.js": "./dist/_app_/components/hds/pagination/nav/arrow.js",
       "./components/hds/pagination/nav/ellipsis.js": "./dist/_app_/components/hds/pagination/nav/ellipsis.js",
