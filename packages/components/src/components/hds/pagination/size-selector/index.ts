@@ -8,21 +8,23 @@ import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 
-export default class HdsPaginationSizeSelectorComponent extends Component {
-  /**
-   * Generates a unique ID for the pageSize select
-   *
-   * @param SizeSelectorId
-   */
+import type { HdsFormSelectBaseSignature } from '../../form/select/base';
+
+interface HdsPaginationSizeSelectorSignature {
+  Args: {
+    pageSizes: number[];
+    label?: string;
+    selectedSize?: number;
+    onChange?: (size: number) => void;
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsPaginationSizeSelectorComponent extends Component<HdsPaginationSizeSelectorSignature> {
   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
-  /**
-   * @param pageSizes
-   * @type {array of numbers}
-   * @description Set the page sizes users can select from.
-   */
   get pageSizes() {
-    let { pageSizes } = this.args;
+    const { pageSizes } = this.args;
 
     assert(
       '@pageSizes for "Pagination::SizeSelector" must be defined',
@@ -32,13 +34,8 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
     return pageSizes;
   }
 
-  /**
-   * @param selectedSize
-   * @type integer
-   * @description The selected ("current") page size
-   */
   get selectedSize() {
-    let { selectedSize } = this.args;
+    const { selectedSize } = this.args;
 
     assert(
       `@selectedSize for "Pagination::SizeSelector" must one of the @pageSizes provided (${this.pageSizes.join(
@@ -50,24 +47,20 @@ export default class HdsPaginationSizeSelectorComponent extends Component {
     return selectedSize;
   }
 
-  /**
-   * @param label
-   * @type string
-   * @default "Items per page"
-   * @description The label text for the select
-   */
   get label() {
-    let { label = 'Items per page' } = this.args;
+    const { label = 'Items per page' } = this.args;
 
     return label;
   }
 
   @action
-  onChange(e) {
-    let { onChange } = this.args;
+  onChange(e: Event) {
+    const { onChange } = this.args;
+
+    const target = e.target as HdsFormSelectBaseSignature['Element'];
 
     if (typeof onChange === 'function') {
-      onChange(parseInt(e.target.value));
+      onChange(parseInt(target.value));
     }
   }
 }
