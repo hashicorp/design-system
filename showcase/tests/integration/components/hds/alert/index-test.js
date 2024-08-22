@@ -80,17 +80,17 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('.hds-alert__description code').exists().hasText('code');
     assert.dom('.hds-alert__description a').exists().hasText('link');
   });
-  test('it should render a div when the @titleTag argument is not provided', async function (assert) {
+  test('it should render a div when the @tag argument is not provided', async function (assert) {
     await render(hbs`
       <Hds::Alert @type="inline" as |A|>
         <A.Title>This is the title</A.Title>
       </Hds::Alert>`);
     assert.dom('.hds-alert__title').hasTagName('div');
   });
-  test('it should render the custom title tag when the @titleTag argument is provided', async function (assert) {
+  test('it should render the custom title tag when the @tag argument is provided', async function (assert) {
     await render(hbs`
-      <Hds::Alert @type="inline" @titleTag="h2" as |A|>
-        <A.Title>This is the title</A.Title>
+      <Hds::Alert @type="inline" as |A|>
+        <A.Title @tag="h2">This is the title</A.Title>
       </Hds::Alert>`);
     assert.dom('.hds-alert__title').hasTagName('h2');
   });
