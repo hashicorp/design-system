@@ -556,5 +556,35 @@
         <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
       </div>
     </SG.Item>
+
+    <SG.Item @label="With nested content" {{style padding-bottom="11em"}}>
+      <div class="hds-app-header">
+        <Hds::Dropdown @height="284px" @listPosition="bottom-left" @isOpen={{true}} as |D|>
+          <D.ToggleIcon @icon="help" @text="help menu" />
+          <D.Generic>
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Menu" />
+              <D.Interactive @href="#" @text="Add" />
+              <D.Interactive @href="#" @text="Add More" />
+              <D.Interactive @href="#" @text="Add Another Thing Too" />
+            </Hds::Dropdown>
+          </D.Generic>
+          <D.Checkbox>access</D.Checkbox>
+          <D.Checkbox>homework</D.Checkbox>
+          <D.Footer @hasDivider={{true}}>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
+              <Hds::Button @text="Cancel" @color="secondary" @size="small" />
+              <Hds::Dropdown as |D|>
+                <D.ToggleButton @text="Menu" />
+                <D.Interactive @href="#" @text="Add" />
+                <D.Interactive @href="#" @text="Add More" />
+                <D.Interactive @href="#" @text="Add Another Thing Too" />
+              </Hds::Dropdown>
+            </Hds::ButtonSet>
+          </D.Footer>
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
   </Shw::Grid>
 </section>
