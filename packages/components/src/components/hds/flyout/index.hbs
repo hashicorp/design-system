@@ -15,7 +15,11 @@
     {{yield
       (hash
         Header=(component
-          "hds/dialog-primitive/header" id=this.id onDismiss=this.onDismiss contextualClassPrefix="hds-flyout"
+          "hds/dialog-primitive/header"
+          id=this.id
+          onDismiss=this.onDismiss
+          contextualClassPrefix="hds-flyout"
+          titleTag="h1"
         )
         Description=(component "hds/dialog-primitive/description" contextualClass="hds-flyout__description")
       )
