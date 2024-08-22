@@ -97,6 +97,13 @@ import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-car
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
+import type HdsFormSuperSelectAfterOptionsComponent from './components/hds/form/super-select/after-options';
+import type HdsFormSuperSelectOptionGroupComponent from './components/hds/form/super-select/option-group';
+import type HdsFormSuperSelectPlaceholderComponent from './components/hds/form/super-select/placeholder';
+import type HdsFormSuperSelectSingleBaseComponent from './components/hds/form/super-select/single/base';
+import type HdsFormSuperSelectSingleFieldComponent from './components/hds/form/super-select/single/field';
+import type HdsFormSuperSelectMultipleBaseComponent from './components/hds/form/super-select/multiple/base';
+import type HdsFormSuperSelectMultipleFieldComponent from './components/hds/form/super-select/multiple/field';
 import type HdsFormTextInputBaseComponent from './components/hds/form/text-input/base';
 import type HdsFormTextInputFieldComponent from './components/hds/form/text-input/field';
 import type HdsFormTextareaBaseComponent from './components/hds/form/textarea/base';
@@ -513,6 +520,28 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::Select::Field': typeof HdsFormSelectFieldComponent;
   'hds/form/select/field': typeof HdsFormSelectFieldComponent;
+
+  // Form Super Select
+  'Hds::Form::SuperSelect::AfterOptions': typeof HdsFormSuperSelectAfterOptionsComponent;
+  'hds/form/super-select/after-options': typeof HdsFormSuperSelectAfterOptionsComponent;
+
+  'Hds::Form::SuperSelect::OptionGroup': typeof HdsFormSuperSelectOptionGroupComponent;
+  'hds/form/super-select/option-group': typeof HdsFormSuperSelectOptionGroupComponent;
+
+  'Hds::Form::SuperSelect::Placeholder': typeof HdsFormSuperSelectPlaceholderComponent;
+  'hds/form/super-select/placeholder': typeof HdsFormSuperSelectPlaceholderComponent;
+
+  'Hds::Form::SuperSelect::Single::Base': typeof HdsFormSuperSelectSingleBaseComponent;
+  'hds/form/super-select/single/base': typeof HdsFormSuperSelectSingleBaseComponent;
+
+  'Hds::Form::SuperSelect::Single::Field': typeof HdsFormSuperSelectSingleFieldComponent;
+  'hds/form/super-select/single/field': typeof HdsFormSuperSelectSingleFieldComponent;
+
+  'Hds::Form::SuperSelect::Multiple::Base': typeof HdsFormSuperSelectMultipleBaseComponent;
+  'hds/form/super-select/multiple/base': typeof HdsFormSuperSelectMultipleBaseComponent;
+
+  'Hds::Form::SuperSelect::Multiple::Field': typeof HdsFormSuperSelectMultipleFieldComponent;
+  'hds/form/super-select/multiple/field': typeof HdsFormSuperSelectMultipleFieldComponent;
 
   // Form TextInput
   'Hds::Form::TextInput::Base': typeof HdsFormTextInputBaseComponent;
