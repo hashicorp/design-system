@@ -20,8 +20,8 @@ node ./packages/codemods/bin/cli.js v4/dropdown-list-item-interactive path/to/so
 
 ```hbs
 <Hds::Dropdown as |dd|>
-  <dd.Title @text='Title text' />
-  <dd.Interactive @href='#' @text='Edit' />
+  <dd.Title @text="Title text" />
+  <dd.Interactive @href="#" @text="Edit" />
 </Hds::Dropdown>
 ```
 
@@ -29,7 +29,7 @@ node ./packages/codemods/bin/cli.js v4/dropdown-list-item-interactive path/to/so
 
 ```hbs
 <Hds::Dropdown as |dd|>
-  <dd.Title @text='Title text' />
-  <dd.Interactive @href='#'>Edit</dd.Interactive>
+  <dd.Title @text="Title text" />
+  <dd.Interactive @href="#">Edit</dd.Interactive>
 </Hds::Dropdown>
 ```
