@@ -56,11 +56,6 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
     return size;
   }
 
-  /**
-   * @param titleTag
-   * @type {HdsAccordionItemTitleTags}
-   * @default 'div'
-   */
   get titleTag(): HdsAccordionItemTitleTags {
     return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
