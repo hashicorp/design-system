@@ -3,11 +3,23 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import PowerSelectComponent from 'ember-power-select/components/power-select';
+import Component from '@glimmer/component';
 import { ID_PREFIX } from '../../label/index.ts';
 
-export default class HdsSuperSelectMultipleFieldComponent extends PowerSelectComponent {
-  get idPrefix() {
+import type { HdsFormFieldSignature } from '../../field/index.ts';
+import type { HdsFormSuperSelectMultipleBaseSignature } from './base.ts';
+
+interface HdsFormSuperSelectMultipleFieldSignature {
+  Args: HdsFormSuperSelectMultipleBaseSignature['Args'] &
+    HdsFormFieldSignature['Args'];
+  Blocks: {
+    default: [unknown];
+  };
+  Element: HdsFormFieldSignature['Element'];
+}
+
+export default class HdsFormSuperSelectMultipleFieldComponent extends Component<HdsFormSuperSelectMultipleFieldSignature> {
+  get idPrefix(): string {
     return ID_PREFIX;
   }
 }
