@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
+import { HdsCodeBlockTitleTagValues } from './types.ts';
 import type { HdsCodeBlockTitleTags } from './types';
 import type { HdsTextBodySignature } from '../text/body';
 
@@ -18,7 +19,7 @@ export interface HdsCodeBlockTitleSignature {
 
 class HdsCodeBlockTitleComponent extends Component<HdsCodeBlockTitleSignature> {
   get componentTag(): HdsCodeBlockTitleTags {
-    return this.args.tag ?? 'p';
+    return this.args.tag ?? HdsCodeBlockTitleTagValues.P;
   }
 }
 

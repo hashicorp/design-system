@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { HdsApplicationStateTitleTagValues } from './types.ts';
 
 import type { HdsIconSignature } from '../icon';
 import type { HdsApplicationStateTitleTags } from './types';
@@ -19,6 +20,6 @@ export interface HdsApplicationStateHeaderSignature {
 
 export default class HdsApplicationStateHeaderComponent extends Component<HdsApplicationStateHeaderSignature> {
   get titleTag(): HdsApplicationStateTitleTags {
-    return this.args.titleTag ?? 'div';
+    return this.args.titleTag ?? HdsApplicationStateTitleTagValues.Div;
   }
 }

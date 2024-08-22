@@ -9,12 +9,13 @@ import { assert } from '@ember/debug';
 import { SIZES, DEFAULT_SIZE, TYPES, DEFAULT_TYPE } from './item/index.ts';
 
 import type { ComponentLike } from '@glint/template';
+import { HdsAccordionItemTitleTagValues } from './types.ts';
 import type { HdsAccordionItemSignature } from './item/index.ts';
 import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
   HdsAccordionTypes,
-  HdsAccordionItemTags,
+  HdsAccordionItemTitleTags,
 } from './types.ts';
 
 interface HdsAccordionSignature {
@@ -22,7 +23,7 @@ interface HdsAccordionSignature {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;
     forceState?: HdsAccordionForceStates;
-    titleTag?: HdsAccordionItemTags;
+    titleTag?: HdsAccordionItemTitleTags;
   };
   Blocks: {
     default: [
@@ -57,11 +58,11 @@ export default class HdsAccordionComponent extends Component<HdsAccordionSignatu
 
   /**
    * @param titleTag
-   * @type {HdsAccordionItemTags}
+   * @type {HdsAccordionItemTitleTags}
    * @default 'div'
    */
-  get titleTag(): HdsAccordionItemTags {
-    return this.args.titleTag ?? 'div';
+  get titleTag(): HdsAccordionItemTitleTags {
+    return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
   /**

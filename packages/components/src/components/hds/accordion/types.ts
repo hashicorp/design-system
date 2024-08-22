@@ -22,7 +22,7 @@ export enum HdsAccordionForceStateValues {
 }
 export type HdsAccordionForceStates = `${HdsAccordionForceStateValues}`;
 
-export enum HdsAccordionItemTagValues {
+export enum HdsAccordionItemTitleTagValues {
   Div = 'div',
   H1 = 'h1',
   H2 = 'h2',
@@ -32,4 +32,4 @@ export enum HdsAccordionItemTagValues {
   H6 = 'h6',
 }
 
-export type HdsAccordionItemTags = `${HdsAccordionItemTagValues}`;
+export type HdsAccordionItemTitleTags = `${HdsAccordionItemTitleTagValues}`;

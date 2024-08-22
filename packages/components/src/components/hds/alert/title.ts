@@ -4,10 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import type { HdsAlertTags } from './types';
+import { HdsAlertTitleTagValues } from './types.ts';
+import type { HdsAlertTitleTags } from './types';
 export interface HdsAlertTitleSignature {
   Args: {
-    tag?: HdsAlertTags;
+    tag?: HdsAlertTitleTags;
   };
   Blocks: {
     default: [];
@@ -16,8 +17,8 @@ export interface HdsAlertTitleSignature {
 }
 
 class HdsAlertTitleComponent extends Component<HdsAlertTitleSignature> {
-  get componentTag(): HdsAlertTags {
-    return this.args.tag ?? 'div';
+  get componentTag(): HdsAlertTitleTags {
+    return this.args.tag ?? HdsAlertTitleTagValues.Div;
   }
 }
 

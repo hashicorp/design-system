@@ -19,7 +19,7 @@ export enum HdsAlertColorValues {
 }
 export type HdsAlertColors = `${HdsAlertColorValues}`;
 
-export enum HdsAlertTagValues {
+export enum HdsAlertTitleTagValues {
   Div = 'div',
   H1 = 'h1',
   H2 = 'h2',
@@ -29,4 +29,4 @@ export enum HdsAlertTagValues {
   H6 = 'h6',
 }
 
-export type HdsAlertTags = `${HdsAlertTagValues}`;
+export type HdsAlertTitleTags = `${HdsAlertTitleTagValues}`;

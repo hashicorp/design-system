@@ -7,12 +7,16 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
-import { HdsAccordionSizeValues, HdsAccordionTypeValues } from '../types.ts';
+import {
+  HdsAccordionSizeValues,
+  HdsAccordionTypeValues,
+  HdsAccordionItemTitleTagValues,
+} from '../types.ts';
 import type {
   HdsAccordionForceStates,
   HdsAccordionSizes,
   HdsAccordionTypes,
-  HdsAccordionItemTags,
+  HdsAccordionItemTitleTags,
 } from '../types.ts';
 
 export const SIZES: string[] = Object.values(HdsAccordionSizeValues);
@@ -37,7 +41,7 @@ export interface HdsAccordionItemSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
     size?: HdsAccordionSizes;
-    titleTag?: HdsAccordionItemTags;
+    titleTag?: HdsAccordionItemTitleTags;
     type?: HdsAccordionTypes;
   };
   Blocks: {
@@ -130,11 +134,11 @@ export default class HdsAccordionItemComponent extends Component<HdsAccordionIte
 
   /**
    * @param titleTag
-   * @type {HdsAccordionItemTags}
+   * @type {HdsAccordionItemTitleTags}
    * @default 'div'
    */
-  get titleTag(): HdsAccordionItemTags {
-    return this.args.titleTag ?? 'div';
+  get titleTag(): HdsAccordionItemTitleTags {
+    return this.args.titleTag ?? HdsAccordionItemTitleTagValues.Div;
   }
 
   /**

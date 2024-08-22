@@ -19,4 +19,9 @@ export enum HdsApplicationStateTitleTagValues {
   H6 = 'h6',
 }
 
+<<<<<<< HEAD
 export type HdsApplicationStateTitleTags = `${HdsApplicationStateTitleTagValues}`;
+=======
+export type HdsApplicationStateTitleTags =
+  `${HdsApplicationStateTitleTagValues}`;
+>>>>>>> 32f391db3 (fix: implement feedback)

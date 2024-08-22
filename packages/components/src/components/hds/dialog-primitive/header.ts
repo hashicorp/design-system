@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import type { HdsIconSignature } from '../icon';
 import type { HdsDialogPrimitiveHeaderTitleTags } from './types';
+import { HdsDialogPrimitiveHeaderTitleTagValues } from './types.ts';
 
 export interface HdsDialogPrimitiveHeaderSignature {
   Args: {
@@ -32,7 +33,7 @@ export default class HdsDialogPrimitiveHeaderComponent extends Component<HdsDial
    * @default 'div'
    */
   get titleTag(): HdsDialogPrimitiveHeaderTitleTags {
-    return this.args.titleTag ?? 'div';
+    return this.args.titleTag ?? HdsDialogPrimitiveHeaderTitleTagValues.Div;
   }
 
   /**
