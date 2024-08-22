@@ -43,10 +43,10 @@
         </Hds::SideNav::Header>
       </:header>
       <:body>
-        <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
           <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
         </Hds::SideNav::List>
-        <Hds::SideNav::List aria-label="Services" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Services" as |SNL|>
           <SNL.Title>Services</SNL.Title>
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
           <SNL.Link @text="Consul" @icon="consul" @href="#" />
@@ -57,7 +57,7 @@
           <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
         </Hds::SideNav::List>
-        <Hds::SideNav::List aria-label="Organization" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Organization" as |SNL|>
           <SNL.Title>Default Org</SNL.Title>
           <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
@@ -67,7 +67,7 @@
         </Hds::SideNav::List>
       </:body>
       <:footer>
-        <Hds::Dropdown class="shw-layout-app-frame-full-width-elem" as |dd|>
+        <Hds::Dropdown class="hds-side-nav-hide-when-minimized shw-layout-app-frame-full-width-elem" as |dd|>
           <dd.ToggleButton @text="Choose an organization" @icon="org" />
           <dd.Checkmark>
             organizationName

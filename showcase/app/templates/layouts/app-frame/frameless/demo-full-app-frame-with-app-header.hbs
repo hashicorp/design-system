@@ -53,10 +53,10 @@
   <Frame.Sidebar>
     <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}}>
       <:body>
-        <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
           <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
         </Hds::SideNav::List>
-        <Hds::SideNav::List aria-label="Services" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Services" as |SNL|>
           <SNL.Title>Services</SNL.Title>
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
           <SNL.Link @text="Consul" @icon="consul" @href="#" />
@@ -67,7 +67,7 @@
           <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
         </Hds::SideNav::List>
-        <Hds::SideNav::List aria-label="Organization" as |SNL|>
+        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Organization" as |SNL|>
           <SNL.Title>Default Org</SNL.Title>
           <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
