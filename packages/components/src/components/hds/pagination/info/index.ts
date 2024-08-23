@@ -4,21 +4,19 @@
  */
 
 import Component from '@glimmer/component';
+import type { HdsPaginationNumberedSignature } from '../numbered/index';
 interface HdsPaginationInfoSignature {
   Args: {
-    // TODO: Convert this to be the parent arg
     itemsRangeStart: number;
-    // TODO: Convert this to be the parent arg
     itemsRangeEnd: number;
-    // TODO: Convert this to be the parent arg
-    showTotalItems?: boolean;
-    totalItems: number;
+    showTotalItems?: HdsPaginationNumberedSignature['Args']['showTotalItems'];
+    totalItems: HdsPaginationNumberedSignature['Args']['totalItems'];
   };
   Element: HTMLDivElement;
 }
 
 export default class HdsPaginationInfoComponent extends Component<HdsPaginationInfoSignature> {
-  get showTotalItems() {
+  get showTotalItems(): boolean {
     return this.args.showTotalItems ?? true;
   }
 }

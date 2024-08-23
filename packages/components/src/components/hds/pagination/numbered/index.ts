@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { elliptize } from '../elliptize.ts';
+import { HdsPaginationDirectionValues } from '../types.ts';
 
 import type {
   HdsPaginationPage,
@@ -15,7 +16,7 @@ import type {
   HdsPaginationElliptizedPageArray,
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
-interface HdsPaginationNumberedSignature {
+export interface HdsPaginationNumberedSignature {
   Args: {
     ariaLabel?: string;
     totalItems: number;
@@ -24,6 +25,7 @@ interface HdsPaginationNumberedSignature {
     currentPage?: number;
     showInfo?: boolean; //TODO: Add this to the docs
     showPageNumbers?: boolean; //TODO: Add this to the docs
+    showTotalItems?: boolean; //TODO: Add this to the docs
     showSizeSelector?: boolean;
     sizeSelectorLabel?: string;
     pageSizes?: number[];
@@ -99,12 +101,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     );
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Pagination'
-   */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Pagination';
   }
 
@@ -269,9 +266,12 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
   @action
   onPageChange(page: HdsPaginationPage) {
     let gotoPageNumber;
-    if (page === 'prev' && this.currentPage > 1) {
+    if (page === HdsPaginationDirectionValues.Prev && this.currentPage > 1) {
       gotoPageNumber = this.currentPage - 1;
-    } else if (page === 'next' && this.currentPage < this.totalPages) {
+    } else if (
+      page === HdsPaginationDirectionValues.Next &&
+      this.currentPage < this.totalPages
+    ) {
       gotoPageNumber = this.currentPage + 1;
     } else {
       gotoPageNumber = page;

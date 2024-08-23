@@ -1,6 +1,11 @@
-type HdsPaginationPaginationDirection = 'next' | 'prev';
+export enum HdsPaginationDirectionValues {
+  Next = 'next',
+  Prev = 'prev',
+}
 
-export type HdsPaginationPage = HdsPaginationPaginationDirection | number;
+type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
+
+export type HdsPaginationPage = HdsPaginationDirections | number;
 
 export type HdsPaginationElliptizedPageArrayItem = string | number;
 
