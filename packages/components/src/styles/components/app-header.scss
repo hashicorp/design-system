@@ -112,7 +112,6 @@
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon {
     // Apply dark theme to child interactive components not within a nested dropdown
-    // NOTE: Testing overrides for ember-basic-dropdown as well although likely not something we want to do
     &:not(.hds-dropdown * *, .ember-basic-dropdown-trigger * *, .ember-basic-dropdown-content * *) {
       @include hds-interactive-dark-theme();
 
