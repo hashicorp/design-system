@@ -27869,7 +27869,6 @@ __metadata:
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
-    "@hashicorp/ember-flight-icons": "workspace:^"
     "@hashicorp/flight-icons": "workspace:^"
     algoliasearch: "npm:^4.20.0"
     broccoli-asset-rev: "npm:^3.0.0"

@@ -949,7 +949,7 @@
         <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
         <B.Td>
           <div class="shw-component-table-cell-content-div">
-            <FlightIcon @name={{B.data.icon}} />
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
             {{B.data.album}}
           </div>
         </B.Td>
@@ -1543,15 +1543,18 @@
           </B.Tr>
           <B.Tr>
             <B.Th>Icon</B.Th>
-            <B.Td @align="left"><FlightIcon @name="film" /></B.Td>
-            <B.Td @align="center"><FlightIcon @name="film" /></B.Td>
-            <B.Td @align="right"><FlightIcon @name="film" /></B.Td>
+            <B.Td @align="left"><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
+            <B.Td @align="center"><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
+            <B.Td @align="right"><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
           </B.Tr>
           <B.Tr>
             <B.Th>Icon + Inline text</B.Th>
-            <B.Td @align="left"><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
-            <B.Td @align="center"><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
-            <B.Td @align="right"><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td @align="left"><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td @align="center"><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td @align="right"><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
           </B.Tr>
           <B.Tr>
             <B.Th>Badge</B.Th>
@@ -1640,11 +1643,11 @@
           <B.Tr @selectionKey="row">
             <B.Th>Top (default)<Shw::Placeholder @height="50" /></B.Th>
             <B.Td>Text is top aligned</B.Td>
-            <B.Td><FlightIcon @name="film" /></B.Td>
-            <B.Td><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
             <B.Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
-                <FlightIcon @name="film" />
+                <Hds::Icon @name="film" />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
             </B.Td>
@@ -1682,11 +1685,11 @@
           <B.Tr @selectionKey="row">
             <B.Th><Shw::Placeholder @height="25" />Middle<Shw::Placeholder @height="25" /></B.Th>
             <B.Td>Text is middle aligned</B.Td>
-            <B.Td><FlightIcon @name="film" /></B.Td>
-            <B.Td><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
             <B.Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
-                <FlightIcon @name="film" />
+                <Hds::Icon @name="film" />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
             </B.Td>
@@ -1724,11 +1727,11 @@
           <B.Tr @selectionKey="row">
             <B.Th><Shw::Placeholder @height="25" />Baseline<Shw::Placeholder @height="25" /></B.Th>
             <B.Td>Text is middle aligned</B.Td>
-            <B.Td><FlightIcon @name="film" /></B.Td>
-            <B.Td><FlightIcon @name="film" /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
+            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
             <B.Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
-                <FlightIcon @name="film" />
+                <Hds::Icon @name="film" @isInline={{true}} />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
             </B.Td>

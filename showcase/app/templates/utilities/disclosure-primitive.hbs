@@ -18,7 +18,7 @@
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>
               Click me
-              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+              <Hds::Icon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
             </button>
           </:toggle>
           <:content>
@@ -150,7 +150,7 @@
           <:toggle as |t|>
             <button type="button" {{on "click" t.onClickToggle}}>
               Click me
-              <FlightIcon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
+              <Hds::Icon @name={{if t.isOpen "chevron-up" "chevron-down"}} />
             </button>
           </:toggle>
           <:content>

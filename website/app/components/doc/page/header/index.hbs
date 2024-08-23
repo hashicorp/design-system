@@ -25,7 +25,7 @@
           data-doc-algolia-search-autocomplete-secondary-trigger
           aria-describedby="search-button"
         >
-          <FlightIcon @name="search" />
+          <Hds::Icon @name="search" />
           Search
         </button>
       </li>
@@ -37,7 +37,7 @@
       />
       <li class="doc-page-header__nav-item-generic">
         <a href="https://github.com/hashicorp/design-system" target="_blank" rel="noopener noreferrer">
-          <FlightIcon @name="github" @size="24" @isInlineBlock={{false}} />
+          <Hds::Icon @name="github" @size="24" />
           <span class="doc-sr-only">GitHub</span>
         </a>
       </li>
@@ -50,15 +50,15 @@
       data-doc-algolia-search-autocomplete-secondary-trigger
       aria-describedby="search-button"
     >
-      <FlightIcon @name="search" />
+      <Hds::Icon @name="search" />
       Search
     </button>
     <button type="button" class="doc-page-header__mobile-only-menu-button" {{on "click" @onToggleBurgerMenu}}>
       {{#if @isSidebarVisibleOnSmallViewport}}
-        <FlightIcon @name="x" />
+        <Hds::Icon @name="x" />
         Close
       {{else}}
-        <FlightIcon @name="menu" />
+        <Hds::Icon @name="menu" />
         Menu
       {{/if}}
     </button>
