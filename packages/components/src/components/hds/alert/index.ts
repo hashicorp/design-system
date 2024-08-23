@@ -18,7 +18,7 @@ import type { HdsYieldSignature } from '../yield';
 import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsAlertTitleSignature } from './title.ts';
 import type { HdsAlertDescriptionSignature } from './description.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export const TYPES: string[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
@@ -40,7 +40,7 @@ export interface HdsAlertSignature {
   Args: {
     type: HdsAlertTypes;
     color?: HdsAlertColors;
-    icon?: FlightIconSignature['Args']['name'] | false;
+    icon?: HdsIconSignature['Args']['name'] | false;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -101,7 +101,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @default false
    * @description The name of the icon to be used.
    */
-  get icon(): FlightIconSignature['Args']['name'] | false {
+  get icon(): HdsIconSignature['Args']['name'] | false {
     const { icon } = this.args;
 
     // If `icon` isn't passed, use the pre-defined one from `color`
@@ -122,7 +122,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
 
       return false;
     } else {
-      // If a name for `icon` is passed, set FlightIcon to that name
+      // If a name for `icon` is passed, set HdsIcon to that name
       return icon;
     }
   }
@@ -148,7 +148,7 @@ export default class HdsAlertComponent extends Component<HdsAlertSignature> {
    * @type {string}
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize(): FlightIconSignature['Args']['size'] {
+  get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.type === 'compact') {
       return '16';
     } else {

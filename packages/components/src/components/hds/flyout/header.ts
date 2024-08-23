@@ -5,14 +5,14 @@
 
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export interface HdsFlyoutHeaderSignature {
   Args: {
     id?: string;
     tagline?: string;
     onDismiss: (event: MouseEvent) => void;
-    icon?: FlightIconSignature['Args']['name'] | false;
+    icon?: HdsIconSignature['Args']['name'];
   };
   Blocks: {
     default: [];

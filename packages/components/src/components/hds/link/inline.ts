@@ -9,7 +9,7 @@ import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
@@ -19,7 +19,7 @@ export const COLORS: string[] = Object.values(HdsLinkColorValues);
 export interface HdsLinkInlineSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsLinkColors;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     iconPosition?: HdsLinkIconPositions;
   };
   Blocks: {

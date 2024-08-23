@@ -11,12 +11,12 @@
   @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   ...attributes
->{{#if (and @icon (eq this.iconPosition "leading"))~}}
-    <span class="hds-link-inline__icon hds-link-inline__icon--leading">
-      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
-    </span>
-  {{~/if~}}{{yield}}{{~#if (and @icon (eq this.iconPosition "trailing"))~}}
-    <span class="hds-link-inline__icon hds-link-inline__icon--trailing">
-      <FlightIcon @name={{@icon}} @size="16" @stretched={{true}} />
-    </span>
+>{{#if (eq this.iconPosition "leading")~}}
+    {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--leading">
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
+  {{~/if~}}{{yield}}{{~#if (eq this.iconPosition "trailing")~}}
+    {{#if @icon~}}<span class="hds-link-inline__icon hds-link-inline__icon--trailing">
+        <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
+      </span>{{~/if}}
   {{~/if}}</Hds::Interactive>

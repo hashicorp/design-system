@@ -16,10 +16,10 @@
       {{#if this.hasImage}}
         <img src={{@imageSrc}} alt="" role="presentation" {{on "error" this.onImageLoadError}} />
       {{else}}
-        <FlightIcon @name="user" @size={{this.iconSize}} />
+        <Hds::Icon @name="user" @size={{this.iconSize}} />
       {{/if}}
     {{else if @icon}}
-      <FlightIcon @name={{@icon}} @size={{this.iconSize}} />
+      <Hds::Icon @name={{@icon}} @size={{this.iconSize}} />
     {{/if}}
   </div>
   {{#if this.hasChevron}}

@@ -11,7 +11,7 @@
   {{/if}}
   {{#if @icon}}
     <div class="hds-application-state__icon">
-      <FlightIcon @color="var(--token-color-foreground-strong)" @name={{@icon}} @size="24" />
+      <Hds::Icon @color="var(--token-color-foreground-strong)" @name={{@icon}} @size="24" @isInline={{true}} />
     </div>
   {{/if}}
   <Hds::Text::Display

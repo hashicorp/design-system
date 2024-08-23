@@ -7,7 +7,7 @@
 }}
 <div class="hds-flyout__header" ...attributes>
   {{#if @icon}}
-    <FlightIcon class="hds-flyout__icon" @name={{@icon}} @size="24" @isInlineBlock={{false}} />
+    <Hds::Icon class="hds-flyout__icon" @name={{@icon}} @size="24" />
   {{/if}}
   <Hds::Text::Display class="hds-flyout__title" @tag="div" @size="300" @weight="semibold" id={{@id}}>
     {{#if @tagline}}

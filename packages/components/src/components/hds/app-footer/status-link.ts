@@ -12,7 +12,7 @@ import type { HdsInteractiveSignature } from '../interactive/';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
 import type { HdsAppFooterLinkSignature } from './link.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export const STATUSES = HdsAppFooterStatusLinkStatusValues;
 
@@ -20,7 +20,7 @@ export interface HdsAppFooterStatusLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     itemStyle?: SafeString;
     status?: HdsAppFooterStatusTypes;
-    statusIcon?: FlightIconSignature['Args']['name'];
+    statusIcon?: HdsIconSignature['Args']['name'];
     statusIconColor?: string;
     text?: string;
   };
@@ -58,16 +58,11 @@ export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFoo
     return status;
   }
 
-  /**
-   * @param statusIcon
-   * @type {string}
-   * @description The name for the StatusLink icon
-   */
-  get statusIcon(): FlightIconSignature['Args']['name'] {
-    if (this.status && !this.args.statusIcon) {
-      return STATUSES[this.status]?.iconName;
-    }
-    return this.args.statusIcon;
+  get statusIcon(): HdsIconSignature['Args']['name'] | undefined {
+    return (
+      this.args.statusIcon ??
+      (this.status !== undefined ? STATUSES[this.status]?.iconName : undefined)
+    );
   }
 
   /**

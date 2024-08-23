@@ -3,9 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} ...attributes>
-  {{#if this.icon}}
+  {{#if @icon}}
     <div class="hds-badge__icon">
-      <FlightIcon @name={{this.icon}} @size="16" @stretched={{true}} />
+      <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
     </div>
   {{/if}}
   {{#if this.isIconOnly}}

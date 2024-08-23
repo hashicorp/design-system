@@ -62,7 +62,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
             <R.Generic><div class="custom">This is the custom content</div></R.Generic>
           </Hds::Form::RadioCard>`
     );
-    assert.dom('.flight-icon-hexagon').exists();
+    assert.dom('.hds-icon-hexagon').exists();
     assert.dom('.hds-form-radio-card__label').exists();
     assert.dom('.hds-badge').exists();
     assert.dom('.hds-form-radio-card__description').exists();
@@ -70,7 +70,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
   });
   test('it does not render the contextual components if not provided', async function (assert) {
     await render(hbs`<Hds::Form::RadioCard />`);
-    assert.dom('.flight-icon').doesNotExist();
+    assert.dom('.hds-icon').doesNotExist();
     assert.dom('.hds-form-radio-card__label').doesNotExist();
     assert.dom('.hds-badge').doesNotExist();
     assert.dom('.hds-form-radio-card__description').doesNotExist();

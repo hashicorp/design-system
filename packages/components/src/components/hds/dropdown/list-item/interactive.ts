@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
 
@@ -20,10 +20,10 @@ export const COLORS: string[] = Object.values(
 export interface HdsDropdownListItemInteractiveSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color: HdsDropdownListItemInteractiveColors;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     isLoading?: boolean;
     text: string;
-    trailingIcon?: FlightIconSignature['Args']['name'];
+    trailingIcon?: HdsIconSignature['Args']['name'];
   };
   Element: HTMLDivElement | HdsInteractiveSignature['Element'];
 }

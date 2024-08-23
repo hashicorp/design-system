@@ -27,17 +27,15 @@ module(
         hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`
       );
       assert
-        .dom('#test-visibility-toggle .flight-icon')
-        .hasClass('flight-icon-eye-off');
+        .dom('#test-visibility-toggle .hds-icon')
+        .hasClass('hds-icon-eye-off');
     });
 
     test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
       await render(
         hbs`<Hds::Form::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`
       );
-      assert
-        .dom('#test-visibility-toggle .flight-icon')
-        .hasClass('flight-icon-eye');
+      assert.dom('#test-visibility-toggle .hds-icon').hasClass('hds-icon-eye');
     });
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {

@@ -29,7 +29,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
   test('it should render the text and icon provided', async function (assert) {
     await render(hbs`<Hds::RichTooltip::Toggle @text="test" @icon="info" />`);
     assert.dom('.hds-rich-tooltip__toggle-text').hasText('test');
-    assert.dom('.hds-rich-tooltip__toggle-icon.flight-icon-info').exists();
+    assert.dom('.hds-rich-tooltip__toggle-icon.hds-icon-info').exists();
   });
   test('it should render only the text provided', async function (assert) {
     await render(hbs`
@@ -71,7 +71,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
     assert.dom('.hds-rich-tooltip__toggle--is-block').exists();
     assert
       .dom('.hds-rich-tooltip__toggle-icon')
-      .doesNotHaveClass('flight-icon-display-inline');
+      .doesNotHaveClass('hds-icon--is-inline');
   });
   test('it should render the element as inline if `@isInline` is `true`', async function (assert) {
     await render(
@@ -80,7 +80,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
     assert.dom('.hds-rich-tooltip__toggle--is-inline').exists();
     assert
       .dom('.hds-rich-tooltip__toggle-icon')
-      .hasClass('flight-icon-display-inline');
+      .hasClass('hds-icon--is-inline');
   });
 
   // SIZE

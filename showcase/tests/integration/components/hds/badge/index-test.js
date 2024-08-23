@@ -61,7 +61,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
     await render(
       hbs`<Hds::Badge @text="text renders" id="test-badge" @icon="activity" />`
     );
-    assert.dom('.flight-icon-activity').exists();
+    assert.dom('.hds-icon-activity').exists();
   });
   test('if isIconOnly is set to true, visible text is hidden but text is still available to assistive technology', async function (assert) {
     await render(

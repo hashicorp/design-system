@@ -36,14 +36,14 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
   test('it should render the password input with visibility toggle and masked by default', async function (assert) {
     await render(hbs`<Hds::Form::TextInput::Field @type="password" />`);
     assert.dom('input').hasAttribute('type', 'password');
-    assert.dom('.hds-form-visibility-toggle .flight-icon-eye').exists();
+    assert.dom('.hds-form-visibility-toggle .hds-icon-eye').exists();
   });
 
   test('it should toggle the masking when the toggle button is pressed', async function (assert) {
     await render(hbs`<Hds::Form::TextInput::Field @type="password" />`);
     await click('.hds-form-visibility-toggle');
     assert.dom('input').hasAttribute('type', 'text');
-    assert.dom('.hds-form-visibility-toggle .flight-icon-eye-off').exists();
+    assert.dom('.hds-form-visibility-toggle .hds-icon-eye-off').exists();
   });
 
   test('it should render the password input without visibility toggle when `hasVisibilityToggle` is false', async function (assert) {

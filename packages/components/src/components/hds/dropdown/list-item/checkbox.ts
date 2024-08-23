@@ -5,13 +5,13 @@
 
 import Component from '@glimmer/component';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsFormCheckboxBaseSignature } from '../../form/checkbox/base.ts';
 
 export interface HdsDropdownListItemCheckboxSignature {
   Args: HdsFormCheckboxBaseSignature['Args'] & {
     count?: string | number;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
   };
   Blocks: {
     default: [];

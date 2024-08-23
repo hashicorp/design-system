@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export enum HdsAppFooterStatusValues {
   Operational = 'operational',
@@ -17,7 +17,7 @@ export const HdsAppFooterStatusLinkStatusValues: Record<
   HdsAppFooterStatusValues,
   {
     text: string;
-    iconName: FlightIconSignature['Args']['name'];
+    iconName: HdsIconSignature['Args']['name'];
   }
 > = {
   [HdsAppFooterStatusValues.Operational]: {

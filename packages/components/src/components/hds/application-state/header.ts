@@ -5,14 +5,14 @@
 
 import Component from '@glimmer/component';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 import type { HdsTextDisplaySignature } from '../text/display';
 export interface HdsApplicationStateHeaderSignature {
   Args: {
     title?: string;
     titleTag?: HdsTextDisplaySignature['Args']['tag'];
     errorCode?: string;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
   };
   Element: HTMLDivElement;
 }

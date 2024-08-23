@@ -13,7 +13,7 @@ import {
 } from './types.ts';
 
 import type { HdsBadgeColors, HdsBadgeSizes, HdsBadgeTypes } from './types.ts';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export const SIZES: string[] = Object.values(HdsBadgeSizeValues);
 export const TYPES: string[] = Object.values(HdsBadgeTypeValues);
@@ -28,7 +28,7 @@ export interface HdsBadgeSignature {
     type?: HdsBadgeTypes;
     color?: HdsBadgeColors;
     text: string | number;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     isIconOnly?: boolean;
   };
   Element: HTMLDivElement;
@@ -115,26 +115,16 @@ export default class HdsBadgeComponent extends Component<HdsBadgeSignature> {
   }
 
   /**
-   * Sets the icon name if there is one
-   *
-   * @param icon
-   * @type {string|null}
-   * @default null
-   */
-  get icon(): FlightIconSignature['Args']['name'] | null {
-    return this.args.icon ?? null;
-  }
-
-  /**
    * @param isIconOnly
    * @type {boolean}
    * @default false
    * @description Indicates if the badge will only contain an icon; component will also ensure that accessible text is still applied to the component.
    */
   get isIconOnly(): boolean {
-    if (this.icon) {
+    if (this.args.icon) {
       return this.args.isIconOnly ?? false;
     }
+
     return false;
   }
 

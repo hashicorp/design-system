@@ -5,7 +5,7 @@
 <Hds::Text::Body class={{this.classNames}} @tag="span" @size="100" @weight="medium" @color="primary" ...attributes>
   {{#if this.onDismiss}}
     <button class="hds-tag__dismiss" type="button" aria-label={{this.ariaLabel}} {{on "click" this.onDismiss}}>
-      <FlightIcon class="hds-tag__dismiss-icon" @name="x" @size="16" @isInlineBlock={{false}} />
+      <Hds::Icon class="hds-tag__dismiss-icon" @name="x" @size="16" />
     </button>
   {{/if}}
   {{#if (or @href @route)}}

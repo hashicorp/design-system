@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import type { HdsInteractiveSignature } from '../interactive/';
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../icon';
 
 export const DEFAULT_SIZE = 'medium';
 export const DEFAULT_COLOR = 'primary';
@@ -24,7 +24,7 @@ export interface HdsButtonSignature {
     size?: HdsButtonSize;
     color?: HdsButtonColor;
     text: string;
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     iconPosition?: HdsButtonIconPosition;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
@@ -88,13 +88,7 @@ export default class HdsButtonComponent extends Component<HdsButtonSignature> {
     return color;
   }
 
-  /**
-   * @param icon
-   * @type {string}
-   * @default null
-   * @description The name of the icon to be used.
-   */
-  get icon() {
+  get icon(): HdsIconSignature['Args']['name'] | undefined {
     assert(
       `when the "Hds::Button" @color is "tertiary" an @icon is required`,
       !(this.color === 'tertiary' && !this.args.icon)

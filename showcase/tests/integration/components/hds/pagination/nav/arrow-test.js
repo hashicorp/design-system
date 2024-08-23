@@ -32,12 +32,12 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
       .dom('#test-nav-arrow-next')
       .hasClass('hds-pagination-nav__arrow--direction-next')
       .hasAttribute('aria-label', 'Next page');
-    assert.dom('#test-nav-arrow-next .flight-icon-chevron-right').exists();
+    assert.dom('#test-nav-arrow-next .hds-icon-chevron-right').exists();
     assert
       .dom('#test-nav-arrow-prev')
       .hasClass('hds-pagination-nav__arrow--direction-prev')
       .hasAttribute('aria-label', 'Previous page');
-    assert.dom('#test-nav-arrow-prev .flight-icon-chevron-left').exists();
+    assert.dom('#test-nav-arrow-prev .hds-icon-chevron-left').exists();
   });
 
   // LABEL

@@ -5,12 +5,12 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 
-import type { FlightIconSignature } from '@hashicorp/ember-flight-icons/components/flight-icon';
+import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive';
 
 export interface HdsSideNavListLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    icon?: FlightIconSignature['Args']['name'];
+    icon?: HdsIconSignature['Args']['name'];
     text?: string;
     badge?: string;
     count?: string;

@@ -52,7 +52,7 @@ module(
       );
       assert.dom('.hds-dialog-primitive__title').exists();
       assert.dom('.hds-dialog-primitive__title').hasText('Tagline Title');
-      assert.dom('.hds-dialog-primitive__icon.flight-icon-info').exists();
+      assert.dom('.hds-dialog-primitive__icon.hds-icon-info').exists();
       assert.dom('.hds-dialog-primitive__tagline').exists();
       assert.dom('.hds-dialog-primitive__tagline').hasText('Tagline');
     });

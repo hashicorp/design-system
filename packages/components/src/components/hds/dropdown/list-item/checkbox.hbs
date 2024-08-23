@@ -7,7 +7,7 @@
     <Hds::Form::Checkbox::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
     {{#if @icon}}
       <span class="hds-dropdown-list-item__icon">
-        <FlightIcon @name={{@icon}} @isInlineBlock={{false}} />
+        <Hds::Icon @name={{@icon}} />
       </span>
     {{/if}}
     <span class="hds-dropdown-list-item__text-content">{{yield}}</span>

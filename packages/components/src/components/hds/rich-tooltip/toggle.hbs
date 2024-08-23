@@ -17,13 +17,13 @@
     {{yield}}
   {{~else~}}
     {{~#if (and @icon (eq this.iconPosition "leading"))~}}
-      <FlightIcon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInlineBlock={{this.isInline}} />
+      <Hds::Icon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInline={{this.isInline}} />
     {{~/if~}}
     {{~#if @text~}}
       <span class="hds-rich-tooltip__toggle-text">{{~@text~}}</span>
     {{~/if~}}
     {{~#if (and @icon (eq this.iconPosition "trailing"))~}}
-      <FlightIcon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInlineBlock={{this.isInline}} />
+      <Hds::Icon class="hds-rich-tooltip__toggle-icon" @name={{@icon}} @isInline={{this.isInline}} />
     {{~/if~}}
   {{~/if~}}
 </button>
