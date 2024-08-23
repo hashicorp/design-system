@@ -107,23 +107,26 @@
     gap: inherit;
   }
 
-  // Apply dark theme to child interactive components
+  // Dropdown & Button color theming overrides
   .hds-button,
   .hds-dropdown-toggle-button,
   .hds-dropdown-toggle-icon {
-    @include hds-interactive-dark-theme();
+    // Apply dark theme to child interactive components not within a nested dropdown
+    &:not(.hds-dropdown * *, .ember-basic-dropdown-trigger * *, .ember-basic-dropdown-content * *) {
+      @include hds-interactive-dark-theme();
 
-    // disabled state:
-    &:disabled,
-    &[disabled],
-    &.mock-disabled,
-    &:disabled:focus,
-    &[disabled]:focus,
-    &.mock-disabled:focus,
-    &:disabled:hover,
-    &[disabled]:hover,
-    &.mock-disabled:hover {
-      @include hds-interactive-dark-theme-state-disabled();
+      // disabled state:
+      &:disabled,
+      &[disabled],
+      &.mock-disabled,
+      &:disabled:focus,
+      &[disabled]:focus,
+      &.mock-disabled:focus,
+      &:disabled:hover,
+      &[disabled]:hover,
+      &.mock-disabled:hover {
+        @include hds-interactive-dark-theme-state-disabled();
+      }
     }
   }
 }
