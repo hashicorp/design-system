@@ -3,15 +3,23 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
-
+import Component from '@glimmer/component';
+import { HdsAlertTitleTagValues } from './types.ts';
+import type { HdsAlertTitleTags } from './types';
 export interface HdsAlertTitleSignature {
+  Args: {
+    tag?: HdsAlertTitleTags;
+  };
   Blocks: {
     default: [];
   };
   Element: HTMLDivElement;
 }
 
-const HdsAlertTitleComponent = TemplateOnlyComponent<HdsAlertTitleSignature>();
+class HdsAlertTitleComponent extends Component<HdsAlertTitleSignature> {
+  get componentTag(): HdsAlertTitleTags {
+    return this.args.tag ?? HdsAlertTitleTagValues.Div;
+  }
+}
 
 export default HdsAlertTitleComponent;

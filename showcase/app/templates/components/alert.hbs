@@ -176,6 +176,29 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>With a custom title tag</Shw::Text::H3>
+
+  <Shw::Grid @columns={{2}} as |SG|>
+    <SG.Item>
+      <Hds::Alert @type="inline" @color="neutral" as |A|>
+        <A.Title @tag="h1">Lorem ipsum dolor</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+      </Hds::Alert>
+    </SG.Item>
+    <SG.Item>
+      <Hds::Alert @type="page" @color="neutral" as |A|>
+        <A.Title @tag="h2">Lorem ipsum dolor</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+      </Hds::Alert>
+    </SG.Item>
+    <SG.Item>
+      <Hds::Alert @type="compact" @color="neutral" as |A|>
+        <A.Title @tag="h3">Without the dismiss button (default)</A.Title>
+        <A.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</A.Description>
+      </Hds::Alert>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H2>Actions</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} as |SG|>

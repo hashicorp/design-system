@@ -4,5 +4,9 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{yield (hash Item=(component "hds/accordion/item" size=this.size type=this.type forceState=@forceState))}}
+  {{yield
+    (hash
+      Item=(component "hds/accordion/item" titleTag=this.titleTag size=this.size type=this.type forceState=@forceState)
+    )
+  }}
 </div>

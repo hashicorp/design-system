@@ -68,6 +68,24 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert.dom('.hds-code-block__description').hasText('Description');
   });
 
+  test('it renders the title as a p when the @tag argument is not provided', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" id="test-code-block" as |CB|>
+        <CB.Title>Title</CB.Title>
+      </Hds::CodeBlock>
+    `);
+    assert.dom('.hds-code-block__title').hasTagName('p');
+  });
+
+  test('it renders the title as the custom title tag when the @tag argument is provided', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" id="test-code-block" as |CB|>
+        <CB.Title @tag='h2'>Title</CB.Title>
+      </Hds::CodeBlock>
+    `);
+    assert.dom('.hds-code-block__title').hasTagName('h2');
+  });
+
   // OPTIONS
 
   // isStandalone

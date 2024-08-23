@@ -2,4 +2,8 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-alert__title hds-font-weight-semibold" ...attributes>{{yield}}</div>
+{{! IMPORTANT: we removed any extra newlines before/after the `let` to reduce the issues with unexpected whitespaces (see https://github.com/hashicorp/design-system/pull/1652) }}
+{{#let (element this.componentTag) as |Tag|}}<Tag
+    class="hds-alert__title hds-typography-body-200 hds-font-weight-semibold"
+    ...attributes
+  >{{yield}}</Tag>{{/let}}

@@ -57,6 +57,24 @@ module(
       assert.dom('.hds-dialog-primitive__tagline').hasText('Tagline');
     });
 
+    test('it renders the title as a div when the @titleTag argument is not provided', async function (assert) {
+      await render(hbs`
+        <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">
+          Title
+        </Hds::DialogPrimitive::Header>
+      `);
+      assert.dom('.hds-dialog-primitive__title').hasTagName('div');
+    });
+
+    test('it renders the title as a custom title tag when the @titleTag argument is provided', async function (assert) {
+      await render(hbs`
+        <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @titleTag='h1'>
+          Title
+        </Hds::DialogPrimitive::Header>
+      `);
+      assert.dom('.hds-dialog-primitive__title').hasTagName('h1');
+    });
+
     // CONTEXTUAL CLASSES
 
     test('it adds contextual classes to different DOM nodes using the `@contextualClassPrefix`', async function (assert) {
