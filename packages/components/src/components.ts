@@ -63,6 +63,10 @@ import HdsFormRadioField from './components/hds/form/radio/field.ts';
 import HdsFormRadioGroup from './components/hds/form/radio/group.ts';
 import HdsFormSelectBase from './components/hds/form/select/base.ts';
 import HdsFormSelectField from './components/hds/form/select/field.ts';
+import HdsFormSuperSelectSingleBase from './components/hds/form/super-select/single/base.ts';
+import HdsFormSuperSelectSingleField from './components/hds/form/super-select/single/field.ts';
+import HdsFormSuperSelectMultipleBase from './components/hds/form/super-select/multiple/base.ts';
+import HdsFormSuperSelectMultipleField from './components/hds/form/super-select/multiple/field.ts';
 import HdsFormTextareaBase from './components/hds/form/textarea/base.ts';
 import HdsFormTextareaField from './components/hds/form/textarea/field.ts';
 import HdsFormTextInputBase from './components/hds/form/text-input/base.ts';
@@ -174,6 +178,10 @@ export {
   HdsFormRadioGroup,
   HdsFormSelectBase,
   HdsFormSelectField,
+  HdsFormSuperSelectSingleBase,
+  HdsFormSuperSelectSingleField,
+  HdsFormSuperSelectMultipleBase,
+  HdsFormSuperSelectMultipleField,
   HdsFormTextareaBase,
   HdsFormTextareaField,
   HdsFormTextInputBase,
