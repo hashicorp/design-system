@@ -19,4 +19,5 @@ export enum HdsApplicationStateTitleTagValues {
   H6 = 'h6',
 }
 
-export type HdsApplicationStateTitleTags = `${HdsApplicationStateTitleTagValues}`;
+export type HdsApplicationStateTitleTags =
+  `${HdsApplicationStateTitleTagValues}`;
