@@ -3,46 +3,78 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import PowerSelectComponent from 'ember-power-select/components/power-select';
+import Component from '@glimmer/component';
 import anchoredPositionModifier from '../../../../../modifiers/hds-anchored-position.ts';
+
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import {
+  HdsFormSuperSelectHorizontalPositionValues,
+  HdsFormSuperSelectHorizontalPositionToPlacementValues,
+} from '../types.ts';
 
-const DEFAULT_HORIZONTAL_POSITION = 'bottom-start';
-const HORIZONTAL_POSITION_MAPPING = {
-  left: 'bottom-start',
-  center: 'bottom',
-  right: 'bottom-end',
-};
+import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
+import type { Select as PowerSelect } from 'ember-power-select/components/power-select';
+import type { CalculatePositionResult } from 'ember-basic-dropdown/utils/calculate-position';
+import type { HdsFormSuperSelectHorizontalPositions } from '../types.ts';
 
-export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComponent {
-  @tracked powerSelectAPI;
+export const DEFAULT_HORIZONTAL_POSITION: string =
+  HdsFormSuperSelectHorizontalPositionValues.Left;
+export const HORIZONTAL_POSITION_MAPPING =
+  HdsFormSuperSelectHorizontalPositionToPlacementValues;
+
+export interface HdsFormSuperSelectMultipleBaseSignature {
+  Args: PowerSelectSignature['Args'] & {
+    showAfterOptions?: boolean;
+    afterOptionsContent?: string;
+    resultCountMessage?: string;
+    dropdownMaxWidth?: string;
+    matchTriggerWidth?: boolean;
+    isInvalid?: boolean;
+  };
+  Blocks: PowerSelectSignature['Blocks'];
+  Element: PowerSelectSignature['Element'];
+}
+
+export default class HdsFormSuperSelectMultipleBaseComponent extends Component<HdsFormSuperSelectMultipleBaseSignature> {
+  @tracked powerSelectAPI?: PowerSelect;
   @tracked showOnlySelected = false;
   @tracked showNoSelectedMessage = false;
 
-  get selectedCount() {
-    return this.selected?.length || '0';
+  get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
+    const { horizontalPosition = DEFAULT_HORIZONTAL_POSITION } = this.args;
+    return horizontalPosition as HdsFormSuperSelectHorizontalPositions;
   }
 
-  get optionsCount() {
-    return this.options?.length || '0';
+  get selectedCount(): string {
+    return this.powerSelectAPI?.selected?.length || '0';
   }
 
-  get resultCountMessage() {
+  get optionsCount(): string {
+    return this.powerSelectAPI?.resultsCount.toString() || '0';
+  }
+
+  get resultCountMessage(): string {
     return `${this.selectedCount} selected of ${this.optionsCount} total`;
   }
 
-  @action calculatePosition(trigger, content) {
+  @action calculatePosition(
+    trigger: Element,
+    content: HTMLElement
+  ): CalculatePositionResult {
     // use `hds-anchored-position` to calculate and set position
+    // @ts-expect-error: known issue with type of invocation
     anchoredPositionModifier(content, [trigger], {
-      placement: this.args.horizontalPosition
-        ? HORIZONTAL_POSITION_MAPPING[this.args.horizontalPosition]
-        : DEFAULT_HORIZONTAL_POSITION,
+      placement: HORIZONTAL_POSITION_MAPPING[this.horizontalPosition],
       offsetOptions: 4,
       enableCollisionDetection: true,
     });
     // prevent PowerSelect from setting position
-    return {};
+    return {
+      horizontalPosition: 'auto',
+      verticalPosition: 'auto',
+      style: {},
+    };
   }
 
   /**
@@ -57,25 +89,25 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * The `powerSelectAPI` is also stored on the component instance and used in `clearSelected`
    */
   @action
-  setPowerSelectAPI(powerSelectAPI) {
+  setPowerSelectAPI(powerSelectAPI: PowerSelect): void {
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }
     this.powerSelectAPI = powerSelectAPI;
   }
 
-  @action showSelected() {
+  @action showSelected(): void {
     this.showNoSelectedMessage = this.selectedCount === '0';
     this.showOnlySelected = true;
   }
 
-  @action showAll() {
+  @action showAll(): void {
     this.showNoSelectedMessage = false;
     this.showOnlySelected = false;
   }
 
-  @action clearSelected() {
-    this.powerSelectAPI.actions.select(null);
+  @action clearSelected(): void {
+    this.powerSelectAPI?.actions.select(null);
     // show all options after clearing all selection
     this.showNoSelectedMessage = false;
     this.showOnlySelected = false;
@@ -87,7 +119,7 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @type {boolean}
    * @default true
    */
-  get showAfterOptions() {
+  get showAfterOptions(): boolean {
     return this.args.showAfterOptions ?? true;
   }
 
@@ -98,7 +130,7 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @type {string}
    * @default 'Search'
    */
-  get searchPlaceholder() {
+  get searchPlaceholder(): string {
     return this.args.searchPlaceholder ?? 'Search';
   }
 
@@ -108,8 +140,8 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @type {string}
    * @default 'none'
    */
-  get dropdownMaxWidthStyle() {
-    const maxWidthStyle = {};
+  get dropdownMaxWidthStyle(): Record<string, string> {
+    const maxWidthStyle: { [key: string]: string } = {};
     if (this.args.dropdownMaxWidth) {
       maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
@@ -122,8 +154,8 @@ export default class HdsSuperSelectMultipleBaseComponent extends PowerSelectComp
    * @method classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
-    let classes = ['hds-form-super-select', 'hds-form-super-select-multiple'];
+  get classNames(): string {
+    const classes = ['hds-form-super-select', 'hds-form-super-select-multiple'];
 
     // add a class based on the @matchTriggerWidth argument or whether dropdownMaxWidth is set
     if (this.args.matchTriggerWidth === false || this.args.dropdownMaxWidth) {

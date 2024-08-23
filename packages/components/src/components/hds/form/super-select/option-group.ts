@@ -6,7 +6,18 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export default class HdsSuperSelectOptionGroupComponent extends Component {
+interface HdsFormSuperSelectOptionGroupSignature {
+  Args: {
+    group: {
+      groupName?: string;
+    };
+  };
+  Blocks: {
+    default: [];
+  };
+}
+
+export default class HdsFormSuperSelectOptionGroupComponent extends Component<HdsFormSuperSelectOptionGroupSignature> {
   /**
    * Generates a unique ID for the group title
    * @return {string}
