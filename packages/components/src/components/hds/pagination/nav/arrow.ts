@@ -6,26 +6,53 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { HdsPaginationDirectionValues } from '../types.ts';
+import {
+  HdsPaginationDirectionValues,
+  HdsPaginationDirectionAriaLabelValues,
+  HdsPaginationDirectionLabelValues,
+  HdsPaginationDirectionIconValues,
+} from '../types.ts';
 
 import type { HdsInteractiveSignature } from '../../interactive';
-import type { HdsPaginationDirections } from '../types';
+import type {
+  HdsPaginationDirections,
+  HdsPaginationRoutingProps,
+  HdsPaginationDirectionAriaLabels,
+  HdsPaginationDirectionLabels,
+  HdsPaginationDirectionIcons,
+} from '../types';
 
-export const DIRECTIONS = ['prev', 'next'];
+type HdsPaginationControlArrowRoutingProps = Pick<
+  HdsPaginationRoutingProps,
+  'route' | 'model' | 'models' | 'replace'
+>;
+
+interface HdsPaginationControlArrowContent {
+  label?: HdsPaginationDirectionLabels;
+  icon?: HdsPaginationDirectionIcons;
+  ariaLabel?: HdsPaginationDirectionAriaLabels;
+}
+
+interface HdsPaginationControlArrowArgs {
+  direction: HdsPaginationDirections;
+  disabled?: boolean;
+  showLabel?: boolean;
+  query?: Record<string, unknown>;
+  onClick?: (direction: HdsPaginationDirections) => void;
+}
 
 interface HdsPaginationControlArrowSignature {
-  Args: {
-    direction: HdsPaginationDirections;
-    disabled?: boolean;
-    showLabel?: boolean;
-    onClick?: (direction: HdsPaginationDirections) => void;
-    // TODO: Add the rest of the arguments
-  };
+  Args: HdsPaginationControlArrowArgs & HdsPaginationControlArrowRoutingProps;
   Element: HdsInteractiveSignature['Element'];
 }
 
+export const DIRECTIONS: HdsPaginationDirections[] = [
+  HdsPaginationDirectionValues.Prev,
+  HdsPaginationDirectionValues.Next,
+];
+
 export default class HdsPaginationControlArrowComponent extends Component<HdsPaginationControlArrowSignature> {
-  get content() {
+  get content(): HdsPaginationControlArrowContent {
     const { direction } = this.args;
 
     assert(
@@ -35,32 +62,32 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
       DIRECTIONS.includes(direction)
     );
 
-    let content;
+    let content: HdsPaginationControlArrowContent = {};
     if (direction === HdsPaginationDirectionValues.Prev) {
       content = {
-        label: 'Previous',
-        icon: 'chevron-left',
-        ariaLabel: 'Previous page',
+        label: HdsPaginationDirectionLabelValues.Prev,
+        icon: HdsPaginationDirectionIconValues.ChevronLeft,
+        ariaLabel: HdsPaginationDirectionAriaLabelValues.Prev,
       };
     }
     if (direction === HdsPaginationDirectionValues.Next) {
       content = {
-        label: 'Next',
-        icon: 'chevron-right',
-        ariaLabel: 'Next page',
+        label: HdsPaginationDirectionLabelValues.Next,
+        icon: HdsPaginationDirectionIconValues.ChevronRight,
+        ariaLabel: HdsPaginationDirectionAriaLabelValues.Next,
       };
     }
 
     return content;
   }
 
-  get showLabel() {
+  get showLabel(): boolean {
     const { showLabel = true } = this.args;
 
     return showLabel;
   }
 
-  get classNames() {
+  get classNames(): string {
     const classes = [
       'hds-pagination-nav__control',
       'hds-pagination-nav__arrow',
@@ -71,7 +98,7 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
   }
 
   @action
-  onClick() {
+  onClick(): void {
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
