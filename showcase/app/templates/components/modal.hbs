@@ -60,6 +60,34 @@
     {{/each}}
   </Shw::Flex>
 
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Critical" class="shw-component-modal-sample-item">
+      <Hds::Modal open @color="critical" id="modal-example-critical2" as |M|>
+        <M.Header @icon="trash">
+          Delete App?
+        </M.Header>
+        <M.Body>
+          <p class="hds-typography-body-300 hds-foreground-primary">This action will remove all of the data associated
+            with the app "test1." It cannot be reversed.</p>
+          <br />
+          <form name="leaving-beta-form">
+            <Hds::Form::TextInput::Field @isRequired={{true}} placeholder="DELETE" as |F|>
+              <F.Label>Confirm</F.Label>
+              <F.HelperText>Type DELETE (all caps) to delete this application.</F.HelperText>
+            </Hds::Form::TextInput::Field>
+          </form>
+        </M.Body>
+        <M.Footer>
+          <Hds::ButtonSet>
+            <Hds::Button type="submit" @text="Confirm Delete" @color="critical" />
+            <Hds::Button type="button" @text="Cancel" @color="secondary" />
+          </Hds::ButtonSet>
+        </M.Footer>
+      </Hds::Modal>
+    </SF.Item>
+
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Content</Shw::Text::H2>
