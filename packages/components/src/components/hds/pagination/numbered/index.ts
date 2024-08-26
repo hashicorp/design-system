@@ -15,30 +15,31 @@ import type {
   HdsPaginationElliptizedPageArray,
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
+
+type HdsPaginationNumberedRoutingProps = Pick<
+  HdsPaginationRoutingProps,
+  'route' | 'model' | 'models' | 'replace'
+>;
+interface HdsPaginationNumberedArgs {
+  ariaLabel?: string;
+  totalItems: number;
+  showLabels?: boolean;
+  isTruncated?: boolean;
+  currentPage?: number;
+  showInfo?: boolean; //TODO: Add this to the docs
+  showPageNumbers?: boolean; //TODO: Add this to the docs
+  showTotalItems?: boolean; //TODO: Add this to the docs
+  showSizeSelector?: boolean;
+  sizeSelectorLabel?: string;
+  pageSizes?: number[];
+  currentPageSize?: number;
+  queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
+  onPageChange?: (page: number, pageSize: number) => unknown;
+  onPageSizeChange?: (pageSize: number) => unknown;
+}
+
 export interface HdsPaginationNumberedSignature {
-  Args: {
-    ariaLabel?: string;
-    totalItems: number;
-    showLabels?: boolean;
-    isTruncated?: boolean;
-    currentPage?: number;
-    showInfo?: boolean; //TODO: Add this to the docs
-    showPageNumbers?: boolean; //TODO: Add this to the docs
-    showTotalItems?: boolean; //TODO: Add this to the docs
-    showSizeSelector?: boolean;
-    sizeSelectorLabel?: string;
-    pageSizes?: number[];
-    currentPageSize?: number;
-    // route stuff
-    route?: string;
-    model?: unknown;
-    models?: unknown[];
-    replace?: boolean;
-    queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
-    // end route stuff
-    onPageChange?: (page: number, pageSize: number) => unknown;
-    onPageSizeChange?: (pageSize: number) => unknown;
-  };
+  Args: HdsPaginationNumberedArgs & HdsPaginationNumberedRoutingProps;
   Element: HTMLDivElement;
 }
 

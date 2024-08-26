@@ -23,7 +23,7 @@ interface HdsPaginationSizeSelectorSignature {
 export default class HdsPaginationSizeSelectorComponent extends Component<HdsPaginationSizeSelectorSignature> {
   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
-  get pageSizes() {
+  get pageSizes(): number[] {
     const { pageSizes } = this.args;
 
     assert(
@@ -34,7 +34,7 @@ export default class HdsPaginationSizeSelectorComponent extends Component<HdsPag
     return pageSizes;
   }
 
-  get selectedSize() {
+  get selectedSize(): number | undefined {
     const { selectedSize } = this.args;
 
     assert(
@@ -47,14 +47,14 @@ export default class HdsPaginationSizeSelectorComponent extends Component<HdsPag
     return selectedSize;
   }
 
-  get label() {
+  get label(): string {
     const { label = 'Items per page' } = this.args;
 
     return label;
   }
 
   @action
-  onChange(e: Event) {
+  onChange(e: Event): void {
     const { onChange } = this.args;
 
     const target = e.target as HdsFormSelectBaseSignature['Element'];
