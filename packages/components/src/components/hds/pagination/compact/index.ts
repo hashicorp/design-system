@@ -14,10 +14,10 @@ import type {
   HdsPaginationDirections,
 } from '../types';
 
-type HdsPaginationCompactSignatureRoutingProps = Pick<
-  HdsPaginationRoutingProps,
-  'route' | 'model' | 'models' | 'replace' | 'queryPrev' | 'queryNext'
->;
+type HdsPaginationCompactRoutingQueryProps = HdsPaginationRoutingProps & {
+  queryNext?: Record<string, unknown>;
+  queryPrev?: Record<string, unknown>;
+};
 
 interface HdsPaginationCompactArgs {
   ariaLabel?: string;
@@ -37,7 +37,7 @@ interface HdsPaginationCompactArgs {
 }
 
 interface HdsPaginationCompactSignature {
-  Args: HdsPaginationCompactArgs & HdsPaginationCompactSignatureRoutingProps;
+  Args: HdsPaginationCompactArgs & HdsPaginationRoutingProps;
   Element: HTMLDivElement;
 }
 
@@ -146,8 +146,8 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
     }
   }
 
-  get routing(): HdsPaginationRoutingProps {
-    const routing: HdsPaginationRoutingProps = {
+  get routing(): HdsPaginationCompactRoutingQueryProps {
+    const routing: HdsPaginationCompactRoutingQueryProps = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,

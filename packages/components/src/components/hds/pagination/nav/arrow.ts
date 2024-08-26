@@ -21,11 +21,6 @@ import type {
   HdsPaginationDirectionIcons,
 } from '../types';
 
-type HdsPaginationControlArrowRoutingProps = Pick<
-  HdsPaginationRoutingProps,
-  'route' | 'model' | 'models' | 'replace'
->;
-
 interface HdsPaginationControlArrowContent {
   label?: HdsPaginationDirectionLabels;
   icon?: HdsPaginationDirectionIcons;
@@ -41,7 +36,7 @@ interface HdsPaginationControlArrowArgs {
 }
 
 interface HdsPaginationControlArrowSignature {
-  Args: HdsPaginationControlArrowArgs & HdsPaginationControlArrowRoutingProps;
+  Args: HdsPaginationControlArrowArgs & HdsPaginationRoutingProps;
   Element: HdsInteractiveSignature['Element'];
 }
 

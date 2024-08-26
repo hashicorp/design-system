@@ -16,10 +16,12 @@ import type {
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
 
-type HdsPaginationNumberedRoutingProps = Pick<
-  HdsPaginationRoutingProps,
-  'route' | 'model' | 'models' | 'replace'
->;
+type HdsPaginationNumberedRoutingQueryProps = HdsPaginationRoutingProps & {
+  queryNext?: Record<string, unknown>;
+  queryPrev?: Record<string, unknown>;
+  queryPages?: Record<HdsPaginationElliptizedPageArrayItem, unknown>;
+};
+
 interface HdsPaginationNumberedArgs {
   ariaLabel?: string;
   totalItems: number;
@@ -39,7 +41,7 @@ interface HdsPaginationNumberedArgs {
 }
 
 export interface HdsPaginationNumberedSignature {
-  Args: HdsPaginationNumberedArgs & HdsPaginationNumberedRoutingProps;
+  Args: HdsPaginationNumberedArgs & HdsPaginationRoutingProps;
   Element: HTMLDivElement;
 }
 
@@ -118,7 +120,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
   // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
-  get currentPage() {
+  get currentPage(): number {
     if (this.isControlled) {
       // if the component is controlled, `@currentPage` is asserted to be a number
       return this.args.currentPage as number;
@@ -126,7 +128,6 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
       return this._currentPage;
     }
   }
-
   set currentPage(value) {
     if (this.isControlled) {
       // noop
@@ -136,7 +137,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     }
   }
 
-  get currentPageSize() {
+  get currentPageSize(): number {
     if (this.isControlled) {
       // if the component is controlled, `@currentPageSize` is asserted to be a number
       return this.args.currentPageSize as number;
@@ -144,7 +145,6 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
       return this._currentPageSize;
     }
   }
-
   set currentPageSize(value) {
     if (this.isControlled) {
       // noop
@@ -153,7 +153,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     }
   }
 
-  get pageSizes() {
+  get pageSizes(): number[] {
     const { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
     assert(
@@ -165,7 +165,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     return pageSizes;
   }
 
-  get itemsRangeStart() {
+  get itemsRangeStart(): number {
     // Calculate the starting range of items displayed on current page
     // if currentPage = 1st page and # of items per page is 10:
     //  ( (1 - 1 = 0) * 10 = 0 ) + 1 = 1
@@ -174,7 +174,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     return (this.currentPage - 1) * this.currentPageSize + 1;
   }
 
-  get itemsRangeEnd() {
+  get itemsRangeEnd(): number {
     // Calculate ending range of items displayed on current page
     // 2 cases: 1) full page of items or 2) last page of items
     if (this.currentPage * this.currentPageSize < this.args.totalItems) {
@@ -217,8 +217,8 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     }
   }
 
-  get routing(): HdsPaginationRoutingProps {
-    const routing: HdsPaginationRoutingProps = {
+  get routing(): HdsPaginationNumberedRoutingQueryProps {
+    const routing: HdsPaginationNumberedRoutingQueryProps = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,
@@ -249,7 +249,6 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     } else {
       routing.queryPrev = undefined;
       routing.queryNext = undefined;
-      routing.queryByPage = {};
     }
 
     return routing;

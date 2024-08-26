@@ -40,8 +40,4 @@ export interface HdsPaginationRoutingProps {
   model?: unknown;
   models?: unknown[];
   replace?: boolean;
-  queryByPage?: Record<string, unknown>;
-  queryNext?: Record<string, unknown>;
-  queryPrev?: Record<string, unknown>;
-  queryPages?: Record<HdsPaginationElliptizedPageArrayItem, unknown>;
 }
