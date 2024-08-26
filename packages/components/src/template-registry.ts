@@ -128,6 +128,13 @@ import type HdsPageHeaderBadgesComponent from './components/hds/page-header/badg
 import type HdsPageHeaderDescriptionComponent from './components/hds/page-header/description';
 import type HdsPageHeaderSubtitleComponent from './components/hds/page-header/subtitle';
 import type HdsPageHeaderTitleComponent from './components/hds/page-header/title';
+import type HdsPaginationCompactComponent from './components/hds/pagination/compact/index';
+import type HdsPaginationControlInfoComponent from './components/hds/pagination/info/index';
+import type HdsPaginationControlArrowComponent from './components/hds/pagination/nav/arrow';
+import type HdsPaginationControlEllipsisComponent from './components/hds/pagination/nav/ellipsis';
+import type HdsPaginationControlNumberComponent from './components/hds/pagination/nav/number';
+import type HdsPaginationNumberedComponent from './components/hds/pagination/numbered/index';
+import type HdsPaginationSizeSelectorComponent from './components/hds/pagination/size-selector/index';
 import type HdsPopoverPrimitiveComponent from './components/hds/popover-primitive';
 import type HdsRevealComponent from './components/hds/reveal';
 import type HdsRevealToggleButtonComponent from './components/hds/reveal/toggle/button';
@@ -626,6 +633,28 @@ export default interface HdsComponentsRegistry {
 
   'Hds::PageHeader::Title': typeof HdsPageHeaderTitleComponent;
   'hds/page-header/title': typeof HdsPageHeaderTitleComponent;
+
+  // Pagination
+  'Hds::Pagination::Compact': typeof HdsPaginationCompactComponent;
+  'hds/pagination/compact': typeof HdsPaginationCompactComponent;
+
+  'Hds::Pagination::Info': typeof HdsPaginationControlInfoComponent;
+  'hds/pagination/info': typeof HdsPaginationControlInfoComponent;
+
+  'Hds::Pagination::Nav::Arrow': typeof HdsPaginationControlArrowComponent;
+  'hds/pagination/nav/arrow': typeof HdsPaginationControlArrowComponent;
+
+  'Hds::Pagination::Nav::Ellipsis': typeof HdsPaginationControlEllipsisComponent;
+  'hds/pagination/nav/ellipsis': typeof HdsPaginationControlEllipsisComponent;
+
+  'Hds::Pagination::Nav::Number': typeof HdsPaginationControlNumberComponent;
+  'hds/pagination/nav/number': typeof HdsPaginationControlNumberComponent;
+
+  'Hds::Pagination::Numbered': typeof HdsPaginationNumberedComponent;
+  'hds/pagination/numbered': typeof HdsPaginationNumberedComponent;
+
+  'Hds::Pagination::SizeSelector': typeof HdsPaginationSizeSelectorComponent;
+  'hds/pagination/size-selector': typeof HdsPaginationSizeSelectorComponent;
 
   // PopoverPrimitive
   'Hds::PopoverPrimitive': typeof HdsPopoverPrimitiveComponent;
