@@ -8,12 +8,8 @@
 body.components-side-nav {
   $shw-component-side-nav-background: #0c0c0e;
 
-  .hds-side-nav {
-    // Applies to the containers of child component examples (the actual AppHeader component always has more than 1 child)
-    &:has(> :only-child) {
-      width: max-content;
-    }
-  }
+  // Add to examples to constrain width
+  .shw-component-set-max-content-width {width: max-content;}
 
   // used to simulate a "root" container for the sidenav
   .shw-component-sim-side-nav-root-container {

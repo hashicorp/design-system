@@ -878,7 +878,7 @@
 <Shw::Divider />
 
 <section data-test-percy>
-  <Shw::Text::H2>Nested interactive components</Shw::Text::H2>
+  <Shw::Text::H2>Child interactive components</Shw::Text::H2>
 
   <Shw::Text::H3>Buttons within SideNav</Shw::Text::H3>
 
@@ -889,7 +889,7 @@
     {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
-          <div class="hds-side-nav">
+          <div class="hds-side-nav shw-component-set-max-content-width">
             <Hds::Button
               @color="secondary"
               @icon="search"
@@ -909,7 +909,7 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
 
-          <div class="hds-side-nav">
+          <div class="hds-side-nav shw-component-set-max-content-width">
             <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
           </div>
         </SF.Item>
