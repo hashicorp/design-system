@@ -80,6 +80,11 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
     );
   }
 
+  // In mobile view when the menu is open, trap focus within the AppHeader
+  get shouldTrapFocus(): boolean {
+    return !this.isDesktop && this.isOpen;
+  }
+
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
@@ -88,12 +93,13 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
       classes.push('hds-app-header--is-desktop');
     } else {
       classes.push('hds-app-header--is-mobile');
-    }
 
-    if (this.isOpen) {
-      classes.push('hds-app-header--menu-is-open');
-    } else {
-      classes.push('hds-app-header--menu-is-closed');
+      // open and closed menu states are only relevant on mobile
+      if (this.isOpen) {
+        classes.push('hds-app-header--menu-is-open');
+      } else {
+        classes.push('hds-app-header--menu-is-closed');
+      }
     }
 
     return classes.join(' ');
@@ -114,5 +120,11 @@ export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignatu
   @action
   updateDesktopVariable(event: MediaQueryListEvent): void {
     this.isDesktop = event.matches;
+
+    // Close the menu when switching to desktop view
+    // (prevents menu from being open when resizing which causes Skip button to not render)
+    if (this.isDesktop) {
+      this.isOpen = false;
+    }
   }
 }

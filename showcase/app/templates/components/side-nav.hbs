@@ -124,7 +124,7 @@
                     <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
                   </:logo>
                   <:actions>
-                    <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
                       <dd.ToggleIcon @icon="help" @text="help menu" />
                       <dd.Title @text="Help & Support" />
                       <dd.Interactive @text="Documentation" @href="#" />
@@ -135,7 +135,7 @@
                       <dd.Interactive @text="Create support ticket" @href="#" />
                       <dd.Interactive @text="Give feedback" @href="#" />
                     </Hds::Dropdown>
-                    <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
                       <dd.ToggleIcon @icon="user" @text="user menu" />
                       <dd.Title @text="Signed In" />
                       <dd.Description @text="email@domain.com" />
@@ -188,7 +188,7 @@
                   </:logo>
                   <:actions>
                     <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
-                    <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
                       <dd.ToggleIcon @icon="help" @text="help menu" />
                       <dd.Title @text="Help & Support" />
                       <dd.Interactive @text="Documentation" @href="#" />
@@ -199,7 +199,7 @@
                       <dd.Interactive @text="Create support ticket" @href="#" />
                       <dd.Interactive @text="Give feedback" @href="#" />
                     </Hds::Dropdown>
-                    <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
                       <dd.ToggleIcon @icon="user" @text="user menu" />
                       <dd.Title @text="Signed In" />
                       <dd.Description @text="email@domain.com" />
@@ -336,7 +336,7 @@
             <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
           </:logo>
           <:actions>
-            <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
               <dd.ToggleIcon @icon="help" @text="help menu" />
               <dd.Title @text="Help & Support" />
               <dd.Interactive @text="Documentation" @href="#" />
@@ -347,7 +347,7 @@
               <dd.Interactive @text="Create support ticket" @href="#" />
               <dd.Interactive @text="Give feedback" @href="#" />
             </Hds::Dropdown>
-            <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
               <dd.ToggleIcon @icon="user" @text="user menu" />
               <dd.Title @text="Signed In" />
               <dd.Description @text="email@domain.com" />
@@ -365,7 +365,7 @@
           </:logo>
           <:actions>
             <Hds::SideNav::Header::IconButton @icon="terminal-screen" @ariaLabel="Terminal" />
-            <Hds::Dropdown @listPosition="bottom-left" as |dd|>
+            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
               <dd.ToggleButton @text="Help" />
               <dd.Title @text="Help & Support" />
               <dd.Interactive @text="Documentation" @href="#" />

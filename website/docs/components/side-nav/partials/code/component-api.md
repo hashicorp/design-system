@@ -93,7 +93,7 @@ This is the basic component (layout only).
     A named block where the main product logo linked to your app’s home page will be rendered. The `SideNav::HomeLink` component should be added here.
   </C.Property>
   <C.Property @name="<:actions>" @type="named block">
-    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here. Special Side Nav coordinated styling can be applied to dropdowns by adding the `hds-side-nav__dropdown` class name.
+    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `SideNav::IconButton` components will be added here.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

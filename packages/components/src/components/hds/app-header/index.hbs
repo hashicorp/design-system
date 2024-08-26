@@ -3,7 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes>
+<div
+  class={{this.classNames}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap isActive=this.shouldTrapFocus}}
+  ...attributes
+>
   {{#if (and this.hasA11yRefocus (not this.isOpen))}}
     {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
     <NavigationNarrator

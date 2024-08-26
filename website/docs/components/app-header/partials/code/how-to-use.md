@@ -44,6 +44,12 @@ probably need to be set to `true` (or omitted to rely on defaults)
 
 ### Content
 
+!!! Info
+
+When adding Dropdown components within the App Header, be sure to set `enableCollisionDetection` to `true` for each Dropdown.
+
+!!!
+
 #### HomeLink
 
 The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:logo>` block. It provides consistent branding and navigates the user to the “home” or main dashboard page.
@@ -126,7 +132,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   </:logo>
   
   <:globalActions>
-    <Hds::Dropdown as |dd|>
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
       <dd.Checkmark>
         organizationName
@@ -160,7 +166,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   </:logo>
   
   <:globalActions>
-    <Hds::Dropdown as |dd|>
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleButton @text="Choose an organization" @icon="org" />
       <dd.Checkmark>
         organizationName
@@ -169,7 +175,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   </:globalActions>
 
   <:utilityActions>
-    <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleIcon @icon="help" @text="help menu" />
       <dd.Title @text="Help & Support" />
       <dd.Interactive @text="Documentation" @href="#" />
@@ -181,7 +187,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
       <dd.Interactive @text="Give feedback" @href="#" />
     </Hds::Dropdown>
 
-    <Hds::Dropdown @listPosition="bottom-right" as |dd|>
+    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
       <dd.ToggleIcon @icon="user" @text="user menu" />
       <dd.Title @text="Signed In" />
       <dd.Description @text="email@domain.com" />
