@@ -70,7 +70,7 @@
           <p class="hds-typography-body-300 hds-foreground-primary">This action will remove all of the data associated
             with the app "test1." It cannot be reversed.</p>
           <br />
-          <form name="leaving-beta-form">
+          <form name="delete-app-confirmation" aria-label="delete app confirmation">
             <Hds::Form::TextInput::Field @isRequired={{true}} placeholder="DELETE" as |F|>
               <F.Label>Confirm</F.Label>
               <F.HelperText>Type DELETE (all caps) to delete this application.</F.HelperText>
