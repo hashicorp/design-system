@@ -7,12 +7,44 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { HdsPaginationDirectionValues } from '../types.ts';
+
+import type {
+  HdsPaginationRoutingProps,
+  HdsPaginationDirections,
+} from '../types';
+
+type HdsPaginationCompactSignatureRoutingProps = Pick<
+  HdsPaginationRoutingProps,
+  'route' | 'model' | 'models' | 'replace' | 'queryPrev' | 'queryNext'
+>;
+
+interface HdsPaginationCompactArgs {
+  ariaLabel?: string;
+  showLabels?: boolean;
+  isDisabledPrev?: boolean;
+  isDisabledNext?: boolean;
+  showSizeSelector?: boolean;
+  sizeSelectorLabel?: string;
+  pageSizes?: number[];
+  currentPageSize?: number;
+  queryFunction?: (
+    page: HdsPaginationDirections,
+    pageSize: number
+  ) => Record<string, unknown>;
+  onPageChange?: (page: HdsPaginationDirections) => void;
+  onPageSizeChange?: (pageSize: number) => void;
+}
+
+interface HdsPaginationCompactSignature {
+  Args: HdsPaginationCompactArgs & HdsPaginationCompactSignatureRoutingProps;
+  Element: HTMLDivElement;
+}
 
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
-
-export default class HdsPaginationCompactIndexComponent extends Component {
+export default class HdsPaginationCompactComponent extends Component<HdsPaginationCompactSignature> {
   // This private variable is used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).
@@ -21,16 +53,17 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   // In the second case, the variable stores *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+  @tracked _currentPageSize: number =
+    this.args.currentPageSize ?? (this.pageSizes[0] as number); // we assert that pageSizes is a non-empty array in its getter
   @tracked isControlled;
 
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
-  constructor() {
-    super(...arguments);
+  constructor(owner: unknown, args: HdsPaginationCompactSignature['Args']) {
+    super(owner, args);
 
-    let { queryFunction } = this.args;
+    const { queryFunction } = this.args;
 
     // This component works in two different ways, depending if we need to support
     // routing through links (`LinkTo`) for the "navigation controls", or not.
@@ -51,12 +84,7 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Pagination'
-   */
-  get ariaLabel() {
+  get ariaLabel(): string {
     return this.args.ariaLabel ?? 'Pagination';
   }
 
@@ -73,14 +101,20 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
-  get currentPageSize() {
+  get currentPageSize(): number {
     if (this.isControlled) {
+      // TODO: Add a test for this assertion
+      // QUESTION: Should the docs mention that this is required if the component is controlled?
+      assert(
+        '@currentPageSize must be defined when the component is controlled',
+        this.args.currentPageSize !== undefined
+      );
+
       return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
     }
   }
-
   set currentPageSize(value) {
     if (this.isControlled) {
       // noop
@@ -89,33 +123,31 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     }
   }
 
-  /**
-   * @param pageSizes
-   * @type {array of numbers}
-   * @description Set the page sizes users can select from.
-   * @default [10, 30, 50]
-   */
-  get pageSizes() {
-    let { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
+  get pageSizes(): number[] {
+    const { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
     assert(
       `pageSizes argument must be an array. Received: ${pageSizes}`,
-      Array.isArray(pageSizes) === true
+      Array.isArray(pageSizes) === true && pageSizes.length > 0
     );
 
     return pageSizes;
   }
 
-  buildQueryParamsObject(page, pageSize) {
+  buildQueryParamsObject(
+    page: HdsPaginationDirections,
+    pageSize: number
+  ): Record<string, unknown> {
     if (this.isControlled) {
-      return this.args.queryFunction(page, pageSize);
+      // if the component is controlled, we can assert that the queryFunction is defined
+      return this.args.queryFunction!(page, pageSize);
     } else {
       return {};
     }
   }
 
-  get routing() {
-    let routing = {
+  get routing(): HdsPaginationRoutingProps {
+    const routing: HdsPaginationRoutingProps = {
       route: this.args.route ?? undefined,
       model: this.args.model ?? undefined,
       models: this.args.models ?? undefined,
@@ -125,11 +157,11 @@ export default class HdsPaginationCompactIndexComponent extends Component {
     // the "query" is dynamic and needs to be calculated
     if (this.isControlled) {
       routing.queryPrev = this.buildQueryParamsObject(
-        'prev',
+        HdsPaginationDirectionValues.Prev,
         this.currentPageSize
       );
       routing.queryNext = this.buildQueryParamsObject(
-        'next',
+        HdsPaginationDirectionValues.Next,
         this.currentPageSize
       );
     } else {
@@ -141,10 +173,8 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   }
 
   @action
-  onPageChange(newPage) {
-    this.currentPage = newPage;
-
-    let { onPageChange } = this.args;
+  onPageChange(newPage: HdsPaginationDirections): void {
+    const { onPageChange } = this.args;
 
     if (typeof onPageChange === 'function') {
       onPageChange(newPage);
@@ -152,8 +182,8 @@ export default class HdsPaginationCompactIndexComponent extends Component {
   }
 
   @action
-  onPageSizeChange(newPageSize) {
-    let { onPageSizeChange } = this.args;
+  onPageSizeChange(newPageSize: number): void {
+    const { onPageSizeChange } = this.args;
 
     // invoke the callback function
     if (typeof onPageSizeChange === 'function') {
