@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import type { HdsPaginationNumberedSignature } from '../numbered/index';
+import type { HdsTextBodySignature } from '../../text/body';
 interface HdsPaginationInfoSignature {
   Args: {
     itemsRangeStart: number;
@@ -12,7 +13,7 @@ interface HdsPaginationInfoSignature {
     showTotalItems?: HdsPaginationNumberedSignature['Args']['showTotalItems'];
     totalItems: HdsPaginationNumberedSignature['Args']['totalItems'];
   };
-  Element: HTMLDivElement;
+  Element: HdsTextBodySignature['Element'];
 }
 
 export default class HdsPaginationInfoComponent extends Component<HdsPaginationInfoSignature> {
