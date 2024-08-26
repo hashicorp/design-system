@@ -3,7 +3,7 @@ export enum HdsPaginationDirectionValues {
   Prev = 'prev',
 }
 
-type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
+export type HdsPaginationDirections = `${HdsPaginationDirectionValues}`;
 
 export type HdsPaginationPage = HdsPaginationDirections | number;
 
