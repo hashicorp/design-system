@@ -9,13 +9,14 @@ import { assert } from '@ember/debug';
 
 import type { HdsInteractiveSignature } from '../../interactive';
 
+interface HdsPaginationNavNumberArgs {
+  page: number;
+  onClick: (page: number) => void;
+  isSelected: boolean;
+}
+
 interface HdsPaginationNavNumberSignature {
-  Args: {
-    page: number;
-    isSelected: boolean;
-    onClick: (page: number) => void;
-    // TODO: Add the rest
-  };
+  Args: HdsPaginationNavNumberArgs & HdsInteractiveSignature['Args'];
   Element: HdsInteractiveSignature['Element'];
 }
 
