@@ -30,7 +30,7 @@ interface HdsPaginationCompactArgs {
   currentPageSize?: number;
   queryFunction?: (
     page: HdsPaginationDirections,
-    pageSize: number
+    pageSize?: number
   ) => Record<string, unknown>;
   onPageChange?: (page: HdsPaginationDirections) => void;
   onPageSizeChange?: (pageSize: number) => void;
@@ -53,8 +53,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
   // In the second case, the variable stores *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPageSize: number =
-    this.args.currentPageSize ?? (this.pageSizes[0] as number); // we assert that pageSizes is a non-empty array in its getter
+  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
   @tracked isControlled;
 
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
@@ -101,15 +100,8 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
   // is *always* determined by the component's internal logic (and updated according to the user interaction with it).
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
-  get currentPageSize(): number {
+  get currentPageSize(): number | undefined {
     if (this.isControlled) {
-      // TODO: Add a test for this assertion
-      // QUESTION: Should the docs mention that this is required if the component is controlled?
-      assert(
-        '@currentPageSize must be defined when the component is controlled',
-        this.args.currentPageSize !== undefined
-      );
-
       return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
@@ -136,7 +128,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
 
   buildQueryParamsObject(
     page: HdsPaginationDirections,
-    pageSize: number
+    pageSize?: number
   ): Record<string, unknown> {
     if (this.isControlled) {
       // if the component is controlled, we can assert that the queryFunction is defined
