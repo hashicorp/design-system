@@ -135,6 +135,12 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
 
 ### SideNav::Header::IconButton
 
+!!! Warning
+
+The `SideNav::Header::IconButton` subcomponent is now deprecated. Use the `Hds::Button` component with the `isIconOnly` variant instead. See the [Icon-only Button documentation](https://helios.hashicorp.design/components/button?tab=code#icon-only-button) for details on usage.
+
+!!!
+
 The `SideNav::Header::IconButton` component.
 
 It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).

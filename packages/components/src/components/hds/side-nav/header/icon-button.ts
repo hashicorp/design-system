@@ -30,10 +30,10 @@ export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSi
       {
         id: 'hds.components.sidenav.header.iconbutton',
         until: '5.0.0', // TODO: Confirm version
-        url: 'https://helios.hashicorp.design/components/sidenav?tab=version%20history#460', // TODO: Confirm URL
+        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#480', // TODO: Confirm URL
         for: '@hashicorp/design-system-components',
         since: {
-          enabled: '4.6.0', // TODO: Confirm version
+          enabled: '4.9.0', // TODO: Confirm version
         },
       }
     );
