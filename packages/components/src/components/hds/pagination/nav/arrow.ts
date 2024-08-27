@@ -9,21 +9,20 @@ import {
   HdsPaginationDirectionValues,
   HdsPaginationDirectionAriaLabelValues,
   HdsPaginationDirectionLabelValues,
-  HdsPaginationDirectionIconValues,
 } from '../types.ts';
 
+import type { HdsIconSignature } from '../../icon/index.ts';
 import type { HdsInteractiveSignature } from '../../interactive';
 import type {
   HdsPaginationDirections,
   HdsPaginationDirectionAriaLabels,
   HdsPaginationDirectionLabels,
-  HdsPaginationDirectionIcons,
 } from '../types';
 
 interface HdsPaginationControlArrowContent {
-  label?: HdsPaginationDirectionLabels;
-  icon?: HdsPaginationDirectionIcons;
-  ariaLabel?: HdsPaginationDirectionAriaLabels;
+  label: HdsPaginationDirectionLabels;
+  icon: HdsIconSignature['Args']['name'];
+  ariaLabel: HdsPaginationDirectionAriaLabels;
 }
 
 interface HdsPaginationControlArrowArgs {
@@ -54,23 +53,23 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
       DIRECTIONS.includes(direction)
     );
 
-    let content: HdsPaginationControlArrowContent = {};
+    let content: Partial<HdsPaginationControlArrowContent> = {};
     if (direction === HdsPaginationDirectionValues.Prev) {
       content = {
         label: HdsPaginationDirectionLabelValues.Prev,
-        icon: HdsPaginationDirectionIconValues.ChevronLeft,
+        icon: 'chevron-left',
         ariaLabel: HdsPaginationDirectionAriaLabelValues.Prev,
       };
     }
     if (direction === HdsPaginationDirectionValues.Next) {
       content = {
         label: HdsPaginationDirectionLabelValues.Next,
-        icon: HdsPaginationDirectionIconValues.ChevronRight,
+        icon: 'chevron-right',
         ariaLabel: HdsPaginationDirectionAriaLabelValues.Next,
       };
     }
 
-    return content;
+    return content as HdsPaginationControlArrowContent;
   }
 
   get showLabel(): boolean {

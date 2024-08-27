@@ -25,13 +25,6 @@ export enum HdsPaginationDirectionLabelValues {
 export type HdsPaginationDirectionLabels =
   `${HdsPaginationDirectionLabelValues}`;
 
-export enum HdsPaginationDirectionIconValues {
-  ChevronLeft = 'chevron-left',
-  ChevronRight = 'chevron-right',
-}
-
-export type HdsPaginationDirectionIcons = `${HdsPaginationDirectionIconValues}`;
-
 export type HdsPaginationElliptizedPageArrayItem = string | number;
 
 export type HdsPaginationElliptizedPageArray =
