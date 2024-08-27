@@ -25,7 +25,7 @@ export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSi
     super(owner, args);
 
     deprecate(
-      'The `Hds::SideNav::Header::IconButton` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::Button` as one-to-one replacement.',
+      'The `Hds::SideNav::Header::IconButton` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::Button` with the `isIconOnly` variant instead.',
       false,
       {
         id: 'hds.components.sidenav.header.iconbutton',
