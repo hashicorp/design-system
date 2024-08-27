@@ -15,11 +15,17 @@ import type {
   HdsPaginationElliptizedPageArray,
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
+import type { HdsInteractiveSignature } from '../../interactive/index.ts';
+
+type HdsInteractiveQuery = HdsInteractiveSignature['Args']['query'];
 
 type HdsPaginationNumberedRoutingQueryProps = HdsPaginationRoutingProps & {
-  queryNext?: Record<string, unknown>;
-  queryPrev?: Record<string, unknown>;
-  queryPages?: Record<HdsPaginationElliptizedPageArrayItem, unknown>;
+  queryNext?: HdsInteractiveQuery;
+  queryPrev?: HdsInteractiveQuery;
+  queryPages?: Record<
+    HdsPaginationElliptizedPageArrayItem,
+    HdsInteractiveQuery
+  >;
 };
 
 interface HdsPaginationNumberedArgs {
@@ -35,7 +41,7 @@ interface HdsPaginationNumberedArgs {
   sizeSelectorLabel?: string;
   pageSizes?: number[];
   currentPageSize?: number;
-  queryFunction?: (page: number, pageSize: number) => Record<string, unknown>;
+  queryFunction?: (page: number, pageSize: number) => HdsInteractiveQuery;
   onPageChange?: (page: number, pageSize: number) => unknown;
   onPageSizeChange?: (pageSize: number) => unknown;
 }
@@ -207,7 +213,7 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
   buildQueryParamsObject(
     page: HdsPaginationElliptizedPageArrayItem,
     pageSize: number
-  ): Record<string, unknown> {
+  ): HdsInteractiveQuery {
     // `page` may also be ellipsis
     if (this.isControlled && typeof page === 'number') {
       // if the component is controlled, `@queryFunction` is asserted to be a function
@@ -303,5 +309,19 @@ export default class HdsPaginationNumberedComponent extends Component<HdsPaginat
     if (typeof onPageSizeChange === 'function') {
       onPageSizeChange(newPageSize);
     }
+  }
+
+  elliptizedPageArrayItemAsNumber = (
+    item: HdsPaginationElliptizedPageArrayItem
+  ): number => {
+    if (typeof item === 'number') {
+      return item;
+    } else {
+      throw new Error('Expected a number, but got an ellipsis');
+    }
+  };
+
+  getPageNumberQuery(page: HdsPaginationElliptizedPageArrayItem) {
+    return this.routing.queryPages![this.elliptizedPageArrayItemAsNumber(page)];
   }
 }

@@ -13,10 +13,13 @@ import type {
   HdsPaginationRoutingProps,
   HdsPaginationDirections,
 } from '../types';
+import type { HdsInteractiveSignature } from '../../interactive';
+
+type HdsInteractiveQuery = HdsInteractiveSignature['Args']['query'];
 
 type HdsPaginationCompactRoutingQueryProps = HdsPaginationRoutingProps & {
-  queryNext?: Record<string, unknown>;
-  queryPrev?: Record<string, unknown>;
+  queryNext?: HdsInteractiveQuery;
+  queryPrev?: HdsInteractiveQuery;
 };
 
 interface HdsPaginationCompactArgs {
@@ -31,7 +34,7 @@ interface HdsPaginationCompactArgs {
   queryFunction?: (
     page: HdsPaginationDirections,
     pageSize?: number
-  ) => Record<string, unknown>;
+  ) => HdsInteractiveQuery;
   onPageChange?: (page: HdsPaginationDirections) => void;
   onPageSizeChange?: (pageSize: number) => void;
 }
@@ -129,7 +132,7 @@ export default class HdsPaginationCompactComponent extends Component<HdsPaginati
   buildQueryParamsObject(
     page: HdsPaginationDirections,
     pageSize?: number
-  ): Record<string, unknown> {
+  ): HdsInteractiveQuery {
     if (this.isControlled) {
       // if the component is controlled, we can assert that the queryFunction is defined
       return this.args.queryFunction!(page, pageSize);

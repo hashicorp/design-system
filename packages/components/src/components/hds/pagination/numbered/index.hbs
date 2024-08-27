@@ -32,7 +32,7 @@
               <Hds::Pagination::Nav::Ellipsis />
             {{else}}
               <Hds::Pagination::Nav::Number
-                @page={{page}}
+                @page={{this.elliptizedPageArrayItemAsNumber page}}
                 @route={{this.routing.route}}
                 @query={{get this.routing.queryPages page}}
                 @model={{this.routing.model}}

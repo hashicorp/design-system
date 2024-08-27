@@ -1,3 +1,5 @@
+import type { HdsInteractiveSignature } from '../interactive';
+
 export enum HdsPaginationDirectionValues {
   Next = 'next',
   Prev = 'prev',
@@ -35,9 +37,7 @@ export type HdsPaginationElliptizedPageArrayItem = string | number;
 export type HdsPaginationElliptizedPageArray =
   HdsPaginationElliptizedPageArrayItem[];
 
-export interface HdsPaginationRoutingProps {
-  route?: string;
-  model?: unknown;
-  models?: unknown[];
-  replace?: boolean;
-}
+export type HdsPaginationRoutingProps = Pick<
+  HdsInteractiveSignature['Args'],
+  'route' | 'model' | 'models' | 'replace'
+>;

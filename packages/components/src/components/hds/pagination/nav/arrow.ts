@@ -15,7 +15,6 @@ import {
 import type { HdsInteractiveSignature } from '../../interactive';
 import type {
   HdsPaginationDirections,
-  HdsPaginationRoutingProps,
   HdsPaginationDirectionAriaLabels,
   HdsPaginationDirectionLabels,
   HdsPaginationDirectionIcons,
@@ -31,12 +30,11 @@ interface HdsPaginationControlArrowArgs {
   direction: HdsPaginationDirections;
   disabled?: boolean;
   showLabel?: boolean;
-  query?: Record<string, unknown>;
   onClick?: (direction: HdsPaginationDirections) => void;
 }
 
 interface HdsPaginationControlArrowSignature {
-  Args: HdsPaginationControlArrowArgs & HdsPaginationRoutingProps;
+  Args: HdsPaginationControlArrowArgs & HdsInteractiveSignature['Args'];
   Element: HdsInteractiveSignature['Element'];
 }
 
