@@ -24,12 +24,12 @@
             "gradient": {
                 "primary": {
                     "start": {
-                        "value": "{color.palette.vagrant-100.value}",
+                        "value": "{color.palette.vagrant-300.value}",
                         "type": "color",
                         "group": "branding"
                     },
                     "stop": {
-                        "value": "{color.palette.vagrant-200.value}",
+                        "value": "{color.palette.vagrant-400.value}",
                         "type": "color",
                         "group": "branding"
                     }
