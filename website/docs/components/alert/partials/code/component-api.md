@@ -45,6 +45,9 @@ The `Alert::Title` component, yielded as contextual component.
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the "title" block.
   </C.Property>
+  <C.Property @name="tag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}}>
+    The HTML tag that wraps the content of the "title" block.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

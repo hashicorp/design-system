@@ -47,6 +47,9 @@ The `CodeBlock::Title` component, yielded as contextual component.
   <C.Property @name="yield">
     Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Content inherits its style. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Consumers will need to style other HTML tags if used as children.
   </C.Property>
+    <C.Property @name="tag" @type="enum" @values={{array "p" "h1" "h2" "h3" "h4" "h5" "h6"}}>
+    The HTML tag that wraps the content of the "title" block.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
