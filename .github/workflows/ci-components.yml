@@ -25,7 +25,7 @@ jobs:
           fetch-depth: 0  
       - name: Get changed files
         id: read-files
-        run: ./.github/scripts/filter_changed_files.sh "packages/components" "packages/ember-flight-icons" "packages/flight-icons/catalog.json" "showcase" ".github/workflows/ci-components.yml"
+        run: ./.github/scripts/filter_changed_files.sh "packages/components" "packages/flight-icons/catalog.json" "showcase" ".github/workflows/ci-components.yml"
 
   test:
     name: "Tests"
