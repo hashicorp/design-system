@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
+import { assert, deprecate } from '@ember/debug';
 
 import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive/';
@@ -18,11 +18,27 @@ interface HdsSideNavHeaderIconButtonSignature {
 }
 
 export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSideNavHeaderIconButtonSignature> {
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @description The value of `aria-label`
-   */
+  constructor(
+    owner: unknown,
+    args: HdsSideNavHeaderIconButtonSignature['Args']
+  ) {
+    super(owner, args);
+
+    deprecate(
+      'The `Hds::SideNav::Header::IconButton` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::Button` as one-to-one replacement.',
+      false,
+      {
+        id: 'hds.components.sidenav.header.iconbutton',
+        until: '5.0.0', // TODO: Confirm version
+        url: 'https://helios.hashicorp.design/components/sidenav?tab=version%20history#460', // TODO: Confirm URL
+        for: '@hashicorp/design-system-components',
+        since: {
+          enabled: '4.6.0', // TODO: Confirm version
+        },
+      }
+    );
+  }
+
   get ariaLabel(): string {
     const { ariaLabel } = this.args;
 

@@ -140,7 +140,7 @@ Here is an example of some possible actions:
           <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
         <:actions>
-          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+          <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
