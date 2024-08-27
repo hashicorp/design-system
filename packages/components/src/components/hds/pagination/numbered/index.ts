@@ -61,7 +61,7 @@ const ELLIPSIS = '…';
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
 
-const elliptize = ({
+export const elliptize = ({
   pages,
   current,
   limit = 7,
