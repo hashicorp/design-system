@@ -29,11 +29,11 @@ export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSi
       false,
       {
         id: 'hds.components.sidenav.header.iconbutton',
-        until: '5.0.0', // TODO: Confirm version
-        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#480', // TODO: Confirm URL
+        until: '5.0.0',
+        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4100',
         for: '@hashicorp/design-system-components',
         since: {
-          enabled: '4.9.0', // TODO: Confirm version
+          enabled: '4.10.0',
         },
       }
     );
