@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 24 Jul 2024 00:26:23 GMT
+ * Generated on Tue, 27 Aug 2024 16:41:13 GMT
  */
 
 :root {
@@ -141,8 +141,8 @@
   --token-color-vagrant-foreground: #1c61d8;
   --token-color-vagrant-surface: #d6ebff;
   --token-color-vagrant-border: #c7dbfc;
-  --token-color-vagrant-gradient-primary-start: #c7dbfc;
-  --token-color-vagrant-gradient-primary-stop: #7dadff;
+  --token-color-vagrant-gradient-primary-start: #639cff;
+  --token-color-vagrant-gradient-primary-stop: #2e71e5;
   --token-color-vagrant-gradient-faint-start: #f4faff; /* this is the 'vagrant-50' value at 25% opacity on white */
   --token-color-vagrant-gradient-faint-stop: #d6ebff;
   --token-color-vault-radar-brand: #ffcf25;
