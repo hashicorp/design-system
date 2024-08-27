@@ -9,7 +9,11 @@ body.components-side-nav {
   $shw-component-side-nav-background: #0c0c0e;
 
   // Add to examples to constrain width
-  .shw-component-set-max-content-width {width: max-content;}
+  .shw-component-set-max-content-width {
+    width: max-content;
+    height: auto;
+    min-height: 0;
+  }
 
   // used to simulate a "root" container for the sidenav
   .shw-component-sim-side-nav-root-container {
@@ -80,6 +84,23 @@ body.components-side-nav {
     .ember-a11y-refocus-skip-link {
       position: static !important;
       transform: none !important;
+    }
+  }
+
+  .shw-component-dropdown-states-matrix {
+    .shw-grid__item {
+      // we hide all the labels (except for the first "row")
+      &:nth-child(n + 7) {
+        .shw-label {
+          visibility: hidden;
+        }
+      }
+      // we show the labels in the first "column"
+      &:nth-child(6n + 1) {
+        .shw-label {
+          visibility: visible;
+        }
+      }
     }
   }
 }
