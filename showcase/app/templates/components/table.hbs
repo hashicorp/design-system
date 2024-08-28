@@ -370,6 +370,38 @@
     </:body>
   </Hds::Table>
 
+  <Shw::Text::H3>Custom sorting</Shw::Text::H3>
+
+  {{! ============================================== }}
+  {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
+  {{! ============================================== }}
+
+  <Shw::Text::H4>Sortable table with sortBySelected</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year")
+    }}
+    @sortBy="artist"
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Tooltip</Shw::Text::H2>
