@@ -53,23 +53,23 @@ export default class HdsPaginationControlArrowComponent extends Component<HdsPag
       DIRECTIONS.includes(direction)
     );
 
-    let content: Partial<HdsPaginationControlArrowContent> = {};
-    if (direction === HdsPaginationDirectionValues.Prev) {
-      content = {
+    const hdsPaginationNavArrowContentDirectionMap: Record<
+      HdsPaginationDirections,
+      HdsPaginationControlArrowContent
+    > = {
+      [HdsPaginationDirectionValues.Prev]: {
         label: HdsPaginationDirectionLabelValues.Prev,
         icon: 'chevron-left',
         ariaLabel: HdsPaginationDirectionAriaLabelValues.Prev,
-      };
-    }
-    if (direction === HdsPaginationDirectionValues.Next) {
-      content = {
+      },
+      [HdsPaginationDirectionValues.Next]: {
         label: HdsPaginationDirectionLabelValues.Next,
         icon: 'chevron-right',
         ariaLabel: HdsPaginationDirectionAriaLabelValues.Next,
-      };
-    }
+      },
+    };
 
-    return content as HdsPaginationControlArrowContent;
+    return hdsPaginationNavArrowContentDirectionMap[direction];
   }
 
   get showLabel(): boolean {
