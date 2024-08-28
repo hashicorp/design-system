@@ -105,8 +105,15 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
 // multi-select (isSelectable=true)
 
-.hds-table__th--is-selectable {
-  width: 48px;
+// .hds-table__th--is-selectable {
+//   width: 48px;
+// }
+
+.hds-table__th--is-selectable__inner-wrapper {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .hds-table__th-content {

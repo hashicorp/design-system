@@ -38,20 +38,8 @@ export interface HdsTableThSortArgs {
 }
 
 export default class HdsTableThSortComponent extends Component<HdsTableThSortArgs> {
-  /**
-   * Generates a unique ID for the <span> element ("label")
-   *
-   * @param labelId
-   */
   labelId = guidFor(this);
 
-  /**
-   * @param ariaSort
-   * @type {HdsTableThSortOrderLabels}
-   * @private
-   * @default none
-   * @description Sets the aria-sort attribute based on the sort order defined; acceptable values are ascending, descending, none(default) and other. Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.
-   */
   get ariaSort(): HdsTableThSortOrderLabels {
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
@@ -64,12 +52,6 @@ export default class HdsTableThSortComponent extends Component<HdsTableThSortArg
     }
   }
 
-  /**
-   * @param align
-   * @type {HdsTableHorizontalAlignment}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -82,11 +64,6 @@ export default class HdsTableThSortComponent extends Component<HdsTableThSortArg
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-table__th', 'hds-table__th--sort'];
 

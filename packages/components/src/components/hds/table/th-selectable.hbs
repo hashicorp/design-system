@@ -4,16 +4,18 @@
 }}
 
 <Hds::Table::Th class="hds-table__th--is-selectable" @scope={{@selectionScope}} ...attributes>
-  <Hds::Form::Checkbox::Base
-    id={{this.checkboxId}}
-    class="hds-table__checkbox"
-    checked={{@isSelected}}
-    aria-label={{this.ariaLabel}}
-    {{did-insert this.didInsert}}
-    {{will-destroy this.willDestroyNode}}
-    {{on "change" this.onSelectionChange}}
-  />
-  {{#if @isHeaderRow}}
-    <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} />
-  {{/if}}
+  <div class="hds-table__th--is-selectable__inner-wrapper">
+    <Hds::Form::Checkbox::Base
+      id={{this.checkboxId}}
+      class="hds-table__checkbox"
+      checked={{@isSelected}}
+      aria-label={{this.ariaLabel}}
+      {{did-insert this.didInsert}}
+      {{will-destroy this.willDestroyNode}}
+      {{on "change" this.onSelectionChange}}
+    />
+    {{#if @isHeaderRow}}
+      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} />
+    {{/if}}
+  </div>
 </Hds::Table::Th>
