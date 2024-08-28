@@ -13,6 +13,9 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
+        @sortOrder={{if (eq "__selected__" this.sortBy) this.sortOrder}}
+        @onClickSort={{fn this.setSortBy "__selected__"}}
+        {{! NEW ABOVE }}
         @selectionScope="col"
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}

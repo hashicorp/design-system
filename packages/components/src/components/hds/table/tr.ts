@@ -4,13 +4,18 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { HdsTableScopeValues } from './types.ts';
-import type { HdsTableScope } from './types.ts';
+import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+import { tracked } from '@glimmer/tracking';
 
 export interface BaseHdsTableTrArgs {
   Args: {
+    sortOrder?: HdsTableThSortOrder;
+    onClickSort?: () => void;
+    // NEW ABOVE
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;
@@ -44,12 +49,25 @@ export interface SelectableHdsTableTrArgs extends BaseHdsTableTrArgs {
 // Union type to combine both possible states
 export type HdsTableTrArgs = BaseHdsTableTrArgs | SelectableHdsTableTrArgs;
 
+function getRowContainerElement(
+  element: HTMLTableRowElement
+): HTMLElement | null {
+  let parent = element.parentElement;
+
+  while (parent && parent.tagName !== 'TABLE') {
+    if (['TBODY', 'THEAD'].includes(parent.tagName)) {
+      return parent;
+    }
+
+    parent = parent.parentElement;
+  }
+
+  return parent;
+}
+
 export default class HdsTableTrComponent extends Component<HdsTableTrArgs> {
-  /**
-   * @param selectionKey
-   * @type {string}
-   * @default undefined
-   */
+  @tracked isHeaderRow = false;
+
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
@@ -59,5 +77,12 @@ export default class HdsTableTrComponent extends Component<HdsTableTrArgs> {
       return this.args.selectionKey;
     }
     return undefined;
+  }
+
+  @action
+  onInsert(element: HTMLTableRowElement): void {
+    const containerElement = getRowContainerElement(element);
+
+    this.isHeaderRow = containerElement?.tagName === 'THEAD';
   }
 }

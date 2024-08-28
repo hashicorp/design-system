@@ -10,13 +10,16 @@ import { tracked } from '@glimmer/tracking';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type { HdsTableScope } from './types';
 import type { HdsTableThArgs } from './th';
-
+import type { HdsTableTrArgs } from './tr';
 export interface HdsTableThSelectableArgs {
   Args: {
+    sortOrder: HdsTableTrArgs['Args']['sortOrder'];
+    onClickSort: HdsTableTrArgs['Args']['onClickSort'];
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
+    isHeaderRow?: boolean;
     isSelected?: boolean;
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],

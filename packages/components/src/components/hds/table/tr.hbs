@@ -3,10 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<tr class="hds-table__tr" ...attributes>
+<tr class="hds-table__tr" {{did-insert this.onInsert}} ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
+      @sortOrder={{@sortOrder}}
+      @onClickSort={{@onClickSort}}
+      {{! NEW ABOVE }}
       @isSelected={{@isSelected}}
+      @isHeaderRow={{this.isHeaderRow}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}
       @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
