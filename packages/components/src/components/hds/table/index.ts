@@ -7,6 +7,8 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
+import { A } from '@ember/array';
+
 import type { ComponentLike } from '@glint/template';
 
 import {
@@ -54,6 +56,7 @@ export interface HdsTableArgs {
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
+    selectedItemKey: string;
     sortBy?: string;
     sortedMessageText?: string;
     sortOrder?: HdsTableThSortOrder;
@@ -92,11 +95,48 @@ export default class HdsTableIndexComponent extends Component<HdsTableArgs> {
   selectableRows: HdsTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
 
+  sortModel = (
+    sortCriteria: string | HdsTableSortingFunction<unknown>,
+    model: typeof this.args.model
+  ): typeof this.args.model => {
+    if (sortCriteria === '__selected__') {
+      const { selectedModels, unselectedModels } = this.args.model.reduce(
+        (
+          acc: { selectedModels: unknown[]; unselectedModels: unknown[] },
+          model
+        ) => {
+          if (model[this.args.selectedItemKey]) {
+            acc.selectedModels.push(model);
+          } else {
+            acc.unselectedModels.push(model);
+          }
+          return acc;
+        },
+        { selectedModels: [], unselectedModels: [] }
+      );
+
+      console.log(selectedModels, unselectedModels);
+
+      return [...selectedModels, ...unselectedModels] as typeof this.args.model;
+    }
+
+    if (typeof sortCriteria === 'string') {
+      return A([...model]).sortBy(sortCriteria);
+    }
+
+    return model;
+  };
+
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
+    if (this.sortBy === '__selected__') {
+      return this.sortBy;
+    }
+
     // get the current column
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this.sortBy
     );
+
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
       currentColumn?.sortingFunction &&

@@ -381,7 +381,8 @@
 
   <Hds::Table
     @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @selectedItemKey="isSelected"
+    @onSelectionChange={{this.onSelectionChangeSortSelected}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)

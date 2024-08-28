@@ -241,6 +241,25 @@ export default class ComponentsTableController extends Controller {
   }
 
   @action
+  onSelectionChangeSortSelected({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    if (selectionKey === 'all' && this.model.music) {
+      updateModelWithSelectAllState(
+        this.model.music,
+        selectionCheckboxElement.checked
+      );
+    } else {
+      updateModelWithSelectableRowsStates(
+        this.model.music,
+        selectableRowsStates
+      );
+    }
+  }
+
+  @action
   onSelectionChangeWithModel__demo1({
     selectionKey,
     selectionCheckboxElement,
