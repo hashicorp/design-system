@@ -38,9 +38,9 @@ interface HdsPaginationNumberedArgs {
   showLabels?: boolean;
   isTruncated?: boolean;
   currentPage?: number;
-  showInfo?: boolean; //TODO: Add this to the docs
-  showPageNumbers?: boolean; //TODO: Add this to the docs
-  showTotalItems?: boolean; //TODO: Add this to the docs
+  showInfo?: boolean;
+  showPageNumbers?: boolean;
+  showTotalItems?: boolean;
   showSizeSelector?: boolean;
   sizeSelectorLabel?: string;
   pageSizes?: number[];
