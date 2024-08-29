@@ -435,6 +435,15 @@
       </B.Tr>
     </:body>
   </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.multiSelectPaginatedTotalItems_demo2}}
+    @currentPageSize={{this.multiSelectPaginatedCurrentPageSize_demo2}}
+    @pageSizes={{array 2 4}}
+    @currentPage={{this.multiSelectPaginatedCurrentPage_demo2}}
+    @onPageChange={{this.onMultiSelectPaginatedPageChange_demo2}}
+    @onPageSizeChange={{this.onMultiSelectPaginatedPageSizeChange_demo2}}
+    @ariaLabel="Pagination for basic multi-select table"
+  />
 
   {{!-- <Shw::Divider />
 
