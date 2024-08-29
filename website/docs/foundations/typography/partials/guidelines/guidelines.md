@@ -31,27 +31,27 @@ While text styling varies slightly across operating systems, users will have a c
 
 Large text (20px and above): SF Pro Display
 
-![Sans-serif display on Mac](/assets/foundations/typography/typography-sans-serif-display-mac.png)
+![](/assets/foundations/typography/typography-sans-serif-display-mac.png)
 
 Small text (19px and lower): SF Pro Text
 
-![Sans-serif text on Mac](/assets/foundations/typography/typography-sans-serif-mac.png)
+![](/assets/foundations/typography/typography-sans-serif-mac.png)
 
 #### Windows sans-serif font
 
 Large text (20px and above): Segoe UI Display
 
-![Sans-serif display on Mac](/assets/foundations/typography/typography-sans-serif-display-windows.png)
+![](/assets/foundations/typography/typography-sans-serif-display-windows.png)
 
 Small text (19px and lower): Segoe UI Text
 
-![Sans-serif text on Mac](/assets/foundations/typography/typography-sans-serif-windows.png)
+![](/assets/foundations/typography/typography-sans-serif-windows.png)
 
 #### Linux sans-serif font
 
 Linux sans-serif system font dependant on the Linux distribution
 
-![Sans-serif font for Linux.](/assets/foundations/typography/typography-sans-serif-linux.png)
+![](/assets/foundations/typography/typography-sans-serif-linux.png)
 
 ### Monospace
 
@@ -59,23 +59,23 @@ Linux sans-serif system font dependant on the Linux distribution
 
 Safari 13+: SF Mono
 
-![Monospace for Safari 13+ on Mac](/assets/foundations/typography/typography-monospace-safari-13-mac.png)
+![](/assets/foundations/typography/typography-monospace-safari-13-mac.png)
 
 All else: Menlo
 
-![Monospace for all other versions on Mac](/assets/foundations/typography/typography-monospace-menlo-mac.png)
+![](/assets/foundations/typography/typography-monospace-menlo-mac.png)
 
 #### Windows
 
 Consolas
 
-![Monospace on Mac](/assets/foundations/typography/typography-monospace-menlo-mac.png)
+![](/assets/foundations/typography/typography-monospace-menlo-mac.png)
 
 #### Linux
 
 Linux monospace system font dependant on the Linux distribution
 
-![Monospace on Linux](/assets/foundations/typography/typography-monospace-linux.png)
+![](/assets/foundations/typography/typography-monospace-linux.png)
 
 ## Font weights
 
@@ -96,27 +96,21 @@ Display styles should be used for headings or visual emphasis (like remaining ba
 
 Display text styles are available in the following sizes and weights:
 
-<Hds::Text::Display @size="500" @weight="bold">Display 500 (30px) - Bold</Hds::Text::Display>
-<br/>
-<br/>
-<Hds::Text::Display @size="400" @weight="bold">Display 400 (24px) - Bold</Hds::Text::Display>
-<br/>
-<Hds::Text::Display @size="400" @weight="semibold">Display 400 (24px) - Semibold</Hds::Text::Display>
-<br/>
-<Hds::Text::Display @size="400" @weight="medium">Display 400 (24px) - Medium</Hds::Text::Display>
-<br/>
-<br/>
-<Hds::Text::Display @size="300" @weight="bold">Display 300 (18px) - Bold</Hds::Text::Display>
-<br/>
-<Hds::Text::Display @size="300" @weight="semibold">Display 300 (18px) - Semibold</Hds::Text::Display>
-<br/>
-<Hds::Text::Display @size="300" @weight="medium">Display 300 (18px) - Medium</Hds::Text::Display>
-<br/>
-<br/>
-<Hds::Text::Display @size="200" @weight="semibold">Display 200 (16px) - Semibold</Hds::Text::Display>
-<br/>
-<br/>
-<Hds::Text::Display @size="100" @weight="medium">Display 100 (13px) - Medium</Hds::Text::Display>
+<ul class='doc-typography-demo-display-list'>
+    <li class="hds-typography-display-500 hds-font-weight-bold">Display 500 (30px) - Bold</li>
+    <br/>
+    <li class="hds-typography-display-400 hds-font-weight-bold">Display 400 (24px) - Bold</li>
+    <li class="hds-typography-display-400 hds-font-weight-semibold">Display 400 (24px) - Semibold</li>
+    <li class="hds-typography-display-400 hds-font-weight-medium">Display 400 (24px) - Medium</li>
+    <br/>
+    <li class="hds-typography-display-300 hds-font-weight-bold">Display 300 (18px) - Bold</li>
+    <li class="hds-typography-display-300 hds-font-weight-semibold">Display 300 (18px) - Semibold</li>
+    <li class="hds-typography-display-300 hds-font-weight-medium">Display 300 (18px) - Medium</li>
+    <br/>
+    <li class="hds-typography-display-200 hds-font-weight-semibold">Display 200 (16px) - Semibold</li>
+    <br/>
+    <li class="hds-typography-display-100 hds-font-weight-semibold">Display 100 (13px) - Medium</li>
+</ul>
 
 ### Body
 
@@ -124,25 +118,19 @@ Body styles should be used for all general page content. Commonly placed within 
 
 Body text styles are available in the following weights and sizes:
 
-<Hds::Text::Body @size="300" @weight="semibold">Body 300 (16px) - Semibold</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="300" @weight="medium">Body 300 (16px) - Medium</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="300" @weight="regular">Body 300 (16px) - Regular</Hds::Text::Body>
-<br/>
-<br/>
-<Hds::Text::Body @size="200" @weight="semibold">Body 200 (14px) - Semibold</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="200" @weight="medium">Body 200 (14px) - Medium</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="200" @weight="regular">Body 200 (14px) - Regular</Hds::Text::Body>
-<br/>
-<br/>
-<Hds::Text::Body @size="100" @weight="semibold">Body 100 (13px) - Semibold</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="100" @weight="medium">Body 100 (13px) - Medium</Hds::Text::Body>
-<br/>
-<Hds::Text::Body @size="100" @weight="regular">Body 100 (13px) - Regular</Hds::Text::Body>
+<ul class='doc-typography-demo-display-list'>
+    <li class="hds-typography-body-300 hds-font-weight-semibold">Body 300 (16px) - Semibold</li>
+    <li class="hds-typography-body-300 hds-font-weight-medium">Body 300 (16px) - Medium</li>
+    <li class="hds-typography-body-300 hds-font-weight-regular">Body 300 (16px) - Regular</li>
+    <br/>
+    <li class="hds-typography-body-200 hds-font-weight-semibold">Body 200 (14px) - Semibold</li>
+    <li class="hds-typography-body-200 hds-font-weight-medium">Body 200 (14px) - Medium</li>
+    <li class="hds-typography-body-200 hds-font-weight-regular">Body 200 (14px) - Regular</li>
+    <br/>
+    <li class="hds-typography-body-100 hds-font-weight-semibold">Body 100 (13px) - Semibold</li>
+    <li class="hds-typography-body-100 hds-font-weight-medium">Body 100 (13px) - Medium</li>
+    <li class="hds-typography-body-100 hds-font-weight-regular">Body 100 (13px) - Regular</li>
+</ul>
 
 ### Code
 
@@ -150,19 +138,16 @@ Code styles are used exclusively for text representing code in the UI (like the 
 
 Code text styles come in the following weights and sizes:
 
-<Hds::Text::Code @size="300" @weight="bold">Code 300 (16px) - Bold</Hds::Text::Code>
-<br/>
-<Hds::Text::Code @size="300" @weight="regular">Code 300 (16px) - Regular</Hds::Text::Code>
-<br/>
-<br/>
-<Hds::Text::Code @size="200" @weight="bold">Code 200 (14px) - Bold</Hds::Text::Code>
-<br/>
-<Hds::Text::Code @size="200" @weight="regular">Code 200 (14px) - Regular</Hds::Text::Code>
-<br/>
-<br/>
-<Hds::Text::Code @size="100" @weight="bold">Code 100 (13px) - Bold</Hds::Text::Code>
-<br/>
-<Hds::Text::Code @size="100" @weight="regular">Code 100 (13px) - Regular</Hds::Text::Code>
+<ul class='doc-typography-demo-display-list'>
+    <li class="hds-typography-code-300 hds-font-weight-bold">Code 300 (16px) - Bold</li>
+    <li class="hds-typography-code-300 hds-font-weight-regular">Code 300 (16px) - Regular</li>
+    <br/>
+    <li class="hds-typography-code-200 hds-font-weight-bold">Code 200 (14px) - Bold</li>
+    <li class="hds-typography-code-200 hds-font-weight-regular">Code 200 (14px) - Regular</li>
+    <br/>
+    <li class="hds-typography-code-100 hds-font-weight-bold">Code 100 (13px) - Bold</li>
+    <li class="hds-typography-code-100 hds-font-weight-regular">Code 100 (13px) - Regular</li>
+</ul>
 
 ## How typography is used
 
@@ -182,11 +167,11 @@ For more details about form patterns, read the [form patterns](/patterns/form-pa
 
 The [Text](/components/text) component does not equate a specific style (Body, Display, or Code) with a specific HTML semantic structure (like `<p/>`, `<h1/>` or `<span>`), it is up to the consumer to define the logical semantic element for the each piece of text. To ensure accessible page content, the scaling of the Display styles often are associated with the scaling of the HTML headings such as:
 
-- Display 500 -> H1
-- Display 400 -> H2
-- Display 300 -> H3
-- Display 200 -> H4
-- Display 100 -> H5
+- Display 500 → H1
+- Display 400 → H2
+- Display 300 → H3
+- Display 200 → H4
+- Display 100 → H5
 
 In general we recommend mapping Display font sizes sequentially to markup, but this is not always possible. Additionally, Display text styles do not always need to be headings. They may be used to emphasize important information, such as remaining balances, so that users are able to visually understand the level of importance of information on the page.
 
