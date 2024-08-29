@@ -15,7 +15,7 @@ export interface HdsRevealToggleButtonSignature {
   Element: HdsButtonSignature['Element'];
 }
 
-export default class HdsRevealToggleButtonComponent extends Component<HdsRevealToggleButtonSignature> {
+export default class HdsRevealToggleButton extends Component<HdsRevealToggleButtonSignature> {
   /**
    * Get the class names to apply to the component.
    * @method ToggleButton#classNames

@@ -9,7 +9,7 @@ interface HdsFormFileInputBaseSignature {
   Element: HTMLInputElement;
 }
 
-const HdsFormFileInputBaseComponent =
+const HdsFormFileInputBase =
   templateOnlyComponent<HdsFormFileInputBaseSignature>();
 
-export default HdsFormFileInputBaseComponent;
+export default HdsFormFileInputBase;

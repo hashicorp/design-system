@@ -27,7 +27,7 @@ export interface HdsTabsPanelSignature {
   Element: HTMLElement;
 }
 
-export default class HdsTabsPanelComponent extends Component<HdsTabsPanelSignature> {
+export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
   /**
    * Generate a unique ID for the Panel
    * @return {string}

@@ -29,4 +29,4 @@ export interface HdsSideNavPortalSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsSideNavPortalComponent extends Component<HdsSideNavPortalSignature> {}
+export default class HdsSideNavPortal extends Component<HdsSideNavPortalSignature> {}

@@ -14,7 +14,7 @@ interface HdsFlyoutDescriptionSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-export default class HdsFlyoutDescriptionComponent extends Component<HdsFlyoutDescriptionSignature> {
+export default class HdsFlyoutDescription extends Component<HdsFlyoutDescriptionSignature> {
   constructor(owner: unknown) {
     super(owner, {});
 

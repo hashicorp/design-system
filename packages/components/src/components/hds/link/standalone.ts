@@ -37,7 +37,7 @@ export const ICONPOSITIONS: string[] = Object.values(HdsLinkIconPositionValues);
 export const COLORS: string[] = Object.values(HdsLinkColorValues);
 export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
 
-export default class HdsLinkStandaloneComponent extends Component<HdsLinkStandaloneSignature> {
+export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignature> {
   constructor(owner: unknown, args: HdsLinkStandaloneSignature['Args']) {
     super(owner, args);
     if (!(this.args.href || this.args.route)) {

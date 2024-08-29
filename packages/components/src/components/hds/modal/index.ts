@@ -55,7 +55,7 @@ export interface HdsModalIndexSignature {
   Element: HTMLDialogElement;
 }
 
-export default class HdsModalIndexComponent extends Component<HdsModalIndexSignature> {
+export default class HdsModalIndex extends Component<HdsModalIndexSignature> {
   @tracked isOpen = false;
   @tracked isDismissDisabled = this.args.isDismissDisabled ?? false;
   element!: HTMLDialogElement;

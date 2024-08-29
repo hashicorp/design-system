@@ -17,10 +17,8 @@ export interface HdsCodeBlockTitleSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-class HdsCodeBlockTitleComponent extends Component<HdsCodeBlockTitleSignature> {
+export default class HdsCodeBlockTitle extends Component<HdsCodeBlockTitleSignature> {
   get componentTag(): HdsCodeBlockTitleTags {
     return this.args.tag ?? HdsCodeBlockTitleTagValues.P;
   }
 }
-
-export default HdsCodeBlockTitleComponent;

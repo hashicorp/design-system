@@ -22,7 +22,7 @@ export interface HdsFormSelectBaseSignature {
   Element: HTMLSelectElement;
 }
 
-export default class HdsFormSelectBaseComponent extends Component<HdsFormSelectBaseSignature> {
+export default class HdsFormSelectBase extends Component<HdsFormSelectBaseSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames

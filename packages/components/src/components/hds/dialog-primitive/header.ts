@@ -26,7 +26,7 @@ export interface HdsDialogPrimitiveHeaderSignature {
 
 const NOOP = (): void => {};
 
-export default class HdsDialogPrimitiveHeaderComponent extends Component<HdsDialogPrimitiveHeaderSignature> {
+export default class HdsDialogPrimitiveHeader extends Component<HdsDialogPrimitiveHeaderSignature> {
   get titleTag(): HdsDialogPrimitiveHeaderTitleTags {
     return this.args.titleTag ?? HdsDialogPrimitiveHeaderTitleTagValues.Div;
   }

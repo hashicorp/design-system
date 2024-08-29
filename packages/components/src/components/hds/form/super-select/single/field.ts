@@ -18,7 +18,7 @@ interface HdsFormSuperSelectSingleFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-export default class HdsFormSuperSelectSingleFieldComponent extends Component<HdsFormSuperSelectSingleFieldSignature> {
+export default class HdsFormSuperSelectSingleField extends Component<HdsFormSuperSelectSingleFieldSignature> {
   get idPrefix(): string {
     return ID_PREFIX;
   }

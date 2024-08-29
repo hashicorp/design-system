@@ -31,7 +31,7 @@ interface HdsRichTooltipSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsRichTooltipComponent extends Component<HdsRichTooltipSignature> {
+export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
   elementId: string = getElementId(this);
   arrowId: string = `arrow-${this.elementId}`;
   popoverId: string = `popover-${this.elementId}`;

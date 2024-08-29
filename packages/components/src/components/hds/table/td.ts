@@ -23,7 +23,7 @@ export interface HdsTableTdArgs {
   };
   Element: HTMLTableCellElement;
 }
-export default class HdsTableTdComponent extends Component<HdsTableTdArgs> {
+export default class HdsTableTd extends Component<HdsTableTdArgs> {
   /**
    * @param align
    * @type {string}

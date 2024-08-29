@@ -13,7 +13,7 @@ export interface HdsModalBodySignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsModalBodyComponent extends Component<HdsModalBodySignature> {
+export default class HdsModalBody extends Component<HdsModalBodySignature> {
   constructor(owner: unknown) {
     super(owner, {});
 

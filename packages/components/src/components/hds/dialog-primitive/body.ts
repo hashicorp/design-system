@@ -15,7 +15,7 @@ export interface HdsDialogPrimitiveBodySignature {
   Element: HTMLDivElement;
 }
 
-const HdsDialogPrimitiveBodyComponent =
+const HdsDialogPrimitiveBody =
   templateOnlyComponent<HdsDialogPrimitiveBodySignature>();
 
-export default HdsDialogPrimitiveBodyComponent;
+export default HdsDialogPrimitiveBody;

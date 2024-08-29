@@ -16,7 +16,7 @@ export interface HdsDropdownListItemCopyItemSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsDropdownListItemCopyItemComponent extends Component<HdsDropdownListItemCopyItemSignature> {
+export default class HdsDropdownListItemCopyItem extends Component<HdsDropdownListItemCopyItemSignature> {
   /**
    * @param text
    * @type {string}

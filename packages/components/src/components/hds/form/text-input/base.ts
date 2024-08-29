@@ -26,7 +26,7 @@ export interface HdsFormTextInputBaseSignature {
   Element: HTMLInputElement;
 }
 
-export default class HdsFormTextInputBaseComponent extends Component<HdsFormTextInputBaseSignature> {
+export default class HdsFormTextInputBase extends Component<HdsFormTextInputBaseSignature> {
   /**
    * Sets the type of input
    *

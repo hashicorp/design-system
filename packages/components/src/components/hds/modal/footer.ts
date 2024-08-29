@@ -16,7 +16,7 @@ export interface HdsModalFooterSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsModalFooterComponent extends Component<HdsModalFooterSignature> {
+export default class HdsModalFooter extends Component<HdsModalFooterSignature> {
   constructor(owner: unknown, args: HdsModalFooterSignature['Args']) {
     super(owner, args);
 

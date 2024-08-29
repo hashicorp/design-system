@@ -16,7 +16,7 @@ export interface HdsCodeBlockCopyButtonSignature {
   Element: HdsCopyButtonSignature['Element'];
 }
 
-const HdsCodeBlockCopyButtonComponent =
+const HdsCodeBlockCopyButton =
   templateOnlyComponent<HdsCodeBlockCopyButtonSignature>();
 
-export default HdsCodeBlockCopyButtonComponent;
+export default HdsCodeBlockCopyButton;

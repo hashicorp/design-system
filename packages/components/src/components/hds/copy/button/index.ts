@@ -31,7 +31,7 @@ export interface HdsCopyButtonSignature {
   Element: HdsButtonSignature['Element'];
 }
 
-export default class HdsCopyButtonComponent extends Component<HdsCopyButtonSignature> {
+export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
   @tracked status = DEFAULT_STATUS;
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 

@@ -120,7 +120,7 @@ export const elliptize = ({
 
   return result;
 };
-export default class HdsPaginationNumberedComponent extends Component<HdsPaginationNumberedSignature> {
+export default class HdsPaginationNumbered extends Component<HdsPaginationNumberedSignature> {
   // These two private variables are used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).

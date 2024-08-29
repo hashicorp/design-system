@@ -12,7 +12,7 @@ export interface HdsApplicationStateMediaSignature {
   Element: HTMLDivElement;
 }
 
-const HdsApplicationStateMediaComponent =
+const HdsApplicationStateMedia =
   TemplateOnlyComponent<HdsApplicationStateMediaSignature>();
 
-export default HdsApplicationStateMediaComponent;
+export default HdsApplicationStateMedia;

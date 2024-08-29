@@ -12,7 +12,6 @@ export interface HdsSideNavListItemSignature {
   Element: HTMLLIElement;
 }
 
-const HdsSideNavListItemComponent =
-  TemplateOnlyComponent<HdsSideNavListItemSignature>();
+const HdsSideNavListItem = TemplateOnlyComponent<HdsSideNavListItemSignature>();
 
-export default HdsSideNavListItemComponent;
+export default HdsSideNavListItem;

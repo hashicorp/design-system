@@ -15,7 +15,7 @@ export interface HdsFormIndicatorSignature {
   Element: HdsTextBodySignature['Element'] | HdsBadgeSignature['Element'];
 }
 
-export default class HdsFormIndicatorComponent extends Component<HdsFormIndicatorSignature> {
+export default class HdsFormIndicator extends Component<HdsFormIndicatorSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames

@@ -26,7 +26,7 @@ export interface HdsTableThButtonSortArgs {
 
 const NOOP = () => {};
 
-export default class HdsTableThButtonSortComponent extends Component<HdsTableThButtonSortArgs> {
+export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortArgs> {
   /**
    * Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
    *

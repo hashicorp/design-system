@@ -10,6 +10,6 @@ export interface HdsToastSignature extends Omit<HdsAlertSignature, 'Args'> {
   Args: Omit<HdsAlertSignature['Args'], 'type'>;
 }
 
-const HdsToastComponent = TemplateOnlyComponent<HdsToastSignature>();
+const HdsToast = TemplateOnlyComponent<HdsToastSignature>();
 
-export default HdsToastComponent;
+export default HdsToast;

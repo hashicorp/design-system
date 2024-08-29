@@ -21,7 +21,7 @@ interface HdsAccordionItemButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsAccordionItemButtonComponent extends Component<HdsAccordionItemButtonSignature> {
+export default class HdsAccordionItemButton extends Component<HdsAccordionItemButtonSignature> {
   @action
   onClick(event: MouseEvent): void {
     if (this.args.onClickToggle) {

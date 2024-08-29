@@ -47,7 +47,7 @@ interface HdsPaginationCompactSignature {
 // for context about the decision to use these values, see:
 // https://hashicorp.slack.com/archives/C03A0N1QK8S/p1673546329082759
 export const DEFAULT_PAGE_SIZES = [10, 30, 50];
-export default class HdsPaginationCompactComponent extends Component<HdsPaginationCompactSignature> {
+export default class HdsPaginationCompact extends Component<HdsPaginationCompactSignature> {
   // This private variable is used to differentiate between
   // "uncontrolled" component (where the state is handled internally) and
   // "controlled" component (where the state is handled externally, by the consumer's code).

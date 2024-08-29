@@ -30,7 +30,7 @@ export interface HdsDropdownToggleIconSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsDropdownToggleIconComponent extends Component<HdsDropdownToggleIconSignature> {
+export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIconSignature> {
   @tracked hasImage = true;
 
   constructor(owner: unknown, args: HdsDropdownToggleIconSignature['Args']) {

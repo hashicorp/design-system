@@ -76,7 +76,7 @@ export interface HdsTextBodySignature {
   };
 }
 
-export default class HdsTextBodyComponent extends Component<HdsTextBodySignature> {
+export default class HdsTextBody extends Component<HdsTextBodySignature> {
   /**
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES

@@ -8,6 +8,6 @@ interface HdsButtonSetSignature {
   Blocks: { default: [] };
   Element: HTMLDivElement;
 }
-const HdsButtonSetComponent = TemplateOnlyComponent<HdsButtonSetSignature>();
+const HdsButtonSet = TemplateOnlyComponent<HdsButtonSetSignature>();
 
-export default HdsButtonSetComponent;
+export default HdsButtonSet;

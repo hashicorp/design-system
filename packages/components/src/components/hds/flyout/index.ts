@@ -57,7 +57,7 @@ export interface HdsFlyoutIndexSignature {
   Element: HTMLDialogElement;
 }
 
-export default class HdsFlyoutIndexComponent extends Component<HdsFlyoutIndexSignature> {
+export default class HdsFlyoutIndex extends Component<HdsFlyoutIndexSignature> {
   @tracked isOpen = false;
   element!: HTMLDialogElement;
   body!: HTMLElement;

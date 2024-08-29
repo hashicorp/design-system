@@ -14,7 +14,7 @@ export interface HdsFormErrorMessageSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-const HdsFormErrorMessageComponent =
+const HdsFormErrorMessage =
   templateOnlyComponent<HdsFormErrorMessageSignature>();
 
-export default HdsFormErrorMessageComponent;
+export default HdsFormErrorMessage;

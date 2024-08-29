@@ -12,4 +12,4 @@ export interface HdsAppFrameModalsSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAppFrameModalsComponent extends Component<HdsAppFrameModalsSignature> {}
+export default class HdsAppFrameModals extends Component<HdsAppFrameModalsSignature> {}

@@ -16,10 +16,8 @@ export interface HdsAlertTitleSignature {
   Element: HTMLDivElement;
 }
 
-class HdsAlertTitleComponent extends Component<HdsAlertTitleSignature> {
+export default class HdsAlertTitle extends Component<HdsAlertTitleSignature> {
   get componentTag(): HdsAlertTitleTags {
     return this.args.tag ?? HdsAlertTitleTagValues.Div;
   }
 }
-
-export default HdsAlertTitleComponent;

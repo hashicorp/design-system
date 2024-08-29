@@ -33,7 +33,7 @@ interface HdsFormCharacterCountSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-export default class HdsFormCharacterCountComponent extends Component<HdsFormCharacterCountSignature> {
+export default class HdsFormCharacterCount extends Component<HdsFormCharacterCountSignature> {
   // The current number of characters in @value
   get currentLength(): number {
     const { value } = this.args;

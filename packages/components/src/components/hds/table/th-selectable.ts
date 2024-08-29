@@ -30,7 +30,7 @@ export interface HdsTableThSelectableArgs {
   Element: HdsTableThArgs['Element'];
 }
 
-export default class HdsTableThSelectableComponent extends Component<HdsTableThSelectableArgs> {
+export default class HdsTableThSelectable extends Component<HdsTableThSelectableArgs> {
   @tracked isSelected = this.args.isSelected;
 
   /**

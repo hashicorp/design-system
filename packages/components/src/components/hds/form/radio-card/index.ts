@@ -57,7 +57,7 @@ export interface HdsFormRadioCardSignature {
   Element: HdsFormRadioBaseSignature['Element'];
 }
 
-export default class HdsFormRadioCardComponent extends Component<HdsFormRadioCardSignature> {
+export default class HdsFormRadioCard extends Component<HdsFormRadioCardSignature> {
   /**
    * Sets the position of the control
    * Accepted values: buttom, left

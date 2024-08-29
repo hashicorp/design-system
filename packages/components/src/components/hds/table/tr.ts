@@ -44,7 +44,7 @@ export interface SelectableHdsTableTrArgs extends BaseHdsTableTrArgs {
 // Union type to combine both possible states
 export type HdsTableTrArgs = BaseHdsTableTrArgs | SelectableHdsTableTrArgs;
 
-export default class HdsTableTrComponent extends Component<HdsTableTrArgs> {
+export default class HdsTableTr extends Component<HdsTableTrArgs> {
   /**
    * @param selectionKey
    * @type {string}

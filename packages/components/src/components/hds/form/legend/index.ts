@@ -19,7 +19,7 @@ export interface HdsFormLegendSignature {
   Element: HTMLLegendElement;
 }
 
-export default class HdsFormLegendComponent extends Component<HdsFormLegendSignature> {
+export default class HdsFormLegend extends Component<HdsFormLegendSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames

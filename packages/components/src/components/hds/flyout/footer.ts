@@ -16,7 +16,7 @@ interface HdsFlyoutFooterSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFlyoutFooterComponent extends Component<HdsFlyoutFooterSignature> {
+export default class HdsFlyoutFooter extends Component<HdsFlyoutFooterSignature> {
   constructor(owner: unknown, args: HdsFlyoutFooterSignature['Args']) {
     super(owner, args);
 

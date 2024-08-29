@@ -34,7 +34,7 @@ interface HdsFormRadioCardGroupSignature {
   Element: HdsFormFieldsetSignature['Element'];
 }
 
-const HdsFormRadioCardGroupComponent =
+const HdsFormRadioCardGroup =
   templateOnlyComponent<HdsFormRadioCardGroupSignature>();
 
-export default HdsFormRadioCardGroupComponent;
+export default HdsFormRadioCardGroup;

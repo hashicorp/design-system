@@ -17,7 +17,7 @@ interface HdsFormSuperSelectOptionGroupSignature {
   };
 }
 
-export default class HdsFormSuperSelectOptionGroupComponent extends Component<HdsFormSuperSelectOptionGroupSignature> {
+export default class HdsFormSuperSelectOptionGroup extends Component<HdsFormSuperSelectOptionGroupSignature> {
   /**
    * Generates a unique ID for the group title
    * @return {string}

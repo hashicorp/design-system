@@ -13,7 +13,7 @@ interface HdsFormSuperSelectAfterOptionsSignature {
   };
 }
 
-const HdsFormSuperSelectAfterOptionsComponent =
+const HdsFormSuperSelectAfterOptions =
   templateOnlyComponent<HdsFormSuperSelectAfterOptionsSignature>();
 
-export default HdsFormSuperSelectAfterOptionsComponent;
+export default HdsFormSuperSelectAfterOptions;

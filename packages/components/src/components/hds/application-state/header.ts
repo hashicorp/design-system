@@ -18,7 +18,7 @@ export interface HdsApplicationStateHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsApplicationStateHeaderComponent extends Component<HdsApplicationStateHeaderSignature> {
+export default class HdsApplicationStateHeader extends Component<HdsApplicationStateHeaderSignature> {
   get titleTag(): HdsApplicationStateTitleTags {
     return this.args.titleTag ?? HdsApplicationStateTitleTagValues.Div;
   }

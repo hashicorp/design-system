@@ -12,7 +12,7 @@ export interface HdsAppFooterCopyrightSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppFooterCopyrightComponent extends Component<HdsAppFooterCopyrightSignature> {
+export default class HdsAppFooterCopyright extends Component<HdsAppFooterCopyrightSignature> {
   /**
    * @param year
    * @type {string}

@@ -36,7 +36,7 @@ export interface HdsTextSignature {
   };
 }
 
-export default class HdsTextComponent extends Component<HdsTextSignature> {
+export default class HdsText extends Component<HdsTextSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *

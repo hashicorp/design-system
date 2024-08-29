@@ -82,17 +82,17 @@ import HdsLinkInline from './components/hds/link/inline.ts';
 import HdsLinkStandalone from './components/hds/link/standalone.ts';
 import HdsMenuPrimitive from './components/hds/menu-primitive/index.ts';
 import HdsModal from './components/hds/modal/index.ts';
-import HdsModalBodyComponent from './components/hds/modal/body.ts';
+import HdsModalBody from './components/hds/modal/body.ts';
 import HdsModalFooter from './components/hds/modal/footer.ts';
 import HdsModalHeader from './components/hds/modal/header.ts';
 import HdsPageHeader from './components/hds/page-header/index.ts';
-import HdsPaginationCompactComponent from './components/hds/pagination/compact/index.ts';
-import HdsPaginationControlInfoComponent from './components/hds/pagination/info/index.ts';
-import HdsPaginationControlArrowComponent from './components/hds/pagination/nav/arrow.ts';
-import HdsPaginationControlEllipsisComponent from './components/hds/pagination/nav/ellipsis.ts';
-import HdsPaginationControlNumberComponent from './components/hds/pagination/nav/number.ts';
-import HdsPaginationNumberedComponent from './components/hds/pagination/numbered/index.ts';
-import HdsPaginationSizeSelectorComponent from './components/hds/pagination/size-selector/index.ts';
+import HdsPaginationCompact from './components/hds/pagination/compact/index.ts';
+import HdsPaginationControlInfo from './components/hds/pagination/info/index.ts';
+import HdsPaginationControlArrow from './components/hds/pagination/nav/arrow.ts';
+import HdsPaginationControlEllipsis from './components/hds/pagination/nav/ellipsis.ts';
+import HdsPaginationControlNumber from './components/hds/pagination/nav/number.ts';
+import HdsPaginationNumbered from './components/hds/pagination/numbered/index.ts';
+import HdsPaginationSizeSelector from './components/hds/pagination/size-selector/index.ts';
 import HdsPopoverPrimitive from './components/hds/popover-primitive/index.ts';
 import HdsReveal from './components/hds/reveal/index.ts';
 import HdsRichTooltip from './components/hds/rich-tooltip/index.ts';
@@ -204,17 +204,17 @@ export {
   HdsLinkStandalone,
   HdsMenuPrimitive,
   HdsModal,
-  HdsModalBodyComponent,
+  HdsModalBody,
   HdsModalFooter,
   HdsModalHeader,
   HdsPageHeader,
-  HdsPaginationCompactComponent,
-  HdsPaginationControlInfoComponent,
-  HdsPaginationControlArrowComponent,
-  HdsPaginationControlEllipsisComponent,
-  HdsPaginationControlNumberComponent,
-  HdsPaginationNumberedComponent,
-  HdsPaginationSizeSelectorComponent,
+  HdsPaginationCompact,
+  HdsPaginationControlInfo,
+  HdsPaginationControlArrow,
+  HdsPaginationControlEllipsis,
+  HdsPaginationControlNumber,
+  HdsPaginationNumbered,
+  HdsPaginationSizeSelector,
   HdsPopoverPrimitive,
   HdsReveal,
   HdsRichTooltip,

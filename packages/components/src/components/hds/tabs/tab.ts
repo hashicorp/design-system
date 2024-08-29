@@ -28,7 +28,7 @@ export interface HdsTabsTabSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsTabsTabComponent extends Component<HdsTabsTabSignature> {
+export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
   /**
    * Generate a unique ID for the Tab
    * @return {string}

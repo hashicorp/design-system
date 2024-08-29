@@ -63,7 +63,7 @@ export interface HdsCodeBlockSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsCodeBlockComponent extends Component<HdsCodeBlockSignature> {
+export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @tracked prismCode: SafeString = htmlSafe('');
 
   /**
