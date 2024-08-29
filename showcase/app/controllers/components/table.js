@@ -88,6 +88,26 @@ export default class ComponentsTableController extends Controller {
     });
   }
 
+  @action
+  sortSpaceships(_sortBy, sortOrder) {
+    const { spaceships } = this;
+    const { selectedRows, unselectedRows } = spaceships.reduce(
+      (acc, row) => {
+        if (row.isSelected) {
+          acc.selectedRows.push(row);
+        } else {
+          acc.unselectedRows.push(row);
+        }
+        return acc;
+      },
+      { selectedRows: [], unselectedRows: [] }
+    );
+
+    return sortOrder === 'asc'
+      ? [...selectedRows, ...unselectedRows]
+      : [...unselectedRows, ...selectedRows];
+  }
+
   // end new stuff
 
   // custom sorting

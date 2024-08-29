@@ -168,6 +168,7 @@ export default class HdsTableIndexComponent extends Component<HdsTableArgs> {
     }
 
     const splitSortConfig = sortConfig.split(':');
+
     const sortBy = splitSortConfig[0] as string;
     const sortOrder = splitSortConfig[1] as HdsTableThSortOrder;
 

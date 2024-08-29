@@ -376,7 +376,7 @@
   {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
   {{! ============================================== }}
 
-  <Shw::Text::H4>Sortable table with sortBySelected</Shw::Text::H4>
+  <Shw::Text::H4>Internal sort by selected</Shw::Text::H4>
 
   <Hds::Table
     @isSelectable={{true}}
@@ -387,9 +387,40 @@
       (hash key="name" label="Name" isSortable=true)
       (hash key="speed" label="Speed" isSortable=true)
       (hash key="crew" label="Crew" isSortable=true)
-      (hash key="passengers" label="Speed" isSortable=true)
+      (hash key="passengers" label="Passengers" isSortable=true)
     }}
     @sortBy="name"
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.speed}}</B.Td>
+        <B.Td>{{B.data.crew}}</B.Td>
+        <B.Td>{{B.data.passengers}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4>External sort by selected</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @selectedItemKey="isSelected"
+    @onSelectionChange={{this.handleSpaceshipSelectionChange}}
+    @model={{this.spaceships}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="speed" label="Speed")
+      (hash key="crew" label="Crew")
+      (hash key="passengers" label="Passengers")
+    }}
+    @sortBy="status"
+    @sortOrder="asc"
+    @onSort={{this.sortSpaceships}}
   >
     <:body as |B|>
       <B.Tr
