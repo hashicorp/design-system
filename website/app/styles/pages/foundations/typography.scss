@@ -2,9 +2,13 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-#show-content-foundations-typography{
-    .doc-typography-demo-display-list{
+#show-content-foundations-typography {
+    .doc-typography-demo-display-list {
+        padding: 0;
         list-style-type: none;
-        padding:0;
+    }
+
+    .doc-typography-list-item-gap {
+        margin-bottom: 24px;
     }
 }
