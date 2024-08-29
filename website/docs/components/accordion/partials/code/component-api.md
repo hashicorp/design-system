@@ -13,7 +13,7 @@ The `Accordion` component serves as a wrapper to group one or more `Accordion::I
   <C.Property @name="forceState" @type="enum" @values={{array "open" "close" }}>
     Controls the state of all items within a group. Can be used to expand or collapse all items at once.
   </C.Property>
-  <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}}>
+  <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
     The HTML tag that wraps the content of each Accordion Item "toggle" block.
   </C.Property>
   <C.Property @name="...attributes">

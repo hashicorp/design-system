@@ -42,10 +42,8 @@ The `@titleTag` argument changes the HTML element that wraps the `DialogPrimitiv
 ```handlebars
 <div class="doc-dialog-primitive-grid-layout">
   <div class="doc-dialog-primitive-flex-layout">
-    <Hds::Text::Display @tag="h1" @size="500">Page with Split Window</Hds::Text::Display>
-    <div class="doc-dialog-primitive-content-placeholder">
-     <Hds::Text::Body>Main page content </Hds::Text::Body>
-    </div>
+    <Hds::Text::Display @tag="h1" @size="500">Page title</Hds::Text::Display>
+    <Doc::Placeholder @text="Main content" @height="100%" @width="100%" @background="#eee" />
   </div>
   <Hds::DialogPrimitive::Wrapper class="doc-dialog-primitive-with-border">
     <:header>
@@ -56,13 +54,10 @@ The `@titleTag` argument changes the HTML element that wraps the `DialogPrimitiv
       >
         Split Window
       </Hds::DialogPrimitive::Header>
-      <Hds::DialogPrimitive::Description>Description</Hds::DialogPrimitive::Description>
     </:header>
     <:body>
       <Hds::DialogPrimitive::Body>
-        <Hds::Text::Body>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero culpa expedita assumenda at nisi minus unde fuga iure suscipit aut qui, odit natus eum voluptates ut molestiae! Perferendis, impedit qui? Lorem ipsum dolor sit amet?
-        </Hds::Text::Body>
+       <Doc::Placeholder @text="Split Window content" @height="10rem" @width="100%" @background="#eee" />
       </Hds::DialogPrimitive::Body>
     </:body>
     <:footer>
