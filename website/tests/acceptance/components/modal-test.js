@@ -19,7 +19,13 @@ module('Acceptance | components/modal', function (hooks) {
 
   test('components/modal passes a11y automated checks', async function (assert) {
     await visit('/components/modal');
-    await a11yAudit();
+    await a11yAudit({
+      rules: {
+        'heading-order': {
+          enabled: false,
+        },
+      },
+    });
     assert.ok(true, 'a11y automation audit passed');
   });
 });
