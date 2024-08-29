@@ -100,6 +100,15 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('.hds-modal__tagline').hasText('Tagline');
   });
 
+  test('it renders the title as an h1', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
+          </Hds::Modal>`
+    );
+    assert.dom('.hds-modal__title').hasTagName('h1');
+  });
+
   // DISMISS
 
   test('it should always render the "dismiss" button', async function (assert) {

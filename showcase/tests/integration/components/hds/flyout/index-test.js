@@ -113,6 +113,15 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('.hds-flyout__tagline').doesNotExist();
   });
 
+  test('it renders the title as an h1', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |F|>
+            <F.Header @icon="info" @tagline="Tagline">Title</F.Header>
+          </Hds::Flyout>`
+    );
+    assert.dom('.hds-flyout__title').hasTagName('h1');
+  });
+
   // DISMISS
 
   test('it should always render the "dismiss" button', async function (assert) {
