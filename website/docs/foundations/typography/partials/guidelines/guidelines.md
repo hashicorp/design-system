@@ -92,7 +92,7 @@ Within these ranges, bold is used only for display and some code text styles, wh
 
 ### Display
 
-Display styles should be used for headings or hierarchical emphasis (like remaining balances). Unless used for visual emphasis, if the display text looks like a page heading, it should use an [HTML heading tag](https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html).
+Display styles should be used for headings or visual emphasis (like remaining balances). Unless used for visual emphasis, if the display text looks like a page heading, it should use an [HTML heading tag](https://www.w3.org/WAI/WCAG22/Understanding/section-headings.html).
 
 Display text styles are available in the following sizes and weights:
 
@@ -192,4 +192,4 @@ In general we recommend mapping Display font sizes sequentially to markup, but t
 
 ![A piece of UI showing primarily an account balance, highlighting the differences between the two display styles. One a heading and the other one not.](/assets/foundations/typography/typography-remaining-balance-example.png)
 
-An important note: The page is still following the semantically correct logical order of headings, where “Total period usage” is a heading (an H3 with semibold weight), while the balance below it is not (medium weight as a span or paragraph). Font weight is used to create the visual hierarchy here instead size.
+An important note: The card is still following the semantically correct logical order of headings, where “Total period usage” is a heading (an H3 with semibold weight), while the balance below it is not (medium weight as a span or paragraph). Font weight is used to create the visual hierarchy here instead size.
