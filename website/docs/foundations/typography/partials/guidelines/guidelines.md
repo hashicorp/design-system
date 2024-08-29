@@ -97,18 +97,14 @@ Display styles should be used for headings or visual emphasis (like remaining ba
 Display text styles are available in the following sizes and weights:
 
 <ul class='doc-typography-demo-display-list'>
-    <li class="hds-typography-display-500 hds-font-weight-bold">Display 500 (30px) - Bold</li>
-    <br/>
+    <li class="hds-typography-display-500 hds-font-weight-bold list-item-gap">Display 500 (30px) - Bold</li>
     <li class="hds-typography-display-400 hds-font-weight-bold">Display 400 (24px) - Bold</li>
     <li class="hds-typography-display-400 hds-font-weight-semibold">Display 400 (24px) - Semibold</li>
-    <li class="hds-typography-display-400 hds-font-weight-medium">Display 400 (24px) - Medium</li>
-    <br/>
+    <li class="hds-typography-display-400 hds-font-weight-medium list-item-gap">Display 400 (24px) - Medium</li>
     <li class="hds-typography-display-300 hds-font-weight-bold">Display 300 (18px) - Bold</li>
     <li class="hds-typography-display-300 hds-font-weight-semibold">Display 300 (18px) - Semibold</li>
-    <li class="hds-typography-display-300 hds-font-weight-medium">Display 300 (18px) - Medium</li>
-    <br/>
-    <li class="hds-typography-display-200 hds-font-weight-semibold">Display 200 (16px) - Semibold</li>
-    <br/>
+    <li class="hds-typography-display-300 hds-font-weight-medium list-item-gap">Display 300 (18px) - Medium</li>
+    <li class="hds-typography-display-200 hds-font-weight-semibold list-item-gap">Display 200 (16px) - Semibold</li>
     <li class="hds-typography-display-100 hds-font-weight-semibold">Display 100 (13px) - Medium</li>
 </ul>
 
@@ -121,12 +117,10 @@ Body text styles are available in the following weights and sizes:
 <ul class='doc-typography-demo-display-list'>
     <li class="hds-typography-body-300 hds-font-weight-semibold">Body 300 (16px) - Semibold</li>
     <li class="hds-typography-body-300 hds-font-weight-medium">Body 300 (16px) - Medium</li>
-    <li class="hds-typography-body-300 hds-font-weight-regular">Body 300 (16px) - Regular</li>
-    <br/>
+    <li class="hds-typography-body-300 hds-font-weight-regular list-item-gap">Body 300 (16px) - Regular</li>
     <li class="hds-typography-body-200 hds-font-weight-semibold">Body 200 (14px) - Semibold</li>
     <li class="hds-typography-body-200 hds-font-weight-medium">Body 200 (14px) - Medium</li>
-    <li class="hds-typography-body-200 hds-font-weight-regular">Body 200 (14px) - Regular</li>
-    <br/>
+    <li class="hds-typography-body-200 hds-font-weight-regular list-item-gap">Body 200 (14px) - Regular</li>
     <li class="hds-typography-body-100 hds-font-weight-semibold">Body 100 (13px) - Semibold</li>
     <li class="hds-typography-body-100 hds-font-weight-medium">Body 100 (13px) - Medium</li>
     <li class="hds-typography-body-100 hds-font-weight-regular">Body 100 (13px) - Regular</li>
@@ -140,11 +134,9 @@ Code text styles come in the following weights and sizes:
 
 <ul class='doc-typography-demo-display-list'>
     <li class="hds-typography-code-300 hds-font-weight-bold">Code 300 (16px) - Bold</li>
-    <li class="hds-typography-code-300 hds-font-weight-regular">Code 300 (16px) - Regular</li>
-    <br/>
+    <li class="hds-typography-code-300 hds-font-weight-regular list-item-gap">Code 300 (16px) - Regular</li>
     <li class="hds-typography-code-200 hds-font-weight-bold">Code 200 (14px) - Bold</li>
-    <li class="hds-typography-code-200 hds-font-weight-regular">Code 200 (14px) - Regular</li>
-    <br/>
+    <li class="hds-typography-code-200 hds-font-weight-regular list-item-gap">Code 200 (14px) - Regular</li>
     <li class="hds-typography-code-100 hds-font-weight-bold">Code 100 (13px) - Bold</li>
     <li class="hds-typography-code-100 hds-font-weight-regular">Code 100 (13px) - Regular</li>
 </ul>
