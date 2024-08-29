@@ -35,11 +35,17 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
                       (a) => a.name !== '@text'
                     );
 
+                    const isHandlebarsAttr = textAttr.value.type === 'MustacheStatement';
+
+                    const children = isHandlebarsAttr
+                      ? [b.mustache(textAttr.value.path.original)]
+                      : [b.text(textAttr.value.chars)];
+
                     updatedChild = b.element(
                       { name: child.tag, selfClosing: false },
                       {
+                        children,
                         attrs: childOutputAttributes,
-                        children: [b.text(textAttr.value.chars)],
                         modifiers: child.modifiers,
                         blockParams: child.blockParams,
                       }
