@@ -37,6 +37,59 @@ const updateModelWithSelectableRowsStates = (
 };
 
 export default class ComponentsTableController extends Controller {
+  // new stuff
+  spaceships = [
+    {
+      id: 1,
+      name: 'Millennium Falcon',
+      speed: 'Fast',
+      crew: 4,
+      passengers: 6,
+      isSelected: false,
+    },
+    {
+      id: 2,
+      name: 'Star Destroyer',
+      speed: 'Slow',
+      crew: 1000,
+      passengers: 100,
+      isSelected: false,
+    },
+    {
+      id: 3,
+      name: 'X-Wing',
+      speed: 'Fast',
+      crew: 1,
+      passengers: 0,
+      isSelected: false,
+    },
+    {
+      id: 4,
+      name: 'TIE Fighter',
+      speed: 'Fast',
+      crew: 1,
+      passengers: 0,
+      isSelected: false,
+    },
+    {
+      id: 5,
+      name: 'Death Star',
+      speed: 'Slow',
+      crew: 342,
+      passengers: 843,
+      isSelected: false,
+    },
+  ];
+
+  @action
+  handleSpaceshipSelectionChange({ selectedRowsKeys }) {
+    this.spaceships.forEach((spaceship) => {
+      spaceship.isSelected = selectedRowsKeys.includes(spaceship.id);
+    });
+  }
+
+  // end new stuff
+
   // custom sorting
   @tracked customSortOrder_demo2 = 'asc';
   @tracked customSortBy_demo3 = undefined;

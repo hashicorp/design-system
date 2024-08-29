@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import { A } from '@ember/array';
 
 import type { ComponentLike } from '@glint/template';
 
@@ -95,43 +94,7 @@ export default class HdsTableIndexComponent extends Component<HdsTableArgs> {
   selectableRows: HdsTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
 
-  sortModel = (
-    sortCriteria: string | HdsTableSortingFunction<unknown>,
-    model: typeof this.args.model
-  ): typeof this.args.model => {
-    if (sortCriteria === '__selected__') {
-      const { selectedModels, unselectedModels } = this.args.model.reduce(
-        (
-          acc: { selectedModels: unknown[]; unselectedModels: unknown[] },
-          model
-        ) => {
-          if (model[this.args.selectedItemKey]) {
-            acc.selectedModels.push(model);
-          } else {
-            acc.unselectedModels.push(model);
-          }
-          return acc;
-        },
-        { selectedModels: [], unselectedModels: [] }
-      );
-
-      console.log(selectedModels, unselectedModels);
-
-      return [...selectedModels, ...unselectedModels] as typeof this.args.model;
-    }
-
-    if (typeof sortCriteria === 'string') {
-      return A([...model]).sortBy(sortCriteria);
-    }
-
-    return model;
-  };
-
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
-    if (this.sortBy === '__selected__') {
-      return this.sortBy;
-    }
-
     // get the current column
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this.sortBy
@@ -147,6 +110,72 @@ export default class HdsTableIndexComponent extends Component<HdsTableArgs> {
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;
     }
+  }
+
+  sortBySelected(
+    model: typeof this.args.model,
+    sortOrder: HdsTableThSortOrder
+  ): typeof this.args.model {
+    const { selectedRows, unselectedRows } = model.reduce(
+      (
+        acc: {
+          selectedRows: typeof model;
+          unselectedRows: typeof model;
+        },
+        row
+      ) => {
+        if (row[this.args.selectedItemKey]) {
+          acc.selectedRows.push(row);
+        } else {
+          acc.unselectedRows.push(row);
+        }
+        return acc;
+      },
+      { selectedRows: [], unselectedRows: [] }
+    );
+
+    return sortOrder === HdsTableThSortOrderValues.Asc
+      ? [...selectedRows, ...unselectedRows]
+      : [...unselectedRows, ...selectedRows];
+  }
+
+  sortByProperty(
+    model: typeof this.args.model,
+    property: string,
+    sortOrder: HdsTableThSortOrder
+  ): typeof this.args.model {
+    return model.sort((a, b) => {
+      const aValue = a[property as keyof typeof a];
+      const bValue = b[property as keyof typeof b];
+
+      if (aValue === bValue) {
+        return 0;
+      }
+
+      if (sortOrder === HdsTableThSortOrderValues.Asc) {
+        return (aValue as typeof a) > (bValue as typeof b) ? 1 : -1;
+      } else {
+        return (aValue as typeof a) < (bValue as typeof b) ? 1 : -1;
+      }
+    });
+  }
+
+  get sortedModel(): typeof this.args.model {
+    const { getSortCriteria: sortConfig } = this;
+
+    if (typeof sortConfig === 'function') {
+      return this.args.model.sort(sortConfig);
+    }
+
+    const splitSortConfig = sortConfig.split(':');
+    const sortBy = splitSortConfig[0] as string;
+    const sortOrder = splitSortConfig[1] as HdsTableThSortOrder;
+
+    if (sortBy === '__selected__') {
+      return this.sortBySelected(this.args.model, sortOrder);
+    }
+
+    return this.sortByProperty(this.args.model, sortBy, sortOrder);
   }
 
   get identityKey(): string | undefined {

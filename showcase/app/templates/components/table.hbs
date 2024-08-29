@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Data model</Shw::Text::H2>
+  {{!-- <Shw::Text::H2>Data model</Shw::Text::H2>
 
   <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
 
@@ -59,11 +59,11 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Divider />
+  <Shw::Divider /> --}}
 
   <Shw::Text::H2>Sorting</Shw::Text::H2>
 
-  <Shw::Text::H3>Basic sorting</Shw::Text::H3>
+  {{!-- <Shw::Text::H3>Basic sorting</Shw::Text::H3>
 
   <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
 
@@ -120,9 +120,9 @@
         <B.Td @align="right">{{B.data.year}}</B.Td>
       </B.Tr>
     </:body>
-  </Hds::Table>
+  </Hds::Table> --}}
 
-  <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
+  {{!-- <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.music}}
@@ -144,13 +144,13 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Custom sorting</Shw::Text::H3>
+  <Shw::Text::H3>Custom sorting</Shw::Text::H3> --}}
 
   {{! ============================================== }}
   {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
   {{! ============================================== }}
 
-  <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
+  {{!-- <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.clustersWithExtraData_demo1}}
@@ -194,13 +194,13 @@
         </B.Td>
       </B.Tr>
     </:body>
-  </Hds::Table>
+  </Hds::Table> --}}
 
   {{! ============================================= }}
   {{! ===== DEMO #2 - CUSTOM SORTING FUNCTION ===== }}
   {{! ============================================= }}
 
-  <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
+  {{!-- <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
 
   <Hds::Table
     @model={{this.model.clusters}}
@@ -245,13 +245,13 @@
         </B.Td>
       </B.Tr>
     </:body>
-  </Hds::Table>
+  </Hds::Table> --}}
 
   {{! =========================================== }}
   {{! ===== DEMO #3 - YIELDED PROPS TO HEAD ===== }}
   {{! =========================================== }}
 
-  <Shw::Text::H4>Sortable table with custom sorting using yielded
+  {{!-- <Shw::Text::H4>Sortable table with custom sorting using yielded
     <code>&lt;ThSort&gt;</code>
     +
     <code>sortBy/sortOrder/setSortBy</code>
@@ -306,13 +306,13 @@
         </B.Tr>
       {{/each}}
     </:body>
-  </Hds::Table>
+  </Hds::Table> --}}
 
   {{! ================================================== }}
   {{! ===== DEMO #4 - YIELDED PROPS TO HEAD + BODY ===== }}
   {{! ================================================== }}
 
-  <Shw::Text::H4>Sortable table with custom sorting using yielded
+  {{!-- <Shw::Text::H4>Sortable table with custom sorting using yielded
     <code>&lt;ThSort&gt;</code>
     +
     <code>sortBy/sortOrder/setSortBy</code>
@@ -370,26 +370,26 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::H3>Custom sorting</Shw::Text::H3>
+  <Shw::Text::H3>Custom sorting</Shw::Text::H3> --}}
 
   {{! ============================================== }}
   {{! ===== DEMO #1 - EXTRA KEY ADDED TO MODEL ===== }}
   {{! ============================================== }}
-  HERE
 
   <Shw::Text::H4>Sortable table with sortBySelected</Shw::Text::H4>
 
   <Hds::Table
     @isSelectable={{true}}
     @selectedItemKey="isSelected"
-    @onSelectionChange={{this.onSelectionChangeSortSelected}}
-    @model={{this.model.music}}
+    @onSelectionChange={{this.handleSpaceshipSelectionChange}}
+    @model={{this.spaceships}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable=true)
-      (hash key="album" label="Album" isSortable=true)
-      (hash key="year" label="Release Year")
+      (hash key="name" label="Name" isSortable=true)
+      (hash key="speed" label="Speed" isSortable=true)
+      (hash key="crew" label="Crew" isSortable=true)
+      (hash key="passengers" label="Speed" isSortable=true)
     }}
-    @sortBy="artist"
+    @sortBy="name"
   >
     <:body as |B|>
       <B.Tr
@@ -397,14 +397,15 @@
         @isSelected={{B.data.isSelected}}
         @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
       >
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.speed}}</B.Td>
+        <B.Td>{{B.data.crew}}</B.Td>
+        <B.Td>{{B.data.passengers}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>
 
-  <Shw::Divider />
+  {{!-- <Shw::Divider />
 
   <Shw::Text::H2>Tooltip</Shw::Text::H2>
 
@@ -1819,6 +1820,6 @@
         </Shw::Flex>
       </SG.Item>
     {{/each}}
-  </Shw::Grid>
+  </Shw::Grid> --}}
 
 </section>
