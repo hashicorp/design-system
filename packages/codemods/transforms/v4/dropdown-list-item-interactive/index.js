@@ -37,9 +37,25 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
                     const isHandlebarsAttr = textAttr.value.type === 'MustacheStatement';
 
-                    const children = isHandlebarsAttr
-                      ? [b.mustache(textAttr.value.path.original)]
-                      : [b.text(textAttr.value.chars)];
+                    let children = [];
+
+                    if (isHandlebarsAttr) {
+                      if (textAttr.value.path.type === 'NumberLiteral') {
+                        children = [b.mustache(b.number(textAttr.value.path.value))];
+                      } else if (textAttr.value.path.type === 'StringLiteral') {
+                        children = [b.mustache(b.string(textAttr.value.path.value))];
+                      } else {
+                        children = [
+                          b.mustache(
+                            textAttr.value.path.original,
+                            [...textAttr.value.params],
+                            textAttr.value.hash
+                          ),
+                        ];
+                      }
+                    } else {
+                      children = [b.text(textAttr.value.chars)];
+                    }
 
                     updatedChild = b.element(
                       { name: child.tag, selfClosing: false },

@@ -4,5 +4,5 @@
 }}
 <Hds::Dropdown as |dd|>
   <dd.Title @text='Title text' />
-  <dd.Interactive @href='#'>{{this.testValue}}</dd.Interactive>
+  <dd.Interactive @href='#'>{{or @text (t "components.generate-service-principal-key-button.default-text")}}</dd.Interactive>
 </Hds::Dropdown>
