@@ -51,7 +51,7 @@ export default class HdsDropdownListItemInteractiveComponent extends Component<H
         {
           id: 'hds.dropdown.list-item.interactive',
           until: '5.0.0',
-          url: 'https://helios.hashicorp.design/components/dropdown?tab=version%20history#deprecated',
+          url: 'https://helios.hashicorp.design/components/dropdown?tab=version%20history#4100',
           for: '@hashicorp/design-system-components',
           since: {
             available: '4.10.0',
