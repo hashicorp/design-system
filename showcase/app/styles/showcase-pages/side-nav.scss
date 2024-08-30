@@ -8,11 +8,15 @@
 body.components-side-nav {
   $shw-component-side-nav-background: #0c0c0e;
 
-  // Add to examples to constrain width
-  .shw-component-set-max-content-width {
-    width: max-content;
-    height: auto;
-    min-height: 0;
+  // constrain max-width of button examples
+  .shw-component-button-examples-section {
+    .hds-side-nav:has(button) {
+      width: max-content;
+      // The heights don't make a visual difference with the current component style but if you inspect you will see that
+      // there is extra space around the button examples which could cause an unforeseen issue. So for that reason, we override the height.
+      height: auto;
+      min-height: 0;
+    }
   }
 
   // used to simulate a "root" container for the sidenav

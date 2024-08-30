@@ -877,7 +877,7 @@
 
 <Shw::Divider />
 
-<section data-test-percy>
+<section data-test-percy class="shw-component-button-examples-section">
   <Shw::Text::H2>Child interactive components</Shw::Text::H2>
 
   <Shw::Text::H3>Buttons within SideNav</Shw::Text::H3>
@@ -891,8 +891,7 @@
         {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
           {{#each states as |state|}}
             <SF.Item @label={{state}}>
-
-              <div class="hds-side-nav shw-component-set-max-content-width">
+              <div class="hds-side-nav">
                 <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
               </div>
             </SF.Item>
@@ -923,7 +922,7 @@
     {{#each @model.DROPDOWN_TOGGLE_BUTTON_COLORS as |color|}}
       {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
         <SG.Item @label="{{capitalize color}}">
-          <div class="hds-side-nav shw-component-set-max-content-width">
+          <div class="hds-side-nav">
             {{#if (eq state "disabled")}}
               <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
             {{else}}
@@ -932,12 +931,16 @@
           </div>
         </SG.Item>
       {{/each}}
+
       <SG.Item @label="{{capitalize color}}">
-        <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+        <div class="hds-side-nav">
+          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+        </div>
       </SG.Item>
+
       {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
         <SG.Item @label="With icon">
-          <div class="hds-side-nav shw-component-set-max-content-width">
+          <div class="hds-side-nav">
             {{#if (eq state "disabled")}}
               <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
             {{else}}
@@ -952,13 +955,13 @@
         </SG.Item>
       {{/each}}
       <SG.Item @label="With icon">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
         </div>
       </SG.Item>
       {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
         <SG.Item @label="With count">
-          <div class="hds-side-nav shw-component-set-max-content-width">
+          <div class="hds-side-nav">
             {{#if (eq state "disabled")}}
               <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
             {{else}}
@@ -968,13 +971,13 @@
         </SG.Item>
       {{/each}}
       <SG.Item @label="With count">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
         </div>
       </SG.Item>
       {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
         <SG.Item @label="With badge">
-          <div class="hds-side-nav shw-component-set-max-content-width">
+          <div class="hds-side-nav">
             {{#if (eq state "disabled")}}
               <Hds::Dropdown::Toggle::Button
                 @badge="Sit"
@@ -996,7 +999,7 @@
         </SG.Item>
       {{/each}}
       <SG.Item @label="With badge">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Button
             @badge="Sit"
             @badgeIcon="hexagon"
@@ -1010,7 +1013,7 @@
 
     {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
       <SG.Item @label="Icon">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Icon
             @icon="more-horizontal"
             @text="overflow menu"
@@ -1021,7 +1024,7 @@
       </SG.Item>
     {{/each}}
     <SG.Item @label="Icon">
-      <div class="hds-side-nav shw-component-set-max-content-width">
+      <div class="hds-side-nav">
         <Hds::Dropdown::Toggle::Icon
           @icon="more-horizontal"
           @text="overflow menu"
@@ -1033,20 +1036,20 @@
 
     {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
       <SG.Item @label="Icon+chevron">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
         </div>
       </SG.Item>
     {{/each}}
     <SG.Item @label="Icon+chevron">
-      <div class="hds-side-nav shw-component-set-max-content-width">
+      <div class="hds-side-nav">
         <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
       </div>
     </SG.Item>
 
     {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}
       <SG.Item @label="Avatar+chevron">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <Hds::Dropdown::Toggle::Icon
             @text={{state}}
             @imageSrc="/assets/images/avatar.png"
@@ -1056,7 +1059,7 @@
       </SG.Item>
     {{/each}}
     <SG.Item @label="Avatar+chevron">
-      <div class="hds-side-nav shw-component-set-max-content-width">
+      <div class="hds-side-nav">
         <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
       </div>
     </SG.Item>
@@ -1073,7 +1076,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Skip Link">
       <div class="shw-component-sim-other-elements">
-        <div class="hds-side-nav shw-component-set-max-content-width">
+        <div class="hds-side-nav">
           <a href="#" class="ember-a11y-refocus-skip-link">Skip to main content</a>
         </div>
       </div>
