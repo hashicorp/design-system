@@ -25,7 +25,7 @@ export const DEFAULT_SIZE = HdsFlyoutSizesValues.Medium;
 export const DEFAULT_HAS_OVERLAY = true;
 export const SIZES: string[] = Object.values(HdsFlyoutSizesValues);
 
-export interface HdsFlyoutIndexSignature {
+export interface HdsFlyoutSignature {
   Args: {
     isDismissDisabled?: boolean;
     size?: HdsFlyoutSizes;
@@ -57,7 +57,7 @@ export interface HdsFlyoutIndexSignature {
   Element: HTMLDialogElement;
 }
 
-export default class HdsFlyoutIndex extends Component<HdsFlyoutIndexSignature> {
+export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @tracked isOpen = false;
   element!: HTMLDialogElement;
   body!: HTMLElement;

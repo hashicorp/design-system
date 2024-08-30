@@ -84,7 +84,7 @@ export interface HdsTableArgs {
   Element: HTMLTableElement;
 }
 
-export default class HdsTableIndex extends Component<HdsTableArgs> {
+export default class HdsTable extends Component<HdsTableArgs> {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
   @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =

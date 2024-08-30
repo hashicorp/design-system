@@ -26,7 +26,7 @@ export const DEFAULT_COLOR = HdsModalColorValues.Neutral;
 export const SIZES: string[] = Object.values(HdsModalSizeValues);
 export const COLORS: string[] = Object.values(HdsModalColorValues);
 
-export interface HdsModalIndexSignature {
+export interface HdsModalSignature {
   Args: {
     isDismissDisabled?: boolean;
     size?: HdsModalSizes;
@@ -55,7 +55,7 @@ export interface HdsModalIndexSignature {
   Element: HTMLDialogElement;
 }
 
-export default class HdsModalIndex extends Component<HdsModalIndexSignature> {
+export default class HdsModal extends Component<HdsModalSignature> {
   @tracked isOpen = false;
   @tracked isDismissDisabled = this.args.isDismissDisabled ?? false;
   element!: HTMLDialogElement;
