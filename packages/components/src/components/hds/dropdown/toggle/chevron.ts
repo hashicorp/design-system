@@ -7,7 +7,7 @@ import templateOnlyComponent from '@ember/component/template-only';
 
 interface HdsDropdownToggleChevronSignature {}
 
-const HdsDropdownToggleChevronComponent =
+const HdsDropdownToggleChevron =
   templateOnlyComponent<HdsDropdownToggleChevronSignature>();
 
-export default HdsDropdownToggleChevronComponent;
+export default HdsDropdownToggleChevron;

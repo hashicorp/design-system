@@ -6,7 +6,7 @@ interface HdsFormSuperSelectPlaceholderSignature {
   };
 }
 
-const HdsFormSuperSelectPlaceholderComponent =
+const HdsFormSuperSelectPlaceholder =
   templateOnlyComponent<HdsFormSuperSelectPlaceholderSignature>();
 
-export default HdsFormSuperSelectPlaceholderComponent;
+export default HdsFormSuperSelectPlaceholder;

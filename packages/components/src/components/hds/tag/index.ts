@@ -24,7 +24,7 @@ interface HdsTagSignature {
   Element: HTMLSpanElement;
 }
 
-export default class HdsTagComponent extends Component<HdsTagSignature> {
+export default class HdsTag extends Component<HdsTagSignature> {
   /**
    * @param onDismiss
    * @type {function}

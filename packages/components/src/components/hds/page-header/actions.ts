@@ -12,7 +12,7 @@ export interface HdsPageHeaderActionsSignature {
   Element: HTMLDivElement;
 }
 
-const HdsPageHeaderActionsComponent =
+const HdsPageHeaderActions =
   TemplateOnlyComponent<HdsPageHeaderActionsSignature>();
 
-export default HdsPageHeaderActionsComponent;
+export default HdsPageHeaderActions;

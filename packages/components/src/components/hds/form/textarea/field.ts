@@ -32,7 +32,7 @@ interface HdsFormTextareaFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormTextareaFieldComponent =
+const HdsFormTextareaField =
   templateOnlyComponent<HdsFormTextareaFieldSignature>();
 
-export default HdsFormTextareaFieldComponent;
+export default HdsFormTextareaField;

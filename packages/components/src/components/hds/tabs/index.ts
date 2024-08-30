@@ -34,7 +34,7 @@ interface HdsTabsSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsTabsComponent extends Component<HdsTabsSignature> {
+export default class HdsTabs extends Component<HdsTabsSignature> {
   @tracked tabNodes: HTMLButtonElement[] = [];
   @tracked tabIds: HdsTabsTabIds = [];
   @tracked panelNodes: HTMLElement[] = [];

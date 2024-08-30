@@ -26,7 +26,6 @@ export interface HdsFormToggleFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormToggleFieldComponent =
-  templateOnlyComponent<HdsFormToggleFieldSignature>();
+const HdsFormToggleField = templateOnlyComponent<HdsFormToggleFieldSignature>();
 
-export default HdsFormToggleFieldComponent;
+export default HdsFormToggleField;

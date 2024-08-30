@@ -13,7 +13,7 @@ export interface HdsFlyoutBodySignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFlyoutBodyComponent extends Component<HdsFlyoutBodySignature> {
+export default class HdsFlyoutBody extends Component<HdsFlyoutBodySignature> {
   constructor(owner: unknown) {
     super(owner, {});
 

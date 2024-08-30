@@ -12,4 +12,4 @@ export interface HdsAppFrameSidebarSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAppFrameSidebarComponent extends Component<HdsAppFrameSidebarSignature> {}
+export default class HdsAppFrameSidebar extends Component<HdsAppFrameSidebarSignature> {}

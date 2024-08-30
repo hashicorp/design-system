@@ -12,7 +12,7 @@ export interface HdsAlertDescriptionSignature {
   Element: HTMLDivElement;
 }
 
-const HdsAlertDescriptionComponent =
+const HdsAlertDescription =
   TemplateOnlyComponent<HdsAlertDescriptionSignature>();
 
-export default HdsAlertDescriptionComponent;
+export default HdsAlertDescription;

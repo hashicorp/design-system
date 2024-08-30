@@ -17,7 +17,7 @@ interface HdsSideNavHeaderIconButtonSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsSideNavHeaderIconButtonComponent extends Component<HdsSideNavHeaderIconButtonSignature> {
+export default class HdsSideNavHeaderIconButton extends Component<HdsSideNavHeaderIconButtonSignature> {
   /**
    * @param ariaLabel
    * @type {string}

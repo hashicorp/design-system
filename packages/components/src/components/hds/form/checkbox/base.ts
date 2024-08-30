@@ -12,7 +12,7 @@ export interface HdsFormCheckboxBaseSignature {
   Element: HTMLInputElement;
 }
 
-const HdsFormCheckboxBaseComponent =
+const HdsFormCheckboxBase =
   templateOnlyComponent<HdsFormCheckboxBaseSignature>();
 
-export default HdsFormCheckboxBaseComponent;
+export default HdsFormCheckboxBase;

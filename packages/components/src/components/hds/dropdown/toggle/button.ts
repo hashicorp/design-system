@@ -44,7 +44,7 @@ export interface HdsDropdownToggleButtonSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsDropdownToggleButtonComponent extends Component<HdsDropdownToggleButtonSignature> {
+export default class HdsDropdownToggleButton extends Component<HdsDropdownToggleButtonSignature> {
   /**
    * Generates a unique ID for the button
    *

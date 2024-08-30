@@ -20,7 +20,7 @@ export interface HdsFlyoutHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFlyoutHeaderComponent extends Component<HdsFlyoutHeaderSignature> {
+export default class HdsFlyoutHeader extends Component<HdsFlyoutHeaderSignature> {
   constructor(owner: unknown, args: HdsFlyoutHeaderSignature['Args']) {
     super(owner, args);
 

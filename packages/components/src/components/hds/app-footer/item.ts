@@ -12,4 +12,4 @@ export interface HdsAppFooterItemSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsAppFooterItemComponent extends Component<HdsAppFooterItemSignature> {}
+export default class HdsAppFooterItem extends Component<HdsAppFooterItemSignature> {}

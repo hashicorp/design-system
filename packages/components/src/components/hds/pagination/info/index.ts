@@ -16,7 +16,7 @@ interface HdsPaginationInfoSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-export default class HdsPaginationInfoComponent extends Component<HdsPaginationInfoSignature> {
+export default class HdsPaginationInfo extends Component<HdsPaginationInfoSignature> {
   get showTotalItems(): boolean {
     return this.args.showTotalItems ?? true;
   }

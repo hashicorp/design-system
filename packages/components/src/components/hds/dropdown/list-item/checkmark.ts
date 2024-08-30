@@ -19,7 +19,7 @@ export interface HdsDropdownListItemCheckmarkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsDropdownListItemCheckmarkComponent extends Component<HdsDropdownListItemCheckmarkSignature> {
+export default class HdsDropdownListItemCheckmark extends Component<HdsDropdownListItemCheckmarkSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames

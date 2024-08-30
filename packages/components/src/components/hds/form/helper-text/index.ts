@@ -23,7 +23,7 @@ export interface HdsFormHelperTextSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-export default class HdsFormHelperTextComponent extends Component<HdsFormHelperTextSignature> {
+export default class HdsFormHelperText extends Component<HdsFormHelperTextSignature> {
   /**
    * Determines the unique ID to assign to the element
    * @method id

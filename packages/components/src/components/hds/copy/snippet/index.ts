@@ -32,7 +32,7 @@ export interface HdsCopySnippetSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsCopySnippetComponent extends Component<HdsCopySnippetSignature> {
+export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
   @tracked status = DEFAULT_STATUS;
   @tracked timer: ReturnType<typeof setTimeout> | undefined;
 

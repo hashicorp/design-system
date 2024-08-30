@@ -20,7 +20,7 @@ interface HdsPaginationSizeSelectorSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsPaginationSizeSelectorComponent extends Component<HdsPaginationSizeSelectorSignature> {
+export default class HdsPaginationSizeSelector extends Component<HdsPaginationSizeSelectorSignature> {
   SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   get pageSizes(): number[] {

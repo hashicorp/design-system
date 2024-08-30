@@ -36,7 +36,7 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
   Element: PowerSelectSignature['Element'];
 }
 
-export default class HdsFormSuperSelectMultipleBaseComponent extends Component<HdsFormSuperSelectMultipleBaseSignature> {
+export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
   @tracked powerSelectAPI?: PowerSelect;
   @tracked showOnlySelected = false;
   @tracked showNoSelectedMessage = false;

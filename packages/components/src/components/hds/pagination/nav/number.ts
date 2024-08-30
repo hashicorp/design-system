@@ -19,7 +19,7 @@ interface HdsPaginationNavNumberSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsPaginationControlNumberComponent extends Component<HdsPaginationNavNumberSignature> {
+export default class HdsPaginationControlNumber extends Component<HdsPaginationNavNumberSignature> {
   get page(): number {
     const { page } = this.args;
 

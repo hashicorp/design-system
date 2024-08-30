@@ -32,7 +32,7 @@ export interface HdsRichTooltipBubbleSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsRichTooltipBubbleComponent extends Component<HdsRichTooltipBubbleSignature> {
+export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubbleSignature> {
   /**
    * @param placement
    * @type {string}

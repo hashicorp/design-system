@@ -25,7 +25,7 @@ export interface HdsApplicationStateFooterSignature {
   Element: HTMLDivElement;
 }
 
-const HdsApplicationStateFooterComponent =
+const HdsApplicationStateFooter =
   TemplateOnlyComponent<HdsApplicationStateFooterSignature>();
 
-export default HdsApplicationStateFooterComponent;
+export default HdsApplicationStateFooter;

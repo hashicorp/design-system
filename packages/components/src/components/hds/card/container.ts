@@ -42,7 +42,7 @@ export interface HdsCardContainerSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsCardContainerComponent extends Component<HdsCardContainerSignature> {
+export default class HdsCardContainer extends Component<HdsCardContainerSignature> {
   /**
    * Sets the "elevation" level for the component
    * Accepted values: base, mid, high

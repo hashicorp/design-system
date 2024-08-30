@@ -12,7 +12,7 @@ export interface HdsSideNavListTitleSignature {
   Element: HTMLDivElement;
 }
 
-const HdsSideNavListTitleComponent =
+const HdsSideNavListTitle =
   TemplateOnlyComponent<HdsSideNavListTitleSignature>();
 
-export default HdsSideNavListTitleComponent;
+export default HdsSideNavListTitle;

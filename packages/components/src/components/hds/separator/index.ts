@@ -19,7 +19,7 @@ interface HdsSeparatorSignature {
   Element: HTMLElement;
 }
 
-export default class HdsSeparatorComponent extends Component<HdsSeparatorSignature> {
+export default class HdsSeparator extends Component<HdsSeparatorSignature> {
   /**
    * Sets the margin for the separator
    * Accepted values: 24, 0

@@ -14,7 +14,7 @@ export interface HdsDialogPrimitiveWrapperSignature {
   Element: HTMLDialogElement;
 }
 
-const HdsDialogPrimitiveWrapperComponent =
+const HdsDialogPrimitiveWrapper =
   templateOnlyComponent<HdsDialogPrimitiveWrapperSignature>();
 
-export default HdsDialogPrimitiveWrapperComponent;
+export default HdsDialogPrimitiveWrapper;

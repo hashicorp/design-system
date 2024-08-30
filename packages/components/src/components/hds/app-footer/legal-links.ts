@@ -17,7 +17,7 @@ export interface HdsAppFooterLegalLinksSignature {
   Element: HTMLUListElement;
 }
 
-export default class HdsAppFooterLegalLinksComponent extends Component<HdsAppFooterLegalLinksSignature> {
+export default class HdsAppFooterLegalLinks extends Component<HdsAppFooterLegalLinksSignature> {
   /**
    * @param ariaLabel
    * @type {string}

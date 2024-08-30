@@ -28,7 +28,6 @@ interface HdsFormSelectFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormSelectFieldComponent =
-  templateOnlyComponent<HdsFormSelectFieldSignature>();
+const HdsFormSelectField = templateOnlyComponent<HdsFormSelectFieldSignature>();
 
-export default HdsFormSelectFieldComponent;
+export default HdsFormSelectField;

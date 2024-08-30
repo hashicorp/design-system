@@ -19,7 +19,7 @@ export interface HdsBreadcrumbSignature {
 
 const NOOP = () => {};
 
-export default class HdsBreadcrumbComponent extends Component<HdsBreadcrumbSignature> {
+export default class HdsBreadcrumb extends Component<HdsBreadcrumbSignature> {
   /**
    * @param onDidInsert
    * @type {function}

@@ -12,7 +12,7 @@ export interface HdsPageHeaderBadgesSignature {
   Element: HTMLDivElement;
 }
 
-const HdsPageHeaderBadgesComponent =
+const HdsPageHeaderBadges =
   TemplateOnlyComponent<HdsPageHeaderBadgesSignature>();
 
-export default HdsPageHeaderBadgesComponent;
+export default HdsPageHeaderBadges;

@@ -40,7 +40,7 @@ export interface HdsIconTileSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsIconTileComponent extends Component<HdsIconTileSignature> {
+export default class HdsIconTile extends Component<HdsIconTileSignature> {
   get size(): HdsIconTileSizes {
     const { size = DEFAULT_SIZE } = this.args;
 

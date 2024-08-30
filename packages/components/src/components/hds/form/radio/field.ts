@@ -27,7 +27,6 @@ export interface HdsFormRadioFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormRadioFieldComponent =
-  templateOnlyComponent<HdsFormRadioFieldSignature>();
+const HdsFormRadioField = templateOnlyComponent<HdsFormRadioFieldSignature>();
 
-export default HdsFormRadioFieldComponent;
+export default HdsFormRadioField;

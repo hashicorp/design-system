@@ -12,7 +12,6 @@ export interface HdsFormRadioBaseSignature {
   Element: HTMLInputElement;
 }
 
-const HdsFormRadioBaseComponent =
-  templateOnlyComponent<HdsFormRadioBaseSignature>();
+const HdsFormRadioBase = templateOnlyComponent<HdsFormRadioBaseSignature>();
 
-export default HdsFormRadioBaseComponent;
+export default HdsFormRadioBase;

@@ -17,7 +17,7 @@ export interface HdsAppHeaderMenuButtonSignature {
   Element: HdsButtonSignature['Element'];
 }
 
-export default class HdsAppHeaderMenuButtonComponent extends Component<HdsAppHeaderMenuButtonSignature> {
+export default class HdsAppHeaderMenuButton extends Component<HdsAppHeaderMenuButtonSignature> {
   get icon(): 'x' | 'menu' {
     return this.args.isOpen ? 'x' : 'menu';
   }

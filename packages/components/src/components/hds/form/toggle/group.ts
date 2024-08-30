@@ -28,7 +28,6 @@ interface HdsFormToggleGroupSignature {
   Element: HdsFormFieldsetSignature['Element'];
 }
 
-const HdsFormToggleGroupComponent =
-  templateOnlyComponent<HdsFormToggleGroupSignature>();
+const HdsFormToggleGroup = templateOnlyComponent<HdsFormToggleGroupSignature>();
 
-export default HdsFormToggleGroupComponent;
+export default HdsFormToggleGroup;

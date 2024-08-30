@@ -18,7 +18,7 @@ interface HdsFormSuperSelectMultipleFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-export default class HdsFormSuperSelectMultipleFieldComponent extends Component<HdsFormSuperSelectMultipleFieldSignature> {
+export default class HdsFormSuperSelectMultipleField extends Component<HdsFormSuperSelectMultipleFieldSignature> {
   get idPrefix(): string {
     return ID_PREFIX;
   }

@@ -13,7 +13,7 @@ export interface HdsCodeBlockDescriptionSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-const HdsCodeBlockDescriptionComponent =
+const HdsCodeBlockDescription =
   templateOnlyComponent<HdsCodeBlockDescriptionSignature>();
 
-export default HdsCodeBlockDescriptionComponent;
+export default HdsCodeBlockDescription;

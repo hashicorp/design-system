@@ -51,7 +51,7 @@ interface HdsSideNavSignature {
   Element: HdsSideNavBaseSignature['Element'];
 }
 
-export default class HdsSideNavComponent extends Component<HdsSideNavSignature> {
+export default class HdsSideNav extends Component<HdsSideNavSignature> {
   @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
   @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
   @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports

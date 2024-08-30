@@ -26,7 +26,7 @@ interface HdsStepperTaskIndicatorSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsStepperTaskIndicatorComponent extends Component<HdsStepperTaskIndicatorSignature> {
+export default class HdsStepperTaskIndicator extends Component<HdsStepperTaskIndicatorSignature> {
   /**
    * @param status
    * @type {string}

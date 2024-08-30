@@ -37,7 +37,7 @@ export interface HdsTableThSortArgs {
   Element: HTMLDivElement;
 }
 
-export default class HdsTableThSortComponent extends Component<HdsTableThSortArgs> {
+export default class HdsTableThSort extends Component<HdsTableThSortArgs> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *

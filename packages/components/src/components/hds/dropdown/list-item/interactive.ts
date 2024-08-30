@@ -37,7 +37,7 @@ export interface HdsDropdownListItemInteractiveSignature {
   Element: HTMLDivElement | HdsInteractiveSignature['Element'];
 }
 
-export default class HdsDropdownListItemInteractiveComponent extends Component<HdsDropdownListItemInteractiveSignature> {
+export default class HdsDropdownListItemInteractive extends Component<HdsDropdownListItemInteractiveSignature> {
   constructor(
     owner: unknown,
     args: HdsDropdownListItemInteractiveSignature['Args']

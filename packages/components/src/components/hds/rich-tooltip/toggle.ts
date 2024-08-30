@@ -42,7 +42,7 @@ export interface HdsRichTooltipToggleSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsRichTooltipToggleComponent extends Component<HdsRichTooltipToggleSignature> {
+export default class HdsRichTooltipToggle extends Component<HdsRichTooltipToggleSignature> {
   /**
    * @param isInline
    * @type {boolean}

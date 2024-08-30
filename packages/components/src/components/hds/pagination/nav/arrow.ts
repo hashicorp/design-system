@@ -42,7 +42,7 @@ export const DIRECTIONS: HdsPaginationDirections[] = [
   HdsPaginationDirectionValues.Next,
 ];
 
-export default class HdsPaginationControlArrowComponent extends Component<HdsPaginationControlArrowSignature> {
+export default class HdsPaginationControlArrow extends Component<HdsPaginationControlArrowSignature> {
   get content(): HdsPaginationControlArrowContent {
     const { direction } = this.args;
 

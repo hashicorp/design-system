@@ -23,7 +23,6 @@ export interface HdsSideNavListLinkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-const HdsSideNavListLinkComponent =
-  TemplateOnlyComponent<HdsSideNavListLinkSignature>();
+const HdsSideNavListLink = TemplateOnlyComponent<HdsSideNavListLinkSignature>();
 
-export default HdsSideNavListLinkComponent;
+export default HdsSideNavListLink;

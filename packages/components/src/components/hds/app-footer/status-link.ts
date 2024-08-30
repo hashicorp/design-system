@@ -27,7 +27,7 @@ export interface HdsAppFooterStatusLinkSignature {
   Element: HdsAppFooterLinkSignature['Element'];
 }
 
-export default class HdsAppFooterStatusLinkComponent extends Component<HdsAppFooterStatusLinkSignature> {
+export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatusLinkSignature> {
   constructor(owner: unknown, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 

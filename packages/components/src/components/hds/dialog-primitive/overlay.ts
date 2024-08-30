@@ -12,7 +12,7 @@ export interface HdsDialogPrimitiveOverlaySignature {
   Element: HTMLDivElement;
 }
 
-const HdsDialogPrimitiveOverlayComponent =
+const HdsDialogPrimitiveOverlay =
   templateOnlyComponent<HdsDialogPrimitiveOverlaySignature>();
 
-export default HdsDialogPrimitiveOverlayComponent;
+export default HdsDialogPrimitiveOverlay;

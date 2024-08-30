@@ -14,7 +14,7 @@ export interface HdsSideNavListBackLinkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-const HdsSideNavListBackLinkComponent =
+const HdsSideNavListBackLink =
   TemplateOnlyComponent<HdsSideNavListBackLinkSignature>();
 
-export default HdsSideNavListBackLinkComponent;
+export default HdsSideNavListBackLink;

@@ -21,7 +21,7 @@ export interface HdsFormLabelSignature {
   Element: HTMLLabelElement;
 }
 
-export default class HdsFormLabelComponent extends Component<HdsFormLabelSignature> {
+export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
   /**
    * Determines the unique ID to assign to the element
    * @method id

@@ -30,7 +30,7 @@ export interface HdsFormErrorSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFormErrorComponent extends Component<HdsFormErrorSignature> {
+export default class HdsFormError extends Component<HdsFormErrorSignature> {
   /**
    * Determines the unique ID to assign to the element
    * @method id

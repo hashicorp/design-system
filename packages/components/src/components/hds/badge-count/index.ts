@@ -34,7 +34,7 @@ export interface HdsBadgeCountSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsBadgeCountComponent extends Component<HdsBadgeCountSignature> {
+export default class HdsBadgeCount extends Component<HdsBadgeCountSignature> {
   /**
    * Sets the size for the component
    * Accepted sizes: small, medium, large

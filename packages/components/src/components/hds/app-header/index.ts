@@ -27,7 +27,7 @@ export interface HdsAppHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppHeaderComponent extends Component<HdsAppHeaderSignature> {
+export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   @tracked isOpen = false;
   @tracked isDesktop = true;
   @tracked hasOverflowContent = false;

@@ -15,7 +15,6 @@ export interface HdsDropdownHeaderSignature {
   Element: HTMLDivElement;
 }
 
-const HdsDropdownHeaderComponent =
-  templateOnlyComponent<HdsDropdownHeaderSignature>();
+const HdsDropdownHeader = templateOnlyComponent<HdsDropdownHeaderSignature>();
 
-export default HdsDropdownHeaderComponent;
+export default HdsDropdownHeader;

@@ -14,7 +14,7 @@ export interface HdsFormVisibilityToggleSignature {
   Element: HTMLButtonElement;
 }
 
-const HdsFormVisibilityToggleComponent =
+const HdsFormVisibilityToggle =
   templateOnlyComponent<HdsFormVisibilityToggleSignature>();
 
-export default HdsFormVisibilityToggleComponent;
+export default HdsFormVisibilityToggle;

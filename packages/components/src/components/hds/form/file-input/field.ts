@@ -24,7 +24,7 @@ interface HdsFormFileInputFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormFileInputFieldComponent =
+const HdsFormFileInputField =
   templateOnlyComponent<HdsFormFileInputFieldSignature>();
 
-export default HdsFormFileInputFieldComponent;
+export default HdsFormFileInputField;

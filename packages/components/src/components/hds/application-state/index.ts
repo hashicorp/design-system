@@ -32,7 +32,7 @@ export interface HdsApplicationStateSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsApplicationStateComponent extends Component<HdsApplicationStateSignature> {
+export default class HdsApplicationState extends Component<HdsApplicationStateSignature> {
   get align(): HdsApplicationStateAligns {
     const validAlignValues: HdsApplicationStateAligns[] = Object.values(
       HdsApplicationStateAlignValues

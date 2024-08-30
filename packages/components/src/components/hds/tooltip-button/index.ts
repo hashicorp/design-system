@@ -25,7 +25,7 @@ export interface HdsTooltipSignature {
   Element: HTMLButtonElement;
 }
 
-export default class HdsTooltipIndexComponent extends Component<HdsTooltipSignature> {
+export default class HdsTooltip extends Component<HdsTooltipSignature> {
   /**
    * @param text
    * @type {string}

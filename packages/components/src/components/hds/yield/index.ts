@@ -11,6 +11,6 @@ export interface HdsYieldSignature {
   };
 }
 
-const HdsYieldComponent = TemplateOnlyComponent<HdsYieldSignature>();
+const HdsYield = TemplateOnlyComponent<HdsYieldSignature>();
 
-export default HdsYieldComponent;
+export default HdsYield;

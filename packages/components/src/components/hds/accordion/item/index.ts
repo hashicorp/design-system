@@ -56,7 +56,7 @@ export interface HdsAccordionItemSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAccordionItemComponent extends Component<HdsAccordionItemSignature> {
+export default class HdsAccordionItem extends Component<HdsAccordionItemSignature> {
   /**
    * Generates a unique ID for the Content
    *

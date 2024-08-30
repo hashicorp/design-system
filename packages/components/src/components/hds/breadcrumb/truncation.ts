@@ -15,7 +15,7 @@ export interface HdsBreadcrumbTruncationSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsBreadcrumbTruncationComponent extends Component<HdsBreadcrumbTruncationSignature> {
+export default class HdsBreadcrumbTruncation extends Component<HdsBreadcrumbTruncationSignature> {
   /**
    * @param ariaLabel
    * @type {string}
