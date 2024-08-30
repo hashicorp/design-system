@@ -38,6 +38,20 @@ const updateModelWithSelectableRowsStates = (
 
 export default class ComponentsTableController extends Controller {
   // new stuff
+  get shortSpaceships() {
+    return this.spaceships.slice(0, 10);
+  }
+
+  @tracked currentSpaceshipPage = 1;
+  @tracked currentSpaceshipPageSize = 10;
+
+  get paginatedSpaceships() {
+    const start =
+      (this.currentSpaceshipPage - 1) * this.currentSpaceshipPageSize;
+    const end = this.currentSpaceshipPage * this.currentSpaceshipPageSize;
+    return this.spaceships.slice(start, end);
+  }
+
   spaceships = [
     {
       id: 1,
@@ -443,6 +457,7 @@ export default class ComponentsTableController extends Controller {
 
   @action
   handleSpaceshipSelectionChange({ selectedRowsKeys }) {
+    console.log(...arguments);
     this.spaceships.forEach((spaceship) => {
       spaceship.isSelected = selectedRowsKeys.includes(spaceship.id);
     });
