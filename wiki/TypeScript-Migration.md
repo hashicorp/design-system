@@ -21,7 +21,7 @@ The following steps are recommended for migrating components to TypeScript.
       interface HdsBadgeSignature {
         // signature
       }
-      const HdsBadgeComponent = TemplateOnlyComponent<HdsBadgeSignature>();
+      const HdsBadge = TemplateOnlyComponent<HdsBadgeSignature>();
       export default HdsBadgeComponent;
 
 5. Add types and use them in the signature
