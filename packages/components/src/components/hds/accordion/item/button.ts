@@ -11,12 +11,14 @@ import type { HdsAccordionSizes } from '../types.ts';
 interface HdsAccordionItemButtonSignature {
   Args: {
     ariaLabel?: string;
+    ariaLabelledBy?: string;
     contentId?: string;
     isOpen?: boolean;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
     parentContainsInteractive?: boolean;
     size?: HdsAccordionSizes;
+    id?: string;
   };
   Element: HTMLButtonElement;
 }

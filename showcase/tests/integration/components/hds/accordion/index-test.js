@@ -213,6 +213,55 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     );
   });
 
+  test('the AccordionItem toggle has an aria-labelledby attribute set to the id of the toggle text by default', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Item>
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content>
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+
+    assert.dom('.hds-accordion-item__button').hasAttribute('aria-labelledby');
+
+    assert
+      .dom('.hds-accordion-item__button')
+      .doesNotHaveAttribute('aria-label');
+
+    assert.strictEqual(
+      this.element
+        .querySelector('.hds-accordion-item__toggle-content')
+        .getAttribute('id'),
+      this.element
+        .querySelector('.hds-accordion-item__button')
+        .getAttribute('aria-labelledby')
+    );
+  });
+
+  test('the AccordionItem toggle has an aria-label attribute when the argument is passed', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Accordion as |A|>
+          <A.Item @ariaLabel="Custom toggle label">
+            <:toggle>Item one</:toggle>
+            <:content>Additional content</:content>
+          </A.Item>
+        </Hds::Accordion>
+      `
+    );
+
+    assert
+      .dom('.hds-accordion-item__button')
+      .hasAttribute('aria-label', 'Custom toggle label');
+
+    assert
+      .dom('.hds-accordion-item__button')
+      .doesNotHaveAttribute('aria-labelledby');
+  });
+
   // OPTIONS
 
   // isOpen

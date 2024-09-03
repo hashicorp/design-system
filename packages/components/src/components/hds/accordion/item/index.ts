@@ -63,14 +63,13 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
    * @param contentId
    */
   contentId = 'content-' + guidFor(this);
+  titleId = 'title-' + guidFor(this);
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Toggle display'
-   */
-  get ariaLabel(): string {
-    return this.args.ariaLabel ?? 'Toggle display';
+  get ariaLabelledBy(): string | undefined {
+    if (!this.args.ariaLabel) {
+      return this.titleId;
+    }
+    return undefined;
   }
 
   /**
