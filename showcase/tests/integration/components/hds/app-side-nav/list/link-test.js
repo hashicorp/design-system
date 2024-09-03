@@ -17,11 +17,11 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link id="test-side-nav-list-item-link" />`
+        hbs`<Hds::AppSideNav::List::Link id="test-app-side-nav-list-item-link" />`
       );
       assert
-        .dom('#test-side-nav-list-item-link')
-        .hasClass('hds-side-nav__list-item-link');
+        .dom('#test-app-side-nav-list-item-link')
+        .hasClass('hds-app-side-nav__list-item-link');
     });
 
     // Test Content / Args
@@ -31,7 +31,7 @@ module(
         hbs`<Hds::AppSideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} @isHrefExternal={{true}} />`
       );
       assert.dom('.hds-icon-boundary').exists();
-      assert.dom('.hds-side-nav__list-item-text').hasText('Boundary');
+      assert.dom('.hds-app-side-nav__list-item-text').hasText('Boundary');
       assert.dom('.hds-badge-count').hasText('3');
       assert.dom('.hds-badge').hasText('Alpha');
       assert.dom('.hds-icon-chevron-right').exists();
@@ -40,9 +40,9 @@ module(
 
     test('it renders the link as "active" if @isActive is true', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link @isActive={{true}} id="test-side-nav-link" />`
+        hbs`<Hds::AppSideNav::List::Link @isActive={{true}} id="test-app-side-nav-link" />`
       );
-      assert.dom('#test-side-nav-link').hasClass('active');
+      assert.dom('#test-app-side-nav-link').hasClass('active');
     });
 
     test('it renders the passed in custom content', async function (assert) {
@@ -58,7 +58,7 @@ module(
 
     test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
       await render(hbs`<Hds::AppSideNav::List::Link />`);
-      assert.dom('.hds-side-nav__list-item-link').hasTagName('button');
+      assert.dom('.hds-app-side-nav__list-item-link').hasTagName('button');
     });
 
     test('it should render a <a> link if @href is passed', async function (assert) {
@@ -66,7 +66,7 @@ module(
         hbs`<Hds::AppSideNav::List::Link @href="https://www.hashicorp.com/" />`
       );
       assert
-        .dom('.hds-side-nav__list-item-link')
+        .dom('.hds-app-side-nav__list-item-link')
         .hasTagName('a')
         .hasAttribute('href', 'https://www.hashicorp.com/');
     });
@@ -76,7 +76,7 @@ module(
         hbs`<Hds::AppSideNav::List::Link @route="utilities.interactive" />`
       );
       assert
-        .dom('.hds-side-nav__list-item-link')
+        .dom('.hds-app-side-nav__list-item-link')
         .hasTagName('a')
         .hasAttribute('href', '/utilities/interactive');
     });

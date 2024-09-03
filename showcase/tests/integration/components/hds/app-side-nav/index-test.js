@@ -23,9 +23,9 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav id="test-side-nav" @hasA11yRefocus={{false}} />`
+      hbs`<Hds::AppSideNav id="test-app-side-nav" @hasA11yRefocus={{false}} />`
     );
-    assert.dom('#test-side-nav').hasClass('hds-side-nav');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav');
   });
 
   // CONTENT
@@ -34,19 +34,19 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`
       <Hds::AppSideNav @hasA11yRefocus={{false}}>
         <:header>
-          <span id="test-side-nav-header" />
+          <span id="test-app-side-nav-header" />
         </:header>
         <:body>
-          <span id="test-side-nav-body" />
+          <span id="test-app-side-nav-body" />
         </:body>
         <:footer>
-          <span id="test-side-nav-footer" />
+          <span id="test-app-side-nav-footer" />
         </:footer>
       </Hds::AppSideNav>
     `);
-    assert.dom('#test-side-nav-header').exists();
-    assert.dom('#test-side-nav-body').exists();
-    assert.dom('#test-side-nav-footer').exists();
+    assert.dom('#test-app-side-nav-header').exists();
+    assert.dom('#test-app-side-nav-body').exists();
+    assert.dom('#test-app-side-nav-footer').exists();
   });
 
   // A11Y
@@ -86,22 +86,24 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   // RESPONSIVENESS
 
   test('it is "desktop" by default', async function (assert) {
-    await render(hbs`<Hds::AppSideNav id="test-side-nav" />`);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-desktop');
+    await render(hbs`<Hds::AppSideNav id="test-app-side-nav" />`);
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-desktop');
   });
 
   test('it is "responsive" by default', async function (assert) {
-    await render(hbs`<Hds::AppSideNav id="test-side-nav" />`);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-responsive');
+    await render(hbs`<Hds::AppSideNav id="test-app-side-nav" />`);
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-responsive');
   });
 
   test('it is not "responsive" if `isResponsive` is false', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav id="test-side-nav" @isResponsive={{false}} />`
+      hbs`<Hds::AppSideNav id="test-app-side-nav" @isResponsive={{false}} />`
     );
     assert
-      .dom('#test-side-nav')
-      .doesNotHaveClass('hds-side-nav--is-responsive');
+      .dom('#test-app-side-nav')
+      .doesNotHaveClass('hds-app-side-nav--is-responsive');
   });
 
   // MOBILE
@@ -109,134 +111,146 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('it is "mobile" on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" />
+      <Hds::AppSideNav id="test-app-side-nav" />
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-mobile');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-mobile');
   });
 
   test('it is minimized/collapsed on narrow viewports by default', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" />
+      <Hds::AppSideNav id="test-app-side-nav" />
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
   });
 
   test('it is not minimized/collapsed on narrow viewports if `isResponsive` is false', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" @isResponsive={{false}} />
+      <Hds::AppSideNav id="test-app-side-nav" @isResponsive={{false}} />
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
   });
 
   test('it shows a toggle button on narrow viewports by default', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" />
+      <Hds::AppSideNav id="test-app-side-nav" />
     `);
-    assert.dom('.hds-side-nav__toggle-button').exists();
+    assert.dom('.hds-app-side-nav__toggle-button').exists();
   });
 
   test('it does not show a toggle button on narrow viewports if `isResponsive` is false', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" @isResponsive={{false}} />
+      <Hds::AppSideNav id="test-app-side-nav" @isResponsive={{false}} />
     `);
-    assert.dom('.hds-side-nav__toggle-button').doesNotExist();
+    assert.dom('.hds-app-side-nav__toggle-button').doesNotExist();
   });
 
   test('it expands/collapses when the toggle button is pressed on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" />
+      <Hds::AppSideNav id="test-app-side-nav" />
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
 
-    await click('.hds-side-nav__toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
-    await click('.hds-side-nav__toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    await click('.hds-app-side-nav__toggle-button');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
+    await click('.hds-app-side-nav__toggle-button');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
   });
 
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-side-nav" />
+      <Hds::AppSideNav id="test-app-side-nav" />
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
-    await click('.hds-side-nav__toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
+    await click('.hds-app-side-nav__toggle-button');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
 
-    await triggerKeyEvent('#test-side-nav', 'keydown', 'Escape');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    await triggerKeyEvent('#test-app-side-nav', 'keydown', 'Escape');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
   });
 
   // COLLAPSIBLE
 
   test('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav @isCollapsible={{true}} id="test-side-nav" />`
+      hbs`<Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav" />`
     );
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
 
-    await click('.hds-side-nav__toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    await click('.hds-app-side-nav__toggle-button');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
 
-    await click('.hds-side-nav__toggle-button');
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+    await click('.hds-app-side-nav__toggle-button');
+    assert
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
   });
 
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`
-      <Hds::AppSideNav @isCollapsible={{true}} id="test-side-nav">
+      <Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav">
         <:header as |H|>
-          <span id="test-side-nav-header" data-test-minimized={{H.isMinimized}} />
+          <span id="test-app-side-nav-header" data-test-minimized={{H.isMinimized}} />
         </:header>
         <:body as |B|>
-          <span id="test-side-nav-body" data-test-minimized={{B.isMinimized}} />
-          <span class="hds-side-nav-hide-when-minimized" />
+          <span id="test-app-side-nav-body" data-test-minimized={{B.isMinimized}} />
+          <span class="hds-app-side-nav-hide-when-minimized" />
         </:body>
         <:footer as |F|>
-          <span id="test-side-nav-footer" data-test-minimized={{F.isMinimized}} />
+          <span id="test-app-side-nav-footer" data-test-minimized={{F.isMinimized}} />
         </:footer>
       </Hds::AppSideNav>
     `);
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
     assert
-      .dom('.hds-side-nav__toggle-button')
+      .dom('#test-app-side-nav')
+      .hasClass('hds-app-side-nav--is-not-minimized');
+    assert
+      .dom('.hds-app-side-nav__toggle-button')
       .hasAttribute('aria-label', 'Close menu');
     assert
-      .dom('.hds-side-nav__toggle-button .hds-icon')
+      .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-left');
     assert
-      .dom('#test-side-nav-header')
+      .dom('#test-app-side-nav-header')
       .doesNotHaveAttribute('data-test-minimized');
     assert
-      .dom('#test-side-nav-body')
+      .dom('#test-app-side-nav-body')
       .doesNotHaveAttribute('data-test-minimized');
     assert
-      .dom('#test-side-nav-footer')
+      .dom('#test-app-side-nav-footer')
       .doesNotHaveAttribute('data-test-minimized');
     assert
-      .dom('.hds-side-nav-hide-when-minimized')
+      .dom('.hds-app-side-nav-hide-when-minimized')
       .doesNotHaveAttribute('inert');
-    assert.dom('#test-side-nav-body').doesNotHaveAttribute('inert');
+    assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
 
-    await click('.hds-side-nav__toggle-button');
+    await click('.hds-app-side-nav__toggle-button');
 
-    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
     assert
-      .dom('.hds-side-nav__toggle-button')
+      .dom('.hds-app-side-nav__toggle-button')
       .hasAttribute('aria-label', 'Open menu');
     assert
-      .dom('.hds-side-nav__toggle-button .hds-icon')
+      .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-right');
-    assert.dom('#test-side-nav-header').hasAttribute('data-test-minimized');
-    assert.dom('#test-side-nav-body').hasAttribute('data-test-minimized');
-    assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
-    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
-    assert.dom('#test-side-nav-body').doesNotHaveAttribute('inert');
+    assert.dom('#test-app-side-nav-header').hasAttribute('data-test-minimized');
+    assert.dom('#test-app-side-nav-body').hasAttribute('data-test-minimized');
+    assert.dom('#test-app-side-nav-footer').hasAttribute('data-test-minimized');
+    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
   });
 
   // CALLBACKS
@@ -247,7 +261,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(
       hbs`<Hds::AppSideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
     );
-    await click('.hds-side-nav__toggle-button');
+    await click('.hds-app-side-nav__toggle-button');
     assert.ok(toggled);
   });
 
