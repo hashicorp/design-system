@@ -277,7 +277,7 @@
                   <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
                 </:logo>
                 <:actions>
-                  <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+                  <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
                   <Hds::Dropdown @listPosition="bottom-left" as |dd|>
                     <dd.ToggleIcon @icon="help" @text="help menu" />
                     <dd.Title @text="Help & Support" />

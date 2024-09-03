@@ -140,7 +140,7 @@ Here is an example of some possible actions:
           <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
         </:logo>
         <:actions>
-          <Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" />
+          <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
@@ -166,11 +166,9 @@ Here is an example of some possible actions:
 </div>
 ```
 
-The `Hds::SideNav::Header::IconButton` is a specialized sub-component that can be used to add a button (or link) as "action" with a visual style specific to the Side Nav. It requires a value for the `@icon` and `@ariaLabel` arguments. The IconButton is built on top of the [`Hds::Interactive` component](/utilities/interactive), so it accepts all its routing arguments (eg. `@href`, `@route`, `@query`, `@model(s)`, etc.).
+Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdown) components can be used within the Side Nav where needed. They will automatically inherit dark theme styles. We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the Side Nav.
 
-The dropdown elements instead (in this case) are using the standard [`Hds::Dropdown` component](/components/dropdown). We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the Side Nav.
-
-You can also add custom elements to the `<:actions>` block, if these two don't cover your specific needs, but in this case you will have to take care of their styling so that they blend in with the rest of the Side Nav elements.
+You can also add custom elements to the `<:actions>` block, if these don't cover your specific needs. If you add custom elements, you will have to take care of their styling so that they blend in with the rest of the Side Nav elements.
 
 !!! Info
 
