@@ -43,6 +43,29 @@ Optionally, you can pass only `title` or only `description`.
 </Hds::Alert>
 ```
 
+### Tag
+
+The `@tag` argument changes the HTML element that wraps the title content of `[A].Title`. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Alert appears directly below the main heading of the page, it should be `"h2"`.
+
+```handlebars
+<div class="doc-alert-demo-heading">
+ <Hds::Text::Display @tag="h1" @size="500">Edit credit card</Hds::Text::Display>
+</div>
+<Hds::Alert @type="inline" @color="critical" as |A|>
+  <A.Title @tag="h2">Form submission error</A.Title>
+  <A.Description>Correct the formatting of the following fields to update your user profile:</A.Description>
+  <A.Description>
+    <Hds::Link::Inline @href="#" @color="secondary">Expiration date</Hds::Link::Inline>
+  </A.Description>
+</Hds::Alert>
+```
+
+!!! Insight
+
+The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 ### Color
 
 A different color can be applied to the Alert using the `color` argument. This will determine the default icon used in the Alert, unless overwritten.

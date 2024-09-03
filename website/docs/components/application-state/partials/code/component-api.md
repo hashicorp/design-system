@@ -49,6 +49,9 @@ The `ApplicationState::Header` component, yielded as contextual component.
   <C.Property @name="title" @type="string">
     The text of the title
   </C.Property>
+  <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
+    The HTML tag that wraps the title text.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
