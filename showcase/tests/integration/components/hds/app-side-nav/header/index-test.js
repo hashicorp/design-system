@@ -12,8 +12,8 @@ module('Integration | Component | hds/app-side-nav/header', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::AppSideNav::Header id="test-side-nav-header"/>`);
-    assert.dom('#test-side-nav-header').hasClass('hds-side-nav-header');
+    await render(hbs`<Hds::AppSideNav::Header id="test-app-side-nav-header"/>`);
+    assert.dom('#test-app-side-nav-header').hasClass('hds-app-side-nav-header');
   });
 
   // CONTENT
@@ -22,14 +22,14 @@ module('Integration | Component | hds/app-side-nav/header', function (hooks) {
     await render(hbs`
       <Hds::AppSideNav::Header>
         <:logo>
-          <div id="test-side-nav-logo"></div>
+          <div id="test-app-side-nav-logo"></div>
         </:logo>
         <:actions>
-          <div id="test-side-nav-actions"></div>
+          <div id="test-app-side-nav-actions"></div>
         </:actions>
       </Hds::AppSideNav::Header>
     `);
-    assert.dom('#test-side-nav-logo').exists();
-    assert.dom('#test-side-nav-actions').exists();
+    assert.dom('#test-app-side-nav-logo').exists();
+    assert.dom('#test-app-side-nav-actions').exists();
   });
 });

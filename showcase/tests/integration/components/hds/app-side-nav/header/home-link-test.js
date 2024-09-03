@@ -21,7 +21,7 @@ module(
       await render(
         hbs`<Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-home-link" />`
       );
-      assert.dom('#test-home-link').hasClass('hds-side-nav__home-link');
+      assert.dom('#test-home-link').hasClass('hds-app-side-nav__home-link');
     });
 
     // CONTENT
