@@ -1,0 +1,50 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::AppSideNav::List::Item>
+  <Hds::Interactive
+    class="hds-app-side-nav__list-item-link {{if @isActive 'active'}}"
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    ...attributes
+  >
+    {{#if @icon}}
+      <Hds::Icon class="hds-app-side-nav__list-item-icon-leading" @name={{@icon}} />
+    {{/if}}
+
+    {{#if @text}}
+      <span class="hds-app-side-nav__list-item-text hds-typography-body-200 hds-font-weight-medium">
+        {{@text}}
+      </span>
+    {{/if}}
+
+    {{#if @count}}
+      <Hds::BadgeCount @text={{@count}} @type="inverted" @size="small" />
+    {{/if}}
+
+    {{#if @badge}}
+      <Hds::Badge @text={{@badge}} @type="inverted" @size="small" />
+    {{/if}}
+
+    {{yield}}
+
+    {{#if @hasSubItems}}
+      <span class="hds-app-side-nav__list-item-icon-trailing">
+        <Hds::Icon @name="chevron-right" />
+      </span>
+    {{/if}}
+    {{#if @isHrefExternal}}
+      <span class="hds-app-side-nav__list-item-icon-trailing">
+        <Hds::Icon @name="external-link" />
+      </span>
+    {{/if}}
+  </Hds::Interactive>
+</Hds::AppSideNav::List::Item>

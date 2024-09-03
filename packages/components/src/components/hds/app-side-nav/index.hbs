@@ -1,0 +1,47 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+
+<Hds::AppSideNav::Base
+  class={{concat this.classNames (unless (has-block "header") " hds-app-side-nav--is-headerless")}}
+  ...attributes
+  {{on "transitionstart" (fn this.setTransition "start")}}
+  {{on "transitionend" (fn this.setTransition "end")}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap isActive=this.shouldTrapFocus}}
+  {{did-insert this.didInsert}}
+>
+  <:root>
+    {{#if this.hasA11yRefocus}}
+      {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
+      <NavigationNarrator
+        @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
+        @skipTo="#{{@a11yRefocusSkipTo}}"
+        @skipText={{@a11yRefocusSkipText}}
+        @navigationText={{@a11yRefocusNavigationText}}
+        @excludeAllQueryParams={{@a11yRefocusExcludeAllQueryParams}}
+      />
+    {{/if}}
+    {{#if this.showToggleButton}}
+      {{! template-lint-disable no-invalid-interactive}}
+      <div class="hds-app-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
+      {{! template-lint-enable no-invalid-interactive}}
+      <Hds::AppSideNav::ToggleButton
+        aria-label={{this.ariaLabel}}
+        @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
+        {{on "click" this.toggleMinimizedStatus}}
+      />
+    {{/if}}
+  </:root>
+  <:header as |Header|>
+    {{~yield (hash Header=Header isMinimized=this.isMinimized) to="header"~}}
+  </:header>
+  <:body as |Body|>
+    {{~yield (hash Body=Body isMinimized=this.isMinimized) to="body"~}}
+  </:body>
+  <:footer as |Footer|>
+    {{~yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"~}}
+  </:footer>
+</Hds::AppSideNav::Base>

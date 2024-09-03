@@ -1,0 +1,20 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Interactive
+  class="hds-app-side-nav__icon-button"
+  @current-when={{@current-when}}
+  @models={{hds-link-to-models @model @models}}
+  @query={{hds-link-to-query @query}}
+  @replace={{@replace}}
+  @route={{@route}}
+  @isRouteExternal={{@isRouteExternal}}
+  @href={{@href}}
+  @isHrefExternal={{@isHrefExternal}}
+  ...attributes
+  aria-label={{this.ariaLabel}}
+>
+  <Hds::Icon @name={{@icon}} @stretched={{true}} @size="24" />
+</Hds::Interactive>
