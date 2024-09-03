@@ -1,0 +1,19 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<nav class="hds-app-side-nav__list-wrapper" ...attributes>
+  {{yield (hash ExtraBefore=(component "hds/yield"))}}
+  <ul class="hds-app-side-nav__list" role="list">
+    {{yield
+      (hash
+        Item=(component "hds/side-nav/list/item")
+        BackLink=(component "hds/side-nav/list/back-link")
+        Title=(component "hds/side-nav/list/title")
+        Link=(component "hds/side-nav/list/link")
+      )
+    }}
+  </ul>
+  {{yield (hash ExtraAfter=(component "hds/yield"))}}
+</nav>
