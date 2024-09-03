@@ -23,6 +23,6 @@ Figma file: [if it applies]
 ### 👀 Component checklist
 
 - [ ] Percy was checked for any visual regression
-- [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed (see [templates here](https://github.com/hashicorp/design-system/blob/main/wiki/Website-Changelog.md#templates-for-npm-packages))
+- [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed (see [templates here](https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3243114706/Changelog+authoring+best+practices#Templates))
 
 :speech_balloon: Please consider using [conventional comments](https://conventionalcomments.org/) when reviewing this PR.
