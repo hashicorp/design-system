@@ -21,7 +21,7 @@ interface HdsStepperStepIndicatorSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsStepperStepIndicatorComponent extends Component<HdsStepperStepIndicatorSignature> {
+export default class HdsStepperStepIndicator extends Component<HdsStepperStepIndicatorSignature> {
   /**
    * @param status
    * @type {string}

@@ -170,3 +170,29 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
   </A.Footer>
 </Hds::ApplicationState>
 ```
+
+### titleTag
+
+The `@titleTag` argument changes the HTML element that wraps the `[A].Header` title content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Application State is used as an empty state below the main heading of a page, the value should be `"h2"`. 
+
+```handlebars
+<div class="doc-application-state-demo-heading">
+  <Hds::Text::Display @tag="h1" @size="500">Templates</Hds::Text::Display>
+</div>
+<Hds::ApplicationState as |A|>
+  <A.Header @title="No templates have been created yet" @titleTag="h2" />
+  <A.Body @text="Make a template to easily provision infrastructure for any Waypoint application. Youll need a Terraform co-node module and instructions for your application developers." />
+  <A.Footer as |F|>
+    <F.Button @icon="plus" @text="Create a template" />
+    <F.Button @icon="upload" @text="Import" @color="secondary" />
+    <F.LinkStandalone @icon="docs-link" @text="Learn more" @href="/components/application-state"
+    @iconPosition="trailing" />
+  </A.Footer>
+</Hds::ApplicationState>
+```
+
+!!! Insight
+
+The default `@titleTag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@titleTag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!

@@ -34,7 +34,7 @@ export interface HdsDisclosurePrimitiveSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsDisclosurePrimitiveComponent extends Component<HdsDisclosurePrimitiveSignature> {
+export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimitiveSignature> {
   @tracked _isOpen = false;
   @tracked _isControlled = this.args.isOpen !== undefined;
 

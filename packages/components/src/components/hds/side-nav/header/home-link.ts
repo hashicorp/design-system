@@ -18,7 +18,7 @@ interface HdsSideNavHeaderHomeLinkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsSideNavHeaderHomeLinkComponent extends Component<HdsSideNavHeaderHomeLinkSignature> {
+export default class HdsSideNavHeaderHomeLink extends Component<HdsSideNavHeaderHomeLinkSignature> {
   /**
    * @param ariaLabel
    * @type {string}

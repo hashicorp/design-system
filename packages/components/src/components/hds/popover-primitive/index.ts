@@ -58,7 +58,7 @@ export interface SetupPrimitivePopoverModifier {
   };
 }
 
-export default class HdsPopoverPrimitiveComponent extends Component<HdsPopoverPrimitiveSignature> {
+export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSignature> {
   @tracked isOpen = this.args.isOpen ?? false;
   @tracked isClosing = false;
   containerElement?: HTMLElement;

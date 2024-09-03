@@ -27,7 +27,6 @@ interface HdsSegmentedGroupSignature {
   Element: HTMLDivElement;
 }
 
-const HdsSegmentedGroupComponent =
-  TemplateOnlyComponent<HdsSegmentedGroupSignature>();
+const HdsSegmentedGroup = TemplateOnlyComponent<HdsSegmentedGroupSignature>();
 
-export default HdsSegmentedGroupComponent;
+export default HdsSegmentedGroup;

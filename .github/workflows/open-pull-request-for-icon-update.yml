@@ -75,6 +75,6 @@ jobs:
 
             ### 👀 Component checklist
 
-            - [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed ([instructions here](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/CONTRIBUTING.md#updating-the-icons-in-flight-icons) / [expected format here](https://github.com/hashicorp/design-system/blob/main/wiki/Website-Changelog.md#new-icons))
+            - [ ] A changelog entry was added via [Changesets](https://github.com/changesets/changesets) if needed ([instructions here](https://github.com/hashicorp/design-system/blob/main/packages/flight-icons/CONTRIBUTING.md#updating-the-icons-in-flight-icons) / [expected format here](https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3243114706/Changelog+authoring+best+practices#New-icons))
             - [ ] Percy was checked for any visual regression
           token: ${{ secrets.PAT_TOKEN }}

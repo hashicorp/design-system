@@ -8,7 +8,7 @@ export interface HdsApplicationPaginationNavEllipsisSignature {
   Element: HTMLDivElement;
 }
 
-const HdsApplicationPaginationNavEllipsisComponent =
+const HdsApplicationPaginationNavEllipsis =
   TemplateOnlyComponent<HdsApplicationPaginationNavEllipsisSignature>();
 
-export default HdsApplicationPaginationNavEllipsisComponent;
+export default HdsApplicationPaginationNavEllipsis;

@@ -15,7 +15,6 @@ export interface HdsDropdownFooterSignature {
   Element: HTMLDivElement;
 }
 
-const HdsDropdownFooterComponent =
-  templateOnlyComponent<HdsDropdownFooterSignature>();
+const HdsDropdownFooter = templateOnlyComponent<HdsDropdownFooterSignature>();
 
-export default HdsDropdownFooterComponent;
+export default HdsDropdownFooter;

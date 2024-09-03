@@ -28,7 +28,7 @@ interface HdsFormCheckboxGroupSignature {
   Element: HdsFormFieldsetSignature['Element'];
 }
 
-const HdsFormCheckboxGroupComponent =
+const HdsFormCheckboxGroup =
   templateOnlyComponent<HdsFormCheckboxGroupSignature>();
 
-export default HdsFormCheckboxGroupComponent;
+export default HdsFormCheckboxGroup;

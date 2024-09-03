@@ -14,7 +14,7 @@ interface HdsSideNavToggleButtonSignature {
   Element: HTMLButtonElement;
 }
 
-const HdsSideNavToggleButtonComponent =
+const HdsSideNavToggleButton =
   TemplateOnlyComponent<HdsSideNavToggleButtonSignature>();
 
-export default HdsSideNavToggleButtonComponent;
+export default HdsSideNavToggleButton;

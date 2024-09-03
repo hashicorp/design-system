@@ -31,6 +31,6 @@ interface HdsPageHeaderSignature {
   Element: HTMLElement;
 }
 
-const HdsPageHeaderComponent = TemplateOnlyComponent<HdsPageHeaderSignature>();
+const HdsPageHeader = TemplateOnlyComponent<HdsPageHeaderSignature>();
 
-export default HdsPageHeaderComponent;
+export default HdsPageHeader;

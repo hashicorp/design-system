@@ -316,6 +316,23 @@ Avoid inconsistent icon use.
 </div>
 !!!
 
+### Badge usage
+
+[Badges](/components/badge) in Interactive ListItems are optional. We recommend using only the `small` Badge option to align more closely with the text line height. Badges should be used sparingly and only when their use adds contextual value. Examples of appropriate use of Badge inside an Interactive ListItem include:
+
+- When an item is in beta or behind a feature flag, i.e., a new item that users should be able to locate easily.
+- When an item has vital information that users should be able to see at a glance, i.e., a unique status.
+- When an item should be distinguished from others in the list, e.g., an item view is Public vs Private.
+
+![Dropdown use case examples](/assets/components/dropdown/dropdown-interactive-badge-example.png)
+
+!!! Info
+
+The Figma component will not fully reflect the Badge wrapping behavior expected in the Ember component due to current known limitations in Figma’s auto layout settings.
+!!!
+
+Refer to the [Badge guidelines](/components/badge) to help inform choices around color and icon use. 
+
 ### Content
 
 While there are no character limits for ListItems, we recommend keeping them short and concise so the List is easy to scan.

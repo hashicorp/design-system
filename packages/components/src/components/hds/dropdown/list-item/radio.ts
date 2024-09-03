@@ -19,7 +19,7 @@ export interface HdsDropdownListItemRadioSignature {
   Element: HdsFormRadioBaseSignature['Element'];
 }
 
-export default class HdsDropdownListItemRadioComponent extends Component<HdsDropdownListItemRadioSignature> {
+export default class HdsDropdownListItemRadio extends Component<HdsDropdownListItemRadioSignature> {
   /**
    * Determines the unique ID to assign to the radio control
    */

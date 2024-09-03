@@ -13,7 +13,7 @@ export interface HdsFormRadioCardDescriptionSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-const HdsFormRadioCardDescriptionComponent =
+const HdsFormRadioCardDescription =
   templateOnlyComponent<HdsFormRadioCardDescriptionSignature>();
 
-export default HdsFormRadioCardDescriptionComponent;
+export default HdsFormRadioCardDescription;

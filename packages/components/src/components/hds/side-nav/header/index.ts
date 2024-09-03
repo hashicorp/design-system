@@ -13,7 +13,6 @@ interface HdsSideNavHeaderSignature {
   Element: HTMLDivElement;
 }
 
-const HdsSideNavHeaderComponent =
-  TemplateOnlyComponent<HdsSideNavHeaderSignature>();
+const HdsSideNavHeader = TemplateOnlyComponent<HdsSideNavHeaderSignature>();
 
-export default HdsSideNavHeaderComponent;
+export default HdsSideNavHeader;

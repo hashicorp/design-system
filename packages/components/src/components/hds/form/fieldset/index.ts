@@ -52,7 +52,7 @@ export interface HdsFormFieldsetSignature {
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedByComponent>' is not assignable to 'typeof HdsFormFieldComponent'
 @ariaDescribedBy
-class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
+export default class HdsFormFieldset extends Component<HdsFormFieldsetSignature> {
   /**
    * Sets the layout of the group
    *
@@ -113,5 +113,3 @@ class HdsFormFieldsetComponent extends Component<HdsFormFieldsetSignature> {
     unregisterAriaDescriptionElement(this, element);
   }
 }
-
-export default HdsFormFieldsetComponent;

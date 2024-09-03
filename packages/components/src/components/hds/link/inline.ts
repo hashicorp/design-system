@@ -28,7 +28,7 @@ export interface HdsLinkInlineSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsLinkInlineComponent extends Component<HdsLinkInlineSignature> {
+export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
   constructor(owner: unknown, args: HdsLinkInlineSignature['Args']) {
     super(owner, args);
     if (!(this.args.href || this.args.route)) {

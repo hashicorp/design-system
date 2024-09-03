@@ -26,7 +26,7 @@ export interface HdsBreadcrumbItemSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsBreadcrumbItemComponent extends Component<HdsBreadcrumbItemSignature> {
+export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
   /**
    * @param maxWidth
    * @type {string}

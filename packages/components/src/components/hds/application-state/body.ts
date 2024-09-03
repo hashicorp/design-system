@@ -15,7 +15,7 @@ export interface HdsApplicationStateBodySignature {
   Element: HTMLDivElement;
 }
 
-const HdsApplicationStateBodyComponent =
+const HdsApplicationStateBody =
   TemplateOnlyComponent<HdsApplicationStateBodySignature>();
 
-export default HdsApplicationStateBodyComponent;
+export default HdsApplicationStateBody;

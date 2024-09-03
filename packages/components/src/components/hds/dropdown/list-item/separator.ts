@@ -9,7 +9,7 @@ export interface HdsDropdownListItemSeparatorSignature {
   Element: HTMLLIElement;
 }
 
-const HdsDropdownListItemSeparatorComponent =
+const HdsDropdownListItemSeparator =
   templateOnlyComponent<HdsDropdownListItemSeparatorSignature>();
 
-export default HdsDropdownListItemSeparatorComponent;
+export default HdsDropdownListItemSeparator;

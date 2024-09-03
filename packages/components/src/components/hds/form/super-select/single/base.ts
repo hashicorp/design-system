@@ -36,7 +36,7 @@ export interface HdsFormSuperSelectSingleBaseSignature {
   Element: PowerSelectSignature['Element'];
 }
 
-export default class HdsFormSuperSelectSingleBaseComponent extends Component<HdsFormSuperSelectSingleBaseSignature> {
+export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuperSelectSingleBaseSignature> {
   @tracked powerSelectAPI?: PowerSelect;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {

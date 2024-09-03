@@ -19,7 +19,7 @@ export interface HdsDropdownListItemCheckboxSignature {
   Element: HdsFormCheckboxBaseSignature['Element'];
 }
 
-export default class HdsDropdownListItemCheckboxComponent extends Component<HdsDropdownListItemCheckboxSignature> {
+export default class HdsDropdownListItemCheckbox extends Component<HdsDropdownListItemCheckboxSignature> {
   /**
    * Determines the unique ID to assign to the checkbox control
    */

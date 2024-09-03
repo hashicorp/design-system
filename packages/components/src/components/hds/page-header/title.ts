@@ -14,7 +14,6 @@ export interface HdsPageHeaderTitleSignature {
   Element: HdsTextDisplaySignature['Element'];
 }
 
-const HdsPageHeaderTitleComponent =
-  TemplateOnlyComponent<HdsPageHeaderTitleSignature>();
+const HdsPageHeaderTitle = TemplateOnlyComponent<HdsPageHeaderTitleSignature>();
 
-export default HdsPageHeaderTitleComponent;
+export default HdsPageHeaderTitle;

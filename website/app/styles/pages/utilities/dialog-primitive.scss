@@ -1,0 +1,33 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+// UTILITIES > DIALOG PRIMITIVE
+
+#show-content-utilities-dialog-primitive {
+  .doc-dialog-primitive-grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background: white;
+  }
+
+  .doc-dialog-primitive-flex-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem;
+  }
+
+  .doc-dialog-primitive-flex-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem;
+  }
+
+  .doc-dialog-primitive-with-border {
+    border-left: 1px solid var(--token-color-border-primary)
+  }
+}

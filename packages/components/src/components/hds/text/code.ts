@@ -70,7 +70,7 @@ export interface HdsTextCodeSignature {
   };
 }
 
-export default class HdsTextCodeComponent extends Component<HdsTextCodeSignature> {
+export default class HdsTextCode extends Component<HdsTextCodeSignature> {
   /**
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES

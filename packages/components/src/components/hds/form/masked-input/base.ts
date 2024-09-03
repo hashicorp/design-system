@@ -27,7 +27,7 @@ export interface HdsFormMaskedInputBaseSignature {
   Element: HTMLElement;
 }
 
-export default class HdsFormMaskedInputBaseComponent extends Component<HdsFormMaskedInputBaseSignature> {
+export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
   @tracked isContentMasked = this.args.isContentMasked ?? true;
 
   @action

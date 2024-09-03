@@ -15,7 +15,7 @@ export interface HdsFormTextareaBaseSignature {
   Element: HTMLElement;
 }
 
-export default class HdsFormTextareaBaseComponent extends Component<HdsFormTextareaBaseSignature> {
+export default class HdsFormTextareaBase extends Component<HdsFormTextareaBaseSignature> {
   /**
    * Get the class names to apply to the component.
    * @method classNames

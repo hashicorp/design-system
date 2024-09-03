@@ -32,7 +32,7 @@ export interface HdsAppFrameSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppFrameComponent extends Component<HdsAppFrameSignature> {
+export default class HdsAppFrame extends Component<HdsAppFrameSignature> {
   // Indicates if the "header" container should be displayed
   get hasHeader(): boolean {
     return this.args.hasHeader ?? true;

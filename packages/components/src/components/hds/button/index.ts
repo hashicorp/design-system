@@ -33,7 +33,7 @@ export interface HdsButtonSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsButtonComponent extends Component<HdsButtonSignature> {
+export default class HdsButton extends Component<HdsButtonSignature> {
   /**
    * @param text
    * @type {string}

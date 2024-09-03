@@ -38,6 +38,9 @@ A sub-component used to provide the header content.
    <C.Property @name="onDismiss" @type="function">
     Callback function invoked when the “dismiss” button in the header is clicked by the user.
   </C.Property>
+  <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
+    The HTML tag that wraps the tagline and the content in the "title" block of the header.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

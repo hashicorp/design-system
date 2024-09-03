@@ -12,7 +12,7 @@ export interface HdsDropdownListItemGenericSignature {
   Element: HTMLLIElement;
 }
 
-const HdsDropdownListItemGenericComponent =
+const HdsDropdownListItemGeneric =
   templateOnlyComponent<HdsDropdownListItemGenericSignature>();
 
-export default HdsDropdownListItemGenericComponent;
+export default HdsDropdownListItemGeneric;

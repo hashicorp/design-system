@@ -14,7 +14,7 @@ export interface HdsDropdownListItemDescriptionSignature {
   Element: HdsTextBodySignature['Element'];
 }
 
-export default class HdsDropdownListItemDescriptionComponent extends Component<HdsDropdownListItemDescriptionSignature> {
+export default class HdsDropdownListItemDescription extends Component<HdsDropdownListItemDescriptionSignature> {
   /**
    * @param text
    * @type {string}

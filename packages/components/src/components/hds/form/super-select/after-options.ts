@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import templateOnlyComponent from '@ember/component/template-only';
 
 interface HdsFormSuperSelectAfterOptionsSignature {
@@ -13,7 +18,7 @@ interface HdsFormSuperSelectAfterOptionsSignature {
   };
 }
 
-const HdsFormSuperSelectAfterOptionsComponent =
+const HdsFormSuperSelectAfterOptions =
   templateOnlyComponent<HdsFormSuperSelectAfterOptionsSignature>();
 
-export default HdsFormSuperSelectAfterOptionsComponent;
+export default HdsFormSuperSelectAfterOptions;

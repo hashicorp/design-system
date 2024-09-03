@@ -34,7 +34,7 @@ interface HdsSideNavPortalTargetSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNavPortalTargetSignature> {
+export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTargetSignature> {
   @service router!: Services['router'];
 
   @tracked numSubnavs = 0;
@@ -50,7 +50,7 @@ export default class HdsSideNavPortalTargetComponent extends Component<HdsSideNa
 
   get prefersReducedMotion(): boolean {
     return (
-      HdsSideNavPortalTargetComponent.prefersReducedMotionOverride ||
+      HdsSideNavPortalTarget.prefersReducedMotionOverride ||
       (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
     );
   }

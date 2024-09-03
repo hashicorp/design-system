@@ -19,7 +19,6 @@ export interface HdsSideNavBaseSignature {
   Element: HTMLDivElement;
 }
 
-const HdsSideNavBaseComponent =
-  TemplateOnlyComponent<HdsSideNavBaseSignature>();
+const HdsSideNavBase = TemplateOnlyComponent<HdsSideNavBaseSignature>();
 
-export default HdsSideNavBaseComponent;
+export default HdsSideNavBase;

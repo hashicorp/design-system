@@ -22,7 +22,7 @@ export interface HdsDialogPrimitiveFooterSignature {
   Element: HTMLDivElement;
 }
 
-const HdsDialogPrimitiveFooterComponent =
+const HdsDialogPrimitiveFooter =
   templateOnlyComponent<HdsDialogPrimitiveFooterSignature>();
 
-export default HdsDialogPrimitiveFooterComponent;
+export default HdsDialogPrimitiveFooter;

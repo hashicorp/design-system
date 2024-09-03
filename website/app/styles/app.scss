@@ -30,7 +30,9 @@
 @import "pages/foundations/icon";
 @import "pages/foundations/typography";
 @import "pages/components/accordion";
+@import "pages/components/alert";
 @import "pages/components/app-footer";
+@import "pages/components/application-state";
 @import "pages/components/button";
 @import "pages/components/code-block";
 @import "pages/components/copy-snippet";
@@ -50,6 +52,7 @@
 @import "pages/whats-new/changelog";
 @import "pages/patterns/table-multi-select";
 @import "pages/patterns/filter-patterns";
+@import "pages/utilities/dialog-primitive";
 
 // Third-party declarations
 @import "prism-dracula";

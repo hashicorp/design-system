@@ -12,7 +12,6 @@ interface HdsFormToggleBaseSignature {
   Element: HTMLInputElement;
 }
 
-const HdsFormToggleBaseComponent =
-  templateOnlyComponent<HdsFormToggleBaseSignature>();
+const HdsFormToggleBase = templateOnlyComponent<HdsFormToggleBaseSignature>();
 
-export default HdsFormToggleBaseComponent;
+export default HdsFormToggleBase;

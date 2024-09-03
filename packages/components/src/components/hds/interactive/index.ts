@@ -24,7 +24,7 @@ export interface HdsInteractiveSignature {
   Element: HTMLAnchorElement | HTMLButtonElement;
 }
 
-export default class HdsInteractiveComponent extends Component<HdsInteractiveSignature> {
+export default class HdsInteractive extends Component<HdsInteractiveSignature> {
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *

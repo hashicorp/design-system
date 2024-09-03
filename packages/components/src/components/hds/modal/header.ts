@@ -20,7 +20,7 @@ export interface HdsModalHeaderSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsModalHeaderComponent extends Component<HdsModalHeaderSignature> {
+export default class HdsModalHeader extends Component<HdsModalHeaderSignature> {
   constructor(owner: unknown, args: HdsModalHeaderSignature['Args']) {
     super(owner, args);
 

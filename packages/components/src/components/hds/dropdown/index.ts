@@ -68,7 +68,7 @@ export interface HdsDropdownSignature {
   Element: MenuPrimitiveSignature['Element'];
 }
 
-export default class HdsDropdownComponent extends Component<HdsDropdownSignature> {
+export default class HdsDropdown extends Component<HdsDropdownSignature> {
   /**
    * @param listPosition
    * @type {string}

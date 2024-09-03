@@ -18,7 +18,7 @@ export interface HdsAppHeaderHomeLinkSignature {
   Element: HdsInteractiveSignature['Element'];
 }
 
-export default class HdsAppHeaderHomeLinkComponent extends Component<HdsAppHeaderHomeLinkSignature> {
+export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLinkSignature> {
   get ariaLabel(): string {
     const { ariaLabel } = this.args;
 

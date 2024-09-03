@@ -22,7 +22,7 @@ interface HdsRevealSignature {
   Element: HdsDisclosurePrimitiveSignature['Element'];
 }
 
-export default class HdsRevealComponent extends Component<HdsRevealSignature> {
+export default class HdsReveal extends Component<HdsRevealSignature> {
   /**
    * Generates a unique ID for the Content
    *

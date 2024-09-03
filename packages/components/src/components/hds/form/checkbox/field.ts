@@ -27,7 +27,7 @@ export interface HdsFormCheckboxFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormCheckboxFieldComponent =
+const HdsFormCheckboxField =
   templateOnlyComponent<HdsFormCheckboxFieldSignature>();
 
-export default HdsFormCheckboxFieldComponent;
+export default HdsFormCheckboxField;

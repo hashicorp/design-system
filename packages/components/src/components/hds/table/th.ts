@@ -29,7 +29,7 @@ export interface HdsTableThArgs {
   Element: HTMLTableCellElement;
 }
 
-export default class HdsTableThComponent extends Component<HdsTableThArgs> {
+export default class HdsTableTh extends Component<HdsTableThArgs> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *

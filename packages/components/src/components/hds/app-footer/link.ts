@@ -22,4 +22,4 @@ export interface HdsAppFooterLinkSignature {
   Element: HdsLinkInlineSignature['Element'];
 }
 
-export default class HdsAppFooterLinkComponent extends Component<HdsAppFooterLinkSignature> {}
+export default class HdsAppFooterLink extends Component<HdsAppFooterLinkSignature> {}

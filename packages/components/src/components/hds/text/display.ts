@@ -76,7 +76,7 @@ export interface HdsTextDisplaySignature {
   };
 }
 
-export default class HdsTextDisplayComponent extends Component<HdsTextDisplaySignature> {
+export default class HdsTextDisplay extends Component<HdsTextDisplaySignature> {
   /**
    * Sets the "size" for the text
    * Accepted values: see AVAILABLE_SIZES

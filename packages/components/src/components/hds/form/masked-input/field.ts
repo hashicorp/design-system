@@ -31,7 +31,7 @@ interface HdsFormMaskedInputFieldSignature {
   Element: HdsFormFieldSignature['Element'];
 }
 
-const HdsFormMaskedInputFieldComponent =
+const HdsFormMaskedInputField =
   templateOnlyComponent<HdsFormMaskedInputFieldSignature>();
 
-export default HdsFormMaskedInputFieldComponent;
+export default HdsFormMaskedInputField;
