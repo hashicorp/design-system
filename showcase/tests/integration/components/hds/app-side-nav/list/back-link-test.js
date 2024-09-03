@@ -17,11 +17,11 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::BackLink id="test-side-nav-list-item-link-back-link" />`
+        hbs`<Hds::AppSideNav::List::BackLink id="test-app-side-nav-list-item-link-back-link" />`
       );
       assert
-        .dom('#test-side-nav-list-item-link-back-link')
-        .hasClass('hds-side-nav__list-item-link--back-link');
+        .dom('#test-app-side-nav-list-item-link-back-link')
+        .hasClass('hds-app-side-nav__list-item-link--back-link');
     });
 
     // Test Content / Args
@@ -32,7 +32,7 @@ module(
       );
       assert.dom('.hds-icon-chevron-left').exists();
       assert
-        .dom('.hds-side-nav__list-item-text')
+        .dom('.hds-app-side-nav__list-item-text')
         .hasText('Back to parent page');
     });
 
@@ -41,7 +41,7 @@ module(
     test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
       await render(hbs`<Hds::AppSideNav::List::BackLink />`);
       assert
-        .dom('.hds-side-nav__list-item-link--back-link')
+        .dom('.hds-app-side-nav__list-item-link--back-link')
         .hasTagName('button');
     });
 
@@ -50,7 +50,7 @@ module(
         hbs`<Hds::AppSideNav::List::BackLink @href="https://www.hashicorp.com/" />`
       );
       assert
-        .dom('.hds-side-nav__list-item-link--back-link')
+        .dom('.hds-app-side-nav__list-item-link--back-link')
         .hasTagName('a')
         .hasAttribute('href', 'https://www.hashicorp.com/');
     });
@@ -60,7 +60,7 @@ module(
         hbs`<Hds::AppSideNav::List::BackLink @route="utilities.interactive" />`
       );
       assert
-        .dom('.hds-side-nav__list-item-link--back-link')
+        .dom('.hds-app-side-nav__list-item-link--back-link')
         .hasTagName('a')
         .hasAttribute('href', '/utilities/interactive');
     });
