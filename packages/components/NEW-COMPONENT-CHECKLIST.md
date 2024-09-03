@@ -11,7 +11,7 @@ The following should be available as resources for the Project Kickoff.
 
 ## Project Kickoff
 
-A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design System team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable). 
+A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design System team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable).
 
 ## Design Checklist
 The design checklist has 4 primary parts:
@@ -31,18 +31,18 @@ The design process is largely cyclical, so some steps may be repeated until fina
   - [ ] change "{Component name}" to the name of the component
   - [ ] delete the figma tips frame, if not needed
 - [ ] design and build the component, taking into account existing [foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4) and patterns, as well as the findings from the audit and requirements from the CRD
-  - artifacts should include: 
+  - artifacts should include:
     - component explorations
     - examples in context
     - built component
 - [ ] review with situationally appropriate stakeholders and iterate
-  - reviewers should include: 
+  - reviewers should include:
     - HDS designers and manager
     - engineering partner(s)
     - a11y SME
     - other external stakeholders as defined during the kickoff
     - consider also including any key stakeholders
-  - reviews should include checks for: 
+  - reviews should include checks for:
     - alignment to Helios design vision
     - ux solution
     - fulfillment of requirements from the audit and CRD
@@ -57,7 +57,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
 - [ ] request a final branch review from HDS designers
 - [ ] sync with your engineering partner
   - let them know it's been approved and answer any remaining questions
-       
+
 ### Component Testing
 - [ ] prepare for testing
   - [ ] lock the components
@@ -70,14 +70,14 @@ The design process is largely cyclical, so some steps may be repeated until fina
 - [ ] ask key stakeholders to test the component
   - depending on the complexity, we usually give them 3-4 days to complete the testing
 - [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
-     
+
 ### Documentation
 - [ ] while the component is being tested, write the documentation
   - artifacts should include:
     - design guidelines
     - specifications
     - relevant accessibility details
-       
+
 ### Release in Figma
 Once key stakeholders have tested the component and iterations are approved, prepare for a final release of the component.
 
@@ -164,4 +164,4 @@ When ready for review:
 
 - [ ] add situationally appropriate reviewers
 - [ ] add instructions for reviewers in your PR, letting them know what kind of review you need
-- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root) using the [predefined format](https://github.com/hashicorp/design-system/blob/main/wiki/Website-Changelog.md#templates-for-npm-packages))
+- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root) using the [predefined format](https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3243114706/Changelog+authoring+best+practices#Templates))

@@ -8,14 +8,14 @@ import Component from '@glimmer/component';
 export interface Hds<%= classifiedModuleName %>Signature {
   // The arguments accepted by the component
   Args: {};
-  // Any blocks yielded by the component  
+  // Any blocks yielded by the component
   Blocks: {
     default: [];
   };
-  // The element to which `...attributes` is applied in the component template  
+  // The element to which `...attributes` is applied in the component template
   Element: HTMLDivElement;
 }
-// More info on types and signatures: https://github.com/hashicorp/design-system/blob/main/wiki/TypeScript-Migration.md 
+// More info on types and signatures: https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3245932580/Using+Typescript
 
 export default class Hds<%= classifiedModuleName %>Component extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
