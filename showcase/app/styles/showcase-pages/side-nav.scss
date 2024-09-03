@@ -10,7 +10,7 @@ body.components-side-nav {
 
   // constrain max-width of button examples
   .shw-component-button-examples-section {
-    .hds-side-nav:has(button) {
+    .hds-side-nav {
       width: max-content;
       // The heights don't make a visual difference with the current component style but if you inspect you will see that
       // there is extra space around the button examples which could cause an unforeseen issue. So for that reason, we override the height.
