@@ -1,0 +1,82 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// APP-SIDE-NAV
+
+body.components-app-side-nav {
+  $shw-component-app-side-nav-background: #0c0c0e;
+
+  // used to simulate a "root" container for the sidenav
+  .shw-component-sim-app-side-nav-root-container {
+    height: 600px;
+
+    .hds-app-side-nav {
+      position: relative;
+      height: 100% !important;
+      min-height: 100% !important;
+    }
+  }
+
+  // used to simulate an "header" container for the sidenav
+  .shw-component-sim-app-side-nav-header {
+    width: 280px;
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+  }
+
+  // used to simulate a "body" container for the sidenav
+  .shw-component-sim-app-side-nav-body {
+    width: 280px;
+    margin: 0;
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+  }
+
+  .shw-component-app-side-nav-home-link-wrapper {
+    width: 80px;
+    height: 80px;
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+  }
+
+  .shw-component-sim-app-side-nav-list-link-wrapper {
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+  }
+
+  .shw-component-sim-app-side-nav-elem-wrapper {
+    width: fit-content;
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+  }
+
+  .shw-component-sim-toggle-button {
+    height: 80px;
+
+    .hds-app-side-nav__toggle-button {
+      position: relative;
+      transform: none;
+    }
+  }
+
+  // these are used to showcase the non-componentized elements
+
+  .shw-component-sim-other-elements {
+    width: fit-content;
+    padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
+    background: $shw-component-app-side-nav-background;
+
+    .hds-app-side-nav {
+      position: static;
+      height: auto !important;
+      min-height: auto !important;
+    }
+
+    .ember-a11y-refocus-skip-link {
+      position: static !important;
+      transform: none !important;
+    }
+  }
+}
