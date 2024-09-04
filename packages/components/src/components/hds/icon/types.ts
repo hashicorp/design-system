@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+export { iconNames as HdsIconNames } from '@hashicorp/flight-icons/svg';
+
 export enum HdsIconSizeValues {
   Sixteen = '16',
   TwentyFour = '24',

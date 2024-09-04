@@ -8,14 +8,13 @@ import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
 import { HdsIconSizeValues, HdsIconColorValues } from './types.ts';
-import type { HdsIconSizes, HdsIconColors } from './types';
-import type { IconName } from '@hashicorp/flight-icons/svg';
+import type { HdsIconSizes, HdsIconColors, HdsIconNames } from './types';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsIconColorValues);
 
 export interface HdsIconSignature {
   Args: {
-    name: IconName;
+    name: (typeof HdsIconNames)[number];
     color?: HdsIconColors | string | undefined;
     size?: HdsIconSizes;
     stretched?: boolean;
