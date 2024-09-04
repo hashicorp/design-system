@@ -7,8 +7,6 @@
 // APP-SIDE-NAV > HEADER
 //
 
-@use "../../mixins/interactive-dark-theme" as *;
-
 // HEADER (LAYOUT WRAPPER)
 
 .hds-app-side-nav-header {
@@ -42,24 +40,25 @@
 // "home-link"
 
 .hds-app-side-nav__home-link {
-  @include hds-interactive-dark-theme($add-visible-border: false, $is-within-side-nav: true);
   display: block;
   width: 100%;
   height: 100%;
   padding: calc(var(--token-app-side-nav-header-home-link-padding) - 1px); // by design -  we take in account the transparent border
+  color: var(--token-color-foreground-primary); // TODO: Add a token?
 
+  // TODO: UPDATE
   // disabled state:
-  &:disabled,
-  &[disabled],
-  &.mock-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.mock-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.mock-disabled:hover {
-    @include hds-interactive-dark-theme-state-disabled();
-  }
+  // &:disabled,
+  // &[disabled],
+  // &.mock-disabled,
+  // &:disabled:focus,
+  // &[disabled]:focus,
+  // &.mock-disabled:focus,
+  // &:disabled:hover,
+  // &[disabled]:hover,
+  // &.mock-disabled:hover {
+  //   @include hds-interactive-dark-theme-state-disabled();
+  // }
 }
 
 
@@ -68,57 +67,4 @@
 .hds-app-side-nav-header__actions-container {
   display: flex;
   gap: var(--token-app-side-nav-header-actions-spacing);
-}
-
-// Dropdown & Button color theming overrides
-.hds-app-side-nav__dropdown, // deprecated classname
-.hds-app-side-nav,
-.hds-app-side-nav-header {
-  .hds-button,
-  .hds-dropdown-toggle-button,
-  .hds-dropdown-toggle-icon {
-    // Apply dark theme to child interactive components not within a nested dropdown
-    &:not(.hds-dropdown * *, .ember-basic-dropdown-trigger * *, .ember-basic-dropdown-content * *) {
-      @include hds-interactive-dark-theme();
-
-      // disabled state:
-      &:disabled,
-      &[disabled],
-      &.mock-disabled,
-      &:disabled:focus,
-      &[disabled]:focus,
-      &.mock-disabled:focus,
-      &:disabled:hover,
-      &[disabled]:hover,
-      &.mock-disabled:hover {
-        @include hds-interactive-dark-theme-state-disabled();
-      }
-    }
-  }
-}
-
-// generic "icon-button"
-
-// TODO: Replace this component with Hds::Button
-.hds-app-side-nav__icon-button {
-  @include hds-interactive-dark-theme();
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px; // same height as the dropdown "toggle"
-  height: 36px;
-  padding: 5px; // we take in account the transparent border
-
-  // disabled state:
-  &:disabled,
-  &[disabled],
-  &.mock-disabled,
-  &:disabled:focus,
-  &[disabled]:focus,
-  &.mock-disabled:focus,
-  &:disabled:hover,
-  &[disabled]:hover,
-  &.mock-disabled:hover {
-    @include hds-interactive-dark-theme-state-disabled();
-  }
 }
