@@ -81,27 +81,11 @@ Don't use a form in a Flyout, whether the function is creating an object, or upd
 
 ## Size
 
-Medium
+The available sizes are medium (default) and large.
 
-<Hds::Flyout id="size-medium-flyout" class="doc-flyout-demo" open as |F|>
-  <F.Header>Medium Flyout</F.Header>
-  <F.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-  </F.Body>
-</Hds::Flyout>
-
-Large
-
-<Hds::Flyout @size="large" id="size-large-flyout" class="doc-flyout-demo" open as |F|>
-  <F.Header>Large Flyout</F.Header>
-  <F.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-  </F.Body>
-</Hds::Flyout>
+![A medium (480px wide) and large (720px wide) Flyout side by side.](/assets/components/flyout/flyout-sizes.png)
 
 ### Best practices
-
-![Sizes of the Flyout](/assets/components/flyout/flyout-sizes.png)
 
 - Use a Flyout size that best accounts for the complexity and detail of the content.
 - The **medium** size accounts for the _majority_ of scenarios and is the default recommended size.

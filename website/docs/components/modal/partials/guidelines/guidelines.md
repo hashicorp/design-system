@@ -24,20 +24,7 @@ Common examples include:
 - Simple requests of information from the user.
 - Quick confirmations of actions taken by the user.
 
-<Hds::Modal @size="medium" @color="neutral" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Neutral modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
+![A neutral modal, the heading has a gray background and the primary button in the footer is the standard blue.](/assets/components/modal/modal-color-neutral.png)
 
 ### Warning
 
@@ -49,20 +36,7 @@ Common examples include:
 - Archiving an item that can be recovered.
 - Changing a setting that may require the user to re-authenticate or perform an action again.
 
-<Hds::Modal @size="medium" @color="warning" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Warning modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
+![A warning modal, the heading is dark orange with a light orange background and the primary button in the footer is the standard blue.](/assets/components/modal/modal-color-warning.png)
 
 ### Critical
 
@@ -74,20 +48,7 @@ Common examples include:
 - Modifying a setting that cannot be changed or reversed in the future.
 - Alerting the user of unsaved changes that will be discarded.
 
-<Hds::Modal @size="medium" @color="critical" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Critical Modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Delete" @color="critical" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
+![A critical modal, the heading is dark red with a light red background and the primary button in the footer is also red.](/assets/components/modal/modal-color-critical.png)
 
 !!! Info
 
@@ -100,50 +61,7 @@ In Figma, the `critical` Modal color is coupled with the `critical` Button color
 
 We recommend using the **medium** size Modal for most scenarios, but use the size that best accounts for the complexity of the content and intended speed of interaction. We do not recommend resizing the Modal manually.
 
-<Hds::Modal @size="small" id="size-small-modal-first" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Small modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
-
-<Hds::Modal @size="medium" id="size-medium-modal" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Medium modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
-
-<Hds::Modal @size="large" id="size-large-modal" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Large modal
-  </M.Header>
-  <M.Body>
-    <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
+![A small (400px wide), medium (600px), and large (800px) modal vertically stacked.](/assets/components/modal/modal-sizes.png)
 
 ### Height
 
@@ -194,20 +112,7 @@ A tagline helps the user maintain the context of the feature, function, or flow 
 
 Modals can take on many different types of content, from text-based content to simple forms. 
 
-<Hds::Modal @size="small" @color="neutral" class="doc-modal-demo" open as |M|>
-  <M.Header>
-    Default
-  </M.Header>
-  <M.Body>
-    <Doc::Placeholder @text="some generic content" @height="50" @background="#eee" />
-  </M.Body>
-  <M.Footer>
-    <Hds::ButtonSet>
-      <Hds::Button type="submit" @text="Confirm" />
-      <Hds::Button type="button" @text="Cancel" @color="secondary" />
-    </Hds::ButtonSet>
-  </M.Footer>
-</Hds::Modal>
+![](/assets/components/modal/modal-body-content.png)
 
 ## Modal footer
 

@@ -18,15 +18,7 @@ module('Acceptance | components/flyout', function (hooks) {
   });
   test('Components/flyout page passes automated a11y checks', async function (assert) {
     await visit('/components/flyout');
-
-    await a11yAudit({
-      rules: {
-        'heading-order': {
-          enabled: false,
-        },
-      },
-    });
-
+    await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');
   });
 });
