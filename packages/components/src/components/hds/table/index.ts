@@ -43,6 +43,7 @@ export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
 
 export interface HdsTableArgs {
   Args: {
+    canSortBySelectedItemKey?: boolean;
     selectedItemKey?: string;
     // new above here
     align?: HdsTableHorizontalAlignment;
@@ -95,6 +96,10 @@ export default class HdsTable extends Component<HdsTableArgs> {
     undefined;
   selectableRows: HdsTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+
+  get canSortBySelectedItemKey(): boolean {
+    return this.args.canSortBySelectedItemKey ?? false;
+  }
 
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
