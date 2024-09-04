@@ -6,7 +6,8 @@
 // APP-SIDE-NAV
 
 body.components-app-side-nav {
-  $shw-component-app-side-nav-background: #0c0c0e;
+  $shw-component-app-side-nav-background: var(--token-app-side-nav-color-surface-primary);
+  $shw-component-app-side-nav-border-color: var(--token-app-side-nav-wrapper-border-color);
 
   // constrain max-width of button examples
   .shw-component-button-examples-section {
@@ -35,6 +36,7 @@ body.components-app-side-nav {
     width: 280px;
     padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
     background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   // used to simulate a "body" container for the app-side-nav
@@ -43,6 +45,7 @@ body.components-app-side-nav {
     margin: 0;
     padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
     background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   .shw-component-app-side-nav-home-link-wrapper {
@@ -50,11 +53,13 @@ body.components-app-side-nav {
     height: 80px;
     padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
     background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   .shw-component-sim-app-side-nav-list-link-wrapper {
     padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
     background: $shw-component-app-side-nav-background;
+    border: 1px solid $shw-component-app-side-nav-border-color;
   }
 
   .shw-component-sim-app-side-nav-elem-wrapper {
