@@ -4,7 +4,7 @@
 }}
 
 <Hds::Table::Th class="hds-table__th--is-selectable" @scope={{@selectionScope}} ...attributes>
-  <div class="hds-table__th--is-selectable__inner-wrapper">
+  <div class={{this.innerWrapperClassNames}}>
     <Hds::Form::Checkbox::Base
       id={{this.checkboxId}}
       class="hds-table__checkbox"

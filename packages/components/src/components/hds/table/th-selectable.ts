@@ -50,6 +50,15 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
+  get innerWrapperClassNames(): string {
+    const classes = [
+      'hds-table__th--is-selectable__inner-wrapper',
+      'hds-table__th-content',
+    ];
+
+    return classes.join(' ');
+  }
+
   @action
   didInsert(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
     const { didInsert } = this.args;
