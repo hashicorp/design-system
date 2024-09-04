@@ -1,6 +1,6 @@
 ## Component API
 
-### Card
+### Card::Container
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="level" @type="enum" @values={{array "base" "mid" "high" }} @default="base">
