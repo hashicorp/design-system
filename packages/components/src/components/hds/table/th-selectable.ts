@@ -14,7 +14,7 @@ import type { HdsTableTrArgs } from './tr';
 
 export interface HdsTableThSelectableArgs {
   Args: {
-    isHeaderRow?: boolean;
+    showSortButton?: boolean;
     sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
     onClickSort: HdsTableTrArgs['Args']['onClickSort'];
     // new above here

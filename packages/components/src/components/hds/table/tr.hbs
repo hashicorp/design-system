@@ -6,6 +6,7 @@
 <tr class="hds-table__tr" {{did-insert this.didInsert}} ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
+      @showSortButton={{and this.isHeaderRow @canSortBySelectedItemKey}}
       @isHeaderRow={{this.isHeaderRow}}
       @sortOrder={{@sortOrder}}
       @onClickSort={{@onClickSort}}

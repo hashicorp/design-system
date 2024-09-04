@@ -15,6 +15,7 @@
 
   <Hds::Table
     @isSelectable={{true}}
+    @canSortBySelectedItemKey={{true}}
     @selectedItemKey="isSelected"
     @onSelectionChange={{this.onSelectionChangeLogArguments}}
     @model={{this.model.selectableData}}

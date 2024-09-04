@@ -13,6 +13,7 @@ import { tracked } from '@glimmer/tracking';
 
 export interface BaseHdsTableTrArgs {
   Args: {
+    canSortBySelectedItemKey?: boolean;
     sortOrder?: HdsTableThSortOrder;
     onClickSort?: (sortBy?: string) => void;
     // NEW ABOVE

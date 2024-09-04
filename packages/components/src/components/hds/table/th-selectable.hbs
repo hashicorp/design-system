@@ -14,7 +14,7 @@
       {{will-destroy this.willDestroyNode}}
       {{on "change" this.onSelectionChange}}
     />
-    {{#if @isHeaderRow}}
+    {{#if @showSortButton}}
       <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} />
     {{/if}}
   </div>
