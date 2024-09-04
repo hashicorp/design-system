@@ -67,7 +67,13 @@ It’s possible to hide part of the Breadcrumb tree under a "truncated" item tha
 ```
 #### Width-based truncation
 
-By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to one-line and truncate it if it does not fit the available space. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
+By setting `@itemsCanWrap` to `false`, it is possible to constrain the text to one-line and truncate it if it does not fit the available space. 
+
+!!! Warning
+
+The text will automatically truncate and be replaced with an ellipsis to fit within the container. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
+
+!!!
 
 ```handlebars
 <Hds::Breadcrumb @itemsCanWrap={{false}}>

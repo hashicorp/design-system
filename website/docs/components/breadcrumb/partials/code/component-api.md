@@ -59,21 +59,3 @@ The Breadcrumb component is composed of three different parts, each with their o
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
 </Doc::ComponentApi>
-
-#### Width-based truncation
-
-!!! Warning
-
-The text will automatically truncate and be replaced with an ellipsis to fit within the container. Please be aware there are [serious accessibility concerns](/components/copy/snippet?tab=accessibility) with using this feature.
-!!!
-
-```handlebars
-<Hds::Breadcrumb @itemsCanWrap={{false}}>
-  <Hds::Breadcrumb::Item @text="Level one with a very long string" @icon="org" />
-  <Hds::Breadcrumb::Item @text="Level two with a very long string" @icon="folder" />
-  <Hds::Breadcrumb::Item @text="Level three with a very long string" />
-  <Hds::Breadcrumb::Item @text="Level four with a very long string" />
-  <Hds::Breadcrumb::Item @text="Level five with a very long string" />
-  <Hds::Breadcrumb::Item @text="Current with a very long string" @current={{true}} />
-</Hds::Breadcrumb>
-```
