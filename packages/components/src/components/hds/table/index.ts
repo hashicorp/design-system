@@ -43,6 +43,8 @@ export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
 
 export interface HdsTableArgs {
   Args: {
+    selectedItemKey?: string;
+    // new above here
     align?: HdsTableHorizontalAlignment;
     caption?: string;
     columns?: HdsTableColumn[];
