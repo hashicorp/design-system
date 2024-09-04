@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 16:41:13 GMT
+ * Generated on Wed, 04 Sep 2024 18:42:45 GMT
  */
 
 :root {
@@ -267,6 +267,30 @@
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
+  --token-app-side-nav-wrapper-border-width: 1px;
+  --token-app-side-nav-wrapper-border-color: #656a76;
+  --token-app-side-nav-wrapper-padding-horizontal: 16px;
+  --token-app-side-nav-wrapper-padding-vertical: 16px;
+  --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
+  --token-app-side-nav-toggle-button-border-radius: 5px;
+  --token-app-side-nav-header-home-link-padding: 4px;
+  --token-app-side-nav-header-home-link-logo-size: 48px;
+  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
+  --token-app-side-nav-header-actions-spacing: 8px;
+  --token-app-side-nav-body-list-margin-vertical: 24px;
+  --token-app-side-nav-body-list-item-height: 36px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-item-padding-vertical: 4px;
+  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-app-side-nav-body-list-item-border-radius: 5px;
+  --token-app-side-nav-color-foreground-primary: #dedfe3;
+  --token-app-side-nav-color-foreground-strong: #fff;
+  --token-app-side-nav-color-foreground-faint: #8c909c;
+  --token-app-side-nav-color-surface-primary: #0c0c0e;
+  --token-app-side-nav-color-surface-interactive-hover: #3b3d45;
+  --token-app-side-nav-color-surface-interactive-active: #656a76;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
