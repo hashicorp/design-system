@@ -6,6 +6,10 @@
 <tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
+      @isHeaderRow={{this.isHeaderRow}}
+      @sortOrder={{@sortOrder}}
+      @onClickSort={{@onClickSort}}
+      {{!-- new above here --}}
       @isSelected={{@isSelected}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}

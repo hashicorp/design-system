@@ -13,6 +13,7 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
+        @sortOrder={{if (eq this.sortBy @selectedItemKey) this.sortOrder}}
         @selectionScope="col"
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
@@ -78,6 +79,7 @@
               "hds/table/tr"
               selectionScope="row"
               isSelectable=@isSelectable
+              onClickSort=(fn this.setSortBy @selectedItemKey)
               onSelectionChange=this.onSelectionRowChange
               didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox

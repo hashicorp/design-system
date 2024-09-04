@@ -23,6 +23,7 @@ import type {
   HdsTableSortingFunction,
   HdsTableThSortOrder,
   HdsTableVerticalAlignment,
+  HdsTableModel,
 } from './types';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type { HdsTableTdArgs } from './td.ts';
@@ -50,7 +51,8 @@ export interface HdsTableArgs {
     isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model: Array<Record<string, unknown>>;
+    model: HdsTableModel;
+    selectedItemKey?: string;
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
@@ -190,7 +192,11 @@ export default class HdsTable extends Component<HdsTableArgs> {
   }
 
   @action
-  setSortBy(column: string): void {
+  setSortBy(column?: string): void {
+    if (column === undefined) {
+      return;
+    }
+
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder =

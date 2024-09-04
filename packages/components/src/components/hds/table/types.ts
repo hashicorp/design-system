@@ -91,3 +91,5 @@ export interface HdsTableOnSelectionChangeArgs {
     isSelected?: boolean;
   }[];
 }
+
+export type HdsTableModel = Array<Record<string, unknown>>;
