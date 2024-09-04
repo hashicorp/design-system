@@ -8,7 +8,18 @@
 body.components-app-side-nav {
   $shw-component-app-side-nav-background: #0c0c0e;
 
-  // used to simulate a "root" container for the sidenav
+  // constrain max-width of button examples
+  .shw-component-button-examples-section {
+    .hds-app-side-nav {
+      width: max-content;
+      // The heights don't make a visual difference with the current component style but if you inspect you will see that
+      // there is extra space around the button examples which could cause an unforeseen issue. So for that reason, we override the height.
+      height: auto;
+      min-height: 0;
+    }
+  }
+
+  // used to simulate a "root" container for the app-side-nav
   .shw-component-sim-app-side-nav-root-container {
     height: 600px;
 
@@ -19,14 +30,14 @@ body.components-app-side-nav {
     }
   }
 
-  // used to simulate an "header" container for the sidenav
+  // used to simulate an "header" container for the app-side-nav
   .shw-component-sim-app-side-nav-header {
     width: 280px;
     padding: var(--token-app-side-nav-wrapper-padding-horizontal) var(--token-app-side-nav-wrapper-padding-vertical);
     background: $shw-component-app-side-nav-background;
   }
 
-  // used to simulate a "body" container for the sidenav
+  // used to simulate a "body" container for the app-side-nav
   .shw-component-sim-app-side-nav-body {
     width: 280px;
     margin: 0;
@@ -77,6 +88,23 @@ body.components-app-side-nav {
     .ember-a11y-refocus-skip-link {
       position: static !important;
       transform: none !important;
+    }
+  }
+
+  .shw-component-sidenav-dropdown-states-matrix {
+    .shw-grid__item {
+      // we hide all the labels (except for the first "row")
+      &:nth-child(n + 7) {
+        .shw-label {
+          visibility: hidden;
+        }
+      }
+      // we show the labels in the first "column"
+      &:nth-child(6n + 1) {
+        .shw-label {
+          visibility: visible;
+        }
+      }
     }
   }
 }
