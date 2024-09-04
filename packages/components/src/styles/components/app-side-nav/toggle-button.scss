@@ -7,7 +7,6 @@
 // APP-SIDE-NAV > TOGGLE BUTTON
 //
 
-
 .hds-app-side-nav__toggle-button {
   position: absolute;
   top: 22px; // visually align with :header content
@@ -19,7 +18,8 @@
   width: var(--hds-app-sidenav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
-  color: var(--token-color-foreground-high-contrast);
+  // color: var(--token-color-foreground-high-contrast);
+  color: var(--token-color-foreground-primary); // TODO: Add a token?
   background: none;
   background-color: var(--token-app-side-nav-color-surface-primary);
   border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
