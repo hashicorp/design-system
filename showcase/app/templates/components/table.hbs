@@ -9,6 +9,34 @@
 
 <section data-test-percy>
 
+  <Shw::Text::H2>🎉 NEW! - Sort by Selected</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Internal Sorting</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @selectedItemKey="isSelected"
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @model={{this.model.selectableData}}
+    @columns={{array
+      (hash key="lorem" label="Row #")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
   <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>

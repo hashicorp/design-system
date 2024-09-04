@@ -43,6 +43,8 @@ export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
 
 export interface HdsTableArgs {
   Args: {
+    selectedItemKey?: string;
+    // new above here
     align?: HdsTableHorizontalAlignment;
     caption?: string;
     columns?: HdsTableColumn[];
@@ -52,7 +54,6 @@ export interface HdsTableArgs {
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsTableModel;
-    selectedItemKey?: string;
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;

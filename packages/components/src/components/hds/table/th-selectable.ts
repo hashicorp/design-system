@@ -38,10 +38,6 @@ export interface HdsTableThSelectableArgs {
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableArgs> {
   @tracked isSelected = this.args.isSelected;
 
-  /**
-   * Generate a unique ID for the Checkbox
-   * @return {string}
-   */
   checkboxId = 'checkbox-' + guidFor(this);
 
   get ariaLabel(): string {
