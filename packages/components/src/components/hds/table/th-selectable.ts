@@ -18,9 +18,14 @@ import type {
   HdsTableThSortOrderLabels,
 } from './types';
 import type { HdsTableThArgs } from './th';
+import type { HdsTableTrArgs } from './tr';
 
 export interface HdsTableThSelectableArgs {
   Args: {
+    isHeaderRow?: boolean;
+    sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
+    onClickSort: HdsTableTrArgs['Args']['onClickSort'];
+    // new above here
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
