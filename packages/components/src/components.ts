@@ -3,7 +3,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// This file is use to expose public components and it's types (enums only) to the consumers of this package.
+// This file is use to expose public components/subcomponents and their types to the consumers of this package.
+
+// -----------------------------------------------------------
+// ### COMPONENTS
+// -----------------------------------------------------------
 
 // Accordion
 export { default as HdsAccordion } from './components/hds/accordion/index.ts';
@@ -13,17 +17,14 @@ export * from './components/hds/accordion/types.ts';
 export { default as HdsAlert } from './components/hds/alert/index.ts';
 export * from './components/hds/alert/types.ts';
 
-// App Footer
+// AppFooter
 export { default as HdsAppFooter } from './components/hds/app-footer/index.ts';
 export * from './components/hds/app-footer/types.ts';
 
-// App Frame
-export { default as HdsAppFrame } from './components/hds/app-frame/index.ts';
-
-// App Header
+// AppHeader
 export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
 
-// Application State
+// ApplicationState
 export { default as HdsApplicationState } from './components/hds/application-state/index.ts';
 export { default as HdsApplicationStateBody } from './components/hds/application-state/body.ts';
 export { default as HdsApplicationStateFooter } from './components/hds/application-state/footer.ts';
@@ -35,7 +36,7 @@ export * from './components/hds/application-state/types.ts';
 export { default as HdsBadge } from './components/hds/badge/index.ts';
 export * from './components/hds/badge/types.ts';
 
-// Badge Count
+// BadgeCount
 export { default as HdsBadgeCount } from './components/hds/badge-count/index.ts';
 export * from './components/hds/badge-count/types.ts';
 
@@ -47,42 +48,27 @@ export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/
 // Button
 export { default as HdsButton } from './components/hds/button/index.ts';
 
-// Button Set
+// ButtonSet
 export { default as HdsButtonSet } from './components/hds/button-set/index.ts';
 
 // Card
 export { default as HdsCard } from './components/hds/card/container.ts';
 export * from './components/hds/card/types.ts';
 
-// Code Block
+// CodeBlock
 export { default as HdsCodeBlock } from './components/hds/code-block/index.ts';
 export { default as HdsCodeBlockCopyButton } from './components/hds/code-block/copy-button.ts';
 export { default as HdsCodeBlockDescription } from './components/hds/code-block/description.ts';
 export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.ts';
 export * from './components/hds/code-block/types.ts';
 
-// Copy Button
+// CopyButton
 export { default as HdsCopyButton } from './components/hds/copy/button/index.ts';
 export * from './components/hds/copy/button/types.ts';
 
-// Copy Snippet
+// CopySnippet
 export { default as HdsCopySnippet } from './components/hds/copy/snippet/index.ts';
 export * from './components/hds/copy/snippet/types.ts';
-
-// Dialog
-export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.ts';
-export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.ts';
-export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.ts';
-export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.ts';
-export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.ts';
-export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.ts';
-export * from './components/hds/dialog-primitive/types.ts';
-
-// Disclosure
-export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.ts';
-
-// Dismiss Button
-export { default as HdsDismissButton } from './components/hds/dismiss-button/index.ts';
 
 // Dropdown
 export { default as HdsDropdown } from './components/hds/dropdown/index.ts';
@@ -144,20 +130,14 @@ export { default as HdsFormVisibilityToggle } from './components/hds/form/visibi
 export { default as HdsIcon } from './components/hds/icon/index.ts';
 export * from './components/hds/icon/types.ts';
 
-// Icon Tile
+// IconTile
 export { default as HdsIconTile } from './components/hds/icon-tile/index.ts';
 export * from './components/hds/icon-tile/types.ts';
 
-// Interactive
-export { default as HdsInteractive } from './components/hds/interactive/index.ts';
-
-//Link
+// Link
 export { default as HdsLinkInline } from './components/hds/link/inline.ts';
 export { default as HdsLinkStandalone } from './components/hds/link/standalone.ts';
 export * from './components/hds/link/types.ts';
-
-// Menu Primitive
-export { default as HdsMenuPrimitive } from './components/hds/menu-primitive/index.ts';
 
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';
@@ -166,7 +146,7 @@ export { default as HdsModalFooter } from './components/hds/modal/footer.ts';
 export { default as HdsModalHeader } from './components/hds/modal/header.ts';
 export * from './components/hds/modal/types.ts';
 
-// Page Header
+// PageHeader
 export { default as HdsPageHeader } from './components/hds/page-header/index.ts';
 
 // Pagination
@@ -179,24 +159,21 @@ export { default as HdsPaginationNumbered } from './components/hds/pagination/nu
 export { default as HdsPaginationSizeSelector } from './components/hds/pagination/size-selector/index.ts';
 export * from './components/hds/pagination/types.ts';
 
-// Popover
-export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';
-
 // Reveal
 export { default as HdsReveal } from './components/hds/reveal/index.ts';
 
-// Rich Tooltip
+// RichTooltip
 export { default as HdsRichTooltip } from './components/hds/rich-tooltip/index.ts';
 export * from './components/hds/rich-tooltip/types.ts';
 
-// Segmented Group
+// SegmentedGroup
 export { default as HdsSegmentedGroup } from './components/hds/segmented-group/index.ts';
 
 // Separator
 export { default as HdsSeparator } from './components/hds/separator/index.ts';
 export * from './components/hds/separator/types.ts';
 
-// Side Nav
+// SideNav
 export { default as HdsSideNav } from './components/hds/side-nav/index.ts';
 export { default as HdsSideNavBase } from './components/hds/side-nav/base.ts';
 export { default as HdsSideNavHeader } from './components/hds/side-nav/header/index.ts';
@@ -240,6 +217,41 @@ export * from './components/hds/text/types.ts';
 // Toast
 export { default as HdsToast } from './components/hds/toast/index.ts';
 
-// Tooltip Button
+// TooltipButton
 export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.ts';
 export * from './components/hds/tooltip-button/types.ts';
+
+// -----------------------------------------------------------
+// ### LAYOUTS
+// -----------------------------------------------------------
+
+// AppFrame
+export { default as HdsAppFrame } from './components/hds/app-frame/index.ts';
+
+// -----------------------------------------------------------
+// ### UTILITIES
+// -----------------------------------------------------------
+
+// DialogPrimitive
+export { default as HdsDialogPrimitiveBody } from './components/hds/dialog-primitive/body.ts';
+export { default as HdsDialogPrimitiveDescription } from './components/hds/dialog-primitive/description.ts';
+export { default as HdsDialogPrimitiveFooter } from './components/hds/dialog-primitive/footer.ts';
+export { default as HdsDialogPrimitiveHeader } from './components/hds/dialog-primitive/header.ts';
+export { default as HdsDialogPrimitiveOverlay } from './components/hds/dialog-primitive/overlay.ts';
+export { default as HdsDialogPrimitiveWrapper } from './components/hds/dialog-primitive/wrapper.ts';
+export * from './components/hds/dialog-primitive/types.ts';
+
+// DisclosurePrimitive
+export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-primitive/index.ts';
+
+// DismissButton
+export { default as HdsDismissButton } from './components/hds/dismiss-button/index.ts';
+
+// Interactive
+export { default as HdsInteractive } from './components/hds/interactive/index.ts';
+
+// MenuPrimitive
+export { default as HdsMenuPrimitive } from './components/hds/menu-primitive/index.ts';
+
+// PopoverPrimitive
+export { default as HdsPopoverPrimitive } from './components/hds/popover-primitive/index.ts';
