@@ -103,15 +103,22 @@
     }
   }
 
+  &:active,
+  &.mock-active {
+    background: var(--token-color-surface-strong); // TODO: Create new token?
+  }
+
   // NOTICE: this is necessary to mitigate the flickering of the link when clicked (expecially noticeable with a badge)
   // For details see: https://github.com/hashicorp/design-system/pull/1328
   &:hover:focus,
   // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
   // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
   // otherwise they can use the `@isActive` argument to set this visual state directly
-  &.active,
-  &:active,
-  &.mock-active {
+  &.active
+  // ,
+  // &:active,
+  // &.mock-active 
+  {
     // background: var(--token-app-side-nav-color-surface-interactive-active); // = too dark to match design
     background: var(--token-color-surface-strong); // TODO: Create new token?
 
@@ -133,10 +140,15 @@
       color: var(--token-color-foreground-action); // TODO: Create token? (--token-app-side-nav-color-foreground-action)
     }
 
-    .hds-badge,
-    .hds-badge-count {
-      color: var(--token-color-foreground-primary);
-      background: var(--token-color-surface-strong);
+    // combo states (when "active" link is interacted with)
+    &:hover,
+    &.mock-hover {
+      background: var(--token-color-palette-neutral-200);
+    }
+
+    &:active,
+    &.mock-active {
+      background: var(--token-color-palette-neutral-300);
     }
   }
 }
