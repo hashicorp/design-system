@@ -225,8 +225,20 @@ export default class ComponentsTableController extends Controller {
   }
 
   @action
-  onSelectionChange__demo5() {
-    console.log(...arguments);
+  onSelectionChange__demo5({ selectionKey }) {
+    if (selectionKey === 'all') {
+      this.selectableData__demo5.forEach((modelRow) => {
+        modelRow.isSelected = !modelRow.isSelected;
+      });
+    } else {
+      const recordToUpdate = this.selectableData__demo5.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
   }
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
