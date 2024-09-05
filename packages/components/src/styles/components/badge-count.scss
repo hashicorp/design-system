@@ -71,20 +71,20 @@ $hds-badge-count-size-props: (
 
   &.hds-badge-count--type-inverted {
     color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-foreground-faint);
+    background-color: var(--token-color-palette-neutral-500);
   }
 
   &.hds-badge-count--type-outlined {
     color: var(--token-color-foreground-primary);
     background-color: transparent;
-    border-color: var(--token-color-foreground-faint);
+    border-color: var(--token-color-palette-neutral-500);
   }
 }
 
 .hds-badge-count--color-neutral-dark-mode {
   &.hds-badge-count--type-filled {
     color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-foreground-faint);
+    background-color: var(--token-color-palette-neutral-500);
   }
 
   &.hds-badge-count--type-inverted {
@@ -95,6 +95,6 @@ $hds-badge-count-size-props: (
   &.hds-badge-count--type-outlined {
     color: var(--token-color-foreground-high-contrast);
     background-color: transparent;
-    border-color: var(--token-color-palette-neutral-100);
+    border-color: var(--token-color-palette-neutral-50);
   }
 }
