@@ -1,4 +1,4 @@
-{
+ {
   "app-side-nav": {
     "wrapper": {
       "border": {
@@ -7,7 +7,7 @@
           "type": "size"
         },
         "color": {
-          "value": "#656a76",
+          "value": "var(--token-color-border-primary)",
           "type": "color",
           "group": "components"
         }
@@ -100,12 +100,12 @@
     "color": {
       "foreground": {
         "primary": {
-          "value": "#dedfe3",
+          "value": "var(--token-color-foreground-primary)",
           "type": "color",
           "group": "components"
         },
         "strong": {
-          "value": "#fff",
+          "value": "var(--token-color-foreground-primary)",
           "type": "color",
           "group": "components"
         },
@@ -117,17 +117,17 @@
       },
       "surface": {
         "primary": {
-          "value": "#0c0c0e",
+          "value": "var(--token-color-surface-faint)",
           "type": "color",
           "group": "components"
         },
         "interactive-hover": {
-          "value": "#3b3d45",
+          "value": "var(--token-color-surface-interactive-hover)",
           "type": "color",
           "group": "semantic"
         },
         "interactive-active": {
-          "value": "#656a76",
+          "value": "var(--token-color-palette-neutral-300)",
           "type": "color",
           "group": "semantic"
         }
