@@ -435,7 +435,6 @@ module('Integration | Component | hds/table/index', function (hooks) {
       <Hds::Table
         id="data-test-table"
         @isSelectable={{true}}
-        @sortBy={{this.sortBy}}
         @canSortBySelectedItemKey={{true}}
         @selectedItemKey="isSelected"
         @onSelectionChange={{this.onSelectionChange}}
@@ -458,8 +457,14 @@ module('Integration | Component | hds/table/index', function (hooks) {
     `);
 
     assert.dom(sortBySelectedSelector).exists();
+    assert
+      .dom('#data-test-table tbody tr:nth-of-type(3) td:nth-of-type(1)')
+      .hasText('Jim');
 
     await click(sortBySelectedSelector);
+    assert
+      .dom('#data-test-table tbody tr:nth-of-type(3) td:nth-of-type(1)')
+      .hasText('Sally');
   });
 
   // Multi-select
