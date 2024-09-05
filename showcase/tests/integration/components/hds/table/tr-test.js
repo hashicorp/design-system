@@ -77,6 +77,30 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     assert.strictEqual(key, 'row123');
   });
 
+  test('it should render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is `true`, and the row is within a `thead` element', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Thead><Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @canSortBySelectedItemKey={{true}} /></Hds::Table::Thead>`
+    );
+
+    assert.dom(checkboxSelector + ' > .hds-table__sort-button').exists();
+  });
+
+  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is undefined, and the row is within a `thead` element', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Thead><Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} /></Hds::Table::Thead>`
+    );
+
+    assert.dom(checkboxSelector + ' > .hds-table__sort-button').doesNotExist();
+  });
+
+  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is `true`, and the row is not within a `thead` element', async function (assert) {
+    await render(
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @canSortBySelectedItemKey={{true}} />`
+    );
+
+    assert.dom(checkboxSelector + ' > .hds-table__sort-button').doesNotExist();
+  });
+
   // ATTRIBUTES
 
   test('it should support splattributes', async function (assert) {
