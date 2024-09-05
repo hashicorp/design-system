@@ -91,21 +91,3 @@ body {
   clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
 }
-
-// PERCY
-
-// Percy (percySnapshot) doesn't allow to target specific DOM elements, so we have to "blacklist" the elements
-// that we want to exclude from the snapshots using their own "Percy-specific CSS".
-// see: https://docs.percy.io/docs/percy-specific-css#section-hiding-regions-with-percy-specific-css
-// notice: we tried to use directly the "percyCSS" option in the percySnapshot() method but it didn't work
-// so we had to rely on this specific custom media query
-
-@media only percy {
-  // TODO - update these selectors according to the new page structure
-  header,
-  aside,
-  footer,
-  main section:not([data-test-percy]) {
-    display: none !important;
-  }
-}
