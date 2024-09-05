@@ -7,16 +7,6 @@
 // APP-SIDE-NAV
 //
 
-:root {
-  // TODO: Update JSON token values
-  --token-app-side-nav-wrapper-border-color: var(--token-color-border-primary);
-  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
-  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
-  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
-  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
-  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
-}
-
 .hds-app-side-nav {
   position: relative;
   width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
