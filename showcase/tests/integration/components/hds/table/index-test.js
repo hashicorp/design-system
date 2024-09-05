@@ -411,6 +411,39 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.strictEqual(sortOrder, 'asc');
   });
 
+  test('it sorts by selected row when `@canSortBySelectedItemKey` is `true` and `@selectedItemKey` is provided', async function (assert) {
+    setSortableTableData(this);
+    this.set('selectedItemKey', '2');
+    this.set('canSortBySelectedItemKey', true);
+
+    await render(hbs`
+      <Hds::Table
+        @isSelectable={{true}}
+        @canSortBySelectedItemKey={{true}}
+        @selectedItemKey="isSelected"
+        @onSelectionChange={{this.onSelectionChangeLogArguments}}
+        @model={{this.model.selectableData}}
+        @columns={{array
+          (hash key="lorem" label="Row #")
+          (hash key="ipsum" label="Ipsum")
+          (hash key="dolor" label="Dolor")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr
+            @selectionKey={{B.data.id}}
+            @isSelected={{B.data.isSelected}}
+            @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+          >
+            <B.Td>{{B.data.lorem}}</B.Td>
+            <B.Td>{{B.data.ipsum}}</B.Td>
+            <B.Td>{{B.data.dolor}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>  
+    `);
+  });
+
   // Multi-select
 
   const selectAllCheckboxSelector =
