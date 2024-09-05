@@ -123,6 +123,7 @@
       left: calc(var(--token-app-side-nav-wrapper-padding-horizontal) * -1);
       width: 4px;
       background: var(--token-color-foreground-action);
+      border-radius: 0 2px 2px 0;
       content: "";
     }
 
