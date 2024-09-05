@@ -412,36 +412,54 @@ module('Integration | Component | hds/table/index', function (hooks) {
   });
 
   test('it sorts by selected row when `@canSortBySelectedItemKey` is `true` and `@selectedItemKey` is provided', async function (assert) {
-    setSortableTableData(this);
-    this.set('selectedItemKey', '2');
-    this.set('canSortBySelectedItemKey', true);
+    const sortBySelectedSelector =
+      '#data-test-table thead th:nth-of-type(1) .hds-table__th-button--sort';
+
+    this.setProperties({
+      model: [
+        { id: 1, name: 'Bob', age: 1, isSelected: false },
+        { id: 2, name: 'Sally', age: 50, isSelected: true },
+        { id: 3, name: 'Jim', age: 30, isSelected: false },
+      ],
+    });
+    this.set('onSelectionChange', ({ selectionKey }) => {
+      const recordToUpdate = this.model.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    });
 
     await render(hbs`
       <Hds::Table
+        id="data-test-table"
         @isSelectable={{true}}
+        @sortBy={{this.sortBy}}
         @canSortBySelectedItemKey={{true}}
         @selectedItemKey="isSelected"
-        @onSelectionChange={{this.onSelectionChangeLogArguments}}
-        @model={{this.model.selectableData}}
+        @onSelectionChange={{this.onSelectionChange}}
+        @model={{this.model}}
         @columns={{array
-          (hash key="lorem" label="Row #")
-          (hash key="ipsum" label="Ipsum")
-          (hash key="dolor" label="Dolor")
+          (hash key="name" label="Name")
+          (hash key="age" label="Age")
         }}
       >
         <:body as |B|>
           <B.Tr
             @selectionKey={{B.data.id}}
             @isSelected={{B.data.isSelected}}
-            @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
           >
-            <B.Td>{{B.data.lorem}}</B.Td>
-            <B.Td>{{B.data.ipsum}}</B.Td>
-            <B.Td>{{B.data.dolor}}</B.Td>
+            <B.Td>{{B.data.name}}</B.Td>
+            <B.Td>{{B.data.age}}</B.Td>
           </B.Tr>
         </:body>
       </Hds::Table>  
     `);
+
+    assert.dom(sortBySelectedSelector).exists();
+
+    await click(sortBySelectedSelector);
   });
 
   // Multi-select
