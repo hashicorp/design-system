@@ -7,7 +7,6 @@
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
       @showSortButton={{and this.isHeaderRow @canSortBySelectedItemKey}}
-      @isHeaderRow={{this.isHeaderRow}}
       @sortOrder={{@sortOrder}}
       @onClickSort={{@onClickSort}}
       {{!-- new above here --}}
