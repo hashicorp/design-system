@@ -41,6 +41,7 @@ export default class ComponentsTableController extends Controller {
   @tracked customSortOrder_demo2 = 'asc';
   @tracked customSortBy_demo3 = undefined;
   @tracked customSortOrder_demo3 = 'asc';
+
   // multi-select
   @tracked multiSelectFilterRows__demo1 = 'all';
   @tracked multiSelectToggleScope__demo1 = false;
@@ -67,8 +68,6 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
-
-  debugger;
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -198,6 +197,37 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   };
+
+  // CUSTOM SORTING DEMO #5
+  // Custom sorting by selected row
+  @tracked customSortBy__demo5 = 'lorem';
+  @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
+
+  get sortedModel__demo5() {
+    return [...this.selectableData__demo5].sort((s1, s2) => {
+      const value1 = s1[this.customSortBy_demo5];
+      const value2 = s2[this.customSortBy_demo5];
+
+      if (value1 < value2) {
+        return this.customSortOrder_demo5 === 'asc' ? -1 : 1;
+      }
+      if (value1 > value2) {
+        return this.customSortOrder_demo5 === 'asc' ? 1 : -1;
+      }
+
+      return 0;
+    });
+  }
+
+  @action
+  customOnSort__demo5(sortBy) {
+    this.customSortBy_demo5 = sortBy;
+  }
+
+  @action
+  onSelectionChange__demo5() {
+    console.log(...arguments);
+  }
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
