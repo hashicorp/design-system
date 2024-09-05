@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 04 Sep 2024 18:42:45 GMT
+ * Generated on Thu, 05 Sep 2024 22:35:44 GMT
  */
 
 :root {
@@ -270,7 +270,7 @@
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
   --token-app-side-nav-wrapper-border-width: 1px;
-  --token-app-side-nav-wrapper-border-color: #656a76;
+  --token-app-side-nav-wrapper-border-color: var(--token-color-border-primary);
   --token-app-side-nav-wrapper-padding-horizontal: 16px;
   --token-app-side-nav-wrapper-padding-vertical: 16px;
   --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
@@ -287,12 +287,12 @@
   --token-app-side-nav-body-list-item-spacing-vertical: 2px;
   --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
   --token-app-side-nav-body-list-item-border-radius: 5px;
-  --token-app-side-nav-color-foreground-primary: #dedfe3;
-  --token-app-side-nav-color-foreground-strong: #fff;
+  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
   --token-app-side-nav-color-foreground-faint: #8c909c;
-  --token-app-side-nav-color-surface-primary: #0c0c0e;
-  --token-app-side-nav-color-surface-interactive-hover: #3b3d45;
-  --token-app-side-nav-color-surface-interactive-active: #656a76;
+  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
+  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
+  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
