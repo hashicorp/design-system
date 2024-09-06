@@ -10,6 +10,7 @@
   aria-controls={{@contentId}}
   aria-expanded={{if @isOpen "true" "false"}}
   aria-label={{@ariaLabel}}
+  aria-labelledby={{@ariaLabelledBy}}
   ...attributes
 >
   <Hds::Icon @name="chevron-down" @size={{if (eq @size "large") "24" "16"}} />
