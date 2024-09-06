@@ -22,10 +22,6 @@ import type { HdsTableTrArgs } from './tr';
 
 export interface HdsTableThSelectableArgs {
   Args: {
-    showSortButton?: boolean;
-    sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
-    onClickSort: HdsTableTrArgs['Args']['onClickSort'];
-    // new above here
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string

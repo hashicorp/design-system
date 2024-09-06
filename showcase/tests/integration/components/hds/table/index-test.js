@@ -412,9 +412,13 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.strictEqual(sortOrder, 'asc');
   });
 
+<<<<<<< HEAD
   test('it sorts by selected row when `@selectableColumnKey` is provided', async function (assert) {
     const sortSpy = sinon.spy();
 
+=======
+  test('it sorts by selected row when `@sortBySelectedItemKey` is provided', async function (assert) {
+>>>>>>> 9cce6de33 (simplifying api)
     const sortBySelectedSelector =
       '#data-test-table thead th[scope="col"] .hds-table__th-button--sort';
 

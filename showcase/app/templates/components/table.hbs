@@ -145,8 +145,7 @@
 
   <Hds::Table
     @isSelectable={{true}}
-    @canSortBySelectedItemKey={{true}}
-    @selectedItemKey="isSelected"
+    @sortBySelectedItemKey="isSelected"
     @onSelectionChange={{this.onSelectionChangeLogArguments}}
     @model={{this.model.selectableData}}
     @columns={{array
@@ -404,8 +403,7 @@
 
   <Hds::Table
     @isSelectable={{true}}
-    @canSortBySelectedItemKey={{true}}
-    @selectedItemKey="isSelected"
+    @sortBySelectedItemKey="isSelected"
     @onSelectionChange={{this.onSelectionChange__demo5}}
     @model={{this.sortedModel__demo5}}
     @columns={{array
