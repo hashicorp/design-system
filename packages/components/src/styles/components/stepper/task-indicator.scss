@@ -7,31 +7,36 @@
 // STEPPER > INDICATOR > TASK
 //
 
-$hds-stepper-indicator-task-statuses: ( "incomplete", "progress", "processing", "complete" );
+$hds-stepper-indicator-task-statuses: (
+  "incomplete",
+  "progress",
+  "processing",
+  "complete"
+);
 $hds-stepper-indicator-task-size: 16px;
 
 // Determine states and corresponding styles
 $hds-stepper-indicator-task-status-props: (
   "incomplete": (
     "color-default": var(--token-color-palette-neutral-300),
-    "color-hover": var(--token-color-palette-blue-300),
-    "color-active": var(--token-color-palette-blue-400),
+    "color-hover": var(--token-color-foreground-action-hover),
+    "color-active": var(--token-color-foreground-action-active),
   ),
   "progress": (
-    "color-default": var(--token-color-palette-blue-200),
-    "color-hover": var(--token-color-palette-blue-300),
-    "color-active": var(--token-color-palette-blue-400),
+    "color-default": var(--token-color-foreground-action),
+    "color-hover": var(--token-color-foreground-action-hover),
+    "color-active": var(--token-color-foreground-action-active),
   ),
   "processing": (
-    "color-default": var(--token-color-palette-blue-200),
-    "color-hover": var(--token-color-palette-blue-300),
-    "color-active": var(--token-color-palette-blue-400),
+    "color-default": var(--token-color-foreground-action),
+    "color-hover": var(--token-color-foreground-action-hover),
+    "color-active": var(--token-color-foreground-action-active),
   ),
   "complete": (
-    "color-default": var(--token-color-palette-green-200),
+    "color-default": var(--token-color-foreground-success),
     "color-hover": var(--token-color-palette-green-300),
     "color-active": var(--token-color-palette-green-400),
-  )
+  ),
 );
 
 // Base styling for indicator::task
@@ -56,18 +61,29 @@ $hds-stepper-indicator-task-status-props: (
   @each $status in $hds-stepper-indicator-task-statuses {
     // For each status set the icon color based on the $hds-stepper-indicator-task-status-props
     &.hds-stepper-indicator-task--status-#{$status} {
-      color: map-get($hds-stepper-indicator-task-status-props, $status, "color-default");
+      color: map-get(
+        $hds-stepper-indicator-task-status-props,
+        $status,
+        "color-default"
+      );
 
       &:hover,
       &.mock-hover {
-        color: map-get($hds-stepper-indicator-task-status-props, $status, "color-hover");
+        color: map-get(
+          $hds-stepper-indicator-task-status-props,
+          $status,
+          "color-hover"
+        );
       }
 
       &:active,
       &.mock-active {
-        color: map-get($hds-stepper-indicator-task-status-props, $status, "color-active");
+        color: map-get(
+          $hds-stepper-indicator-task-status-props,
+          $status,
+          "color-active"
+        );
       }
     }
   }
 }
-
