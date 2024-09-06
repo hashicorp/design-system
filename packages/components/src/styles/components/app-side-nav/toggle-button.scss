@@ -41,6 +41,7 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    background: #fff; // prevent semi-transparent borders from overlaying each other visually
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
@@ -55,6 +56,7 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    background: #fff; // prevent semi-transparent borders from overlaying each other visually
     border-top: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-top-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
