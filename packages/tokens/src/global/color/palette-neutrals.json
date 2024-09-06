@@ -12,7 +12,7 @@
                 "group": "palette"
             },
             "neutral-500": {
-                "value": "#656a76",
+                "value": "red",
                 "type": "color",
                 "group": "palette"
             },
