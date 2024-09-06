@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`BadgeCount`: update the color tokens to be more accurate token for the usage.
+`BadgeCount`: updated the color tokens to use palette tokens.
