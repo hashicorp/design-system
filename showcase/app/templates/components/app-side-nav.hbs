@@ -111,7 +111,6 @@
   <Shw::Text::H2>Examples of sidebar navigation</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} as |SG|>
-
     <SG.Item>
       <Shw::Text::H3>Using content injected via portal</Shw::Text::H3>
       <Shw::Flex as |SF|>
@@ -250,35 +249,88 @@
 
   <Shw::Text::H3>Only body content (used with AppHeader)</Shw::Text::H3>
 
-  <div class="shw-component-sim-app-side-nav-root-container">
-    <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
-      <:body>
-        <Hds::AppSideNav::List aria-label="Dashboard 2" as |SNL|>
-          <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        </Hds::AppSideNav::List>
+  <Shw::Grid @columns={{2}} as |SG|>
+    <SG.Item @label="With product icons using text color">
+      <div class="shw-component-sim-app-side-nav-root-container">
+        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+          <:body>
+            <Hds::AppSideNav::List aria-label="Dashboard 2" as |SNL|>
+              <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+            </Hds::AppSideNav::List>
 
-        <Hds::AppSideNav::List aria-label="Services 2" as |SNL|>
-          <SNL.Title>Services</SNL.Title>
-          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-          <SNL.Link @text="Consul" @icon="consul" @href="#" />
-          <SNL.Link @text="Packer" @icon="packer" @href="#" />
-          <SNL.Link @text="Vault" @icon="vault" @href="#" />
-          <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        </Hds::AppSideNav::List>
-        <Hds::AppSideNav::List aria-label="Organization 2" as |SNL|>
-          <SNL.Title>Default Org</SNL.Title>
-          <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
-        </Hds::AppSideNav::List>
-      </:body>
-    </Hds::AppSideNav>
-  </div>
+            <Hds::AppSideNav::List aria-label="Services 2" as |SNL|>
+              <SNL.Title>Services</SNL.Title>
+              <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+              <SNL.Link @text="Consul" @icon="consul" @href="#" />
+              <SNL.Link @text="Packer" @icon="packer" @href="#" />
+              <SNL.Link @text="Vault" @icon="vault" @href="#" />
+              <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
+              <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+              <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+              <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+            </Hds::AppSideNav::List>
+            <Hds::AppSideNav::List aria-label="Organization 2" as |SNL|>
+              <SNL.Title>Default Org</SNL.Title>
+              <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+              <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+            </Hds::AppSideNav::List>
+          </:body>
+        </Hds::AppSideNav>
+      </div>
+    </SG.Item>
+
+    <SG.Item @label="With product icons using brand colors">
+      <div class="shw-component-sim-app-side-nav-root-container">
+        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+          <:body>
+            <Hds::AppSideNav::List aria-label="Dashboard 2" as |SNL|>
+              <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+            </Hds::AppSideNav::List>
+
+            <Hds::AppSideNav::List aria-label="Services 2" as |SNL|>
+              <SNL.Title>Services</SNL.Title>
+              <SNL.Link @text="Boundary" @icon="boundary" @iconColor="var(--token-color-boundary-brand)" @href="#" />
+              <SNL.Link @text="Consul" @icon="consul" @iconColor="var(--token-color-consul-brand)" @href="#" />
+              <SNL.Link @text="Packer" @icon="packer" @iconColor="var(--token-color-packer-brand)" @href="#" />
+              <SNL.Link @text="Vault" @icon="vault" @iconColor="var(--token-color-vault-brand)" @href="#" />
+              <SNL.Link
+                @text="Vault Secrets"
+                @icon="vault-secrets-square"
+                @iconColor="var(--token-color-vault-secrets-brand-alt)"
+                @href="#"
+              />
+              <SNL.Link @text="Terraform" @icon="terraform" @iconColor="var(--token-color-terraform-brand)" @href="#" />
+              <SNL.Link
+                @text="Vagrant"
+                @icon="vagrant"
+                @iconColor="var(--token-color-vagrant-brand)"
+                @badge="Alpha"
+                @href="#"
+              />
+              <SNL.Link
+                @text="Waypoint"
+                @icon="waypoint"
+                @badge="Alpha"
+                @iconColor="var(--token-color-waypoint-brand)"
+                @hasSubItems={{true}}
+              />
+            </Hds::AppSideNav::List>
+            <Hds::AppSideNav::List aria-label="Organization 2" as |SNL|>
+              <SNL.Title>Default Org</SNL.Title>
+              <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+              <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+              <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+            </Hds::AppSideNav::List>
+          </:body>
+        </Hds::AppSideNav>
+      </div>
+    </SG.Item>
+  </Shw::Grid>
 </section>
 
 <Shw::Divider />
