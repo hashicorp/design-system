@@ -14,14 +14,12 @@ import { tracked } from '@glimmer/tracking';
 export interface BaseHdsTableTrArgs {
   Args: {
     canSortBySelectedItemKey?: boolean;
-    sortOrder?: HdsTableThSortOrder;
-    onClickSort?: (sortBy?: string) => void;
-    // NEW ABOVE
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
+    sortOrder?: HdsTableThSortOrder;
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
@@ -31,6 +29,7 @@ export interface BaseHdsTableTrArgs {
       selectionKey?: string
     ) => void;
     willDestroy: () => void;
+    onClickSort?: (sortBy?: string) => void;
   };
   Blocks: {
     default: [];
