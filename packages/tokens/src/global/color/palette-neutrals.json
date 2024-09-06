@@ -17,7 +17,7 @@
                 "group": "palette"
             },
             "neutral-400": {
-                "value": "#8c909c",
+                "value": "red",
                 "type": "color",
                 "group": "palette"
             },
