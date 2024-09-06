@@ -14,15 +14,12 @@ import type { HdsTableTrArgs } from './tr';
 
 export interface HdsTableThSelectableArgs {
   Args: {
-    showSortButton?: boolean;
-    sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
-    onClickSort: HdsTableTrArgs['Args']['onClickSort'];
-    // new above here
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
+    onClickSort: HdsTableTrArgs['Args']['onClickSort'];
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
@@ -30,6 +27,8 @@ export interface HdsTableThSelectableArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
+    showSortButton?: boolean;
+    sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
     willDestroy: (selectionKey?: string) => void;
   };
   Element: HdsTableThArgs['Element'];

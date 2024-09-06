@@ -45,7 +45,6 @@ export interface HdsTableArgs {
   Args: {
     align?: HdsTableHorizontalAlignment;
     caption?: string;
-    canSortBySelectedItemKey?: boolean;
     columns?: HdsTableColumn[];
     density?: HdsTableDensities;
     identityKey?: string;
@@ -55,9 +54,9 @@ export interface HdsTableArgs {
     model: HdsTableModel;
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
-    selectedItemKey?: string;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
+    sortBySelectedItemKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsTableThSortOrder;
     valign?: HdsTableVerticalAlignment;
@@ -94,10 +93,6 @@ export default class HdsTable extends Component<HdsTableArgs> {
     undefined;
   selectableRows: HdsTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
-
-  get canSortBySelectedItemKey(): boolean {
-    return this.args.canSortBySelectedItemKey ?? false;
-  }
 
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column

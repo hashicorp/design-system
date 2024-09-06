@@ -13,7 +13,7 @@ import { tracked } from '@glimmer/tracking';
 
 export interface BaseHdsTableTrArgs {
   Args: {
-    canSortBySelectedItemKey?: boolean;
+    sortBySelectedItemKey?: string;
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;
@@ -76,6 +76,12 @@ export default class HdsTableTr extends Component<HdsTableTrArgs> {
       return this.args.selectionKey;
     }
     return undefined;
+  }
+
+  get showSortButton(): boolean {
+    return (
+      this.isHeaderRow && typeof this.args.sortBySelectedItemKey === 'string'
+    );
   }
 
   @action

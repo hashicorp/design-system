@@ -411,7 +411,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.strictEqual(sortOrder, 'asc');
   });
 
-  test('it sorts by selected row when `@canSortBySelectedItemKey` is `true` and `@selectedItemKey` is provided', async function (assert) {
+  test('it sorts by selected row when `@sortBySelectedItemKey` is provided', async function (assert) {
     const sortBySelectedSelector =
       '#data-test-table thead th:nth-of-type(1) .hds-table__th-button--sort';
 
@@ -435,8 +435,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
       <Hds::Table
         id="data-test-table"
         @isSelectable={{true}}
-        @canSortBySelectedItemKey={{true}}
-        @selectedItemKey="isSelected"
+        @sortBySelectedItemKey="isSelected"
         @onSelectionChange={{this.onSelectionChange}}
         @model={{this.model}}
         @columns={{array

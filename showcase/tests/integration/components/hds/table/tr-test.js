@@ -77,15 +77,15 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     assert.strictEqual(key, 'row123');
   });
 
-  test('it should render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is `true`, and the row is within a `thead` element', async function (assert) {
+  test('it should render a sort button in the checkbox cell if `@isSelectable` is `true`, `@sortBySelectedItemKey` is provided, and the row is within a `thead` element', async function (assert) {
     await render(
-      hbs`<thead><Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @canSortBySelectedItemKey={{true}} /></thead>`
+      hbs`<thead><Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @sortBySelectedItemKey="isSelected" /></thead>`
     );
 
     assert.dom(checkboxSelector + ' + .hds-table__th-button--sort').exists();
   });
 
-  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is undefined, and the row is within a `thead` element', async function (assert) {
+  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@sortBySelectedItemKey` is undefined, and the row is within a `thead` element', async function (assert) {
     await render(
       hbs`<thead><Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} /></thead>`
     );
@@ -95,9 +95,9 @@ module('Integration | Component | hds/table/tr', function (hooks) {
       .doesNotExist();
   });
 
-  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@canSortBySelectedItemKey` is `true`, and the row is not within a `thead` element', async function (assert) {
+  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, `@sortBySelectedItemKey` is provided, and the row is not within a `thead` element', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @canSortBySelectedItemKey={{true}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @sortBySelectedItemKey="isSelected" />`
     );
 
     assert

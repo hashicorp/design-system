@@ -97,11 +97,8 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "baseline" }} @default="top">
     Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
   </C.Property>
-  <C.Property @name="canSortBySelectedItemKey" @type="boolean" @default="false">
-    If set to `true`, and `@selectedItemKey` is provided, the table can be sorted by selection state.
-  </C.Property>
-  <C.Property @name="selectedItemKey" @type="string">
-    If set, determines the key used to denote the selected state of a `@model` item.
+  <C.Property @name="sortBySelectedItemKey" @type="string">
+    If set, this key determines which `@model` item property is used to sort items by selection state. If this argument is not provided, the option to sort by selection state will not be available.
   </C.Property>
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
