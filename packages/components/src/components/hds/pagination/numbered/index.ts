@@ -158,6 +158,10 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       this.isControlled = false;
     } else {
       assert(
+        '@model for "Hds::Pagination::Numbered" must be provided when using the `@queryFunction` argument',
+        this.args.model !== undefined
+      );
+      assert(
         '@queryFunction for "Hds::Pagination::Numbered" must be a function',
         typeof queryFunction === 'function'
       );
