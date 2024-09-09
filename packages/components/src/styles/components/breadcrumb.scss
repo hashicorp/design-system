@@ -160,7 +160,8 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   &:hover,
   &.mock-hover {
     color: var(--token-color-foreground-faint);
-    border-color: var(--token-color-border-strong);
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong)
   }
 
   // we apply the focus directly to the element, without using a pseudo-element
