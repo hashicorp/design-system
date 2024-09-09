@@ -41,10 +41,29 @@ interface HdsPaginationCompactArgs extends HdsPaginationRoutingProps {
   onPageSizeChange?: (pageSize: number) => void;
 }
 
-interface HdsPaginationCompactArgsControlled extends HdsPaginationCompactArgs {
-  model: string | number;
+interface HdsPaginationCompactArgsControlledBase
+  extends HdsPaginationCompactArgs {
   queryFunction: HdsPaginationQueryFunction;
 }
+
+interface HdsPaginationCompactArgsControlledWithModel
+  extends HdsPaginationCompactArgsControlledBase {
+  model: string | number;
+}
+
+interface HdsPaginationCompactArgsControlledWithModels
+  extends HdsPaginationCompactArgsControlledBase {
+  models: Array<string | number>;
+}
+interface HdsPaginationCompactArgsControlledWithRoute
+  extends HdsPaginationCompactArgsControlledBase {
+  route: string;
+}
+
+type HdsPaginationCompactArgsControlled =
+  | HdsPaginationCompactArgsControlledWithModel
+  | HdsPaginationCompactArgsControlledWithModels
+  | HdsPaginationCompactArgsControlledWithRoute;
 
 interface HdsPaginationCompactArgsUncontrolled
   extends HdsPaginationCompactArgs {

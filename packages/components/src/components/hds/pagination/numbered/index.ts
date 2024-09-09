@@ -32,6 +32,11 @@ type HdsPaginationNumberedRoutingQueryProps = HdsPaginationRoutingProps & {
   >;
 };
 
+type HdsPaginationQueryFunction = (
+  page: number,
+  pageSize: number
+) => HdsInteractiveQuery;
+
 interface HdsPaginationNumberedArgs extends HdsPaginationRoutingProps {
   ariaLabel?: string;
   totalItems: number;
@@ -45,18 +50,36 @@ interface HdsPaginationNumberedArgs extends HdsPaginationRoutingProps {
   sizeSelectorLabel?: string;
   pageSizes?: number[];
   currentPageSize?: number;
-  queryFunction?: (page: number, pageSize: number) => HdsInteractiveQuery;
+  queryFunction?: HdsPaginationQueryFunction;
   onPageChange?: (page: number, pageSize: number) => unknown;
   onPageSizeChange?: (pageSize: number) => unknown;
 }
 
-interface HdsPaginationNumberedArgsControlled
+interface HdsPaginationNumberedArgsControlledBase
   extends HdsPaginationNumberedArgs {
   currentPage: number;
   currentPageSize: number;
-  model: string | number;
-  queryFunction: (page: number, pageSize: number) => HdsInteractiveQuery;
+  queryFunction: HdsPaginationQueryFunction;
 }
+
+interface HdsPaginationNumberedArgsControlledWithModel
+  extends HdsPaginationNumberedArgsControlledBase {
+  model: string | number;
+}
+
+interface HdsPaginationNumberedArgsControlledWithModels
+  extends HdsPaginationNumberedArgsControlledBase {
+  models: Array<string | number>;
+}
+interface HdsPaginationNumberedArgsControlledWithRoute
+  extends HdsPaginationNumberedArgsControlledBase {
+  route: string;
+}
+
+type HdsPaginationNumberedArgsControlled =
+  | HdsPaginationNumberedArgsControlledWithModel
+  | HdsPaginationNumberedArgsControlledWithModels
+  | HdsPaginationNumberedArgsControlledWithRoute;
 
 interface HdsPaginationNumberedArgsUncontrolled
   extends HdsPaginationNumberedArgs {
