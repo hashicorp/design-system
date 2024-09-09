@@ -33,7 +33,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   @tracked hasOverflowContent = false;
   desktopMQ: MediaQueryList;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
-  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'main');
+  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'hds-main');
 
   // Generates a unique ID for the Menu Content
   menuContentId = 'hds-menu-content-' + guidFor(this);

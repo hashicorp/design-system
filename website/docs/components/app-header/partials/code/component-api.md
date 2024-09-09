@@ -20,7 +20,7 @@
     <br><br>
     <em>For details about the addon behaviour and functionality, refer to the [official documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme).</em>
     <Doc::ComponentApi as |C|>
-      <C.Property @name="a11yRefocusSkipTo" @type="string" @default='"#main"'>
+      <C.Property @name="a11yRefocusSkipTo" @type="string" @default='"#hds-main"'>
         Pass-through property for the `skipTo` argument - The element ID that should receive focus on skip. The default value matches the default id value on the [`AppFrame::Main` component](/layouts/app-frame#afmain).
       </C.Property>
       <C.Property @name="a11yRefocusSkipText" @type="string">

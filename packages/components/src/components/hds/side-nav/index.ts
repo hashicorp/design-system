@@ -59,7 +59,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
   desktopMQ: MediaQueryList;
   containersToHide!: NodeListOf<Element>;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
-  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'main');
+  a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'hds-main');
 
   desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
     '--hds-app-desktop-breakpoint'

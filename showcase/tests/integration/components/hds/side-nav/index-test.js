@@ -50,13 +50,13 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   // A11Y
 
-  test('it renders the `a11y-refocus` elements by default with a default skip link href value of "#main', async function (assert) {
+  test('it renders the `a11y-refocus` elements by default with a default skip link href value of "#hds-main', async function (assert) {
     await render(hbs`<Hds::SideNav />`);
     assert.dom('#ember-a11y-refocus-nav-message').exists();
     assert
       .dom('#ember-a11y-refocus-skip-link')
       .exists()
-      .hasAttribute('href', '#main');
+      .hasAttribute('href', '#hds-main');
   });
 
   test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
