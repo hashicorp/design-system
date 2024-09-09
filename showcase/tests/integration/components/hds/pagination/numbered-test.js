@@ -467,4 +467,19 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       throw new Error(errorMessage);
     });
   });
+  test('it should throw an assertion if @queryFunction is provided without a routing argument', async function (assert) {
+    this.set('myQueryFunction', (page) => ({ page }));
+    const errorMessage =
+      '@model, @models, or @route for "Hds::Pagination::Numbered" must be provided when using the `@queryFunction` argument';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Pagination::Numbered @queryFunction={{this.myQueryFunction}} />`
+    );
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
 });
