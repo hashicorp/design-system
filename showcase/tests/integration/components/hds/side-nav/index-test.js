@@ -62,7 +62,6 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
     await render(hbs`
       <Hds::SideNav
-        @hasA11yRefocus={{true}}
         @a11yRefocusSkipTo="test-skip-to"
         @a11yRefocusSkipText="test-skip-text"
         @a11yRefocusNavigationText="test-navigation-text"
