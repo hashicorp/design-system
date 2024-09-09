@@ -60,7 +60,7 @@ interface HdsPaginationNumberedArgsControlled
 
 interface HdsPaginationNumberedArgsUncontrolled
   extends HdsPaginationNumberedArgs {
-  queryFunction: undefined;
+  queryFunction?: undefined;
 }
 
 export interface HdsPaginationNumberedSignature {

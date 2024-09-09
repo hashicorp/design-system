@@ -48,7 +48,7 @@ interface HdsPaginationCompactArgsControlled extends HdsPaginationCompactArgs {
 
 interface HdsPaginationCompactArgsUncontrolled
   extends HdsPaginationCompactArgs {
-  queryFunction: undefined;
+  queryFunction?: undefined;
 }
 
 interface HdsPaginationCompactSignature {
