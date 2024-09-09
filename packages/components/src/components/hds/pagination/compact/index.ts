@@ -22,7 +22,12 @@ type HdsPaginationCompactRoutingQueryProps = HdsPaginationRoutingProps & {
   queryPrev?: HdsInteractiveQuery;
 };
 
-interface HdsPaginationCompactArgs {
+type HdsPaginationQueryFunction = (
+  page: HdsPaginationDirections,
+  pageSize?: number
+) => HdsInteractiveQuery;
+
+interface HdsPaginationCompactArgs extends HdsPaginationRoutingProps {
   ariaLabel?: string;
   showLabels?: boolean;
   isDisabledPrev?: boolean;
@@ -31,16 +36,25 @@ interface HdsPaginationCompactArgs {
   sizeSelectorLabel?: string;
   pageSizes?: number[];
   currentPageSize?: number;
-  queryFunction?: (
-    page: HdsPaginationDirections,
-    pageSize?: number
-  ) => HdsInteractiveQuery;
+  queryFunction?: HdsPaginationQueryFunction;
   onPageChange?: (page: HdsPaginationDirections) => void;
   onPageSizeChange?: (pageSize: number) => void;
 }
 
+interface HdsPaginationCompactArgsControlled extends HdsPaginationCompactArgs {
+  model: string | number;
+  queryFunction: HdsPaginationQueryFunction;
+}
+
+interface HdsPaginationCompactArgsUncontrolled
+  extends HdsPaginationCompactArgs {
+  queryFunction: undefined;
+}
+
 interface HdsPaginationCompactSignature {
-  Args: HdsPaginationCompactArgs & HdsPaginationRoutingProps;
+  Args:
+    | HdsPaginationCompactArgsControlled
+    | HdsPaginationCompactArgsUncontrolled;
   Element: HTMLDivElement;
 }
 
@@ -78,6 +92,10 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     if (queryFunction === undefined) {
       this.isControlled = false;
     } else {
+      assert(
+        '@model for "Hds::Pagination::Compact" must be provided when using the `@queryFunction` argument',
+        this.args.model !== undefined
+      );
       assert(
         '@queryFunction for "Hds::Pagination::Numbered" must be a function',
         typeof queryFunction === 'function'

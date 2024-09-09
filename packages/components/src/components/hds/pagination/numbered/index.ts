@@ -32,7 +32,7 @@ type HdsPaginationNumberedRoutingQueryProps = HdsPaginationRoutingProps & {
   >;
 };
 
-interface HdsPaginationNumberedArgs {
+interface HdsPaginationNumberedArgs extends HdsPaginationRoutingProps {
   ariaLabel?: string;
   totalItems: number;
   showLabels?: boolean;
@@ -50,8 +50,23 @@ interface HdsPaginationNumberedArgs {
   onPageSizeChange?: (pageSize: number) => unknown;
 }
 
+interface HdsPaginationNumberedArgsControlled
+  extends HdsPaginationNumberedArgs {
+  currentPage: number;
+  currentPageSize: number;
+  model: string | number;
+  queryFunction: (page: number, pageSize: number) => HdsInteractiveQuery;
+}
+
+interface HdsPaginationNumberedArgsUncontrolled
+  extends HdsPaginationNumberedArgs {
+  queryFunction: undefined;
+}
+
 export interface HdsPaginationNumberedSignature {
-  Args: HdsPaginationNumberedArgs & HdsPaginationRoutingProps;
+  Args:
+    | HdsPaginationNumberedArgsControlled
+    | HdsPaginationNumberedArgsUncontrolled;
   Element: HTMLDivElement;
 }
 
