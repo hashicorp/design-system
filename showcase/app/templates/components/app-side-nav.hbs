@@ -15,7 +15,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Header + Body + Footer, base invocation">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:header>
             <Shw::Placeholder @text="header" />
           </:header>
@@ -30,7 +30,7 @@
     </SF.Item>
     <SF.Item @label="Header + Body + Footer, heights declared">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:header>
             <Shw::Placeholder @text="header" @height="72px" />
           </:header>
@@ -45,7 +45,7 @@
     </SF.Item>
     <SF.Item @label="Header (with extra) + Body (with extra) + Footer">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:header>
             <Shw::Placeholder @height="72px" @text="header" />
             <Shw::Placeholder @height="60px" @text="extra content for 'header'" @background="#e4c5f3" id="ec-header" />
@@ -62,7 +62,7 @@
     </SF.Item>
     <SF.Item @label="Header + Body (scrollable) + Footer">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:header>
             <Shw::Placeholder @height="72px" @text="header" />
           </:header>
@@ -82,7 +82,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Header + Body with PortalTarget/Portal + Footer">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:header>
             <Shw::Placeholder @height="72px" @text="header" />
           </:header>
@@ -116,7 +116,7 @@
       <Shw::Flex as |SF|>
         <SF.Item @label="With PortalTarget + Portal with “nav” items">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
-            <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+            <Hds::AppSideNav @isResponsive={{false}}>
               <:header>
                 <Hds::AppSideNav::Header>
                   <:logo>
@@ -179,7 +179,7 @@
       <Shw::Flex as |SF|>
         <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
-            <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+            <Hds::AppSideNav @isResponsive={{false}}>
               <:header>
                 <Hds::AppSideNav::Header>
                   <:logo>
@@ -252,7 +252,7 @@
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item @label="With product icons using text color">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:body>
             <Hds::AppSideNav::List aria-label="Dashboard 2" as |SNL|>
               <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
@@ -284,9 +284,9 @@
 
     <SG.Item @label="With product icons using brand colors">
       <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
+        <Hds::AppSideNav @isResponsive={{false}}>
           <:body>
-            <Hds::AppSideNav::List aria-label="Dashboard 2" as |SNL|>
+            <Hds::AppSideNav::List aria-label="Dashboard 3" as |SNL|>
               <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
             </Hds::AppSideNav::List>
 
