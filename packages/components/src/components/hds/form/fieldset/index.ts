@@ -23,6 +23,7 @@ import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-descri
 
 export interface HdsFormFieldsetSignature {
   Args: {
+    extraAriaDescribedBy?: string;
     isOptional?: boolean;
     isRequired?: boolean;
     layout?: HdsFormFieldsetLayouts;
