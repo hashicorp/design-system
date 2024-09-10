@@ -69,6 +69,26 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
 
+  // Sorting by selected row
+  @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
+
+  @action
+  onSelectionChange__demo5({ selectionKey }) {
+    if (selectionKey === 'all') {
+      this.selectableData__demo5.forEach((modelRow) => {
+        modelRow.isSelected = !modelRow.isSelected;
+      });
+    } else {
+      const recordToUpdate = this.selectableData__demo5.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
+  }
+
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
 
@@ -197,49 +217,6 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   };
-
-  // CUSTOM SORTING DEMO #5
-  // Custom sorting by selected row
-  @tracked customSortBy__demo5 = 'lorem';
-  @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
-
-  get sortedModel__demo5() {
-    return [...this.selectableData__demo5].sort((s1, s2) => {
-      const value1 = s1[this.customSortBy_demo5];
-      const value2 = s2[this.customSortBy_demo5];
-
-      if (value1 < value2) {
-        return this.customSortOrder_demo5 === 'asc' ? -1 : 1;
-      }
-      if (value1 > value2) {
-        return this.customSortOrder_demo5 === 'asc' ? 1 : -1;
-      }
-
-      return 0;
-    });
-  }
-
-  @action
-  customOnSort__demo5(sortBy) {
-    this.customSortBy_demo5 = sortBy;
-  }
-
-  @action
-  onSelectionChange__demo5({ selectionKey }) {
-    if (selectionKey === 'all') {
-      this.selectableData__demo5.forEach((modelRow) => {
-        modelRow.isSelected = !modelRow.isSelected;
-      });
-    } else {
-      const recordToUpdate = this.selectableData__demo5.find(
-        (modelRow) => modelRow.id === selectionKey
-      );
-
-      if (recordToUpdate) {
-        recordToUpdate.isSelected = !recordToUpdate.isSelected;
-      }
-    }
-  }
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
