@@ -15,7 +15,7 @@
       {{on "change" this.onSelectionChange}}
     />
     {{#if @onClickSort}}
-      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{this.sortBySelectedItem}} />
+      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{this.sortBySelectedItem}} @labelId={{this.labelId}} />
     {{/if}}
   </div>
 </Hds::Table::Th>

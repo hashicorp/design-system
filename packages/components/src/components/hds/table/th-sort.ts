@@ -17,6 +17,7 @@ import type {
   HdsTableThSortOrder,
   HdsTableThSortOrderLabels,
 } from './types.ts';
+import type { HdsTableThButtonSortArgs } from './th-button-sort';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsTableHorizontalAlignmentValues
@@ -26,7 +27,7 @@ export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 export interface HdsTableThSortArgs {
   Args: {
     align?: HdsTableHorizontalAlignment;
-    onClickSort?: () => void;
+    onClickSort?: HdsTableThButtonSortArgs['Args']['onClick'];
     sortOrder?: HdsTableThSortOrder;
     tooltip?: string;
     width?: string;

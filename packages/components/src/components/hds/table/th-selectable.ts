@@ -8,10 +8,10 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableScope } from './types';
+import type { HdsTableScope, HdsTableThSortOrder } from './types';
 import type { HdsTableThArgs } from './th';
-import type { HdsTableTrArgs } from './tr';
 import type { HdsTableArgs } from '.';
+import type { HdsTableThButtonSortArgs } from './th-button-sort';
 
 export interface HdsTableThSelectableArgs {
   Args: {
@@ -21,7 +21,7 @@ export interface HdsTableThSelectableArgs {
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
-    onClickSort?: HdsTableTrArgs['Args']['onClickSortBySelected'];
+    onClickSort?: HdsTableThButtonSortArgs['Args']['onClick'];
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
@@ -29,7 +29,7 @@ export interface HdsTableThSelectableArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
-    sortOrder?: HdsTableTrArgs['Args']['sortOrder'];
+    sortOrder?: HdsTableThSortOrder;
     willDestroy: (selectionKey?: string) => void;
   };
   Element: HdsTableThArgs['Element'];
@@ -38,7 +38,10 @@ export interface HdsTableThSelectableArgs {
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableArgs> {
   @tracked isSelected = this.args.isSelected;
 
-  checkboxId = 'checkbox-' + guidFor(this);
+  guid = guidFor(this);
+
+  checkboxId = `checkbox-${this.guid}`;
+  labelId = `label-${this.guid}`;
 
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix } = this.args;
