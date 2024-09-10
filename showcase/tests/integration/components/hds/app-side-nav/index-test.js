@@ -9,7 +9,6 @@ import {
   render,
   click,
   resetOnerror,
-  setupOnerror,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -47,40 +46,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.dom('#test-app-side-nav-header').exists();
     assert.dom('#test-app-side-nav-body').exists();
     assert.dom('#test-app-side-nav-footer').exists();
-  });
-
-  // A11Y
-
-  test('it renders the `a11y-refocus` elements by default', async function (assert) {
-    await render(
-      hbs`<Hds::AppSideNav @hasA11yRefocus={{true}} @a11yRefocusSkipTo="foo" />`
-    );
-    assert.dom('#ember-a11y-refocus-nav-message').exists();
-    assert.dom('#ember-a11y-refocus-skip-link').exists();
-  });
-
-  test('it renders the `a11y-refocus` elements with the right properties provided as arguments', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav
-        @hasA11yRefocus={{true}}
-        @a11yRefocusSkipTo="test-skip-to"
-        @a11yRefocusSkipText="test-skip-text"
-        @a11yRefocusNavigationText="test-navigation-text"
-      />
-    `);
-    assert
-      .dom('#ember-a11y-refocus-nav-message')
-      .hasText('test-navigation-text');
-    assert.dom('#ember-a11y-refocus-skip-link').hasText('test-skip-text');
-    assert
-      .dom('#ember-a11y-refocus-skip-link')
-      .hasAttribute('href', '#test-skip-to');
-  });
-
-  test('it does not render the `a11y-refocus` elements if `hasA11yRefocus` is false', async function (assert) {
-    await render(hbs`<Hds::AppSideNav @hasA11yRefocus={{false}} />`);
-    assert.dom('#ember-a11y-refocus-nav-message').doesNotExist();
-    assert.dom('#ember-a11y-refocus-skip-link').doesNotExist();
   });
 
   // RESPONSIVENESS
@@ -263,20 +228,5 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     );
     await click('.hds-app-side-nav__toggle-button');
     assert.ok(toggled);
-  });
-
-  // ASSERTIONS
-
-  test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
-    const errorMessage =
-      '@a11yRefocusSkipTo for NavigatorNarrator (a11y-refocus) in "Hds::AppSideNav" must have a valid value';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::AppSideNav @hasA11yRefocus={{true}} />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
 });

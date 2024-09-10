@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsAppSideNavBaseSignature } from './base';
@@ -16,12 +15,6 @@ interface HdsAppSideNavSignature {
     isResponsive?: boolean;
     isCollapsible?: boolean;
     isMinimized?: boolean;
-    hasA11yRefocus?: boolean;
-    a11yRefocusSkipTo?: string;
-    a11yRefocusSkipText?: string;
-    a11yRefocusNavigationText?: string;
-    a11yRefocusRouteChangeValidator?: string;
-    a11yRefocusExcludeAllQueryParams?: boolean;
     ariaLabel?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;
@@ -59,7 +52,6 @@ export default class HdsAppSideNavComponent extends Component<HdsAppSideNavSigna
   @tracked isDesktop = true;
   desktopMQ: MediaQueryList;
   containersToHide!: NodeListOf<Element>;
-  hasA11yRefocus = this.args.hasA11yRefocus ?? true;
 
   desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
     '--hds-app-desktop-breakpoint'
@@ -72,13 +64,6 @@ export default class HdsAppSideNavComponent extends Component<HdsAppSideNavSigna
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
-
-    if (this.args.hasA11yRefocus) {
-      assert(
-        '@a11yRefocusSkipTo for NavigatorNarrator (a11y-refocus) in "Hds::AppSideNav" must have a valid value',
-        this.args.a11yRefocusSkipTo !== undefined
-      );
-    }
   }
 
   addEventListeners(): void {
