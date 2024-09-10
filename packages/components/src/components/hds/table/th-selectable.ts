@@ -18,8 +18,8 @@ import type {
   HdsTableThSortOrderLabels,
 } from './types';
 import type { HdsTableThArgs } from './th';
-import type { HdsTableTrArgs } from './tr';
 import type { HdsTableArgs } from '.';
+import type { HdsTableThButtonSortArgs } from './th-button-sort';
 
 export interface HdsTableThSelectableArgs {
   Args: {
