@@ -52,6 +52,8 @@
         (hash
           Tr=(component
             "hds/table/tr"
+            sortBySelectedItemKey=@sortBySelectedItemKey
+            onClickSortBySelected=(if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey))
             selectionScope="col"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionAllChange
