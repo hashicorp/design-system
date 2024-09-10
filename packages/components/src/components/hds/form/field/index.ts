@@ -21,6 +21,7 @@ import HdsFormErrorComponent from '../error/index.ts';
 import type { HdsFormFieldLayouts } from './types.ts';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield/index.ts';
+import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export const LAYOUT_TYPES = Object.values(HdsFormFieldLayoutValues);
 
@@ -131,10 +132,10 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
 
   @action
   appendDescriptor(element: HTMLElement): void {
-    registerAriaDescriptionElement(this, element);
+    registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
   @action removeDescriptor(element: HTMLElement): void {
-    unregisterAriaDescriptionElement(this, element);
+    unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 }
