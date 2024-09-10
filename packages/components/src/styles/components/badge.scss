@@ -11,6 +11,24 @@ $hds-badge-types: ( "flat","inverted","outlined" );
 $hds-badge-colors-accents: ( "highlight", "success", "warning", "critical" );
 $hds-badge-sizes: ( "small", "medium", "large" );
 $hds-badge-border-width: 1px;
+$hds-badge-colors-props: (
+  "highlight": (
+    "inverted-background-color":  var(--token-color-palette-purple-200),
+    "outlined-border-color": var(--token-color-palette-purple-200),
+  ),
+  "success": (
+    "inverted-background-color":  var(--token-color-palette-green-200),
+    "outlined-border-color": var(--token-color-palette-green-200),
+  ),
+  "warning": (
+    "inverted-background-color":  var(--token-color-palette-amber-200),
+    "outlined-border-color": var(--token-color-palette-amber-200),
+  ),
+  "critical": (
+    "inverted-background-color":  var(--token-color-palette-red-200),
+    "outlined-border-color": var(--token-color-palette-red-200),
+  ),
+);
 
 
 .hds-badge {
@@ -96,20 +114,20 @@ $hds-badge-size-props: (
 
   &.hds-badge--type-inverted {
     color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-foreground-faint);
+    background-color: var(--token-color-palette-neutral-500);
   }
 
   &.hds-badge--type-outlined {
     color: var(--token-color-foreground-primary);
     background-color: transparent;
-    border-color: var(--token-color-foreground-faint);
+    border-color: var(--token-color-palette-neutral-500);
   }
 }
 
 .hds-badge--color-neutral-dark-mode {
   &.hds-badge--type-filled {
     color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-foreground-faint);
+    background-color: var(--token-color-palette-neutral-500);
   }
 
   &.hds-badge--type-inverted {
@@ -120,7 +138,7 @@ $hds-badge-size-props: (
   &.hds-badge--type-outlined {
     color: var(--token-color-foreground-high-contrast);
     background-color: transparent;
-    border-color: var(--token-color-palette-neutral-100);
+    border-color: var(--token-color-palette-neutral-50);
   }
 }
 
@@ -133,13 +151,13 @@ $hds-badge-size-props: (
 
     &.hds-badge--type-inverted {
       color: var(--token-color-foreground-high-contrast);
-      background-color: var(--token-color-foreground-#{$color});
+      background-color: map-get($hds-badge-colors-props, $color, "inverted-background-color");
     }
 
     &.hds-badge--type-outlined {
       color: var(--token-color-foreground-#{$color});
       background-color: transparent;
-      border-color: currentColor;
+      border-color: map-get($hds-badge-colors-props, $color, "outlined-border-color");
     }
   }
 }
