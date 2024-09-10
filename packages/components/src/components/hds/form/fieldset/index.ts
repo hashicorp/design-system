@@ -19,6 +19,7 @@ import HdsFormErrorComponent from '../error/index.ts';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsFormFieldsetLayouts } from './types.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
+import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export interface HdsFormFieldsetSignature {
   Args: {
@@ -106,10 +107,10 @@ export default class HdsFormFieldset extends Component<HdsFormFieldsetSignature>
 
   @action
   appendDescriptor(element: HTMLElement): void {
-    registerAriaDescriptionElement(this, element);
+    registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
   @action removeDescriptor(element: HTMLElement): void {
-    unregisterAriaDescriptionElement(this, element);
+    unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 }

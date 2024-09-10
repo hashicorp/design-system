@@ -5,7 +5,7 @@
 
 export enum HdsFormFieldsetLayoutValues {
   Vertical = 'vertical',
-  Flag = 'flag',
+  Horizontal = 'horizontal',
 }
 
 export type HdsFormFieldsetLayouts = `${HdsFormFieldsetLayoutValues}`;

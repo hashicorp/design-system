@@ -44,7 +44,8 @@ const ariaDescriptorMap = new AriaDescriptorMap();
 
 type AriaDescribedByArgs = HdsFormFieldSignature & HdsFormFieldsetSignature;
 
-interface AriaDescribedByComponent extends Component<AriaDescribedByArgs> {
+export interface AriaDescribedByComponent
+  extends Component<AriaDescribedByArgs> {
   __ARIA_DESCRIPTION_IDS__?: string[];
   ariaDescribedBy?: string;
 }
