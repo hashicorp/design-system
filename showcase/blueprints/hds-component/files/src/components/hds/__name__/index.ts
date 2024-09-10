@@ -17,7 +17,7 @@ export interface Hds<%= classifiedModuleName %>Signature {
 }
 // More info on types and signatures: https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3245932580/Using+Typescript
 
-export default class Hds<%= classifiedModuleName %>Component extends Component<Hds<%= classifiedModuleName %>Signature> {
+export default class Hds<%= classifiedModuleName %> extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
   // constructor() {
   //   super(...arguments);
