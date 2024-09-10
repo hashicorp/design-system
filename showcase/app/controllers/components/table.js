@@ -73,10 +73,10 @@ export default class ComponentsTableController extends Controller {
   @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
 
   @action
-  onSelectionChange__demo5({ selectionKey }) {
+  onSelectionChange__demo5({ selectionKey, selectionCheckboxElement }) {
     if (selectionKey === 'all') {
       this.selectableData__demo5.forEach((modelRow) => {
-        modelRow.isSelected = !modelRow.isSelected;
+        modelRow.isSelected = selectionCheckboxElement.checked;
       });
     } else {
       const recordToUpdate = this.selectableData__demo5.find(
