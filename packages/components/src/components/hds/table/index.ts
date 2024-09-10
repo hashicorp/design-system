@@ -192,11 +192,7 @@ export default class HdsTable extends Component<HdsTableArgs> {
   }
 
   @action
-  setSortBy(column?: string): void {
-    if (column === undefined) {
-      return;
-    }
-
+  setSortBy(column: string): void {
     if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
       this.sortOrder =

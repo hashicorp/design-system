@@ -14,8 +14,9 @@
     {{#if @columns}}
       <Hds::Table::Tr
         @sortBySelectedItemKey={{@sortBySelectedItemKey}}
+        @onClickSortBySelected={{if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey)}}
+        {{!-- new above --}}
         @sortOrder={{if (eq this.sortBy @sortBySelectedItemKey) this.sortOrder}}
-        @onClickSort={{fn this.setSortBy @sortBySelectedItemKey}}
         @selectionScope="col"
         @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
         @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}

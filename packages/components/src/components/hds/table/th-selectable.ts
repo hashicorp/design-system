@@ -19,9 +19,11 @@ import type {
 } from './types';
 import type { HdsTableThArgs } from './th';
 import type { HdsTableTrArgs } from './tr';
+import type { HdsTableArgs } from '.';
 
 export interface HdsTableThSelectableArgs {
   Args: {
+    sortBySelectedItemKey?: HdsTableArgs['Args']['sortBySelectedItemKey'];
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
@@ -116,6 +118,15 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(target, this.args.selectionKey);
     }
+  }
+
+  @action
+  sortBySelectedItem(): void {
+    if (this.args.sortBySelectedItemKey === undefined) {
+      return;
+    }
+
+    this.args.onClickSort?.(this.args.sortBySelectedItemKey);
   }
 
   updateAriaLabel(event: Event): void {
