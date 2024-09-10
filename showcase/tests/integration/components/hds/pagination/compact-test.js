@@ -158,7 +158,9 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
-    await render(hbs`<Hds::Pagination::Compact @queryFunction="foo" />`);
+    await render(
+      hbs`<Hds::Pagination::Compact @queryFunction="foo" @model="test" />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
