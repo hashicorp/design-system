@@ -3,18 +3,18 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<tr class="hds-table__tr" {{did-insert this.didInsert}} ...attributes>
+<tr class="hds-table__tr" ...attributes>
   {{#if @isSelectable}}
     <Hds::Table::ThSelectable
       @isSelected={{@isSelected}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}
       @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
-      @showSortButton={{this.showSortButton}}
       @sortOrder={{@sortOrder}}
       @didInsert={{@didInsert}}
       @willDestroy={{@willDestroy}}
-      @onClickSort={{@onClickSort}}
+      @sortBySelectedItemKey={{@sortBySelectedItemKey}}
+      @onClickSort={{@onClickSortBySelected}}
       @onSelectionChange={{@onSelectionChange}}
     />
   {{/if}}

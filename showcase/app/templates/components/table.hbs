@@ -1452,7 +1452,7 @@
   <Shw::Flex @direction="row" @gap="2rem" as |SF|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
-        <SF.Item @label={{if bool "Selected" "Deselected"}}>
+        <SF.Item @label={{(if bool "Selected" "Deselected") }}>
           <Hds::Table>
             <:head as |H|>
               <H.Tr>

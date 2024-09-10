@@ -8,12 +8,11 @@ import { assert } from '@ember/debug';
 import { HdsTableScopeValues } from './types.ts';
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import type { HdsTableArgs } from './index.ts';
 
 export interface BaseHdsTableTrArgs {
   Args: {
-    sortBySelectedItemKey?: string;
+    sortBySelectedItemKey?: HdsTableArgs['Args']['sortBySelectedItemKey'];
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;
@@ -29,7 +28,7 @@ export interface BaseHdsTableTrArgs {
       selectionKey?: string
     ) => void;
     willDestroy: () => void;
-    onClickSort?: (sortBy?: string) => void;
+    onClickSortBySelected?: (sortBy: string) => void;
   };
   Blocks: {
     default: [];
@@ -48,25 +47,7 @@ export interface SelectableHdsTableTrArgs extends BaseHdsTableTrArgs {
 
 // Union type to combine both possible states
 export type HdsTableTrArgs = BaseHdsTableTrArgs | SelectableHdsTableTrArgs;
-
-function getRowContainerElement(
-  element: HTMLTableRowElement
-): HTMLElement | null {
-  let parent = element.parentElement;
-
-  while (parent && parent.tagName !== 'TABLE') {
-    if (['TBODY', 'THEAD'].includes(parent.tagName)) {
-      return parent;
-    }
-
-    parent = parent.parentElement;
-  }
-
-  return parent;
-}
 export default class HdsTableTr extends Component<HdsTableTrArgs> {
-  @tracked isHeaderRow = false;
-
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
@@ -76,18 +57,5 @@ export default class HdsTableTr extends Component<HdsTableTrArgs> {
       return this.args.selectionKey;
     }
     return undefined;
-  }
-
-  get showSortButton(): boolean {
-    return (
-      this.isHeaderRow && typeof this.args.sortBySelectedItemKey === 'string'
-    );
-  }
-
-  @action
-  didInsert(element: HdsTableTrArgs['Element']) {
-    const rowContainer = getRowContainerElement(element);
-
-    this.isHeaderRow = rowContainer?.tagName === 'THEAD';
   }
 }
