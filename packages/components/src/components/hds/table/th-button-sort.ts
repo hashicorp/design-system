@@ -27,6 +27,7 @@ export interface HdsTableThButtonSortArgs {
 const NOOP = () => {};
 
 export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortArgs> {
+  // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
   prefixLabelId = 'prefix-' + guidFor(this);
   suffixLabelId = 'suffix-' + guidFor(this);
 
@@ -41,6 +42,8 @@ export default class HdsTableThButtonSort extends Component<HdsTableThButtonSort
     }
   }
 
+  // Determines the label (suffix) to use in the `aria-labelledby` attribute of the button,
+  // used to indicate what will happen if the user clicks on the button
   get sortOrderLabel(): HdsTableThSortOrderLabels {
     return this.args.sortOrder === HdsTableThSortOrderValues.Asc
       ? HdsTableThSortOrderLabelValues.Desc

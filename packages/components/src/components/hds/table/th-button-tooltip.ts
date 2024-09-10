@@ -16,6 +16,7 @@ export interface HdsTableThButtonTooltipArgs {
 }
 
 export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonTooltipArgs> {
+  // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = guidFor(this);
 
   get tooltip(): string {
