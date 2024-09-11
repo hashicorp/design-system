@@ -41,11 +41,7 @@ export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTa
   @tracked lastPanelEl: Element | undefined;
 
   static get prefersReducedMotionOverride(): boolean {
-    if (macroCondition(isTesting())) {
-      return true;
-    }
-
-    return false;
+    return macroCondition(isTesting()) ? true : false;
   }
 
   prefersReducedMotionMQ = window.matchMedia(
