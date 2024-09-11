@@ -12,6 +12,7 @@ import type { ComponentLike } from '@glint/template';
 import {
   HdsTableDensityValues,
   HdsTableThSortOrderValues,
+  HdsTableThSortOrderLabelValues,
   HdsTableVerticalAlignmentValues,
 } from './types.ts';
 import type {
@@ -22,6 +23,7 @@ import type {
   HdsTableSelectableRow,
   HdsTableSortingFunction,
   HdsTableThSortOrder,
+  HdsTableThSortOrderLabels,
   HdsTableVerticalAlignment,
   HdsTableModel,
 } from './types';

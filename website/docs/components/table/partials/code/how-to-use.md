@@ -638,42 +638,6 @@ While it’s technically possible to use the multi-select feature in a table imp
 
 !!!
 
-### Sorting by selected
-
-To enable sorting by selected rows in a table, you need to set `@sortBySelectedItemKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
-
-In the demo below, we set up a multi-select table that can be sorted based on the selection state of its rows.
-
-```handlebars
-<Hds::Table
-  @isSelectable={{true}}
-  @sortBySelectedItemKey="isSelected"
-  @onSelectionChange={{this.demoOnSelectionChangeSortBySelected}}
-  @model={{this.demoSortBySelectedData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Year" isSortable=true)
-    (hash key="selection" label="Selected" isSortable=true)
-  }}
-  @sortBy="selection"
-  @sortOrder="desc"
->
-  <:body as |B|>
-    <B.Tr
-      @selectionKey={{B.data.id}}
-      @isSelected={{B.data.isSelected}}
-      @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
-    >
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-      <B.Td>{{if B.data.isSelected "Yes" "No"}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
-
 #### Multi-select table with pagination and persisted selection status
 
 This is a more complex example, where a table with multi-selection is associated with a [Pagination](/components/pagination) element (a similar use case would apply if a [filter](/patterns/filter-patterns) is applied to the data used to populate the table). In this case, a **subset of rows** is displayed on screen.

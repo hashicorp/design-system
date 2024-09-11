@@ -7,8 +7,16 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import {
+  HdsTableThSortOrderValues,
+  HdsTableThSortOrderLabelValues,
+} from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableScope, HdsTableThSortOrder } from './types';
+import type {
+  HdsTableScope,
+  HdsTableThSortOrder,
+  HdsTableThSortOrderLabels,
+} from './types';
 import type { HdsTableThArgs } from './th';
 import type { HdsTableArgs } from '.';
 import type { HdsTableThButtonSortArgs } from './th-button-sort';
@@ -50,6 +58,18 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
       return `${prefix} ${selectionAriaLabelSuffix}`;
     } else {
       return prefix;
+    }
+  }
+
+  get ariaSort(): HdsTableThSortOrderLabels {
+    switch (this.args.sortOrder) {
+      case HdsTableThSortOrderValues.Asc:
+        return HdsTableThSortOrderLabelValues.Asc;
+      case HdsTableThSortOrderValues.Desc:
+        return HdsTableThSortOrderLabelValues.Desc;
+      default:
+        // none is the default per the spec.
+        return HdsTableThSortOrderLabelValues.None;
     }
   }
 

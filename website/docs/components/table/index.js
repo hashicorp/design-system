@@ -90,10 +90,6 @@ export default class Index extends Component {
       'badge-color': 'critical',
     },
   ];
-  @tracked demoSortBySelectedData = [...this.model.myDemoData].map((row) => ({
-    ...row,
-    isSelected: false,
-  }));
 
   get model() {
     return { myDemoData: this.demoSourceData };
@@ -186,18 +182,6 @@ export default class Index extends Component {
   demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
     selectableRowsStates.forEach((row) => {
       const recordToUpdate = this.demoSourceData.find(
-        (modelRow) => modelRow.id === row.selectionKey
-      );
-      if (recordToUpdate) {
-        recordToUpdate.isSelected = row.isSelected;
-      }
-    });
-  }
-
-  @action
-  demoOnSelectionChangeSortBySelected({ selectableRowsStates }) {
-    selectableRowsStates.forEach((row) => {
-      const recordToUpdate = this.demoSortBySelectedData.find(
         (modelRow) => modelRow.id === row.selectionKey
       );
       if (recordToUpdate) {
