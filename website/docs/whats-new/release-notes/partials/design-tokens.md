@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.2.1
+
+**Patch changes**
+
+Updated design tokens for Vagrant primary gradient to match Figma.
+
+<small class="doc-whats-new-changelog-metadata">[#2366](https://github.com/hashicorp/design-system/pull/2366)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.0
 
 **Minor changes**
@@ -194,12 +204,6 @@ This release signifies the first major release of the HashiCorp Design System. M
 **Minor changes**
 
 - added specific design tokens for the `form controls` components
-
-## 0.8.1
-
-**Patch changes**
-
-- [#327](https://github.com/hashicorp/design-system/pull/327) [`a46fc035`](https://github.com/hashicorp/design-system/commit/a46fc03570f51e8375b15571ddcb10e62ba446fb) Thanks [@didoo](https://github.com/didoo)! - removed deprecated design tokens for old semantic colors
 
 
 ---

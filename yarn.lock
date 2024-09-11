@@ -4108,7 +4108,7 @@ __metadata:
     "@glint/core": "npm:^1.4.0"
     "@glint/environment-ember-loose": "npm:^1.4.0"
     "@glint/template": "npm:^1.4.0"
-    "@hashicorp/design-system-tokens": "npm:^2.2.0"
+    "@hashicorp/design-system-tokens": "npm:^2.2.1"
     "@hashicorp/flight-icons": "npm:^3.5.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
@@ -4163,7 +4163,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@npm:^2.2.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@npm:^2.2.1, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
