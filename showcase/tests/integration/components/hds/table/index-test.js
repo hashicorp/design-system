@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
@@ -409,6 +410,49 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
+  });
+
+  test('it invokes the `onSort` callback with the `sortBySelectedItemKey` when a sort is performed on the selected item col', async function (assert) {
+    const selectedItemKey = 'thisItemIsSelected';
+    const sortSpy = sinon.spy();
+
+    this.setProperties({
+      onSort: sortSpy,
+      selectedItemKey,
+    });
+
+    await render(hbs`
+      <Hds::Table
+        @isSelectable={{true}}
+        @sortBySelectedItemKey={{this.selectedItemKey}}
+        @onSelectionChange={{this.onSelectionChange}}
+        @onSort={{this.onSort}}
+        id="data-test-table"
+      >
+        <:head as |H|>
+          <H.Tr>
+            <H.Th>Cell Header 1</H.Th>
+            <H.Th>Cell Header 2</H.Th>
+            <H.Th>Cell Header 3</H.Th>
+          </H.Tr>
+        </:head>
+        <:body as |B|>
+          <B.Tr @selectionKey="row1">
+            <B.Td>Cell Content 1 1</B.Td>
+            <B.Td>Cell Content 1 2</B.Td>
+            <B.Td>Cell Content 1 3</B.Td>
+          </B.Tr>
+          <B.Tr @selectionKey="row2">
+            <B.Td>Cell Content 2 1</B.Td>
+            <B.Td>Cell Content 2 2</B.Td>
+            <B.Td>Cell Content 2 3</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+
+    await click('#data-test-table .hds-table__th:nth-of-type(1) button');
+    assert.ok(sortSpy.calledWith(selectedItemKey, 'asc'));
   });
 
   test('it sorts by selected row when `@sortBySelectedItemKey` is provided', async function (assert) {
