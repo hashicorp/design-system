@@ -1,6 +1,12 @@
 ## How to use this component
 
-The `AppFrame` is a pure layout component that can be used to build the top-level “frame“ of an application. The frame's child containers (“header”, “sidebar“, “footer“, etc.) are agnostic of the content, and don‘t have intrinsic sizes (apart from the ones that are required to make it work as top-level application frame).
+The `AppFrame` is a pure layout component that can be used to build the top-level “frame” of an application. The frame’s child containers (“header”, “sidebar”, “main”, “footer”) are agnostic of the content, and don’t have intrinsic sizes (apart from the ones that are required to make it work as top-level application frame).
+
+### “Main” container
+
+The `AppFrame::Main` child component includes a default `id` with the value `hds-main` on the HTML `<main>` element it renders. This serves as a target for the `hasA11yRefocus` feature skip links which are built into the [`AppHeader`](/components/app-header?tab=code#appheader) and the standalone [`SideNav`](/components/side-nav?tab=code#side-nav) components.
+
+Note: The upcoming `AppSideNav` component, which is meant to only be used together with the `AppHeader` and not as standalone navigation, does not include a skip link.
 
 ### Basic use
 
@@ -31,7 +37,7 @@ The most basic invocation of an application “frame” looks like this:
 
 ### Optional containers
 
-Depending on the UI implementation of the product where the component is used, it's possible to omit certain containers simply by not yielding them. For example, this would be the “frame” of an application that doesn't have an “header”:
+Depending on the UI implementation of the product where the component is used, it's possible to omit certain containers simply by not yielding them. For example, this would be the “frame” of an application that doesn't have a “header”:
 
 ```handlebars
 <div class="doc-app-frame-mock-viewport">
@@ -49,7 +55,7 @@ Depending on the UI implementation of the product where the component is used, i
 </div>
 ```
 
-#### Programmatic control of the containers‘ rendering
+#### Programmatic control of the containers’ rendering
 
 Using the [exposed API of the component](#component-api), it's possible to programmatically control the rendering of some of the containers. An example of programmatic control of the rendering of the sidebar could be this:
 

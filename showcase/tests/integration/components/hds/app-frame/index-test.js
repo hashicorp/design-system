@@ -41,9 +41,13 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
 
     assert.dom('#test-app-frame[data-test-app-frame]').exists();
 
+    // Header
+
     assert.dom('#test-app-frame-header[data-test-app-frame-header]').exists();
     assert.dom('header.hds-app-frame__header').exists();
     assert.dom('header.hds-app-frame__header').includesText('header container');
+
+    // Sidebar
 
     assert.dom('#test-app-frame-sidebar[data-test-app-frame-sidebar]').exists();
     assert.dom('aside.hds-app-frame__sidebar').exists();
@@ -51,13 +55,19 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
       .dom('aside.hds-app-frame__sidebar')
       .includesText('sidebar container');
 
+    // Main
+
     assert.dom('#test-app-frame-main[data-test-app-frame-main]').exists();
     assert.dom('main.hds-app-frame__main').exists();
     assert.dom('main.hds-app-frame__main').includesText('main container');
 
+    // Footer
+
     assert.dom('#test-app-frame-footer[data-test-app-frame-footer]').exists();
     assert.dom('footer.hds-app-frame__footer').exists();
     assert.dom('footer.hds-app-frame__footer').includesText('footer container');
+
+    // Modals
 
     assert.dom('#test-app-frame-modals[data-test-app-frame-modals]').exists();
     assert.dom('div.hds-app-frame__modals').exists();
@@ -108,5 +118,24 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
         </Hds::AppFrame>
     `);
     assert.dom('#test-app-frame-modals').doesNotExist();
+  });
+
+  // Main id
+  test('it should have a default id of "hds-main" on the main container', async function (assert) {
+    await render(hbs`
+        <Hds::AppFrame as |Frame|>
+          <Frame.Main />
+        </Hds::AppFrame>
+    `);
+    assert.dom('main#hds-main').exists();
+  });
+
+  test('it should allow a custom id for the main container to be passed in', async function (assert) {
+    await render(hbs`
+        <Hds::AppFrame as |Frame|>
+          <Frame.Main id="test-main" />
+        </Hds::AppFrame>
+    `);
+    assert.dom('main#test-main').exists();
   });
 });

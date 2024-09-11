@@ -77,6 +77,9 @@ To be used as container for the application's main page content.
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of a `<main>` HTML element.
   </C.Property>
+  <C.Property @name="id" @default='"hds-main"'>
+    A default id value is set which serves as the target of the skip link included in the `AppHeader` and standalone `SideNav` components. This id can be overridden if needed but be sure to update the `a11yRefocusSkipTo` argument of the [`AppHeader`](/components/app-header?tab=code#appheader) or [`SideNav`](/components/side-nav?tab=code#side-nav) to match.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
