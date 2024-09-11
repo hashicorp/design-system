@@ -1098,22 +1098,3 @@
     </SG.Item>
   </Shw::Grid>
 </section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-
-  <Shw::Text::H2>Other elements (not componentized)</Shw::Text::H2>
-
-  <Shw::Text::H3>Skip Link (A11y Refocus)</Shw::Text::H3>
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Skip Link">
-      <div class="shw-component-sim-other-elements">
-        <div class="hds-app-side-nav">
-          <a href="#" class="ember-a11y-refocus-skip-link">Skip to main content</a>
-        </div>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-</section>
