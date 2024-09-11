@@ -136,7 +136,7 @@ New codemod: `v4/dropdown-list-item-interactive`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Breadrcumb`: fix background hover color for `Breadcrumb::Truncation`
+`Breadcrumb`: fix background hover color for `Breadcrumb::Truncation`
 
 <small class="doc-whats-new-changelog-metadata">[#2397](https://github.com/hashicorp/design-system/pull/2397)</small>
 

@@ -14,6 +14,8 @@
 
 ## 4.10.0
 
+[4.10.0 documentation](https://hds-website-4-10-0.vercel.app/)
+
 **Minor changes**
 
 `SuperSelect` - Converted components to TypeScript
@@ -148,7 +150,7 @@ New codemod: `v4/dropdown-list-item-interactive`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Breadrcumb`: fix background hover color for `Breadcrumb::Truncation`
+`Breadcrumb`: fix background hover color for `Breadcrumb::Truncation`
 
 <small class="doc-whats-new-changelog-metadata">[#2397](https://github.com/hashicorp/design-system/pull/2397)</small>
 
