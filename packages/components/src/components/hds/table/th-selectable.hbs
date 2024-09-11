@@ -3,7 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Table::Th class="hds-table__th--is-selectable" aria-sort={{this.ariaSort}} @scope={{@selectionScope}} ...attributes>
+<Hds::Table::Th
+  class="hds-table__th--is-selectable"
+  aria-sort={{this.ariaSort}}
+  @scope={{@selectionScope}}
+  ...attributes
+>
   <div class="hds-table__th-content">
     <Hds::Form::Checkbox::Base
       id={{this.checkboxId}}
@@ -15,7 +20,11 @@
       {{on "change" this.onSelectionChange}}
     />
     {{#if @onClickSort}}
-      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{this.sortBySelectedItem}} @labelId={{this.labelId}} />
+      <Hds::Table::ThButtonSort
+        @sortOrder={{@sortOrder}}
+        @onClick={{this.sortBySelectedItem}}
+        @labelId={{this.labelId}}
+      />
     {{/if}}
   </div>
 </Hds::Table::Th>
