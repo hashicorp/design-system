@@ -53,7 +53,6 @@ export default class ComponentsTableController extends Controller {
     row1: false,
     row2: true,
     row3: false,
-    row4: false,
   };
   @deepTracked multiSelectModelData__demo2 = [
     ...this.model.selectableDataDemo2,
@@ -72,6 +71,12 @@ export default class ComponentsTableController extends Controller {
   // Sorting by selected row
   @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
 
+  @deepTracked multiSelectNoModelState__demo6 = {
+    row1: false,
+    row2: true,
+    row3: false,
+  };
+
   @action
   onSelectionChange__demo5({ selectionKey, selectionCheckboxElement }) {
     if (selectionKey === 'all') {
@@ -86,6 +91,25 @@ export default class ComponentsTableController extends Controller {
       if (recordToUpdate) {
         recordToUpdate.isSelected = !recordToUpdate.isSelected;
       }
+    }
+  }
+
+  // Sorting by selected row without model
+  @action
+  onSelectionChangeSortBySelectedWithoutModel__demo6({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
+      const selectAllState = selectionCheckboxElement.checked;
+      Object.keys(this.multiSelectNoModelState__demo1).forEach((rowKey) => {
+        this.multiSelectNoModelState__demo1[rowKey] = selectAllState;
+      });
+    } else {
+      selectableRowsStates.forEach((row) => {
+        this.multiSelectNoModelState__demo1[row.selectionKey] = row.isSelected;
+      });
     }
   }
 

@@ -19,7 +19,6 @@ import type {
 } from './types';
 import type { HdsTableThArgs } from './th';
 import type { HdsTableArgs } from '.';
-import type { HdsTableThButtonSortArgs } from './th-button-sort';
 
 export interface HdsTableThSelectableArgs {
   Args: {
@@ -29,7 +28,7 @@ export interface HdsTableThSelectableArgs {
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
-    onClickSort?: HdsTableThButtonSortArgs['Args']['onClick'];
+    onClickSort?: (sortBy: string) => void;
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
