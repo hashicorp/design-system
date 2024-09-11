@@ -8,11 +8,11 @@ import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 import type { ComponentLike } from '@glint/template';
-import type { LabelComponentSignature } from '../label';
+import type { ShwLabelSignature } from '../label';
 import type { SafeString } from '@ember/template';
-import type { GridItemComponentSignature } from './item';
+import type { ShwGridItemSignature } from './item';
 
-interface GridComponentSignature {
+interface ShwGridSignature {
   Args: {
     columns: 2 | 3 | 4 | 5 | 6 | 7;
     forceMinWidth?: boolean;
@@ -23,15 +23,15 @@ interface GridComponentSignature {
   Blocks: {
     default: [
       {
-        Label?: ComponentLike<LabelComponentSignature>;
-        Item?: ComponentLike<GridItemComponentSignature>;
+        Label?: ComponentLike<ShwLabelSignature>;
+        Item?: ComponentLike<ShwGridItemSignature>;
       },
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class GridIndexComponent extends Component<GridComponentSignature> {
+export default class ShwGridComponent extends Component<ShwGridSignature> {
   get columns(): number {
     const { columns } = this.args;
 

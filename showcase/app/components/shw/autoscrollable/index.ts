@@ -37,7 +37,7 @@ function centerScrollableArea({
   }
 }
 
-interface AutoscrollableComponentSignature {
+interface ShwAutoscrollableSignature {
   Args: {
     direction?: AutoscrollableDirections;
     horizontalShift?: number;
@@ -49,7 +49,7 @@ interface AutoscrollableComponentSignature {
   Element: HTMLDivElement;
 }
 
-export default class AutoscrollableComponent extends Component<AutoscrollableComponentSignature> {
+export default class ShwAutoscrollable extends Component<ShwAutoscrollableSignature> {
   autoscroll = modifier((element: HTMLElement) => {
     scheduleOnce('afterRender', this, centerScrollableArea, {
       element: element,

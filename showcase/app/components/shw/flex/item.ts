@@ -6,9 +6,9 @@
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 
-import type { LabelComponentSignature } from '../label';
+import type { ShwLabelSignature } from '../label';
 
-export interface FlexItemComponentSignature {
+export interface ShwFlexItemSignature {
   Args: {
     grow?: boolean;
     label?: string;
@@ -16,14 +16,14 @@ export interface FlexItemComponentSignature {
   Blocks: {
     default: [
       {
-        Label?: ComponentLike<LabelComponentSignature>;
+        Label?: ComponentLike<ShwLabelSignature>;
       },
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class FlexItemComponent extends Component<FlexItemComponentSignature> {
+export default class ShwFlexItemComponent extends Component<ShwFlexItemSignature> {
   get classNames(): string {
     const classes = ['shw-flex__item'];
 

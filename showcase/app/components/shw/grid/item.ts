@@ -6,9 +6,9 @@
 import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
-import type { LabelComponentSignature } from '../label';
+import type { ShwLabelSignature } from '../label';
 
-export interface GridItemComponentSignature {
+export interface ShwGridItemSignature {
   Args: {
     forceMinWidth?: boolean;
     grow?: boolean;
@@ -17,14 +17,14 @@ export interface GridItemComponentSignature {
   Blocks: {
     default: [
       {
-        Label?: ComponentLike<LabelComponentSignature>;
+        Label?: ComponentLike<ShwLabelSignature>;
       },
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class GridItemComponent extends Component<GridItemComponentSignature> {
+export default class ShwGridItemComponent extends Component<ShwGridItemSignature> {
   get classNames(): string {
     const classes = ['shw-grid__item'];
 
