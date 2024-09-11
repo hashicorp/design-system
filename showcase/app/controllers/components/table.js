@@ -481,4 +481,9 @@ export default class ComponentsTableController extends Controller {
       user.isAnimated = false;
     });
   }
+
+  @action
+  noop() {
+    // no-op
+  }
 }
