@@ -12,6 +12,188 @@
   </a>
 </p>
 
+## 4.10.0
+
+**Minor changes**
+
+`SuperSelect` - Converted components to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2356](https://github.com/hashicorp/design-system/pull/2356)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Added a default value of "#hds-main" for `a11yRefocusSkipTo`
+`AppHeader` - Changed default value of `a11yRefocusSkipTo` from "#main" to "#hds-main"
+`AppFrame::Main` - Added id with default value of "hds-main" which `a11yRefocusSkipTo` points to
+
+<small class="doc-whats-new-changelog-metadata">[#2399](https://github.com/hashicorp/design-system/pull/2399)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+simplify components reexports and add types reexports
+
+- update `HdsCard` reexport to reflect correct component name `HdsCardContainer`
+
+<small class="doc-whats-new-changelog-metadata">[#2320](https://github.com/hashicorp/design-system/pull/2320) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppHeader`:
+
+- Hide the closed menu content in mobile view using CSS instead of conditionally rendering/not rendering the menu content.
+- Add `NavigationNarrator` with associated arguments to provide a "skip link".
+
+<small class="doc-whats-new-changelog-metadata">[#2306](https://github.com/hashicorp/design-system/pull/2306)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Accordion`: Added `@titleTag` argument
+
+`Alert`: Added `@tag` argument to `[A].Title`
+
+`ApplicationState`: Updated the `@titleTag` argument to only accept `"div" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6"`
+
+`CodeBlock`: Added `@tag` argument to `[CB].Title`
+
+`DialogPrimitive`: Added `@titleTag` argument to `DialogPrimitive::Header`
+
+<small class="doc-whats-new-changelog-metadata">[#2353](https://github.com/hashicorp/design-system/pull/2353)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Hds::Pagination` - Converted component to Typescript
+
+<small class="doc-whats-new-changelog-metadata">[#2174](https://github.com/hashicorp/design-system/pull/2174)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Hds::SideNav::Header::IconButton` - Deprecate the component. Use the [`Hds::Button` component](/components/button) with `isIconOnly` set to `true` as a replacement.
+
+<small class="doc-whats-new-changelog-metadata">[#2354](https://github.com/hashicorp/design-system/pull/2354)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown::ListItem::Interactive`
+
+- Adds a yielded block.
+- Yields the `Hds::Badge` component.
+- Deprecates the `@text` argument.
+
+New codemod: `v4/dropdown-list-item-interactive`
+
+- Converts `Dropdown::ListItem::Interactive` `@text` arguments to content within a yielded block.
+
+<small class="doc-whats-new-changelog-metadata">[#2347](https://github.com/hashicorp/design-system/pull/2347)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Flyout`: Changed the HTML element wrapping the tagline and title from a `<div>` to a `<h1>`
+
+`Modal`: Changed the HTML element wrapping the tagline and title from a `<div>` to a `<h1>`
+
+<small class="doc-whats-new-changelog-metadata">[#2358](https://github.com/hashicorp/design-system/pull/2358)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - added `@enableCollisionDetection` and `@isOpen` arguments
+
+`Dropdown`, `Breadcrumb::Truncation` - replaced `MenuPrimitive` with `PopoverPrimitive`
+
+`MenuPrimitive` - marked as deprecated and will be removed in the next major version
+
+<small class="doc-whats-new-changelog-metadata">[#2309](https://github.com/hashicorp/design-system/pull/2309)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppFrame`:
+
+- Modified sticky/fixed position to turn off when viewport height is under 480px in height
+- Refactored styles to make `AppFrame` responsible for sticky/fixed layout of `SideNav` and `AppHeader`
+
+`AppHeader`:
+
+- Styled inoperable actions as disabled (which occurs when the `SideNav` is expanded in mobile view)
+
+`SideNav`:
+
+- Removed the `withAppHeader` option as it is no longer needed.
+
+<small class="doc-whats-new-changelog-metadata">[#2299](https://github.com/hashicorp/design-system/pull/2299)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Converted component and sub-components to TypeScript
+
+<small class="doc-whats-new-changelog-metadata">[#2297](https://github.com/hashicorp/design-system/pull/2297)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`DismissButton`, `RadioCard::Group`, `RichTooltip::Toggle` - Type safety fixes
+
+<small class="doc-whats-new-changelog-metadata">[#2401](https://github.com/hashicorp/design-system/pull/2401)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` & `AppHeader` - Fixed styling issue to prevent `Button` and `Dropdown` nested within another `Dropdown` from inheriting dark theme.
+
+<small class="doc-whats-new-changelog-metadata">[#2359](https://github.com/hashicorp/design-system/pull/2359)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppHeader` - Fixed issue with mobile menu to prevent tabbing to hidden content and hiding it from assistive technology when closed.
+
+<small class="doc-whats-new-changelog-metadata">[#2351](https://github.com/hashicorp/design-system/pull/2351)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Breadrcumb`: fix background hover color for `Breadcrumb::Truncation`
+
+<small class="doc-whats-new-changelog-metadata">[#2397](https://github.com/hashicorp/design-system/pull/2397)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Update `ember-a11y-refocus` to `4.1.3`
+
+<small class="doc-whats-new-changelog-metadata">[#2352](https://github.com/hashicorp/design-system/pull/2352)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Accordion`: changed the default name of the `Accordion` item toggles. Now, they are labelled by the content in the `Accordion` title.
+
+<small class="doc-whats-new-changelog-metadata">[#2383](https://github.com/hashicorp/design-system/pull/2383)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`BadgeCount`: updated the color tokens to use palette tokens.
+
+<small class="doc-whats-new-changelog-metadata">[#2392](https://github.com/hashicorp/design-system/pull/2392)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Badge`: update the color tokens to use palette tokens.
+
+<small class="doc-whats-new-changelog-metadata">[#2393](https://github.com/hashicorp/design-system/pull/2393)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Stepper::Indicator::Task`: Updated palette tokens to use semantic tokens.
+
+<small class="doc-whats-new-changelog-metadata">[#2390](https://github.com/hashicorp/design-system/pull/2390)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Migrated all internal instances of `FlightIcon` to `Hds::Icon`
+
+<small class="doc-whats-new-changelog-metadata">[#2339](https://github.com/hashicorp/design-system/pull/2339)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@2.2.1
+
 ## 4.9.0
 
 [4.9.0 documentation](https://hds-website-4-9-0.vercel.app/)
@@ -889,58 +1071,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 <small class="doc-whats-new-changelog-metadata">[#1892](https://github.com/hashicorp/design-system/pull/1892)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 3.4.0
-
-**Minor changes**
-
-`Button` - Added `@isInline` argument
-
-<small class="doc-whats-new-changelog-metadata">[#1854](https://github.com/hashicorp/design-system/pull/1854)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Table` - Added support for `baseline` vertical alignment
-
-<small class="doc-whats-new-changelog-metadata">[#1861](https://github.com/hashicorp/design-system/pull/1861)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`AppFooter` - Changed visual alignment from right-aligned to centered.
-
-<small class="doc-whats-new-changelog-metadata">[#1867](https://github.com/hashicorp/design-system/pull/1867)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tooltip` - Fixed issue with text alignment, which was inherited from the parent container (now it's always left aligned).
-
-<small class="doc-whats-new-changelog-metadata">[#1869](https://github.com/hashicorp/design-system/pull/1869)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Fixed subcomponents' backing-class names
-
-<small class="doc-whats-new-changelog-metadata">[#1883](https://github.com/hashicorp/design-system/pull/1883)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppFooter` - Updated default accessibility URL to https://hashicorp.com/accessibility
-
-<small class="doc-whats-new-changelog-metadata">[#1811](https://github.com/hashicorp/design-system/pull/1811)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Form::Fieldset` as consumed by `Form::Checkbox::Group`, `Form::Radio::Group`, `Form::RadioCard::Group`, and `Form::Toggle::Group` - Changed spacing between `legend` and content from 4px to 8px
-
-<small class="doc-whats-new-changelog-metadata">[#1856](https://github.com/hashicorp/design-system/pull/1856)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@4.0.5
 
 
 ---

@@ -1,5 +1,23 @@
 # @hashicorp/design-system-codemods
 
+## 0.4.0
+
+### Minor Changes
+
+`Dropdown::ListItem::Interactive`
+
+- Adds a yielded block.
+- Yields the `Hds::Badge` component.
+- Deprecates the `@text` argument.
+
+New codemod: `v4/dropdown-list-item-interactive`
+
+- Converts `Dropdown::ListItem::Interactive` `@text` arguments to content within a yielded block.
+
+<small class="doc-whats-new-changelog-metadata">[#2347](https://github.com/hashicorp/design-system/pull/2347)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 0.3.0
 
 ### Minor Changes

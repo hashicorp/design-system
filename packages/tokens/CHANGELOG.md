@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 2.2.1
+
+### Patch Changes
+
+Updated design tokens for Vagrant primary gradient to match Figma.
+
+<small class="doc-whats-new-changelog-metadata">[#2366](https://github.com/hashicorp/design-system/pull/2366)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.0
 
 ### Minor Changes
