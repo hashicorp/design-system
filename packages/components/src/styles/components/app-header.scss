@@ -37,8 +37,7 @@
     line-height: var(--token-typography-display-200-line-height);
     background-color: var(--token-color-surface-faint);
     border-radius: 3px;
-    // transform: translateY(-200%);
-    transform: none; // for testing, restore
+    transform: translateY(-200%);
     transition: 0.6s ease-in-out;
 
     &:focus {
