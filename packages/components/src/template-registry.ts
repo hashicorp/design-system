@@ -38,8 +38,6 @@ import type HdsAppSideNavBaseComponent from './components/hds/side-nav/base';
 import type HdsAppSideNavToggleButtonComponent from './components/hds/side-nav/toggle-button';
 import type HdsAppSideNavPortalComponent from './components/hds/side-nav/portal';
 import type HdsAppSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
-import type HdsAppSideNavHeaderComponent from './components/hds/side-nav/header';
-import type HdsAppSideNavHeaderHomeLinkComponent from './components/hds/side-nav/header/home-link';
 import type HdsAppSideNavListComponent from './components/hds/side-nav/list';
 import type HdsAppSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
 import type HdsAppSideNavListItemComponent from './components/hds/side-nav/list/item';
@@ -293,14 +291,6 @@ export default interface HdsComponentsRegistry {
   'Hds::AppSideNav::Portal::Target': typeof HdsAppSideNavPortalTargetComponent;
   'hds/app-side-nav/portal/target': typeof HdsAppSideNavPortalTargetComponent;
   HdsAppSideNavPortalTarget: typeof HdsAppSideNavPortalTargetComponent;
-
-  'Hds::AppSideNav::Header': typeof HdsAppSideNavHeaderComponent;
-  'hds/app-side-nav/header': typeof HdsAppSideNavHeaderComponent;
-  HdsAppSideNavHeader: typeof HdsAppSideNavHeaderComponent;
-
-  'Hds::AppSideNav::Header::HomeLink': typeof HdsAppSideNavHeaderHomeLinkComponent;
-  'hds/app-side-nav/header/home-link': typeof HdsAppSideNavHeaderHomeLinkComponent;
-  HdsAppSideNavHeaderHomeLink: typeof HdsAppSideNavHeaderHomeLinkComponent;
 
   'Hds::AppSideNav::List': typeof HdsAppSideNavListComponent;
   'hds/app-side-nav/list': typeof HdsAppSideNavListComponent;
