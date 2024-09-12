@@ -141,72 +141,6 @@
     </:body>
   </Hds::Table>
 
-  {{! ================================================== }}
-  {{! ===== DEMO #5 - SORT BY SELECTED ===== }}
-  {{! ================================================== }}
-
-  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
-
-  <Hds::Table
-    @isSelectable={{true}}
-    @sortBySelectedItemKey="isSelected"
-    @onSelectionChange={{this.onSelectionChange__demo5}}
-    @model={{this.selectableData__demo5}}
-    @columns={{array
-      (hash key="lorem" label="Row #" isSortable=true)
-      (hash key="ipsum" label="Ipsum")
-      (hash key="dolor" label="Dolor")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr
-        @selectionKey={{B.data.id}}
-        @isSelected={{B.data.isSelected}}
-        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-      >
-        <B.Td>{{B.data.lorem}}</B.Td>
-        <B.Td>{{B.data.ipsum}}</B.Td>
-        <B.Td>{{B.data.dolor}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
-  <Shw::Text::H4 @tag="h3">Sortable table with no model, sorting by selected item</Shw::Text::H4>
-  <Shw::Text::Body>⚠️
-    <em>Notice: in this example the "sort" button doesn't work, is for presentation purpose only.</em></Shw::Text::Body>
-
-  <Hds::Table
-    @caption="a sortable table with no model defined that can sort by selection state"
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChangeSortBySelectedWithoutModel__demo6}}
-    @sortBySelectedItemKey="isSelected"
-  >
-    <:head as |H|>
-      <H.Tr>
-        <H.ThSort>First</H.ThSort>
-        <H.Th>Last</H.Th>
-        <H.Th>Title</H.Th>
-      </H.Tr>
-    </:head>
-    <:body as |B|>
-      <B.Tr @selectionKey="row1" @isSelected={{get this.multiSelectNoModelState__demo6 "row1"}}>
-        <B.Th>Luke</B.Th>
-        <B.Td>Skywalker</B.Td>
-        <B.Td>Master</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row2" @isSelected={{get this.multiSelectNoModelState__demo6 "row2"}}>
-        <B.Th>Leia</B.Th>
-        <B.Td>Organa</B.Td>
-        <B.Td>Senator</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row3" @isSelected={{get this.multiSelectNoModelState__demo6 "row3"}}>
-        <B.Th>Han</B.Th>
-        <B.Td>Solo</B.Td>
-        <B.Td>General</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Custom sorting</Shw::Text::H3>
@@ -553,6 +487,68 @@
         <B.Th>4</B.Th>
         <B.Td>Cell Content</B.Td>
         <B.Td>Cell Content</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @sortBySelectedItemKey="isSelected"
+    @onSelectionChange={{this.onSelectionChange__demo5}}
+    @model={{this.selectableData__sortBySelected}}
+    @columns={{array
+      (hash key="lorem" label="Row #" isSortable=true)
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H4 @tag="h3">Sortable table with no model, sorting by selected item</Shw::Text::H4>
+  <Shw::Text::Body>⚠️
+    <em>Notice: in this example the "sort" button doesn't work, is for presentation purpose only.</em></Shw::Text::Body>
+
+  <Hds::Table
+    @caption="a sortable table with no model defined that can sort by selection state"
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @sortBySelectedItemKey="isSelected"
+  >
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort>First</H.ThSort>
+        <H.Th>Last</H.Th>
+        <H.Th>Title</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      <B.Tr @selectionKey="row1" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row1"}}>
+        <B.Th>Luke</B.Th>
+        <B.Td>Skywalker</B.Td>
+        <B.Td>Master</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row2" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row2"}}>
+        <B.Th>Leia</B.Th>
+        <B.Td>Organa</B.Td>
+        <B.Td>Senator</B.Td>
+      </B.Tr>
+      <B.Tr @selectionKey="row3" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row3"}}>
+        <B.Th>Han</B.Th>
+        <B.Td>Solo</B.Td>
+        <B.Td>General</B.Td>
       </B.Tr>
     </:body>
   </Hds::Table>

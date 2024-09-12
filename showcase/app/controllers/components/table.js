@@ -69,22 +69,20 @@ export default class ComponentsTableController extends Controller {
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
 
   // Sorting by selected row
-  @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
-
-  @deepTracked multiSelectNoModelState__demo6 = {
-    row1: false,
-    row2: true,
-    row3: false,
-  };
-
+  @deepTracked selectableData__sortBySelected = [
+    ...this.model.selectableDataDemo5,
+  ];
   @action
-  onSelectionChange__demo5({ selectionKey, selectionCheckboxElement }) {
+  onSelectionChange__sortBySelected({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
     if (selectionKey === 'all') {
-      this.selectableData__demo5.forEach((modelRow) => {
+      this.selectableData__sortBySelected.forEach((modelRow) => {
         modelRow.isSelected = selectionCheckboxElement.checked;
       });
     } else {
-      const recordToUpdate = this.selectableData__demo5.find(
+      const recordToUpdate = this.selectableData__sortBySelected.find(
         (modelRow) => modelRow.id === selectionKey
       );
 
@@ -94,24 +92,11 @@ export default class ComponentsTableController extends Controller {
     }
   }
 
-  // Sorting by selected row without model
-  @action
-  onSelectionChangeSortBySelectedWithoutModel__demo6({
-    selectionKey,
-    selectionCheckboxElement,
-    selectableRowsStates,
-  }) {
-    if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
-      const selectAllState = selectionCheckboxElement.checked;
-      Object.keys(this.multiSelectNoModelState__demo1).forEach((rowKey) => {
-        this.multiSelectNoModelState__demo1[rowKey] = selectAllState;
-      });
-    } else {
-      selectableRowsStates.forEach((row) => {
-        this.multiSelectNoModelState__demo1[row.selectionKey] = row.isSelected;
-      });
-    }
-  }
+  @deepTracked multiSelectNoModelState__sortBySelected = {
+    row1: false,
+    row2: true,
+    row3: false,
+  };
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
