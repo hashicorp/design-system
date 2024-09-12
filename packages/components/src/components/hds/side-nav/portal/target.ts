@@ -8,7 +8,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
-import Ember from 'ember';
+import { macroCondition, isTesting } from '@embroider/macros';
 
 import type { HdsSideNavPortalSignature } from './index';
 
@@ -41,7 +41,7 @@ export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTa
   @tracked lastPanelEl: Element | undefined;
 
   static get prefersReducedMotionOverride(): boolean {
-    return Ember.testing;
+    return macroCondition(isTesting()) ? true : false;
   }
 
   prefersReducedMotionMQ = window.matchMedia(
