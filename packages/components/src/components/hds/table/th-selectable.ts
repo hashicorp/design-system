@@ -51,10 +51,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   labelId = `label-${this.guid}`;
 
   get isSortable(): boolean {
-    return (
-      this.args.sortBySelectedItemKey !== undefined &&
-      this.args.onClickSort !== undefined
-    );
+    return this.args.onClickSort !== undefined;
   }
 
   get ariaLabel(): string {
@@ -68,8 +65,6 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   }
 
   get ariaSort(): HdsTableThSortOrderLabels | undefined {
-    console.log(this.isSortable);
-
     if (!this.isSortable) {
       return undefined;
     }
