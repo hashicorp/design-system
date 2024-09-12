@@ -8,7 +8,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { DEBUG } from '@glimmer/env';
-import Ember from 'ember';
+import { macroCondition, isTesting } from '@embroider/macros';
 
 import type { HdsAppSideNavPortalSignature } from './index';
 
@@ -34,14 +34,14 @@ interface HdsAppSideNavPortalTargetSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppSideNavPortalTargetComponent extends Component<HdsAppSideNavPortalTargetSignature> {
+export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPortalTargetSignature> {
   @service router!: Services['router'];
 
   @tracked numSubnavs = 0;
   @tracked lastPanelEl: Element | undefined;
 
   static get prefersReducedMotionOverride(): boolean {
-    return Ember.testing;
+    return macroCondition(isTesting()) ? true : false;
   }
 
   prefersReducedMotionMQ = window.matchMedia(
@@ -50,7 +50,7 @@ export default class HdsAppSideNavPortalTargetComponent extends Component<HdsApp
 
   get prefersReducedMotion(): boolean {
     return (
-      HdsAppSideNavPortalTargetComponent.prefersReducedMotionOverride ||
+      HdsAppSideNavPortalTarget.prefersReducedMotionOverride ||
       (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
     );
   }
@@ -104,10 +104,10 @@ export default class HdsAppSideNavPortalTargetComponent extends Component<HdsApp
                                     +----------------------+
 
      *
-     * every time `HcAppFrame::AppSideNav::Portal` renders, it contains a portaled "panel"
+     * every time `HcAppFrame::SideNav::Portal` renders, it contains a portaled "panel"
      * that is rendered into the `hds-app-side-nav__content-panels` (inside the PortalTarget).
      *
-     * Rendering or unrendering other `HcAppFrame::AppSideNav::Portal`s triggers the number of
+     * Rendering or unrendering other `HcAppFrame::SideNav::Portal`s triggers the number of
      * subnavs to change (via `numSubnavs`), so this function runs and slides
      * `hds-app-side-nav__content-panels` left or right using the `element.animate` api.
      *
