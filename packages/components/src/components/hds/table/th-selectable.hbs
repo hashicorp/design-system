@@ -19,7 +19,7 @@
       {{will-destroy this.willDestroyNode}}
       {{on "change" this.onSelectionChange}}
     />
-    {{#if @onClickSort}}
+    {{#if this.isSortable}}
       <Hds::Table::ThButtonSort
         @sortOrder={{@sortOrder}}
         @onClick={{this.sortBySelectedItem}}

@@ -72,6 +72,13 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
+  get isSortable(): boolean {
+    return (
+      this.args.sortBySelectedItemKey !== undefined &&
+      this.args.onClickSort !== undefined
+    );
+  }
+
   @action
   didInsert(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
     const { didInsert } = this.args;
@@ -117,11 +124,11 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
 
   @action
   sortBySelectedItem(): void {
-    if (this.args.sortBySelectedItemKey === undefined) {
+    if (!this.isSortable) {
       return;
     }
 
-    this.args.onClickSort?.(this.args.sortBySelectedItemKey);
+    this.args.onClickSort?.(this.args.sortBySelectedItemKey!);
   }
 
   updateAriaLabel(event: Event): void {
