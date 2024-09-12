@@ -6,9 +6,7 @@ This is the full-fledged component (responsive and animated).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:header>" @type="named block">
-    A named block where the content for the “header” area of the App Side Nav is rendered. The `AppSideNav::Header` component should be added here. It yields the value of `isMinimized` too.
-    <br><br>
-    When the App Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` block normally doesn’t need to be included.
+    A named block where optional content for the “header” area of the App Side Nav is rendered. It yields the value of `isMinimized` too.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
     A named block where the content for the “body” or main content of the App Side Nav is rendered. The `AppSideNav::List` and `AppSideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
@@ -51,99 +49,13 @@ This is the basic component (layout only).
     A named block for rendering content outside of the "header/body/footer" containers of the App Side Nav.
   </C.Property>
   <C.Property @name="<:header>" @type="named block">
-    A named block where the content for the “header” area of the App Side Nav is rendered. The `AppSideNav::Header` component should be added here.
+    A named block where optional content for the “header” area of the App Side Nav is rendered.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
     A named block where the content for the “body” or main content of the App Side Nav is rendered. The `AppSideNav::List` and `AppSideNav::PortalTarget` components should be added here when used.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
-    A named block where the content for the “footer” section of the App Side Nav is rendered.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### AppSideNav::Header
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="<:logo>" @type="named block">
-    A named block where the main product logo linked to your app’s home page will be rendered. The `AppSideNav::HomeLink` component should be added here.
-  </C.Property>
-  <C.Property @name="<:actions>" @type="named block">
-    A named block where the header “action” components will be rendered. Typically `Dropdown` components and/or `AppSideNav::IconButton` components will be added here.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### AppSideNav::Header::HomeLink
-
-The `AppSideNav::Header::HomeLink` component.
-
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string">
-    Used to show an icon. Any [icon](/icons/library) name is accepted. Typically you would add the icon name for your product.
-  </C.Property>
-  <C.Property @name="color" @type="string">
-    Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [how to use the Icon's `color` argument](/components/icon?tab=code#color). If unspecified, it will use the SideNav’s default white text color.
-  </C.Property>
-  <C.Property @name="href">
-    URL parameter that’s passed down to the `<a>` element.
-  </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
-  </C.Property>
-  <C.Property @name="route/models/model/query/current-when/replace">
-    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
-  </C.Property>
-  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
-  </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
-    The value of the aria-label. If no text value is defined an error will be thrown.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### SideNav::Header::IconButton
-
-!!! Warning
-
-The `AppSideNav::Header::IconButton` subcomponent is now deprecated. Use the `Hds::Button` component with the `isIconOnly` variant instead.
-
-* [Example usage of an Icon-only Button](/components/app-sidenav?tab=code#actions) within the App Side Nav `:actions` block.
-* [Icon-only Button documentation](/components/button?tab=code#icon-only-button)
-
-!!!
-
-The `AppSideNav::Header::IconButton` component.
-
-It internally uses the [`Hds::Interactive`](/utilities/interactive) utility component. For more details about this component API, please refer to [its documentation page](/utilities/interactive?tab=code#component-api).
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string" @required={{true}}>
-    Used to show an icon. Any [icon](/icons/library) name is accepted.
-  </C.Property>
-  <C.Property @name="href">
-    URL parameter that’s passed down to the `<a>` element.
-  </C.Property>
-  <C.Property @name="isHrefExternal" @type="boolean" @default="false">
-    This controls if the `<a>` link is external. For security reasons, we add the `target="_blank"` and `rel="noopener noreferrer"` attributes to it by default.
-  </C.Property>
-  <C.Property @name="route/models/model/query/current-when/replace">
-    Parameters that are passed down as arguments to the `<LinkTo>`/`<LinkToExternal>` components.
-  </C.Property>
-  <C.Property @name="isRouteExternal" @type="boolean" @default="false">
-    This controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
-  </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
-    The value of the `aria-label`. If no text value is defined an error will be thrown.
+    A named block where optional content for the “footer” section of the App Side Nav is rendered.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

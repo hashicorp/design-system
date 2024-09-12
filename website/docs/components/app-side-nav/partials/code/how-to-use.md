@@ -31,7 +31,7 @@ It exposes three “slots” (named blocks) where the consumers can yield the na
 <div class="doc-app-sidenav-demo">
   <Hds::AppSideNav>
     <:header>
-      <Doc::Placeholder @height="72px" @text="&lt;:header /&gt;" @background="#e4e4e4" />
+      <Doc::Placeholder @height="36px" @text="&lt;:header /&gt;" @background="#e4e4e4" />
     </:header>
     <:body>
       <Doc::Placeholder @height="500px" @text="&lt;:body /&gt;" @background="#e4e4e4" />
@@ -47,14 +47,9 @@ It also comes with a set of CSS properties that automatically set the App Side N
 
 ### Content
 
+Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdown) components can be used within the App Side Nav where needed. We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the App Side Nav.
+
 #### Header (`<:header>`)
-
-<mark>TODO: Should :header block be simplified or removed entirely?</mark>
-
-Typically the `Hds::AppSideNav::Header` sub-component should be added here if used. It provides two slots (named blocks):
-
-- the `<:logo>` block should contain the `<Hds::AppSideNav::Header::HomeLink>` (but it could contain also custom content, if necessary)
-- the `<:actions>` block should contain optional top-level actions (eg. global search, user menu, help menu, etc.)
 
 Note: When the App Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` slot normally is not used.
 
@@ -62,124 +57,12 @@ Note: When the App Side Nav is paired with the [`Hds::AppHeader`](/components/ap
 <div class="doc-app-sidenav-demo--short">
   <Hds::AppSideNav>
     <:header>
-      <Hds::AppSideNav::Header>
-        <:logo>
-          <Doc::Placeholder @width="100%" @height="100%" @text="logo" @background="#e4e4e4" />
-        </:logo>
-        <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
-        </:actions>
-      </Hds::AppSideNav::Header>
+        <Doc::Placeholder @width="100%" @height="100%" @text="custom header content" @background="#e4e4e4" />
     </:header>
     {{! ... }}
   </Hds::AppSideNav>
 </div>
 ```
-
-##### Logo
-
-To add a logo to the "header" of the App Side Nav use the `<Hds::AppSideNav::Header::HomeLink>` sub-component.
-
-It requires a value for the `@icon` and `@ariaLabel` arguments:
-
-```handlebars
-<div class="doc-app-sidenav-demo--short">
-  <Hds::AppSideNav>
-    <:header>
-      <Hds::AppSideNav::Header>
-        <:logo>
-          <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
-        </:actions>
-      </Hds::AppSideNav::Header>
-    </:header>
-    {{! ... }}
-  </Hds::AppSideNav>
-</div>
-```
-
-It also accepts optional arguments, for example it’s possible to provide a custom color for the icon if needed:
-
-```handlebars
-<div class="doc-app-sidenav-demo--short">
-  <Hds::AppSideNav>
-    <:header>
-      <Hds::AppSideNav::Header>
-        <:logo>
-          <Hds::AppSideNav::Header::HomeLink
-            @icon="boundary"
-            {{! you can provide a custom color for the icon }}
-            @color="var(--token-color-boundary-brand)"
-            @ariaLabel="Boundary home menu"
-            @href="#"
-          />
-        </:logo>
-        <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
-        </:actions>
-      </Hds::AppSideNav::Header>
-    </:header>
-    {{!-- ... --}}
-  </Hds::AppSideNav>
-</div>
-```
-
-The HomeLink is built on top of the [`Hds::Interactive` component](/utilities/interactive), so it accepts all its routing arguments (eg. `@href`, `@route`, `@query`, `@model(s)`, etc.).
-
-Refer to the [Component API section](/components/app-sidenav?tab=code#sidenavheaderhomelink) for details.
-
-##### Actions
-
-This block is intended to contain top-level actionable elements like dropdowns and buttons.
-
-Here is an example of some possible actions:
-
-```handlebars
-<div class="doc-app-sidenav-demo--short">
-  <Hds::AppSideNav>
-    <:header>
-      <Hds::AppSideNav::Header>
-        <:logo>
-          <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:actions>
-          <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="settings menu" />
-            <dd.Title @text="Help & Support" />
-            <dd.Interactive @text="Documentation" @href="#" />
-            <dd.Interactive @text="Tutorials" @href="#" />
-            <dd.Interactive @text="Terraform Provider" @href="#" />
-            <dd.Interactive @text="Changelog" @href="#" />
-            <dd.Separator />
-            <dd.Interactive @text="Create support ticket" @href="#" />
-            <dd.Interactive @text="Give feedback" @href="#" />
-          </Hds::Dropdown>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#" @text="Account Settings" />
-          </Hds::Dropdown>
-        </:actions>
-      </Hds::AppSideNav::Header>
-    </:header>
-    {{! ... }}
-  </Hds::AppSideNav>
-</div>
-```
-
-Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdown) components can be used within the App Side Nav where needed. We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the App Side Nav.
-
-You can also add custom elements to the `<:actions>` block, if these don’t cover your specific needs.
-
-!!! Info
-
-The “actions” block is automatically faded in/out whenever the App Side Nav transition between minimized/maximized states (see [Responsiveness](#responsiveness) below for details).
-
-!!!
 
 #### Body (`<:body>`)
 
@@ -465,14 +348,11 @@ Here is an example of how the component could be used:
 </div>
 ```
 
-In this example we’re using the `<Hds::AppSideNav::Header>` and `<Hds::AppSideNav::Header::HomeLink>` but _in theory_ you could use your own content for the `<:header>` block (same for the `<:footer>`).
-
 A special “slot” called `<:root>` is also available: it can be used to add content that needs to live within the App Side Nav, but can’t be added to the “header/body/footer” containers.
 
 For details about these slots, see the [“Component API”](/components/app-sidenav?tab=code#component-api) section.
 
 In theory, one could also use portals to inject the content, but this somehow defeats the purpose of the `Hds::AppSideNav::Base` component: its simplicity of use. So if you find yourself in need of using portals, consider adopting the full-featured variant of the App Side Nav component instead.
-
 
 ### Responsiveness
 
