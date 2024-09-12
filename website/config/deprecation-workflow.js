@@ -11,6 +11,9 @@ self.deprecationWorkflow.config = {
     { handler: "silence", matchId: "remove-owner-inject" },
     { handler: "silence", matchId: "ember-modifier.function-based-options" },
     { handler: "throw", matchId: "deprecate-auto-location" },
-    { handler: "silence", matchId: "ember-string.add-package" }
-  ]
+    { handler: "silence", matchId: "ember-string.add-package" },
+    ,
+    { handler: "silence", matchId: "hds.dropdown.list-item.interactive" },
+    { handler: "silence", matchId: "hds.components.menu-primitive" },
+  ],
 };
