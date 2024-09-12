@@ -77,15 +77,17 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     assert.strictEqual(key, 'row123');
   });
 
-  test('it should render a sort button in the checkbox cell if `@isSelectable` is `true` and `@sortBySelectedItemKey` is provided', async function (assert) {
+  test('it should render a sort button in the checkbox cell if `@onClickSortBySelected` is provided and `@isSelectable` is `true`', async function (assert) {
+    this.set('noop', () => {});
+
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @sortBySelectedItemKey="isSelected" />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @onClickSortBySelected={{this.noop}} />`
     );
 
     assert.dom(checkboxSelector + ' + .hds-table__th-button--sort').exists();
   });
 
-  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, and `@sortBySelectedItemKey` is undefined', async function (assert) {
+  test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, and `@onClickSortBySelected` is undefined', async function (assert) {
     await render(
       hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`
     );
