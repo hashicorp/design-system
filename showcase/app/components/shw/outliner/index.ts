@@ -5,13 +5,13 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-export interface OutlinerComponentSignature {
+export interface ShwOutlinerSignature {
   Blocks: {
     default: [];
   };
   Element: HTMLDivElement;
 }
 
-const OutlinerComponent = templateOnlyComponent<OutlinerComponentSignature>();
+const ShwOutliner = templateOnlyComponent<ShwOutlinerSignature>();
 
-export default OutlinerComponent;
+export default ShwOutliner;

@@ -9,7 +9,7 @@ import { htmlSafe } from '@ember/template';
 
 import type { SafeString } from '@ember/template';
 
-interface FrameComponentSignature {
+interface ShwFrameSignature {
   Args: {
     height?: string | number;
     id?: string;
@@ -24,7 +24,7 @@ interface FrameComponentSignature {
   Element: HTMLIFrameElement;
 }
 
-export default class FrameComponent extends Component<FrameComponentSignature> {
+export default class ShwFrameComponent extends Component<ShwFrameSignature> {
   get src(): SafeString {
     const { src } = this.args;
 

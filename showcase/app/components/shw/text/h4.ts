@@ -5,20 +5,20 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-import type { ShwTextIndexComponentSignature } from './index';
+import type { ShwTextSignature } from './index';
 
-export interface H4ComponentSignature {
+export interface ShwTextH4Signature {
   Args: {
-    align?: ShwTextIndexComponentSignature['Args']['align'];
-    weight?: ShwTextIndexComponentSignature['Args']['weight'];
-    tag?: ShwTextIndexComponentSignature['Args']['tag'];
+    align?: ShwTextSignature['Args']['align'];
+    weight?: ShwTextSignature['Args']['weight'];
+    tag?: ShwTextSignature['Args']['tag'];
   };
   Blocks: {
     default: [];
   };
-  Element: ShwTextIndexComponentSignature['Element'];
+  Element: ShwTextSignature['Element'];
 }
 
-const H4Component = templateOnlyComponent<H4ComponentSignature>();
+const H4Component = templateOnlyComponent<ShwTextH4Signature>();
 
 export default H4Component;

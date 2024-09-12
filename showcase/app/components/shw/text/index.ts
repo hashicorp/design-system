@@ -31,7 +31,7 @@ type AvailableElements =
   | HTMLSpanElement
   | HTMLDivElement;
 
-export interface ShwTextIndexComponentSignature {
+export interface ShwTextSignature {
   Args: {
     tag?: TextTags;
     variant: TextVariants;
@@ -44,7 +44,7 @@ export interface ShwTextIndexComponentSignature {
   Element: AvailableElements;
 }
 
-export default class ShwTextIndexComponent extends Component<ShwTextIndexComponentSignature> {
+export default class ShwTextComponent extends Component<ShwTextSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *

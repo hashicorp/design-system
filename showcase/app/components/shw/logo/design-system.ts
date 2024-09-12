@@ -5,6 +5,6 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-const LogoComponent = templateOnlyComponent();
+const ShwLogoDesignSystemComponent = templateOnlyComponent();
 
-export default LogoComponent;
+export default ShwLogoDesignSystemComponent;

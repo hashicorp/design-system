@@ -8,10 +8,10 @@ import { htmlSafe } from '@ember/template';
 
 import type { ComponentLike } from '@glint/template';
 import type { SafeString } from '@ember/template';
-import type { LabelComponentSignature } from '../label';
-import type { FlexItemComponentSignature } from './item';
+import type { ShwLabelSignature } from '../label';
+import type { ShwFlexItemSignature } from './item';
 
-interface FlexComponentSignature {
+interface ShwFlexSignature {
   Args: {
     gap?: string;
     direction?: 'row' | 'column';
@@ -20,15 +20,15 @@ interface FlexComponentSignature {
   Blocks: {
     default: [
       {
-        Label?: ComponentLike<LabelComponentSignature>;
-        Item?: ComponentLike<FlexItemComponentSignature>;
+        Label?: ComponentLike<ShwLabelSignature>;
+        Item?: ComponentLike<ShwFlexItemSignature>;
       },
     ];
   };
   Element: HTMLDivElement;
 }
 
-export default class FlexIndexComponent extends Component<FlexComponentSignature> {
+export default class ShwFlexComponent extends Component<ShwFlexSignature> {
   direction = this.args.direction ?? 'row';
 
   get itemsStyle(): SafeString | undefined {

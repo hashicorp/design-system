@@ -5,13 +5,13 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-export interface LabelComponentSignature {
+export interface ShwLabelSignature {
   Blocks: {
     default: [];
   };
   Element: HTMLParagraphElement;
 }
 
-const LabelComponent = templateOnlyComponent<LabelComponentSignature>();
+const ShwLabel = templateOnlyComponent<ShwLabelSignature>();
 
-export default LabelComponent;
+export default ShwLabel;

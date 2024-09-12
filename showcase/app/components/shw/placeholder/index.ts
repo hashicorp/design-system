@@ -8,7 +8,7 @@ import { htmlSafe } from '@ember/template';
 
 import type { SafeString } from '@ember/template';
 
-interface PlaceholderIndexComponentSignature {
+interface ShwPlaceholderSignature {
   Args: {
     background?: string;
     flex?: string;
@@ -22,7 +22,7 @@ interface PlaceholderIndexComponentSignature {
   Element: HTMLDivElement;
 }
 
-export default class PlaceholderIndexComponent extends Component<PlaceholderIndexComponentSignature> {
+export default class ShwPlaceholder extends Component<ShwPlaceholderSignature> {
   /**
    * Sets the width for the placeholder
    *

@@ -5,13 +5,13 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-export interface DividerComponentSignature {
+export interface ShwDividerSignature {
   Args: {
     level?: 2;
   };
   Element: HTMLHRElement;
 }
 
-const DividerComponent = templateOnlyComponent<DividerComponentSignature>();
+const ShwDivider = templateOnlyComponent<ShwDividerSignature>();
 
-export default DividerComponent;
+export default ShwDivider;
