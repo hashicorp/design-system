@@ -1,5 +1,11 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 
+## September 11th, 2024
+
+`Text Input` - Added support for types `Tel`, `Week` and `Month`.
+
+`Dropdown` - `ListItem` `Interactive` added support for the `Badge` component.
+
 ## August 2nd, 2024
 
 `AppHeader` - Added a new navigation component to contain global and utility navigation elements.
