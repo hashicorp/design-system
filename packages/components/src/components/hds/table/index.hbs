@@ -50,6 +50,7 @@
           Tr=(component
             "hds/table/tr"
             sortBySelectedItemKey=@sortBySelectedItemKey
+            sortOrder=@sortOrder
             selectionScope="col"
             isSelectable=@isSelectable
             onClickSortBySelected=(if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey))
