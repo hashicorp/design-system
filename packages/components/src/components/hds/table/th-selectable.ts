@@ -50,6 +50,13 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   checkboxId = `checkbox-${this.guid}`;
   labelId = `label-${this.guid}`;
 
+  get isSortable(): boolean {
+    return (
+      this.args.sortBySelectedItemKey !== undefined &&
+      this.args.onClickSort !== undefined
+    );
+  }
+
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix } = this.args;
     const prefix = this.isSelected ? 'Deselect' : 'Select';
@@ -60,7 +67,13 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     }
   }
 
-  get ariaSort(): HdsTableThSortOrderLabels {
+  get ariaSort(): HdsTableThSortOrderLabels | undefined {
+    console.log(this.isSortable);
+
+    if (!this.isSortable) {
+      return undefined;
+    }
+
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
         return HdsTableThSortOrderLabelValues.Asc;
@@ -70,13 +83,6 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
         // none is the default per the spec.
         return HdsTableThSortOrderLabelValues.None;
     }
-  }
-
-  get isSortable(): boolean {
-    return (
-      this.args.sortBySelectedItemKey !== undefined &&
-      this.args.onClickSort !== undefined
-    );
   }
 
   @action
