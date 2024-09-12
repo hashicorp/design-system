@@ -4,7 +4,7 @@
 
 `Text Input` - Added support for types `Tel`, `Week` and `Month`.
 
-`Dropdown` - `ListItem` `Interactive` added support for the `Badge` component.
+`Dropdown` - `ListItem Interactive` added support for the `Badge` component.
 
 ## August 2nd, 2024
 
