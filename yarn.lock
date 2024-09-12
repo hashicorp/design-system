@@ -13552,6 +13552,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-template-imports@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "ember-template-imports@npm:4.1.1"
+  dependencies:
+    broccoli-stew: "npm:^3.0.0"
+    content-tag: "npm:^2.0.1"
+    ember-cli-version-checker: "npm:^5.1.2"
+  checksum: 10/146dc66b3e0898a314f25339f5a4630728e08e96288e7d00aa89cc95cfff96580555b700083a8858c4e2e5d9e87094ed4d043a7dfe1d9decc960861467dbfe4d
+  languageName: node
+  linkType: hard
+
 "ember-template-lint-plugin-prettier@npm:^5.0.0":
   version: 5.0.0
   resolution: "ember-template-lint-plugin-prettier@npm:5.0.0"
@@ -24640,6 +24651,7 @@ __metadata:
     ember-source: "npm:~5.9.0"
     ember-source-channel-url: "npm:^3.0.0"
     ember-style-modifier: "npm:^4.3.1"
+    ember-template-imports: "npm:^4.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^3.1.1"
