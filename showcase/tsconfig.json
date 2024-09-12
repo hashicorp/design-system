@@ -25,6 +25,9 @@
     "types/**/*"
   ],
   "glint": {
-    "environment": "ember-loose"
+    "environment": [
+      "ember-loose",
+      "ember-template-imports"
+    ]
   },
 }
