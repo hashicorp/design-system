@@ -4164,7 +4164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/environment-ember-template-imports@npm:^1.2.1":
+"@glint/environment-ember-template-imports@npm:^1.2.1, @glint/environment-ember-template-imports@npm:^1.4.0":
   version: 1.4.0
   resolution: "@glint/environment-ember-template-imports@npm:1.4.0"
   dependencies:
@@ -24824,6 +24824,7 @@ __metadata:
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.4.0"
     "@glint/environment-ember-loose": "npm:^1.4.0"
+    "@glint/environment-ember-template-imports": "npm:^1.4.0"
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
