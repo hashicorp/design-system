@@ -140,8 +140,6 @@
       "./components/hds/app-header/index.js": "./dist/_app_/components/hds/app-header/index.js",
       "./components/hds/app-header/menu-button.js": "./dist/_app_/components/hds/app-header/menu-button.js",
       "./components/hds/app-side-nav/base.js": "./dist/_app_/components/hds/app-side-nav/base.js",
-      "./components/hds/app-side-nav/header/home-link.js": "./dist/_app_/components/hds/app-side-nav/header/home-link.js",
-      "./components/hds/app-side-nav/header/index.js": "./dist/_app_/components/hds/app-side-nav/header/index.js",
       "./components/hds/app-side-nav/index.js": "./dist/_app_/components/hds/app-side-nav/index.js",
       "./components/hds/app-side-nav/list/back-link.js": "./dist/_app_/components/hds/app-side-nav/list/back-link.js",
       "./components/hds/app-side-nav/list/index.js": "./dist/_app_/components/hds/app-side-nav/list/index.js",

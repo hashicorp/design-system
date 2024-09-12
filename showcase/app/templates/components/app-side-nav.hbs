@@ -28,6 +28,7 @@
         </Hds::AppSideNav>
       </div>
     </SF.Item>
+
     <SF.Item @label="Header + Body + Footer, heights declared">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
@@ -43,6 +44,7 @@
         </Hds::AppSideNav>
       </div>
     </SF.Item>
+
     <SF.Item @label="Header (with extra) + Body (with extra) + Footer">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
@@ -60,6 +62,7 @@
         </Hds::AppSideNav>
       </div>
     </SF.Item>
+
     <SF.Item @label="Header + Body (scrollable) + Footer">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
@@ -117,38 +120,9 @@
         <SF.Item @label="With PortalTarget + Portal with “nav” items">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
             <Hds::AppSideNav @isResponsive={{false}}>
-              <:header>
-                <Hds::AppSideNav::Header>
-                  <:logo>
-                    <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-                  </:logo>
-                  <:actions>
-                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-                      <dd.ToggleIcon @icon="help" @text="help menu" />
-                      <dd.Title @text="Help & Support" />
-                      <dd.Interactive @text="Documentation" @href="#" />
-                      <dd.Interactive @text="Tutorials" @href="#" />
-                      <dd.Interactive @text="Terraform Provider" @href="#" />
-                      <dd.Interactive @text="Changelog" @href="#" />
-                      <dd.Separator />
-                      <dd.Interactive @text="Create support ticket" @href="#" />
-                      <dd.Interactive @text="Give feedback" @href="#" />
-                    </Hds::Dropdown>
-                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-                      <dd.ToggleIcon @icon="user" @text="user menu" />
-                      <dd.Title @text="Signed In" />
-                      <dd.Description @text="email@domain.com" />
-                      <dd.Interactive @href="#" @text="Account Settings" />
-                    </Hds::Dropdown>
-                  </:actions>
-                </Hds::AppSideNav::Header>
-              </:header>
               <:body>
                 <Hds::AppSideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
               </:body>
-              <:footer>
-                <span>OrgSelect / ContextSwitcher</span>
-              </:footer>
             </Hds::AppSideNav>
           </div>
         </SF.Item>
@@ -171,43 +145,15 @@
         <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
         <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
       </Hds::AppSideNav::Portal>
-
     </SG.Item>
+
     <SG.Item>
       <Shw::Text::H3>Using yielded content</Shw::Text::H3>
 
       <Shw::Flex as |SF|>
-        <SF.Item @label="With multiple 'list' (nav) containers & extra button in header">
+        <SF.Item @label="With multiple 'list' (nav) containers">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
             <Hds::AppSideNav @isResponsive={{false}}>
-              <:header>
-                <Hds::AppSideNav::Header>
-                  <:logo>
-                    <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-                  </:logo>
-                  <:actions>
-                    <Hds::Button @icon="search" @color="secondary" @isIconOnly={{true}} @text="Search" />
-                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-                      <dd.ToggleIcon @icon="help" @text="help menu" />
-                      <dd.Title @text="Help & Support" />
-                      <dd.Interactive @text="Documentation" @href="#" />
-                      <dd.Interactive @text="Tutorials" @href="#" />
-                      <dd.Interactive @text="Terraform Provider" @href="#" />
-                      <dd.Interactive @text="Changelog" @href="#" />
-                      <dd.Separator />
-                      <dd.Interactive @text="Create support ticket" @href="#" />
-                      <dd.Interactive @text="Give feedback" @href="#" />
-                    </Hds::Dropdown>
-                    <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-                      <dd.ToggleIcon @icon="user" @text="user menu" />
-                      <dd.Title @text="Signed In" />
-                      <dd.Description @text="email@domain.com" />
-                      <dd.Interactive @href="#" @text="Account Settings" />
-                    </Hds::Dropdown>
-                  </:actions>
-                </Hds::AppSideNav::Header>
-              </:header>
-
               <:body>
                 <Hds::AppSideNav::List aria-label="Dashboard" as |SNL|>
                   <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
@@ -234,10 +180,6 @@
                   <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
                 </Hds::AppSideNav::List>
               </:body>
-
-              <:footer>
-                <span>OrgSelect / ContextSwitcher</span>
-              </:footer>
             </Hds::AppSideNav>
           </div>
         </SF.Item>
@@ -247,7 +189,7 @@
 
   <Shw::Divider @level="2" />
 
-  <Shw::Text::H3>Only body content (used with AppHeader)</Shw::Text::H3>
+  <Shw::Text::H3>Only body content</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item @label="With product icons using text color">
@@ -336,7 +278,6 @@
 <Shw::Divider />
 
 <section data-test-percy>
-
   <Shw::Text::H2>AppSideNav::Base</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
@@ -358,142 +299,6 @@
         </Hds::AppSideNav::Base>
       </div>
     </SF.Item>
-  </Shw::Flex>
-
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-  <Shw::Text::H2>AppSideNav::Header</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Logo (generic) + Actions (generic)">
-      <div class="shw-component-sim-app-side-nav-header">
-        <Hds::AppSideNav::Header>
-          <:logo>
-            <Shw::Placeholder @height="100%" @width="100%" @text="generic" />
-          </:logo>
-          <:actions>
-            <Shw::Placeholder @height="36px" @width="60px" @text="action" />
-            <Shw::Placeholder @height="36px" @width="60px" @text="action" />
-          </:actions>
-        </Hds::AppSideNav::Header>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Logo (HomeLink) + Actions (Dropdowns)">
-      <div class="shw-component-sim-app-side-nav-header">
-        <Hds::AppSideNav::Header>
-          <:logo>
-            <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-          </:logo>
-          <:actions>
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="help" @text="help menu" />
-              <dd.Title @text="Help & Support" />
-              <dd.Interactive @text="Documentation" @href="#" />
-              <dd.Interactive @text="Tutorials" @href="#" />
-              <dd.Interactive @text="Terraform Provider" @href="#" />
-              <dd.Interactive @text="Changelog" @href="#" />
-              <dd.Separator />
-              <dd.Interactive @text="Create support ticket" @href="#" />
-              <dd.Interactive @text="Give feedback" @href="#" />
-            </Hds::Dropdown>
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="user" @text="user menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
-              <dd.Interactive @href="#" @text="Account Settings" />
-            </Hds::Dropdown>
-          </:actions>
-        </Hds::AppSideNav::Header>
-      </div>
-    </SF.Item>
-    <SF.Item @label="Logo (HomeLink) + Actions (IconButton + Dropdown)">
-      <div class="shw-component-sim-app-side-nav-header">
-        <Hds::AppSideNav::Header>
-          <:logo>
-            <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-          </:logo>
-          <:actions>
-            <Hds::Button @icon="terminal-screen" @color="secondary" @isIconOnly={{true}} @text="Terminal" />
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleButton @text="Help" @color="secondary" />
-              <dd.Title @text="Help & Support" />
-              <dd.Interactive @text="Documentation" @href="#" />
-              <dd.Interactive @text="Tutorials" @href="#" />
-              <dd.Interactive @text="Terraform Provider" @href="#" />
-              <dd.Interactive @text="Changelog" @href="#" />
-              <dd.Separator />
-              <dd.Interactive @text="Create support ticket" @href="#" />
-              <dd.Interactive @text="Give feedback" @href="#" />
-            </Hds::Dropdown>
-          </:actions>
-        </Hds::AppSideNav::Header>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-</section>
-
-<Shw::Divider @level={{2}} />
-
-<section data-test-percy>
-  <Shw::Text::H3>AppSideNav::Header::HomeLink</Shw::Text::H3>
-
-  <Shw::Text::H4>Content</Shw::Text::H4>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Icon">
-      <div class="shw-component-app-side-nav-home-link-wrapper">
-        <Hds::AppSideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-      </div>
-    </SF.Item>
-    <SF.Item @label="Icon with custom color">
-      <div class="shw-component-app-side-nav-home-link-wrapper">
-        <Hds::AppSideNav::Header::HomeLink
-          @icon="boundary"
-          @ariaLabel="Boundary"
-          @color="var(--token-color-boundary-brand)"
-          @href="#"
-        />
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H4>States</Shw::Text::H4>
-
-  <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item @label={{state}}>
-          <div class="shw-component-app-side-nav-home-link-wrapper">
-            <Hds::AppSideNav::Header::HomeLink
-              @icon="hashicorp"
-              @ariaLabel="HashiCorp"
-              @href="#"
-              mock-state-value={{state}}
-            />
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
-  </Shw::Flex>
-  <Shw::Flex as |SF|>
-    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item>
-          <div class="shw-component-app-side-nav-home-link-wrapper">
-            <Hds::AppSideNav::Header::HomeLink
-              @icon="boundary"
-              @ariaLabel="Boundary"
-              @color="var(--token-color-boundary-brand)"
-              @href="#"
-              mock-state-value={{state}}
-            />
-          </div>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
   </Shw::Flex>
 </section>
 
