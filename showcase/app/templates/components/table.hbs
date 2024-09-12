@@ -1503,11 +1503,7 @@
               </:head>
               <:body as |B|>
                 <B.Tr>
-                  <Hds::Table::ThSelectable
-                    @selectionScope="row"
-                    @isSelected={{bool1}}
-                    @onClickSort={{if bool2 this.noop}}
-                  />
+                  <Hds::Table::ThSelectable @selectionScope="row" @isSelected={{bool1}} />
                   <B.Td>Ipsum</B.Td>
                 </B.Tr>
               </:body>
@@ -1531,7 +1527,6 @@
                   <Hds::Table::ThSelectable
                     @selectionScope="row"
                     @isSelected={{bool1}}
-                    @onClickSort={{if bool2 this.noop}}
                     mock-state-value="focus"
                     mock-state-selector="input"
                   />
@@ -1589,7 +1584,6 @@
                   @selectionScope="row"
                   @isSelected={{false}}
                   @didInsert={{this.mockIndeterminateState}}
-                  @onClickSort={{if bool this.noop}}
                   mock-state-value="focus"
                   mock-state-selector="input"
                 />
