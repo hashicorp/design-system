@@ -7,6 +7,8 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/pagination
 related: ['components/table','patterns/filter-patterns', 'patterns/table-multi-select']
 previewImage: assets/illustrations/components/pagination.jpg
+status:
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -27,3 +29,8 @@ previewImage: assets/illustrations/components/pagination.jpg
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
+</section>
+

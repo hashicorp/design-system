@@ -9,6 +9,8 @@ related: ['components/side-nav', 'components/app-footer', 'layouts/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
   keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
+status:
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -30,5 +32,6 @@ navigation:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.8.0.md"
 </section>
