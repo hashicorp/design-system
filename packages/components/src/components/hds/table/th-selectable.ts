@@ -22,7 +22,7 @@ import type { HdsTableArgs } from '.';
 
 export interface HdsTableThSelectableArgs {
   Args: {
-    sortBySelectedItemKey?: HdsTableArgs['Args']['sortBySelectedItemKey'];
+    selectableColumnKey?: HdsTableArgs['Args']['selectableColumnKey'];
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
@@ -129,7 +129,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
       return;
     }
 
-    this.args.onClickSort?.(this.args.sortBySelectedItemKey!);
+    this.args.onClickSort?.(this.args.selectableColumnKey!);
   }
 
   updateAriaLabel(event: Event): void {

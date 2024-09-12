@@ -412,7 +412,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.strictEqual(sortOrder, 'asc');
   });
 
-  test('it invokes the `onSort` callback with the `sortBySelectedItemKey` when a sort is performed on the selected item col', async function (assert) {
+  test('it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selected item col', async function (assert) {
     const selectedItemKey = 'thisItemIsSelected';
     const sortSpy = sinon.spy();
 
@@ -424,7 +424,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await render(hbs`
       <Hds::Table
         @isSelectable={{true}}
-        @sortBySelectedItemKey={{this.selectedItemKey}}
+        @selectableColumnKey={{this.selectedItemKey}}
         @onSelectionChange={{this.onSelectionChange}}
         @onSort={{this.onSort}}
         id="data-test-table"
@@ -455,7 +455,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     assert.ok(sortSpy.calledWith(selectedItemKey, 'asc'));
   });
 
-  test('it sorts by selected row when `@sortBySelectedItemKey` is provided', async function (assert) {
+  test('it sorts by selected row when `@selectableColumnKey` is provided', async function (assert) {
     const sortBySelectedSelector =
       '#data-test-table thead th:nth-of-type(1) .hds-table__th-button--sort';
 
@@ -479,7 +479,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
       <Hds::Table
         id="data-test-table"
         @isSelectable={{true}}
-        @sortBySelectedItemKey="isSelected"
+        @selectableColumnKey="isSelected"
         @onSelectionChange={{this.onSelectionChange}}
         @model={{this.model}}
         @columns={{array

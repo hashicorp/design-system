@@ -3,4 +3,4 @@
 ---
 
 `Hds::Table`
-- Added `@sortBySelectedItemKey` argument which enables sorting by row selection state
+- Added `@selectableColumnKey` argument which enables sorting by row selection state

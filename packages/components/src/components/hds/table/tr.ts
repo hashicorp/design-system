@@ -12,7 +12,7 @@ import type { HdsTableArgs } from './index.ts';
 
 export interface BaseHdsTableTrArgs {
   Args: {
-    sortBySelectedItemKey?: HdsTableArgs['Args']['sortBySelectedItemKey'];
+    selectableColumnKey?: HdsTableArgs['Args']['selectableColumnKey'];
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;

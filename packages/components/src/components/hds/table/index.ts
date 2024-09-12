@@ -56,7 +56,7 @@ export interface HdsTableArgs {
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
-    sortBySelectedItemKey?: string;
+    selectableColumnKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsTableThSortOrder;
     valign?: HdsTableVerticalAlignment;

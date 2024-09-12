@@ -495,7 +495,7 @@
 
   <Hds::Table
     @isSelectable={{true}}
-    @sortBySelectedItemKey="isSelected"
+    @selectableColumnKey="isSelected"
     @onSelectionChange={{this.onSelectionChange__sortBySelected}}
     @model={{this.selectableData__sortBySelected}}
     @columns={{array
@@ -525,7 +525,7 @@
     @caption="a sortable table with no model defined that can sort by selection state"
     @isSelectable={{true}}
     @onSelectionChange={{this.onSelectionChangeLogArguments}}
-    @sortBySelectedItemKey="isSelected"
+    @selectableColumnKey="isSelected"
   >
     <:head as |H|>
       <H.Tr>

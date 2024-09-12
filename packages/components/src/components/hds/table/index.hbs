@@ -13,9 +13,9 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
-        @sortOrder={{if (eq this.sortBy @sortBySelectedItemKey) this.sortOrder}}
+        @sortOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
         @selectionScope="col"
-        @onClickSortBySelected={{if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey)}}
+        @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
@@ -51,7 +51,7 @@
             sortOrder=@sortOrder
             selectionScope="col"
             isSelectable=@isSelectable
-            onClickSortBySelected=(if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey))
+            onClickSortBySelected=(if @selectableColumnKey (fn this.setSortBy @selectableColumnKey))
             onSelectionChange=this.onSelectionAllChange
             didInsert=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
