@@ -23,7 +23,7 @@
       <span id={{this.labelId}} class="sr-only">selection state</span>
       <Hds::Table::ThButtonSort
         @sortOrder={{@sortOrder}}
-        @onClick={{this.sortBySelectedItem}}
+        @onClick={{@onClickSort}}
         @labelId={{this.labelId}}
       />
     {{/if}}
