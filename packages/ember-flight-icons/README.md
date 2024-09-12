@@ -2,8 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
-[![CI - Ember Flight Icons](https://github.com/hashicorp/design-system/actions/workflows/ci-ember-flight-icons.yml/badge.svg)](https://github.com/hashicorp/design-system/actions/workflows/ci-ember-flight-icons.yml)
-
 An Ember addon for the icons from `flight`.
 
 Goals:
