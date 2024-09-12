@@ -28,7 +28,7 @@ export interface BaseHdsTableTrArgs {
       selectionKey?: string
     ) => void;
     willDestroy: () => void;
-    onClickSortBySelected?: (sortBy: string) => void;
+    onClickSortBySelected?: () => void;
   };
   Blocks: {
     default: [];

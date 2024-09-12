@@ -26,7 +26,7 @@ export interface HdsTableThSelectableArgs {
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
-    onClickSort?: (sortBy: string) => void;
+    onClickSort?: () => void;
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
