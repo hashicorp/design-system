@@ -84,7 +84,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
       hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @onClickSortBySelected={{this.noop}} />`
     );
 
-    assert.dom(checkboxSelector + ' + .hds-table__th-button--sort').exists();
+    assert.dom(checkboxSelector + ' ~ .hds-table__th-button--sort').exists();
   });
 
   test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, and `@onClickSortBySelected` is undefined', async function (assert) {
