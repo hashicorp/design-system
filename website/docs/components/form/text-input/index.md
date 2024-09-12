@@ -9,8 +9,6 @@ related: ['components/form/select', 'components/form/textarea', 'components/form
 previewImage: assets/illustrations/components/form/text-input.jpg
 navigation:
   keywords: ['text field', 'search', 'form']
-status:
-  updated: 4.7.0
 ---
 
 <section data-tab="Guidelines">

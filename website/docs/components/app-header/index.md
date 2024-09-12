@@ -9,8 +9,6 @@ related: ['components/side-nav', 'components/app-footer', 'layouts/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
   keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
-status:
-  added: 4.8.0
 ---
 
 <section data-tab="Guidelines">

@@ -9,8 +9,6 @@ related: ['components/alert','components/flyout','components/accordion','compone
 previewImage: assets/illustrations/components/modal.jpg
 navigation:
   keywords: ['flyout', 'popover', 'popup', 'dialog']
-status:
-  updated: 4.7.0
 ---
 
 <section data-tab="Guidelines">
