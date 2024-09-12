@@ -78,4 +78,14 @@ export default class ShwPlaceholder extends Component<ShwPlaceholderSignature> {
 
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
+
+  <template>
+    <div class="shw-placeholder" style={{this.style}} ...attributes>
+      {{#if @text}}
+        {{@text}}
+      {{else}}
+        {{yield}}
+      {{/if}}
+    </div>
+  </template>
 }
