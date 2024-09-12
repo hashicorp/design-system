@@ -21,11 +21,7 @@
     />
     {{#if this.isSortable}}
       <span id={{this.labelId}} class="sr-only">selection state</span>
-      <Hds::Table::ThButtonSort
-        @sortOrder={{@sortOrder}}
-        @onClick={{@onClickSort}}
-        @labelId={{this.labelId}}
-      />
+      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this.labelId}} />
     {{/if}}
   </div>
 </Hds::Table::Th>
