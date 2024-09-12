@@ -105,8 +105,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <div class="shw-component-tag-group" {{style display=display flex-wrap="wrap"}}>
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
             <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />

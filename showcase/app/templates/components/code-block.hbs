@@ -26,8 +26,7 @@ console.log(`I am ${codeLang} code`);"
   <Shw::Text::Body>New lines handling</Shw::Text::Body>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @forceMinWidth={{true}} as |SGI|>
-      <SGI.Label>new lines in Handlebars</SGI.Label>
+    <SG.Item @label="new lines in Handlebars" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
         @value="let codeLang='JavaScript';
@@ -540,8 +539,7 @@ end'
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
   <Shw::Flex @direction="column" @gap="2rem" as |SF|>
-    <SF.Item>
-      <Shw::Label>Within Tabs</Shw::Label>
+    <SF.Item @label="Within Tabs">
       <Hds::Tabs {{style width="400px"}} as |T|>
         <T.Tab>JavaScript</T.Tab>
         <T.Tab>Go</T.Tab>
@@ -574,8 +572,7 @@ func main() {
       </Hds::Tabs>
 
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>Within a Dropdown</Shw::Label>
+    <SF.Item @label="Within a Dropdown">
       <Hds::Dropdown @listPosition="bottom-left" as |dd|>
         <dd.ToggleButton @text="Open menu" />
         <dd.Generic>
@@ -592,8 +589,7 @@ func main() {
         </dd.Generic>
       </Hds::Dropdown>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>Within a Modal</Shw::Label>
+    <SF.Item @label="Within a Modal">
       <Hds::Button @color="secondary" @text="Open modal" {{on "click" this.activateModal}} />
 
       {{! template-lint-disable no-autofocus-attribute }}

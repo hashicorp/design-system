@@ -12,21 +12,21 @@
   <Shw::Text::H2>Generated element</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
+    <SF.Item class="shw-component-button-generated" as |SFI|>
+      <SFI.Label>Default ⇒ <code>&lt;button&gt;</code></SFI.Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" />
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" disabled />
     </SF.Item>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></Shw::Label>
+    <SF.Item class="shw-component-button-generated" as |SFI|>
+      <SFI.Label>With <code>@href</code> ⇒ <code>&lt;a&gt;</code></SFI.Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @href="#" />
     </SF.Item>
-    <SF.Item class="shw-component-button-generated">
-      <Shw::Label>With<code>@route</code>
+    <SF.Item class="shw-component-button-generated" as |SFI|>
+      <SFI.Label>With<code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Label>
+        <code>&lt;a&gt;</code></SFI.Label>
       <Hds::Button @icon="plus" @text="Lorem ipsum" @color="primary" @route="index" />
     </SF.Item>
   </Shw::Flex>
@@ -142,8 +142,8 @@
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Grid @columns={{4}} as |SG|>
-    <SG.Item @forceMinWidth={{true}}>
-      <Shw::Label>Parent with <code>display: inline-block</code></Shw::Label>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>Parent with <code>display: inline-block</code></SGI.Label>
       <div {{style display="inline-block"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
@@ -152,8 +152,8 @@
         <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
       </div>
     </SG.Item>
-    <SG.Item @forceMinWidth={{true}}>
-      <Shw::Label>Parent with <code>display: inline-flex</code></Shw::Label>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>Parent with <code>display: inline-flex</code></SGI.Label>
       <div {{style display="inline-flex"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>
@@ -162,8 +162,8 @@
         <Hds::Button @icon="plus" @text="This is a very long text that should go on multiple lines" />
       </div>
     </SG.Item>
-    <SG.Item @forceMinWidth={{true}}>
-      <Shw::Label>Parent with <code>flex-grow: 0</code></Shw::Label>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>Parent with <code>flex-grow: 0</code></SGI.Label>
       <div {{style display="flex"}}>
         <div {{style flex-grow="0"}}>
           <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
@@ -176,8 +176,8 @@
         </div>
       </div>
     </SG.Item>
-    <SG.Item @forceMinWidth={{true}}>
-      <Shw::Label>Parent with <code>max-width: fit-content</code></Shw::Label>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>Parent with <code>max-width: fit-content</code></SGI.Label>
       <div {{style max-width="fit-content"}}>
         <Hds::Button @icon="plus" @iconPosition="leading" @text="Lorem ipsum" />
       </div>

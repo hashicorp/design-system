@@ -81,8 +81,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <Shw::Flex as |SF|>
             <SF.Item {{style display=display}}>
               <Hds::Form::Select::Base aria-label="{{display}} select example" as |C|>
@@ -201,8 +201,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <div {{style display=display}}>
             <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
               <F.Label>This is the label</F.Label>

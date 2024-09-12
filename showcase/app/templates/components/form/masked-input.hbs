@@ -427,8 +427,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::MaskedInput::Field @value="Default width" as |F|>
@@ -457,8 +457,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Default width" as |F|>

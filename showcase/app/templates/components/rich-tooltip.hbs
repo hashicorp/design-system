@@ -123,8 +123,7 @@
   <Shw::Text::H2>Interactions</Shw::Text::H2>
 
   <Shw::Flex @gap="8rem" as |SF|>
-    <SF.Item as |SFI|>
-      <SFI.Label>"Soft" (hover/focus)</SFI.Label>
+    <SF.Item @label="'Soft' (hover/focus)">
       <Hds::RichTooltip as |RT|>
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
         <RT.Bubble>
@@ -132,8 +131,7 @@
         </RT.Bubble>
       </Hds::RichTooltip>
     </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label>"Click"</SFI.Label>
+    <SF.Item @label="'Click'">
       <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
         <RT.Bubble>
