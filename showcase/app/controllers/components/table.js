@@ -69,12 +69,6 @@ export default class ComponentsTableController extends Controller {
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @deepTracked multiSelectUserData__demo5 = [...this.model.selectableDataDemo5];
 
-  @deepTracked multiSelectNoModelState__sortBySelected = {
-    row1: false,
-    row2: true,
-    row3: false,
-  };
-
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
 
@@ -226,9 +220,6 @@ export default class ComponentsTableController extends Controller {
       }
     }
   }
-
-  // CUSTOM SORTING DEMO #6
-  // Sortable table without model and custom sorting by selected row
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 

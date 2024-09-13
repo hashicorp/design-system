@@ -517,41 +517,13 @@
     </:body>
   </Hds::Table>
 
-  <Shw::Text::H4 @tag="h3">Sortable table with no model, sorting by selected item</Shw::Text::H4>
-  <Shw::Text::Body>⚠️
-    <em>Notice: in this example the "sort" button doesn't work, is for presentation purpose only.</em></Shw::Text::Body>
-
-  <Hds::Table
-    @caption="a sortable table with no model defined that can sort by selection state"
-    @isSelectable={{true}}
-    @onSelectionChange={{this.onSelectionChangeLogArguments}}
-    @selectableColumnKey="isSelected"
-  >
-    <:head as |H|>
-      <H.Tr>
-        <H.ThSort>First</H.ThSort>
-        <H.Th>Last</H.Th>
-        <H.Th>Title</H.Th>
-      </H.Tr>
-    </:head>
-    <:body as |B|>
-      <B.Tr @selectionKey="row1" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row1"}}>
-        <B.Th>Luke</B.Th>
-        <B.Td>Skywalker</B.Td>
-        <B.Td>Master</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row2" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row2"}}>
-        <B.Th>Leia</B.Th>
-        <B.Td>Organa</B.Td>
-        <B.Td>Senator</B.Td>
-      </B.Tr>
-      <B.Tr @selectionKey="row3" @isSelected={{get this.multiSelectNoModelState__sortBySelected "row3"}}>
-        <B.Th>Han</B.Th>
-        <B.Td>Solo</B.Td>
-        <B.Td>General</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
+  {{! ========================================== }}
+  {{! Notice: we don't add a use case here
+      where the table is without model defined
+      because it doesn't make sense: how would
+      a static table body be sorted on click?
+  }}
+  {{! ========================================== }}
 
   <Shw::Divider @level={{2}} />
 
