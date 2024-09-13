@@ -7,7 +7,7 @@
 
 ### When not to use
 
-- To display contextual associative errors (e.g. form validation), or promotional content, consider [Alert](/components/alert).
+- To display contextual associative errors (e.g., form validation) or promotional content, consider [Alert](/components/alert).
 - As a dialog to confirm an action, consider [Modal](/components/modal).
 
 ## Color
@@ -17,14 +17,14 @@
 Use color logically:
 
 - **Neutral**: provide general information to the user about an ongoing process.
-- **Highlight**: used interchangeably with `neutral` when more prominence is needed. Use sparingly.
+- **Highlight**: use interchangeably with `neutral` when more prominence is needed. Use sparingly.
 - **Success**: indicate a successful action was completed.
 - **Warning**: indicate a successful action was completed but may have triggered a related issue. Provide guidance and actions if possible.
-- **Critical**: indicate error or critical issues resulting from a failed action.
+- **Critical**: indicate an error or critical issues resulting from a failed action.
 
 ### Critical toasts
 
-Critical Toasts often persist (until dismissed) as they hold important information that requires the user's attention. More details in the section ["When to persist or timeout."](#when-to-persist-or-timeout)
+Critical Toasts often persist (until dismissed) as they hold important information that requires the user's attention. Read more about [when a toast should persist or timeout](#when-to-persist-or-timeout).
 
 !!! Do
 
@@ -72,7 +72,7 @@ Toasts can be sized between 360px and 500px wide. Anything wider than 500px is c
 
 ## Placement
 
-Toasts appear in the bottom right corner of the viewport with a margin of 32px from the bottom and 24px from the right side of the viewport. If a warning or error is contextual to a specific UI feature, such as a form, directly associate an Alert to that feature instead of a Toast.
+Toasts appear in the bottom right corner of the viewport with a margin of 32px from the bottom and 24px from the right side of the viewport. If a warning or error is contextual to a specific UI feature, such as a form, directly associate an Alert to that feature instead of using a Toast.
 
 ![](/assets/components/toast/toast-placement.png =600x*)
 
@@ -86,13 +86,13 @@ When displaying multiple Toasts, they should stack vertically with a 16px margin
 
 A Toast can either persist until the user dismisses it or be automatically dismissed via a timeout. 
 
-If a Toast contains actions or critical information (often associated with a warning or critical toast), we recommend that it persist until the user dismisses it. Keep in mind that when a Toast persists, it will remain visible across pages until dismissed.
+If a Toast contains actions or critical information (often associated with a warning or critical toast), it should persist until the user dismisses it. Keep in mind that when a Toast persists, it will remain visible across all pages until dismissed.
 
 ![Showing a critical Toast with a cluster failure message with a button that says retry and a link that says view cluster](/assets/components/toast/toast-persist-critical-retry.png)
 
 ### Timeout best practices
 
-When a Toast is set to timeout, it should timeout after seven seconds, and the content should be no longer than a few of words, e.g., “Cluster created.” This is because when a Toast appears, there must be enough time for a user to notice it, then read it in time before it auto dismisses. 
+When a Toast is set to timeout, it should auto dismiss after seven seconds. Content within Toasts that time out should be as concise as possible with only a few words, e.g., “Cluster created,” to allow enough time for a user to notice and read the contents before it auto dismisses. 
 
 <video width="100%" controls loop>
   <source
