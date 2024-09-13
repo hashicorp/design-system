@@ -16,6 +16,20 @@
     color: var(--token-color-foreground-action);
   }
 
+  &:hover,
+  &.mock-hover {
+    .hds-button__icon {
+      color: var(--token-color-foreground-action-hover);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    .hds-button__icon {
+      color: var(--token-color-foreground-action-active);
+    }
+  }
+
   &.hds-copy-button--status-success {
     .hds-button__icon {
       color: var(--token-color-foreground-success);
@@ -28,4 +42,3 @@
     }
   }
 }
-
