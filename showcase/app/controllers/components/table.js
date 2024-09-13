@@ -67,30 +67,7 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
-
-  // Sorting by selected row
-  @deepTracked selectableData__sortBySelected = [
-    ...this.model.selectableDataDemo5,
-  ];
-  @action
-  onSelectionChange__sortBySelected({
-    selectionKey,
-    selectionCheckboxElement,
-  }) {
-    if (selectionKey === 'all') {
-      this.selectableData__sortBySelected.forEach((modelRow) => {
-        modelRow.isSelected = selectionCheckboxElement.checked;
-      });
-    } else {
-      const recordToUpdate = this.selectableData__sortBySelected.find(
-        (modelRow) => modelRow.id === selectionKey
-      );
-
-      if (recordToUpdate) {
-        recordToUpdate.isSelected = !recordToUpdate.isSelected;
-      }
-    }
-  }
+  @deepTracked multiSelectUserData__demo5 = [...this.model.selectableDataDemo5];
 
   @deepTracked multiSelectNoModelState__sortBySelected = {
     row1: false,
@@ -226,6 +203,32 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   };
+
+  // CUSTOM SORTING DEMO #5
+  // Sortable table with model and sorting by selected row
+
+  @action
+  onMultiSelectSelectionChange__demo5({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
+    if (selectionKey === 'all') {
+      this.multiSelectUserData__demo5.forEach((modelRow) => {
+        modelRow.isSelected = selectionCheckboxElement.checked;
+      });
+    } else {
+      const recordToUpdate = this.multiSelectUserData__demo5.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
+  }
+
+  // CUSTOM SORTING DEMO #6
+  // Sortable table without model and custom sorting by selected row
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
