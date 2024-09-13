@@ -137,7 +137,7 @@ get demoQueryFunctionNumbered() {
 When the routing parameters are provided, the "navigation controls" are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
 
-!!! Info
+!!! Warning
 
 When a pagination component is controlled externally, as described above, at least one routing argument (`@route`, `@model`, or `@models`) **must** be provided.
 !!!
