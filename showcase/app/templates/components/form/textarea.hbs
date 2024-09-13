@@ -106,8 +106,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::Textarea::Base aria-label="textarea example as {{display}}" @value="Default width" />
@@ -251,8 +251,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <Shw::Flex as |SF|>
             <SF.Item @grow={{true}} {{style display=display}}>
               <Hds::Form::Textarea::Field @value="Default width" @isInvalid={{true}} as |F|>

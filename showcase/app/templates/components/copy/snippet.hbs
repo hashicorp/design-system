@@ -12,18 +12,15 @@
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>With short text</Shw::Label>
+    <SF.Item @label="With short text">
       <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" />
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With long text (multi-line / default)</Shw::Label>
+    <SF.Item @label="With long text (multi-line / default)">
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Copy::Snippet @textToCopy="With some really long text that should wrap and be multi-line" />
       </Shw::Outliner>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With long text (truncated)</Shw::Label>
+    <SF.Item @label="With long text (truncated)">
       <Shw::Outliner {{style width="300px"}}>
         <Hds::Copy::Snippet
           @textToCopy="With some really long text that should be truncated because `isTruncated` is set to `true`"
@@ -34,8 +31,7 @@
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>With number to copy</Shw::Label>
+    <SF.Item @label="With number to copy">
       {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
       <Hds::Copy::Snippet @textToCopy={{123456789}} />
     </SF.Item>
@@ -43,14 +39,12 @@
 
   <Shw::Text::H2>Full width</Shw::Text::H2>
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>With short text</Shw::Label>
+    <SF.Item @label="With short text">
       <Shw::Outliner {{style width="500px"}}>
         <Hds::Copy::Snippet @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r" @isFullWidth={{true}} />
       </Shw::Outliner>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With long text</Shw::Label>
+    <SF.Item @label="With long text">
       <Shw::Outliner {{style width="500px"}}>
         <Hds::Copy::Snippet
           @textToCopy="fbrct1ed-fgr35h-tyng89-wed4r and some other text that should not matter because the element with is set to full width and hopefully people will not do this but in case they do we want to make sure that we still have the designed layout"
@@ -113,8 +107,8 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#let (array "block" "flex" "grid") as |displays|}}
       {{#each displays as |display|}}
-        <SG.Item @forceMinWidth={{true}}>
-          <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+        <SG.Item @forceMinWidth={{true}} as |SGI|>
+          <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
           <div {{style display=display overflow="hidden"}}>
             <Hds::Copy::Snippet @textToCopy="With short text" />
           </div>

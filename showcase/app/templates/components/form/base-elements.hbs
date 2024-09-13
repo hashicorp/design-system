@@ -21,8 +21,8 @@
     <SF.Item @label="With optional indicator">
       <Hds::Form::Label @isOptional={{true}}>This is the label</Hds::Form::Label>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With structured content (eg. a <code>flex</code> layout and a <code>&lt;Badge&gt;</code>)</SF.Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a <code>flex</code> layout and a <code>&lt;Badge&gt;</code>)</SFI.Label>
       <Hds::Form::Label>
         <div class="shw-component-form-base-elements-container-with-badge">
           This is the label
@@ -30,11 +30,11 @@
         </div>
       </Hds::Form::Label>
     </SF.Item>
-    <SF.Item>
-      <SF.Label>With structured content (eg. a
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a
         <code>flex</code>
         layout and a
-        <code>&lt;Badge&gt;</code>) and required indicator</SF.Label>
+        <code>&lt;Badge&gt;</code>) and required indicator</SFI.Label>
       <Hds::Form::Label @isRequired={{true}}>
         <div class="shw-component-form-base-elements-container-with-badge">
           This is the label
@@ -42,11 +42,11 @@
         </div>
       </Hds::Form::Label>
     </SF.Item>
-    <SF.Item>
-      <SF.Label>With structured content (eg. a
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a
         <code>flex</code>
         layout and a
-        <code>&lt;Badge&gt;</code>) and optional indicator</SF.Label>
+        <code>&lt;Badge&gt;</code>) and optional indicator</SFI.Label>
       <Hds::Form::Label @isOptional={{true}}>
         <Shw::Outliner class="shw-component-form-base-elements-container-with-badge">
           This is the label
@@ -94,13 +94,13 @@
     <SF.Item @label="With simple text">
       <Hds::Form::HelperText>This is the helper text, usually used jointly with the label.</Hds::Form::HelperText>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With <code>&lt;Link::Inline&gt;</code></SF.Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>&lt;Link::Inline&gt;</code></SFI.Label>
       <Hds::Form::HelperText>This is a helper text
         <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::HelperText>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</SF.Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</SFI.Label>
       <Hds::Form::HelperText>This is a helper text
         <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::HelperText>
     </SF.Item>
@@ -410,13 +410,13 @@
     <SF.Item @label="With simple text">
       <Hds::Form::Legend>This is a simple legend</Hds::Form::Legend>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With <code>&lt;Link::Inline&gt;</code></SF.Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>&lt;Link::Inline&gt;</code></SFI.Label>
       <Hds::Form::Legend>This is a legend
         <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></Hds::Form::Legend>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</SF.Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>&lt;Link::Inline&gt;</code> and <code>secondary</code> color</SFI.Label>
       <Hds::Form::Legend>This is a legend
         <Hds::Link::Inline @route="index" @color="secondary">with a secondary link</Hds::Link::Inline></Hds::Form::Legend>
     </SF.Item>
@@ -426,24 +426,24 @@
     <SF.Item @label="With optional indicator">
       <Hds::Form::Legend @isOptional={{true}}>This is a simple legend</Hds::Form::Legend>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With structured content (eg. a
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a
         <code>flex</code>
         layout and a
         <code>&lt;Badge&gt;</code>)
-      </SF.Label>
+      </SFI.Label>
       <Hds::Form::Legend>
         <div class="shw-component-form-base-elements-container-with-badge">This is the legend
           <Hds::Badge @size="small" @text="Some badge" @color="highlight" />
         </div>
       </Hds::Form::Legend>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With structured content (eg. a
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a
         <code>flex</code>
         layout and a
         <code>&lt;Badge&gt;</code>) and required indicator
-      </SF.Label>
+      </SFI.Label>
       <div class="shw-component-form-base-elements-container-with-badge">
         <Hds::Form::Legend @isRequired={{true}}>
           This is the legend
@@ -451,12 +451,12 @@
         </Hds::Form::Legend>
       </div>
     </SF.Item>
-    <SF.Item as |SF|>
-      <SF.Label>With structured content (eg. a
+    <SF.Item as |SFI|>
+      <SFI.Label>With structured content (eg. a
         <code>flex</code>
         layout and a
         <code>&lt;Badge&gt;</code>) and optional indicator
-      </SF.Label>
+      </SFI.Label>
       <div class="shw-component-form-base-elements-container-with-badge">
         <Hds::Form::Legend @isOptional={{true}}>
           This is the legend
@@ -643,8 +643,8 @@
         <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
             {{#each displays as |display|}}
-              <SG.Item>
-                <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+              <SG.Item as |SGI|>
+                <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
                 <div {{style display=display}}>
                   <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Label>This is the label</F.Label>
@@ -733,8 +733,8 @@
         <Shw::Grid @columns={{3}} as |SG|>
           {{#let (array "block" "flex" "grid") as |displays|}}
             {{#each displays as |display|}}
-              <SG.Item>
-                <Shw::Label>Parent with <code>display: {{display}}</code></Shw::Label>
+              <SG.Item as |SGI|>
+                <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
                 <div {{style display=display}}>
                   <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
                     <F.Legend>This is the legend</F.Legend>

@@ -426,8 +426,8 @@
   <Shw::Text::H4>Generated element</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>Default ⇒ <code>&lt;button&gt;</code></Shw::Label>
+    <SF.Item as |SFI|>
+      <SFI.Label>Default ⇒ <code>&lt;button&gt;</code></SFI.Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::Interactive>
@@ -436,11 +436,11 @@
         </ul>
       </div>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With
+    <SF.Item as |SFI|>
+      <SFI.Label>With
         <code>@href</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Label>
+        <code>&lt;a&gt;</code></SFI.Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::Interactive @href="/">
@@ -449,13 +449,13 @@
         </ul>
       </div>
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With
+    <SF.Item as |SFI|>
+      <SFI.Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Label>
+        <code>&lt;a&gt;</code></SFI.Label>
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           <Hds::Dropdown::ListItem::Interactive @route="components.dropdown">

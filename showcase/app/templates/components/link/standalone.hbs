@@ -12,20 +12,20 @@
   <Shw::Text::H2>Generated element</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
-    <SF.Item>
-      <Shw::Label>With
+    <SF.Item as |SFI|>
+      <SFI.Label>With
         <code>@href</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Label>
+        <code>&lt;a&gt;</code></SFI.Label>
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @href="#" />
     </SF.Item>
-    <SF.Item>
-      <Shw::Label>With
+    <SF.Item as |SFI|>
+      <SFI.Label>With
         <code>@route</code>
         ⇒
         <code>&lt;LinkTo&gt;</code>
         ⇒
-        <code>&lt;a&gt;</code></Shw::Label>
+        <code>&lt;a&gt;</code></SFI.Label>
       <Hds::Link::Standalone @icon="plus" @text="Lorem ipsum dolor" @color="primary" @route="index" />
     </SF.Item>
   </Shw::Flex>
