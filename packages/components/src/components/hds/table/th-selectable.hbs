@@ -5,7 +5,7 @@
 
 <Hds::Table::Th
   class="hds-table__th--is-selectable"
-  aria-sort={{this.ariaSort}}
+  aria-sort={{if this.isSortable this.ariaSort}}
   @scope={{@selectionScope}}
   ...attributes
 >
@@ -21,7 +21,11 @@
     />
     {{#if this.isSortable}}
       <span id={{this.labelId}} class="sr-only">selection state</span>
-      <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this.labelId}} />
+      <Hds::Table::ThButtonSort
+        @sortOrder={{@sortOrder}}
+        @onClick={{@onClickSortBySelected}}
+        @labelId={{this.labelId}}
+      />
     {{/if}}
   </div>
 </Hds::Table::Th>

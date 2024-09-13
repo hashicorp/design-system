@@ -9,6 +9,7 @@ import { HdsTableScopeValues } from './types.ts';
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type { HdsTableArgs } from './index.ts';
+import type { HdsTableThSelectableArgs } from './th-selectable.ts';
 
 export interface BaseHdsTableTrArgs {
   Args: {
@@ -28,7 +29,7 @@ export interface BaseHdsTableTrArgs {
       selectionKey?: string
     ) => void;
     willDestroy: () => void;
-    onClickSortBySelected?: () => void;
+    onClickSortBySelected?: HdsTableThSelectableArgs['Args']['onClickSort'];
   };
   Blocks: {
     default: [];

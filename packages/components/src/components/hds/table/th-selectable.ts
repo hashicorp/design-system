@@ -26,7 +26,7 @@ export interface HdsTableThSelectableArgs {
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
-    onClickSort?: () => void;
+    onClickSortBySelected?: () => void;
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
@@ -63,10 +63,6 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   }
 
   get ariaSort(): HdsTableThSortOrderLabels | undefined {
-    if (!this.isSortable) {
-      return undefined;
-    }
-
     switch (this.args.sortOrder) {
       case HdsTableThSortOrderValues.Asc:
         return HdsTableThSortOrderLabelValues.Asc;
