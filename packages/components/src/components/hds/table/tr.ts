@@ -18,7 +18,7 @@ export interface BaseHdsTableTrArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
-    sortOrder?: HdsTableThSortOrder;
+    sortBySelectedOrder?: HdsTableThSortOrder;
     didInsert: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
