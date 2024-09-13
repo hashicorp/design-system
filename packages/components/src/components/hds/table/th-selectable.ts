@@ -49,7 +49,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   labelId = `label-${this.guid}`;
 
   get isSortable(): boolean {
-    return this.args.onClickSort !== undefined;
+    return this.args.onClickSortBySelected !== undefined;
   }
 
   get ariaLabel(): string {

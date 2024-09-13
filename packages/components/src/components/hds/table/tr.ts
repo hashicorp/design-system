@@ -29,7 +29,7 @@ export interface BaseHdsTableTrArgs {
       selectionKey?: string
     ) => void;
     willDestroy: () => void;
-    onClickSortBySelected?: HdsTableThSelectableArgs['Args']['onClickSort'];
+    onClickSortBySelected?: HdsTableThSelectableArgs['Args']['onClickSortBySelected'];
   };
   Blocks: {
     default: [];
