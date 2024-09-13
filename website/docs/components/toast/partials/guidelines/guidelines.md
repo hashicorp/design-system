@@ -24,6 +24,8 @@ Use color logically:
 
 ### Critical toasts
 
+Critical Toasts often persist (until dismissed) as they hold important information that requires the user's attention. More details in the section ["When to persist or timeout."](#when-to-persist-or-timeout)
+
 !!! Do
 
 Use the Toast to provide non-intrusive feedback to users about the failure of an ongoing task or request. For example, a failure while deleting a cluster.
@@ -84,7 +86,9 @@ When displaying multiple Toasts, they should stack vertically with a 16px margin
 
 A Toast can either persist until the user dismisses it or be automatically dismissed via a timeout. 
 
-If a Toast contains actions or critical information (often associated with a warning or critical toast), we recommend that it persist until the user dismisses it. 
+If a Toast contains actions or critical information (often associated with a warning or critical toast), we recommend that it persist until the user dismisses it. Keep in mind that when a Toast persists, it will remain visible across pages until dismissed.
+
+![Showing a critical Toast with a cluster failure message with a button that says retry and a link that says view cluster](/assets/components/toast/toast-persist-critical-retry.png)
 
 ### Timeout best practices
 
