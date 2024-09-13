@@ -48,10 +48,8 @@
         (hash
           Tr=(component
             "hds/table/tr"
-            sortOrder=@sortOrder
             selectionScope="col"
             isSelectable=@isSelectable
-            onClickSortBySelected=(if @selectableColumnKey (fn this.setSortBy @selectableColumnKey))
             onSelectionChange=this.onSelectionAllChange
             didInsert=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
