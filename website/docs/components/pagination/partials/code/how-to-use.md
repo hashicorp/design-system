@@ -136,6 +136,12 @@ get demoQueryFunctionNumbered() {
 
 When the routing parameters are provided, the "navigation controls" are rendered as links and if the user clicks on one of them the page URL is automatically updated. This means that the component’s state is persisted **outside** of the component and so its whole state **must** be "controlled" by the consumer’s code (otherwise there would be conflicting states).
 
+
+!!! Warning
+
+When a pagination component is controlled externally, as described above, at least one routing argument (`@route`, `@model`, or `@models`) **must** be provided.
+!!!
+
 In this case, the component doesn’t update its internal "state" but the value of the state variables (eg. `currentPage/currentPageSize`) is **always** determined by the consumer’s controller code via the component’s arguments (usually, they are directly connected to the query parameters in the URL).
 
 The reason for using a consumer-side function to determine the `query` argument is because it’s dynamic (it depends on the value of the `page` variable) and gives consumers the ability to specify their own query parameters (which will likely differ case by case).

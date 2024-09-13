@@ -422,7 +422,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction="foo" />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction="foo" @model="test" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -437,7 +437,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} @model="test" />`
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -463,6 +463,21 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Pagination::Numbered @totalItems="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+  test('it should throw an assertion if @queryFunction is provided without a routing argument', async function (assert) {
+    this.set('myQueryFunction', (page) => ({ page }));
+    const errorMessage =
+      '@model, @models, or @route for "Hds::Pagination::Numbered" must be provided when using the @queryFunction argument';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Pagination::Numbered @queryFunction={{this.myQueryFunction}} />`
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });

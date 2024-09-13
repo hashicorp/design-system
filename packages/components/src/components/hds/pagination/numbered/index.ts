@@ -32,7 +32,12 @@ type HdsPaginationNumberedRoutingQueryProps = HdsPaginationRoutingProps & {
   >;
 };
 
-interface HdsPaginationNumberedArgs {
+type HdsPaginationQueryFunction = (
+  page: number,
+  pageSize: number
+) => HdsInteractiveQuery;
+
+interface HdsPaginationNumberedArgs extends HdsPaginationRoutingProps {
   ariaLabel?: string;
   totalItems: number;
   showLabels?: boolean;
@@ -45,13 +50,46 @@ interface HdsPaginationNumberedArgs {
   sizeSelectorLabel?: string;
   pageSizes?: number[];
   currentPageSize?: number;
-  queryFunction?: (page: number, pageSize: number) => HdsInteractiveQuery;
+  queryFunction?: HdsPaginationQueryFunction;
   onPageChange?: (page: number, pageSize: number) => unknown;
   onPageSizeChange?: (pageSize: number) => unknown;
 }
 
+interface HdsPaginationNumberedArgsControlledBase
+  extends HdsPaginationNumberedArgs {
+  currentPage: number;
+  currentPageSize: number;
+  queryFunction: HdsPaginationQueryFunction;
+}
+
+interface HdsPaginationNumberedArgsControlledWithModel
+  extends HdsPaginationNumberedArgsControlledBase {
+  model: string | number;
+}
+
+interface HdsPaginationNumberedArgsControlledWithModels
+  extends HdsPaginationNumberedArgsControlledBase {
+  models: Array<string | number>;
+}
+interface HdsPaginationNumberedArgsControlledWithRoute
+  extends HdsPaginationNumberedArgsControlledBase {
+  route: string;
+}
+
+type HdsPaginationNumberedArgsControlled =
+  | HdsPaginationNumberedArgsControlledWithModel
+  | HdsPaginationNumberedArgsControlledWithModels
+  | HdsPaginationNumberedArgsControlledWithRoute;
+
+interface HdsPaginationNumberedArgsUncontrolled
+  extends HdsPaginationNumberedArgs {
+  queryFunction?: undefined;
+}
+
 export interface HdsPaginationNumberedSignature {
-  Args: HdsPaginationNumberedArgs & HdsPaginationRoutingProps;
+  Args:
+    | HdsPaginationNumberedArgsControlled
+    | HdsPaginationNumberedArgsUncontrolled;
   Element: HTMLDivElement;
 }
 
@@ -157,6 +195,12 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     if (queryFunction === undefined) {
       this.isControlled = false;
     } else {
+      assert(
+        '@model, @models, or @route for "Hds::Pagination::Numbered" must be provided when using the @queryFunction argument',
+        this.args.model !== undefined ||
+          this.args.models !== undefined ||
+          this.args.route !== undefined
+      );
       assert(
         '@queryFunction for "Hds::Pagination::Numbered" must be a function',
         typeof queryFunction === 'function'
