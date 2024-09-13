@@ -2,8 +2,8 @@
 
 ### When to use
 
-- To display contextual information resulting from a user’s action.
 - To communicate a background process that has either started or ended, e.g., “Creating cluster”.
+- To allow a user to quickly revert a destructive action.
 
 ### When not to use
 
@@ -66,11 +66,11 @@ Icons within `neutral` and `highlight` Toasts can be replaced with other icons. 
 
 ## Size
 
-Toasts can be sized between 360px and 500px wide. Anything wider than 500px will take up too much of the screen space.
+Toasts can be sized between 360px and 500px wide. Anything wider than 500px is considered disruptive to the user experience and may cover important information on the page.
 
 ## Placement
 
-Toasts should appear in the bottom right corner of the viewport with a margin of 32px from the bottom and 24px from the right side of the viewport. Because of the placement of Toasts, any page-specific feedback to the user should be directly associated with the UI element. 
+Toasts appear in the bottom right corner of the viewport with a margin of 32px from the bottom and 24px from the right side of the viewport. If a warning or error is contextual to a specific UI feature, such as a form, directly associate an Alert to that feature instead of a Toast.
 
 ![](/assets/components/toast/toast-placement.png =600x*)
 
@@ -88,4 +88,6 @@ If a Toast contains actions or critical information (often associated with a war
 
 ### Timeout best practices
 
-When a Toast is set to time-out, the content within should be no longer than 5 words (e.g. “Cluster created”). It is recommended that the neutral, highlight or success colors be used for time-out experiences, ensuring that the criticality is at a minimum, and that users are not missing important information that requires their immediate attention.
+When a Toast is set to timeout, it should timeout after seven seconds, and the content should be no longer than a few of words, e.g., “Cluster created.” This is because when a Toast appears, there must be enough time for a user to notice it, then read it in time before it auto dismisses. 
+
+We recommend setting a timeout for neutral, highlight, or success Toasts only. This ensures that critical information or information that requires immediate attention is not missed.
