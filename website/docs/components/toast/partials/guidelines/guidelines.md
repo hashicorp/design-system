@@ -90,4 +90,11 @@ If a Toast contains actions or critical information (often associated with a war
 
 When a Toast is set to timeout, it should timeout after seven seconds, and the content should be no longer than a few of words, e.g., “Cluster created.” This is because when a Toast appears, there must be enough time for a user to notice it, then read it in time before it auto dismisses. 
 
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/toast/toast-video-auto-dismiss.mp4"
+    type="video/mp4"
+  />
+</video>
+
 We recommend setting a timeout for neutral, highlight, or success Toasts only. This ensures that critical information or information that requires immediate attention is not missed.
