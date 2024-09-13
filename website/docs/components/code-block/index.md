@@ -9,6 +9,8 @@ related: ['components/copy/snippet', 'components/copy/button']
 previewImage: assets/illustrations/components/code-block.jpg
 navigation:
   keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example', 'syntax', 'highlight']
+status:
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -28,4 +30,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
 </section>

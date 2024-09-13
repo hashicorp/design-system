@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/flyout.jpg
 navigation:
   keywords: ['drawer', 'panel', 'side', 'modal']
 status:
-  updated: 4.7.0
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -32,5 +32,6 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.7.0.md"
 </section>

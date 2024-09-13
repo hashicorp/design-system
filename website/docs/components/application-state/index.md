@@ -9,7 +9,7 @@ previewImage: assets/illustrations/components/application-state.jpg
 navigation:
   keywords: ['empty state', 'error state', 'message']
 status:
-  updated: 4.8.0
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -31,5 +31,6 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.8.0.md"
 </section>

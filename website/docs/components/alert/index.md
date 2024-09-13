@@ -9,6 +9,8 @@ related: ['components/modal', 'components/toast']
 previewImage: assets/illustrations/components/alert.jpg
 navigation:
   keywords: ['alert', 'toast', 'notification', 'banner', 'message']
+status:
+  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
@@ -33,3 +35,6 @@ navigation:
   @include "partials/accessibility/accessibility.md"
 </section>
 
+<section data-tab="Version history">
+  @include "partials/version-history/4.10.0.md"
+</section>
