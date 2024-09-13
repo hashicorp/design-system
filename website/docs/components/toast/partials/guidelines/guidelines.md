@@ -12,7 +12,7 @@
 
 ## Color
 
-![A list different types of toasts, starting from neutral all the way to critical](/assets/components/toast/toast-colors.png)
+![The color argument changes the background and title color: neutral is grey, highlight is purple, success is green, warning is orange, critical is red.](/assets/components/toast/toast-colors.png)
 
 Use color logically:
 
@@ -44,7 +44,7 @@ Use the Toast to communicate error messages that are not caused by the user. For
 
 Don't use toasts for intrusive message communication about errors or critical disruptions at an application, page, or section level. Use the [Alert](/components/alert) instead.
 
-![A toast with an intrusive message](/assets/components/toast/toast-dont-intrusive-message.png)
+![A toast showing the user has exceeded their applies limit.](/assets/components/toast/toast-dont-intrusive-message.png)
 
 !!!
 
@@ -72,18 +72,20 @@ Toasts can be sized between 360px and 500px wide. Anything wider than 500px will
 
 Toasts should appear in the bottom right corner of the viewport with a margin of 32px from the bottom and 24px from the right side of the viewport. Because of the placement of Toasts, any page-specific feedback to the user should be directly associated with the UI element. 
 
-![Toast placement example](/assets/components/toast/toast-placement.png =600x*)
+![](/assets/components/toast/toast-placement.png =600x*)
 
 ### Displaying multiple Toasts
 
 When displaying multiple Toasts, they should stack vertically with a 16px margin between each Toast. For consistency, each stacked Toast should be the same width.
 
-![Multiple toast examples stacked](/assets/components/toast/toast-placement-multiple.png =600x*)
+![](/assets/components/toast/toast-placement-multiple.png =600x*)
 
-## When to persist or time-out
+## When to persist or timeout
 
-A Toast can either persist (until dismissed) or automatically dismiss (time-out) after seven seconds. If a Toast contains actions or critical information (often associated with warning or critical toasts, but not limited to), it is recommended to persist until the user dismisses it, otherwise, it should time-out after 7 seconds.
+A Toast can either persist until the user dismisses it or be automatically dismissed via a timeout. 
 
-### Time-out best practices
+If a Toast contains actions or critical information (often associated with a warning or critical toast), we recommend that it persist until the user dismisses it. 
+
+### Timeout best practices
 
 When a Toast is set to time-out, the content within should be no longer than 5 words (e.g. “Cluster created”). It is recommended that the neutral, highlight or success colors be used for time-out experiences, ensuring that the criticality is at a minimum, and that users are not missing important information that requires their immediate attention.
