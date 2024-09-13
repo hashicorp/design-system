@@ -58,10 +58,10 @@
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
 
-    // Change the color of the icon in hover state, except if the component has a status of success or error
     .hds-copy-snippet__icon:not(
-        .hds-copy-snippet--status-success .hds-copy-snippet__icon
-      ):not(.hds-copy-snippet--status-error .hds-copy-snippet__icon) {
+        .hds-copy-snippet--status-success .hds-copy-snippet__icon,
+        .hds-copy-snippet--status-error .hds-copy-snippet__icon
+      ) {
       color: var(--token-color-foreground-action-hover);
     }
   }
@@ -73,8 +73,9 @@
 
     // Change the color of the icon in active status, except if the component has a status of success or error
     .hds-copy-snippet__icon:not(
-        .hds-copy-snippet--status-success .hds-copy-snippet__icon
-      ):not(.hds-copy-snippet--status-error .hds-copy-snippet__icon) {
+        .hds-copy-snippet--status-success .hds-copy-snippet__icon,
+        .hds-copy-snippet--status-error .hds-copy-snippet__icon
+      ) {
       color: var(--token-color-foreground-action-active);
     }
   }
