@@ -34,7 +34,7 @@ export interface HdsTableThSelectableArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
-    sortOrder?: HdsTableThSortOrder;
+    sortBySelectedOrder?: HdsTableThSortOrder;
     willDestroy: (selectionKey?: string) => void;
   };
   Element: HdsTableThArgs['Element'];
@@ -63,7 +63,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   }
 
   get ariaSort(): HdsTableThSortOrderLabels | undefined {
-    switch (this.args.sortOrder) {
+    switch (this.args.sortBySelectedOrder) {
       case HdsTableThSortOrderValues.Asc:
         return HdsTableThSortOrderLabelValues.Asc;
       case HdsTableThSortOrderValues.Desc:

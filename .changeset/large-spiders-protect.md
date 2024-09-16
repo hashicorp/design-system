@@ -12,4 +12,4 @@
 
 `Hds::Table::ThSelectable`
 - Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
-- Added `@sortOrder` (`undefined` | `asc` | `desc`) argument which determines the state of the sort button in the selected item column.
+- Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
