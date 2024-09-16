@@ -67,7 +67,9 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
-  @deepTracked multiSelectUserData__demo5 = [...this.model.selectableDataDemo5];
+  @deepTracked multiSelectSelectableData__demo5 = [
+    ...this.model.selectableDataDemo5,
+  ];
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -207,11 +209,11 @@ export default class ComponentsTableController extends Controller {
     selectionCheckboxElement,
   }) {
     if (selectionKey === 'all') {
-      this.multiSelectUserData__demo5.forEach((modelRow) => {
+      this.multiSelectSelectableData__demo5.forEach((modelRow) => {
         modelRow.isSelected = selectionCheckboxElement.checked;
       });
     } else {
-      const recordToUpdate = this.multiSelectUserData__demo5.find(
+      const recordToUpdate = this.multiSelectSelectableData__demo5.find(
         (modelRow) => modelRow.id === selectionKey
       );
 

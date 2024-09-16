@@ -491,13 +491,17 @@
     </:body>
   </Hds::Table>
 
+  {{! ================================================= }}
+  {{! ===== DEMO #5 - SORT BY SELECTED WITH MODEL ===== }}
+  {{! ================================================= }}
+
   <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
 
   <Hds::Table
     @isSelectable={{true}}
     @selectableColumnKey="isSelected"
     @onSelectionChange={{this.onMultiSelectSelectionChange__demo5}}
-    @model={{this.multiSelectUserData__demo5}}
+    @model={{this.multiSelectSelectableData__demo5}}
     @columns={{array
       (hash key="lorem" label="Row #" isSortable=true)
       (hash key="ipsum" label="Ipsum")
