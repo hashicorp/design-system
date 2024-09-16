@@ -8,6 +8,24 @@
 //
 @use "../../mixins/focus-ring" as *;
 
+@mixin hds-copy-snippet-success-error() {
+  &.hds-copy-snippet--status-success {
+    background-color: var(--token-color-surface-interactive);
+
+    .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-success);
+    }
+  }
+
+  &.hds-copy-snippet--status-error {
+    background-color: var(--token-color-surface-interactive);
+
+    .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-critical);
+    }
+  }
+}
+
 .hds-copy-snippet {
   @include hds-focus-ring-with-pseudo-element();
 
@@ -40,42 +58,38 @@
     border-color: var(--token-color-border-strong);
   }
 
-  &:focus {
-    background-color: transparent;
-  }
+  @include hds-copy-snippet-success-error();
 }
 
 .hds-copy-snippet--color-secondary {
   color: var(--token-color-foreground-primary);
   background-color: transparent;
 
+  .hds-copy-snippet__icon {
+    color: var(--token-color-foreground-action);
+  }
+
   &:hover,
   &.mock-hover {
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
+
+    .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-action-hover);
+    }
   }
 
   &:active,
   &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
-  }
 
-  .hds-copy-snippet__icon {
-    color: var(--token-color-foreground-action);
-
-    &:hover {
-      color: var(--token-color-foreground-action-hover);
-    }
-
-    &:active {
+    .hds-copy-snippet__icon {
       color: var(--token-color-foreground-action-active);
     }
-
-    &:focus {
-      color: var(--token-color-foreground-action);
-    }
   }
+
+  @include hds-copy-snippet-success-error();
 }
 
 .hds-copy-snippet--status-success {
