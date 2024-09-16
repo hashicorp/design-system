@@ -47,7 +47,7 @@
 The `AppHeader::HomeLink` component uses the generic `Hds::Interactive` component. For more details about this utility component, please refer to [its documentation page](/utilities/interactive).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="icon" @type="string">
+  <C.Property @name="icon" @type="string" @required={{true}}>
     Used to show an icon. Any [icon](/icons/library) name is accepted. [See guidance on which icon to use depending on the product](/components/app-header#home-link).
   </C.Property>
   <C.Property @name="color" @type="string">

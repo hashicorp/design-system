@@ -26,7 +26,7 @@ The Breadcrumb component is composed of three different parts, each with their o
 ### Breadcrumb::Item
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="text" @type="string">
+  <C.Property @name="text" @type="string" @required={{true}}>
     The text displayed within the item.
   </C.Property>
   <C.Property @name="icon" @type="string">
