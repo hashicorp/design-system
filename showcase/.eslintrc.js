@@ -26,6 +26,8 @@ module.exports = {
         functions: 'only-multiline',
       },
     ],
+    // ember doesn't support template only components that have type signatures so we need to use empty component classes
+    'ember/no-empty-glimmer-component-classes': 'off',
   },
   overrides: [
     // ts files
