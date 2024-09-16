@@ -53,6 +53,7 @@ export default class ComponentsTableController extends Controller {
     row1: false,
     row2: true,
     row3: false,
+    row4: false,
   };
   @deepTracked multiSelectModelData__demo2 = [
     ...this.model.selectableDataDemo2,
