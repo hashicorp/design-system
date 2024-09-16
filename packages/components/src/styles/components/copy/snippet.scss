@@ -8,6 +8,24 @@
 //
 @use "../../mixins/focus-ring" as *;
 
+@mixin hds-copy-snippet-success-error() {
+  &.hds-copy-snippet--status-success {
+    background-color: var(--token-color-surface-interactive);
+
+    .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-success);
+    }
+  }
+
+  &.hds-copy-snippet--status-error {
+    background-color: var(--token-color-surface-interactive);
+
+    .hds-copy-snippet__icon {
+      color: var(--token-color-foreground-critical);
+    }
+  }
+}
+
 .hds-copy-snippet {
   @include hds-focus-ring-with-pseudo-element();
 
@@ -40,9 +58,7 @@
     border-color: var(--token-color-border-strong);
   }
 
-  &:focus {
-    background-color: transparent;
-  }
+  @include hds-copy-snippet-success-error();
 }
 
 .hds-copy-snippet--color-secondary {
@@ -58,10 +74,7 @@
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
 
-    .hds-copy-snippet__icon:not(
-        .hds-copy-snippet--status-success .hds-copy-snippet__icon,
-        .hds-copy-snippet--status-error .hds-copy-snippet__icon
-      ) {
+    .hds-copy-snippet__icon {
       color: var(--token-color-foreground-action-hover);
     }
   }
@@ -71,14 +84,12 @@
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
 
-    // Change the color of the icon in active status, except if the component has a status of success or error
-    .hds-copy-snippet__icon:not(
-        .hds-copy-snippet--status-success .hds-copy-snippet__icon,
-        .hds-copy-snippet--status-error .hds-copy-snippet__icon
-      ) {
+    .hds-copy-snippet__icon {
       color: var(--token-color-foreground-action-active);
     }
   }
+
+  @include hds-copy-snippet-success-error();
 }
 
 .hds-copy-snippet--status-success {
