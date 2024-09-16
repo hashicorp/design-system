@@ -13856,7 +13856,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-truth-helpers@npm:^3.0.0, ember-truth-helpers@npm:^3.1.1":
+"ember-truth-helpers@npm:^3.0.0":
   version: 3.1.1
   resolution: "ember-truth-helpers@npm:3.1.1"
   dependencies:
@@ -24924,7 +24924,7 @@ __metadata:
     ember-template-imports: "npm:^4.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
-    ember-truth-helpers: "npm:^3.1.1"
+    ember-truth-helpers: "npm:^4.0.3"
     ember-try: "npm:^3.0.0"
     ember-unique-id-helper-polyfill: "npm:^1.2.2"
     eslint: "npm:^8.57.0"
@@ -28210,7 +28210,7 @@ __metadata:
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-test-selectors: "npm:^6.0.0"
-    ember-truth-helpers: "npm:^3.1.1"
+    ember-truth-helpers: "npm:^4.0.3"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-ember: "npm:^11.12.0"
