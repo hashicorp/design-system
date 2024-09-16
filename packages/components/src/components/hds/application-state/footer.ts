@@ -7,7 +7,7 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 import type { ComponentLike } from '@glint/template';
 import type { HdsLinkStandaloneSignature } from '../link/standalone';
 import type { HdsButtonSignature } from '../button';
-import type { HdsDropdownSignature } from 'src/components/hds/dropdown';
+import type { HdsDropdownSignature } from '../dropdown';
 
 export interface HdsApplicationStateFooterSignature {
   Args: {

@@ -13,7 +13,7 @@ import type { HdsFormHelperTextSignature } from '../../helper-text/index.ts';
 import type { HdsFormLabelSignature } from '../../label';
 import type { HdsFormSuperSelectMultipleBaseSignature } from './base.ts';
 import type { Select as PowerSelect } from 'ember-power-select/components/power-select';
-import type { HdsYieldSignature } from 'src/components/hds/yield/index.ts';
+import type { HdsYieldSignature } from '../../../yield/index.ts';
 
 interface HdsFormSuperSelectMultipleFieldSignature {
   Args: HdsFormSuperSelectMultipleBaseSignature['Args'] &
