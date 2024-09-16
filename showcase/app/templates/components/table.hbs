@@ -521,13 +521,43 @@
     </:body>
   </Hds::Table>
 
-  {{! ========================================== }}
-  {{! Notice: we don't add a use case here
-      where the table is without model defined
-      because it doesn't make sense: how would
-      a static table body be sorted on click?
-  }}
-  {{! ========================================== }}
+  {{! ============================================================= }}
+  {{! ===== DEMO #6 - SORT BY SELECTED WITH YIELDED TR/THSORT ===== }}
+  {{! ============================================================= }}
+
+  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item using yielded
+    <code>&lt;Tr&gt;</code>
+    +
+    <code>&lt;ThSort&gt;</code>
+  </Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @selectableColumnKey="isSelected"
+    @onSelectionChange={{this.onMultiSelectSelectionChange__demo6}}
+    @onSort={{this.customOnSort_demo6}}
+  >
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort @onClickSort={{fn H.setSortBy "lorem"}} @sortOrder={{if (eq "lorem" H.sortBy) H.sortOrder}}>Row #</H.ThSort>
+        <H.Th>Ipsum</H.Th>
+        <H.Th>Dolor</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each this.sortedMultiSelect__demo6 as |record|}}
+        <B.Tr
+          @selectionKey={{record.id}}
+          @isSelected={{record.isSelected}}
+          @selectionAriaLabelSuffix="row #{{record.lorem}}"
+        >
+          <B.Td>{{record.lorem}}</B.Td>
+          <B.Td>{{record.ipsum}}</B.Td>
+          <B.Td>{{record.dolor}}</B.Td>
+        </B.Tr>
+      {{/each}}
+    </:body>
+  </Hds::Table>
 
   <Shw::Divider @level={{2}} />
 

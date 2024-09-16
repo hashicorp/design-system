@@ -70,6 +70,11 @@ export default class ComponentsTableController extends Controller {
   @deepTracked multiSelectSelectableData__demo5 = [
     ...this.model.selectableDataDemo5,
   ];
+  @tracked customSortBy_demo6 = undefined;
+  @tracked customSortOrder_demo6 = 'asc';
+  @deepTracked multiSelectSelectableData__demo6 = [
+    ...this.model.selectableDataDemo6,
+  ];
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -214,6 +219,51 @@ export default class ComponentsTableController extends Controller {
       });
     } else {
       const recordToUpdate = this.multiSelectSelectableData__demo5.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
+  }
+
+  // CUSTOM SORTING DEMO #6
+  // Sortable table with sorting by selected using yielded `<Tr>/<ThSort>`
+
+  get sortedMultiSelect__demo6() {
+    const clonedMultiSelect = Array.from(this.multiSelectSelectableData__demo6);
+    clonedMultiSelect.sort((s1, s2) => {
+      const v1 = s1[this.customSortBy_demo6];
+      const v2 = s2[this.customSortBy_demo6];
+      if (v1 < v2) {
+        return this.customSortOrder_demo6 === 'asc' ? -1 : 1;
+      }
+      if (v1 > v2) {
+        return this.customSortOrder_demo6 === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+    return clonedMultiSelect;
+  }
+
+  @action
+  customOnSort_demo6(sortBy, sortOrder) {
+    this.customSortBy_demo6 = sortBy;
+    this.customSortOrder_demo6 = sortOrder;
+  }
+
+  @action
+  onMultiSelectSelectionChange__demo6({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
+    if (selectionKey === 'all') {
+      this.multiSelectSelectableData__demo6.forEach((modelRow) => {
+        modelRow.isSelected = selectionCheckboxElement.checked;
+      });
+    } else {
+      const recordToUpdate = this.multiSelectSelectableData__demo6.find(
         (modelRow) => modelRow.id === selectionKey
       );
 
