@@ -34,14 +34,14 @@ export const ALIGNMENTS: string[] = Object.values(
 
 export interface HdsFormRadioCardSignature {
   Args: {
-    name: string;
-    value: string;
-    checked: boolean;
-    disabled: boolean;
-    controlPosition: HdsFormRadioCardControlPositions;
-    alignment: HdsFormRadioCardAlignments;
-    maxWidth: string;
-    extraAriaDescribedBy: string;
+    name?: string;
+    value?: string;
+    checked?: boolean;
+    disabled?: boolean;
+    controlPosition?: HdsFormRadioCardControlPositions;
+    alignment?: HdsFormRadioCardAlignments;
+    maxWidth?: string;
+    extraAriaDescribedBy?: string;
   };
   Blocks: {
     default: [

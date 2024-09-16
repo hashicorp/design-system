@@ -32,12 +32,12 @@ export interface HdsDropdownToggleButtonSignature {
   Args: {
     badge?: HdsBadgeSignature['Args']['text'];
     badgeIcon?: HdsBadgeSignature['Args']['icon'];
-    color: HdsDropdownToggleButtonColors;
+    color?: HdsDropdownToggleButtonColors;
     count?: HdsBadgeCountSignature['Args']['text'];
     icon?: HdsIconSignature['Args']['name'];
     isFullWidth?: boolean;
     isOpen?: boolean;
-    size: HdsDropdownToggleButtonSizes;
+    size?: HdsDropdownToggleButtonSizes;
     text: string;
     setupPrimitiveToggle?: ModifierLike<SetupPrimitiveToggleModifier>;
   };

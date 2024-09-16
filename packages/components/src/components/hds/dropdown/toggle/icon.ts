@@ -20,8 +20,8 @@ export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
 export interface HdsDropdownToggleIconSignature {
   Args: {
     hasChevron?: boolean;
-    icon: HdsIconSignature['Args']['name'];
-    imageSrc: string;
+    icon?: HdsIconSignature['Args']['name'];
+    imageSrc?: string;
     isOpen?: boolean;
     size?: HdsDropdownToggleIconSizes;
     text: string;
