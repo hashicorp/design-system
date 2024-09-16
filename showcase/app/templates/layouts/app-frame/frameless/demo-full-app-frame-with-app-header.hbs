@@ -3,7 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! @glint-nocheck: not typesafe yet }}
 {{page-title "AppFrame Component - Frameless"}}
 
 <Hds::AppFrame as |Frame|>
@@ -73,7 +72,7 @@
           <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
           <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
           <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+          <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
         </Hds::SideNav::List>
       </:body>
     </Hds::SideNav>
