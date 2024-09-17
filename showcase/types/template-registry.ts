@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import ShwAutoscrollable from '../app/components/shw/autoscrollable';
+import ShwAutoscrollable from '../app/components/shw/autoscrollable/index';
 import ShwDivider from '../app/components/shw/divider';
 import ShwFlex from '../app/components/shw/flex';
 import ShwFlexItem from '../app/components/shw/flex/item';
