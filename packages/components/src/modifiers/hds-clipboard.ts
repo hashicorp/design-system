@@ -120,9 +120,14 @@ export const writeTextToClipboard = async (
     } catch (error) {
       // clipboard write failed
       // this probably never happens (see comment above) or happens only for very old browsers that don't for which `navigator.clipboard` is undefined
-      warn('copy action failed, please check your browser‘s permissions', {
-        id: 'hds-clipboard.write-text-to-clipboard.catch-error',
-      });
+      warn(
+        `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
+          error
+        )}`,
+        {
+          id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+        }
+      );
       return false;
     }
   } else {
