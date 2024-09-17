@@ -87,8 +87,7 @@ export interface HdsTableSignature {
 }
 
 export default class HdsTable extends Component<HdsTableSignature> {
-  // eslint-disable-next-line ember/no-tracked-properties-from-args
-  @tracked sortBy = this.args.sortBy;
+  @tracked sortBy = this.args.sortBy ?? undefined;
   @tracked sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
   @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;

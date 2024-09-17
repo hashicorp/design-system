@@ -41,8 +41,7 @@ export interface HdsTableThSelectableSignature {
 }
 
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
-  // eslint-disable-next-line ember/no-tracked-properties-from-args
-  @tracked isSelected = this.args.isSelected;
+  @tracked isSelected = this.args.isSelected ?? false;
 
   guid = guidFor(this);
 
