@@ -25,8 +25,7 @@ interface HdsFormSuperSelectMultipleFieldSignature {
         HelperText?: ComponentLike<HdsFormHelperTextSignature>;
         Error?: ComponentLike<HdsFormErrorSignature>;
         Options?: ComponentLike<HdsYieldSignature>;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        options?: any;
+        options?: unknown;
         select?: PowerSelect;
       },
     ];
