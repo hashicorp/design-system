@@ -64,6 +64,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/code-block');
     await percySnapshot('CodeBlock');
 
+    await visit('/components/code-editor');
+    await percySnapshot('CodeEditor');
+
     await visit('/components/copy/button');
     await percySnapshot('CopyButton');
 
