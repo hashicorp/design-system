@@ -51,7 +51,7 @@ export interface HdsTableArgs {
     isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model: HdsTableModel;
+    model?: HdsTableModel;
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
