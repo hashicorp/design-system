@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2024-07-22T20:55:56.554Z",
+  "lastRunTimeISO": "2024-09-17T16:24:07.176Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -10481,6 +10481,26 @@
       "fileName": "beaker-16",
       "iconName": "beaker",
       "description": "beaker, lab, experiment, science, test",
+      "category": "Symbols",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6604:66",
+      "fileName": "bucket-24",
+      "iconName": "bucket",
+      "description": "bucket, bin, container",
+      "category": "Symbols",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6604:70",
+      "fileName": "bucket-16",
+      "iconName": "bucket",
+      "description": "bucket, bin, container",
       "category": "Symbols",
       "size": "16",
       "width": 16,
