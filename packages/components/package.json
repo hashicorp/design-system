@@ -54,6 +54,7 @@
     "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^3.0.1",
     "ember-truth-helpers": "^4.0.3",
+    "monaco-editor": "^0.51.0",
     "prismjs": "^1.29.0",
     "sass": "^1.69.5",
     "tippy.js": "^6.3.7"
