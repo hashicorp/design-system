@@ -502,6 +502,7 @@ export default class ComponentsTableController extends Controller {
     this.multiSelectUserData__demo4.forEach((user) => {
       user.isAnimated = user.isSelected;
     });
+    // eslint-disable-next-line ember/no-runloop
     later(() => {
       this.multiSelectResetUserAnimation_demo4();
     }, 5000);

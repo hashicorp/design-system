@@ -51,6 +51,7 @@ interface ShwAutoscrollableSignature {
 
 export default class ShwAutoscrollable extends Component<ShwAutoscrollableSignature> {
   autoscroll = modifier((element: HTMLElement) => {
+    // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, centerScrollableArea, {
       element: element,
       direction: this.args.direction ?? 'both',

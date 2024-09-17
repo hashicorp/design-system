@@ -33,6 +33,7 @@ export default class UtilitiesController extends Controller {
   }
 
   routeDidChange() {
+    // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, replaceMockStates);
   }
 

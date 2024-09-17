@@ -385,6 +385,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/eslint-parser@npm:7.23.10":
+  version: 7.23.10
+  resolution: "@babel/eslint-parser@npm:7.23.10"
+  dependencies:
+    "@nicolo-ribaudo/eslint-scope-5-internals": "npm:5.1.1-v1"
+    eslint-visitor-keys: "npm:^2.1.0"
+    semver: "npm:^6.3.1"
+  peerDependencies:
+    "@babel/core": ^7.11.0
+    eslint: ^7.5.0 || ^8.0.0
+  checksum: 10/eb62ad6a1098836331317be978ebd5991a9257d58118062f252b002e995b4f35b76a5dc976b07d84d21e64c8395587a044c5e6e444b3b69ab53e50a18facf2af
+  languageName: node
+  linkType: hard
+
 "@babel/eslint-parser@npm:^7.24.7":
   version: 7.24.7
   resolution: "@babel/eslint-parser@npm:7.24.7"
@@ -4289,7 +4303,7 @@ __metadata:
     ember-truth-helpers: "npm:^4.0.3"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
+    eslint-plugin-ember: "npm:^12.2.0"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-n: "npm:^17.7.0"
     eslint-plugin-prettier: "npm:^5.1.3"
@@ -4770,6 +4784,13 @@ __metadata:
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: 10/89960ac087781b961ad918978975bcdf2051cd1741880469783c42de64239703eab9db5230d776d8e6a09d73bb5e4cb964e07d93ee6e2e7aea5a7d726e865c09
+  languageName: node
+  linkType: hard
+
+"@jridgewell/sourcemap-codec@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@jridgewell/sourcemap-codec@npm:1.5.0"
+  checksum: 10/4ed6123217569a1484419ac53f6ea0d9f3b57e5b57ab30d7c267bdb27792a27eb0e4b08e84a2680aa55cc2f2b411ffd6ec3db01c44fdc6dc43aca4b55f8374fd
   languageName: node
   linkType: hard
 
@@ -13196,6 +13217,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-eslint-parser@npm:^0.4.3":
+  version: 0.4.3
+  resolution: "ember-eslint-parser@npm:0.4.3"
+  dependencies:
+    "@babel/eslint-parser": "npm:7.23.10"
+    "@glimmer/syntax": "npm:^0.92.0"
+    content-tag: "npm:^1.2.2"
+    eslint-scope: "npm:^7.2.2"
+    html-tags: "npm:^3.3.1"
+  peerDependencies:
+    "@babel/core": ^7.23.6
+    "@typescript-eslint/parser": "*"
+  peerDependenciesMeta:
+    "@typescript-eslint/parser":
+      optional: true
+  checksum: 10/b7dbc67611650d89f3fa1f9073ac5ec1d32ef09d966206925fd31328e85d8d0a8e5e9e522bd9bfaba98d75449d5ced82cc06220fffd2063ce94a0a0b3397a5d3
+  languageName: node
+  linkType: hard
+
 "ember-fetch@npm:^8.1.2":
   version: 8.1.2
   resolution: "ember-fetch@npm:8.1.2"
@@ -13486,7 +13526,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17":
+"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
   version: 0.3.18
   resolution: "ember-rfc176-data@npm:0.3.18"
   checksum: 10/14092fdfafa6dd56dddd6a61dc5a38abce9dcb521709d6fbd2bf36abea1914b4f2a22e0ab57fbcef1397ccd98ef9ccab937a6c1faa10840f3dc95e1c79dcc80b
@@ -14350,6 +14390,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-ember@npm:^12.2.0":
+  version: 12.2.0
+  resolution: "eslint-plugin-ember@npm:12.2.0"
+  dependencies:
+    "@ember-data/rfc395-data": "npm:^0.0.4"
+    css-tree: "npm:^2.3.1"
+    ember-eslint-parser: "npm:^0.4.3"
+    ember-rfc176-data: "npm:^0.3.18"
+    eslint-utils: "npm:^3.0.0"
+    estraverse: "npm:^5.3.0"
+    lodash.camelcase: "npm:^4.3.0"
+    lodash.kebabcase: "npm:^4.1.1"
+    requireindex: "npm:^1.2.0"
+    snake-case: "npm:^3.0.3"
+  peerDependencies:
+    "@typescript-eslint/parser": "*"
+    eslint: ">= 8"
+  peerDependenciesMeta:
+    "@typescript-eslint/parser":
+      optional: true
+  checksum: 10/1e10bb2b5fa391f263291286fe1da8702021802af95acd8c1d5fb927b1e2f457fadf71c779dbba0caf34220b6d02d1fbc403383d66449a905e2ddd32435d37e5
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-es-x@npm:^7.5.0":
   version: 7.6.0
   resolution: "eslint-plugin-es-x@npm:7.6.0"
@@ -14720,7 +14784,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"estraverse@npm:^5.1.0, estraverse@npm:^5.2.0":
+"estraverse@npm:^5.1.0, estraverse@npm:^5.2.0, estraverse@npm:^5.3.0":
   version: 5.3.0
   resolution: "estraverse@npm:5.3.0"
   checksum: 10/37cbe6e9a68014d34dbdc039f90d0baf72436809d02edffcc06ba3c2a12eb298048f877511353b130153e532aac8d68ba78430c0dd2f44806ebc7c014b01585e
@@ -19535,7 +19599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.1.1":
+"lodash.camelcase@npm:^4.1.1, lodash.camelcase@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: 10/c301cc379310441dc73cd6cebeb91fb254bea74e6ad3027f9346fc43b4174385153df420ffa521654e502fd34c40ef69ca4e7d40ee7129a99e06f306032bfc65
@@ -19850,7 +19914,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.0, magic-string@npm:^0.30.2":
+"magic-string@npm:^0.30.0":
+  version: 0.30.11
+  resolution: "magic-string@npm:0.30.11"
+  dependencies:
+    "@jridgewell/sourcemap-codec": "npm:^1.5.0"
+  checksum: 10/b784d2240252f5b1e755d487354ada4c672cbca16f045144f7185a75b059210e5fcca7be7be03ef1bac2ca754c4428b21d36ae64a9057ba429916f06b8c54eb2
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.30.2":
   version: 0.30.8
   resolution: "magic-string@npm:0.30.8"
   dependencies:
@@ -24846,7 +24919,7 @@ __metadata:
     ember-unique-id-helper-polyfill: "npm:^1.2.2"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
+    eslint-plugin-ember: "npm:^12.2.0"
     eslint-plugin-n: "npm:^16.6.2"
     eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-qunit: "npm:^8.1.1"
@@ -28119,7 +28192,7 @@ __metadata:
     ember-truth-helpers: "npm:^4.0.3"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
+    eslint-plugin-ember: "npm:^12.2.0"
     eslint-plugin-node: "npm:^11.1.0"
     eslint-plugin-prettier: "npm:^5.1.3"
     eslint-plugin-qunit: "npm:^8.1.1"
