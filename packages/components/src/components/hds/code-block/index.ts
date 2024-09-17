@@ -140,6 +140,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     const grammar = language ? Prism.languages[language] : undefined;
 
     if (code) {
+      // eslint-disable-next-line ember/no-runloop
       next(() => {
         if (language && grammar) {
           this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
@@ -158,6 +159,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
         if (this.args.highlightLines) {
           // we need to delay re-evaluating the context for prism-line-highlight for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
+          // eslint-disable-next-line ember/no-runloop
           schedule('afterRender', () => {
             // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
             if (window) window.dispatchEvent(new Event('resize'));

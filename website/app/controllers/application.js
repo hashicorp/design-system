@@ -24,7 +24,9 @@ export default class ApplicationController extends Controller {
   }
 
   routeDidChange() {
+    // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.resetSidebar);
+    // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, this.scrollToId);
   }
 
@@ -42,15 +44,18 @@ export default class ApplicationController extends Controller {
       document.body.classList.remove('isSidebarVisibleOnSmallViewport');
       document.body.classList.remove('isSidebarInRenderTree');
       if (this.runNext) {
+        // eslint-disable-next-line ember/no-runloop
         cancel(this.runNext);
       }
       if (this.runLater) {
+        // eslint-disable-next-line ember/no-runloop
         cancel(this.runLater);
       }
     }
   }
 
   scrollToId() {
+    // eslint-disable-next-line ember/no-runloop
     later(
       this,
       function () {
@@ -67,8 +72,10 @@ export default class ApplicationController extends Controller {
     if (!this.fastboot.isFastBoot) {
       document.body.classList.add('isSidebarInRenderTree');
       if (this.runLater) {
+        // eslint-disable-next-line ember/no-runloop
         cancel(this.runLater);
       }
+      // eslint-disable-next-line ember/no-runloop
       this.runNext = next(() => {
         document.body.classList.add('isSidebarVisibleOnSmallViewport');
       });
@@ -79,8 +86,10 @@ export default class ApplicationController extends Controller {
     if (!this.fastboot.isFastBoot) {
       document.body.classList.remove('isSidebarVisibleOnSmallViewport');
       if (this.runNext) {
+        // eslint-disable-next-line ember/no-runloop
         cancel(this.runNext);
       }
+      // eslint-disable-next-line ember/no-runloop
       this.runLater = later(() => {
         document.body.classList.remove('isSidebarInRenderTree');
       }, 250);
