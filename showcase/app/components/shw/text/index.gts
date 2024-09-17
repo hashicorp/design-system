@@ -4,8 +4,9 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { eq } from 'ember-truth-helpers';
+import didInsert from '@ember/render-modifiers/modifiers/did-insert';
 
 import { TextTagValues, TextAlignValues, TextWeightValues } from './types';
 
@@ -145,8 +146,7 @@ export default class ShwTextComponent extends Component<ShwTextSignature> {
     return classes.join(' ');
   }
 
-  @action
-  addHeadingLink(element: HTMLHeadingElement) {
+  addHeadingLink = (element: HTMLHeadingElement) => {
     const innerText = element.innerText;
     const sanitizedId = innerText
       .trim()
@@ -172,5 +172,47 @@ export default class ShwTextComponent extends Component<ShwTextSignature> {
     anchor.className = 'shw-page-heading-link';
     anchor.setAttribute('aria-labelledby', uniqueId);
     element.prepend(anchor);
-  }
+  };
+
+  <template>
+    {{#if (eq this.tag "h1")}}
+      <h1 class={{this.classNames}} ...attributes>{{yield}}</h1>
+    {{else if (eq this.tag "h2")}}
+      <h2
+        class={{this.classNames}}
+        {{didInsert this.addHeadingLink}}
+        ...attributes
+      >{{yield}}</h2>
+    {{else if (eq this.tag "h3")}}
+      <h3
+        class={{this.classNames}}
+        {{didInsert this.addHeadingLink}}
+        ...attributes
+      >{{yield}}</h3>
+    {{else if (eq this.tag "h4")}}
+      <h4
+        class={{this.classNames}}
+        {{didInsert this.addHeadingLink}}
+        ...attributes
+      >{{yield}}</h4>
+    {{else if (eq this.tag "h5")}}
+      <h5
+        class={{this.classNames}}
+        {{didInsert this.addHeadingLink}}
+        ...attributes
+      >{{yield}}</h5>
+    {{else if (eq this.tag "h6")}}
+      <h6
+        class={{this.classNames}}
+        {{didInsert this.addHeadingLink}}
+        ...attributes
+      >{{yield}}</h6>
+    {{else if (eq this.tag "p")}}
+      <p class={{this.classNames}} ...attributes>{{yield}}</p>
+    {{else if (eq this.tag "span")}}
+      <span class={{this.classNames}} ...attributes>{{yield}}</span>
+    {{else}}
+      <div class={{this.classNames}} ...attributes>{{yield}}</div>
+    {{/if}}
+  </template>
 }

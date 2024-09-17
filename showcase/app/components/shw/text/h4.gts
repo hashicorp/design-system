@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
+import ShwText from './index';
 import type { ShwTextSignature } from './index';
 
 export interface ShwTextH4Signature {
@@ -19,6 +20,14 @@ export interface ShwTextH4Signature {
   Element: ShwTextSignature['Element'];
 }
 
-const H4Component = templateOnlyComponent<ShwTextH4Signature>();
-
-export default H4Component;
+export default class ShwTextH4 extends Component<ShwTextH4Signature> {
+  <template>
+    <ShwText
+      @variant="h4"
+      @align={{@align}}
+      @weight={{@weight}}
+      @tag={{@tag}}
+      ...attributes
+    >{{yield}}</ShwText>
+  </template>
+}
