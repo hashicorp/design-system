@@ -1,5 +1,74 @@
 # @hashicorp/design-system-components
 
+## 4.11.0
+
+### Minor Changes
+
+`Hds::Table`
+
+- Added `@selectableColumnKey` argument which enables sorting by row selection state and specifies the corresponding selection state key.
+
+`Hds::Table::Tr`
+
+- Added `@selectableColumnKey` argument which enables sorting by row selection state and specifies the corresponding selection state key.
+- Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
+- Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
+
+`Hds::Table::ThSelectable`
+
+- Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
+- Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
+
+<small class="doc-whats-new-changelog-metadata">[#2387](https://github.com/hashicorp/design-system/pull/2387)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`SideNav`: remove usage of `Ember.testing` because it is deprecated.
+
+<small class="doc-whats-new-changelog-metadata">[#2403](https://github.com/hashicorp/design-system/pull/2403)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CopyButton` - Updated icon colors to match interactive states of the component.
+
+`CopySnippet` - Prevent the color from adhering to interactive states when
+status is `success` or `error`.
+
+`Stepper` - Updated to use semantic token over palette token in
+`Stepper::Indicator::Step`.
+
+<small class="doc-whats-new-changelog-metadata">[#2419](https://github.com/hashicorp/design-system/pull/2419)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown`, `RadioCard`, `SuperSelect`, `Stepper`, `Table` - Fixed optional arguments in signatures
+
+<small class="doc-whats-new-changelog-metadata">[#2421](https://github.com/hashicorp/design-system/pull/2421)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown::Toggle::Chevron` - fix subcomponent signature
+
+`hds-clipboard` modifier - extend error when copy action fails
+
+<small class="doc-whats-new-changelog-metadata">[#2418](https://github.com/hashicorp/design-system/pull/2418)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Hds::Pagination::Compact` & `Hds::Pagination::Numbered`
+
+- Added assertion and more strict typing to ensure that a routing argument (`@model`, `@models`, or `@route`) are present when using `@onPageChange` to control routing.
+
+<small class="doc-whats-new-changelog-metadata">[#2400](https://github.com/hashicorp/design-system/pull/2400)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.6.0
+
 ## 4.10.0
 
 ### Minor Changes

@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.6.0
+
+### Minor Changes
+
+`bucket` icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#2424](https://github.com/hashicorp/design-system/pull/2424)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.5.0
 
 ### Minor Changes

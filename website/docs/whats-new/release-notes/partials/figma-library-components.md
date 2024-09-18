@@ -12,6 +12,12 @@
 </p>
 
 
+### September 11th, 2024
+
+`Text Input` - Added support for types `Tel`, `Week` and `Month`.
+
+`Dropdown` - `ListItem Interactive` added support for the `Badge` component.
+
 ### August 2nd, 2024
 
 `AppHeader` - Added a new navigation component to contain global and utility navigation elements.
@@ -82,13 +88,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### July 31st, 2023
 
 `Field/Date`, `Field/Time`, `Field/Datetime` - Fixed the default width of the components to match the browser default.
-
-### July 13th, 2023
-
-Added new components:
-
-- `Accordion`
-- `MaskedInput`
 
 
 ---
