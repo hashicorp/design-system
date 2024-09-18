@@ -21,10 +21,10 @@ export const COLORS: string[] = Object.values(
 
 export interface HdsDropdownListItemInteractiveSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    color: HdsDropdownListItemInteractiveColors;
+    color?: HdsDropdownListItemInteractiveColors;
     icon?: HdsIconSignature['Args']['name'];
     isLoading?: boolean;
-    text: string;
+    text?: string;
     trailingIcon?: HdsIconSignature['Args']['name'];
   };
   Blocks: {

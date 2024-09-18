@@ -64,19 +64,19 @@ export interface HdsTableArgs {
   Blocks: {
     head?: [
       {
-        Tr: ComponentLike<HdsTableTrArgs>;
-        Th: ComponentLike<HdsTableThArgs>;
-        ThSort: ComponentLike<HdsTableThSortArgs>;
+        Tr?: ComponentLike<HdsTableTrArgs>;
+        Th?: ComponentLike<HdsTableThArgs>;
+        ThSort?: ComponentLike<HdsTableThSortArgs>;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
-        setSortBy: (column: string) => void;
+        setSortBy?: (column: string) => void;
       },
     ];
     body?: [
       {
-        Td: ComponentLike<HdsTableTdArgs>;
-        Tr: ComponentLike<HdsTableTrArgs>;
-        Th: ComponentLike<HdsTableThArgs>;
+        Td?: ComponentLike<HdsTableTdArgs>;
+        Tr?: ComponentLike<HdsTableTrArgs>;
+        Th?: ComponentLike<HdsTableThArgs>;
         data?: Record<string, unknown>;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;

@@ -6,7 +6,7 @@
   <C.Property @name="color" @type="enum" @values={{array "primary" "secondary" }} @default="primary">
     Sets the color of a link when `@route` or `@href` are set.
   </C.Property>
-  <C.Property @name="text" @type="string">
+  <C.Property @name="text" @type="string" @required={{true}}>
     The text of the Tag; or link text when the `@route` or `@href` are set. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">

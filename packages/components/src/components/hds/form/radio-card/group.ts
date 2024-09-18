@@ -17,8 +17,8 @@ import type {
 
 interface HdsFormRadioCardGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
-    controlPosition: HdsFormRadioCardControlPositions;
-    alignment: HdsFormRadioCardAlignments;
+    controlPosition?: HdsFormRadioCardControlPositions;
+    alignment?: HdsFormRadioCardAlignments;
     name?: string;
   };
   Blocks: {

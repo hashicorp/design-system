@@ -7,7 +7,7 @@ import templateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsDropdownFooterSignature {
   Args: {
-    hasDivider: boolean;
+    hasDivider?: boolean;
   };
   Blocks: {
     default: [];
