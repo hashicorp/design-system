@@ -57,6 +57,19 @@
     <SF.Item @label="With multiline value (template literal)">
       <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value={{this.multilineText2}} />
     </SF.Item>
+    <SF.Item @label="With long wrapping text (masked)">
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @value="Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat sed felis dictum taciti arcu senectus! Nulla mauris sollicitudin venenatis et leo; tortor facilisi penatibus. Tempor efficitur suspendisse sollicitudin netus sollicitudin sagittis euismod accumsan habitasse. Fusce nibh malesuada neque elementum venenatis risus platea montes. Risus vivamus maecenas hendrerit eu in ante potenti odio. Ex tellus cubilia fringilla condimentum velit; euismod dui. Ultricies lobortis senectus dis ut purus."
+      />
+    </SF.Item>
+    <SF.Item @label="With long wrapping text (in clear)">
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @isContentMasked={{false}}
+        @value="Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat sed felis dictum taciti arcu senectus! Nulla mauris sollicitudin venenatis et leo; tortor facilisi penatibus. Tempor efficitur suspendisse sollicitudin netus sollicitudin sagittis euismod accumsan habitasse. Fusce nibh malesuada neque elementum venenatis risus platea montes. Risus vivamus maecenas hendrerit eu in ante potenti odio. Ex tellus cubilia fringilla condimentum velit; euismod dui. Ultricies lobortis senectus dis ut purus."
+      />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level="2" />
