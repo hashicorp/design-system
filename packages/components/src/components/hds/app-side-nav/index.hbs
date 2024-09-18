@@ -19,7 +19,7 @@
       <div class="hds-app-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
       {{! template-lint-enable no-invalid-interactive}}
       <Hds::AppSideNav::ToggleButton
-        aria-label={{this.ariaLabel}}
+        aria-label={{this.toggleButtonAriaLabel}}
         @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
         {{on "click" this.toggleMinimizedStatus}}
       />
