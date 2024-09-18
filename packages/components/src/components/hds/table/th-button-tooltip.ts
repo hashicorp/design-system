@@ -16,11 +16,7 @@ export interface HdsTableThButtonTooltipArgs {
 }
 
 export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonTooltipArgs> {
-  /**
-   * Generates a unique ID for the (hidden) "label prefix" <span> element
-   *
-   * @param prefixLabelId
-   */
+  // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = guidFor(this);
 
   get tooltip(): string {
@@ -31,11 +27,6 @@ export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonT
     return this.args.tooltip;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-table__th-button', 'hds-table__th-button--tooltip'];
 

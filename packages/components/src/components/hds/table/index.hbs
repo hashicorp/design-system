@@ -14,6 +14,8 @@
     {{#if @columns}}
       <Hds::Table::Tr
         @selectionScope="col"
+        @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
+        @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
@@ -52,6 +54,8 @@
             didInsert=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
             selectionAriaLabelSuffix="all rows"
+            onClickSortBySelected=(if @selectableColumnKey (fn this.setSortBy @selectableColumnKey))
+            sortBySelectedOrder=(if (eq this.sortBy @selectableColumnKey) this.sortOrder)
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")

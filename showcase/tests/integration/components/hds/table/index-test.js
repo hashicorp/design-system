@@ -7,6 +7,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
@@ -409,6 +410,71 @@ module('Integration | Component | hds/table/index', function (hooks) {
     await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
+  });
+
+  test('it sorts by selected row when `@selectableColumnKey` is provided', async function (assert) {
+    const sortSpy = sinon.spy();
+
+    const sortBySelectedSelector =
+      '#data-test-table thead th[scope="col"] .hds-table__th-button--sort';
+
+    this.setProperties({
+      model: [
+        { id: 1, name: 'Bob', age: 1, isSelected: false },
+        { id: 2, name: 'Sally', age: 50, isSelected: true },
+        { id: 3, name: 'Jim', age: 30, isSelected: false },
+      ],
+      selectableColumnKey: 'isSelected',
+      onSort: sortSpy,
+    });
+    this.set('onSelectionChange', ({ selectionKey }) => {
+      const recordToUpdate = this.model.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    });
+
+    await render(hbs`
+      <Hds::Table
+        id="data-test-table"
+        @isSelectable={{true}}
+        @selectableColumnKey={{this.selectableColumnKey}}
+        @onSelectionChange={{this.onSelectionChange}}
+        @onSort={{this.onSort}}
+        @model={{this.model}}
+        @columns={{array
+          (hash key="name" label="Name")
+          (hash key="age" label="Age")
+        }}
+      >
+        <:body as |B|>
+          <B.Tr
+            @selectionKey={{B.data.id}}
+            @isSelected={{B.data.isSelected}}
+          >
+            <B.Td>{{B.data.name}}</B.Td>
+            <B.Td>{{B.data.age}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+
+    assert.dom(sortBySelectedSelector).exists();
+    assert
+      .dom('#data-test-table tbody tr:nth-of-type(3) td:nth-of-type(1)')
+      .hasText('Jim');
+
+    await click(sortBySelectedSelector);
+    assert
+      .dom('#data-test-table tbody tr:nth-of-type(3) td:nth-of-type(1)')
+      .hasText('Sally');
+
+    assert.ok(
+      sortSpy.calledWith(this.selectableColumnKey, 'asc'),
+      'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column'
+    );
   });
 
   // Multi-select

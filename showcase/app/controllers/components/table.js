@@ -41,6 +41,7 @@ export default class ComponentsTableController extends Controller {
   @tracked customSortOrder_demo2 = 'asc';
   @tracked customSortBy_demo3 = undefined;
   @tracked customSortOrder_demo3 = 'asc';
+
   // multi-select
   @tracked multiSelectFilterRows__demo1 = 'all';
   @tracked multiSelectToggleScope__demo1 = false;
@@ -67,8 +68,14 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
-
-  debugger;
+  @deepTracked multiSelectSelectableData__demo5 = [
+    ...this.model.selectableDataDemo5,
+  ];
+  @tracked customSortBy_demo6 = undefined;
+  @tracked customSortOrder_demo6 = 'asc';
+  @deepTracked multiSelectSelectableData__demo6 = [
+    ...this.model.selectableDataDemo6,
+  ];
 
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
@@ -198,6 +205,74 @@ export default class ComponentsTableController extends Controller {
     }
     return clonedModelClusters;
   };
+
+  // CUSTOM SORTING DEMO #5
+  // Sortable table with model and sorting by selected row
+
+  @action
+  onMultiSelectSelectionChange__demo5({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
+    if (selectionKey === 'all') {
+      this.multiSelectSelectableData__demo5.forEach((modelRow) => {
+        modelRow.isSelected = selectionCheckboxElement.checked;
+      });
+    } else {
+      const recordToUpdate = this.multiSelectSelectableData__demo5.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
+  }
+
+  // CUSTOM SORTING DEMO #6
+  // Sortable table with sorting by selected using yielded `<Tr>/<ThSort>`
+
+  get sortedMultiSelect__demo6() {
+    const clonedMultiSelect = Array.from(this.multiSelectSelectableData__demo6);
+    clonedMultiSelect.sort((s1, s2) => {
+      const v1 = s1[this.customSortBy_demo6];
+      const v2 = s2[this.customSortBy_demo6];
+      if (v1 < v2) {
+        return this.customSortOrder_demo6 === 'asc' ? -1 : 1;
+      }
+      if (v1 > v2) {
+        return this.customSortOrder_demo6 === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
+    return clonedMultiSelect;
+  }
+
+  @action
+  customOnSort_demo6(sortBy, sortOrder) {
+    this.customSortBy_demo6 = sortBy;
+    this.customSortOrder_demo6 = sortOrder;
+  }
+
+  @action
+  onMultiSelectSelectionChange__demo6({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
+    if (selectionKey === 'all') {
+      this.multiSelectSelectableData__demo6.forEach((modelRow) => {
+        modelRow.isSelected = selectionCheckboxElement.checked;
+      });
+    } else {
+      const recordToUpdate = this.multiSelectSelectableData__demo6.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = !recordToUpdate.isSelected;
+      }
+    }
+  }
 
   // GENERIC MULTI-SELECT FUNCTIONALITIES
 
@@ -437,5 +512,10 @@ export default class ComponentsTableController extends Controller {
     this.multiSelectUserData__demo4.forEach((user) => {
       user.isAnimated = false;
     });
+  }
+
+  @action
+  noop() {
+    // no-op
   }
 }

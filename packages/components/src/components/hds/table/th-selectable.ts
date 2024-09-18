@@ -7,8 +7,16 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import {
+  HdsTableThSortOrderValues,
+  HdsTableThSortOrderLabelValues,
+} from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableScope } from './types';
+import type {
+  HdsTableScope,
+  HdsTableThSortOrder,
+  HdsTableThSortOrderLabels,
+} from './types';
 import type { HdsTableThArgs } from './th';
 
 export interface HdsTableThSelectableArgs {
@@ -18,6 +26,7 @@ export interface HdsTableThSelectableArgs {
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
+    onClickSortBySelected?: () => void;
     onSelectionChange: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
@@ -25,6 +34,7 @@ export interface HdsTableThSelectableArgs {
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope: HdsTableScope;
+    sortBySelectedOrder?: HdsTableThSortOrder;
     willDestroy: (selectionKey?: string) => void;
   };
   Element: HdsTableThArgs['Element'];
@@ -33,11 +43,14 @@ export interface HdsTableThSelectableArgs {
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableArgs> {
   @tracked isSelected = this.args.isSelected;
 
-  /**
-   * Generate a unique ID for the Checkbox
-   * @return {string}
-   */
-  checkboxId = 'checkbox-' + guidFor(this);
+  guid = guidFor(this);
+
+  checkboxId = `checkbox-${this.guid}`;
+  labelId = `label-${this.guid}`;
+
+  get isSortable(): boolean {
+    return this.args.onClickSortBySelected !== undefined;
+  }
 
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix } = this.args;
@@ -46,6 +59,18 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
       return `${prefix} ${selectionAriaLabelSuffix}`;
     } else {
       return prefix;
+    }
+  }
+
+  get ariaSort(): HdsTableThSortOrderLabels | undefined {
+    switch (this.args.sortBySelectedOrder) {
+      case HdsTableThSortOrderValues.Asc:
+        return HdsTableThSortOrderLabelValues.Asc;
+      case HdsTableThSortOrderValues.Desc:
+        return HdsTableThSortOrderLabelValues.Desc;
+      default:
+        // none is the default per the spec.
+        return HdsTableThSortOrderLabelValues.None;
     }
   }
 

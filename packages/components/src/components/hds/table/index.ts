@@ -23,6 +23,7 @@ import type {
   HdsTableSortingFunction,
   HdsTableThSortOrder,
   HdsTableVerticalAlignment,
+  HdsTableModel,
 } from './types';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type { HdsTableTdArgs } from './td.ts';
@@ -50,11 +51,12 @@ export interface HdsTableArgs {
     isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
-    model: Array<Record<string, unknown>>;
+    model?: HdsTableModel;
     onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
+    selectableColumnKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsTableThSortOrder;
     valign?: HdsTableVerticalAlignment;

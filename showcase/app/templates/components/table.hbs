@@ -8,7 +8,6 @@
 <Shw::Text::H1>Table</Shw::Text::H1>
 
 <section data-test-percy>
-
   <Shw::Text::H2>Data model</Shw::Text::H2>
 
   <Shw::Text::H4 @tag="h3">Table with model</Shw::Text::H4>
@@ -489,6 +488,74 @@
         <B.Td>Cell Content</B.Td>
         <B.Td>Cell Content</B.Td>
       </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  {{! ================================================= }}
+  {{! ===== DEMO #5 - SORT BY SELECTED WITH MODEL ===== }}
+  {{! ================================================= }}
+
+  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @selectableColumnKey="isSelected"
+    @onSelectionChange={{this.onMultiSelectSelectionChange__demo5}}
+    @model={{this.multiSelectSelectableData__demo5}}
+    @columns={{array
+      (hash key="lorem" label="Row #" isSortable=true)
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  {{! ============================================================= }}
+  {{! ===== DEMO #6 - SORT BY SELECTED WITH YIELDED TR/THSORT ===== }}
+  {{! ============================================================= }}
+
+  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item using yielded
+    <code>&lt;Tr&gt;</code>
+    +
+    <code>&lt;ThSort&gt;</code>
+  </Shw::Text::H4>
+
+  <Hds::Table
+    @isSelectable={{true}}
+    @selectableColumnKey="isSelected"
+    @onSelectionChange={{this.onMultiSelectSelectionChange__demo6}}
+    @onSort={{this.customOnSort_demo6}}
+  >
+    <:head as |H|>
+      <H.Tr>
+        <H.ThSort @onClickSort={{fn H.setSortBy "lorem"}} @sortOrder={{if (eq "lorem" H.sortBy) H.sortOrder}}>Row #</H.ThSort>
+        <H.Th>Ipsum</H.Th>
+        <H.Th>Dolor</H.Th>
+      </H.Tr>
+    </:head>
+    <:body as |B|>
+      {{#each this.sortedMultiSelect__demo6 as |record|}}
+        <B.Tr
+          @selectionKey={{record.id}}
+          @isSelected={{record.isSelected}}
+          @selectionAriaLabelSuffix="row #{{record.lorem}}"
+        >
+          <B.Td>{{record.lorem}}</B.Td>
+          <B.Td>{{record.ipsum}}</B.Td>
+          <B.Td>{{record.dolor}}</B.Td>
+        </B.Tr>
+      {{/each}}
     </:body>
   </Hds::Table>
 
@@ -1422,18 +1489,79 @@
 
   <Shw::Flex @direction="row" @gap="2rem" as |SF|>
     {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool1|}}
+        {{#each booleans as |bool2|}}
+          <SF.Item @label="{{if bool1 'Selected' 'Deselected'}} {{if bool2 ' with sort'}}">
+            <Hds::Table>
+              <:head as |H|>
+                <H.Tr>
+                  <Hds::Table::ThSelectable
+                    @selectionScope="col"
+                    @isSelected={{bool1}}
+                    @onClickSort={{if bool2 this.noop}}
+                  />
+                  <H.Th>Lorem</H.Th>
+                </H.Tr>
+              </:head>
+              <:body as |B|>
+                <B.Tr>
+                  <Hds::Table::ThSelectable @selectionScope="row" @isSelected={{bool1}} />
+                  <B.Td>Ipsum</B.Td>
+                </B.Tr>
+              </:body>
+            </Hds::Table>
+            <br />
+            <Hds::Table>
+              <:head as |H|>
+                <H.Tr>
+                  <Hds::Table::ThSelectable
+                    @selectionScope="col"
+                    @isSelected={{bool1}}
+                    @onClickSort={{if bool2 this.noop}}
+                    mock-state-value="focus"
+                    mock-state-selector="input"
+                  />
+                  <H.Th>Lorem</H.Th>
+                </H.Tr>
+              </:head>
+              <:body as |B|>
+                <B.Tr>
+                  <Hds::Table::ThSelectable
+                    @selectionScope="row"
+                    @isSelected={{bool1}}
+                    mock-state-value="focus"
+                    mock-state-selector="input"
+                  />
+                  <B.Td>Ipsum</B.Td>
+                </B.Tr>
+              </:body>
+            </Hds::Table>
+          </SF.Item>
+        {{/each}}
+      {{/each}}
+    {{/let}}
+    {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
-        <SF.Item @label={{if bool "Selected" "Deselected"}}>
+        <SF.Item @label="Indeterminate {{if bool ' with sort'}}">
           <Hds::Table>
             <:head as |H|>
               <H.Tr>
-                <Hds::Table::ThSelectable @selectionScope="col" @isSelected={{bool}} />
+                <Hds::Table::ThSelectable
+                  @selectionScope="col"
+                  @isSelected={{true}}
+                  @onClickSort={{if bool this.noop}}
+                  @didInsert={{this.mockIndeterminateState}}
+                />
                 <H.Th>Lorem</H.Th>
               </H.Tr>
             </:head>
             <:body as |B|>
-              <B.Tr>
-                <Hds::Table::ThSelectable @selectionScope="row" @isSelected={{bool}} />
+              <B.Tr @selectionKey="row">
+                <Hds::Table::ThSelectable
+                  @selectionScope="row"
+                  @isSelected={{false}}
+                  @didInsert={{this.mockIndeterminateState}}
+                />
                 <B.Td>Ipsum</B.Td>
               </B.Tr>
             </:body>
@@ -1444,7 +1572,9 @@
               <H.Tr>
                 <Hds::Table::ThSelectable
                   @selectionScope="col"
-                  @isSelected={{bool}}
+                  @isSelected={{true}}
+                  @didInsert={{this.mockIndeterminateState}}
+                  @onClickSort={{if bool this.noop}}
                   mock-state-value="focus"
                   mock-state-selector="input"
                 />
@@ -1455,7 +1585,8 @@
               <B.Tr>
                 <Hds::Table::ThSelectable
                   @selectionScope="row"
-                  @isSelected={{bool}}
+                  @isSelected={{false}}
+                  @didInsert={{this.mockIndeterminateState}}
                   mock-state-value="focus"
                   mock-state-selector="input"
                 />
@@ -1466,57 +1597,6 @@
         </SF.Item>
       {{/each}}
     {{/let}}
-    <SF.Item @label="Indeterminate">
-      <Hds::Table>
-        <:head as |H|>
-          <H.Tr>
-            <Hds::Table::ThSelectable
-              @selectionScope="col"
-              @isSelected={{true}}
-              @didInsert={{this.mockIndeterminateState}}
-            />
-            <H.Th>Lorem</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr @selectionKey="row">
-            <Hds::Table::ThSelectable
-              @selectionScope="row"
-              @isSelected={{false}}
-              @didInsert={{this.mockIndeterminateState}}
-            />
-            <B.Td>Ipsum</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-      <br />
-      <Hds::Table>
-        <:head as |H|>
-          <H.Tr>
-            <Hds::Table::ThSelectable
-              @selectionScope="col"
-              @isSelected={{true}}
-              @didInsert={{this.mockIndeterminateState}}
-              mock-state-value="focus"
-              mock-state-selector="input"
-            />
-            <H.Th>Lorem</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr>
-            <Hds::Table::ThSelectable
-              @selectionScope="row"
-              @isSelected={{false}}
-              @didInsert={{this.mockIndeterminateState}}
-              mock-state-value="focus"
-              mock-state-selector="input"
-            />
-            <B.Td>Ipsum</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
-    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
