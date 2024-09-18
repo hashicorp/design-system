@@ -5,12 +5,17 @@ caption: Used to display organized, two-dimensional tabular data.
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=18814%3A54972&t=XC8SUxxJOFHgqYzK-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
-related: ['components/pagination','patterns/filter-patterns','patterns/table-multi-select']
+related:
+  [
+    'components/pagination',
+    'patterns/filter-patterns',
+    'patterns/table-multi-select',
+  ]
 previewImage: assets/illustrations/components/table.jpg
 navigation:
   keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
 status:
-  updated: 4.10.0
+  updated: 4.11.0
 ---
 
 <section data-tab="Guidelines">
@@ -41,5 +46,6 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.11.0.md"
   @include "partials/version-history/4.10.0.md"
 </section>

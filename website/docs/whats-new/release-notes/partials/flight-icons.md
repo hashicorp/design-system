@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.6.0
+
+**Minor changes**
+
+`bucket` icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#2424](https://github.com/hashicorp/design-system/pull/2424)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.5.0
 
 **Minor changes**
@@ -225,14 +235,6 @@ Added `robot` icon (for Service Principals)
 Fix color for `connection-gateway` icon
 
 <small class="doc-whats-new-changelog-metadata">[#1420](https://github.com/hashicorp/design-system/pull/1420)</small>
-
-## 2.13.0
-
-**Minor changes**
-
-Added `ampersand` icon
-
-<small class="doc-whats-new-changelog-metadata">[#1412](https://github.com/hashicorp/design-system/pull/1412)</small>
 
 
 ---
