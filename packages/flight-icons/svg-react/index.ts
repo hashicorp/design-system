@@ -1046,6 +1046,8 @@ export { IconAmpersand24 } from './ampersand-24';
 export { IconAmpersand16 } from './ampersand-16';
 export { IconBeaker24 } from './beaker-24';
 export { IconBeaker16 } from './beaker-16';
+export { IconBucket24 } from './bucket-24';
+export { IconBucket16 } from './bucket-16';
 export { IconBulb24 } from './bulb-24';
 export { IconBulb16 } from './bulb-16';
 export { IconCircle24 } from './circle-24';
