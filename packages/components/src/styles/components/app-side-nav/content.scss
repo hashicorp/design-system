@@ -81,7 +81,6 @@
   padding: var(--token-app-side-nav-body-list-item-padding-vertical) var(--token-app-side-nav-body-list-item-padding-horizontal);
   color: var(--token-app-side-nav-color-foreground-primary);
   text-decoration: none;
-  background: var(--token-app-side-nav-color-surface-primary);
   // "Link" could render as an HTML button element so this overrides the default border style in that case:
   border-color: transparent;
   border-radius: var(--token-app-side-nav-body-list-item-border-radius);
