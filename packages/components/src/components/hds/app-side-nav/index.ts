@@ -16,9 +16,7 @@ interface HdsAppSideNavSignature {
     isCollapsible?: boolean;
     isMinimized?: boolean;
     ariaLabel?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
