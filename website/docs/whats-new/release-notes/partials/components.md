@@ -14,6 +14,8 @@
 
 ## 4.11.0
 
+[4.11.0 documentation](https://hds-website-4-11-0.vercel.app/)
+
 **Minor changes**
 
 `Hds::Table`
@@ -82,6 +84,8 @@ status is `success` or `error`.
 - @hashicorp/flight-icons@3.6.0
 
 ## 4.10.0
+
+[4.10.0 documentation](https://hds-website-4-10-0.vercel.app/)
 
 **Minor changes**
 
@@ -945,7 +949,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
+  'node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css'
 );
 ```
 
@@ -1117,7 +1121,6 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 
 - @hashicorp/design-system-tokens@1.10.0
 - @hashicorp/ember-flight-icons@4.0.6
-
 
 ---
 
