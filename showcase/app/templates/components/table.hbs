@@ -141,36 +141,6 @@
     </:body>
   </Hds::Table>
 
-  {{! ================================================== }}
-  {{! ===== DEMO #5 - SORT BY SELECTED ===== }}
-  {{! ================================================== }}
-
-  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
-
-  <Hds::Table
-    @isSelectable={{true}}
-    @sortBySelectedItemKey="isSelected"
-    @onSelectionChange={{this.onSelectionChange__demo5}}
-    @model={{this.selectableData__demo5}}
-    @columns={{array
-      (hash key="lorem" label="Row #" isSortable=true)
-      (hash key="ipsum" label="Ipsum")
-      (hash key="dolor" label="Dolor")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr
-        @selectionKey={{B.data.id}}
-        @isSelected={{B.data.isSelected}}
-        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
-      >
-        <B.Td>{{B.data.lorem}}</B.Td>
-        <B.Td>{{B.data.ipsum}}</B.Td>
-        <B.Td>{{B.data.dolor}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::Table>
-
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Custom sorting</Shw::Text::H3>

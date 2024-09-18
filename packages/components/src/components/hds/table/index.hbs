@@ -13,10 +13,6 @@
   <thead class="hds-table__thead">
     {{#if @columns}}
       <Hds::Table::Tr
-        @sortBySelectedItemKey={{@sortBySelectedItemKey}}
-        @onClickSortBySelected={{if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey)}}
-        {{!-- new above --}}
-        @sortOrder={{if (eq this.sortBy @sortBySelectedItemKey) this.sortOrder}}
         @selectionScope="col"
         @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
         @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
@@ -52,8 +48,6 @@
         (hash
           Tr=(component
             "hds/table/tr"
-            sortBySelectedItemKey=@sortBySelectedItemKey
-            onClickSortBySelected=(if @sortBySelectedItemKey (fn this.setSortBy @sortBySelectedItemKey))
             selectionScope="col"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionAllChange

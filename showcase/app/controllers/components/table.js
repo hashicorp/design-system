@@ -77,26 +77,6 @@ export default class ComponentsTableController extends Controller {
     ...this.model.selectableDataDemo6,
   ];
 
-  // Sorting by selected row
-  @deepTracked selectableData__demo5 = [...this.model.selectableDataDemo5];
-
-  @action
-  onSelectionChange__demo5({ selectionKey, selectionCheckboxElement }) {
-    if (selectionKey === 'all') {
-      this.selectableData__demo5.forEach((modelRow) => {
-        modelRow.isSelected = selectionCheckboxElement.checked;
-      });
-    } else {
-      const recordToUpdate = this.selectableData__demo5.find(
-        (modelRow) => modelRow.id === selectionKey
-      );
-
-      if (recordToUpdate) {
-        recordToUpdate.isSelected = !recordToUpdate.isSelected;
-      }
-    }
-  }
-
   // CUSTOM SORTING DEMO #1
   // Sortable table with custom sorting done via extra key added to the data model
 
