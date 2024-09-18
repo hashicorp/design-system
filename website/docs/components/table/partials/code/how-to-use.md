@@ -640,14 +640,14 @@ While it’s technically possible to use the multi-select feature in a table imp
 
 ### Sorting by selected
 
-To enable sorting by selected rows in a table, you need to set `@sortBySelectedItemKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
+To enable sorting by selected rows in a table, you need to set `@selectableColumnKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
 
 In the demo below, we set up a multi-select table that can be sorted based on the selection state of its rows.
 
 ```handlebars
 <Hds::Table
   @isSelectable={{true}}
-  @sortBySelectedItemKey="isSelected"
+  @selectableColumnKey="isSelected"
   @onSelectionChange={{this.demoOnSelectionChangeSortBySelected}}
   @model={{this.demoSortBySelectedData}}
   @columns={{array
