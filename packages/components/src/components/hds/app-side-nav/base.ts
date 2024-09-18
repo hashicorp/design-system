@@ -7,14 +7,10 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAppSideNavBaseSignature {
   Blocks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    root?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    header?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    body?: any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    footer?: any;
+    root?: [];
+    header?: [];
+    body?: [];
+    footer?: [];
   };
   Element: HTMLDivElement;
 }
