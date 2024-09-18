@@ -701,6 +701,46 @@ demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
 
+#### Multi-select table with external select-all across multiple pages
+
+```handlebars
+<div class="shw-component-table-demo-topbar">
+  <div class="shw-component-table-demo-topbar__action">
+    <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
+  </div>
+</div>
+
+<div class="doc-table-multiselect-external-select-all-demo">
+  <Hds::Table
+    @isSelectable={{true}}
+    @onSelectionChange={{this.demoOnSelectionChangeWithPagination}}
+    @model={{this.demoPaginatedData}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+  <Hds::Pagination::Numbered
+    @totalItems={{this.demoTotalItems}}
+    @currentPage={{this.demoCurrentPage}}
+    @pageSizes={{array 2 4}}
+    @currentPageSize={{this.demoCurrentPageSize}}
+    @onPageChange={{this.demoOnPageChange}}
+    @onPageSizeChange={{this.demoOnPageSizeChange}}
+    @ariaLabel="Pagination for multi-select table"
+  />
+</div>
+```
+
 #### Usability and accessibility considerations
 
 Since the “selected” state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
