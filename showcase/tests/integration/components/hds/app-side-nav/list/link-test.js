@@ -42,7 +42,10 @@ module(
       await render(
         hbs`<Hds::AppSideNav::List::Link @isActive={{true}} id="test-app-side-nav-link" />`
       );
-      assert.dom('#test-app-side-nav-link').hasClass('active');
+      assert
+        .dom('#test-app-side-nav-link')
+        .hasAttribute('aria-current', 'page')
+        .hasClass('active');
     });
 
     test('it renders the passed in custom content', async function (assert) {
