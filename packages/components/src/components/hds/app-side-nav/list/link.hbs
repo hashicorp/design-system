@@ -6,6 +6,7 @@
 <Hds::AppSideNav::List::Item>
   <Hds::Interactive
     class="hds-app-side-nav__list-item-link {{if @isActive 'active'}}"
+    tabindex={{if @isActive "-1"}}
     @current-when={{@current-when}}
     @models={{hds-link-to-models @model @models}}
     @query={{hds-link-to-query @query}}
