@@ -7,28 +7,15 @@ import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
-import codemirror from 'codemirror';
-
-import 'codemirror/mode/go/go';
-import 'codemirror/mode/javascript/javascript';
-import 'codemirror/mode/markdown/markdown';
-import 'codemirror/mode/yaml/yaml';
-import 'codemirror/mode/shell/shell';
-import 'codemirror/addon/edit/matchbrackets';
-import 'codemirror/addon/edit/closebrackets';
-import 'codemirror/addon/selection/active-line';
-
-// Here we define default options for the editor.
-// These should follow the codemirror configuration types
-// https://codemirror.net/doc/manual.html#config
-const PRESET_DEFAULTS = {
-  theme: 'dracula',
-  lineNumbers: true,
-  cursorBlinkRate: 500,
-  matchBrackets: true,
-  autoCloseBrackets: true,
-  styleActiveLine: true,
-};
+import {
+  lineNumbers,
+  highlightActiveLineGutter,
+  highlightSpecialChars,
+  drawSelection,
+  highlightActiveLine,
+  EditorView,
+} from '@codemirror/view';
+import { EditorState } from '@codemirror/state';
 
 interface HdsCodeEditorSignature {
   Args: {
@@ -37,13 +24,13 @@ interface HdsCodeEditorSignature {
       onInput?: (newVal: string) => void;
 
       /** Called when editor loses focus */
-      onBlur?: (editor: codemirror.Editor, event: FocusEvent) => void;
+      onBlur?: (editor: EditorView, event: FocusEvent) => void;
 
       /**
        * See documentation for codemirror configuration types:
        * https://codemirror.net/doc/manual.html#config
        * */
-      options?: codemirror.EditorConfiguration;
+      // options?: codemirror.EditorConfiguration;
 
       /** Code contents to display in editor */
       value: string;
@@ -53,7 +40,7 @@ interface HdsCodeEditorSignature {
 
 function cleanup(instance: HdsCodeEditorModifier) {
   const { editor, element, observer, onChange } = instance;
-  editor.off('change', onChange);
+  // editor.off('change', onChange);
   observer.unobserve(element);
 }
 
@@ -78,7 +65,7 @@ function cleanup(instance: HdsCodeEditorModifier) {
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   didSetup = false;
 
-  editor!: codemirror.Editor;
+  editor!: EditorView;
   element!: HTMLElement;
 
   // Codemirror does not render if it's not visible so we'll watch for the
@@ -88,7 +75,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     (entries) => {
       entries.forEach((entry) => {
         if (entry.intersectionRatio > 0) {
-          this.editor?.refresh();
+          // this.editor?.refresh();
         }
       });
     },
@@ -123,25 +110,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     _positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
-    const { onInput, onBlur, options = {}, value } = named;
+    const {
+      onInput,
+      onBlur,
+      // options = {},
+      value,
+    } = named;
+    const extensions = [
+      lineNumbers(),
+      highlightActiveLineGutter(),
+      highlightSpecialChars(),
+      drawSelection(),
+      highlightActiveLine(),
+      // EditorState.readOnly.of(true),
+    ];
+    const state = EditorState.create({ doc: value, extensions });
     this.onInput = onInput;
     this.onBlur = onBlur;
-    this.editor = codemirror(element, {
-      ...PRESET_DEFAULTS,
-      ...options,
-      value,
-    });
+    this.editor = new EditorView({ state: state, parent: element });
     this.element = element;
-    this.editor.on('change', this.onChange.bind(this));
-    if (this.onBlur) {
-      this.editor.on('blur', this.onBlur);
-    }
-    this.observer.observe(element);
   }
 
-  onChange(editor: codemirror.Editor) {
-    const newVal = editor.getValue();
-    this.onInput && this.onInput(newVal);
+  onChange(editor: EditorView) {
+    // const newVal = editor.getValue();
+    // this.onInput && this.onInput(newVal);
   }
 
   #update(
@@ -151,8 +143,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ) {
     const { value } = named;
 
-    if (this?.editor?.getValue() !== value) {
-      this.editor?.setValue(value);
-    }
+    // if (this?.editor?.getValue() !== value) {
+    //   this.editor?.setValue(value);
+    // }
   }
 }
