@@ -35,6 +35,8 @@
     "lint:js:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@codemirror/state": "^6.4.1",
+    "@codemirror/view": "^6.33.0",
     "@ember/render-modifiers": "^2.0.5",
     "@ember/string": "^3.1.1",
     "@ember/test-waiters": "^3.1.0",
