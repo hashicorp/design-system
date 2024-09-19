@@ -200,6 +200,7 @@ import type HdsFormatRelativeHelper from './helpers/hds-format-relative.ts';
 
 // modifiers
 import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
+import type HdsCodeEditorModifier from './modifiers/hds-code-editor.ts';
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
@@ -883,6 +884,9 @@ export default interface HdsComponentsRegistry {
 
   // hds-anchored-position
   'hds-anchored-position': typeof HdsAnchoredPositionModifier;
+
+  // hds-register-event
+  'hds-code-editor': typeof HdsCodeEditorModifier;
 
   // hds-clipboard
   'hds-clipboard': typeof HdsClipboardModifier;
