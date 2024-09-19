@@ -90,10 +90,12 @@ export default class Index extends Component {
       'badge-color': 'critical',
     },
   ];
-  @tracked demoSortBySelectedData = [...this.model.myDemoData].map((row) => ({
-    ...row,
-    isSelected: false,
-  }));
+  @tracked demoSortBySelectedData = [...this.demoSourceData].map(
+    (row, index) => ({
+      ...row,
+      isSelected: index % 2 === 0,
+    })
+  );
 
   get model() {
     return { myDemoData: this.demoSourceData };

@@ -638,7 +638,7 @@ While it’s technically possible to use the multi-select feature in a table imp
 
 !!!
 
-### Sorting by selected
+#### Multi-select table with sorting by selection state
 
 To enable sorting by selected rows in a table, you need to set `@selectableColumnKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
 
