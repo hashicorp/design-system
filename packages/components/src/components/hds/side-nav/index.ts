@@ -141,6 +141,16 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     return classes.join(' ');
   }
 
+  synchronizeInert(): void {
+    this.containersToHide?.forEach((element): void => {
+      if (this.isMinimized) {
+        element.setAttribute('inert', '');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+  }
+
   @action
   escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
@@ -152,13 +162,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
   toggleMinimizedStatus(): void {
     this.isMinimized = !this.isMinimized;
 
-    this.containersToHide.forEach((element): void => {
-      if (this.isMinimized) {
-        element.setAttribute('inert', '');
-      } else {
-        element.removeAttribute('inert');
-      }
-    });
+    this.synchronizeInert();
 
     const { onToggleMinimizedStatus } = this.args;
 
@@ -194,13 +198,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     // automatically minimize on narrow viewports (when not in desktop mode)
     this.isMinimized = !this.isDesktop;
 
-    this.containersToHide?.forEach((element): void => {
-      if (this.isMinimized) {
-        element.setAttribute('inert', '');
-      } else {
-        element.removeAttribute('inert');
-      }
-    });
+    this.synchronizeInert();
 
     const { onDesktopViewportChange } = this.args;
 
