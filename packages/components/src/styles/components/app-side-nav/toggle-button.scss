@@ -41,13 +41,13 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    background: #fff; // prevent semi-transparent borders from overlaying each other visually
+    background: inherit;
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
     box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
     content: "";
-    clip-path: polygon(0% 0%, 0 100%, 54% 100%, 23% 82%, 10% 65%, 10% 0); // prevents white background from showing
+    clip-path: polygon(0% 0%, 0 100%, 50% 100%, 23% 82%, 10% 60%, 0% 70%); // prevents background from showing
   }
 
   &::after {
@@ -57,14 +57,14 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    background: #fff; // prevent semi-transparent borders from overlaying each other visually
+    background: inherit;
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
     box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
-    clip-path: polygon(0% 0%, 0 100%, 54% 100%, 23% 82%, 10% 65%, 10% 0);
+    clip-path: polygon(0% 0%, 0 100%, 50% 100%, 23% 82%, 10% 60%, 0% 70%); // prevents background from showing
   }
 
   &:hover,
@@ -72,12 +72,9 @@
     width: 30px;
     background-color: var(--token-app-side-nav-color-surface-interactive-hover);
 
-    &::before {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-hover);
-    }
-
+    &::before,
     &::after {
-      box-shadow: 0 calc(var(--token-app-side-nav-toggle-button-border-radius) * -1) 0 var(--token-app-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-hover);
     }
   }
 
@@ -85,12 +82,9 @@
   &.mock-active {
     background-color: var(--token-app-side-nav-color-surface-interactive-active);
 
-    &::before {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-active);
-    }
-
+    &::before,
     &::after {
-      box-shadow: 0 calc(var(--token-app-side-nav-toggle-button-border-radius) * -1) 0 var(--token-app-side-nav-color-surface-interactive-active);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-active);
     }
   }
 
