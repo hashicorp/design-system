@@ -194,6 +194,14 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     // automatically minimize on narrow viewports (when not in desktop mode)
     this.isMinimized = !this.isDesktop;
 
+    this.containersToHide?.forEach((element): void => {
+      if (this.isMinimized) {
+        element.setAttribute('inert', '');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+
     const { onDesktopViewportChange } = this.args;
 
     if (typeof onDesktopViewportChange === 'function') {

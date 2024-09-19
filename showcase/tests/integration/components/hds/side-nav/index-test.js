@@ -9,15 +9,41 @@ import {
   render,
   click,
   resetOnerror,
+  settled,
   triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+class MockEventTarget extends EventTarget {}
+
 module('Integration | Component | hds/side-nav/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.afterEach(() => {
+  hooks.beforeEach(function () {
+    // Mock window.matchMedia to control media query events
+    let mockMedia = new MockEventTarget();
+    mockMedia.matches = true;
+
+    this.__matchMedia = window.matchMedia;
+
+    this.mockMedia = () => {
+      window.matchMedia = () => mockMedia;
+    };
+
+    this.changeBrowserSize = async (isDesktop) => {
+      mockMedia.matches = isDesktop;
+      mockMedia.dispatchEvent(
+        new MediaQueryListEvent('change', {
+          matches: isDesktop,
+        })
+      );
+      await settled();
+    };
+  });
+
+  hooks.afterEach(function () {
     resetOnerror();
+    window.matchMedia = this.__matchMedia;
   });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
@@ -236,6 +262,86 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav-footer').hasAttribute('data-test-minimized');
     assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
     assert.dom('#test-side-nav-body').doesNotHaveAttribute('inert');
+  });
+
+  test('when the viewport changes from desktop to mobile, it automatically collapses and becomes inert', async function (assert) {
+    this.mockMedia();
+
+    let calls = [];
+    this.setProperties({
+      onDesktopViewportChange: (...args) => calls.push(args),
+    });
+
+    await render(hbs`
+      <Hds::SideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
+        <:header as |H|>
+          <span id="test-side-nav-header" data-test-minimized={{H.isMinimized}} />
+        </:header>
+        <:body as |B|>
+          <span id="test-side-nav-body" data-test-minimized={{B.isMinimized}} />
+          <span class="hds-side-nav-hide-when-minimized" />
+        </:body>
+        <:footer as |F|>
+          <span id="test-side-nav-footer" data-test-minimized={{F.isMinimized}} />
+        </:footer>
+      </Hds::SideNav>
+    `);
+
+    assert.strictEqual(calls.length, 1, 'called with initial viewport');
+
+    await this.changeBrowserSize(false);
+    assert.deepEqual(
+      calls[1],
+      [false],
+      'resizing to mobile triggers a false event'
+    );
+
+    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
+  });
+
+  test('when collapsed and the viewport changes from mobile to desktop, it automatically expands and is no longer inert', async function (assert) {
+    this.mockMedia();
+
+    let calls = [];
+    this.setProperties({
+      onDesktopViewportChange: (...args) => calls.push(args),
+    });
+
+    await render(hbs`
+      <Hds::SideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
+        <:header as |H|>
+          <span id="test-side-nav-header" data-test-minimized={{H.isMinimized}} />
+        </:header>
+        <:body as |B|>
+          <span id="test-side-nav-body" data-test-minimized={{B.isMinimized}} />
+          <span class="hds-side-nav-hide-when-minimized" />
+        </:body>
+        <:footer as |F|>
+          <span id="test-side-nav-footer" data-test-minimized={{F.isMinimized}} />
+        </:footer>
+      </Hds::SideNav>
+    `);
+
+    await click('.hds-side-nav__toggle-button');
+    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
+
+    await this.changeBrowserSize(false);
+    assert.deepEqual(
+      calls[1],
+      [false],
+      'resizing to mobile triggers a false event'
+    );
+    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
+
+    await this.changeBrowserSize(true);
+    assert.deepEqual(
+      calls[2],
+      [true],
+      'resizing to desktop triggers a true event'
+    );
+    assert
+      .dom('.hds-side-nav-hide-when-minimized')
+      .doesNotHaveAttribute('inert');
   });
 
   // CALLBACKS
