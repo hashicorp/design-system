@@ -187,7 +187,18 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::SideNav id="test-side-nav" />
+      <Hds::SideNav id="test-side-nav">
+        <:header as |H|>
+          <span id="test-side-nav-header" data-test-minimized={{H.isMinimized}} />
+        </:header>
+        <:body as |B|>
+          <span id="test-side-nav-body" data-test-minimized={{B.isMinimized}} />
+          <span class="hds-side-nav-hide-when-minimized" />
+        </:body>
+        <:footer as |F|>
+          <span id="test-side-nav-footer" data-test-minimized={{F.isMinimized}} />
+        </:footer>
+      </Hds::SideNav>
     `);
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
     await click('.hds-side-nav__toggle-button');
@@ -195,6 +206,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
     await triggerKeyEvent('#test-side-nav', 'keydown', 'Escape');
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+    assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
   });
 
   // COLLAPSIBLE

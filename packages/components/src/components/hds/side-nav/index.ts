@@ -155,6 +155,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
   escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
+      this.synchronizeInert();
     }
   }
 
