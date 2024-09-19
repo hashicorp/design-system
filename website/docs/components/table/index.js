@@ -90,6 +90,14 @@ export default class Index extends Component {
       'badge-color': 'critical',
     },
   ];
+  @tracked demoSortBySelectedData = [...this.demoSourceData].map(
+    (row, index) => ({
+      ...row,
+      isSelected: index % 2 === 0,
+    })
+  );
+  @tracked demoSortBySelectedControlledSortBy = 'isSelected';
+  @tracked demoSortBySelectedControlledSortOrder = 'asc';
 
   get model() {
     return { myDemoData: this.demoSourceData };
@@ -160,6 +168,27 @@ export default class Index extends Component {
     return this.demoSourceData.length;
   }
 
+  get demoSortBySelectedControlledSortedData() {
+    const clonedData = Array.from(this.demoSortBySelectedData);
+
+    clonedData.sort((s1, s2) => {
+      const v1 = s1[this.demoSortBySelectedControlledSortBy];
+      const v2 = s2[this.demoSortBySelectedControlledSortBy];
+
+      if (v1 < v2) {
+        return this.demoSortBySelectedControlledSortOrder === 'asc' ? -1 : 1;
+      }
+
+      if (v1 > v2) {
+        return this.demoSortBySelectedControlledSortOrder === 'asc' ? 1 : -1;
+      }
+
+      return 0;
+    });
+
+    return clonedData;
+  }
+
   @action
   demoOnPageChange(page, pageSize) {
     this.demoCurrentPage = page;
@@ -188,5 +217,43 @@ export default class Index extends Component {
         recordToUpdate.isSelected = row.isSelected;
       }
     });
+  }
+
+  @action
+  demoOnSelectionChangeSortBySelected({ selectableRowsStates }) {
+    selectableRowsStates.forEach((row) => {
+      const recordToUpdate = this.demoSortBySelectedData.find(
+        (modelRow) => modelRow.id === row.selectionKey
+      );
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = row.isSelected;
+      }
+    });
+  }
+
+  @action
+  demoSortBySelectedControlledOnSelectionChange({
+    selectionKey,
+    selectionCheckboxElement,
+  }) {
+    if (selectionKey === 'all') {
+      this.demoSortBySelectedData.forEach((modelRow) => {
+        modelRow.isSelected = selectionCheckboxElement.checked;
+      });
+    } else {
+      const recordToUpdate = this.demoSortBySelectedData.find(
+        (modelRow) => modelRow.id === selectionKey
+      );
+
+      if (recordToUpdate) {
+        recordToUpdate.isSelected = selectionCheckboxElement.checked;
+      }
+    }
+  }
+
+  @action
+  demoSortBySelectedControlledOnSort(sortBy, sortOrder) {
+    this.demoSortBySelectedControlledSortBy = sortBy;
+    this.demoSortBySelectedControlledSortOrder = sortOrder;
   }
 }
