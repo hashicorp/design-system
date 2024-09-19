@@ -85,11 +85,13 @@
   border-color: transparent;
   border-radius: var(--token-app-side-nav-body-list-item-border-radius);
 
+  // :Focus
   &:focus,
   &.mock-focus {
     @include hds-focus-ring-with-pseudo-element();
   }
 
+  // :Hover
   &:hover,
   &.mock-hover {
     background: var(--token-app-side-nav-color-surface-interactive-hover);
@@ -102,20 +104,23 @@
     }
   }
 
+  // :Active
   &:active,
   &.mock-active {
-    background: var(--token-color-surface-interactive-active); // TODO: Create new token?
+    background: var(--token-color-surface-interactive-active);
   }
 
+  // ".Active" (current page) link
   // NOTICE: this is necessary to mitigate the flickering of the link when clicked (expecially noticeable with a badge)
   // For details see: https://github.com/hashicorp/design-system/pull/1328
-  &:hover:focus,
+  // &:hover:focus, // This is causing issues with :active state styles not applying, refactored to apply to "active" class
   // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
   // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
   // otherwise they can use the `@isActive` argument to set this visual state directly
   // Important: This element does not doing anything when interacted with so should not change color according to state
-  &.active {
-    background: var(--token-color-surface-strong); // TODO: Create new token?
+  &.active,
+  &.active:hover:focus {
+    background: var(--token-color-surface-strong);
 
     // indicator bar
     &::after {
@@ -132,7 +137,7 @@
     .hds-app-side-nav__list-item-text,
     .hds-app-side-nav__list-item-icon-leading,
     .hds-app-side-nav__list-item-icon-trailing {
-      color: var(--token-color-foreground-action); // TODO: Create token? (--token-app-side-nav-color-foreground-action)
+      color: var(--token-color-foreground-action);
     }
   }
 }
