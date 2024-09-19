@@ -638,7 +638,7 @@ While it’s technically possible to use the multi-select feature in a table imp
 
 !!!
 
-#### Multi-select table with sorting by selection state
+#### Multi-select table using a model with sorting by selection state
 
 To enable sorting by selected rows in a table, you need to set `@selectableColumnKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
 
@@ -656,7 +656,7 @@ In the demo below, we set up a multi-select table that can be sorted based on th
     (hash key="year" label="Year" isSortable=true)
     (hash key="selection" label="Selected" isSortable=true)
   }}
-  @sortBy="selection"
+  @sortBy="isSelected"
   @sortOrder="desc"
 >
   <:body as |B|>
@@ -670,6 +670,44 @@ In the demo below, we set up a multi-select table that can be sorted based on th
       <B.Td>{{B.data.year}}</B.Td>
       <B.Td>{{if B.data.isSelected "Yes" "No"}}</B.Td>
     </B.Tr>
+  </:body>
+</Hds::Table>
+```
+
+#### Multi-select table without a model with sorting by selection state
+
+To enable sorting by selected rows in a table without using a model, you need to manage the data, selection state, and sorting logic. Set `@selectableColumnKey `to the key in each row that tracks its selection state. Implement the `@onSelectionChange` and `@onSort` actions to handle selection changes and sorting events, updating your data and sorting parameters accordingly.
+
+In the demo below, we set up a multi-select table without a model, where the selection and sorting are controlled externally. This approach allows the table to be sorted based on the selection state of its rows.
+
+```handlebars
+<Hds::Table
+  @isSelectable={{true}}
+  @selectableColumnKey="isSelected"
+  @onSelectionChange={{this.demoSortBySelectedControlledOnSelectionChange}}
+  @sortBy={{this.demoSortBySelectedControlledSortBy}}
+  @sortOrder={{this.demoSortBySelectedControlledSortOrder}}
+  @onSort={{this.demoSortBySelectedControlledOnSort}}
+>
+  <:head as |H|>
+    <H.Tr>
+      <H.Th>Artist</H.Th>
+      <H.Th>Album</H.Th>
+      <H.Th>Year</H.Th>
+    </H.Tr>
+  </:head>
+  <:body as |B|>
+    {{#each this.demoSortBySelectedControlledSortedData as |data|}}
+      <B.Tr
+        @selectionKey={{data.id}}
+        @isSelected={{data.isSelected}}
+        @selectionAriaLabelSuffix="row {{data.artist}} / {{data.album}}"
+      >
+        <B.Td>{{data.artist}}</B.Td>
+        <B.Td>{{data.album}}</B.Td>
+        <B.Td>{{data.year}}</B.Td>
+      </B.Tr>
+    {{/each}}
   </:body>
 </Hds::Table>
 ```
