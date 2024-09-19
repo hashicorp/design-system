@@ -14,7 +14,7 @@ import ShwLabel from '../app/components/shw/label';
 import ShwLogoDesignSystem from '../app/components/shw/logo/design-system';
 import ShwOutliner from '../app/components/shw/outliner';
 import ShwPlaceholder from '../app/components/shw/placeholder/index';
-import ShwText from '../app/components/shw/text';
+import ShwText from '../app/components/shw/text/index';
 import ShwTextBody from '../app/components/shw/text/body';
 import ShwTextH1 from '../app/components/shw/text/h1';
 import ShwTextH2 from '../app/components/shw/text/h2';
