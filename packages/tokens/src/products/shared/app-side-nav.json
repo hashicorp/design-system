@@ -1,4 +1,4 @@
- {
+{
   "app-side-nav": {
     "wrapper": {
       "border": {
@@ -110,7 +110,7 @@
           "group": "components"
         },
         "faint": {
-          "value": "#8c909c",
+          "value": "var(--token-color-foreground-faint)",
           "type": "color",
           "group": "components"
         }
