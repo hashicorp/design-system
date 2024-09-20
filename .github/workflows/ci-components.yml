@@ -42,9 +42,6 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --immutable
-      - name: Build Icons
-        run: yarn build
-        working-directory: packages/ember-flight-icons
       - name: Build Components
         run: yarn build
         working-directory: packages/components
@@ -87,9 +84,6 @@ jobs:
           cache-dependency-path: yarn.lock
       - name: Install Dependencies
         run: yarn install --immutable
-      - name: Build Icons
-        run: yarn build
-        working-directory: packages/ember-flight-icons
       - name: Build Components
         run: yarn build
         working-directory: packages/components
