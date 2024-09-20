@@ -250,6 +250,25 @@
         </SF.Item>
       </Shw::Flex>
     </SG.Item>
+
+    <SG.Item @label="With back link">
+      <div class="shw-component-sim-app-side-nav-root-container">
+        <Hds::AppSideNav @isResponsive={{false}}>
+          <:body>
+            <Hds::AppSideNav::List as |SNL|>
+              <SNL.BackLink @text="A “back” link" @href="#" />
+              <SNL.Title>A section title</SNL.Title>
+              <SNL.Link @text="A link with just text" @href="#" />
+              <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
+              <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
+              <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
+              <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
+              <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
+            </Hds::AppSideNav::List>
+          </:body>
+        </Hds::AppSideNav>
+      </div>
+    </SG.Item>
   </Shw::Grid>
 </section>
 
