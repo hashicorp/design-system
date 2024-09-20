@@ -7,6 +7,7 @@
 // APP-SIDE-NAV > TOGGLE BUTTON
 //
 
+
 .hds-app-side-nav__toggle-button {
   position: absolute;
   top: 22px; // visually align with :header content
@@ -18,8 +19,7 @@
   width: var(--hds-app-sidenav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
-  // color: var(--token-color-foreground-high-contrast);
-  color: var(--token-color-foreground-primary); // TODO: Add a token?
+  color: var(--token-color-foreground-primary);
   background: none;
   background-color: var(--token-app-side-nav-color-surface-primary);
   border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
@@ -41,13 +41,11 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    background: inherit;
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
     box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
     content: "";
-    clip-path: polygon(0% 0%, 0 100%, 50% 100%, 23% 82%, 10% 60%, 0% 70%); // prevents background from showing
   }
 
   &::after {
@@ -57,14 +55,12 @@
     box-sizing: border-box;
     width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
     height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
-    background: inherit;
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
     box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
-    clip-path: polygon(0% 0%, 0 100%, 50% 100%, 23% 82%, 10% 60%, 0% 70%); // prevents background from showing
   }
 
   &:hover,
