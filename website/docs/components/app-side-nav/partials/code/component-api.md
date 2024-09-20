@@ -29,7 +29,7 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the App Side Nav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the App Side Nav or resize the window) and it is not a suitable way of controlling the App Side Nav state from outside after render (it’s an internal state).
   </C.Property>
-  <C.Property @name="ariaLabel" @type="string">
+  <C.Property @name="toggleButtonAriaLabel" @type="string">
     Accepts a localized string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.
   </C.Property>
   <C.Property @name="onToggleMinimizedStatus" @type="function">
@@ -201,6 +201,9 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   </C.Property>
   <C.Property @name="text" @type="string">
     The text content for the `AppSideNav::List::Link` component.
+  </C.Property>
+  <C.Property @name="iconColor" @type="string | CSS color" @values={{array "primary" "strong" "faint" "disabled" "high-contrast" "action" "action-hover" "action-active" "highlight" "highlight-on-surface" "highlight-high-contrast" "success" "success-on-surface" "success-high-contrast" "warning" "warning-on-surface" "warning-high-contrast" "critical" "critical-on-surface" "critical-high-contrast" }}>
+    The color of the icon expressed as one of the possible [foreground color](/foundations/colors?tab=palette#foreground-1) names. As a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.) is also accepted (in this case it works by setting the value of the icon SVG’s `fill` property). If no `@iconColor` argument is provided, the component will inherit its color from the `AppSideNav::List` parent container.
   </C.Property>
   <C.Property @name="badge" @type="string">
     Displays an optional `Badge`. Accepts the text value that should go in [Badge](/components/badge).
