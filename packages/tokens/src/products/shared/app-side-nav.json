@@ -7,7 +7,7 @@
           "type": "size"
         },
         "color": {
-          "value": "var(--token-color-border-primary)",
+          "value": "var(--token-color-palette-neutral-200)",
           "type": "color",
           "group": "components"
         }
