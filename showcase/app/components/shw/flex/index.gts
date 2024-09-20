@@ -5,6 +5,9 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
+import { hash } from '@ember/helper';
+import Item from './item';
+import Label from '../label';
 
 import type { ComponentLike } from '@glint/template';
 import type { SafeString } from '@ember/template';
@@ -45,4 +48,16 @@ export default class ShwFlexComponent extends Component<ShwFlexSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}}>
+      {{#if @label}}
+        <Label>{{@label}}</Label>
+      {{/if}}
+      {{yield (hash Label=Label)}}
+      <div class="shw-flex__items" style={{this.itemsStyle}} ...attributes>
+        {{yield (hash Item=Item)}}
+      </div>
+    </div>
+  </template>
 }
