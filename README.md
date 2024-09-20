@@ -26,7 +26,7 @@ Design System components in Ember.js
 
 ### `packages/ember-flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
-Ember.js addon with `<FlightIcon />` component
+Ember.js addon with `<FlightIcon />` component (deprecated)
 
 - npm package: `@hashicorp/ember-flight-icons`
 - website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
