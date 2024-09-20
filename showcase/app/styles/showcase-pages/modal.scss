@@ -25,4 +25,11 @@ body.components-modal {
       margin-bottom: 20px;
     }
   }
+
+  // this is a hacky way to fix the issue with the SuperSelect used in the Modal
+  .shw-component-modal-with-super-select-fix-overflow {
+    .hds-dialog-primitive__wrapper-body {
+      overflow: unset;
+    }
+  }
 }

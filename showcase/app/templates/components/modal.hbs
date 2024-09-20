@@ -276,6 +276,9 @@
     </Hds::Modal>
   {{/if}}
 
+  <br />
+  <br />
+
   <button type="button" {{on "click" (fn this.activateModal "formModalActive")}}>Open form modal</button>
 
   {{! template-lint-disable no-autofocus-attribute }}
@@ -335,6 +338,9 @@
     </Hds::Modal>
   {{/if}}
 
+  <br />
+  <br />
+
   <button type="button" {{on "click" (fn this.activateModal "dropdownModalActive")}}>Open dropdown modal</button>
 
   {{#if this.dropdownModalActive}}
@@ -354,6 +360,107 @@
           <dd.Interactive @href="#" @text="Ipsum" />
           <dd.Interactive @href="#" @text="Dolor" />
         </Hds::Dropdown>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateModal "superselectModalActive1")}}>Open super-select modal (base)</button>
+
+  {{#if this.superselectModalActive1}}
+    <Hds::Modal id="superselect-modal1" @onClose={{fn this.deactivateModal "superselectModalActive1"}} as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <Hds::Form::SuperSelect::Single::Base
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION1)}}
+          @options={{@model.SUPERSELECT_OPTIONS1}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION1}}
+          @verticalPosition="below"
+          @ariaLabel="Label"
+          as |option|
+        >
+          {{option}}
+        </Hds::Form::SuperSelect::Single::Base>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateModal "superselectModalActive2")}}>Open super-select modal (with
+    search) [bug]</button>
+
+  {{#if this.superselectModalActive2}}
+    <Hds::Modal id="superselect-modal2" @onClose={{fn this.deactivateModal "superselectModalActive2"}} as |M|>
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <Hds::Form::SuperSelect::Single::Base
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION2)}}
+          @options={{@model.SUPERSELECT_OPTIONS2}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION2}}
+          @searchEnabled={{true}}
+          @initiallyOpened={{true}}
+          @verticalPosition="below"
+          @ariaLabel="Label"
+          as |option|
+        >
+          {{option}}
+        </Hds::Form::SuperSelect::Single::Base>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateModal "superselectModalActive3")}}>Open super-select modal (with
+    search) [fix]</button>
+
+  {{#if this.superselectModalActive3}}
+    <Hds::Modal
+      id="superselect-modal3"
+      class="shw-component-modal-with-super-select-fix-overflow"
+      @onClose={{fn this.deactivateModal "superselectModalActive2"}}
+      as |M|
+    >
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>Ut enim ad minim
+          veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+          dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <Hds::Form::SuperSelect::Single::Base
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION3)}}
+          @options={{@model.SUPERSELECT_OPTIONS3}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION3}}
+          @searchEnabled={{true}}
+          @initiallyOpened={{true}}
+          @verticalPosition="below"
+          @ariaLabel="Label"
+          as |option|
+        >
+          {{option}}
+        </Hds::Form::SuperSelect::Single::Base>
       </M.Body>
       <M.Footer as |F|>
         <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
