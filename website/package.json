@@ -17,7 +17,7 @@
   "scripts": {
     "generate-changelog-markdown-files": "node lib/changelog/generate-changelog-markdown-files.mjs",
     "build": "yarn build:packages && ember build --environment=production",
-    "build:packages": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build",
+    "build:packages": "yarn workspace @hashicorp/design-system-components build",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
     "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
     "lint:hbs": "ember-template-lint .",
