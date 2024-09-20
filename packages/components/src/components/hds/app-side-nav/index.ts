@@ -126,10 +126,21 @@ export default class HdsAppSideNavComponent extends Component<HdsAppSideNavSigna
     return classes.join(' ');
   }
 
+  synchronizeInert(): void {
+    this.containersToHide?.forEach((element): void => {
+      if (this.isMinimized) {
+        element.setAttribute('inert', '');
+      } else {
+        element.removeAttribute('inert');
+      }
+    });
+  }
+
   @action
   escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
       this.isMinimized = true;
+      this.synchronizeInert();
     }
   }
 
@@ -137,13 +148,7 @@ export default class HdsAppSideNavComponent extends Component<HdsAppSideNavSigna
   toggleMinimizedStatus(): void {
     this.isMinimized = !this.isMinimized;
 
-    this.containersToHide.forEach((element): void => {
-      if (this.isMinimized) {
-        element.setAttribute('inert', '');
-      } else {
-        element.removeAttribute('inert');
-      }
-    });
+    this.synchronizeInert();
 
     const { onToggleMinimizedStatus } = this.args;
 
@@ -178,6 +183,8 @@ export default class HdsAppSideNavComponent extends Component<HdsAppSideNavSigna
 
     // automatically minimize on narrow viewports (when not in desktop mode)
     this.isMinimized = !this.isDesktop;
+
+    this.synchronizeInert();
 
     const { onDesktopViewportChange } = this.args;
 
