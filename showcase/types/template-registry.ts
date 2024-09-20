@@ -12,7 +12,7 @@ import ShwGrid from '../app/components/shw/grid';
 import ShwGridItem from '../app/components/shw/grid/item';
 import ShwLabel from '../app/components/shw/label';
 import ShwLogoDesignSystem from '../app/components/shw/logo/design-system';
-import ShwOutliner from '../app/components/shw/outliner';
+import ShwOutliner from '../app/components/shw/outliner/index';
 import ShwPlaceholder from '../app/components/shw/placeholder/index';
 import ShwText from '../app/components/shw/text/index';
 import ShwTextBody from '../app/components/shw/text/body';
