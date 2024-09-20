@@ -23,7 +23,7 @@ Whenever there is a published update to the Flight Icons library in Figma (e.g. 
 
 We have developed a set of custom Node.js scripts to create a single pipeline for this purpose. The pipeline can be run manually on your local machine or via a GitHub Action.
 
-With either approach, it will be necessary to add a commit creating a changeset entry [via the instructions in our readme](https://github.com/hashicorp/design-system/blob/main/README.md#changesets). The changeset needs to be applied only to the `@hashicorp/flight-icons` version (typically a new icon or a significant change to an existing icon is considered a `minor` change, a breaking change is always considered a `major`, while for a small update to an icon a `patch` is OK). No need to bump also the version of `ember-flight-icons`: changesets takes care of everything from there (see for example this [previous export](https://github.com/hashicorp/design-system/pull/1638/files)).
+With either approach, it will be necessary to add a commit creating a changeset entry [via the instructions in our readme](https://github.com/hashicorp/design-system/blob/main/README.md#changesets). The changeset needs to be applied only to the `@hashicorp/flight-icons` version (typically a new icon or a significant change to an existing icon is considered a `minor` change, a breaking change is always considered a `major`, while for a small update to an icon a `patch` is OK).
 
 ## Automated process
 
