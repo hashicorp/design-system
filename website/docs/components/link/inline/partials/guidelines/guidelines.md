@@ -71,7 +71,7 @@ Use a leading icon when using service icons (e.g., GitHub).
 
 Highlight the most relevant word or short phrase as it relates to the target of the link. For example:
 
-<span class="hds-typography-body-300">Learn more about deploying a Vault Cluster on HCP in the HashiCorp Developer <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="#">tutorial library</Hds::Link::Inline>.</span>
+<span class="hds-typography-body-300">Learn more about deploying a Vault Cluster on HCP in the <Hds::Link::Inline @color="primary" @icon="external-link" @iconPosition="trailing" @href="#">HashiCorp Developer tutorial library</Hds::Link::Inline>.</span>
 
 !!!
 
