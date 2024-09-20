@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import Label from '../label';
+import ShwFlexLabel from '../label';
 
 import type { ComponentLike } from '@glint/template';
 import type { ShwLabelSignature } from '../label';
@@ -40,9 +40,9 @@ export default class ShwFlexItemComponent extends Component<ShwFlexItemSignature
   <template>
     <div class={{this.classNames}} ...attributes>
       {{#if @label}}
-        <Label>{{@label}}</Label>
+        <ShwFlexLabel>{{@label}}</ShwFlexLabel>
       {{/if}}
-      {{yield (hash Label=Label)}}
+      {{yield (hash Label=ShwFlexLabel)}}
     </div>
   </template>
 }
