@@ -706,14 +706,17 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 ```handlebars
 <div class="shw-component-table-demo-topbar">
   <div class="shw-component-table-demo-topbar__action">
-    <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
+    <Hds::Dropdown as |D|>
+      <D.ToggleButton @text="Actions" />
+      <D.Interactive @text="Select all" {{on "click" this.selectAllExternally}} />
+    </Hds::Dropdown>
   </div>
 </div>
 
 <div class="doc-table-multiselect-external-select-all-demo">
   <Hds::Table
     @isSelectable={{true}}
-    @onSelectionChange={{this.demoOnSelectionChangeWithPagination}}
+    @onSelectionChange={{this.demoOnSelectionChangeWithPagination2}}
     @model={{this.demoPaginatedData}}
     @columns={{array
       (hash key="artist" label="Artist")

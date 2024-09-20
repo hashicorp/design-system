@@ -189,4 +189,29 @@ export default class Index extends Component {
       }
     });
   }
+
+  @action
+  selectAll(isSelected) {
+    this.demoSourceData.forEach((record) => {
+      record.isSelected = isSelected;
+    });
+  }
+
+  @action
+  selectAllExternally() {
+    this.selectAll(true);
+  }
+
+  @action
+  demoOnSelectionChangeWithPagination2({
+    selectionKey,
+    selectionCheckboxElement,
+    selectableRowsStates,
+  }) {
+    if (selectionKey === 'all') {
+      this.selectAll(selectionCheckboxElement.checked);
+    } else {
+      this.demoOnSelectionChangeWithPagination({ selectableRowsStates });
+    }
+  }
 }
