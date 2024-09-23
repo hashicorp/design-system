@@ -13,17 +13,17 @@ $hds-dialog-primitive-vertical-padding: 16px;
 
 // WRAPPER CONTAINER (<dialog>)
 
-// The special declaration below is used to allow the `<dialog>` to unset
-// all its predefined styles and set them at `Modal/Flyout` level
+// The special declaration below is used to override the `<dialog>` predefined styles
+// Note: some of these style will then be set (again) at `Modal/Flyout` level too
 //
 // Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
 // the styles declared below are applied to the `<dialog>` element, but are overwritten by any other style applied via classname
 //
 
 :where(.hds-dialog-primitive__wrapper) {
-  // -----------
-  all: unset; // removes default dialog & inherited styles. Must be the first style to be applied
-  // -----------
+  // override default `<dialog>` styles
+  position: initial;
+  inset: initial;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -31,6 +31,7 @@ $hds-dialog-primitive-vertical-padding: 16px;
   margin: 0;
   padding: 0;
   background: var(--token-color-surface-primary);
+  border: none;
 }
 
 
