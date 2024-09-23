@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAppFooterItemSignature {
   Blocks: {
@@ -12,4 +12,6 @@ export interface HdsAppFooterItemSignature {
   Element: HTMLLIElement;
 }
 
-export default class HdsAppFooterItem extends Component<HdsAppFooterItemSignature> {}
+const HdsAppFooterItem = TemplateOnlyComponent<HdsAppFooterItemSignature>();
+
+export default HdsAppFooterItem;

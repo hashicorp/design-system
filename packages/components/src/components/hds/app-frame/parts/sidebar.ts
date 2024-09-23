@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAppFrameSidebarSignature {
   Blocks: {
@@ -12,4 +12,6 @@ export interface HdsAppFrameSidebarSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAppFrameSidebar extends Component<HdsAppFrameSidebarSignature> {}
+const HdsAppFrameSidebar = TemplateOnlyComponent<HdsAppFrameSidebarSignature>();
+
+export default HdsAppFrameSidebar;
