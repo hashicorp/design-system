@@ -22,6 +22,7 @@
         {{yield
           (hash
             close=PP.hidePopover
+            isOpen=PP.isOpen
             Checkbox=(component "hds/dropdown/list-item/checkbox")
             Checkmark=(component "hds/dropdown/list-item/checkmark")
             CopyItem=(component "hds/dropdown/list-item/copy-item")
@@ -34,7 +35,7 @@
           )
         }}
       </ul>
-      {{yield (hash close=PP.hidePopover Footer=(component "hds/dropdown/footer"))}}
+      {{yield (hash close=PP.hidePopover isOpen=PP.isOpen Footer=(component "hds/dropdown/footer"))}}
     </div>
   </div>
 </Hds::PopoverPrimitive>
