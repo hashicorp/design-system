@@ -1122,6 +1122,7 @@ Added `hds-` prefix to Sass variables for component styles (where missing).
 - @hashicorp/design-system-tokens@1.10.0
 - @hashicorp/ember-flight-icons@4.0.6
 
+
 ---
 
 _[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG.md)_
