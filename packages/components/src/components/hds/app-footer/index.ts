@@ -7,10 +7,10 @@ import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../yield';
-import type HdsAppFooterItemSignature from './legal-links';
-import type HdsAppFooterLegalLinksSignature from './legal-links';
-import type HdsAppFooterLinkSignature from './link';
-import type HdsAppFooterStatusLinkSignature from './status-link';
+import type { HdsAppFooterItemSignature } from './item.ts';
+import type { HdsAppFooterLegalLinksSignature } from './legal-links';
+import type { HdsAppFooterLinkSignature } from './link';
+import type { HdsAppFooterStatusLinkSignature } from './status-link';
 import type { HdsAppFooterThemeTypes } from './types.ts';
 
 export interface HdsAppFooterSignature {
