@@ -56,6 +56,14 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="<[D].Footer>" @type="yielded component">
     `Dropdown::Footer` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="<[D].close>" @type="function">
+    Function to programmatically close the Dropdown yielded to the content.
+    <br/><br/>
+    If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
+  </C.Property>
+  <C.Property @name="<[D].isOpen>" @type="boolean" @default="false" @values={{array "true" "false"}}>
+    The state of the Dropdown yielded to the content.
+  </C.Property>
   <C.Property @name="listPosition" @type="string" @values={{array "bottom-left" "bottom-right" "top-left" "top-right" }} @default="bottom-right">
     _Note: If `@enableCollisionDetection` is set, the list will automatically flip position to remain visible when near the edges of the screen regardless of the starting placement._
   </C.Property>
@@ -73,11 +81,6 @@ The Dropdown component is composed of different child components each with their
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a max-height.
-  </C.Property>
-  <C.Property @name="close" @type="function">
-    Function to programmatically close the Dropdown.
-    <br/><br/>
-    If this function is invoked using an `\{{on "click"}}` modifier applied to the `ListItem::Interactive` element, there is a quirky behavior of the Ember `<LinkTo>` component which requires a workaround to have the events executed in the right order (this happens only if it has a `@route` argument). Read more about the issue and a possible solution [in this GitHub comment](https://github.com/hashicorp/design-system/pull/399#issuecomment-1171186772).
   </C.Property>
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the Dropdown is closed, if provided.
