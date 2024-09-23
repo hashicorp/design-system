@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/modal.jpg
 navigation:
   keywords: ['flyout', 'popover', 'popup', 'dialog']
 status:
-  updated: 4.10.0
+  updated: 4.11.1
 ---
 
 <section data-tab="Guidelines">
@@ -32,6 +32,7 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.11.1.md"
   @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.7.0.md"
 </section>
