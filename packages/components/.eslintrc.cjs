@@ -36,8 +36,7 @@ module.exports = {
         'plugin:@typescript-eslint/recommended',
       ],
       rules: {
-        // ember doesn't support template only components that have type signatures so we need to use empty component classes
-        'ember/no-empty-glimmer-component-classes': 'off',
+        // Add any custom rules here
       },
     },
     // require relative imports use full extensions
