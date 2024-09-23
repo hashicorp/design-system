@@ -23,8 +23,9 @@ You can override every dependency declared in the engines' `package.json` files 
 ### 2 - Temporary commit the compiled folders
 
 Because the npm package is released with the `dist` folder, but the monorepo ignores this folder via `.gitignore`, in your testing branch you will **temporarily** have to:
-- comment the entries `/dist/` and `/declarations/` in the `.gitignore` files under the `components` and `ember-flight-icons` packages folders
-- run the `yarn build` command under the `components` and `ember-flight-icons` folders (both are required)
+
+- comment the entries `/dist/` and `/declarations/` in the `.gitignore` files under the `components` folder
+- run the `yarn build` command under the `components` folder
 - commit and push the `dist` folders to the branch you're using for testing (notice: it needs to be associated with a PR or GitHub will not generate a URL)
 
 ### 3 - Install the branch version of the design system packages
@@ -46,7 +47,8 @@ Once done with the testing, remember to remove the `/dist/` and `/declarations/`
 #### What to do if `yarn start ***` in Cloud UI complains about the different version number
 
 There are cases in which the "start" command in Cloud UI will fail with an error similar to this:
-```
+
+```log
 Missing yarn packages: 
 Package: @hashicorp/design-system-components
   * Specified: ^2.7.1
@@ -110,6 +112,7 @@ Go back to the second terminal window:
 - eg. `rm -fr design-system-tokens` + `ln -s /Users/mynamesurname/src/hashicorp/design-system/packages/tokens design-system-tokens`
 
 In the first terminal window (you should be be in the Cloud UI root):
+
 - run `yarn start` to launch the compilation of the Cloud UI project and start the local webserver
 - visit the URL that appears in the command line at the end of the build (typically http://localhost:4200/ but you can specify a different port using the command `yarn start --port NNNN`)
 

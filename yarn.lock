@@ -4343,7 +4343,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/ember-flight-icons@workspace:^, @hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
+"@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
@@ -24803,7 +24803,6 @@ __metadata:
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
-    "@hashicorp/ember-flight-icons": "workspace:^"
     "@percy/cli": "npm:^1.28.8"
     "@percy/ember": "npm:^4.2.0"
     "@tsconfig/ember": "npm:^3.0.8"

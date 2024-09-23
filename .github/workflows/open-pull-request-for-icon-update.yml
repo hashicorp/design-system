@@ -56,7 +56,7 @@ jobs:
 
             Make sure that the "changeset" is added to the PR _before_ asking for review (and especially don't merge to `main` if the changeset is missing).
 
-            ⚠️ Note: The changeset needs to be applied only to the `@hashicorp/flight-icons` version (typically a new icon or a significant change to an existing icon is considered a `minor` change, a breaking change is always considered a `major`, while for a small update to an icon a `patch` is OK). No need to bump also the version of `ember-flight-icons`: changesets takes care of everything from there (see for example this previous export: https://github.com/hashicorp/design-system/pull/1638/files).
+            ⚠️ Note: The changeset needs to be applied only to the `@hashicorp/flight-icons` version (typically a new icon or a significant change to an existing icon is considered a `minor` change, a breaking change is always considered a `major`, while for a small update to an icon a `patch` is OK).
 
             ------- (end of the comment to remove) -->
 

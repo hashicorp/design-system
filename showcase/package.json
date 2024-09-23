@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "yarn build:packages && ember build --environment=production",
-    "build:packages": "yarn workspace @hashicorp/ember-flight-icons build && yarn workspace @hashicorp/design-system-components build",
+    "build:packages": "yarn workspace @hashicorp/design-system-components build",
     "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
@@ -48,7 +48,6 @@
     "@glint/template": "^1.4.0",
     "@hashicorp/design-system-components": "workspace:^",
     "@hashicorp/design-system-tokens": "workspace:^",
-    "@hashicorp/ember-flight-icons": "workspace:^",
     "@percy/cli": "^1.28.8",
     "@percy/ember": "^4.2.0",
     "@tsconfig/ember": "^3.0.8",

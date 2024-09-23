@@ -13,10 +13,6 @@ const code_changelogs = [
     relativePath: '../packages/flight-icons/CHANGELOG.md',
   },
   {
-    id: 'ember-flight-icons',
-    relativePath: '../packages/ember-flight-icons/CHANGELOG.md',
-  },
-  {
     id: 'components',
     relativePath: '../packages/components/CHANGELOG.md',
   },
