@@ -4,8 +4,10 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike } from '@glint/template';
+import { hash } from '@ember/helper';
+import ShwFlexLabel from '../label';
 
+import type { ComponentLike } from '@glint/template';
 import type { ShwLabelSignature } from '../label';
 
 export interface ShwFlexItemSignature {
@@ -34,4 +36,13 @@ export default class ShwFlexItemComponent extends Component<ShwFlexItemSignature
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{#if @label}}
+        <ShwFlexLabel>{{@label}}</ShwFlexLabel>
+      {{/if}}
+      {{yield (hash Label=ShwFlexLabel)}}
+    </div>
+  </template>
 }

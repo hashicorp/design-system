@@ -5,7 +5,7 @@
 
 import ShwAutoscrollable from '../app/components/shw/autoscrollable';
 import ShwDivider from '../app/components/shw/divider';
-import ShwFlex from '../app/components/shw/flex';
+import ShwFlex from '../app/components/shw/flex/index';
 import ShwFlexItem from '../app/components/shw/flex/item';
 import ShwFrame from '../app/components/shw/frame';
 import ShwGrid from '../app/components/shw/grid';
