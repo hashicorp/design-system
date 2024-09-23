@@ -290,6 +290,7 @@
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
+      "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",

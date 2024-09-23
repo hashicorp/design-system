@@ -31,6 +31,7 @@ const plugins = [
     'components/**/!(*types).js',
     'helpers/**/*.js',
     'modifiers/**/*.js',
+    'instance-initializers/**/*.js',
   ]),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
