@@ -79,10 +79,10 @@
 
   &--disabled,
   &.mock-disabled {
+    color: var(--token-form-control-disabled-foreground-color);
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
-    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
 
     .hds-form-radio-card__label,
