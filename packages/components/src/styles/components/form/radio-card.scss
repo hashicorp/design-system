@@ -7,7 +7,6 @@
 // FORM > RADIO-CARD
 //
 
-
 // RadioCard Group
 
 .hds-form-group--radio-cards {
@@ -38,7 +37,8 @@
   display: flex;
   flex-direction: column;
   background-color: var(--token-color-surface-primary);
-  border: var(--token-form-radiocard-border-width) solid var(--token-color-border-primary);
+  border: var(--token-form-radiocard-border-width) solid
+    var(--token-color-border-primary);
   border-radius: var(--token-form-radiocard-border-radius);
   box-shadow: var(--token-elevation-mid-box-shadow);
   cursor: pointer;
@@ -64,11 +64,16 @@
 
   &--checked,
   &.mock-checked {
-    border-color: var(--token-color-focus-action-internal);
+    border-color: var(--token-color-palette-blue-300);
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--token-color-surface-action);
       border-color: var(--token-color-border-action);
+    }
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-color-palette-blue-400);
     }
   }
 
@@ -77,7 +82,13 @@
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
+    color: var(--token-form-control-disabled-foreground-color);
     cursor: not-allowed;
+
+    .hds-form-radio-card__label,
+    .hds-form-radio-card__description {
+      color: var(--token-form-control-disabled-foreground-color);
+    }
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--token-color-surface-interactive-disabled);
