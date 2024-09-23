@@ -19,6 +19,7 @@ $hds-form-masked-input-button-size: 24px;
   .hds-form-masked-input__control {
     grid-area: input;
     padding-right: calc(var(--token-form-control-padding) + $hds-form-masked-input-button-size);
+    scrollbar-width: thin;
   }
 }
 
