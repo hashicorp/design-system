@@ -1539,6 +1539,21 @@
         </Hds::Dropdown>
       </div>
     </SG.Item>
+    <SG.Item @label="Using component isOpen state">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          {{#if D.isOpen}}
+            <D.Interactive @href="#">
+              Lorem ipsum dolor sit amet
+            </D.Interactive>
+            <D.Interactive @href="#">
+              Consectetur adipisicing elit
+            </D.Interactive>
+          {{/if}}
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
   </Shw::Grid>
 
 </section>

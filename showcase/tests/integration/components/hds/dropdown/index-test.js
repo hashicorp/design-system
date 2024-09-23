@@ -148,6 +148,23 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-list-item-interactive').isNotVisible();
   });
 
+  // YIELDED STATE
+
+  test('it should yield the isOpen state to the block', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        {{#if D.isOpen}}
+          <D.Interactive @text="interactive" id="test-list-item-interactive" />
+        {{/if}}
+      </Hds::Dropdown>
+    `);
+
+    assert.dom('#test-dropdown #test-list-item-interactive').doesNotExist();
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+  });
+
   // ACCESSIBILITY
 
   test('it should render a list of items without a role if no selectable items are passed in', async function (assert) {
