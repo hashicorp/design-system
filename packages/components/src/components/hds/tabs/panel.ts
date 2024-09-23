@@ -11,16 +11,16 @@ import type { HdsTabsPanelIds, HdsTabsTabIds } from './types';
 
 export interface HdsTabsPanelSignature {
   Args: {
-    tabIds: HdsTabsTabIds;
-    panelIds: HdsTabsPanelIds;
-    selectedTabIndex: HdsTabsTabSignature['Args']['selectedTabIndex'];
-    didInsertNode: (element: HTMLElement, elementId: string) => void;
-    willDestroyNode: (element: HTMLElement) => void;
+    tabIds?: HdsTabsTabIds;
+    panelIds?: HdsTabsPanelIds;
+    selectedTabIndex?: HdsTabsTabSignature['Args']['selectedTabIndex'];
+    didInsertNode?: (element: HTMLElement, elementId: string) => void;
+    willDestroyNode?: (element: HTMLElement) => void;
   };
   Blocks: {
     default: [
       {
-        isVisible: boolean;
+        isVisible?: boolean;
       },
     ];
   };
@@ -56,7 +56,7 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
    */
   get coupledTabId(): string | undefined {
     return this.nodeIndex !== undefined
-      ? this.args.tabIds[this.nodeIndex]
+      ? this.args.tabIds?.[this.nodeIndex]
       : undefined;
   }
 
