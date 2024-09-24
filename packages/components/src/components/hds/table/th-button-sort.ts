@@ -15,7 +15,7 @@ import type {
   HdsTableThSortOrderIcons,
   HdsTableThSortOrderLabels,
 } from './types.ts';
-export interface HdsTableThButtonSortArgs {
+export interface HdsTableThButtonSortSignature {
   Args: {
     labelId?: string;
     onClick?: () => void;
@@ -26,7 +26,7 @@ export interface HdsTableThButtonSortArgs {
 
 const NOOP = () => {};
 
-export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortArgs> {
+export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortSignature> {
   // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
   prefixLabelId = 'prefix-' + guidFor(this);
   suffixLabelId = 'suffix-' + guidFor(this);

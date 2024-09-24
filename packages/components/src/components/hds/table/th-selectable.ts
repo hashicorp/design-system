@@ -17,30 +17,30 @@ import type {
   HdsTableThSortOrder,
   HdsTableThSortOrderLabels,
 } from './types';
-import type { HdsTableThArgs } from './th';
+import type { HdsTableThSignature } from './th';
 
-export interface HdsTableThSelectableArgs {
+export interface HdsTableThSelectableSignature {
   Args: {
-    didInsert: (
+    didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
     isSelected?: boolean;
     onClickSortBySelected?: () => void;
-    onSelectionChange: (
+    onSelectionChange?: (
       target: HdsFormCheckboxBaseSignature['Element'],
       selectionKey: string | undefined
     ) => void;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
-    selectionScope: HdsTableScope;
+    selectionScope?: HdsTableScope;
     sortBySelectedOrder?: HdsTableThSortOrder;
-    willDestroy: (selectionKey?: string) => void;
+    willDestroy?: (selectionKey?: string) => void;
   };
-  Element: HdsTableThArgs['Element'];
+  Element: HdsTableThSignature['Element'];
 }
 
-export default class HdsTableThSelectable extends Component<HdsTableThSelectableArgs> {
+export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
   @tracked isSelected = this.args.isSelected;
 
   guid = guidFor(this);

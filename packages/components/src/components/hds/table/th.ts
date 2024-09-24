@@ -15,7 +15,7 @@ export const ALIGNMENTS: string[] = Object.values(
 );
 export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 
-export interface HdsTableThArgs {
+export interface HdsTableThSignature {
   Args: {
     align?: HdsTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
@@ -29,7 +29,7 @@ export interface HdsTableThArgs {
   Element: HTMLTableCellElement;
 }
 
-export default class HdsTableTh extends Component<HdsTableThArgs> {
+export default class HdsTableTh extends Component<HdsTableThSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *
