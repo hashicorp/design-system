@@ -17,18 +17,28 @@
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="label">
         <Hds::Form::RadioCard @disabled={{eq state "disabled"}} as |R|>
-          <R.Icon @name="hexagon" />
+          <R.Icon @name="aws-color" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>
+          <R.Badge @text="Badge" @color="highlight" />
+          <R.Generic>
+            <Hds::Text::Body @color="strong">Strong text in a generic.</Hds::Text::Body>
+            <Hds::Tag @text="Tag in a generic" />
+          </R.Generic>
         </Hds::Form::RadioCard>
       </SG.Item>
     {{/each}}
     {{#each @model.STATES as |state|}}
       <SG.Item @label="{{capitalize state}} selected" mock-state-value={{state}} mock-state-selector="label">
         <Hds::Form::RadioCard @checked={{true}} @disabled={{eq state "disabled"}} as |R|>
-          <R.Icon @name="hexagon" />
+          <R.Icon @name="aws-color" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>
+          <R.Badge @text="Badge" @color="highlight" />
+          <R.Generic>
+            <Hds::Text::Body @color="strong">Strong text in a generic.</Hds::Text::Body>
+            <Hds::Tag @text="Tag in a generic" />
+          </R.Generic>
         </Hds::Form::RadioCard>
       </SG.Item>
     {{/each}}
