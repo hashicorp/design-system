@@ -94,6 +94,12 @@
       background-color: var(--token-color-surface-interactive-disabled);
       border-color: var(--token-color-border-primary);
     }
+
+    /* Set the opacity of nested components to make them appear disabled */
+    .hds-badge,
+    .hds-icon {
+      opacity: 50%;
+    }
   }
 }
 
