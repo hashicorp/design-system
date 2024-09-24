@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Dropdown`: add `isOpen` state to the Dropdown content
+`Dropdown`: added `isOpen` state to the Dropdown content
