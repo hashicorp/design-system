@@ -155,6 +155,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // This modifiers uses the Floating UI library to provide:
       // - positioning of the "popover" in relation to the "toggle"
       // - collision detection (optional)
+      // eslint-disable-next-line ember/no-runloop
       next((): void => {
         // @ts-expect-error: known issue with type of invocation
         anchoredPositionModifier(

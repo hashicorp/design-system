@@ -141,6 +141,7 @@ export default class ShowController extends Controller {
   get renderedContent() {
     // schedule tabs logic for after this content is rendered
     if (!this.fastboot.isFastBoot) {
+      // eslint-disable-next-line ember/no-runloop
       schedule('afterRender', () => {
         this.didInsertContent();
       });

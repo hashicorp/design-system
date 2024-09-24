@@ -112,6 +112,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
       this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
     }
 
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
@@ -119,6 +120,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
   @action
   didUpdateSelectedTabIndex(): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
@@ -138,6 +140,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
   @action
   didUpdateParentVisibility(): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.setTabIndicator();
     });
@@ -230,6 +233,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   }
 
   setTabIndicator(): void {
+    // eslint-disable-next-line ember/no-runloop
     next((): void => {
       const tabElem = this.tabNodes[this.selectedTabIndex];
 

@@ -39,6 +39,7 @@ export default class CodeBlockController extends Controller {
 
   routeDidChange() {
     if (this.router.currentRoute.name === 'components.code-block') {
+      // eslint-disable-next-line ember/no-runloop
       scheduleOnce('afterRender', this, replaceMockCopyStatus);
     }
   }

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsAppFrameHeaderSignature {
   Blocks: {
@@ -12,4 +12,6 @@ export interface HdsAppFrameHeaderSignature {
   Element: HTMLElement;
 }
 
-export default class HdsAppFrameHeader extends Component<HdsAppFrameHeaderSignature> {}
+const HdsAppFrameHeader = TemplateOnlyComponent<HdsAppFrameHeaderSignature>();
+
+export default HdsAppFrameHeader;

@@ -86,6 +86,7 @@ export function registerAriaDescriptionElement(
   element: HTMLElement
 ): void {
   ariaDescriptorMap.register(component, element);
+  // eslint-disable-next-line ember/no-runloop
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }
 
@@ -94,5 +95,6 @@ export function unregisterAriaDescriptionElement(
   element: HTMLElement
 ): void {
   ariaDescriptorMap.unregister(component, element);
+  // eslint-disable-next-line ember/no-runloop
   scheduleOnce('afterRender', component, synchronizeDescriptors, component);
 }

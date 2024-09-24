@@ -95,6 +95,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
   @action
   close(): void {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this.isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from '../link/types.ts';
@@ -22,4 +22,6 @@ export interface HdsAppFooterLinkSignature {
   Element: HdsLinkInlineSignature['Element'];
 }
 
-export default class HdsAppFooterLink extends Component<HdsAppFooterLinkSignature> {}
+const HdsAppFooterLink = TemplateOnlyComponent<HdsAppFooterLinkSignature>();
+
+export default HdsAppFooterLink;
