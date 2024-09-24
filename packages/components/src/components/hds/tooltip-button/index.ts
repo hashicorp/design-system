@@ -15,7 +15,7 @@ export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
 
 export interface HdsTooltipSignature {
   Args: {
-    extraTippyOptions?: Omit<TippyProps, 'placement' | 'offset'>;
+    extraTippyOptions?: Partial<Omit<TippyProps, 'placement' | 'offset'>>;
     isInline?: boolean;
     offset?: [number, number];
     placement?: HdsTooltipPlacements;
