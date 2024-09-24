@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`IconTile`: fixed color type signature
+`IconTile`: fixed `@color` argument type signature
