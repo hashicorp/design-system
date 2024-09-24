@@ -10,7 +10,7 @@ import { scheduleOnce } from '@ember/runloop';
 import { AutoscrollableDirectionValues } from './types';
 import type { AutoscrollableDirections } from './types';
 
-function centerScrollableArea({
+const centerScrollableArea = ({
   element,
   direction,
   horizontalShift,
@@ -20,7 +20,7 @@ function centerScrollableArea({
   direction: AutoscrollableDirections;
   horizontalShift: number;
   verticalShift: number;
-}) {
+}) => {
   if (
     direction === AutoscrollableDirectionValues.Both ||
     direction === AutoscrollableDirectionValues.X
@@ -35,7 +35,7 @@ function centerScrollableArea({
     element.scrollTop =
       verticalShift + (element.scrollHeight - element.offsetHeight) / 2;
   }
-}
+};
 
 interface ShwAutoscrollableSignature {
   Args: {
@@ -58,4 +58,14 @@ export default class ShwAutoscrollable extends Component<ShwAutoscrollableSignat
       verticalShift: this.args.verticalShift ?? 0,
     });
   });
+
+  <template>
+    <div
+      class="shw-autoscrollable__container"
+      ...attributes
+      {{this.autoscroll}}
+    >
+      {{yield}}
+    </div>
+  </template>
 }
