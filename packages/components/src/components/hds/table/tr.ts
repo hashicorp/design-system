@@ -8,28 +8,28 @@ import { assert } from '@ember/debug';
 import { HdsTableScopeValues } from './types.ts';
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableArgs } from './index.ts';
-import type { HdsTableThSelectableArgs } from './th-selectable.ts';
+import type { HdsTableSignature } from './index.ts';
+import type { HdsTableThSelectableSignature } from './th-selectable.ts';
 
-export interface BaseHdsTableTrArgs {
+export interface BaseHdsTableTrSignature {
   Args: {
-    selectableColumnKey?: HdsTableArgs['Args']['selectableColumnKey'];
+    selectableColumnKey?: HdsTableSignature['Args']['selectableColumnKey'];
     isSelectable?: boolean;
     isSelected?: false;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
-    selectionScope: HdsTableScope;
+    selectionScope?: HdsTableScope;
     sortBySelectedOrder?: HdsTableThSortOrder;
-    didInsert: (
+    didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
-    onSelectionChange: (
+    onSelectionChange?: (
       checkbox?: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
-    willDestroy: () => void;
-    onClickSortBySelected?: HdsTableThSelectableArgs['Args']['onClickSortBySelected'];
+    willDestroy?: () => void;
+    onClickSortBySelected?: HdsTableThSelectableSignature['Args']['onClickSortBySelected'];
   };
   Blocks: {
     default: [];
@@ -38,17 +38,19 @@ export interface BaseHdsTableTrArgs {
 }
 
 // Extended interface for selectable rows
-export interface SelectableHdsTableTrArgs extends BaseHdsTableTrArgs {
-  Args: BaseHdsTableTrArgs['Args'] & {
+export interface SelectableHdsTableTrArgs extends BaseHdsTableTrSignature {
+  Args: BaseHdsTableTrSignature['Args'] & {
     isSelectable: true;
-    selectionScope: HdsTableScopeValues.Row;
+    selectionScope?: HdsTableScopeValues.Row;
     selectionKey: string; // Now required for selectable rows
   };
 }
 
 // Union type to combine both possible states
-export type HdsTableTrArgs = BaseHdsTableTrArgs | SelectableHdsTableTrArgs;
-export default class HdsTableTr extends Component<HdsTableTrArgs> {
+export type HdsTableTrSignature =
+  | BaseHdsTableTrSignature
+  | SelectableHdsTableTrArgs;
+export default class HdsTableTr extends Component<HdsTableTrSignature> {
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(

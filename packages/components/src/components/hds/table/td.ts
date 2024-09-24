@@ -14,7 +14,7 @@ export const ALIGNMENTS: string[] = Object.values(
 );
 export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 
-export interface HdsTableTdArgs {
+export interface HdsTableTdSignature {
   Args: {
     align?: HdsTableHorizontalAlignment;
   };
@@ -23,7 +23,7 @@ export interface HdsTableTdArgs {
   };
   Element: HTMLTableCellElement;
 }
-export default class HdsTableTd extends Component<HdsTableTdArgs> {
+export default class HdsTableTd extends Component<HdsTableTdSignature> {
   /**
    * @param align
    * @type {string}

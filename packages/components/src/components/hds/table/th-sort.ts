@@ -17,17 +17,17 @@ import type {
   HdsTableThSortOrder,
   HdsTableThSortOrderLabels,
 } from './types.ts';
-import type { HdsTableThButtonSortArgs } from './th-button-sort';
+import type { HdsTableThButtonSortSignature } from './th-button-sort';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsTableHorizontalAlignmentValues
 );
 export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 
-export interface HdsTableThSortArgs {
+export interface HdsTableThSortSignature {
   Args: {
     align?: HdsTableHorizontalAlignment;
-    onClickSort?: HdsTableThButtonSortArgs['Args']['onClick'];
+    onClickSort?: HdsTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsTableThSortOrder;
     tooltip?: string;
     width?: string;
@@ -38,7 +38,7 @@ export interface HdsTableThSortArgs {
   Element: HTMLDivElement;
 }
 
-export default class HdsTableThSort extends Component<HdsTableThSortArgs> {
+export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *

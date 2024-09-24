@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 
-export interface HdsTableThButtonTooltipArgs {
+export interface HdsTableThButtonTooltipSignature {
   Args: {
     labelId?: string;
     tooltip: string;
@@ -15,7 +15,7 @@ export interface HdsTableThButtonTooltipArgs {
   Element: HTMLButtonElement;
 }
 
-export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonTooltipArgs> {
+export default class HdsTableThButtonTooltip extends Component<HdsTableThButtonTooltipSignature> {
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = guidFor(this);
 

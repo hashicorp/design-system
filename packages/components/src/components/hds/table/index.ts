@@ -18,7 +18,7 @@ import type {
   HdsTableColumn,
   HdsTableDensities,
   HdsTableHorizontalAlignment,
-  HdsTableOnSelectionChangeArgs,
+  HdsTableOnSelectionChangeSignature,
   HdsTableSelectableRow,
   HdsTableSortingFunction,
   HdsTableThSortOrder,
@@ -26,10 +26,10 @@ import type {
   HdsTableModel,
 } from './types';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableTdArgs } from './td.ts';
-import type { HdsTableThArgs } from './th.ts';
-import type { HdsTableThSortArgs } from './th-sort.ts';
-import type { HdsTableTrArgs } from './tr.ts';
+import type { HdsTableTdSignature } from './td.ts';
+import type { HdsTableThSignature } from './th.ts';
+import type { HdsTableThSortSignature } from './th-sort.ts';
+import type { HdsTableTrSignature } from './tr.ts';
 
 export const DENSITIES: HdsTableDensities[] = Object.values(
   HdsTableDensityValues
@@ -41,7 +41,7 @@ export const VALIGNMENTS: HdsTableVerticalAlignment[] = Object.values(
 );
 export const DEFAULT_VALIGN = HdsTableVerticalAlignmentValues.Top;
 
-export interface HdsTableArgs {
+export interface HdsTableSignature {
   Args: {
     align?: HdsTableHorizontalAlignment;
     caption?: string;
@@ -52,7 +52,7 @@ export interface HdsTableArgs {
     isSelectable?: boolean;
     isStriped?: boolean;
     model?: HdsTableModel;
-    onSelectionChange?: (selection: HdsTableOnSelectionChangeArgs) => void;
+    onSelectionChange?: (selection: HdsTableOnSelectionChangeSignature) => void;
     onSort?: (sortBy: string, sortOrder: HdsTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
@@ -64,9 +64,9 @@ export interface HdsTableArgs {
   Blocks: {
     head?: [
       {
-        Tr?: ComponentLike<HdsTableTrArgs>;
-        Th?: ComponentLike<HdsTableThArgs>;
-        ThSort?: ComponentLike<HdsTableThSortArgs>;
+        Tr?: ComponentLike<HdsTableTrSignature>;
+        Th?: ComponentLike<HdsTableThSignature>;
+        ThSort?: ComponentLike<HdsTableThSortSignature>;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
         setSortBy?: (column: string) => void;
@@ -74,9 +74,9 @@ export interface HdsTableArgs {
     ];
     body?: [
       {
-        Td?: ComponentLike<HdsTableTdArgs>;
-        Tr?: ComponentLike<HdsTableTrArgs>;
-        Th?: ComponentLike<HdsTableThArgs>;
+        Td?: ComponentLike<HdsTableTdSignature>;
+        Tr?: ComponentLike<HdsTableTrSignature>;
+        Th?: ComponentLike<HdsTableThSignature>;
         data?: Record<string, unknown>;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
@@ -86,7 +86,7 @@ export interface HdsTableArgs {
   Element: HTMLTableElement;
 }
 
-export default class HdsTable extends Component<HdsTableArgs> {
+export default class HdsTable extends Component<HdsTableSignature> {
   @tracked sortBy = this.args.sortBy;
   @tracked sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
   @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =

@@ -82,7 +82,7 @@ export type HdsTableColumn = SortableHdsTableColumn | NonSortableHdsTableColumn;
 
 export type HdsTableSortingFunction<T> = (a: T, b: T) => number;
 
-export interface HdsTableOnSelectionChangeArgs {
+export interface HdsTableOnSelectionChangeSignature {
   selectionKey?: string;
   selectionCheckboxElement?: HdsFormCheckboxBaseSignature['Element'];
   selectedRowsKeys: string[];
