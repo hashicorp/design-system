@@ -7,7 +7,9 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import type { Props as TippyProps } from 'tippy.js';
+
 import { HdsTooltipPlacementValues } from './types.ts';
+import type { HdsTooltipPlacements } from './types.ts';
 
 export const PLACEMENTS: string[] = Object.values(HdsTooltipPlacementValues);
 
@@ -16,7 +18,7 @@ export interface HdsTooltipSignature {
     extraTippyOptions?: Omit<TippyProps, 'placement' | 'offset'>;
     isInline?: boolean;
     offset?: [number, number];
-    placement?: HdsTooltipPlacementValues;
+    placement?: HdsTooltipPlacements;
     text: string;
   };
   Blocks: {
