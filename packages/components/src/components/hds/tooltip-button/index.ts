@@ -16,7 +16,7 @@ export interface HdsTooltipSignature {
     extraTippyOptions: Omit<TippyProps, 'placement' | 'offset'>;
     isInline?: boolean;
     offset?: [number, number];
-    placement: HdsTooltipPlacementValues;
+    placement?: HdsTooltipPlacementValues;
     text: string;
   };
   Blocks: {
@@ -43,7 +43,7 @@ export default class HdsTooltip extends Component<HdsTooltipSignature> {
   }
 
   get options(): TippyProps {
-    const { placement } = this.args;
+    const { placement = HdsTooltipPlacementValues.Top } = this.args;
 
     assert(
       '@placement for "Hds::TooltipButton" must have a valid value',

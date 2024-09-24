@@ -3,3 +3,5 @@
 ---
 
 `BadgeCount`: updated the type of the `text` argument to allow numbers
+
+`TooltipButton`: made the default value for the `placement` argument `'top'`
