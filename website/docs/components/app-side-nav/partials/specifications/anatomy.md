@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of sideNav](/assets/components/side-nav/side-nav-anatomy.png =580x*)
+![Anatomy of sideNav](/assets/components/app-side-nav/app-side-nav-anatomy.png)
 
 | Element         | Usage                  |
 | --------------- | ---------------------- |

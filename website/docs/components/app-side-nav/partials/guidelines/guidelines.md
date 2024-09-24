@@ -89,17 +89,17 @@ The App Side Nav should always be positioned on the left side of the viewport, o
 
 On smaller viewports, the App Side Nav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
-![Responsive side-nav](/assets/components/app-side-nav/sidenav-position-and-responsive.png)
+![Responsive side-nav](/assets/components/app-side-nav/app-side-nav-position-and-responsive.png)
 
 ## Collapse functionality
 
 If the `isCollapsible` property is set to `true`, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
 
-![App Side Nav collapse function](/assets/components/app-side-nav/sidenav-collapse-interaction.png)
+![App Side Nav collapse function](/assets/components/app-side-nav/app-side-nav-collapse-interaction.png)
 
 On smaller viewports, the App Side Nav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
 
-![App Side Nav overlay on smaller viewports](/assets/components/app-side-nav/sidenav-overlay-small-viewport.png)
+![App Side Nav overlay on smaller viewports](/assets/components/app-side-nav/app-side-nav-overlay-small-viewport.png)
 
 ### Collapsed reflow
 

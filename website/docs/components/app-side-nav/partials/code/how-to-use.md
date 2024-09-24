@@ -270,7 +270,7 @@ When the component is “responsive” there are different “states” (and ass
 - `isDesktop`
 - `isMinimized`
 
-![Schema of the different visual states in response to the change of viewports and the corresponding logic variables](/assets/components/app-sidenav/responsiveness.png)
+![Schema of the different visual states in response to the change of viewports and the corresponding logic variables](/assets/components/app-side-nav/responsiveness.png)
 
 Each one of these states has CSS class names associated, and they’re used by the component code to determine what layout to render for the sidebar navigation.
 
