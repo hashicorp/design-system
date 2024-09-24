@@ -11,16 +11,16 @@ import type { HdsTabsTabIds } from './types';
 
 export interface HdsTabsTabSignature {
   Args: {
-    tabIds: HdsTabsTabIds;
-    selectedTabIndex: number;
+    tabIds?: HdsTabsTabIds;
+    selectedTabIndex?: number;
     icon?: IconName;
     count?: string;
     isSelected?: boolean;
-    didInsertNode: (element: HTMLButtonElement, isSelected?: boolean) => void;
-    didUpdateNode: (nodeIndex: number, isSelected?: boolean) => void;
-    willDestroyNode: (element: HTMLButtonElement) => void;
-    onClick: (event: MouseEvent, tabIndex: number) => void;
-    onKeyUp: (nodeIndex: number, event: KeyboardEvent) => void;
+    didInsertNode?: (element: HTMLButtonElement, isSelected?: boolean) => void;
+    didUpdateNode?: (nodeIndex: number, isSelected?: boolean) => void;
+    willDestroyNode?: (element: HTMLButtonElement) => void;
+    onClick?: (event: MouseEvent, tabIndex: number) => void;
+    onKeyUp?: (nodeIndex: number, event: KeyboardEvent) => void;
   };
   Blocks: {
     default: [];
