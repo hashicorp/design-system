@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/form/masked-input.jpg
 navigation:
   keywords: ['masked' ,'sensitive', 'obscured', 'obfuscated', 'secret', 'form', 'input', 'textarea']
 status:
-  updated: 4.11.1
+  updated: 4.12.0
 ---
 
 <section data-tab="Guidelines">
@@ -33,5 +33,5 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.11.1.md"
+  @include "partials/version-history/4.12.0.md"
 </section>
