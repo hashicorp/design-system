@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/code-block.jpg
 navigation:
   keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example', 'syntax', 'highlight']
 status:
-  updated: 4.10.0
+  updated: 4.11.1
 ---
 
 <section data-tab="Guidelines">
@@ -33,5 +33,6 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.11.1.md"
   @include "partials/version-history/4.10.0.md"
 </section>
