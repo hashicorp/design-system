@@ -25,7 +25,7 @@ export interface HdsTooltipModifierSignature {
   Args: {
     Positional: [string];
     Named: {
-      options?: TippyProps;
+      options?: Partial<TippyProps>;
     };
   };
   Element: HTMLElement;
