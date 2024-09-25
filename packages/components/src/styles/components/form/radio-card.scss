@@ -95,10 +95,8 @@
       border-color: var(--token-color-border-primary);
     }
 
-    /* Set the opacity of nested components to make them appear disabled */
-    .hds-badge,
-    .hds-icon {
-      opacity: 0.5;
+    .hds-form-radio-card__content {
+      opacity: 0.6;
     }
   }
 }
