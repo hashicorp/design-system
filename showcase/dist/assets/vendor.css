@@ -1,0 +1,27 @@
+#ember-a11y-refocus-nav-message {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ember-a11y-refocus-skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  font-size: 0.75rem;
+  color: #fff;
+  padding: 0.25rem;
+  text-decoration: none;
+  transform: translateY(-100%); 
+  transition: transform 0.3s ease-in-out;
+}
+
+.ember-a11y-refocus-skip-link:focus {
+  transform: translateY(0);
+}

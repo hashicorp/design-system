@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+ Copyright (c) HashiCorp, Inc.
+ SPDX-License-Identifier: MPL-2.0
+-->
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dummy Tests</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="showcase/config/environment" content="%7B%22modulePrefix%22%3A%22showcase%22%2C%22environment%22%3A%22test%22%2C%22rootURL%22%3A%22%2F%22%2C%22locationType%22%3A%22none%22%2C%22EmberENV%22%3A%7B%22EXTEND_PROTOTYPES%22%3Afalse%2C%22FEATURES%22%3A%7B%7D%2C%22_APPLICATION_TEMPLATE_WRAPPER%22%3Afalse%2C%22_DEFAULT_ASYNC_OBSERVERS%22%3Atrue%2C%22_JQUERY_INTEGRATION%22%3Afalse%2C%22_NO_IMPLICIT_ROUTE_MODEL%22%3Atrue%2C%22_TEMPLATE_ONLY_GLIMMER_COMPONENTS%22%3Atrue%7D%2C%22emberFlightIcons%22%3A%7B%22lazyEmbed%22%3Atrue%7D%2C%22APP%22%3A%7B%22LOG_ACTIVE_GENERATION%22%3Afalse%2C%22LOG_VIEW_LOOKUPS%22%3Afalse%2C%22rootElement%22%3A%22%23ember-testing%22%2C%22autoboot%22%3Afalse%7D%7D" />
+<script data-embroider-ignore src="/ember-cli-live-reload.js" type="text/javascript"></script>
+    
+
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/showcase.css">
+    <link rel="stylesheet" href="/assets/test-support.css">
+
+    
+    <style>
+  /* *
+   * We need to modify the testing environment a bit to ensure accurate
+   * results. This is because some browsers modify styles when elements are
+   * smaller than a certain size to help with accessibility
+   */
+
+  /* We hide the QUnit content so that it doesn't modify the screen at all */
+  .axe-running #qunit {
+    display: none;
+  }
+
+  /* We position the testing container to be the entire screen */
+  .axe-running #ember-testing-container {
+    position: fixed!important;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    z-index: 9999;
+    border: none;
+    right: 0;
+  }
+
+  /* Reset the zoom on the actual application so that everything is normal */
+  .axe-running #ember-testing-container #ember-testing {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+  }
+
+  /*
+   * Disables visual effects so that elements aren't evaluated while in animation or transition.
+   */
+  .axe-running * {
+    animation: none !important;
+    transition: none !important;
+  }
+</style>
+
+  </head>
+  <body>
+    
+    
+
+    <div id="qunit"></div>
+    <div id="qunit-fixture">
+      <div id="ember-testing-container">
+        <div id="ember-testing">
+        </div>
+      </div>
+    </div>
+
+    <script src="/testem.js" integrity="" data-embroider-ignore></script>
+    <script src="/assets/vendor.js"></script>
+<script src="/assets/chunk.vendors-node_modules_glimmer_env_dist_modules_es2017_index_js-node_modules_ember-assign-helpe-f93675.fb804874ef9b3ca49d79.js"></script>
+<script src="/assets/chunk.vendors-node_modules_axe-core_axe_js-node_modules_ember-power-select_dist_test-support_js-nod-b305ea.4a59423e25ff0ac70a11.js"></script>
+<script src="/assets/chunk.private_var_folders_5y_pqxrp58d4x9g4rbw99gkz9cc0000gn_T_broccoli-6362YdI65URduV3I_cache-295-w-6b052f.e59ebdb154660c963376.js"></script>
+<script src="/assets/chunk.tests.cd7094a9b9c44ee944c5.js"></script>
+    <script src="/assets/test-support.js"></script>
+    <script src="/assets/showcase.js"></script>
+    <script src="/assets/tests.js"></script>
+
+    
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (!EmberENV.TESTS_FILE_LOADED) {
+    throw new Error('The tests file was not loaded. Make sure your tests index.html includes "assets/tests.js".');
+  }
+});
+</script>
+  </body>
+</html>

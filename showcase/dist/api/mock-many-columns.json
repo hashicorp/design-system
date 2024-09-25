@@ -1,0 +1,32 @@
+[
+  {
+    "first_name": "Judith",
+    "last_name": "Maxene",
+    "age": "43",
+    "email": "j.maxene@randatmail.com",
+    "phone": "697-0732-81",
+    "education": "Upper secondary school",
+    "occupation": "Astronomer",
+    "bio": "Analyst. Gamer. Friendly explorer. Incurable tv lover. Social media scholar. Amateur web geek. Proud zombie guru."
+  },
+  {
+    "first_name": "Elmira",
+    "last_name": "Aishah",
+    "age": "28",
+    "email": "e.aishah@randatmail.com",
+    "phone": "155-6076-27",
+    "education": "Master in Physics",
+    "occupation": "Actress",
+    "bio": "Total coffee guru. Food enthusiast. Social media expert. Tv aficionada. Extreme music advocate. Zombie fan."
+  },
+  {
+    "first_name": "Chinwendu",
+    "last_name": "Henderson",
+    "age": "62",
+    "email": "c.henderson@randatmail.com",
+    "phone": "155-0155-09",
+    "education": "Bachelor in Modern History",
+    "occupation": "Historian",
+    "bio": "Creator. Internet maven. Coffee practitioner. Troublemaker. Alcohol specialist."
+  }
+]
