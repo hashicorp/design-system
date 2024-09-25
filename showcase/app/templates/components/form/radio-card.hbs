@@ -17,6 +17,7 @@
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="label">
         <Hds::Form::RadioCard @disabled={{eq state "disabled"}} as |R|>
+          <R.Icon @name="hexagon" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>
         </Hds::Form::RadioCard>
@@ -25,6 +26,7 @@
     {{#each @model.STATES as |state|}}
       <SG.Item @label="{{capitalize state}} selected" mock-state-value={{state}} mock-state-selector="label">
         <Hds::Form::RadioCard @checked={{true}} @disabled={{eq state "disabled"}} as |R|>
+          <R.Icon @name="hexagon" />
           <R.Label>Label</R.Label>
           <R.Description>Description</R.Description>
         </Hds::Form::RadioCard>

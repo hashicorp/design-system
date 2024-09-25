@@ -79,16 +79,10 @@
 
   &--disabled,
   &.mock-disabled {
-    color: var(--token-form-control-disabled-foreground-color);
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
     cursor: not-allowed;
-
-    .hds-form-radio-card__label,
-    .hds-form-radio-card__description {
-      color: var(--token-form-control-disabled-foreground-color);
-    }
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--token-color-surface-interactive-disabled);
