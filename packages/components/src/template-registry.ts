@@ -188,6 +188,9 @@ import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
 
+// initializers
+import type HdsLoadSpriteInitializer from './instance-initializers/load-sprite.ts';
+
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
 
@@ -823,4 +826,9 @@ export default interface HdsComponentsRegistry {
 
   // hds-tooltip
   'hds-tooltip': typeof HdsTooltipModifier;
+
+  // ----- INSTANCE-INITIALIZERS -----------------------------------------
+
+  // load-sprite
+  'load-sprite': typeof HdsLoadSpriteInitializer;
 }
