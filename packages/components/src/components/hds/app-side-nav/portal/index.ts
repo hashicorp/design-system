@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { HdsAppSideNavListSignature } from '../list/index';
 
@@ -29,4 +29,7 @@ export interface HdsAppSideNavPortalSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAppSideNavPortalComponent extends Component<HdsAppSideNavPortalSignature> {}
+const HdsAppSideNavPortal =
+  TemplateOnlyComponent<HdsAppSideNavPortalSignature>();
+
+export default HdsAppSideNavPortal;
