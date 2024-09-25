@@ -49,7 +49,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @type {string}
    * @description The text of the button or value of `aria-label` if `isIconOnly` is set to `true`. If no text value is defined an error will be thrown.
    */
-  get text() {
+  get text(): string {
     const { text } = this.args;
 
     assert(
@@ -66,7 +66,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default medium
    * @description The size of the button; acceptable values are `small`, `medium`, and `large`
    */
-  get size() {
+  get size(): HdsButtonSizes {
     const { size = DEFAULT_SIZE } = this.args;
 
     assert(
@@ -85,7 +85,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default primary
    * @description Determines the color of button to be used; acceptable values are `primary`, `secondary`, and `critical`
    */
-  get color() {
+  get color(): HdsButtonColors {
     const { color = DEFAULT_COLOR } = this.args;
 
     assert(
@@ -113,7 +113,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default false
    * @description Indicates if the button will only contain an icon; component will also ensure that accessible text is still applied to the component.
    */
-  get isIconOnly() {
+  get isIconOnly(): boolean {
     if (this.icon) {
       return this.args.isIconOnly ?? false;
     }
@@ -126,7 +126,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default leading
    * @description Positions the icon before or after the text; allowed values are `leading` or `trailing`
    */
-  get iconPosition() {
+  get iconPosition(): HdsButtonIconPositions {
     const { iconPosition = DEFAULT_ICONPOSITION } = this.args;
 
     assert(
@@ -145,7 +145,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default 16
    * @description ensures that the correct icon size is used. Automatically calculated.
    */
-  get iconSize() {
+  get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.size === 'large') {
       return '24';
     } else {
@@ -159,7 +159,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @default false
    * @description Indicates that a button should take up the full width of the parent container. The default is false.
    */
-  get isFullWidth() {
+  get isFullWidth(): boolean {
     return this.args.isFullWidth ?? false;
   }
 
@@ -168,7 +168,7 @@ export default class HdsButton extends Component<HdsButtonSignature> {
    * @method Button#classNames
    * @return {string} The "class" attribute to apply to the component.
    */
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-button'];
 
     // add a class based on the @color argument
