@@ -11,11 +11,13 @@ export interface HdsInteractiveSignature {
     href?: string;
     isHrefExternal?: boolean;
     isRouteExternal?: boolean;
+    // the arguments and types below are mirroring the ones in LinkTo https://github.com/typed-ember/glint/blob/main/packages/environment-ember-loose/-private/intrinsics/link-to.d.ts#L9
+    // because they're not exported we're unable to import them directly from glint
     route?: string;
-    models?: Array<string | number>;
-    model?: string | number;
-    query?: Record<string, string>;
-    'current-when'?: string;
+    models?: unknown[];
+    model?: unknown;
+    query?: Record<string, unknown>;
+    'current-when'?: string | boolean;
     replace?: boolean;
   };
   Blocks: {
