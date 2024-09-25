@@ -29,7 +29,7 @@ export interface HdsBadgeCountSignature {
     size?: HdsBadgeCountSizes;
     type?: HdsBadgeCountTypes;
     color?: HdsBadgeCountColors;
-    text: string;
+    text: string | number;
   };
   Element: HTMLDivElement;
 }
