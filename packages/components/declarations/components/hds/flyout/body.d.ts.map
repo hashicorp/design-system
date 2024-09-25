@@ -1,0 +1,1 @@
+{"version":3,"file":"body.d.ts","sourceRoot":"","sources":["../../../../src/components/hds/flyout/body.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,OAAO,SAAS,MAAM,oBAAoB,CAAC;AAG3C,MAAM,WAAW,sBAAsB;IACrC,MAAM,EAAE;QACN,OAAO,EAAE,EAAE,CAAC;KACb,CAAC;IACF,OAAO,EAAE,cAAc,CAAC;CACzB;AAED,MAAM,CAAC,OAAO,OAAO,aAAc,SAAQ,SAAS,CAAC,sBAAsB,CAAC;gBAC9D,KAAK,EAAE,OAAO;CA6B3B"}

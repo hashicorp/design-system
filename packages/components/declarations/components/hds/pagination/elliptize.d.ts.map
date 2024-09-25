@@ -1,0 +1,1 @@
+{"version":3,"file":"elliptize.d.ts","sourceRoot":"","sources":["../../../../src/components/hds/pagination/elliptize.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,gCAAgC,EAAE,MAAM,SAAS,CAAC;AAIhE,UAAU,cAAc;IACtB,KAAK,EAAE,MAAM,EAAE,CAAC;IAChB,OAAO,EAAE,MAAM,CAAC;IAChB,KAAK,CAAC,EAAE,MAAM,CAAC;CAChB;AAED,eAAO,MAAM,SAAS,+BAInB,cAAc,qCAsDhB,CAAC"}

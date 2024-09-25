@@ -1,0 +1,23 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > LABEL
+//
+
+.hds-form-label {
+  display: block;
+  width: max-content; // to avoid it extends the full width of the parent container, leading to invisible interactive area
+  max-width: 100%;
+  color: var(--token-form-label-color);
+
+  // if a "badge" element (included the 'required' indicator) is child of the label
+  // we need to make sure that it correctly aligns with the label text because the
+  // "Hds::Badge" component has "vertical-align: middle" applied to it
+  // and this mess up the vertical alignment (increasing the container's height too)
+  .hds-badge {
+    vertical-align: initial;
+  }
+}
