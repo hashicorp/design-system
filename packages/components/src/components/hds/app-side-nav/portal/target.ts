@@ -68,7 +68,7 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
   @action
   animateSubnav(element: HTMLElement, [count]: [number]): void {
     /*
-     * Here is what the layout looks like for this setup
+     * Here is ascii art of what the layout looks like for this setup
      *
 
                                     AppSideNav
