@@ -15,7 +15,6 @@ export interface HdsAppSideNavBaseSignature {
   Element: HTMLDivElement;
 }
 
-const HdsAppSideNavBaseComponent =
-  TemplateOnlyComponent<HdsAppSideNavBaseSignature>();
+const HdsAppSideNavBase = TemplateOnlyComponent<HdsAppSideNavBaseSignature>();
 
-export default HdsAppSideNavBaseComponent;
+export default HdsAppSideNavBase;
