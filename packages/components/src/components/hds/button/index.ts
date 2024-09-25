@@ -5,27 +5,37 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
+import {
+  HdsButtonSizeValues,
+  HdsButtonColorValues,
+  HdsButtonIconPositionValues,
+} from './types.ts';
+
+import type {
+  HdsButtonSizes,
+  HdsButtonColors,
+  HdsButtonIconPositions,
+} from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsIconSignature } from '../icon';
 
-export const DEFAULT_SIZE = 'medium';
-export const DEFAULT_COLOR = 'primary';
-export const DEFAULT_ICONPOSITION = 'leading';
-export const SIZES = ['small', 'medium', 'large'] as const;
-export const COLORS = ['primary', 'secondary', 'tertiary', 'critical'] as const;
-export const ICONPOSITIONS = ['leading', 'trailing'] as const;
-
-export type HdsButtonSize = (typeof SIZES)[number];
-export type HdsButtonColor = (typeof COLORS)[number];
-export type HdsButtonIconPosition = (typeof ICONPOSITIONS)[number];
+export const SIZES: string[] = Object.values(HdsButtonSizeValues);
+export const COLORS: string[] = Object.values(HdsButtonColorValues);
+export const ICONPOSITIONS: string[] = Object.values(
+  HdsButtonIconPositionValues
+);
+export const DEFAULT_SIZE = HdsButtonSizeValues.Medium;
+export const DEFAULT_COLOR = HdsButtonColorValues.Primary;
+export const DEFAULT_ICONPOSITION = HdsButtonIconPositionValues.Leading;
 
 export interface HdsButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
-    size?: HdsButtonSize;
-    color?: HdsButtonColor;
+    size?: HdsButtonSizes;
+    color?: HdsButtonColors;
     text: string;
     icon?: HdsIconSignature['Args']['name'];
-    iconPosition?: HdsButtonIconPosition;
+    iconPosition?: HdsButtonIconPositions;
     isIconOnly?: boolean;
     isFullWidth?: boolean;
     isInline?: boolean;
