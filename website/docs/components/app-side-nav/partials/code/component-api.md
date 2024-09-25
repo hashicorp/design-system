@@ -33,7 +33,10 @@ This is the full-fledged component (responsive and animated).
     Accepts a localized string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.
   </C.Property>
   <C.Property @name="onToggleMinimizedStatus" @type="function">
-    Callback function invoked when the `AppSideNav` is collapsed or expanded. The function receives a boolean argument stating if the `AppSideNav` is minimized on not.
+    Callback function invoked when the `AppSideNav` is collapsed or expanded. The function receives a boolean argument stating if the `AppSideNav` is minimized or not.
+  </C.Property>
+  <C.Property @name="onDesktopViewportChange" @type="function">
+    Callback function invoked when the viewport changes. The function receives a boolean argument stating if the `AppSideNav` is in desktop mode or not.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
