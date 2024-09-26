@@ -7,6 +7,9 @@ import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
 
 export interface ShwDividerSignature {
+  Blocks: {
+    default: [];
+  };
   Args: {
     level?: 2;
   };
