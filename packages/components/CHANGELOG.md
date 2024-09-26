@@ -6,7 +6,7 @@
 
 ### Minor Changes
 
-`Dropdown`: added `isOpen` state to the Dropdown content
+`Dropdown` - Made the `isOpen` state available in the yielded block
 
 <small class="doc-whats-new-changelog-metadata">[#2443](https://github.com/hashicorp/design-system/pull/2443)</small>
 
@@ -14,13 +14,13 @@
 
 ### Patch Changes
 
-`IconTile`: fixed `@color` argument type signature
+`IconTile` - Fixed `@color` argument type signature
 
 <small class="doc-whats-new-changelog-metadata">[#2452](https://github.com/hashicorp/design-system/pull/2452)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Interactive` - aligned types with `LinkTo`
+`Interactive` - Aligned types with `LinkTo`
 
 <small class="doc-whats-new-changelog-metadata">[#2455](https://github.com/hashicorp/design-system/pull/2455)</small>
 
@@ -52,9 +52,9 @@ Upgraded `eslint-plugin-ember` to `12.2.0`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`MaskedInput` - Changed textarea scrollbar-width to "thin" to reduce overlap with toggle button.
+`MaskedInput` - Changed textarea `scrollbar-width` to "thin" to reduce overlap with toggle button.
 
-`CodeBlock` - Changed textarea scrollbar-width to "thin" to reduce overlap with copy button.
+`CodeBlock` - Changed textarea `scrollbar-width` to "thin" to reduce overlap with copy button.
 
 <small class="doc-whats-new-changelog-metadata">[#2444](https://github.com/hashicorp/design-system/pull/2444)</small>
 
@@ -66,29 +66,29 @@ Removed `ember-keyboard` dependency
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Tabs` - fixed signatures for subcomponents
+`Tabs` - Fixed signatures for subcomponents
 
 <small class="doc-whats-new-changelog-metadata">[#2448](https://github.com/hashicorp/design-system/pull/2448)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Table` - fixed signatures for subcomponents
+`Table` - Fixed signatures for subcomponents
 
 <small class="doc-whats-new-changelog-metadata">[#2449](https://github.com/hashicorp/design-system/pull/2449)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`BadgeCount`: updated the type of the `text` argument to allow numbers
+`BadgeCount` - updated the type of the `text` argument to allow numbers
 
-`TooltipButton`: made the default value for the `placement` argument `'top'` and fixed the type definition
+`TooltipButton` - made the default value for the `placement` argument `'top'` and fixed the type definition
 
-`TooltipButton`: made the `extraTippyOptions` argument optional and allowed to be a partial object
+`TooltipButton` - made the `extraTippyOptions` argument optional and allowed to be a partial object
 
 <small class="doc-whats-new-changelog-metadata">[#2447](https://github.com/hashicorp/design-system/pull/2447)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`DialogPrimitive`: added a guard so the yielded close function is always defined'
+`DialogPrimitive` - added a guard so the yielded close function is always defined'
 
 <small class="doc-whats-new-changelog-metadata">[#2453](https://github.com/hashicorp/design-system/pull/2453)</small>
 
