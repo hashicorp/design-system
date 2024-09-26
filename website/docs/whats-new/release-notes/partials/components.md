@@ -12,6 +12,116 @@
   </a>
 </p>
 
+## 4.12.0
+
+**Minor changes**
+
+`Dropdown`: added `isOpen` state to the Dropdown content
+
+<small class="doc-whats-new-changelog-metadata">[#2443](https://github.com/hashicorp/design-system/pull/2443)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`IconTile`: fixed `@color` argument type signature
+
+<small class="doc-whats-new-changelog-metadata">[#2452](https://github.com/hashicorp/design-system/pull/2452)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Interactive` - aligned types with `LinkTo`
+
+<small class="doc-whats-new-changelog-metadata">[#2455](https://github.com/hashicorp/design-system/pull/2455)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive` - Fixed issue with `box-sizing` inheritance
+
+`Modal`/`Flyout` - Updated `box-sizing` inheritance via `DialogPrimitive` fix
+
+<small class="doc-whats-new-changelog-metadata">[#2442](https://github.com/hashicorp/design-system/pull/2442)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded `eslint-plugin-ember` to `12.2.0`
+
+`AppFooter`, `AppFrame`, `SideNav` - refactored subcomponents to use `TemplateOnlyComponent` instead of empty classes.
+
+<small class="doc-whats-new-changelog-metadata">[#2427](https://github.com/hashicorp/design-system/pull/2427)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`RadioCard`
+
+- Fixed selected border colors to match Figma and interactive states.
+- Updated icon, label, and description colors to use `disabled-foreground` when
+  the `RadioCard` is disabled.
+
+<small class="doc-whats-new-changelog-metadata">[#2445](https://github.com/hashicorp/design-system/pull/2445)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`MaskedInput` - Changed textarea scrollbar-width to "thin" to reduce overlap with toggle button.
+
+`CodeBlock` - Changed textarea scrollbar-width to "thin" to reduce overlap with copy button.
+
+<small class="doc-whats-new-changelog-metadata">[#2444](https://github.com/hashicorp/design-system/pull/2444)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Removed `ember-keyboard` dependency
+
+<small class="doc-whats-new-changelog-metadata">[#2460](https://github.com/hashicorp/design-system/pull/2460)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tabs` - fixed signatures for subcomponents
+
+<small class="doc-whats-new-changelog-metadata">[#2448](https://github.com/hashicorp/design-system/pull/2448)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - fixed signatures for subcomponents
+
+<small class="doc-whats-new-changelog-metadata">[#2449](https://github.com/hashicorp/design-system/pull/2449)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`BadgeCount`: updated the type of the `text` argument to allow numbers
+
+`TooltipButton`: made the default value for the `placement` argument `'top'` and fixed the type definition
+
+`TooltipButton`: made the `extraTippyOptions` argument optional and allowed to be a partial object
+
+<small class="doc-whats-new-changelog-metadata">[#2447](https://github.com/hashicorp/design-system/pull/2447)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`DialogPrimitive`: added a guard so the yielded close function is always defined'
+
+<small class="doc-whats-new-changelog-metadata">[#2453](https://github.com/hashicorp/design-system/pull/2453)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Hds::SideNav` - Fixed a couple of bugs where SideNav would remain inert when no longer minimized (or would not be inert when minimized)
+
+<small class="doc-whats-new-changelog-metadata">[#2431](https://github.com/hashicorp/design-system/pull/2431) - Thanks [@DingoEatingFuzz](https://github.com/DingoEatingFuzz) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Button` - aligned type names to convention
+
+<small class="doc-whats-new-changelog-metadata">[#2457](https://github.com/hashicorp/design-system/pull/2457)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fixed issue with icon sprite not initiated
+
+<small class="doc-whats-new-changelog-metadata">[#2433](https://github.com/hashicorp/design-system/pull/2433) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.11.0
 
 [4.11.0 documentation](https://hds-website-4-11-0.vercel.app/)
@@ -949,7 +1059,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  'node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css'
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
 );
 ```
 
@@ -1078,49 +1188,6 @@ _Since this is an update brand colors and product icons, we consider this a `min
 
 - @hashicorp/design-system-tokens@1.11.0
 - @hashicorp/ember-flight-icons@4.1.0
-
-## 3.5.0
-
-[3.5.0 documentation](https://hds-website-3-5-0.vercel.app/)
-
-**Minor changes**
-
-`IconTile` - updated component adding support for `vault-radar` product
-
-<small class="doc-whats-new-changelog-metadata">[#1904](https://github.com/hashicorp/design-system/pull/1904)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`SideNav::List::Title`, `SideNav::List::BackLink`, `SideNav::List::Link`: fixed issue with long text strings without spaces not wrapping
-
-<small class="doc-whats-new-changelog-metadata">[#1899](https://github.com/hashicorp/design-system/pull/1899)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `hds-` prefix to Sass variables for component styles (where missing).
-
-<small class="doc-whats-new-changelog-metadata">[#1903](https://github.com/hashicorp/design-system/pull/1903)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - removed `@cached` decorator and the associated `ember-cached-decorator-polyfill`
-
-<small class="doc-whats-new-changelog-metadata">[#1905](https://github.com/hashicorp/design-system/pull/1905)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Fixed the default token color in the syntax highlighting theme.
-
-<small class="doc-whats-new-changelog-metadata">[#1893](https://github.com/hashicorp/design-system/pull/1893)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@1.10.0
-- @hashicorp/ember-flight-icons@4.0.6
 
 
 ---
