@@ -2,6 +2,8 @@
 
 ## 4.12.0
 
+[4.12.0 documentation](https://hds-website-4-12-0.vercel.app/)
+
 ### Minor Changes
 
 `Dropdown`: added `isOpen` state to the Dropdown content
