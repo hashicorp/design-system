@@ -4293,7 +4293,6 @@ __metadata:
     ember-element-helper: "npm:^0.8.5"
     ember-focus-trap: "npm:^1.1.0"
     ember-get-config: "npm:^2.1.1"
-    ember-keyboard: "npm:^8.2.1"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
     ember-stargate: "npm:^0.4.3"
@@ -13194,7 +13193,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-destroyable-polyfill@npm:^2.0.1, ember-destroyable-polyfill@npm:^2.0.2, ember-destroyable-polyfill@npm:^2.0.3":
+"ember-destroyable-polyfill@npm:^2.0.1, ember-destroyable-polyfill@npm:^2.0.2":
   version: 2.0.3
   resolution: "ember-destroyable-polyfill@npm:2.0.3"
   dependencies:
@@ -13316,23 +13315,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-keyboard@npm:^8.2.1":
-  version: 8.2.1
-  resolution: "ember-keyboard@npm:8.2.1"
-  dependencies:
-    "@embroider/addon-shim": "npm:^1.8.4"
-    ember-destroyable-polyfill: "npm:^2.0.3"
-    ember-modifier: "npm:^2.1.2 || ^3.1.0 || ^4.0.0"
-    ember-modifier-manager-polyfill: "npm:^1.2.0"
-  peerDependencies:
-    "@ember/test-helpers": ^2.6.0 || ^3.0.0
-  peerDependenciesMeta:
-    "@ember/test-helpers":
-      optional: true
-  checksum: 10/1c9e62a44a6ee95e52276865d63c35e2bf294720f903bc3214508e9641d8dc37860a6ee582b332b5570bb124dc4d80ff210752cf66b91c7cff35ce279117e444
-  languageName: node
-  linkType: hard
-
 "ember-lifeline@npm:^7.0.0":
   version: 7.0.0
   resolution: "ember-lifeline@npm:7.0.0"
@@ -13391,7 +13373,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^2.1.2 || ^3.1.0 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0":
+"ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0":
   version: 4.1.0
   resolution: "ember-modifier@npm:4.1.0"
   dependencies:
