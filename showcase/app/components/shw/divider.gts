@@ -7,9 +7,6 @@ import Component from '@glimmer/component';
 import { concat } from '@ember/helper';
 
 export interface ShwDividerSignature {
-  Blocks: {
-    default: [];
-  };
   Args: {
     level?: 2;
   };
@@ -20,7 +17,6 @@ export default class ShwDivider extends Component<ShwDividerSignature> {
   <template>
     <hr
       class="shw-divider {{if @level (concat 'shw-divider--level-' @level)}}"
-      ...attributes
     />
   </template>
 }
