@@ -15,7 +15,6 @@ interface HdsAppSideNavSignature {
     isResponsive?: boolean;
     isCollapsible?: boolean;
     isMinimized?: boolean;
-    toggleButtonAriaLabel?: string;
     onToggleMinimizedStatus?: (arg: boolean) => void;
     onDesktopViewportChange?: (arg: boolean) => void;
   };
@@ -93,13 +92,6 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   get showToggleButton(): boolean {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
-  }
-
-  get toggleButtonAriaLabel(): string {
-    if (this.isMinimized) {
-      return this.args.toggleButtonAriaLabel ?? 'Open menu';
-    }
-    return this.args.toggleButtonAriaLabel ?? 'Close menu';
   }
 
   get classNames(): string {
