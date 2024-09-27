@@ -190,84 +190,25 @@
       <Shw::Text::H3>Yielded content</Shw::Text::H3>
 
       <Shw::Flex as |SF|>
-        <SF.Item @label="With product icons using brand colors">
+        <SF.Item @label="With back link">
           <div class="shw-component-sim-app-side-nav-root-container">
             <Hds::AppSideNav @isResponsive={{false}}>
               <:body>
-                <Hds::AppSideNav::List aria-label="Dashboard 3" as |SNL|>
-                  <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-                </Hds::AppSideNav::List>
-
-                <Hds::AppSideNav::List aria-label="Services 3" as |SNL|>
-                  <SNL.Title>Services</SNL.Title>
-                  <SNL.Link
-                    @text="Boundary"
-                    @icon="boundary"
-                    @iconColor="var(--token-color-boundary-brand)"
-                    @href="#"
-                  />
-                  <SNL.Link @text="Consul" @icon="consul" @iconColor="var(--token-color-consul-brand)" @href="#" />
-                  <SNL.Link @text="Packer" @icon="packer" @iconColor="var(--token-color-packer-brand)" @href="#" />
-                  <SNL.Link @text="Vault" @icon="vault" @iconColor="var(--token-color-vault-brand)" @href="#" />
-                  <SNL.Link
-                    @text="Vault Secrets"
-                    @icon="vault-secrets-square"
-                    @iconColor="var(--token-color-vault-secrets-brand-alt)"
-                    @href="#"
-                  />
-                  <SNL.Link
-                    @text="Terraform"
-                    @icon="terraform"
-                    @iconColor="var(--token-color-terraform-brand)"
-                    @href="#"
-                  />
-                  <SNL.Link
-                    @text="Vagrant"
-                    @icon="vagrant"
-                    @iconColor="var(--token-color-vagrant-brand)"
-                    @badge="Alpha"
-                    @href="#"
-                  />
-                  <SNL.Link
-                    @text="Waypoint"
-                    @icon="waypoint"
-                    @badge="Alpha"
-                    @iconColor="var(--token-color-waypoint-brand)"
-                    @hasSubItems={{true}}
-                  />
-                </Hds::AppSideNav::List>
-                <Hds::AppSideNav::List aria-label="Organization 3" as |SNL|>
-                  <SNL.Title>Default Org</SNL.Title>
-                  <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-                  <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+                <Hds::AppSideNav::List as |SNL|>
+                  <SNL.BackLink @text="A “back” link" @href="#" />
+                  <SNL.Title>A section title</SNL.Title>
+                  <SNL.Link @text="A link with just text" @href="#" />
+                  <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
+                  <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
+                  <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
+                  <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
+                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
                 </Hds::AppSideNav::List>
               </:body>
             </Hds::AppSideNav>
           </div>
         </SF.Item>
       </Shw::Flex>
-    </SG.Item>
-
-    <SG.Item @label="With back link">
-      <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Hds::AppSideNav::List as |SNL|>
-              <SNL.BackLink @text="A “back” link" @href="#" />
-              <SNL.Title>A section title</SNL.Title>
-              <SNL.Link @text="A link with just text" @href="#" />
-              <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
-              <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
-              <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
-              <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
-              <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
-            </Hds::AppSideNav::List>
-          </:body>
-        </Hds::AppSideNav>
-      </div>
     </SG.Item>
   </Shw::Grid>
 </section>
