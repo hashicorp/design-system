@@ -11,7 +11,6 @@ import type { HdsInteractiveSignature } from '../../interactive';
 export interface HdsAppSideNavListLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     icon?: HdsIconSignature['Args']['name'];
-    iconColor?: string;
     text?: string;
     badge?: string;
     count?: string;

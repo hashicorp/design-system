@@ -57,20 +57,6 @@ module(
       assert.dom('#test-custom-content').exists();
     });
 
-    test('it renders the passed in custom iconColor value', async function (assert) {
-      await render(
-        hbs`
-        <Hds::AppSideNav::List::Link
-          @icon="boundary"
-          @iconColor="var(--token-color-boundary-brand)"
-        />`
-      );
-      assert
-        .dom('.hds-icon-boundary')
-        .exists()
-        .hasAttribute('fill', 'var(--token-color-boundary-brand)');
-    });
-
     // GENERATED ELEMENTS
 
     test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
