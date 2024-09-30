@@ -17,14 +17,15 @@ The body consists of a group of sections with vertical lists of links, typically
 
 #### With title
 
+- A title can help users scan the sections and provide context about the links inside each section.
+- Titles should be meaningful and related to the content within the section.
+
 ![App Side Nav section with a title](/assets/components/app-side-nav/section-with-title.png)
 
 #### Without title
 
 ![App Side Nav section without a title](/assets/components/app-side-nav/section-without-title.png)
 
-- A title can help users scan the sections and provide context about the links inside each section.
-- Titles should be meaningful and related to the content within the section.
 
 ### List items
 
@@ -42,35 +43,39 @@ The body consists of a group of sections with vertical lists of links, typically
 
 !!! Do
 
-![List items with correct use of icons](/assets/components/app-side-nav/list-item-with-icon-do.png)
+Use the default icon color in list items.
+
+![List items correctly using the default icon color.](/assets/components/app-side-nav/list-item-with-icon-do.png)
 
 !!!
 
 !!! Dont
 
-![List items with incorrect use of icons](/assets/components/app-side-nav/list-item-with-icon-dont.png)
+Don’t override the color of the icon within the list item or incorporate a brand color.
+
+![List items incorrectly overriding the default color with purple.](/assets/components/app-side-nav/list-item-with-icon-dont.png)
 
 !!!
 
 #### With badge
 
-![List item with a badge](/assets/components/app-side-nav/list-item-with-badge.png)
+![List item with a "Beta" badge](/assets/components/app-side-nav/list-item-with-badge.png)
 
 #### With count
 
-![List item with badge-count](/assets/components/app-side-nav/list-item-with-count.png)
+![List item with badge count displaying "3"](/assets/components/app-side-nav/list-item-with-count.png)
 
 #### With nested items
 
 Use `hasSubItems` to show or signify that a link has a nested level of navigation.
 
-![List item with sub-items](/assets/components/app-side-nav/list-item-with-nested-items.png)
+!["Settings" list item with a right arrow icon to show that it has sub-items](/assets/components/app-side-nav/list-item-with-nested-items.png)
 
 #### External links
 
 Use `isLinkExternal` to show that the list item is a hyperlink pointing to a page outside the product or platform.
 
-![List item with a external link](/assets/components/app-side-nav/list-item-with-external-link.png)
+!["HashiCorp Cloud Platform" link with an external link icon](/assets/components/app-side-nav/list-item-with-external-link.png)
 
 !!! Warning
 
@@ -81,25 +86,25 @@ Use external links sparingly. Avoid using this property to link pages that are u
 
 The topGenericInstance and bottomGenericInstance properties support any additional generic content, local components, or Helios components within the body container via instance swap properties (`topGenericInstance`, `bottomGenericInstance`) in Figma.
 
-![Generic container within the side-nav body](/assets/components/app-side-nav/custom-content-body.png)
+![Generic container within the App Side Nav body](/assets/components/app-side-nav/custom-content-body.png)
 
 ## Positioning, and responsive behaviour
 
-The App Side Nav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
+The App Side Nav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user.
 
 On smaller viewports, the App Side Nav should collapse to maximize the available real estate on tablet and mobile devices. By tapping the menu icon, users can expand and access the full menu when needed.
 
-![Responsive side-nav](/assets/components/app-side-nav/app-side-nav-position-and-responsive.png)
+![Two viewports: a desktop with the App Side Nav expanded and a smaller screen with it collapsed by default.](/assets/components/app-side-nav/app-side-nav-position-and-responsive.png)
 
 ## Collapse functionality
 
 If the `isCollapsible` property is set to `true`, a collapse toggle button will be exposed to the end-user allowing them to manually expand and collapse the component.
 
-![App Side Nav collapse function](/assets/components/app-side-nav/app-side-nav-collapse-interaction.png)
+![The collapse button on the edge of the app side nav with a mouse over it](/assets/components/app-side-nav/app-side-nav-collapse-interaction.png)
 
 On smaller viewports, the App Side Nav will be rendered in its collapsed state **by default** and will overlay the main page content in its expanded state.
 
-![App Side Nav overlay on smaller viewports](/assets/components/app-side-nav/app-side-nav-overlay-small-viewport.png)
+![An expanded App Side Nav on a smaller viewport completely blocking the main content with an overlay](/assets/components/app-side-nav/app-side-nav-overlay-small-viewport.png)
 
 ### Collapsed reflow
 

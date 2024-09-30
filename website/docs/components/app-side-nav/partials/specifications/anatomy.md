@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of sideNav](/assets/components/app-side-nav/app-side-nav-anatomy.png)
+![The App Side Nav with the elements labelled: Back link, Collapse toggle,  list title, list item, body](/assets/components/app-side-nav/app-side-nav-anatomy.png)
 
 | Element         | Usage                  |
 | --------------- | ---------------------- |
