@@ -24,13 +24,8 @@ export default class Hds<%= classifiedModuleName %> extends Component<Hds<%= cla
   //   // ADD YOUR ASSERTIONS HERE
   // }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames() {
-    let classes = ['hds-<%= kebabizedModuleName %>'];
+    const classes = ['hds-<%= kebabizedModuleName %>'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-<%= kebabizedModuleName %>--[variant]-${this.xxx}`);
