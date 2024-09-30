@@ -222,7 +222,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       .hasClass('hds-app-side-nav--is-not-minimized');
     assert
       .dom('.hds-app-side-nav__toggle-button')
-      .hasAttribute('aria-label', 'Close menu');
+      .hasAttribute('aria-expanded', 'true');
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-left');
@@ -245,7 +245,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
     assert
       .dom('.hds-app-side-nav__toggle-button')
-      .hasAttribute('aria-label', 'Open menu');
+      .hasAttribute('aria-expanded', 'false');
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-right');
