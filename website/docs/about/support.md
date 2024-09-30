@@ -26,10 +26,6 @@ Join the [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS) 
 
 Users external to HashiCorp can [file issues in GitHub](https://github.com/hashicorp/design-system/issues/new/choose).
 
-## Office hours
-
-[Sign up for an appointment](https://go.hashi.co/hds-office-hours) at the next office hours if you need feedback on Helios usage or want to discuss adoption challenges or upcoming projects that you may be looking to [collaborate](/about/contribution) with us on.
-
 ## Share feedback
 
 If you have more general feedback you can share it (anonymously) with us using our [feedback form](https://go.hashi.co/hds-feedback).
