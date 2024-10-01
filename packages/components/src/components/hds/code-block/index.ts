@@ -47,6 +47,7 @@ export interface HdsCodeBlockSignature {
     hasLineNumbers?: boolean;
     hasLineWrapping?: boolean;
     highlightLines?: string;
+    lineNumberStart?: number;
     isStandalone?: boolean;
     language?: HdsCodeBlockLanguages;
     maxHeight?: string;
