@@ -1,0 +1,186 @@
+{
+    "color": {
+        "palette": {
+            "blue-500": {
+                "value": "#6bc1ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "blue-400": {
+                "value": "#4ca1ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "blue-300": {
+                "value": "#389aff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "blue-200": {
+                "value": "#2b89ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "blue-100": {
+                "value": "#1c345f",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "blue-50": {
+                "value": "#111f37",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-500": {
+                "value": "#dda5ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-400": {
+                "value": "#c070ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-300": {
+                "value": "#b457ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-200": {
+                "value": "#ab42ff",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-100": {
+                "value": "#42225b",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "purple-50": {
+                "value": "#29123a",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-500": {
+                "value": "#1ce375",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-400": {
+                "value": "#00c157",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-300": {
+                "value": "#00ae4e",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-200": {
+                "value": "#009241",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-100": {
+                "value": "#054220",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "green-50": {
+                "value": "#042a15",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-500": {
+                "value": "#ffcc6a",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-400": {
+                "value": "#faad3a",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-300": {
+                "value": "#fda219",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-200": {
+                "value": "#e88c03",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-100": {
+                "value": "#542800",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "amber-50": {
+                "value": "#2e1b06",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-500": {
+                "value": "#ff8c7c",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-400": {
+                "value": "#ff5841",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-300": {
+                "value": "#f9381e",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-200": {
+                "value": "#ef3016",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-100": {
+                "value": "#62170d",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            },
+            "red-50": {
+                "value": "#370b06",
+                "type": "color",
+                "group": "palette",
+                "theme": "dark"
+            }
+        }
+    }
+}

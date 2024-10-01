@@ -6,9 +6,9 @@
 .shw-divider {
   margin: 3rem 0;
   border: none;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid var(--shw-color-gray-500);
 }
 
 .shw-divider--level-2 {
-  border-top: 2px dotted #ddd;
+  border-top-style: dotted;
 }

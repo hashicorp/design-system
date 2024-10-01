@@ -9,10 +9,16 @@ import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
+import MockAppMainFormComplex from './main/form-complex';
+import MockAppMainTableComplex from './main/table-complex';
+import MockAppMainPagination from './main/pagination';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
-import { HdsAppFrame } from '@hashicorp/design-system-components/components';
+import {
+  HdsAlert,
+  HdsAppFrame,
+} from '@hashicorp/design-system-components/components';
 
 // types
 import type { ComponentLike } from '@glint/template';
@@ -21,10 +27,14 @@ import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
+import type { MockAppMainFormComplexSignature } from './main/form-complex';
+import type { MockAppMainTableComplexSignature } from './main/table-complex';
+import type { MockAppMainPaginationSignature } from './main/pagination';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
   Args: {
+    hasPageAlert?: boolean;
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
@@ -44,6 +54,9 @@ export interface MockAppSignature {
       {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
+        MockAppMainFormComplex?: ComponentLike<MockAppMainFormComplexSignature>;
+        MockAppMainTableComplex?: ComponentLike<MockAppMainTableComplexSignature>;
+        MockAppMainPagination?: ComponentLike<MockAppMainPaginationSignature>;
       },
     ];
     footer?: [
@@ -80,11 +93,20 @@ export default class MockApp extends Component<MockAppSignature> {
         {{/if}}
       </Frame.Sidebar>
       <Frame.Main>
+        {{#if @hasPageAlert}}
+          <HdsAlert @type="page" @color="highlight" as |A|>
+            <A.Title>Lorem ipsum</A.Title>
+            <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+          </HdsAlert>
+        {{/if}}
         <div class="mock-app-layout-main-content-wrapper">
           {{yield
             (hash
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
+              FormComplex=MockAppMainFormComplex
+              TableComplex=MockAppMainTableComplex
+              Pagination=MockAppMainPagination
             )
             to="main"
           }}

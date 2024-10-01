@@ -1,0 +1,22 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// THEMING
+
+body.foundations-theming {
+  .shw-foundation-theming-status-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 64px;
+    padding: 8px 0;
+    color: var(--shw-color-black);
+    font-size: 0.75rem;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    border-top: 1px solid var(--shw-color-gray-500);
+    border-bottom: 1px solid var(--shw-color-gray-500);
+
+    label { margin-right: 8px; }
+  }
+}

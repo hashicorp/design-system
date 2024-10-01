@@ -16,6 +16,11 @@ Router.map(function () {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
+    this.route('theming', function () {
+      this.route('frameless', function () {
+        this.route('demo-application-with-theme-switcher');
+      });
+    });
   });
   this.route('components', function () {
     this.route('accordion');
