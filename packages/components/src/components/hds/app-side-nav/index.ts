@@ -136,6 +136,18 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     });
   }
 
+  lockBodyScroll(): void {
+    document.body.style.top = `-${window.scrollY}px`;
+    document.body.style.position = 'fixed';
+  }
+
+  unlockBodyScroll(): void {
+    const verticalScrollPosition = document.body.style.top;
+    document.body.style.position = '';
+    document.body.style.top = '';
+    window.scrollTo(0, parseInt(verticalScrollPosition || '0') * -1);
+  }
+
   @action
   escapePress(event: KeyboardEvent): void {
     if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
@@ -147,13 +159,18 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   @action
   toggleMinimizedStatus(): void {
     this.isMinimized = !this.isMinimized;
-
     this.synchronizeInert();
 
     const { onToggleMinimizedStatus } = this.args;
 
     if (typeof onToggleMinimizedStatus === 'function') {
       onToggleMinimizedStatus(this.isMinimized);
+    }
+
+    if (this.isMinimized) {
+      this.unlockBodyScroll();
+    } else {
+      this.lockBodyScroll();
     }
   }
 
