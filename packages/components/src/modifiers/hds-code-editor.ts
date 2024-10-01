@@ -116,14 +116,27 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       // options = {},
       value,
     } = named;
+
+    const hdsDark = EditorView.theme(
+      {
+        '&': {
+          color: 'white',
+          backgroundColor: '#0d0e12',
+        },
+      },
+      { dark: true }
+    );
+
     const extensions = [
       lineNumbers(),
       highlightActiveLineGutter(),
       highlightSpecialChars(),
       drawSelection(),
       highlightActiveLine(),
+      hdsDark,
       // EditorState.readOnly.of(true),
     ];
+
     const state = EditorState.create({ doc: value, extensions });
     this.onInput = onInput;
     this.onBlur = onBlur;
