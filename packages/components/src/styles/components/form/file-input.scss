@@ -36,8 +36,8 @@
   background-repeat: no-repeat;
   background-position: 15px 50%;
   background-size: var(--token-form-text-input-background-image-size);
-  border: $hds-button-border-width solid var(--token-color-border-strong);
-  border-radius: $hds-button-border-radius;
+  border: var(--token-button-border-width) solid var(--token-color-border-strong);
+  border-radius: var(--token-button-border-radius);
   box-shadow: var(--token-elevation-low-box-shadow);
   cursor: pointer;
 }
