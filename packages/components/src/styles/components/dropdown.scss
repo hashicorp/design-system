@@ -48,7 +48,13 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px, $radius: $hds-dropdown-toggle-border-radius);
+  @include hds-focus-ring-with-pseudo-element(
+    $top: -1px,
+    $right: -1px,
+    $bottom: -1px,
+    $left: -1px,
+    $radius: $hds-dropdown-toggle-border-radius
+  );
 
   &:active,
   &.mock-active {
@@ -209,7 +215,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     background: none;
     border: none;
     inset: 0;
-  }  
+  }
 }
 
 .hds-dropdown {
@@ -218,7 +224,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
     &[popover]:popover-open {
       display: flex;
-    }  
+    }
   }
 }
 
@@ -286,7 +292,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   width: 100%;
   padding: 10px 16px 12px;
 }
-
 
 // HDS::DROPDOWN::LIST-ITEM::DESCRIPTION
 
@@ -446,7 +451,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     --current-color-active: var(--token-color-foreground-action-active);
 
     &::after {
-      --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
+      --current-focus-ring-box-shadow: var(
+        --token-focus-ring-action-box-shadow
+      );
     }
   }
 }
@@ -463,7 +470,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
     &::after {
       --current-background-color: var(--token-color-surface-critical);
-      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
+      --current-focus-ring-box-shadow: var(
+        --token-focus-ring-critical-box-shadow
+      );
     }
   }
 }
@@ -509,7 +518,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
 .hds-dropdown-list-item--variant-checkmark-selected {
-  .hds-dropdown-list-item__interactive {
+  .hds-dropdown-list-item__checkmark {
     color: var(--token-color-foreground-action);
   }
 }
@@ -530,7 +539,6 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   color: var(--token-color-foreground-disabled);
   cursor: not-allowed;
 }
-
 
 // HDS::DROPDOWN::LIST-ITEM::CHECKBOX & HDS::DROPDOWN::LIST-ITEM::RADIO
 
