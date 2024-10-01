@@ -19,7 +19,8 @@
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
-    "build": "ts-node --transpile-only ./scripts/build"
+    "build": "ts-node --transpile-only ./scripts/build",
+    "build:watch": "nodemon --watch './src/*' --ext 'json' --exec 'ts-node --transpile-only ./scripts/build'"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.3",
