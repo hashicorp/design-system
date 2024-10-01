@@ -219,6 +219,9 @@
   --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
   --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
   --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-badge-count-padding-horizontal-small: 7px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
+  --token-badge-count-padding-horizontal-medium: 11px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
+  --token-badge-count-padding-horizontal-large: 13px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
   --token-badge-height-small: 20px;
   --token-badge-height-medium: 24px;
   --token-badge-height-large: 32px;
