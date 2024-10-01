@@ -65,6 +65,7 @@ Router.map(function () {
     this.route('text');
     this.route('toast');
     this.route('tabs');
+    this.route('tree-grid');
     this.route('tooltip');
     this.route('copy', function () {
       this.route('button');

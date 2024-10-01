@@ -277,6 +277,18 @@ export { default as HdsToast } from './components/hds/toast/index.ts';
 export { default as HdsTooltipButton } from './components/hds/tooltip-button/index.ts';
 export * from './components/hds/tooltip-button/types.ts';
 
+// TreeGrid
+export { default as HdsTreeGrid } from './components/hds/tree-grid/index.ts';
+export { default as HdsTreeGridTd } from './components/hds/tree-grid/td.ts';
+export { default as HdsTreeGridButtonExpand } from './components/hds/tree-grid/th-button-expand.ts';
+export { default as HdsTreeGridButtonSort } from './components/hds/tree-grid/th-button-sort.ts';
+export { default as HdsTreeGridButtonTooltip } from './components/hds/tree-grid/th-button-tooltip.ts';
+export { default as HdsTreeGridThExpandable } from './components/hds/tree-grid/th-expandable.ts';
+export { default as HdsTreeGridThSort } from './components/hds/tree-grid/th-sort.ts';
+export { default as HdsTreeGridTh } from './components/hds/tree-grid/th.ts';
+export { default as HdsTreeGridTr } from './components/hds/tree-grid/tr.ts';
+export * from './components/hds/tree-grid/types.ts';
+
 // -----------------------------------------------------------
 // ### LAYOUTS
 // -----------------------------------------------------------

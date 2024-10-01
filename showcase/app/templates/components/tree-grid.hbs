@@ -1,0 +1,37 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "TreeGrid Component"}}
+
+<Shw::Text::H1>TreeGrid</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Hds::TreeGrid
+    @model={{this.model.music}}
+    @childrenKey="items"
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="year" label="Release Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>{{B.data.artist}}</B.Th>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+      {{!-- <Each as |child|>
+        <Hds::TreeGrid::Tr>
+          <Hds::TreeGrid::Th>{{child.artist}}</Hds::TreeGrid::Th>
+          <Hds::TreeGrid::Td>{{child.album}}</Hds::TreeGrid::Td>
+          <Hds::TreeGrid::Td>{{child.year}}</Hds::TreeGrid::Td>
+        </Hds::TreeGrid::Tr>
+      </Each> --}}
+    </:body>
+  </Hds::TreeGrid>
+
+</section>

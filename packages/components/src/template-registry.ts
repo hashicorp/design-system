@@ -176,6 +176,15 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsTreeGridComponent from './components/hds/tree-grid';
+import type HdsTreeGridTdComponent from './components/hds/tree-grid/td';
+import type HdsTreeGridThButtonSortComponent from './components/hds/tree-grid/th-button-sort';
+import type HdsTreeGridThComponent from './components/hds/tree-grid/th';
+import type HdsTreeGridThButtonTooltipComponent from './components/hds/tree-grid/th-button-tooltip';
+import type HdsTreeGridThSortComponent from './components/hds/tree-grid/th-sort';
+import type HdsTreeGridTrComponent from './components/hds/tree-grid/tr';
+import type HdsTreeGridThButtonExpandComponent from './components/hds/tree-grid/th-button-expand.ts';
+import type HdsTreeGridThExpandableComponent from './components/hds/tree-grid/th-expandable.ts';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
@@ -793,6 +802,26 @@ export default interface HdsComponentsRegistry {
   // TooltipButton
   'Hds::TooltipButton': typeof HdsTooltipButtonComponent;
   'hds/tooltip-button': typeof HdsTooltipButtonComponent;
+
+  // TreeGrid
+  'Hds::TreeGrid': typeof HdsTreeGridComponent;
+  'hds/tree-grid': typeof HdsTreeGridComponent;
+  'Hds::TreeGrid::Td': typeof HdsTreeGridTdComponent;
+  'hds/tree-grid/td': typeof HdsTreeGridTdComponent;
+  'Hds::TreeGrid::Th': typeof HdsTreeGridThComponent;
+  'hds/tree-grid/th': typeof HdsTreeGridThComponent;
+  'Hds::TreeGrid::Tr': typeof HdsTreeGridTrComponent;
+  'hds/tree-grid/tr': typeof HdsTreeGridTrComponent;
+  'Hds::TreeGrid::ThButtonExpand': typeof HdsTreeGridThButtonExpandComponent;
+  'hds/tree-grid/th-button-expand': typeof HdsTreeGridThButtonExpandComponent;
+  'Hds::TreeGrid::ThButtonSort': typeof HdsTreeGridThButtonSortComponent;
+  'hds/tree-grid/th-button-sort': typeof HdsTreeGridThButtonSortComponent;
+  'Hds::TreeGrid::ThButtonTooltip': typeof HdsTreeGridThButtonTooltipComponent;
+  'hds/tree-grid/th-button-tooltip': typeof HdsTreeGridThButtonTooltipComponent;
+  'Hds::TreeGrid::ThSort': typeof HdsTreeGridThSortComponent;
+  'hds/tree-grid/th-sort': typeof HdsTreeGridThSortComponent;
+  'Hds::TreeGrid::ThExpandable': typeof HdsTreeGridThExpandableComponent;
+  'hds/tree-grid/th-expandable': typeof HdsTreeGridThExpandableComponent;
 
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
