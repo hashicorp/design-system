@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 01 Oct 2024 15:54:50 GMT
+ * Generated on Tue, 01 Oct 2024 17:40:29 GMT
  */
 
 :root {
@@ -269,6 +269,9 @@
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
+  --token-badge-count-padding-horizontal-small: 7px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
+  --token-badge-count-padding-horizontal-medium: 11px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
+  --token-badge-count-padding-horizontal-large: 13px; /* this horizontal padding is specific for the `badge-count`- here we're taking into account the 1px border */
   --token-badge-height-small: 20px;
   --token-badge-height-medium: 24px;
   --token-badge-height-large: 32px;
