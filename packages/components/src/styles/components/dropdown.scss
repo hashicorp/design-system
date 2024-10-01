@@ -518,12 +518,8 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 // HDS::DROPDOWN::LIST-ITEM::CHECKMARK
 
 .hds-dropdown-list-item--variant-checkmark-selected {
-  .hds-dropdown-list-item__interactive {
-    color: var(--token-color-foreground-primary);
-
-    .hds-dropdown-list-item__checkmark {
-      color: var(--token-color-foreground-action);
-    }
+  .hds-dropdown-list-item__checkmark {
+    color: var(--token-color-foreground-action);
   }
 }
 
