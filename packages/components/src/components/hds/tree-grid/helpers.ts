@@ -1,7 +1,6 @@
 // TODO
 // did insert
 // add escape listener to focusable elements inside cell
-// check if it is the first cell and add tabindex 0
 // Page Down: Moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row of the grid, focus does not move.
 // Page Up: Moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row of the grid, focus does not move.
 // Home: moves focus to the first cell in the row that contains focus.
@@ -16,9 +15,6 @@ export const didInsertGridCell = (
   cell: HdsTreeGridThSignature['Element'] | HdsTreeGridTdSignature['Element']
 ): void => {
   const currentRow = cell.parentElement;
-
-  console.log('currentRow', currentRow);
-  console.log(currentRow?.parentElement?.tagName);
 
   if (currentRow?.parentElement?.tagName === 'THEAD') {
     const thead = currentRow.parentElement;
@@ -35,10 +31,6 @@ export const didInsertGridCell = (
     const table = currentRow.parentElement.parentElement;
     const thead = table?.querySelector('thead');
     const tbody = table?.querySelector('tbody');
-
-    console.log('table', table);
-    console.log('thead', thead);
-    console.log('tbody', tbody);
 
     if (thead === null) {
       if (
