@@ -285,6 +285,96 @@
   --token-badge-outlined-warning-border-color: #bb5a00;
   --token-badge-outlined-critical-foreground-color: #e52228;
   --token-badge-outlined-critical-border-color: #e52228;
+  --token-button-critical-foreground-default: #c00005;
+  --token-button-critical-foreground-hover: #ffffff;
+  --token-button-critical-foreground-focus: #c00005;
+  --token-button-critical-foreground-active: #ffffff;
+  --token-button-critical-surface-default: #fff5f5;
+  --token-button-critical-surface-hover: #c00005;
+  --token-button-critical-surface-focus: #fff5f5;
+  --token-button-critical-surface-active: #940004;
+  --token-button-critical-border-color-default: #c00005;
+  --token-button-critical-border-color-hover: #940004;
+  --token-button-critical-border-color-focus: #c00005;
+  --token-button-critical-border-color-active: #940004;
+  --token-button-critical-box-shadow-default: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --token-button-critical-box-shadow-focus: none;
+  --token-button-critical-box-shadow-active: none;
+  --token-button-disabled-foreground: #8c909c;
+  --token-button-disabled-surface: #fafafa;
+  --token-button-disabled-border-color: #656a7633;
+  --token-button-disabled-box-shadow: none;
+  --token-button-height-small: 28px;
+  --token-button-height-medium: 36px;
+  --token-button-height-large: 48px;
+  --token-button-padding-horizontal-small: 11px; /* here we're taking into account the 1px border */
+  --token-button-padding-horizontal-medium: 15px; /* here we're taking into account the 1px border */
+  --token-button-padding-horizontal-large: 19px; /* here we're taking into account the 1px border */
+  --token-button-padding-vertical-small: 6px; /* here we're taking into account the 1px border */
+  --token-button-padding-vertical-medium: 9px; /* here we're taking into account the 1px border */
+  --token-button-padding-vertical-large: 11px; /* here we're taking into account the 1px border */
+  --token-button-icon-size-small: 12px;
+  --token-button-icon-size-medium: 16px;
+  --token-button-icon-size-large: 24px;
+  --token-button-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-button-font-size-small: 0.8125rem; /* 13px/0.8125rem */
+  --token-button-font-size-medium: 0.875rem; /* 14px/0.875rem */
+  --token-button-font-size-large: 1rem; /* 16px/1rem */
+  --token-button-line-height-small: 1.0769; /* 14px - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants) */
+  --token-button-line-height-medium: 1.1428; /* 16px */
+  --token-button-line-height-large: 1.5; /* 24px */
+  --token-button-font-weight: 400; /* notice: we set the font-weight of the button text to 'regular' (on purpose) because of the antialising of the browser that renders the text quite different from what it looks like in Figma, so we prefer to have them visually similar even if they differ in their internal implementation (in Figma the font-weight is medium/500) - for more context about this decision: https://hashicorp.atlassian.net/browse/HDS-2099 */
+  --token-button-gap: 6px;
+  --token-button-border-width: 1px;
+  --token-button-border-radius: 5px;
+  --token-button-box-shadow-focus: none;
+  --token-button-focus-border-width: 3px;
+  --token-button-focus-border-radius: 0px;
+  --token-button-primary-foreground-default: #ffffff;
+  --token-button-primary-foreground-hover: #ffffff;
+  --token-button-primary-foreground-focus: #ffffff;
+  --token-button-primary-foreground-active: #ffffff;
+  --token-button-primary-surface-default: #1060ff;
+  --token-button-primary-surface-hover: #0046d1;
+  --token-button-primary-surface-focus: #1060ff;
+  --token-button-primary-surface-active: #0046d1;
+  --token-button-primary-border-color-default: #0c56e9;
+  --token-button-primary-border-color-hover: #0046d1;
+  --token-button-primary-border-color-focus: #0c56e9;
+  --token-button-primary-border-color-active: #0046d1;
+  --token-button-primary-box-shadow-default: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --token-button-primary-box-shadow-focus: none;
+  --token-button-primary-box-shadow-active: none;
+  --token-button-secondary-foreground-default: #3b3d45;
+  --token-button-secondary-foreground-hover: #3b3d45;
+  --token-button-secondary-foreground-focus: #3b3d45;
+  --token-button-secondary-foreground-active: #3b3d45;
+  --token-button-secondary-surface-default: #fafafa;
+  --token-button-secondary-surface-hover: #ffffff;
+  --token-button-secondary-surface-focus: #fafafa;
+  --token-button-secondary-surface-active: #dedfe3;
+  --token-button-secondary-border-color-default: #3b3d4566;
+  --token-button-secondary-border-color-hover: #3b3d4566;
+  --token-button-secondary-border-color-focus: #0c56e9;
+  --token-button-secondary-border-color-active: #3b3d4566;
+  --token-button-secondary-box-shadow-default: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
+  --token-button-secondary-box-shadow-focus: none;
+  --token-button-secondary-box-shadow-active: none;
+  --token-button-tertiary-foreground-default: #1060ff;
+  --token-button-tertiary-foreground-hover: #0c56e9;
+  --token-button-tertiary-foreground-focus: #1060ff;
+  --token-button-tertiary-foreground-active: #0046d1;
+  --token-button-tertiary-surface-default: rgba(0, 0, 0, 0);
+  --token-button-tertiary-surface-hover: #ffffff;
+  --token-button-tertiary-surface-focus: #ffffff;
+  --token-button-tertiary-surface-active: #dedfe3;
+  --token-button-tertiary-border-color-default: rgba(0, 0, 0, 0);
+  --token-button-tertiary-border-color-hover: #3b3d4566;
+  --token-button-tertiary-border-color-focus: #0c56e9;
+  --token-button-tertiary-border-color-active: #3b3d4566;
+  --token-button-tertiary-box-shadow-default: none;
+  --token-button-tertiary-box-shadow-focus: none;
+  --token-button-tertiary-box-shadow-active: none;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;

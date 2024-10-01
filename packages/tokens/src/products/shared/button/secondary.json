@@ -1,0 +1,83 @@
+{
+  "button": {
+    "secondary": {
+      "foreground": {
+        "default": {
+          "value": "{color.foreground.primary.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "hover": {
+          "value": "{color.foreground.primary.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "focus": {
+          "value": "{color.foreground.primary.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "active": {
+          "value": "{color.foreground.primary.value}",
+          "type": "color",
+          "group": "components"
+        }
+      },
+      "surface": {
+        "default": {
+          "value": "{color.surface.faint.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "hover": {
+          "value": "{color.surface.primary.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "focus": {
+          "value": "{color.surface.faint.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "active": {
+          "value": "{color.surface.interactive-active.value}",
+          "type": "color",
+          "group": "components"
+        }
+      },
+      "border-color": {
+        "default": {
+          "value": "{color.border.strong.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "hover": {
+          "value": "{color.border.strong.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "focus": {
+          "value": "{color.focus.action.internal.value}",
+          "type": "color",
+          "group": "components"
+        },
+        "active": {
+          "value": "{color.border.strong.value}",
+          "type": "color",
+          "group": "components"
+        }
+      },
+      "box-shadow": {
+        "default": {
+          "value": "{elevation.low.box-shadow.value}"
+        },
+        "focus": {
+          "value": "none"
+        },
+        "active": {
+          "value": "none"
+        }
+      }
+    }
+  }
+}

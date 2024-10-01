@@ -1,0 +1,137 @@
+{
+  "button": {
+    "height": {
+      "small": {
+        "value": "28",
+        "type": "size"
+      },
+      "medium": {
+        "value": "36",
+        "type": "size"
+      },
+      "large": {
+        "value": "48",
+        "type": "size"
+      }
+    },
+    "padding": {
+      "horizontal": {
+        "small": {
+          "value": "11",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        },
+        "medium": {
+          "value": "15",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        },
+        "large": {
+          "value": "19",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        }
+      },
+      "vertical": {
+        "small": {
+          "value": "6",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        },
+        "medium": {
+          "value": "9",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        },
+        "large": {
+          "value": "11",
+          "type": "size",
+          "comment": "here we're taking into account the 1px border"
+        }
+      }
+    },
+    "icon-size": {
+      "small": {
+        "value": "12",
+        "type": "size"
+      },
+      "medium": {
+        "value": "16",
+        "type": "size"
+      },
+      "large": {
+        "value": "24",
+        "type": "size"
+      }
+    },
+    "font-family": {
+      "value": "{typography.font-stack.text.value}"
+    },
+    "font-size": {
+      "small": {
+        "value": "13",
+        "type": "font-size",
+        "comment": "13px/0.8125rem"
+      },
+      "medium": {
+        "value": "14",
+        "type": "font-size",
+        "comment": "14px/0.875rem"
+      },
+      "large": {
+        "value": "16",
+        "type": "font-size",
+        "comment": "16px/1rem"
+      }
+    },
+    "line-height": {
+      "small": {
+        "value": "1.0769",
+        "comment": "14px - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)"
+      },
+      "medium": {
+        "value": "1.1428",
+        "comment": "16px"
+      },
+      "large": {
+        "value": "1.5",
+        "comment": "24px"
+      }
+    },
+    "font-weight": {
+      "value": "{typography.font-weight.regular.value}",
+      "comment": "notice: we set the font-weight of the button text to 'regular' (on purpose) because of the antialising of the browser that renders the text quite different from what it looks like in Figma, so we prefer to have them visually similar even if they differ in their internal implementation (in Figma the font-weight is medium/500) - for more context about this decision: https://hashicorp.atlassian.net/browse/HDS-2099"
+    },
+    "gap": {
+      "value": "6",
+      "type": "size"
+    },
+    "border": {
+      "width": {
+        "value": "1",
+        "type": "size"
+      },
+      "radius": {
+        "value": "5",
+        "type": "size"
+      }
+    },
+    "box-shadow": {
+      "focus": {
+        "value": "none"
+      }
+    },
+    "focus": {
+      "border": {
+        "width": {
+          "value": "3",
+          "type": "size"
+        },
+        "radius": {
+          "value": "0",
+          "type": "size"
+        }
+      }
+    }
+  }
+}
