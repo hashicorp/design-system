@@ -219,6 +219,67 @@
   --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
   --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
   --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-badge-height-small: 20px;
+  --token-badge-height-medium: 24px;
+  --token-badge-height-large: 32px;
+  --token-badge-padding-horizontal-small: 5px; /* here we're taking into account the 1px border */
+  --token-badge-padding-horizontal-medium: 7px; /* here we're taking into account the 1px border */
+  --token-badge-padding-horizontal-large: 7px; /* here we're taking into account the 1px border */
+  --token-badge-padding-vertical-small: 1px; /* here we're taking into account the 1px border */
+  --token-badge-padding-vertical-medium: 3px; /* here we're taking into account the 1px border */
+  --token-badge-padding-vertical-large: 3px; /* here we're taking into account the 1px border */
+  --token-badge-icon-size-small: 12px;
+  --token-badge-icon-size-medium: 16px;
+  --token-badge-icon-size-large: 16px;
+  --token-badge-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-badge-font-size-small: 0.8125rem; /* 13px/0.8125rem */
+  --token-badge-font-size-medium: 0.8125rem; /* 13px/0.8125rem */
+  --token-badge-font-size-large: 1rem; /* 16px/1rem */
+  --token-badge-line-height-small: 1.2308; /* 16px */
+  --token-badge-line-height-medium: 1.2308; /* 16px */
+  --token-badge-line-height-large: 1.5; /* 24px */
+  --token-badge-font-weight: 500;
+  --token-badge-gap-small: 4px;
+  --token-badge-gap-medium: 4px;
+  --token-badge-gap-large: 6px;
+  --token-badge-border-width: 1px;
+  --token-badge-border-radius: 5px;
+  --token-badge-filled-neutral-foreground-color: #3b3d45;
+  --token-badge-filled-neutral-background-color: #f1f2f3;
+  --token-badge-filled-neutral-dark-mode-foreground-color: #ffffff;
+  --token-badge-filled-neutral-dark-mode-background-color: #656a76;
+  --token-badge-filled-highlight-foreground-color: #911ced;
+  --token-badge-filled-highlight-background-color: #f9f2ff;
+  --token-badge-filled-success-foreground-color: #00781e;
+  --token-badge-filled-success-background-color: #f2fbf6;
+  --token-badge-filled-warning-foreground-color: #9e4b00;
+  --token-badge-filled-warning-background-color: #fff9e8;
+  --token-badge-filled-critical-foreground-color: #c00005;
+  --token-badge-filled-critical-background-color: #fff5f5;
+  --token-badge-inverted-neutral-foreground-color: #ffffff;
+  --token-badge-inverted-neutral-background-color: #656a76;
+  --token-badge-inverted-neutral-dark-mode-foreground-color: #3b3d45;
+  --token-badge-inverted-neutral-dark-mode-background-color: #fafafa;
+  --token-badge-inverted-highlight-foreground-color: #ffffff;
+  --token-badge-inverted-highlight-background-color: #a737ff;
+  --token-badge-inverted-success-foreground-color: #ffffff;
+  --token-badge-inverted-success-background-color: #008a22;
+  --token-badge-inverted-warning-foreground-color: #ffffff;
+  --token-badge-inverted-warning-background-color: #bb5a00;
+  --token-badge-inverted-critical-foreground-color: #ffffff;
+  --token-badge-inverted-critical-background-color: #e52228;
+  --token-badge-outlined-neutral-foreground-color: #3b3d45;
+  --token-badge-outlined-neutral-border-color: #656a76;
+  --token-badge-outlined-neutral-dark-mode-foreground-color: #ffffff;
+  --token-badge-outlined-neutral-dark-mode-border-color: #fafafa;
+  --token-badge-outlined-highlight-foreground-color: #a737ff;
+  --token-badge-outlined-highlight-border-color: #a737ff;
+  --token-badge-outlined-success-foreground-color: #008a22;
+  --token-badge-outlined-success-border-color: #008a22;
+  --token-badge-outlined-warning-foreground-color: #bb5a00;
+  --token-badge-outlined-warning-border-color: #bb5a00;
+  --token-badge-outlined-critical-foreground-color: #e52228;
+  --token-badge-outlined-critical-border-color: #e52228;
   --token-form-label-color: #0c0c0e;
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
