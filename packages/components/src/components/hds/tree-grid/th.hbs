@@ -1,0 +1,27 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<th
+  class={{this.classNames}}
+  {{style width=@width minWidth=@width}}
+  ...attributes
+  scope={{(or @scope "col")}}
+  {{did-insert this.didInsert}}
+>
+  {{#if @isVisuallyHidden}}
+    <span class="sr-only">{{yield}}</span>
+  {{else}}
+    {{#if this.isExpandable}}
+      <Hds::TreeGrid::ThButtonExpand @isExpanded={{true}} @onClick={{this.onClickExpand}} @labelId={{this.labelId}} />
+    {{/if}}
+    {{#if @tooltip}}
+      <div class="hds-table__th-content">
+        <span id={{this.labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+        <Hds::TreeGrid::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
+      </div>
+    {{else}}
+      <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+    {{/if}}
+  {{/if}}
+</th>

@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "type": "folk",
+      "attributes": {
+        "artist": "Nick Drake",
+        "album": "3",
+        "vinyl-cost": "29.27",
+        "year": "1969-1972",
+        "items": [
+          {
+            "album": "Pink Moon",
+            "vinyl-cost": "29.27",
+            "year": "1972",
+            "icon": "boundary-color",
+            "badge-type": "outlined",
+            "badge-color": {
+              "name": "neutral",
+              "key": 5
+            },
+            "color": "neutral"
+          },
+          {
+            "album": "Bryter Layter",
+            "vinyl-cost": "29.27",
+            "year": "1971",
+            "icon": "boundary-color",
+            "badge-type": "outlined",
+            "badge-color": {
+              "name": "neutral",
+              "key": 5
+            },
+            "color": "neutral"
+          },
+          {
+            "album": "Five Leaves Left",
+            "vinyl-cost": "29.27",
+            "year": "1969",
+            "icon": "boundary-color",
+            "badge-type": "outlined",
+            "badge-color": {
+              "name": "neutral",
+              "key": 5
+            },
+            "color": "neutral"
+          }
+        ],
+        "icon": "boundary-color",
+        "badge-type": "outlined",
+        "badge-color": {
+          "name": "neutral",
+          "key": 5
+        },
+        "color": "neutral"
+      }
+    },
+    {
+      "id": "2",
+      "type": "folk",
+      "attributes": {
+        "artist": "The Beatles",
+        "album": "Abbey Road",
+        "year": "1963-1970",
+        "items": [
+          {
+            "album": "Abbey Road",
+            "vinyl-cost": "25.99",
+            "year": "1969",
+            "icon": "consul-color"
+          },
+          {
+            "album": "Let It Be",
+            "vinyl-cost": "25.99",
+            "year": "1970",
+            "icon": "consul-color"
+          },
+          {
+            "album": "The Beatles",
+            "vinyl-cost": "25.99",
+            "year": "1968",
+            "icon": "consul-color"
+          }
+        ],
+        "vinyl-cost": "25.99",
+        "icon": "consul-color",
+        "badge-type": "outlined",
+        "badge-color": {
+          "name": "neutral",
+          "key": 5
+        },
+        "color": "neutral"
+      }
+    }
+  ]
+}

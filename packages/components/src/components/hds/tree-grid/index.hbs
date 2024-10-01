@@ -1,0 +1,70 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<table class={{this.classNames}} ...attributes role="treegrid">
+  {{#if @columns}}
+    <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
+  {{else if @caption}}
+    <caption class="sr-only">{{@caption}}</caption>
+  {{/if}}
+
+  <thead class="hds-table__thead">
+    {{#if @columns}}
+      <Hds::TreeGrid::Tr>
+        {{#each @columns as |column|}}
+          {{#if column.isSortable}}
+            <Hds::TreeGrid::ThSort
+              @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
+              @onClickSort={{fn this.setSortBy column.key}}
+              @align={{column.align}}
+              @width={{column.width}}
+              @tooltip={{column.tooltip}}
+            >
+              {{column.label}}
+            </Hds::TreeGrid::ThSort>
+          {{else}}
+            <Hds::TreeGrid::Th
+              @align={{column.align}}
+              @width={{column.width}}
+              @tooltip={{column.tooltip}}
+              @isVisuallyHidden={{column.isVisuallyHidden}}
+            >{{column.label}}</Hds::TreeGrid::Th>
+          {{/if}}
+        {{/each}}
+      </Hds::TreeGrid::Tr>
+    {{else}}
+      {{yield
+        (hash
+          Tr=(component "hds/tree-grid/tr")
+          Th=(component "hds/tree-grid/th")
+          ThSort=(component "hds/tree-grid/th-sort")
+          sortBy=this.sortBy
+          sortOrder=this.sortOrder
+          setSortBy=this.setSortBy
+        )
+        to="head"
+      }}
+    {{/if}}
+  </thead>
+
+  <tbody class="hds-table__tbody">
+    {{! ----------------------------------------------------------------------------------------
+        IMPORTANT: we loop on the `model` array and for each record
+        we yield the Tr/Td/Th elements _and_ the record itself as `data`
+        this means the consumer will *have to* use the `data` key to access it in their template
+      -------------------------------------------------------------------------------------------- }}
+    {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
+      {{yield
+        (hash
+          Tr=(component "hds/tree-grid/tr" data=record childrenKey=@childrenKey)
+          Th=(component "hds/tree-grid/th" scope="row" data=record childrenKey=@childrenKey)
+          Td=(component "hds/tree-grid/td" align=@align)
+          data=record
+        )
+        to="body"
+      }}
+    {{/each}}
+  </tbody>
+</table>
