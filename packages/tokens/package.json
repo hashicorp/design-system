@@ -20,7 +20,8 @@
   "scripts": {
     "typecheck": "yarn tsc --noEmit",
     "lint": "yarn eslint --quiet --ext .js,.ts",
-    "build": "tsx ./scripts/build"
+    "build": "tsx ./scripts/build",
+    "build:watch": "nodemon --watch './src/*' --ext 'json' --exec 'tsx ./scripts/build'"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.3",
@@ -33,6 +34,7 @@
     "eslint": "^8.57.0",
     "fs-extra": "^11.1.1",
     "lodash-es": "^4.17.21",
+    "nodemon": "^3.1.7",
     "path": "^0.12.7",
     "prettier": "^3.3.2",
     "style-dictionary": "^4.2.0",
