@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 
 import {
   HdsTableHorizontalAlignmentValues,
@@ -18,6 +19,7 @@ import type {
   HdsTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsTableThButtonSortSignature } from './th-button-sort';
+import { didInsertGridCell, handleGridCellKeyPress } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsTableHorizontalAlignmentValues
@@ -31,6 +33,7 @@ export interface HdsTableThSortSignature {
     sortOrder?: HdsTableThSortOrder;
     tooltip?: string;
     width?: string;
+    isGrid?: boolean;
   };
   Blocks: {
     default: [];
@@ -39,12 +42,15 @@ export interface HdsTableThSortSignature {
 }
 
 export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
-  /**
-   * Generates a unique ID for the <span> element ("label")
-   *
-   * @param labelId
-   */
   labelId = guidFor(this);
+
+  @action
+  didInsert(element: HTMLTableCellElement): void {
+    if (this.args.isGrid) {
+      didInsertGridCell(element);
+      element.addEventListener('keydown', handleGridCellKeyPress);
+    }
+  }
 
   /**
    * @param ariaSort
@@ -65,12 +71,6 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
     }
   }
 
-  /**
-   * @param align
-   * @type {HdsTableHorizontalAlignment}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -83,17 +83,16 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-table__th', 'hds-table__th--sort'];
 
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-table__th--align-${this.align}`);
+    }
+
+    if (this.args.isGrid) {
+      classes.push(`hds-table__td--gridcell`);
     }
 
     return classes.join(' ');

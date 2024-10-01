@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<table class={{this.classNames}} ...attributes>
+<table class={{this.classNames}} ...attributes role={{if @isGrid "grid"}}>
   {{#if @columns}}
     <caption class="sr-only" aria-live="polite">{{@caption}} {{this.sortedMessageText}}</caption>
   {{else if @caption}}
@@ -18,7 +18,7 @@
         @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
-        @didInsert={{this.didInsertSelectAllCheckbox}}
+        @didInsertCheckbox={{this.didInsertSelectAllCheckbox}}
         @willDestroy={{this.willDestroySelectAllCheckbox}}
         @selectionAriaLabelSuffix="all rows"
       >
@@ -30,6 +30,7 @@
               @align={{column.align}}
               @width={{column.width}}
               @tooltip={{column.tooltip}}
+              @isGrid={{@isGrid}}
             >
               {{column.label}}
             </Hds::Table::ThSort>
@@ -39,6 +40,7 @@
               @width={{column.width}}
               @tooltip={{column.tooltip}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
+              @isGrid={{@isGrid}}
             >{{column.label}}</Hds::Table::Th>
           {{/if}}
         {{/each}}
@@ -51,14 +53,14 @@
             selectionScope="col"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionAllChange
-            didInsert=this.didInsertSelectAllCheckbox
+            didInsertCheckbox=this.didInsertSelectAllCheckbox
             willDestroy=this.willDestroySelectAllCheckbox
             selectionAriaLabelSuffix="all rows"
             onClickSortBySelected=(if @selectableColumnKey (fn this.setSortBy @selectableColumnKey))
             sortBySelectedOrder=(if (eq this.sortBy @selectableColumnKey) this.sortOrder)
           )
-          Th=(component "hds/table/th")
-          ThSort=(component "hds/table/th-sort")
+          Th=(component "hds/table/th" isGrid=@isGrid)
+          ThSort=(component "hds/table/th-sort" isGrid=@isGrid)
           sortBy=this.sortBy
           sortOrder=this.sortOrder
           setSortBy=this.setSortBy
@@ -83,12 +85,12 @@
               selectionScope="row"
               isSelectable=@isSelectable
               onSelectionChange=this.onSelectionRowChange
-              didInsert=this.didInsertRowCheckbox
+              didInsertCheckbox=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
               selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
-            Th=(component "hds/table/th" scope="row")
-            Td=(component "hds/table/td" align=@align)
+            Th=(component "hds/table/th" scope="row" isGrid=@isGrid)
+            Td=(component "hds/table/td" align=@align isGrid=@isGrid)
             data=record
           )
           to="body"
@@ -102,12 +104,12 @@
             selectionScope="row"
             isSelectable=@isSelectable
             onSelectionChange=this.onSelectionRowChange
-            didInsert=this.didInsertRowCheckbox
+            didInsertCheckbox=this.didInsertRowCheckbox
             willDestroy=this.willDestroyRowCheckbox
             selectionAriaLabelSuffix=@selectionAriaLabelSuffix
           )
-          Th=(component "hds/table/th" scope="row")
-          Td=(component "hds/table/td" align=@align)
+          Th=(component "hds/table/th" scope="row" isGrid=@isGrid)
+          Td=(component "hds/table/td" align=@align isGrid=@isGrid)
           sortBy=this.sortBy
           sortOrder=this.sortOrder
         )

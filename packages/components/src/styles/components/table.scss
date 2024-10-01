@@ -19,7 +19,6 @@ $hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to
 $hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 
-
 // TABLE
 
 .hds-table {
@@ -274,4 +273,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 .hds-table__checkbox {
   display: block;
   margin: 2px 0;
+}
+
+.hds-table__td--gridcell {
+  &:focus {
+    @include hds-focus-ring-with-after-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+  }
 }

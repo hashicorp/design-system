@@ -20,7 +20,7 @@ export interface BaseHdsTableTrSignature {
     selectionKey?: string;
     selectionScope?: HdsTableScope;
     sortBySelectedOrder?: HdsTableThSortOrder;
-    didInsert?: (
+    didInsertCheckbox?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
