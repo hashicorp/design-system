@@ -140,9 +140,6 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   lockBodyScroll(): void {
     if (this.body) {
-      // Store the initial `overflow` value of `<body>` so we can reset to it
-      this.bodyInitialOverflowValue =
-        this.body.style.getPropertyValue('overflow');
       // Prevent page from scrolling when the dialog is open
       this.body.style.setProperty('overflow', 'hidden');
     }
@@ -194,6 +191,9 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       '.hds-app-side-nav-hide-when-minimized'
     );
     this.body = document.body;
+    // Store the initial `overflow` value of `<body>` so we can reset to it
+    this.bodyInitialOverflowValue =
+      this.body.style.getPropertyValue('overflow');
   }
 
   @action
