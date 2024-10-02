@@ -48,6 +48,8 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
   @tracked isAnimating = false;
   @tracked isDesktop = true;
+  body!: HTMLElement;
+  bodyInitialOverflowValue = '';
   desktopMQ: MediaQueryList;
   containersToHide!: NodeListOf<Element>;
 
@@ -137,15 +139,27 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   lockBodyScroll(): void {
-    document.body.style.top = `-${window.scrollY}px`;
-    document.body.style.position = 'fixed';
+    if (this.body) {
+      // Store the initial `overflow` value of `<body>` so we can reset to it
+      this.bodyInitialOverflowValue =
+        this.body.style.getPropertyValue('overflow');
+      // Prevent page from scrolling when the dialog is open
+      this.body.style.setProperty('overflow', 'hidden');
+    }
   }
 
   unlockBodyScroll(): void {
-    const verticalScrollPosition = document.body.style.top;
-    document.body.style.position = '';
-    document.body.style.top = '';
-    window.scrollTo(0, parseInt(verticalScrollPosition || '0') * -1);
+    // Reset page `overflow` property
+    if (this.body) {
+      this.body.style.removeProperty('overflow');
+      if (this.bodyInitialOverflowValue === '') {
+        if (this.body.style.length === 0) {
+          this.body.removeAttribute('style');
+        }
+      } else {
+        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      }
+    }
   }
 
   @action
@@ -179,6 +193,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     this.containersToHide = element.querySelectorAll(
       '.hds-app-side-nav-hide-when-minimized'
     );
+    this.body = document.body;
   }
 
   @action
