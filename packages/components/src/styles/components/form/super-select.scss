@@ -72,8 +72,11 @@ $hds-super-select-item-height: 36px;
       margin-left: 0;
     }
 
-    .ember-power-select-placeholder {
+    .ember-power-select-placeholder {  
       color: var(--token-form-control-base-foreground-placeholder-color);
+      font-size: var(--token-typography-body-200-font-size);
+      font-family: var(--token-typography-body-200-font-family);
+      line-height: var(--token-typography-body-200-line-height);
     }
 
     // `BasicDropdown` uses `aria-disabled` on the trigger, see: https://ember-basic-dropdown.com/docs/disabled
@@ -272,6 +275,7 @@ $hds-super-select-item-height: 36px;
   // Tag List
   .ember-power-select-multiple-options {
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
     gap: 4px;
     min-width: 0;

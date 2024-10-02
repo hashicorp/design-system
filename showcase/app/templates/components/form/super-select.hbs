@@ -521,10 +521,10 @@
 
   <Shw::Text::H2>Form::SuperSelect::Multiple::Base</Shw::Text::H2>
 
-  <Shw::Text::H3>Interaction</Shw::Text::H3>
+  <Shw::Text::H3>Interaction status</Shw::Text::H3>
 
-  <Shw::Flex @direction="row" as |SF|>
-    <SF.Item {{style flex="1"}} @label="Default">
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Default">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{this.noop}}
         @options={{@model.OPTIONS}}
@@ -533,9 +533,19 @@
       >
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
-    </SF.Item>
-
-    <SF.Item {{style flex="1"}} @label="Selected">
+    </SG.Item>
+    <SG.Item @label="With placeholder">
+      <Hds::Form::SuperSelect::Multiple::Base
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @placeholder="Placeholder text for multiple selection"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SG.Item>
+    <SG.Item @label="Selected">
       <Hds::Form::SuperSelect::Multiple::Base
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
         @options={{@model.OPTIONS}}
@@ -545,8 +555,8 @@
       >
         {{option}}
       </Hds::Form::SuperSelect::Multiple::Base>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Divider @level="2" />
 
