@@ -10,7 +10,7 @@ import ShwFlexItem from '../app/components/shw/flex/item';
 import ShwFrame from '../app/components/shw/frame';
 import ShwGrid from '../app/components/shw/grid';
 import ShwGridItem from '../app/components/shw/grid/item';
-import ShwLabel from '../app/components/shw/label';
+import ShwLabel from '../app/components/shw/label/index';
 import ShwLogoDesignSystem from '../app/components/shw/logo/design-system';
 import ShwOutliner from '../app/components/shw/outliner/index';
 import ShwPlaceholder from '../app/components/shw/placeholder/index';
