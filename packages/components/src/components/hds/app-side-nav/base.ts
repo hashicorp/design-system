@@ -8,9 +8,8 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 export interface HdsAppSideNavBaseSignature {
   Blocks: {
     root?: [];
-    header?: [];
-    body?: [];
-    footer?: [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    body?: any;
   };
   Element: HTMLDivElement;
 }

@@ -19,21 +19,9 @@ interface HdsAppSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    header?: [
-      {
-        Header?: HdsAppSideNavBaseSignature['Blocks']['header'];
-        isMinimized?: boolean;
-      },
-    ];
     body?: [
       {
         Body?: HdsAppSideNavBaseSignature['Blocks']['body'];
-        isMinimized?: boolean;
-      },
-    ];
-    footer?: [
-      {
-        Footer?: HdsAppSideNavBaseSignature['Blocks']['footer'];
         isMinimized?: boolean;
       },
     ];

@@ -33,16 +33,16 @@ import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
 
-import type HdsAppSideNavComponent from './components/hds/side-nav';
-import type HdsAppSideNavBaseComponent from './components/hds/side-nav/base';
-import type HdsAppSideNavToggleButtonComponent from './components/hds/side-nav/toggle-button';
-import type HdsAppSideNavPortalComponent from './components/hds/side-nav/portal';
-import type HdsAppSideNavPortalTargetComponent from './components/hds/side-nav/portal/target';
-import type HdsAppSideNavListComponent from './components/hds/side-nav/list';
-import type HdsAppSideNavListBackLinkComponent from './components/hds/side-nav/list/back-link';
-import type HdsAppSideNavListItemComponent from './components/hds/side-nav/list/item';
-import type HdsAppSideNavListLinkComponent from './components/hds/side-nav/list/link';
-import type HdsAppSideNavListTitleComponent from './components/hds/side-nav/list/title';
+import type HdsAppSideNavComponent from './components/hds/app-side-nav';
+import type HdsAppSideNavBaseComponent from './components/hds/app-side-nav/base';
+import type HdsAppSideNavToggleButtonComponent from './components/hds/app-side-nav/toggle-button';
+import type HdsAppSideNavPortalComponent from './components/hds/app-side-nav/portal';
+import type HdsAppSideNavPortalTargetComponent from './components/hds/app-side-nav/portal/target';
+import type HdsAppSideNavListComponent from './components/hds/app-side-nav/list';
+import type HdsAppSideNavListBackLinkComponent from './components/hds/app-side-nav/list/back-link';
+import type HdsAppSideNavListItemComponent from './components/hds/app-side-nav/list/item';
+import type HdsAppSideNavListLinkComponent from './components/hds/app-side-nav/list/link';
+import type HdsAppSideNavListTitleComponent from './components/hds/app-side-nav/list/title';
 
 import type HdsApplicationStateComponent from './components/hds/application-state';
 import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
