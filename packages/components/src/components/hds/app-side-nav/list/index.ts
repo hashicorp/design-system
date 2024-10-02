@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
-
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import type { HdsYieldSignature } from '../../yield';
 import type { HdsAppSideNavListItemSignature } from './item';
@@ -28,6 +29,15 @@ export interface HdsAppSideNavListSignature {
   Element: HTMLElement;
 }
 
-const HdsAppSideNavList = TemplateOnlyComponent<HdsAppSideNavListSignature>();
+export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignature> {
+  @tracked _titleIds: string[] = [];
 
-export default HdsAppSideNavList;
+  get titleIds(): string {
+    return this._titleIds.join(' ');
+  }
+
+  @action
+  didInsertTitle(titleId: string): void {
+    this._titleIds = [...this._titleIds, titleId];
+  }
+}

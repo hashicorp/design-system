@@ -3,16 +3,30 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
+import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 export interface HdsAppSideNavListTitleSignature {
+  Args: {
+    didInsertTitle: (titleId: string) => void;
+  };
   Blocks: {
     default: [];
   };
   Element: HTMLDivElement;
 }
 
-const HdsAppSideNavListTitle =
-  TemplateOnlyComponent<HdsAppSideNavListTitleSignature>();
+export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListTitleSignature> {
+  /*  Generate a unique ID for each Title */
+  titleId = 'title-' + guidFor(this);
 
-export default HdsAppSideNavListTitle;
+  @action
+  didInsertTitle(element: HTMLElement): void {
+    const { didInsertTitle } = this.args;
+
+    if (typeof didInsertTitle === 'function') {
+      didInsertTitle(element.id);
+    }
+  }
+}
