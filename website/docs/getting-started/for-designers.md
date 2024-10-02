@@ -181,6 +181,9 @@ HashiCorp product teams can use the Helios libraries published under the [HDS De
 - [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the Helios Design System
 - [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
 - [Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1): core icon set for reuse in your projects
+- [A11Y Helper Annotation Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): an annotation toolkit designed to enhance collaboration between designers and engineers, ensuring the work meets accessibility (a11y) standards.
+- [Wireframe UI Kit](https://www.figma.com/design/w0ukydeAsbv6sJirLxZMBo/HDS-Wireframes?m=auto&t=JLqmUYB9fZbdWaa2-6): low-fidelity versions of HDS components designed to help quickly sketch ideas and build flows.
+- [Utility UI Kit](https://www.figma.com/design/vqhh0wWZ8PwnRkvh1jk7jB/Utilities-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): common UI helpers like documentation styles and annotations, and external utilities like browser scroll bars and cursors.
 
 ### Recommended plugins
 
