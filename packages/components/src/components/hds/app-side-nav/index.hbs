@@ -26,13 +26,7 @@
       />
     {{/if}}
   </:root>
-  <:header as |Header|>
-    {{~yield (hash Header=Header isMinimized=this.isMinimized) to="header"~}}
-  </:header>
   <:body as |Body|>
     {{~yield (hash Body=Body isMinimized=this.isMinimized) to="body"~}}
   </:body>
-  <:footer as |Footer|>
-    {{~yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"~}}
-  </:footer>
 </Hds::AppSideNav::Base>

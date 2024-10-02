@@ -24,20 +24,12 @@ module('Integration | Component | hds/app-side-nav/base', function (hooks) {
         <:root>
           <span id="test-app-side-nav-root" />
         </:root>
-        <:header>
-          <span id="test-app-side-nav-header" />
-        </:header>
         <:body>
           <span id="test-app-side-nav-body" />
         </:body>
-        <:footer>
-          <span id="test-app-side-nav-footer" />
-        </:footer>
       </Hds::AppSideNav::Base>
     `);
     assert.dom('#test-app-side-nav-root').exists();
-    assert.dom('#test-app-side-nav-header').exists();
     assert.dom('#test-app-side-nav-body').exists();
-    assert.dom('#test-app-side-nav-footer').exists();
   });
 });
