@@ -3,14 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<nav class="hds-app-side-nav__list-wrapper" ...attributes>
+<nav class="hds-app-side-nav__list-wrapper" aria-labelledby="hds-app-side-nav-header" ...attributes>
   {{yield (hash ExtraBefore=(component "hds/yield"))}}
-  <ul class="hds-app-side-nav__list" role="list">
+  <ul class="hds-app-side-nav__list" role="list" aria-labelledby={{this.titleIds}}>
     {{yield
       (hash
         Item=(component "hds/app-side-nav/list/item")
         BackLink=(component "hds/app-side-nav/list/back-link")
-        Title=(component "hds/app-side-nav/list/title")
+        Title=(component "hds/app-side-nav/list/title" didInsertTitle=this.didInsertTitle)
         Link=(component "hds/app-side-nav/list/link")
       )
     }}
