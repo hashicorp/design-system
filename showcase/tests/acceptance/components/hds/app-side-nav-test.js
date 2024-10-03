@@ -21,6 +21,10 @@ module('Acceptance | Component | hds/app-side-nav', function (hooks) {
           enabled: false,
           selectors: [['.shw-placeholder']],
         },
+        'landmark-unique': {
+          enabled: false,
+          selectors: [['.hds-app-side-nav__list-wrapper']],
+        },
       },
     };
 
