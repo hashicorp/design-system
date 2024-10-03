@@ -100,9 +100,11 @@ import type { HdsTableDensityValues } from '@hashicorp/design-system-components/
 
   <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" {{! as |Nav| }}>
     <Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" />
-    <Hds::SideNav::List::Item>
-      <Shw::Placeholder @height="200px" @text="portaled content" />
-    </Hds::SideNav::List::Item>
+    <Hds::SideNav::List as |SNL|>
+      <SNL.Item>
+        <Shw::Placeholder @height="200px" @text="portaled content" />
+      </SNL.Item>
+    </Hds::SideNav::List>
     <Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" />
     {{! <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
