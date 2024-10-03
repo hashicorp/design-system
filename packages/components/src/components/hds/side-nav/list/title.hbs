@@ -3,6 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::SideNav::List::Item>
-  <div class="hds-side-nav__list-title hds-typography-body-100 hds-font-weight-semibold" ...attributes>{{~yield~}}</div>
-</Hds::SideNav::List::Item>
+<div
+  class="hds-side-nav__list-title hds-typography-body-100 hds-font-weight-semibold"
+  id={{@id}}
+  ...attributes
+>{{~yield~}}</div>

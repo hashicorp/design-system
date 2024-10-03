@@ -7,6 +7,7 @@
 
 <Shw::Text::H1>SideNav</Shw::Text::H1>
 
+import type { HdsTableDensityValues } from '@hashicorp/design-system-components/components/hds/table/types';
 <section data-test-percy>
   <Shw::Text::H2>Content</Shw::Text::H2>
 
@@ -97,10 +98,15 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" as |Nav|>
-    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
+  <Hds::SideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" {{! as |Nav| }}>
+    <Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" />
+    <Hds::SideNav::List::Item>
+      <Shw::Placeholder @height="200px" @text="portaled content" />
+    </Hds::SideNav::List::Item>
+    <Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" />
+    {{! <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
-    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
+    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter> }}
   </Hds::SideNav::Portal>
 
 </section>
@@ -154,23 +160,27 @@
           </div>
         </SF.Item>
       </Shw::Flex>
-      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" @ariaLabel="Primary on portal demo 2" as |Nav|>
-        <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        <Nav.Title>Services</Nav.Title>
-        <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
-        <Nav.Link @text="Consul" @icon="consul" @href="#" />
-        <Nav.Link @text="Packer" @icon="packer" @href="#" />
-        <Nav.Link @text="Vault" @icon="vault" @href="#" />
-        <Nav.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-        <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
-        <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-        <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        <Nav.Title>Default Org</Nav.Title>
-        <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-        <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+      <Hds::SideNav::Portal @targetName="sidenav-portal-demo-2" {{! as |Nav|  }}>
+        <Hds::SideNav::List::Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+        <Hds::SideNav::List as |Nav|>
+          <Nav.Title>Services</Nav.Title>
+          <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
+          <Nav.Link @text="Consul" @icon="consul" @href="#" />
+          <Nav.Link @text="Packer" @icon="packer" @href="#" />
+          <Nav.Link @text="Vault" @icon="vault" @href="#" />
+          <Nav.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
+          <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
+          <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+          <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |Nav|>
+          <Nav.Title>Default Org</Nav.Title>
+          <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+          <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+          <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+          <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+          <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+        </Hds::SideNav::List>
       </Hds::SideNav::Portal>
 
     </SG.Item>
@@ -210,9 +220,7 @@
               </:header>
 
               <:body>
-                <Hds::SideNav::List aria-label="Dashboard" as |SNL|>
-                  <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-                </Hds::SideNav::List>
+                <Hds::SideNav::List::Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
 
                 <Hds::SideNav::List aria-label="Services" as |SNL|>
                   <SNL.Title>Services</SNL.Title>
@@ -253,11 +261,8 @@
   <div class="shw-component-sim-side-nav-root-container">
     <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
       <:body>
-        <Hds::SideNav::List aria-label="Dashboard 2" as |SNL|>
-          <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        </Hds::SideNav::List>
-
-        <Hds::SideNav::List aria-label="Services 2" as |SNL|>
+        <Hds::SideNav::List::Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+        <Hds::SideNav::List as |SNL|>
           <SNL.Title>Services</SNL.Title>
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
           <SNL.Link @text="Consul" @icon="consul" @href="#" />
@@ -268,7 +273,7 @@
           <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
         </Hds::SideNav::List>
-        <Hds::SideNav::List aria-label="Organization 2" as |SNL|>
+        <Hds::SideNav::List as |SNL|>
           <SNL.Title>Default Org</SNL.Title>
           <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
@@ -475,9 +480,8 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Title with multiple items">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List aria-label="Multiple items" as |SNL|>
+        <Hds::SideNav::List as |SNL|>
           <SNL.Title>Services</SNL.Title>
-
           <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
           <SNL.Link @text="Consul" @icon="consul" @href="#" />
           <SNL.Link @text="Packer" @icon="packer" @href="#" />
@@ -486,9 +490,9 @@
           <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
           <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
           <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} @href="#" />
-
+        </Hds::SideNav::List>
+        <Hds::SideNav::List as |SNL|>
           <SNL.Title>Default Org</SNL.Title>
-
           <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
           <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" />
           <SNL.Link @text="Billing" @icon="credit-card" @href="#" />
@@ -499,9 +503,7 @@
 
     <SF.Item @label="Multiple groups">
       <div class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List aria-label="Dashboard (multiple groups)" as |SNL|>
-          <SNL.Link @text="Dashboard" @icon="dashboard" @href="#" />
-        </Hds::SideNav::List>
+        <Hds::SideNav::List::Link @text="Dashboard" @icon="dashboard" @href="#" />
         <Hds::SideNav::List aria-label="Services (multiple groups)" as |SNL|>
           <SNL.Title>Services</SNL.Title>
 
@@ -532,28 +534,36 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Base">
-      <ul class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List::Title>Group title</Hds::SideNav::List::Title>
-        <Hds::SideNav::List::Item>
-          <Shw::Placeholder @height="108px" @text="following content" />
-        </Hds::SideNav::List::Item>
-      </ul>
+      <div>
+        <Hds::SideNav::List::Title id="example-title-1">Group title</Hds::SideNav::List::Title>
+        <ul class="shw-component-sim-side-nav-body" aria-labelledby="example-title-1">
+          <Hds::SideNav::List::Item>
+            <Shw::Placeholder @height="108px" @text="following content" />
+          </Hds::SideNav::List::Item>
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="With very long text">
-      <ul class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List::Title>This is a long text that should go on two lines</Hds::SideNav::List::Title>
-        <Hds::SideNav::List::Item>
-          <Shw::Placeholder @height="108px" @text="following content" />
-        </Hds::SideNav::List::Item>
-      </ul>
+      <div>
+        <Hds::SideNav::List::Title id="example-title-2">This is a long text that should go on two lines</Hds::SideNav::List::Title>
+        <ul class="shw-component-sim-side-nav-body" aria-labelledby="example-title-2">
+          <Hds::SideNav::List::Item>
+            <Shw::Placeholder @height="108px" @text="following content" />
+          </Hds::SideNav::List::Item>
+        </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="With very long text and no spaces">
-      <ul class="shw-component-sim-side-nav-body">
-        <Hds::SideNav::List::Title>ThisIsLongTextThatShouldWrapToTwoLinesAndNotOverflow</Hds::SideNav::List::Title>
-        <Hds::SideNav::List::Item>
-          <Shw::Placeholder @height="108px" @text="following content" />
-        </Hds::SideNav::List::Item>
-      </ul>
+      <div>
+        <Hds::SideNav::List::Title
+          id="example-title-3"
+        >ThisIsLongTextThatShouldWrapToTwoLinesAndNotOverflow</Hds::SideNav::List::Title>
+        <ul class="shw-component-sim-side-nav-body" aria-labelledby="example-title-3">
+          <Hds::SideNav::List::Item>
+            <Shw::Placeholder @height="108px" @text="following content" />
+          </Hds::SideNav::List::Item>
+        </ul>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
@@ -561,7 +571,7 @@
 
   <Shw::Text::H3>SideNav::List::Item</Shw::Text::H3>
 
-  <ul class="shw-component-sim-side-nav-body">
+  <ul class="shw-component-sim-side-nav-body" aria-labelledby="sidenav-list-item">
     <Hds::SideNav::List::Item>
       <Shw::Placeholder @height="36px" @text="item" />
     </Hds::SideNav::List::Item>
@@ -756,19 +766,19 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Base">
-      <ul class="shw-component-sim-side-nav-body">
+      <div class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />
-      </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="With very long text">
-      <ul class="shw-component-sim-side-nav-body">
+      <div class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="This is a long text that should go on two lines" @href="#" />
-      </ul>
+      </div>
     </SF.Item>
     <SF.Item @label="With very long text and no spaces">
-      <ul class="shw-component-sim-side-nav-body">
+      <div class="shw-component-sim-side-nav-body">
         <Hds::SideNav::List::BackLink @text="ThisIsLongTextThatShouldWrapToTwoLinesAndNotOverflow" @href="#" />
-      </ul>
+      </div>
     </SF.Item>
   </Shw::Flex>
 
@@ -780,18 +790,18 @@
         <SG.Item @label={{state}}>
           <Shw::Flex @direction="column" as |SF|>
             <SF.Item>
-              <ul class="shw-component-sim-side-nav-body">
+              <div class="shw-component-sim-side-nav-body">
                 <Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" mock-state-value={{state}} />
-              </ul>
+              </div>
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-sim-side-nav-body">
+              <div class="shw-component-sim-side-nav-body">
                 <Hds::SideNav::List::BackLink
                   @text="This is a long text that should go on two lines"
                   @href="#"
                   mock-state-value={{state}}
                 />
-              </ul>
+              </div>
             </SF.Item>
           </Shw::Flex>
         </SG.Item>

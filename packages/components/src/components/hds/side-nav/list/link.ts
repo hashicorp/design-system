@@ -16,6 +16,7 @@ export interface HdsSideNavListLinkSignature {
     count?: string;
     hasSubItems?: boolean;
     isActive?: boolean;
+    shouldWrapInListItem?: boolean;
   };
   Blocks: {
     default: [];
