@@ -149,8 +149,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-      <Hds::AppSideNav id="test-app-side-nav" as |ASN|>
-        <span id="test-app-side-nav-body" data-test-minimized={{ASN.isMinimized}} />
+      <Hds::AppSideNav id="test-app-side-nav">
+        <span id="test-app-side-nav-body" />
         <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
@@ -186,8 +186,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`
-      <Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav" as |ASN|>
-        <span id="test-app-side-nav-body" data-test-minimized={{ASN.isMinimized}} />
+      <Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav">
+        <span id="test-app-side-nav-body" />
         <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
@@ -200,9 +200,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-left');
-    assert
-      .dom('#test-app-side-nav-body')
-      .doesNotHaveAttribute('data-test-minimized');
     assert
       .dom('.hds-app-side-nav-hide-when-minimized')
       .doesNotHaveAttribute('inert');
@@ -217,7 +214,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-right');
-    assert.dom('#test-app-side-nav-body').hasAttribute('data-test-minimized');
     assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
   });
@@ -231,8 +227,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     });
 
     await render(hbs`
-      <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}} as |ASN|>
-        <span id="test-app-side-nav-body" data-test-minimized={{ASN.isMinimized}} />
+      <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
+        <span id="test-app-side-nav-body" />
         <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
@@ -258,8 +254,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     });
 
     await render(hbs`
-      <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}} as |ASN|>
-        <span id="test-app-side-nav-body" data-test-minimized={{ASN.isMinimized}} />
+      <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
+        <span id="test-app-side-nav-body" />
         <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);

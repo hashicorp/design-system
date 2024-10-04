@@ -17,7 +17,8 @@ interface HdsAppSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    default: [];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    default?: any;
   };
   Element: HTMLElement;
 }
@@ -25,7 +26,7 @@ interface HdsAppSideNavSignature {
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
   @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
-  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
+  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the appsidenav on 'desktop' viewports
   @tracked isAnimating = false;
   @tracked isDesktop = true;
   body!: HTMLElement;
