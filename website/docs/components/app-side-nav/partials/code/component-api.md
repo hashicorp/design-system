@@ -5,16 +5,8 @@
 This is the full-fledged component (responsive and animated).
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<:header>" @type="named block">
-    A named block where optional content for the “header” area of the App Side Nav is rendered. It yields the value of `isMinimized` too.
-  </C.Property>
-  <C.Property @name="<:body>" @type="named block">
-    A named block where the content for the “body” or main content of the App Side Nav is rendered. The `AppSideNav::List` and `AppSideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
-  </C.Property>
-  <C.Property @name="<:footer>" @type="named block">
-    A named block where the content for the “footer” section of the App Side Nav is rendered. It yields the value of `isMinimized` too.
-    <br><br>
-    When the App Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, you may not need to include the `<:footer>` block or related content.
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of a `<div>>` HTML element.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
     Controls whether the App Side Nav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
@@ -37,28 +29,6 @@ This is the full-fledged component (responsive and animated).
   </C.Property>
   <C.Property @name="onDesktopViewportChange" @type="function">
     Callback function invoked when the viewport changes. The function receives a boolean argument stating if the `AppSideNav` is in desktop mode or not.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
-### AppSideNav::Base
-
-This is the basic component (layout only).
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="<:root>" @type="named block">
-    A named block for rendering content outside of the "header/body/footer" containers of the App Side Nav.
-  </C.Property>
-  <C.Property @name="<:header>" @type="named block">
-    A named block where optional content for the “header” area of the App Side Nav is rendered.
-  </C.Property>
-  <C.Property @name="<:body>" @type="named block">
-    A named block where the content for the “body” or main content of the App Side Nav is rendered. The `AppSideNav::List` and `AppSideNav::PortalTarget` components should be added here when used.
-  </C.Property>
-  <C.Property @name="<:footer>" @type="named block">
-    A named block where optional content for the “footer” section of the App Side Nav is rendered.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
