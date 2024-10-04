@@ -34,7 +34,6 @@ import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/mo
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
 
 import type HdsAppSideNavComponent from './components/hds/app-side-nav';
-import type HdsAppSideNavBaseComponent from './components/hds/app-side-nav/base';
 import type HdsAppSideNavToggleButtonComponent from './components/hds/app-side-nav/toggle-button';
 import type HdsAppSideNavPortalComponent from './components/hds/app-side-nav/portal';
 import type HdsAppSideNavPortalTargetComponent from './components/hds/app-side-nav/portal/target';
@@ -275,10 +274,6 @@ export default interface HdsComponentsRegistry {
   'Hds::AppSideNav': typeof HdsAppSideNavComponent;
   'hds/app-side-nav': typeof HdsAppSideNavComponent;
   HdsAppSideNav: typeof HdsAppSideNavComponent;
-
-  'Hds::AppSideNav::Base': typeof HdsAppSideNavBaseComponent;
-  'hds/app-side-nav/base': typeof HdsAppSideNavBaseComponent;
-  HdsAppSideNavBase: typeof HdsAppSideNavBaseComponent;
 
   'Hds::AppSideNav::ToggleButton': typeof HdsAppSideNavToggleButtonComponent;
   'hds/app-side-nav/toggle-button': typeof HdsAppSideNavToggleButtonComponent;

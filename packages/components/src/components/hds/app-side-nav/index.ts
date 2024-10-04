@@ -8,8 +8,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 
-import type { HdsAppSideNavBaseSignature } from './base';
-
 interface HdsAppSideNavSignature {
   Args: {
     isResponsive?: boolean;
@@ -19,14 +17,9 @@ interface HdsAppSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    body?: [
-      {
-        Body?: HdsAppSideNavBaseSignature['Blocks']['body'];
-        isMinimized?: boolean;
-      },
-    ];
+    default: [];
   };
-  Element: HdsAppSideNavBaseSignature['Element'];
+  Element: HTMLElement;
 }
 
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
@@ -85,7 +78,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   get classNames(): string {
-    const classes = []; // `hds-app-side-nav` is already set by the "Hds::AppSideNav::Base" component
+    const classes = [`hds-app-side-nav`];
 
     // add specific class names for the different possible states
     if (this.isResponsive) {

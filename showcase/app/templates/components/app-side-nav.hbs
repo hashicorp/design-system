@@ -16,9 +16,7 @@
     <SF.Item @label="Body base invocation">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Shw::Placeholder @text="body" />
-          </:body>
+          <Shw::Placeholder @text="body" />
         </Hds::AppSideNav>
       </div>
     </SF.Item>
@@ -26,9 +24,7 @@
     <SF.Item @label="Body height declared">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Shw::Placeholder @text="body" @height="300px" />
-          </:body>
+          <Shw::Placeholder @text="body" @height="300px" />
         </Hds::AppSideNav>
       </div>
     </SF.Item>
@@ -36,10 +32,8 @@
     <SF.Item @label="Body (with extra)">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Shw::Placeholder @height="250px" @text="body" />
-            <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
-          </:body>
+          <Shw::Placeholder @height="250px" @text="body" />
+          <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
         </Hds::AppSideNav>
       </div>
     </SF.Item>
@@ -47,9 +41,7 @@
     <SF.Item @label="Body (scrollable)">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" tabindex="0" />
-          </:body>
+          <Shw::Placeholder @height="500px" @text="body" @background="#d2f4ff" tabindex="0" />
         </Hds::AppSideNav>
       </div>
     </SF.Item>
@@ -61,9 +53,7 @@
     <SF.Item @label="Body with PortalTarget/Portal">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
-          <:body>
-            <Hds::AppSideNav::Portal::Target @targetName="sidenav-portal-demo-1" />
-          </:body>
+          <Hds::AppSideNav::Portal::Target @targetName="sidenav-portal-demo-1" />
         </Hds::AppSideNav>
       </div>
     </SF.Item>
@@ -89,9 +79,7 @@
         <SF.Item @label="With PortalTarget + Portal with “nav” items">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
             <Hds::AppSideNav @isResponsive={{false}}>
-              <:body>
-                <Hds::AppSideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
-              </:body>
+              <Hds::AppSideNav::Portal::Target @targetName="sidenav-portal-demo-2" />
             </Hds::AppSideNav>
           </div>
         </SF.Item>
@@ -123,32 +111,30 @@
         <SF.Item @label="With product icons using text color">
           <div class="shw-component-sim-app-side-nav-root-container" {{style height="auto"}}>
             <Hds::AppSideNav @isResponsive={{false}}>
-              <:body>
-                <Hds::AppSideNav::List aria-label="Dashboard" as |SNL|>
-                  <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-                </Hds::AppSideNav::List>
+              <Hds::AppSideNav::List aria-label="Dashboard" as |SNL|>
+                <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+              </Hds::AppSideNav::List>
 
-                <Hds::AppSideNav::List aria-label="Services" as |SNL|>
-                  <SNL.Title>Services</SNL.Title>
-                  <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-                  <SNL.Link @text="Consul" @icon="consul" @href="#" />
-                  <SNL.Link @text="Packer" @icon="packer" @href="#" />
-                  <SNL.Link @text="Vault" @icon="vault" @href="#" />
-                  <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-                  <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-                  <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-                  <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-                </Hds::AppSideNav::List>
+              <Hds::AppSideNav::List aria-label="Services" as |SNL|>
+                <SNL.Title>Services</SNL.Title>
+                <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+                <SNL.Link @text="Consul" @icon="consul" @href="#" />
+                <SNL.Link @text="Packer" @icon="packer" @href="#" />
+                <SNL.Link @text="Vault" @icon="vault" @href="#" />
+                <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
+                <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+                <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+                <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+              </Hds::AppSideNav::List>
 
-                <Hds::AppSideNav::List aria-label="Organization" as |SNL|>
-                  <SNL.Title>Default Org</SNL.Title>
-                  <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-                  <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
-                </Hds::AppSideNav::List>
-              </:body>
+              <Hds::AppSideNav::List aria-label="Organization" as |SNL|>
+                <SNL.Title>Default Org</SNL.Title>
+                <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+                <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+                <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+                <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+                <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+              </Hds::AppSideNav::List>
             </Hds::AppSideNav>
           </div>
         </SF.Item>
@@ -162,45 +148,22 @@
         <SF.Item @label="With back link">
           <div class="shw-component-sim-app-side-nav-root-container">
             <Hds::AppSideNav @isResponsive={{false}}>
-              <:body>
-                <Hds::AppSideNav::List as |SNL|>
-                  <SNL.BackLink @text="A “back” link" @href="#" />
-                  <SNL.Title>A section title</SNL.Title>
-                  <SNL.Link @text="A link with just text" @href="#" />
-                  <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
-                  <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
-                  <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
-                  <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
-                  <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
-                </Hds::AppSideNav::List>
-              </:body>
+              <Hds::AppSideNav::List as |SNL|>
+                <SNL.BackLink @text="A “back” link" @href="#" />
+                <SNL.Title>A section title</SNL.Title>
+                <SNL.Link @text="A link with just text" @href="#" />
+                <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
+                <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
+                <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
+                <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
+                <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
+              </Hds::AppSideNav::List>
             </Hds::AppSideNav>
           </div>
         </SF.Item>
       </Shw::Flex>
     </SG.Item>
   </Shw::Grid>
-</section>
-
-<Shw::Divider />
-
-<section data-test-percy>
-  <Shw::Text::H2>AppSideNav::Base</Shw::Text::H2>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Body">
-      <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav::Base>
-          <:root>
-            <Shw::Placeholder @height="72px" @text="root" />
-          </:root>
-          <:body>
-            <Shw::Placeholder @height="250px" @text="body" />
-          </:body>
-        </Hds::AppSideNav::Base>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
 </section>
 
 <Shw::Divider />
