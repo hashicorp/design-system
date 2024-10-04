@@ -175,9 +175,6 @@ It internally uses the [`Hds::Interactive`](/utilities/interactive) utility comp
   <C.Property @name="text" @type="string">
     The text content for the `AppSideNav::List::Link` component.
   </C.Property>
-  <C.Property @name="iconColor" @type="string | CSS color" @values={{array "primary" "strong" "faint" "disabled" "high-contrast" "action" "action-hover" "action-active" "highlight" "highlight-on-surface" "highlight-high-contrast" "success" "success-on-surface" "success-high-contrast" "warning" "warning-on-surface" "warning-high-contrast" "critical" "critical-on-surface" "critical-high-contrast" }}>
-    The color of the icon expressed as one of the possible [foreground color](/foundations/colors?tab=palette#foreground-1) names. As a fallback solution to handle special cases, a valid CSS color string (hex, rgb, rgba, etc.) is also accepted (in this case it works by setting the value of the icon SVG’s `fill` property). If no `@iconColor` argument is provided, the component will inherit its color from the `AppSideNav::List` parent container.
-  </C.Property>
   <C.Property @name="badge" @type="string">
     Displays an optional `Badge`. Accepts the text value that should go in [Badge](/components/badge).
   </C.Property>
