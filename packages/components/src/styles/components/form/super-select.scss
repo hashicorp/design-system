@@ -360,13 +360,23 @@ $hds-super-select-item-height: 36px;
     background-repeat: no-repeat;
     background-position: 15px 10px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-
+    
     // checked
     &[aria-selected="true"]:not([aria-disabled="true"]) {
-      color: var(--token-color-foreground-action);
+      color: var(--token-color-foreground-primary);
 
       // checkmark icon:
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+
+      &:hover,
+      &.mock-hover {
+        color: var(--token-color-foreground-action-hover);
+      }
+
+      &:active,
+      &.mock-active {
+        color: var(--token-color-foreground-action-active);
+      }
     }
 
     &[aria-current="true"],
