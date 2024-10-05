@@ -8,11 +8,8 @@
 //
 
 .hds-app-side-nav {
-  // TODO: update in JSON
-  --hds-app-sidenav-width-minimized: 16px;
-
   position: relative;
-  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
+  width: var(--hds-app-side-nav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
   height: 100%;
   min-height: 100%;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
@@ -21,23 +18,23 @@
 
   &.hds-app-side-nav--is-responsive {
     transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+      width var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing);
   }
 
   // mobile
   &.hds-app-side-nav--is-mobile {
-    width: var(--hds-app-sidenav-width-minimized);
+    width: var(--hds-app-side-nav-width-minimized);
   }
 
   // desktop
   &.hds-app-side-nav--is-desktop {
     &.hds-app-side-nav--is-not-minimized {
-      width: var(--hds-app-sidenav-width-expanded);
+      width: var(--hds-app-side-nav-width-expanded);
     }
 
     &.hds-app-side-nav--is-minimized {
-      width: var(--hds-app-sidenav-width-minimized);
+      width: var(--hds-app-side-nav-width-minimized);
     }
   }
 }
@@ -51,9 +48,9 @@
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
   transition:
-    opacity var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing)
-    var(--hds-app-sidenav-animation-delay);
+    opacity var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing)
+    var(--hds-app-side-nav-animation-delay);
 
   // when we're minimized (mobile) we don't want the overlay to be visible/interactive
   .hds-app-side-nav--is-minimized & {
@@ -82,16 +79,16 @@
 
   .hds-app-side-nav--is-responsive & {
     transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+      width var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing);
   }
 
   .hds-app-side-nav--is-minimized & {
-    width: var(--hds-app-sidenav-width-minimized);
+    width: var(--hds-app-side-nav-width-minimized);
   }
 
   .hds-app-side-nav--is-not-minimized & {
-    width: var(--hds-app-sidenav-width-expanded);
+    width: var(--hds-app-side-nav-width-expanded);
   }
 }
 
@@ -137,9 +134,9 @@
     visibility: visible;
     opacity: 1;
     transition:
-      opacity var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing)
-      var(--hds-app-sidenav-animation-delay);
+      opacity var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing)
+      var(--hds-app-side-nav-animation-delay);
   }
 
   // we want to avoid accidental interactions with the navigation elements while the sidenav is animating its width

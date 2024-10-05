@@ -29,7 +29,7 @@
 .hds-app-side-nav__content-panels {
   // see https://codepen.io/didoo/pen/YzOeRPr
   display: grid;
-  grid-template-columns: repeat(5, var(--hds-app-sidenav-width-expanded));
+  grid-template-columns: repeat(5, var(--hds-app-side-nav-width-expanded));
   width: 100%;
 }
 

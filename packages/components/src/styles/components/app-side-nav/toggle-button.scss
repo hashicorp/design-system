@@ -16,7 +16,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  width: var(--hds-app-sidenav-toggle-button-width);
+  width: var(--hds-app-side-nav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
   color: var(--token-color-foreground-primary);
@@ -26,13 +26,13 @@
   border-left-color: transparent;
   border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
   border-bottom-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
-  transform: translateX(var(--hds-app-sidenav-width-expanded));
+  transform: translateX(var(--hds-app-side-nav-width-expanded));
   cursor: pointer;
   transition:
-    transform var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing),
-    width var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing);
+    transform var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing),
+    width var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing);
 
   &::before {
     position: absolute;
@@ -96,6 +96,6 @@
   }
 
   .hds-app-side-nav--is-minimized & {
-    transform: translateX(var(--hds-app-sidenav-width-minimized));
+    transform: translateX(var(--hds-app-side-nav-width-minimized));
   }
 }
