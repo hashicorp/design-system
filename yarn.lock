@@ -4296,7 +4296,7 @@ __metadata:
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
     ember-stargate: "npm:^0.4.3"
-    ember-style-modifier: "npm:^3.0.1"
+    ember-style-modifier: "npm:^4.4.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^4.0.3"
@@ -11833,6 +11833,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decorator-transforms@npm:^2.0.0":
+  version: 2.2.2
+  resolution: "decorator-transforms@npm:2.2.2"
+  dependencies:
+    "@babel/plugin-syntax-decorators": "npm:^7.23.3"
+    babel-import-util: "npm:^3.0.0"
+  checksum: 10/91da5fc10dfb60aef8f3e6285fea17a44068be8e7f3aa4220e3b96dd9ca3fd6beb011cba705753f1fa392288fb52b35beb2f91ba7c674f2e44db36be09233b2e
+  languageName: node
+  linkType: hard
+
 "dedent@npm:^1.0.0":
   version: 1.5.1
   resolution: "dedent@npm:1.5.1"
@@ -12406,7 +12416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.5.0, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3":
+"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3":
   version: 2.7.0
   resolution: "ember-auto-import@npm:2.7.0"
   dependencies:
@@ -13618,19 +13628,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-style-modifier@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "ember-style-modifier@npm:3.0.1"
-  dependencies:
-    ember-auto-import: "npm:^2.5.0"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-modifier: "npm:^3.2.7 || ^4.0.0"
-  peerDependencies:
-    "@ember/string": ^3.0.1
-  checksum: 10/093a9affaaa7b3f1c782fa46616bd3f9a02f518c3eff22f1f4c2582f2411cc9d1eecb95d483aaeabf6ce050d95ff928201cd5287e950027b96cbe702e56ae68d
-  languageName: node
-  linkType: hard
-
 "ember-style-modifier@npm:^4.3.1":
   version: 4.3.1
   resolution: "ember-style-modifier@npm:4.3.1"
@@ -13643,6 +13640,21 @@ __metadata:
     "@ember/string": ^3.0.1
     ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
   checksum: 10/12f2fe98efb51348adf0031fce16fe6195cff1fe514e98f41f54f80c2b156976f6b18ef2d7784f5e575157bc78620afdc8efcdf9db4f3f077b4abbf12878d47e
+  languageName: node
+  linkType: hard
+
+"ember-style-modifier@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "ember-style-modifier@npm:4.4.0"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.7"
+    csstype: "npm:^3.1.3"
+    decorator-transforms: "npm:^2.0.0"
+    ember-modifier: "npm:^3.2.7 || ^4.0.0"
+  peerDependencies:
+    "@ember/string": ^3.1.1 || ^4.0.0
+    ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
+  checksum: 10/eac462cd52684e3eaabec78ad4e85288824e505013198a75ef9dec920abaf2af8b0c93f99cc57c725b67a4787202a84ef8b2891e79f1cae2f0ab5680786f1ca0
   languageName: node
   linkType: hard
 
@@ -24892,7 +24904,7 @@ __metadata:
     ember-resolver: "npm:^11.0.1"
     ember-source: "npm:~5.9.0"
     ember-source-channel-url: "npm:^3.0.0"
-    ember-style-modifier: "npm:^4.3.1"
+    ember-style-modifier: "npm:^4.4.0"
     ember-template-imports: "npm:^4.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
