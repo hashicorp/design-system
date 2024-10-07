@@ -10,7 +10,7 @@
 
 .hds-app-side-nav__toggle-button {
   position: absolute;
-  top: var(--token-side-nav-wrapper-padding-vertical); // visually align with :header content
+  top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
   left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
