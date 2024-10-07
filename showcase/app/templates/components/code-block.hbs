@@ -311,9 +311,10 @@ function assertObjectsEqual (actual, expected, testName) {
   <Shw::Text::H3>Highlight lines</Shw::Text::H3>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="Highlight lines 2 & 4" @forceMinWidth={{true}}>
+    <SG.Item @label="Highlight lines 2 & 4, hasLineNumbers=false" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
+        @hasLineNumbers={{false}}
         @highlightLines="2, 4"
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
