@@ -40,6 +40,7 @@
   --hds-accordion-item-content-padding-left: 12px;
   --hds-accordion-item-gap: 8px;
   --hds-accordion-item-icon-size: 16px;
+  --hds-accordion-item-border-radius: 3px;
 }
 
 .hds-accordion-item--size-medium {
@@ -51,6 +52,7 @@
   --hds-accordion-item-content-padding-left: 12px;
   --hds-accordion-item-gap: 12px;
   --hds-accordion-item-icon-size: 20px;
+  --hds-accordion-item-border-radius: 6px;
 }
 
 .hds-accordion-item--size-large {
@@ -62,12 +64,13 @@
   --hds-accordion-item-content-padding-left: 16px;
   --hds-accordion-item-gap: 12px;
   --hds-accordion-item-icon-size: 24px;
+  --hds-accordion-item-border-radius: 6px;
 }
 
 .hds-accordion-item--type-card {
   --hds-accordion-item-focus-ring-offset: 0;
   background: var(--token-color-surface-primary);
-  border-radius: 6px;
+  border-radius: var(--hds-accordion-item-border-radius);
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);
