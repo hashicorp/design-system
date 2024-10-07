@@ -21,23 +21,6 @@
       </div>
     </SF.Item>
 
-    <SF.Item @label="Body height declared">
-      <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}}>
-          <Shw::Placeholder @text="body" @height="300px" />
-        </Hds::AppSideNav>
-      </div>
-    </SF.Item>
-
-    <SF.Item @label="Body (with extra)">
-      <div class="shw-component-sim-app-side-nav-root-container">
-        <Hds::AppSideNav @isResponsive={{false}}>
-          <Shw::Placeholder @height="250px" @text="body" />
-          <Shw::Placeholder @height="60px" @text="extra content for 'body'" @background="#e4c5f3" />
-        </Hds::AppSideNav>
-      </div>
-    </SF.Item>
-
     <SF.Item @label="Body (scrollable)">
       <div class="shw-component-sim-app-side-nav-root-container">
         <Hds::AppSideNav @isResponsive={{false}}>
@@ -64,7 +47,6 @@
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
     <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
   </Hds::AppSideNav::Portal>
-
 </section>
 
 <Shw::Divider @level={{2}} />
