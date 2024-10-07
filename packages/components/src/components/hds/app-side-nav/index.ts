@@ -17,8 +17,7 @@ interface HdsAppSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    default?: any;
+    default?: [];
   };
   Element: HTMLDivElement;
 }
