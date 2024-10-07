@@ -26,6 +26,9 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="hasLineNumbers" @type="boolean" @default="true">
     Used to control display of line numbers. Note that due to technical limitations, if the `@value` changes dynamically the line numbers will fail to update.
   </C.Property>
+  <C.Property @name="lineNumberStart" @type="number" @default="1">
+    Used to set a custom starting number for line numbering.
+  </C.Property>
   <C.Property @name="hasLineWrapping" @type="boolean" @default="false">
     Used to control line wrapping for lines of code. If `true`, lines of code will wrap to fit the available space. Otherwise, horizontal scrolling is enabled if lines overflow the available space.
   </C.Property>

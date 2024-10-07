@@ -49,6 +49,36 @@ console.log(`I am ${codeLang} code`);"
         @value="let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
+    <SG.Item @forceMinWidth={{true}} as |SGI|>
+      <SGI.Label>Line numbering start changed to "5"
+      </SGI.Label>
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock
+        @language="javascript"
+        @maxHeight="105px"
+        @lineNumberStart={{5}}
+        @value="function convertObjectToArray (obj) {
+  let arr = Object
+    .keys(obj) // return object's keys as an array
+    .map(key => {return [key, obj[key] ]}) // map a function on each array item
+    .flat()
+    .sort()
+  ;
+  return arr;
+}
+function assertObjectsEqual (actual, expected, testName) {
+  let actualStr = JSON.stringify( convertObjectToArray(actual) );
+  let expectedStr = JSON.stringify( convertObjectToArray(expected) );
+  console.log(`ACTUAL: ${actualStr}  EXPECTED: ${expectedStr}`);
+  if (actualStr === expectedStr) {
+    console.log('passed');
+  } else {
+    console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
+  }
+}"
+      />
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Divider @level="2" />
