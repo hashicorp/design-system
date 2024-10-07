@@ -20,7 +20,7 @@ interface HdsAppSideNavSignature {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     default?: any;
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {

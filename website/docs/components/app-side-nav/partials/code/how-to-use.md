@@ -37,7 +37,7 @@ It also comes with a set of CSS properties that automatically set the App Side N
 
 Standard HDS [`Button`](/components/button) and [`Dropdown`](/components/dropdown) components can also be used within the App Side Nav where needed. We recommend setting `enableCollisionDetection` to `true` for each Dropdown component used within the App Side Nav.
 
-The App Side nav is an agnostic container, in which consumers can _in principle_ add anything they want, in the order they want.
+The App Side Nav is an agnostic container, in which consumers can _in principle_ add anything they want, in the order they want.
 
 That said, to create consistent experiences for our end-users, it’s very likely that the choice of what component to use will fall on one of these two options:
 

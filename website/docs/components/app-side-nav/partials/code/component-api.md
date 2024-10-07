@@ -6,7 +6,7 @@ This is the full-fledged component (responsive and animated).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of a `<div>>` HTML element.
+    Elements passed as children are yielded as inner content of a `<div>` HTML element.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
     Controls whether the App Side Nav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
