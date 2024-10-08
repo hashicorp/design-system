@@ -165,9 +165,17 @@
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
   <Shw::Frame
-    @id="demo-full-app-frame"
+    @id="demo-full-app-frame-lt-480px"
     @src="/layouts/app-frame/frameless/demo-full-app-frame"
-    @label="Full app-frame"
+    @label="Full app-frame (height < 480px)"
+    @height="400"
+  />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-gt-480px"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame"
+    @label="Full app-frame (height > 480px)"
+    @height="500"
   />
 
   <Shw::Frame
@@ -182,9 +190,9 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  {{! 
+  {{!
     Note: The below examples are commented out as they are redundant to the following "Framed" examples.
-    However we still need to find a solution for adding visual regression tests for the framed examples. 
+    However we still need to find a solution for adding visual regression tests for the framed examples.
     (So we may decide to uncomment these examples to add them back to the visual regression tests depending.)
   }}
   {{!-- <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
