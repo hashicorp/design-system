@@ -6,6 +6,9 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsSideNavListTitleSignature {
+  Args: {
+    id?: string;
+  };
   Blocks: {
     default: [];
   };

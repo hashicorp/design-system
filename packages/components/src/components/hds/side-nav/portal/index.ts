@@ -5,7 +5,7 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 
-import type { HdsSideNavListSignature } from '../list/index';
+// import type { HdsSideNavListSignature } from '../list/index';
 
 // TODO! understand how this should be done "correctly"
 // import type { PortalSignature } from 'ember-stargate/components/portal';
@@ -16,16 +16,17 @@ interface PortalSignature {
     fallback?: 'inplace';
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
 }
 
 export interface HdsSideNavPortalSignature {
   Args: PortalSignature['Args'] & {
-    ariaLabel?: string;
     targetName?: string;
   };
-  Blocks: HdsSideNavListSignature['Blocks'];
+  Blocks: {
+    default?: [];
+  };
   Element: HTMLDivElement;
 }
 
