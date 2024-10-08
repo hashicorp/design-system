@@ -40,7 +40,7 @@
   overflow: hidden; // the panel itself does not need to be scrollable
 
   &[aria-hidden="true"] {
-    max-height: 250px; // prevents hidden panels from causing scrolling
+    max-height: 220px; // prevents hidden panels from causing scrolling
   }
 }
 
