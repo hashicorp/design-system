@@ -7,7 +7,9 @@ import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
-import { minimalSetup, EditorView } from 'codemirror';
+import { basicSetup, EditorView } from 'codemirror';
+import { EditorState, Compartment } from '@codemirror/state';
+import { javascript } from '@codemirror/lang-javascript';
 
 interface HdsCodeEditorSignature {
   Args: {
@@ -103,11 +105,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
     const { onInput, onBlur, options = {}, value } = named;
+    const language = new Compartment();
+    const state = EditorState.create({
+      doc: value,
+      extensions: [basicSetup, language.of(javascript())],
+    });
     this.onInput = onInput;
     this.onBlur = onBlur;
     this.editor = new EditorView({
-      doc: value,
-      extensions: [minimalSetup],
+      state,
       parent: element,
     });
     this.element = element;
