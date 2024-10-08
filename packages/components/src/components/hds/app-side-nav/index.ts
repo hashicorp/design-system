@@ -23,11 +23,10 @@ interface HdsAppSideNavSignature {
 }
 
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
-  @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
-  @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
-  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the appsidenav on 'desktop' viewports
+  @tracked isMinimized;
   @tracked isAnimating = false;
   @tracked isDesktop = true;
+
   body!: HTMLElement;
   bodyInitialOverflowValue = '';
   desktopMQ: MediaQueryList;
@@ -39,6 +38,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   constructor(owner: unknown, args: HdsAppSideNavSignature['Args']) {
     super(owner, args);
+    this.isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
     this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
     this.addEventListeners();
     registerDestructor(this, (): void => {
@@ -67,6 +67,16 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       this.updateDesktopVariable,
       true
     );
+  }
+
+  // controls if the component reacts to viewport changes
+  get isResponsive(): boolean {
+    return this.args.isResponsive ?? true;
+  }
+
+  // controls if users can collapse the appsidenav on 'desktop' viewports
+  get isCollapsible(): boolean {
+    return this.args.isCollapsible ?? false;
   }
 
   get shouldTrapFocus(): boolean {
