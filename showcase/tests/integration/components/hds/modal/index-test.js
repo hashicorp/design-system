@@ -8,6 +8,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
   render,
+  rerender,
   triggerKeyEvent,
   resetOnerror,
   setupOnerror,
@@ -163,6 +164,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
     // now let's check that the state is reset and it can be closed
     this.set('isDismissDisabled', false);
+    await rerender();
     await click('button.hds-modal__dismiss');
     assert.dom('#test-modal').isNotVisible();
   });
