@@ -57,10 +57,13 @@ export interface HdsModalSignature {
 
 export default class HdsModal extends Component<HdsModalSignature> {
   @tracked isOpen = false;
-  @tracked isDismissDisabled = this.args.isDismissDisabled ?? false;
   element!: HTMLDialogElement;
   body!: HTMLElement;
   bodyInitialOverflowValue = '';
+
+  get isDismissDisabled(): boolean {
+    return this.args.isDismissDisabled ?? false;
+  }
 
   get size(): HdsModalSizes {
     const { size = DEFAULT_SIZE } = this.args;
