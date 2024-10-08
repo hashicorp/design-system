@@ -69,12 +69,14 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     );
   }
 
+  // controls if the component reacts to viewport changes
   get isResponsive(): boolean {
-    return this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
+    return this.args.isResponsive ?? true;
   }
 
+  // controls if users can collapse the appsidenav on 'desktop' viewports
   get isCollapsible(): boolean {
-    return this.args.isCollapsible ?? false; // controls if users can collapse the appsidenav on 'desktop' viewports
+    return this.args.isCollapsible ?? false;
   }
 
   get shouldTrapFocus(): boolean {
