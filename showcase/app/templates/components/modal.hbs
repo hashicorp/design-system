@@ -468,5 +468,46 @@
     </Hds::Modal>
   {{/if}}
 
+  <br />
+  <br />
+
+  <button type="button" {{on "click" (fn this.activateModal "dismissDisabledModalActive")}}>Open non-dismissable modal</button>
+
+  {{#if this.dismissDisabledModalActive}}
+    <Hds::Modal
+      id="dismiss-disabled-modal"
+      @isDismissDisabled={{this.isDismissDisabled}}
+      @onClose={{fn this.deactivateModal "dismissDisabledModalActive"}}
+      as |M|
+    >
+      <M.Header>
+        Try to close this modal
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-bottom="12px"}}>When this modal is
+          opened, the
+          <code>isDismissDisabled</code>
+          argument is set to
+          <code>true</code>, so it can't be dismissed (not by clicking the cancel button or the close button, nor
+          clicking on the overlay area or via
+          <code>esc</code>
+          key).</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin="12px 0"}}>Click this button to reset
+          the variable to
+          <code>false</code>
+          and go back to its normal state, where you should be able to close it.</p>
+        <button type="button" {{style padding=".25rem"}} {{on "click" this.resetIsDismissDisabled}}>Reset
+          <code>isDismissDisabled</code></button>
+        <pre>this.isDismissDisabled = {{this.isDismissDisabled}}</pre>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::ButtonSet>
+          <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+          <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+        </Hds::ButtonSet>
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
 </section>
 {{! template-lint-enable no-autofocus-attribute }}
