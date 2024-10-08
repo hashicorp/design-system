@@ -10,13 +10,13 @@
 
 .hds-app-side-nav__toggle-button {
   position: absolute;
-  top: 22px; // visually align with :header content
+  top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
   left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
   z-index: 1;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  width: var(--hds-app-sidenav-toggle-button-width);
+  width: var(--hds-app-side-nav-toggle-button-width);
   height: 36px;
   padding: 0 4px;
   color: var(--token-color-foreground-primary);
@@ -26,13 +26,13 @@
   border-left-color: transparent;
   border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
   border-bottom-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
-  transform: translateX(var(--hds-app-sidenav-width-expanded));
+  transform: translateX(var(--hds-app-side-nav-width-expanded));
   cursor: pointer;
   transition:
-    transform var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing),
-    width var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing);
+    transform var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing),
+    width var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing);
 
   &::before {
     position: absolute;
@@ -96,11 +96,6 @@
   }
 
   .hds-app-side-nav--is-minimized & {
-    transform: translateX(var(--hds-app-sidenav-width-minimized));
-  }
-
-   // adjust the toggle button position to match the vertical padding when :header is empty
-  .hds-app-side-nav:has(.hds-app-side-nav__wrapper-header:empty) & {
-    top: var(--token-app-side-nav-wrapper-padding-vertical);
+    transform: translateX(var(--hds-app-side-nav-width-minimized));
   }
 }

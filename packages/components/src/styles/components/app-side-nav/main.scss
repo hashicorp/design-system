@@ -9,41 +9,32 @@
 
 .hds-app-side-nav {
   position: relative;
-  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
+  width: var(--hds-app-side-nav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
   height: 100%;
   min-height: 100%;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
-
-  // VARIATIONS
-
-  // headerless
-  // AppSideNav without a :header block
-  &.hds-app-side-nav--is-headerless {
-    // set narrower collapsed width when the header is empty
-    --hds-app-sidenav-width-minimized: 16px;
-  }
 
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
   &.hds-app-side-nav--is-responsive {
     transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+      width var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing);
   }
 
   // mobile
   &.hds-app-side-nav--is-mobile {
-    width: var(--hds-app-sidenav-width-minimized);
+    width: var(--hds-app-side-nav-width-minimized);
   }
 
   // desktop
   &.hds-app-side-nav--is-desktop {
     &.hds-app-side-nav--is-not-minimized {
-      width: var(--hds-app-sidenav-width-expanded);
+      width: var(--hds-app-side-nav-width-expanded);
     }
 
     &.hds-app-side-nav--is-minimized {
-      width: var(--hds-app-sidenav-width-minimized);
+      width: var(--hds-app-side-nav-width-minimized);
     }
   }
 }
@@ -57,9 +48,9 @@
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
   transition:
-    opacity var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing)
-    var(--hds-app-sidenav-animation-delay);
+    opacity var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing)
+    var(--hds-app-side-nav-animation-delay);
 
   // when we're minimized (mobile) we don't want the overlay to be visible/interactive
   .hds-app-side-nav--is-minimized & {
@@ -80,7 +71,7 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--token-app-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+  color: var(--token-app-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the body of the appsidenav)
   background: var(--token-app-side-nav-color-surface-primary);
   border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
 
@@ -88,41 +79,20 @@
 
   .hds-app-side-nav--is-responsive & {
     transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+      width var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing);
   }
 
   .hds-app-side-nav--is-minimized & {
-    width: var(--hds-app-sidenav-width-minimized);
+    width: var(--hds-app-side-nav-width-minimized);
   }
 
   .hds-app-side-nav--is-not-minimized & {
-    width: var(--hds-app-sidenav-width-expanded);
+    width: var(--hds-app-side-nav-width-expanded);
   }
 }
 
 // wrapper's child "containers"
-
-.hds-app-side-nav__wrapper-header {
-  padding-top: var(--token-app-side-nav-wrapper-padding-vertical);
-  padding-right: var(--token-app-side-nav-wrapper-padding-horizontal);
-  padding-bottom: 8px; // by design
-  padding-left: var(--token-app-side-nav-wrapper-padding-horizontal);
-  transition:
-    padding var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing);
-
-  .hds-app-side-nav--is-minimized & {
-    padding-top: var(--token-app-side-nav-wrapper-padding-vertical-minimized);
-    padding-right: var(--token-app-side-nav-wrapper-padding-horizontal-minimized);
-    padding-left: var(--token-app-side-nav-wrapper-padding-horizontal-minimized);
-  }
-
-  // Remove padding when it contains no child nodes
-  &:empty {
-    padding: 0;
-  }
-}
 
 .hds-app-side-nav__wrapper-body {
   flex: 1;
@@ -135,19 +105,6 @@
   // we want the content to vertically scroll if needed
   overflow-y: auto;
 }
-
-.hds-app-side-nav__wrapper-footer {
-  padding:
-    var(--token-app-side-nav-wrapper-padding-vertical)
-    var(--token-app-side-nav-wrapper-padding-horizontal);
-  
-  // Remove padding when it contains no child nodes
-  &:empty {
-    min-height: var(--token-app-side-nav-wrapper-padding-horizontal); // acts as spacer
-    padding: 0;
-  }
-}
-
 
 // "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
 // this is a special class that is used to control which elements of the sidenav need to be:
@@ -177,9 +134,9 @@
     visibility: visible;
     opacity: 1;
     transition:
-      opacity var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing)
-      var(--hds-app-sidenav-animation-delay);
+      opacity var(--hds-app-side-nav-animation-duration)
+      var(--hds-app-side-nav-animation-easing)
+      var(--hds-app-side-nav-animation-delay);
   }
 
   // we want to avoid accidental interactions with the navigation elements while the sidenav is animating its width

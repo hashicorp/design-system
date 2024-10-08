@@ -9,7 +9,7 @@ import Component from '@glimmer/component';
 
 export interface HdsAppSideNavListTitleSignature {
   Args: {
-    didInsertTitle: (titleId: string) => void;
+    didInsertTitle?: (titleId: string) => void;
   };
   Blocks: {
     default: [];

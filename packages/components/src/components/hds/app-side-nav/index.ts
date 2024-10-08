@@ -8,8 +8,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 
-import type { HdsAppSideNavBaseSignature } from './base';
-
 interface HdsAppSideNavSignature {
   Args: {
     isResponsive?: boolean;
@@ -19,32 +17,15 @@ interface HdsAppSideNavSignature {
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
-    header?: [
-      {
-        Header?: HdsAppSideNavBaseSignature['Blocks']['header'];
-        isMinimized?: boolean;
-      },
-    ];
-    body?: [
-      {
-        Body?: HdsAppSideNavBaseSignature['Blocks']['body'];
-        isMinimized?: boolean;
-      },
-    ];
-    footer?: [
-      {
-        Footer?: HdsAppSideNavBaseSignature['Blocks']['footer'];
-        isMinimized?: boolean;
-      },
-    ];
+    default?: [];
   };
-  Element: HdsAppSideNavBaseSignature['Element'];
+  Element: HTMLDivElement;
 }
 
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   @tracked isResponsive = this.args.isResponsive ?? true; // controls if the component reacts to viewport changes
   @tracked isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
-  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the sidenav on 'desktop' viewports
+  @tracked isCollapsible = this.args.isCollapsible ?? false; // controls if users can collapse the appsidenav on 'desktop' viewports
   @tracked isAnimating = false;
   @tracked isDesktop = true;
   body!: HTMLElement;
@@ -97,7 +78,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   get classNames(): string {
-    const classes = []; // `hds-app-side-nav` is already set by the "Hds::AppSideNav::Base" component
+    const classes = [`hds-app-side-nav`];
 
     // add specific class names for the different possible states
     if (this.isResponsive) {
