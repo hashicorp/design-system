@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
+import { deprecate } from '@ember/debug';
 
 import type { HdsSideNavBaseSignature } from './base';
 
@@ -67,11 +68,26 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
 
   constructor(owner: unknown, args: HdsSideNavSignature['Args']) {
     super(owner, args);
+
     this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
     this.addEventListeners();
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
+
+    deprecate(
+      'The `Hds::SideNav` component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::AppSideNav` instead.',
+      false,
+      {
+        id: 'hds.components.sidenav',
+        until: '5.0.0', // TODO: update with actual version number
+        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4110', // TODO: make sure URL matches correct version number
+        for: '@hashicorp/design-system-components',
+        since: {
+          enabled: '4.11.0', // TODO: check if this is the correct version
+        },
+      }
+    );
   }
 
   addEventListeners(): void {
