@@ -3,9 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
-
-<Hds::AppSideNav::Base
-  class={{concat this.classNames (unless (has-block "header") " hds-app-side-nav--is-headerless")}}
+<div
+  class={{this.classNames}}
   ...attributes
   {{on "transitionstart" (fn this.setTransition "start")}}
   {{on "transitionend" (fn this.setTransition "end")}}
@@ -13,7 +12,9 @@
   {{focus-trap isActive=this.shouldTrapFocus}}
   {{did-insert this.didInsert}}
 >
-  <:root>
+  <h2 class="sr-only" id="hds-app-side-nav-header">Application local navigation</h2>
+
+  <div class="hds-app-side-nav__wrapper">
     {{#if this.showToggleButton}}
       {{! template-lint-disable no-invalid-interactive}}
       <div class="hds-app-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
@@ -25,14 +26,9 @@
         {{on "click" this.toggleMinimizedStatus}}
       />
     {{/if}}
-  </:root>
-  <:header as |Header|>
-    {{~yield (hash Header=Header isMinimized=this.isMinimized) to="header"~}}
-  </:header>
-  <:body as |Body|>
-    {{~yield (hash Body=Body isMinimized=this.isMinimized) to="body"~}}
-  </:body>
-  <:footer as |Footer|>
-    {{~yield (hash Footer=Footer isMinimized=this.isMinimized) to="footer"~}}
-  </:footer>
-</Hds::AppSideNav::Base>
+
+    <div class="hds-app-side-nav__wrapper-body">
+      {{~yield~}}
+    </div>
+  </div>
+</div>

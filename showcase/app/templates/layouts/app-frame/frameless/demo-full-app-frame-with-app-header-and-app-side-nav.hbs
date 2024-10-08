@@ -51,30 +51,28 @@
 
   <Frame.Sidebar>
     <Hds::AppSideNav @isResponsive={{true}} @isCollapsible={{true}}>
-      <:body>
-        <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
-          <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        </Hds::AppSideNav::List>
-        <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Services 2" as |SNL|>
-          <SNL.Title>Services</SNL.Title>
-          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-          <SNL.Link @text="Consul" @icon="consul" @href="#" />
-          <SNL.Link @text="Packer" @icon="packer" @href="#" />
-          <SNL.Link @text="Vault" @icon="vault" @href="#" />
-          <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        </Hds::AppSideNav::List>
-        <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Organization" as |SNL|>
-          <SNL.Title>Default Org</SNL.Title>
-          <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
-        </Hds::AppSideNav::List>
-      </:body>
+      <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
+        <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+      </Hds::AppSideNav::List>
+      <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Services 2" as |SNL|>
+        <SNL.Title>Services</SNL.Title>
+        <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
+        <SNL.Link @text="Consul" @icon="consul" @href="#" />
+        <SNL.Link @text="Packer" @icon="packer" @href="#" />
+        <SNL.Link @text="Vault" @icon="vault" @href="#" />
+        <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
+        <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
+        <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
+        <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+      </Hds::AppSideNav::List>
+      <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Organization" as |SNL|>
+        <SNL.Title>Default Org</SNL.Title>
+        <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
+        <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
+        <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
+        <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
+        <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
+      </Hds::AppSideNav::List>
     </Hds::AppSideNav>
   </Frame.Sidebar>
 

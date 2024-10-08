@@ -58,20 +58,10 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('it renders content passed to the named blocks', async function (assert) {
     await render(hbs`
       <Hds::AppSideNav @hasA11yRefocus={{false}}>
-        <:header>
-          <span id="test-app-side-nav-header" />
-        </:header>
-        <:body>
-          <span id="test-app-side-nav-body" />
-        </:body>
-        <:footer>
-          <span id="test-app-side-nav-footer" />
-        </:footer>
+        <span id="test-app-side-nav-body" />
       </Hds::AppSideNav>
     `);
-    assert.dom('#test-app-side-nav-header').exists();
     assert.dom('#test-app-side-nav-body').exists();
-    assert.dom('#test-app-side-nav-footer').exists();
   });
 
   // RESPONSIVENESS
@@ -160,16 +150,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`
       <style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
       <Hds::AppSideNav id="test-app-side-nav">
-        <:header as |H|>
-          <span id="test-app-side-nav-header" data-test-minimized={{H.isMinimized}} />
-        </:header>
-        <:body as |B|>
-          <span id="test-app-side-nav-body" data-test-minimized={{B.isMinimized}} />
-          <span class="hds-app-side-nav-hide-when-minimized" />
-        </:body>
-        <:footer as |F|>
-          <span id="test-app-side-nav-footer" data-test-minimized={{F.isMinimized}} />
-        </:footer>
+        <span id="test-app-side-nav-body" />
+        <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
@@ -205,16 +187,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`
       <Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav">
-        <:header as |H|>
-          <span id="test-app-side-nav-header" data-test-minimized={{H.isMinimized}} />
-        </:header>
-        <:body as |B|>
-          <span id="test-app-side-nav-body" data-test-minimized={{B.isMinimized}} />
-          <span class="hds-app-side-nav-hide-when-minimized" />
-        </:body>
-        <:footer as |F|>
-          <span id="test-app-side-nav-footer" data-test-minimized={{F.isMinimized}} />
-        </:footer>
+        <span id="test-app-side-nav-body" />
+        <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
     assert
@@ -226,15 +200,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-left');
-    assert
-      .dom('#test-app-side-nav-header')
-      .doesNotHaveAttribute('data-test-minimized');
-    assert
-      .dom('#test-app-side-nav-body')
-      .doesNotHaveAttribute('data-test-minimized');
-    assert
-      .dom('#test-app-side-nav-footer')
-      .doesNotHaveAttribute('data-test-minimized');
     assert
       .dom('.hds-app-side-nav-hide-when-minimized')
       .doesNotHaveAttribute('inert');
@@ -249,9 +214,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-right');
-    assert.dom('#test-app-side-nav-header').hasAttribute('data-test-minimized');
-    assert.dom('#test-app-side-nav-body').hasAttribute('data-test-minimized');
-    assert.dom('#test-app-side-nav-footer').hasAttribute('data-test-minimized');
     assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
   });
@@ -266,16 +228,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
     await render(hbs`
       <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
-        <:header as |H|>
-          <span id="test-app-side-nav-header" data-test-minimized={{H.isMinimized}} />
-        </:header>
-        <:body as |B|>
-          <span id="test-app-side-nav-body" data-test-minimized={{B.isMinimized}} />
-          <span class="hds-app-side-nav-hide-when-minimized" />
-        </:body>
-        <:footer as |F|>
-          <span id="test-app-side-nav-footer" data-test-minimized={{F.isMinimized}} />
-        </:footer>
+        <span id="test-app-side-nav-body" />
+        <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
 
@@ -301,16 +255,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
     await render(hbs`
       <Hds::AppSideNav @isCollapsible={{true}} @onDesktopViewportChange={{this.onDesktopViewportChange}}>
-        <:header as |H|>
-          <span id="test-app-side-nav-header" data-test-minimized={{H.isMinimized}} />
-        </:header>
-        <:body as |B|>
-          <span id="test-app-side-nav-body" data-test-minimized={{B.isMinimized}} />
-          <span class="hds-app-side-nav-hide-when-minimized" />
-        </:body>
-        <:footer as |F|>
-          <span id="test-app-side-nav-footer" data-test-minimized={{F.isMinimized}} />
-        </:footer>
+        <span id="test-app-side-nav-body" />
+        <span class="hds-app-side-nav-hide-when-minimized" />
       </Hds::AppSideNav>
     `);
 
