@@ -34,7 +34,14 @@
 }
 
 .hds-app-side-nav__content-panel {
+  // Note: height is impacted by hidden panels if max-height is not set (may not matter but this prevents it)
+  height: max-content;
   padding: 0 var(--token-app-side-nav-wrapper-padding-horizontal);
+  overflow: hidden; // the panel itself does not need to be scrollable
+
+  &[aria-hidden="true"] {
+    max-height: 250px; // prevents hidden panels from causing scrolling
+  }
 }
 
 // (LIST) TITLE
