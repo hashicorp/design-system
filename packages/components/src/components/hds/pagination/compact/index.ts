@@ -89,7 +89,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   // In the second case, the variable stores *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
+  @tracked _currentPageSize;
   @tracked isControlled;
 
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
@@ -123,6 +123,9 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
       );
       this.isControlled = true;
     }
+
+    // we assert that `this.pageSizes` will always be an array with at least one item
+    this._currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
   }
 
   get ariaLabel(): string {

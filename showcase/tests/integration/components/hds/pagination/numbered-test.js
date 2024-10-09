@@ -75,9 +75,10 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   });
 
   test('it renders the passed in currentPageSize value', async function (assert) {
-    await render(hbs`
-      <Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
-    `);
+    await render(
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />`
+    );
+
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
     assert
       .dom('.hds-pagination .hds-pagination-size-selector select')

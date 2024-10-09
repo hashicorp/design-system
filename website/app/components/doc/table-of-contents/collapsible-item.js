@@ -4,11 +4,17 @@
  */
 
 import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+
 export default class DocTocCollapsibleItem extends Component {
-  @tracked isOpen = this.args.item.isOpen ?? false;
+  @tracked isOpen;
+
+  constructor(args) {
+    super(...args);
+    this.isOpen = this.args.item.isOpen ?? false;
+  }
 
   @action toggleIsOpen() {
     this.isOpen = !this.isOpen;

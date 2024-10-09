@@ -87,12 +87,18 @@ export interface HdsTableSignature {
 }
 
 export default class HdsTable extends Component<HdsTableSignature> {
-  @tracked sortBy = this.args.sortBy ?? undefined;
-  @tracked sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
+  @tracked sortBy;
+  @tracked sortOrder;
   @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   selectableRows: HdsTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+
+  constructor(owner: unknown, args: HdsTableSignature['Args']) {
+    super(owner, args);
+    this.sortBy = this.args.sortBy ?? undefined;
+    this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
+  }
 
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
