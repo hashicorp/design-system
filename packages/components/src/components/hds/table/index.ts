@@ -96,7 +96,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   constructor(owner: unknown, args: HdsTableSignature['Args']) {
     super(owner, args);
-    this.sortBy = this.args.sortBy ?? false;
+    this.sortBy = this.args.sortBy ?? undefined;
     this.sortOrder = this.args.sortOrder || HdsTableThSortOrderValues.Asc;
   }
 
