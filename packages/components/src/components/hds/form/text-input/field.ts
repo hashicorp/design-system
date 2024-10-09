@@ -51,20 +51,10 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     return this.args.hasVisibilityToggle ?? true;
   }
 
-  /**
-   * @param showVisibilityToggle
-   * @type {boolean}
-   * @default false
-   */
   get showVisibilityToggle(): boolean {
     return this.args.type === 'password' && this.hasVisibilityToggle;
   }
 
-  /**
-   * @param visibilityToggleAriaLabel
-   * @type {string}
-   * @default 'Show password'
-   */
   get visibilityToggleAriaLabel(): string | undefined {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
@@ -75,11 +65,6 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     }
   }
 
-  /**
-   * @param visibilityToggleAriaMessageText
-   * @type {string}
-   * @default 'Password is now hidden'
-   */
   get visibilityToggleAriaMessageText(): string | undefined {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;

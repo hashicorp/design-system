@@ -5,7 +5,14 @@
 
 import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, blur, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  blur,
+  setupOnerror,
+  rerender,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -238,6 +245,22 @@ module(
       assert
         .dom('#test-popover-primitive-content')
         .hasAttribute('popover', 'auto');
+    });
+    test('the popover is open when `isOpen` is true and changes when the argument changes', async function (assert) {
+      this.set('isOpen', true);
+      await render(hbs`
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{this.isOpen}} as |PP|>
+          <div {{PP.setupPrimitiveContainer}}>
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
+          </div>
+        </Hds::PopoverPrimitive>
+      `);
+      assert.dom('#test-popover-primitive-content').isVisible();
+
+      this.set('isOpen', false);
+      await rerender();
+      assert.dom('#test-popover-primitive-content').isNotVisible();
     });
 
     // ASSERTIONS

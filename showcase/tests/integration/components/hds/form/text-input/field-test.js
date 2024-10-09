@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, resetOnerror, settled } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  resetOnerror,
+  settled,
+  rerender,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/form/text-input/field', function (hooks) {
@@ -30,6 +36,15 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await render(hbs`<Hds::Form::TextInput::Field @type="email" />`);
     assert.dom('input').hasAttribute('type', 'email');
   });
+  test('it should update the type depending on the @type prop', async function (assert) {
+    this.set('type', 'text');
+    await render(hbs`<Hds::Form::TextInput::Field @type={{this.type}} />`);
+    assert.dom('input').hasAttribute('type', 'text');
+
+    this.set('type', 'email');
+    await rerender();
+    assert.dom('input').hasAttribute('type', 'email');
+  });
 
   // PASSWORD
 
@@ -46,12 +61,18 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     assert.dom('.hds-form-visibility-toggle .hds-icon-eye-off').exists();
   });
 
-  test('it should render the password input without visibility toggle when `hasVisibilityToggle` is false', async function (assert) {
+  test('it should render the password input without visibility toggle when `hasVisibilityToggle` is false and update when it changes', async function (assert) {
+    this.set('hasVisibilityToggle', false);
     await render(
-      hbs`<Hds::Form::TextInput::Field @type="password" @hasVisibilityToggle={{false}} />`
+      hbs`<Hds::Form::TextInput::Field @type="password" @hasVisibilityToggle={{this.hasVisibilityToggle}} />`
     );
     assert.dom('input').hasAttribute('type', 'password');
     assert.dom('.hds-form-visibility-toggle').doesNotExist();
+
+    this.set('hasVisibilityToggle', true);
+    await rerender();
+    assert.dom('input').hasAttribute('type', 'password');
+    assert.dom('.hds-form-visibility-toggle').exists();
   });
 
   // VALUE
