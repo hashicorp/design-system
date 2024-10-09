@@ -11,6 +11,7 @@ import {
   resetOnerror,
   settled,
   triggerKeyEvent,
+  rerender,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -224,6 +225,18 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
   });
 
+  test('it responds to the `isMinimized` argument appropriately', async function (assert) {
+    this.set('isMinimized', true);
+
+    await render(
+      hbs`<Hds::SideNav @isMinimized={{this.isMinimized}} id="test-side-nav" />`
+    );
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-minimized');
+
+    this.set('isMinimized', false);
+    await rerender();
+    assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
+  });
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`
       <Hds::SideNav @isCollapsible={{true}} id="test-side-nav">
