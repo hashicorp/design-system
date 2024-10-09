@@ -40,8 +40,16 @@ export interface HdsFormTextInputFieldSignature {
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {
   @tracked isPasswordMasked = true;
-  @tracked hasVisibilityToggle = this.args.hasVisibilityToggle ?? true;
-  @tracked type = this.args.type ?? 'text';
+  @tracked type;
+
+  constructor(owner: unknown, args: HdsFormTextInputFieldSignature['Args']) {
+    super(owner, args);
+    this.type = this.args.type ?? 'text';
+  }
+
+  get hasVisibilityToggle(): boolean {
+    return this.args.hasVisibilityToggle ?? true;
+  }
 
   /**
    * @param showVisibilityToggle

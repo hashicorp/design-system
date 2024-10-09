@@ -28,13 +28,17 @@ export interface HdsFormMaskedInputBaseSignature {
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
-  @tracked isContentMasked = this.args.isContentMasked ?? true;
+  @tracked isContentMasked: boolean;
+
+  constructor(owner: unknown, args: HdsFormMaskedInputBaseSignature['Args']) {
+    super(owner, args);
+    this.isContentMasked = this.args.isContentMasked ?? true;
+  }
 
   @action
   onClickToggleMasking(): void {
     this.isContentMasked = !this.isContentMasked;
   }
-
   /**
    * Calculates the unique ID to assign to the form control
    */
