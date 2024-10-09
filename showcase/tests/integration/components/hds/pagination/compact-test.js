@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import {
+  click,
+  render,
+  resetOnerror,
+  setupOnerror,
+  rerender,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/pagination/compact', function (hooks) {
@@ -89,12 +95,20 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   });
 
   test('it renders the passed in currentPageSize value', async function (assert) {
+    this.set('currentPageSize', 40);
+
     await render(hbs`
-      <Hds::Pagination::Compact @showSizeSelector={{true}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />
+      <Hds::Pagination::Compact @showSizeSelector={{true}} @currentPageSize={{this.currentPageSize}} @pageSizes={{array 20 40 60}} />
     `);
     assert
       .dom('.hds-pagination .hds-pagination-size-selector select')
       .hasValue('40');
+
+    this.set('currentPageSize', 60);
+    await rerender();
+    assert
+      .dom('.hds-pagination .hds-pagination-size-selector select')
+      .hasValue('60');
   });
 
   test('it displays the passed in custom text for the SizeSelector label text', async function (assert) {

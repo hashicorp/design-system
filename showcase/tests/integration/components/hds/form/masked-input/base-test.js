@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { click, render, rerender } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -34,14 +34,22 @@ module(
       assert.dom('.hds-form-visibility-toggle .hds-icon-eye').exists();
     });
 
-    test('it should render readable text when `isContentMasked` is false', async function (assert) {
+    test('it should render readable text when `isContentMasked` is false and visibility should change if `isContentMasked` changes', async function (assert) {
+      this.set('isContentMasked', false);
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isContentMasked={{false}} />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isContentMasked={{this.isContentMasked}} />`
       );
       assert
         .dom('.hds-form-masked-input__control')
         .hasStyle({ '-webkit-text-security': 'none' });
       assert.dom('.hds-form-visibility-toggle .hds-icon-eye-off').exists();
+
+      this.set('isContentMasked', true);
+      await rerender();
+      assert
+        .dom('.hds-form-masked-input__control')
+        .hasStyle({ '-webkit-text-security': 'disc' });
+      assert.dom('.hds-form-visibility-toggle .hds-icon-eye').exists();
     });
 
     test('it should toggle the masking when button is pressed', async function (assert) {

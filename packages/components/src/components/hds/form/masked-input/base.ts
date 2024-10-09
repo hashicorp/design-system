@@ -4,11 +4,11 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
+import { tracked } from '@glimmer/tracking';
 
 export interface HdsFormMaskedInputBaseSignature {
   Args: {
@@ -39,18 +39,11 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
   onClickToggleMasking(): void {
     this.isContentMasked = !this.isContentMasked;
   }
-  /**
-   * Calculates the unique ID to assign to the form control
-   */
+
   get id(): string {
     return getElementId(this);
   }
 
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'Show masked content'
-   */
   get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
@@ -61,11 +54,6 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     }
   }
 
-  /**
-   * @param ariaMessageText
-   * @type {string}
-   * @default 'Input content is now hidden'
-   */
   get visibilityToggleAriaMessageText(): string {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
@@ -76,11 +64,6 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     }
   }
 
-  /**
-   * @param copyButtonText
-   * @type {string}
-   * @default 'Copy masked content'
-   */
   get copyButtonText(): string {
     if (this.args.copyButtonText) {
       return this.args.copyButtonText;
@@ -89,11 +72,6 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-masked-input'];
 

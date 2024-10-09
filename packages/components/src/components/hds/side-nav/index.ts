@@ -65,9 +65,9 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
 
   constructor(owner: unknown, args: HdsSideNavSignature['Args']) {
     super(owner, args);
+    this.isMinimized = this.args.isMinimized ?? false;
     this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
     this.addEventListeners();
-    this.isMinimized = this.args.isMinimized ?? false;
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
