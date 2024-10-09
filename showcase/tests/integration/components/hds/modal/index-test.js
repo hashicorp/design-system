@@ -8,6 +8,8 @@ import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
   render,
+  rerender,
+  triggerKeyEvent,
   resetOnerror,
   setupOnerror,
   settled,
@@ -138,11 +140,33 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-modal').isNotVisible();
   });
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
+    this.set('isDismissDisabled', true);
     await render(
-      hbs`<Hds::Modal @isDismissDisabled={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @isDismissDisabled={{this.isDismissDisabled}} id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer as |F|>
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </M.Footer>
+          </Hds::Modal>`
     );
+    // top right dismiss button
     await click('button.hds-modal__dismiss');
-    assert.dom('#test-modal').exists();
+    assert.dom('#test-modal').isVisible();
+    // cancel button with yielded "close" callback
+    await click('#cancel-button');
+    assert.dom('#test-modal').isVisible();
+    // click on overlay
+    await click('.hds-modal__overlay');
+    assert.dom('#test-modal').isVisible();
+    // "esc" key
+    await triggerKeyEvent('.hds-modal', 'keydown', 'Escape');
+    assert.dom('#test-modal').isVisible();
+
+    // now let's check that the state is reset and it can be closed
+    this.set('isDismissDisabled', false);
+    await rerender();
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-modal').isNotVisible();
   });
 
   // ACCESSIBILITY

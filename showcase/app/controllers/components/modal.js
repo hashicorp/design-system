@@ -16,14 +16,29 @@ export default class ModalController extends Controller {
   @tracked superselectModalActive1 = false;
   @tracked superselectModalActive2 = false;
   @tracked superselectModalActive3 = false;
+  @tracked dismissDisabledModalActive = false;
+  @tracked isDismissDisabled;
 
   @action
   activateModal(modal) {
     this[modal] = true;
+
+    if (modal === 'dismissDisabledModalActive') {
+      this.isDismissDisabled = true;
+    }
   }
 
   @action
   deactivateModal(modal) {
     this[modal] = false;
+
+    if (modal === 'dismissDisabledModalActive') {
+      this.isDismissDisabled = undefined;
+    }
+  }
+
+  @action
+  resetIsDismissDisabled() {
+    this.isDismissDisabled = false;
   }
 }

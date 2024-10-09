@@ -27,7 +27,6 @@ export const SIZES: string[] = Object.values(HdsFlyoutSizesValues);
 
 export interface HdsFlyoutSignature {
   Args: {
-    isDismissDisabled?: boolean;
     size?: HdsFlyoutSizes;
     onOpen?: () => void;
     onClose?: (event: Event) => void;
