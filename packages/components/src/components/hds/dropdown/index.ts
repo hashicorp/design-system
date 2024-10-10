@@ -44,6 +44,7 @@ export interface HdsDropdownSignature {
     listPosition?: HdsDropdownPositions;
     width?: string;
     enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
+    preserveDomContent?: boolean;
   };
   Blocks: {
     default: [
@@ -62,6 +63,7 @@ export interface HdsDropdownSignature {
         ToggleButton?: ComponentLike<HdsDropdownToggleButtonSignature>;
         ToggleIcon?: ComponentLike<HdsDropdownToggleIconSignature>;
         close?: () => void;
+        isOpen?: boolean;
       },
     ];
   };

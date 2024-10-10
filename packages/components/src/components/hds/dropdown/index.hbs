@@ -17,12 +17,13 @@
       {{style width=@width max-height=@height}}
       {{PP.setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
     >
-      {{#if PP.isOpen}}
+      {{#if (or PP.isOpen @preserveDomContent)}}
         {{yield (hash Header=(component "hds/dropdown/header"))}}
         <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
           {{yield
             (hash
               close=PP.hidePopover
+              isOpen=PP.isOpen
               Checkbox=(component "hds/dropdown/list-item/checkbox")
               Checkmark=(component "hds/dropdown/list-item/checkmark")
               CopyItem=(component "hds/dropdown/list-item/copy-item")
