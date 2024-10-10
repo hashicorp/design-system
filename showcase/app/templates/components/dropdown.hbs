@@ -1539,6 +1539,21 @@
         </Hds::Dropdown>
       </div>
     </SG.Item>
+    <SG.Item @label="Using preserveDomContent argument in combination with isOpen state">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" @preserveDomContent={{true}} as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#">
+            This item should always be present in the DOM, regardless of whether the dropdown is open or closed
+          </D.Interactive>
+          {{#if D.isOpen}}
+            <D.Interactive @href="#">
+              This item should be injected in the DOM only when the dropdown is open, and removed when closed
+            </D.Interactive>
+          {{/if}}
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
   </Shw::Grid>
 
 </section>
