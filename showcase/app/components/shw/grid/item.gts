@@ -4,9 +4,12 @@
  */
 
 import Component from '@glimmer/component';
+import { hash } from '@ember/helper';
+
+import ShwLabel from 'showcase/components/shw/label';
 
 import type { ComponentLike } from '@glint/template';
-import type { ShwLabelSignature } from '../label';
+import type { ShwLabelSignature } from 'showcase/components/shw/label';
 
 export interface ShwGridItemSignature {
   Args: {
@@ -24,7 +27,7 @@ export interface ShwGridItemSignature {
   Element: HTMLDivElement;
 }
 
-export default class ShwGridItemComponent extends Component<ShwGridItemSignature> {
+export default class ShwGridItem extends Component<ShwGridItemSignature> {
   get classNames(): string {
     const classes = ['shw-grid__item'];
 
@@ -40,4 +43,13 @@ export default class ShwGridItemComponent extends Component<ShwGridItemSignature
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}} ...attributes>
+      {{#if @label}}
+        <ShwLabel>{{@label}}</ShwLabel>
+      {{/if}}
+      {{yield (hash Label=ShwLabel)}}
+    </div>
+  </template>
 }
