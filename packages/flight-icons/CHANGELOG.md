@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.7.0
+
+### Minor Changes
+
+Updated `okta` and `okta-color` to reflect updated branding.
+
+<small class="doc-whats-new-changelog-metadata">[#2489](https://github.com/hashicorp/design-system/pull/2489)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.6.0
 
 ### Minor Changes
