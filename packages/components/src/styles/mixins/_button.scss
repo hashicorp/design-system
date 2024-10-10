@@ -3,43 +3,18 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-$hds-button-sizes: ( "small", "medium", "large" );
-$hds-button-border-radius: 5px;
-$hds-button-border-width: 1px;
-$hds-button-focus-border-width: 3px;
+// REPLACED WITH DESIGN TOKEN
+$hds-button-border-radius: 5px; // still used in other components
+$hds-button-border-width: 1px; // still used in other components
 
-// these values later may come from the design tokens
-$hds-button-size-props: (
-  "small": (
-    "font-size": 0.8125rem, // 13px;
-    "line-height": 0.875rem, // 14px - we need to make it even (so we set it slighly larger than the font-size; notice: in Figma is 12px but this would cut some ascendants/descendants)
-    "min-height": 1.75rem,  // 28px
-    "padding-vertical": 0.375rem, // 6px - here we're taking into account the 1px border
-    "padding-horizontal": 0.6875rem, // 11px - here we're taking into account the 1px border
-    "icon-size": 0.75rem, // 12px
-  ),
-  "medium": (
-    "font-size": 0.875rem, // 14px
-    "line-height": 1rem,// 16px
-    "min-height": 2.25rem, // 36px
-    "padding-vertical": 0.5625rem, // 9px - here we're taking into account the 1px border
-    "padding-horizontal": 0.9375rem, // 15px - here we're taking into account the 1px border
-    "icon-size": 1rem, // 16px
-  ),
-  "large": (
-    "font-size": 1rem, // 16px
-    "line-height": 1.5rem, // 24px
-    "min-height": 3rem, // 48px
-    "padding-vertical": 0.6875rem, // 11px - here we're taking into account the 1px border
-    "padding-horizontal": 1.1875rem, // 19px - here we're taking into account the 1px border
-    "icon-size": 1.5rem, // 24px
-  )
-);
+// STILL USED
+$hds-button-sizes: ( "small", "medium", "large" );
+
 
 @mixin hds-button() {
   position: relative;
   display: flex;
-  gap: 0.375rem;
+  gap: var(--token-button-gap);
   align-items: center;
   justify-content: center;
   width: auto;
@@ -48,21 +23,47 @@ $hds-button-size-props: (
   // from what it looks like in Figma, so we prefer to have them visually similar
   // even if they differ in their internal implementation (in Figma the font-weight is medium/500)
   // for more context about this decision: https://hashicorp.atlassian.net/browse/HDS-2099
-  font-weight: var(--token-typography-font-weight-regular);
-  font-family: var(--token-typography-font-stack-text);
+  font-weight: var(--token-button-font-weight);
+  font-family: var(--token-button-font-family);
   text-decoration: none;
-  border: $hds-button-border-width solid transparent; // We need this to be transparent for a11y
-  border-radius: $hds-button-border-radius;
+  border: var(--token-button-border-width) solid transparent; // We need this to be transparent for a11y
+  border-radius: var(--token-button-border-radius);
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
   isolation: isolate;
 }
 
+@mixin hds-button-size-classes($blockName) {
+  @each $size in $hds-button-sizes {
+    .#{$blockName}--size-#{$size} {
+      min-height: var(--token-button-height-#{$size});
+      padding: var(--token-button-padding-vertical-#{$size}) var(--token-button-padding-horizontal-#{$size});
+
+      .#{$blockName}__icon {
+        width: var(--token-button-icon-size-#{$size});
+        height: var(--token-button-icon-size-#{$size});
+      }
+
+      .#{$blockName}__text {
+        font-size: var(--token-button-font-size-#{$size});
+        line-height: var(--token-button-line-height-#{$size});
+      }
+
+      &.#{$blockName}--is-icon-only {
+        // overrides to have the icon-only button squared
+        min-width: var(--token-button-height-#{$size});
+        padding-right: var(--token-button-padding-vertical-#{$size});
+        padding-left: var(--token-button-padding-vertical-#{$size});
+      }
+    }
+  }
+}
+
 @mixin hds-button-state-disabled() {
-  color: var(--token-color-foreground-disabled);
-  background-color: var(--token-color-surface-faint);
-  border-color: var(--token-color-border-primary);
-  box-shadow: none;
+  color: var(--token-button-disabled-foreground);
+  background-color: var(--token-button-disabled-surface);
+  border-color: var(--token-button-disabled-border-color);
+  box-shadow: var(--token-button-disabled-box-shadow);
   cursor: not-allowed;
 
   &::before {
@@ -71,64 +72,65 @@ $hds-button-size-props: (
 }
 
 @mixin hds-button-state-focus() {
-  box-shadow: none;
+  box-shadow: var(--token-button-box-shadow-focus);
 
   &::before {
     // the position absolute of an element is computed from the inside of the border of the container
     // so we have to take in account the border width of the pseudo-element container itself
-    $shift: $hds-button-border-width + $hds-button-focus-border-width;
+    $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width)));
     position: absolute;
-    top: -$shift;
-    right: -$shift;
-    bottom: -$shift;
-    left: -$shift;
+    top: $shift;
+    right: $shift;
+    bottom: $shift;
+    left: $shift;
     z-index: -1;
-    border: $hds-button-focus-border-width solid transparent;
-    border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
+    border: var(--token-button-focus-border-width) solid transparent;
+    border-radius: var(--token-button-focus-border-radius);
     content: "";
   }
 }
 
 @mixin hds-button-color-primary() {
-  color: var(--token-color-foreground-high-contrast);
-  background-color: var(--token-color-palette-blue-200);
-  border-color: var(--token-color-palette-blue-300);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  color: var(--token-button-primary-foreground-default);
+  background-color: var(--token-button-primary-surface-default);
+  border-color: var(--token-token-button-primary-border-color-default);
+  box-shadow: var(--token-button-primary-box-shadow-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-blue-300);
-    border-color: var(--token-color-palette-blue-400);
+    color: var(--token-button-primary-foreground-hover);
+    background-color: var(--token-button-primary-surface-hover);
+    border-color: var(--token-token-button-primary-border-color-hover);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-blue-200);
-    border-color: var(--token-color-focus-action-internal);
+    color: var(--token-button-primary-foreground-focus);
+    background-color: var(--token-button-primary-surface-focus);
+    border-color: var(--token-token-button-primary-border-color-focus);
+    box-shadow: var(--token-button-primary-box-shadow-focus);
 
     &::before {
       // the position absolute of an element is computed from the inside of the border of the container
       // so we have to take in account the border width of the pseudo-element container itself
       // plus for the primary button we want to have a 2px gap between the button and the focus
-      $shift: $hds-button-border-width + $hds-button-focus-border-width + 2px;
-      top: -$shift;
-      right: -$shift;
-      bottom: -$shift;
-      left: -$shift;
+      $shift: calc(-1 * (var(--token-button-border-width) + var(--token-button-focus-border-width)));
+      top: $shift;
+      right: $shift;
+      bottom: $shift;
+      left: $shift;
       border-color: var(--token-color-focus-action-external);
-      border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
+      border-radius: var(--token-button-border-radius);
     }
   }
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-blue-400);
-    border-color: var(--token-color-palette-blue-400);
-    box-shadow: none;
+    color: var(--token-button-primary-foreground-active);
+    background-color: var(--token-button-primary-surface-active);
+    border-color: var(--token-token-button-primary-border-color-active);
+    box-shadow: var(--token-button-primary-box-shadow-active);
 
     &::before {
       border-color: transparent;
@@ -137,24 +139,25 @@ $hds-button-size-props: (
 }
 
 @mixin hds-button-color-secondary() {
-  color: var(--token-color-foreground-primary);
-  background-color: var(--token-color-surface-faint);
-  border-color: var(--token-color-border-strong);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  color: var(--token-button-secondary-foreground-default);
+  background-color: var(--token-button-secondary-surface-default);
+  border-color: var(--token-button-secondary-border-color-default);
+  box-shadow: var(--token-button-secondary-box-shadow-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-border-strong);
+    color: var(--token-button-secondary-foreground-hover);
+    background-color: var(--token-button-secondary-surface-hover);
+    border-color: var(--token-button-secondary-border-color-hover);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-faint);
-    border-color: var(--token-color-focus-action-internal);
+    color: var(--token-button-secondary-foreground-focus);
+    background-color: var(--token-button-secondary-surface-focus);
+    border-color: var(--token-button-secondary-border-color-focus);
+    box-shadow: var(--token-button-secondary-box-shadow-focus);
 
     &::before {
       border-color: var(--token-color-focus-action-external);
@@ -163,10 +166,10 @@ $hds-button-size-props: (
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-    box-shadow: none;
+    color: var(--token-button-secondary-foreground-active);
+    background-color: var(--token-button-secondary-surface-active);
+    border-color: var(--token-button-secondary-border-color-active);
+    box-shadow: var(--token-button-secondary-box-shadow-active);
 
     &::before {
       border-color: transparent;
@@ -175,22 +178,25 @@ $hds-button-size-props: (
 }
 
 @mixin hds-button-color-tertiary() {
-  color: var(--token-color-foreground-action);
-  background-color: transparent;
-  border-color: transparent;
+  color: var(--token-button-tertiary-foreground-default);
+  background-color: var(--token-button-tertiary-surface-default);
+  border-color: var(--token-button-tertiary-border-color-default);
+  box-shadow: var(--token-button-tertiary-box-shadow-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-action-hover);
-    background-color: var(--token-color-surface-primary);
-    border-color: var(--token-color-border-strong);
-    cursor: pointer;
+    color: var(--token-button-tertiary-foreground-hover);
+    background-color: var(--token-button-tertiary-surface-hover);
+    border-color: var(--token-button-tertiary-border-color-hover);
+      cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
-    color: var(--token-color-foreground-action);
-    border-color: var(--token-color-focus-action-internal);
+    color: var(--token-button-tertiary-foreground-focus);
+    background-color: var(--token-button-tertiary-surface-focus);
+    border-color: var(--token-button-tertiary-border-color-focus);
+    box-shadow: var(--token-button-tertiary-box-shadow-focus);
 
     &::before {
       border-color: var(--token-color-focus-action-external);
@@ -199,10 +205,10 @@ $hds-button-size-props: (
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-action-active);
-    background-color: var(--token-color-surface-interactive-active);
-    border-color: var(--token-color-border-strong);
-    box-shadow: none;
+    color: var(--token-button-tertiary-foreground-active);
+    background-color: var(--token-button-tertiary-surface-active);
+    border-color: var(--token-button-tertiary-border-color-active);
+    box-shadow: var(--token-button-tertiary-box-shadow-active);
 
     &::before {
       border-color: transparent;
@@ -233,24 +239,25 @@ $hds-button-size-props: (
 }
 
 @mixin hds-button-color-critical() {
-  color: var(--token-color-foreground-critical-on-surface);
-  background-color: var(--token-color-surface-critical);
-  border-color: var(--token-color-foreground-critical-on-surface);
-  box-shadow: var(--token-elevation-low-box-shadow);
+  color: var(--token-button-critical-foreground-default);
+  background-color: var(--token-button-critical-surface-default);
+  border-color: var(--token-button-critical-border-color-default);
+  box-shadow: var(--token-button-critical-box-shadow-default);
 
   &:hover,
   &.mock-hover {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-red-300);
-    border-color: var(--token-color-palette-red-400);
+    color: var(--token-button-critical-foreground-hover);
+    background-color: var(--token-button-critical-surface-hover);
+    border-color: var(--token-button-critical-border-color-hover);
     cursor: pointer;
   }
 
   &:focus,
   &.mock-focus {
-    color: var(--token-color-foreground-critical-on-surface);
-    background-color: var(--token-color-surface-critical);
-    border-color: var(--token-color-focus-critical-internal);
+    color: var(--token-button-critical-foreground-focus);
+    background-color: var(--token-button-critical-surface-focus);
+    border-color: var(--token-button-critical-border-color-focus);
+    box-shadow: var(--token-button-critical-box-shadow-focus);
 
     &::before {
       border-color: var(--token-color-focus-critical-external);
@@ -259,39 +266,13 @@ $hds-button-size-props: (
 
   &:active,
   &.mock-active {
-    color: var(--token-color-foreground-high-contrast);
-    background-color: var(--token-color-palette-red-400);
-    border-color: var(--token-color-palette-red-400);
-    box-shadow: none;
+    color: var(--token-button-critical-foreground-active);
+    background-color: var(--token-button-critical-surface-active);
+    border-color: var(--token-button-critical-border-color-active);
+    box-shadow: var(--token-button-critical-box-shadow-active);
 
     &::before {
       border-color: transparent;
-    }
-  }
-}
-
-@mixin hds-button-size-classes($blockName) {
-  @each $size in $hds-button-sizes {
-    .#{$blockName}--size-#{$size} {
-      min-height: map-get($hds-button-size-props, $size, "min-height");
-      padding: map-get($hds-button-size-props, $size, "padding-vertical") map-get($hds-button-size-props, $size, "padding-horizontal");
-
-      .#{$blockName}__icon {
-        width: map-get($hds-button-size-props, $size, "icon-size");
-        height: map-get($hds-button-size-props, $size, "icon-size");
-      }
-
-      .#{$blockName}__text {
-        font-size: map-get($hds-button-size-props, $size, "font-size");
-        line-height: map-get($hds-button-size-props, $size, "line-height");
-      }
-
-      &.#{$blockName}--is-icon-only {
-        // overrides to have the icon-only button squared
-        min-width: map-get($hds-button-size-props, $size, "min-height");
-        padding-right: map-get($hds-button-size-props, $size, "padding-vertical");
-        padding-left: map-get($hds-button-size-props, $size, "padding-vertical");
-      }
     }
   }
 }

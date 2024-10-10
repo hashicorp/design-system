@@ -44,7 +44,7 @@ StyleDictionaryPackage.registerTransform({
     name: 'font-size/rem',
     type: 'value',
     matcher: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transformer: transformPxToRem
 });
@@ -53,7 +53,7 @@ StyleDictionaryPackage.registerTransform({
     name: 'font-size/px',
     type: 'value',
     matcher: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transformer: function (token) {
         const val = parseFloat(token.value);
