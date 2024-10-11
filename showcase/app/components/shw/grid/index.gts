@@ -13,8 +13,8 @@ import ShwLabel from '../label';
 
 import type { ComponentLike } from '@glint/template';
 import type { SafeString } from '@ember/template';
-import type { ShwLabelSignature } from 'showcase/components/shw/label';
-import type { ShwGridItemSignature } from 'showcase/components/shw/grid/item';
+import type { ShwLabelSignature } from '../label';
+import type { ShwGridItemSignature } from './item';
 
 interface ShwGridSignature {
   Args: {

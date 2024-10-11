@@ -6,10 +6,10 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 
-import ShwLabel from 'showcase/components/shw/label';
+import ShwLabel from '../label';
 
 import type { ComponentLike } from '@glint/template';
-import type { ShwLabelSignature } from 'showcase/components/shw/label';
+import type { ShwLabelSignature } from '../label';
 
 export interface ShwGridItemSignature {
   Args: {
