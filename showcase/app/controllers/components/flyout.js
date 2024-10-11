@@ -10,6 +10,8 @@ import { tracked } from '@glimmer/tracking';
 export default class FlyoutController extends Controller {
   @tracked mediumFlyoutActive = false;
   @tracked largeFlyoutActive = false;
+  @tracked dropdownInitiatedFlyoutActive = false;
+  @tracked dropdownInitiatedWithReturnedFocusFlyoutActive = false;
 
   @action
   activateFlyout(Flyout) {

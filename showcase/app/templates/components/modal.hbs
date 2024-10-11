@@ -509,5 +509,64 @@
     </Hds::Modal>
   {{/if}}
 
+  <br />
+  <br />
+
+  <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+    <D.ToggleButton @color="secondary" @size="small" @text="Open modal via dropdown" />
+    <D.Interactive {{on "click" (fn this.activateModal "dropdownInitiatedModalActive")}}>
+      Open modal
+    </D.Interactive>
+  </Hds::Dropdown>
+
+  {{#if this.dropdownInitiatedModalActive}}
+    <Hds::Modal
+      id="dropdown-initiated-modal"
+      @onClose={{fn this.deactivateModal "dropdownInitiatedModalActive"}}
+      as |M|
+    >
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
+  <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+    <D.ToggleButton
+      id="dropdown-initiated-modal-with-returned-focus-toggle"
+      @color="secondary"
+      @size="small"
+      @text="Open modal via dropdown (with returned focus)"
+    />
+    <D.Interactive {{on "click" (fn this.activateModal "dropdownInitiatedWithReturnedFocusModalActive")}}>
+      Open modal
+    </D.Interactive>
+  </Hds::Dropdown>
+
+  {{#if this.dropdownInitiatedWithReturnedFocusModalActive}}
+    <Hds::Modal
+      id="dropdown-initiated-modal-with-returned-focus"
+      @onClose={{fn this.deactivateModal "dropdownInitiatedWithReturnedFocusModalActive"}}
+      @returnFocusTo="dropdown-initiated-modal-with-returned-focus-toggle"
+      as |M|
+    >
+      <M.Header>
+        Modal title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Modal content</p>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Modal>
+  {{/if}}
+
 </section>
 {{! template-lint-enable no-autofocus-attribute }}

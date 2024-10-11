@@ -251,4 +251,64 @@
       </F.Footer>
     </Hds::Flyout>
   {{/if}}
+
+  <br />
+  <br />
+
+  <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+    <D.ToggleButton @color="secondary" @size="small" @text="Open flyout via dropdown" />
+    <D.Interactive {{on "click" (fn this.activateFlyout "dropdownInitiatedFlyoutActive")}}>
+      Open flyout
+    </D.Interactive>
+  </Hds::Dropdown>
+
+  {{#if this.dropdownInitiatedFlyoutActive}}
+    <Hds::Flyout
+      id="dropdown-initiated-flyout"
+      @onClose={{fn this.deactivateFlyout "dropdownInitiatedFlyoutActive"}}
+      as |M|
+    >
+      <M.Header>
+        Flyout title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <Hds::Dropdown @listPosition="bottom-left" @isInline={{true}} as |D|>
+    <D.ToggleButton
+      id="dropdown-initiated-flyout-with-returned-focus-toggle"
+      @color="secondary"
+      @size="small"
+      @text="Open flyout via dropdown (with returned focus)"
+    />
+    <D.Interactive {{on "click" (fn this.activateFlyout "dropdownInitiatedWithReturnedFocusFlyoutActive")}}>
+      Open flyout
+    </D.Interactive>
+  </Hds::Dropdown>
+
+  {{#if this.dropdownInitiatedWithReturnedFocusFlyoutActive}}
+    <Hds::Flyout
+      id="dropdown-initiated-flyout-with-returned-focus"
+      @onClose={{fn this.deactivateFlyout "dropdownInitiatedWithReturnedFocusFlyoutActive"}}
+      @returnFocusTo="dropdown-initiated-flyout-with-returned-focus-toggle"
+      as |M|
+    >
+      <M.Header>
+        Flyout title
+      </M.Header>
+      <M.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
+      </M.Body>
+      <M.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </M.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
 </section>
