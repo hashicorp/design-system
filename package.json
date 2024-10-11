@@ -18,6 +18,9 @@
     "pnpm": ">= 10.0.0"
   },
   "pnpm": {
+    "overrides": {
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.9"
+    },
     "patchedDependencies": {
       "@embroider/core": "patches/@embroider__core.patch",
       "@glint/environment-ember-loose": "patches/@glint__environment-ember-loose.patch",
