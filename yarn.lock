@@ -13547,6 +13547,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-set-helper@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "ember-set-helper@npm:3.0.1"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.7"
+    decorator-transforms: "npm:^1.0.1"
+  checksum: 10/c8a4204602e067835251f8b3bbb4e6b6cc762f054ebd43fbfe44a13cef40248466f4f2f6df310d1cd0490feeff18a013ac8e3b50322e884e8d008d9f1ddaa9cb
+  languageName: node
+  linkType: hard
+
 "ember-source-channel-url@npm:^3.0.0":
   version: 3.0.0
   resolution: "ember-source-channel-url@npm:3.0.0"
@@ -24902,6 +24912,7 @@ __metadata:
     ember-power-select: "npm:^8.2.0"
     ember-qunit: "npm:^8.1.0"
     ember-resolver: "npm:^11.0.1"
+    ember-set-helper: "npm:^3.0.1"
     ember-source: "npm:~5.9.0"
     ember-source-channel-url: "npm:^3.0.0"
     ember-style-modifier: "npm:^4.4.0"
