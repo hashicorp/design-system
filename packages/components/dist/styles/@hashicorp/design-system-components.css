@@ -4621,6 +4621,9 @@ button.hds-button[href]::after {
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger .ember-power-select-placeholder,
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger .ember-power-select-placeholder {
   color: var(--token-form-control-base-foreground-placeholder-color);
+  font-size: var(--token-typography-body-200-font-size);
+  font-family: var(--token-typography-body-200-font-family);
+  line-height: var(--token-typography-body-200-line-height);
 }
 .hds-form-super-select .ember-basic-dropdown .ember-basic-dropdown-trigger[aria-disabled=true],
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-trigger[aria-disabled=true] {
@@ -4666,6 +4669,7 @@ button.hds-button[href]::after {
   position: relative;
   min-height: 36px;
   padding: 7px 7px 7px 39px;
+  color: var(--token-color-foreground-primary);
   font-size: var(--token-typography-body-200-font-size);
   font-family: var(--token-typography-body-200-font-family);
   line-height: var(--token-typography-body-200-line-height);
@@ -4764,6 +4768,7 @@ button.hds-button[href]::after {
 }
 .hds-form-super-select .ember-basic-dropdown .ember-power-select-multiple-options {
   display: flex;
+  flex-grow: 1;
   flex-wrap: wrap;
   gap: 4px;
   min-width: 0;
@@ -4827,8 +4832,13 @@ button.hds-button[href]::after {
   background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]) {
-  color: var(--token-color-foreground-action);
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
+}
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]).mock-hover {
+  color: var(--token-color-foreground-action-hover);
+}
+.hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]):active, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-selected=true]:not([aria-disabled=true]).mock-active {
+  color: var(--token-color-foreground-action-active);
 }
 .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message)[aria-current=true], .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message):hover, .hds-form-super-select-single .ember-basic-dropdown .ember-power-select-option:not(.ember-power-select-option--no-matches-message).mock-hover {
   color: var(--token-color-foreground-action-hover);

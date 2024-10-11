@@ -14,7 +14,7 @@ import { setComponentTemplate } from '@ember/component';
 
 var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-License-Identifier: MPL-2.0\n}}\n<Hds::DialogPrimitive::Wrapper\n  class={{this.classNames}}\n  ...attributes\n  aria-labelledby={{this.id}}\n  {{did-insert this.didInsert}}\n  {{will-destroy this.willDestroyNode}}\n  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}\n  {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}\n>\n  <:header>\n    {{yield\n      (hash\n        Header=(component\n          \"hds/dialog-primitive/header\"\n          id=this.id\n          onDismiss=this.onDismiss\n          contextualClassPrefix=\"hds-modal\"\n          titleTag=\"h1\"\n        )\n      )\n    }}\n  </:header>\n  <:body>\n    {{yield (hash Body=(component \"hds/dialog-primitive/body\" contextualClass=\"hds-modal__body\"))}}\n  </:body>\n  <:footer>\n    {{yield\n      (hash\n        Footer=(component \"hds/dialog-primitive/footer\" onDismiss=this.onDismiss contextualClass=\"hds-modal__footer\")\n      )\n    }}\n  </:footer>\n</Hds::DialogPrimitive::Wrapper>\n\n{{#if this.isOpen}}\n  <Hds::DialogPrimitive::Overlay @contextualClass=\"hds-modal__overlay\" />\n{{/if}}");
 
-var _class, _descriptor, _descriptor2;
+var _class, _descriptor;
 const waiter = buildWaiter('@hashicorp/design-system-components:modal');
 const DEFAULT_SIZE = HdsModalSizeValues.Medium;
 const DEFAULT_COLOR = HdsModalColorValues.Neutral;
@@ -24,19 +24,13 @@ let HdsModal = (_class = class HdsModal extends Component {
   constructor(...args) {
     super(...args);
     _initializerDefineProperty(this, "isOpen", _descriptor, this);
-    _initializerDefineProperty(this, "isDismissDisabled", _descriptor2, this);
     _defineProperty(this, "element", void 0);
     _defineProperty(this, "body", void 0);
     _defineProperty(this, "bodyInitialOverflowValue", '');
   }
-  /**
-   * Sets the size of the modal dialog
-   * Accepted values: small, medium, large
-   *
-   * @param size
-   * @type {string}
-   * @default 'medium'
-   */
+  get isDismissDisabled() {
+    return this.args.isDismissDisabled ?? false;
+  }
   get size() {
     const {
       size = DEFAULT_SIZE
@@ -44,15 +38,6 @@ let HdsModal = (_class = class HdsModal extends Component {
     assert(`@size for "Hds::Modal" must be one of the following: ${SIZES.join(', ')}; received: ${size}`, SIZES.includes(size));
     return size;
   }
-
-  /**
-   * Sets the color of the modal dialog
-   * Accepted values: neutral, warning, critical
-   *
-   * @param color
-   * @type {string}
-   * @default 'neutral'
-   */
   get color() {
     const {
       color = DEFAULT_COLOR
@@ -60,19 +45,9 @@ let HdsModal = (_class = class HdsModal extends Component {
     assert(`@color for "Hds::Modal" must be one of the following: ${COLORS.join(', ')}; received: ${color}`, COLORS.includes(color));
     return color;
   }
-
-  /**
-   * Calculates the unique ID to assign to the title
-   */
   get id() {
     return getElementId(this);
   }
-
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames() {
     const classes = ['hds-modal'];
 
@@ -170,13 +145,6 @@ let HdsModal = (_class = class HdsModal extends Component {
   writable: true,
   initializer: function () {
     return false;
-  }
-}), _descriptor2 = _applyDecoratedDescriptor(_class.prototype, "isDismissDisabled", [tracked], {
-  configurable: true,
-  enumerable: true,
-  writable: true,
-  initializer: function () {
-    return this.args.isDismissDisabled ?? false;
   }
 }), _applyDecoratedDescriptor(_class.prototype, "registerOnCloseCallback", [action], Object.getOwnPropertyDescriptor(_class.prototype, "registerOnCloseCallback"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "didInsert", [action], Object.getOwnPropertyDescriptor(_class.prototype, "didInsert"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "willDestroyNode", [action], Object.getOwnPropertyDescriptor(_class.prototype, "willDestroyNode"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "open", [action], Object.getOwnPropertyDescriptor(_class.prototype, "open"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "onDismiss", [action], Object.getOwnPropertyDescriptor(_class.prototype, "onDismiss"), _class.prototype)), _class);
 setComponentTemplate(TEMPLATE, HdsModal);

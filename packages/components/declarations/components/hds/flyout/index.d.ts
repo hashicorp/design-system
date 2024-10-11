@@ -15,7 +15,6 @@ export declare const DEFAULT_HAS_OVERLAY = true;
 export declare const SIZES: string[];
 export interface HdsFlyoutSignature {
     Args: {
-        isDismissDisabled?: boolean;
         size?: HdsFlyoutSizes;
         onOpen?: () => void;
         onClose?: (event: Event) => void;

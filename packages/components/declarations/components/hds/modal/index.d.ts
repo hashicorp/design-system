@@ -34,37 +34,13 @@ export interface HdsModalSignature {
 }
 export default class HdsModal extends Component<HdsModalSignature> {
     isOpen: boolean;
-    isDismissDisabled: boolean;
     element: HTMLDialogElement;
     body: HTMLElement;
     bodyInitialOverflowValue: string;
-    /**
-     * Sets the size of the modal dialog
-     * Accepted values: small, medium, large
-     *
-     * @param size
-     * @type {string}
-     * @default 'medium'
-     */
+    get isDismissDisabled(): boolean;
     get size(): HdsModalSizes;
-    /**
-     * Sets the color of the modal dialog
-     * Accepted values: neutral, warning, critical
-     *
-     * @param color
-     * @type {string}
-     * @default 'neutral'
-     */
     get color(): HdsModalColors;
-    /**
-     * Calculates the unique ID to assign to the title
-     */
     get id(): string;
-    /**
-     * Get the class names to apply to the component.
-     * @method classNames
-     * @return {string} The "class" attribute to apply to the component.
-     */
     get classNames(): string;
     registerOnCloseCallback(event: Event): void;
     didInsert(element: HTMLDialogElement): void;

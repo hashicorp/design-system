@@ -16,6 +16,9 @@ export interface HdsDropdownListItemInteractiveSignature {
         color?: HdsDropdownListItemInteractiveColors;
         icon?: HdsIconSignature['Args']['name'];
         isLoading?: boolean;
+        /**
+         * @deprecated The `@text` argument for "Hds::Dropdown::ListItem::Interactive" has been deprecated. Please put text in the yielded block. See: https://helios.hashicorp.design/components/dropdown?tab=version%20history#4100
+         */
         text?: string;
         trailingIcon?: HdsIconSignature['Args']['name'];
     };

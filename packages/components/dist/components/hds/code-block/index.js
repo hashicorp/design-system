@@ -23,7 +23,7 @@ import 'prismjs/components/prism-handlebars';
 import { precompileTemplate } from '@ember/template-compilation';
 import { setComponentTemplate } from '@ember/component';
 
-var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-License-Identifier: MPL-2.0\n}}\n\n<div class={{this.classNames}} ...attributes>\n  <div class=\"hds-code-block__header\">\n    {{~yield (hash Title=(component \"hds/code-block/title\"))~}}\n    {{~yield (hash Description=(component \"hds/code-block/description\"))~}}\n  </div>\n  <div class=\"hds-code-block__body\">\n    {{! content within pre tag is whitespace-sensitive; do not add new lines! }}\n    <pre\n      class=\"hds-code-block__code\"\n      {{style maxHeight=@maxHeight}}\n      data-line={{@highlightLines}}\n      id={{this.preCodeId}}\n      tabindex=\"0\"\n    ><code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>\n        {{~this.prismCode~}}\n      </code></pre>\n\n    {{#if @hasCopyButton}}\n      <Hds::CodeBlock::CopyButton @targetToCopy=\"#{{this.preCodeId}}\" aria-describedby={{this.preCodeId}} />\n    {{/if}}\n  </div>\n</div>");
+var TEMPLATE = precompileTemplate("{{!\n  Copyright (c) HashiCorp, Inc.\n  SPDX-License-Identifier: MPL-2.0\n}}\n\n<div class={{this.classNames}} ...attributes>\n  <div class=\"hds-code-block__header\">\n    {{~yield (hash Title=(component \"hds/code-block/title\"))~}}\n    {{~yield (hash Description=(component \"hds/code-block/description\"))~}}\n  </div>\n  <div class=\"hds-code-block__body\">\n    {{! content within pre tag is whitespace-sensitive; do not add new lines! }}\n    <pre\n      class=\"hds-code-block__code\"\n      {{style maxHeight=@maxHeight}}\n      data-line={{@highlightLines}}\n      data-start={{@lineNumberStart}}\n      id={{this.preCodeId}}\n      tabindex=\"0\"\n    ><code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>\n        {{~this.prismCode~}}\n      </code></pre>\n\n    {{#if @hasCopyButton}}\n      <Hds::CodeBlock::CopyButton @targetToCopy=\"#{{this.preCodeId}}\" aria-describedby={{this.preCodeId}} />\n    {{/if}}\n  </div>\n</div>");
 
 var _class, _descriptor;
 const LANGUAGES = Object.values(HdsCodeBlockLanguageValues);
@@ -145,7 +145,7 @@ let HdsCodeBlock = (_class = class HdsCodeBlock extends Component {
     }
 
     // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
-    if (this.hasLineNumbers || this.args.highlightLines) {
+    if (this.hasLineNumbers) {
       classes.push('line-numbers');
     }
     return classes.join(' ');
