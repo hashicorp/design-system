@@ -8,7 +8,7 @@ import ShwDivider from '../app/components/shw/divider/index';
 import ShwFlex from '../app/components/shw/flex/index';
 import ShwFlexItem from '../app/components/shw/flex/item';
 import ShwFrame from '../app/components/shw/frame/index';
-import ShwGrid from '../app/components/shw/grid';
+import ShwGrid from '../app/components/shw/grid/index';
 import ShwGridItem from '../app/components/shw/grid/item';
 import ShwLabel from '../app/components/shw/label/index';
 import ShwLogoDesignSystem from '../app/components/shw/logo/design-system';
