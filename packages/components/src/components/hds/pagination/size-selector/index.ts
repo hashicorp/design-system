@@ -10,7 +10,7 @@ import { action } from '@ember/object';
 
 import type { HdsFormSelectBaseSignature } from '../../form/select/base';
 
-interface HdsPaginationSizeSelectorSignature {
+export interface HdsPaginationSizeSelectorSignature {
   Args: {
     pageSizes: number[];
     label?: string;

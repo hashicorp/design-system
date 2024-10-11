@@ -10,7 +10,7 @@ import { assert } from '@ember/debug';
 import type { HdsDisclosurePrimitiveSignature } from '../disclosure-primitive';
 import type { HdsRevealToggleButtonSignature } from './toggle/button';
 
-interface HdsRevealSignature {
+export interface HdsRevealSignature {
   Args: {
     text: HdsRevealToggleButtonSignature['Args']['text'];
     textWhenOpen?: HdsRevealToggleButtonSignature['Args']['text'];

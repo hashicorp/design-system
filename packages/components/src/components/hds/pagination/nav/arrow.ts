@@ -32,7 +32,7 @@ interface HdsPaginationControlArrowArgs {
   onClick?: (direction: HdsPaginationDirections) => void;
 }
 
-interface HdsPaginationControlArrowSignature {
+export interface HdsPaginationControlArrowSignature {
   Args: HdsPaginationControlArrowArgs & HdsInteractiveSignature['Args'];
   Element: HdsInteractiveSignature['Element'];
 }

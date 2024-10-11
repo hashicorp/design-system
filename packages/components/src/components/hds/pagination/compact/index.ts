@@ -70,7 +70,7 @@ interface HdsPaginationCompactArgsUncontrolled
   queryFunction?: undefined;
 }
 
-interface HdsPaginationCompactSignature {
+export interface HdsPaginationCompactSignature {
   Args:
     | HdsPaginationCompactArgsControlled
     | HdsPaginationCompactArgsUncontrolled;

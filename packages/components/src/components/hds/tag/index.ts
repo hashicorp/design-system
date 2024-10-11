@@ -13,7 +13,7 @@ import type { HdsInteractiveSignature } from '../interactive/';
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
 
-interface HdsTagSignature {
+export interface HdsTagSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsTagColors;
     text: string;

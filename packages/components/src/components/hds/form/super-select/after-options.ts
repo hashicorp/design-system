@@ -5,7 +5,7 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormSuperSelectAfterOptionsSignature {
+export interface HdsFormSuperSelectAfterOptionsSignature {
   Args: {
     clearSelected: () => void;
     content?: string;

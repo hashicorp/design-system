@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import type { HdsPaginationNumberedSignature } from '../numbered/index';
 import type { HdsTextBodySignature } from '../../text/body';
-interface HdsPaginationInfoSignature {
+export interface HdsPaginationInfoSignature {
   Args: {
     itemsRangeStart: number;
     itemsRangeEnd: number;

@@ -15,7 +15,7 @@ import type { HdsFormSuperSelectSingleBaseSignature } from './base.ts';
 import type { Select as PowerSelect } from 'ember-power-select/components/power-select';
 import type { HdsYieldSignature } from '../../../yield/index.ts';
 
-interface HdsFormSuperSelectSingleFieldSignature {
+export interface HdsFormSuperSelectSingleFieldSignature {
   Args: HdsFormSuperSelectSingleBaseSignature['Args'] &
     HdsFormFieldSignature['Args'];
   Blocks: {

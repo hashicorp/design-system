@@ -9,7 +9,7 @@ import type { HdsSideNavListSignature } from '../list/index';
 
 // TODO! understand how this should be done "correctly"
 // import type { PortalSignature } from 'ember-stargate/components/portal';
-interface PortalSignature {
+export interface PortalSignature {
   Args: {
     target: string;
     renderInPlace?: boolean;

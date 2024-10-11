@@ -5,7 +5,7 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormSuperSelectPlaceholderSignature {
+export interface HdsFormSuperSelectPlaceholderSignature {
   Args: {
     placeholder?: string;
   };

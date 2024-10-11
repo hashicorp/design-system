@@ -7,7 +7,7 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { HdsIconSignature } from '../icon';
 
-interface HdsSideNavToggleButtonSignature {
+export interface HdsSideNavToggleButtonSignature {
   Args: {
     icon: HdsIconSignature['Args']['name'];
   };

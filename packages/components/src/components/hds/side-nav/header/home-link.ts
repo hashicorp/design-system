@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive/';
 
-interface HdsSideNavHeaderHomeLinkSignature {
+export interface HdsSideNavHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     icon: HdsIconSignature['Args']['name'];
     color?: string;

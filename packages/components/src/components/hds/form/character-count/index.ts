@@ -9,7 +9,7 @@ import type { HdsTextBodySignature } from '../../text/body';
 const ID_PREFIX = 'character-count-';
 const NOOP = (): void => {};
 
-interface HdsFormCharacterCountSignature {
+export interface HdsFormCharacterCountSignature {
   Args: {
     contextualClass?: string;
     controlId?: string;

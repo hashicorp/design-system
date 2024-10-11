@@ -18,7 +18,7 @@ import type {
   HdsAccordionItemTitleTags,
 } from './types.ts';
 
-interface HdsAccordionSignature {
+export interface HdsAccordionSignature {
   Args: {
     size?: HdsAccordionSizes;
     type?: HdsAccordionTypes;

@@ -10,7 +10,7 @@ import type { HdsPopoverPrimitiveSignature } from '../popover-primitive';
 import HdsRichTooltipToggle from './toggle.ts';
 import HdsRichTooltipBubble from './bubble.ts';
 
-interface HdsRichTooltipSignature {
+export interface HdsRichTooltipSignature {
   Args: Omit<HdsPopoverPrimitiveSignature['Args'], 'enableSoftEvents'>;
   Blocks: {
     default: [

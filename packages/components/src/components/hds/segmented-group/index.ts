@@ -12,7 +12,7 @@ import type { HdsFormSelectBaseSignature } from '../form/select/base';
 import type { HdsFormTextInputBaseSignature } from '../form/text-input/base';
 import type { HdsYieldSignature } from '../yield';
 
-interface HdsSegmentedGroupSignature {
+export interface HdsSegmentedGroupSignature {
   Blocks: {
     default: [
       {

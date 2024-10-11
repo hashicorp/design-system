@@ -15,7 +15,7 @@ import type {
   HdsFormRadioCardAlignments,
 } from './types';
 
-interface HdsFormRadioCardGroupSignature {
+export interface HdsFormRadioCardGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     controlPosition?: HdsFormRadioCardControlPositions;
     alignment?: HdsFormRadioCardAlignments;

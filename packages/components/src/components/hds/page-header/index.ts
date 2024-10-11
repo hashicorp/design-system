@@ -13,7 +13,7 @@ import type { HdsPageHeaderDescriptionSignature } from './description';
 import type { HdsPageHeaderTitleSignature } from './title';
 import type { HdsPageHeaderSubtitleSignature } from './subtitle';
 
-interface HdsPageHeaderSignature {
+export interface HdsPageHeaderSignature {
   Blocks: {
     default: [
       {

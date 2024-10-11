@@ -13,7 +13,7 @@ import { macroCondition, isTesting } from '@embroider/macros';
 import type { HdsSideNavPortalSignature } from './index';
 
 // import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
-interface PortalTargetSignature {
+export interface PortalTargetSignature {
   Element: HTMLDivElement;
   Args: {
     name: string;
@@ -27,7 +27,7 @@ interface PortalTargetSignature {
 
 import type { Registry as Services } from '@ember/service';
 
-interface HdsSideNavPortalTargetSignature {
+export interface HdsSideNavPortalTargetSignature {
   Args: PortalTargetSignature['Args'] & {
     targetName?: HdsSideNavPortalSignature['Args']['targetName'];
   };

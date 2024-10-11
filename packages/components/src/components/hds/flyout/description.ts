@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 import type { HdsTextBodySignature } from '../text/body';
 
-interface HdsFlyoutDescriptionSignature {
+export interface HdsFlyoutDescriptionSignature {
   Blocks: {
     default: [];
   };

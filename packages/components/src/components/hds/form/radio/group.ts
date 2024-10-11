@@ -11,7 +11,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormRadioFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
-interface HdsFormRadioGroupSignature {
+export interface HdsFormRadioGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     name?: string;
   };

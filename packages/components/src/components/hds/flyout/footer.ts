@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
-interface HdsFlyoutFooterSignature {
+export interface HdsFlyoutFooterSignature {
   Args: {
     onDismiss?: (event: MouseEvent) => void;
   };

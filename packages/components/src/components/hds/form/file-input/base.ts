@@ -5,7 +5,7 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormFileInputBaseSignature {
+export interface HdsFormFileInputBaseSignature {
   Element: HTMLInputElement;
 }
 

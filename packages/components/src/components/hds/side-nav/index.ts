@@ -10,7 +10,7 @@ import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsSideNavBaseSignature } from './base';
 
-interface HdsSideNavSignature {
+export interface HdsSideNavSignature {
   Args: {
     isResponsive?: boolean;
     isCollapsible?: boolean;
