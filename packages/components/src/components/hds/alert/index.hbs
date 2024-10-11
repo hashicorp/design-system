@@ -5,7 +5,7 @@
 <div
   class={{this.classNames}}
   role={{this.role}}
-  aria-live="polite"
+  aria-live={{if this.role "polite"}}
   aria-labelledby={{this.ariaLabelledBy}}
   {{did-insert this.didInsert}}
   ...attributes
