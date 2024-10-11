@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > ERROR
+//
+
+.hds-form-error {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: var(--token-form-error-color);
+}
+
+.hds-form-error__icon {
+  flex: none;
+  width: var(--token-form-error-icon-size);
+  height: var(--token-form-error-icon-size);
+  margin: 2px 0 2px 0;
+}
+
+.hds-form-error__content {
+  flex: 1 1 auto;
+}
+
+.hds-form-error__message {
+  margin: 0;
+}

@@ -1,0 +1,157 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// LINK > STANDALONE COMPONENT
+//
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
+//
+
+@use "../../mixins/focus-ring" as *;
+
+$hds-link-standalone-sizes: ( "small", "medium", "large" );
+$hds-link-standalone-focus-border-radius: 5px;
+$hds-link-standalone-border-width: 1px;
+
+.hds-link-standalone {
+  display: flex;
+  gap: 0.375rem;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-weight: var(--token-typography-font-weight-regular);
+  font-family: var(--token-typography-font-stack-text);
+  background-color: transparent; // needs to exist for a11y
+  border: $hds-link-standalone-border-width solid transparent; // needs to exist AND be transparent for a11y
+  // notice: the text decoration is applied directly to the "text" container because of a bug in Safari (see https://github.com/hashicorp/design-system-components/issues/159)
+  text-decoration-color: transparent;
+}
+
+.hds-link-standalone__icon {
+  display: block;
+}
+
+.hds-link-standalone__text {
+  display: block;
+  flex: 1 0 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.25s ease-in;
+}
+
+// SIZE
+
+// these values later may come from the design tokens
+$hds-link-standalone-size-props: (
+  "small": (
+    "font-size": 0.8125rem, // 13px;
+    "icon-size": 0.75rem, // 12px
+    "line-height": 1.231, // ~16px
+  ),
+  "medium": (
+    "font-size": 0.875rem, // 14px
+    "icon-size": 1rem, // 16px
+    "line-height": 1.143, // ~16px
+  ),
+  "large": (
+    "font-size": 1rem, // 16px
+    "icon-size": 1.5rem, // 24px
+    "line-height": 1.5, // 24px
+  )
+);
+
+@each $size in $hds-link-standalone-sizes {
+  .hds-link-standalone--size-#{$size} {
+    .hds-link-standalone__icon {
+      width: map-get($hds-link-standalone-size-props, $size, "icon-size");
+      height: map-get($hds-link-standalone-size-props, $size, "icon-size");
+    }
+
+    .hds-link-standalone__text {
+      font-size: map-get($hds-link-standalone-size-props, $size, "font-size");
+      line-height: map-get($hds-link-standalone-size-props, $size, "line-height");
+    }
+  }
+}
+
+// COLORS & STATES
+// The "primary" and "secondary" variants share a lot of styles for the interactive states
+// Note: the order of the pseuo-selectors need to stay the way they are
+
+.hds-link-standalone--color-primary {
+  color: var(--token-color-foreground-action);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+
+    .hds-link-standalone__text {
+      text-decoration-color: #4e81e8; // custom color by design
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+
+    .hds-link-standalone__text {
+      text-decoration-color: #396ed6; // custom color by design
+    }
+
+    &::before {
+      background-color: var(--token-color-surface-action);
+    }
+  }
+}
+
+.hds-link-standalone--color-secondary {
+  color: var(--token-color-foreground-strong);
+
+  &:hover,
+  &.mock-hover {
+    .hds-link-standalone__text {
+      text-decoration-color: #4d4d4f; // custom color by design
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-primary);
+
+    .hds-link-standalone__text {
+      text-decoration-color: #6e7075; // custom color by design
+    }
+
+    &::before {
+      background-color: var(--token-color-surface-interactive-active);
+    }
+  }
+}
+
+// this is how much the focus is visually "shifted" from the bounding box of the
+// notice: you have to take in account also the inset shadow of the focus (see Figma file and also "focus-ring" mixin)
+$hds-link-standalone-focus-shift: 4px;
+
+.hds-link-standalone {
+  // the position absolute of an element is computed from the inside of the border of the container
+  // so we have to take in account the border width of the pseudo-element container itself
+  $hds-shift: $hds-link-standalone-focus-shift + $hds-link-standalone-border-width;
+  // for visual/optical balance we add an extra 2px to the "shift" near the text (opposite the icon)
+  $hds-shift-extra: $hds-shift + 2px;
+
+  // notice: this is used not only for the focus, but also to increase the clickable area
+  @include hds-focus-ring-with-pseudo-element($right: -$hds-shift, $left: -$hds-shift, $radius: $hds-link-standalone-focus-border-radius);
+
+  // we need to override a couple of values for better visual alignment
+  &.hds-link-standalone--icon-position-leading::before {
+    right: -$hds-shift-extra;
+  }
+
+  &.hds-link-standalone--icon-position-trailing::before {
+    left: -$hds-shift-extra;
+  }
+}
