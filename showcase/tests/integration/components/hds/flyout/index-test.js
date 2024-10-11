@@ -160,6 +160,63 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('button.hds-flyout__dismiss').isFocused();
   });
 
+  test('it returns focus to the element that initiated the open event, if is still in the DOM', async function (assert) {
+    await render(
+      hbs`<button id="test-button" type="button" {{on "click" (set this "showFlyout" true)}}>open flyout</button>
+          {{#if this.showFlyout}}
+            <Hds::Flyout id="test-flyout" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Flyout>
+          {{/if}}
+          `
+    );
+    await click('#test-button');
+    assert.true(this.showFlyout);
+    await click('button.hds-flyout__dismiss');
+    assert.dom('#test-button').isFocused();
+  });
+
+  // not sure how to reach the `body` element, it says "body is not a valid root element"
+  skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown as |D|>
+            <D.ToggleButton id="test-toggle" @text="open flyout" />
+            <D.Interactive id="test-interactive" {{on "click" (set this "showFlyout" true)}}>open flyout</D.Interactive>
+          </Hds::Dropdown>
+          {{#if this.showFlyout}}
+            <Hds::Flyout id="test-flyout" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Flyout>
+          {{/if}}
+          `
+    );
+    await click('#test-toggle');
+    await click('#test-interactive');
+    assert.true(this.showFlyout);
+    await click('button.hds-flyout__dismiss');
+    assert.dom('body', 'body').isFocused();
+  });
+
+  test('it returns focus to a specific element if provided via`@returnFocusTo`', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown as |D|>
+            <D.ToggleButton id="test-toggle" @text="open flyout" />
+            <D.Interactive id="test-interactive" {{on "click" (set this "showFlyout" true)}}>open flyout</D.Interactive>
+          </Hds::Dropdown>
+          {{#if this.showFlyout}}
+            <Hds::Flyout id="test-flyout" @returnFocusTo="test-toggle" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Flyout>
+          {{/if}}
+          `
+    );
+    await click('#test-toggle');
+    await click('#test-interactive');
+    assert.true(this.showFlyout);
+    await click('button.hds-flyout__dismiss');
+    assert.dom('#test-toggle').isFocused();
+  });
+
   // CALLBACKS
 
   test('it should call `onOpen` function if provided', async function (assert) {
