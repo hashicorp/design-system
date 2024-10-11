@@ -18,6 +18,7 @@ export default class ModalController extends Controller {
   @tracked superselectModalActive3 = false;
   @tracked dismissDisabledModalActive = false;
   @tracked isDismissDisabled;
+  @tracked dropdownInitiatedModalActive = false;
 
   @action
   activateModal(modal) {
