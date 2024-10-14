@@ -44,6 +44,7 @@ export interface HdsDropdownSignature {
     listPosition?: HdsDropdownPositions;
     width?: string;
     enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
+    preserveContentInDom?: boolean;
   };
   Blocks: {
     default: [

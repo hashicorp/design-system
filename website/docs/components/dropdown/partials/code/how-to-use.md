@@ -187,6 +187,19 @@ It is possible that you may want to add a list footer for things like a set of b
 </Hds::Dropdown>
 ```
 
+### Content rendering in DOM
+
+By default, the content of the Dropdown is not rendered into the browser when the Dropdown is closed.
+
+To change this behavior, you can use the `@preserveContentInDom` argument so that the content is rendered in the DOM, regardless of whether the Dropdown is open or closed.
+
+```handlebars
+<Hds::Dropdown @preserveContentInDom={{true}} as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="This item should always be present in the DOM, regardless of whether the dropdown is open or closed" />
+</Hds::Dropdown>
+```
+
 ### ListItem::Interactive
 
 `ListItem::Interactive` renders the correct element based on the passing of a `@route`, `@href`, or the addition of a click event (e.g.,

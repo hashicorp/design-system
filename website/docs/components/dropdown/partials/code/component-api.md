@@ -79,6 +79,9 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a max-height.
   </C.Property>
+  <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
+    Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
+  </C.Property>
   <C.Property @name="onClose" @type="function">
     Callback function invoked when the Dropdown is closed, if provided.
   </C.Property>

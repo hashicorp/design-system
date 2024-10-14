@@ -83,7 +83,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       .hasClass('hds-dropdown__footer--with-divider');
   });
 
-  test('it does not render the "list-item" sub-components when closed', async function (assert) {
+  test('it does not render the content sub-components when closed, by default', async function (assert) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
@@ -99,6 +99,25 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown #test-header').doesNotExist();
     assert.dom('#test-dropdown .hds-dropdown__list').doesNotExist();
     assert.dom('#test-dropdown #test-footer').doesNotExist();
+  });
+
+  test('it renders the content sub-components even when closed, when `@preserveContentInDom` is `true`', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" @preserveContentInDom={{true}} as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Header id="test-header">Header</D.Header>
+        <D.Interactive id="test-list-item" @route="components.dropdown" @text="interactive-always-rendered" />
+        <D.Footer id="test-footer">Footer</D.Footer>
+      </Hds::Dropdown>
+    `);
+
+    // the container should exist in the DOM
+    assert.dom('#test-dropdown .hds-dropdown__content').exists();
+    // the list content should too
+    assert.dom('#test-dropdown #test-header').exists();
+    assert.dom('#test-dropdown .hds-dropdown__list').exists();
+    assert.dom('#test-dropdown #test-list-item').exists();
+    assert.dom('#test-dropdown #test-footer').exists();
   });
 
   // POSITION
