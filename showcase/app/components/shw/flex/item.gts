@@ -25,7 +25,7 @@ export interface ShwFlexItemSignature {
   Element: HTMLDivElement;
 }
 
-export default class ShwFlexItemComponent extends Component<ShwFlexItemSignature> {
+export default class ShwFlexItem extends Component<ShwFlexItemSignature> {
   get classNames(): string {
     const classes = ['shw-flex__item'];
 
