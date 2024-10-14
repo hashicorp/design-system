@@ -17,25 +17,26 @@
       {{style width=@width max-height=@height}}
       {{PP.setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
     >
-      {{yield (hash Header=(component "hds/dropdown/header"))}}
-      <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
-        {{yield
-          (hash
-            close=PP.hidePopover
-            isOpen=PP.isOpen
-            Checkbox=(component "hds/dropdown/list-item/checkbox")
-            Checkmark=(component "hds/dropdown/list-item/checkmark")
-            CopyItem=(component "hds/dropdown/list-item/copy-item")
-            Description=(component "hds/dropdown/list-item/description")
-            Generic=(component "hds/dropdown/list-item/generic")
-            Interactive=(component "hds/dropdown/list-item/interactive")
-            Radio=(component "hds/dropdown/list-item/radio")
-            Separator=(component "hds/dropdown/list-item/separator")
-            Title=(component "hds/dropdown/list-item/title")
-          )
-        }}
-      </ul>
-      {{yield (hash close=PP.hidePopover Footer=(component "hds/dropdown/footer"))}}
+      {{#if (or PP.isOpen @preserveContentInDom)}}
+        {{yield (hash Header=(component "hds/dropdown/header"))}}
+        <ul class="hds-dropdown__list" {{did-insert this.didInsertList}}>
+          {{yield
+            (hash
+              close=PP.hidePopover
+              Checkbox=(component "hds/dropdown/list-item/checkbox")
+              Checkmark=(component "hds/dropdown/list-item/checkmark")
+              CopyItem=(component "hds/dropdown/list-item/copy-item")
+              Description=(component "hds/dropdown/list-item/description")
+              Generic=(component "hds/dropdown/list-item/generic")
+              Interactive=(component "hds/dropdown/list-item/interactive")
+              Radio=(component "hds/dropdown/list-item/radio")
+              Separator=(component "hds/dropdown/list-item/separator")
+              Title=(component "hds/dropdown/list-item/title")
+            )
+          }}
+        </ul>
+        {{yield (hash close=PP.hidePopover Footer=(component "hds/dropdown/footer"))}}
+      {{/if}}
     </div>
   </div>
 </Hds::PopoverPrimitive>
