@@ -859,6 +859,25 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>Custom result count message</Shw::Text::H4>
+
+  <Shw::Flex {{style padding-bottom="15em"}} @direction="row" as |SF|>
+    <SF.Item>
+      <Hds::Form::SuperSelect::Multiple::Base
+        @resultCountMessage="{{@model.PLACES_OPTIONS.length}} total"
+        @onChange={{fn (mut @model.SELECTED_PLACES_OPTIONS)}}
+        @options={{@model.PLACES_OPTIONS}}
+        @selected={{@model.SELECTED_PLACES_OPTIONS}}
+        @initiallyOpened={{true}}
+        @verticalPosition="below"
+        @ariaLabel="Label"
+        as |option|
+      >
+        {{option}}
+      </Hds::Form::SuperSelect::Multiple::Base>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Form::SuperSelect::Multiple::Field</Shw::Text::H2>
