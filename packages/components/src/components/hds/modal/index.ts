@@ -31,6 +31,7 @@ export interface HdsModalSignature {
     isDismissDisabled?: boolean;
     size?: HdsModalSizes;
     color?: HdsModalColors;
+    returnFocusTo?: string;
     onOpen?: () => void;
     onClose?: (event: Event) => void;
   };
@@ -203,6 +204,14 @@ export default class HdsModal extends Component<HdsModalSignature> {
         }
       } else {
         this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      }
+    }
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
       }
     }
   }

@@ -28,6 +28,7 @@ export const SIZES: string[] = Object.values(HdsFlyoutSizesValues);
 export interface HdsFlyoutSignature {
   Args: {
     size?: HdsFlyoutSizes;
+    returnFocusTo?: string;
     onOpen?: () => void;
     onClose?: (event: Event) => void;
   };
@@ -185,6 +186,14 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
         }
       } else {
         this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+      }
+    }
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
       }
     }
   }
