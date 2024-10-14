@@ -161,10 +161,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       this.color === 'critical' ||
       this.color === 'success';
 
-    /*
-      Q: If the alert contains actions but is not a "real alert", should it be an alertdialog? 
-      (Currently assuming it is not but don't know if that's correct)
-    */
     if (isRealAlert && actions.length) {
       this.role = 'alertdialog';
     } else if (isRealAlert) {
