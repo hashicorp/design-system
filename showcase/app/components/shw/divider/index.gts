@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 import { concat } from '@ember/helper';
 
 export interface ShwDividerSignature {
@@ -13,10 +13,8 @@ export interface ShwDividerSignature {
   Element: HTMLHRElement;
 }
 
-export default class ShwDivider extends Component<ShwDividerSignature> {
-  <template>
-    <hr
-      class="shw-divider {{if @level (concat 'shw-divider--level-' @level)}}"
-    />
-  </template>
-}
+const ShwDivider: TemplateOnlyComponent<ShwDividerSignature> = <template>
+  <hr class="shw-divider {{if @level (concat 'shw-divider--level-' @level)}}" />
+</template>;
+
+export default ShwDivider;
