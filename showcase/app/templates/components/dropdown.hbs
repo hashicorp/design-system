@@ -1539,6 +1539,23 @@
         </Hds::Dropdown>
       </div>
     </SG.Item>
+    <SG.Item as |SG|>
+      <SG.Label>Using <code>preserveContentInDom</code> argument</SG.Label>
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" @preserveContentInDom={{true}} as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Header @hasDivider={{true}}>
+            This header should always be present in the DOM, regardless of whether the dropdown is open or closed
+          </D.Header>
+          <D.Interactive @href="#">
+            This item should always be present in the DOM, regardless of whether the dropdown is open or closed
+          </D.Interactive>
+          <D.Footer @hasDivider={{true}}>
+            This footer should always be present in the DOM, regardless of whether the dropdown is open or closed
+          </D.Footer>
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
   </Shw::Grid>
 
 </section>
