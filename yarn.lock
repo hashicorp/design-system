@@ -316,7 +316,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.24.5, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.24.5, @babel/core@npm:^7.3.4":
   version: 7.24.5
   resolution: "@babel/core@npm:7.24.5"
   dependencies:
@@ -3381,6 +3381,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.8":
+  version: 1.8.9
+  resolution: "@embroider/addon-shim@npm:1.8.9"
+  dependencies:
+    "@embroider/shared-internals": "npm:^2.6.0"
+    broccoli-funnel: "npm:^3.0.8"
+    common-ancestor-path: "npm:^1.0.1"
+    semver: "npm:^7.3.8"
+  checksum: 10/c49c85e8035b740958db5bb4117c44789f01315da34b686cfe78bde518bdf77028a41970a5618bff1650b8167a8cae2bc8cb4bf278e5505b74d35e0262366c4f
+  languageName: node
+  linkType: hard
+
 "@embroider/core@npm:^3.4.7":
   version: 3.4.9
   resolution: "@embroider/core@npm:3.4.9"
@@ -4272,6 +4284,7 @@ __metadata:
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-tokens": "npm:^2.2.1"
     "@hashicorp/flight-icons": "npm:^3.6.0"
+    "@nullvoxpopuli/ember-composable-helpers": "npm:^5.2.5"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
     "@types/ember-qunit": "npm:^6.1.1"
@@ -4288,7 +4301,6 @@ __metadata:
     ember-a11y-refocus: "npm:^4.1.3"
     ember-basic-dropdown: "npm:^8.1.0"
     ember-cli-sass: "npm:^11.0.1"
-    ember-composable-helpers: "npm:^5.0.0"
     ember-concurrency: "npm:^4.0.2"
     ember-element-helper: "npm:^0.8.5"
     ember-focus-trap: "npm:^1.1.0"
@@ -4942,6 +4954,15 @@ __metadata:
   dependencies:
     semver: "npm:^7.3.5"
   checksum: 10/f3a7ab3a31de65e42aeb6ed03ed035ef123d2de7af4deb9d4a003d27acc8618b57d9fb9d259fe6c28ca538032a028f37337264388ba27d26d37fff7dde22476e
+  languageName: node
+  linkType: hard
+
+"@nullvoxpopuli/ember-composable-helpers@npm:^5.2.5":
+  version: 5.2.5
+  resolution: "@nullvoxpopuli/ember-composable-helpers@npm:5.2.5"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.8"
+  checksum: 10/26f2a1f45701813e1ab42b9024e45a40cb9aa179bedcda46580750abb2840a502eacf7df082744545508e80458954902411e25cbad131b672971378bc00f46e5
   languageName: node
   linkType: hard
 
@@ -9179,27 +9200,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-funnel@npm:2.0.1":
-  version: 2.0.1
-  resolution: "broccoli-funnel@npm:2.0.1"
-  dependencies:
-    array-equal: "npm:^1.0.0"
-    blank-object: "npm:^1.0.1"
-    broccoli-plugin: "npm:^1.3.0"
-    debug: "npm:^2.2.0"
-    fast-ordered-set: "npm:^1.0.0"
-    fs-tree-diff: "npm:^0.5.3"
-    heimdalljs: "npm:^0.2.0"
-    minimatch: "npm:^3.0.0"
-    mkdirp: "npm:^0.5.0"
-    path-posix: "npm:^1.0.0"
-    rimraf: "npm:^2.4.3"
-    symlink-or-copy: "npm:^1.0.0"
-    walk-sync: "npm:^0.3.1"
-  checksum: 10/805c19b2def505076851ed998097acd4667c54affbcd25983415218d5ae09905abfd6f3b9d0da338ac9e8a45d89e89345c54f6aabed12539b00a41de5608a9c5
-  languageName: node
-  linkType: hard
-
 "broccoli-funnel@npm:^1.0.1":
   version: 1.2.0
   resolution: "broccoli-funnel@npm:1.2.0"
@@ -13137,18 +13137,6 @@ __metadata:
     fs-extra: "npm:^9.1.0"
     semver: "npm:^5.4.1"
   checksum: 10/eb2962a6a5059a11f43db79ae9819a0522d914a05242bf1f442301b23fb63b89995645c9e82145ba53744c8cb87ef3de606cd75870008cb15abd6797fefa9278
-  languageName: node
-  linkType: hard
-
-"ember-composable-helpers@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "ember-composable-helpers@npm:5.0.0"
-  dependencies:
-    "@babel/core": "npm:^7.0.0"
-    broccoli-funnel: "npm:2.0.1"
-    ember-cli-babel: "npm:^7.26.3"
-    resolve: "npm:^1.10.0"
-  checksum: 10/d236f250771bc290c820c78990c590abcaed361fe35ad75e1f68b8aa3660f9e4d24e1954b9b1a3e98b0301ab8d1fcd0da862f217b857ba87494f38f5b1472c11
   languageName: node
   linkType: hard
 
