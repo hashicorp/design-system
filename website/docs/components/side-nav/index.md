@@ -10,8 +10,6 @@ previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

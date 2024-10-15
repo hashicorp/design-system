@@ -9,8 +9,6 @@ related: ['components/modal', 'components/toast']
 previewImage: assets/illustrations/components/alert.jpg
 navigation:
   keywords: ['alert', 'toast', 'notification', 'banner', 'message']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

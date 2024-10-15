@@ -9,8 +9,6 @@ related: ['components/form/select', 'components/dropdown']
 previewImage: assets/illustrations/components/form/super-select.jpg
 navigation:
   keywords: ['dropdown', 'powerselect']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
