@@ -81,7 +81,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
       {
         id: 'hds.components.sidenav',
         until: '5.0.0',
-        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4110', // TODO: make sure URL matches correct version number
+        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4140',
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.14.0',
