@@ -9,6 +9,8 @@ related: ['components/form/select', 'components/dropdown']
 previewImage: assets/illustrations/components/form/super-select.jpg
 navigation:
   keywords: ['dropdown', 'powerselect']
+status:
+  updated: 4.13.0
 ---
 
 <section data-tab="Guidelines">
@@ -31,5 +33,6 @@ navigation:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.13.0.md"
   @include "partials/version-history/4.10.0.md"
 </section>
