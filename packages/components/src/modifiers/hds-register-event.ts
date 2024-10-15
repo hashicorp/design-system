@@ -4,7 +4,7 @@
  */
 
 import { modifier } from 'ember-modifier';
-interface HdsRegisterEventSignature {
+export interface HdsRegisterEventSignature {
   Element: HTMLElement;
   Args: {
     Positional: [keyof ElementEventMap, EventListener];

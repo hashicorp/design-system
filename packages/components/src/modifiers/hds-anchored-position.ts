@@ -156,7 +156,7 @@ export const getFloatingUIOptions = (
   };
 };
 
-interface HdsAnchoredPositionSignature {
+export interface HdsAnchoredPositionSignature {
   Element: HTMLElement;
   Args: {
     Positional: [HTMLElement | SVGElement];
