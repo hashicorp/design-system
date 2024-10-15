@@ -11,7 +11,7 @@ navigation:
   hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
 status:
-  deprecated: 4.11.0
+  deprecated: 4.14.0
 ---
 
 <section data-tab="Guidelines">
@@ -33,7 +33,7 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.11.0.md"
+  @include "partials/version-history/4.14.0.md"
   @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.8.0.md"
 </section>
