@@ -2,17 +2,19 @@
 
 ## 4.13.0
 
+[4.13.0 documentation](https://hds-website-4-13-0.vercel.app/)
+
 ### Minor Changes
 
-`Modal` - added `returnFocusTo` argument to control where the browser focus is returned once the modal is closed
+`Modal` - Added `returnFocusTo` argument to control where the browser focus is returned once the modal is closed
 
-`Flyout` - added `returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
+`Flyout` - Added `returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
 
 <small class="doc-whats-new-changelog-metadata">[#2497](https://github.com/hashicorp/design-system/pull/2497)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`CodeBlock` - Added `lineNumberStart` option to set custom starting number for line numbering`
+`CodeBlock` - Added `lineNumberStart` option to set custom starting number for line numbering
 
 <small class="doc-whats-new-changelog-metadata">[#2467](https://github.com/hashicorp/design-system/pull/2467)</small>
 
