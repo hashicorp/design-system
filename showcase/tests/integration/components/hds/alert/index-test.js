@@ -145,37 +145,144 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // A11Y
 
-  test('it should render with the correct semantic tags and aria attributes', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
+  // Alert and non-alert usages
+
+  // * Colors for alert usages: success, warning, critical
+
+  test('it should render the component with role="alert" and aria-live="polite" for the "success" color', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" @color="success" id="test-alert" />`
+    );
     assert.dom('#test-alert').hasAttribute('role', 'alert');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
   });
 
-  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when title and actions are provided', async function (assert) {
+  test('it should render the component with role="alert" and aria-live="polite" for the "warning" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title>This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" @color="warning" id="test-alert" />`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alert');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+  });
+
+  test('it should render the component with role="alert" and aria-live="polite" for the "critical" color', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" @color="critical" id="test-alert" />`
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alert');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+  });
+
+  // * Colors for non-alert usages: neutral, highlight
+
+  test('it should not render the component with role="alert" and aria-live="polite" for the "neutral" color', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" @color="neutral" id="test-alert" />`
+    );
+    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
+  });
+
+  test('it should not render the component with role="alert" and aria-live="polite" for the "highlight" color', async function (assert) {
+    await render(
+      hbs`<Hds::Alert @type="inline" @color="highlight" id="test-alert" />`
+    );
+    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
+  });
+
+  // aria-labelledby
+
+  test('it should render with an auto-generated `aria-labelledby` when a title is provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Alert @type="inline" id="test-alert" as |A|>
+          <A.Title>This is the title</A.Title>
+        </Hds::Alert>
+      `
     );
     let title = this.element.querySelector('#test-alert .hds-alert__title');
-    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
     assert.dom('#test-alert').hasAttribute('aria-labelledby', title.id);
   });
 
-  test('it should render with an `alertdialog` role and auto-generated `aria-labelledby` when description and actions are provided', async function (assert) {
+  test('it should render with an auto-generated `aria-labelledby` when description is provided', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Description>This is the title</A.Description><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+      hbs`
+        <Hds::Alert @type="inline" id="test-alert" as |A|>
+          <A.Description>This is the title</A.Description>
+        </Hds::Alert>
+      `
     );
     let description = this.element.querySelector(
       '#test-alert .hds-alert__description'
     );
-    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
     assert.dom('#test-alert').hasAttribute('aria-labelledby', description.id);
   });
 
-  test('it should render with an `alertdialog` role and `aria-labelledby` when title and actions are provided', async function (assert) {
+  // Alert dialogs
+
+  // * Colors for alert usages: success, warning, critical
+
+  test('it should render with with role="alertdialog" and aria-live="polite" for the "success" color when actions are provided', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Title id="custom-id">This is the title</A.Title><A.Button @text="I am a button" @size="small" /></Hds::Alert>`
+      hbs`
+        <Hds::Alert @type="inline" @color="success" id="test-alert" as |A|>
+          <A.Button @text="I am a button" @size="small" />
+        </Hds::Alert>
+      `
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').hasAttribute('aria-labelledby', 'custom-id');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+  });
+
+  test('it should render with with role="alertdialog" and aria-live="polite" for the "warning" color when actions are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Alert @type="inline" @color="warning" id="test-alert" as |A|>
+          <A.Button @text="I am a button" @size="small" />
+        </Hds::Alert>
+      `
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+  });
+
+  test('it should render with with role="alertdialog" and aria-live="polite" for the "critical" color when actions are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Alert @type="inline" @color="critical" id="test-alert" as |A|>
+          <A.Button @text="I am a button" @size="small" />
+        </Hds::Alert>
+      `
+    );
+    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
+  });
+
+  // * Colors for non-alert usages: neutral, highlight
+
+  test('it should not render with with role="alertdialog" and aria-live="polite" for the "neutral" color when actions are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Alert @type="inline" @color="neutral" id="test-alert" as |A|>
+          <A.Button @text="I am a button" @size="small" />
+        </Hds::Alert>
+      `
+    );
+    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
+  });
+
+  test('it should not render with with role="alertdialog" and aria-live="polite" for the "highlight" color when actions are provided', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Alert @type="inline" @color="highlight" id="test-alert" as |A|>
+          <A.Button @text="I am a button" @size="small" />
+        </Hds::Alert>
+      `
+    );
+    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
+    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
   });
 
   // ASSERTIONS
