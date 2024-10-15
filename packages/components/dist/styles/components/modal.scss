@@ -1,0 +1,72 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// MODAL
+//
+
+.hds-modal {
+  position: fixed;
+  z-index: 50;
+  height: fit-content;
+  max-height: 95vh;
+  inset: 0;
+  margin: auto; // needed to center the modal dialog on the viewport
+  border-radius: 8px;
+  box-shadow: var(--token-surface-overlay-box-shadow);
+
+  // the `<dialog>` element uses a special "open" attribute to determine its visibility status
+  &:not([open]) {
+    display: none;
+  }
+
+  // we hide the native `::backdrop` pseudo-element in favor of using
+  // a custom `overlay` element to detect click events with more ease
+  &::backdrop {
+    display: none;
+  }
+}
+
+// sizes
+
+.hds-modal--size-small {
+  width: min(400px, 95vw);
+}
+
+.hds-modal--size-medium {
+  width: min(600px, 95vw);
+}
+
+.hds-modal--size-large {
+  width: min(800px, 95vw);
+}
+
+// color variants
+
+// Note ".hds-modal--color-neutral" uses default color and background-color styles from the dialog-primitive
+
+.hds-modal--color-warning {
+  .hds-dialog-primitive__wrapper-header {
+    background: var(--token-color-surface-warning);
+    border-bottom: 1px solid var(--token-color-border-warning);
+  }
+
+  .hds-dialog-primitive__header,
+  .hds-dialog-primitive__tagline {
+    color: var(--token-color-foreground-warning-on-surface);
+  }
+}
+
+.hds-modal--color-critical {
+  .hds-dialog-primitive__wrapper-header {
+    background: var(--token-color-surface-critical);
+    border-bottom: 1px solid var(--token-color-border-critical);
+  }
+
+  .hds-dialog-primitive__header,
+  .hds-dialog-primitive__tagline {
+    color: var(--token-color-foreground-critical-on-surface);
+  }
+}

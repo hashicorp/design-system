@@ -1,0 +1,90 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// TOOLTIP & TOOLTIP-BUTTON
+//
+
+@use "../mixins/focus-ring" as *;
+
+.hds-tooltip-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: var(--token-tooltip-focus-offset),
+    $right: var(--token-tooltip-focus-offset),
+    $bottom: var(--token-tooltip-focus-offset),
+    $left: var(--token-tooltip-focus-offset),
+  );
+}
+
+// The special declarations below are used to allow the button to inherit styles from the parent element
+// without preventing the consumers from applying these styles via HDS or custom classes if they want
+//
+// Since the `:where()` selector has a specificity of `0` (see https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
+// the styles declared below are applied to the `<button>` element, but are overwritten by any other style applied via classname
+//
+// If you want to see the effect of this selector, try to comment it and look at the "Inheritance" demo in the showcase:
+// https://hds-showcase.vercel.app/components/tooltip
+
+:where(.hds-tooltip-button) {
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: inherit;
+  background-color: inherit;
+  border: none;
+}
+
+:where(.hds-tooltip-button--is-inline) {
+  display: inline-flex;
+}
+
+:where(.hds-tooltip-button--is-block) {
+  display: flex;
+}
+
+
+// Tippy.js styling
+// https://atomiks.github.io/tippyjs/
+
+.tippy-box[data-theme~="hds"] {
+  padding: var(--token-tooltip-padding-vertical) var(--token-tooltip-padding-horizontal);
+  color: var(--token-tooltip-color-foreground-primary);
+  font-weight: var(--token-typography-font-weight-regular);
+  font-size: var(--token-typography-body-200-font-size);
+  font-family: var(--token-typography-body-200-font-family);
+  line-height: var(--token-typography-body-200-line-height);
+  overflow-wrap: break-word;
+  background-color: var(--token-tooltip-color-surface-primary);
+  border-radius: var(--token-tooltip-border-radius);
+  box-shadow: var(--token-elevation-higher-box-shadow);
+  transition-property: transform, visibility, opacity;
+
+  &[data-animation="fade"][data-state="hidden"] {
+    opacity: 0;
+  }
+
+  &[data-inertia][data-state="visible"] {
+    transition-timing-function: var(--token-tooltip-transition-function);
+  }
+
+  .tippy-content {
+    position: relative;
+    z-index: 1;
+    // This needs to go here because Tippy generates a javascript
+    // max-width on .tippy-box.
+    max-width: calc(var(--token-tooltip-max-width) - 2 * var(--token-tooltip-padding-horizontal));
+    // prevent this container from potentially inheriting other values
+    // such as `white-space: nowrap` that would cause content overflow
+    white-space: normal;
+    // we want to have the text always aligned to the left (by design
+    text-align: left;
+  }
+
+  // works with Tippy's custom SVG arrow variation:
+  .tippy-svg-arrow {
+    fill: var(--token-tooltip-color-surface-primary);
+  }
+}

@@ -1,0 +1,162 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV > CONTENT (PORTALS + LISTS OF ITEMS/LINKS)
+//
+
+@use "../../mixins/focus-ring" as *;
+
+
+// PANELS (wrappers used in conjunction with the portal elements)
+
+.hds-side-nav__content {
+  // we use this trick (increasing the container size here, and reducing it at single panel level)
+  // to have the panels width match the sidebar extended width (it's used in the animated sliding of the panels)
+  margin: 0 calc(var(--token-side-nav-wrapper-padding-horizontal) * -1);
+
+  // we hide the content when the SideNav is collapsed to prevent the vertical scrollbar from being visible
+  // when the scrollbar is set to be always visible or a mouse or trackpad force it to be always visible.
+  // ideally we would use `display: none` but doing so would disable the fade-in transition when expanding
+  .hds-side-nav--is-minimized & {
+    height: 0;
+    overflow: hidden;
+  }
+}
+
+.hds-side-nav__content-panels {
+  // see https://codepen.io/didoo/pen/YzOeRPr
+  display: grid;
+  grid-template-columns: repeat(5, var(--hds-app-sidenav-width-expanded));
+  width: 100%;
+}
+
+.hds-side-nav__content-panel {
+  padding: 0 var(--token-side-nav-wrapper-padding-horizontal);
+}
+
+// (LIST) TITLE
+
+.hds-side-nav__list-title {
+  min-height: var(--token-side-nav-body-list-item-height);
+  margin-top: var(--token-side-nav-body-list-margin-vertical);
+  padding: 9px var(--token-side-nav-body-list-item-padding-horizontal); // 8px = (min-height - body-100-line-height) / 2
+  color: var(--token-side-nav-color-foreground-faint);
+  overflow-wrap: break-word;
+
+  // Remove margin from title at top of all list-items & lists
+  .hds-side-nav__list-wrapper:first-child .hds-side-nav__list-item:first-child > & {
+    margin-top: 0;
+  }
+}
+
+// LIST (root elements)
+
+.hds-side-nav__list-wrapper, // <nav> element
+.hds-side-nav__list {        // <ul> element
+  margin: 0;
+  padding: 0;
+}
+
+
+// ITEM (generic container)
+
+.hds-side-nav__list-item { // <li> element
+  list-style-type: none;
+
+  & + & {
+    margin-top: var(--token-side-nav-body-list-item-spacing-vertical);
+  }
+}
+
+.hds-side-nav__list-item-link { // <a>/<button> element (via Hds::Interactive)
+  display: flex;
+  gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
+  align-items: center;
+  width: 100%;
+  min-height: var(--token-side-nav-body-list-item-height);
+  padding: var(--token-side-nav-body-list-item-padding-vertical) var(--token-side-nav-body-list-item-padding-horizontal);
+  color: var(--token-side-nav-color-foreground-primary);
+  text-decoration: none;
+  background: var(--token-side-nav-color-surface-primary);
+  // "Link" could render as an HTML button element so this overrides the default border style in that case:
+  border-color: transparent;
+  border-radius: var(--token-side-nav-body-list-item-border-radius);
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-with-pseudo-element();
+  }
+
+  &:hover,
+  &.mock-hover {
+    background: var(--token-side-nav-color-surface-interactive-hover);
+    border-color: transparent;
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-color-foreground-strong);
+    }
+  }
+
+  // NOTICE: this is necessary to mitigate the flickering of the link when clicked (expecially noticeable with a badge)
+  // For details see: https://github.com/hashicorp/design-system/pull/1328
+  &:hover:focus,
+  // notice: this ".active" extra class is used to match the corresponding `active` class assigned automatically
+  // by the `<LinkTo>` Ember component (when the link is "current), so that consumers get it for free if they want
+  // otherwise they can use the `@isActive` argument to set this visual state directly
+  &.active,
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-color-surface-interactive-active);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-color-foreground-strong);
+    }
+
+    .hds-badge,
+    .hds-badge-count {
+      color: var(--token-color-foreground-primary);
+      background: var(--token-color-surface-strong);
+    }
+  }
+}
+
+// special override for the "back-link" element (no visible active state, by design)
+.hds-side-nav__list-item-link--back-link {
+  &:active,
+  &.mock-active {
+    background: var(--token-side-nav-color-surface-primary);
+
+    .hds-side-nav__list-item-text,
+    .hds-side-nav__list-item-icon-leading,
+    .hds-side-nav__list-item-icon-trailing {
+      color: var(--token-side-nav-color-foreground-primary);
+    }
+  }
+}
+
+
+// LIST ITEM > INNER ELEMENTS
+
+.hds-side-nav__list-item-text {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--token-side-nav-color-foreground-primary);
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+.hds-side-nav__list-item-icon-leading {
+  flex: none;
+}
+
+.hds-side-nav__list-item-icon-trailing {
+  flex: none;
+  margin-left: auto;
+}
