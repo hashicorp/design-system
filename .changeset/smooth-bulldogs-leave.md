@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-export all components signatures
+Export TypeScript signatures for all components and modifiers
