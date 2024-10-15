@@ -12,6 +12,22 @@
   </a>
 </p>
 
+## 3.7.0
+
+**Minor changes**
+
+Confluent icon added
+
+<small class="doc-whats-new-changelog-metadata">[#2505](https://github.com/hashicorp/design-system/pull/2505)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Updated `okta` and `okta-color` to reflect updated branding.
+
+<small class="doc-whats-new-changelog-metadata">[#2489](https://github.com/hashicorp/design-system/pull/2489)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.6.0
 
 **Minor changes**
@@ -227,14 +243,6 @@ Added Venafi service icon
 Added `robot` icon (for Service Principals)
 
 <small class="doc-whats-new-changelog-metadata">[#1428](https://github.com/hashicorp/design-system/pull/1428)</small>
-
-## 2.13.1
-
-**Patch changes**
-
-Fix color for `connection-gateway` icon
-
-<small class="doc-whats-new-changelog-metadata">[#1420](https://github.com/hashicorp/design-system/pull/1420)</small>
 
 
 ---

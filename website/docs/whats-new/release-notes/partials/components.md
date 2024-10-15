@@ -12,6 +12,89 @@
   </a>
 </p>
 
+## 4.13.0
+
+**Minor changes**
+
+`Modal` - added `returnFocusTo` argument to control where the browser focus is returned once the modal is closed
+
+`Flyout` - added `returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
+
+<small class="doc-whats-new-changelog-metadata">[#2497](https://github.com/hashicorp/design-system/pull/2497)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added `lineNumberStart` option to set custom starting number for line numbering`
+
+<small class="doc-whats-new-changelog-metadata">[#2467](https://github.com/hashicorp/design-system/pull/2467)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SuperSelect::Multiple` - Added `@resultCountMessage` argument to enable override
+
+<small class="doc-whats-new-changelog-metadata">[#2502](https://github.com/hashicorp/design-system/pull/2502)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Dropdown`
+
+- Fixed content being preserved in the DOM when closed
+- Removed the `isOpen` yielded argument
+- Added `@preserveContentInDom` to optionally control rendering of the content
+
+<small class="doc-whats-new-changelog-metadata">[#2490](https://github.com/hashicorp/design-system/pull/2490)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal` - Fixed `isDismissDisabled` functionality
+`Flyout` - Removed `isDismissDisabled` from signature (not an actual argument)
+
+<small class="doc-whats-new-changelog-metadata">[#2485](https://github.com/hashicorp/design-system/pull/2485)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SuperSelect` - Update the the default state of selected list items to `Foreground / Primary` to match other list items and the `Dropdown`.
+
+<small class="doc-whats-new-changelog-metadata">[#2479](https://github.com/hashicorp/design-system/pull/2479)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SuperSelect::Multiple` - Fixed placeholder style and layout
+
+<small class="doc-whats-new-changelog-metadata">[#2473](https://github.com/hashicorp/design-system/pull/2473)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Update the color of the text and icons in the selected state checkmark list item to match the styling of the ListItems (`Radio` and `Checkbox`).
+
+<small class="doc-whats-new-changelog-metadata">[#2464](https://github.com/hashicorp/design-system/pull/2464)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Decoupled the display of line numbers from `highlightLines`
+
+<small class="doc-whats-new-changelog-metadata">[#2474](https://github.com/hashicorp/design-system/pull/2474)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Fixed dropdown content not being preserved when interacted with
+
+<small class="doc-whats-new-changelog-metadata">[#2506](https://github.com/hashicorp/design-system/pull/2506)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded `ember-style-modifier` to `4.4.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2482](https://github.com/hashicorp/design-system/pull/2482)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.7.0
+
 ## 4.12.0
 
 [4.12.0 documentation](https://hds-website-4-12-0.vercel.app/)
@@ -1177,19 +1260,6 @@ Removed `ember-deep-tracked` dependency that was not used
 
 - @hashicorp/ember-flight-icons@5.0.0
 - @hashicorp/design-system-tokens@2.0.0
-
-## 3.6.0
-
-[3.6.0 documentation](https://hds-website-3-6-0.vercel.app/)
-
-**Minor changes**
-
-_Since this is an update brand colors and product icons, we consider this a `minor` version release_
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@1.11.0
-- @hashicorp/ember-flight-icons@4.1.0
 
 
 ---
