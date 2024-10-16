@@ -12,6 +12,7 @@ navigation:
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
 status:
   deprecated: 4.14.0
+---
 
 <section data-tab="Guidelines">
   @include "partials/guidelines/overview.md"
