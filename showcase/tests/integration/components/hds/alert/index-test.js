@@ -145,9 +145,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // A11Y
 
-  // Alert and non-alert usages
-
-  // * Colors for alert usages: success, warning, critical
+  // * Colors for alert usages which notify users: success, warning, critical
 
   test('it should render the component with role="alert" and aria-live="polite" for the "success" color', async function (assert) {
     await render(
@@ -173,7 +171,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
   });
 
-  // * Colors for non-alert usages: neutral, highlight
+  // * Colors for informational & promo usages: neutral, highlight
 
   test('it should not render the component with role="alert" and aria-live="polite" for the "neutral" color', async function (assert) {
     await render(
@@ -221,7 +219,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   // Alert dialogs
 
-  // * Colors for alert usages: success, warning, critical
+  // * Colors for alert usages which notify users: success, warning, critical
 
   test('it should render with with role="alertdialog" and aria-live="polite" for the "success" color when actions are provided', async function (assert) {
     await render(
@@ -259,7 +257,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
   });
 
-  // * Colors for non-alert usages: neutral, highlight
+  // * Colors for informational & promo usages: neutral, highlight
 
   test('it should not render with with role="alertdialog" and aria-live="polite" for the "neutral" color when actions are provided', async function (assert) {
     await render(

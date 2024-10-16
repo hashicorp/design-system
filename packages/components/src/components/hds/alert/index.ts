@@ -137,7 +137,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  // The "class" attribute to apply to the component.
   get classNames(): string {
     const classes = ['hds-alert'];
 
