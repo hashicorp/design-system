@@ -11,7 +11,7 @@ navigation:
   hidden: false
   keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
 status:
-  added: 4.10.0
+  added: 4.14.0
 ---
 
 <section data-tab="Guidelines">
