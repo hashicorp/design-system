@@ -181,58 +181,6 @@ Instead, be more specific with how the Alerts are placed depending on what the m
 ![Example of different Alert type placements](/assets/components/alert/mixing-alert-types-do.png)
 !!!
 
-### Ordering Alerts by color
-
-Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
-
-![Ordering alerts](/assets/components/alert/ordering-alerts-color.png)
-
-## Placing Alerts
-
-`Inline` and `compact` Alerts can have more meaning if they are placed within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards, or where a specific localized message is necessary.
-
-![Example of multiple Alerts placed to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
-
-### Placement by type
-
-Where an Alert is placed is dependent on the type.
-
-#### Page
-
-Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
-
-![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
-
-#### Inline
-
-Inline alerts can be added to a section or component or inline with content.
-
-![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
-
-#### Compact
-
-Compact alerts can be added to a section or component or inline with content.
-
-![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
-
-#### Mixing Alert types
-
-We recommend against mixing different types of Alerts in the same context, as this can unintentionally convey that different Alert types have the same hierarchical impact.
-
-!!! Dont
-
-Don’t mix different Alert types in the same context.
-
-![Example of different Alert types in the same context](/assets/components/alert/mixing-alert-types-dont.png)
-!!!
-
-!!! Do
-
-Instead, be more specific with how the Alerts are placed depending on what the message applies to.
-
-![Example of different Alert type placements](/assets/components/alert/mixing-alert-types-do.png)
-!!!
-
 ## Icons
 
 All alerts have icons by default that are intentionally tied to the alert type.
