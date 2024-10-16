@@ -156,14 +156,14 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     );
 
     // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
-    const isRealAlert: boolean =
+    const isSemanticAlert: boolean =
       this.color === 'warning' ||
       this.color === 'critical' ||
       this.color === 'success';
 
-    if (isRealAlert && actions.length) {
+    if (isSemanticAlert && actions.length) {
       this.role = 'alertdialog';
-    } else if (isRealAlert) {
+    } else if (isSemanticAlert) {
       this.role = 'alert';
     }
 
