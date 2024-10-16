@@ -8,8 +8,6 @@ links:
 previewImage: assets/illustrations/components/application-state.jpg
 navigation:
   keywords: ['empty state', 'error state', 'message']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

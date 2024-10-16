@@ -8,8 +8,6 @@ links:
 previewImage: assets/illustrations/components/card.jpg
 navigation:
   keywords: ['tile', 'container', 'box']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

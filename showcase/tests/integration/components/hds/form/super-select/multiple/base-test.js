@@ -163,6 +163,25 @@ module(
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
     });
 
+    test('it should render the default after options block with custom result count message when `@resultCountMessage` exists', async function (assert) {
+      setOptionsData(this);
+      await render(
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @resultCountMessage="custom result count message" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+      );
+      await click('.hds-form-super-select .ember-basic-dropdown-trigger');
+      assert
+        .dom(
+          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
+        )
+        .hasText('custom result count message');
+      assert
+        .dom('.hds-form-super-select__after-options .hds-button')
+        .hasText('Show selected');
+      assert
+        .dom('.hds-form-super-select__after-options .hds-button')
+        .doesNotHaveTextContaining('Clear selected');
+    });
+
     // MATCH TRIGGER WIDTH
 
     test('`@matchTriggerWidth` should be true by default', async function (assert) {

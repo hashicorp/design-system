@@ -7,8 +7,6 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/pagination
 related: ['components/table','patterns/filter-patterns', 'patterns/table-multi-select']
 previewImage: assets/illustrations/components/pagination.jpg
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

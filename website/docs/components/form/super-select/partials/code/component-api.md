@@ -185,6 +185,9 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
   <C.Property @name="afterOptionsContent" @type="string" @default="resultCountMessage">
     Sets the content of the default `afterOptions` component overriding the default content.
   </C.Property>
+  <C.Property @name="resultCountMessage" @type="string">
+    Overrides the default result count message. The default message follows this pattern: X selected of Y total.
+  </C.Property>
   <C.Property @name="closeOnSelect" @type="boolean" @default="false">
     Defaults to true instead for `SuperSelect::Single`.
   </C.Property>

@@ -31,7 +31,7 @@ interface ShwFlexSignature {
   Element: HTMLDivElement;
 }
 
-export default class ShwFlexComponent extends Component<ShwFlexSignature> {
+export default class ShwFlex extends Component<ShwFlexSignature> {
   direction = this.args.direction ?? 'row';
 
   get itemsStyle(): SafeString | undefined {

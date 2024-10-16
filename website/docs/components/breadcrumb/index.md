@@ -9,8 +9,6 @@ related: ['components/side-nav', 'components/tabs']
 previewImage: assets/illustrations/components/breadcrumb.jpg
 navigation:
   keywords: ['navigation', 'crumb', 'path']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">

@@ -3,11 +3,13 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
   render,
+  rerender,
+  triggerKeyEvent,
   resetOnerror,
   setupOnerror,
   settled,
@@ -138,11 +140,33 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-modal').isNotVisible();
   });
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
+    this.set('isDismissDisabled', true);
     await render(
-      hbs`<Hds::Modal @isDismissDisabled={{true}} id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @isDismissDisabled={{this.isDismissDisabled}} id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer as |F|>
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </M.Footer>
+          </Hds::Modal>`
     );
+    // top right dismiss button
     await click('button.hds-modal__dismiss');
-    assert.dom('#test-modal').exists();
+    assert.dom('#test-modal').isVisible();
+    // cancel button with yielded "close" callback
+    await click('#cancel-button');
+    assert.dom('#test-modal').isVisible();
+    // click on overlay
+    await click('.hds-modal__overlay');
+    assert.dom('#test-modal').isVisible();
+    // "esc" key
+    await triggerKeyEvent('.hds-modal', 'keydown', 'Escape');
+    assert.dom('#test-modal').isVisible();
+
+    // now let's check that the state is reset and it can be closed
+    this.set('isDismissDisabled', false);
+    await rerender();
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-modal').isNotVisible();
   });
 
   // ACCESSIBILITY
@@ -168,6 +192,63 @@ module('Integration | Component | hds/modal/index', function (hooks) {
           </Hds::Modal>`
     );
     assert.dom('button.hds-modal__dismiss').isFocused();
+  });
+
+  test('it returns focus to the element that initiated the open event, if is still in the DOM', async function (assert) {
+    await render(
+      hbs`<button id="test-button" type="button" {{on "click" (set this "showModal" true)}}>open modal</button>
+          {{#if this.showModal}}
+            <Hds::Modal id="test-modal" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Modal>
+          {{/if}}
+          `
+    );
+    await click('#test-button');
+    assert.true(this.showModal);
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-button').isFocused();
+  });
+
+  // not sure how to reach the `body` element, it says "body is not a valid root element"
+  skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown as |D|>
+            <D.ToggleButton id="test-toggle" @text="open modal" />
+            <D.Interactive id="test-interactive" {{on "click" (set this "showModal" true)}}>open modal</D.Interactive>
+          </Hds::Dropdown>
+          {{#if this.showModal}}
+            <Hds::Modal id="test-modal" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Modal>
+          {{/if}}
+          `
+    );
+    await click('#test-toggle');
+    await click('#test-interactive');
+    assert.true(this.showModal);
+    await click('button.hds-modal__dismiss');
+    assert.dom('body', 'body').isFocused();
+  });
+
+  test('it returns focus to a specific element if provided via`@returnFocusTo`', async function (assert) {
+    await render(
+      hbs`<Hds::Dropdown as |D|>
+            <D.ToggleButton id="test-toggle" @text="open modal" />
+            <D.Interactive id="test-interactive" {{on "click" (set this "showModal" true)}}>open modal</D.Interactive>
+          </Hds::Dropdown>
+          {{#if this.showModal}}
+            <Hds::Modal id="test-modal" @returnFocusTo="test-toggle" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Modal>
+          {{/if}}
+          `
+    );
+    await click('#test-toggle');
+    await click('#test-interactive');
+    assert.true(this.showModal);
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-toggle').isFocused();
   });
 
   // CALLBACKS

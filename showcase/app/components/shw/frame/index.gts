@@ -7,6 +7,9 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 
+import ShwLabel from '../label';
+import HdsIcon from '@hashicorp/design-system-components/components/hds/icon/index';
+
 import type { SafeString } from '@ember/template';
 
 interface ShwFrameSignature {
@@ -84,4 +87,35 @@ export default class ShwFrameComponent extends Component<ShwFrameSignature> {
 
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
+
+  <template>
+    <div class="shw-frame" style={{this.style}}>
+      {{#if @label}}
+        <ShwLabel>{{@label}}</ShwLabel>
+      {{/if}}
+      <div class="shw-frame__browser">
+        <div class="shw-frame__browser-navigation">
+          <a
+            class="shw-frame__open-link"
+            href={{this.src}}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <HdsIcon @name="external-link" @stretched={{true}} />
+            <span class="sr-only">open the frame in a new window</span>
+          </a>
+        </div>
+        <iframe
+          id={{@id}}
+          class="shw-frame__browser-viewport"
+          src={{this.src}}
+          referrerpolicy="no-referrer"
+          sandbox="allow-same-origin allow-scripts"
+          loading="lazy"
+          title={{this.title}}
+          ...attributes
+        ></iframe>
+      </div>
+    </div>
+  </template>
 }

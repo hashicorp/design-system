@@ -138,24 +138,6 @@ Setting the `@enableCollisionDetection` argument to `true` will automatically ad
 </Hds::Dropdown>
 ```
 
-### Conditionally render content
-
-By default, the content of the Dropdown is rendered into the browser even when the Dropdown is closed. To change this behavior, use the yielded `[D].isOpen` state to conditionally render the content when the Dropdown is open.
-
-```handlebars
-<Hds::Dropdown @enableCollisionDetection={{true}} as |D|>
-  <D.ToggleButton @text="Text Toggle" />
-  {{#if D.isOpen}}
-    <D.Interactive @route="components" @text="Item One" />
-    <D.Interactive @route="components" @text="Item Two" />
-    <D.Interactive @route="components" @text="Item Three" />
-    <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
-    <D.Separator />
-    <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
-  {{/if}}
-</Hds::Dropdown>
-```
-
 ### List size
 
 You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared:
@@ -202,6 +184,19 @@ It is possible that you may want to add a list footer for things like a set of b
       <Hds::Button @text="Cancel" @color="secondary" @size="small" />
     </Hds::ButtonSet>
   </D.Footer>
+</Hds::Dropdown>
+```
+
+### Content rendering in DOM
+
+By default, the content of the Dropdown is not rendered into the browser when the Dropdown is closed.
+
+To change this behavior, you can use the `@preserveContentInDom` argument so that the content is rendered in the DOM, regardless of whether the Dropdown is open or closed.
+
+```handlebars
+<Hds::Dropdown @preserveContentInDom={{true}} as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components" @text="This item should always be present in the DOM, regardless of whether the dropdown is open or closed" />
 </Hds::Dropdown>
 ```
 

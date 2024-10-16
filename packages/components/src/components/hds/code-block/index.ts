@@ -47,6 +47,7 @@ export interface HdsCodeBlockSignature {
     hasLineNumbers?: boolean;
     hasLineWrapping?: boolean;
     highlightLines?: string;
+    lineNumberStart?: number;
     isStandalone?: boolean;
     language?: HdsCodeBlockLanguages;
     maxHeight?: string;
@@ -192,7 +193,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     }
 
     // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
-    if (this.hasLineNumbers || this.args.highlightLines) {
+    if (this.hasLineNumbers) {
       classes.push('line-numbers');
     }
 

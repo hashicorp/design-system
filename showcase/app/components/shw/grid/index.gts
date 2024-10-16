@@ -6,10 +6,14 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+import { hash } from '@ember/helper';
+
+import ShwGridItem from './item';
+import ShwLabel from '../label';
 
 import type { ComponentLike } from '@glint/template';
-import type { ShwLabelSignature } from '../label';
 import type { SafeString } from '@ember/template';
+import type { ShwLabelSignature } from '../label';
 import type { ShwGridItemSignature } from './item';
 
 interface ShwGridSignature {
@@ -31,7 +35,7 @@ interface ShwGridSignature {
   Element: HTMLDivElement;
 }
 
-export default class ShwGridComponent extends Component<ShwGridSignature> {
+export default class ShwGrid extends Component<ShwGridSignature> {
   get columns(): number {
     const { columns } = this.args;
 
@@ -54,4 +58,16 @@ export default class ShwGridComponent extends Component<ShwGridSignature> {
 
     return classes.join(' ');
   }
+
+  <template>
+    <div class={{this.classNames}}>
+      {{#if @label}}
+        <ShwLabel>{{@label}}</ShwLabel>
+      {{/if}}
+      {{yield (hash Label=ShwLabel)}}
+      <div class="shw-grid__items" style={{this.itemsStyle}} ...attributes>
+        {{yield (hash Item=ShwGridItem)}}
+      </div>
+    </div>
+  </template>
 }

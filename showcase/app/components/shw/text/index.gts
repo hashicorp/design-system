@@ -46,7 +46,7 @@ export interface ShwTextSignature {
   Element: AvailableElements;
 }
 
-export default class ShwTextComponent extends Component<ShwTextSignature> {
+export default class ShwText extends Component<ShwTextSignature> {
   /**
    * Get a tag to render based on the `@tag` argument passed or the value of `this.size` (via mapping)
    *

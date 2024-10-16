@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import Component from '@glimmer/component';
+import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
 import ShwText from './index';
 import type { ShwTextSignature } from './index';
@@ -20,14 +20,14 @@ export interface ShwBodySignature {
   Element: ShwTextSignature['Element'];
 }
 
-export default class ShwTextBody extends Component<ShwBodySignature> {
-  <template>
-    <ShwText
-      @variant="body"
-      @align={{@align}}
-      @weight={{@weight}}
-      @tag={{@tag}}
-      ...attributes
-    >{{yield}}</ShwText>
-  </template>
-}
+const ShwTextBody: TemplateOnlyComponent<ShwBodySignature> = <template>
+  <ShwText
+    @variant="body"
+    @align={{@align}}
+    @weight={{@weight}}
+    @tag={{@tag}}
+    ...attributes
+  >{{yield}}</ShwText>
+</template>;
+
+export default ShwTextBody;

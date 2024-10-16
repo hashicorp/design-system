@@ -7,8 +7,6 @@ links:
 previewImage: assets/illustrations/layouts/app-frame.jpg
 navigation:
   keywords: ['layout', 'application', 'frame', 'header', 'sidebar', 'sidenav', 'footer', 'modal']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Code">

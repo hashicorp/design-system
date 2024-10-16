@@ -10,8 +10,6 @@ previewImage: assets/illustrations/components/accordion.jpg
 navigation:
   hidden: false
   keywords: ['toggle', 'disclosure', 'details', 'reveal', 'list', 'summary', 'expand', 'collapse']
-status:
-  updated: 4.10.0
 ---
 
 <section data-tab="Guidelines">
