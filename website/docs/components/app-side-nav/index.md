@@ -33,6 +33,6 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.10.0.md"
+  @include "partials/version-history/4.14.0.md"
 </section>
 
