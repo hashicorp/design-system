@@ -119,15 +119,9 @@ Don't use alerts to communicate error messages that are not caused by the user. 
 
 ### Informational Alerts
 
-Use the highlight and neutral alert variants for less urgent messages like updates, promotions, or non-critical warnings. These non-disruptive alerts are ideal for information or upsells that don't require immediate attention. Use critical, success, or warning alerts instead for errors or urgent situations.
+Use the highlight and neutral alert variants for non-urgent messages like updates, promotions, or non-critical warnings. These non-disruptive alerts are ideal for information or upsells that don't need immediate attention, while critical, success, or warning alerts should be reserved for urgent situations.
 
-In Figma, designers should use the highlight and neutral alert variants when creating UI designs for informational messages. In the Ember component, these alert variants are coded without `role="alert"` and with `aria-live` set to "off."
-
-!!! Info 
-
-Designers should be aware that assistive technologies will not treat these alerts as urgent, aligning the design intent with the user experience in development.
-
-!!!
+Designers can apply these variants as needed in Figma. In development, they are already configured without `role= "alert"` and with `aria-live= "off"` meaning assistive technologies won't treat them as urgent, which aligns with their informational purpose.
 
 ### Ordering Alerts by color
 
