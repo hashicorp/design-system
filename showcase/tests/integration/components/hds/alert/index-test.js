@@ -3,324 +3,179 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
+import { tracked } from '@glimmer/tracking';
 
-module('Integration | Component | hds/alert/index', function (hooks) {
-  setupRenderingTest(hooks);
+import { HdsAlertColorValues, HdsAlertTypeValues } from './types.ts';
 
-  hooks.afterEach(() => {
-    resetOnerror();
-  });
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type HdsButtonComponent from '../button';
+import type HdsLinkStandaloneComponent from '../link/standalone';
+import type { HdsYieldSignature } from '../yield';
+import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
+import type { HdsAlertTitleSignature } from './title.ts';
+import type { HdsAlertDescriptionSignature } from './description.ts';
+import type { HdsIconSignature } from '../icon';
 
-  test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" id="test-alert" />`);
-    assert.dom('#test-alert').hasClass('hds-alert');
-  });
+export const TYPES: string[] = Object.values(HdsAlertTypeValues);
+export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
+export const COLORS: string[] = Object.values(HdsAlertColorValues);
 
-  // TYPE
+export const MAPPING_COLORS_TO_ICONS = {
+  [HdsAlertColorValues.Neutral]: 'info',
+  [HdsAlertColorValues.Highlight]: 'info',
+  [HdsAlertColorValues.Success]: 'check-circle',
+  [HdsAlertColorValues.Warning]: 'alert-triangle',
+  [HdsAlertColorValues.Critical]: 'alert-diamond',
+} as const;
 
-  test('it should render the correct CSS type class depending on the @type prop', async function (assert) {
-    await render(hbs`<Hds::Alert @type="page" id="test-alert" />`);
-    assert.dom('#test-alert').hasClass('hds-alert--type-page');
-  });
+const CONTENT_ELEMENT_SELECTOR = '.hds-alert__content';
+const TITLE_ELEMENT_SELECTOR = '.hds-alert__title';
+const DESCRIPTION_ELEMENT_SELECTOR = '.hds-alert__description';
 
-  // ICON
+export interface HdsAlertSignature {
+  Args: {
+    type: HdsAlertTypes;
+    color?: HdsAlertColors;
+    icon?: HdsIconSignature['Args']['name'] | false;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    onDismiss?: (event: MouseEvent, ...args: any[]) => void;
+  };
+  Blocks: {
+    default: [
+      {
+        Title?: ComponentLike<HdsAlertTitleSignature>;
+        Description?: ComponentLike<HdsAlertDescriptionSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
+        LinkStandalone?: WithBoundArgs<
+          typeof HdsLinkStandaloneComponent,
+          'size'
+        >;
+        Button?: WithBoundArgs<typeof HdsButtonComponent, 'size'>;
+      },
+    ];
+  };
+  Element: HTMLDivElement;
+}
 
-  test('it should render an icon by default depending on the type and color', async function (assert) {
-    // here we don't test all the possible combinations, only some of them as precaution
-    await render(hbs`<Hds::Alert @type="inline" />`);
-    assert.dom('.hds-icon-info').exists();
-    await render(hbs`<Hds::Alert @type="compact" />`);
-    assert.dom('.hds-icon-info-fill').exists();
-    await render(hbs`<Hds::Alert @type="inline" @color="highlight" />`);
-    assert.dom('.hds-icon-info').exists();
-    await render(hbs`<Hds::Alert @type="inline" @color="success" />`);
-    assert.dom('.hds-icon-check-circle').exists();
-    await render(hbs`<Hds::Alert @type="inline" @color="warning" />`);
-    assert.dom('.hds-icon-alert-triangle').exists();
-    await render(hbs`<Hds::Alert @type="inline" @color="critical" />`);
-    assert.dom('.hds-icon-alert-diamond').exists();
-  });
+export default class HdsAlert extends Component<HdsAlertSignature> {
+  @tracked role?: string;
+  @tracked ariaLabelledBy?: string;
 
-  test('if an icon is declared, the icon should render in the component and override the default one', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" @icon="clipboard-copy" />`);
-    assert.dom('.hds-icon-clipboard-copy').exists();
-    await render(hbs`<Hds::Alert @type="compact" @icon="clipboard-copy" />`);
-    assert.dom('.hds-icon-clipboard-copy').exists();
-  });
+  constructor(owner: unknown, args: HdsAlertSignature['Args']) {
+    super(owner, args);
 
-  test('it should display no icon when @icon is set to false', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" @icon={{false}} />`);
-    assert.dom('.hds-icon').doesNotExist();
-  });
-
-  // TEXT (TITLE + DESCRIPTION)
-
-  test('it should render the title when the "title" contextual component is provided', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Title>This is the title</A.Title></Hds::Alert>`
+    assert(
+      `@type for "Hds::Alert" must be one of the following: ${TYPES.join(
+        ', '
+      )}; received: ${this.args.type}`,
+      TYPES.includes(this.args.type)
     );
-    assert.dom(this.element).hasText('This is the title');
-  });
-  test('it should render the description when the "description" contextual component is provided', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Description>This is the description</A.Description></Hds::Alert>`
+  }
+
+  // Determines the color scheme for the alert.
+  get color(): HdsAlertColors {
+    const { color = DEFAULT_COLOR } = this.args;
+
+    assert(
+      `@color for "Hds::Alert" must be one of the following: ${COLORS.join(
+        ', '
+      )}; received: ${color}`,
+      COLORS.includes(color)
     );
-    assert.dom(this.element).hasText('This is the description');
-  });
-  test('it should render rich HTML when the "description" contextual component contains HTML tags', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
+
+    return color;
+  }
+
+  // The name of the icon to be used.
+  get icon(): HdsIconSignature['Args']['name'] | false {
+    const { icon } = this.args;
+
+    // If `icon` isn't passed, use the pre-defined one from `color`
+    if (icon === undefined) {
+      if (this.args.type === 'compact') {
+        // for the "compact" type by default we use filled icons
+        return `${MAPPING_COLORS_TO_ICONS[this.color]}-fill`;
+      } else {
+        // for all the other types by default we use outlined icons
+        return MAPPING_COLORS_TO_ICONS[this.color];
+      }
+      // If `icon` is set explicitly to false, user doesn't want any icon in the alert
+    } else if (icon === false) {
+      assert(
+        `@icon for "Hds::Alert" with @type "compact" is required`,
+        this.args.type !== 'compact'
+      );
+
+      return false;
+    } else {
+      // If a name for `icon` is passed, set HdsIcon to that name
+      return icon;
+    }
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
+    const { onDismiss } = this.args;
+
+    if (typeof onDismiss === 'function') {
+      return onDismiss;
+    } else {
+      return false;
+    }
+  }
+
+  // Ensures that the correct icon size is used. Automatically calculated.
+  get iconSize(): HdsIconSignature['Args']['size'] {
+    if (this.args.type === 'compact') {
+      return '16';
+    } else {
+      return '24';
+    }
+  }
+
+  // The "class" attribute to apply to the component.
+  get classNames(): string {
+    const classes = ['hds-alert'];
+
+    // Add a class based on the @type argument
+    classes.push(`hds-alert--type-${this.args.type}`);
+
+    // Add a class based on the @color argument
+    classes.push(`hds-alert--color-${this.color}`);
+
+    return classes.join(' ');
+  }
+
+  @action
+  didInsert(element: HTMLDivElement): void {
+    const actions = element.querySelectorAll(
+      `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
-    assert.dom('.hds-alert__description strong').exists().hasText('strong');
-    assert.dom('.hds-alert__description em').exists().hasText('em');
-    assert.dom('.hds-alert__description code').exists().hasText('code');
-    assert.dom('.hds-alert__description a').exists().hasText('link');
-  });
-  test('it should render a div when the @tag argument is not provided', async function (assert) {
-    await render(hbs`
-      <Hds::Alert @type="inline" as |A|>
-        <A.Title>This is the title</A.Title>
-      </Hds::Alert>`);
-    assert.dom('.hds-alert__title').hasTagName('div');
-  });
-  test('it should render the custom title tag when the @tag argument is provided', async function (assert) {
-    await render(hbs`
-      <Hds::Alert @type="inline" as |A|>
-        <A.Title @tag="h2">This is the title</A.Title>
-      </Hds::Alert>`);
-    assert.dom('.hds-alert__title').hasTagName('h2');
-  });
 
-  // ACTIONS
+    const isRealAlert: boolean =
+      this.color === 'warning' ||
+      this.color === 'critical' ||
+      this.color === 'success';
 
-  test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-button" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" id="test-alert-button"/></Hds::Alert>`
-    );
-    assert
-      .dom('#test-alert .hds-alert__actions button')
-      .exists()
-      .hasClass('hds-button')
-      .hasClass('hds-button--size-small')
-      .hasClass('hds-button--color-secondary')
-      .hasText('I am a button');
-  });
-  test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-link" id="test-alert" as |A|><A.LinkStandalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" id="test-alert-link" /></Hds::Alert>`
-    );
-    assert
-      .dom('#test-alert .hds-alert__actions a')
-      .exists()
-      .hasClass('hds-link-standalone')
-      .hasClass('hds-link-standalone--size-small')
-      .hasClass('hds-link-standalone--color-secondary')
-      .hasText('I am a link');
-  });
+    if (isRealAlert && actions.length) {
+      this.role = 'alertdialog';
+    } else if (isRealAlert) {
+      this.role = 'alert';
+    }
 
-  // GENERIC
-
-  test('it should render any content passed to the "generic" contextual component', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
-    );
-    assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
-  });
-
-  // DISMISS
-
-  test('it should not render the "dismiss" button by default', async function (assert) {
-    await render(hbs`<Hds::Alert @type="inline" />`);
-    assert.dom('button.hds-alert__dismiss').doesNotExist();
-  });
-  test('it should render the "dismiss" button if a callback function is passed to the @onDismiss argument', async function (assert) {
-    this.set('NOOP', () => {});
-    await render(hbs`<Hds::Alert @type="inline" @onDismiss={{this.NOOP}} />`);
-    assert.dom('button.hds-alert__dismiss').exists();
-  });
-
-  // A11Y
-
-  // Alert and non-alert usages
-
-  // * Colors for alert usages: success, warning, critical
-
-  test('it should render the component with role="alert" and aria-live="polite" for the "success" color', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="success" id="test-alert" />`
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alert');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  test('it should render the component with role="alert" and aria-live="polite" for the "warning" color', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="warning" id="test-alert" />`
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alert');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  test('it should render the component with role="alert" and aria-live="polite" for the "critical" color', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="critical" id="test-alert" />`
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alert');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  // * Colors for non-alert usages: neutral, highlight
-
-  test('it should not render the component with role="alert" and aria-live="polite" for the "neutral" color', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="neutral" id="test-alert" />`
-    );
-    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
-    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
-  });
-
-  test('it should not render the component with role="alert" and aria-live="polite" for the "highlight" color', async function (assert) {
-    await render(
-      hbs`<Hds::Alert @type="inline" @color="highlight" id="test-alert" />`
-    );
-    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
-    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
-  });
-
-  // aria-labelledby
-
-  test('it should render with an auto-generated `aria-labelledby` when a title is provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" id="test-alert" as |A|>
-          <A.Title>This is the title</A.Title>
-        </Hds::Alert>
-      `
-    );
-    let title = this.element.querySelector('#test-alert .hds-alert__title');
-    assert.dom('#test-alert').hasAttribute('aria-labelledby', title.id);
-  });
-
-  test('it should render with an auto-generated `aria-labelledby` when description is provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" id="test-alert" as |A|>
-          <A.Description>This is the title</A.Description>
-        </Hds::Alert>
-      `
-    );
-    let description = this.element.querySelector(
-      '#test-alert .hds-alert__description'
-    );
-    assert.dom('#test-alert').hasAttribute('aria-labelledby', description.id);
-  });
-
-  // Alert dialogs
-
-  // * Colors for alert usages: success, warning, critical
-
-  test('it should render with with role="alertdialog" and aria-live="polite" for the "success" color when actions are provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" @color="success" id="test-alert" as |A|>
-          <A.Button @text="I am a button" @size="small" />
-        </Hds::Alert>
-      `
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  test('it should render with with role="alertdialog" and aria-live="polite" for the "warning" color when actions are provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" @color="warning" id="test-alert" as |A|>
-          <A.Button @text="I am a button" @size="small" />
-        </Hds::Alert>
-      `
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  test('it should render with with role="alertdialog" and aria-live="polite" for the "critical" color when actions are provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" @color="critical" id="test-alert" as |A|>
-          <A.Button @text="I am a button" @size="small" />
-        </Hds::Alert>
-      `
-    );
-    assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
-  });
-
-  // * Colors for non-alert usages: neutral, highlight
-
-  test('it should not render with with role="alertdialog" and aria-live="polite" for the "neutral" color when actions are provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" @color="neutral" id="test-alert" as |A|>
-          <A.Button @text="I am a button" @size="small" />
-        </Hds::Alert>
-      `
-    );
-    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
-  });
-
-  test('it should not render with with role="alertdialog" and aria-live="polite" for the "highlight" color when actions are provided', async function (assert) {
-    await render(
-      hbs`
-        <Hds::Alert @type="inline" @color="highlight" id="test-alert" as |A|>
-          <A.Button @text="I am a button" @size="small" />
-        </Hds::Alert>
-      `
-    );
-    assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
-    assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
-  });
-
-  // ASSERTIONS
-
-  test('it should throw an assertion if an incorrect value for @type is provided', async function (assert) {
-    const errorMessage =
-      '@type for "Hds::Alert" must be one of the following: page, inline, compact; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Alert @type="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  test('it should throw an assertion if a "compact" alerts is rendered with @icon equal to false', async function (assert) {
-    const errorMessage =
-      '@icon for "Hds::Alert" with @type "compact" is required';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Alert @type="compact" @icon={{false}} />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-  test('it should throw an assertion if an incorrect value for @color is provided', async function (assert) {
-    const errorMessage =
-      '@color for "Hds::Alert" must be one of the following: neutral, highlight, success, warning, critical; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Alert @type="inline" @color="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
-});
+    // `alertdialog` must have an accessible name so we use either the
+    // title or the description as label for the alert
+    const label =
+      element.querySelector(TITLE_ELEMENT_SELECTOR) ||
+      element.querySelector(DESCRIPTION_ELEMENT_SELECTOR);
+    if (label) {
+      const labelId = label.getAttribute('id') || guidFor(element);
+      label.setAttribute('id', labelId);
+      this.ariaLabelledBy = labelId;
+    }
+  }
+}

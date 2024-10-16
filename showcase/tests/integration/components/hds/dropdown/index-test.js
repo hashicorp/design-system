@@ -170,6 +170,23 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('#test-dropdown ul').hasStyle({ width: '248px' });
   });
 
+  // PRESERVE DISCLOSED CONTENT WHEN INTERACTED WITH
+
+  test('it should preserve the content visible when interacted with', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" as |D|>
+        <D.ToggleButton @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" id="test-list-item-interactive" @text="interactive" />
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+    // click on the dropdown content container as a minimal interaction with the content;
+    // it could be followed by selection, a right click etc.
+    await click('.hds-dropdown__content');
+    assert.dom('#test-dropdown #test-list-item-interactive').exists();
+  });
+
   // CLOSE DISCLOSED CONTENT ON CLICK
 
   test('it should hide the content when an interactive element triggers `close`', async function (assert) {

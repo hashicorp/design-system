@@ -137,7 +137,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  // The "class" attribute to apply to the component.
   get classNames(): string {
     const classes = ['hds-alert'];
 
@@ -156,14 +155,15 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
 
-    const isRealAlert: boolean =
+    // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
+    const isSemanticAlert: boolean =
       this.color === 'warning' ||
       this.color === 'critical' ||
       this.color === 'success';
 
-    if (isRealAlert && actions.length) {
+    if (isSemanticAlert && actions.length) {
       this.role = 'alertdialog';
-    } else if (isRealAlert) {
+    } else if (isSemanticAlert) {
       this.role = 'alert';
     }
 

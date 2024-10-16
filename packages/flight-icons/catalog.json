@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2024-10-09T16:48:37.779Z",
+  "lastRunTimeISO": "2024-10-14T17:04:16.783Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -881,6 +881,46 @@
       "fileName": "codepen-color-16",
       "iconName": "codepen-color",
       "description": "codepen",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6750:66",
+      "fileName": "confluent-24",
+      "iconName": "confluent",
+      "description": "confluent",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6750:73",
+      "fileName": "confluent-16",
+      "iconName": "confluent",
+      "description": "confluent",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "6750:83",
+      "fileName": "confluent-color-24",
+      "iconName": "confluent-color",
+      "description": "confluent",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "6750:90",
+      "fileName": "confluent-color-16",
+      "iconName": "confluent-color",
+      "description": "confluent",
       "category": "Services",
       "size": "16",
       "width": 16,
