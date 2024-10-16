@@ -117,9 +117,9 @@ Don't use alerts to communicate error messages that are not caused by the user. 
 </Hds::Alert>
 !!!
 
-### Non-critical Alerts
+### Informational Alerts
 
-Use non-critical alerts, like highlight and neutral variants, for less urgent messages. These include updates, promotions, and non-urgent warnings. These alerts are non-disruptive. They suit info messages or upsells that don't need immediate attention. Use critical, success, or warning alerts instead for errors or urgent situations.
+Use Informational alerts, like highlight and neutral variants, for less urgent messages. These include updates, promotions, and non-urgent warnings. These alerts are non-disruptive. They suit info messages or up-sells that don't need immediate attention. Use critical, success, or warning alerts instead for errors or urgent situations.
 
 !!! Info 
 
