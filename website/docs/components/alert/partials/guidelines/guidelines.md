@@ -117,6 +117,18 @@ Don't use alerts to communicate error messages that are not caused by the user. 
 </Hds::Alert>
 !!!
 
+### Non-critical Alerts
+
+Use non-critical alerts, like highlight and neutral variants, for less urgent messages. These include updates, promotions, and non-urgent warnings. These alerts are non-disruptive. They suit info messages or upsells that don't need immediate attention. Use critical, success, or warning alerts instead for errors or urgent situations.
+
+<!-- ![Dashboard example of a neutral inline alert warning about integrations running out.](/assets/components/alert/alert-non-critical.png) -->
+
+!!! Info 
+
+Since there isn't a Figma counterpart for these, it’s important to collaborate with your engineering partner to ensure proper use and accessibility.
+
+!!!
+
 ### Ordering Alerts by color
 
 Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
