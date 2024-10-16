@@ -155,6 +155,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
 
+    // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
     const isRealAlert: boolean =
       this.color === 'warning' ||
       this.color === 'critical' ||
