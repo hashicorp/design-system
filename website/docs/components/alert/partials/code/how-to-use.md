@@ -70,6 +70,10 @@ The default `@tag` is `"div"` because the correct value is dependent on the indi
 
 A different color can be applied to the Alert using the `color` argument. This will determine the default icon used in the Alert, unless overwritten.
 
+The “success”, “warning”, and “critical” Alert colors will be read to users before any other content as they include either `role="alert"` or `role="alertdialog"` and `aria-live="polite"` attributes by default.
+
+For informational or promotional content which is non-critical to users, use either the “neutral” or “highlight” colors as these do not include `role` or `aria-live` attributes.
+
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>Title here</A.Title>
