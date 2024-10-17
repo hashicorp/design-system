@@ -18,6 +18,9 @@
   <C.Property @name="color" @type="enum" @values={{array "neutral" "warning" "critical" }} @default="neutral">
     Sets the color scheme for the Modal Header elements: icon, tagline, and title.
   </C.Property>
+  <C.Property @name="returnFocusTo" @type="string">
+    The `id` of the element where the focus should be returned once the modal is closed (e.g., if the element that initiated the event is not in the DOM anymore once closed).
+  </C.Property>
   <C.Property @name="onOpen" @type="function">
     Callback function invoked when the Modal is opened.
   </C.Property>
