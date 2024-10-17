@@ -19,7 +19,7 @@
     Sets the width of the Flyout.
   </C.Property>
   <C.Property @name="returnFocusTo" @type="string">
-    The `id` of the element where the focus should be returned once the flyout is closed (eg. if the element that initiated the event is not in the DOM anymore once closed).
+    The `id` of the element where the focus should be returned once the flyout is closed (e.g., if the element that initiated the event is not in the DOM anymore once closed).
   </C.Property>
   <C.Property @name="onOpen" @type="function">
     Callback function invoked when the Flyout is opened.
