@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 
-interface HdsAppSideNavSignature {
+export interface HdsAppSideNavSignature {
   Args: {
     isResponsive?: boolean;
     isCollapsible?: boolean;
