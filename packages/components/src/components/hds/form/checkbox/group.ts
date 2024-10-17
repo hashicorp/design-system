@@ -11,7 +11,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormCheckboxFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
-interface HdsFormCheckboxGroupSignature {
+export interface HdsFormCheckboxGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     name?: string;
   };

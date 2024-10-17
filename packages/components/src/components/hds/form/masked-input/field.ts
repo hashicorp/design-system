@@ -12,7 +12,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormMaskedInputBaseSignature } from './base';
 
-interface HdsFormMaskedInputFieldSignature {
+export interface HdsFormMaskedInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
     HdsFormMaskedInputBaseSignature['Args'];
   Blocks: {

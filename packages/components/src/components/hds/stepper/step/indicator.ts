@@ -12,7 +12,7 @@ import type { HdsStepperStatuses } from '../types.ts';
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
 export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
 
-interface HdsStepperStepIndicatorSignature {
+export interface HdsStepperStepIndicatorSignature {
   Args: {
     status?: HdsStepperStatuses;
     isInteractive?: boolean;

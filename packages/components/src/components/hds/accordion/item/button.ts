@@ -8,7 +8,7 @@ import { action } from '@ember/object';
 
 import type { HdsAccordionSizes } from '../types.ts';
 
-interface HdsAccordionItemButtonSignature {
+export interface HdsAccordionItemButtonSignature {
   Args: {
     ariaLabel?: string;
     ariaLabelledBy?: string;

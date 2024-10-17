@@ -16,7 +16,7 @@ import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle';
 import HdsFormCharacterCountComponent from '../character-count/index.ts';
 
-interface HdsFormTextInputFieldSignature {
+export interface HdsFormTextInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
     HdsFormTextInputBaseSignature['Args'] & {
       visibilityToggleAriaLabel?: HdsFormVisibilityToggleSignature['Args']['ariaLabel'];

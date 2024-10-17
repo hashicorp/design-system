@@ -4,7 +4,7 @@
  */
 
 import TemplateOnlyComponent from '@ember/component/template-only';
-interface HdsButtonSetSignature {
+export interface HdsButtonSetSignature {
   Blocks: { default: [] };
   Element: HTMLDivElement;
 }

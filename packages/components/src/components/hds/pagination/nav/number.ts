@@ -14,7 +14,7 @@ interface HdsPaginationNavNumberArgs {
   isSelected: boolean;
 }
 
-interface HdsPaginationNavNumberSignature {
+export interface HdsPaginationNavNumberSignature {
   Args: HdsPaginationNavNumberArgs & HdsInteractiveSignature['Args'];
   Element: HdsInteractiveSignature['Element'];
 }

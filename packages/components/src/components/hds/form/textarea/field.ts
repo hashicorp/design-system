@@ -13,7 +13,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
 import type HdsFormCharacterCountComponent from '../character-count';
 
-interface HdsFormTextareaFieldSignature {
+export interface HdsFormTextareaFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
     HdsFormTextareaBaseSignature['Args'];
   Blocks: {

@@ -16,7 +16,7 @@ import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
 
 export const DEFAULT_SIZE: HdsTabsSizes = 'medium' as const;
 export const SIZES: HdsTabsSizes[] = Object.values(HdsTabsSizeValues);
-interface HdsTabsSignature {
+export interface HdsTabsSignature {
   Args: {
     size?: HdsTabsSizes;
     onClickTab?: (event: MouseEvent, tabIndex: number) => void;

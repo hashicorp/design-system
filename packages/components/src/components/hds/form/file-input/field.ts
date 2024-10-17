@@ -10,7 +10,7 @@ import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormErrorSignature } from '../error';
 
-interface HdsFormFileInputFieldSignature {
+export interface HdsFormFileInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'>;
   Blocks: {
     default: [

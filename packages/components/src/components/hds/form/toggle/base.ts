@@ -5,7 +5,7 @@
 
 import templateOnlyComponent from '@ember/component/template-only';
 
-interface HdsFormToggleBaseSignature {
+export interface HdsFormToggleBaseSignature {
   Args: {
     value?: string;
   };

@@ -11,7 +11,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormToggleFieldSignature } from './field';
 import type { HdsFormErrorSignature } from '../error';
 
-interface HdsFormToggleGroupSignature {
+export interface HdsFormToggleGroupSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     name?: string;
   };

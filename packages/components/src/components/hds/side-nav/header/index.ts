@@ -5,7 +5,7 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 
-interface HdsSideNavHeaderSignature {
+export interface HdsSideNavHeaderSignature {
   Blocks: {
     logo?: [];
     actions?: [];

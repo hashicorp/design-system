@@ -12,7 +12,7 @@ import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormSelectBaseSignature } from './base';
 import type { HdsYieldSignature } from '../../yield';
 
-interface HdsFormSelectFieldSignature {
+export interface HdsFormSelectFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
     HdsFormSelectBaseSignature['Args'];
   Blocks: {
