@@ -5,8 +5,8 @@
 
 <Portal @target={{if @targetName @targetName "hds-side-nav-portal-target"}}>
   <div class="hds-side-nav__content-panel" ...attributes>
-    <Hds::SideNav::List aria-label={{@ariaLabel}} as |ListElements|>
-      {{yield ListElements}}
-    </Hds::SideNav::List>
+    {{!-- <Hds::SideNav::List aria-label={{@ariaLabel}} as |ListElements|> --}}
+    {{yield}}
+    {{! </Hds::SideNav::List> }}
   </div>
 </Portal>
