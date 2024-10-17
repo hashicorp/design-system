@@ -159,17 +159,8 @@ export const elliptize = ({
   return result;
 };
 export default class HdsPaginationNumbered extends Component<HdsPaginationNumberedSignature> {
-  // These two private variables are used to differentiate between
-  // "uncontrolled" component (where the state is handled internally) and
-  // "controlled" component (where the state is handled externally, by the consumer's code).
-  // In the first case, these variables store the internal state of the component at any moment,
-  // and their value is updated internally according to the user's interaction with the component.
-  // In the second case, these variables store *only* the initial state of the component (coming from the arguments)
-  // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
-  // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPage = this.args.currentPage ?? 1;
-  // we assert that `this.pageSizes` will always be an array with at least one item
-  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0]!;
+  @tracked _currentPage;
+  @tracked _currentPageSize;
   @tracked isControlled;
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
@@ -217,6 +208,18 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       '@totalItems for "Hds::Pagination::Numbered" must be defined as an integer number',
       typeof this.args.totalItems === 'number'
     );
+
+    // These two private variables are used to differentiate between
+    // "uncontrolled" component (where the state is handled internally) and
+    // "controlled" component (where the state is handled externally, by the consumer's code).
+    // In the first case, these variables store the internal state of the component at any moment,
+    // and their value is updated internally according to the user's interaction with the component.
+    // In the second case, these variables store *only* the initial state of the component (coming from the arguments)
+    // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
+    // has with the component (the state is controlled externally, eg. via query parameters)
+    this._currentPage = this.args.currentPage ?? 1;
+    // we assert that `this.pageSizes` will always be an array with at least one item
+    this._currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
   }
 
   get ariaLabel(): string {
@@ -248,7 +251,6 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     if (this.isControlled) {
       // noop
     } else {
-      // if `this.isControlled` is `false`
       this._currentPage = value as number;
     }
   }
@@ -258,6 +260,10 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       // if the component is controlled, `@currentPageSize` is asserted to be a number
       return this.args.currentPageSize as number;
     } else {
+      if (this._currentPageSize === undefined) {
+        return 1;
+      }
+
       return this._currentPageSize;
     }
   }

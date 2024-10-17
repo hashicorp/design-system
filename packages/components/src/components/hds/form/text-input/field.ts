@@ -40,23 +40,21 @@ export interface HdsFormTextInputFieldSignature {
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {
   @tracked isPasswordMasked = true;
-  @tracked hasVisibilityToggle = this.args.hasVisibilityToggle ?? true;
-  @tracked type = this.args.type ?? 'text';
+  @tracked type;
 
-  /**
-   * @param showVisibilityToggle
-   * @type {boolean}
-   * @default false
-   */
+  constructor(owner: unknown, args: HdsFormTextInputFieldSignature['Args']) {
+    super(owner, args);
+    this.type = this.args.type ?? 'text';
+  }
+
+  get hasVisibilityToggle(): boolean {
+    return this.args.hasVisibilityToggle ?? true;
+  }
+
   get showVisibilityToggle(): boolean {
     return this.args.type === 'password' && this.hasVisibilityToggle;
   }
 
-  /**
-   * @param visibilityToggleAriaLabel
-   * @type {string}
-   * @default 'Show password'
-   */
   get visibilityToggleAriaLabel(): string | undefined {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
@@ -67,11 +65,6 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
     }
   }
 
-  /**
-   * @param visibilityToggleAriaMessageText
-   * @type {string}
-   * @default 'Password is now hidden'
-   */
   get visibilityToggleAriaMessageText(): string | undefined {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;

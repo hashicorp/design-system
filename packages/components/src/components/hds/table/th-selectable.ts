@@ -41,12 +41,16 @@ export interface HdsTableThSelectableSignature {
 }
 
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
-  @tracked isSelected = this.args.isSelected ?? false;
-
+  @tracked isSelected: boolean;
   guid = guidFor(this);
 
   checkboxId = `checkbox-${this.guid}`;
   labelId = `label-${this.guid}`;
+
+  constructor(owner: unknown, args: HdsTableThSelectableSignature['Args']) {
+    super(owner, args);
+    this.isSelected = this.args.isSelected ?? false;
+  }
 
   get isSortable(): boolean {
     return this.args.onClickSortBySelected !== undefined;
