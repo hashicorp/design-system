@@ -58,14 +58,17 @@ Use highlight alerts to show more prominent general information or promotional c
 
 ### Status alerts 
 
-<Doc::Layout @spacing="12px">
+<Doc::Layout @spacing="12px" @alignment=>
   <Hds::Alert @type="inline" @color="success" as |A|>
-    <A.Description>Cluster deployment was successful.</A.Description>
+    <A.Title>Cluster deployment</A.Title>
+    <A.Description>Your cluster deployment was successfully deployed.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="warning" as |A|>
-    <A.Description>Work was not saved properly.</A.Description>
+    <A.Title>Not saved</A.Title>
+    <A.Description>Your work has not been saved properly.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="critical" as |A|>
+  <A.Title>Invitation expired</A.Title>
     <A.Description>This invitation has already been accepted. Sign in to continue to your organization.</A.Description>
   </Hds::Alert>
 </Doc::Layout>
