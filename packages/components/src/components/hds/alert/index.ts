@@ -62,7 +62,7 @@ export interface HdsAlertSignature {
 }
 
 export default class HdsAlert extends Component<HdsAlertSignature> {
-  @tracked role = 'alert';
+  @tracked role?: string;
   @tracked ariaLabelledBy?: string;
 
   constructor(owner: unknown, args: HdsAlertSignature['Args']) {
@@ -76,12 +76,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     );
   }
 
-  /**
-   * @param color
-   * @type {enum}
-   * @default neutral
-   * @description Determines the color scheme for the alert.
-   */
+  // Determines the color scheme for the alert.
   get color(): HdsAlertColors {
     const { color = DEFAULT_COLOR } = this.args;
 
@@ -95,12 +90,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     return color;
   }
 
-  /**
-   * @param icon
-   * @type {string}
-   * @default false
-   * @description The name of the icon to be used.
-   */
+  // The name of the icon to be used.
   get icon(): HdsIconSignature['Args']['name'] | false {
     const { icon } = this.args;
 
@@ -127,11 +117,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  /**
-   * @param onDismiss
-   * @type {function}
-   * @default () => {}
-   */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   get onDismiss(): ((event: MouseEvent, ...args: any[]) => void) | false {
     const { onDismiss } = this.args;
@@ -143,11 +128,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  /**
-   * @param iconSize
-   * @type {string}
-   * @description ensures that the correct icon size is used. Automatically calculated.
-   */
+  // Ensures that the correct icon size is used. Automatically calculated.
   get iconSize(): HdsIconSignature['Args']['size'] {
     if (this.args.type === 'compact') {
       return '16';
@@ -156,11 +137,6 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method Alert#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-alert'];
 
@@ -178,8 +154,17 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     const actions = element.querySelectorAll(
       `${CONTENT_ELEMENT_SELECTOR} button, ${CONTENT_ELEMENT_SELECTOR} a`
     );
-    if (actions.length) {
+
+    // an Alert which actually alerts users (has role="alert" & aria-live="polite") as opposed to an informational or promo "alert"
+    const isSemanticAlert: boolean =
+      this.color === 'warning' ||
+      this.color === 'critical' ||
+      this.color === 'success';
+
+    if (isSemanticAlert && actions.length) {
       this.role = 'alertdialog';
+    } else if (isSemanticAlert) {
+      this.role = 'alert';
     }
 
     // `alertdialog` must have an accessible name so we use either the
