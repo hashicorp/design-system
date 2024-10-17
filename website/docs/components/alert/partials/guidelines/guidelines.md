@@ -34,41 +34,53 @@ Alert types have an implied hierarchy and should be ordered starting from `page`
 
 ## Color
 
+### Information alerts 
 <Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
-    <A.Title>Neutral alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Title>Note</A.Title>
+    <A.Description>GitHub Actions doesn’t support names starting with the “GitHub_” prefix. If your secret names include “GitHub_”, you’ll need to rename them for proper syncing secrets.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="highlight" as |A|>
-    <A.Title>Highlight alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
+    <A.Title>Upgrade</A.Title>
+    <A.Description>Looks like you’re getting close to using up free tier. Unlock more integrations and other premium features. [Upgrade now](https://helios.hashicorp.design/).</A.Description>
+      </Hds::Alert>
+</Doc::Layout>
+
+Informational alerts are non-urgent, non-disruptive alerts that don’t require immediate attention.
+
+#### Neutral alerts 
+
+Use neutral alerts to show general information regarding the current context or relevant actions.
+
+#### Highlight alerts
+
+Use highlight alerts to show more prominent general information or promotional content.
+
+### Status alerts 
+
+<Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="success" as |A|>
-    <A.Title>Success alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Description>Cluster deployment was successful.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="warning" as |A|>
-    <A.Title>Warning alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Description>Work was not saved properly.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Critical alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Description>This invitation has already been accepted. Sign in to continue to your organization.</A.Description>
   </Hds::Alert>
 </Doc::Layout>
 
-Use color logically.
+#### Success alerts
 
-- **Neutral** to provide general information to the user regarding the current context or relevant actions.
-- **Highlight** to provide general or promotional information to the user prominently.
-- **Success** to indicate a successful action.
-  - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
-- **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
-- **Critical** to indicate critical errors that need immediate action.
+Use success alerts to indicate a successful action. Use it sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
 
-### Critical alerts
+#### Warning alerts 
 
-Use critical alerts to convey crucial information or errors, such as validation errors that require user attention or action.
+Use warning alerts to help users avoid an issue. Provide guidance and actions, if possible.
+
+#### Critical alerts
+
+Use critical alerts to indicate critical errors, such as validation errors, that require user attention or action. 
 
 !!! Do
 
