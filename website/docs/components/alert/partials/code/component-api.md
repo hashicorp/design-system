@@ -22,7 +22,7 @@
     Sets the type of alert.
   </C.Property>
   <C.Property @name="color" @type="enum" @values={{array "neutral" "highlight" "success" "warning" "critical"}} @default="neutral">
-    Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.
+    Sets the color scheme for `background`, `border`, `title`, and `description`, which **cannot** be overridden.<br/><br/>`color` results in a default `icon`, which **can** be overridden.<br/><br/>For the “success”, “warning”, and “critical” colors, either `role="alert"` or `role="alertdialog"` and `aria-live="polite"` will be included by default which can be overridden if necessary.<br/><br/>The “neutral” and “highlight” colors do not include a role attribute or `aria-live="polite"` by default.
   </C.Property>
   <C.Property @name="icon" @type="string | false">
     Override the default `icon` name, which is determined by the `color` argument.<br/><br/>accepts any [icon](/icons/library) name, or `false`, for no icon.
