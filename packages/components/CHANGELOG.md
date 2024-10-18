@@ -1,5 +1,21 @@
 # @hashicorp/design-system-components
 
+## 4.13.1
+
+### Patch Changes
+
+Export TypeScript signatures for all components and modifiers
+
+<small class="doc-whats-new-changelog-metadata">[#2499](https://github.com/hashicorp/design-system/pull/2499) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Alert` - Removed role="alert" and aria-live="polite" attributes from Alerts with color set to "neutral" or "highlight"
+
+<small class="doc-whats-new-changelog-metadata">[#2500](https://github.com/hashicorp/design-system/pull/2500)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.13.0
 
 [4.13.0 documentation](https://hds-website-4-13-0.vercel.app/)
