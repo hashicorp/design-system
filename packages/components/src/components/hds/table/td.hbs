@@ -2,6 +2,6 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<td class={{this.classNames}} ...attributes>
+<td class={{this.classNames}} ...attributes role={{if @isGrid "gridcell"}} {{did-insert this.didInsert}}>
   {{yield}}
 </td>

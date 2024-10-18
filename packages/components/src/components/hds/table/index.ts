@@ -49,6 +49,7 @@ export interface HdsTableSignature {
     density?: HdsTableDensities;
     identityKey?: string;
     isFixedLayout?: boolean;
+    isGrid?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
     model?: HdsTableModel;
