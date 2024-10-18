@@ -1,0 +1,24 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::AppSideNav::List::Item>
+  <Hds::Interactive
+    class="hds-app-side-nav__list-item-link hds-app-side-nav__list-item-link--back-link"
+    @current-when={{@current-when}}
+    @models={{hds-link-to-models @model @models}}
+    @query={{hds-link-to-query @query}}
+    @replace={{@replace}}
+    @route={{@route}}
+    @isRouteExternal={{@isRouteExternal}}
+    @href={{@href}}
+    @isHrefExternal={{@isHrefExternal}}
+    ...attributes
+  >
+    <Hds::Icon class="hds-app-side-nav__list-item-icon-leading" @name="chevron-left" />
+    <span class="hds-app-side-nav__list-item-text hds-typography-body-200 hds-font-weight-medium">
+      {{@text}}
+    </span>
+  </Hds::Interactive>
+</Hds::AppSideNav::List::Item>
