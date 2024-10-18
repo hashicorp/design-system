@@ -16,6 +16,8 @@ This component uses [`ember-focus-trap`](https://github.com/josemarluedke/ember-
 
 When a Modal is opened with the keyboard, the focus is automatically set to the first focusable element inside the Modal, which is the “Dismiss” button. The action of this button has no effect on the system, so focusing on it helps prevent users from accidentally confirming the Modal.
 
+When the Modal has been closed, the browser automatically returns the focus to the element that initiated the opening. If that element doesn't exist anymore in the DOM (e.g., if the Modal is opened using an Interaction item in a Dropdown) the focus is returned to the `<body>` element. To avoid this side-effect (that comes with accessibility implications), it's possible to use the `@returnFocusTo` argument, where the consumer can provide the DOM `id` attribute of the element where the focus should be returned once the Modal is closed.
+
 ## How to use this component
 
 ```handlebars
