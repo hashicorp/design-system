@@ -34,7 +34,9 @@ Alert types have an implied hierarchy and should be ordered starting from `page`
 
 ## Color
 
-### Information alerts 
+### Informational alerts 
+Informational alerts are non-urgent, non-disruptive alerts that don’t require immediate attention and will not notify users with assistive technology. 
+
 <Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
     <A.Title>Note</A.Title>
@@ -46,7 +48,6 @@ Alert types have an implied hierarchy and should be ordered starting from `page`
       </Hds::Alert>
 </Doc::Layout>
 
-Informational alerts are non-urgent, non-disruptive alerts that don’t require immediate attention.
 
 #### Neutral alerts 
 
@@ -57,6 +58,8 @@ Use neutral alerts to show general information regarding the current context or 
 Use highlight alerts to show more prominent general information or promotional content.
 
 ### Status alerts 
+
+Status alerts, such as `success`, `warning`, and `critical`, will immediately notify users with assistive technology.
 
 <Doc::Layout @spacing="12px" @alignment=>
   <Hds::Alert @type="inline" @color="success" as |A|>
