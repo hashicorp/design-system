@@ -17,4 +17,10 @@ module('Integration | Component | hds/toast/index', function (hooks) {
     await render(hbs`<Hds::Toast id="test-toast" />`);
     assert.dom('#test-toast').hasClass('hds-toast');
   });
+
+  test('it should render the component with "role"="alert" and aria-live="polite" by default', async function (assert) {
+    await render(hbs`<Hds::Toast id="test-toast" />`);
+    assert.dom('#test-toast').hasAttribute('role', 'alert');
+    assert.dom('#test-toast').hasAttribute('aria-live', 'polite');
+  });
 });

@@ -34,41 +34,59 @@ Alert types have an implied hierarchy and should be ordered starting from `page`
 
 ## Color
 
+### Informational alerts 
+Informational alerts are non-urgent, non-disruptive alerts that don’t require immediate attention and will not notify users with assistive technology. 
+
 <Doc::Layout @spacing="12px">
   <Hds::Alert @type="inline" @color="neutral" as |A|>
-    <A.Title>Neutral alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Title>Note</A.Title>
+    <A.Description>GitHub Actions doesn’t support names starting with the “GitHub_” prefix. If your secret names include “GitHub_”, you’ll need to rename them for proper syncing secrets.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="highlight" as |A|>
-    <A.Title>Highlight alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
-  </Hds::Alert>
+    <A.Title>Upgrade</A.Title>
+    <A.Description>Looks like you’re getting close to using up free tier. Unlock more integrations and other premium features. [Upgrade now](https://helios.hashicorp.design/).</A.Description>
+      </Hds::Alert>
+</Doc::Layout>
+
+
+#### Neutral alerts 
+
+Use neutral alerts to show general information regarding the current context or relevant actions.
+
+#### Highlight alerts
+
+Use highlight alerts to show more prominent general information or promotional content.
+
+### Status alerts 
+
+Status alerts, such as `success`, `warning`, and `critical`, will immediately notify users with assistive technology.
+
+<Doc::Layout @spacing="12px" @alignment=>
   <Hds::Alert @type="inline" @color="success" as |A|>
-    <A.Title>Success alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Title>Cluster deployment</A.Title>
+    <A.Description>Your cluster deployment was successfully deployed.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="warning" as |A|>
-    <A.Title>Warning alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+    <A.Title>Not saved</A.Title>
+    <A.Description>Your work has not been saved properly.</A.Description>
   </Hds::Alert>
   <Hds::Alert @type="inline" @color="critical" as |A|>
-    <A.Title>Critical alert title</A.Title>
-    <A.Description>Lorem ipsum dolar sit amet.</A.Description>
+  <A.Title>Invitation expired</A.Title>
+    <A.Description>This invitation has already been accepted. Sign in to continue to your organization.</A.Description>
   </Hds::Alert>
 </Doc::Layout>
 
-Use color logically.
+#### Success alerts
 
-- **Neutral** to provide general information to the user regarding the current context or relevant actions.
-- **Highlight** to provide general or promotional information to the user prominently.
-- **Success** to indicate a successful action.
-  - Use the success variant sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
-- **Warning** to help users avoid an issue. Provide guidance and actions, if possible.
-- **Critical** to indicate critical errors that need immediate action.
+Use success alerts to indicate a successful action. Use it sparingly. To communicate success after a user action is performed, use [Toast](/components/toast).
 
-### Critical alerts
+#### Warning alerts 
 
-Use critical alerts to convey crucial information or errors, such as validation errors that require user attention or action.
+Use warning alerts to help users avoid an issue. Provide guidance and actions, if possible.
+
+#### Critical alerts
+
+Use critical alerts to indicate critical errors, such as validation errors, that require user attention or action. 
 
 !!! Do
 
@@ -115,58 +133,6 @@ Don't use alerts to communicate error messages that are not caused by the user. 
   <A.Title>Vault cluster update failed</A.Title>
   <A.Description>**test-cluster_1** configuration update failed.</A.Description>
 </Hds::Alert>
-!!!
-
-### Ordering Alerts by color
-
-Order multiple Alerts by their importance and impact on the user, starting from `critical`, to communicate an Alert that must be resolved immediately, and descending in order of perceived impact to `neutral`.
-
-![Ordering alerts](/assets/components/alert/ordering-alerts-color.png)
-
-## Placing Alerts
-
-`Inline` and `compact` Alerts can have more meaning if they are placed within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards, or where a specific localized message is necessary.
-
-![Example of multiple Alerts placed to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
-
-### Placement by type
-
-Where an Alert is placed is dependent on the type.
-
-#### Page
-
-Page alerts are placed between the global header navigation and the breadcrumb, next to the left navigation.
-
-![Placement of page alert](/assets/components/alert/alert-placement-page.png =600x*)
-
-#### Inline
-
-Inline alerts can be added to a section or component or inline with content.
-
-![Placement of inline alert](/assets/components/alert/alert-placement-inline.png =600x*)
-
-#### Compact
-
-Compact alerts can be added to a section or component or inline with content.
-
-![Placement of compact Alert](/assets/components/alert/alert-placement-compact.png =600x*)
-
-#### Mixing Alert types
-
-We recommend against mixing different types of Alerts in the same context, as this can unintentionally convey that different Alert types have the same hierarchical impact.
-
-!!! Dont
-
-Don’t mix different Alert types in the same context.
-
-![Example of different Alert types in the same context](/assets/components/alert/mixing-alert-types-dont.png)
-!!!
-
-!!! Do
-
-Instead, be more specific with how the Alerts are placed depending on what the message applies to.
-
-![Example of different Alert type placements](/assets/components/alert/mixing-alert-types-do.png)
 !!!
 
 ### Ordering Alerts by color
