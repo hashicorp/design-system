@@ -68,8 +68,14 @@ The default `@tag` is `"div"` because the correct value is dependent on the indi
 
 ### Color
 
-A different color can be applied to the Alert using the `color` argument. This will determine the default icon used in the Alert, unless overwritten.
+The available color values are `neutral` (the default), `highlight`, `success`, `warning`, and `critical`. Setting a color value will also determine the default icon used in the Alert, although it is customizable. 
 
+The color value will also determine some accessibility features of the component, so this should be taken into consideration when choosing which Alert `color` value to use.
+
+
+If the alert is being used in an informational or promotional way, `neutral` or `highlight` colors should be chosen. 
+
+The other color values map to accessibility-related roles, and will ensure that essential information is presented to the user with assistive technology in a timely manner. 
 ```handlebars
 <Hds::Alert @type="inline" @color="success" as |A|>
   <A.Title>Title here</A.Title>
