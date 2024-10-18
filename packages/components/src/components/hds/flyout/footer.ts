@@ -8,6 +8,7 @@ import { deprecate } from '@ember/debug';
 
 export interface HdsFlyoutFooterSignature {
   Args: {
+    contextualClass?: string;
     onDismiss?: (event: MouseEvent) => void;
   };
   Blocks: {

@@ -9,8 +9,10 @@ import type { HdsIconSignature } from '../icon';
 
 export interface HdsFlyoutHeaderSignature {
   Args: {
+    contextualClassPrefix?: string;
     id?: string;
     tagline?: string;
+    titleTag?: string;
     onDismiss: (event: MouseEvent) => void;
     icon?: HdsIconSignature['Args']['name'];
   };
