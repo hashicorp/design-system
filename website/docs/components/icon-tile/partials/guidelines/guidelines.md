@@ -59,3 +59,19 @@ A secondary icon can be added to provide additional context. For example, for an
 ## Using with content
 
 Icon Tiles should not appear without accompanying content. Instead, they should be presented alongside a text label for the object or page they are being used to represent. We recommend thinking of them as an accessory.
+
+## Near interactive elements
+
+Avoid placing Icon Tiles next to buttons or other clickable elements. This can confuse users and make it unclear what is interactive. In these cases, use a simple icon for better usability.
+
+!!! Dont
+
+![Dont example of Icon Tile placed in the same proximity of other interactive elements](/assets/components/icon-tile/icon-tile-example.png)
+!!!
+
+!!! Do
+
+![Do example of icon placed in the same proximity of other interactive elements, instead of an Icon Tile](/assets/components/icon-tile/icon-tile-example-do.png)
+!!!
+
+For more information on making interactive and non-interactive elements easily distinguishable, refer to the [WCAG 2.1 Guideline 1.4: Distinguishable.](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable)
