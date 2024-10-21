@@ -19,17 +19,17 @@ Toggles come in two variant types: **button** and **icon**.
 <Doc::Layout @spacing="24px">
   <Hds::Dropdown as |D|>
     <D.ToggleButton @text="Primary" />
-    <D.Interactive @text="Item One" />
-    <D.Interactive @text="Item Two" />
-    <D.Interactive @text="Item Three" />
-    <D.Interactive @text="Item Four" />
+    <D.Interactive>Item One</D.Interactive>
+    <D.Interactive>Item Two</D.Interactive>
+    <D.Interactive>Item Three</D.Interactive>
+    <D.Interactive>Item Four</D.Interactive>
   </Hds::Dropdown>
   <Hds::Dropdown as |D|>
     <D.ToggleIcon @icon="user" @text="user menu" />
-    <D.Interactive @text="Item One" />
-    <D.Interactive @text="Item Two" />
-    <D.Interactive @text="Item Three" />
-    <D.Interactive @text="Item Four" />
+    <D.Interactive>Item One</D.Interactive>
+    <D.Interactive>Item Two</D.Interactive>
+    <D.Interactive>Item Three</D.Interactive>
+    <D.Interactive>Item Four</D.Interactive>
   </Hds::Dropdown>
 </Doc::Layout>
 
@@ -41,33 +41,33 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
   <Hds::ButtonSet>
     <Hds::Dropdown as |D|>
       <D.ToggleButton @text="Primary" @size="small"/>
-      <D.Interactive @text="Item One" />
-      <D.Interactive @text="Item Two" />
-      <D.Interactive @text="Item Three" />
-      <D.Interactive @text="Item Four" />
+      <D.Interactive>Item One</D.Interactive>
+      <D.Interactive>Item Two</D.Interactive>
+      <D.Interactive>Item Three</D.Interactive>
+      <D.Interactive>Item Four</D.Interactive>
     </Hds::Dropdown>
     <Hds::Dropdown as |D|>
       <D.ToggleButton @text="Secondary" @color="secondary" @size="small" />
-      <D.Interactive @text="Item One" />
-      <D.Interactive @text="Item Two" />
-      <D.Interactive @text="Item Three" />
-      <D.Interactive @text="Item Four" />
+      <D.Interactive>Item One</D.Interactive>
+      <D.Interactive>Item Two</D.Interactive>
+      <D.Interactive>Item Three</D.Interactive>
+      <D.Interactive>Item Four</D.Interactive>
     </Hds::Dropdown>
   </Hds::ButtonSet>
   <Hds::ButtonSet>
     <Hds::Dropdown as |D|>
       <D.ToggleButton @text="Primary" />
-      <D.Interactive @text="Item One" />
-      <D.Interactive @text="Item Two" />
-      <D.Interactive @text="Item Three" />
-      <D.Interactive @text="Item Four" />
+      <D.Interactive>Item One</D.Interactive>
+      <D.Interactive>Item Two</D.Interactive>
+      <D.Interactive>Item Three</D.Interactive>
+      <D.Interactive>Item Four</D.Interactive>
     </Hds::Dropdown>
     <Hds::Dropdown as |D|>
       <D.ToggleButton @text="Secondary" @color="secondary" />
-      <D.Interactive @text="Item One" />
-      <D.Interactive @text="Item Two" />
-      <D.Interactive @text="Item Three" />
-      <D.Interactive @text="Item Four" />
+      <D.Interactive>Item One</D.Interactive>
+      <D.Interactive>Item Two</D.Interactive>
+      <D.Interactive>Item Three</D.Interactive>
+      <D.Interactive>Item Four</D.Interactive>
     </Hds::Dropdown>
   </Hds::ButtonSet>
 </Doc::Layout>
@@ -82,17 +82,17 @@ While we provide a small size variant, we recommend only using this for the Over
 <Doc::Layout @spacing="24px">
   <Hds::Dropdown as |D|>
     <D.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
-    <D.Interactive @text="Item One" />
-    <D.Interactive @text="Item Two" />
-    <D.Interactive @text="Item Three" />
-    <D.Interactive @text="Item Four" />
+    <D.Interactive>Item One</D.Interactive>
+    <D.Interactive>Item Two</D.Interactive>
+    <D.Interactive>Item Three</D.Interactive>
+    <D.Interactive>Item Four</D.Interactive>
   </Hds::Dropdown>
   <Hds::Dropdown as |D|>
     <D.ToggleIcon @icon="user" @text="user menu" />
-    <D.Interactive @text="Item One" />
-    <D.Interactive @text="Item Two" />
-    <D.Interactive @text="Item Three" />
-    <D.Interactive @text="Item Four" />
+    <D.Interactive>Item One</D.Interactive>
+    <D.Interactive>Item Two</D.Interactive>
+    <D.Interactive>Item Three</D.Interactive>
+    <D.Interactive>Item Four</D.Interactive>
   </Hds::Dropdown>
 </Doc::Layout>
 
@@ -127,9 +127,9 @@ By default, Lists have a minimum width of 200px and a maximum width of 400px. Th
     <Hds::Dropdown::ListItem::Title @text="Signed in as" />
     <Hds::Dropdown::ListItem::Description @text="name@email.com" />
     <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="User settings" />
-    <Hds::Dropdown::ListItem::Interactive @text="Admin" />
-    <Hds::Dropdown::ListItem::Interactive @text="Sign out" />
+    <Hds::Dropdown::ListItem::Interactive>User settings</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive>Admin</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive>Sign out</Hds::Dropdown::ListItem::Interactive>
   </ul>
 </div>
 
@@ -138,8 +138,8 @@ If you do not want the width of the List to expand automatically to accommodate 
 <div class="hds-dropdown__content" style="width: 320px">
   <ul class="hds-dropdown__list">
     <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
-    <Hds::Dropdown::ListItem::Interactive @text="Update Consul version" @icon="sync" />
-    <Hds::Dropdown::ListItem::Interactive @text="Edit cluster" @icon="edit" />
+    <Hds::Dropdown::ListItem::Interactive @icon="sync">Update Consul version</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive @icon="edit">Edit cluster</Hds::Dropdown::ListItem::Interactive>
     <Hds::Dropdown::ListItem::Separator />
     <Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
     <Hds::Dropdown::ListItem::Description @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider" />
@@ -148,7 +148,7 @@ If you do not want the width of the List to expand automatically to accommodate 
     </Hds::Dropdown::ListItem::Generic>
     <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
     <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
+    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
   </ul>
 </div>
 
@@ -293,11 +293,11 @@ Use icons consistently and when they reinforce the content.
 
 <div class="hds-dropdown__content">
   <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" @icon="edit" />
-    <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
-    <Hds::Dropdown::ListItem::Interactive @text="Reference cluster" @color="action" @icon="github" @trailingIcon="external-link" />
+    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="edit">Rename cluster</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="reload">Restore cluster</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="github" @trailingIcon="external-link">Reference cluster</Hds::Dropdown::ListItem::Interactive>
     <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
+    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
   </ul>
 </div>
 !!!
@@ -308,10 +308,10 @@ Avoid inconsistent icon use.
 
 <div class="hds-dropdown__content">
   <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Interactive @text="Rename cluster" @color="action" />
-    <Hds::Dropdown::ListItem::Interactive @text="Restore cluster" @color="action" @icon="reload" />
+    <Hds::Dropdown::ListItem::Interactive @color="action">Rename cluster</Hds::Dropdown::ListItem::Interactive>
+    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="reload">Restore cluster</Hds::Dropdown::ListItem::Interactive>
     <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @text="Delete cluster" @color="critical" @icon="trash" />
+    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
   </ul>
 </div>
 !!!

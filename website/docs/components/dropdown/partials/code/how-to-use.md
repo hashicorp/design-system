@@ -7,11 +7,11 @@ To make the invocation more flexible and intuitive, we provide contextual compon
   <D.ToggleButton @text="Menu" />
   <D.Title @text="Title Text" />
   <D.Description @text="Descriptive text goes here." />
-  <D.Interactive @href="#" @text="Add" />
-  <D.Interactive @href="#" @text="Add More" />
-  <D.Interactive @href="#" @text="Add Another Thing Too" />
+  <D.Interactive @href="#">Add</D.Interactive>
+  <D.Interactive @href="#">Add More</D.Interactive>
+  <D.Interactive @href="#">Add Another Thing Too</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @icon="trash" @text="Delete" @color="critical" />
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -22,12 +22,12 @@ The basic invocation of ToggleButton requires `@text` to be passed. By default, 
 ```handlebars
 <Hds::Dropdown as |D|>
   <D.ToggleButton @text="Text Toggle" />
-  <D.Interactive @route="components" @text="Item One" />
-  <D.Interactive @route="components" @text="Item Two" />
-  <D.Interactive @route="components" @text="Item Three" />
-  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -36,12 +36,12 @@ Alternatively, pass `secondary` to `@color` to display a secondary button with a
 ```handlebars
 <Hds::Dropdown as |D|>
   <D.ToggleButton @text="Text Toggle" @color="secondary" />
-  <D.Interactive @route="components" @text="Item One" />
-  <D.Interactive @route="components" @text="Item Two" />
-  <D.Interactive @route="components" @text="Item Three" />
-  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @color="critical" @icon="trash">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -55,11 +55,11 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
 ```handlebars
 <Hds::Dropdown as |D|>
   <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-  <D.Interactive @route="components" @text="Create" />
-  <D.Interactive @route="components" @text="Read" />
-  <D.Interactive @route="components" @text="Update" />
+  <D.Interactive @route="components">Create</D.Interactive>
+  <D.Interactive @route="components">Read</D.Interactive>
+  <D.Interactive @route="components">Update</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -73,8 +73,8 @@ Overflow menus are often found in the last column of a [Tables](/components/tabl
   <D.Title @text="Signed In" />
   <D.Description @text="email@domain.com" />
   <D.Separator />
-  <D.Interactive @route="components" @text="Settings and Preferences" />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components">Settings and Preferences</D.Interactive>
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -88,8 +88,8 @@ Pass any [icon](/icons/library) name to `@icon` to change the icon used in Toggl
   <D.Title @text="Signed In" />
   <D.Description @text="email@domain.com" />
   <D.Separator />
-  <D.Interactive @route="components" @text="Settings and Preferences" />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components">Settings and Preferences</D.Interactive>
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -100,12 +100,12 @@ By default, the list is positioned below the button, aligned to the right. To ch
 ```handlebars
 <Hds::Dropdown @listPosition="bottom-left" as |D|>
   <D.ToggleButton @text="Text Toggle" />
-  <D.Interactive @route="components" @text="Item One" />
-  <D.Interactive @route="components" @text="Item Two" />
-  <D.Interactive @route="components" @text="Item Three" />
-  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -115,9 +115,9 @@ In contexts where the Dropdown needs to be _inline_, to inherit the alignment fr
 <div class="doc-dropdown-mock-text-align-right">
   <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |D|>
     <D.ToggleButton @text="Text Toggle" @color="secondary" />
-    <D.Interactive @route="components" @text="Item One" />
-    <D.Interactive @route="components" @text="Item Two" />
-    <D.Interactive @route="components" @text="Item Three" />
+    <D.Interactive @route="components">Item One</D.Interactive>
+    <D.Interactive @route="components">Item Two</D.Interactive>
+    <D.Interactive @route="components">Item Three</D.Interactive>
   </Hds::Dropdown>
 </div>
 ```
@@ -129,12 +129,12 @@ Setting the `@enableCollisionDetection` argument to `true` will automatically ad
 ```handlebars
 <Hds::Dropdown @enableCollisionDetection={{true}} as |D|>
   <D.ToggleButton @text="Text Toggle" />
-  <D.Interactive @route="components" @text="Item One" />
-  <D.Interactive @route="components" @text="Item Two" />
-  <D.Interactive @route="components" @text="Item Three" />
-  <D.Interactive @text="Item Four (closes on click)" {{on "click" D.close}} />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive {{on "click" D.close}}>Item Four (closes on click)</D.Interactive>
   <D.Separator />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -151,13 +151,13 @@ The `@height` argument actually sets a `max-height` which prevents the list from
 ```handlebars
 <Hds::Dropdown @isInline={{true}} @height="170px" @width="250px" as |D|>
   <D.ToggleButton @text="Text Toggle" />
-  <D.Interactive @route="components" @text="Item One" />
-  <D.Interactive @route="components" @text="Item Two" />
-  <D.Interactive @route="components" @text="Item Three" />
-  <D.Interactive @route="components" @text="Item Four" />
-  <D.Interactive @route="components" @text="Item Five" />
-  <D.Interactive @route="components" @text="Item Six" />
-  <D.Interactive @route="components" @text="Item Seven" />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive @route="components">Item Four</D.Interactive>
+  <D.Interactive @route="components">Item Five</D.Interactive>
+  <D.Interactive @route="components">Item Six</D.Interactive>
+  <D.Interactive @route="components">Item Seven</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -196,7 +196,7 @@ To change this behavior, you can use the `@preserveContentInDom` argument so tha
 ```handlebars
 <Hds::Dropdown @preserveContentInDom={{true}} as |D|>
   <D.ToggleButton @text="Text Toggle" />
-  <D.Interactive @route="components" @text="This item should always be present in the DOM, regardless of whether the dropdown is open or closed" />
+  <D.Interactive @route="components">This item should always be present in the DOM, regardless of whether the dropdown is open or closed</D.Interactive>
 </Hds::Dropdown>
 ```
 
@@ -211,7 +211,9 @@ If you add an event handler (no `@href` or `@route`), a `<button>` element will 
 
 ```handlebars
 <ul class="hds-dropdown__list">
-  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" />
+  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}}>
+    Run command
+  </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
 
@@ -219,7 +221,9 @@ You can pass an `@icon` argument to add a leading icon:
 
 ```handlebars
 <ul class="hds-dropdown__list">
-  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @text="Run command" @icon="build" />
+  <Hds::Dropdown::ListItem::Interactive {{on "click" this.myAction}} @icon="build">
+    Run command
+  </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
 
@@ -236,7 +240,9 @@ If you pass an `@href` argument, a link (`<a>` element) will be generated:
 
 ```handlebars
 <ul class="hds-dropdown__list">
-  <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" />
+  <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform">
+    Request a demo
+  </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
 
@@ -244,7 +250,9 @@ To indicate that the link points to an external resource, you can use `@trailing
 
 ```handlebars
 <ul class="hds-dropdown__list">
-  <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @text="Request a demo" @trailingIcon="external-link" />
+  <Hds::Dropdown::ListItem::Interactive @href="https://www.hashicorp.com/request-demo/terraform" @trailingIcon="external-link">
+    Request a demo
+  </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
 
@@ -254,7 +262,9 @@ Pass a `@route` to render Ember `<LinkTo>`. If the route is external to your cur
 
 ```handlebars
 <ul class="hds-dropdown__list">
-  <Hds::Dropdown::ListItem::Interactive @route="my.page.route" @model="my.page.model" @text="Activate cluster" />
+  <Hds::Dropdown::ListItem::Interactive @route="my.page.route" @model="my.page.model">
+    Activate cluster
+  </Hds::Dropdown::ListItem::Interactive>
 </ul>
 ```
 
@@ -267,8 +277,8 @@ Pass the argument `@isLoading={{true}}` to the item. This will show a “loading
 ```handlebars
 <Hds::Dropdown as |D|>
   <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} />
-  <D.Interactive @route="components" @isLoading={{true}} @text="Edit cluster" @color="action" @icon="edit" />
-  <D.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+  <D.Interactive @route="components" @isLoading={{true}} @color="action" @icon="edit">Edit cluster</D.Interactive>
+  <D.Interactive @route="components" @icon="trash" @color="critical">Delete</D.Interactive>
 </Hds::Dropdown>
 ```
 
