@@ -60,9 +60,9 @@ A secondary icon can be added to provide additional context. For example, for an
 
 Icon Tiles should not appear without accompanying content. Instead, they should be presented alongside a text label for the object or page they are being used to represent. We recommend thinking of them as an accessory.
 
-## Near interactive elements
+## Using with interactive elements
 
-Avoid placing Icon Tiles next to buttons or other clickable elements. This can confuse users and make it unclear what is interactive. In these cases, use a simple icon for better usability.
+Avoid placing Icon Tiles next to visually similar interactive elements. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable) is an accessibility standard that deters interfaces from using elements that look the same but behave differently in close visual proximity. This can cause user confusion through the established visual language. 
 
 !!! Dont
 
