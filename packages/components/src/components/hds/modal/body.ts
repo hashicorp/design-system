@@ -7,6 +7,9 @@ import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
 export interface HdsModalBodySignature {
+  Args: {
+    contextualClass?: string;
+  };
   Blocks: {
     default: [];
   };
@@ -14,8 +17,8 @@ export interface HdsModalBodySignature {
 }
 
 export default class HdsModalBody extends Component<HdsModalBodySignature> {
-  constructor(owner: unknown) {
-    super(owner, {});
+  constructor(owner: unknown, args: HdsModalBodySignature['Args']) {
+    super(owner, args);
 
     deprecate(
       'The `Hds::Modal::Body` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Body` as one-to-one replacement.',
