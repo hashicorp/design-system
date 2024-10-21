@@ -76,9 +76,9 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Actions>
           <Hds::Dropdown as |D|>
             <D.ToggleButton @text="Manage" @color="secondary" />
-            <D.Interactive @text="Manage cluster externally" />
-            <D.Interactive @text="Launch desktop" />
-            <D.Interactive @text="Delete" @color="critical" @icon="trash" />
+            <D.Interactive>Manage cluster externally</D.Interactive>
+            <D.Interactive>Launch desktop</D.Interactive>
+            <D.Interactive @color="critical" @icon="trash">Delete</D.Interactive>
           </Hds::Dropdown>
           <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
         </PH.Actions>
@@ -186,9 +186,9 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Actions>
           <Hds::Dropdown as |D|>
             <D.ToggleButton @text="Manage users" @color="secondary" />
-            <D.Interactive @text="Assign roles" @icon="user" />
-            <D.Interactive @text="Batch edit" @icon="edit" />
-            <D.Interactive @text="Delete user" @icon="trash" />
+            <D.Interactive @icon="user">Assign roles</D.Interactive>
+            <D.Interactive @icon="edit">Batch edit</D.Interactive>
+            <D.Interactive @icon="trash">Delete user</D.Interactive>
           </Hds::Dropdown>
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>
@@ -237,9 +237,9 @@ SPDX-License-Identifier: MPL-2.0
         <PH.Actions>
           <Hds::Dropdown as |D|>
             <D.ToggleButton @text="Manage users" @color="secondary" />
-            <D.Interactive @text="Assign roles" @icon="user" />
-            <D.Interactive @text="Batch edit" @icon="edit" />
-            <D.Interactive @text="Delete user" @icon="trash" />
+            <D.Interactive @icon="user">Assign roles</D.Interactive>
+            <D.Interactive @icon="edit">Batch edit</D.Interactive>
+            <D.Interactive @icon="trash">Delete user</D.Interactive>
           </Hds::Dropdown>
           <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
         </PH.Actions>

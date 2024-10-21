@@ -80,9 +80,9 @@
           <AF.ExtraBefore>
             <Hds::Dropdown as |D|>
               <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
-              <D.Interactive @icon="monitor" {{on "click" D.close}} @text="System" />
-              <D.Interactive @icon="moon" {{on "click" D.close}} @text="Dark" />
-              <D.Interactive @icon="sun" {{on "click" D.close}} @text="Light" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
             </Hds::Dropdown>
           </AF.ExtraBefore>
           <AF.StatusLink @status="operational" />
