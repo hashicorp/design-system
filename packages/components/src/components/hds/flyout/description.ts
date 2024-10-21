@@ -8,9 +8,7 @@ import { deprecate } from '@ember/debug';
 import type { HdsTextBodySignature } from '../text/body';
 
 export interface HdsFlyoutDescriptionSignature {
-  Args: {
-    contextualClass?: string;
-  };
+  Args: never;
   Blocks: {
     default: [];
   };

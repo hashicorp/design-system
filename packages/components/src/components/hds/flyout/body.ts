@@ -7,9 +7,7 @@ import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
 export interface HdsFlyoutBodySignature {
-  Args: {
-    contextualClass?: string;
-  };
+  Args: never;
   Blocks: {
     default: [];
   };
