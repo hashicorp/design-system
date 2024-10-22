@@ -4,7 +4,6 @@
  */
 
 import { assert } from '@ember/debug';
-import { registerDestructor } from '@ember/destroyable';
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import {
@@ -36,12 +35,6 @@ interface HdsCodeEditorSignature {
       value: string;
     };
   };
-}
-
-function cleanup(instance: HdsCodeEditorModifier) {
-  const { editor, element, observer, onChange } = instance;
-  // editor.off('change', onChange);
-  observer.unobserve(element);
 }
 
 /**
@@ -87,7 +80,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   constructor(owner: unknown, args: ArgsFor<HdsCodeEditorSignature>) {
     super(owner, args);
-    registerDestructor(this, cleanup);
+    // registerDestructor(this, cleanup);
   }
 
   modify(
@@ -101,8 +94,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.#setup(element, positional, named);
       this.didSetup = true;
     }
-
-    this.#update(element, positional, named);
   }
 
   #setup(
@@ -142,22 +133,5 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     this.onBlur = onBlur;
     this.editor = new EditorView({ state: state, parent: element });
     this.element = element;
-  }
-
-  onChange(editor: EditorView) {
-    // const newVal = editor.getValue();
-    // this.onInput && this.onInput(newVal);
-  }
-
-  #update(
-    _element: HTMLElement,
-    _positional: PositionalArgs<HdsCodeEditorSignature>,
-    named: NamedArgs<HdsCodeEditorSignature>
-  ) {
-    const { value } = named;
-
-    // if (this?.editor?.getValue() !== value) {
-    //   this.editor?.setValue(value);
-    // }
   }
 }
