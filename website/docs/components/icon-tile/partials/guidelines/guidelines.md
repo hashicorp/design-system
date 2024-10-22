@@ -62,7 +62,7 @@ Icon Tiles should not appear without accompanying content. Instead, they should 
 
 ## Using with interactive elements
 
-Avoid placing Icon Tiles next to visually similar interactive elements. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable) is an accessibility standard that deters interfaces from using elements that look the same but behave differently in close visual proximity. This can cause user confusion through the established visual language. 
+Avoid placing Icon Tiles adjacent to visually similar interactive elements, as this can lead to user confusion due to lack of visual differentiation. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable), an accessibility standard, discourages interfaces from using elements that look alike but behave differently when in close visual proximity. 
 
 !!! Dont
 
