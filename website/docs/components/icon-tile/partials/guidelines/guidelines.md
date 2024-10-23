@@ -64,14 +64,5 @@ Icon Tiles should not appear without accompanying content. Instead, they should 
 
 Avoid placing Icon Tiles adjacent to visually similar interactive elements, as this can lead to user confusion due to lack of visual differentiation. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable), an accessibility standard, discourages interfaces from using elements that look alike but behave differently when in close visual proximity. 
 
-!!! Dont
-
-![Dont example of Icon Tile placed in the same proximity of other interactive elements](/assets/components/icon-tile/icon-tile-example.png)
-!!!
-
-!!! Do
-
-![Do example of icon placed in the same proximity of other interactive elements, instead of an Icon Tile](/assets/components/icon-tile/icon-tile-example-do.png)
-!!!
 
 For more information on making interactive and non-interactive elements easily distinguishable, refer to the [WCAG 2.1 Guideline 1.4: Distinguishable.](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable)
