@@ -187,6 +187,8 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsTimeComponent from './components/hds/time';
+import type HdsTimeInnerComponent from './components/hds/time';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
@@ -845,6 +847,13 @@ export default interface HdsComponentsRegistry {
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
   'hds/toast': typeof HdsToastComponent;
+
+  // Time
+  'Hds::Time': typeof HdsTimeComponent;
+  'hds/time': typeof HdsTimeComponent;
+
+  'Hds::Time::Inner': typeof HdsTimeInnerComponent;
+  'hds/time/inner': typeof HdsTimeInnerComponent;
 
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;
