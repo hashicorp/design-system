@@ -10,9 +10,25 @@
 <section data-test-percy>
   <Shw::Text::H2>Options</Shw::Text::H2>
 
+  <Shw::Text::H3>Tooltip</Shw::Text::H3>
+
+  <Shw::Flex @gap="5rem 9rem" {{style marginBottom="80px"}} as |SF|>
+    <SF.Item @label="With tooltip (default)">
+      <Hds::Time @date="05 September 2018 14:48" @isOpen={{true}} />
+    </SF.Item>
+
+    <SF.Item @label="Without tooltip">
+      <Hds::Time @date="05 September 2018 14:48" @hasTooltip={{false}} />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H3>Display</Shw::Text::H3>
 
   <Shw::Flex @gap="5rem 9rem" as |SF|>
+    <SF.Item @label="Default with display unset">
+      <Hds::Time @date="05 September 2018 14:48" @isOpen={{true}} />
+    </SF.Item>
+
     {{#each @model.DISPLAYS as |display|}}
       <SF.Item @label={{display}}>
         <Hds::Time @date="05 September 2018 14:48" @display={{display}} @isOpen={{true}} />
