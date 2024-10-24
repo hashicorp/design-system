@@ -1,5 +1,5 @@
 ---
-"@hashicorp/design-system-components": minor
+"@hashicorp/design-system-components": patch
 ---
 
 `Hds::Flyout`
