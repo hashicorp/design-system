@@ -4,5 +4,14 @@
  */
 
 import Route from '@ember/routing/route';
+import { inject as service } from '@ember/service';
 
-export default class ApplicationRoute extends Route {}
+export default class ApplicationRoute extends Route {
+  @service intl;
+
+  constructor() {
+    super(...arguments);
+
+    this.intl.setLocale('en-us');
+  }
+}

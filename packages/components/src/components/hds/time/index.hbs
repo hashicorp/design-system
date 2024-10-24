@@ -1,0 +1,44 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{! @glint-nocheck }}
+{{! TODO: format-date & display have type errors, fix }}
+{{#let this.display as |display|}}
+  {{#if (and this.hasTooltip this.isValid)}}
+    <Hds::TooltipButton
+      @text={{if
+        display.options.tooltipFormat
+        (format-date
+          this.date
+          month=display.options.tooltipFormat.month
+          day=display.options.tooltipFormat.day
+          year=display.options.tooltipFormat.year
+          hour=display.options.tooltipFormat.hour
+          minute=display.options.tooltipFormat.minute
+          second=display.options.tooltipFormat.second
+        )
+        this.isoUtcString
+      }}
+      @placement="bottom"
+      @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+    >
+      <Hds::Time::Inner
+        @date={{this.date}}
+        @isoUtcString={{this.isoUtcString}}
+        @display={{this.display}}
+        @isValid={{this.isValid}}
+        ...attributes
+      />
+    </Hds::TooltipButton>
+  {{else}}
+    <Hds::Time::Inner
+      @date={{this.date}}
+      @isoUtcString={{this.isoUtcString}}
+      @display={{this.display}}
+      @isValid={{this.isValid}}
+      ...attributes
+    />
+  {{/if}}
+{{/let}}
