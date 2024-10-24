@@ -4269,6 +4269,7 @@ __metadata:
     ember-get-config: "npm:^2.1.1"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
+    ember-source: "npm:~5.9.0"
     ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^4.4.0"
     ember-template-lint: "npm:^6.0.0"
