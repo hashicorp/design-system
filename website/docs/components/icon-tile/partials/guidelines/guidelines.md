@@ -6,7 +6,8 @@ To represent an object or as part of a page title.
 
 ### When not to use
 
-Within a paragraph where an object is referred to.
+- Within a paragraph where an object is referred to.
+- When an interactive or clickable element is needed. Use a [Button](https://helios.hashicorp.design/components/button) instead.
 
 ## Color
 
@@ -64,5 +65,8 @@ Icon Tiles should not appear without accompanying content. Instead, they should 
 
 Avoid placing Icon Tiles adjacent to visually similar interactive elements, as this can lead to user confusion due to lack of visual differentiation. [Distinguishability](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable), an accessibility standard, discourages interfaces from using elements that look alike but behave differently when in close visual proximity. 
 
+!!! Info
 
 For more information on making interactive and non-interactive elements easily distinguishable, refer to the [WCAG 2.1 Guideline 1.4: Distinguishable.](https://www.w3.org/WAI/WCAG21/Understanding/distinguishable)
+
+!!!
