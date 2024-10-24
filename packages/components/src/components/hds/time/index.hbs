@@ -8,6 +8,7 @@
 {{#let this.display as |display|}}
   {{#if (and this.hasTooltip this.isValid)}}
     <Hds::TooltipButton
+      class="hds-time-wrapper"
       @text={{if
         display.options.tooltipFormat
         (format-date
