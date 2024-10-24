@@ -1,0 +1,12 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Portal @target={{if @targetName @targetName "hds-app-side-nav-portal-target"}}>
+  <div class="hds-app-side-nav__content-panel" ...attributes>
+    <Hds::AppSideNav::List aria-label={{@ariaLabel}} as |ListElements|>
+      {{yield ListElements}}
+    </Hds::AppSideNav::List>
+  </div>
+</Portal>

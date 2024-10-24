@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still have visible padding - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<div
+  class={{this.classNames}}
+  ...attributes
+  {{on "transitionstart" (fn this.setTransition "start")}}
+  {{on "transitionend" (fn this.setTransition "end")}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap isActive=this.shouldTrapFocus}}
+  {{did-insert this.didInsert}}
+>
+  <h2 class="sr-only" id="hds-app-side-nav-header">Application local navigation</h2>
+
+  <div class="hds-app-side-nav__wrapper">
+    {{#if this.showToggleButton}}
+      {{! template-lint-disable no-invalid-interactive}}
+      <div class="hds-app-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
+      {{! template-lint-enable no-invalid-interactive}}
+      <Hds::AppSideNav::ToggleButton
+        aria-labelledby="hds-app-side-nav-header"
+        aria-expanded={{if this.isMinimized "false" "true"}}
+        @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
+        {{on "click" this.toggleMinimizedStatus}}
+      />
+    {{/if}}
+
+    <div class="hds-app-side-nav__wrapper-body">
+      {{~yield~}}
+    </div>
+  </div>
+</div>
