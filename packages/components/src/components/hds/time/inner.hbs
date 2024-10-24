@@ -8,34 +8,28 @@
 {{#if @isValid}}
   <time class="hds-time" datetime={{@isoUtcString}} ...attributes>
     {{#if @display.options.showFriendly}}
-      <span data-test-time-friendly>
-        {{#if @display.options.displayFormat}}
-          {{format-date
-            @date
-            month=@display.options.displayFormat.month
-            day=@display.options.displayFormat.day
-            year=@display.options.displayFormat.year
-            hour=@display.options.displayFormat.hour
-            minute=@display.options.displayFormat.minute
-            second=@display.options.displayFormat.second
-          }}
-        {{else}}
-          {{@isoUtcString}}
-        {{/if}}
-      </span>
+      {{#if @display.options.displayFormat}}
+        {{format-date
+          @date
+          month=@display.options.displayFormat.month
+          day=@display.options.displayFormat.day
+          year=@display.options.displayFormat.year
+          hour=@display.options.displayFormat.hour
+          minute=@display.options.displayFormat.minute
+          second=@display.options.displayFormat.second
+        }}
+      {{else}}
+        {{@isoUtcString}}
+      {{/if}}
       {{#if @display.options.showRelative}}
-        <span data-test-time-relative>
-          ({{format-relative @display.relative.value unit=@display.relative.unit}})
-        </span>
+        ({{format-relative @display.relative.value unit=@display.relative.unit}})
       {{/if}}
     {{else}}
       {{#if @display.options.showRelative}}
-        <span data-test-time-relative>
-          {{format-relative @display.relative.value unit=@display.relative.unit}}
-        </span>
+        {{format-relative @display.relative.value unit=@display.relative.unit}}
       {{/if}}
     {{/if}}
   </time>
 {{else}}
-  <span data-test-time-invalid>--</span>
+  --
 {{/if}}
