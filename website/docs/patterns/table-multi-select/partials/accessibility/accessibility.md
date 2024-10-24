@@ -18,11 +18,11 @@ This is a _representative_ example of how this could be accomplished using HDS c
     </Hds::Text::Body>
     <Hds::Dropdown as |D|>
       <D.ToggleButton @size="small" @text="Actions" @color="secondary" />
-      <D.Interactive @text="Edit" @icon="edit" />
-      <D.Interactive @text="Delete" @icon="trash" @color="critical" />
+      <D.Interactive @icon="edit">Edit</D.Interactive>
+      <D.Interactive @icon="trash" @color="critical">Delete</D.Interactive>
       <D.Separator />
-      <D.Interactive @text="Select all" />
-      <D.Interactive @text="Reset selection" />
+      <D.Interactive>Select all</D.Interactive>
+      <D.Interactive>Reset selection</D.Interactive>
     </Hds::Dropdown>
   </div>
 </div>

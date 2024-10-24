@@ -140,7 +140,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::ListItem::Interactive @text="interactive text" @color="foo" />`
+        hbs`<Hds::Dropdown::ListItem::Interactive @color="foo" @text="interactive text" />`
       );
       assert.throws(function () {
         throw new Error(errorMessage);

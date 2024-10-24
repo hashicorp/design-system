@@ -144,19 +144,19 @@ Here is an example of some possible actions:
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="settings menu" />
             <dd.Title @text="Help & Support" />
-            <dd.Interactive @text="Documentation" @href="#" />
-            <dd.Interactive @text="Tutorials" @href="#" />
-            <dd.Interactive @text="Terraform Provider" @href="#" />
-            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Interactive @href="#">Documentation</dd.Interactive>
+            <dd.Interactive @href="#">Tutorials</dd.Interactive>
+            <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+            <dd.Interactive @href="#">Changelog</dd.Interactive>
             <dd.Separator />
-            <dd.Interactive @text="Create support ticket" @href="#" />
-            <dd.Interactive @text="Give feedback" @href="#" />
+            <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+            <dd.Interactive @href="#">Give feedback</dd.Interactive>
           </Hds::Dropdown>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#" @text="Account Settings" />
+            <dd.Interactive @href="#">Account Settings</dd.Interactive>
           </Hds::Dropdown>
         </:actions>
       </Hds::SideNav::Header>
@@ -281,19 +281,19 @@ but in your app they will probably need to be set to `true` (or omitted to rely 
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="help" @text="help menu" />
             <dd.Title @text="Help & Support" />
-            <dd.Interactive @text="Documentation" @href="#" />
-            <dd.Interactive @text="Tutorials" @href="#" />
-            <dd.Interactive @text="Terraform Provider" @href="#" />
-            <dd.Interactive @text="Changelog" @href="#" />
+            <dd.Interactive @href="#">Documentation</dd.Interactive>
+            <dd.Interactive @href="#">Tutorials</dd.Interactive>
+            <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+            <dd.Interactive @href="#">Changelog</dd.Interactive>
             <dd.Separator />
-            <dd.Interactive @text="Create support ticket" @href="#" />
-            <dd.Interactive @text="Give feedback" @href="#" />
+            <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+            <dd.Interactive @href="#">Give feedback</dd.Interactive>
           </Hds::Dropdown>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleIcon @icon="user" @text="user menu" />
             <dd.Title @text="Signed In" />
             <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#" @text="Account Settings" />
+            <dd.Interactive @href="#">Account Settings</dd.Interactive>
           </Hds::Dropdown>
         </:actions>
       </Hds::SideNav::Header>

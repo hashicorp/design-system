@@ -16,8 +16,8 @@
       <SG.Item {{style padding="5em"}} @label={{capitalize position}}>
         <Hds::Dropdown @isOpen={{true}} @listPosition={{position}} as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#" @text="Create" />
-          <D.Interactive @href="#" @text="Edit" />
+          <D.Interactive @href="#">Create</D.Interactive>
+          <D.Interactive @href="#">Edit</D.Interactive>
         </Hds::Dropdown>
       </SG.Item>
     {{/each}}
@@ -70,8 +70,8 @@
             <div class="shw-component-dropdown-collision-detection-wrapper">
               <Hds::Dropdown @isOpen={{true}} @enableCollisionDetection={{detection}} as |D|>
                 <D.ToggleButton @color="secondary" @text="Menu" />
-                <D.Interactive @href="#" @text="Create" />
-                <D.Interactive @href="#" @text="Edit" />
+                <D.Interactive @href="#">Create</D.Interactive>
+                <D.Interactive @href="#">Edit</D.Interactive>
               </Hds::Dropdown>
             </div>
           </Shw::Autoscrollable>
@@ -377,7 +377,7 @@
           <Hds::Dropdown::ListItem::Title @text="A simple title" />
           <Hds::Dropdown::ListItem::Description @text="A description." />
           <Hds::Dropdown::ListItem::Separator />
-          <Hds::Dropdown::ListItem::Interactive @route="index" @text="Item" />
+          <Hds::Dropdown::ListItem::Interactive @route="index">Item</Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -1343,8 +1343,8 @@
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Create" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Edit" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Create</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Edit</Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -1354,8 +1354,8 @@
           <Hds::Link::Standalone @icon="list" @text="Organizations" @color="secondary" @href="#" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Create" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Edit" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Create</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Edit</Hds::Dropdown::ListItem::Interactive>
         </ul>
       </div>
     </SF.Item>
@@ -1405,9 +1405,9 @@
     <SF.Item @label="Button">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization A</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization B</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization C</Hds::Dropdown::ListItem::Interactive>
         </ul>
         <Hds::Dropdown::Footer @hasDivider={{true}}>
           <Hds::Button @text="Apply filters" @isFullWidth={{true}} @size="small" />
@@ -1417,9 +1417,9 @@
     <SF.Item @label="Link">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization A</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization B</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization C</Hds::Dropdown::ListItem::Interactive>
         </ul>
         <Hds::Dropdown::Footer @hasDivider={{true}}>
           <Hds::Link::Standalone @icon="list" @text="Organizations" @color="secondary" @href="#" />
@@ -1462,7 +1462,7 @@
           <Shw::Placeholder @text="generic header content" @width="200" @height="36" @background="#e1f5fe" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Interactive for testing" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Interactive for testing</Hds::Dropdown::ListItem::Interactive>
           <Hds::Dropdown::ListItem::Generic>
             <Shw::Placeholder @text="generic item content" @height="36" @background="#e1f5fe" />
           </Hds::Dropdown::ListItem::Generic>
@@ -1488,9 +1488,9 @@
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization A</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization B</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization C</Hds::Dropdown::ListItem::Interactive>
         </ul>
         <Hds::Dropdown::Footer @hasDivider={{true}}>
           <Hds::ButtonSet>
@@ -1507,9 +1507,9 @@
           <Hds::Form::TextInput::Base @type="search" placeholder="Narrow results" />
         </Hds::Dropdown::Header>
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization A" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization B" />
-          <Hds::Dropdown::ListItem::Interactive @route="components" @text="Organization C" />
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization A</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization B</Hds::Dropdown::ListItem::Interactive>
+          <Hds::Dropdown::ListItem::Interactive @route="components">Organization C</Hds::Dropdown::ListItem::Interactive>
         </ul>
         <Hds::Dropdown::Footer @hasDivider={{true}}>
           <Hds::Link::Standalone @icon="plus" @text="Add organization" @href="#" />

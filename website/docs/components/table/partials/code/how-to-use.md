@@ -442,11 +442,11 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       <B.Td @align="right">
         <Hds::Dropdown @isInline={{true}} as |dd|>
           <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
-          <dd.Interactive @route="components" @text="Create" />
-          <dd.Interactive @route="components" @text="Read" />
-          <dd.Interactive @route="components" @text="Update" />
+          <dd.Interactive @route="components">Create</dd.Interactive>
+          <dd.Interactive @route="components">Read</dd.Interactive>
+          <dd.Interactive @route="components">Update</dd.Interactive>
           <dd.Separator />
-          <dd.Interactive @route="components" @text="Delete" @color="critical" @icon="trash" />
+          <dd.Interactive @route="components" @color="critical" @icon="trash">Delete</dd.Interactive>
         </Hds::Dropdown>
       </B.Td>
     </B.Tr>
@@ -828,10 +828,9 @@ In this example we’re visually hiding the label in the last column by passing 
             />
             <D.Interactive
               @href="#"
-              @text="Delete"
               @color="critical"
               @icon="trash"
-            />
+            >Delete</D.Interactive>
           </Hds::Dropdown>
         </B.Td>
     </B.Tr>
@@ -868,16 +867,11 @@ Here’s a Table implementation that uses an array hash with localized strings f
               @hasChevron={{false}}
               @size="small"
             />
-            <D.Interactive @href="#" @text="Create" />
-            <D.Interactive @href="#" @text="Read" />
-            <D.Interactive @href="#" @text="Update" />
+            <D.Interactive @href="#">Create</D.Interactive>
+            <D.Interactive @href="#">Read</D.Interactive>
+            <D.Interactive @href="#">Update</D.Interactive>
             <D.Separator />
-            <D.Interactive
-              @href="#"
-              @text='Delete'
-              @color='critical'
-              @icon='trash'
-            />
+            <D.Interactive @href="#" @color="critical" @icon="trash">Delete</D.Interactive>
           </Hds::Dropdown>
         </B.Td>
     </B.Tr>
