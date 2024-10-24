@@ -8,6 +8,7 @@ import { deprecate } from '@ember/debug';
 import type { HdsTextBodySignature } from '../text/body';
 
 export interface HdsFlyoutDescriptionSignature {
+  Args: never;
   Blocks: {
     default: [];
   };
@@ -15,8 +16,8 @@ export interface HdsFlyoutDescriptionSignature {
 }
 
 export default class HdsFlyoutDescription extends Component<HdsFlyoutDescriptionSignature> {
-  constructor(owner: unknown) {
-    super(owner, {});
+  constructor(owner: unknown, args: HdsFlyoutDescriptionSignature['Args']) {
+    super(owner, args);
 
     deprecate(
       'The `Hds::Flyout::Description` sub-component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::DialogPrimitive::Description` as one-to-one replacement.',
