@@ -1,5 +1,33 @@
 # @hashicorp/design-system-components
 
+## 4.13.1
+
+### Patch Changes
+
+`Hds::Flyout`
+
+- Fixed error in `Description` and `Body` subcomponents, caused by not passing the `args` argument from the constructor to `super`
+
+`Hds::Modal`
+
+- Fixed error in `Body` subcomponent, caused by not passing the `args` argument from the constructor to `super`
+
+<small class="doc-whats-new-changelog-metadata">[#2511](https://github.com/hashicorp/design-system/pull/2511)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Export TypeScript signatures for all components and modifiers
+
+<small class="doc-whats-new-changelog-metadata">[#2499](https://github.com/hashicorp/design-system/pull/2499) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Alert` - Removed role="alert" and aria-live="polite" attributes from Alerts with color set to "neutral" or "highlight"
+
+<small class="doc-whats-new-changelog-metadata">[#2500](https://github.com/hashicorp/design-system/pull/2500)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.13.0
 
 [4.13.0 documentation](https://hds-website-4-13-0.vercel.app/)
