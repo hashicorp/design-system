@@ -7,6 +7,8 @@ import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
 export interface HdsModalBodySignature {
+  // when component has no args, but constructor still needs to be defined, use `never`
+  // see: https://github.com/hashicorp/design-system/pull/2511/files/f2146e5243d0431892a62d2fbf2889f1cbd3e525#r1815255004
   Args: never;
   Blocks: {
     default: [];
