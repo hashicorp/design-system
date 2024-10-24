@@ -5,9 +5,11 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 
 import type { HdsTableHorizontalAlignment } from './types.ts';
 import { HdsTableHorizontalAlignmentValues } from './types.ts';
+import { didInsertGridCell, handleGridCellKeyPress } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsTableHorizontalAlignmentValues
@@ -17,6 +19,8 @@ export const DEFAULT_ALIGN = HdsTableHorizontalAlignmentValues.Left;
 export interface HdsTableTdSignature {
   Args: {
     align?: HdsTableHorizontalAlignment;
+    isGrid?: boolean;
+    isActiveGridCell?: boolean;
   };
   Blocks: {
     default: [];
@@ -24,12 +28,14 @@ export interface HdsTableTdSignature {
   Element: HTMLTableCellElement;
 }
 export default class HdsTableTd extends Component<HdsTableTdSignature> {
-  /**
-   * @param align
-   * @type {string}
-   * @default left
-   * @description Determines the text alignment of the header or cell content. Options are: "left", "center", "right". If no align is defined, "left" is used.
-   */
+  @action
+  didInsert(element: HTMLTableCellElement): void {
+    if (this.args.isGrid) {
+      didInsertGridCell(element);
+      element.addEventListener('keydown', handleGridCellKeyPress);
+    }
+  }
+
   get align(): HdsTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 
@@ -42,11 +48,6 @@ export default class HdsTableTd extends Component<HdsTableTdSignature> {
     return align;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = [
       'hds-table__td',
@@ -57,6 +58,14 @@ export default class HdsTableTd extends Component<HdsTableTdSignature> {
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-table__td--align-${this.align}`);
+    }
+
+    if (this.args.isGrid) {
+      classes.push(`hds-table__td--gridcell`);
+    }
+
+    if (this.args.isActiveGridCell) {
+      classes.push(`hds-table__td--gridcell-active`);
     }
 
     return classes.join(' ');

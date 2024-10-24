@@ -6,6 +6,39 @@
 {{page-title "Table Component"}}
 
 <Shw::Text::H1>Table</Shw::Text::H1>
+<Shw::Text::H2>Example Grid</Shw::Text::H2>
+<Hds::Table
+  @isGrid={{true}}
+  @model={{this.model.music}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year" isSortable=true)
+    (hash key="other" label="Additional Actions")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
+      <B.Td>
+        <div class="shw-component-table-cell-content-div">
+          <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+          {{B.data.album}}
+        </div>
+      </B.Td>
+      <B.Td>
+        <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+      </B.Td>
+      <B.Td>
+        <Hds::ButtonSet>
+          <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+          <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+          <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+        </Hds::ButtonSet>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::Table>
 
 <section data-test-percy>
   <Shw::Text::H2>Data model</Shw::Text::H2>
