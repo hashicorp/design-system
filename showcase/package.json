@@ -39,7 +39,12 @@
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.3.0",
     "@ember/test-waiters": "^3.1.0",
+    "@embroider/broccoli-side-watch": "1.0.1",
+    "@embroider/compat": "^3.6.5",
+    "@embroider/core": "^3.4.19",
+    "@embroider/router": "^2.1.8",
     "@embroider/test-setup": "^3.0.3",
+    "@embroider/webpack": "^4.0.8",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.4.0",
@@ -109,7 +114,7 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "tracked-built-ins": "^3.3.0",
     "typescript": "^5.4.5",
-    "webpack": "^5.94.0"
+    "webpack": "^5.95.0"
   },
   "engines": {
     "node": "16.* || >= 18"
