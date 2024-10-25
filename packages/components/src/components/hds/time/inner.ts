@@ -4,7 +4,7 @@
  */
 
 import templateOnlyComponent from '@ember/component/template-only';
-import { DefaultDisplayType } from './types.ts';
+import type { DefaultDisplayType } from './types.ts';
 
 export interface HdsTimeInnerSignature {
   Args: {
