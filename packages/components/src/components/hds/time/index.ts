@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
 import { DateTime } from 'luxon';
-import { DefaultDisplayType, DefaultDisplayMappingType } from './types.ts';
+import type { DefaultDisplayType, DefaultDisplayMappingType } from './types.ts';
 
 const MILLISECOND_IN_MS = 1;
 const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
