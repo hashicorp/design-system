@@ -10,8 +10,28 @@ export interface HdsTimeInnerSignature {
     isValid: boolean;
     date: unknown;
     displayInner: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      options: any;
+      options:
+        | {
+            displayFormat: {
+              month: string;
+              day: string;
+              year: string;
+              hour?: string;
+              minute?: string;
+              second?: string;
+            } | null;
+            showFriendly: boolean;
+            showRelative: boolean;
+            tooltipFormat: {
+              month: string;
+              day: string;
+              year: string;
+              hour: string;
+              minute: string;
+              second?: string;
+            } | null;
+          }
+        | undefined;
       difference: { absValueInMs: number; valueInMs: number };
       relative: { value: number; unit: string };
     };
