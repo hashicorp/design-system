@@ -1,3 +1,9 @@
+!!! Warning
+
+Adoption plans for “Enterprise Nav” related components which include the `AppHeader` and the `AppSideNav` has been deprioritized at this time. Therefore, we currently do not recommend usage in production.
+
+!!!
+
 The App Side Nav provides users with access to contextual navigation within areas of the application and generally includes subpages and nested pages within projects and organizations.
 
 !!! Info
