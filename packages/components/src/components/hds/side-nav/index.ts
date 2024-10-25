@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
-import { deprecate } from '@ember/debug';
 
 import type { HdsSideNavBaseSignature } from './base';
 
@@ -74,20 +73,6 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
-
-    deprecate(
-      'The `Hds::SideNav` component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::AppSideNav` instead.',
-      false,
-      {
-        id: 'hds.components.sidenav',
-        until: '5.0.0',
-        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4140',
-        for: '@hashicorp/design-system-components',
-        since: {
-          enabled: '4.14.0',
-        },
-      }
-    );
   }
 
   addEventListeners(): void {
