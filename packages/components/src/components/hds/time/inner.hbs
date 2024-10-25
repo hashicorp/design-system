@@ -1,0 +1,33 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#if @isValid}}
+  <time class="hds-time" datetime={{@isoUtcString}} ...attributes>
+    {{#if @display.options.showFriendly}}
+      {{#if @display.options.displayFormat}}
+        {{format-date
+          @date
+          month=@display.options.displayFormat.month
+          day=@display.options.displayFormat.day
+          year=@display.options.displayFormat.year
+          hour=@display.options.displayFormat.hour
+          minute=@display.options.displayFormat.minute
+          second=@display.options.displayFormat.second
+        }}
+      {{else}}
+        {{@isoUtcString}}
+      {{/if}}
+      {{#if @display.options.showRelative}}
+        ({{format-relative @display.relative.value unit=@display.relative.unit}})
+      {{/if}}
+    {{else}}
+      {{#if @display.options.showRelative}}
+        {{format-relative @display.relative.value unit=@display.relative.unit}}
+      {{/if}}
+    {{/if}}
+  </time>
+{{else}}
+  --
+{{/if}}
