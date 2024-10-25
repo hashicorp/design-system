@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
 import { DateTime } from 'luxon';
+import { DefaultDisplayType, DefaultDisplayMappingType } from './types.ts';
 
 const MILLISECOND_IN_MS = 1;
 const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
@@ -67,29 +68,7 @@ const DATE_DISPLAY_FORMATS = {
 
 const DEFAULT_DISPLAY = '';
 
-// TODO: Use type alisas instead of defining here
-const DEFAULT_DISPLAY_MAPPING: {
-  [key: string]: {
-    displayFormat: {
-      month: string;
-      day: string;
-      year: string;
-      hour?: string;
-      minute?: string;
-      second?: string;
-    } | null;
-    showFriendly: boolean;
-    showRelative: boolean;
-    tooltipFormat: {
-      month: string;
-      day: string;
-      year: string;
-      hour: string;
-      minute: string;
-      second?: string;
-    } | null;
-  };
-} = {
+const DEFAULT_DISPLAY_MAPPING: DefaultDisplayMappingType = {
   [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
     displayFormat: FORMAT_PRECISION_SHORT_DATE,
     showFriendly: true,
@@ -151,28 +130,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     difference: { absValueInMs: number; valueInMs: number },
     display: string = DEFAULT_DISPLAY
   ): {
-    options:
-      | {
-          displayFormat: {
-            month: string;
-            day: string;
-            year: string;
-            hour?: string;
-            minute?: string;
-            second?: string;
-          } | null;
-          showFriendly: boolean;
-          showRelative: boolean;
-          tooltipFormat: {
-            month: string;
-            day: string;
-            year: string;
-            hour: string;
-            minute: string;
-            second?: string;
-          } | null;
-        }
-      | undefined;
+    options: DefaultDisplayType | undefined;
     difference: { absValueInMs: number; valueInMs: number };
     relative: { value: number; unit: string };
   } {
