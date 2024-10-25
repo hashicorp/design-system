@@ -3,6 +3,8 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
+{{! @glint-nocheck }}
+{{! TODO: format-date & display have type errors, fix }}
 {{#let this.display as |display|}}
   {{#if (and this.hasTooltip this.isValid)}}
     <Hds::TooltipButton
