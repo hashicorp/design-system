@@ -67,8 +67,29 @@ const DATE_DISPLAY_FORMATS = {
 
 const DEFAULT_DISPLAY = '';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const DEFAULT_DISPLAY_MAPPING: any = {
+// TODO: Use type alisas instead of defining here
+const DEFAULT_DISPLAY_MAPPING: {
+  [key: string]: {
+    displayFormat: {
+      month: string;
+      day: string;
+      year: string;
+      hour?: string;
+      minute?: string;
+      second?: string;
+    } | null;
+    showFriendly: boolean;
+    showRelative: boolean;
+    tooltipFormat: {
+      month: string;
+      day: string;
+      year: string;
+      hour: string;
+      minute: string;
+      second?: string;
+    } | null;
+  };
+} = {
   [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
     displayFormat: FORMAT_PRECISION_SHORT_DATE,
     showFriendly: true,
@@ -130,8 +151,28 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     difference: { absValueInMs: number; valueInMs: number },
     display: string = DEFAULT_DISPLAY
   ): {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    options: any;
+    options:
+      | {
+          displayFormat: {
+            month: string;
+            day: string;
+            year: string;
+            hour?: string;
+            minute?: string;
+            second?: string;
+          } | null;
+          showFriendly: boolean;
+          showRelative: boolean;
+          tooltipFormat: {
+            month: string;
+            day: string;
+            year: string;
+            hour: string;
+            minute: string;
+            second?: string;
+          } | null;
+        }
+      | undefined;
     difference: { absValueInMs: number; valueInMs: number };
     relative: { value: number; unit: string };
   } {
@@ -154,7 +195,6 @@ export default class HdsTime extends Component<HdsTimeSignature> {
       }
     }
 
-    // TODO: Not sure how to determine type (defined as "any" for now)
     const options = DEFAULT_DISPLAY_MAPPING[displayKey];
 
     return {
