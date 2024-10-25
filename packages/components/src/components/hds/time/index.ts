@@ -253,8 +253,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   }
 
   get display(): {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    options: any;
+    options: DefaultDisplayType | undefined;
     difference: { absValueInMs: number; valueInMs: number };
     relative: { value: number; unit: string };
   } {
@@ -265,7 +264,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
       return this.format(nextDiff, display);
     }
     return {
-      options: {},
+      options: undefined,
       difference: { absValueInMs: 0, valueInMs: 0 },
       relative: { value: 0, unit: '' },
     };
