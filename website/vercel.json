@@ -1,6 +1,6 @@
 {
-  "buildCommand": "yarn workspace website build && yarn workspace website algolia:index",
-  "devCommand": "yarn workspace website ember serve",
+  "buildCommand": "pnpm --filter website build && pnpm --filter website algolia:index",
+  "devCommand": "pnpm --filter website start",
   "headers": [
     {
       "source": "/(.*)",

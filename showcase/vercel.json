@@ -1,6 +1,6 @@
 {
-  "buildCommand": "yarn workspace showcase build",
-  "devCommand": "yarn workspace showcase ember serve",
+  "buildCommand": "pnpm --filter showcase build",
+  "devCommand": "pnpm --filter showcase start",
   "headers": [
     {
       "source": "/(.*)",
