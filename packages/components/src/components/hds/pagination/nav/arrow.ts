@@ -11,8 +11,8 @@ import {
   HdsPaginationDirectionLabelValues,
 } from '../types.ts';
 
-import type { HdsIconSignature } from '../../icon/index.ts';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsIconSignature } from '../../icon.ts';
+import type { HdsInteractiveSignature } from '../../interactive.ts';
 import type {
   HdsPaginationDirections,
   HdsPaginationDirectionAriaLabels,

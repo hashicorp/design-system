@@ -14,7 +14,7 @@
     </div>
   {{else}}
     {{#if @isRouteExternal}}
-      <LinkToExternal
+      {{!-- <LinkToExternal
         class="hds-breadcrumb__link"
         @current-when={{@current-when}}
         @models={{hds-link-to-models @model @models}}
@@ -28,7 +28,7 @@
           </div>
         {{/if}}
         <span class="hds-breadcrumb__text">{{@text}}</span>
-      </LinkToExternal>
+      </LinkToExternal> --}}
     {{else}}
       <LinkTo
         class="hds-breadcrumb__link"

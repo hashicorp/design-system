@@ -12,9 +12,9 @@
 >
   {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
-  {{#if F.CharacterCount}}
+  {{!-- {{#if F.CharacterCount}}
     {{yield (hash CharacterCount=(component F.CharacterCount value=@value))}}
-  {{/if}}
+  {{/if}} --}}
   <F.Control>
     <div class="hds-form-text-input__wrapper" {{style width=@width}}>
       <Hds::Form::TextInput::Base

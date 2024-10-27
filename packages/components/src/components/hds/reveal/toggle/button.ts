@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-import type { HdsButtonSignature } from '../../button/';
+import type { HdsButtonSignature } from '../../button.ts';
 
 export interface HdsRevealToggleButtonSignature {
   Args: {

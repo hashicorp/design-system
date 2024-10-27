@@ -1,0 +1,7 @@
+packages:
+  - 'packages/**'
+  - showcase
+  - website
+
+catalog:
+  typescript: ^5.4.5

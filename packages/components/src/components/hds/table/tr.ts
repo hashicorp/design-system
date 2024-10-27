@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 import { HdsTableScopeValues } from './types.ts';
 import type { HdsTableScope, HdsTableThSortOrder } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
-import type { HdsTableSignature } from './index.ts';
+import type { HdsTableSignature } from '../table.ts';
 import type { HdsTableThSelectableSignature } from './th-selectable.ts';
 
 export interface BaseHdsTableTrSignature {

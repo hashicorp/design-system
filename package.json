@@ -1,24 +1,22 @@
 {
   "name": "@hashicorp/design-system",
-  "private": true,
   "version": "0.0.0",
-  "workspaces": [
-    "./packages/*",
-    "./showcase",
-    "./website"
-  ],
+  "private": true,
+  "scripts": {
+    "release-packages": "pnpm changeset publish",
+    "version-packages": "pnpm changeset version && pnpm install --mode update-lockfile && pnpm --filter website generate-changelog-markdown-files"
+  },
   "devDependencies": {
     "@changesets/cli": "^2.26.2",
     "@changesets/get-github-info": "^0.5.2",
+    "@glint/core": "^1.5.0",
     "dotenv": "^16.3.1"
   },
-  "scripts": {
-    "release-packages": "yarn changeset publish",
-    "version-packages": "yarn changeset version && yarn install --mode update-lockfile && yarn workspace website generate-changelog-markdown-files"
-  },
-  "packageManager": "yarn@4.4.0",
-  "resolutions": {
-    "broccoli-asset-rewrite@^2.0.0": "patch:broccoli-asset-rewrite@npm%3A2.0.0#./.yarn/patches/broccoli-asset-rewrite-npm-2.0.0-c4ce42084a.patch",
-    "@glint/environment-ember-loose": "patch:@glint/environment-ember-loose@npm%3A1.4.0#~/.yarn/patches/@glint-environment-ember-loose-npm-1.4.0-31c2f31bcb.patch"
+  "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228",
+  "pnpm": {
+    "patchedDependencies": {
+      "@glint/environment-ember-loose@1.5.0": "patches/@glint__environment-ember-loose@1.5.0.patch",
+      "broccoli-asset-rewrite@2.0.0": "patches/broccoli-asset-rewrite@2.0.0.patch"
+    }
   }
 }

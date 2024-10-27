@@ -7,10 +7,10 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { DEBUG } from '@glimmer/env';
+// import { DEBUG } from '@glimmer/env';
 import { macroCondition, isTesting } from '@embroider/macros';
 
-import type { HdsSideNavPortalSignature } from './index';
+import type { HdsSideNavPortalSignature } from '../portal.ts';
 
 // import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
 export interface PortalTargetSignature {
@@ -152,12 +152,12 @@ export default class HdsSideNavPortalTarget extends Component<HdsSideNavPortalTa
         }
       }
       // Notice: we don't add the styles by default because it writes a `style` attribute to the element and it causes an additional re-render
-      if (DEBUG) {
-        // Check the visibility of the element before attempting to commitStyles.
-        if (targetElement.offsetParent !== null) {
-          anim.commitStyles();
-        }
-      }
+      // if (DEBUG) {
+      //   // Check the visibility of the element before attempting to commitStyles.
+      //   if (targetElement.offsetParent !== null) {
+      //     anim.commitStyles();
+      //   }
+      // }
     });
 
     // fade in next panel

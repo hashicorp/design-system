@@ -8,11 +8,11 @@ import { assert, deprecate } from '@ember/debug';
 
 import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
-import type { HdsIconSignature } from '../../icon';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsIconSignature } from '../../icon.ts';
+import type { HdsInteractiveSignature } from '../../interactive.ts';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
 import type { ComponentLike } from '@glint/template';
-import type { HdsBadgeSignature } from '../../badge/index.ts';
+import type { HdsBadgeSignature } from '../../badge.ts';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
 export const COLORS: string[] = Object.values(

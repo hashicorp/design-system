@@ -17,25 +17,25 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "concurrently 'yarn:build:*'",
+    "build": "concurrently 'pnpm:build:*'",
     "build:js": "rollup --config",
     "build:types": "glint --declaration",
-    "lint": "concurrently 'yarn:lint:*(!fix)' --names 'lint:'",
-    "lint:fix": "concurrently 'yarn:lint:*:fix' --names 'fix:'",
+    "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
+    "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
-    "prepublishOnly": "concurrently 'yarn:build:*'",
-    "start": "concurrently 'yarn:start:*'",
+    "prepublishOnly": "concurrently 'pnpm:build:*'",
+    "start": "concurrently 'pnpm:start:*'",
     "start:js": "rollup --config --watch --no-watch.clearScreen",
     "start:types": "glint --declaration --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.7",
-    "@hashicorp/flight-icons": "^3.7.0",
+    "@hashicorp/flight-icons": "workspace:*",
     "decorator-transforms": "^1.1.0",
     "ember-get-config": "^2.1.1"
   },
@@ -50,10 +50,9 @@
     "@embroider/addon-dev": "^4.3.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@glint/core": "^1.2.1",
-    "@glint/environment-ember-loose": "^1.2.1",
-    "@glint/environment-ember-template-imports": "^1.2.1",
-    "@glint/template": "^1.2.1",
+    "@glint/environment-ember-loose": "^1.5.0",
+    "@glint/environment-ember-template-imports": "^1.5.0",
+    "@glint/template": "^1.5.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
@@ -72,7 +71,10 @@
     "prettier": "^3.3.2",
     "rollup": "^4.22.4",
     "rollup-plugin-copy": "^3.5.0",
-    "typescript": "^5.3.3"
+    "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0"
   },
   "ember": {
     "edition": "octane"

@@ -5,10 +5,10 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
+import type { SafeString } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive.ts';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
 import type { HdsAppFooterLinkSignature } from './link.ts';

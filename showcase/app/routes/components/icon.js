@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { AVAILABLE_COLORS } from '@hashicorp/design-system-components/components/hds/icon/index';
+import { AVAILABLE_COLORS } from '@hashicorp/design-system-components/components/hds/icon';
 
 export default class IconRoute extends Route {
   model() {

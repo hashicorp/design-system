@@ -24,9 +24,9 @@ module.exports = function (defaults) {
     sassOptions: {
       precision: 4,
       includePaths: [
-        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-        '../node_modules/@hashicorp/design-system-components/dist/styles',
-        '../node_modules/ember-power-select/vendor',
+        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        'node_modules/@hashicorp/design-system-components/dist/styles',
+        'node_modules/ember-power-select/vendor',
       ],
     },
     // we need to add this or Ember Sass compilation will mess up the generated CSS
@@ -48,28 +48,18 @@ module.exports = function (defaults) {
     staticAddonTestSupportTrees: true,
     staticAddonTrees: true,
     staticModifiers: true,
-    // staticHelpers: true,
-    // staticComponents: true,
+    staticHelpers: true,
+    staticComponents: true,
     staticEmberSource: true,
     splitControllers: true,
     splitRouteClasses: true,
-    // splitAtRoutes: ['*'], // can also be a RegExp
-    staticAppPaths: ['mirage'],
+    splitAtRoutes: ['components', 'layouts', 'utilities', 'overrides'], // can also be a RegExp
     skipBabel: [
       {
         package: 'qunit',
       },
       {
         package: 'sinon',
-      },
-      {
-        package: 'cytoscape',
-      },
-      {
-        package: '@commandbar/foobar',
-      },
-      {
-        package: 'react-dom',
       },
       {
         package: 'axe-core',

@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import type { HdsButtonSignature } from '../button/';
+import type { HdsButtonSignature } from '../button.ts';
 
 export interface HdsAppHeaderMenuButtonSignature {
   Args: {

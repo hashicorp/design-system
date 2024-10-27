@@ -29,6 +29,7 @@ export default class HdsFlyoutDescription extends Component<HdsFlyoutDescription
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

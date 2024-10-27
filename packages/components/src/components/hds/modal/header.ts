@@ -34,6 +34,7 @@ export default class HdsModalHeader extends Component<HdsModalHeaderSignature> {
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

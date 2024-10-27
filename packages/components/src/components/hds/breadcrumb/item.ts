@@ -6,8 +6,8 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
-import type { SafeString } from '@ember/template/-private/handlebars';
-import type { HdsIconSignature } from '../icon';
+import type { SafeString } from '@ember/template';
+import type { HdsIconSignature } from '../icon.ts';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {

@@ -16,7 +16,7 @@ import type {
 } from './types.ts';
 import type { HdsIconSignature } from '../icon';
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitiveToggleModifier } from '../popover-primitive';
+import type { SetupPrimitiveToggleModifier } from '../popover-primitive.ts';
 
 export const ICONPOSITIONS: string[] = Object.values(
   HdsRichTooltipToggleIconPositionValues

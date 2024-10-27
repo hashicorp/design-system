@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 
 import { COLORS as TOGGLE_BUTTON_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
-import { POSITIONS } from '@hashicorp/design-system-components/components/hds/dropdown/index';
+import { POSITIONS } from '@hashicorp/design-system-components/components/hds/dropdown';
 
 export default class ComponentsDropdownRoute extends Route {
   model() {

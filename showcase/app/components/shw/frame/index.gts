@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 import { htmlSafe } from '@ember/template';
 
 import ShwLabel from '../label';
-import HdsIcon from '@hashicorp/design-system-components/components/hds/icon/index';
+import { HdsIcon } from '@hashicorp/design-system-components/components';
 
 import type { SafeString } from '@ember/template';
 

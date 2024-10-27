@@ -8,7 +8,7 @@ import type { HdsFormFieldsetSignature } from '../fieldset';
 import type { ComponentLike } from '@glint/template';
 import type { HdsFormLegendSignature } from '../legend';
 import type { HdsFormHelperTextSignature } from '../helper-text';
-import type { HdsFormRadioCardSignature } from './index';
+import type { HdsFormRadioCardSignature } from '../radio-card';
 import type { HdsFormErrorSignature } from '../error';
 import type {
   HdsFormRadioCardControlPositions,
