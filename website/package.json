@@ -54,6 +54,7 @@
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-multifilter": "git://github.com/broccolijs/broccoli-multifilter#3ae609df0cfb1dae0da04ae041eb75c7115c9838",
+    "chalk": "^4.1.2",
     "cspell": "^7.3.8",
     "dotenv": "^16.3.1",
     "ember-a11y-refocus": "^4.1.3",
