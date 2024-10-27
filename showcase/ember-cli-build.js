@@ -53,7 +53,12 @@ module.exports = function (defaults) {
     staticEmberSource: true,
     splitControllers: true,
     splitRouteClasses: true,
-    splitAtRoutes: ['components', 'layouts', 'utilities', 'overrides'], // can also be a RegExp
+    splitAtRoutes: [
+      /componentss[a-z-]*/,
+      /layouts[a-z-]*/,
+      /utilities[a-z-]*/,
+      /overrides[a-z-]*/,
+    ], // can also be a RegExp
     skipBabel: [
       {
         package: 'qunit',
