@@ -17,7 +17,7 @@ Router.map(function () {
     this.route('elevation');
     this.route('focus-ring');
   });
-  this.route('components', function () {
+  this.route('componentss', function () {
     this.route('accordion');
     this.route('alert');
     this.route('app-footer');
