@@ -17,8 +17,8 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "typecheck": "yarn tsc --noEmit",
-    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint --quiet --ext .js,.ts",
     "build": "ts-node --transpile-only ./scripts/build"
   },
   "devDependencies": {

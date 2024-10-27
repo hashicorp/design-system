@@ -520,6 +520,9 @@ importers:
       '@ember/optional-features':
         specifier: ^2.1.0
         version: 2.1.0
+      '@ember/render-modifiers':
+        specifier: ^2.1.0
+        version: 2.1.0(@babel/core@7.25.2)(@glint/template@1.5.0)(ember-source@5.9.0(@babel/core@7.25.2)(@glimmer/component@1.1.2(@babel/core@7.25.2))(@glint/template@1.5.0)(rsvp@4.8.5))
       '@ember/string':
         specifier: ^3.1.1
         version: 3.1.1
@@ -634,6 +637,9 @@ importers:
       ember-cli-string-helpers:
         specifier: ^6.1.0
         version: 6.1.0
+      ember-cli-string-utils:
+        specifier: ^1.1.0
+        version: 1.1.0
       ember-cli-terser:
         specifier: ^4.0.2
         version: 4.0.2
@@ -661,6 +667,9 @@ importers:
       ember-resolver:
         specifier: ^11.0.1
         version: 11.0.1(ember-source@5.9.0(@babel/core@7.25.2)(@glimmer/component@1.1.2(@babel/core@7.25.2))(@glint/template@1.5.0)(rsvp@4.8.5)(webpack@5.95.0))
+      ember-router-generator:
+        specifier: ^2.0.0
+        version: 2.0.0
       ember-set-helper:
         specifier: ^3.0.1
         version: 3.0.1(@babel/core@7.25.2)
@@ -709,6 +718,9 @@ importers:
       eslint-plugin-qunit:
         specifier: ^8.1.1
         version: 8.1.1(eslint@8.57.0)
+      fs-extra:
+        specifier: ^11.1.1
+        version: 11.2.0
       loader.js:
         specifier: ^4.7.0
         version: 4.7.0
@@ -874,6 +886,9 @@ importers:
       ember-cli-string-helpers:
         specifier: ^6.1.0
         version: 6.1.0
+      ember-cli-string-utils:
+        specifier: ^1.1.0
+        version: 1.1.0
       ember-cli-terser:
         specifier: ^4.0.2
         version: 4.0.2
@@ -1036,6 +1051,9 @@ importers:
       stylelint-config-standard-scss:
         specifier: ^13.1.0
         version: 13.1.0(postcss@8.4.47)(stylelint@16.3.1(typescript@5.6.3))
+      unified:
+        specifier: ^11.0.5
+        version: 11.0.5
       unist-util-remove:
         specifier: ^4.0.0
         version: 4.0.0
@@ -10791,8 +10809,8 @@ packages:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
 
-  unified@11.0.4:
-    resolution: {integrity: sha512-apMPnyLjAX+ty4OrNap7yumyVAMlKx5IWU2wlzzUdYJO9A8f1p9m/gywF/GM2ZDFcjQPrx59Mc90KwmxsoklxQ==}
+  unified@11.0.5:
+    resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
   unified@7.1.0:
     resolution: {integrity: sha512-lbk82UOIGuCEsZhPj8rNAkXSDXd6p0QLzIuSsCdxrqnqU56St4eyOB+AlXsVgVeRmetPTYydIuvFfpDIed8mqw==}
@@ -23143,14 +23161,14 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.3
       hast-util-to-html: 9.0.0
-      unified: 11.0.4
+      unified: 11.0.5
 
   remark-frontmatter@5.0.0:
     dependencies:
       '@types/mdast': 4.0.3
       mdast-util-frontmatter: 2.0.1
       micromark-extension-frontmatter: 2.0.0
-      unified: 11.0.4
+      unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
 
@@ -23161,7 +23179,7 @@ snapshots:
       micromark-extension-gfm: 3.0.0
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      unified: 11.0.4
+      unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
 
@@ -23170,7 +23188,7 @@ snapshots:
       '@types/mdast': 4.0.3
       mdast-util-from-markdown: 2.0.0
       micromark-util-types: 2.0.0
-      unified: 11.0.4
+      unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
 
@@ -23197,14 +23215,14 @@ snapshots:
       '@types/hast': 3.0.3
       '@types/mdast': 4.0.3
       mdast-util-to-hast: 13.0.2
-      unified: 11.0.4
+      unified: 11.0.5
       vfile: 6.0.1
 
   remark-stringify@11.0.0:
     dependencies:
       '@types/mdast': 4.0.3
       mdast-util-to-markdown: 2.1.0
-      unified: 11.0.4
+      unified: 11.0.5
 
   remark-stringify@6.0.4:
     dependencies:
@@ -23234,7 +23252,7 @@ snapshots:
       '@types/mdast': 4.0.3
       remark-parse: 11.0.0
       remark-stringify: 11.0.0
-      unified: 11.0.4
+      unified: 11.0.5
     transitivePeerDependencies:
       - supports-color
 
@@ -24820,7 +24838,7 @@ snapshots:
 
   unicorn-magic@0.1.0: {}
 
-  unified@11.0.4:
+  unified@11.0.5:
     dependencies:
       '@types/unist': 3.0.2
       bail: 2.0.2

@@ -4,7 +4,7 @@
  */
 
 /* eslint-disable ember/no-string-prototype-extensions */
-/* eslint-disable n/no-extraneous-require */
+/* eslint-disable n/no-extraneous-require, n/no-missing-require */
 'use strict';
 
 const stringUtil = require('ember-cli-string-utils');
