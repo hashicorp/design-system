@@ -31,8 +31,14 @@ const plugins = [
     'components/**/!(*types).js',
     'helpers/**/*.js',
     'modifiers/**/*.js',
-    'instance-initializers/**/*.js',
-  ]),
+    'instance-initializers/**/*.js'],
+    {
+      exclude: [
+        'components/**/app-header/**/*.js',
+        'components/**/app-side-nav/**/*.js',
+      ],
+    }
+  ),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
   // `dependencies` and `peerDependencies` as well as standard Ember-provided

@@ -21,6 +21,8 @@ Router.map(function () {
     this.route('accordion');
     this.route('alert');
     this.route('app-footer');
+    this.route('app-header');
+    this.route('app-side-nav');
     this.route('application-state');
     this.route('badge');
     this.route('badge-count');
@@ -91,9 +93,5 @@ Router.map(function () {
   });
   this.route('overrides', function () {
     this.route('power-select');
-  });
-  this.route('deprioritized', function () {
-    this.route(`app-header`);
-    this.route(`app-side-nav`);
   });
 });

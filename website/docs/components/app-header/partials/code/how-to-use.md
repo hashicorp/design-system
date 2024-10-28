@@ -1,4 +1,4 @@
-!!! Warning
+<!-- !!! Warning
 
 **Release plan**
 
@@ -6,7 +6,7 @@ The `AppHeader` is being rolled out in a phased approach. In the phase one relea
 
 At this time, we do not recommend adoption on your own. Please [contact the Design Systems Team](/about/support) for assistance.
 
-!!!
+!!! -->
 
 ## How to use this component
 
@@ -20,8 +20,7 @@ The `<:logo>` block should contain the `AppHeader::HomeLink` which is provided a
 
 The other two slots are intended for consumer-provided controls. The `<:globalActions>` block should typically contain a “context switcher” (sometimes called an “org switcher” or “project switcher”). The `<:utilityActions>` block is used to provide utilities including “Help” and “User” menus and, optionally, “Search”.
 
-
-```handlebars
+<!-- ```handlebars
 {{!--
 for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
 probably need to be set to `true` (or omitted to rely on defaults)
@@ -40,7 +39,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
   </:utilityActions>
 </Hds::AppHeader>
-```
+``` -->
 
 ### Content
 
@@ -60,7 +59,7 @@ It is built on top of the [`Hds::Interactive` component](/utilities/interactive)
 
 Refer to the [Component API section](/components/app-header?tab=code#appheaderhomelink) for details.
 
-```handlebars
+<!-- ```handlebars
 {{!--
 for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
 probably need to be set to `true` (or omitted to rely on defaults)
@@ -83,11 +82,11 @@ probably need to be set to `true` (or omitted to rely on defaults)
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
   </:utilityActions>
 </Hds::AppHeader>
-```
+``` -->
 
 The `HomeLink` also accepts optional arguments; for example, it’s possible to provide a custom color for the icon if needed:
 
-```handlebars
+<!-- ```handlebars
 {{!--
 for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
 probably need to be set to `true` (or omitted to rely on defaults)
@@ -111,13 +110,13 @@ probably need to be set to `true` (or omitted to rely on defaults)
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
   </:utilityActions>
 </Hds::AppHeader>
-```
+``` -->
 
 #### Global actions
 
 Consumers should provide their own “context switcher” (e.g., “org switcher” or “project switcher”) control yielded within the `<:globalActions>` block. HDS does not currently provide this component.
 
-```handlebars
+<!-- ```handlebars
 {{!--
 for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
 probably need to be set to `true` (or omitted to rely on defaults)
@@ -145,13 +144,13 @@ probably need to be set to `true` (or omitted to rely on defaults)
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
   </:utilityActions>
 </Hds::AppHeader>
-```
+``` -->
 
 #### Utility actions
 
 Consumers should provide their own utility action controls yielded within the `<:utilityActions>` block. Recommended controls are a user menu and help menu. Other controls such as a search button can optionally be included.
 
-```handlebars
+<!-- ```handlebars
 {{!--
 for demo purposes, we set `@hasA11yRefocus` to `false` but in your app it will
 probably need to be set to `true` (or omitted to rely on defaults)
@@ -195,4 +194,4 @@ probably need to be set to `true` (or omitted to rely on defaults)
     </Hds::Dropdown>
   </:utilityActions>
 </Hds::AppHeader>
-```
+``` -->

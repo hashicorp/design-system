@@ -43,6 +43,16 @@
           AppFooter
         </LinkTo>
       </li>
+      {{! <li>
+        <LinkTo @route="components.app-header">
+          AppHeader
+        </LinkTo>
+      </li>
+      <li>
+        <LinkTo @route="components.app-side-nav">
+          AppSideNav
+        </LinkTo>
+      </li> }}
       <li>
         <LinkTo @route="components.application-state">
           Application State
@@ -265,7 +275,6 @@
         </LinkTo>
       </li>
     </ol>
-
     <Shw::Text::H2>Overrides</Shw::Text::H2>
     <ol class="shw-text-body">
       <li>
@@ -305,20 +314,6 @@
       <li>
         <LinkTo @route="utilities.popover-primitive">
           PopoverPrimitive
-        </LinkTo>
-      </li>
-    </ol>
-
-    <Shw::Text::H2>Deprioritized</Shw::Text::H2>
-    <ol class="shw-text-body">
-      <li>
-        <LinkTo @route="deprioritized.app-header">
-          AppHeader
-        </LinkTo>
-      </li>
-      <li>
-        <LinkTo @route="deprioritized.app-side-nav">
-          AppSideNav
         </LinkTo>
       </li>
     </ol>

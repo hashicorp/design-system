@@ -1,6 +1,6 @@
 !!! Warning
 
-Adoption plans for “Enterprise Nav” related components which include the `AppHeader` and the `AppSideNav` has been deprioritized at this time. Therefore, we currently do not recommend usage in production.
+We currently do not recommend using the `AppSideNav` component in production.
 
 !!!
 
