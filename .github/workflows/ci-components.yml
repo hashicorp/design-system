@@ -34,25 +34,27 @@ jobs:
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Install Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Build Components
-        run: yarn build
+        run: pnpm build
         working-directory: packages/components
       - name: Lint Showcase
-        run: yarn run lint
+        run: pnpm lint
         working-directory: showcase
       - name: Lint Components
-        run: yarn run lint
+        run: pnpm lint
         working-directory: packages/components
       - name: Run Tests
-        run: yarn run test:ember:percy
+        run: pnpm test:ember:percy
         working-directory: showcase
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN_COMPONENTS }}
@@ -76,20 +78,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Install Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Build Components
-        run: yarn build
+        run: pnpm build
         working-directory: packages/components
       - name: Run Tests
         working-directory: showcase
-        run: yarn ember try:one ${{ matrix.try-scenario }}
+        run: pnpm ember try:one ${{ matrix.try-scenario }}
         env:
           PERCY_ENABLE: 0
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
