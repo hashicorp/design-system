@@ -34,7 +34,8 @@ jobs:
     if: needs.conditional-skip.outputs.trigger-ci == 'true'
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: pnpm/action-setup@v4
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
         with:
           run_install: false
       - name: Install Node
@@ -78,7 +79,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
-      - uses: pnpm/action-setup@v4
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
         with:
           run_install: false
       - name: Install Node
