@@ -12,6 +12,7 @@ import { macroCondition, isTesting } from '@embroider/macros';
 
 import type { HdsSideNavPortalSignature } from './index';
 
+// not available yet - see: https://github.com/simonihmig/ember-stargate/issues/697
 // import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
 export interface PortalTargetSignature {
   Element: HTMLDivElement;

@@ -7,7 +7,7 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { HdsSideNavListSignature } from '../list/index';
 
-// TODO! understand how this should be done "correctly"
+// not available yet - see: https://github.com/simonihmig/ember-stargate/issues/697
 // import type { PortalSignature } from 'ember-stargate/components/portal';
 export interface PortalSignature {
   Args: {
