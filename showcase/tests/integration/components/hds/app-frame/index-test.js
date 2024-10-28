@@ -30,6 +30,9 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
           <Frame.Main id="test-app-frame-main" data-test-app-frame-main>
             main container
           </Frame.Main>
+          <Frame.StickyFooter id="test-app-frame-sticky-footer" data-test-app-frame-sticky-footer>
+            sticky footer container
+          </Frame.StickyFooter>
           <Frame.Footer id="test-app-frame-footer" data-test-app-frame-footer>
             footer container
           </Frame.Footer>
@@ -60,6 +63,16 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
     assert.dom('#test-app-frame-main[data-test-app-frame-main]').exists();
     assert.dom('main.hds-app-frame__main').exists();
     assert.dom('main.hds-app-frame__main').includesText('main container');
+
+    // Sticky Footer
+
+    assert
+      .dom('#test-app-frame-sticky-footer[data-test-app-frame-sticky-footer]')
+      .exists();
+    assert.dom('div.hds-app-frame__sticky-footer').exists();
+    assert
+      .dom('div.hds-app-frame__sticky-footer')
+      .includesText('sticky footer container');
 
     // Footer
 
@@ -106,7 +119,18 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
           <Frame.Footer id="test-app-frame-footer" />
         </Hds::AppFrame>
     `);
-    assert.dom('#test-app-frame-sidebar').doesNotExist();
+    assert.dom('#test-app-frame-footer').doesNotExist();
+  });
+
+  // hasStickyFooter
+
+  test('it should hide the sticky footer when @hasStickyFooter is false', async function (assert) {
+    await render(hbs`
+        <Hds::AppFrame @hasStickyFooter={{false}} as |Frame|>
+          <Frame.StickyFooter id="test-app-frame-sticky-footer" />
+        </Hds::AppFrame>
+    `);
+    assert.dom('#test-app-frame-sticky-footer').doesNotExist();
   });
 
   // hasModals
@@ -137,5 +161,49 @@ module('Integration | Component | hds/app-frame/index', function (hooks) {
         </Hds::AppFrame>
     `);
     assert.dom('main#test-main').exists();
+  });
+
+  // sticky footer portaling
+
+  test('it should render the content in the sticky footer using a portal', async function (assert) {
+    await render(hbs`
+        <Portal @target="hds-app-frame-sticky-footer-portal-target">
+          <div id="test-portaled-content">this content is portaled</div>
+        </Portal>
+        <Hds::AppFrame as |Frame|>
+          <Frame.StickyFooter @isPortal={{true}} id="test-portal" />
+        </Hds::AppFrame>
+    `);
+    assert.dom('div#test-portal.hds-app-frame__sticky-footer').exists();
+    assert
+      .dom('div#test-portal > .hds-app-frame__sticky-footer-portal-target')
+      .exists();
+    assert
+      .dom(
+        'div#test-portal > .hds-app-frame__sticky-footer-portal-target > #test-portaled-content'
+      )
+      .exists()
+      .hasText('this content is portaled');
+  });
+
+  test('it should render the content in the sticky footer using a portal with custom target name', async function (assert) {
+    await render(hbs`
+        <Portal @target="my-portal">
+          <div id="test-portaled-content">this content is portaled</div>
+        </Portal>
+        <Hds::AppFrame as |Frame|>
+          <Frame.StickyFooter @isPortal={{true}} @targetName="my-portal" id="test-portal" />
+        </Hds::AppFrame>
+    `);
+    assert.dom('div#test-portal.hds-app-frame__sticky-footer').exists();
+    assert
+      .dom('div#test-portal > .hds-app-frame__sticky-footer-portal-target')
+      .exists();
+    assert
+      .dom(
+        'div#test-portal > .hds-app-frame__sticky-footer-portal-target > #test-portaled-content'
+      )
+      .exists()
+      .hasText('this content is portaled');
   });
 });
