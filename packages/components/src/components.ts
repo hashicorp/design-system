@@ -288,6 +288,7 @@ export { default as HdsAppFrameHeader } from './components/hds/app-frame/parts/h
 export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/main.ts';
 export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.ts';
 export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.ts';
+export { default as HdsAppFrameStickyFooter } from './components/hds/app-frame/parts/sticky-footer.ts';
 
 // -----------------------------------------------------------
 // ### UTILITIES

@@ -10,6 +10,7 @@ import type { HdsAppFrameHeaderSignature } from './parts/header.ts';
 import type { HdsAppFrameMainSignature } from './parts/main.ts';
 import type { HdsAppFrameModalsSignature } from './parts/modals.ts';
 import type { HdsAppFrameSidebarSignature } from './parts/sidebar.ts';
+import type { HdsAppFrameStickyFooterSignature } from './parts/sticky-footer.ts';
 export interface HdsAppFrameSignature {
   Args: {
     hasFooter?: boolean;
@@ -17,6 +18,7 @@ export interface HdsAppFrameSignature {
     hasMain?: boolean;
     hasModals?: boolean;
     hasSidebar?: boolean;
+    hasStickyFooter?: boolean;
   };
   Blocks: {
     default: [
@@ -26,6 +28,7 @@ export interface HdsAppFrameSignature {
         Main?: ComponentLike<HdsAppFrameMainSignature>;
         Modals?: ComponentLike<HdsAppFrameModalsSignature>;
         Sidebar?: ComponentLike<HdsAppFrameSidebarSignature>;
+        StickyFooter?: ComponentLike<HdsAppFrameStickyFooterSignature>;
       },
     ];
   };
@@ -51,6 +54,11 @@ export default class HdsAppFrame extends Component<HdsAppFrameSignature> {
   // Indicates if the "modals" container should be displayed
   get hasModals(): boolean {
     return this.args.hasModals ?? true;
+  }
+
+  // Indicates if the "sticky footer" container should be displayed
+  get hasStickyFooter(): boolean {
+    return this.args.hasStickyFooter ?? true;
   }
 
   // Get the class names to apply to the component.

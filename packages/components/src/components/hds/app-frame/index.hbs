@@ -18,6 +18,9 @@
     {{yield (hash Modals=(component "hds/app-frame/parts/modals"))}}
   {{/if}}
   {{yield (hash Main=(component "hds/app-frame/parts/main"))}}
+  {{#if this.hasStickyFooter}}
+    {{yield (hash StickyFooter=(component "hds/app-frame/parts/sticky-footer"))}}
+  {{/if}}
   {{#if this.hasFooter}}
     {{yield (hash Footer=(component "hds/app-frame/parts/footer"))}}
   {{/if}}

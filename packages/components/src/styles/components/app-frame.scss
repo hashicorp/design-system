@@ -12,8 +12,9 @@
   grid-template-areas:
     "header header"
     "sidebar main"
-    "sidebar footer";
-  grid-template-rows: auto 1fr auto;
+    "sidebar footer"
+    "sidebar sticky-footer";
+  grid-template-rows: auto 1fr auto auto;
   grid-template-columns: auto 1fr;
   min-height: 100vh;
 }
@@ -63,6 +64,20 @@
 
 .hds-app-frame__footer {
   grid-area: footer;
+}
+
+// STICKY FOOTER "CONTAINER"
+
+.hds-app-frame__sticky-footer {
+  position: sticky;
+  bottom: 0;
+  grid-area: sticky-footer;
+
+  // note: this doesn't alwasy work, because of the whitespace issues in Ember
+  &:empty,
+  &:has(.hds-app-frame__sticky-footer-portal-target:empty) {
+    display: none;
+  }
 }
 
 // MODALS "CONTAINER"

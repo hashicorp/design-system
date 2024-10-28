@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the link (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<div class="hds-app-frame__sticky-footer" ...attributes>
+  {{~#if @isPortal~}}
+    <PortalTarget
+      @multiple={{true}}
+      @name={{if @targetName @targetName "hds-app-frame-sticky-footer-portal-target"}}
+      class="hds-app-frame__sticky-footer-portal-target"
+    />
+  {{~else~}}
+    {{~yield~}}
+  {{~/if~}}
+</div>

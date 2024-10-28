@@ -32,6 +32,7 @@ import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/he
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
+import type HdsAppFrameStickyFooterComponent from './components/hds/app-frame/parts/sticky-footer';
 
 import type HdsAppSideNavComponent from './components/hds/app-side-nav';
 import type HdsAppSideNavToggleButtonComponent from './components/hds/app-side-nav/toggle-button';
@@ -269,6 +270,9 @@ export default interface HdsComponentsRegistry {
 
   'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
   'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
+
+  'Hds::AppFrame::StickyFooter': typeof HdsAppFrameStickyFooterComponent;
+  'hds/app-frame/parts/sticky-footer': typeof HdsAppFrameStickyFooterComponent;
 
   // AppSideNav
   'Hds::AppSideNav': typeof HdsAppSideNavComponent;
