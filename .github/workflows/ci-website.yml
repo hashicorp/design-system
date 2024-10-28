@@ -35,16 +35,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Install Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Lint
-        run: yarn run lint
+        run: pnpm lint
         working-directory: website
 
   test:
@@ -55,17 +58,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - name: Install Node
         uses: actions/setup-node@0a44ba7841725637a19e28fa30b79a866c81b0a6 # v4.0.4
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
       - name: Build Components
-        run: yarn build
+        run: pnpm build
         working-directory: packages/components
       - name: Run Tests
-        run: yarn run test:ember
+        run: pnpm test:ember
         working-directory: website
