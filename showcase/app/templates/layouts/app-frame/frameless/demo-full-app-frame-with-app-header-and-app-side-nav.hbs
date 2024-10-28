@@ -5,9 +5,11 @@
 
 {{page-title "AppFrame Component - Frameless"}}
 
+{{! NOTE: AppHeader & AppSideNav components are not published so components are commented out for now to satisfy linter }}
+
 <Hds::AppFrame as |Frame|>
   <Frame.Header>
-    <Hds::AppHeader>
+    {{!-- <Hds::AppHeader>
       <:logo>
         <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
       </:logo>
@@ -46,11 +48,11 @@
           <dd.Interactive @href="#" @text="Account Settings" />
         </Hds::Dropdown>
       </:utilityActions>
-    </Hds::AppHeader>
+    </Hds::AppHeader> --}}
   </Frame.Header>
 
   <Frame.Sidebar>
-    <Hds::AppSideNav @isResponsive={{true}} @isCollapsible={{true}}>
+    {{!-- <Hds::AppSideNav @isResponsive={{true}} @isCollapsible={{true}}>
       <Hds::AppSideNav::List class="hds-app-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
         <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
       </Hds::AppSideNav::List>
@@ -73,7 +75,7 @@
         <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
         <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
       </Hds::AppSideNav::List>
-    </Hds::AppSideNav>
+    </Hds::AppSideNav> --}}
   </Frame.Sidebar>
 
   <Frame.Main>
