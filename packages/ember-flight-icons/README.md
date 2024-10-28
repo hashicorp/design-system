@@ -2,6 +2,9 @@
 
 [![npm version](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fember-flight-icons)
 
+> [!WARNING]
+> This package is deprecated. Use [Hds::Icon](https://helios.hashicorp.design/components/icon) instead.
+
 An Ember addon for the icons from `flight`.
 
 Goals:
@@ -19,7 +22,7 @@ Goals:
 
 ## Installation and Usage
 
-See [https://helios.hashicorp.design/icons/usage-guidelines?tab=code](https://helios.hashicorp.design/icons/usage-guidelines?tab=code) for installation and usage instructions.
+See [https://hds-website-4-8-0.vercel.app/icons/usage-guidelines?tab=code](https://hds-website-4-8-0.vercel.app/icons/usage-guidelines?tab=code) for installation and usage instructions.
 
 ## Contributing
 
