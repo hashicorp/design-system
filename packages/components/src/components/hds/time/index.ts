@@ -129,7 +129,7 @@ const dateIsValid = (date?: Date | string): date is Date =>
   date instanceof Date && !isNaN(+date);
 
 export default class HdsTime extends Component<HdsTimeSignature> {
-  @service declare readonly time: TimeService;
+  @service declare readonly hdsTime: TimeService;
 
   // now = Date.now();
 
@@ -237,7 +237,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     const date = this.date;
 
     if (dateIsValid(date)) {
-      this.time.register(date);
+      this.hdsTime.register(date);
     }
   }
 
@@ -245,7 +245,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   unregister(): void {
     const date = this.date;
 
-    this.time.unregister(date);
+    this.hdsTime.unregister(date);
   }
 
   get date(): string | Date | undefined {
@@ -269,7 +269,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   get isoUtcString(): string {
     const date = this.date;
 
-    if (dateIsValid(date)) return this.time.toIsoUtcString(date);
+    if (dateIsValid(date)) return this.hdsTime.toIsoUtcString(date);
     return '';
   }
 
@@ -281,8 +281,8 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     const date = this.date;
     const { display } = this.args;
     if (dateIsValid(date)) {
-      const nextDiff = this.time.timeDifference(this.time.now, date);
-      return this.time.format(nextDiff, display);
+      const nextDiff = this.hdsTime.timeDifference(this.hdsTime.now, date);
+      return this.hdsTime.format(nextDiff, display);
     }
     return {
       options: undefined,
