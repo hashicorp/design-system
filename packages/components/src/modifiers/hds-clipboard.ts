@@ -5,6 +5,7 @@
 
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
+import * as clipboard from 'clipboard-polyfill';
 
 type TextToCopy = string | number | bigint;
 type TargetToCopy = HTMLElement | string;
@@ -119,16 +120,20 @@ export const writeTextToClipboard = async (
       return true;
     } catch (error) {
       // clipboard write failed
-      // this probably never happens (see comment above) or happens only for very old browsers that don't for which `navigator.clipboard` is undefined
-      warn(
-        `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
-          error
-        )}`,
-        {
-          id: 'hds-clipboard.write-text-to-clipboard.catch-error',
-        }
-      );
-      return false;
+      if (!navigator.clipboard) {
+        await clipboard.writeText(textToCopy);
+        return true;
+      } else {
+        warn(
+          `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
+            error
+          )}`,
+          {
+            id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+          }
+        );
+        return false;
+      }
     }
   } else {
     return false;

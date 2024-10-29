@@ -83,6 +83,7 @@
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "babel-plugin-ember-template-compilation": "^2.2.4",
+    "clipboard-polyfill": "^4.1.0",
     "concurrently": "^8.2.2",
     "ember-basic-dropdown": "^8.1.0",
     "ember-concurrency": "^4.0.2",
