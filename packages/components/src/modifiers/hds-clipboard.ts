@@ -112,6 +112,7 @@ export const writeTextToClipboard = async (
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
   if (textToCopy) {
     try {
+      console.log('using navigator');
       // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
       // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
       await navigator.clipboard.writeText(textToCopy);
@@ -121,6 +122,7 @@ export const writeTextToClipboard = async (
     } catch (error) {
       // clipboard write failed
       if (!navigator.clipboard) {
+        console.log('using polyfill');
         await clipboard.writeText(textToCopy);
         return true;
       } else {
