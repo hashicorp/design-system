@@ -18,7 +18,7 @@ import type { ShwGridItemSignature } from './item';
 
 interface ShwGridSignature {
   Args: {
-    columns: 2 | 3 | 4 | 5 | 6 | 7;
+    columns: 1 | 2 | 3 | 4 | 5 | 6 | 7;
     forceMinWidth?: boolean;
     gap?: string;
     grow?: boolean;
