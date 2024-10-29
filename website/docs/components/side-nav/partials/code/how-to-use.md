@@ -1,10 +1,3 @@
-
-!!! Warning
-
-The `Hds::SideNav` component is now deprecated. Use the `Hds::AppSideNav` component instead.
-
-!!!
-
 This section provides in-depth instructions on how consumers can use the **full-featured `Hds::SideNav`** component to build a "standard" sidebar navigation with responsive behavior, animations/transitions, support for portals, etc.
 
 It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
