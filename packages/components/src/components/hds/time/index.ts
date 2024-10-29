@@ -130,7 +130,7 @@ const dateIsValid = (date?: Date | string): date is Date =>
 
 export default class HdsTime extends Component<HdsTimeSignature> {
   @service declare readonly time: TimeService;
-  
+
   // now = Date.now();
 
   // format(
@@ -232,7 +232,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   // }
 
   @action
-  register() {
+  register(): void {
     console.log('register');
     const date = this.date;
 
@@ -242,7 +242,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   }
 
   @action
-  unregister() {
+  unregister(): void {
     const date = this.date;
 
     this.time.unregister(date);

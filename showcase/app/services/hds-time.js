@@ -4,8 +4,6 @@ import { tracked } from '@glimmer/tracking';
 import { DateTime } from 'luxon';
 import { isTesting } from '@embroider/macros';
 
-import type { DefaultDisplayType, DefaultDisplayMappingType } from './types.ts';
-
 const MILLISECOND_IN_MS = 1;
 const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
 const MINUTE_IN_MS = 60 * SECOND_IN_MS;
@@ -66,7 +64,7 @@ const DATE_DISPLAY_FORMATS = {
 
 const DEFAULT_DISPLAY = '';
 
-const DEFAULT_DISPLAY_MAPPING: DefaultDisplayMappingType = {
+const DEFAULT_DISPLAY_MAPPING = {
   [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
     displayFormat: FORMAT_PRECISION_SHORT_DATE,
     showFriendly: true,
@@ -98,9 +96,10 @@ const DEFAULT_DISPLAY_MAPPING: DefaultDisplayMappingType = {
     tooltipFormat: null,
   },
 };
+
 const DISPLAY_SCALE = Object.keys(DEFAULT_DISPLAY_MAPPING);
 
-export const DISPLAYS: string[] = [
+export const DISPLAYS = [
   DISPLAY_KEY_FRIENDLY_RELATIVE,
   DISPLAY_KEY_FRIENDLY_LOCAL,
   DISPLAY_KEY_FRIENDLY_ONLY,
@@ -109,19 +108,12 @@ export const DISPLAYS: string[] = [
 ];
 
 export default class TimeService extends Service {
-  #listeners = new Set<Date>();
+  #listeners = new Set();
 
   @tracked now = Date.now();
 
-  format(
-    difference: { absValueInMs: number; valueInMs: number },
-    display: string = DEFAULT_DISPLAY
-  ): {
-    options: DefaultDisplayType | undefined;
-    difference: { absValueInMs: number; valueInMs: number };
-    relative: { value: number; unit: string };
-  } {
-    let displayKey: string;
+  format(difference, display = DEFAULT_DISPLAY) {
+    let displayKey;
 
     // If the scale display is defined and valid then set that display.
     if (display && DISPLAY_SCALE.includes(display)) {
@@ -150,10 +142,7 @@ export default class TimeService extends Service {
   }
 
   // Formats the value of a relative unit.
-  formatTimeRelativeUnit(
-    value: number,
-    unit: string
-  ): { value: number; unit: string } {
+  formatTimeRelativeUnit(value, unit) {
     return {
       value: Math.trunc(value),
       unit,
@@ -162,9 +151,9 @@ export default class TimeService extends Service {
 
   // Selects an appropriate display format for the difference.
   selectTimeRelativeUnit(
-    { absValueInMs, valueInMs }: { absValueInMs: number; valueInMs: number },
+    { absValueInMs, valueInMs },
     thresholds = DEFAULT_RELATIVE_THRESHOLDS
-  ): { value: number; unit: string } {
+  ) {
     if (absValueInMs < thresholds[RELATIVE_UNIT_SECOND]) {
       return this.formatTimeRelativeUnit(
         valueInMs / SECOND_IN_MS,
@@ -200,10 +189,7 @@ export default class TimeService extends Service {
   }
 
   // Gets the currently subscribed listeners.
-  timeDifference(
-    startDate: Date | number,
-    endDate: Date | number
-  ): { absValueInMs: number; valueInMs: number } {
+  timeDifference(startDate, endDate) {
     const valueInMs = Number(endDate) - Number(startDate);
     return {
       absValueInMs: Math.abs(valueInMs),
@@ -216,7 +202,7 @@ export default class TimeService extends Service {
    * @param {Date} id - The difference to select a unit.
    * @returns {TimeRelativeUnit} A unit and value for relative difference.
    */
-  register(id: Date) {
+  register(id) {
     console.log('registering', id);
     this.#listeners.add(id);
     this.start.perform();
@@ -230,7 +216,7 @@ export default class TimeService extends Service {
    * @param {any} id - The id used at time of registration.
    * @returns {boolean} Returns true if value was already in Set; otherwise false.
    */
-  unregister(id: Date): boolean | undefined {
+  unregister(id) {
     if (id) {
       return this.#listeners.delete(id);
     }
@@ -255,7 +241,7 @@ export default class TimeService extends Service {
    * @param {Date} date - A JS Date.
    * @returns {string} An ISO date representing the UTC time of the JS date.
    */
-  toIsoUtcString(date: Date): string {
+  toIsoUtcString(date) {
     return DateTime.fromJSDate(date).toUTC().toJSDate().toISOString();
   }
 
@@ -263,7 +249,7 @@ export default class TimeService extends Service {
    * Gets the currently subscribed listeners.
    * @returns {Set} The listeners that are currently subscribed.
    */
-  get listeners(): Set<Date> {
+  get listeners() {
     return this.#listeners;
   }
 }
