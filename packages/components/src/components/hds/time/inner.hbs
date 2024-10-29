@@ -6,7 +6,7 @@
 {{! @glint-nocheck: not typesafe yet }}
 {{! TODO: format-date & format-relative have type errors, fix }}
 {{#if @isValid}}
-  <time class="hds-time" datetime={{@isoUtcString}} ...attributes>
+  <time class="hds-time" datetime={{@isoUtcString}} ...attributes {{did-insert @register}} {{will-destroy @unregister}}>
     {{#if @display.options.showFriendly}}
       {{#if @display.options.displayFormat}}
         {{format-date
