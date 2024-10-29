@@ -1,6 +1,6 @@
 !!! Warning
 
-We currently do not recommend using the `AppHeader` component in production.
+The `AppHeader` component is currently not available for use in production.
 
 !!!
 

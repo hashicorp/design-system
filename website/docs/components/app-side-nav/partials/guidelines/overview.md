@@ -1,6 +1,6 @@
 !!! Warning
 
-We currently do not recommend using the `AppSideNav` component in production.
+The `AppSideNav` component is currently not available for use in production.
 
 !!!
 
