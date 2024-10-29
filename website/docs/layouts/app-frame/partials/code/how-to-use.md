@@ -94,6 +94,84 @@ If for some reason it's not possible to use conditional logic to control the yie
 </div>
 ```
 
+### Sticky footer container
+
+We provide a special container that can be used to display content that sits on at the bottom of the page/viewport, and remains in that position (it's "sticky") even when the content is scrolled:
+
+```handlebars
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Header>
+      <Doc::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
+    </Frame.Header>
+    <Frame.Sidebar>
+      <Doc::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+    </Frame.Sidebar>
+    <Frame.Main>
+      <Doc::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+    </Frame.Main>
+    <Frame.StickyFooter>
+      <Doc::Placeholder @height="60px" @text="sticky-footer" @background="#ffccbc" />
+    </Frame.StickyFooter>
+    <Frame.Footer>
+      <Doc::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+```
+
+The "sticky" behaviour, implemented in CSS using `position:sticky` (see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/position#sticky)), makes the content of the sticky footer to appear at the bottom of the viewport, while at the same time allows the content below to be reached via scroll or `tab` key. This results in a more accessible implementation than the usual ones based on `position: fixed`. It also allows the sticky footer container to automatically resize whenever the sidebar area changes its width, providing a responsive behaviour out-of-the-box.
+
+!!! Warning
+
+**"Fixed" position**
+
+While it's strongly discouraged to use a "fixed" position layout for the sticky footer, because of the accessibility violations that come with it, there may be exceptions where this layout is needed, so that the sticky footer overlaps the content below, no matter what the scroll position of the page is.
+
+If necessary, this specific layout can be achieved by providind a `position: absolute` to the child content element, with `right/bottom/left` values set to `0`. In this way, the child content will adapt to the left/right bounding box of the parent container, responding automatically to viewport resizing and sidebar width changes.
+
+If instead you intend to use `position: fixed`, you will need to take care of the `left/right/width` dimensions of the content, in relation to the viewport.
+
+!!!
+
+#### Portals for the content
+
+In the context of a product application, it's not always easy (or even possible) to have access to the `AppFrame` "slots", to inject content in them (usually the AppFrame is instantiated only in the main application template).
+
+For this reason, we have provided consumers a mechanism to inject content in the "sticky-footer" area of the AppFrame, independently from where this content is defined, using "portals" created by the [Ember Stargate addon](https://github.com/simonihmig/ember-stargate).
+
+The `AppFrame::StickyFooter` sub-component exposes a specific `@isPortal` argument, that turns on (or opens) the "portaling".
+
+By default the portal is identified by a specific ID ([see the Component API below](#afstickyfooter)), but you can assign a specific ID using the `@targetName` argument.
+
+You can see a basic example of portaling here:
+
+```handlebars{data-execute=false}
+{{! your AppFrame declared somewhere in your application main template  }}
+<div class="doc-app-frame-mock-viewport">
+  <Hds::AppFrame as |Frame|>
+    <Frame.Sidebar>
+      {{! your "sidebar" content goes here }}
+    </Frame.Sidebar>
+    <Frame.Main>
+      {{! your "main" content goes here }}
+    </Frame.Main>
+    {{! this is the sticky footer "portal target" }}
+    <Frame.StickyFooter @isPortal={{true}} @targetName="my-sticky-footer-portal" />
+    <Frame.Footer>
+      {{! your "footer" content goes here }}
+    </Frame.Footer>
+  </Hds::AppFrame>
+</div>
+
+{{! =============================== }}
+
+{{! a "portal" declared somewhere in one of the application pages  }}
+<Portal @target="my-sticky-footer-portal">
+  {{! this is the content that will get portaled to the sticky footer area }}
+</Portal>
+```
+
 ### Modals container
 
 We also provide an extra container that can be used to display content that sits on top of all the other elements of the page (typically modal elements):

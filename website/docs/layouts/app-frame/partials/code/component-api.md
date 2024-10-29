@@ -15,6 +15,9 @@
   <C.Property @name="<[AF].Footer>" @type="yielded component">
     `AppFrame::Footer` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="<[AF].StickyFooter>" @type="yielded component">
+    `AppFrame::StickyFooter` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="<[AF].Modals>" @type="yielded component">
     `AppFrame::Modals` yielded as contextual component (see below).
   </C.Property>
@@ -26,6 +29,9 @@
   </C.Property>
   <C.Property @name="hasFooter" @type="boolean" @default="true">
     Controls the rendering of the `footer` container.
+  </C.Property>
+  <C.Property @name="hasStickyFooter" @type="boolean" @default="true">
+    Controls the rendering of the `sticky-footer` container.
   </C.Property>
   <C.Property @name="hasModals" @type="boolean" @default="true">
     Controls the rendering of the `modals` container.
@@ -94,6 +100,27 @@ To be used as container for the application's footer.
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of a `<footer>` HTML element.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [AF].StickyFooter
+
+The `AppFrame::StickyFooter` component, yielded as contextual component.
+
+To be used as container for the application's sticky footer.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of a `<footer>` HTML element, if `@isPortal` is `false`.
+  </C.Property>
+  <C.Property @name="isPortal" @type="boolean" @default="false">
+    Controls if the sticky footer container should contain an [Ember Stargate `PortalTarget` component](https://github.com/simonihmig/ember-stargate?tab=readme-ov-file#usage), so consumers can render content inside the sticky footer DOM node, while declaring this content in other parts of the application.
+  </C.Property>
+  <C.Property @name="targetName" @type="string" @default="hds-app-frame-sticky-footer-portal-target">
+    The `@target` argument used to identify the [Ember Stargate `PortalTarget` component](https://github.com/simonihmig/ember-stargate?tab=readme-ov-file#usage).
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
