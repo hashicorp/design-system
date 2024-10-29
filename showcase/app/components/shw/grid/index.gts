@@ -20,7 +20,7 @@ interface ShwGridSignature {
   Args: {
     columns: 2 | 3 | 4 | 5 | 6 | 7;
     forceMinWidth?: boolean;
-    gap: string;
+    gap?: string;
     grow?: boolean;
     label?: string;
   };
