@@ -5,10 +5,13 @@
 
 import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
-import { DateTime } from 'luxon';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import type {
   DefaultDisplayType /* DefaultDisplayMappingType */,
-} from './types.ts';
+} from '../../../services/types.ts';
+
+import type TimeService from '../../../services/hds-time';
 
 // const MILLISECOND_IN_MS = 1;
 // const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
@@ -126,6 +129,8 @@ const dateIsValid = (date?: Date | string): date is Date =>
   date instanceof Date && !isNaN(+date);
 
 export default class HdsTime extends Component<HdsTimeSignature> {
+  @service declare readonly time: TimeService;
+  
   // now = Date.now();
 
   // format(
@@ -226,6 +231,23 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   //   };
   // }
 
+  @action
+  register() {
+    console.log('register');
+    const date = this.date;
+
+    if (dateIsValid(date)) {
+      this.time.register(date);
+    }
+  }
+
+  @action
+  unregister() {
+    const date = this.date;
+
+    this.time.unregister(date);
+  }
+
   get date(): string | Date | undefined {
     const { date } = this.args;
 
@@ -247,10 +269,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   get isoUtcString(): string {
     const date = this.date;
 
-    // if (dateIsValid(date)) return this.time.toIsoUtcString(date);
-    if (dateIsValid(date)) {
-      return DateTime.fromJSDate(date).toUTC().toJSDate().toISOString();
-    }
+    if (dateIsValid(date)) return this.time.toIsoUtcString(date);
     return '';
   }
 
@@ -262,8 +281,8 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     const date = this.date;
     const { display } = this.args;
     if (dateIsValid(date)) {
-      const nextDiff = this.timeDifference(this.now, date);
-      return this.format(nextDiff, display);
+      const nextDiff = this.time.timeDifference(this.time.now, date);
+      return this.time.format(nextDiff, display);
     }
     return {
       options: undefined,
@@ -274,5 +293,12 @@ export default class HdsTime extends Component<HdsTimeSignature> {
 
   get isOpen(): boolean {
     return this.args.isOpen ?? false;
+  }
+}
+
+declare module '@glint/environment-ember-loose/registry' {
+  export default interface Registry {
+    Time: typeof HdsTime;
+    time: typeof HdsTime;
   }
 }
