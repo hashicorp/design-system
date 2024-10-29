@@ -75,11 +75,15 @@ Router.map(function () {
   this.route('layouts', function () {
     this.route('app-frame', function () {
       this.route('frameless', function () {
-        this.route('demo-full-app-frame');
-        this.route('demo-full-app-frame-with-modal');
-        this.route('demo-full-app-frame-with-app-header');
-        this.route('demo-full-app-frame-with-app-header-and-app-side-nav');
-        this.route('demo-full-app-frame-with-side-nav');
+        this.route('demo-full-app-frame-placeholders');
+        this.route('demo-full-app-frame-placeholders-with-sticky-footer');
+        this.route('demo-full-app-frame-placeholders-with-modal');
+        this.route('demo-full-app-frame-content-with-app-header');
+        this.route(
+          'demo-full-app-frame-content-with-app-header-and-app-side-nav'
+        );
+        this.route('demo-full-app-frame-content-with-side-nav');
+        this.route('demo-full-app-frame-content-with-sticky-footer');
       });
     });
   });

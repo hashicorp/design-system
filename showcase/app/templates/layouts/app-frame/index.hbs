@@ -11,7 +11,28 @@
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="With header/sidebar/main/footer">
+    <SG.Item @label="With header/sidebar/main/footer/sticky-footer">
+      <div class="shw-layout-app-frame-wrapper">
+        <Hds::AppFrame as |Frame|>
+          <Frame.Header>
+            <Shw::Placeholder @height="60px" @text="header" @background="#e5ffd2" />
+          </Frame.Header>
+          <Frame.Sidebar>
+            <Shw::Placeholder @width="120px" @height="100%" @text="sidebar" @background="#e4c5f3" />
+          </Frame.Sidebar>
+          <Frame.Main>
+            <Shw::Placeholder @height="100%" @text="main" @background="#d2f4ff" />
+          </Frame.Main>
+          <Frame.StickyFooter>
+            <Shw::Placeholder @height="60px" @text="sticky-footer" @background="#ffccbc" />
+          </Frame.StickyFooter>
+          <Frame.Footer>
+            <Shw::Placeholder @height="60px" @text="footer" @background="#fff8d2" />
+          </Frame.Footer>
+        </Hds::AppFrame>
+      </div>
+    </SG.Item>
+    <SG.Item @label="Without sticky-footer">
       <div class="shw-layout-app-frame-wrapper">
         <Hds::AppFrame as |Frame|>
           <Frame.Header>
@@ -165,22 +186,40 @@
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
   <Shw::Frame
-    @id="demo-full-app-frame-lt-480px"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame"
+    @id="demo-full-app-frame-placeholders-lt-480px"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-placeholders"
     @label="Full app-frame (height < 480px)"
     @height="400"
   />
 
   <Shw::Frame
-    @id="demo-full-app-frame-gt-480px"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame"
+    @id="demo-full-app-frame-placeholders-gt-480px"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-placeholders"
     @label="Full app-frame (height > 480px)"
     @height="500"
   />
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Frame
-    @id="demo-full-app-frame-with-modal"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-modal"
+    @id="demo-full-app-frame-placeholders-with-sticky-footer-lt-480px"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-placeholders-with-sticky-footer"
+    @label="Full app-frame with sticky footer (height < 480px)"
+    @height="400"
+  />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-placeholders-with-sticky-footer-gt-480px"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-placeholders-with-sticky-footer"
+    @label="Full app-frame with sticky footer (height > 480px)"
+    @height="500"
+  />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-placeholders-with-modal"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-placeholders-with-modal"
     @label="Full app-frame with modal"
   />
 </section>
@@ -361,24 +400,32 @@
 
   {{! NOTE: AppHeader & AppSideNav components are not published so examples are commented out for now
   <Shw::Frame
-    @id="demo-full-app-frame-with-app-header-and-app-side-nav"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav"
+    @id="demo-full-app-frame-content-with-app-header-and-app-side-nav"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-content-with-app-header-and-app-side-nav"
     @height="780"
     @label="Full AppFrame with AppHeader & AppSideNav"
   />
 
   <Shw::Frame
-    @id="demo-full-app-frame-with-app-header"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header"
+    @id="demo-full-app-frame-content-with-app-header"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-content-with-app-header"
     @height="780"
     @label="Full AppFrame with AppHeader & old SideNav"
   />
   }}
 
   <Shw::Frame
-    @id="demo-full-app-frame-with-side-nav"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
+    @id="demo-full-app-frame-content-with-side-nav"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-content-with-side-nav"
     @height="780"
     @label="Full AppFrame with SideNav but without AppHeader"
   />
+
+  <Shw::Frame
+    @id="demo-full-app-frame-content-with-sticky-footer"
+    @src="/layouts/app-frame/frameless/demo-full-app-frame-content-with-sticky-footer"
+    @height="780"
+    @label="Full AppFrame with Sticky Footer"
+  />
+
 </section>
