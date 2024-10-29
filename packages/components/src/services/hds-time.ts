@@ -217,6 +217,7 @@ export default class TimeService extends Service {
    * @returns {TimeRelativeUnit} A unit and value for relative difference.
    */
   register(id: Date) {
+    console.log('registering', id);
     this.#listeners.add(id);
     this.start.perform();
     return () => {
