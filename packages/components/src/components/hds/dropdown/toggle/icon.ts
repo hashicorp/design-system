@@ -12,7 +12,7 @@ import { HdsDropdownToggleIconSizeValues } from './types.ts';
 import type { HdsIconSignature } from '../../icon';
 import type { HdsDropdownToggleIconSizes } from './types';
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
+import type { SetupPrimitiveToggleModifier } from '../../popover-primitive.ts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);

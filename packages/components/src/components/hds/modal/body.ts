@@ -30,6 +30,7 @@ export default class HdsModalBody extends Component<HdsModalBodySignature> {
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

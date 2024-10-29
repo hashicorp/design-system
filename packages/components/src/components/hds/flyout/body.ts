@@ -30,6 +30,7 @@ export default class HdsFlyoutBody extends Component<HdsFlyoutBodySignature> {
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert, deprecate } from '@ember/debug';
 
 import type { HdsIconSignature } from '../../icon';
-import type { HdsInteractiveSignature } from '../../interactive/';
+import type { HdsInteractiveSignature } from '../../interactive';
 
 export interface HdsSideNavHeaderIconButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -34,6 +34,7 @@ export default class HdsSideNavHeaderIconButton extends Component<HdsSideNavHead
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.10.0',
+          available: '4.10.0',
         },
       }
     );

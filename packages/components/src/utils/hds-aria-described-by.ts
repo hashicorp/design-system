@@ -6,8 +6,8 @@
 import { tracked } from '@glimmer/tracking';
 import { scheduleOnce } from '@ember/runloop';
 import type Component from '@glimmer/component';
-import type { HdsFormFieldSignature } from '../components/hds/form/field/';
-import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/';
+import type { HdsFormFieldSignature } from '../components/hds/form/field';
+import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset';
 
 type ElementSet = Set<HTMLElement>;
 

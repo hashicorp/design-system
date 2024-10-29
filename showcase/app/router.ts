@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import EmberRouter from '@ember/routing/router';
+import EmberRouter from '@embroider/router';
 import config from 'showcase/config/environment';
 
 export default class Router extends EmberRouter {
@@ -17,7 +17,7 @@ Router.map(function () {
     this.route('elevation');
     this.route('focus-ring');
   });
-  this.route('components', function () {
+  this.route('componentss', function () {
     this.route('accordion');
     this.route('alert');
     this.route('app-footer');

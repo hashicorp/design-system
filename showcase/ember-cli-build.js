@@ -6,9 +6,16 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const { compatBuild } = require('@embroider/compat');
+const { Webpack } = require('@embroider/webpack');
+const sideWatch = require('@embroider/broccoli-side-watch');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
+    trees: {
+      app: sideWatch('app', { watching: ['../packages'] }),
+    },
+
     'ember-cli-babel': {
       enableTypeScriptTransform: true,
     },
@@ -17,9 +24,9 @@ module.exports = function (defaults) {
     sassOptions: {
       precision: 4,
       includePaths: [
-        '../node_modules/@hashicorp/design-system-tokens/dist/products/css',
-        '../node_modules/@hashicorp/design-system-components/dist/styles',
-        '../node_modules/ember-power-select/vendor',
+        'node_modules/@hashicorp/design-system-tokens/dist/products/css',
+        'node_modules/@hashicorp/design-system-components/dist/styles',
+        'node_modules/ember-power-select/vendor',
       ],
     },
     // we need to add this or Ember Sass compilation will mess up the generated CSS
@@ -37,12 +44,57 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  const { maybeEmbroider } = require('@embroider/test-setup');
-  return maybeEmbroider(app, {
+  return compatBuild(app, Webpack, {
+    staticAddonTestSupportTrees: true,
+    staticAddonTrees: true,
+    staticModifiers: true,
+    staticHelpers: true,
+    staticComponents: true,
+    staticEmberSource: true,
+    splitControllers: true,
+    splitRouteClasses: true,
+    splitAtRoutes: [
+      /componentss[a-z-]*/,
+      /layouts[a-z-]*/,
+      /utilities[a-z-]*/,
+      /overrides[a-z-]*/,
+    ], // can also be a RegExp
     skipBabel: [
       {
         package: 'qunit',
       },
+      {
+        package: 'sinon',
+      },
+      {
+        package: 'axe-core',
+      },
+      {
+        package: '@faker-js/faker',
+      },
+      {
+        package: '@hashicorp/flight-icons',
+      },
     ],
+    packagerOptions: {
+      webpackConfig: {
+        entry: {
+          sinon: 'sinon',
+        },
+        optimization: {
+          realContentHash: true,
+          moduleIds: 'deterministic',
+        },
+        devtool: 'source-map',
+        module: {
+          rules: [
+            {
+              test: /\.(png|svg|jpg|jpeg|gif)$/i,
+              type: 'asset/resource',
+            },
+          ],
+        },
+      },
+    },
   });
 };

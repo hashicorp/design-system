@@ -7,8 +7,8 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
-import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
-import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
+import type { HdsCopyButtonSignature } from '../../copy/button.ts';
+import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle.ts';
 
 export interface HdsFormMaskedInputBaseSignature {
   Args: {

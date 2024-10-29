@@ -11,15 +11,15 @@ import {
   HdsDropdownToggleButtonColorValues,
 } from './types.ts';
 
-import type { HdsIconSignature } from '../../icon';
-import type { HdsBadgeSignature } from '../../badge';
-import type { HdsBadgeCountSignature } from '../../badge-count';
+import type { HdsIconSignature } from '../../icon.ts';
+import type { HdsBadgeSignature } from '../../badge.ts';
+import type { HdsBadgeCountSignature } from '../../badge-count.ts';
 import type {
   HdsDropdownToggleButtonSizes,
   HdsDropdownToggleButtonColors,
 } from './types';
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
+import type { SetupPrimitiveToggleModifier } from '../../popover-primitive.ts';
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsDropdownToggleButtonColorValues.Primary;

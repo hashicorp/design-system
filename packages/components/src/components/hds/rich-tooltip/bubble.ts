@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import type { ModifierLike } from '@glint/template';
-import type { SetupPrimitivePopoverModifier } from '../popover-primitive';
+import type { SetupPrimitivePopoverModifier } from '../popover-primitive.ts';
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import {
   DEFAULT_PLACEMENT,
