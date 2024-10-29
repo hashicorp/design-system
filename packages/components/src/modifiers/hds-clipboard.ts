@@ -119,11 +119,13 @@ export const writeTextToClipboard = async (
       // console.log('success', textToCopy);
       return true;
     } catch (error) {
-      // clipboard write failed
+      // if it is not a secure context, use the polyfill
+      // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
       if (!navigator.clipboard) {
         await clipboard.writeText(textToCopy);
         return true;
       } else {
+        // clipboard write failed and it is a secure context
         warn(
           `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
             error
