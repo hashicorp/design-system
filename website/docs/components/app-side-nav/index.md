@@ -30,7 +30,4 @@ navigation:
   @include "partials/accessibility/accessibility.md"
 </section>
 
-<section data-tab="Version history">
-  @include "partials/version-history/4.14.0.md"
-</section>
 
