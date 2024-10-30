@@ -117,28 +117,28 @@ export const writeTextToClipboard = async (
       // DEBUG uncomment this for easy debugging
       // console.log('success', textToCopy);
       return true;
-    } catch (error) {
+    } catch {
       // if it is not a secure context, use the polyfill
       // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
       if (!navigator.clipboard) {
-       return Promise.resolve(import ('clipboard-polyfill')).then((clipboard) => {
-          clipboard.writeText(textToCopy);
+        try {
+          const clipboard = await import('clipboard-polyfill');
+          await clipboard.writeText(textToCopy);
           return true;
-        }).catch(() => {
-         return false;
-        });
-      } else {
-        // clipboard write failed and it is a secure context
-        warn(
-          `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
-            error
-          )}`,
-          {
-            id: 'hds-clipboard.write-text-to-clipboard.catch-error',
-          }
-        );
-        return false;
+        } catch (error) {
+          warn(
+            `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
+              error
+            )}`,
+            {
+              id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+            }
+          );
+          return false;
+        }
       }
+
+      return false;
     }
   } else {
     return false;
