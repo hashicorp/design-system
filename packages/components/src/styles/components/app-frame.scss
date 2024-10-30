@@ -73,7 +73,7 @@
   bottom: 0;
   grid-area: sticky-footer;
 
-  // note: this doesn't alwasy work, because of the whitespace issues in Ember
+  // note: this doesn't always work, because of the whitespace issues in Ember
   &:empty,
   &:has(.hds-app-frame__sticky-footer-portal-target:empty) {
     display: none;
