@@ -8,6 +8,7 @@ links:
 related: ['components/side-nav', 'components/app-footer', 'layouts/app-frame']
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
+  hidden: true
   keywords: ['navigation', 'header', 'navbar', 'menubar', 'topbar']
 ---
 

@@ -34,4 +34,3 @@ navigation:
   @include "partials/version-history/4.10.0.md"
   @include "partials/version-history/4.8.0.md"
 </section>
-

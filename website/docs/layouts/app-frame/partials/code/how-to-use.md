@@ -6,8 +6,6 @@ The `AppFrame` is a pure layout component that can be used to build the top-leve
 
 The `AppFrame::Main` child component includes a default `id` with the value `hds-main` on the HTML `<main>` element it renders. This serves as a target for the `hasA11yRefocus` feature skip links which are built into the [`AppHeader`](/components/app-header?tab=code#appheader) and the standalone [`SideNav`](/components/side-nav?tab=code#side-nav) components.
 
-Note: The upcoming `AppSideNav` component, which is meant to only be used together with the `AppHeader` and not as standalone navigation, does not include a skip link.
-
 ### Basic use
 
 The most basic invocation of an application “frame” looks like this:

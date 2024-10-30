@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 27 Aug 2024 16:41:13 GMT
+ * Generated on Fri, 20 Sep 2024 19:02:21 GMT
  */
 
 :root {
@@ -267,6 +267,30 @@
   --token-app-header-height: 60px;
   --token-app-header-home-link-size: 36px;
   --token-app-header-logo-size: 28px;
+  --token-app-side-nav-wrapper-border-width: 1px;
+  --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
+  --token-app-side-nav-wrapper-padding-horizontal: 16px;
+  --token-app-side-nav-wrapper-padding-vertical: 16px;
+  --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
+  --token-app-side-nav-toggle-button-border-radius: 5px;
+  --token-app-side-nav-header-home-link-padding: 4px;
+  --token-app-side-nav-header-home-link-logo-size: 48px;
+  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
+  --token-app-side-nav-header-actions-spacing: 8px;
+  --token-app-side-nav-body-list-margin-vertical: 24px;
+  --token-app-side-nav-body-list-item-height: 36px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-item-padding-vertical: 4px;
+  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-app-side-nav-body-list-item-border-radius: 5px;
+  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-faint: var(--token-color-foreground-faint);
+  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
+  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
+  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;

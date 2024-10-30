@@ -1,0 +1,13 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::AppSideNav::List::Item>
+  <div
+    class="hds-app-side-nav__list-title hds-typography-body-100 hds-font-weight-semibold"
+    id={{this.titleId}}
+    {{did-insert this.didInsertTitle}}
+    ...attributes
+  >{{~yield~}}</div>
+</Hds::AppSideNav::List::Item>
