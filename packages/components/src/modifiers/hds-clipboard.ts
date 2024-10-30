@@ -5,7 +5,6 @@
 
 import { modifier } from 'ember-modifier';
 import { assert, warn } from '@ember/debug';
-import * as clipboard from 'clipboard-polyfill';
 
 type TextToCopy = string | number | bigint;
 type TargetToCopy = HTMLElement | string;
@@ -122,8 +121,12 @@ export const writeTextToClipboard = async (
       // if it is not a secure context, use the polyfill
       // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
       if (!navigator.clipboard) {
-        await clipboard.writeText(textToCopy);
-        return true;
+       return Promise.resolve(import ('clipboard-polyfill')).then((clipboard) => {
+          clipboard.writeText(textToCopy);
+          return true;
+        }).catch(() => {
+         return false;
+        });
       } else {
         // clipboard write failed and it is a secure context
         warn(
