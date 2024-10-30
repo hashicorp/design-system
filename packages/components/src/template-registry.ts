@@ -10,9 +10,6 @@ import type HdsAccordionItemButtonComponent from './components/hds/accordion/ite
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
-import type HdsAppHeaderComponent from './components/hds/app-header';
-import type HdsAppHeaderHomeLinkComponent from './components/hds/app-header/home-link';
-import type HdsAppHeaderMenuButtonComponent from './components/hds/app-header/menu-button';
 import type HdsAppFooterComponent from './components/hds/app-footer';
 import type HdsAppFooterCopyrightComponent from './components/hds/app-footer/copyright';
 import type HdsAppFooterItemComponent from './components/hds/app-footer/item';
@@ -32,17 +29,6 @@ import type HdsAppFrameHeaderComponent from './components/hds/app-frame/parts/he
 import type HdsAppFrameMainComponent from './components/hds/app-frame/parts/main';
 import type HdsAppFrameModalsComponent from './components/hds/app-frame/parts/modals';
 import type HdsAppFrameSidebarComponent from './components/hds/app-frame/parts/sidebar';
-
-import type HdsAppSideNavComponent from './components/hds/app-side-nav';
-import type HdsAppSideNavToggleButtonComponent from './components/hds/app-side-nav/toggle-button';
-import type HdsAppSideNavPortalComponent from './components/hds/app-side-nav/portal';
-import type HdsAppSideNavPortalTargetComponent from './components/hds/app-side-nav/portal/target';
-import type HdsAppSideNavListComponent from './components/hds/app-side-nav/list';
-import type HdsAppSideNavListBackLinkComponent from './components/hds/app-side-nav/list/back-link';
-import type HdsAppSideNavListItemComponent from './components/hds/app-side-nav/list/item';
-import type HdsAppSideNavListLinkComponent from './components/hds/app-side-nav/list/link';
-import type HdsAppSideNavListTitleComponent from './components/hds/app-side-nav/list/title';
-
 import type HdsApplicationStateComponent from './components/hds/application-state';
 import type HdsApplicationStateBodyComponent from './components/hds/application-state/body';
 import type HdsApplicationStateFooterComponent from './components/hds/application-state/footer';
@@ -222,16 +208,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Alert::Title': typeof HdsAlertTitleComponent;
   'hds/alert/title': typeof HdsAlertTitleComponent;
 
-  // AppHeader
-  'Hds::AppHeader': typeof HdsAppHeaderComponent;
-  'hds/app-header': typeof HdsAppHeaderComponent;
-
-  'Hds::AppHeader::HomeLink': typeof HdsAppHeaderHomeLinkComponent;
-  'hds/app-header/home-link': typeof HdsAppHeaderHomeLinkComponent;
-
-  'Hds::AppHeader::MenuButton': typeof HdsAppHeaderMenuButtonComponent;
-  'hds/app-header/menu-button': typeof HdsAppHeaderMenuButtonComponent;
-
   // AppFooter
   'Hds::AppFooter': typeof HdsAppFooterComponent;
   'hds/app-footer': typeof HdsAppFooterComponent;
@@ -269,43 +245,6 @@ export default interface HdsComponentsRegistry {
 
   'Hds::AppFrame::Sidebar': typeof HdsAppFrameSidebarComponent;
   'hds/app-frame/parts/sidebar': typeof HdsAppFrameSidebarComponent;
-
-  // AppSideNav
-  'Hds::AppSideNav': typeof HdsAppSideNavComponent;
-  'hds/app-side-nav': typeof HdsAppSideNavComponent;
-  HdsAppSideNav: typeof HdsAppSideNavComponent;
-
-  'Hds::AppSideNav::ToggleButton': typeof HdsAppSideNavToggleButtonComponent;
-  'hds/app-side-nav/toggle-button': typeof HdsAppSideNavToggleButtonComponent;
-  HdsAppSideNavToggleButton: typeof HdsAppSideNavToggleButtonComponent;
-
-  'Hds::AppSideNav::Portal': typeof HdsAppSideNavPortalComponent;
-  'hds/app-side-nav/portal': typeof HdsAppSideNavPortalComponent;
-  HdsAppSideNavPortal: typeof HdsAppSideNavPortalComponent;
-
-  'Hds::AppSideNav::Portal::Target': typeof HdsAppSideNavPortalTargetComponent;
-  'hds/app-side-nav/portal/target': typeof HdsAppSideNavPortalTargetComponent;
-  HdsAppSideNavPortalTarget: typeof HdsAppSideNavPortalTargetComponent;
-
-  'Hds::AppSideNav::List': typeof HdsAppSideNavListComponent;
-  'hds/app-side-nav/list': typeof HdsAppSideNavListComponent;
-  HdsAppSideNavList: typeof HdsAppSideNavListComponent;
-
-  'Hds::AppSideNav::List::BackLink': typeof HdsAppSideNavListBackLinkComponent;
-  'hds/app-side-nav/list/back-link': typeof HdsAppSideNavListBackLinkComponent;
-  HdsAppSideNavListBackLink: typeof HdsAppSideNavListBackLinkComponent;
-
-  'Hds::AppSideNav::List::Item': typeof HdsAppSideNavListItemComponent;
-  'hds/app-side-nav/list/item': typeof HdsAppSideNavListItemComponent;
-  HdsAppSideNavListItem: typeof HdsAppSideNavListItemComponent;
-
-  'Hds::AppSideNav::List::Link': typeof HdsAppSideNavListLinkComponent;
-  'hds/app-side-nav/list/link': typeof HdsAppSideNavListLinkComponent;
-  HdsAppSideNavListLink: typeof HdsAppSideNavListLinkComponent;
-
-  'Hds::AppSideNav::List::Title': typeof HdsAppSideNavListTitleComponent;
-  'hds/app-side-nav/list/title': typeof HdsAppSideNavListTitleComponent;
-  HdsAppSideNavListTitle: typeof HdsAppSideNavListTitleComponent;
 
   // ApplicationState
   'Hds::ApplicationState': typeof HdsApplicationStateComponent;
