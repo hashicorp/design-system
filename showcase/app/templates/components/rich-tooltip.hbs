@@ -1039,6 +1039,57 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="Applied to Dropdown ('Soft' only)">
+      <Hds::RichTooltip @placement="top" as |RT|>
+        <RT.Toggle>
+          <Hds::Dropdown @listPosition="bottom-left" as |D|>
+            <D.ToggleButton @color="secondary" @text="Menu" />
+            <D.Interactive @href="#">
+              Lorem ipsum dolor sit amet
+            </D.Interactive>
+            <D.Interactive @href="#">
+              Consectetur adipisicing elit
+            </D.Interactive>
+          </Hds::Dropdown>
+        </RT.Toggle>
+        <RT.Bubble>
+          <Shw::Placeholder @text="generic content" @height="30" />
+        </RT.Bubble>
+      </Hds::RichTooltip>
+    </SF.Item>
+    <SF.Item @label="Within Dropdown ('Soft' only)">
+      <Hds::Dropdown @listPosition="bottom-left" as |D|>
+        <D.ToggleButton @color="secondary" @text="Menu" />
+        <D.Interactive @href="#">
+          This is a standard interactive item
+        </D.Interactive>
+        <D.Generic>
+          <Hds::RichTooltip @placement="top" as |RT|>
+            <RT.Toggle>
+              <Hds::Text::Body
+                @tag="p"
+                @size="200"
+                @color="primary"
+                class="shw-component-rich-tooltip-within-dropdown-toggle"
+              >
+                ⚠️ This is a bad idea, don't do it! ⚠️
+              </Hds::Text::Body>
+            </RT.Toggle>
+            <RT.Bubble>
+              <Shw::Placeholder @text="generic content" @height="30" />
+            </RT.Bubble>
+          </Hds::RichTooltip>
+        </D.Generic>
+        <D.Interactive @href="#">
+          This is also a standard interactive item
+        </D.Interactive>
+      </Hds::Dropdown>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
