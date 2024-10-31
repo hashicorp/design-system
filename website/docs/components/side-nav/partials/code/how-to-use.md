@@ -467,7 +467,7 @@ If you find yourself in the situation of wanting/needing to customize or change 
 
 #### `ember-a11y-refocus`
 
-By default, the component uses the [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus) addon to provide a "navigator narrator" and a "Skip Link" to the navigation (see [the addon documentation for details)](https://github.com/ember-a11y/ember-a11y-refocus#what-this-addon-does).
+By default, the component uses the [ember-a11y-refocus](https://github.com/ember-a11y/ember-a11y-refocus) addon to provide a "navigator narrator" and a "Skip Link" to the navigation (see [the addon documentation for details](https://github.com/ember-a11y/ember-a11y-refocus#what-this-addon-does)).
 
 !!! Info
 
