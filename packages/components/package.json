@@ -294,6 +294,7 @@
       "./components/hds/tooltip-button/index.js": "./dist/_app_/components/hds/tooltip-button/index.js",
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
       "./helpers/hds-format-date.js": "./dist/_app_/helpers/hds-format-date.js",
+      "./helpers/hds-format-relative.js": "./dist/_app_/helpers/hds-format-relative.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
