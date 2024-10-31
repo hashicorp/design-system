@@ -87,7 +87,7 @@ When there is an empty state that occupies the majority of the page, do not disp
 
 Instead, use the Application State as the only means of drawing attention to the primary action.
 
-![Showing an empty state with a primary button with a page header with out a primay button](/assets/components/application-state/application-state-empty-state-do-keep-one-primary-cta.png)
+![Showing an empty state with a primary button with a page header with out a primary button](/assets/components/application-state/application-state-empty-state-do-keep-one-primary-cta.png)
 
 !!!
 

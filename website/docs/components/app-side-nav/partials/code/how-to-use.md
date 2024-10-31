@@ -21,7 +21,7 @@ The `Hds::AppSideNav` component provides a set of advanced features out of the b
 
 The App Side Nav component provides a top-level layout for the sidebar navigation.
 
-Cnsumers can yield the navigation content and add business logic to control the content within it.
+Consumers can yield the navigation content and add business logic to control the content within it.
 
 <!-- ```handlebars
 <div class="doc-app-sidenav-demo">

@@ -9,7 +9,7 @@
 | **Global**       |                                           |
 | Home link        | Required; supports multiple product logos |
 | Context switcher | Optional                                  |
-| **Utilies**      |                                           |
+| **Utilities**    |                                           |
 | Help dropdown    | Optional, but highly recommend ([WCAG guidelines](https://www.w3.org/WAI/WCAG22/Understanding/consistent-help.html))     |
 | User dropdown    | Required                                  |
 | Search           | Optional                                  |

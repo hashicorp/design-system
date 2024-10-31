@@ -181,7 +181,7 @@ The `@titleTag` argument changes the HTML element that wraps the `[A].Header` ti
 </div>
 <Hds::ApplicationState as |A|>
   <A.Header @title="No templates have been created yet" @titleTag="h2" />
-  <A.Body @text="Make a template to easily provision infrastructure for any Waypoint application. Youll need a Terraform co-node module and instructions for your application developers." />
+  <A.Body @text="Make a template to easily provision infrastructure for any Waypoint application. You’ll need a Terraform co-node module and instructions for your application developers." />
   <A.Footer as |F|>
     <F.Button @icon="plus" @text="Create a template" />
     <F.Button @icon="upload" @text="Import" @color="secondary" />
