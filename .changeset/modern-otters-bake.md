@@ -2,4 +2,6 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`SideNav` - Make a11y related improvements.
+`SideNav` - Made a11y related improvements including:
+- Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
+- Improved ariaLabel for `ToggleButton` state by combining with use of aria-expanded
