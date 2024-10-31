@@ -21,7 +21,6 @@ export interface HdsSideNavSignature {
     a11yRefocusNavigationText?: string;
     a11yRefocusRouteChangeValidator?: string;
     a11yRefocusExcludeAllQueryParams?: boolean;
-    ariaLabel?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -104,18 +103,6 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
 
   get showToggleButton(): boolean {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
-  }
-
-  /**
-   * @param ariaLabel
-   * @type {string}
-   * @default 'close menu'
-   */
-  get ariaLabel(): string {
-    if (this.isMinimized) {
-      return this.args.ariaLabel ?? 'Open menu';
-    }
-    return this.args.ariaLabel ?? 'Close menu';
   }
 
   get classNames(): string {

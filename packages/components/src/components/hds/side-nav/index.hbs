@@ -30,7 +30,8 @@
       <div class="hds-side-nav__overlay" {{on "click" this.toggleMinimizedStatus}} />
       {{! template-lint-enable no-invalid-interactive}}
       <Hds::SideNav::ToggleButton
-        aria-label={{this.ariaLabel}}
+        aria-labelledby="hds-side-nav-header"
+        aria-expanded={{if this.isMinimized "false" "true"}}
         @icon={{if this.isMinimized "chevrons-right" "chevrons-left"}}
         {{on "click" this.toggleMinimizedStatus}}
       />
