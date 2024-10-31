@@ -1539,6 +1539,19 @@
         </Hds::Dropdown>
       </div>
     </SG.Item>
+    <SG.Item @label="With 100% width">
+      <div class="shw-component-dropdown-fixed-height-container">
+        <Hds::Dropdown @listPosition="bottom-left" @width="100%" as |D|>
+          <D.ToggleButton @color="secondary" @text="Menu" />
+          <D.Interactive @href="#">
+            Lorem ipsum dolor sit amet
+          </D.Interactive>
+          <D.Interactive @href="#">
+            Consectetur adipisicing elit
+          </D.Interactive>
+        </Hds::Dropdown>
+      </div>
+    </SG.Item>
     <SG.Item as |SG|>
       <SG.Label>Using <code>preserveContentInDom</code> argument</SG.Label>
       <div class="shw-component-dropdown-fixed-height-container">
