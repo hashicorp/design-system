@@ -22,13 +22,11 @@
         {{@isoUtcString}}
       {{/if}}
       {{#if @display.options.showRelative}}
-        {{!-- ({{format-relative @display.relative.value unit=@display.relative.unit}}) --}}
-        showRelative
+        ({{hds-format-relative @display.relative.value unit=@display.relative.unit}})
       {{/if}}
     {{else}}
       {{#if @display.options.showRelative}}
-        {{!-- {{format-relative @display.relative.value unit=@display.relative.unit}} --}}
-        showRelative
+        {{hds-format-relative @display.relative.value unit=@display.relative.unit}}
       {{/if}}
     {{/if}}
   </time>
