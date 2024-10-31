@@ -239,6 +239,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     assert.deepEqual(floatingStyle.position, 'absolute');
     assert.deepEqual(floatingStyle.top, '40px');
     assert.deepEqual(floatingStyle.left, '-50px');
+    assert.deepEqual(floatingStyle.width, '200px');
     assert.deepEqual(arrowStyle.left, '95px');
     assert.deepEqual(
       this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
@@ -261,6 +262,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
       strategy: 'fixed',
       offsetOptions: 20,
       arrowElement: this.arrowElement,
+      matchToggleWidth: true,
     };
     // apply the modifier to the elements (after the rendering)
     await anchoredElementModifier(
@@ -275,6 +277,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     assert.deepEqual(floatingStyle.position, 'fixed');
     assert.deepEqual(floatingStyle.top, '70px');
     assert.deepEqual(floatingStyle.left, '10px');
+    assert.deepEqual(floatingStyle.width, '100px');
     assert.deepEqual(arrowStyle.left, '45px');
     assert.deepEqual(
       this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
