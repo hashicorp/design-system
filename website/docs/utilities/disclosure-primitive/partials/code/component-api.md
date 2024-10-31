@@ -7,7 +7,7 @@
       <C.Property @name="[T].onClickToggle" @type="function">
         A function to be called by the interactive element to toggle visibility of the content.
       </C.Property>
-      <C.Property @name="[T].isOpen" @type="boolead">
+      <C.Property @name="[T].isOpen" @type="boolean">
         Hook into this property to access the state of the internal `isOpen` tracked variable.
       </C.Property>
     </Doc::ComponentApi>

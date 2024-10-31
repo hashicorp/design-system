@@ -44,7 +44,7 @@ Use a `title` and/or `description` in the header to provide additional informati
 
 There can be an overlap between content that you may choose to include in the header as a `title` or `description`, and content that is part of the normal layout flow in a headline or paragraph. If it is necessary to elevate this content in the hierarchy of the page, we recommend including it in the normal layout flow, rather than as a `title` or `description` within the Code Block.
 
-![An example showcasing the Code Block paired with content in the nautral flow](/assets/components/code-block/code-block-dont-use-metadata.png)
+![An example showcasing the Code Block paired with content in the natural flow](/assets/components/code-block/code-block-dont-use-metadata.png)
 
 ## CopyButton
 

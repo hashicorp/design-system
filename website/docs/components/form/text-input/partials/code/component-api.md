@@ -70,10 +70,10 @@ The Text Input component has two different variants with their own APIs:
     Adds a visibility toggle button if `@type` is set to `password`.
   </C.Property>
   <C.Property @name="visibilityToggleAriaLabel" @type="string" @default="Show masked content">
-    Override this value to provide a meaninful `aria-label` for the visibility toggle button.
+    Override this value to provide a meaningful `aria-label` for the visibility toggle button.
   </C.Property>
   <C.Property @name="visibilityToggleAriaMessageText" @type="string" @default="Input content is hidden">
-    Override this value to provide a meaninful `aria-live` message when the visibility toggle button is pressed.
+    Override this value to provide a meaningful `aria-live` message when the visibility toggle button is pressed.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

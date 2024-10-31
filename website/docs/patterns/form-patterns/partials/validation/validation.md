@@ -100,7 +100,7 @@ Display server-side errors using a Critical Inline [Alert](/components/alert) ab
 
 ## Validation interaction
 
-If a validation error occurs in a field outside of the viewport, scroll the user to the error. If there are multiple fields in error, scroll the user to the first (or topmost) error in the form. Form-level validation errors should be scrolled to first and take precendence over individual fields in error. This commonly occurs in long, complex forms when a form-level error occurs.
+If a validation error occurs in a field outside of the viewport, scroll the user to the error. If there are multiple fields in error, scroll the user to the first (or topmost) error in the form. Form-level validation errors should be scrolled to first and take precedence over individual fields in error. This commonly occurs in long, complex forms when a form-level error occurs.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-scroll.mp4" />
