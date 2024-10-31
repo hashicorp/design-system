@@ -9,11 +9,7 @@ import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-function wait(timeout = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-}
+import { wait } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/copy/snippet/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -105,7 +101,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     assert
       .dom('#test-copy-snippet')
       .hasClass('hds-copy-snippet--status-success');
-    await wait(); // wait for the status to revert to "idle" automatically
+    await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
   });
 
@@ -124,7 +120,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
     await click('button#test-copy-snippet');
     assert.false(this.success);
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-error');
-    await wait(); // wait for the status to revert to "idle" automatically
+    await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
   });
 

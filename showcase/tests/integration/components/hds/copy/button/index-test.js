@@ -9,11 +9,7 @@ import { click, render, resetOnerror, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-function wait(timeout = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-}
+import { wait } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/copy/button/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -125,7 +121,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-success');
-    await wait(); // wait for the status to revert to "idle" automatically
+    await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
 
@@ -144,7 +140,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     await click('button#test-copy-button');
     assert.false(this.success);
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-error');
-    await wait(); // wait for the status to revert to "idle" automatically
+    await wait(2000); // wait for the status to revert to "idle" automatically
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
   });
 

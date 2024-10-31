@@ -8,6 +8,8 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+import { wait } from 'showcase/tests/helpers';
+
 import { getFloatingUIOptions } from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 import anchoredElementModifier from '@hashicorp/design-system-components/modifiers/hds-anchored-position';
 
@@ -155,12 +157,6 @@ module(
 );
 
 // ================================================================
-
-function wait(timeout = 500) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-}
 
 module('Integration | Modifier | hds-anchored-position', function (hooks) {
   setupRenderingTest(hooks);
