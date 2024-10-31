@@ -117,17 +117,27 @@ export const writeTextToClipboard = async (
       // DEBUG uncomment this for easy debugging
       // console.log('success', textToCopy);
       return true;
-    } catch (error) {
-      // clipboard write failed
-      // this probably never happens (see comment above) or happens only for very old browsers that don't for which `navigator.clipboard` is undefined
-      warn(
-        `copy action failed, please check your browser‘s permissions: ${JSON.stringify(
-          error
-        )}`,
-        {
-          id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+    } catch {
+      // if it is not a secure context, use the polyfill
+      // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
+      if (!navigator.clipboard) {
+        try {
+          const clipboard = await import('clipboard-polyfill');
+          await clipboard.writeText(textToCopy);
+          return true;
+        } catch (error) {
+          warn(
+            `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
+              error
+            )}`,
+            {
+              id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+            }
+          );
+          return false;
         }
-      );
+      }
+
       return false;
     }
   } else {

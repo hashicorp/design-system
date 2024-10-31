@@ -4257,6 +4257,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
     "@typescript-eslint/parser": "npm:^8.5.0"
     babel-plugin-ember-template-compilation: "npm:^2.2.4"
+    clipboard-polyfill: "npm:^4.1.0"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
     ember-a11y-refocus: "npm:^4.1.3"
@@ -10415,6 +10416,13 @@ __metadata:
   version: 4.1.0
   resolution: "cli-width@npm:4.1.0"
   checksum: 10/b58876fbf0310a8a35c79b72ecfcf579b354e18ad04e6b20588724ea2b522799a758507a37dfe132fafaf93a9922cafd9514d9e1598e6b2cd46694853aed099f
+  languageName: node
+  linkType: hard
+
+"clipboard-polyfill@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "clipboard-polyfill@npm:4.1.0"
+  checksum: 10/083a91203e9fc628acb356243f14f36912875d92dc9235ebb20fa954dc9feaa23048de9f5d59e5db9497c1d58a6b5827391c1ce3a09c4c03eff39914c60209b1
   languageName: node
   linkType: hard
 

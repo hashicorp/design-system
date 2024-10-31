@@ -42,6 +42,7 @@
     "@floating-ui/dom": "^1.6.3",
     "@hashicorp/design-system-tokens": "^2.2.1",
     "@hashicorp/flight-icons": "^3.7.0",
+    "clipboard-polyfill": "^4.1.0",
     "decorator-transforms": "^1.1.0",
     "ember-a11y-refocus": "^4.1.3",
     "ember-cli-sass": "^11.0.1",
