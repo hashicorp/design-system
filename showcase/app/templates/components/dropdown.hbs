@@ -25,6 +25,85 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H2>Width</Shw::Text::H2>
+
+  <Shw::Grid @columns={{4}} @gap="2rem" as |SG|>
+    {{#let (array false true) as |options|}}
+      {{#each options as |option|}}
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto</SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> 100%</SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
+              <D.ToggleButton {{style width="100%"}} @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto + <code>@width="200px"</code></SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown
+              @isOpen={{true}}
+              @listPosition="bottom-left"
+              @width="200px"
+              @matchToggleWidth={{option}}
+              as |D|
+            >
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto + <code>@width="100%"</code></SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown
+              @isOpen={{true}}
+              @listPosition="bottom-left"
+              @width="100%"
+              @matchToggleWidth={{option}}
+              as |D|
+            >
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H2>Display</Shw::Text::H2>
 
   <Shw::Flex as |SF|>
@@ -1525,35 +1604,9 @@
 <section>
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="With fixed width">
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @listPosition="bottom-left" @width="200px" as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    <SG.Item @label="With 100% width">
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @listPosition="bottom-left" @width="100%" as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    <SG.Item as |SG|>
-      <SG.Label>Using <code>preserveContentInDom</code> argument</SG.Label>
+  <Shw::Flex as |SF|>
+    <SF.Label>Using <code>preserveContentInDom</code></SF.Label>
+    <SF.Item>
       <div class="shw-component-dropdown-fixed-height-container">
         <Hds::Dropdown @listPosition="bottom-left" @preserveContentInDom={{true}} as |D|>
           <D.ToggleButton @color="secondary" @text="Menu" />
@@ -1568,7 +1621,7 @@
           </D.Footer>
         </Hds::Dropdown>
       </div>
-    </SG.Item>
-  </Shw::Grid>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>
