@@ -9,7 +9,7 @@
   <time class="hds-time" datetime={{@isoUtcString}} ...attributes {{did-insert @register}} {{will-destroy @unregister}}>
     {{#if @display.options.showFriendly}}
       {{#if @display.options.displayFormat}}
-        {{format-date
+        {{hds-format-date
           @date
           month=@display.options.displayFormat.month
           day=@display.options.displayFormat.day
@@ -22,11 +22,13 @@
         {{@isoUtcString}}
       {{/if}}
       {{#if @display.options.showRelative}}
-        ({{format-relative @display.relative.value unit=@display.relative.unit}})
+        {{!-- ({{format-relative @display.relative.value unit=@display.relative.unit}}) --}}
+        showRelative
       {{/if}}
     {{else}}
       {{#if @display.options.showRelative}}
-        {{format-relative @display.relative.value unit=@display.relative.unit}}
+        {{!-- {{format-relative @display.relative.value unit=@display.relative.unit}} --}}
+        showRelative
       {{/if}}
     {{/if}}
   </time>

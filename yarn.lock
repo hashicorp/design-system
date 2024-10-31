@@ -3762,7 +3762,6 @@ __metadata:
     ember-element-helper: "npm:^0.8.5"
     ember-focus-trap: "npm:^1.1.0"
     ember-get-config: "npm:^2.1.1"
-    ember-intl: "npm:^6.5.3"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.2.0"
     ember-source: "npm:~5.9.0"
@@ -9792,13 +9791,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cldr-core@npm:^44.1.0":
-  version: 44.1.0
-  resolution: "cldr-core@npm:44.1.0"
-  checksum: 10/79edd26a9f84a08cf94501e8a11ecf4ecf8530ceea012dcb2f698fc55edeef93681b61f907390a3a0d4cf4c8516ea5d474df6577ae6dc9f5010b40a57fbfbdfc
-  languageName: node
-  linkType: hard
-
 "clean-base-url@npm:^1.0.0":
   version: 1.0.0
   resolution: "clean-base-url@npm:1.0.0"
@@ -12366,7 +12358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1, ember-cli-typescript@npm:^5.3.0":
+"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.1":
   version: 5.3.0
   resolution: "ember-cli-typescript@npm:5.3.0"
   dependencies:
@@ -12694,42 +12686,6 @@ __metadata:
     ember-cli-htmlbars: "npm:^5.3.1"
     ember-cli-version-checker: "npm:^5.1.2"
   checksum: 10/a7b639f5900ff73eb844a8338ead25e8857f488a32a3455dce39870860ab2a0c613b09ab020144231216be0a8b949d5051718fe431674bf5f7839b8fb6986ba7
-  languageName: node
-  linkType: hard
-
-"ember-intl@npm:^6.5.3":
-  version: 6.5.6
-  resolution: "ember-intl@npm:6.5.6"
-  dependencies:
-    "@babel/core": "npm:^7.24.0"
-    "@formatjs/icu-messageformat-parser": "npm:^2.7.6"
-    "@formatjs/intl": "npm:^2.10.0"
-    broccoli-caching-writer: "npm:^3.0.3"
-    broccoli-funnel: "npm:^3.0.8"
-    broccoli-merge-trees: "npm:^4.2.0"
-    broccoli-source: "npm:^3.0.1"
-    broccoli-stew: "npm:^3.0.0"
-    calculate-cache-key-for-tree: "npm:^2.0.0"
-    cldr-core: "npm:^44.1.0"
-    ember-auto-import: "npm:^2.7.2"
-    ember-cli-babel: "npm:^8.2.0"
-    ember-cli-typescript: "npm:^5.3.0"
-    eventemitter3: "npm:^5.0.1"
-    extend: "npm:^3.0.2"
-    fast-memoize: "npm:^2.5.2"
-    intl-messageformat: "npm:^10.5.11"
-    js-yaml: "npm:^4.1.0"
-    json-stable-stringify: "npm:^1.1.1"
-    silent-error: "npm:^1.1.1"
-  peerDependencies:
-    "@ember/test-helpers": ^2.9.4 || ^3.2.0 || ^4.0.0
-    typescript: ^4.8.0 || ^5.0.0
-  peerDependenciesMeta:
-    "@ember/test-helpers":
-      optional: true
-    typescript:
-      optional: true
-  checksum: 10/69c20b54167d31ca2f8ab6544393602dc51845ee2dd1ec024f23ceb3200b12e38a9dbaf1902950d140edc8afd7449c827f3ce153bdf98b62c87948931d3b3a29
   languageName: node
   linkType: hard
 
@@ -14096,13 +14052,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "eventemitter3@npm:5.0.1"
-  checksum: 10/ac6423ec31124629c84c7077eed1e6987f6d66c31cf43c6fcbf6c87791d56317ce808d9ead483652436df171b526fc7220eccdc9f3225df334e81582c3cf7dd5
-  languageName: node
-  linkType: hard
-
 "events-to-array@npm:^1.0.1":
   version: 1.1.2
   resolution: "events-to-array@npm:1.1.2"
@@ -14315,7 +14264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:^3.0.2, extend@npm:~3.0.2":
+"extend@npm:^3.0.0, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 10/59e89e2dc798ec0f54b36d82f32a27d5f6472c53974f61ca098db5d4648430b725387b53449a34df38fd0392045434426b012f302b3cc049a6500ccf82877e4e
@@ -14467,13 +14416,6 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: 10/eb7e220ecf2bab5159d157350b81d01f75726a4382f5a9266f42b9150c4523b9795f7f5d9fbbbeaeac09a441b2369f05ee02db48ea938584205530fe5693cfe1
-  languageName: node
-  linkType: hard
-
-"fast-memoize@npm:^2.5.2":
-  version: 2.5.2
-  resolution: "fast-memoize@npm:2.5.2"
-  checksum: 10/b7e2839d70607c791ffda617bb3cf7d9944bd5483be05cedbc060be1381c79093efc470215f1bc5aa666b8ecc2c9ae49e6f56ab6f45f0c1474f6628651c9959b
   languageName: node
   linkType: hard
 
@@ -18248,7 +18190,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-stable-stringify@npm:^1.0.0, json-stable-stringify@npm:^1.0.1, json-stable-stringify@npm:^1.1.1":
+"json-stable-stringify@npm:^1.0.0, json-stable-stringify@npm:^1.0.1":
   version: 1.1.1
   resolution: "json-stable-stringify@npm:1.1.1"
   dependencies:
@@ -25728,6 +25670,13 @@ __metadata:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: 10/7dbf34e6f55c6492637adb81b555af5e3b4f9cc6b998fb440dac82d3b42bdc91560a35a5fb75e20e24a076c651438234da6743d139e4feabf0783f3cdfe1dddb
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0, tslib@npm:^2.4.1, tslib@npm:^2.6.1, tslib@npm:^2.6.2":
+  version: 2.8.0
+  resolution: "tslib@npm:2.8.0"
+  checksum: 10/1bc7c43937477059b4d26f2dbde7e49ef0fb4f38f3014e0603eaea76d6a885742c8b1762af45949145e5e7408a736d20ded949da99dabc8ccba1fc5531d2d927
   languageName: node
   linkType: hard
 
