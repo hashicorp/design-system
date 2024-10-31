@@ -11,12 +11,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/time/index', function (hooks) {
   setupRenderingTest(hooks);
 
-  let service;
+  // let service;
 
-  hooks.beforeEach(function () {
-    service = this.owner.lookup('service:intl');
-    service.setLocale('en-us');
-  });
+  // hooks.beforeEach(function () {
+  //   service = this.owner.lookup('service:intl');
+  //   service.setLocale('en-us');
+  // });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(hbs`
