@@ -1,0 +1,20 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<th
+  class={{this.classNames}}
+  aria-sort={{this.ariaSort}}
+  {{style width=@width minWidth=@width}}
+  ...attributes
+  scope="col"
+  {{did-insert this.didInsert}}
+>
+  <div class="hds-advanced-table__th-content">
+    <span id={{this.labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+    {{#if @tooltip}}
+      <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
+    {{/if}}
+    <Hds::AdvancedTable::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this.labelId}} />
+  </div>
+</th>

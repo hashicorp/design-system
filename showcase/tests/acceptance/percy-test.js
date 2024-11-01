@@ -182,6 +182,10 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/utilities/popover-primitive');
     await percySnapshot('PopoverPrimitive');
 
+    // MOVE THIS BLOCK IN THE RIGHT POSITION
+    await visit('/components/advanced-table');
+    await percySnapshot('AdvancedTable');
+
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
     assert.ok(true);
