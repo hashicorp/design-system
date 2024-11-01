@@ -75,3 +75,49 @@
     }
   }
 }
+
+@mixin hds-focus-ring-with-after-pseudo-element($top: 0, $right: 0, $bottom: 0, $left: 0, $radius: 5px, $color: action) {
+  position: relative;
+  z-index: 1;
+  outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
+  outline-color: transparent;
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
+
+  &::after {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: -1;
+    border-radius: $radius;
+    content: "";
+  }
+
+  // default focus for browsers that still rely on ":focus"
+  &:focus,
+  &.mock-focus {
+    &::after {
+      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+    }
+  }
+  // undo the previous declaration for browsers that support ":focus-visible" but wouldn't normally show default focus styles
+  &:focus:not(:focus-visible) {
+    &::after {
+      box-shadow: none;
+    }
+  }
+  // set focus for browsers that support ":focus-visible"
+  &:focus-visible {
+    &::after {
+      box-shadow: var(--token-focus-ring-#{$color}-box-shadow);
+    }
+  }
+  // remove the focus ring on "active + focused" state (by design)
+  &:focus:active,
+  &.mock-focus.mock-active {
+    &::after {
+      box-shadow: none;
+    }
+  }
+}
