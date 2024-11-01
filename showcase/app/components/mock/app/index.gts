@@ -35,8 +35,6 @@ export interface MockAppSignature {
     header?: [
       {
         AppHeader?: ComponentLike<MockAppHeaderAppHeaderSignature>;
-        ShortTextContent?: ComponentLike<MockAppMainShortTextContentSignature>;
-        LongTextContent?: ComponentLike<MockAppMainLongTextContentSignature>;
       },
     ];
     sidebar?: [
