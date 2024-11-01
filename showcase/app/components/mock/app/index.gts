@@ -8,8 +8,7 @@ import { hash } from '@ember/helper';
 import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
-import MockAppMainShortTextContent from './main/short-text-content';
-import MockAppMainLongTextContent from './main/long-text-content';
+import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
@@ -21,8 +20,7 @@ import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/c
 import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
-import type { MockAppMainShortTextContentSignature } from './main/short-text-content';
-import type { MockAppMainLongTextContentSignature } from './main/long-text-content';
+import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
@@ -45,8 +43,7 @@ export interface MockAppSignature {
     main?: [
       {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
-        ShortTextContent?: ComponentLike<MockAppMainShortTextContentSignature>;
-        LongTextContent?: ComponentLike<MockAppMainLongTextContentSignature>;
+        GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
       },
     ];
     footer?: [
@@ -87,8 +84,7 @@ export default class MockApp extends Component<MockAppSignature> {
           {{yield
             (hash
               PageHeader=MockAppMainPageHeader
-              ShortTextContent=MockAppMainShortTextContent
-              LongTextContent=MockAppMainLongTextContent
+              GenericTextContent=MockAppMainGenericTextContent
             )
             to="main"
           }}

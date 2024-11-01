@@ -25,8 +25,7 @@ import MockApp from '../app/components/mock/app/index';
 import MockAppHeaderAppHeader from '../app/components/mock/app/header/app-header';
 import MockAppSidebarSideNav from '../app/components/mock/app/sidebar/side-nav';
 import MockAppMainPageHeader from '../app/components/mock/app/main/page-header';
-import MockAppMainShortTextContent from '../app/components/mock/app/main/short-text-content';
-import MockAppMainLongTextContent from '../app/components/mock/app/main/long-text-content';
+import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
 
 export default interface ShowcaseTemplateRegistry {
@@ -74,10 +73,8 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/sidebar/app-side-nav': typeof MockAppSidebarSideNav;
   'Mock::App::Main::PageHeader': typeof MockAppMainPageHeader;
   'mock/app/main/page-header': typeof MockAppMainPageHeader;
-  'Mock::App::Main::ShortTextContent': typeof MockAppMainShortTextContent;
-  'mock/app/main/short-text-content': typeof MockAppMainShortTextContent;
-  'Mock::App::Main::LongTextContent': typeof MockAppMainLongTextContent;
-  'mock/app/main/long-text-content': typeof MockAppMainLongTextContent;
+  'Mock::App::Main::GenericTextContent': typeof MockAppMainGenericTextContent;
+  'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
 }

@@ -10,10 +10,10 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MockAppMainShortTextContentSignature {}
+export interface MockAppMainGenericTextContentSignature {}
 
 <template>
-  <div class="mock-app-sample-content-text">
+  <div class="mock-app-main-generic-text-content">
     <HdsTextBody @tag="p" @size="200">Lorem ipsum dolor sit amet, consectetur
       adipisicing elit.</HdsTextBody>
     <HdsTextBody @tag="p" @size="200">Excepturi
