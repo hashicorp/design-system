@@ -1,0 +1,121 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "AdvancedTable Component"}}
+
+<Shw::Text::H1>AdvancedTable</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
+      (hash key="other" label="Additional Actions")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H2>With nested rows and cells that span rows</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @model={{this.model.spanningData}}
+    @hasNestedRows={{true}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="service" label="Service")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        {{#if B.data.name}}
+          <B.Th @rowspan={{if B.isExpanded (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
+        {{/if}}
+        <B.Td>{{B.data.service}}</B.Td>
+        <B.Td>{{B.data.description}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H2>With nested rows</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @model={{this.model.nestedData}}
+    @hasNestedRows={{true}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="status" label="Status" width="auto")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>
+          {{B.data.name}}
+        </B.Th>
+        <B.Td>
+          {{B.data.status}}
+        </B.Td>
+        <B.Td>
+          {{B.data.description}}
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H2>With many rows and custom row width</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+    @model={{this.model.userData}}
+    @columns={{array
+      (hash key="id" label="ID" width="auto")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+    @hasStickyHeader={{true}}
+    @isStriped={{true}}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+</section>
