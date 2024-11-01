@@ -1,0 +1,18 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<button
+  type="button"
+  class={{this.classNames}}
+  {{on "click" this.onClick}}
+  aria-labelledby="{{this.prefixLabelId}} {{@labelId}} {{this.suffixLabelId}}"
+  ...attributes
+>
+  <span id={{this.prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Sort by</span>
+  <span
+    id={{this.suffixLabelId}}
+    class="hds-advanced-table__th-button-aria-label-hidden-segment"
+  >{{this.sortOrderLabel}}</span>
+  <Hds::Icon @name={{this.icon}} />
+</button>

@@ -14,6 +14,19 @@ export { default as HdsAccordion } from './components/hds/accordion/index.ts';
 export { default as HdsAccordionItem } from './components/hds/accordion/item/index.ts';
 export * from './components/hds/accordion/types.ts';
 
+// Advanced Table
+export { default as HdsAdvancedTable } from './components/hds/advanced-table/index.ts';
+export { default as HdsAdvancedTableTd } from './components/hds/advanced-table/td.ts';
+export { default as HdsAdvancedTableTh } from './components/hds/advanced-table/th.ts';
+export { default as HdsAdvancedTableThButtonExpand } from './components/hds/advanced-table/th-button-expand.ts';
+export { default as HdsAdvancedTableThButtonSort } from './components/hds/advanced-table/th-button-sort.ts';
+export { default as HdsAdvancedTableThButtonTooltip } from './components/hds/advanced-table/th-button-tooltip.ts';
+export { default as HdsAdvancedTableThSelectable } from './components/hds/advanced-table/th-selectable.ts';
+export { default as HdsAdvancedTableThSort } from './components/hds/advanced-table/th-sort.ts';
+export { default as HdsAdvancedTableTrExpandableGroup } from './components/hds/advanced-table/tr-expandable-group.ts';
+export { default as HdsAdvancedTableTr } from './components/hds/advanced-table/tr.ts';
+export * from './components/hds/advanced-table/types.ts';
+
 // Alert
 export { default as HdsAlert } from './components/hds/alert/index.ts';
 export { default as HdsAlertDescription } from './components/hds/alert/description.ts';

@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div
+  class={{this.classNames}}
+  role="gridcell"
+  aria-rowspan={{@rowspan}}
+  aria-colspan={{@colspan}}
+  {{did-insert this.didInsert}}
+  {{style grid-row=this.rowspan grid-column=this.colspan}}
+  ...attributes
+>
+  {{yield}}
+</div>

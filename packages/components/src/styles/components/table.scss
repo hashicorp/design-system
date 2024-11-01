@@ -169,7 +169,9 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     // striped rows
 
     .hds-table--striped &:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
+      th, td {
+        background-color: var(--token-color-surface-faint);
+      }
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
