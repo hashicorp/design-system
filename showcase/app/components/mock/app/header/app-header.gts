@@ -74,13 +74,13 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
         <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleIcon @icon="help" @text="help menu" />
           <dd.Title @text="Help & Support" />
-          <dd.Interactive @text="Documentation" @href="#" />
-          <dd.Interactive @text="Tutorials" @href="#" />
-          <dd.Interactive @text="Terraform Provider" @href="#" />
-          <dd.Interactive @text="Changelog" @href="#" />
+          <dd.Interactive @href="#">Documentation</dd.Interactive>
+          <dd.Interactive @href="#">Tutorials</dd.Interactive>
+          <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+          <dd.Interactive @href="#">Changelog</dd.Interactive>
           <dd.Separator />
-          <dd.Interactive @text="Create support ticket" @href="#" />
-          <dd.Interactive @text="Give feedback" @href="#" />
+          <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+          <dd.Interactive @href="#">Give feedback</dd.Interactive>
         </HdsDropdown>
         <HdsDropdown @enableCollisionDetection={{true}} as |dd|>
           <dd.ToggleIcon @icon="user" @text="user menu" />
