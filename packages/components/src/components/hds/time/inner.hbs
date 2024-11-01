@@ -11,12 +11,13 @@
       {{#if @display.options.displayFormat}}
         {{hds-format-date
           @date
-          month=@display.options.displayFormat.month
-          day=@display.options.displayFormat.day
-          year=@display.options.displayFormat.year
-          hour=@display.options.displayFormat.hour
-          minute=@display.options.displayFormat.minute
-          second=@display.options.displayFormat.second
+          @display.options.displayFormat.month
+          @display.options.displayFormat.day
+          @display.options.displayFormat.year
+          @display.options.displayFormat.hour
+          @display.options.displayFormat.minute
+          @display.options.displayFormat.second
+          @display.options.showFriendly
         }}
       {{else}}
         {{@isoUtcString}}

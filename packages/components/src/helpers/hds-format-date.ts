@@ -10,6 +10,7 @@ import { helper } from '@ember/component/helper';
  *
  * Example:
  * 
+ * TODO: Below was revised in actual usage, update example later
  * ```hbs
  * {{hds-format-date
       @date
@@ -31,6 +32,7 @@ export function hdsFormatDate([date, month, day, year, hour, minute, second]: [
   Intl.DateTimeFormatOptions['hour'],
   Intl.DateTimeFormatOptions['minute'],
   Intl.DateTimeFormatOptions['second'],
+  boolean,
 ]): string {
   if (!date) {
     return '';
