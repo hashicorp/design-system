@@ -24,31 +24,7 @@
 
   <Shw::Text::H3>Display</Shw::Text::H3>
 
-  <p>(This is temporary)</p>
-
-  <p>Should display similar to as follows:</p>
-
-  <p>
-    'friendly-relative'<br />
-    // returns 'Sep 5, 2018 (30 minutes ago)'
-  </p>
-  <p>
-    'friendly-local'<br />
-    // returns 'Sep 5, 2018, 4:07:32 pm'
-
-  </p>
-  <p>
-    'friendly-only'<br />
-    // returns 'Sep 5, 2018'
-  </p>
-  <p>
-    'relative'<br />
-    // returns 'about 2 hours ago'
-  </p>
-  <p>
-    'utc'<br />
-    // returns '2018-09-05T23:15:17345Z'
-  </p>
+  <p>Note: "examples" are temporary</p>
 
   <Shw::Flex @gap="5rem 9rem" as |SF|>
     <SF.Item @label="Default with display unset">
@@ -57,6 +33,18 @@
 
     {{#each @model.DISPLAYS as |display|}}
       <SF.Item @label={{display}}>
+        {{#if (eq display "friendly-relative")}}
+          (Example: 'Sep 5, 2018 (30 minutes ago)')
+        {{else if (eq display "friendly-local")}}
+          (Example: 'Sep 5, 2018, 4:07:32 pm')
+        {{else if (eq display "friendly-only")}}
+          (Example: 'Sep 5, 2018')
+        {{else if (eq display "relative")}}
+          (Example: 'about 2 hours ago')
+        {{else if (eq display "utc")}}
+          (Example: '2018-09-05T23:15:17345Z')
+        {{/if}}
+        <br />
         <Hds::Time @date="05 September 2018 14:07:32" @display={{display}} @isOpen={{true}} />
       </SF.Item>
     {{/each}}
