@@ -9,16 +9,7 @@
   <time class="hds-time" datetime={{@isoUtcString}} ...attributes {{did-insert @register}} {{will-destroy @unregister}}>
     {{#if @display.options.showFriendly}}
       {{#if @display.options.displayFormat}}
-        {{hds-format-date
-          @date
-          @display.options.displayFormat.month
-          @display.options.displayFormat.day
-          @display.options.displayFormat.year
-          @display.options.displayFormat.hour
-          @display.options.displayFormat.minute
-          @display.options.displayFormat.second
-          @display.options.showFriendly
-        }}
+        {{hds-format-date @date @display.options.displayFormat}}
       {{else}}
         {{@isoUtcString}}
       {{/if}}
