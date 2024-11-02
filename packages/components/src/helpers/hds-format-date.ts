@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { DateTime } from 'luxon';
 import { helper } from '@ember/component/helper';
 
 /*
@@ -24,28 +25,24 @@ import { helper } from '@ember/component/helper';
   * ```
  */
 
-export function hdsFormatDate([date, month, day, year, hour, minute, second]: [
+export function hdsFormatDate([date, options]: [
   Date,
-  Intl.DateTimeFormatOptions['month'],
-  Intl.DateTimeFormatOptions['day'],
-  Intl.DateTimeFormatOptions['year'],
-  Intl.DateTimeFormatOptions['hour'],
-  Intl.DateTimeFormatOptions['minute'],
-  Intl.DateTimeFormatOptions['second'],
-  boolean,
+  {
+    month: Intl.DateTimeFormatOptions['month'];
+    day: Intl.DateTimeFormatOptions['day'];
+    year: Intl.DateTimeFormatOptions['year'];
+    hour?: Intl.DateTimeFormatOptions['hour'];
+    minute?: Intl.DateTimeFormatOptions['minute'];
+    second?: Intl.DateTimeFormatOptions['second'];
+  },
 ]): string {
   if (!date) {
     return '';
   }
 
-  return new Intl.DateTimeFormat('en-US', {
-    month: month,
-    day: day,
-    year: year,
-    hour: hour,
-    minute: minute,
-    second: second,
-  }).format(date);
+  return DateTime.fromJSDate(date)
+    .setLocale(navigator.language)
+    .toLocaleString(options);
 }
 
 const hdsFormatDateHelper = helper(hdsFormatDate);
