@@ -11,15 +11,7 @@
       class="hds-time-wrapper"
       @text={{if
         display.options.tooltipFormat
-        (hds-format-date
-          this.date
-          month=display.options.tooltipFormat.month
-          day=display.options.tooltipFormat.day
-          year=display.options.tooltipFormat.year
-          hour=display.options.tooltipFormat.hour
-          minute=display.options.tooltipFormat.minute
-          second=display.options.tooltipFormat.second
-        )
+        (hds-format-date this.date display.options.tooltipFormat)
         this.isoUtcString
       }}
       @placement="bottom"
