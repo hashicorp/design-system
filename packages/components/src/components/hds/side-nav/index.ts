@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { deprecate } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
@@ -21,6 +22,10 @@ export interface HdsSideNavSignature {
     a11yRefocusNavigationText?: string;
     a11yRefocusRouteChangeValidator?: string;
     a11yRefocusExcludeAllQueryParams?: boolean;
+    /**
+     * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
+     */
+    ariaLabel?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -72,6 +77,23 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     registerDestructor(this, (): void => {
       this.removeEventListeners();
     });
+
+    if (args.ariaLabel !== undefined) {
+      deprecate(
+        'The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button',
+        false,
+        {
+          id: 'hds.sidenav',
+          until: '5.0.0',
+          url: 'https://helios.hashicorp.design/components/sidenav?tab=version%20history#4130',
+          for: '@hashicorp/design-system-components',
+          since: {
+            available: '4.13.0',
+            enabled: '5.0.0',
+          },
+        }
+      );
+    }
   }
 
   addEventListeners(): void {
@@ -103,6 +125,13 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
 
   get showToggleButton(): boolean {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
+  }
+
+  get ariaLabel(): string {
+    if (this.isMinimized) {
+      return this.args.ariaLabel ?? 'Open menu';
+    }
+    return this.args.ariaLabel ?? 'Close menu';
   }
 
   get classNames(): string {
