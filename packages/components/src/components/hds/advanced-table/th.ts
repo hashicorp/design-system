@@ -44,6 +44,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
 
+  get scope(): HdsAdvancedTableScope {
+    const { scope = 'col' } = this.args;
+    return scope;
+  }
+
+  get role(): string {
+    if (this.scope === 'col') return 'columnheader';
+    else return 'rowheader';
+  }
+
   get align(): HdsAdvancedTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;
 

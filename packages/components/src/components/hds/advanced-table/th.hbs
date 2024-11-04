@@ -6,7 +6,8 @@
   class={{this.classNames}}
   {{style width=@width minWidth=@width}}
   ...attributes
-  scope={{(or @scope "col")}}
+  scope={{this.scope}}
+  role={{this.role}}
   {{did-insert this.didInsert}}
 >
   {{#if @isVisuallyHidden}}
