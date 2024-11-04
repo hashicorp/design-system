@@ -25,7 +25,7 @@ export interface HdsSideNavSignature {
     /**
      * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
      */
-    ariaLabel?: string;
+    ariaLabel?: string | undefined;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onToggleMinimizedStatus?: (arg: boolean) => void;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -127,11 +127,11 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
   }
 
-  get ariaLabel(): string {
-    if (this.isMinimized) {
-      return this.args.ariaLabel ?? 'Open menu';
-    }
-    return this.args.ariaLabel ?? 'Close menu';
+  /**
+   * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
+   */
+  get ariaLabel(): string | undefined {
+    return this.args.ariaLabel;
   }
 
   get classNames(): string {
