@@ -4,4 +4,4 @@
 
 `SideNav` - Made a11y related improvements including:
 - Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
-- Improved ariaLabel for `ToggleButton` state by combining with use of aria-expanded
+- Replaced aria-label for `ToggleButton` with aria-labelledby and aria-expanded
