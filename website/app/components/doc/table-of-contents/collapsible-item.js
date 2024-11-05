@@ -11,8 +11,8 @@ import { action } from '@ember/object';
 export default class DocTocCollapsibleItem extends Component {
   @tracked isOpen;
 
-  constructor(args) {
-    super(...args);
+  constructor(owner, args) {
+    super(owner, args);
     this.isOpen = this.args.item.isOpen ?? false;
   }
 
