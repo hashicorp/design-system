@@ -35,6 +35,11 @@
 
 .hds-side-nav__content-panel {
   padding: 0 var(--token-side-nav-wrapper-padding-horizontal);
+  overflow: hidden; // the panel itself does not need to be scrollable
+
+  &[aria-hidden="true"] {
+    max-height: 0; // prevents hidden panels from causing scrolling
+  }
 }
 
 // (LIST) TITLE
