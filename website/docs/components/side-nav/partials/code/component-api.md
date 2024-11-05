@@ -7,16 +7,12 @@ This is the full-fledged component (responsive and animated).
 <Doc::ComponentApi as |C|>
   <C.Property @name="<:header>" @type="named block">
     A named block where the content for the “header” area of the Side Nav is rendered. The `SideNav::Header` component should be added here. It yields the value of `isMinimized` too.
-    <br><br>
-    When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` block normally doesn’t need to be included.
   </C.Property>
   <C.Property @name="<:body>" @type="named block">
     A named block where the content for the “body” or main content of the Side Nav is rendered. The `SideNav::List` and `SideNav::PortalTarget` components should be added here when used. It yields the value of `isMinimized` too.
   </C.Property>
   <C.Property @name="<:footer>" @type="named block">
     A named block where the content for the “footer” section of the Side Nav is rendered. It yields the value of `isMinimized` too.
-    <br><br>
-    When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, you may not need to include the `<:footer>` block or related content.
   </C.Property>
   <C.Property @name="isResponsive" @type="boolean" @default="true">
     Controls whether the Side Nav is responsive to viewport changes. It can be programmatically turned off by passing `false`.
