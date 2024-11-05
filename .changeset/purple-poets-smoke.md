@@ -2,7 +2,7 @@
 "@hashicorp/design-system-components": patch
 ---
 
-Fixed usage of the `@tracked` modifier in several components:
+Fixed instances where arguments are passed into tracked properties at declaration:
   * `MaskedInput`
   * `TextInput`
   * `Pagination::Compact`
