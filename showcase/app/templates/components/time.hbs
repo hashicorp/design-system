@@ -12,7 +12,7 @@
 
   <Shw::Text::H3>Has tooltip</Shw::Text::H3>
 
-  <Shw::Flex @gap="5rem 9rem" {{style marginBottom="80px"}} as |SF|>
+  <Shw::Flex @gap="4rem 9rem" {{style marginBottom="80px"}} as |SF|>
     <SF.Item @label="With tooltip (default)">
       <Hds::Time @date="05 September 2018 14:48" @isOpen={{true}} />
     </SF.Item>
@@ -24,9 +24,9 @@
 
   <Shw::Text::H3>Display</Shw::Text::H3>
 
-  <p>Note: "examples" are temporary</p>
+  <p>Note: “examples” are temporary</p>
 
-  <Shw::Flex @gap="5rem 9rem" as |SF|>
+  <Shw::Flex @gap="4rem 9rem" as |SF|>
     <SF.Item @label="Default with display unset">
       <Hds::Time @date="05 September 2018 14:07:32" @isOpen={{true}} />
     </SF.Item>
@@ -46,6 +46,18 @@
         {{/if}}
         <br />
         <Hds::Time @date="05 September 2018 14:07:32" @display={{display}} @isOpen={{true}} />
+      </SF.Item>
+    {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider {{style marginTop="6rem"}} @level="2" />
+
+  <Shw::Text::H4>Near time examples using “relative” display type</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    {{#each this.nearTimeDates as |date|}}
+      <SF.Item @label={{date}}>
+        <Hds::Time @date={{date}} @display="relative" />
       </SF.Item>
     {{/each}}
   </Shw::Flex>
