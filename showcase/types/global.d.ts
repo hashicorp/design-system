@@ -2,6 +2,10 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
+
+import 'ember-source/types';
+export {};
+
 import '@glint/environment-ember-loose';
 
 import type EmberStyleModifierRegistry from 'ember-style-modifier/template-registry';

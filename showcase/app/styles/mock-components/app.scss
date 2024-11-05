@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+.mock-app-layout-main-content-wrapper {
+  padding: 24px 64px;
+
+  > .hds-page-header {
+    margin-bottom: 24px;
+  }
+}
+
+.mock-app-main-generic-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 12px;
+}
