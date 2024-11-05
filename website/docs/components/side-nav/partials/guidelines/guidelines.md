@@ -2,7 +2,7 @@
 
 ### When to use
 
-- For global navigation across an application, use the [App Header](/components/app-header) instead.
+- For global navigation across an application.
 
 ### When not to use
 
