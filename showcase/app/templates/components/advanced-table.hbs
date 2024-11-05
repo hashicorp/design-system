@@ -10,7 +10,6 @@
 <section data-test-percy>
 
   <Hds::AdvancedTable
-    @isSelectable={{true}}
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" isSortable=true)
@@ -38,6 +37,43 @@
             <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
           </Hds::ButtonSet>
         </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @model={{this.model.spanningData}}
+    @columns={{array
+      (hash key="lorem" label="Lorem")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+      (hash key="sit-amet" label="Sit Amet")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        {{#if B.data.lorem}}
+          <B.Td rowspan={{B.data.lorem.rowspan}} colspan={{B.data.lorem.colspan}}>
+            {{B.data.lorem.value}}
+          </B.Td>
+        {{/if}}
+        {{#if B.data.ipsum}}
+          <B.Td rowspan={{B.data.ipsum.rowspan}} colspan={{B.data.ipsum.colspan}}>
+            {{B.data.ipsum.value}}
+          </B.Td>
+        {{/if}}
+        {{#if B.data.dolor}}
+          <B.Td rowspan={{B.data.dolor.rowspan}} colspan={{B.data.dolor.colspan}}>
+            {{B.data.dolor.value}}
+          </B.Td>
+        {{/if}}
+        {{#if B.data.sit-amet}}
+          <B.Td rowspan={{B.data.sit-amet.rowspan}} colspan={{B.data.sit-amet.colspan}}>
+            {{B.data.sit-amet.value}}
+          </B.Td>
+        {{/if}}
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>

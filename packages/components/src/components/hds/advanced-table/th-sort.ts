@@ -33,6 +33,8 @@ export interface HdsAdvancedTableThSortSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
     width?: string;
+    rowspan?: number;
+    colspan?: number;
   };
   Blocks: {
     default: [];
@@ -45,7 +47,6 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
 
   @action
   didInsert(element: HTMLTableCellElement): void {
-    console.log('did insert header');
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }

@@ -19,6 +19,8 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 export interface HdsAdvancedTableTdSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
+    rowspan?: number;
+    colspan?: number;
   };
   Blocks: {
     default: [];
@@ -28,10 +30,15 @@ export interface HdsAdvancedTableTdSignature {
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @action
   didInsert(element: HTMLTableCellElement): void {
-    console.log('did insert cell');
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
+
+  // get style(): string {
+  //   const { rowspan = 1, colspan = 1 } = this.args;
+
+  //   return 'grid-row: ';
+  // }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;

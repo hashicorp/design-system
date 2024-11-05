@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "lorem": {
+      "value": "Scope Row with rowspan='3'",
+      "rowspan": 3
+    },
+    "ipsum": {"value": "Cell Content"},
+    "dolor":{"value": "Cell Content"},
+    "sit-amet": {"value": "Cell Content"}
+  }, {
+    "id": 2,
+    "ipsum": {
+      "value": "Cell Content with colspan='2'",
+      "colspan": 2
+    },
+    "sit-amet": {"value": "Cell Content"}
+  }, {
+    "id": 3,
+    "ipsum": {
+      "value": "Cell Content with colspan='3'",
+      "colspan": 3
+    }
+  }, {
+    "id": 4,
+    "lorem": {
+      "value": "Scope Row with rowspan='2'",
+      "rowspan": 2
+    },
+    "ipsum":{
+      "value": "Cell Content",
+      "rowspan": 3
+    },
+    "dolor": {"value": "Cell Content"},
+    "sit-amet": {"value": "Cell Content"}
+  }, {
+    "id": 5,
+    "ipsum": {
+      "value": "Cell Content with colspan='2'",
+      "colspan": 2
+    },
+    "sit-amet": {"value": "Cell Content"}
+  }, {
+    "id": 6,
+    "lorem": {
+      "value": "Scope Row"
+    },
+    "ipsum": {"value": "Cell Content"},
+    "sit-amet": {"value": "Cell Content"}
+  }, {
+    "id": 7,
+    "lorem": {
+      "value": "Scope Row"
+    },
+    "ipsum": {"value": "Cell Content"},
+    "dolor": {"value": "Cell Content"},
+    "sit-amet": {"value": "Cell Content"}
+  }
+]

@@ -27,6 +27,8 @@ export interface HdsAdvancedTableThSignature {
     scope?: HdsAdvancedTableScope;
     tooltip?: string;
     width?: string;
+    rowspan?: number;
+    colspan?: number;
   };
   Blocks: {
     default: [];
@@ -39,7 +41,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action
   didInsert(element: HTMLTableCellElement): void {
-    console.log('did insert header');
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }

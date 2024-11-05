@@ -15,28 +15,27 @@ const STATES = ['default', 'hover', 'active', 'focus'];
 
 export default class ComponentsAdvancedTableRoute extends Route {
   async model() {
-    let responseMusic = await fetch('/api/folk.json');
-    let responseClusters = await fetch('/api/mock-clusters-with-status.json');
-    let responseManyColumns = await fetch('/api/mock-many-columns.json');
-    let { data: music } = await responseMusic.json();
-    let clusters = await responseClusters.json();
-    let manycolumns = await responseManyColumns.json();
+    const responseMusic = await fetch('/api/folk.json');
+    const responseClusters = await fetch('/api/mock-clusters-with-status.json');
+    const responseManyColumns = await fetch('/api/mock-many-columns.json');
+    const responseSelectableData = await fetch(
+      '/api/mock-selectable-data.json'
+    );
+    const responseUserData = await fetch('/api/mock-users.json');
+    const responseSpanning = await fetch('/api/mock-spanning-cells.json');
 
-    let responseSelectableData = await fetch('/api/mock-selectable-data.json');
-    let selectableData = await responseSelectableData.json();
-
-    let responseUserData = await fetch('/api/mock-users.json');
-    let userData = await responseUserData.json();
+    const { data: music } = await responseMusic.json();
+    const clusters = await responseClusters.json();
+    const manycolumns = await responseManyColumns.json();
+    const selectableData = await responseSelectableData.json();
+    const userData = await responseUserData.json();
+    const spanningData = await responseSpanning.json();
 
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),
+      spanningData,
       selectableData,
-      selectableDataDemo1: clone(selectableData),
-      selectableDataDemo2: clone(selectableData),
-      selectableDataDemo5: clone(selectableData),
-      selectableDataDemo6: clone(selectableData),
-      userDataDemo3: clone(userData.slice(0, 16)),
-      userDataDemo4: clone(userData.slice(0, 4)),
+      userData: clone(userData.slice(0, 16)),
       clusters,
       manycolumns,
       DENSITIES,

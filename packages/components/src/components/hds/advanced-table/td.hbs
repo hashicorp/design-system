@@ -2,6 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<td class={{this.classNames}} ...attributes role="gridcell" {{did-insert this.didInsert}}>
+<td
+  class={{this.classNames}}
+  ...attributes
+  role="gridcell"
+  aria-rowspan={{@rowspan}}
+  aria-colspan={{@colspan}}
+  {{did-insert this.didInsert}}
+>
   {{yield}}
 </td>
