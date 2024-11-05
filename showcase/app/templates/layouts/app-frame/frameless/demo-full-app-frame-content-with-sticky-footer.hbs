@@ -5,143 +5,16 @@
 
 {{page-title "AppFrame Component - Frameless"}}
 
-<Hds::AppFrame @hasHeader={{false}} as |Frame|>
-  <Frame.Sidebar>
-    <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{true}} @isCollapsible={{true}}>
-      <:header>
-        <Hds::SideNav::Header>
-          <:logo>
-            <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
-          </:logo>
-          <:actions>
-            <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="help" @text="help menu" />
-              <dd.Title @text="Help & Support" />
-              <dd.Interactive @href="#">Documentation</dd.Interactive>
-              <dd.Interactive @href="#">Tutorials</dd.Interactive>
-              <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-              <dd.Interactive @href="#">Changelog</dd.Interactive>
-              <dd.Separator />
-              <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-              <dd.Interactive @href="#">Give feedback</dd.Interactive>
-            </Hds::Dropdown>
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-              <dd.ToggleIcon @icon="user" @text="user menu" />
-              <dd.Title @text="Signed In" />
-              <dd.Description @text="email@domain.com" />
-              <dd.Interactive @href="#">Account Settings</dd.Interactive>
-            </Hds::Dropdown>
-          </:actions>
-        </Hds::SideNav::Header>
-      </:header>
-      <:body>
-        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Dashboard" as |SNL|>
-          <SNL.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
-        </Hds::SideNav::List>
-        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Services" as |SNL|>
-          <SNL.Title>Services</SNL.Title>
-          <SNL.Link @text="Boundary" @icon="boundary" @href="#" />
-          <SNL.Link @text="Consul" @icon="consul" @href="#" />
-          <SNL.Link @text="Packer" @icon="packer" @href="#" />
-          <SNL.Link @text="Vault" @icon="vault" @href="#" />
-          <SNL.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-          <SNL.Link @text="Terraform" @icon="terraform" @href="#" />
-          <SNL.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-          <SNL.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
-        </Hds::SideNav::List>
-        <Hds::SideNav::List class="hds-side-nav-hide-when-minimized" aria-label="Organization" as |SNL|>
-          <SNL.Title>Default Org</SNL.Title>
-          <SNL.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-          <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-          <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
-        </Hds::SideNav::List>
-      </:body>
-      <:footer>
-        <Hds::Dropdown
-          class="hds-side-nav-hide-when-minimized shw-layout-app-frame-full-width-elem"
-          @enableCollisionDetection={{true}}
-          as |dd|
-        >
-          <dd.ToggleButton @text="Choose an organization" @icon="org" />
-          <dd.Checkmark>
-            organizationName
-          </dd.Checkmark>
-        </Hds::Dropdown>
-      </:footer>
-    </Hds::SideNav>
-  </Frame.Sidebar>
-
-  <Frame.Main>
-    <div class="shw-layout-app-frame__main-content-padding">
-      <Hds::PageHeader as |PH|>
-        <PH.Title>Page title</PH.Title>
-        <PH.Breadcrumb>
-          <Hds::Breadcrumb>
-            <Hds::Breadcrumb::Item @text="Organization" @icon="dashboard" />
-            <Hds::Breadcrumb::Item @text="Project" @icon="file-text" />
-            <Hds::Breadcrumb::Item @text="Clusters" @icon="server-cluster" />
-          </Hds::Breadcrumb>
-        </PH.Breadcrumb>
-        <PH.IconTile @icon="server-cluster" />
-        <PH.Badges>
-          <Hds::Badge @text="Status badge" @icon="award" @color="highlight" />
-        </PH.Badges>
-        <PH.Subtitle>Project dashboard</PH.Subtitle>
-        <PH.Description>
-          An overview of all resources in the project.
-          <Hds::Link::Inline @color="secondary" @href="#">Learn more</Hds::Link::Inline>.
-        </PH.Description>
-        <PH.Actions>
-          <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
-        </PH.Actions>
-      </Hds::PageHeader>
-
-      <Hds::Text::Body>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aperiam a molestias quisquam sapiente
-          alias corporis sit aliquid similique esse illum at itaque ducimus, eligendi eos. Iure dolor eos cumque autem
-          placeat pariatur voluptate deserunt quas, iste quo alias? Sequi, qui ipsa. Laborum, ipsa atque alias nostrum
-          nihil repudiandae ratione inventore, qui impedit obcaecati facilis quaerat aliquam omnis consequuntur. Ab,
-          deleniti vel. Optio consequuntur sint officiis distinctio dolorem nobis porro ipsum natus hic debitis nihil at
-          nostrum, reiciendis exercitationem quod deserunt inventore, repellendus officia cum temporibus. Molestias
-          voluptate magni earum unde officia illum doloribus facere natus molestiae quisquam nobis adipisci non
-          distinctio quam asperiores saepe, ab veniam dolor animi sed accusamus nulla nam dolorem. Quos reprehenderit
-          molestiae veritatis fugiat eligendi temporibus fuga modi, id recusandae dolor mollitia accusantium soluta
-          cumque corporis ipsa tempore amet dolorum. Velit nemo voluptatum, culpa libero assumenda ea quae dolorem
-          molestias fugiat, maxime eveniet ipsum, et facere aut animi praesentium. Eum voluptatum eaque fugit aspernatur
-          voluptas maxime, iste blanditiis doloribus amet repellendus aut cupiditate beatae aperiam molestiae hic saepe
-          optio. Neque voluptates quidem, tempore harum aliquid esse perferendis officiis repudiandae dicta? Excepturi
-          temporibus molestias sit consectetur consequatur exercitationem et necessitatibus cumque aliquam, quisquam
-          dolores alias reiciendis.</p>
-        <p>Dicta ab ut, facilis aliquid sit praesentium nesciunt molestias consequatur doloribus fugiat eius laborum aut
-          ullam animi excepturi. Recusandae ipsum, quia quis nesciunt asperiores, distinctio aut eligendi facilis ex
-          pariatur consectetur, maxime sunt omnis natus vitae amet soluta exercitationem deserunt maiores labore
-          corporis eum a porro! Cupiditate fugit architecto reprehenderit pariatur sed rerum enim repellat consequuntur
-          ducimus. Aspernatur, quia eligendi? Dignissimos commodi, voluptatem aliquid inventore nobis non qui
-          repellendus earum fugit harum a eum eligendi? Id, excepturi! Illum obcaecati maiores, expedita assumenda
-          perspiciatis vero dolor quis similique in? Tempora numquam, ipsum ut odio cupiditate soluta aliquid saepe
-          necessitatibus explicabo repellat animi! Ut optio adipisci rem ab harum eaque dolores, et animi magnam
-          commodi? Quisquam, autem, eum enim quae quam tempore aperiam libero velit adipisci illum tempora ad, at
-          deserunt. Est eum molestiae illum possimus nesciunt, impedit culpa, non minus vero labore fuga, nemo id velit
-          cumque! Nemo, nesciunt eaque provident consequatur recusandae quisquam illum quidem obcaecati praesentium
-          magnam delectus architecto modi neque iure, qui eveniet perferendis iusto soluta quasi laudantium accusamus!
-          Possimus, mollitia aut quibusdam voluptatibus dolore accusantium omnis, odio dolores enim vitae dicta rerum
-          sit obcaecati modi iste odit repellendus officia quam. Cupiditate ipsum fuga, vitae cumque tempora
-          perspiciatis.</p>
-      </Hds::Text::Body>
-    </div>
-  </Frame.Main>
-
-  <Frame.StickyFooter @isPortal={{true}} @targetName="demo-sticky-footer-portal" />
-
-  <Frame.Footer>
-    <Hds::AppFooter as |AF|>
-      <AF.LegalLinks />
-    </Hds::AppFooter>
-  </Frame.Footer>
-</Hds::AppFrame>
+<Mock::App @hasHeader={{false}}>
+  <:main as |M|>
+    <M.PageHeader @showActionButton={{true}} />
+    <M.GenericTextContent />
+    <M.GenericTextContent />
+  </:main>
+  <:stickyfooter as |SF|>
+    <SF.StickyFooter @isPortal={{true}} @targetName="demo-sticky-footer-portal" />
+  </:stickyfooter>
+</Mock::App>
 
 {{! this portaled content would live in a different part of the application }}
 <Portal @target="demo-sticky-footer-portal">
