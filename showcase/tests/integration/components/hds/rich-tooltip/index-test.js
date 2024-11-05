@@ -8,11 +8,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, resetOnerror, click, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-function wait(timeout = 2000) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, timeout);
-  });
-}
+import { wait } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/rich-tooltip/index', function (hooks) {
   setupRenderingTest(hooks);

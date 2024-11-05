@@ -45,4 +45,11 @@ function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
   // Additional setup for unit tests can be done here.
 }
 
-export { setupApplicationTest, setupRenderingTest, setupTest };
+// Helper to delay execution
+function wait(timeout = 500) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, timeout);
+  });
+}
+
+export { setupApplicationTest, setupRenderingTest, setupTest, wait };

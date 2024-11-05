@@ -13,6 +13,8 @@ import {
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
+import { wait } from 'showcase/tests/helpers';
+
 module('Integration | Component | hds/tooltip/index', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -53,12 +55,6 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
   test('it displays the tooltip when focused and dismisses it if Escape key is triggered', async function (assert) {
     const escapeKey = 27;
 
-    function wait(timeout = 1000) {
-      return new Promise((resolve) => {
-        setTimeout(resolve, timeout);
-      });
-    }
-
     await render(
       hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
     );
@@ -72,7 +68,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
     // Trigger escape key to close the tooltip:
     await triggerKeyEvent('#test-tooltip-button', 'keydown', escapeKey);
-    await wait();
+    await wait(1000);
     // test that the tooltip is now gone:
     assert.dom('.tippy-box').doesNotExist();
   });
