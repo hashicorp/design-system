@@ -2,11 +2,10 @@
 
 ### When to use
 
-- When navigating between subpages and nested pages within the application.
+- For global navigation across an application, use the [App Header](/components/app-header) instead.
 
 ### When not to use
 
-- For global navigation across an application, use the [App Header](/components/app-header) instead.
 - To move between views within the same context or page, consider [Tabs](/components/tabs).
 
 ## Body
