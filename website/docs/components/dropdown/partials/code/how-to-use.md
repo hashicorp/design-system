@@ -175,6 +175,8 @@ You can also set the width of a list to match the toggle button.
 </Hds::Dropdown>
 ```
 
+When `@matchToggleWidth` is set, the `@width` value (if set) is overridden.
+
 ### List footer
 
 It is possible that you may want to add a list footer for things like a set of buttons for a filter control:

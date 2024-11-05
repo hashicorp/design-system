@@ -76,12 +76,13 @@ The Dropdown component is composed of different child components each with their
   <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     By default, the Dropdown List has a `min-width` of `200px` and a `max-width` of `400px`, so it adapts to the content size. If a `@width` parameter is provided then the list will have a fixed width.
     <br/><br/>We discourage the use of percentage values for this argument. The Dropdown list is [a `popover` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/popover), so relative units use `document` as a reference (not the parent element), meaning percentage values act similar to `vw`.
+    If `@matchToggleWidth` is set, `@width` is overridden.
   </C.Property>
   <C.Property @name="height" @type="string" @valueNote="any valid CSS height (px, rem, etc)">
     If a `@height` parameter is provided then the list will have a max-height.
   </C.Property>
   <C.Property @name="matchToggleWidth" @type="boolean" @default="false">
-    Sets the Dropdown List’s width to match the width of the Toggle.
+    Sets the Dropdown List’s width to match the width of the Toggle. It overrides the `@width` value if set.
   </C.Property>
   <C.Property @name="preserveContentInDom" @type="boolean" @default="false">
     Controls if the content is always rendered in the DOM, even when the Dropdown is closed.
