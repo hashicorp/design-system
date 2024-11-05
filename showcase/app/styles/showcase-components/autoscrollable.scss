@@ -11,6 +11,6 @@
   justify-items: center;
   aspect-ratio: 1;
   overflow: auto;
-  border: 1px dotted #d3d3d3;
+  border: 1px dotted var(--shw-color-gray-400);
   overscroll-behavior: contain;
 }

@@ -10,7 +10,7 @@ body.components-button {
     min-width: 200px;
     padding: 4px;
     text-align: right;
-    outline: 1px dashed #d3d3d3;
+    outline: 1px dashed var(--shw-color-gray-400);
   }
 
   .shw-component-button-generated {

@@ -131,7 +131,7 @@ body.utilities-popover-primitive {
       justify-content: center;
       width: 160px;
       height: 80px;
-      outline: 1px dotted #d3d3d3;
+      outline: 1px dotted var(--shw-color-gray-400);
     }
 
     // we highlight the main axes (for visual reference)

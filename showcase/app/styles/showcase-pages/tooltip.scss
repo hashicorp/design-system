@@ -35,7 +35,7 @@ body.components-tooltip {
       justify-content: center;
       width: 100px;
       height: 40px;
-      outline: 1px dotted #d3d3d3;
+      outline: 1px dotted var(--shw-color-gray-400);
     }
 
     // we highlight the main axes (for visual reference)
@@ -50,7 +50,7 @@ body.components-tooltip {
   }
 
   .shw-component-tooltip-outline {
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 }
 
