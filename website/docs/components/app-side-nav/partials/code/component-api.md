@@ -21,9 +21,6 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the App Side Nav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the App Side Nav or resize the window) and it is not a suitable way of controlling the App Side Nav state from outside after render (it’s an internal state).
   </C.Property>
-  <C.Property @name="toggleButtonAriaLabel" @type="string">
-    Accepts a localized string; the fallback is set to `Open menu` if the menu is closed, and `Close menu` if the menu is open.
-  </C.Property>
   <C.Property @name="onToggleMinimizedStatus" @type="function">
     Callback function invoked when the `AppSideNav` is collapsed or expanded. The function receives a boolean argument stating if the `AppSideNav` is minimized or not.
   </C.Property>
