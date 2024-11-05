@@ -1,5 +1,7 @@
 ## How to use this component
 
+The component uses the [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) to display the dropdown list. A third-party library called [Floating UI](https://floating-ui.com/) provides anchoring and positioning functionality.
+
 To make the invocation more flexible and intuitive, we provide contextual components for Toggles, ListItems, Header and Footer. For example, `<Hds::Dropdown::ListItem::Separator />` would be contextually expressed as `<D.Separator />`.
 
 ```handlebars
@@ -140,7 +142,7 @@ Setting the `@enableCollisionDetection` argument to `true` will automatically ad
 
 ### List size
 
-You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared:
+You can explicitly control the height or width of a list. Any acceptable value (px, rem, em) can be declared.
 
 !!! Info
 
@@ -149,7 +151,7 @@ The `@height` argument actually sets a `max-height` which prevents the list from
 !!!
 
 ```handlebars
-<Hds::Dropdown @isInline={{true}} @height="170px" @width="250px" as |D|>
+<Hds::Dropdown @height="170px" @width="250px" as |D|>
   <D.ToggleButton @text="Text Toggle" />
   <D.Interactive @route="components">Item One</D.Interactive>
   <D.Interactive @route="components">Item Two</D.Interactive>
@@ -158,6 +160,18 @@ The `@height` argument actually sets a `max-height` which prevents the list from
   <D.Interactive @route="components">Item Five</D.Interactive>
   <D.Interactive @route="components">Item Six</D.Interactive>
   <D.Interactive @route="components">Item Seven</D.Interactive>
+</Hds::Dropdown>
+```
+
+You can also set the width of a list to match the toggle button.
+
+```handlebars
+<Hds::Dropdown @matchToggleWidth={{true}} as |D|>
+  <D.ToggleButton @text="Text Toggle" />
+  <D.Interactive @route="components">Item One</D.Interactive>
+  <D.Interactive @route="components">Item Two</D.Interactive>
+  <D.Interactive @route="components">Item Three</D.Interactive>
+  <D.Interactive @route="components">Item Four</D.Interactive>
 </Hds::Dropdown>
 ```
 
