@@ -17,6 +17,7 @@ import { HdsAppFrame } from '@hashicorp/design-system-components/components';
 // types
 import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/components/hds/app-frame/index';
+import type { HdsAppFrameStickyFooterSignature } from '@hashicorp/design-system-components/components/hds/app-frame/parts/sticky-footer';
 import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
@@ -27,6 +28,7 @@ export interface MockAppSignature {
   Args: {
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
+    hasStickyFooter?: HdsAppFrameSignature['Args']['hasStickyFooter'];
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
@@ -51,6 +53,11 @@ export interface MockAppSignature {
         AppFooter?: ComponentLike<MockAppFooterAppFooterSignature>;
       },
     ];
+    stickyfooter?: [
+      {
+        StickyFooter?: ComponentLike<HdsAppFrameStickyFooterSignature>;
+      },
+    ];
   };
   Element: HdsAppFrameSignature['Element'];
 }
@@ -62,6 +69,7 @@ export default class MockApp extends Component<MockAppSignature> {
       @hasHeader={{@hasHeader}}
       @hasSidebar={{@hasSidebar}}
       @hasFooter={{@hasFooter}}
+      @hasStickyFooter={{@hasStickyFooter}}
       ...attributes
       as |Frame|
     >
@@ -90,6 +98,9 @@ export default class MockApp extends Component<MockAppSignature> {
           }}
         </div>
       </Frame.Main>
+      {{#if (has-block "stickyfooter")}}
+        {{yield (hash StickyFooter=Frame.StickyFooter) to="stickyfooter"}}
+      {{/if}}
       <Frame.Footer>
         {{#if (has-block "footer")}}
           {{yield (hash AppFooter=MockAppFooterAppFooter) to="footer"}}
