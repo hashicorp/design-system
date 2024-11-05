@@ -9,7 +9,7 @@ body.utilities-disclosure-primitive {
   .shw-utility-disclosure-primitive-container {
     min-height: 120px;
     padding: 20px;
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 
   .shw-utility-disclosure-primitive-content-list-of-links {

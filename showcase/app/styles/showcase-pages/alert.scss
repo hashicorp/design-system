@@ -8,7 +8,7 @@
 body.components-alert {
   // we outline the "compact" variant to make its bounding box visible
   .hds-alert--type-compact {
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 
   .shw-component-alert-sample-custom-content-after-actions {

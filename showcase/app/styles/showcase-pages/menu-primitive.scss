@@ -9,7 +9,7 @@ body.utilities-menu-primitive {
   .shw-utility-menu-primitive-container {
     min-height: 120px;
     padding: 20px;
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 
   .shw-utility-menu-primitive-content-list-of-links {

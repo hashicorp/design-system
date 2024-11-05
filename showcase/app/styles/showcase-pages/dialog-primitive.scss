@@ -12,14 +12,14 @@ body.utilities-dialog-primitive {
     .hds-dialog-primitive__description,
     .hds-dialog-primitive__body,
     .hds-dialog-primitive__footer {
-      outline: 1px dotted #d3d3d3;
+      outline: 1px dotted var(--shw-color-gray-400);
     }
   }
 
   .shw-utility-dialog-primitive-base-container {
     width: 400px;
     height: 500px;
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 
   .shw-utility-dialog-primitive-overlay-container {
