@@ -8,11 +8,13 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class DocCopyButtonComponent extends Component {
-  // options are `solid` or `ghost`
-  @tracked type = this.args.type ?? 'solid';
   @tracked status = 'idle';
   @tracked iconName = 'clipboard-copy';
   @tracked timer;
+
+  get type() {
+    return this.args.type ?? 'solid'; // options are `solid` or `ghost`
+  }
 
   get label() {
     let label;

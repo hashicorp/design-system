@@ -39,7 +39,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   @tracked tabIds: HdsTabsTabIds = [];
   @tracked panelNodes: HTMLElement[] = [];
   @tracked panelIds: HdsTabsPanelIds = [];
-  @tracked _selectedTabIndex = this.args.selectedTabIndex ?? 0;
+  @tracked _selectedTabIndex;
   @tracked selectedTabId?: string;
   @tracked isControlled: boolean;
 
@@ -69,6 +69,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
     // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state
     this.isControlled = this.args.selectedTabIndex !== undefined;
+    this._selectedTabIndex = this.args.selectedTabIndex ?? 0;
   }
 
   get selectedTabIndex(): number {

@@ -167,9 +167,8 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   // In the second case, these variables store *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPage = this.args.currentPage ?? 1;
-  // we assert that `this.pageSizes` will always be an array with at least one item
-  @tracked _currentPageSize = this.args.currentPageSize ?? this.pageSizes[0]!;
+  @tracked _currentPage;
+  @tracked _currentPageSize;
   @tracked isControlled;
 
   showInfo = this.args.showInfo ?? true; // if the "info" block is visible
@@ -217,6 +216,10 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       '@totalItems for "Hds::Pagination::Numbered" must be defined as an integer number',
       typeof this.args.totalItems === 'number'
     );
+
+    this._currentPage = this.args.currentPage ?? 1;
+    // we assert that `this.pageSizes` will always be an array with at least one item
+    this._currentPageSize = this.args.currentPageSize ?? this.pageSizes[0];
   }
 
   get ariaLabel(): string {
@@ -258,7 +261,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       // if the component is controlled, `@currentPageSize` is asserted to be a number
       return this.args.currentPageSize as number;
     } else {
-      return this._currentPageSize;
+      return this._currentPageSize as number;
     }
   }
   set currentPageSize(value) {

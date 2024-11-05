@@ -59,7 +59,7 @@ export interface SetupPrimitivePopoverModifier {
 }
 
 export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSignature> {
-  @tracked isOpen = this.args.isOpen ?? false;
+  @tracked isOpen;
   @tracked isClosing = false;
   containerElement?: HTMLElement;
   toggleElement?: HTMLButtonElement;
@@ -69,6 +69,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   // this will enable "click" events for the toggle
   enableClickEvents = this.args.enableClickEvents ?? false;
   timer?: ReturnType<typeof setTimeout> | null;
+
+  constructor(owner: unknown, args: HdsPopoverPrimitiveSignature['Args']) {
+    super(owner, args);
+    this.isOpen = this.args.isOpen ?? false;
+  }
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
     (element: HTMLElement): void => {

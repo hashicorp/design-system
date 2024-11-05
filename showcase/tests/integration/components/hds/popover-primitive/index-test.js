@@ -239,6 +239,17 @@ module(
         .dom('#test-popover-primitive-content')
         .hasAttribute('popover', 'auto');
     });
+    test('the popover is open when `isOpen` is true', async function (assert) {
+      await render(hbs`
+        <Hds::PopoverPrimitive @enableClickEvents={{true}} @isOpen={{true}} as |PP|>
+          <div {{PP.setupPrimitiveContainer}}>
+            <button {{PP.setupPrimitiveToggle}} id="test-popover-primitive-toggle" />
+            <div {{PP.setupPrimitivePopover}} id="test-popover-primitive-content" />
+          </div>
+        </Hds::PopoverPrimitive>
+      `);
+      assert.dom('#test-popover-primitive-content').isVisible();
+    });
 
     // ASSERTIONS
 
