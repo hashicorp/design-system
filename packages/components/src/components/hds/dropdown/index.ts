@@ -143,7 +143,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     // context: https://github.com/hashicorp/design-system/pull/2309#discussion_r1706941892
     classes.push(`hds-dropdown__content--position-${this.listPosition}`);
 
-    // add a class based on the @width argument
+    // add a class based on the @width or @matchToggleWidth arguments
     if (this.args.width || this.args.matchToggleWidth) {
       classes.push('hds-dropdown__content--fixed-width');
     }

@@ -14,13 +14,13 @@
   <Shw::Grid @columns={{2}} as |SG|>
     {{#each @model.POSITIONS as |position|}}
       <SG.Item @label={{capitalize position}}>
-        <div {{style padding="6em 12em"}} class="shw-outliner">
+        <Shw::Outliner {{style padding="6em 12em"}}>
           <Hds::Dropdown @isOpen={{true}} @listPosition={{position}} as |D|>
             <D.ToggleButton @color="secondary" @text="Menu" />
             <D.Interactive @href="#">Create</D.Interactive>
             <D.Interactive @href="#">Edit</D.Interactive>
           </Hds::Dropdown>
-        </div>
+        </Shw::Outliner>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
