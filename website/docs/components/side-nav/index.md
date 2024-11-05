@@ -5,7 +5,7 @@ caption: A side navigation menu that provides access to subpages within a produc
 links:
   figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=26174%3A58558&t=kVEJBi3HIfTpV8nG-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/side-nav
-related: ['components/breadcrumb','components/tabs','layouts/app-frame','components/app-header']
+related: ['components/breadcrumb','components/tabs','layouts/app-frame']
 previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false

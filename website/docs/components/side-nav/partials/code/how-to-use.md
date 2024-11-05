@@ -50,8 +50,6 @@ Typically the `Hds::SideNav::Header` sub-component should be added here. It prov
 - the `<:logo>` block should contain the `<Hds::SideNav::Header::HomeLink>` (but it could contain also custom content, if necessary)
 - the `<:actions>` block should contain optional top-level actions (eg. global search, user menu, help menu, etc.)
 
-Note: When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:header>` slot normally is not used.
-
 ```handlebars
 <div class="doc-sidenav-demo--short">
   <Hds::SideNav>
@@ -358,8 +356,6 @@ This area usually contains a “context switcher” (e.g., “org switcher” or
 
 If you want (and you probably do) the content automatically fades in/out when the Side Nav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
 
-Note: When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, the `<:footer>` slot is not used.
-
 ```handlebars{data-execute=false}
 <Hds::SideNav>
   ...
@@ -394,7 +390,7 @@ Alternatively, if you want to create a custom transition (or respond in a differ
 </Hds::SideNav>
 ```
 
-### Used with App Header
+<!-- ### Used with App Header
 
 When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) component, only the `<:body>` slot need be used.
 
@@ -406,7 +402,7 @@ When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) 
     </:body>
   </Hds::SideNav>
 </div>
-```
+``` -->
 
 ### Responsiveness
 
