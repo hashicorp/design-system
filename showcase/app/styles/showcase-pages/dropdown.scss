@@ -23,7 +23,7 @@ body.components-dropdown {
 
   .shw-component-dropdown-fixed-height-container {
     min-height: 200px;
-    outline: 1px dotted #d3d3d3;
+    outline: 1px dotted var(--shw-color-gray-400);
   }
 
   .shw-component-dropdown-states-matrix {
