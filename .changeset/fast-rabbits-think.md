@@ -4,5 +4,5 @@
 
 `AppFrame`
 
-- Added support for `sticky-footer` slot in the grid layout
+- Added `@hasStickyFooter`to control the rendering of `sticky-footer` container
 - Added yielded sub-component `AppFrame::StickyFooter`
