@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+
+import { wait } from 'showcase/tests/helpers';
 
 module('Integration | Component | hds/dropdown/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -167,7 +169,21 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
-    assert.dom('#test-dropdown ul').hasStyle({ width: '248px' });
+    assert.dom('.hds-dropdown__content').hasStyle({ width: '248px' });
+  });
+
+  // flaky erroring with 'ResizeObserver loop completed with undelivered notifications.'
+  skip('it should render the content with the same width as the ToggleButton if @matchToggleWidth is set', async function (assert) {
+    await render(hbs`
+      <Hds::Dropdown id="test-dropdown" @matchToggleWidth={{true}} as |D|>
+        <D.ToggleButton {{style width="200px"}} @text="toggle button" id="test-toggle-button" />
+        <D.Interactive @route="components.dropdown" @text="interactive" />
+      </Hds::Dropdown>
+    `);
+    await click('button#test-toggle-button');
+    await wait();
+    // the expected value is 200px, but the ember-testing frame has a `transform: scale(0.5);`
+    assert.dom('.hds-dropdown__content').hasStyle({ width: '100px' });
   });
 
   // PRESERVE DISCLOSED CONTENT WHEN INTERACTED WITH

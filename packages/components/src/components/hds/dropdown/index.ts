@@ -45,6 +45,7 @@ export interface HdsDropdownSignature {
     width?: string;
     enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
+    matchToggleWidth?: boolean;
   };
   Blocks: {
     default: [
@@ -93,10 +94,15 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return this.args.enableCollisionDetection ?? false;
   }
 
+  get matchToggleWidth(): FloatingUIOptions['matchToggleWidth'] {
+    return this.args.matchToggleWidth ?? false;
+  }
+
   get anchoredPositionOptions(): {
     placement: FloatingUIOptions['placement'];
     offsetOptions: FloatingUIOptions['offsetOptions'];
     enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
+    matchToggleWidth: FloatingUIOptions['matchToggleWidth'];
   } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
@@ -104,6 +110,7 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
       placement: HdsDropdownPositionToPlacementValues[this.listPosition],
       offsetOptions: 4,
       enableCollisionDetection: this.enableCollisionDetection ? 'flip' : false,
+      matchToggleWidth: this.matchToggleWidth,
     };
   }
 
@@ -136,8 +143,8 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     // context: https://github.com/hashicorp/design-system/pull/2309#discussion_r1706941892
     classes.push(`hds-dropdown__content--position-${this.listPosition}`);
 
-    // add a class based on the @width argument
-    if (this.args.width) {
+    // add a class based on the @width or @matchToggleWidth arguments
+    if (this.args.width || this.args.matchToggleWidth) {
       classes.push('hds-dropdown__content--fixed-width');
     }
 

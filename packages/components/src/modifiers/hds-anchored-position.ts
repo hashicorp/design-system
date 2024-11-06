@@ -20,13 +20,7 @@ import {
   // see: https://floating-ui.com/docs/hide
   // hide,
   // ---
-  // this could be used in the future if we want to give consumers an option to:
-  // - let the "floating" element auto-resize when there is not enough space (usually vertical) in the viewport to contain the entire "floating" element
-  // - let the "floating" element match the width of the "trigger" (it may have min/max width/heigh via CSS too)
-  // see: https://floating-ui.com/docs/size
-  // notice: below you can find a preliminary code implementation that was tested and worked relatively well
-  // size,
-  // ---
+  size,
 } from '@floating-ui/dom';
 
 import type {
@@ -72,6 +66,7 @@ export type FloatingUIOptions = {
   enableCollisionDetection?: boolean | 'shift' | 'flip' | 'auto';
   arrowElement?: ArrowOptions['element'];
   arrowPadding?: ArrowOptions['padding'];
+  matchToggleWidth?: boolean;
 };
 
 // we use this function to process all the options provided to the modifier in a single place,
@@ -94,6 +89,7 @@ export const getFloatingUIOptions = (
     enableCollisionDetection,
     arrowElement,
     arrowPadding,
+    matchToggleWidth,
   } = options;
 
   // we build dynamically the list of middleware functions to invoke, depending on the options provided
@@ -132,20 +128,18 @@ export const getFloatingUIOptions = (
     );
   }
 
-  // TODO? commenting this for now, will need to make this conditional to some argument (and understand how this relates to the `@height` argument)
   // https://floating-ui.com/docs/size#match-reference-width
-  // size({
-  //   apply({ rects, elements }) {
-  //     Object.assign(elements.floating.style, {
-  //       width: `${rects.reference.width}px`,
-  //     });
-  //   },
-  // });
-  // size({
-  //   apply: ({ availableWidth, availableHeight, middlewareData }) => {
-  //     middlewareData.size = { availableWidth, availableHeight };
-  //   },
-  // }),
+  if (matchToggleWidth) {
+    middleware.push(
+      size({
+        apply({ rects, elements }) {
+          Object.assign(elements.floating.style, {
+            width: `${rects.reference.width}px`,
+          });
+        },
+      })
+    );
+  }
 
   middleware.push(...middlewareExtra);
 
