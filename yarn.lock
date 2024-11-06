@@ -4402,7 +4402,7 @@ __metadata:
     del: "npm:^6.1.1"
     dotenv: "npm:^10.0.0"
     eslint: "npm:^8.57.0"
-    figma-api: "npm:^1.11.0"
+    figma-api: "npm:^2.0.1-beta"
     fs-extra: "npm:^11.1.1"
     lodash: "npm:^4.17.21"
     mini-svg-data-uri: "npm:^1.4.4"
@@ -6207,13 +6207,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:12.0.2":
-  version: 12.0.2
-  resolution: "@types/node@npm:12.0.2"
-  checksum: 10/533bc925ae3a8df02c97cc9384af0e3f43430b5390c5114fe16c7187ff58547281006f49626b408d801e91927e0de7f55923e73a1da231c5ae86f43fc062087a
-  languageName: node
-  linkType: hard
-
 "@types/node@npm:^12.7.1":
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
@@ -7728,7 +7721,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:~0.27.2":
+"axios@npm:^0.27.2, axios@npm:~0.27.2":
   version: 0.27.2
   resolution: "axios@npm:0.27.2"
   dependencies:
@@ -15225,13 +15218,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"figma-api@npm:^1.11.0":
-  version: 1.11.0
-  resolution: "figma-api@npm:1.11.0"
+"figma-api@npm:^2.0.1-beta":
+  version: 2.0.1-beta
+  resolution: "figma-api@npm:2.0.1-beta"
   dependencies:
-    "@types/node": "npm:12.0.2"
-    axios: "npm:^0.21.1"
-  checksum: 10/82fbbf772b4e46c9449338d09f8b5b07785bdbaaa61deb2409b87142b10670d634f20e25bf1d9080cb334d51b234edcc013d75345def0ea1a715e130f280a093
+    "@types/node": "npm:^22.8.7"
+    axios: "npm:^0.27.2"
+  checksum: 10/332a792a53b6efa5dc4b8d7a0b5130711a467a75be63a0fdb6d183f751548943c9f46c49c4189f1b1a2be5469936f0603af417598861da497b161ca1eb1dc270
   languageName: node
   linkType: hard
 
@@ -15647,13 +15640,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.14.9":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.0":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
     debug:
       optional: true
   checksum: 10/70c7612c4cab18e546e36b991bbf8009a1a41cf85354afe04b113d1117569abf760269409cb3eb842d9f7b03d62826687086b081c566ea7b1e6613cf29030bf7
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.14.9":
+  version: 1.15.9
+  resolution: "follow-redirects@npm:1.15.9"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10/e3ab42d1097e90d28b913903841e6779eb969b62a64706a3eb983e894a5db000fbd89296f45f08885a0e54cd558ef62e81be1165da9be25a6c44920da10f424c
   languageName: node
   linkType: hard
 
