@@ -3,22 +3,26 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! @glint-nocheck: not typesafe yet }}
-{{! TODO: format-date & format-relative have type errors, fix }}
 {{#if @isValidDate}}
-  <time class="hds-time" datetime={{@isoUtcString}} ...attributes {{did-insert @register}} {{will-destroy @unregister}}>
-    {{#if @display.options.showFriendly}}
-      {{#if @display.options.displayFormat}}
-        {{hds-format-date @date @display.options.displayFormat}}
+  <time
+    class="hds-time"
+    datetime={{@isoUtcStringInner}}
+    ...attributes
+    {{did-insert @register}}
+    {{will-destroy @unregister}}
+  >
+    {{#if @displayInner.options.showFriendly}}
+      {{#if @displayInner.options.displayFormat}}
+        {{hds-format-date @date @displayInner.options.displayFormat}}
       {{else}}
-        {{@isoUtcString}}
+        {{@isoUtcStringInner}}
       {{/if}}
-      {{#if @display.options.showRelative}}
-        ({{hds-format-relative @display.relative.value @display.relative.unit}})
+      {{#if @displayInner.options.showRelative}}
+        ({{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}})
       {{/if}}
     {{else}}
-      {{#if @display.options.showRelative}}
-        {{hds-format-relative @display.relative.value @display.relative.unit}}
+      {{#if @displayInner.options.showRelative}}
+        {{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}}
       {{/if}}
     {{/if}}
   </time>
@@ -26,22 +30,22 @@
   <span class="hds-time-range-contents">
     <time
       class="hds-time"
-      datetime={{@isoUtcString}}
+      datetime={{@isoUtcStringInner}}
       ...attributes
       {{did-insert @register}}
       {{will-destroy @unregister}}
     >
-      {{hds-format-date @startDate @display.options.displayFormat}}
+      {{hds-format-date @startDate @displayInner.options.displayFormat}}
     </time>
     –
     <time
       class="hds-time"
-      datetime={{@isoUtcString}}
+      datetime={{@isoUtcStringInner}}
       ...attributes
       {{did-insert @register}}
       {{will-destroy @unregister}}
     >
-      {{hds-format-date @endDate @display.options.displayFormat}}
+      {{hds-format-date @endDate @displayInner.options.displayFormat}}
     </time>
   </span>
 {{else}}
