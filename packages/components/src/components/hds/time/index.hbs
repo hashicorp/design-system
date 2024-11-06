@@ -4,7 +4,7 @@
 }}
 
 {{! @glint-nocheck }}
-{{! TODO: format-date & display have type errors, fix }}
+{{! TODO: isoUtcStringInner has a type errors, fix }}
 {{#let this.display as |display|}}
   {{#if this.hasTooltip}}
     {{#if this.isValidDate}}
@@ -20,8 +20,8 @@
       >
         <Hds::Time::Inner
           @date={{this.date}}
-          @isoUtcString={{this.isoUtcString}}
-          @display={{this.display}}
+          @isoUtcStringInner={{this.isoUtcString}}
+          @displayInner={{this.display}}
           @register={{this.register}}
           @unregister={{this.unregister}}
           @isValidDate={{this.isValidDate}}
@@ -35,8 +35,8 @@
         @text={{if
           display.options.tooltipFormat
           (concat
-            (hds-format-date this.dateStart display.options.tooltipFormat)
-            (hds-format-date this.dateEnd display.options.tooltipFormat)
+            (hds-format-date this.startDate display.options.tooltipFormat)
+            (hds-format-date this.endDate display.options.tooltipFormat)
           )
           this.isoUtcString
         }}
@@ -46,8 +46,8 @@
         <Hds::Time::Inner
           @startDate={{this.startDate}}
           @endDate={{this.endDate}}
-          @isoUtcString={{this.isoUtcString}}
-          @display={{this.display}}
+          @isoUtcStringInner={{this.isoUtcString}}
+          @displayInner={{this.display}}
           @register={{this.register}}
           @unregister={{this.unregister}}
           @isValidDate={{this.isValidDate}}
@@ -61,8 +61,8 @@
       @date={{this.date}}
       @startDate={{this.startDate}}
       @endDate={{this.endDate}}
-      @isoUtcString={{this.isoUtcString}}
-      @display={{this.display}}
+      @isoUtcStringInner={{this.isoUtcString}}
+      @displayInner={{this.display}}
       @register={{this.register}}
       @unregister={{this.unregister}}
       @isValidDate={{this.isValidDate}}
