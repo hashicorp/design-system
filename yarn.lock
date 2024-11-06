@@ -4318,7 +4318,7 @@ __metadata:
     path: "npm:^0.12.7"
     style-dictionary: "npm:^3.9.0"
     tinycolor2: "npm:^1.6.0"
-    ts-node: "npm:^10.9.1"
+    ts-node: "npm:^10.9.2"
     typescript: "npm:^5.6.3"
   languageName: unknown
   linkType: soft
@@ -26786,7 +26786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.9.1, ts-node@npm:^10.9.2":
+"ts-node@npm:^10.9.2":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
   dependencies:
