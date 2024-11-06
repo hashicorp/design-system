@@ -6,35 +6,67 @@
 {{! @glint-nocheck }}
 {{! TODO: format-date & display have type errors, fix }}
 {{#let this.display as |display|}}
-  {{#if (and this.hasTooltip this.isValid)}}
-    <Hds::TooltipButton
-      class="hds-time-wrapper"
-      @text={{if
-        display.options.tooltipFormat
-        (hds-format-date this.date display.options.tooltipFormat)
-        this.isoUtcString
-      }}
-      @placement="bottom"
-      @extraTippyOptions={{hash showOnCreate=this.isOpen}}
-    >
-      <Hds::Time::Inner
-        @date={{this.date}}
-        @isoUtcString={{this.isoUtcString}}
-        @display={{this.display}}
-        @register={{this.register}}
-        @unregister={{this.unregister}}
-        @isValid={{this.isValid}}
-        ...attributes
-      />
-    </Hds::TooltipButton>
+  {{#if this.hasTooltip}}
+    {{#if this.isValidDate}}
+      <Hds::TooltipButton
+        class="hds-time-wrapper"
+        @text={{if
+          display.options.tooltipFormat
+          (hds-format-date this.date display.options.tooltipFormat)
+          this.isoUtcString
+        }}
+        @placement="bottom"
+        @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+      >
+        <Hds::Time::Inner
+          @date={{this.date}}
+          @isoUtcString={{this.isoUtcString}}
+          @display={{this.display}}
+          @register={{this.register}}
+          @unregister={{this.unregister}}
+          @isValidDate={{this.isValidDate}}
+          @isValidDateRange={{this.isValidDateRange}}
+          ...attributes
+        />
+      </Hds::TooltipButton>
+    {{else if this.isValidDateRange}}
+      <Hds::TooltipButton
+        class="hds-time-wrapper"
+        @text={{if
+          display.options.tooltipFormat
+          (concat
+            (hds-format-date this.dateStart display.options.tooltipFormat)
+            (hds-format-date this.dateEnd display.options.tooltipFormat)
+          )
+          this.isoUtcString
+        }}
+        @placement="bottom"
+        @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+      >
+        <Hds::Time::Inner
+          @startDate={{this.startDate}}
+          @endDate={{this.endDate}}
+          @isoUtcString={{this.isoUtcString}}
+          @display={{this.display}}
+          @register={{this.register}}
+          @unregister={{this.unregister}}
+          @isValidDate={{this.isValidDate}}
+          @isValidDateRange={{this.isValidDateRange}}
+          ...attributes
+        />
+      </Hds::TooltipButton>
+    {{/if}}
   {{else}}
     <Hds::Time::Inner
       @date={{this.date}}
+      @startDate={{this.startDate}}
+      @endDate={{this.endDate}}
       @isoUtcString={{this.isoUtcString}}
       @display={{this.display}}
       @register={{this.register}}
       @unregister={{this.unregister}}
-      @isValid={{this.isValid}}
+      @isValidDate={{this.isValidDate}}
+      @isValidDateRange={{this.isValidDateRange}}
       ...attributes
     />
   {{/if}}
