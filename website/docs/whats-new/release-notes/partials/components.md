@@ -12,6 +12,60 @@
   </a>
 </p>
 
+## 4.14.0
+
+**Minor changes**
+
+`Dropdown` - added `@matchToggleWidth` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2530](https://github.com/hashicorp/design-system/pull/2530)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-clipboard`: added `clipboard-polyfill` to support product usage in non-secure environments. This impacts `Copy::Button`, `Copy::Snippet`, `CodeBlock`, and `MaskedInput`.
+
+<small class="doc-whats-new-changelog-metadata">[#2525](https://github.com/hashicorp/design-system/pull/2525)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`SideNav` - Made a11y related improvements including:
+
+- Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
+- Replaced aria-label for `ToggleButton` with aria-labelledby and aria-expanded
+
+<small class="doc-whats-new-changelog-metadata">[#2536](https://github.com/hashicorp/design-system/pull/2536)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fixed instances where arguments are passed into tracked properties at declaration:
+
+- `MaskedInput`
+- `TextInput`
+- `Pagination::Compact`
+- `Pagination::Numbered`
+- `SideNav`
+- `Table`
+- `Table::ThSelectable`
+- `Tabs`
+
+<small class="doc-whats-new-changelog-metadata">[#2488](https://github.com/hashicorp/design-system/pull/2488)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Fixed bug with hidden panels sometimes causing unnecessary overflow scrolling
+
+<small class="doc-whats-new-changelog-metadata">[#2535](https://github.com/hashicorp/design-system/pull/2535)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown`: fixed the height of the chevron in `ToggleButton`.
+
+<small class="doc-whats-new-changelog-metadata">[#2522](https://github.com/hashicorp/design-system/pull/2522)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.13.1
 
 **Patch changes**
@@ -1099,55 +1153,6 @@ You can still use this version if you import styles as Sass and don't require `d
 <small class="doc-whats-new-changelog-metadata">[#1994](https://github.com/hashicorp/design-system/pull/1994)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.1.0
-
-[4.1.0 documentation](https://hds-website-4-1-0.vercel.app/)
-
-**Minor changes**
-
-`DismissButton` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#1980](https://github.com/hashicorp/design-system/pull/1980) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added image error handling to `Dropdown::Toggle::Icon`
-
-<small class="doc-whats-new-changelog-metadata">[#1906](https://github.com/hashicorp/design-system/pull/1906) - Thanks [@cbfx](https://github.com/cbfx) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-Enable glint
-
-<small class="doc-whats-new-changelog-metadata">[#1976](https://github.com/hashicorp/design-system/pull/1976) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Upgraded ember-truth-helpers from 3.1.1 to 4.0.3
-
-<small class="doc-whats-new-changelog-metadata">[#1976](https://github.com/hashicorp/design-system/pull/1976) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added missing aria-label support to copy-snippet component.
-
-<small class="doc-whats-new-changelog-metadata">[#1963](https://github.com/hashicorp/design-system/pull/1963)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Removed `dialog-polyfill` dependency
-
-<small class="doc-whats-new-changelog-metadata">[#1977](https://github.com/hashicorp/design-system/pull/1977)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/design-system-tokens@2.1.0
-- @hashicorp/ember-flight-icons@5.0.1
 
 
 ---

@@ -1,5 +1,61 @@
 # @hashicorp/design-system-components
 
+## 4.14.0
+
+[4.14.0 documentation](https://hds-website-4-14-0.vercel.app/)
+
+### Minor Changes
+
+`Dropdown` - Added `@matchToggleWidth` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2530](https://github.com/hashicorp/design-system/pull/2530)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-clipboard` - Added `clipboard-polyfill` to support product usage in non-secure environments; this impacts `Copy::Button`, `Copy::Snippet`, `CodeBlock`, and `MaskedInput`
+
+<small class="doc-whats-new-changelog-metadata">[#2525](https://github.com/hashicorp/design-system/pull/2525)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`SideNav` - Made a11y related improvements including:
+
+- Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
+- Replaced aria-label for `ToggleButton` with aria-labelledby and aria-expanded
+
+<small class="doc-whats-new-changelog-metadata">[#2536](https://github.com/hashicorp/design-system/pull/2536)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fixed instances where arguments are passed into tracked properties at declaration:
+
+- `MaskedInput`
+- `TextInput`
+- `Pagination::Compact`
+- `Pagination::Numbered`
+- `SideNav`
+- `Table`
+- `Table::ThSelectable`
+- `Tabs`
+
+<small class="doc-whats-new-changelog-metadata">[#2488](https://github.com/hashicorp/design-system/pull/2488)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Fixed bug with hidden panels sometimes causing unnecessary overflow scrolling
+
+<small class="doc-whats-new-changelog-metadata">[#2535](https://github.com/hashicorp/design-system/pull/2535)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Fixed the height of the chevron in `ToggleButton`
+
+<small class="doc-whats-new-changelog-metadata">[#2522](https://github.com/hashicorp/design-system/pull/2522)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.13.1
 
 ### Patch Changes
@@ -22,7 +78,7 @@ Export TypeScript signatures for all components and modifiers
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Alert` - Removed role="alert" and aria-live="polite" attributes from Alerts with color set to "neutral" or "highlight"
+`Alert` - Removed `role="alert"` and `aria-live="polite"` attributes from Alerts with color set to "neutral" or "highlight"
 
 <small class="doc-whats-new-changelog-metadata">[#2500](https://github.com/hashicorp/design-system/pull/2500)</small>
 
@@ -34,15 +90,15 @@ Export TypeScript signatures for all components and modifiers
 
 ### Minor Changes
 
-`Modal` - Added `returnFocusTo` argument to control where the browser focus is returned once the modal is closed
+`Modal` - Added `@returnFocusTo` argument to control where the browser focus is returned once the modal is closed
 
-`Flyout` - Added `returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
+`Flyout` - Added `@returnFocusTo` argument to control where the browser focus is returned once the flyout is closed
 
 <small class="doc-whats-new-changelog-metadata">[#2497](https://github.com/hashicorp/design-system/pull/2497)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`CodeBlock` - Added `lineNumberStart` option to set custom starting number for line numbering
+`CodeBlock` - Added `@lineNumberStart` option to set custom starting number for line numbering
 
 <small class="doc-whats-new-changelog-metadata">[#2467](https://github.com/hashicorp/design-system/pull/2467)</small>
 
@@ -59,7 +115,7 @@ Export TypeScript signatures for all components and modifiers
 `Dropdown`
 
 - Fixed content being preserved in the DOM when closed
-- Removed the `isOpen` yielded argument
+- Removed the `@isOpen` yielded argument
 - Added `@preserveContentInDom` to optionally control rendering of the content
 
 <small class="doc-whats-new-changelog-metadata">[#2490](https://github.com/hashicorp/design-system/pull/2490)</small>
@@ -73,7 +129,7 @@ Export TypeScript signatures for all components and modifiers
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`SuperSelect` - Update the the default state of selected list items to `Foreground / Primary` to match other list items and the `Dropdown`.
+`SuperSelect` - Update the the default state of selected list items to `Foreground` / `Primary` to match other list items and the `Dropdown`.
 
 <small class="doc-whats-new-changelog-metadata">[#2479](https://github.com/hashicorp/design-system/pull/2479)</small>
 
@@ -201,7 +257,7 @@ Removed `ember-keyboard` dependency
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`DialogPrimitive` - added a guard so the yielded close function is always defined'
+`DialogPrimitive` - added a guard so the yielded close function is always defined
 
 <small class="doc-whats-new-changelog-metadata">[#2453](https://github.com/hashicorp/design-system/pull/2453)</small>
 
