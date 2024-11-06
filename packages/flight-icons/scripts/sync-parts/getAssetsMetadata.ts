@@ -27,7 +27,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
     });
 
     // retrieve all the component_sets from the Figma file (later we'll use their names and descriptions for the icons)
-    const componentSetsResponse = await api.getFileComponentSets(config.figmaFile.id);
+    const componentSetsResponse = await api.getFileComponentSets({ file_key: config.figmaFile.id });
     const componentSetData: ComponentSetData = {};
     if (componentSetsResponse.meta && componentSetsResponse.meta.component_sets) {
         componentSetsResponse.meta.component_sets.forEach(component_set => {
@@ -47,7 +47,7 @@ export async function getAssetsMetadata(): Promise<AssetsMetadata> {
         console.log(chalk.magenta('ATTENTION:\nNo component sets ("icons") found in the Figma file, please check that your configuration file has the right values for "page" and "frame" names.'));
     }
 
-    const componentsResponse = await api.getFileComponents(config.figmaFile.id);
+    const componentsResponse = await api.getFileComponents({ file_key: config.figmaFile.id });
     if (componentsResponse.meta && componentsResponse.meta.components) {
         componentsResponse.meta.components.forEach(component => {
             // check that the component is inside the expected page/frame
