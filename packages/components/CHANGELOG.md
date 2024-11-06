@@ -1,5 +1,59 @@
 # @hashicorp/design-system-components
 
+## 4.14.0
+
+### Minor Changes
+
+`Dropdown` - added `@matchToggleWidth` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2530](https://github.com/hashicorp/design-system/pull/2530)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-clipboard`: added `clipboard-polyfill` to support product usage in non-secure environments. This impacts `Copy::Button`, `Copy::Snippet`, `CodeBlock`, and `MaskedInput`.
+
+<small class="doc-whats-new-changelog-metadata">[#2525](https://github.com/hashicorp/design-system/pull/2525)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`SideNav` - Made a11y related improvements including:
+
+- Changed `List::Title` to h3 & added visually hidden h2 to AppSideNav
+- Replaced aria-label for `ToggleButton` with aria-labelledby and aria-expanded
+
+<small class="doc-whats-new-changelog-metadata">[#2536](https://github.com/hashicorp/design-system/pull/2536)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fixed instances where arguments are passed into tracked properties at declaration:
+
+- `MaskedInput`
+- `TextInput`
+- `Pagination::Compact`
+- `Pagination::Numbered`
+- `SideNav`
+- `Table`
+- `Table::ThSelectable`
+- `Tabs`
+
+<small class="doc-whats-new-changelog-metadata">[#2488](https://github.com/hashicorp/design-system/pull/2488)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Fixed bug with hidden panels sometimes causing unnecessary overflow scrolling
+
+<small class="doc-whats-new-changelog-metadata">[#2535](https://github.com/hashicorp/design-system/pull/2535)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown`: fixed the height of the chevron in `ToggleButton`.
+
+<small class="doc-whats-new-changelog-metadata">[#2522](https://github.com/hashicorp/design-system/pull/2522)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.13.1
 
 ### Patch Changes
