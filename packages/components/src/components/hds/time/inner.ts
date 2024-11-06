@@ -8,14 +8,19 @@ import type { DefaultDisplayType } from './types.ts';
 
 export interface HdsTimeInnerSignature {
   Args: {
-    isValid: boolean;
-    date: unknown;
+    isValidDate: boolean;
+    isValidDateRange: boolean;
+    date?: Date;
+    startDate?: Date;
+    endDate?: Date;
     displayInner: {
       options: DefaultDisplayType | undefined;
       difference: { absValueInMs: number; valueInMs: number };
       relative: { value: number; unit: string };
     };
-    isoUtcString: string;
+    isoUtcStringInner: string;
+    register: () => void;
+    unregister: () => void;
   };
   Element: HTMLTimeElement;
 }
