@@ -15,7 +15,11 @@ import type TimeService from '../../../services/hds-time';
 
 export interface HdsTimeSignature {
   Args: {
-    date: Date | string | undefined;
+    date?: Date | string | undefined;
+
+    startDate?: Date | string | undefined;
+    endDate?: Date | string | undefined;
+
     display?: string;
     isOpen?: boolean;
     hasTooltip?: boolean;
@@ -55,8 +59,30 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return date;
   }
 
-  get isValid(): boolean {
+  get startDate(): string | Date | undefined {
+    const { startDate } = this.args;
+
+    if (typeOf(startDate) === 'string') {
+      return new Date(startDate as string);
+    }
+    return startDate;
+  }
+
+  get endDate(): string | Date | undefined {
+    const { endDate } = this.args;
+
+    if (typeOf(endDate) === 'string') {
+      return new Date(endDate as string);
+    }
+    return endDate;
+  }
+
+  get isValidDate(): boolean {
     return dateIsValid(this.date);
+  }
+
+  get isValidDateRange(): boolean {
+    return dateIsValid(this.startDate) && dateIsValid(this.endDate);
   }
 
   get hasTooltip(): boolean {
@@ -65,8 +91,15 @@ export default class HdsTime extends Component<HdsTimeSignature> {
 
   get isoUtcString(): string {
     const date = this.date;
+    const startDate = this.startDate;
+    const endDate = this.endDate;
 
-    if (dateIsValid(date)) return this.hdsTime.toIsoUtcString(date);
+    if (dateIsValid(date)) {
+      return this.hdsTime.toIsoUtcString(date);
+    } else if (dateIsValid(startDate) && dateIsValid(endDate)) {
+      return `${this.hdsTime.toIsoUtcString(startDate)} – ${this.hdsTime.toIsoUtcString(endDate)}`;
+    }
+
     return '';
   }
 
