@@ -3628,6 +3628,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@figma/rest-api-spec@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "@figma/rest-api-spec@npm:0.21.0"
+  checksum: 10/8feee26a50272f22d03de2a284ce1bef3e1aaedc14606e5a8457aaf32773cb05a0a51870d4d157dabee8b16d469c16c8e90efda2685ae36213ac022c7f58760c
+  languageName: node
+  linkType: hard
+
 "@floating-ui/core@npm:^1.0.0":
   version: 1.6.0
   resolution: "@floating-ui/core@npm:1.6.0"
@@ -4386,6 +4393,7 @@ __metadata:
     "@figma-export/output-components-as-svg": "npm:^4.7.0"
     "@figma-export/transform-svg-with-svgo": "npm:^4.7.0"
     "@figma-export/types": "npm:^4.7.0"
+    "@figma/rest-api-spec": "npm:^0.21.0"
     "@svgr/core": "npm:^5.5.0"
     "@svgr/plugin-jsx": "npm:^5.5.0"
     "@types/archiver": "npm:^5.3.4"
