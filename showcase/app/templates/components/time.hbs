@@ -8,13 +8,11 @@
 <Shw::Text::H1>Time</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Options</Shw::Text::H2>
+  <Shw::Text::H2>Has tooltip</Shw::Text::H2>
 
-  <Shw::Text::H3>Has tooltip</Shw::Text::H3>
-
-  <Shw::Flex @gap="4rem 9rem" {{style marginBottom="80px"}} as |SF|>
+  <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="With tooltip (default)">
-      <Hds::Time @date="05 September 2018 14:48" @isOpen={{true}} />
+      <Hds::Time @date="05 September 2018 14:48" />
     </SF.Item>
 
     <SF.Item @label="Without tooltip">
@@ -22,7 +20,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H3>Display</Shw::Text::H3>
+  <Shw::Text::H2>Display</Shw::Text::H2>
 
   <p>Note: “examples” are temporary</p>
 
@@ -52,7 +50,7 @@
 
   <Shw::Divider {{style marginTop="6rem"}} @level="2" />
 
-  <Shw::Text::H4>Near time examples using “relative” display type</Shw::Text::H4>
+  <Shw::Text::H3>Near time examples using “relative” display type</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
     {{#each this.nearTimeDates as |date|}}
@@ -60,5 +58,19 @@
         <Hds::Time @date={{date}} @display="relative" />
       </SF.Item>
     {{/each}}
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Date range</Shw::Text::H2>
+
+  <Shw::Flex @gap="4rem 9rem" {{style marginBottom="80px"}} as |SF|>
+    <SF.Item @label="With tooltip (default)">
+      <Hds::Time @startDate="28 November 2024" @endDate="1 December 2024" @isOpen={{true}} />
+    </SF.Item>
+
+    <SF.Item @label="Without tooltip">
+      <Hds::Time @startDate="28 November 2024" @endDate="1 December 2024" @hasTooltip={{false}} />
+    </SF.Item>
   </Shw::Flex>
 </section>
