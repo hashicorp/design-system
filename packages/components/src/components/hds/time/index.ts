@@ -16,13 +16,20 @@ import type TimeService from '../../../services/hds-time';
 export interface HdsTimeSignature {
   Args: {
     date?: Date | string | undefined;
-
     startDate?: Date | string | undefined;
     endDate?: Date | string | undefined;
 
     display?: string;
     isOpen?: boolean;
     hasTooltip?: boolean;
+    displayInner: {
+      options: DefaultDisplayType | undefined;
+      difference: { absValueInMs: number; valueInMs: number };
+      relative: { value: number; unit: string };
+    };
+    isoUtcStringInner: string;
+    register: () => void;
+    unregister: () => void;
   };
   Element: HTMLElement;
 }
@@ -49,32 +56,32 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     this.hdsTime.unregister(date);
   }
 
-  get date(): string | Date | undefined {
+  get date(): Date | undefined {
     const { date } = this.args;
 
     // Sometimes an ISO date string might be passed in instead of a JS Date.
     if (typeOf(date) === 'string') {
       return new Date(date as string);
     }
-    return date;
+    return date as Date;
   }
 
-  get startDate(): string | Date | undefined {
+  get startDate(): Date | undefined {
     const { startDate } = this.args;
 
     if (typeOf(startDate) === 'string') {
       return new Date(startDate as string);
     }
-    return startDate;
+    return startDate as Date;
   }
 
-  get endDate(): string | Date | undefined {
+  get endDate(): Date | undefined {
     const { endDate } = this.args;
 
     if (typeOf(endDate) === 'string') {
       return new Date(endDate as string);
     }
-    return endDate;
+    return endDate as Date;
   }
 
   get isValidDate(): boolean {
@@ -91,15 +98,20 @@ export default class HdsTime extends Component<HdsTimeSignature> {
 
   get isoUtcString(): string {
     const date = this.date;
-    const startDate = this.startDate;
-    const endDate = this.endDate;
 
     if (dateIsValid(date)) {
       return this.hdsTime.toIsoUtcString(date);
-    } else if (dateIsValid(startDate) && dateIsValid(endDate)) {
-      return `${this.hdsTime.toIsoUtcString(startDate)} – ${this.hdsTime.toIsoUtcString(endDate)}`;
     }
 
+    return '';
+  }
+  get rangeIsoUtcString(): string {
+    const startDate = this.startDate;
+    const endDate = this.endDate;
+
+    if (dateIsValid(startDate) && dateIsValid(endDate)) {
+      return `${this.hdsTime.toIsoUtcString(startDate)} - ${this.hdsTime.toIsoUtcString(endDate)}`;
+    }
     return '';
   }
 
