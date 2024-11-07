@@ -1,14 +1,16 @@
 {{page-title this.title}}
 
-<Doc::Page::Stage>
+<Doc::Page::Stage class={{if this.hasTabs "doc-page-stage--tabs"}}>
   {{#if this.model.hasCover}}
     <Doc::Page::Cover
       @title={{this.title}}
       @description={{this.description}}
-      @tabs={{this.tabs}}
       @status={{this.status}}
       @extra={{this.extra}}
     />
+  {{/if}}
+  {{#if this.hasTabs}}
+    <Doc::Page::Tabs @tabs={{this.tabs}} />
   {{/if}}
 
   <Doc::Page::Content @breakthrough={{not this.model.hasSidecar}} id={{this.model.showContentId}}>

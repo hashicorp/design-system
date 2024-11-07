@@ -10,10 +10,38 @@
 
 .doc-page-tabs {
   display: flex;
+  flex-wrap: nowrap;
+  grid-area: tabs;
   gap: 16px;
-  margin: 0;
-  padding: 0;
   list-style: none;
+  height: min-content;
+  overflow-x: auto;
+  overflow-y: hidden; // .doc-page-tabs__tab--is-current has an ::after pseudoelement that always overflows with 3px, so we disable the vertical scrollbar and rely on the horizontal one
+  -webkit-overflow-scrolling: touch;
+  padding: 24px var(--doc-page-stage-gutter-small) 0;
+  margin: 0;
+  background-color: var(--doc-color-white);
+  border-bottom: 1px solid var(--doc-color-gray-500);
+  z-index: var(--doc-z-index-tabs);
+
+  @include breakpoint.medium () {
+    padding: 24px var(--doc-page-stage-gutter-medium) 0;
+    overflow: visible;
+  }
+
+  @include breakpoint.large () {
+    padding: 24px var(--doc-page-stage-gutter-large) 0;
+  }
+
+  @include breakpoint.x-large() {
+    padding: 24px var(--doc-page-stage-gutter-x-large) 0;
+  }
+
+  // Make tabs position sticky/fixed if the viewport height is greater than 480px
+  @media (height >= 480px) {
+    position: sticky;
+    top: var(--doc-page-header-height);
+  }
 }
 
 .doc-page-tabs__tab {
@@ -27,7 +55,12 @@
     font-weight: 600;
     background-color: transparent;
     border: 1px solid transparent;
+    white-space: nowrap;
     cursor: pointer;
+
+    @include breakpoint.medium () {
+      white-space: normal;
+    }
 
     &:hover {
       color: var(--doc-color-black);

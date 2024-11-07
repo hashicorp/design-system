@@ -13,7 +13,7 @@
 
   @include breakpoint.large () {
     position: sticky;
-    top: var(--doc-page-header-height);
+    top: var(--doc-page-offset-height);
     display: block;
     grid-area: sidecar;
     // TIL this is needed because is inside a grid, otherwise the stickyness will not work

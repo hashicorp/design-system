@@ -53,7 +53,7 @@
 // special classes for headings with anchor links
 
 .doc-page-heading-scroll-margin-top {
-  scroll-margin-top: calc(var(--doc-page-header-height) + 20px);
+  scroll-margin-top: calc(var(--doc-page-offset-height) + 20px);
 }
 
 .doc-page-heading-link {
