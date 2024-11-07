@@ -10,7 +10,9 @@
 @import "./results";
 
 // "autocomplete" target container - not used
-// .doc-algolia-search__autocomplete-container {}
+.doc-algolia-search__autocomplete-container {
+  position: absolute;
+}
 
 // root container of the "autocomplete" injected DOM elements (only the button, in "detached" mode)
 // notice: we hide it and trigger it via the "fake" buttons in the header
