@@ -30,7 +30,7 @@ export function hdsFormatDate([date, options]: [
   {
     month: Intl.DateTimeFormatOptions['month'];
     day: Intl.DateTimeFormatOptions['day'];
-    year: Intl.DateTimeFormatOptions['year'];
+    year?: Intl.DateTimeFormatOptions['year'];
     hour?: Intl.DateTimeFormatOptions['hour'];
     minute?: Intl.DateTimeFormatOptions['minute'];
     second?: Intl.DateTimeFormatOptions['second'];

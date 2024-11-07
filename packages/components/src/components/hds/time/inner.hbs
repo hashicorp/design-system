@@ -27,27 +27,7 @@
     {{/if}}
   </time>
 {{else if @isValidDateRange}}
-  <span class="hds-time-range-contents">
-    <time
-      class="hds-time"
-      datetime={{@isoUtcStringInner}}
-      ...attributes
-      {{did-insert @register}}
-      {{will-destroy @unregister}}
-    >
-      {{hds-format-date @startDate @displayInner.options.displayFormat}}
-    </time>
-    –
-    <time
-      class="hds-time"
-      datetime={{@isoUtcStringInner}}
-      ...attributes
-      {{did-insert @register}}
-      {{will-destroy @unregister}}
-    >
-      {{hds-format-date @endDate @displayInner.options.displayFormat}}
-    </time>
-  </span>
+  <Hds::Time::Range @startDate={{@startDate}} @endDate={{@endDate}} />
 {{else}}
   --
 {{/if}}
