@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-//components
+// components
 import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
@@ -189,6 +189,7 @@ import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsTimeComponent from './components/hds/time';
 import type HdsTimeInnerComponent from './components/hds/time';
+import type HdsTimeRangeComponent from './components/hds/time';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
@@ -856,6 +857,9 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Time::Inner': typeof HdsTimeInnerComponent;
   'hds/time/inner': typeof HdsTimeInnerComponent;
+
+  'Hds::Time::Range': typeof HdsTimeRangeComponent;
+  'hds/time/range': typeof HdsTimeRangeComponent;
 
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;
