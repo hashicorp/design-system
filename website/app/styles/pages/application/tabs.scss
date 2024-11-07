@@ -9,20 +9,20 @@
 @use "../../typography/mixins" as *;
 
 .doc-page-tabs {
+  z-index: var(--doc-z-index-tabs);
   display: flex;
   flex-wrap: nowrap;
   grid-area: tabs;
   gap: 16px;
-  list-style: none;
   height: min-content;
+  margin: 0;
+  padding: 24px var(--doc-page-stage-gutter-small) 0;
   overflow-x: auto;
   overflow-y: hidden; // .doc-page-tabs__tab--is-current has an ::after pseudoelement that always overflows with 3px, so we disable the vertical scrollbar and rely on the horizontal one
-  -webkit-overflow-scrolling: touch;
-  padding: 24px var(--doc-page-stage-gutter-small) 0;
-  margin: 0;
+  list-style: none;
   background-color: var(--doc-color-white);
   border-bottom: 1px solid var(--doc-color-gray-500);
-  z-index: var(--doc-z-index-tabs);
+  -webkit-overflow-scrolling: touch;
 
   @include breakpoint.medium () {
     padding: 24px var(--doc-page-stage-gutter-medium) 0;
@@ -53,9 +53,9 @@
     padding: 3px 11px; // we need to take in account the transparent border
     color: var(--doc-color-gray-300);
     font-weight: 600;
+    white-space: nowrap;
     background-color: transparent;
     border: 1px solid transparent;
-    white-space: nowrap;
     cursor: pointer;
 
     @include breakpoint.medium () {
