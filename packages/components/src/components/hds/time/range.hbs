@@ -3,12 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<span class="hds-time-range">
-  <time class="hds-time" datetime={{this.startDateIsoUtString}} ...attributes>
+<span class="hds-time hds-time-range">
+  <time datetime={{this.startDateIsoUtcString}}>
     {{hds-format-date @startDate this.startDateDisplayFormat}}
   </time>
   –
-  <time class="hds-time" datetime={{this.endDateIsoUtcString}} ...attributes>
+  <time datetime={{this.endDateIsoUtcString}}>
     {{hds-format-date @endDate this.endDateDisplayFormat}}
   </time>
 </span>

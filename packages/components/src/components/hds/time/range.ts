@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 import type TimeService from '../../../services/hds-time';
-import Component from '@glimmer/component';
 
 export interface HdsTimeRangeSignature {
   Args: {
@@ -18,12 +18,12 @@ export interface HdsTimeRangeSignature {
 export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
   @service declare readonly hdsTime: TimeService;
 
-  get startDateIsoUtString(): string {
-    return this.hdsTime.toIsoUtcString(this.args.startDate);
+  get startDateIsoUtcString(): string {
+    return this.hdsTime.toIsoUtcString(this.args.startDate as Date);
   }
 
   get endDateIsoUtcString(): string {
-    return this.hdsTime.toIsoUtcString(this.args.endDate);
+    return this.hdsTime.toIsoUtcString(this.args.endDate as Date);
   }
 
   get startDateDisplayFormat(): {
@@ -37,7 +37,7 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
     const { startDate } = this.args;
     const { endDate } = this.args;
 
-    if (startDate.getFullYear() !== endDate.getFullYear()) {
+    if (startDate?.getFullYear() !== endDate.getFullYear()) {
       return {
         month: 'short',
         day: 'numeric',
