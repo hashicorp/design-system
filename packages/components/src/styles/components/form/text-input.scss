@@ -18,7 +18,7 @@
   background-color: var(--token-form-control-base-surface-color-default);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
-  box-shadow: var(--token-elevation-inset-box-shadow);
+  box-shadow: var(--token-form-control-base-box-shadow-default);
 
   // PLACEHOLDER
 
@@ -37,9 +37,10 @@
 
   &:focus,
   &.mock-focus {
+    // TODO! What should we do here???
     border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0;
+    outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
+    outline-offset: var(--token-form-text-input-outline-offset);
   }
 
   // READONLY
@@ -73,8 +74,9 @@
 
     &:focus,
     &.mock-focus {
+      // TODO! What should we do here???
       border-color: var(--token-color-focus-critical-internal);
-      outline-color: var(--token-color-focus-critical-external);
+      outline-color: var(--token-form-control-focus-outline-color);
     }
   }
 }
@@ -90,7 +92,7 @@
 // PASSWORD
 
 .hds-form-text-input--has-visibility-toggle {
-  padding-right: calc(var(--token-form-control-padding) + 24px);
+  padding-right: var(--token-form-control-padding-with-icon);
 }
 
 .hds-form-text-input__visibility-toggle {

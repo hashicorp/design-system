@@ -54,7 +54,7 @@
   background-position: var(--token-form-toggle-background-image-position-x) 50%;
   background-size: var(--token-form-toggle-background-image-size) var(--token-form-toggle-background-image-size);
   // notice: we want to share the border color between the "thumb" and the "track" so we use a local CSS prop for this
-  border: var(--token-form-radio-border-width) solid var(--border-color);
+  border: var(--token-form-toggle-border-width) solid var(--border-color);
   border-radius: calc(var(--token-form-toggle-height) / 2);
 
   @media (prefers-reduced-motion: no-preference) {
@@ -67,12 +67,12 @@
 
   &::after {
     position: absolute;
-    top: calc(var(--token-form-radio-border-width) * -1);
-    left: calc(var(--token-form-radio-border-width) * -1);
+    top: calc(var(--token-form-toggle-border-width) * -1);
+    left: calc(var(--token-form-toggle-border-width) * -1);
     width: var(--token-form-toggle-thumb-size);
     height: var(--token-form-toggle-thumb-size);
     background-color: var(--token-form-control-base-surface-color-default);
-    border: var(--token-form-radio-border-width) solid var(--border-color);
+    border: var(--token-form-toggle-border-width) solid var(--border-color);
     border-radius: 50%;
     transform: translate3d(0, 0, 0);
     content: "";
@@ -87,18 +87,15 @@
   // used for the focus
 
   &::before {
-    // notice: to avoid too many nested calc() operation, we have decided to compute directly the values in Sass
-    $hds-outline-width: 3px;
-    $hds-outline-offset: 1px;
-    $hds-shift: $hds-outline-width + $hds-outline-offset + 1px; // here 1px refers to "--token-form-radio-border-width"
+    --shift: calc(-1 * (var(--token-form-toggle-outline-width) + var(--token-form-toggle-outline-offset) + var(--token-form-toggle-border-width)));
     position: absolute;
-    top: -$hds-shift;
-    right: -$hds-shift;
-    bottom: -$hds-shift;
-    left: -$hds-shift;
+    top: var(--shift);
+    right: var(--shift);
+    bottom: var(--shift);
+    left: var(--shift);
     margin: auto;
-    border-width: $hds-outline-width;
-    border-radius: calc(var(--token-form-toggle-height) / 2 + $hds-outline-width + $hds-outline-offset);
+    border-width: var(--token-form-toggle-outline-width);
+    border-radius: calc(var(--token-form-toggle-height) / 2 + var(--token-form-toggle-outline-width) + var(--token-form-toggle-outline-offset));
     content: "";
   }
 
@@ -139,7 +136,8 @@
   :focus + &,
   .mock-focus + & {
     &::before {
-      border-color: var(--token-color-focus-action-external);
+      // the outline is emulatd using a pseudo-element
+      border-color: var(--token-form-control-focus-outline-color);
       border-style: solid;
     }
   }

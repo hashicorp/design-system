@@ -379,8 +379,17 @@
   --token-form-legend-color: #0c0c0e;
   --token-form-helper-text-color: #656a76;
   --token-form-indicator-optional-color: #656a76;
+  --token-form-visibility-toggle-size: 24px;
+  --token-form-visibility-toggle-padding: 3px; /* here we're taking into account the 1px border */
+  --token-form-visibility-toggle-color: #3b3d45;
+  --token-form-visibility-toggle-background-color: rgba(0, 0, 0, 0);
+  --token-form-visibility-toggle-border-width: 1px;
+  --token-form-visibility-toggle-border-color: rgba(0, 0, 0, 0);
   --token-form-error-color: #c00005;
   --token-form-error-icon-size: 14px;
+  --token-form-error-icon-margin-horizontal: 0px;
+  --token-form-error-icon-margin-vertical: 2px; /* This extra margin is used for vertical optical alignment. */
+  --token-form-error-gap: 8px;
   --token-form-checkbox-size: 16px;
   --token-form-checkbox-border-radius: 3px;
   --token-form-checkbox-border-width: 1px;
@@ -389,12 +398,15 @@
   --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
   --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
+  --token-form-file-input-min-height: 32px;
+  --token-form-file-input-margin-right: 16px;
   --token-form-control-base-foreground-value-color: #0c0c0e;
   --token-form-control-base-foreground-placeholder-color: #656a76;
   --token-form-control-base-surface-color-default: #ffffff;
   --token-form-control-base-surface-color-hover: #f1f2f3;
   --token-form-control-base-border-color-default: #8c909c;
   --token-form-control-base-border-color-hover: #656a76;
+  --token-form-control-base-box-shadow-default: inset 0px 1px 2px 1px #656a761a;
   --token-form-control-checked-foreground-color: #ffffff;
   --token-form-control-checked-surface-color-default: #1060ff;
   --token-form-control-checked-surface-color-hover: #0c56e9;
@@ -402,31 +414,48 @@
   --token-form-control-checked-border-color-hover: #0046d1;
   --token-form-control-invalid-border-color-default: #c00005;
   --token-form-control-invalid-border-color-hover: #940004;
+  --token-form-control-invalid-outline-color: #dd7578;
   --token-form-control-readonly-foreground-color: #3b3d45;
   --token-form-control-readonly-surface-color: #f1f2f3;
   --token-form-control-readonly-border-color: #656a761a;
+  --token-form-control-focus-outline-color: #5990ff;
+  --token-form-control-focus-outline-width: 3px;
+  --token-form-control-focus-outline-offset: 0px;
   --token-form-control-disabled-foreground-color: #8c909c;
   --token-form-control-disabled-surface-color: #fafafa;
   --token-form-control-disabled-border-color: #656a7633;
+  --token-form-control-standard-height: 32px; /* Notice: we use this special token for elements that need to match the 'standard' height of an input element (because that height is actually the result of: text line height + vertical padding + border size). */
   --token-form-control-padding: 7px; /* Notice: we have to take in account the border, so it's 1px less than in Figma. */
+  --token-form-control-padding-with-icon: 31px; /* Notice: we have to take in account the border, so it's 1px less than in Figma. We also consider extra 24px for the icon. */
   --token-form-control-border-radius: 5px;
   --token-form-control-border-width: 1px;
+  --token-form-masked-input-toggle-button-size: 24px;
+  --token-form-masked-input-copy-button-margin-right: 8px;
   --token-form-radio-size: 16px;
   --token-form-radio-border-width: 1px;
   --token-form-radio-background-image-size: 12px;
   --token-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
   --token-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
+  --token-form-radio-outline-offset: 1px;
   --token-form-radiocard-group-gap: 16px;
+  --token-form-radiocard-group-legend-margin-bottom: 12px;
   --token-form-radiocard-border-width: 1px;
   --token-form-radiocard-border-radius: 6px;
   --token-form-radiocard-content-padding: 24px;
   --token-form-radiocard-control-padding: 8px;
+  --token-form-radiocard-box-shadow-default: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
+  --token-form-radiocard-box-shadow-hover: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --token-form-radiocard-box-shadow-focus: 0 0 0 3px #5990ff; /* This is a custom shadow used to add a focus ring around the card */
+  --token-form-radiocard-box-shadow-disabled: none;
   --token-form-radiocard-transition-duration: 0.2s;
   --token-form-select-background-image-size: 16px;
   --token-form-select-background-image-position-right-x: 7px;
   --token-form-select-background-image-position-top-y: 9px;
   --token-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E"); /* notice: the 'caret' color is hardcoded here! */
   --token-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E"); /* notice: the 'caret' color is hardcoded here! */
+  --token-form-select-outline-offset: 0px;
+  --token-form-text-area-min-height: 32px;
+  --token-form-text-area-outline-offset: 0px;
   --token-form-text-input-background-image-size: 16px;
   --token-form-text-input-background-image-position-x: 7px;
   --token-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
@@ -446,6 +475,10 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
+  --token-form-toggle-thumb-border-radius: 50%px;
+  --token-form-toggle-outline-width: 3px;
+  --token-form-toggle-outline-offset: 1px;
+  --token-outline-offset: 0px;
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;

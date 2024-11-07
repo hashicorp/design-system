@@ -24,11 +24,14 @@
 // https://caniuse.com/?search=file-selector-button
 
 // Button
+
+// TODO see https://hashicorp.slack.com/archives/C025N5V4PFZ/p1731428407845729?thread_ts=1731427958.678679&cid=C025N5V4PFZ
 .hds-form-file-input::file-selector-button {
-  min-height: 36px;
-  margin-right: 16px;
+  min-height: var(--token-form-file-input-min-height);
+  margin-right: var(--token-form-file-input-margin-right);
   padding: 7px 16px 7px 37px; // padding in code altered to match Figma visual design
   color: var(--token-color-foreground-primary);
+  // the font family is declared at the parent container level, via CSS helper class
   font: inherit;
   background-color: var(--token-color-surface-faint);
   // upload icon
@@ -55,7 +58,7 @@
   color: var(--token-color-foreground-primary);
   background-color: var(--token-color-surface-faint);
   border-color: var(--token-color-focus-action-internal);
-  outline: 3px solid var(--token-color-focus-action-external);
+  outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
 }
 
 // Fix issue with button focus style which was displaying after button was activated

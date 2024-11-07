@@ -39,7 +39,7 @@
     &:focus,
     &.mock-focus {
       border-color: var(--token-color-focus-action-internal);
-      outline: 3px solid var(--token-color-focus-action-external);
+      outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
       outline-offset: 0;
     }
 
@@ -120,7 +120,7 @@
       &:focus,
       &.mock-focus {
         border-color: var(--token-color-focus-action-internal);
-        outline: 3px solid var(--token-color-focus-action-external);
+        outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
         outline-offset: 0;
       }
 

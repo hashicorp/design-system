@@ -1,0 +1,14 @@
+{
+  "form": {
+    "file-input": {
+      "min-height": {
+        "value": "{form.control.standard-height.value}",
+        "type": "size"
+      },
+      "margin-right": {
+        "value": "16",
+        "type": "size"
+      }
+    }
+  }
+}
