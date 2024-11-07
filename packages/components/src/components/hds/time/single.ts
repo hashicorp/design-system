@@ -4,15 +4,11 @@
  */
 
 import templateOnlyComponent from '@ember/component/template-only';
-import type { DefaultDisplayType } from './types.ts';
+import type { DefaultDisplayType } from '../../../services/types.ts';
 
-export interface HdsTimeInnerSignature {
+export interface HdsTimeSingleSignature {
   Args: {
-    isValidDate: boolean;
-    isValidDateRange: boolean;
-    date?: Date;
-    startDate?: Date;
-    endDate?: Date;
+    date: Date;
     displayInner: {
       options: DefaultDisplayType | undefined;
       difference: { absValueInMs: number; valueInMs: number };
@@ -25,6 +21,6 @@ export interface HdsTimeInnerSignature {
   Element: HTMLTimeElement;
 }
 
-const HdsTimeInnerComponent = templateOnlyComponent<HdsTimeInnerSignature>();
+const HdsTimeSingleComponent = templateOnlyComponent<HdsTimeSingleSignature>();
 
-export default HdsTimeInnerComponent;
+export default HdsTimeSingleComponent;

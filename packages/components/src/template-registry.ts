@@ -188,7 +188,7 @@ import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsTimeComponent from './components/hds/time';
-import type HdsTimeInnerComponent from './components/hds/time';
+import type HdsTimeSingleComponent from './components/hds/time';
 import type HdsTimeRangeComponent from './components/hds/time';
 import type HdsYieldComponent from './components/hds/yield';
 
@@ -855,8 +855,8 @@ export default interface HdsComponentsRegistry {
   'Hds::Time': typeof HdsTimeComponent;
   'hds/time': typeof HdsTimeComponent;
 
-  'Hds::Time::Inner': typeof HdsTimeInnerComponent;
-  'hds/time/inner': typeof HdsTimeInnerComponent;
+  'Hds::Time::Single': typeof HdsTimeSingleComponent;
+  'hds/time/single': typeof HdsTimeSingleComponent;
 
   'Hds::Time::Range': typeof HdsTimeRangeComponent;
   'hds/time/range': typeof HdsTimeRangeComponent;
