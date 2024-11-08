@@ -8,7 +8,7 @@ import type { DefaultDisplayType } from '../../../services/types.ts';
 
 export interface HdsTimeSingleSignature {
   Args: {
-    date: Date;
+    date: Date | undefined;
     displayInner: {
       options: DefaultDisplayType | undefined;
       difference: { absValueInMs: number; valueInMs: number };
