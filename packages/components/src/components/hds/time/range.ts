@@ -12,7 +12,7 @@ export interface HdsTimeRangeSignature {
     startDate: Date;
     endDate: Date;
   };
-  Element: HTMLTimeElement;
+  Element: HTMLElement;
 }
 
 export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {

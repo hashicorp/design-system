@@ -137,10 +137,3 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return this.args.isOpen ?? false;
   }
 }
-
-declare module '@glint/environment-ember-loose/registry' {
-  export default interface Registry {
-    Time: typeof HdsTime;
-    time: typeof HdsTime;
-  }
-}
