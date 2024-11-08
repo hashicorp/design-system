@@ -4,16 +4,12 @@
  */
 
 import templateOnlyComponent from '@ember/component/template-only';
-import type { DefaultDisplayType } from '../../../services/types.ts';
+import type { DisplayType } from './types.ts';
 
 export interface HdsTimeSingleSignature {
   Args: {
     date: Date | undefined;
-    displayInner: {
-      options: DefaultDisplayType | undefined;
-      difference: { absValueInMs: number; valueInMs: number };
-      relative: { value: number; unit: string };
-    };
+    displayInner: DisplayType;
     isoUtcStringInner: string;
     register: () => void;
     unregister: () => void;
