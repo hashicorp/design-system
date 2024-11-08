@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export type DefaultDisplayType = {
+type DefaultDisplayType = {
   displayFormat: {
     month: string;
     day: string;
@@ -24,6 +24,8 @@ export type DefaultDisplayType = {
   } | null;
 };
 
-export type DefaultDisplayMappingType = {
-  [key: string]: DefaultDisplayType;
+export type DisplayType = {
+  options: DefaultDisplayType | undefined;
+  difference: { absValueInMs: number; valueInMs: number };
+  relative: { value: number; unit: string };
 };
