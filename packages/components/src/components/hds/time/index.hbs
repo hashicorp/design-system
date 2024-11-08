@@ -4,7 +4,7 @@
 }}
 
 {{! @glint-nocheck }}
-{{! TODO: Hds::Time::Ranger has type errors, fix }}
+{{! TODO: Hds::Time::Range has type errors, fix }}
 {{#let this.display as |display|}}
   {{#if this.isValidDate}}
     {{#if this.hasTooltip}}
@@ -52,10 +52,10 @@
         @placement="bottom"
         @extraTippyOptions={{hash showOnCreate=this.isOpen}}
       >
-        <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} />
+        <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
       </Hds::TooltipButton>
     {{else}}
-      <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} />
+      <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
     {{/if}}
   {{/if}}
 {{/let}}
