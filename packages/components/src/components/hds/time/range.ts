@@ -9,8 +9,8 @@ import type TimeService from '../../../services/hds-time';
 
 export interface HdsTimeRangeSignature {
   Args: {
-    startDate: Date;
-    endDate: Date;
+    startDate?: Date;
+    endDate?: Date;
   };
   Element: HTMLElement;
 }
@@ -37,7 +37,7 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
     const { startDate } = this.args;
     const { endDate } = this.args;
 
-    if (startDate?.getFullYear() !== endDate.getFullYear()) {
+    if (startDate?.getFullYear() !== endDate?.getFullYear()) {
       return {
         month: 'short',
         day: 'numeric',
