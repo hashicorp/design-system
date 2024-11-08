@@ -2,44 +2,9 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
-{{! <Hds::AdvancedTable::Tr> }}
 {{yield}}
-{{!-- {{yield
-    (hash
-      Th=(component "hds/advanced-table/th" scope="row" isExpandable=this.hasChildren)
-      Td=(component "hds/advanced-table/td" align=@align)
-      data=@model
-    )
-    to="body"
-  }} --}}
-{{! </Hds::AdvancedTable::Tr> }}
-{{#if this.hasChildren}}
+{{#if (and this.hasChildren)}}
   {{#each this.children as |childRecord|}}
-    <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} />
-    {{!-- <Hds::AdvancedTable::Tr @selectionScope="row"
-            @isSelectable={{@isSelectable}}
-            @onSelectionChange={{this.onSelectionRowChange}}
-            @didInsertCheckbox={{this.didInsertRowCheckbox}}
-            @willDestroy={{this.willDestroyRowCheckbox}}
-            @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}>
-          
-          </Hds::AdvancedTable::Tr> --}}
-    {{!-- {{yield
-            (hash
-              Tr=(component
-                "hds/advanced-table/tr"
-                selectionScope="row"
-                isSelectable=@isSelectable
-                onSelectionChange=this.onSelectionRowChange
-                didInsertCheckbox=this.didInsertRowCheckbox
-                willDestroy=this.willDestroyRowCheckbox
-                selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-              )
-              Th=(component "hds/advanced-table/th" scope="row")
-              Td=(component "hds/advanced-table/td" align=@align)
-              data=childRecord
-            )
-          }} --}}
+    <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} @depth={{this.newDepth}} />
   {{/each}}
 {{/if}}
