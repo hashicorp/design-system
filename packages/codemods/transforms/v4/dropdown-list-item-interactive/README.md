@@ -1,4 +1,4 @@
-# v4/icon
+# v4/dropdown-list-item-interactive
 
 ## Usage
 
