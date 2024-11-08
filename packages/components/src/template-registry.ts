@@ -188,8 +188,8 @@ import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsTimeComponent from './components/hds/time';
-import type HdsTimeSingleComponent from './components/hds/time';
-import type HdsTimeRangeComponent from './components/hds/time';
+import type HdsTimeSingleComponent from './components/hds/time/single';
+import type HdsTimeRangeComponent from './components/hds/time/range';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
