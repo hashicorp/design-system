@@ -16,7 +16,6 @@ export interface HdsTimeSignature {
     date?: Date | string | undefined;
     startDate?: Date | string | undefined;
     endDate?: Date | string | undefined;
-
     display?: string;
     isOpen?: boolean;
     hasTooltip?: boolean;
