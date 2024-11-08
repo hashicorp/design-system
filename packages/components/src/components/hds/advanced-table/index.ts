@@ -8,6 +8,8 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
+import { htmlSafe } from '@ember/template';
+import type { SafeString } from '@ember/template/-private/handlebars';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -47,7 +49,6 @@ export interface HdsAdvancedTableSignature {
     columns: HdsAdvancedTableColumn[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
-    isFixedLayout?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
@@ -61,6 +62,7 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasNestedRows?: boolean;
   };
   Blocks: {
     body?: [
@@ -127,10 +129,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return this.args.isStriped ?? false;
   }
 
-  get isFixedLayout(): boolean {
-    return this.args.isFixedLayout ?? false;
-  }
-
   get density(): HdsAdvancedTableDensities {
     const { density = DEFAULT_DENSITY } = this.args;
 
@@ -157,7 +155,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
-  get gridColumns(): string {
+  get gridColumns(): SafeString {
     if (this.args.isSelectable) {
       let style = 'grid-template-columns: auto';
 
@@ -165,10 +163,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         style = `${style} 1fr`;
       }
 
-      return style;
+      return htmlSafe(style);
     }
 
-    return `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`;
+    return htmlSafe(
+      `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`
+    );
   }
 
   get classNames(): string {

@@ -47,23 +47,45 @@
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
-      {{yield
-        (hash
-          Tr=(component
-            "hds/advanced-table/tr"
-            selectionScope="row"
-            isSelectable=@isSelectable
-            onSelectionChange=this.onSelectionRowChange
-            didInsertCheckbox=this.didInsertRowCheckbox
-            willDestroy=this.willDestroyRowCheckbox
-            selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+      {{#if @hasNestedRows}}
+        <Hds::AdvancedTable::TrExpandableGroup @record={{record}}>
+          {{yield
+            (hash
+              Tr=(component
+                "hds/advanced-table/tr"
+                selectionScope="row"
+                isSelectable=@isSelectable
+                onSelectionChange=this.onSelectionRowChange
+                didInsertCheckbox=this.didInsertRowCheckbox
+                willDestroy=this.willDestroyRowCheckbox
+                selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+              )
+              Th=(component "hds/advanced-table/th" scope="row" isExpandable=(if record.children true))
+              Td=(component "hds/advanced-table/td" align=@align)
+              data=record
+            )
+            to="body"
+          }}
+        </Hds::AdvancedTable::TrExpandableGroup>
+      {{else}}
+        {{yield
+          (hash
+            Tr=(component
+              "hds/advanced-table/tr"
+              selectionScope="row"
+              isSelectable=@isSelectable
+              onSelectionChange=this.onSelectionRowChange
+              didInsertCheckbox=this.didInsertRowCheckbox
+              willDestroy=this.willDestroyRowCheckbox
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+            )
+            Th=(component "hds/advanced-table/th" scope="row")
+            Td=(component "hds/advanced-table/td" align=@align)
+            data=record
           )
-          Th=(component "hds/advanced-table/th" scope="row")
-          Td=(component "hds/advanced-table/td" align=@align)
-          data=record
-        )
-        to="body"
-      }}
+          to="body"
+        }}
+      {{/if}}
     {{/each}}
   </tbody>
 </table>

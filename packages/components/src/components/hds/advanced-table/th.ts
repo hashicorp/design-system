@@ -29,6 +29,7 @@ export interface HdsAdvancedTableThSignature {
     width?: string;
     rowspan?: number;
     colspan?: number;
+    isExpandable?: boolean;
   };
   Blocks: {
     default: [];

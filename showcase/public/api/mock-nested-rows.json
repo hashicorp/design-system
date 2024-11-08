@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Policy set 1",
+    "status": "PASS",
+    "description": "",
+   "children": [
+    {
+      "id": 11,
+      "name": "test-advisory-pass.sentinel",
+      "status": "PASS",
+      "description": "Sample description for this thing."
+    },
+    {
+      "id": 12,
+      "name": "test-hard-mandatory-pass.sentinel",
+      "status": "PASS",
+      "description": "Sample description for this thing."
+    }
+   ]
+  },
+  {
+    "id": 2,
+    "name": "Policy set 1",
+    "status": "FAIL",
+    "description": "",
+   "children": [
+    {
+      "id": 21,
+      "name": "test-advisory-pass.sentinel",
+      "status": "PASS",
+      "description": "Sample description for this thing."
+    },
+    {
+      "id": 22,
+      "name": "test-hard-mandatory-pass.sentinel",
+      "status": "FAIL",
+      "description": "Sample description for this thing."
+    }
+   ]
+  }
+]

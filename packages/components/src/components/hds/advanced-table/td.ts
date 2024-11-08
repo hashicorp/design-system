@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import type { SafeString } from '@ember/template/-private/handlebars';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
@@ -34,11 +36,21 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
 
-  // get style(): string {
-  //   const { rowspan = 1, colspan = 1 } = this.args;
+  get style(): SafeString | undefined {
+    const { rowspan, colspan } = this.args;
+    let style = '';
 
-  //   return 'grid-row: ';
-  // }
+    if (rowspan) {
+      style += `grid-row: span ${rowspan};`;
+    }
+
+    if (colspan) {
+      style += `grid-column: span ${colspan}`;
+    }
+
+    if (style.length > 0) return htmlSafe(style);
+    return undefined;
+  }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
     const { align = DEFAULT_ALIGN } = this.args;

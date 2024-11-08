@@ -20,7 +20,7 @@
   >
     <:body as |B|>
       <B.Tr>
-        <B.Td><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Td>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
           <div class="shw-component-table-cell-content-div">
             <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
@@ -43,6 +43,7 @@
 
   <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
 
+  {{! // maybe a separate object called template with the row/col spans?  }}
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
     @columns={{array
@@ -55,25 +56,51 @@
     <:body as |B|>
       <B.Tr>
         {{#if B.data.lorem}}
-          <B.Td rowspan={{B.data.lorem.rowspan}} colspan={{B.data.lorem.colspan}}>
+          <B.Td @rowspan={{B.data.lorem.rowspan}} @colspan={{B.data.lorem.colspan}}>
             {{B.data.lorem.value}}
           </B.Td>
         {{/if}}
         {{#if B.data.ipsum}}
-          <B.Td rowspan={{B.data.ipsum.rowspan}} colspan={{B.data.ipsum.colspan}}>
+          <B.Td @rowspan={{B.data.ipsum.rowspan}} @colspan={{B.data.ipsum.colspan}}>
             {{B.data.ipsum.value}}
           </B.Td>
         {{/if}}
         {{#if B.data.dolor}}
-          <B.Td rowspan={{B.data.dolor.rowspan}} colspan={{B.data.dolor.colspan}}>
+          <B.Td @rowspan={{B.data.dolor.rowspan}} @colspan={{B.data.dolor.colspan}}>
             {{B.data.dolor.value}}
           </B.Td>
         {{/if}}
         {{#if B.data.sit-amet}}
-          <B.Td rowspan={{B.data.sit-amet.rowspan}} colspan={{B.data.sit-amet.colspan}}>
+          <B.Td @rowspan={{B.data.sit-amet.rowspan}} @colspan={{B.data.sit-amet.colspan}}>
             {{B.data.sit-amet.value}}
           </B.Td>
         {{/if}}
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H2>With nested rows</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @model={{this.model.nestedData}}
+    @hasNestedRows={{true}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="status" label="Status")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row">
+          {{B.data.name}}
+        </B.Th>
+        <B.Td>
+          {{B.data.status}}
+        </B.Td>
+        <B.Td>
+          {{B.data.description}}
+        </B.Td>
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>

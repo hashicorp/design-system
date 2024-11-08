@@ -4,11 +4,12 @@
 }}
 <td
   class={{this.classNames}}
-  ...attributes
   role="gridcell"
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
+  style={{this.style}}
+  ...attributes
 >
   {{yield}}
 </td>
