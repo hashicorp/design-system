@@ -7,9 +7,7 @@ import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import type {
-  DefaultDisplayType /* DefaultDisplayMappingType */,
-} from '../../../services/types.ts';
+import type { DisplayType } from './types.ts';
 
 import type TimeService from '../../../services/hds-time';
 
@@ -22,11 +20,7 @@ export interface HdsTimeSignature {
     display?: string;
     isOpen?: boolean;
     hasTooltip?: boolean;
-    displayInner: {
-      options: DefaultDisplayType | undefined;
-      difference: { absValueInMs: number; valueInMs: number };
-      relative: { value: number; unit: string };
-    };
+    displayInner: DisplayType;
     isoUtcStringInner: string;
     register: () => void;
     unregister: () => void;
