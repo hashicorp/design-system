@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-type DefaultDisplayType = {
+export type DefaultDisplayType = {
   displayFormat: {
     month: string;
     day: string;
