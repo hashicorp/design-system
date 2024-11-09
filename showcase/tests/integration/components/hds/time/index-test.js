@@ -70,7 +70,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.tippy-content').hasText(this.defaultDate.toISOString());
   });
 
   // default using ISO date string
@@ -80,7 +80,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert
+      .dom('.tippy-content')
+      .hasText(new Date('2018-09-05T21:07:32.000Z').toISOString());
   });
 
   // Friendly display types
@@ -93,7 +95,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.tippy-content').hasText(this.friendlyLocalDate.toISOString());
   });
 
   // friendly local using ISO date string
@@ -103,7 +105,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert
+      .dom('.tippy-content')
+      .hasText(new Date('05 September 2018 14:07:32').toISOString());
   });
 
   // friendly only using Date object
@@ -115,7 +119,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.tippy-content').hasText(this.friendlyOnlyDate.toISOString());
   });
 
   // friendly only using ISO date string
@@ -125,7 +129,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 5, 2018');
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert
+      .dom('.tippy-content')
+      .hasText(new Date('05 September 2018 14:07:32').toISOString());
   });
 
   // UTC display type
@@ -137,9 +143,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.utcDate}} @display="utc" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.hds-time').hasText(this.utcDate.toISOString());
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.tippy-content').hasText(this.utcDate.toISOString());
   });
 
   // UTC using ISO date string
@@ -147,9 +153,10 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @display="utc" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('2018-09-05T21:07:32.000Z');
+    let date = new Date('05 September 2018 14:07:32');
+    assert.dom('.hds-time').hasText(date.toISOString());
     // test tooltip content
-    assert.dom('.tippy-content').hasText('2018-09-05T21:07:32.000Z');
+    assert.dom('.tippy-content').hasText(date.toISOString());
   });
 
   // Relative display types
@@ -227,9 +234,8 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 20 – Sep 25, 2024');
     // test tooltip content
-    assert
-      .dom('.tippy-content')
-      .hasText('2024-09-20T21:07:32.000Z - 2024-09-25T09:07:32.000Z');
+    let expectedTooltipContent = `${this.startDate.toISOString()} - ${this.endDate.toISOString()}`;
+    assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
   // same year using ISO date strings
@@ -239,9 +245,10 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 20 – Sep 25, 2024');
     // test tooltip content
-    assert
-      .dom('.tippy-content')
-      .hasText('2024-09-20T21:07:32.000Z - 2024-09-25T09:07:32.000Z');
+    let startDate = new Date('20 September 2024 14:07:32');
+    let endDate = new Date('25 September 2024 02:07:32');
+    let expectedTooltipContent = `${startDate.toISOString()} - ${endDate.toISOString()}`;
+    assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
   // Date range with different years
@@ -256,9 +263,8 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Nov 8, 2024 – Jan 20, 2025');
     // test tooltip content
-    assert
-      .dom('.tippy-content')
-      .hasText('2024-11-08T22:07:32.000Z - 2025-01-20T10:07:32.000Z');
+    let expectedTooltipContent = `${this.startDate.toISOString()} - ${this.endDate.toISOString()}`;
+    assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
   // different years using ISO date strings
@@ -268,8 +274,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Nov 8, 2024 – Jan 20, 2025');
     // test tooltip content
-    assert
-      .dom('.tippy-content')
-      .hasText('2024-11-08T22:07:32.000Z - 2025-01-20T10:07:32.000Z');
+    let startDate = new Date('8 November 2024 14:07:32');
+    let endDate = new Date('20 January 2025 02:07:32');
+    let expectedTooltipContent = `${startDate.toISOString()} - ${endDate.toISOString()}`;
+    assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 });
