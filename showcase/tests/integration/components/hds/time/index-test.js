@@ -82,7 +82,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     // test tooltip content
     assert
       .dom('.tippy-content')
-      .hasText(new Date('2018-09-05T21:07:32.000Z').toISOString());
+      .hasText(new Date('05 September 2018 14:07:32').toISOString());
   });
 
   // Friendly display types
