@@ -106,7 +106,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     const endDate = this.endDate;
 
     if (dateIsValid(startDate) && dateIsValid(endDate)) {
-      return `${this.hdsTime.toIsoUtcString(startDate)} - ${this.hdsTime.toIsoUtcString(endDate)}`;
+      return `${this.hdsTime.toIsoUtcString(startDate)} – ${this.hdsTime.toIsoUtcString(endDate)}`;
     }
     return '';
   }
