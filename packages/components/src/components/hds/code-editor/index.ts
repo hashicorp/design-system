@@ -4,11 +4,13 @@
  */
 
 import Component from '@glimmer/component';
+import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
 
 export interface HdsCodeEditorSignature {
   Args: {
     title?: string;
     description?: string;
+    language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     value: string;
     options?: unknown[];
   };

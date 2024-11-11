@@ -5,7 +5,6 @@
 
 import { assert } from '@ember/debug';
 import Modifier from 'ember-modifier';
-import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import {
   lineNumbers,
   highlightActiveLineGutter,
@@ -14,11 +13,21 @@ import {
   highlightActiveLine,
   EditorView,
 } from '@codemirror/view';
-import { EditorState } from '@codemirror/state';
+import { EditorState, type Extension } from '@codemirror/state';
+import { javascript } from '@codemirror/lang-javascript';
 
-interface HdsCodeEditorSignature {
+import type { PositionalArgs, NamedArgs } from 'ember-modifier';
+import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
+
+const LANGUAGE_MAP: Record<HdsCodeEditorLanguages, Extension> = {
+  javascript: javascript(),
+};
+
+export interface HdsCodeEditorSignature {
   Args: {
     Named: {
+      language?: HdsCodeEditorLanguages;
+
       /** Called when editor contents change */
       onInput?: (newVal: string) => void;
 
@@ -78,11 +87,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   onBlur!: HdsCodeEditorSignature['Args']['Named']['onBlur'];
 
-  constructor(owner: unknown, args: ArgsFor<HdsCodeEditorSignature>) {
-    super(owner, args);
-    // registerDestructor(this, cleanup);
-  }
-
   modify(
     element: HTMLElement,
     positional: PositionalArgs<HdsCodeEditorSignature>,
@@ -105,8 +109,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       onInput,
       onBlur,
       // options = {},
+      language,
       value,
     } = named;
+
+    const languageExtension =
+      language !== undefined ? LANGUAGE_MAP[language] : undefined;
 
     const hdsDark = EditorView.theme(
       {
@@ -118,20 +126,25 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       { dark: true }
     );
 
-    const extensions = [
+    let extensions = [
       lineNumbers(),
       highlightActiveLineGutter(),
       highlightSpecialChars(),
       drawSelection(),
       highlightActiveLine(),
       hdsDark,
-      // EditorState.readOnly.of(true),
     ];
 
+    if (languageExtension !== undefined) {
+      extensions = [languageExtension, ...extensions];
+    }
+
     const state = EditorState.create({ doc: value, extensions });
+
     this.onInput = onInput;
     this.onBlur = onBlur;
-    this.editor = new EditorView({ state: state, parent: element });
+
+    this.editor = new EditorView({ state, parent: element });
     this.element = element;
   }
 }
