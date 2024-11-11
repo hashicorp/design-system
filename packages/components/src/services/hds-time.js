@@ -240,8 +240,13 @@ export default class TimeService extends Service {
    * @param {Date} date - A JS Date.
    * @returns {string} An ISO date representing the UTC time of the JS date.
    */
+  // TODO: Need to use try catch here
   toIsoUtcString(date) {
-    return DateTime.fromJSDate(date).toUTC().toJSDate().toISOString();
+    try {
+      return DateTime.fromJSDate(date).toUTC().toJSDate().toISOString();
+    } catch (error) {
+      console.error('Error: Could not convert date to ISO UTC string; ', error);
+    }
   }
 
   /**
