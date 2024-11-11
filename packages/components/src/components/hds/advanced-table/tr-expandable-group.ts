@@ -12,7 +12,12 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
     record: Record<string, unknown>;
   };
   Blocks: {
-    default?: [];
+    default?: [
+      {
+        data: Record<string, unknown>;
+        isExpandable: boolean;
+      },
+    ];
   };
   Element: HTMLTableElement;
 }
@@ -28,8 +33,20 @@ export default class HdsAdvancedTableTrExpandableGroup extends Component<HdsAdva
   }
 
   get hasChildren(): boolean {
-    if (this.children) return true;
-    return false;
+    if (!this.children) return false;
+    return true;
+  }
+
+  get hasVisibleChildren(): boolean {
+    if (!this.children) return false;
+
+    // const test = this.element.querySelector(
+    //   '.hds-advanced-table__th-button--expand'
+    // );
+
+    // console.log(test);
+
+    return true;
   }
 
   get newDepth(): number {

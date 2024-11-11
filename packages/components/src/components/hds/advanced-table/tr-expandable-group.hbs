@@ -2,9 +2,11 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{yield}}
-{{#if (and this.hasChildren)}}
+{{yield (hash data=@record isExpandable=this.hasChildren)}}
+{{#if this.hasVisibleChildren}}
   {{#each this.children as |childRecord|}}
-    <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} @depth={{this.newDepth}} />
+    <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} @depth={{this.newDepth}}>
+      {{yield (hash data=childRecord isExpandable=(if childRecord.children true false))}}
+    </Hds::AdvancedTable::TrExpandableGroup>
   {{/each}}
 {{/if}}

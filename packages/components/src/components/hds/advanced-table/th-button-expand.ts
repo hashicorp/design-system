@@ -12,15 +12,16 @@ import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
 export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
+    isExpanded?: boolean;
+    onToggle?: () => void;
   };
   Element: HTMLButtonElement;
 }
 
 export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvancedTableThButtonExpandSignature> {
   @tracked isExpanded = false;
-  // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
+  // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = 'prefix-' + guidFor(this);
-  suffixLabelId = 'suffix-' + guidFor(this);
 
   get icon(): HdsAdvancedTableThSortExpandIcons {
     if (this.isExpanded) {
@@ -29,14 +30,6 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
       return HdsAdvancedTableThExpandIconValues.ChevronRight;
     }
   }
-
-  // Determines the label (suffix) to use in the `aria-labelledby` attribute of the button,
-  // used to indicate what will happen if the user clicks on the button
-  //   get sortOrderLabel(): HdsAdvancedTableThSortOrderLabels {
-  //     return this.args.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
-  //       ? HdsAdvancedTableThSortOrderLabelValues.Desc
-  //       : HdsAdvancedTableThSortOrderLabelValues.Asc;
-  //   }
 
   @action onClick() {
     this.isExpanded = !this.isExpanded;

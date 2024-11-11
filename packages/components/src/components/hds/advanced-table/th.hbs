@@ -28,7 +28,7 @@
         {{#if @isExpandable}}
           <Hds::AdvancedTable::ThButtonExpand @labelId={{this.labelId}} />
         {{/if}}
-        <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+        <span class="hds-typography-body-200 hds-font-weight-semibold" id={{this.labelId}}>{{yield}}</span>
       </div>
     {{/if}}
   {{/if}}

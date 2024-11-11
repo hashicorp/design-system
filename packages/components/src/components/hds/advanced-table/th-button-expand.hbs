@@ -6,13 +6,11 @@
   type="button"
   class={{this.classNames}}
   {{on "click" this.onClick}}
-  aria-labelledby="{{this.prefixLabelId}} {{@labelId}} {{this.suffixLabelId}}"
+  aria-labelledby="{{this.prefixLabelId}} {{@labelId}}"
+  aria-expanded={{this.isExpanded}}
+  aria-description="Toggle the visibility of the related rows."
   ...attributes
 >
-  {{!-- <span id={{this.prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Sort by</span>
-  <span
-    id={{this.suffixLabelId}}
-    class="hds-advanced-table__th-button-aria-label-hidden-segment"
-  >{{this.sortOrderLabel}}</span> --}}
+  <span id={{this.prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Toggle</span>
   <Hds::Icon @name={{this.icon}} />
 </button>

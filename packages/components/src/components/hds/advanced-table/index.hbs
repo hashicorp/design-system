@@ -48,7 +48,7 @@
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
       {{#if @hasNestedRows}}
-        <Hds::AdvancedTable::TrExpandableGroup @record={{record}}>
+        <Hds::AdvancedTable::TrExpandableGroup @record={{record}} as |T|>
           {{yield
             (hash
               Tr=(component
@@ -60,9 +60,9 @@
                 willDestroy=this.willDestroyRowCheckbox
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
               )
-              Th=(component "hds/advanced-table/th" scope="row" isExpandable=(if record.children true))
+              Th=(component "hds/advanced-table/th" scope="row" isExpandable=T.isExpandable)
               Td=(component "hds/advanced-table/td" align=@align)
-              data=record
+              data=T.data
             )
             to="body"
           }}
