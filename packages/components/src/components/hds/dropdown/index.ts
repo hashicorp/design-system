@@ -71,6 +71,22 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
+  constructor(owner: unknown, args: HdsDropdownSignature['Args']) {
+    super(owner, args);
+    window.onerror = function (err: string | Event): string | Event | false {
+      if (
+        err === 'ResizeObserver loop completed with undelivered notifications.'
+      ) {
+        console.warn(
+          'Ignored: ResizeObserver loop completed with undelivered notifications.'
+        );
+        return false;
+      } else {
+        return err;
+      }
+    };
+  }
+
   /**
    * @param listPosition
    * @type {string}

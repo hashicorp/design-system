@@ -62,6 +62,18 @@ if (useMiddlewareReporter()) {
   setupMiddlewareReporter();
 }
 
+// Add a global error handler for ResizeObserver loop errors
+// window.onerror = function (err) {
+//   if (err === 'ResizeObserver loop completed with undelivered notifications.') {
+//     console.warn(
+//       'Ignored: ResizeObserver loop completed with undelivered notifications.'
+//     );
+//     return false;
+//   } else {
+//     return err;
+//   }
+// };
+
 setup(QUnit.assert);
 
 start();
