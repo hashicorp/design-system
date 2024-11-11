@@ -3,4 +3,21 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} {{hds-code-editor value=@value}} ...attributes />
+<div class={{this.classNames}} ...attributes>
+  {{#if (or @title @description)}}
+    <div class="hds-code-editor--header">
+      {{#if @title}}
+        <h1>{{@title}}</h1>
+      {{/if}}
+      {{#if @description}}
+        <p>{{@description}}</p>
+      {{/if}}
+    </div>
+  {{/if}}
+  {{#if (has-block)}}
+    <div class="hds-code-editor--toolbar">
+      {{yield}}
+    </div>
+  {{/if}}
+  <div {{hds-code-editor value=@value}} />
+</div>
