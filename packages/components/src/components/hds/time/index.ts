@@ -21,8 +21,8 @@ export interface HdsTimeSignature {
     hasTooltip?: boolean;
     displayInner: DisplayType;
     isoUtcStringInner: string;
-    register: () => void;
-    unregister: () => void;
+    didInsertNode: () => void;
+    willDestroyNode: () => void;
   };
   Element: HTMLElement;
 }
@@ -34,7 +34,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   @service declare readonly hdsTime: TimeService;
 
   @action
-  register(): void {
+  didInsertNode(): void {
     const date = this.date;
 
     if (dateIsValid(date)) {
@@ -43,7 +43,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   }
 
   @action
-  unregister(): void {
+  willDestroyNode(): void {
     const date = this.date;
 
     this.hdsTime.unregister(date);
@@ -82,7 +82,10 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   }
 
   get isValidDateRange(): boolean {
-    return dateIsValid(this.startDate) && dateIsValid(this.endDate);
+    if (dateIsValid(this.startDate) && dateIsValid(this.endDate)) {
+      return this.startDate <= this.endDate;
+    }
+    return false;
   }
 
   get hasTooltip(): boolean {
