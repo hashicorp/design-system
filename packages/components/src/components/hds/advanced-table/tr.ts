@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { guidFor } from '@ember/object/internals';
+
 import { HdsAdvancedTableScopeValues } from './types.ts';
 import type {
   HdsAdvancedTableScope,
@@ -33,6 +35,9 @@ export interface BaseHdsAdvancedTableTrSignature {
     ) => void;
     willDestroy?: () => void;
     onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
+    depth?: number;
+    didInsertChildRow?: (id: string) => void;
+    childRowIds?: string[];
   };
   Blocks: {
     default: [];
@@ -55,6 +60,8 @@ export type HdsAdvancedTableTrSignature =
   | BaseHdsAdvancedTableTrSignature
   | SelectableHdsAdvancedTableTrArgs;
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
+  rowId = guidFor(this);
+
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(

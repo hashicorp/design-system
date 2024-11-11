@@ -7,6 +7,8 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { htmlSafe } from '@ember/template';
+import type { SafeString } from '@ember/template/-private/handlebars';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -30,6 +32,10 @@ export interface HdsAdvancedTableThSignature {
     rowspan?: number;
     colspan?: number;
     isExpandable?: boolean;
+    newLabel?: string;
+    parentId?: string;
+    onClickToggle?: () => void;
+    isExpanded?: boolean;
   };
   Blocks: {
     default: [];
@@ -38,7 +44,7 @@ export interface HdsAdvancedTableThSignature {
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
-  labelId = guidFor(this);
+  labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
 
   @action
   didInsert(element: HTMLTableCellElement): void {
@@ -66,6 +72,22 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       ALIGNMENTS.includes(align)
     );
     return align;
+  }
+
+  get style(): SafeString | undefined {
+    const { rowspan, colspan } = this.args;
+    let style = '';
+
+    if (rowspan) {
+      style += `grid-row: span ${rowspan};`;
+    }
+
+    if (colspan) {
+      style += `grid-column: span ${colspan}`;
+    }
+
+    if (style.length > 0) return htmlSafe(style);
+    return undefined;
   }
 
   get classNames(): string {

@@ -24812,6 +24812,7 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.0"
     ember-load-initializers: "npm:^2.1.2"
+    ember-math-helpers: "npm:^3.0.0"
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"

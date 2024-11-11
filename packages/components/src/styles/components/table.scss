@@ -173,6 +173,26 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
 // TABLE BODY
 
+.hds-advanced-table__tr--depth-2 {
+  th {
+    .hds-advanced-table__th-content {
+      padding-left: 32px; 
+    }
+  }
+
+  th, td {
+    background-color: var(--token-color-surface-faint);
+  }
+}
+
+.hds-advanced-table__tr-expandable-group {
+  display: contents;
+}
+
+.hds-advanced-table__tr-expandable-group--hidden {
+  display: none;
+}
+
 .hds-table__tbody {
   .hds-table__tr {
     color: var(--token-color-foreground-primary);
@@ -181,7 +201,9 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     // striped rows
 
     .hds-table--striped &:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
+      th, td {
+        background-color: var(--token-color-surface-faint);
+      }
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row

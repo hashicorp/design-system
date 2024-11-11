@@ -1,59 +1,43 @@
 [
   {
     "id": 1,
-    "lorem": {
-      "value": "Scope Row with rowspan='3'",
-      "rowspan": 3
+    "name": "server name",
+    "service": "2 services",
+    "description": "",
+   "children": [
+    {
+      "id": 11,
+      "service": "blah blah",
+      "description": "Sample description for this thing."
     },
-    "ipsum": {"value": "Cell Content"},
-    "dolor":{"value": "Cell Content"},
-    "sit-amet": {"value": "Cell Content"}
-  }, {
-    "id": 2,
-    "ipsum": {
-      "value": "Cell Content with colspan='2'",
-      "colspan": 2
-    },
-    "sit-amet": {"value": "Cell Content"}
-  }, {
-    "id": 3,
-    "ipsum": {
-      "value": "Cell Content with colspan='3'",
-      "colspan": 3
+    {
+      "id": 12,
+      "service": "sample name",
+      "description": "Sample description for this thing."
     }
-  }, {
-    "id": 4,
-    "lorem": {
-      "value": "Scope Row with rowspan='2'",
-      "rowspan": 2
+   ]
+  },
+  {
+    "id": 2,
+    "name": "second server",
+    "service": "3 services",
+    "description": "",
+   "children": [
+    {
+      "id": 21,
+      "service": "test-advisory-pass.sentinel",
+      "description": "Sample description for this thing."
     },
-    "ipsum":{
-      "value": "Cell Content",
-      "rowspan": 3
+    {
+      "id": 22,
+      "service": "test-hard-mandatory-pass.sentinel",
+      "description": "Sample description for this thing."
     },
-    "dolor": {"value": "Cell Content"},
-    "sit-amet": {"value": "Cell Content"}
-  }, {
-    "id": 5,
-    "ipsum": {
-      "value": "Cell Content with colspan='2'",
-      "colspan": 2
-    },
-    "sit-amet": {"value": "Cell Content"}
-  }, {
-    "id": 6,
-    "lorem": {
-      "value": "Scope Row"
-    },
-    "ipsum": {"value": "Cell Content"},
-    "sit-amet": {"value": "Cell Content"}
-  }, {
-    "id": 7,
-    "lorem": {
-      "value": "Scope Row"
-    },
-    "ipsum": {"value": "Cell Content"},
-    "dolor": {"value": "Cell Content"},
-    "sit-amet": {"value": "Cell Content"}
+    {
+      "id": 23,
+      "service": "test-hard-mandatory-pass.sentinel",
+      "description": "Sample description for this thing."
+    }
+   ]
   }
 ]

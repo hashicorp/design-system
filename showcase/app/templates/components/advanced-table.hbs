@@ -43,38 +43,23 @@
 
   <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
 
-  {{! // maybe a separate object called template with the row/col spans?  }}
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
+    @hasNestedRows={{true}}
+    @hasExpandableRows={{false}}
     @columns={{array
-      (hash key="lorem" label="Lorem")
-      (hash key="ipsum" label="Ipsum")
-      (hash key="dolor" label="Dolor")
-      (hash key="sit-amet" label="Sit Amet")
+      (hash key="name" label="Name")
+      (hash key="service" label="Service")
+      (hash key="description" label="Description")
     }}
   >
     <:body as |B|>
       <B.Tr>
-        {{#if B.data.lorem}}
-          <B.Td @rowspan={{B.data.lorem.rowspan}} @colspan={{B.data.lorem.colspan}}>
-            {{B.data.lorem.value}}
-          </B.Td>
+        {{#if B.data.name}}
+          <B.Th @rowspan={{add B.data.children.length 1}}>{{B.data.name}}</B.Th>
         {{/if}}
-        {{#if B.data.ipsum}}
-          <B.Td @rowspan={{B.data.ipsum.rowspan}} @colspan={{B.data.ipsum.colspan}}>
-            {{B.data.ipsum.value}}
-          </B.Td>
-        {{/if}}
-        {{#if B.data.dolor}}
-          <B.Td @rowspan={{B.data.dolor.rowspan}} @colspan={{B.data.dolor.colspan}}>
-            {{B.data.dolor.value}}
-          </B.Td>
-        {{/if}}
-        {{#if B.data.sit-amet}}
-          <B.Td @rowspan={{B.data.sit-amet.rowspan}} @colspan={{B.data.sit-amet.colspan}}>
-            {{B.data.sit-amet.value}}
-          </B.Td>
-        {{/if}}
+        <B.Td>{{B.data.service}}</B.Td>
+        <B.Td>{{B.data.description}}</B.Td>
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
@@ -92,7 +77,7 @@
   >
     <:body as |B|>
       <B.Tr>
-        <B.Th @scope="row">
+        <B.Th>
           {{B.data.name}}
         </B.Th>
         <B.Td>

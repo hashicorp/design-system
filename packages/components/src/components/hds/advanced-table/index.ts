@@ -64,6 +64,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasNestedRows?: boolean;
+    hasExpandableRows?: boolean;
   };
   Blocks: {
     body?: [

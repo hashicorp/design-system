@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { HdsAdvancedTableThExpandIconValues } from './types.ts';
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
@@ -19,12 +18,12 @@ export interface HdsAdvancedTableThButtonExpandSignature {
 }
 
 export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvancedTableThButtonExpandSignature> {
-  @tracked isExpanded = false;
+  // @tracked isExpanded = false;
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = 'prefix-' + guidFor(this);
 
   get icon(): HdsAdvancedTableThSortExpandIcons {
-    if (this.isExpanded) {
+    if (this.args.isExpanded) {
       return HdsAdvancedTableThExpandIconValues.ChevronDown;
     } else {
       return HdsAdvancedTableThExpandIconValues.ChevronRight;
@@ -32,7 +31,10 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   }
 
   @action onClick() {
-    this.isExpanded = !this.isExpanded;
+    // this.isExpanded = !this.isExpanded;
+    if (this.args.onToggle) {
+      this.args.onToggle();
+    }
   }
 
   get classNames(): string {
@@ -42,7 +44,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     ];
 
     // add a class based on the isExpanded state
-    if (this.isExpanded) {
+    if (this.args.isExpanded) {
       classes.push(`hds-advanced-table__th-button--is-expanded`);
     }
 
