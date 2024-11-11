@@ -2222,7 +2222,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/language@npm:^6.0.0, @codemirror/language@npm:^6.10.3, @codemirror/language@npm:^6.6.0":
+"@codemirror/language@npm:^6.0.0, @codemirror/language@npm:^6.6.0":
+  version: 6.10.6
+  resolution: "@codemirror/language@npm:6.10.6"
+  dependencies:
+    "@codemirror/state": "npm:^6.0.0"
+    "@codemirror/view": "npm:^6.23.0"
+    "@lezer/common": "npm:^1.1.0"
+    "@lezer/highlight": "npm:^1.0.0"
+    "@lezer/lr": "npm:^1.0.0"
+    style-mod: "npm:^4.0.0"
+  checksum: 10/7fc7019ae1ed956b40dd4c6bacd96558d4f5477a072d4ae73eace5faddf0c898cfa3bb75c8881a28f6e683179086a576a25e6d6c619c67b1de2d1ceb88287212
+  languageName: node
+  linkType: hard
+
+"@codemirror/language@npm:^6.10.3":
   version: 6.10.8
   resolution: "@codemirror/language@npm:6.10.8"
   dependencies:
@@ -2245,16 +2259,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/state@npm:^6.0.0, @codemirror/state@npm:^6.4.0":
-  version: 6.5.1
-  resolution: "@codemirror/state@npm:6.5.1"
-  dependencies:
-    "@marijn/find-cluster-break": "npm:^1.0.0"
-  checksum: 10/117f21ba2ff5bc9f9b946ca9943279a29bb9461ec77fc2313cfd8908ed6eb7df2950d7c5b0ba0a0a23c3e0633c6bba56f8c105f97875665e0376a9e110d10a48
-  languageName: node
-  linkType: hard
-
-"@codemirror/state@npm:^6.5.0":
+"@codemirror/state@npm:^6.0.0, @codemirror/state@npm:^6.5.0":
   version: 6.5.0
   resolution: "@codemirror/state@npm:6.5.0"
   dependencies:
@@ -2263,7 +2268,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0, @codemirror/view@npm:^6.27.0, @codemirror/view@npm:^6.36.2":
+"@codemirror/state@npm:^6.4.0":
+  version: 6.5.1
+  resolution: "@codemirror/state@npm:6.5.1"
+  dependencies:
+    "@marijn/find-cluster-break": "npm:^1.0.0"
+  checksum: 10/117f21ba2ff5bc9f9b946ca9943279a29bb9461ec77fc2313cfd8908ed6eb7df2950d7c5b0ba0a0a23c3e0633c6bba56f8c105f97875665e0376a9e110d10a48
+  languageName: node
+  linkType: hard
+
+"@codemirror/view@npm:^6.17.0, @codemirror/view@npm:^6.23.0":
+  version: 6.35.3
+  resolution: "@codemirror/view@npm:6.35.3"
+  dependencies:
+    "@codemirror/state": "npm:^6.5.0"
+    style-mod: "npm:^4.1.0"
+    w3c-keyname: "npm:^2.2.4"
+  checksum: 10/d971df96cd8fa5336378b4780f986fcd73c0bf5c76bf8cc5f0212666ed582a1b55469808a455fac76afea339dfbae246acec96bed559527212ce4d1196cce578
+  languageName: node
+  linkType: hard
+
+"@codemirror/view@npm:^6.27.0, @codemirror/view@npm:^6.36.2":
   version: 6.36.2
   resolution: "@codemirror/view@npm:6.36.2"
   dependencies:
