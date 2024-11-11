@@ -20,8 +20,8 @@
           @date={{this.date}}
           @isoUtcStringInner={{this.isoUtcString}}
           @displayInner={{this.display}}
-          @register={{this.register}}
-          @unregister={{this.unregister}}
+          @register={{this.didInsertNode}}
+          @unregister={{this.willDestroyNode}}
           ...attributes
         />
       </Hds::TooltipButton>
@@ -30,8 +30,8 @@
         @date={{this.date}}
         @isoUtcStringInner={{this.isoUtcString}}
         @displayInner={{this.display}}
-        @register={{this.register}}
-        @unregister={{this.unregister}}
+        @register={{this.didInsertNode}}
+        @unregister={{this.willDestroyNode}}
         ...attributes
       />
     {{/if}}
