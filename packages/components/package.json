@@ -160,6 +160,7 @@
       "./components/hds/code-block/description.js": "./dist/_app_/components/hds/code-block/description.js",
       "./components/hds/code-block/index.js": "./dist/_app_/components/hds/code-block/index.js",
       "./components/hds/code-block/title.js": "./dist/_app_/components/hds/code-block/title.js",
+      "./components/hds/code-editor/index.js": "./dist/_app_/components/hds/code-editor/index.js",
       "./components/hds/copy/button/index.js": "./dist/_app_/components/hds/copy/button/index.js",
       "./components/hds/copy/snippet/index.js": "./dist/_app_/components/hds/copy/snippet/index.js",
       "./components/hds/dialog-primitive/body.js": "./dist/_app_/components/hds/dialog-primitive/body.js",
@@ -305,6 +306,7 @@
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
+      "./modifiers/hds-code-editor.js": "./dist/_app_/modifiers/hds-code-editor.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
