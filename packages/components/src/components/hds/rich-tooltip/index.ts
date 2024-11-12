@@ -32,9 +32,9 @@ export interface HdsRichTooltipSignature {
 }
 
 export default class HdsRichTooltip extends Component<HdsRichTooltipSignature> {
-  elementId: string = getElementId(this);
-  arrowId: string = `arrow-${this.elementId}`;
-  popoverId: string = `popover-${this.elementId}`;
+  private _elementId: string = getElementId(this);
+  private _arrowId: string = `arrow-${this._elementId}`;
+  private _popoverId: string = `popover-${this._elementId}`;
 
   get enableSoftEvents(): boolean {
     return this.args.enableClickEvents !== true;

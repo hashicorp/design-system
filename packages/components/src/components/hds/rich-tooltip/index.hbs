@@ -15,14 +15,14 @@
       (hash
         Toggle=(component
           "hds/rich-tooltip/toggle"
-          popoverId=this.popoverId
+          popoverId=this._popoverId
           setupPrimitiveToggle=PP.setupPrimitiveToggle
           isOpen=PP.isOpen
         )
         Bubble=(component
           "hds/rich-tooltip/bubble"
-          arrowId=this.arrowId
-          popoverId=this.popoverId
+          arrowId=this._arrowId
+          popoverId=this._popoverId
           setupPrimitivePopover=PP.setupPrimitivePopover
           isOpen=PP.isOpen
         )
