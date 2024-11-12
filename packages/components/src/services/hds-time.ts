@@ -1,8 +1,13 @@
 import Service from '@ember/service';
-import { task, timeout } from 'ember-concurrency';
+import { task, timeout, Yieldable } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
 import { DateTime } from 'luxon';
 import { isTesting } from '@embroider/macros';
+import type {
+  DisplayType,
+  DefaultDisplayType,
+  DisplayFormatType,
+} from './types.ts';
 
 const MILLISECOND_IN_MS = 1;
 const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
@@ -27,44 +32,48 @@ const DEFAULT_RELATIVE_THRESHOLDS = {
 };
 
 // returns 'Sep 5, 2018 (30 minutes ago)'
-const DISPLAY_KEY_FRIENDLY_RELATIVE = 'friendly-relative';
+const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
 
 // returns 'Sep 5, 2018, 4:07:32 pm'
-const DISPLAY_KEY_FRIENDLY_LOCAL = 'friendly-local';
+const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
 
 // returns 'Sep 5, 2018'
-const DISPLAY_KEY_FRIENDLY_ONLY = 'friendly-only';
+const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
 
 // returns 'about 2 hours ago'
-const DISPLAY_KEY_RELATIVE = 'relative';
+const DISPLAY_KEY_RELATIVE: string = 'relative';
 
 // returns '2018-09-05T23:15:17345Z'
-const DISPLAY_KEY_UTC = 'utc';
+const DISPLAY_KEY_UTC: string = 'utc';
 
-const FORMAT_PRECISION_SHORT_DATE = {
+const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
 };
-const FORMAT_PRECISION_MINUTE = {
+const FORMAT_PRECISION_MINUTE: DisplayFormatType = {
   ...FORMAT_PRECISION_SHORT_DATE,
   hour: 'numeric',
   minute: 'numeric',
 };
-const FORMAT_PRECISION_SECOND = {
+const FORMAT_PRECISION_SECOND: DisplayFormatType = {
   ...FORMAT_PRECISION_SHORT_DATE,
   hour: 'numeric',
   minute: 'numeric',
   second: 'numeric',
 };
-const DATE_DISPLAY_FORMATS = {
+const DATE_DISPLAY_FORMATS: {
+  [x: string]: DisplayFormatType;
+} = {
   [DISPLAY_KEY_FRIENDLY_LOCAL]: FORMAT_PRECISION_SECOND,
   [DISPLAY_KEY_FRIENDLY_ONLY]: FORMAT_PRECISION_SHORT_DATE,
 };
 
 const DEFAULT_DISPLAY = '';
 
-const DEFAULT_DISPLAY_MAPPING = {
+const DEFAULT_DISPLAY_MAPPING: {
+  [x: string]: DefaultDisplayType;
+} = {
   [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
     displayFormat: FORMAT_PRECISION_SHORT_DATE,
     showFriendly: true,
@@ -108,13 +117,18 @@ export const DISPLAYS = [
 ];
 
 export default class TimeService extends Service {
-  #listeners = new Set();
+  #listeners = new Set<Date>();
 
   @tracked now = Date.now();
 
-  format(difference, display = DEFAULT_DISPLAY) {
+  format(
+    difference: {
+      absValueInMs: number;
+      valueInMs: number;
+    },
+    display = DEFAULT_DISPLAY
+  ): DisplayType {
     let displayKey;
-
     // If the scale display is defined and valid then set that display.
     if (display && DISPLAY_SCALE.includes(display)) {
       displayKey = display;
@@ -132,7 +146,8 @@ export default class TimeService extends Service {
       }
     }
 
-    const options = DEFAULT_DISPLAY_MAPPING[displayKey];
+    const options: DefaultDisplayType | undefined =
+      DEFAULT_DISPLAY_MAPPING[displayKey];
 
     return {
       options,
@@ -142,7 +157,10 @@ export default class TimeService extends Service {
   }
 
   // Formats the value of a relative unit.
-  formatTimeRelativeUnit(value, unit) {
+  formatTimeRelativeUnit(
+    value: number,
+    unit: string
+  ): { value: number; unit: string } {
     return {
       value: Math.trunc(value),
       unit,
@@ -151,9 +169,14 @@ export default class TimeService extends Service {
 
   // Selects an appropriate display format for the difference.
   selectTimeRelativeUnit(
-    { absValueInMs, valueInMs },
-    thresholds = DEFAULT_RELATIVE_THRESHOLDS
-  ) {
+    { absValueInMs, valueInMs }: { absValueInMs: number; valueInMs: number },
+    thresholds: {
+      second: number;
+      minute: number;
+      hour: number;
+      day: number;
+    } = DEFAULT_RELATIVE_THRESHOLDS
+  ): { value: number; unit: string } {
     if (absValueInMs < thresholds[RELATIVE_UNIT_SECOND]) {
       return this.formatTimeRelativeUnit(
         valueInMs / SECOND_IN_MS,
@@ -189,7 +212,10 @@ export default class TimeService extends Service {
   }
 
   // Gets the currently subscribed listeners.
-  timeDifference(startDate, endDate) {
+  timeDifference(
+    startDate: number,
+    endDate: Date
+  ): { absValueInMs: number; valueInMs: number } {
     const valueInMs = Number(endDate) - Number(startDate);
     return {
       absValueInMs: Math.abs(valueInMs),
@@ -197,33 +223,23 @@ export default class TimeService extends Service {
     };
   }
 
-  /**
-   * Subscribes a listener to the ticking task for time changes.
-   * @param {Date} id - The difference to select a unit.
-   * @returns {TimeRelativeUnit} A unit and value for relative difference.
-   */
-  register(id) {
+  // Subscribes a listener to the ticking task for time changes.
+  register(id: Date): () => void {
     this.#listeners.add(id);
+    // @ts-expect-error - TS2339: Property 'perform' does not exist on type '() => Generator<Yieldable<void>, void, unknown>'.
     this.start.perform();
-    return () => {
+    return (): void => {
       this.unregister(id);
     };
   }
 
-  /**
-   * Unregisters listener for the time task.
-   * @param {any} id - The id used at time of registration.
-   * @returns {boolean} Returns true if value was already in Set; otherwise false.
-   */
-  unregister(id) {
-    if (id) {
-      return this.#listeners.delete(id);
-    }
-    return undefined;
+  // Unregisters listener for the time task.
+  unregister(id: Date): boolean {
+    return this.#listeners.delete(id);
   }
 
   @task({ drop: true })
-  *start() {
+  *start(): Generator<Yieldable<void>, void, unknown> {
     while (this.listeners.size) {
       this.now = Date.now();
       // When testing and canceling a EC task, a timer will never resolve and
@@ -235,13 +251,8 @@ export default class TimeService extends Service {
     }
   }
 
-  /**
-   * Transforms a JS date to a string representing the UTC ISO date.
-   * @param {Date} date - A JS Date.
-   * @returns {string} An ISO date representing the UTC time of the JS date.
-   */
-  // TODO: Need to use try catch here
-  toIsoUtcString(date) {
+  // Transforms a JS date to a string representing the UTC ISO date.
+  toIsoUtcString(date: Date): string | undefined {
     try {
       return DateTime.fromJSDate(date).toUTC().toJSDate().toISOString();
     } catch (error) {
@@ -249,11 +260,8 @@ export default class TimeService extends Service {
     }
   }
 
-  /**
-   * Gets the currently subscribed listeners.
-   * @returns {Set} The listeners that are currently subscribed.
-   */
-  get listeners() {
+  // Gets the currently subscribed listeners.
+  get listeners(): Set<Date> {
     return this.#listeners;
   }
 }
