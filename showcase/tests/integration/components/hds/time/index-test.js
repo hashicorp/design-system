@@ -68,7 +68,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.defaultDate}} @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
+    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
     // test tooltip content
     assert.dom('.tippy-content').hasText(this.defaultDate.toISOString());
   });
@@ -78,7 +78,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
+    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
     // test tooltip content
     assert
       .dom('.tippy-content')
@@ -93,7 +93,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.friendlyLocalDate}} @display="friendly-local" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
+    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
     // test tooltip content
     assert.dom('.tippy-content').hasText(this.friendlyLocalDate.toISOString());
   });
@@ -103,7 +103,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @display="friendly-local" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM');
+    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
     // test tooltip content
     assert
       .dom('.tippy-content')
