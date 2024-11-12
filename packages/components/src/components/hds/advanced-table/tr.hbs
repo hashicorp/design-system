@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<tr class="hds-advanced-table__tr hds-advanced-table__tr--depth-{{@depth}}" role="row" ...attributes id={{this.rowId}}>
+<tr class={{this.classNames}} role="row" ...attributes id={{this.rowId}}>
   {{#if @isSelectable}}
     <Hds::AdvancedTable::ThSelectable
       @isSelected={{@isSelected}}

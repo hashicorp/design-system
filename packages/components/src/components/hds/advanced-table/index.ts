@@ -65,6 +65,7 @@ export interface HdsAdvancedTableSignature {
     valign?: HdsAdvancedTableVerticalAlignment;
     hasNestedRows?: boolean;
     hasExpandableRows?: boolean;
+    hasStickyHeader?: boolean;
   };
   Blocks: {
     body?: [
@@ -106,6 +107,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this.sortBy}:${this.sortOrder}`;
     }
+  }
+
+  get columnWidths(): string[] | undefined {
+    const { columns } = this.args;
+    const widths: string[] = new Array(columns.length);
+    let hasCustomColumnWidth = false;
+
+    for (let i = 0; i < columns.length; i++) {
+      const column = columns[i];
+
+      if (column?.['width']) {
+        widths[i] = column.width;
+        if (!hasCustomColumnWidth) hasCustomColumnWidth = true;
+      }
+    }
+
+    return hasCustomColumnWidth ? widths : undefined;
   }
 
   get identityKey(): string | undefined {
@@ -159,19 +177,29 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get gridColumns(): SafeString {
+    let style = 'grid-template-columns: ';
+
     if (this.args.isSelectable) {
-      let style = 'grid-template-columns: auto';
+      style = `${style} auto`;
 
-      for (let i = 0; i < this.args.columns.length; i++) {
-        style = `${style} 1fr`;
+      if (!this.columnWidths) {
+        for (let i = 0; i < this.args.columns.length; i++) {
+          style = `${style} 1fr`;
+        }
       }
-
-      return htmlSafe(style);
     }
 
-    return htmlSafe(
-      `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`
-    );
+    if (this.columnWidths) {
+      for (let i = 0; i < this.columnWidths.length; i++) {
+        style = `${style} ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
+      }
+    }
+
+    if (!this.args.isSelectable && !this.columnWidths) {
+      style = `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`;
+    }
+
+    return htmlSafe(style);
   }
 
   get classNames(): string {

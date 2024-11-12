@@ -72,4 +72,14 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     }
     return undefined;
   }
+
+  get classNames(): string {
+    const classes = ['hds-advanced-table__tr'];
+
+    if (this.args.depth) {
+      classes.push(`hds-advanced-table__tr--depth-${this.args.depth}`);
+    }
+
+    return classes.join(' ');
+  }
 }

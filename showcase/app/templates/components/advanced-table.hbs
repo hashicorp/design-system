@@ -90,4 +90,33 @@
     </:body>
   </Hds::AdvancedTable>
 
+  <Shw::Text::H2>With many rows and custom row width</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+    @model={{this.model.userData}}
+    @columns={{array
+      (hash key="id" label="ID" width="auto")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+    @hasStickyHeader={{true}}
+    @isStriped={{true}}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
 </section>

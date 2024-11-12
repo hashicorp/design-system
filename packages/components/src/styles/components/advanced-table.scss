@@ -39,6 +39,11 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
   
+  &.hds-advanced-table__thead--sticky {
+    position: sticky;
+    top: 0; 
+  }
+
   .hds-advanced-table__tr {
     display: contents;
     // color: var(--token-color-foreground-strong);
@@ -104,6 +109,20 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
       .hds-advanced-table__th:last-child {
         border-top-right-radius: $hds-advanced-table-inner-border-radius;
+      }
+    }
+  }
+
+  &.hds-advanced-table__thead--sticky {
+    tr {
+      &:first-of-type {
+        .hds-advanced-table__th:first-child {
+          border-top-left-radius: 0;
+        }
+  
+        .hds-advanced-table__th:last-child {
+          border-top-right-radius: 0;
+        }
       }
     }
   }
@@ -188,12 +207,14 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__tr {
     display: contents;
     color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-primary);
+    
 
     // striped rows
 
     .hds-advanced-table--striped &:nth-child(even) {
-      background-color: var(--token-color-surface-faint);
+      td, th {
+        background-color: var(--token-color-surface-faint);
+      }
     }
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
@@ -221,6 +242,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 align-content: center;
 height: 100%;
     text-align: left;
+    background-color: var(--token-color-surface-primary);
     border-top: none;
     border-right: none;
     border-bottom: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
@@ -282,6 +304,26 @@ height: 100%;
       vertical-align: baseline;
     }
   }
+}
+
+.hds-advanced-table__tr--depth-2 {
+  .hds-advanced-table__th {
+    .hds-advanced-table__th-content {
+      padding-left: 32px; 
+    }
+  }
+
+  .hds-advanced-table__th, .hds-advanced-table__td {
+    background-color: var(--token-color-surface-faint);
+  }
+}
+
+.hds-advanced-table__tr-expandable-group {
+  display: contents;
+}
+
+.hds-advanced-table__tr-expandable-group--hidden {
+  display: none;
 }
 
 

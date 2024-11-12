@@ -6,7 +6,7 @@
 <table class={{this.classNames}} ...attributes role="grid" style={{this.gridColumns}}>
   <caption class="sr-only" aria-live="polite" role="caption">{{@caption}} {{this.sortedMessageText}}</caption>
 
-  <thead class="hds-advanced-table__thead" role="rowgroup">
+  <thead class="hds-advanced-table__thead {{if @hasStickyHeader 'hds-advanced-table__thead--sticky'}}" role="rowgroup">
     <Hds::AdvancedTable::Tr
       @selectionScope="col"
       @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
