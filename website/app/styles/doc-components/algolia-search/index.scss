@@ -11,6 +11,7 @@
 
 // "autocomplete" target container - not used
 .doc-algolia-search__autocomplete-container {
+  // we assign it a position absolute to remove it from the layout flow, so the `gap` property of the parent flex container doesn't get applied to this as well
   position: absolute;
 }
 
