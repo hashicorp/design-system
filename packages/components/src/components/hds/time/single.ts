@@ -4,7 +4,7 @@
  */
 
 import templateOnlyComponent from '@ember/component/template-only';
-import type { DisplayType } from './types.ts';
+import type { DisplayType } from '../../../services/hds-time-types.ts';
 
 export interface HdsTimeSingleSignature {
   Args: {
