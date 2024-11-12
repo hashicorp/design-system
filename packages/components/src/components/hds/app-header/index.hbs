@@ -22,7 +22,7 @@
 
   {{yield to="logo"}}
 
-  {{#if (not this.isDesktop)}}
+  {{#if (not this._isDesktop)}}
     <Hds::AppHeader::MenuButton
       @onClickToggle={{this.onClickToggle}}
       @isOpen={{this._isOpen}}
