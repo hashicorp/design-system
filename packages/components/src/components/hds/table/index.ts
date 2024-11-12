@@ -78,6 +78,7 @@ export interface HdsTableSignature {
         Tr?: ComponentLike<HdsTableTrSignature>;
         Th?: ComponentLike<HdsTableThSignature>;
         data?: Record<string, unknown>;
+        rowIndex?: number;
         sortBy?: string;
         sortOrder?: HdsTableThSortOrder;
       },
