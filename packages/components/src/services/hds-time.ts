@@ -1,8 +1,9 @@
 import Service from '@ember/service';
-import { task, timeout, Yieldable } from 'ember-concurrency';
+import { task, timeout } from 'ember-concurrency';
 import { tracked } from '@glimmer/tracking';
 import { DateTime } from 'luxon';
 import { isTesting } from '@embroider/macros';
+import type { TaskGenerator } from 'ember-concurrency';
 import type {
   DisplayType,
   DefaultDisplayType,
@@ -226,7 +227,8 @@ export default class TimeService extends Service {
   // Subscribes a listener to the ticking task for time changes.
   register(id: Date): () => void {
     this.#listeners.add(id);
-    // @ts-expect-error - TS2339: Property 'perform' does not exist on type '() => Generator<Yieldable<void>, void, unknown>'.
+    // @ts-expect-error - TS2339: Property 'perform' does not exist on type '() => TaskGenerator<string | undefined>'
+    // note: we could potentially use taskFor via `ember-concurrency-ts` to avoid this exception
     this.start.perform();
     return (): void => {
       this.unregister(id);
@@ -239,7 +241,7 @@ export default class TimeService extends Service {
   }
 
   @task({ drop: true })
-  *start(): Generator<Yieldable<void>, void, unknown> {
+  *start(): TaskGenerator<string | undefined> {
     while (this.listeners.size) {
       this.now = Date.now();
       // When testing and canceling a EC task, a timer will never resolve and
