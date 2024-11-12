@@ -61,7 +61,11 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   addEventListeners(): void {
     document.addEventListener('keydown', this.escapePress, true);
-    this._desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+    this._desktopMQ.addEventListener(
+      'change',
+      this.updateDesktopVariable,
+      true
+    );
 
     // set initial state based on viewport using a "synthetic" event
     const syntheticEvent = new MediaQueryListEvent('change', {

@@ -32,9 +32,9 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   private _desktopMQ: MediaQueryList;
   private _containersToHide!: NodeListOf<Element>;
 
-  private _desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
-    '--hds-app-desktop-breakpoint'
-  );
+  private _desktopMQVal = getComputedStyle(
+    document.documentElement
+  ).getPropertyValue('--hds-app-desktop-breakpoint');
 
   constructor(owner: unknown, args: HdsAppSideNavSignature['Args']) {
     super(owner, args);
@@ -48,7 +48,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   addEventListeners(): void {
     document.addEventListener('keydown', this.escapePress, true);
-    this._desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+    this._desktopMQ.addEventListener(
+      'change',
+      this.updateDesktopVariable,
+      true
+    );
     // if not instantiated as minimized via arguments
     if (!this.args.isMinimized) {
       // set initial state based on viewport using a "synthetic" event
@@ -137,7 +141,10 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
           this._body.removeAttribute('style');
         }
       } else {
-        this._body.style.setProperty('overflow', this._bodyInitialOverflowValue);
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
       }
     }
   }
