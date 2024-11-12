@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { typeOf } from '@ember/utils';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
-import type { DisplayType, DefaultDisplayType } from './types.ts';
+import type { DisplayType } from './types.ts';
 
 import type TimeService from '../../../services/hds-time';
 
@@ -20,7 +20,7 @@ export interface HdsTimeSignature {
     isOpen?: boolean;
     hasTooltip?: boolean;
     displayInner: DisplayType;
-    isoUtcStringInner: string;
+    isoUtcStringInner: string | undefined;
     didInsertNode: () => void;
     willDestroyNode: () => void;
   };
@@ -45,8 +45,9 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   @action
   willDestroyNode(): void {
     const date = this.date;
-
-    this.hdsTime.unregister(date);
+    if (dateIsValid(date)) {
+      this.hdsTime.unregister(date);
+    }
   }
 
   get date(): Date | undefined {
@@ -92,7 +93,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return this.args.hasTooltip ?? true;
   }
 
-  get isoUtcString(): string {
+  get isoUtcString(): string | undefined {
     const date = this.date;
 
     if (dateIsValid(date)) {
@@ -111,11 +112,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return '';
   }
 
-  get display(): {
-    options: DefaultDisplayType | undefined;
-    difference: { absValueInMs: number; valueInMs: number };
-    relative: { value: number; unit: string };
-  } {
+  get display(): DisplayType {
     const date = this.date;
     const { display } = this.args;
     if (dateIsValid(date)) {

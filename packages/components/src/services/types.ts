@@ -2,6 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
+
 export type DefaultDisplayType = {
   displayFormat: DisplayFormatType | null | undefined;
   showFriendly: boolean;

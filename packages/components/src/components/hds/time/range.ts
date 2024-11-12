@@ -18,11 +18,11 @@ export interface HdsTimeRangeSignature {
 export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
   @service declare readonly hdsTime: TimeService;
 
-  get startDateIsoUtcString(): string {
+  get startDateIsoUtcString(): string | undefined {
     return this.hdsTime.toIsoUtcString(this.args.startDate as Date);
   }
 
-  get endDateIsoUtcString(): string {
+  get endDateIsoUtcString(): string | undefined {
     return this.hdsTime.toIsoUtcString(this.args.endDate as Date);
   }
 
