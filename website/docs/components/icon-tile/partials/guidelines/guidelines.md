@@ -6,7 +6,6 @@ To represent an object or as part of a page title.
 
 ### When not to use
 
-- Within a paragraph where an object is referred to.
 - When an interactive or clickable element is needed. Use a [Button](https://helios.hashicorp.design/components/button) instead.
 
 ## Color
