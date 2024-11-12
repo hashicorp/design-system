@@ -62,6 +62,7 @@ const FORMAT_PRECISION_SECOND: DisplayFormatType = {
   hour: 'numeric',
   minute: 'numeric',
   second: 'numeric',
+  timeZoneName: 'short',
 };
 const DATE_DISPLAY_FORMATS: {
   [x: string]: DisplayFormatType;

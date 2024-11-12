@@ -17,6 +17,7 @@ export type DisplayFormatType = {
   hour?: string;
   minute?: string;
   second?: string;
+  timeZoneName?: string;
 };
 
 export type DisplayType = {
