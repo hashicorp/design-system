@@ -8,7 +8,7 @@ import type {
   DisplayType,
   DefaultDisplayType,
   DisplayFormatType,
-} from './types.ts';
+} from './hds-time-types.ts';
 
 const MILLISECOND_IN_MS = 1;
 const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
