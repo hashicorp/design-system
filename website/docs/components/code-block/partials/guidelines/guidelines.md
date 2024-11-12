@@ -77,7 +77,7 @@ Use line highlighting to target and call attention to specific lines or multiple
 
 !!! Info
 
-In the Ember component, lines can be highlighted by passing a single line number, multiple line numbers, or a range of lines. For more examples refer to the [How to use](/?tab=code#highlightlines) documentation. 
+In the Ember component, lines can be highlighted by passing a single line number, multiple line numbers, or a range of lines. For more examples refer to the [How to use](/?tab=code#highlightlines) documentation.
 
 In the Figma component, line highlighting (`highlightLines`) is a boolean property that displays a _representative_ example of what a highlighted line will look like visually and is not a property that can be controlled by the consumer. Instead, lines that are intended to be highlighted should be communicated in the engineering handoff or annotated in the design file.
 !!!
@@ -91,6 +91,8 @@ The **Ember** component uses [Prism.js](https://prismjs.com/index.html) to handl
 In **Figma** we provide a handful of example languages that are intended to be _representative_ of the end result in production. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. Despite this, creating a custom code snippet with the Code Block is supported by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
 ### Applying syntax highlighting
+
+<!-- @jory relink -->
 
 If you wish to create custom examples using the Code Block, we publish all of the relevant syntax highlighting styles in the HDS [Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&mode=design&t=Pfj7CheLS6cR0hKa-1) library. However, due to the number of languages supported by the component, the color styles use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 

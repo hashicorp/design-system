@@ -14,6 +14,8 @@
 
 The Inline Link is only published as a component in Ember, there is no corresponding Figma component. To achieve the same results:
 
+<!-- @jory relink -->
+
 1. Apply a **text** and **color** style to a block of text from the [Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=2130%3A2&t=6XBReWOxMRTiW1Iv-1) under **Text styles** > `Body` or `Code`.
 2. Select the word or phrase that is intended to be a link and apply either the `Primary` or `Secondary` color from `Components / Link inline / Foreground`.
 3. Change the text decoration of the intended link to "Underline".

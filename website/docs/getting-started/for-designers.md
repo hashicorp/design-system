@@ -5,7 +5,6 @@ navigation:
   label: For designers
 ---
 
-
 !!! Info
 
 Many resources and links on this page are only available to HashiCorp employees.
@@ -19,26 +18,28 @@ For documentation around broader Figma best practices within HashiCorp design te
 
 1. Open the Library modal via one of the following methods:
 
-    - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
+   - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
 
-    ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
+   ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x\*)
 
-    - Click the `Figma` icon in the top toolbar, then click "Libraries".
+   - Click the `Figma` icon in the top toolbar, then click "Libraries".
 
-    ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
+   ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x\*)
 
-    - Or use the keyboard shortcut:
+   - Or use the keyboard shortcut:
 
-        - Mac: `⌥ option`+`3`
-        - Windows: `alt`+`3`
+     - Mac: `⌥ option`+`3`
+     - Windows: `alt`+`3`
+
+<!-- @jory relink -->
 
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and toggling on the following:
 
-    - [HDS - Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1)
-    - [HDS - Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1)
-    - [Flight Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1)
+   - [HDS - Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1)
+   - [HDS - Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1)
+   - [Flight Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1)
 
-    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
+   ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
 
 !!! Info
 
@@ -48,6 +49,8 @@ If you are not a member of the HDS Design System UI Kit team, you will need to l
 Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
 
 ## Foundational styles
+
+<!-- @jory relink -->
 
 Styles, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4&t=5MKbTaM2QzE0F5KA-1).
 
@@ -61,7 +64,7 @@ Because the usage of Helios Foundations reinforces consistency across the produc
 
 3. Select the style you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
 
-![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png =784x*)
+![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png =784x\*)
 
 To learn more about how to use the foundational styles, visit:
 
@@ -102,23 +105,27 @@ Add Helios components to your design project by inserting them directly from the
 
 2. Scroll through the list or use the search feature to locate the component you’d like to use.
 
-    - Figma’s search feature returns results based on the component’s name, category, and description.
+   - Figma’s search feature returns results based on the component’s name, category, and description.
 
 3. Click and drag the component into the canvas or frame.
 
 4. Configure the component properties as necessary in the right sidebar.
 
-![Inserting components from the assets panel](/assets/getting-started/designers/component-assets-panel.png =895x*)
+![Inserting components from the assets panel](/assets/getting-started/designers/component-assets-panel.png =895x\*)
 
 #### Inserting from the resources menu
 
 Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar to expose a list of recently used components, plugins, and widgets enabled in your project. Use this method to access your more commonly or recently used components quickly.
 
-![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x*)
+![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x\*)
 
 #### Copying from the stickersheet
 
+<!-- @jory relink -->
+
 If you prefer to select a component visually, the [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) library has a stickersheet for each component displaying the available variants and properties. Just like when using the direct inserts, this method maintains the link to the main component in the library, which means it will receive updates as they become available.
+
+<!-- @jory relink -->
 
 1. Open the [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) library.
 
@@ -128,7 +135,7 @@ If you prefer to select a component visually, the [Product Components](https://w
 
 4. Navigate back to your project file and paste the component wherever needed.
 
-![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png =752x*)
+![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png =752x\*)
 
 ### Working with components
 
@@ -163,7 +170,7 @@ Setting a component to a fixed width in Figma is the same as setting a `width` v
 
 Components and patterns unique to your product should be designed and built locally, extending Helios components and foundations.
 
-![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x*)
+![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x\*)
 
 When creating local components for your product, it’s helpful to separate them from your main project files and house them in their own Figma library file. Using a dedicated library creates a consistent location for your product’s local components so that other designers on your team can access and use them.
 
@@ -176,7 +183,11 @@ Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design
 
 ### Helios Figma libraries
 
+<!-- @jory relink -->
+
 HashiCorp product teams can use the Helios libraries published under the [HDS Design System UI Kit](https://www.figma.com/files/team/1030156573400567478) team within Figma.
+
+<!-- @jory relink -->
 
 - [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the Helios Design System
 - [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
@@ -196,7 +207,7 @@ We don’t recommend tying core design functionality to third-party plugins beca
 
 The [Figma community](https://www.figma.com/community) contains other useful resources for documenting your designs, wireframing, and collaborating with your team. Access Figma's community by clicking the organization switcher in the dashboard and selecting "Community" or by clicking "Explore Community" in the toolbar.
 
-![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png =804x*)
+![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png =804x\*)
 
 ### Figma documentation
 
