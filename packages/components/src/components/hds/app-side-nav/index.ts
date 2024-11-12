@@ -23,23 +23,23 @@ export interface HdsAppSideNavSignature {
 }
 
 export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
-  @tracked isMinimized;
-  @tracked isAnimating = false;
-  @tracked isDesktop = true;
+  @tracked private _isMinimized;
+  @tracked private _isAnimating = false;
+  @tracked private _isDesktop = true;
 
-  body!: HTMLElement;
-  bodyInitialOverflowValue = '';
-  desktopMQ: MediaQueryList;
-  containersToHide!: NodeListOf<Element>;
+  private _body!: HTMLElement;
+  private _bodyInitialOverflowValue = '';
+  private _desktopMQ: MediaQueryList;
+  private _containersToHide!: NodeListOf<Element>;
 
-  desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
+  private _desktopMQVal = getComputedStyle(document.documentElement).getPropertyValue(
     '--hds-app-desktop-breakpoint'
   );
 
   constructor(owner: unknown, args: HdsAppSideNavSignature['Args']) {
     super(owner, args);
-    this.isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
-    this.desktopMQ = window.matchMedia(`(min-width:${this.desktopMQVal})`);
+    this._isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
+    this._desktopMQ = window.matchMedia(`(min-width:${this._desktopMQVal})`);
     this.addEventListeners();
     registerDestructor(this, (): void => {
       this.removeEventListeners();
@@ -48,13 +48,13 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   addEventListeners(): void {
     document.addEventListener('keydown', this.escapePress, true);
-    this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+    this._desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
     // if not instantiated as minimized via arguments
     if (!this.args.isMinimized) {
       // set initial state based on viewport using a "synthetic" event
       const syntheticEvent = new MediaQueryListEvent('change', {
-        matches: this.desktopMQ.matches,
-        media: this.desktopMQ.media,
+        matches: this._desktopMQ.matches,
+        media: this._desktopMQ.media,
       });
       this.updateDesktopVariable(syntheticEvent);
     }
@@ -62,7 +62,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   removeEventListeners(): void {
     document.removeEventListener('keydown', this.escapePress, true);
-    this.desktopMQ.removeEventListener(
+    this._desktopMQ.removeEventListener(
       'change',
       this.updateDesktopVariable,
       true
@@ -80,11 +80,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   get shouldTrapFocus(): boolean {
-    return this.isResponsive && !this.isDesktop && !this.isMinimized;
+    return this.isResponsive && !this._isDesktop && !this._isMinimized;
   }
 
   get showToggleButton(): boolean {
-    return (this.isResponsive && !this.isDesktop) || this.isCollapsible;
+    return (this.isResponsive && !this._isDesktop) || this.isCollapsible;
   }
 
   get classNames(): string {
@@ -94,17 +94,17 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     if (this.isResponsive) {
       classes.push('hds-app-side-nav--is-responsive');
     }
-    if (!this.isDesktop && this.isResponsive) {
+    if (!this._isDesktop && this.isResponsive) {
       classes.push('hds-app-side-nav--is-mobile');
     } else {
       classes.push('hds-app-side-nav--is-desktop');
     }
-    if (this.isMinimized && this.isResponsive) {
+    if (this._isMinimized && this.isResponsive) {
       classes.push('hds-app-side-nav--is-minimized');
     } else {
       classes.push('hds-app-side-nav--is-not-minimized');
     }
-    if (this.isAnimating) {
+    if (this._isAnimating) {
       classes.push('hds-app-side-nav--is-animating');
     }
 
@@ -112,8 +112,8 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   synchronizeInert(): void {
-    this.containersToHide?.forEach((element): void => {
-      if (this.isMinimized) {
+    this._containersToHide?.forEach((element): void => {
+      if (this._isMinimized) {
         element.setAttribute('inert', '');
       } else {
         element.removeAttribute('inert');
@@ -122,46 +122,46 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   lockBodyScroll(): void {
-    if (this.body) {
+    if (this._body) {
       // Prevent page from scrolling when the dialog is open
-      this.body.style.setProperty('overflow', 'hidden');
+      this._body.style.setProperty('overflow', 'hidden');
     }
   }
 
   unlockBodyScroll(): void {
     // Reset page `overflow` property
-    if (this.body) {
-      this.body.style.removeProperty('overflow');
-      if (this.bodyInitialOverflowValue === '') {
-        if (this.body.style.length === 0) {
-          this.body.removeAttribute('style');
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
         }
       } else {
-        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+        this._body.style.setProperty('overflow', this._bodyInitialOverflowValue);
       }
     }
   }
 
   @action
   escapePress(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && !this.isMinimized && !this.isDesktop) {
-      this.isMinimized = true;
+    if (event.key === 'Escape' && !this._isMinimized && !this._isDesktop) {
+      this._isMinimized = true;
       this.synchronizeInert();
     }
   }
 
   @action
   toggleMinimizedStatus(): void {
-    this.isMinimized = !this.isMinimized;
+    this._isMinimized = !this._isMinimized;
     this.synchronizeInert();
 
     const { onToggleMinimizedStatus } = this.args;
 
     if (typeof onToggleMinimizedStatus === 'function') {
-      onToggleMinimizedStatus(this.isMinimized);
+      onToggleMinimizedStatus(this._isMinimized);
     }
 
-    if (this.isMinimized) {
+    if (this._isMinimized) {
       this.unlockBodyScroll();
     } else {
       this.lockBodyScroll();
@@ -170,13 +170,13 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
 
   @action
   didInsert(element: HTMLElement): void {
-    this.containersToHide = element.querySelectorAll(
+    this._containersToHide = element.querySelectorAll(
       '.hds-app-side-nav-hide-when-minimized'
     );
-    this.body = document.body;
+    this._body = document.body;
     // Store the initial `overflow` value of `<body>` so we can reset to it
-    this.bodyInitialOverflowValue =
-      this.body.style.getPropertyValue('overflow');
+    this._bodyInitialOverflowValue =
+      this._body.style.getPropertyValue('overflow');
   }
 
   @action
@@ -186,25 +186,25 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       return;
     }
     if (phase === 'start') {
-      this.isAnimating = true;
+      this._isAnimating = true;
     } else {
-      this.isAnimating = false;
+      this._isAnimating = false;
     }
   }
 
   @action
   updateDesktopVariable(event: MediaQueryListEvent): void {
-    this.isDesktop = event.matches;
+    this._isDesktop = event.matches;
 
     // automatically minimize on narrow viewports (when not in desktop mode)
-    this.isMinimized = !this.isDesktop;
+    this._isMinimized = !this._isDesktop;
 
     this.synchronizeInert();
 
     const { onDesktopViewportChange } = this.args;
 
     if (typeof onDesktopViewportChange === 'function') {
-      onDesktopViewportChange(this.isDesktop);
+      onDesktopViewportChange(this._isDesktop);
     }
   }
 }

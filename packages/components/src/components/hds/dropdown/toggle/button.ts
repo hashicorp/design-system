@@ -48,9 +48,9 @@ export default class HdsDropdownToggleButton extends Component<HdsDropdownToggle
   /**
    * Generates a unique ID for the button
    *
-   * @param toggleButtonId
+   * @param _toggleButtonId
    */
-  toggleButtonId = 'toggle-button-' + guidFor(this);
+  private _toggleButtonId = 'toggle-button-' + guidFor(this);
 
   /**
    * @param text

@@ -60,14 +60,14 @@ export default class HdsAccordionItem extends Component<HdsAccordionItemSignatur
   /**
    * Generates a unique ID for the Content
    *
-   * @param contentId
+   * @param _contentId
    */
-  contentId = 'content-' + guidFor(this);
-  titleId = 'title-' + guidFor(this);
+  private _contentId = 'content-' + guidFor(this);
+  private _titleId = 'title-' + guidFor(this);
 
   get ariaLabelledBy(): string | undefined {
     if (!this.args.ariaLabel) {
-      return this.titleId;
+      return this._titleId;
     }
     return undefined;
   }

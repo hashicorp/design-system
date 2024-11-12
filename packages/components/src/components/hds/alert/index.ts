@@ -62,8 +62,8 @@ export interface HdsAlertSignature {
 }
 
 export default class HdsAlert extends Component<HdsAlertSignature> {
-  @tracked role?: string;
-  @tracked ariaLabelledBy?: string;
+  @tracked private _role?: string;
+  @tracked private _ariaLabelledBy?: string;
 
   constructor(owner: unknown, args: HdsAlertSignature['Args']) {
     super(owner, args);
@@ -162,9 +162,9 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
       this.color === 'success';
 
     if (isSemanticAlert && actions.length) {
-      this.role = 'alertdialog';
+      this._role = 'alertdialog';
     } else if (isSemanticAlert) {
-      this.role = 'alert';
+      this._role = 'alert';
     }
 
     // `alertdialog` must have an accessible name so we use either the
@@ -175,7 +175,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
     if (label) {
       const labelId = label.getAttribute('id') || guidFor(element);
       label.setAttribute('id', labelId);
-      this.ariaLabelledBy = labelId;
+      this._ariaLabelledBy = labelId;
     }
   }
 }

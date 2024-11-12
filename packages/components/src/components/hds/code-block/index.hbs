@@ -15,14 +15,14 @@
       {{style maxHeight=@maxHeight}}
       data-line={{@highlightLines}}
       data-start={{@lineNumberStart}}
-      id={{this.preCodeId}}
+      id={{this._preCodeId}}
       tabindex="0"
     ><code {{did-insert this.setPrismCode}} {{did-update this.setPrismCode this.code @language}}>
-        {{~this.prismCode~}}
+        {{~this._prismCode~}}
       </code></pre>
 
     {{#if @hasCopyButton}}
-      <Hds::CodeBlock::CopyButton @targetToCopy="#{{this.preCodeId}}" aria-describedby={{this.preCodeId}} />
+      <Hds::CodeBlock::CopyButton @targetToCopy="#{{this._preCodeId}}" aria-describedby={{this._preCodeId}} />
     {{/if}}
   </div>
 </div>

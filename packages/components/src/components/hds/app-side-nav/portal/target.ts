@@ -37,27 +37,27 @@ interface HdsAppSideNavPortalTargetSignature {
 export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPortalTargetSignature> {
   @service router!: Services['router'];
 
-  @tracked numSubnavs = 0;
-  @tracked lastPanelEl: Element | undefined;
+  @tracked private _numSubnavs = 0;
+  @tracked private _lastPanelEl: Element | undefined;
 
   static get prefersReducedMotionOverride(): boolean {
     return macroCondition(isTesting()) ? true : false;
   }
 
-  prefersReducedMotionMQ = window.matchMedia(
+  private _prefersReducedMotionMQ = window.matchMedia(
     '(prefers-reduced-motion: reduce)'
   );
 
   get prefersReducedMotion(): boolean {
     return (
       HdsAppSideNavPortalTarget.prefersReducedMotionOverride ||
-      (this.prefersReducedMotionMQ && this.prefersReducedMotionMQ.matches)
+      (this._prefersReducedMotionMQ && this._prefersReducedMotionMQ.matches)
     );
   }
 
   @action
   panelsChanged(portalCount: number): void {
-    this.numSubnavs = portalCount;
+    this._numSubnavs = portalCount;
   }
 
   @action
@@ -173,15 +173,15 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
       nextPanelEl.style.setProperty('visibility', 'visible');
       // this eliminates a flicker if there's only one subnav rendering or if we
       // already just rendered this panel.
-      if (this.lastPanelEl) {
-        if (activeIndex === 0 || nextPanelEl.isSameNode(this.lastPanelEl)) {
+      if (this._lastPanelEl) {
+        if (activeIndex === 0 || nextPanelEl.isSameNode(this._lastPanelEl)) {
           fadeDelay = 0;
           fadeDuration = 0;
         }
       }
 
       // remember the last panel
-      this.lastPanelEl = lastPanelEl;
+      this._lastPanelEl = lastPanelEl;
 
       nextPanelEl.animate([{ opacity: '0' }, { opacity: '1' }], {
         delay: fadeDelay,

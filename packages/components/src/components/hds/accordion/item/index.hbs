@@ -14,7 +14,7 @@
       <Hds::Accordion::Item::Button
         @isOpen={{t.isOpen}}
         @onClickToggle={{t.onClickToggle}}
-        @contentId={{this.contentId}}
+        @contentId={{this._contentId}}
         @ariaLabel={{@ariaLabel}}
         @ariaLabelledBy={{this.ariaLabelledBy}}
         @size={{this.size}}
@@ -41,7 +41,7 @@
       @size="200"
       @weight="regular"
       @color="primary"
-      id={{this.contentId}}
+      id={{this._contentId}}
     >
       {{yield (hash close=c.close) to="content"}}
     </Hds::Text::Body>

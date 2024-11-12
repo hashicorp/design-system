@@ -33,8 +33,8 @@ export interface HdsCopySnippetSignature {
 }
 
 export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
-  @tracked status = DEFAULT_STATUS;
-  @tracked timer: ReturnType<typeof setTimeout> | undefined;
+  @tracked private _status = DEFAULT_STATUS;
+  @tracked private _timer: ReturnType<typeof setTimeout> | undefined;
 
   /**
    * @method textToShow
@@ -58,9 +58,9 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
    */
   get icon(): HdsIconSignature['Args']['name'] {
     let icon: HdsIconSignature['Args']['name'] = DEFAULT_ICON;
-    if (this.status === 'success') {
+    if (this._status === 'success') {
       icon = SUCCESS_ICON;
-    } else if (this.status === 'error') {
+    } else if (this._status === 'error') {
       icon = ERROR_ICON;
     }
     return icon;
@@ -117,7 +117,7 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
     classes.push(`hds-copy-snippet--color-${this.color}`);
 
     // add a class based on the tracked status (idle/success/error)
-    classes.push(`hds-copy-snippet--status-${this.status}`);
+    classes.push(`hds-copy-snippet--status-${this._status}`);
 
     // add a class based on the @isTruncated argument
     if (this.isTruncated) {
@@ -136,7 +136,7 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
   onSuccess(
     args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
   ): void {
-    this.status = 'success';
+    this._status = 'success';
     this.resetStatusDelayed();
 
     const { onSuccess } = this.args;
@@ -150,7 +150,7 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
   onError(
     args: HdsClipboardModifierSignature['Args']['Named']['onError']
   ): void {
-    this.status = 'error';
+    this._status = 'error';
     this.resetStatusDelayed();
 
     const { onError } = this.args;
@@ -161,10 +161,10 @@ export default class HdsCopySnippet extends Component<HdsCopySnippetSignature> {
   }
 
   resetStatusDelayed(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this._timer);
     // make it fade back to the default state
-    this.timer = setTimeout((): void => {
-      this.status = DEFAULT_STATUS;
+    this._timer = setTimeout((): void => {
+      this._status = DEFAULT_STATUS;
     }, 1500);
   }
 }
