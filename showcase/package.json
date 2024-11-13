@@ -30,8 +30,8 @@
     "test:ember": "yarn build:packages && ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
-    "test:a11y": "ENABLE_A11Y_AUDIT=true ember test --server",
-    "test:a11y-report": "ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test"
+    "test:a11y": "yarn build:packages && ENABLE_A11Y_AUDIT=true ember test --server",
+    "test:a11y-report": "yarn build:packages && ENABLE_A11Y_AUDIT=true ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
