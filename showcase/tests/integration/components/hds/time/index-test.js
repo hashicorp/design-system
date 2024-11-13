@@ -7,6 +7,10 @@ import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import {
+  DEFAULT_DISPLAY_MAPPING,
+  DISPLAY_KEY_FRIENDLY_LOCAL,
+} from '@hashicorp/design-system-components/services/hds-time';
 
 module('Integration | Component | hds/time/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -68,7 +72,12 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.defaultDate}} @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
+    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let expectedDateString = new Date(this.defaultDate).toLocaleString(
+      navigator.lagnguage,
+      options.displayFormat
+    );
+    assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert.dom('.tippy-content').hasText(this.defaultDate.toISOString());
   });
@@ -78,7 +87,11 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
+    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let expectedDateString = new Date(
+      '05 September 2018 14:07:32'
+    ).toLocaleString(navigator.lagnguage, options.displayFormat);
+    assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert
       .dom('.tippy-content')
@@ -93,7 +106,12 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.friendlyLocalDate}} @display="friendly-local" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
+    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let expectedDateString = new Date(this.friendlyLocalDate).toLocaleString(
+      navigator.lagnguage,
+      options.displayFormat
+    );
+    assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert.dom('.tippy-content').hasText(this.friendlyLocalDate.toISOString());
   });
@@ -103,7 +121,11 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @display="friendly-local" @isOpen={{true}} />
     `);
-    assert.dom('.hds-time').hasText('Sep 5, 2018, 2:07:32 PM PDT');
+    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let expectedDateString = new Date(
+      '05 September 2018 14:07:32'
+    ).toLocaleString(navigator.lagnguage, options.displayFormat);
+    assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert
       .dom('.tippy-content')
