@@ -20,23 +20,22 @@ For documentation around broader Figma best practices within HashiCorp design te
 
    - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
 
-   ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x\*)
+   ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
 
    - Click the `Figma` icon in the top toolbar, then click "Libraries".
 
-   ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x\*)
+   ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
 
    - Or use the keyboard shortcut:
 
      - Mac: `⌥ option`+`3`
      - Windows: `alt`+`3`
 
-<!-- @jory relink -->
-
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and toggling on the following:
 
-   - [HDS - Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1)
-   - [HDS - Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1)
+   - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
+   - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
+   - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
    - [Flight Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1)
 
    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
@@ -50,9 +49,7 @@ Once the libraries are enabled, you can access the components from the [assets p
 
 ## Foundational styles
 
-<!-- @jory relink -->
-
-Styles, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations library](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?node-id=2916%3A4&t=5MKbTaM2QzE0F5KA-1).
+Styles and variables, sometimes referred to as Tokens, allow consistent application of color (as a fill or stroke), typography, and effects within Figma. You can find these in the [Product Foundations v2.0 library](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1).
 
 Because the usage of Helios Foundations reinforces consistency across the products, we don’t recommend detaching from these styles within your designs.
 
@@ -111,23 +108,19 @@ Add Helios components to your design project by inserting them directly from the
 
 4. Configure the component properties as necessary in the right sidebar.
 
-![Inserting components from the assets panel](/assets/getting-started/designers/component-assets-panel.png =895x\*)
+![Inserting components from the assets panel](/assets/getting-started/designers/component-assets-panel.png =895x*)
 
 #### Inserting from the resources menu
 
 Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar to expose a list of recently used components, plugins, and widgets enabled in your project. Use this method to access your more commonly or recently used components quickly.
 
-![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x\*)
+![Inserting components from the resources menu](/assets/getting-started/designers/component-resources-panel.png =321x*)
 
 #### Copying from the stickersheet
 
-<!-- @jory relink -->
+If you prefer to select a component visually, the [Product Components](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-95918&t=gWdKy44MzTP4cTRo-1) library has a stickersheet for each component displaying the available variants and properties. Just like when using the direct inserts, this method maintains the link to the main component in the library, which means it will receive updates as they become available.
 
-If you prefer to select a component visually, the [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) library has a stickersheet for each component displaying the available variants and properties. Just like when using the direct inserts, this method maintains the link to the main component in the library, which means it will receive updates as they become available.
-
-<!-- @jory relink -->
-
-1. Open the [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1) library.
+1. Open the [Product Components](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=zQtMoxS3oB4AplFG-6) library.
 
 2. Navigate to the relevant component page.
 
@@ -135,7 +128,7 @@ If you prefer to select a component visually, the [Product Components](https://w
 
 4. Navigate back to your project file and paste the component wherever needed.
 
-![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png =752x\*)
+![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png =752x*)
 
 ### Working with components
 
@@ -183,14 +176,11 @@ Consider using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design
 
 ### Helios Figma libraries
 
-<!-- @jory relink -->
+HashiCorp product teams can use the Helios libraries published under the [HDS Design System UI Kit](https://www.figma.com/files/817445202777874373/team/1030156573400567478) team within Figma.
 
-HashiCorp product teams can use the Helios libraries published under the [HDS Design System UI Kit](https://www.figma.com/files/team/1030156573400567478) team within Figma.
-
-<!-- @jory relink -->
-
-- [Product Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?t=Ooe3pkDap3cGcgAH-1): the set of components published in the Helios Design System
-- [Product Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?t=4kdgl88SMIiEYhbA-1): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
+- [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): the set of components published in the Helios Design System
+- [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
+- [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): patterns composed of HDS components published as detachable templates.
 - [Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1): core icon set for reuse in your projects
 - [A11Y Helper Annotation Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): an annotation toolkit designed to enhance collaboration between designers and engineers, ensuring the work meets accessibility (a11y) standards.
 - [Wireframe UI Kit](https://www.figma.com/design/w0ukydeAsbv6sJirLxZMBo/HDS-Wireframes?m=auto&t=JLqmUYB9fZbdWaa2-6): low-fidelity versions of HDS components designed to help quickly sketch ideas and build flows.
