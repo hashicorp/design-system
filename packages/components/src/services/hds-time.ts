@@ -10,22 +10,22 @@ import type {
   DisplayFormatType,
 } from './hds-time-types.ts';
 
-const MILLISECOND_IN_MS = 1;
-const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
-const MINUTE_IN_MS = 60 * SECOND_IN_MS;
-const HOUR_IN_MS = 60 * MINUTE_IN_MS;
-const DAY_IN_MS = 24 * HOUR_IN_MS;
-const WEEK_IN_MS = 7 * DAY_IN_MS;
+export const MILLISECOND_IN_MS = 1;
+export const SECOND_IN_MS = 1000 * MILLISECOND_IN_MS;
+export const MINUTE_IN_MS = 60 * SECOND_IN_MS;
+export const HOUR_IN_MS = 60 * MINUTE_IN_MS;
+export const DAY_IN_MS = 24 * HOUR_IN_MS;
+export const WEEK_IN_MS = 7 * DAY_IN_MS;
 
-const THRESHOLD_RELATIVE_TIME_IN_MS = WEEK_IN_MS;
+export const THRESHOLD_RELATIVE_TIME_IN_MS = WEEK_IN_MS;
 
-const RELATIVE_UNIT_SECOND = 'second';
-const RELATIVE_UNIT_HOUR = 'hour';
-const RELATIVE_UNIT_MINUTE = 'minute';
-const RELATIVE_UNIT_DAY = 'day';
-const RELATIVE_UNIT_WEEK = 'week';
+export const RELATIVE_UNIT_SECOND = 'second';
+export const RELATIVE_UNIT_HOUR = 'hour';
+export const RELATIVE_UNIT_MINUTE = 'minute';
+export const RELATIVE_UNIT_DAY = 'day';
+export const RELATIVE_UNIT_WEEK = 'week';
 
-const DEFAULT_RELATIVE_THRESHOLDS = {
+export const DEFAULT_RELATIVE_THRESHOLDS = {
   [RELATIVE_UNIT_SECOND]: 1 * MINUTE_IN_MS,
   [RELATIVE_UNIT_MINUTE]: 1 * HOUR_IN_MS,
   [RELATIVE_UNIT_HOUR]: 1 * DAY_IN_MS,
@@ -33,47 +33,47 @@ const DEFAULT_RELATIVE_THRESHOLDS = {
 };
 
 // returns 'Sep 5, 2018 (30 minutes ago)'
-const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
+export const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
 
 // returns 'Sep 5, 2018, 4:07:32 pm'
-const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
+export const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
 
 // returns 'Sep 5, 2018'
-const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
+export const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
 
 // returns 'about 2 hours ago'
-const DISPLAY_KEY_RELATIVE: string = 'relative';
+export const DISPLAY_KEY_RELATIVE: string = 'relative';
 
 // returns '2018-09-05T23:15:17345Z'
-const DISPLAY_KEY_UTC: string = 'utc';
+export const DISPLAY_KEY_UTC: string = 'utc';
 
-const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
+export const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
   month: 'short',
   day: 'numeric',
   year: 'numeric',
 };
-const FORMAT_PRECISION_MINUTE: DisplayFormatType = {
+export const FORMAT_PRECISION_MINUTE: DisplayFormatType = {
   ...FORMAT_PRECISION_SHORT_DATE,
   hour: 'numeric',
   minute: 'numeric',
 };
-const FORMAT_PRECISION_SECOND: DisplayFormatType = {
+export const FORMAT_PRECISION_SECOND: DisplayFormatType = {
   ...FORMAT_PRECISION_SHORT_DATE,
   hour: 'numeric',
   minute: 'numeric',
   second: 'numeric',
   timeZoneName: 'short',
 };
-const DATE_DISPLAY_FORMATS: {
+export const DATE_DISPLAY_FORMATS: {
   [x: string]: DisplayFormatType;
 } = {
   [DISPLAY_KEY_FRIENDLY_LOCAL]: FORMAT_PRECISION_SECOND,
   [DISPLAY_KEY_FRIENDLY_ONLY]: FORMAT_PRECISION_SHORT_DATE,
 };
 
-const DEFAULT_DISPLAY = '';
+export const DEFAULT_DISPLAY = '';
 
-const DEFAULT_DISPLAY_MAPPING: {
+export const DEFAULT_DISPLAY_MAPPING: {
   [x: string]: DefaultDisplayType;
 } = {
   [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
@@ -108,7 +108,7 @@ const DEFAULT_DISPLAY_MAPPING: {
   },
 };
 
-const DISPLAY_SCALE = Object.keys(DEFAULT_DISPLAY_MAPPING);
+export const DISPLAY_SCALE = Object.keys(DEFAULT_DISPLAY_MAPPING);
 
 export const DISPLAYS = [
   DISPLAY_KEY_FRIENDLY_RELATIVE,
