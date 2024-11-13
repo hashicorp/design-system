@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// TYPOGRAPHY
+
+body.foundations-theming {
+  .shw-theming-demo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-width: 120px;
+    min-height: 120px;
+    padding: 50px;
+    color: var(--shw-test-theme-foreground-color);
+    font-weight: bold;
+    font-size: 10px;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    line-height: 1.2;
+    background-color: var(--shw-test-theme-background-color);
+  }
+
+  .shw-theming-demo-container--class {
+    color: var(
+      --shw-test-theme-class-foreground-color,
+      var(--shw-test-theme-foreground-color)
+    );
+    background-color: var(
+      --shw-test-theme-class-background-color,
+      var(--shw-test-theme-background-color)
+    );
+  }
+
+  .shw-theming-demo-container--data {
+    color: var(
+      --shw-test-theme-data-foreground-color,
+      var(--shw-test-theme-foreground-color)
+    );
+    background-color: var(
+      --shw-test-theme-data-background-color,
+      var(--shw-test-theme-background-color)
+    );
+  }
+
+  .shw-theming-container-background-light {
+    background-color: #fff;
+  }
+
+  .shw-theming-container-background-dark {
+    background-color: #000;
+  }
+}

@@ -16,6 +16,7 @@ Router.map(function () {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
+    this.route('theming');
   });
   this.route('components', function () {
     this.route('accordion');

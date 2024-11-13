@@ -8,7 +8,7 @@
 .shw-label {
   @include shw-font-family("rubik");
   margin: 0 0 10px 0;
-  color: #545454;
+  color: var(--shw-label-text-color);
   font-size: 0.8rem;
   line-height: 1.2;
 }

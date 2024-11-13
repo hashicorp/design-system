@@ -1,0 +1,32 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+.shw-theme-switcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.shw-theme-switcher__label {
+  color: var(--shw-color-black);
+  font-size: 0.75rem;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+}
+
+.shw-theme-switcher__control {
+  height: 24px;
+  padding: 2px 24px 2px 8px;
+  color: var(--shw-color-gray-100);
+  font-size: 0.75rem;
+  font-family: monaco, Consolas, "Lucida Console", monospace;
+  background-color: var(--shw-color-gray-600);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.34572 7H20.6543C21.8517 7 22.4504 8.4463 21.6028 9.29391L12.9519 17.9515C12.4272 18.4763 11.5728 18.4763 11.0481 17.9515L2.39722 9.29391C1.54961 8.4463 2.14832 7 3.34572 7Z' fill='%23808080'/%3E%3C/svg%3E"); // notice: the 'caret' color is hardcoded here!
+  background-repeat: no-repeat;
+  background-position: right 6px top 4px;
+  background-size: 12px 12px;
+  border: 1px solid var(--shw-color-gray-400);
+  border-radius: 3px;
+  appearance: none;
+}
