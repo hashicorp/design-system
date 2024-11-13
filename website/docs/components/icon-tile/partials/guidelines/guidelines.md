@@ -38,7 +38,7 @@ A secondary icon can be added to provide additional context. For example, for an
 
 ## Using with content
 
-Icon Tiles should not appear without accompanying content. Instead, they should be presented alongside a text label for the object or page they are being used to represent as decorative element or accessory.
+Use Icon Tiles as a decorative element or accessory next to a text label for the object or page they are being used to represent. Icon Tiles should not be used without accompanying content.
 
 ## Using with interactive elements
 
