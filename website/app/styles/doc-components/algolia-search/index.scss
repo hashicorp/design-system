@@ -10,7 +10,10 @@
 @import "./results";
 
 // "autocomplete" target container - not used
-// .doc-algolia-search__autocomplete-container {}
+.doc-algolia-search__autocomplete-container {
+  // we assign it a position absolute to remove it from the layout flow, so the `gap` property of the parent flex container doesn't get applied to this as well
+  position: absolute;
+}
 
 // root container of the "autocomplete" injected DOM elements (only the button, in "detached" mode)
 // notice: we hide it and trigger it via the "fake" buttons in the header
