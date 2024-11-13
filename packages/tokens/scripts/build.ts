@@ -95,18 +95,18 @@ StyleDictionaryPackage.registerTransform({
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'products/email',
     // notice: for emails we need the font-size in `px` (not `rem`)
-    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/cti/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/seconds']
 });
 
 StyleDictionaryPackage.registerFormat({
@@ -268,7 +268,7 @@ console.log('\n==============================================');
 console.log(`\nCleaning up dist folder`);
 fs.emptyDirSync(distFolder);
 
-Object.keys(targets).forEach(target => {
+Object.keys(targets).forEach(async target => {
     const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig({ target }));
 
     console.log(`\nProcessing target "${target}"...`);
