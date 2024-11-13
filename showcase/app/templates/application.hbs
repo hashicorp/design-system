@@ -13,6 +13,16 @@
       <Shw::Logo::DesignSystem />
     </LinkTo>
     <div class="shw-page-header__title">Components showcase</div>
+    <div class="shw-page-header__theme-toggle">
+      <label for="theme-switcher">Theme:</label>
+      <select id="theme-switcher" {{on "change" this.onChangePageTheme}}>
+        <option value="auto">Auto (browser prefers-color-scheme)</option>
+        <option value="light-data-attribute">Light (data-attribute)</option>
+        <option value="light-css-class">Light (CSS class)</option>
+        <option value="dark-data-attribute">Dark (data-attribute)</option>
+        <option value="dark-css-class">Dark (CSS class)</option>
+      </select>
+    </div>
   </header>
 
   <aside class="shw-page-aside">

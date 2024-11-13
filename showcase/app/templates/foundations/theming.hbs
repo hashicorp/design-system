@@ -1,0 +1,34 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Theming"}}
+
+<Shw::Text::H1>Theming</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Page-level theming</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <div class="shw-xyz">
+        <Shw::Placeholder @text="TEMP" @width="100" @height="100" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Contextual theming</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <div class="shw-xyz">
+        <Shw::Placeholder @text="TEMP" @width="100" @height="100" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
