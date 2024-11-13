@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`IconTile` - Fixed a11y issues present in the visual design
+`IconTile` - Updated visual design of `IconTile` to make it distinguishable from secondary `IconButton`.
