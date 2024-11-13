@@ -4521,7 +4521,7 @@ __metadata:
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
     "@types/fs-extra": "npm:^11.0.3"
-    "@types/lodash": "npm:^4.14.200"
+    "@types/lodash-es": "npm:^4"
     "@types/node": "npm:^22.8.7"
     "@types/tinycolor2": "npm:^1.4.5"
     "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
@@ -4529,7 +4529,7 @@ __metadata:
     del: "npm:^5.1.0"
     eslint: "npm:^8.57.0"
     fs-extra: "npm:^11.1.1"
-    lodash: "npm:^4.17.21"
+    lodash-es: "npm:^4.17.21"
     path: "npm:^0.12.7"
     style-dictionary: "npm:^4.2.0"
     tinycolor2: "npm:^1.6.0"
@@ -6400,6 +6400,22 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 10/e009a2bfb50e90ca9b7c6e8f648f8464067271fd99116f881073fa6fa76dc8d0133181dd65e6614d5fb1220d671d67b0124aef7d97dc02d7e342ab143a47779d
+  languageName: node
+  linkType: hard
+
+"@types/lodash-es@npm:^4":
+  version: 4.17.12
+  resolution: "@types/lodash-es@npm:4.17.12"
+  dependencies:
+    "@types/lodash": "npm:*"
+  checksum: 10/56b9a433348b11c31051c6fa9028540a033a08fb80b400c589d740446c19444d73b217cf1471d4036448ef686a83e8cf2a35d1fadcb3f2105f26701f94aebb07
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.17.13
+  resolution: "@types/lodash@npm:4.17.13"
+  checksum: 10/ddb34e20810c71be2d9445bcc4b64ec25b83976738454de709854b79c7f655b03704b76235445699956d65012987720e0e429a35489de65495cdb5420202d905
   languageName: node
   linkType: hard
 
@@ -19882,6 +19898,13 @@ __metadata:
   dependencies:
     p-locate: "npm:^6.0.0"
   checksum: 10/1c6d269d4efec555937081be964e8a9b4a136319c79ca1d45ac6382212a8466113c75bd89e44521ca8ecd1c47fb08523b56eee5c0712bc7d14fec5f729deeb42
+  languageName: node
+  linkType: hard
+
+"lodash-es@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: 10/03f39878ea1e42b3199bd3f478150ab723f93cc8730ad86fec1f2804f4a07c6e30deaac73cad53a88e9c3db33348bb8ceeb274552390e7a75d7849021c02df43
   languageName: node
   linkType: hard
 

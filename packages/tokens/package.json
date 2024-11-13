@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.3",
-    "@types/lodash": "^4.14.200",
+    "@types/lodash-es": "^4",
     "@types/node": "^22.8.7",
     "@types/tinycolor2": "^1.4.5",
     "@typescript-eslint/eslint-plugin": "^8.5.0",
@@ -32,7 +32,7 @@
     "del": "^5.1.0",
     "eslint": "^8.57.0",
     "fs-extra": "^11.1.1",
-    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
     "path": "^0.12.7",
     "style-dictionary": "^4.2.0",
     "tinycolor2": "^1.6.0",
