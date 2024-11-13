@@ -31,18 +31,6 @@
 
     {{#each @model.DISPLAYS as |display|}}
       <SF.Item @label={{display}}>
-        {{#if (eq display "friendly-relative")}}
-          (Example: 'Sep 5, 2018 (30 minutes ago)')
-        {{else if (eq display "friendly-local")}}
-          (Example: 'Sep 5, 2018, 4:07:32 pm')
-        {{else if (eq display "friendly-only")}}
-          (Example: 'Sep 5, 2018')
-        {{else if (eq display "relative")}}
-          (Example: 'about 2 hours ago')
-        {{else if (eq display "utc")}}
-          (Example: '2018-09-05T23:15:17345Z')
-        {{/if}}
-        <br />
         <Hds::Time @date="05 September 2018 14:07:32" @display={{display}} @isOpen={{true}} />
       </SF.Item>
     {{/each}}
