@@ -17,6 +17,9 @@ module('Integration | Component | hds/time/index', function (hooks) {
 
   let service;
 
+  // set the locale to 'en-US' to simplify tests; alternatively we can use ember-intl
+  Object.defineProperty(navigator, 'language', { value: 'en-US' });
+
   hooks.beforeEach(function () {
     service = this.owner.lookup('service:hdsTime');
   });
@@ -74,7 +77,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
     let expectedDateString = new Date(this.defaultDate).toLocaleString(
-      navigator.lagnguage,
+      navigator.language,
       options.displayFormat
     );
     assert.dom('.hds-time').hasText(expectedDateString);
@@ -90,7 +93,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
     let expectedDateString = new Date(
       '05 September 2018 14:07:32'
-    ).toLocaleString(navigator.lagnguage, options.displayFormat);
+    ).toLocaleString(navigator.language, options.displayFormat);
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert
@@ -108,7 +111,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
     let expectedDateString = new Date(this.friendlyLocalDate).toLocaleString(
-      navigator.lagnguage,
+      navigator.language,
       options.displayFormat
     );
     assert.dom('.hds-time').hasText(expectedDateString);
@@ -124,7 +127,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
     let expectedDateString = new Date(
       '05 September 2018 14:07:32'
-    ).toLocaleString(navigator.lagnguage, options.displayFormat);
+    ).toLocaleString(navigator.language, options.displayFormat);
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
     assert
