@@ -12,9 +12,11 @@ import {
   drawSelection,
   highlightActiveLine,
   EditorView,
+  keymap,
 } from '@codemirror/view';
 import { EditorState, type Extension } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
+import { defaultKeymap } from '@codemirror/commands';
 
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
@@ -133,6 +135,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       drawSelection(),
       highlightActiveLine(),
       hdsDark,
+      keymap.of(defaultKeymap),
     ];
 
     if (languageExtension !== undefined) {
