@@ -3,13 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
   DEFAULT_DISPLAY_MAPPING,
   DISPLAY_KEY_FRIENDLY_LOCAL,
+  MINUTE_IN_MS,
+  DAY_IN_MS,
 } from '@hashicorp/design-system-components/services/hds-time';
 
 module('Integration | Component | hds/time/index', function (hooks) {
@@ -186,11 +188,14 @@ module('Integration | Component | hds/time/index', function (hooks) {
 
   // Relative display types
 
-  // TODO: Tests for times in the near future are failing (descriptions are off by 1)
+  // NOTE: Relative times in the near future are off by 1
 
   // near times in the future
-  skip('it should render the correct string for a date that is five minutes from now', async function (assert) {
-    this.set('fiveMinutesFromNow', new Date(service.now + 1000 * 60 * 5));
+  test('it should render the correct string for a date that is five minutes from now', async function (assert) {
+    this.set(
+      'fiveMinutesFromNow',
+      new Date(service.now + MINUTE_IN_MS * (5 + 1))
+    );
 
     await render(hbs`
       <Hds::Time @date={{this.fiveMinutesFromNow}} @display="relative" />
@@ -198,8 +203,8 @@ module('Integration | Component | hds/time/index', function (hooks) {
     assert.dom('.hds-time').hasText('in 5 minutes');
   });
 
-  skip('it should render the correct string for a date that is two days from now', async function (assert) {
-    this.set('twoDaysFromNow', new Date(service.now + 1000 * 60 * 60 * 24 * 2));
+  test('it should render the correct string for a date that is two days from now', async function (assert) {
+    this.set('twoDaysFromNow', new Date(service.now + DAY_IN_MS * (2 + 1)));
 
     await render(hbs`
       <Hds::Time @date={{this.twoDaysFromNow}} @display="relative" />
@@ -207,8 +212,8 @@ module('Integration | Component | hds/time/index', function (hooks) {
     assert.dom('.hds-time').hasText('in 2 days');
   });
 
-  skip('it should render the correct string for a date that is one week from now', async function (assert) {
-    this.set('oneWeekFromNow', new Date(service.now + 1000 * 60 * 60 * 24 * 7));
+  test('it should render the correct string for a date that is one week from now', async function (assert) {
+    this.set('oneWeekFromNow', new Date(service.now + DAY_IN_MS * (7 + 1)));
 
     await render(hbs`
       <Hds::Time @date={{this.oneWeekFromNow}} @display="relative" />
@@ -219,7 +224,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
   // near times in the past
 
   test('it should render the correct string for a date that is five minutes ago', async function (assert) {
-    this.set('fiveMinutesAgo', new Date(service.now - 1000 * 60 * 5));
+    this.set('fiveMinutesAgo', new Date(service.now - MINUTE_IN_MS * 5));
 
     await render(hbs`
       <Hds::Time @date={{this.fiveMinutesAgo}} @display="relative" />
@@ -228,7 +233,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
   });
 
   test('it should render the correct string for a date that is two days ago', async function (assert) {
-    this.set('twoDaysAgo', new Date(service.now - 1000 * 60 * 60 * 24 * 2));
+    this.set('twoDaysAgo', new Date(service.now - DAY_IN_MS * 2));
 
     await render(hbs`
       <Hds::Time @date={{this.twoDaysAgo}} @display="relative" />
@@ -237,7 +242,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
   });
 
   test('it should render the correct string for a date that is one week ago', async function (assert) {
-    this.set('oneWeekAgo', new Date(service.now - 1000 * 60 * 60 * 24 * 7));
+    this.set('oneWeekAgo', new Date(service.now - DAY_IN_MS * 7));
 
     await render(hbs`
       <Hds::Time @date={{this.oneWeekAgo}} @display="relative" />
