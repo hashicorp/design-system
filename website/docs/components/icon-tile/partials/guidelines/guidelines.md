@@ -2,7 +2,7 @@
 
 ### When to use
 
-To represent an object or as part of a page title.
+- To represent an object or as part of a page title.
 
 ### When not to use
 
