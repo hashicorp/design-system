@@ -93,7 +93,7 @@ For the list of possible foreground colors supported, refer to the [Component AP
 It’s also possible to provide a CSS color as string (in this case the color will be applied as inline style). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
 
 ```handlebars
-<Hds::Text::Body @tag="p" @color="var(--token-color-palette-blue-400)">This texthas a "blue-400" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="var(--token-color-palette-blue-400)">This text has a "blue-400" color applied</Hds::Text::Body>
 ```
 
 Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
@@ -113,7 +113,7 @@ We don’t validate the CSS color string to ensure that the value used is correc
 Since the component is not prescriptive on the tags that can be used to render the text, it can be used to apply a typographic style not only to plain text but also to structured content:
 
 ```handlebars
-<Hds::Text::Body @tag="p" @size="300">This text contains some <strong>strong</strong> and <em>em</em> tags, a<Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @size="300">This text contains some <strong>strong</strong> and <em>em</em> tags, a <Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
 ```
 
 We can imagine even more complex examples where we may want to apply a typographic style to an entire block of content:
