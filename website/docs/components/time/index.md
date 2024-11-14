@@ -1,14 +1,14 @@
 ---
 title: Time
-description: {Optional long description that appears in the cover}
-caption: {Short description that appears in the cards}
+description: The Time component is used to display dates and time in a consistent format.
+caption: Displays dates and times in a consistent format.
+related: ['components/form/text-input']
 links:
-  figma: {link to the "Time" page in the components Figma library}
+  figma: {Link}
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/time
-related: ['path/to/component', 'path/to/pattern']
 previewImage: assets/illustrations/components/time.jpg
 navigation:
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords: ['time']
 ---
 
 <section data-tab="Guidelines">
