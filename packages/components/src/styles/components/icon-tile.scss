@@ -11,7 +11,6 @@ $hds-icon-tile-sizes: ( "small", "medium", "large" );
 $hds-icon-tile-types: ( "object","resource","logo" );
 $hds-icon-tile-colors-products: ( "boundary", "consul", "hcp", "nomad", "packer", "terraform", "vagrant", "vault", "vault-secrets", "vault-radar", "waypoint" );
 $hds-icon-tile-border-width: 1px;
-$hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
 
 
 .hds-icon-tile {
@@ -19,7 +18,6 @@ $hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
   display: flex;
   border: $hds-icon-tile-border-width solid transparent;
   border-radius: 4px;
-  box-shadow: $hds-icon-tile-box-shadow;
 }
 
 .hds-icon-tile__icon,
@@ -36,7 +34,6 @@ $hds-icon-tile-box-shadow: 0 1px 1px rgba(#656a76, 0.05);
   box-sizing: content-box; // the border is outside
   background-color: var(--token-color-surface-primary);
   border: 1px solid var(--token-color-border-primary);
-  box-shadow: $hds-icon-tile-box-shadow;
 }
 
 .hds-icon-tile__extra-icon {
@@ -63,9 +60,9 @@ $hds-icon-tile-size-props: (
     "border-radius": 6px,
     "icon-size": 1.5rem, // 24px
     "logo-size": 1.75rem, // 28px
-    "extra-size": 1.5rem, // 24px
+    "extra-size": 1.25rem, // 20px
     "extra-border-radius": 5px,
-    "extra-icon-size": 1rem,
+    "extra-icon-size": .75rem, // 12px
   ),
   "large": (
     "size": 3rem, // 48px
@@ -121,8 +118,7 @@ $hds-icon-tile-size-props: (
 .hds-icon-tile--icon {
   &.hds-icon-tile--color-neutral {
     color: var(--token-color-foreground-faint);
-    background-color: var(--token-color-surface-faint);
-    border-color: var(--token-color-border-primary);
+    background-color: var(--token-color-surface-strong);
   }
 
   @each $product in $hds-icon-tile-colors-products {
@@ -130,14 +126,12 @@ $hds-icon-tile-size-props: (
       // exception for HCP (we use neutral colors, we don't have specific product colors for foreground/background)
       &.hds-icon-tile--color-hcp {
         color: var(--token-color-palette-#{$product}-brand);
-        background-color: var(--token-color-surface-faint);
-        border-color: var(--token-color-border-primary);
+        background-color: var(--token-color-surface-strong);
       }
     } @else {
       &.hds-icon-tile--color-#{$product} {
         color: var(--token-color-#{$product}-foreground);
-        background: linear-gradient(135deg, var(--token-color-#{$product}-gradient-faint-start) 0%, var(--token-color-#{$product}-gradient-faint-stop) 100%);
-        border-color: var(--token-color-#{$product}-border);
+        background-color: var(--token-color-#{$product}-surface);
       }
     }
   }
