@@ -6,8 +6,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
-import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
@@ -27,29 +25,25 @@ export interface HdsAdvancedTableTdSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLTableCellElement;
+  Element: HTMLDivElement;
 }
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @action
-  didInsert(element: HTMLTableCellElement): void {
+  didInsert(element: HTMLDivElement): void {
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
 
-  get style(): SafeString | undefined {
-    const { rowspan, colspan } = this.args;
-    let style = '';
-
-    if (rowspan) {
-      style += `grid-row: span ${rowspan};`;
+  get rowspan(): string | undefined {
+    if (this.args.rowspan) {
+      return `span ${this.args.rowspan}`;
     }
+  }
 
-    if (colspan) {
-      style += `grid-column: span ${colspan}`;
+  get colspan(): string | undefined {
+    if (this.args.colspan) {
+      return `span ${this.args.colspan}`;
     }
-
-    if (style.length > 0) return htmlSafe(style);
-    return undefined;
   }
 
   get align(): HdsAdvancedTableHorizontalAlignment {

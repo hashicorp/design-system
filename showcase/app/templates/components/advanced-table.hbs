@@ -41,7 +41,7 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
+  {{!-- <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
 
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
@@ -62,7 +62,7 @@
         <B.Td>{{B.data.description}}</B.Td>
       </B.Tr>
     </:body>
-  </Hds::AdvancedTable>
+  </Hds::AdvancedTable> --}}
 
   <Shw::Text::H2>With nested rows</Shw::Text::H2>
 
@@ -71,7 +71,7 @@
     @hasNestedRows={{true}}
     @columns={{array
       (hash key="name" label="Name")
-      (hash key="status" label="Status")
+      (hash key="status" label="Status" width="auto")
       (hash key="description" label="Description")
     }}
   >

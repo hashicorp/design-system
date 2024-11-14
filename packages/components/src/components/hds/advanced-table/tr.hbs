@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<tr class={{this.classNames}} role="row" ...attributes id={{this.rowId}}>
+<div class={{this.classNames}} role="row" ...attributes id={{this.rowId}} data-depth={{@depth}}>
   {{#if @isSelectable}}
     <Hds::AdvancedTable::ThSelectable
       @isSelected={{@isSelected}}
@@ -19,4 +19,4 @@
   {{/if}}
 
   {{yield}}
-</tr>
+</div>

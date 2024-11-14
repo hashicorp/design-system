@@ -13,7 +13,8 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     depth?: number;
     record: Record<string, unknown>;
-    hasExpandableRows?: boolean;
+    parentId?: string;
+    childrenKey?: string;
   };
   Blocks: {
     default?: [
@@ -28,45 +29,46 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
       },
     ];
   };
-  Element: HTMLTableElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsAdvancedTableTrExpandableGroup extends Component<HdsAdvancedTableTrExpandableGroupSignature> {
-  parentRowHeaderId = 'parent-row-header-' + guidFor(this);
+  id = guidFor(this);
 
   @tracked isExpanded = false;
+
+  get childrenKey(): string {
+    const { childrenKey = 'children' } = this.args;
+
+    return childrenKey;
+  }
 
   get children(): Array<Record<string, unknown>> | undefined {
     const { record } = this.args;
 
-    if (record['children'] && Array.isArray(record['children'])) {
-      return record['children'];
+    if (record[this.childrenKey]) {
+      const children = record[this.childrenKey];
+
+      if (Array.isArray(children)) {
+        return children;
+      }
     }
     return undefined;
   }
 
   get hasChildren(): boolean {
-    const { hasExpandableRows = true } = this.args;
-
-    if (!this.children || !hasExpandableRows) return false;
+    if (!this.children) return false;
     return true;
   }
 
-  get newDepth(): number {
-    const { depth = 1 } = this.args;
-    return depth + 1;
+  get depth(): number {
+    const { depth = 0 } = this.args;
+
+    return depth;
   }
 
-  get classes(): string {
-    const { hasExpandableRows = true } = this.args;
-
-    const classes = ['hds-advanced-table__tr-expandable-group'];
-
-    if (!this.isExpanded && hasExpandableRows) {
-      classes.push('hds-advanced-table__tr-expandable-group--hidden');
-    }
-
-    return classes.join(' ');
+  get childrenDepth(): number {
+    return this.depth + 1;
   }
 
   @action onClickToggle() {

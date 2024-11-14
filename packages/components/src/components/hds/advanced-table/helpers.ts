@@ -18,9 +18,10 @@ export const didInsertGridCell = (
 ): void => {
   const currentRow = cell.parentElement;
 
-  if (currentRow?.parentElement?.tagName === 'THEAD') {
+  if (
+    currentRow?.parentElement?.classList.contains('hds-advanced-table__thead')
+  ) {
     const thead = currentRow.parentElement;
-
     if (
       thead.children.item(0) === currentRow &&
       currentRow.children.item(0) === cell
@@ -29,10 +30,16 @@ export const didInsertGridCell = (
     } else {
       cell.setAttribute('tabindex', '-1');
     }
-  } else if (currentRow?.parentElement?.tagName === 'TBODY') {
-    const table = currentRow.parentElement.parentElement;
-    const thead = table?.querySelector('thead');
-    const tbody = table?.querySelector('tbody');
+  } else if (
+    currentRow?.parentElement?.classList.contains('hds-advanced-table__tbody')
+  ) {
+    const table = currentRow.parentElement?.closest('[role="grid"]');
+    const thead = table?.querySelector(
+      '[role="rowgroup"].hds-advanced-table__thead'
+    );
+    const tbody = table?.querySelector(
+      '[role="rowgroup"].hds-advanced-table__tbody'
+    );
 
     if (thead === null) {
       if (
@@ -50,8 +57,6 @@ export const didInsertGridCell = (
 export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
   const { key, target } = event;
 
-  console.log('hello');
-
   const changeActiveCell = (oldCell: HTMLElement, newCell: HTMLElement) => {
     oldCell.setAttribute('tabindex', '-1');
     newCell.setAttribute('tabindex', '0');
@@ -62,10 +67,8 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
     currentRow: HTMLElement,
     direction: 'ArrowDown' | 'ArrowUp'
   ) => {
-    const table = currentRow.parentElement?.closest('table');
-    const allRows = table?.querySelectorAll(
-      'tr:not(.hds-advanced-table__tr--hidden)'
-    );
+    const table = currentRow.parentElement?.closest('[role="grid"]');
+    const allRows = table?.querySelectorAll('[role="row"]');
 
     if (allRows) {
       const currentRowIndex = Array.from(allRows).indexOf(currentRow);

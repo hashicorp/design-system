@@ -8,8 +8,6 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
-import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -46,10 +44,10 @@ export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
 export interface HdsAdvancedTableSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
-    caption?: string;
     columns: HdsAdvancedTableColumn[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
+    childrenKey?: string;
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
@@ -64,7 +62,6 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasNestedRows?: boolean;
-    hasExpandableRows?: boolean;
     hasStickyHeader?: boolean;
   };
   Blocks: {
@@ -80,7 +77,7 @@ export interface HdsAdvancedTableSignature {
       },
     ];
   };
-  Element: HTMLTableElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
@@ -176,30 +173,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
-  get gridColumns(): SafeString {
-    let style = 'grid-template-columns: ';
-
-    if (this.args.isSelectable) {
-      style = `${style} auto`;
-
-      if (!this.columnWidths) {
-        for (let i = 0; i < this.args.columns.length; i++) {
-          style = `${style} 1fr`;
-        }
-      }
+  get gridTemplateColumns(): string {
+    if (!this.args.isSelectable && !this.columnWidths) {
+      return `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`;
     }
+
+    let style = this.args.isSelectable ? 'auto' : '';
 
     if (this.columnWidths) {
       for (let i = 0; i < this.columnWidths.length; i++) {
         style = `${style} ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
       }
+    } else {
+      for (let i = 0; i < this.args.columns.length; i++) {
+        style = `${style} 1fr`;
+      }
     }
 
-    if (!this.args.isSelectable && !this.columnWidths) {
-      style = `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`;
-    }
-
-    return htmlSafe(style);
+    return style;
   }
 
   get classNames(): string {
@@ -243,6 +234,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onSort(this.sortBy, this.sortOrder);
     }
   }
+
+  // TODO: warn devs that if they use hasNestedRows + selection stuff it wont work
 
   onSelectionChangeCallback(
     checkbox?: HdsFormCheckboxBaseSignature['Element'],

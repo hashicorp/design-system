@@ -42,7 +42,7 @@ export interface BaseHdsAdvancedTableTrSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLTableRowElement;
+  Element: HTMLDivElement;
 }
 
 // Extended interface for selectable rows
@@ -76,8 +76,14 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
   get classNames(): string {
     const classes = ['hds-advanced-table__tr'];
 
-    if (this.args.depth) {
-      classes.push(`hds-advanced-table__tr--depth-${this.args.depth}`);
+    const { depth } = this.args;
+    if (depth) {
+      classes.push(`hds-advanced-table__tr--depth-${depth}`);
+      if (depth % 2 === 0) {
+        classes.push(`hds-advanced-table__tr--depth-even`);
+      } else {
+        classes.push(`hds-advanced-table__tr--depth-odd`);
+      }
     }
 
     return classes.join(' ');

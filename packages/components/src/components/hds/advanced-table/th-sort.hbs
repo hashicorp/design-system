@@ -2,10 +2,9 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<th
+<div
   class={{this.classNames}}
   aria-sort={{this.ariaSort}}
-  {{style width=@width minWidth=@width}}
   ...attributes
   scope="col"
   role="columnheader"
@@ -20,4 +19,4 @@
     {{/if}}
     <Hds::AdvancedTable::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this.labelId}} />
   </div>
-</th>
+</div>

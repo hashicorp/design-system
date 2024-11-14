@@ -2,23 +2,22 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<th
+<div
   class={{this.classNames}}
-  {{style width=@width minWidth=@width}}
   ...attributes
   scope={{this.scope}}
   role={{this.role}}
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
-  aria-describedby="{{@parentId}}"
-  style={{this.style}}
+  aria-describedby={{@parentId}}
+  {{style grid-row=this.rowspan grid-column=this.colspan}}
 >
   {{#if @isVisuallyHidden}}
     <span class="sr-only">{{yield}}</span>
   {{else}}
     {{#if @tooltip}}
-      <div class="hds-advanced-table__th-content">
+      <div class="hds-advanced-table__th-content" {{style padding-left=this.contentPadding}}>
         {{#if @isExpandable}}
           <Hds::AdvancedTable::ThButtonExpand @labelId={{this.labelId}} />
         {{/if}}
@@ -26,7 +25,7 @@
         <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
       </div>
     {{else}}
-      <div class="hds-advanced-table__th-content">
+      <div class="hds-advanced-table__th-content" {{style padding-left=this.contentPadding}}>
         {{#if @isExpandable}}
           <Hds::AdvancedTable::ThButtonExpand
             @labelId={{this.labelId}}
@@ -38,4 +37,4 @@
       </div>
     {{/if}}
   {{/if}}
-</th>
+</div>

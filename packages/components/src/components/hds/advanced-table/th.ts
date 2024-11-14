@@ -7,8 +7,6 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
-import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -28,7 +26,6 @@ export interface HdsAdvancedTableThSignature {
     isVisuallyHidden?: boolean;
     scope?: HdsAdvancedTableScope;
     tooltip?: string;
-    width?: string;
     rowspan?: number;
     colspan?: number;
     isExpandable?: boolean;
@@ -36,18 +33,19 @@ export interface HdsAdvancedTableThSignature {
     parentId?: string;
     onClickToggle?: () => void;
     isExpanded?: boolean;
+    depth?: number;
   };
   Blocks: {
     default: [];
   };
-  Element: HTMLTableCellElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
   labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
 
   @action
-  didInsert(element: HTMLTableCellElement): void {
+  didInsert(element: HTMLDivElement): void {
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
@@ -74,20 +72,22 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return align;
   }
 
-  get style(): SafeString | undefined {
-    const { rowspan, colspan } = this.args;
-    let style = '';
-
-    if (rowspan) {
-      style += `grid-row: span ${rowspan};`;
+  get rowspan(): string | undefined {
+    if (this.args.rowspan) {
+      return `span ${this.args.rowspan}`;
     }
+  }
 
-    if (colspan) {
-      style += `grid-column: span ${colspan}`;
+  get colspan(): string | undefined {
+    if (this.args.colspan) {
+      return `span ${this.args.colspan}`;
     }
+  }
 
-    if (style.length > 0) return htmlSafe(style);
-    return undefined;
+  get contentPadding(): string | undefined {
+    if (this.args.depth) {
+      return `calc(${this.args.depth} * 32px)`;
+    }
   }
 
   get classNames(): string {

@@ -32,7 +32,6 @@ export interface HdsAdvancedTableThSortSignature {
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
-    width?: string;
     rowspan?: number;
     colspan?: number;
   };
@@ -46,7 +45,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   labelId = guidFor(this);
 
   @action
-  didInsert(element: HTMLTableCellElement): void {
+  didInsert(element: HTMLDivElement): void {
     didInsertGridCell(element);
     element.addEventListener('keydown', handleGridCellKeyPress);
   }
