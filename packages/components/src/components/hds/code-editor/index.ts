@@ -4,15 +4,18 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
 
 export interface HdsCodeEditorSignature {
   Args: {
-    title?: string;
+    canCopy?: boolean;
+    canExpand?: boolean;
     description?: string;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
-    value: string;
     options?: unknown[];
+    title?: string;
+    value: string;
   };
   Blocks: {
     default: [];
@@ -21,8 +24,14 @@ export interface HdsCodeEditorSignature {
 }
 
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
+  @tracked isFullscreen = false;
+
   get classNames(): string {
     const classes = ['hds-code-editor'];
+
+    if (!this.isFullscreen) {
+      classes.push('hds-code-editor--is-fullscreen');
+    }
 
     return classes.join(' ');
   }
