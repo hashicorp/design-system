@@ -16,6 +16,14 @@ For documentation around broader Figma best practices within HashiCorp design te
 
 ## Enabling Helios libraries
 
+!!! Insight
+
+The Design Systems Team has been hard at work updating many of our core Figma libraries, including [Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), [Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), and [Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6). We're piloting these libraries with a select group of designers before fully replacing the v1.0 libraries, which will then be deprecated and sunset.
+
+- [HDS Product Components v1.0 [Deprecated]](https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Components?m=auto&node-id=2-7&t=xoUUaynJ7hvhFDde-1)
+- [HDS Product Foundations v1.0 [Deprecated]](https://www.figma.com/design/oQsMzMMnynfPWpMEt91OpH/HDS-Foundations?m=auto&node-id=2916-4&t=ZajrnSJGabmjkb2n-1)
+!!!
+
 1. Open the Library modal via one of the following methods:
 
       - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
@@ -31,18 +39,18 @@ For documentation around broader Figma best practices within HashiCorp design te
          - Mac: `⌥ option`+`3`
          - Windows: `alt`+`3`
 
-2. Enable the libraries by locating the **HDS Design System UI Kit** team and toggling on the following:
+2. Enable the libraries by locating the **HDS Design System UI Kit** team and selecting "Add to file":
 
-   - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
-   - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
-   - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
-   - [Flight Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
+      - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
+      - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
+      - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
+      - [HDS Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
 
    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
 
 !!! Info
 
-If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations and Components libraries and "Flight" to find the Icon library.
+If you are not a member of the HDS Design System UI Kit team, you will need to look under the **Other teams** tab. If you’re having trouble finding these, search for "HDS" to find the Foundations, Components, Patterns, and Icon libraries.
 !!!
 
 Once the libraries are enabled, you can access the components from the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) or via the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances#quick-insert) (`shift`+`i`) in the toolbar. In contrast, styles published by the Foundations library are available in the [design panel](https://help.figma.com/hc/en-us/articles/360039832014-Design-prototype-and-inspect-right-sidebar-#design) within the right sidebar.
