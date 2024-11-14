@@ -16,56 +16,38 @@ import {
 } from '@codemirror/view';
 import { EditorState, type Extension } from '@codemirror/state';
 import { javascript } from '@codemirror/lang-javascript';
-import { defaultKeymap } from '@codemirror/commands';
+import { json } from '@codemirror/lang-json';
+import { sql } from '@codemirror/lang-sql';
+import { go } from '@codemirror/lang-go';
+import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
+import {
+  syntaxHighlighting,
+  // temporarily use the default highlight style until we have a custom one
+  defaultHighlightStyle,
+} from '@codemirror/language';
+import hdsDarkTheme from './themes/hds-dark-theme.ts';
 
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
 
 const LANGUAGE_MAP: Record<HdsCodeEditorLanguages, Extension> = {
+  go: go(),
   javascript: javascript(),
+  json: json(),
+  sql: sql(),
 };
 
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
       language?: HdsCodeEditorLanguages;
-
-      /** Called when editor contents change */
-      onInput?: (newVal: string) => void;
-
-      /** Called when editor loses focus */
-      onBlur?: (editor: EditorView, event: FocusEvent) => void;
-
-      /**
-       * See documentation for codemirror configuration types:
-       * https://codemirror.net/doc/manual.html#config
-       * */
-      // options?: codemirror.EditorConfiguration;
-
-      /** Code contents to display in editor */
       value: string;
+      onInput?: (newVal: string) => void;
+      onBlur?: (editor: EditorView, event: FocusEvent) => void;
     };
   };
 }
 
-/**
- *
- * `HdsCodeEditor` implements a modifier that creates a HdsCodeEditor instance on the
- * provided element.
- *
- * The supported modes for the editor are currently: hcl, shell, go, javascript
- * The supported themes are: monokai
- *
- * Sample usage:
- * ```
- * <div
- *   {{hds-code-editor onInput=@onInput options=@options value=@value}}
- * />
- * ```
- *
- * @class HdsCodeEditorModifier
- *
- */
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   didSetup = false;
 
@@ -118,31 +100,26 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     const languageExtension =
       language !== undefined ? LANGUAGE_MAP[language] : undefined;
 
-    const hdsDark = EditorView.theme(
-      {
-        '&': {
-          color: 'white',
-          backgroundColor: '#0d0e12',
-        },
-      },
-      { dark: true }
-    );
-
     let extensions = [
       lineNumbers(),
       highlightActiveLineGutter(),
       highlightSpecialChars(),
       drawSelection(),
       highlightActiveLine(),
-      hdsDark,
-      keymap.of(defaultKeymap),
+      hdsDarkTheme,
+      keymap.of([...defaultKeymap, ...historyKeymap]),
+      syntaxHighlighting(defaultHighlightStyle),
+      history(),
     ];
 
     if (languageExtension !== undefined) {
       extensions = [languageExtension, ...extensions];
     }
 
-    const state = EditorState.create({ doc: value, extensions });
+    const state = EditorState.create({
+      doc: value,
+      extensions,
+    });
 
     this.onInput = onInput;
     this.onBlur = onBlur;

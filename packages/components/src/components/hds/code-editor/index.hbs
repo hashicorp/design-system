@@ -4,20 +4,44 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if (or @title @description)}}
-    <div class="hds-code-editor--header">
-      {{#if @title}}
-        <h1>{{@title}}</h1>
-      {{/if}}
-      {{#if @description}}
-        <p>{{@description}}</p>
+  {{#if (or @title @description (has-block))}}
+    <div class="hds-code-editor__header">
+      <div class="hds-code-editor__header-info">
+        {{#if @title}}
+          <Hds::Text::Body
+            class="hds-code-editor__title"
+            @tag="h2"
+            @size="200"
+            @weight="semibold"
+            @color="var(--token-color-code-foreground-primary)"
+          >
+            {{@title}}
+          </Hds::Text::Body>
+        {{/if}}
+        {{#if @description}}
+          <Hds::Text::Body @tag="p" @size="100" @color="var(--token-color-code-foreground-faint)">
+            {{@description}}
+          </Hds::Text::Body>
+        {{/if}}
+      </div>
+      {{#if (or @canCopy @canExpand (has-block))}}
+        <div class="hds-code-editor__header-toolbar">
+          {{#if @canCopy}}
+            <Hds::Button @size="small" @icon="clipboard" @text="Copy" />
+          {{/if}}
+          {{#if @canExpand}}
+            <Hds::Button
+              @size="small"
+              @icon="maximize"
+              @text="Fullscreen"
+              {{on "click" (fn (mut this.isFullscreen) (not this.isFullscreen))}}
+            />
+          {{/if}}
+
+          {{yield}}
+        </div>
       {{/if}}
     </div>
   {{/if}}
-  {{#if (has-block)}}
-    <div class="hds-code-editor--toolbar">
-      {{yield}}
-    </div>
-  {{/if}}
-  <div {{hds-code-editor value=@value language=@language}} />
+  <div class="hds-code-editor--editor" {{hds-code-editor value=@value language=@language}} />
 </div>
