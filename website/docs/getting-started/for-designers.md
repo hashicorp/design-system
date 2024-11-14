@@ -197,7 +197,7 @@ We don’t recommend tying core design functionality to third-party plugins beca
 
 The [Figma community](https://www.figma.com/community) contains other useful resources for documenting your designs, wireframing, and collaborating with your team. Access Figma's community by clicking the organization switcher in the dashboard and selecting "Community" or by clicking "Explore Community" in the toolbar.
 
-![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png =804x\*)
+![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png =804x*)
 
 ### Figma documentation
 
