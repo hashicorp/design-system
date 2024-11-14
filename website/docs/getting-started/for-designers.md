@@ -36,7 +36,7 @@ For documentation around broader Figma best practices within HashiCorp design te
    - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2337-20575&t=gWdKy44MzTP4cTRo-1)
    - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=2916-4&t=z7hDCKFFuGUMDRYe-1)
    - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?node-id=2-45&t=cpJowBg8aXp4qAG1-1)
-   - [Flight Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1)
+   - [Flight Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
 
    ![Opening the library selection menu](/assets/getting-started/designers/enable-libraries-toggle.png)
 
@@ -75,7 +75,7 @@ To learn more about how to use the foundational styles, visit:
 
 ### Adding icons to your project
 
-To use icons within your project, first ensure the [Icons library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0) is enabled for your project (see [enabling Helios libraries](#enabling-helios-libraries)).
+To use icons within your project, first ensure the [Icons library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1) is enabled for your project (see [enabling Helios libraries](#enabling-helios-libraries)).
 
 1.  Open your project file within Figma.
 
@@ -120,7 +120,7 @@ Open the [resources menu](https://help.figma.com/hc/en-us/articles/360039150413-
 
 If you prefer to select a component visually, the [Product Components](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-95918&t=gWdKy44MzTP4cTRo-1) library has a stickersheet for each component displaying the available variants and properties. Just like when using the direct inserts, this method maintains the link to the main component in the library, which means it will receive updates as they become available.
 
-1. Open the [Product Components](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=zQtMoxS3oB4AplFG-6) library.
+1. Open the [Product Components](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=2-7&t=GgYi9cGI4e06qHBZ-1) library.
 
 2. Navigate to the relevant component page.
 
@@ -181,7 +181,7 @@ HashiCorp product teams can use the Helios libraries published under the [HDS De
 - [HDS Product Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): the set of components published in the Helios Design System
 - [HDS Product Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): core styles including typography, color, and elevation that are consumed by Helios components for reuse in your projects
 - [HDS Product Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6): patterns composed of HDS components published as detachable templates.
-- [Icons](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?t=nEh4FAxdjRsVInyL-1): core icon set for reuse in your projects
+- [Icons](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1): core icon set for reuse in your projects
 - [A11Y Helper Annotation Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): an annotation toolkit designed to enhance collaboration between designers and engineers, ensuring the work meets accessibility (a11y) standards.
 - [Wireframe UI Kit](https://www.figma.com/design/w0ukydeAsbv6sJirLxZMBo/HDS-Wireframes?m=auto&t=JLqmUYB9fZbdWaa2-6): low-fidelity versions of HDS components designed to help quickly sketch ideas and build flows.
 - [Utility UI Kit](https://www.figma.com/design/vqhh0wWZ8PwnRkvh1jk7jB/Utilities-UI-Kit?m=auto&t=JLqmUYB9fZbdWaa2-6): common UI helpers like documentation styles and annotations, and external utilities like browser scroll bars and cursors.
