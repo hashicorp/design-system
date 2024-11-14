@@ -3,7 +3,7 @@ title: Radio
 description: A form element that allows users to select a single item from group of items.
 caption: A form element that allows users to select a single item from group of items.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13181%3A36977&t=pDgL7LJUJXZUN7Xq-3
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-104016&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/radio
 related: ['components/form/checkbox', 'components/form/toggle', 'components/form/select']
 previewImage: assets/illustrations/components/form/radio.jpg

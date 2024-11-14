@@ -3,7 +3,7 @@ title: Toast
 description: Used to display messages that are the result of a user’s actions.
 caption: Used to display messages that are the result of a user’s actions.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=7636%3A30467&t=XC8SUxxJOFHgqYzK-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-85911&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/toast
 related: ['components/alert']
 previewImage: assets/illustrations/components/toast.jpg

@@ -3,7 +3,7 @@ title: Modal
 description: A pop-up window used to request information or feedback from the user, confirm a decision, or provide additional context about a function or feature.
 caption: A pop-up window used to request information, confirm a decision, or provide additional context.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=22928%3A56204&t=pDgL7LJUJXZUN7Xq-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67199-34072&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/modal
 related: ['components/alert','components/flyout','components/accordion','components/tooltip', 'utilities/dialog-primitive']
 previewImage: assets/illustrations/components/modal.jpg

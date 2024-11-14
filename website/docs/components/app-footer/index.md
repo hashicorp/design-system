@@ -3,7 +3,7 @@ title: App Footer
 description: A footer that appears on every screen to display supplementary information and links.
 caption: Displays supplementary information and links for the application.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46946-2369&mode=design
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67351-171799&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-footer
 related: ['layouts/app-frame', 'components/side-nav']
 previewImage: assets/illustrations/components/app-footer.jpg

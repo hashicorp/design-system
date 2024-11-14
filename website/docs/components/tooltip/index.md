@@ -3,7 +3,7 @@ title: Tooltip
 description: The Tooltip component provides additional information to users in a concise and unobtrusive way.
 caption: Provides additional information or context for a UI element.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=32036%3A51885&t=hyPMnP9pSH15dgcy-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67458-63977&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/tooltip-button
 related: ['components/modal']
 previewImage: assets/illustrations/components/tooltip.jpg
