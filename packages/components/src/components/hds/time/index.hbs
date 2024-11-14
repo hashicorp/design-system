@@ -2,10 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
-{{#let this.display as |display|}}
-  {{#if this.isValidDate}}
-    {{#if this.hasTooltip}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+{{~#let this.display as |display|~}}
+  {{~#if this.isValidDate~}}
+    {{~#if this.hasTooltip~}}
       <Hds::TooltipButton
         class="hds-time-wrapper"
         @text={{if
@@ -25,7 +25,7 @@
           ...attributes
         />
       </Hds::TooltipButton>
-    {{else}}
+    {{~else~}}
       <Hds::Time::Single
         @date={{this.date}}
         @isoUtcStringInner={{this.isoUtcString}}
@@ -34,9 +34,9 @@
         @unregister={{this.willDestroyNode}}
         ...attributes
       />
-    {{/if}}
-  {{else if this.isValidDateRange}}
-    {{#if this.hasTooltip}}
+    {{~/if~}}
+  {{~else if this.isValidDateRange~}}
+    {{~#if this.hasTooltip~}}
       <Hds::TooltipButton
         class="hds-time-wrapper"
         @text={{if
@@ -52,8 +52,8 @@
       >
         <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
       </Hds::TooltipButton>
-    {{else}}
+    {{~else~}}
       <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
-    {{/if}}
-  {{/if}}
-{{/let}}
+    {{~/if~}}
+  {{~/if~}}
+{{~/let~}}
