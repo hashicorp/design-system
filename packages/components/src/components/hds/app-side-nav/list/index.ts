@@ -30,7 +30,7 @@ export interface HdsAppSideNavListSignature {
 }
 
 export default class HdsAppSideNavList extends Component<HdsAppSideNavListSignature> {
-  @tracked _titleIds: string[] = [];
+  @tracked private _titleIds: string[] = [];
 
   get titleIds(): string {
     return this._titleIds.join(' ');

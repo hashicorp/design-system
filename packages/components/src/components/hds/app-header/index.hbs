@@ -9,7 +9,7 @@
   {{focus-trap isActive=this.shouldTrapFocus}}
   ...attributes
 >
-  {{#if (and this.hasA11yRefocus (not this.isOpen))}}
+  {{#if (and this.hasA11yRefocus (not this._isOpen))}}
     {{! @glint-expect-error - `ember-a11y-refocus` doesn't expose types yet }}
     <NavigationNarrator
       @routeChangeValidator={{@a11yRefocusRouteChangeValidator}}
@@ -22,15 +22,15 @@
 
   {{yield to="logo"}}
 
-  {{#if (not this.isDesktop)}}
+  {{#if (not this._isDesktop)}}
     <Hds::AppHeader::MenuButton
       @onClickToggle={{this.onClickToggle}}
-      @isOpen={{this.isOpen}}
-      @menuContentId={{this.menuContentId}}
+      @isOpen={{this._isOpen}}
+      @menuContentId={{this._menuContentId}}
     />
   {{/if}}
 
-  <div class="hds-app-header__actions" id={{this.menuContentId}}>
+  <div class="hds-app-header__actions" id={{this._menuContentId}}>
     <div class="hds-app-header__global-actions">
       {{yield to="globalActions"}}
     </div>

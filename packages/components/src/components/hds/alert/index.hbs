@@ -4,9 +4,9 @@
 }}
 <div
   class={{this.classNames}}
-  role={{this.role}}
-  aria-live={{if this.role "polite"}}
-  aria-labelledby={{this.ariaLabelledBy}}
+  role={{this._role}}
+  aria-live={{if this._role "polite"}}
+  aria-labelledby={{this._ariaLabelledBy}}
   {{did-insert this.didInsert}}
   ...attributes
 >

@@ -32,8 +32,8 @@ export interface HdsCopyButtonSignature {
 }
 
 export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
-  @tracked status = DEFAULT_STATUS;
-  @tracked timer: ReturnType<typeof setTimeout> | undefined;
+  @tracked private _status = DEFAULT_STATUS;
+  @tracked private _timer: ReturnType<typeof setTimeout> | undefined;
 
   /**
    * @param icon
@@ -42,9 +42,9 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
    */
   get icon(): HdsIconSignature['Args']['name'] {
     let icon: HdsIconSignature['Args']['name'] = DEFAULT_ICON;
-    if (this.status === 'success') {
+    if (this._status === 'success') {
       icon = SUCCESS_ICON;
-    } else if (this.status === 'error') {
+    } else if (this._status === 'error') {
       icon = ERROR_ICON;
     }
     return icon;
@@ -80,7 +80,7 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
     // add a class based on the @size argument
     classes.push(`hds-button--size-${this.size}`);
 
-    classes.push(`hds-copy-button--status-${this.status}`);
+    classes.push(`hds-copy-button--status-${this._status}`);
 
     return classes.join(' ');
   }
@@ -89,7 +89,7 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
   onSuccess(
     args: HdsClipboardModifierSignature['Args']['Named']['onSuccess']
   ): void {
-    this.status = 'success';
+    this._status = 'success';
     this.resetStatusDelayed();
 
     const { onSuccess } = this.args;
@@ -103,7 +103,7 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
   onError(
     args: HdsClipboardModifierSignature['Args']['Named']['onError']
   ): void {
-    this.status = 'error';
+    this._status = 'error';
     this.resetStatusDelayed();
 
     const { onError } = this.args;
@@ -114,10 +114,10 @@ export default class HdsCopyButton extends Component<HdsCopyButtonSignature> {
   }
 
   resetStatusDelayed(): void {
-    clearTimeout(this.timer);
+    clearTimeout(this._timer);
     // make it fade back to the default state
-    this.timer = setTimeout((): void => {
-      this.status = DEFAULT_STATUS;
+    this._timer = setTimeout((): void => {
+      this._status = DEFAULT_STATUS;
     }, 1500);
   }
 }

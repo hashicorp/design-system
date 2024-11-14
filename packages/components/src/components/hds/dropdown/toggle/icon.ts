@@ -31,7 +31,7 @@ export interface HdsDropdownToggleIconSignature {
 }
 
 export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIconSignature> {
-  @tracked hasImage = true;
+  @tracked private _hasImage = true;
 
   constructor(owner: unknown, args: HdsDropdownToggleIconSignature['Args']) {
     super(owner, args);
@@ -44,12 +44,12 @@ export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIc
 
   @action
   onDidUpdateImageSrc(): void {
-    this.hasImage = true;
+    this._hasImage = true;
   }
 
   @action
   onImageLoadError(): void {
-    this.hasImage = false;
+    this._hasImage = false;
   }
 
   /**

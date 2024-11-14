@@ -65,14 +65,14 @@ export interface HdsCodeBlockSignature {
 }
 
 export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
-  @tracked prismCode: SafeString = htmlSafe('');
+  @tracked private _prismCode: SafeString = htmlSafe('');
 
   /**
    * Generates a unique ID for the code content
    *
-   * @param preCodeId
+   * @param _preCodeId
    */
-  preCodeId = 'pre-code-' + guidFor(this);
+  private _preCodeId = 'pre-code-' + guidFor(this);
 
   /**
    * @param code
@@ -144,9 +144,9 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       // eslint-disable-next-line ember/no-runloop
       next(() => {
         if (language && grammar) {
-          this.prismCode = htmlSafe(Prism.highlight(code, grammar, language));
+          this._prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
-          this.prismCode = htmlSafe(Prism.util.encode(code).toString());
+          this._prismCode = htmlSafe(Prism.util.encode(code).toString());
         }
 
         // Force prism-line-numbers plugin initialization, required for Prism.highlight usage

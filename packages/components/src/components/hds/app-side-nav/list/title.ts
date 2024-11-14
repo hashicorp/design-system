@@ -19,7 +19,7 @@ export interface HdsAppSideNavListTitleSignature {
 
 export default class HdsAppSideNavListTitle extends Component<HdsAppSideNavListTitleSignature> {
   /*  Generate a unique ID for each Title */
-  titleId = 'title-' + guidFor(this);
+  private _titleId = 'title-' + guidFor(this);
 
   @action
   didInsertTitle(element: HTMLElement): void {

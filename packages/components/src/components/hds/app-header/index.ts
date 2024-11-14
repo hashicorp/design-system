@@ -28,23 +28,23 @@ export interface HdsAppHeaderSignature {
 }
 
 export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
-  @tracked isOpen = false;
-  @tracked isDesktop = true;
-  @tracked hasOverflowContent = false;
-  desktopMQ: MediaQueryList;
+  @tracked private _isOpen = false;
+  @tracked private _isDesktop = true;
+  @tracked private _hasOverflowContent = false;
+  private _desktopMQ: MediaQueryList;
   hasA11yRefocus = this.args.hasA11yRefocus ?? true;
   a11yRefocusSkipTo = '#' + (this.args.a11yRefocusSkipTo ?? 'hds-main');
 
   // Generates a unique ID for the Menu Content
-  menuContentId = 'hds-menu-content-' + guidFor(this);
+  private _menuContentId = 'hds-menu-content-' + guidFor(this);
 
-  breakpoint = parseInt(
+  private _breakpoint = parseInt(
     getComputedStyle(document.documentElement).getPropertyValue(
       '--hds-app-desktop-breakpoint'
     )
   );
 
-  desktopMQVal =
+  private _desktopMQVal =
     this.args.breakpoint ??
     getComputedStyle(document.documentElement).getPropertyValue(
       '--hds-app-desktop-breakpoint'
@@ -52,7 +52,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   constructor(owner: unknown, args: Record<string, never>) {
     super(owner, args);
-    this.desktopMQ = window.matchMedia(`(min-width: ${this.desktopMQVal})`);
+    this._desktopMQ = window.matchMedia(`(min-width: ${this._desktopMQVal})`);
     this.addEventListeners();
     registerDestructor(this, (): void => {
       this.removeEventListeners();
@@ -61,19 +61,23 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   addEventListeners(): void {
     document.addEventListener('keydown', this.escapePress, true);
-    this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
+    this._desktopMQ.addEventListener(
+      'change',
+      this.updateDesktopVariable,
+      true
+    );
 
     // set initial state based on viewport using a "synthetic" event
     const syntheticEvent = new MediaQueryListEvent('change', {
-      matches: this.desktopMQ.matches,
-      media: this.desktopMQ.media,
+      matches: this._desktopMQ.matches,
+      media: this._desktopMQ.media,
     });
     this.updateDesktopVariable(syntheticEvent);
   }
 
   removeEventListeners(): void {
     document.removeEventListener('keydown', this.escapePress, true);
-    this.desktopMQ.removeEventListener(
+    this._desktopMQ.removeEventListener(
       'change',
       this.updateDesktopVariable,
       true
@@ -82,20 +86,20 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   // In mobile view when the menu is open, trap focus within the AppHeader
   get shouldTrapFocus(): boolean {
-    return !this.isDesktop && this.isOpen;
+    return !this._isDesktop && this._isOpen;
   }
 
   // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-app-header'];
 
-    if (this.isDesktop) {
+    if (this._isDesktop) {
       classes.push('hds-app-header--is-desktop');
     } else {
       classes.push('hds-app-header--is-mobile');
 
       // open and closed menu states are only relevant on mobile
-      if (this.isOpen) {
+      if (this._isOpen) {
         classes.push('hds-app-header--menu-is-open');
       } else {
         classes.push('hds-app-header--menu-is-closed');
@@ -107,24 +111,24 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
 
   @action
   escapePress(event: KeyboardEvent): void {
-    if (event.key === 'Escape' && this.isOpen && !this.isDesktop) {
-      this.isOpen = false;
+    if (event.key === 'Escape' && this._isOpen && !this._isDesktop) {
+      this._isOpen = false;
     }
   }
 
   @action
   onClickToggle(): void {
-    this.isOpen = !this.isOpen;
+    this._isOpen = !this._isOpen;
   }
 
   @action
   updateDesktopVariable(event: MediaQueryListEvent): void {
-    this.isDesktop = event.matches;
+    this._isDesktop = event.matches;
 
     // Close the menu when switching to desktop view
     // (prevents menu from being open when resizing which causes Skip button to not render)
-    if (this.isDesktop) {
-      this.isOpen = false;
+    if (this._isDesktop) {
+      this._isOpen = false;
     }
   }
 }

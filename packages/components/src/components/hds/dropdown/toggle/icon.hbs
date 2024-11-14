@@ -13,7 +13,7 @@
 >
   <div class="hds-dropdown-toggle-icon__wrapper">
     {{#if @imageSrc}}
-      {{#if this.hasImage}}
+      {{#if this._hasImage}}
         <img src={{@imageSrc}} alt="" role="presentation" {{on "error" this.onImageLoadError}} />
       {{else}}
         <Hds::Icon @name="user" @size={{this.iconSize}} />
