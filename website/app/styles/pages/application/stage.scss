@@ -40,8 +40,8 @@
       auto;
     margin: 0 auto 0 0;
   }
+}
 
-  &.doc-page-stage--tabs {
-    --doc-page-offset-height: calc(var(--doc-page-header-height) + var(--doc-page-tabs-height));
-  }
+.doc-page-stage--tabs {
+  --doc-page-offset-height: calc(var(--doc-page-header-height) + var(--doc-page-tabs-height));
 }
