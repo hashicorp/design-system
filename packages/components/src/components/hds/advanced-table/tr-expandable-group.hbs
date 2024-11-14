@@ -12,10 +12,19 @@
     isExpanded=this.isExpanded
   )
 }}
-<div class={{this.classes}}>
-  {{#each this.children as |childRecord|}}
-    <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} @depth={{this.newDepth}}>
-      {{yield (hash data=childRecord isExpandable=false parentId=this.parentRowHeaderId depth=this.newDepth)}}
-    </Hds::AdvancedTable::TrExpandableGroup>
-  {{/each}}
-</div>
+{{#if this.hasChildren }}
+  <div class={{this.classes}}>
+    {{#each this.children as |childRecord|}}
+      <Hds::AdvancedTable::TrExpandableGroup @record={{childRecord}} @depth={{this.newDepth}} as |T|>
+        {{yield (hash
+          data=T.data
+          isExpandable=T.isExpandable
+          depth=T.depth
+          onClickToggle=T.onClickToggle
+          isExpanded=T.isExpanded
+        )
+      }}
+      </Hds::AdvancedTable::TrExpandableGroup>
+    {{/each}}
+  </div>
+{{/if}}

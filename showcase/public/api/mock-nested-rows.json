@@ -29,7 +29,21 @@
       "id": 21,
       "name": "test-advisory-pass.sentinel",
       "status": "PASS",
-      "description": "Sample description for this thing."
+      "description": "Sample description for this thing.",
+      "children": [
+        {
+          "id": 211,
+          "name": "test-advisory-pass.sentinel.primary",
+          "status": "PASS",
+          "description": "Sample description for this thing."
+        },
+        {
+          "id": 212,
+          "name": "test-hard-mandatory-pass.sentinel.secondary",
+          "status": "FAIL",
+          "description": "Sample description for this thing."
+        }
+      ]
     },
     {
       "id": 22,
