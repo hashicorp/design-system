@@ -1,0 +1,30 @@
+{
+  "color": {
+    "code": {
+      "foreground": {
+          "primary": {
+              "value": "#d5d7db",
+              "type": "color",
+              "group": "semantic"
+          },
+          "faint": {
+              "value": "#d5d7db",
+              "type": "color",
+              "group": "semantic"
+          }
+      },
+      "surface": {
+          "primary": {
+              "value": "#0d0e12",
+              "type": "color",
+              "group": "semantic"
+          },
+          "faint": {
+              "value": "#15181e",
+              "type": "color",
+              "group": "semantic"
+          }
+      }
+    }
+  }
+}
