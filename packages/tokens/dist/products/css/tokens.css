@@ -1,5 +1,10 @@
 /**
+<<<<<<< HEAD
  * Do not edit directly, this file was auto-generated.
+=======
+ * Do not edit directly
+ * Generated on Thu, 14 Nov 2024 01:41:04 GMT
+>>>>>>> 6ec89ffe0 (added support for history)
  */
 
 :root {
@@ -53,6 +58,10 @@
   --token-color-border-success: #cceeda;
   --token-color-border-warning: #fbeabf;
   --token-color-border-critical: #fbd4d4;
+  --token-color-code-foreground-primary: #d5d7db;
+  --token-color-code-foreground-faint: #d5d7db;
+  --token-color-code-surface-primary: #0d0e12;
+  --token-color-code-surface-faint: #15181e;
   --token-color-focus-action-internal: #0c56e9;
   --token-color-focus-action-external: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
   --token-color-focus-critical-internal: #c00005;
