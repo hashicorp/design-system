@@ -37,6 +37,19 @@ export default class HdsAdvancedTableTrExpandableGroup extends Component<HdsAdva
 
   @tracked isExpanded = false;
 
+  constructor(
+    owner: unknown,
+    args: HdsAdvancedTableTrExpandableGroupSignature['Args']
+  ) {
+    super(owner, args);
+
+    this.isExpanded =
+      this.args.record['isExpanded'] &&
+      typeof this.args.record['isExpanded'] === 'boolean'
+        ? this.args.record['isExpanded']
+        : false;
+  }
+
   get childrenKey(): string {
     const { childrenKey = 'children' } = this.args;
 
