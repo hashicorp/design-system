@@ -61,7 +61,7 @@ Because the usage of Helios Foundations reinforces consistency across the produc
 
 3. Select the style you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
 
-![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png =784x\*)
+![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png =784x*)
 
 To learn more about how to use the foundational styles, visit:
 
@@ -163,7 +163,7 @@ Setting a component to a fixed width in Figma is the same as setting a `width` v
 
 Components and patterns unique to your product should be designed and built locally, extending Helios components and foundations.
 
-![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x\*)
+![Local component patterns](/assets/getting-started/designers/local-component-patterns.png =706x*)
 
 When creating local components for your product, it’s helpful to separate them from your main project files and house them in their own Figma library file. Using a dedicated library creates a consistent location for your product’s local components so that other designers on your team can access and use them.
 
