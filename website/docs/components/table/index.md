@@ -15,7 +15,7 @@ previewImage: assets/illustrations/components/table.jpg
 navigation:
   keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
 status:
-  updated: 4.11.0
+  updated: 4.15.0
 ---
 
 <section data-tab="Guidelines">
@@ -46,6 +46,7 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.11.0.md"
   @include "partials/version-history/4.10.0.md"
 </section>

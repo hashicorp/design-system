@@ -24,6 +24,9 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="<:body>" @type="named block">
     This is a named block where the content for the table body (`<tbody>`) is rendered.
     <Doc::ComponentApi as |C|>
+      <C.Property @name="[B].rowIndex" @type="number">
+        The value of the index asssociated with the `@each` loop. Available only when the `@model/@columns` arguments are provided.
+      </C.Property>
       <C.Property @name="[B].sortBy" @type="string">
         The value of the internal `sortBy` tracked variable.
       </C.Property>

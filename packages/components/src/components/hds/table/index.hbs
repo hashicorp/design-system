@@ -75,7 +75,7 @@
         we yield the Tr/Td/Th elements _and_ the record itself as `data`
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
-      {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
+      {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record index|}}
         {{yield
           (hash
             Tr=(component
@@ -90,6 +90,7 @@
             Th=(component "hds/table/th" scope="row")
             Td=(component "hds/table/td" align=@align)
             data=record
+            rowIndex=index
           )
           to="body"
         }}

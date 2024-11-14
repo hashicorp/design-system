@@ -201,7 +201,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
         (hash key='year' label='components.table.headers.year')
       }}>
         <:body as |B|>
-          <B.Tr>
+          <B.Tr id={{B.rowIndex}}>
             <B.Td>{{B.data.key}}</B.Td>
             <B.Td>{{B.data.name}}</B.Td>
             <B.Td>{{B.data.description}}</B.Td>
@@ -209,6 +209,8 @@ module('Integration | Component | hds/table/index', function (hooks) {
         </:body>
       </Hds::Table>
     `);
+
+    assert.dom('#data-test-table tr:nth-child(3)').hasProperty('id', '2');
 
     assert
       .dom('#data-test-table tr:first-of-type td:nth-of-type(2n)')
