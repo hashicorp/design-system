@@ -72,16 +72,19 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return align;
   }
 
-  get rowspan(): string | undefined {
+  // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
+  get rowspan(): string {
     if (this.args.rowspan) {
       return `span ${this.args.rowspan}`;
     }
+    return 'auto';
   }
 
   get colspan(): string | undefined {
     if (this.args.colspan) {
       return `span ${this.args.colspan}`;
     }
+    return 'auto';
   }
 
   get contentPadding(): string | undefined {

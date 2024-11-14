@@ -175,7 +175,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   get gridTemplateColumns(): string {
     if (!this.args.isSelectable && !this.columnWidths) {
-      return `grid-template-columns: repeat(${this.args.columns.length}, 1fr)`;
+      return `repeat(${this.args.columns.length}, 1fr)`;
     }
 
     let style = this.args.isSelectable ? 'auto' : '';
