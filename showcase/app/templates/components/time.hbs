@@ -61,4 +61,24 @@
       <Hds::Time @startDate="8 November 2024" @endDate="20 January 2025" @hasTooltip={{false}} />
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Used in context</Shw::Text::H2>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="Single date">
+      <Hds::Text::Body @tag="p">
+        HashiConf 2024 ended
+        <Hds::Time @date="16 October 2024" @display="relative" />.
+      </Hds::Text::Body>
+    </SF.Item>
+
+    <SF.Item @label="Date range">
+      <Hds::Text::Body @tag="p">
+        HashiConf is from
+        <Hds::Time @startDate="14 October 2024" @endDate="16 October 2024" />.
+      </Hds::Text::Body>
+    </SF.Item>
+  </Shw::Flex>
 </section>
