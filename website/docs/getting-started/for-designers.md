@@ -18,18 +18,18 @@ For documentation around broader Figma best practices within HashiCorp design te
 
 1. Open the Library modal via one of the following methods:
 
-   - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
+      - Click the `Assets` panel in the left sidebar, then click the `book` icon to open the modal.
 
-   ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
+      ![Opening the library modal via the assets panel](/assets/getting-started/designers/enable-libraries-icon.png =295x*)
 
-   - Click the `Figma` icon in the top toolbar, then click "Libraries".
+      - Click the `Figma` icon in the top toolbar, then click "Libraries".
 
-   ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
+      ![Opening the library modal via the menu](/assets/getting-started/designers/enable-libraries-menu.png =290x*)
 
-   - Or use the keyboard shortcut:
+      - Or use the keyboard shortcut:
 
-     - Mac: `⌥ option`+`3`
-     - Windows: `alt`+`3`
+         - Mac: `⌥ option`+`3`
+         - Windows: `alt`+`3`
 
 2. Enable the libraries by locating the **HDS Design System UI Kit** team and toggling on the following:
 
