@@ -87,9 +87,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return 'auto';
   }
 
-  get contentPadding(): string | undefined {
+  get paddingLeft(): string | undefined {
     if (this.args.depth) {
-      return `calc(${this.args.depth} * 32px)`;
+      return `calc(${this.args.depth} * 32px + 16px)`;
     }
   }
 
