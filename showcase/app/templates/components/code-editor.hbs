@@ -8,7 +8,14 @@
 <Shw::Text::H1>CodeEditor</Shw::Text::H1>
 
 <section data-test-percy>
-
-  <Hds::CodeEditor @value="console.log('Hello, CodeMirror!');" @language="javascript" />
-
+  <Hds::CodeEditor
+    @canCopy={{true}}
+    @canExpand={{true}}
+    @title="Code Editor"
+    @description="Write some code for us"
+    @value={{this.demoCode}}
+    @language="javascript"
+  >
+    <button type="button">Toggle Line Numbers</button>
+  </Hds::CodeEditor>
 </section>

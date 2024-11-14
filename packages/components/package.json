@@ -36,7 +36,11 @@
   },
   "dependencies": {
     "@codemirror/commands": "^6.7.1",
+    "@codemirror/lang-go": "^6.0.1",
     "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-json": "^6.0.1",
+    "@codemirror/lang-sql": "^6.8.0",
+    "@codemirror/language": "^6.10.3",
     "@codemirror/state": "^6.4.1",
     "@codemirror/view": "^6.33.0",
     "@ember/render-modifiers": "^2.0.5",
@@ -308,7 +312,8 @@
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
-      "./modifiers/hds-code-editor.js": "./dist/_app_/modifiers/hds-code-editor.js",
+      "./modifiers/hds-code-editor/index.js": "./dist/_app_/modifiers/hds-code-editor/index.js",
+      "./modifiers/hds-code-editor/themes/hds-dark-theme.js": "./dist/_app_/modifiers/hds-code-editor/themes/hds-dark-theme.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
