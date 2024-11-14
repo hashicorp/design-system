@@ -42,8 +42,7 @@ While by default the component renders a `<span>`, we invite consumers to:
 To specify which size to apply to the text, use the `@size` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h1" @size="500">Page title with "Display-500" variant
-</Hds::Text::Display>
+<Hds::Text::Display @tag="h1" @size="500">Page title with "Display-500" variant</Hds::Text::Display>
 <Hds::Text::Body @tag="p" @size="300">Paragraph text with "Body-300" variant-</Hds::Text::Body>
 <Hds::Text::Code @tag="pre" @size="100">Code sample with "Code-100" variant</Hds::Text::Code>
 ```
@@ -55,11 +54,8 @@ Different style variants support different sizes: refer to the [Component API](#
 To apply a specific font weight to the text, use the `@weight` argument:
 
 ```handlebars
-<Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with
-  "medium" font weight</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font
-  weight
-</Hds::Text::Body>
+<Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with "medium" font weight</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight</Hds::Text::Body>
 <Hds::Text::Code @tag="pre" @weight="bold">Code sample with "bold" font weight</Hds::Text::Code>
 ```
 
@@ -88,10 +84,8 @@ It is possible to apply a specific **foreground** color to the text (from a pred
 
 ```handlebars
 <Hds::Text::Body @tag="p" @color="strong">Paragraph with "strong" color applied</Hds::Text::Body>
-<Hds::Text::Body @tag="p" @color="action-active">Paragraph with "action-active"
-  color applied</Hds::Text::Body>
-<Hds::Text::Body @tag="p" @color="highlight-high-contrast">Paragraph with
-  "highlight-high-contrast" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="action-active">Paragraph with "action-active"color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="highlight-high-contrast">Paragraph with "highlight-high-contrast" color applied</Hds::Text::Body>
 ```
 
 For the list of possible foreground colors supported, refer to the [Component API](#component-api) section for details.
@@ -99,15 +93,13 @@ For the list of possible foreground colors supported, refer to the [Component AP
 It’s also possible to provide a CSS color as string (in this case the color will be applied as inline style). The string can be a CSS `var()` that uses one of the [predefined color tokens](/foundations/colors?tab=palette):
 
 ```handlebars
-<Hds::Text::Body @tag="p" @color="var(--token-color-palette-blue-400)">This text
-  has a "blue-400" color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="var(--token-color-palette-blue-400)">This texthas a "blue-400" color applied</Hds::Text::Body>
 ```
 
 Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 
 ```handlebars
-<Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color
-  applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
 ```
 
 !!! Warning
@@ -121,12 +113,7 @@ We don’t validate the CSS color string to ensure that the value used is correc
 Since the component is not prescriptive on the tags that can be used to render the text, it can be used to apply a typographic style not only to plain text but also to structured content:
 
 ```handlebars
-<Hds::Text::Body @tag="p" @size="300">This text contains some
-  <strong>strong</strong>
-  and
-  <em>em</em>
-  tags, a
-  <Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @size="300">This text contains some <strong>strong</strong> and <em>em</em> tags, a<Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
 ```
 
 We can imagine even more complex examples where we may want to apply a typographic style to an entire block of content:
@@ -135,13 +122,8 @@ We can imagine even more complex examples where we may want to apply a typograph
 <Hds::Text::Body @tag="div" @size="200" @color="strong">
   <p>This is some generic text in a paragraph.</p>
   <ul>
-    <li>this list item contains some
-      <strong>strong</strong>
-      and
-      <em>em</em>
-      tags</li>
-    <li>this list item contains a
-      <Hds::Link::Inline @href="#">link</Hds::Link::Inline></li>
+    <li>this list item contains some <strong>strong</strong> and <em>em</em> tags</li>
+    <li>this list item contains a <Hds::Link::Inline @href="#">link</Hds::Link::Inline></li>
   </ul>
   <p>This is also some generic text in a paragraph.</p>
 </Hds::Text::Body>
@@ -154,4 +136,4 @@ We can imagine even more complex examples where we may want to apply a typograph
 While this is technically possible, it’s not necessarily desirable (or correct in every possible context).
 Please be mindful of how the markup is structured, in terms of HTML semantics (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
 
-!!! -->
+!!!
