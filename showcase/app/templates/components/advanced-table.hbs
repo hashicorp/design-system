@@ -41,12 +41,11 @@
     </:body>
   </Hds::AdvancedTable>
 
-  {{!-- <Shw::Text::H2>With cells that span rows and columns</Shw::Text::H2>
+  <Shw::Text::H2>With nested rows and cells that span rows</Shw::Text::H2>
 
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
     @hasNestedRows={{true}}
-    @hasExpandableRows={{false}}
     @columns={{array
       (hash key="name" label="Name")
       (hash key="service" label="Service")
@@ -56,13 +55,13 @@
     <:body as |B|>
       <B.Tr>
         {{#if B.data.name}}
-          <B.Th @rowspan={{add B.data.children.length 1}}>{{B.data.name}}</B.Th>
+          <B.Th @rowspan={{if B.isExpanded (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
         {{/if}}
         <B.Td>{{B.data.service}}</B.Td>
         <B.Td>{{B.data.description}}</B.Td>
       </B.Tr>
     </:body>
-  </Hds::AdvancedTable> --}}
+  </Hds::AdvancedTable>
 
   <Shw::Text::H2>With nested rows</Shw::Text::H2>
 

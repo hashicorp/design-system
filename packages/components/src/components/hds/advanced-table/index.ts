@@ -72,8 +72,7 @@ export interface HdsAdvancedTableSignature {
         Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
         data?: Record<string, unknown>;
-        sortBy?: string;
-        sortOrder?: HdsAdvancedTableThSortOrder;
+        isExpanded?: boolean;
       },
     ];
   };
