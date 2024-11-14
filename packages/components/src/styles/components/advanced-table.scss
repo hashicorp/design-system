@@ -114,7 +114,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   }
 
   &.hds-advanced-table__thead--sticky {
-    tr {
+    .hds-advanced-table__tr {
       &:first-of-type {
         .hds-advanced-table__th:first-child {
           border-top-left-radius: 0;
@@ -320,16 +320,6 @@ height: 100%;
       background-color: var(--token-color-surface-primary);
     }
   }
-
-  // .hds-advanced-table__tr--depth-odd, .hds-advanced-table__tr--depth-even {
-  //   --depth: attr(data-depth);
-
-  //   .hds-advanced-table__th {
-  //     .hds-advanced-table__th-content {
-  //       padding-left: calc(var(--depth) * 32px); 
-  //     }
-  //   }
-  // }
 }
 
 
