@@ -12,7 +12,7 @@
   position: relative;
   grid-area: cover;
   min-width: 0; // This is needed to allow the scrolling of the tabs
-  padding: 32px var(--doc-page-stage-gutter-small) 0;
+  padding: 32px var(--doc-page-stage-gutter-small) 24px;
   background-color: var(--doc-color-white);
   border-bottom: 1px solid var(--doc-color-gray-500);
 
@@ -62,19 +62,7 @@
   color: var(--doc-color-gray-300);
 }
 
-.doc-page-cover__tabs {
-  display: flex;
-  flex-wrap: nowrap;
-  height: min-content;
-  margin-top: 24px;
-  overflow-x: auto;
-  overflow-y: hidden; // .doc-page-tabs__tab--is-current has an ::after pseudoelement that always overflows with 3px, so we disable the vertical scrollbar and rely on the horizontal one
-  -webkit-overflow-scrolling: touch;
-
-  @include breakpoint.medium () {
-    position: absolute;
-    bottom: 0;
-    display: block;
-    overflow: visible;
-  }
+.doc-page-stage--tabs .doc-page-cover {
+  padding-bottom: 0;
+  border-bottom: none;
 }

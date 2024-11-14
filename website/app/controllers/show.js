@@ -150,6 +150,10 @@ export default class ShowController extends Controller {
     return converter.makeHtml(this.model.content);
   }
 
+  get hasTabs() {
+    return this.tabs.length > 0;
+  }
+
   didInsertContent = () => {
     let sections = [];
     let tabs = [];
