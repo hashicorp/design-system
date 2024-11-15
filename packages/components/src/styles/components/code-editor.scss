@@ -48,11 +48,13 @@
   }
 
   &__toolbar-button {
+    color: var(--token-color-code-foreground-primary);
     background-color: var(--token-color-code-surface-faint);
     border: 1px solid $border-strong;
 
     &:hover {
       background-color: var(--token-color-code-surface-primary);
+      border-color: var(--token-color-code-border-strong);
     }
   }
 }
