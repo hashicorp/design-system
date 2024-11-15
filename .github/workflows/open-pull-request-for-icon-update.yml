@@ -38,6 +38,7 @@ jobs:
           branch-suffix: 'short-commit-hash'
           commit-message: 'sync & build of flight icons'
           title: 'Updated export of icons from Figma'
+          draft: true
           body: |
             ### :pushpin: Summary
 
