@@ -18,7 +18,7 @@ For documentation around broader Figma best practices within HashiCorp design te
 
 !!! Insight
 
-The Design Systems Team has been hard at work updating many of our core Figma libraries, including [Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), [Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), and [Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6). We're piloting these libraries with a select group of designers before fully replacing the v1.0 libraries, which will then be deprecated and sunset.
+The Design Systems Team has been hard at work updating many of our core Figma libraries, including [Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), [Foundations v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6), and [Patterns v2.0](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&t=Rk02iW7PpBI5vhtJ-6). We're piloting these libraries with a select group of designers before fully replacing the v1.0 libraries, which will then be unpublished and archived.
 
 - [HDS Product Components v1.0 [Deprecated]](https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Components?m=auto&node-id=2-7&t=xoUUaynJ7hvhFDde-1)
 - [HDS Product Foundations v1.0 [Deprecated]](https://www.figma.com/design/oQsMzMMnynfPWpMEt91OpH/HDS-Foundations?m=auto&node-id=2916-4&t=ZajrnSJGabmjkb2n-1)
