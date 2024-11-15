@@ -16,6 +16,6 @@ export default class DocPageTabsComponent extends Component {
 
     // Set focus on tab clicked
     let tabElement = document.getElementById(tab.id);
-    tabElement.focus()
+    tabElement.focus();
   }
 }
