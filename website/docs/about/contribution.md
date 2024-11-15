@@ -3,6 +3,8 @@ title: Contribution
 description: How to collaborate with the Design Systems Team and contribute to the Helios Design System.
 navigation:
   order: 104
+layout:
+  tabs: false
 ---
 
 !!! Info

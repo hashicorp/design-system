@@ -103,7 +103,8 @@ export default class ApplicationController extends Controller {
     if (
       transition.from.params.path === transition.to.params.path &&
       (transition.from.params.path === 'icons/library' ||
-        transition.from.params.path === 'foundations/tokens')
+        transition.from.params.path === 'foundations/tokens' ||
+        transition.from.attributes.hasTabs)
     ) {
       return false;
     } else {

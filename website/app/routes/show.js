@@ -108,6 +108,7 @@ export default class ShowRoute extends Route {
 
         // check if there are special needs for the page layout
         const hasCover = frontmatter?.layout?.cover ?? true;
+        const hasTabs = frontmatter?.layout?.tabs ?? true;
         // TODO! probably we should also check if we have TOC data for the sidecar
         const hasSidecar = frontmatter?.layout?.sidecar ?? true;
         const showContentId = `show-content-${res.data.id
@@ -145,6 +146,7 @@ export default class ShowRoute extends Route {
           // extra metadata for this page
           frontmatter,
           hasCover,
+          hasTabs,
           hasSidecar,
           relatedComponents,
         };

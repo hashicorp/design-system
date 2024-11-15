@@ -3,6 +3,8 @@ title: Getting started for engineers
 navigation:
   order: 102
   label: For engineers
+layout:
+  tabs: false
 ---
 
 The Design Systems Team maintains design tokens, icons, and components in a [monorepo](https://github.com/hashicorp/design-system) and publishes them regularly to npm.

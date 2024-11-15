@@ -3,6 +3,8 @@ title: Getting started for designers
 navigation:
   order: 101
   label: For designers
+layout:
+  tabs: false
 ---
 
 !!! Info
