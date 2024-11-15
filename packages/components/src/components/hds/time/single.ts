@@ -8,9 +8,9 @@ import type { DisplayType } from '../../../services/hds-time-types.ts';
 
 export interface HdsTimeSingleSignature {
   Args: {
-    date: Date | undefined;
+    date?: Date;
     displayInner: DisplayType;
-    isoUtcStringInner: string | undefined;
+    isoUtcStringInner?: string;
     register: () => void;
     unregister: () => void;
   };
