@@ -26,7 +26,6 @@ import {
   defaultHighlightStyle,
 } from '@codemirror/language';
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
-
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
 
