@@ -19,11 +19,17 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
   @service declare readonly hdsTime: TimeService;
 
   get startDateIsoUtcString(): string | undefined {
-    return this.hdsTime.toIsoUtcString(this.args.startDate as Date);
+    const { startDate } = this.args;
+    if (startDate) {
+      return this.hdsTime.toIsoUtcString(startDate);
+    }
   }
 
   get endDateIsoUtcString(): string | undefined {
-    return this.hdsTime.toIsoUtcString(this.args.endDate as Date);
+    const { endDate } = this.args;
+    if (endDate) {
+      return this.hdsTime.toIsoUtcString(endDate);
+    }
   }
 
   get startDateDisplayFormat(): {
@@ -34,8 +40,7 @@ export default class HdsTimeRange extends Component<HdsTimeRangeSignature> {
     minute?: Intl.DateTimeFormatOptions['minute'];
     second?: Intl.DateTimeFormatOptions['second'];
   } {
-    const { startDate } = this.args;
-    const { endDate } = this.args;
+    const { startDate, endDate } = this.args;
 
     if (startDate?.getFullYear() !== endDate?.getFullYear()) {
       return {
