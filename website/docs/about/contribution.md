@@ -27,7 +27,7 @@ We support a small number of autonomous but coordinated direct contributions. Th
 
 ### Contribute a new icon in Figma
 
-If you’d like to add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/design/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-HDS-Icons-%5BDevelopment%5D?m=auto&node-id=169-0&t=BhGy7PceZ2LrlRCL-1).
+If you’d like to add a new icon to the [icon library](/icons/library), follow the steps in the [Figma library README](https://www.figma.com/design/MYiw4kiVpunIMMw0sBkE1t/%E2%9C%8F%EF%B8%8F-HDS-Icons-%5BDevelopment%5D?m=auto&node-id=566-1129&t=JZNTtr27YcwT9LYb-1).
 
 ### Contribute in code
 
