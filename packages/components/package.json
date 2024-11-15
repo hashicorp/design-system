@@ -50,6 +50,7 @@
     "@floating-ui/dom": "^1.6.3",
     "@hashicorp/design-system-tokens": "^2.2.1",
     "@hashicorp/flight-icons": "^3.7.0",
+    "@lezer/highlight": "^1.2.1",
     "clipboard-polyfill": "^4.1.0",
     "codemirror": "^5.65.12",
     "decorator-transforms": "^1.1.0",
@@ -307,6 +308,7 @@
       "./modifiers/hds-anchored-position.js": "./dist/_app_/modifiers/hds-anchored-position.js",
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
       "./modifiers/hds-code-editor.js": "./dist/_app_/modifiers/hds-code-editor.js",
+      "./modifiers/hds-code-editor/highlight-styles/hds-dark-highlight-style.js": "./dist/_app_/modifiers/hds-code-editor/highlight-styles/hds-dark-highlight-style.js",
       "./modifiers/hds-code-editor/themes/hds-dark-theme.js": "./dist/_app_/modifiers/hds-code-editor/themes/hds-dark-theme.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js"
