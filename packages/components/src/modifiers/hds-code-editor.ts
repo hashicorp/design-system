@@ -94,6 +94,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ) {
     const { onInput, onBlur, language, value } = named;
 
+    this.onInput = onInput;
+    this.onBlur = onBlur;
+
     const languageExtension =
       language !== undefined ? LANGUAGE_MAP[language] : undefined;
 
@@ -107,6 +110,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       keymap.of([...defaultKeymap, ...historyKeymap, indentWithTab]),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
+      EditorView.updateListener.of((update) => {
+        if (update.docChanged && this.onInput) {
+          this.onInput(update.state.doc.toString());
+        }
+      }),
     ];
 
     if (languageExtension !== undefined) {
@@ -117,9 +125,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       doc: value,
       extensions,
     });
-
-    this.onInput = onInput;
-    this.onBlur = onBlur;
 
     this.editor = new EditorView({ state, parent: element });
     this.element = element;

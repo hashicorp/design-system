@@ -15,6 +15,7 @@
     @description="Write some code for us"
     @value={{this.demoCode}}
     @language="json"
+    @onInput={{fn (mut this.demoCode)}}
     as |CE|
   >
     <CE.ToolbarButton @text="Copy" />
