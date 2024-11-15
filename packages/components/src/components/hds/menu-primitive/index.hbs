@@ -14,9 +14,9 @@
   {{on "keyup" this.onKeyUp}}
 >
   <div class="hds-menu-primitive__toggle" tabindex="-1">
-    {{yield (hash onClickToggle=this.onClickToggle isOpen=this._isOpen) to="toggle"}}
+    {{yield (hash onClickToggle=this.onClickToggle isOpen=this.isOpen) to="toggle"}}
   </div>
-  {{#if this._isOpen}}
+  {{#if this.isOpen}}
     <div class="hds-menu-primitive__content" tabindex="-1">
       {{yield (hash close=this.close) to="content"}}
     </div>
