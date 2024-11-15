@@ -7,7 +7,7 @@ It uses two helper functions, the format-date helper, which formats a date accor
 ### Time component
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="date" @type="Date, string">
+  <C.Property @name="date" @type="Date | string">
     Specify the date and time for a single date. Value can be specified as a JavaScript Date object or as an ISO date string.
   </C.Property>
   <C.Property @name="startDate" @type="Date, string">
