@@ -52,7 +52,8 @@
     overflow: auto;
   }
 
-  &__toolbar-button {
+  &__toolbar-button,
+  &__toolbar-button.hds-copy-button {
     color: var(--token-color-code-foreground-primary);
     background-color: var(--token-color-code-surface-faint);
     border: 1px solid $border-strong;
@@ -62,6 +63,14 @@
     &:hover {
       background-color: var(--token-color-code-surface-primary);
       border-color: var(--token-color-code-border-strong);
+
+      .hds-button__icon {
+        color: var(--token-color-code-foreground-primary);
+      }
+    }
+
+    .hds-button__icon {
+      color: var(--token-color-code-foreground-primary);
     }
   }
 }

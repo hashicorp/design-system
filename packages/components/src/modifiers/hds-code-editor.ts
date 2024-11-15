@@ -20,12 +20,11 @@ import { json } from '@codemirror/lang-json';
 import { sql } from '@codemirror/lang-sql';
 import { go } from '@codemirror/lang-go';
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
-import {
-  syntaxHighlighting,
-  // temporarily use the default highlight style until we have a custom one
-  defaultHighlightStyle,
-} from '@codemirror/language';
+import { syntaxHighlighting } from '@codemirror/language';
+
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
+import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
+
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
 
@@ -88,13 +87,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     _positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
-    const {
-      onInput,
-      onBlur,
-      // options = {},
-      language,
-      value,
-    } = named;
+    const { onInput, onBlur, language, value } = named;
 
     const languageExtension =
       language !== undefined ? LANGUAGE_MAP[language] : undefined;
@@ -107,7 +100,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       highlightActiveLine(),
       hdsDarkTheme,
       keymap.of([...defaultKeymap, ...historyKeymap]),
-      syntaxHighlighting(defaultHighlightStyle),
+      syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
     ];
 
