@@ -27,7 +27,13 @@
       {{#if (or @canCopy @canExpand (has-block))}}
         <div class="hds-code-editor__header-toolbar">
           {{#if @canCopy}}
-            <Hds::CodeEditor::ToolbarButton @size="small" @icon="clipboard" @text="Copy" @isIconOnly={{true}} />
+            <Hds::Copy::Button
+              class="hds-code-editor__toolbar-button"
+              @isIconOnly={{true}}
+              @size="small"
+              @text="Copy"
+              @textToCopy={{@value}}
+            />
           {{/if}}
           {{#if @canExpand}}
             <Hds::CodeEditor::ToolbarButton
