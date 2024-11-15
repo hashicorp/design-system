@@ -10,7 +10,7 @@ const BG_COLOR = '#0d0e12';
 const hdsDark = EditorView.theme(
   {
     '&': {
-      color: 'white',
+      color: '#efeff1',
       backgroundColor: BG_COLOR,
       height: '100%',
     },
