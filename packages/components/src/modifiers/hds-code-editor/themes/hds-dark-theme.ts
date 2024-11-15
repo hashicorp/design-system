@@ -15,7 +15,6 @@ const hdsDark = EditorView.theme(
       height: '100%',
     },
     '.cm-content': {
-      caretColor: '#ffffff',
       padding: '16px',
     },
     '.cm-gutters': {
