@@ -4,9 +4,10 @@
  */
 
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
-  demoCode = `function greetUser(username) {
+  @tracked demoCode = `function greetUser(username) {
     // Get the current hour of the day
     const currentHour = new Date().getHours();
     let greeting;
