@@ -1,8 +1,8 @@
 
 // Do not edit directly, this file was auto-generated.
 
-$token-color-palette-blue-500: #1c345f;Donoteditdirectly,thisfilewasauto-generated.$token-color-palette-blue-500
-$token-color-palette-blue-400: #0046d1;
+$token-color-palette-blue-500: #1c345f;Donoteditdirectly,thisfilewasauto-generated.$token-color-palette-blue-500Donoteditdirectly,thisfilewasauto-generated.$token-color-palette-blue-500
+$token-color-palette-blue-400: #0046d1;$token-color-palette-blue-400
 $token-color-palette-blue-300: #0c56e9;
 $token-color-palette-blue-200: #1060ff;
 $token-color-palette-blue-100: #cce3fe;
@@ -55,12 +55,14 @@ $token-color-code-foreground-primary: #d5d7db;
 $token-color-code-foreground-faint: #d5d7db;
 $token-color-code-surface-primary: #0d0e12;
 $token-color-code-surface-faint: #15181e;
+$token-color-code-border-primary: #b2b6bd;
+$token-color-code-border-strong: #b2b6bd;
 $token-color-focus-action-internal: #0c56e9;
 $token-color-focus-action-external: #5990ff; // this is a special color used only for the focus style, to pass color contrast for a11y purpose
-$token-color-focus-critical-internal: #c00005;thisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-focus-critical-internal
-$token-color-focus-critical-external: #dd7578; // this is a special color used only for the focus style, to pass color contrast for a11y purpose
-$token-color-foreground-strong: #0c0c0e;thisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-foreground-strong
-$token-color-foreground-primary: #3b3d45;
+$token-color-focus-critical-internal: #c00005;thisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-focus-critical-internalthisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-focus-critical-internal
+$token-color-focus-critical-external: #dd7578;$token-color-focus-critical-external // this is a special color used only for the focus style, to pass color contrast for a11y purpose
+$token-color-foreground-strong: #0c0c0e;thisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-foreground-strongthisisaspecialcolorusedonlyforthefocusstyle,topasscolorcontrastfora11ypurpose$token-color-foreground-strong
+$token-color-foreground-primary: #3b3d45;$token-color-foreground-primary
 $token-color-foreground-faint: #656a76;
 $token-color-foreground-high-contrast: #ffffff;
 $token-color-foreground-disabled: #8c909c;
@@ -101,16 +103,16 @@ $token-color-boundary-border: #fbd7d8;
 $token-color-boundary-gradient-primary-start: #f97076;
 $token-color-boundary-gradient-primary-stop: #db363b;
 $token-color-boundary-gradient-faint-start: #fffafa; // this is the 'boundary-50' value at 25% opacity on white
-$token-color-boundary-gradient-faint-stop: #ffecec;thisisthevalueat25%opacityonwhite$token-color-boundary-gradient-faint-stop
-$token-color-consul-brand: #e03875;
+$token-color-boundary-gradient-faint-stop: #ffecec;thisisthevalueat25%opacityonwhite$token-color-boundary-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-boundary-gradient-faint-stop
+$token-color-consul-brand: #e03875;$token-color-consul-brand
 $token-color-consul-foreground: #d01c5b;
 $token-color-consul-surface: #ffe9f1;
 $token-color-consul-border: #ffcede;
 $token-color-consul-gradient-primary-start: #ff99be;
 $token-color-consul-gradient-primary-stop: #da306e;
 $token-color-consul-gradient-faint-start: #fff9fb; // this is the 'consul-50' value at 25% opacity on white
-$token-color-consul-gradient-faint-stop: #ffe9f1;thisisthevalueat25%opacityonwhite$token-color-consul-gradient-faint-stop
-$token-color-hcp-brand: #000000;
+$token-color-consul-gradient-faint-stop: #ffe9f1;thisisthevalueat25%opacityonwhite$token-color-consul-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-consul-gradient-faint-stop
+$token-color-hcp-brand: #000000;$token-color-hcp-brand
 $token-color-nomad-brand: #06d092;
 $token-color-nomad-foreground: #008661;
 $token-color-nomad-surface: #d3fdeb;
@@ -118,68 +120,68 @@ $token-color-nomad-border: #bff3dd;
 $token-color-nomad-gradient-primary-start: #bff3dd;
 $token-color-nomad-gradient-primary-stop: #60dea9;
 $token-color-nomad-gradient-faint-start: #f3fff9; // this is the 'nomad-50' value at 25% opacity on white
-$token-color-nomad-gradient-faint-stop: #d3fdeb;thisisthevalueat25%opacityonwhite$token-color-nomad-gradient-faint-stop
-$token-color-packer-brand: #02a8ef;
+$token-color-nomad-gradient-faint-stop: #d3fdeb;thisisthevalueat25%opacityonwhite$token-color-nomad-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-nomad-gradient-faint-stop
+$token-color-packer-brand: #02a8ef;$token-color-packer-brand
 $token-color-packer-foreground: #007eb4;
 $token-color-packer-surface: #d4f2ff;
 $token-color-packer-border: #b4e4ff;
 $token-color-packer-gradient-primary-start: #b4e4ff;
 $token-color-packer-gradient-primary-stop: #63d0ff;
 $token-color-packer-gradient-faint-start: #f3fcff; // this is the 'packer-50' value at 25% opacity on white
-$token-color-packer-gradient-faint-stop: #d4f2ff;thisisthevalueat25%opacityonwhite$token-color-packer-gradient-faint-stop
-$token-color-terraform-brand: #7b42bc;
+$token-color-packer-gradient-faint-stop: #d4f2ff;thisisthevalueat25%opacityonwhite$token-color-packer-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-packer-gradient-faint-stop
+$token-color-terraform-brand: #7b42bc;$token-color-terraform-brand
 $token-color-terraform-brand-on-dark: #a067da; // this is an alternative brand color meant to be used on dark backgrounds
-$token-color-terraform-foreground: #773cb4;thisisanalternativebrandcolormeanttobeusedondarkbackgrounds$token-color-terraform-foreground
-$token-color-terraform-surface: #f4ecff;
+$token-color-terraform-foreground: #773cb4;thisisanalternativebrandcolormeanttobeusedondarkbackgrounds$token-color-terraform-foregroundthisisanalternativebrandcolormeanttobeusedondarkbackgrounds$token-color-terraform-foreground
+$token-color-terraform-surface: #f4ecff;$token-color-terraform-surface
 $token-color-terraform-border: #ebdbfc;
 $token-color-terraform-gradient-primary-start: #bb8deb;
 $token-color-terraform-gradient-primary-stop: #844fba;
 $token-color-terraform-gradient-faint-start: #fcfaff; // this is the 'terraform-50' value at 25% opacity on white
-$token-color-terraform-gradient-faint-stop: #f4ecff;thisisthevalueat25%opacityonwhite$token-color-terraform-gradient-faint-stop
-$token-color-vagrant-brand: #1868f2;
+$token-color-terraform-gradient-faint-stop: #f4ecff;thisisthevalueat25%opacityonwhite$token-color-terraform-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-terraform-gradient-faint-stop
+$token-color-vagrant-brand: #1868f2;$token-color-vagrant-brand
 $token-color-vagrant-foreground: #1c61d8;
 $token-color-vagrant-surface: #d6ebff;
 $token-color-vagrant-border: #c7dbfc;
 $token-color-vagrant-gradient-primary-start: #639cff;
 $token-color-vagrant-gradient-primary-stop: #2e71e5;
 $token-color-vagrant-gradient-faint-start: #f4faff; // this is the 'vagrant-50' value at 25% opacity on white
-$token-color-vagrant-gradient-faint-stop: #d6ebff;thisisthevalueat25%opacityonwhite$token-color-vagrant-gradient-faint-stop
-$token-color-vault-radar-brand: #ffcf25;
+$token-color-vagrant-gradient-faint-stop: #d6ebff;thisisthevalueat25%opacityonwhite$token-color-vagrant-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-vagrant-gradient-faint-stop
+$token-color-vault-radar-brand: #ffcf25;$token-color-vault-radar-brand
 $token-color-vault-radar-brand-alt: #000000; // this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work
-$token-color-vault-radar-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultradarwouldnotwork$token-color-vault-radar-foreground
-$token-color-vault-radar-surface: #fff9cf;
+$token-color-vault-radar-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultradarwouldnotwork$token-color-vault-radar-foregroundthisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultradarwouldnotwork$token-color-vault-radar-foreground
+$token-color-vault-radar-surface: #fff9cf;$token-color-vault-radar-surface
 $token-color-vault-radar-border: #feec7b;
 $token-color-vault-radar-gradient-primary-start: #feec7b;
 $token-color-vault-radar-gradient-primary-stop: #ffe543;
 $token-color-vault-radar-gradient-faint-start: #fffdf2; // this is the 'vault-radar-50' value at 25% opacity on white
-$token-color-vault-radar-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-radar-gradient-faint-stop
-$token-color-vault-secrets-brand: #ffcf25;
+$token-color-vault-radar-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-radar-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-vault-radar-gradient-faint-stop
+$token-color-vault-secrets-brand: #ffcf25;$token-color-vault-secrets-brand
 $token-color-vault-secrets-brand-alt: #000000; // this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work
-$token-color-vault-secrets-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultSecretswouldnotwork$token-color-vault-secrets-foreground
-$token-color-vault-secrets-surface: #fff9cf;
+$token-color-vault-secrets-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultSecretswouldnotwork$token-color-vault-secrets-foregroundthisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultSecretswouldnotwork$token-color-vault-secrets-foreground
+$token-color-vault-secrets-surface: #fff9cf;$token-color-vault-secrets-surface
 $token-color-vault-secrets-border: #feec7b;
 $token-color-vault-secrets-gradient-primary-start: #feec7b;
 $token-color-vault-secrets-gradient-primary-stop: #ffe543;
 $token-color-vault-secrets-gradient-faint-start: #fffdf2; // this is the 'vault-secrets-50' value at 25% opacity on white
-$token-color-vault-secrets-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-secrets-gradient-faint-stop
-$token-color-vault-brand: #ffcf25;
+$token-color-vault-secrets-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-secrets-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-vault-secrets-gradient-faint-stop
+$token-color-vault-brand: #ffcf25;$token-color-vault-brand
 $token-color-vault-brand-alt: #000000; // this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work
-$token-color-vault-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultwouldnotwork$token-color-vault-foreground
-$token-color-vault-surface: #fff9cf;
+$token-color-vault-foreground: #9a6f00;thisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultwouldnotwork$token-color-vault-foregroundthisisaspecial“alternative”color,usedasanexceptioninsomecontextswherethenormal“brand”colorforVaultwouldnotwork$token-color-vault-foreground
+$token-color-vault-surface: #fff9cf;$token-color-vault-surface
 $token-color-vault-border: #feec7b;
 $token-color-vault-gradient-primary-start: #feec7b;
 $token-color-vault-gradient-primary-stop: #ffe543;
 $token-color-vault-gradient-faint-start: #fffdf2; // this is the 'vault-50' value at 25% opacity on white
-$token-color-vault-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-gradient-faint-stop
-$token-color-waypoint-brand: #14c6cb;
+$token-color-vault-gradient-faint-stop: #fff9cf;thisisthevalueat25%opacityonwhite$token-color-vault-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-vault-gradient-faint-stop
+$token-color-waypoint-brand: #14c6cb;$token-color-waypoint-brand
 $token-color-waypoint-foreground: #008196;
 $token-color-waypoint-surface: #e0fcff;
 $token-color-waypoint-border: #cbf1f3;
 $token-color-waypoint-gradient-primary-start: #cbf1f3;
 $token-color-waypoint-gradient-primary-stop: #62d4dc;
 $token-color-waypoint-gradient-faint-start: #f6feff; // this is the 'waypoint-50' value at 25% opacity on white
-$token-color-waypoint-gradient-faint-stop: #e0fcff;thisisthevalueat25%opacityonwhite$token-color-waypoint-gradient-faint-stop
-$token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
+$token-color-waypoint-gradient-faint-stop: #e0fcff;thisisthevalueat25%opacityonwhite$token-color-waypoint-gradient-faint-stopthisisthevalueat25%opacityonwhite$token-color-waypoint-gradient-faint-stop
+$token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;$token-elevation-inset-box-shadow
 $token-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
 $token-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
 $token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
@@ -203,36 +205,36 @@ $token-typography-font-weight-semibold: 600;
 $token-typography-font-weight-bold: 700;
 $token-typography-display-500-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 $token-typography-display-500-font-size: 30px; // 30px/1.875rem
-$token-typography-display-500-line-height: 1.2666;30px/1.875rem$token-typography-display-500-line-height // 38px
-$token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;38px$token-typography-display-400-font-family
-$token-typography-display-400-font-size: 24px; // 24px/1.5rem
-$token-typography-display-400-line-height: 1.3333;24px/1.5rem$token-typography-display-400-line-height // 32px
-$token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;32px$token-typography-display-300-font-family
-$token-typography-display-300-font-size: 18px; // 18px/1.125rem
-$token-typography-display-300-line-height: 1.3333;18px/1.125rem$token-typography-display-300-line-height // 24px
-$token-typography-display-300-letter-spacing: -0.5px;24px$token-typography-display-300-letter-spacing // this is `tracking`
-$token-typography-display-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;thisis`tracking`$token-typography-display-200-font-family
-$token-typography-display-200-font-size: 16px; // 16px/1rem
-$token-typography-display-200-line-height: 1.5;16px/1rem$token-typography-display-200-line-height // 24px
-$token-typography-display-200-letter-spacing: -0.5px;24px$token-typography-display-200-letter-spacing // this is `tracking`
-$token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;thisis`tracking`$token-typography-display-100-font-family
-$token-typography-display-100-font-size: 13px; // 13px/0.8125rem
-$token-typography-display-100-line-height: 1.3846;13px/0.8125rem$token-typography-display-100-line-height // 18px
-$token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;18px$token-typography-body-300-font-family
-$token-typography-body-300-font-size: 16px; // 16px/1rem
-$token-typography-body-300-line-height: 1.5;16px/1rem$token-typography-body-300-line-height // 24px
-$token-typography-body-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;24px$token-typography-body-200-font-family
-$token-typography-body-200-font-size: 14px; // 14px/0.875rem
-$token-typography-body-200-line-height: 1.4286;14px/0.875rem$token-typography-body-200-line-height // 20px
-$token-typography-body-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;20px$token-typography-body-100-font-family
-$token-typography-body-100-font-size: 13px; // 13px/0.8125rem
-$token-typography-body-100-line-height: 1.3846;13px/0.8125rem$token-typography-body-100-line-height // 18px
-$token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;18px$token-typography-code-100-font-family
-$token-typography-code-100-font-size: 13px; // 13px/0.8125rem
-$token-typography-code-100-line-height: 1.23;13px/0.8125rem$token-typography-code-100-line-height // 16px
-$token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;16px$token-typography-code-200-font-family
-$token-typography-code-200-font-size: 14px; // 14px/0.875rem
-$token-typography-code-200-line-height: 1.125;14px/0.875rem$token-typography-code-200-line-height // 18px
-$token-typography-code-300-font-family: ui-monospace, Menlo, Consolas, monospace;18px$token-typography-code-300-font-family
-$token-typography-code-300-font-size: 16px; // 16px/1rem
-$token-typography-code-300-line-height: 1.25;16px/1rem$token-typography-code-300-line-height // 20px
+$token-typography-display-500-line-height: 1.2666;30px/1.875rem$token-typography-display-500-line-height30px/1.875rem$token-typography-display-500-line-height // 38px
+$token-typography-display-400-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;38px$token-typography-display-400-font-family38px$token-typography-display-400-font-family
+$token-typography-display-400-font-size: 24px;$token-typography-display-400-font-size // 24px/1.5rem
+$token-typography-display-400-line-height: 1.3333;24px/1.5rem$token-typography-display-400-line-height24px/1.5rem$token-typography-display-400-line-height // 32px
+$token-typography-display-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;32px$token-typography-display-300-font-family32px$token-typography-display-300-font-family
+$token-typography-display-300-font-size: 18px;$token-typography-display-300-font-size // 18px/1.125rem
+$token-typography-display-300-line-height: 1.3333;18px/1.125rem$token-typography-display-300-line-height18px/1.125rem$token-typography-display-300-line-height // 24px
+$token-typography-display-300-letter-spacing: -0.5px;24px$token-typography-display-300-letter-spacing24px$token-typography-display-300-letter-spacing // this is `tracking`
+$token-typography-display-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;thisis`tracking`$token-typography-display-200-font-familythisis`tracking`$token-typography-display-200-font-family
+$token-typography-display-200-font-size: 16px;$token-typography-display-200-font-size // 16px/1rem
+$token-typography-display-200-line-height: 1.5;16px/1rem$token-typography-display-200-line-height16px/1rem$token-typography-display-200-line-height // 24px
+$token-typography-display-200-letter-spacing: -0.5px;24px$token-typography-display-200-letter-spacing24px$token-typography-display-200-letter-spacing // this is `tracking`
+$token-typography-display-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;thisis`tracking`$token-typography-display-100-font-familythisis`tracking`$token-typography-display-100-font-family
+$token-typography-display-100-font-size: 13px;$token-typography-display-100-font-size // 13px/0.8125rem
+$token-typography-display-100-line-height: 1.3846;13px/0.8125rem$token-typography-display-100-line-height13px/0.8125rem$token-typography-display-100-line-height // 18px
+$token-typography-body-300-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;18px$token-typography-body-300-font-family18px$token-typography-body-300-font-family
+$token-typography-body-300-font-size: 16px;$token-typography-body-300-font-size // 16px/1rem
+$token-typography-body-300-line-height: 1.5;16px/1rem$token-typography-body-300-line-height16px/1rem$token-typography-body-300-line-height // 24px
+$token-typography-body-200-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;24px$token-typography-body-200-font-family24px$token-typography-body-200-font-family
+$token-typography-body-200-font-size: 14px;$token-typography-body-200-font-size // 14px/0.875rem
+$token-typography-body-200-line-height: 1.4286;14px/0.875rem$token-typography-body-200-line-height14px/0.875rem$token-typography-body-200-line-height // 20px
+$token-typography-body-100-font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;20px$token-typography-body-100-font-family20px$token-typography-body-100-font-family
+$token-typography-body-100-font-size: 13px;$token-typography-body-100-font-size // 13px/0.8125rem
+$token-typography-body-100-line-height: 1.3846;13px/0.8125rem$token-typography-body-100-line-height13px/0.8125rem$token-typography-body-100-line-height // 18px
+$token-typography-code-100-font-family: ui-monospace, Menlo, Consolas, monospace;18px$token-typography-code-100-font-family18px$token-typography-code-100-font-family
+$token-typography-code-100-font-size: 13px;$token-typography-code-100-font-size // 13px/0.8125rem
+$token-typography-code-100-line-height: 1.23;13px/0.8125rem$token-typography-code-100-line-height13px/0.8125rem$token-typography-code-100-line-height // 16px
+$token-typography-code-200-font-family: ui-monospace, Menlo, Consolas, monospace;16px$token-typography-code-200-font-family16px$token-typography-code-200-font-family
+$token-typography-code-200-font-size: 14px;$token-typography-code-200-font-size // 14px/0.875rem
+$token-typography-code-200-line-height: 1.125;14px/0.875rem$token-typography-code-200-line-height14px/0.875rem$token-typography-code-200-line-height // 18px
+$token-typography-code-300-font-family: ui-monospace, Menlo, Consolas, monospace;18px$token-typography-code-300-font-family18px$token-typography-code-300-font-family
+$token-typography-code-300-font-size: 16px;$token-typography-code-300-font-size // 16px/1rem
+$token-typography-code-300-line-height: 1.25;16px/1rem$token-typography-code-300-line-height16px/1rem$token-typography-code-300-line-height // 20px

@@ -8,7 +8,9 @@
 //
 
 .hds-code-editor {
-  background-color: var(--token-color-code-surface-faint);
+  $border-strong: rgba(178, 182, 189, 40%);
+
+  background-color: var(--token-color-code-surface-primary);
   border: 1px solid;
   border-radius: 6px;
 
@@ -24,7 +26,9 @@
   }
 
   &__header {
-    border-bottom: 1px solid;
+    background-color: var(--token-color-code-surface-faint);
+    // todo - figure out why this gets converted to hex when used as var from tokens
+    border-bottom: 1px solid $border-strong;
 
     &-info {
       padding: 8px 16px;
@@ -39,7 +43,16 @@
   }
 
   &__editor {
+    height:100%;
     overflow: auto;
-    border: 1px solid;
+  }
+
+  &__toolbar-button {
+    background-color: var(--token-color-code-surface-faint);
+    border: 1px solid $border-strong;
+
+    &:hover {
+      background-color: var(--token-color-code-surface-primary);
+    }
   }
 }
