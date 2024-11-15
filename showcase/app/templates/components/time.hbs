@@ -7,7 +7,9 @@
 
 <Shw::Text::H1>Time</Shw::Text::H1>
 
-<section data-test-percy>
+{{! Time component does not include styling so we do not test in Percy at this time }}
+
+<section>
   <Shw::Text::H2>Has tooltip</Shw::Text::H2>
 
   <Shw::Flex @gap="2rem" as |SF|>
@@ -39,7 +41,7 @@
 
 <Shw::Divider {{style marginTop="6rem"}} @level="2" />
 
-<section data-test-percy>
+<section>
   <Shw::Text::H3>Near time examples using “relative” display type</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
@@ -53,7 +55,7 @@
 
 <Shw::Divider />
 
-<section data-test-percy>
+<section>
   {{! Note: Skipping Percy tests for this section as times continually update }}
   <Shw::Text::H2>Date range</Shw::Text::H2>
 
@@ -70,7 +72,7 @@
 
 <Shw::Divider />
 
-<section data-test-percy>
+<section>
   <Shw::Text::H2>Used in context</Shw::Text::H2>
 
   <Shw::Flex @gap="2rem" as |SF|>
