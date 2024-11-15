@@ -19,7 +19,12 @@ import { javascript } from '@codemirror/lang-javascript';
 import { json } from '@codemirror/lang-json';
 import { sql } from '@codemirror/lang-sql';
 import { go } from '@codemirror/lang-go';
-import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
+import {
+  defaultKeymap,
+  history,
+  historyKeymap,
+  indentWithTab,
+} from '@codemirror/commands';
 import { syntaxHighlighting } from '@codemirror/language';
 
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -99,7 +104,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       drawSelection(),
       highlightActiveLine(),
       hdsDarkTheme,
-      keymap.of([...defaultKeymap, ...historyKeymap]),
+      keymap.of([...defaultKeymap, ...historyKeymap, indentWithTab]),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
     ];
