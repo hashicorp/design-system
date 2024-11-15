@@ -27,10 +27,10 @@
       {{#if (or @canCopy @canExpand (has-block))}}
         <div class="hds-code-editor__header-toolbar">
           {{#if @canCopy}}
-            <Hds::Button @size="small" @icon="clipboard" @text="Copy" />
+            <Hds::CodeEditor::ToolbarButton @size="small" @icon="clipboard" @text="Copy" />
           {{/if}}
           {{#if @canExpand}}
-            <Hds::Button
+            <Hds::CodeEditor::ToolbarButton
               @size="small"
               @icon="maximize"
               @text="Fullscreen"
@@ -38,10 +38,10 @@
             />
           {{/if}}
 
-          {{yield}}
+          {{yield (hash ToolbarButton=(component "hds/code-editor/toolbar-button"))}}
         </div>
       {{/if}}
     </div>
   {{/if}}
-  <div class="hds-code-editor--editor" {{hds-code-editor value=@value language=@language}} />
+  <div class="hds-code-editor__editor" {{hds-code-editor value=@value language=@language}} />
 </div>
