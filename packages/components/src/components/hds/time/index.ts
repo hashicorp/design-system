@@ -38,49 +38,41 @@ const dateIsValid = (date?: Date | string): date is Date =>
 export default class HdsTime extends Component<HdsTimeSignature> {
   @service declare readonly hdsTime: TimeService;
 
-  @action
-  didInsertNode(): void {
-    const date = this.date;
-
-    if (dateIsValid(date)) {
-      this.hdsTime.register(date);
-    }
-  }
-
-  @action
-  willDestroyNode(): void {
-    const date = this.date;
-    if (dateIsValid(date)) {
-      this.hdsTime.unregister(date);
-    }
-  }
-
   get date(): Date | undefined {
     const { date } = this.args;
 
     // Sometimes an ISO date string might be passed in instead of a JS Date.
-    if (typeOf(date) === 'string') {
-      return new Date(date as string);
+    if (date) {
+      if (typeOf(date) === 'string') {
+        return new Date(date);
+      } else if (date instanceof Date) {
+        return date;
+      }
     }
-    return date as Date;
   }
 
   get startDate(): Date | undefined {
     const { startDate } = this.args;
 
-    if (typeOf(startDate) === 'string') {
-      return new Date(startDate as string);
+    if (startDate) {
+      if (typeOf(startDate) === 'string') {
+        return new Date(startDate);
+      } else if (startDate instanceof Date) {
+        return startDate;
+      }
     }
-    return startDate as Date;
   }
 
   get endDate(): Date | undefined {
     const { endDate } = this.args;
 
-    if (typeOf(endDate) === 'string') {
-      return new Date(endDate as string);
+    if (endDate) {
+      if (typeOf(endDate) === 'string') {
+        return new Date(endDate);
+      } else if (endDate instanceof Date) {
+        return endDate;
+      }
     }
-    return endDate as Date;
   }
 
   get isValidDate(): boolean {
@@ -105,8 +97,9 @@ export default class HdsTime extends Component<HdsTimeSignature> {
       return this.hdsTime.toIsoUtcString(date);
     }
 
-    return '';
+    return undefined;
   }
+
   get rangeIsoUtcString(): string {
     const startDate = this.startDate;
     const endDate = this.endDate;
@@ -133,5 +126,22 @@ export default class HdsTime extends Component<HdsTimeSignature> {
 
   get isOpen(): boolean {
     return this.args.isOpen ?? false;
+  }
+
+  @action
+  didInsertNode(): void {
+    const date = this.date;
+
+    if (dateIsValid(date)) {
+      this.hdsTime.register(date);
+    }
+  }
+
+  @action
+  willDestroyNode(): void {
+    const date = this.date;
+    if (dateIsValid(date)) {
+      this.hdsTime.unregister(date);
+    }
   }
 }
