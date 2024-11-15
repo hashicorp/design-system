@@ -16,7 +16,7 @@
     "cover"
     "tabs"
     "content";
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-columns: 1fr;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
 
