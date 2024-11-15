@@ -28,8 +28,8 @@ const NOOP = () => {};
 
 export default class HdsTableThButtonSort extends Component<HdsTableThButtonSortSignature> {
   // Generates a unique ID for the (hidden) "label prefix/suffix" <span> elements
-  prefixLabelId = 'prefix-' + guidFor(this);
-  suffixLabelId = 'suffix-' + guidFor(this);
+  private _prefixLabelId = 'prefix-' + guidFor(this);
+  private _suffixLabelId = 'suffix-' + guidFor(this);
 
   get icon(): HdsTableThSortOrderIcons {
     switch (this.args.sortOrder) {

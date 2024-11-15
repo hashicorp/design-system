@@ -3,10 +3,10 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-pagination-size-selector" ...attributes>
-  <label class="hds-typography-body-100 hds-font-weight-medium" for={{this.SizeSelectorId}}>
+  <label class="hds-typography-body-100 hds-font-weight-medium" for={{this._sizeSelectorId}}>
     {{this.label}}
   </label>
-  <Hds::Form::Select::Base id={{this.SizeSelectorId}} {{on "change" this.onChange}} as |S|>
+  <Hds::Form::Select::Base id={{this._sizeSelectorId}} {{on "change" this.onChange}} as |S|>
     <S.Options>
       {{#each this.pageSizes as |size|}}
         <option value={{size}} selected={{if (eq size this.selectedSize) true null}}>{{size}}</option>

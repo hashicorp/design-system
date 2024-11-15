@@ -9,7 +9,7 @@
   {{did-insert this.didInsert}}
   {{will-destroy this.willDestroyNode}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
-  {{focus-trap isActive=this.isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
+  {{focus-trap isActive=this._isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss clickOutsideDeactivates=true)}}
 >
   <:header>
     {{yield
@@ -37,6 +37,6 @@
   </:footer>
 </Hds::DialogPrimitive::Wrapper>
 
-{{#if this.isOpen}}
+{{#if this._isOpen}}
   <Hds::DialogPrimitive::Overlay @contextualClass="hds-flyout__overlay" />
 {{/if}}

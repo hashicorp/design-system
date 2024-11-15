@@ -15,7 +15,7 @@
       <Hds::Table::Tr
         @selectionScope="col"
         @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
-        @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
+        @sortBySelectedOrder={{if (eq this._sortBy @selectableColumnKey) this._sortOrder}}
         @isSelectable={{@isSelectable}}
         @onSelectionChange={{this.onSelectionAllChange}}
         @didInsert={{this.didInsertSelectAllCheckbox}}
@@ -25,7 +25,7 @@
         {{#each @columns as |column|}}
           {{#if column.isSortable}}
             <Hds::Table::ThSort
-              @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
+              @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
               @onClickSort={{fn this.setSortBy column.key}}
               @align={{column.align}}
               @width={{column.width}}
@@ -55,12 +55,12 @@
             willDestroy=this.willDestroySelectAllCheckbox
             selectionAriaLabelSuffix="all rows"
             onClickSortBySelected=(if @selectableColumnKey (fn this.setSortBy @selectableColumnKey))
-            sortBySelectedOrder=(if (eq this.sortBy @selectableColumnKey) this.sortOrder)
+            sortBySelectedOrder=(if (eq this._sortBy @selectableColumnKey) this._sortOrder)
           )
           Th=(component "hds/table/th")
           ThSort=(component "hds/table/th-sort")
-          sortBy=this.sortBy
-          sortOrder=this.sortOrder
+          sortBy=this._sortBy
+          sortOrder=this._sortOrder
           setSortBy=this.setSortBy
         )
         to="head"
@@ -109,8 +109,8 @@
           )
           Th=(component "hds/table/th" scope="row")
           Td=(component "hds/table/td" align=@align)
-          sortBy=this.sortBy
-          sortOrder=this.sortOrder
+          sortBy=this._sortBy
+          sortOrder=this._sortOrder
         )
         to="body"
       }}

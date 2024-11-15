@@ -167,15 +167,15 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   // In the second case, these variables store *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on they're not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPage;
-  @tracked _currentPageSize;
-  @tracked isControlled;
+  @tracked private _currentPage;
+  @tracked private _currentPageSize;
+  @tracked private _isControlled;
 
-  showInfo = this.args.showInfo ?? true; // if the "info" block is visible
-  showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
-  showSizeSelector = this.args.showSizeSelector ?? true; // if the "size selector" block is visible
-  showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
-  isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
+  private _showInfo = this.args.showInfo ?? true; // if the "info" block is visible
+  private _showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
+  private _showSizeSelector = this.args.showSizeSelector ?? true; // if the "size selector" block is visible
+  private _showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
+  private _isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
   constructor(owner: unknown, args: HdsPaginationNumberedSignature['Args']) {
     super(owner, args);
@@ -192,7 +192,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     // initialized and updated using the arguments passed to it.
 
     if (queryFunction === undefined) {
-      this.isControlled = false;
+      this._isControlled = false;
     } else {
       assert(
         '@model, @models, or @route for "Hds::Pagination::Numbered" must be provided when using the @queryFunction argument',
@@ -209,7 +209,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
         typeof this.args.currentPageSize === 'number' &&
           typeof this.args.currentPage === 'number'
       );
-      this.isControlled = true;
+      this._isControlled = true;
     }
 
     assert(
@@ -240,7 +240,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
   get currentPage(): number {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // if the component is controlled, `@currentPage` is asserted to be a number
       return this.args.currentPage as number;
     } else {
@@ -248,16 +248,16 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     }
   }
   set currentPage(value) {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // noop
     } else {
-      // if `this.isControlled` is `false`
+      // if `this._isControlled` is `false`
       this._currentPage = value as number;
     }
   }
 
   get currentPageSize(): number {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // if the component is controlled, `@currentPageSize` is asserted to be a number
       return this.args.currentPageSize as number;
     } else {
@@ -265,7 +265,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     }
   }
   set currentPageSize(value) {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // noop
     } else {
       this._currentPageSize = value;
@@ -312,7 +312,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       pages.push(i);
     }
 
-    if (this.isTruncated) {
+    if (this._isTruncated) {
       return elliptize({ pages, current: this.currentPage });
     } else {
       return pages;
@@ -328,7 +328,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     pageSize: number
   ): HdsInteractiveQuery {
     // `page` may also be ellipsis
-    if (this.isControlled && typeof page === 'number') {
+    if (this._isControlled && typeof page === 'number') {
       // if the component is controlled, `@queryFunction` is asserted to be a function
       return this.args.queryFunction!(page, pageSize);
     } else {
@@ -345,7 +345,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
     };
 
     // the "query" is dynamic and needs to be calculated
-    if (this.isControlled) {
+    if (this._isControlled) {
       routing.queryPrev = this.buildQueryParamsObject(
         this.currentPage - 1,
         this.currentPageSize
@@ -412,7 +412,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   onPageSizeChange(newPageSize: number) {
     const { onPageSizeChange } = this.args;
 
-    if (!this.isControlled) {
+    if (!this._isControlled) {
       // notice: we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
       this.currentPage = 1;
       this.currentPageSize = newPageSize;

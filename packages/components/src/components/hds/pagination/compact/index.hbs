@@ -6,7 +6,7 @@
   <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
-      @showLabel={{this.showLabels}}
+      @showLabel={{this._showLabels}}
       @route={{this.routing.route}}
       @query={{this.routing.queryPrev}}
       @model={{this.routing.model}}
@@ -17,7 +17,7 @@
     />
     <Hds::Pagination::Nav::Arrow
       @direction="next"
-      @showLabel={{this.showLabels}}
+      @showLabel={{this._showLabels}}
       @route={{this.routing.route}}
       @query={{this.routing.queryNext}}
       @model={{this.routing.model}}
@@ -28,7 +28,7 @@
     />
   </nav>
 
-  {{#if this.showSizeSelector}}
+  {{#if this._showSizeSelector}}
     <Hds::Pagination::SizeSelector
       @pageSizes={{this.pageSizes}}
       @label={{@sizeSelectorLabel}}

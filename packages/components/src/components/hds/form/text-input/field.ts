@@ -39,12 +39,12 @@ export interface HdsFormTextInputFieldSignature {
 }
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {
-  @tracked isPasswordMasked = true;
-  @tracked type;
+  @tracked private _isPasswordMasked = true;
+  @tracked private _type;
 
   constructor(owner: unknown, args: HdsFormTextInputFieldSignature['Args']) {
     super(owner, args);
-    this.type = this.args.type ?? 'text';
+    this._type = this.args.type ?? 'text';
   }
 
   get hasVisibilityToggle(): boolean {
@@ -58,7 +58,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   get visibilityToggleAriaLabel(): string | undefined {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this.isPasswordMasked) {
+    } else if (this._isPasswordMasked) {
       return 'Show password';
     } else {
       return 'Hide password';
@@ -68,7 +68,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   get visibilityToggleAriaMessageText(): string | undefined {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
-    } else if (this.isPasswordMasked) {
+    } else if (this._isPasswordMasked) {
       return 'Password is hidden';
     } else {
       return 'Password is visible';
@@ -77,7 +77,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
 
   @action
   onClickTogglePasswordReadability(): void {
-    this.isPasswordMasked = !this.isPasswordMasked;
-    this.type = this.isPasswordMasked ? 'password' : 'text';
+    this._isPasswordMasked = !this._isPasswordMasked;
+    this._type = this._isPasswordMasked ? 'password' : 'text';
   }
 }

@@ -88,23 +88,24 @@ export interface HdsTableSignature {
 }
 
 export default class HdsTable extends Component<HdsTableSignature> {
-  @tracked sortBy;
-  @tracked sortOrder;
-  @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+  @tracked private _sortBy;
+  @tracked private _sortOrder;
+  @tracked
+  private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
-  selectableRows: HdsTableSelectableRow[] = [];
-  @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+  private _selectableRows: HdsTableSelectableRow[] = [];
+  @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
   constructor(owner: unknown, args: HdsTableSignature['Args']) {
     super(owner, args);
-    this.sortBy = this.args.sortBy ?? undefined;
-    this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
+    this._sortBy = this.args.sortBy ?? undefined;
+    this._sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
   }
 
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this.sortBy
+      (column) => column.key === this._sortBy
     );
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
@@ -114,7 +115,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
       return currentColumn.sortingFunction;
     } else {
       // otherwise fallback to the default format "sortBy:sortOrder"
-      return `${this.sortBy}:${this.sortOrder}`;
+      return `${this._sortBy}:${this._sortOrder}`;
     }
   }
 
@@ -130,9 +131,9 @@ export default class HdsTable extends Component<HdsTableSignature> {
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
-    } else if (this.sortBy && this.sortOrder) {
+    } else if (this._sortBy && this._sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+      return `Sorted by ${this._sortBy} ${this._sortOrder}ending`;
     } else {
       return '';
     }
@@ -200,22 +201,22 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   setSortBy(column: string): void {
-    if (this.sortBy === column) {
+    if (this._sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
-      this.sortOrder =
-        this.sortOrder === HdsTableThSortOrderValues.Asc
+      this._sortOrder =
+        this._sortOrder === HdsTableThSortOrderValues.Asc
           ? HdsTableThSortOrderValues.Desc
           : HdsTableThSortOrderValues.Asc;
     } else {
       // otherwise, set the sort order to ascending
-      this.sortBy = column;
-      this.sortOrder = HdsTableThSortOrderValues.Asc;
+      this._sortBy = column;
+      this._sortOrder = HdsTableThSortOrderValues.Asc;
     }
 
     const { onSort } = this.args;
 
     if (typeof onSort === 'function') {
-      onSort(this.sortBy, this.sortOrder);
+      onSort(this._sortBy, this._sortOrder);
     }
   }
 
@@ -228,13 +229,13 @@ export default class HdsTable extends Component<HdsTableSignature> {
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this.selectableRows.reduce<string[]>((acc, row) => {
+        selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
-        selectableRowsStates: this.selectableRows.reduce(
+        selectableRowsStates: this._selectableRows.reduce(
           (
             acc: { selectionKey: string; isSelected: boolean | undefined }[],
             row
@@ -253,12 +254,13 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   onSelectionAllChange(): void {
-    this.selectableRows.forEach((row) => {
-      row.checkbox.checked = this.selectAllCheckbox?.checked ?? false;
+    this._selectableRows.forEach((row) => {
+      row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
       row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
-    this.isSelectAllCheckboxSelected = this.selectAllCheckbox?.checked ?? false;
-    this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
+    this._isSelectAllCheckboxSelected =
+      this._selectAllCheckbox?.checked ?? false;
+    this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
 
   @action
@@ -274,12 +276,12 @@ export default class HdsTable extends Component<HdsTableSignature> {
   didInsertSelectAllCheckbox(
     checkbox: HdsFormCheckboxBaseSignature['Element']
   ): void {
-    this.selectAllCheckbox = checkbox;
+    this._selectAllCheckbox = checkbox;
   }
 
   @action
   willDestroySelectAllCheckbox(): void {
-    this.selectAllCheckbox = undefined;
+    this._selectAllCheckbox = undefined;
   }
 
   @action
@@ -288,14 +290,14 @@ export default class HdsTable extends Component<HdsTableSignature> {
     selectionKey?: string
   ): void {
     if (selectionKey) {
-      this.selectableRows.push({ selectionKey, checkbox });
+      this._selectableRows.push({ selectionKey, checkbox });
     }
     this.setSelectAllState();
   }
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
-    this.selectableRows = this.selectableRows.filter(
+    this._selectableRows = this._selectableRows.filter(
       (row) => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
@@ -303,18 +305,18 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   setSelectAllState(): void {
-    if (this.selectAllCheckbox) {
-      const selectableRowsCount = this.selectableRows.length;
-      const selectedRowsCount = this.selectableRows.filter(
+    if (this._selectAllCheckbox) {
+      const selectableRowsCount = this._selectableRows.length;
+      const selectedRowsCount = this._selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
-      this.selectAllCheckbox.checked =
+      this._selectAllCheckbox.checked =
         selectedRowsCount === selectableRowsCount;
-      this.selectAllCheckbox.indeterminate =
+      this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
-      this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
-      this.selectAllCheckbox.dispatchEvent(
+      this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
+      this._selectAllCheckbox.dispatchEvent(
         new Event('toggle', { bubbles: false })
       );
     }

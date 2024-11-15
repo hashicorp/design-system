@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-pagination" ...attributes>
-  {{#if this.showInfo}}
+  {{#if this._showInfo}}
     <Hds::Pagination::Info
       @itemsRangeStart={{this.itemsRangeStart}}
       @itemsRangeEnd={{this.itemsRangeEnd}}
@@ -15,7 +15,7 @@
   <nav class="hds-pagination-nav" aria-label={{this.ariaLabel}}>
     <Hds::Pagination::Nav::Arrow
       @direction="prev"
-      @showLabel={{this.showLabels}}
+      @showLabel={{this._showLabels}}
       @route={{this.routing.route}}
       @query={{this.routing.queryPrev}}
       @model={{this.routing.model}}
@@ -24,7 +24,7 @@
       @onClick={{this.onPageChange}}
       @disabled={{this.isDisabledPrev}}
     />
-    {{#if this.showPageNumbers}}
+    {{#if this._showPageNumbers}}
       <ul class="hds-pagination-nav__page-list">
         {{#each this.pages as |page|}}
           <li class="hds-pagination-nav__page-item">
@@ -48,7 +48,7 @@
     {{/if}}
     <Hds::Pagination::Nav::Arrow
       @direction="next"
-      @showLabel={{this.showLabels}}
+      @showLabel={{this._showLabels}}
       @route={{this.routing.route}}
       @query={{this.routing.queryNext}}
       @model={{this.routing.model}}
@@ -59,7 +59,7 @@
     />
   </nav>
 
-  {{#if this.showSizeSelector}}
+  {{#if this._showSizeSelector}}
     <Hds::Pagination::SizeSelector
       @pageSizes={{this.pageSizes}}
       @label={{@sizeSelectorLabel}}

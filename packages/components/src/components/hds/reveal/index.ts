@@ -26,9 +26,9 @@ export default class HdsReveal extends Component<HdsRevealSignature> {
   /**
    * Generates a unique ID for the Content
    *
-   * @param contentId
+   * @param _contentId
    */
-  contentId = 'content-' + guidFor(this);
+  private _contentId = 'content-' + guidFor(this);
 
   /**
    * @param getText

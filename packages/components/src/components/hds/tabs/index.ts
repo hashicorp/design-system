@@ -35,13 +35,13 @@ export interface HdsTabsSignature {
 }
 
 export default class HdsTabs extends Component<HdsTabsSignature> {
-  @tracked tabNodes: HTMLButtonElement[] = [];
-  @tracked tabIds: HdsTabsTabIds = [];
-  @tracked panelNodes: HTMLElement[] = [];
-  @tracked panelIds: HdsTabsPanelIds = [];
-  @tracked _selectedTabIndex;
-  @tracked selectedTabId?: string;
-  @tracked isControlled: boolean;
+  @tracked private _tabNodes: HTMLButtonElement[] = [];
+  @tracked private _tabIds: HdsTabsTabIds = [];
+  @tracked private _panelNodes: HTMLElement[] = [];
+  @tracked private _panelIds: HdsTabsPanelIds = [];
+  @tracked private _selectedTabIndex;
+  @tracked private _selectedTabId?: string;
+  @tracked private _isControlled: boolean;
 
   /**
    * Sets the size of Tabs
@@ -68,12 +68,12 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     super(owner, args);
 
     // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state
-    this.isControlled = this.args.selectedTabIndex !== undefined;
+    this._isControlled = this.args.selectedTabIndex !== undefined;
     this._selectedTabIndex = this.args.selectedTabIndex ?? 0;
   }
 
   get selectedTabIndex(): number {
-    if (this.isControlled) {
+    if (this._isControlled) {
       return this.args.selectedTabIndex!;
     } else {
       return this._selectedTabIndex;
@@ -81,7 +81,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   }
 
   set selectedTabIndex(value) {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // noop
     } else {
       this._selectedTabIndex = value;
@@ -106,11 +106,11 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   didInsert(): void {
     assert(
       'The number of Tabs must be equal to the number of Panels',
-      this.tabNodes.length === this.panelNodes.length
+      this._tabNodes.length === this._panelNodes.length
     );
 
-    if (this.selectedTabId) {
-      this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
+    if (this._selectedTabId) {
+      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
 
     // eslint-disable-next-line ember/no-runloop
@@ -134,8 +134,8 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     // but the parent `Tabs` component has already been rendered/inserted but doesn't re-render
     // so the value of the `selectedTabIndex` is not updated, unless we trigger a recalculation
     // using the `did-update` modifier that checks for changes in the `this.selectedTabId` variable
-    if (this.selectedTabId) {
-      this.selectedTabIndex = this.tabIds.indexOf(this.selectedTabId);
+    if (this._selectedTabId) {
+      this.selectedTabIndex = this._tabIds.indexOf(this._selectedTabId);
     }
   }
 
@@ -149,10 +149,10 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
   @action
   didInsertTab(element: HTMLButtonElement, isSelected?: boolean): void {
-    this.tabNodes = [...this.tabNodes, element];
-    this.tabIds = [...this.tabIds, element.id];
+    this._tabNodes = [...this._tabNodes, element];
+    this._tabIds = [...this._tabIds, element.id];
     if (isSelected) {
-      this.selectedTabId = element.id;
+      this._selectedTabId = element.id;
     }
   }
 
@@ -166,24 +166,26 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
 
   @action
   willDestroyTab(element: HTMLButtonElement): void {
-    this.tabNodes = this.tabNodes.filter(
+    this._tabNodes = this._tabNodes.filter(
       (node): boolean => node.id !== element.id
     );
-    this.tabIds = this.tabIds.filter((tabId): boolean => tabId !== element.id);
+    this._tabIds = this._tabIds.filter(
+      (tabId): boolean => tabId !== element.id
+    );
   }
 
   @action
   didInsertPanel(element: HTMLElement, panelId: string): void {
-    this.panelNodes = [...this.panelNodes, element];
-    this.panelIds = [...this.panelIds, panelId];
+    this._panelNodes = [...this._panelNodes, element];
+    this._panelIds = [...this._panelIds, panelId];
   }
 
   @action
   willDestroyPanel(element: HTMLElement): void {
-    this.panelNodes = this.panelNodes.filter(
+    this._panelNodes = this._panelNodes.filter(
       (node): boolean => node.id !== element.id
     );
-    this.panelIds = this.panelIds.filter(
+    this._panelIds = this._panelIds.filter(
       (panelId): boolean => panelId !== element.id
     );
   }
@@ -207,17 +209,17 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     const spaceKey = ' ';
 
     if (event.key === rightArrow) {
-      const nextTabIndex = (tabIndex + 1) % this.tabIds.length;
+      const nextTabIndex = (tabIndex + 1) % this._tabIds.length;
       this.focusTab(nextTabIndex, event);
     } else if (event.key === leftArrow) {
       const prevTabIndex =
-        (tabIndex + this.tabIds.length - 1) % this.tabIds.length;
+        (tabIndex + this._tabIds.length - 1) % this._tabIds.length;
       this.focusTab(prevTabIndex, event);
     } else if (event.key === enterKey || event.key === spaceKey) {
       this.selectedTabIndex = tabIndex;
     }
     // scroll selected tab into view (it may be out of view when activated using a keyboard with `prev/next`)
-    const parentNode = this.tabNodes[this.selectedTabIndex]?.parentNode;
+    const parentNode = this._tabNodes[this.selectedTabIndex]?.parentNode;
     if (parentNode instanceof HTMLElement) {
       parentNode.scrollIntoView({
         behavior: 'smooth',
@@ -230,13 +232,13 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
   // Focus tab for keyboard & mouse navigation:
   focusTab(tabIndex: number, event: KeyboardEvent): void {
     event.preventDefault();
-    this.tabNodes[tabIndex]?.focus();
+    this._tabNodes[tabIndex]?.focus();
   }
 
   setTabIndicator(): void {
     // eslint-disable-next-line ember/no-runloop
     next((): void => {
-      const tabElem = this.tabNodes[this.selectedTabIndex];
+      const tabElem = this._tabNodes[this.selectedTabIndex];
 
       if (tabElem != null) {
         const tabElemParentNode = tabElem.parentNode as HTMLElement;
@@ -263,14 +265,14 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
         let message = '';
         message +=
           '"Hds::Tabs" has tried to set the indicator for an element that doesn\'t exist';
-        if (this.tabNodes.length === 0) {
+        if (this._tabNodes.length === 0) {
           message +=
-            ' (the array `this.tabNodes` is empty, there are no tabs, probably already destroyed)';
+            ' (the array `this._tabNodes` is empty, there are no tabs, probably already destroyed)';
         } else {
           message += ` (the value ${
             this.selectedTabIndex
-          } of \`this.selectedTabIndex\` is out of bound for the array \`this.tabNodes\`, whose index range is [0 - ${
-            this.tabNodes.length - 1
+          } of \`this.selectedTabIndex\` is out of bound for the array \`this._tabNodes\`, whose index range is [0 - ${
+            this._tabNodes.length - 1
           }])`;
         }
         // https://api.emberjs.com/ember/5.3/classes/@ember%2Fdebug/methods/warn?anchor=warn

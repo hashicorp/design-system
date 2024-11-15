@@ -18,7 +18,7 @@
   <F.Control>
     <div class="hds-form-text-input__wrapper" {{style width=@width}}>
       <Hds::Form::TextInput::Base
-        @type={{this.type}}
+        @type={{this._type}}
         @value={{@value}}
         @isInvalid={{@isInvalid}}
         @isLoading={{@isLoading}}
@@ -30,7 +30,7 @@
       />
       {{#if this.showVisibilityToggle}}
         <Hds::Form::VisibilityToggle
-          @isVisible={{this.isPasswordMasked}}
+          @isVisible={{this._isPasswordMasked}}
           @ariaLabel={{this.visibilityToggleAriaLabel}}
           @ariaMessageText={{this.visibilityToggleAriaMessageText}}
           aria-controls={{F.id}}

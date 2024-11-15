@@ -10,7 +10,7 @@
   aria-labelledby={{this.ariaLabelledby}}
   data-test-icon={{@name}}
   fill="{{this.fillColor}}"
-  id={{this.iconId}}
+  id={{this._iconId}}
   role={{this.role}}
   width="{{this.svgSize.width}}"
   height="{{this.svgSize.height}}"
@@ -18,7 +18,7 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   {{#if @title}}
-    <title id={{this.titleId}}>{{@title}}</title>
+    <title id={{this._titleId}}>{{@title}}</title>
     <g role="presentation">
       <use href="#flight-{{@name}}-{{this.size}}"></use>
     </g>

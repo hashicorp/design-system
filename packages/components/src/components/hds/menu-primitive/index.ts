@@ -33,9 +33,9 @@ export interface MenuPrimitiveSignature {
 }
 
 export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
-  @tracked isOpen: boolean | undefined; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
-  @tracked toggleRef: HTMLElement | undefined;
-  @tracked element!: HTMLElement;
+  @tracked private _isOpen: boolean | undefined; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
+  @tracked private _toggleRef: HTMLElement | undefined;
+  @tracked private _element!: HTMLElement;
 
   constructor(owner: unknown, args: MenuPrimitiveSignature['Args']) {
     super(owner, args);
@@ -57,18 +57,18 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
 
   @action
   didInsert(element: HTMLElement): void {
-    this.element = element;
+    this._element = element;
   }
 
   @action
   onClickToggle(event: MouseEvent): void {
     // we store a reference to the DOM node that has the "onClickToggle" event associated with it
-    if (!this.toggleRef) {
-      this.toggleRef = event.currentTarget as HTMLElement;
+    if (!this._toggleRef) {
+      this._toggleRef = event.currentTarget as HTMLElement;
     }
-    this.isOpen = !this.isOpen;
+    this._isOpen = !this._isOpen;
     // we explicitly apply a focus state to the toggle element to overcome a bug in WebKit (see https://github.com/hashicorp/design-system/commit/40cd7f6b3cb15c45f9a1235fafd0fb3ed58e6e62)
-    this.toggleRef?.focus();
+    this._toggleRef?.focus();
   }
 
   @action
@@ -88,7 +88,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
   onKeyUp(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       this.close();
-      this.toggleRef?.focus();
+      this._toggleRef?.focus();
     }
   }
 
@@ -97,7 +97,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
     // we schedule this afterRender to avoid an error in tests caused by updating `isOpen` multiple times in the same computation
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this.isOpen = false;
+      this._isOpen = false;
       // we call the "onClose" callback if it exists (and is a function)
       if (this.args.onClose && typeof this.args.onClose === 'function') {
         this.args.onClose();
