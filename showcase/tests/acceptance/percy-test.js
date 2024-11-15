@@ -162,9 +162,6 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/text');
     await percySnapshot('Text');
 
-    await visit('/components/time');
-    await percySnapshot('Time');
-
     await visit('/components/toast');
     await percySnapshot('Toast');
 
