@@ -35,9 +35,11 @@
       </SF.Item>
     {{/each}}
   </Shw::Flex>
+</section>
 
-  <Shw::Divider {{style marginTop="6rem"}} @level="2" />
+<Shw::Divider {{style marginTop="6rem"}} @level="2" />
 
+<section data-test-percy>
   <Shw::Text::H3>Near time examples using “relative” display type</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
@@ -51,7 +53,7 @@
 
 <Shw::Divider />
 
-<section>
+<section data-test-percy>
   {{! Note: Skipping Percy tests for this section as times continually update }}
   <Shw::Text::H2>Date range</Shw::Text::H2>
 
