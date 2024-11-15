@@ -13,9 +13,9 @@ import type TimeService from '../../../services/hds-time';
 
 export interface HdsTimeSignature {
   Args: {
-    date?: Date | string | undefined;
-    startDate?: Date | string | undefined;
-    endDate?: Date | string | undefined;
+    date?: Date | string;
+    startDate?: Date | string;
+    endDate?: Date | string;
     display?:
       | 'utc'
       | 'relative'
@@ -25,7 +25,7 @@ export interface HdsTimeSignature {
     isOpen?: boolean;
     hasTooltip?: boolean;
     displayInner: DisplayType;
-    isoUtcStringInner: string | undefined;
+    isoUtcStringInner?: string;
     didInsertNode: () => void;
     willDestroyNode: () => void;
   };
