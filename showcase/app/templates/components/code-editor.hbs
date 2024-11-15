@@ -15,7 +15,8 @@
     @description="Write some code for us"
     @value={{this.demoCode}}
     @language="javascript"
+    as |CE|
   >
-    <button type="button">Toggle Line Numbers</button>
+    <CE.ToolbarButton @text="Copy" />
   </Hds::CodeEditor>
 </section>
