@@ -1,3 +1,9 @@
+!!! Info
+
+The Time component exists only in code. The Figma equivalent would be a manually input text object with a formatted string.
+
+!!!
+
 ## How to use this component
 
 The `Time` component is used to display dates and times in a consistent format.

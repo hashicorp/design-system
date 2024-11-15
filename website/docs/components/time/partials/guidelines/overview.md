@@ -1,1 +1,0 @@
-The Time component is used to display dates and time in a consistent format
