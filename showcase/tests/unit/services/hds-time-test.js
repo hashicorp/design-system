@@ -3,13 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-/*
-import { module, test, skip } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
-import { hbs } from 'ember-cli-htmlbars';
-*/
-
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
