@@ -8,8 +8,8 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import {
+  HdsDisplayKeyValues,
   DEFAULT_DISPLAY_MAPPING,
-  DISPLAY_KEY_FRIENDLY_LOCAL,
   MINUTE_IN_MS,
   DAY_IN_MS,
 } from '@hashicorp/design-system-components/services/hds-time';
@@ -77,7 +77,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.defaultDate}} @isOpen={{true}} />
     `);
-    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(this.defaultDate).toLocaleString(
       navigator.language,
       options.displayFormat
@@ -92,7 +92,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @isOpen={{true}} />
     `);
-    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(
       '05 September 2018 14:07:32'
     ).toLocaleString(navigator.language, options.displayFormat);
@@ -111,7 +111,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date={{this.friendlyLocalDate}} @display="friendly-local" @isOpen={{true}} />
     `);
-    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(this.friendlyLocalDate).toLocaleString(
       navigator.language,
       options.displayFormat
@@ -126,7 +126,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     await render(hbs`
       <Hds::Time @date="05 September 2018 14:07:32" @display="friendly-local" @isOpen={{true}} />
     `);
-    let options = DEFAULT_DISPLAY_MAPPING[DISPLAY_KEY_FRIENDLY_LOCAL];
+    let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(
       '05 September 2018 14:07:32'
     ).toLocaleString(navigator.language, options.displayFormat);

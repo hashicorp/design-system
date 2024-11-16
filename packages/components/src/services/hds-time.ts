@@ -19,33 +19,43 @@ export const WEEK_IN_MS = 7 * DAY_IN_MS;
 
 export const THRESHOLD_RELATIVE_TIME_IN_MS = WEEK_IN_MS;
 
-export const RELATIVE_UNIT_SECOND = 'second';
-export const RELATIVE_UNIT_HOUR = 'hour';
-export const RELATIVE_UNIT_MINUTE = 'minute';
-export const RELATIVE_UNIT_DAY = 'day';
-export const RELATIVE_UNIT_WEEK = 'week';
+export enum HdsTimeRelativeUnitValues {
+  Second = 'second',
+  Hour = 'hour',
+  Minute = 'minute',
+  Day = 'day',
+  Week = 'week',
+}
 
 export const DEFAULT_RELATIVE_THRESHOLDS = {
-  [RELATIVE_UNIT_SECOND]: 1 * MINUTE_IN_MS,
-  [RELATIVE_UNIT_MINUTE]: 1 * HOUR_IN_MS,
-  [RELATIVE_UNIT_HOUR]: 1 * DAY_IN_MS,
-  [RELATIVE_UNIT_DAY]: 100 * WEEK_IN_MS,
+  [HdsTimeRelativeUnitValues.Second]: 1 * MINUTE_IN_MS,
+  [HdsTimeRelativeUnitValues.Minute]: 1 * HOUR_IN_MS,
+  [HdsTimeRelativeUnitValues.Hour]: 1 * DAY_IN_MS,
+  [HdsTimeRelativeUnitValues.Day]: 100 * WEEK_IN_MS,
 };
 
-// returns 'Sep 5, 2018 (30 minutes ago)'
-export const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
+export enum HdsDisplayKeyValues {
+  FriendlyRelative = 'friendly-relative', // returns 'Sep 5, 2018 (30 minutes ago)'
+  FriendlyLocal = 'friendly-local', // returns 'Sep 5, 2018, 4:07:32 pm'
+  FriendlyOnly = 'friendly-only', // returns 'Sep 5, 2018'
+  Relative = 'relative', // returns 'about 2 hours ago'
+  Utc = 'utc', // returns '2018-09-05T23:15:17345Z'
+}
 
-// returns 'Sep 5, 2018, 4:07:32 pm'
-export const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
+// // returns 'Sep 5, 2018 (30 minutes ago)'
+// export const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
 
-// returns 'Sep 5, 2018'
-export const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
+// // returns 'Sep 5, 2018, 4:07:32 pm'
+// export const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
 
-// returns 'about 2 hours ago'
-export const DISPLAY_KEY_RELATIVE: string = 'relative';
+// // returns 'Sep 5, 2018'
+// export const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
 
-// returns '2018-09-05T23:15:17345Z'
-export const DISPLAY_KEY_UTC: string = 'utc';
+// // returns 'about 2 hours ago'
+// export const DISPLAY_KEY_RELATIVE: string = 'relative';
+
+// // returns '2018-09-05T23:15:17345Z'
+// export const DISPLAY_KEY_UTC: string = 'utc';
 
 export const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
   month: 'short',
@@ -67,8 +77,8 @@ export const FORMAT_PRECISION_SECOND: DisplayFormatType = {
 export const DATE_DISPLAY_FORMATS: {
   [x: string]: DisplayFormatType;
 } = {
-  [DISPLAY_KEY_FRIENDLY_LOCAL]: FORMAT_PRECISION_SECOND,
-  [DISPLAY_KEY_FRIENDLY_ONLY]: FORMAT_PRECISION_SHORT_DATE,
+  [HdsDisplayKeyValues.FriendlyLocal]: FORMAT_PRECISION_SECOND,
+  [HdsDisplayKeyValues.FriendlyOnly]: FORMAT_PRECISION_SHORT_DATE,
 };
 
 export const DEFAULT_DISPLAY = '';
@@ -76,31 +86,31 @@ export const DEFAULT_DISPLAY = '';
 export const DEFAULT_DISPLAY_MAPPING: {
   [x: string]: DefaultDisplayType;
 } = {
-  [DISPLAY_KEY_FRIENDLY_RELATIVE]: {
+  [HdsDisplayKeyValues.FriendlyRelative]: {
     displayFormat: FORMAT_PRECISION_SHORT_DATE,
     showFriendly: true,
     showRelative: true,
     tooltipFormat: FORMAT_PRECISION_SECOND,
   },
-  [DISPLAY_KEY_FRIENDLY_LOCAL]: {
-    displayFormat: DATE_DISPLAY_FORMATS[DISPLAY_KEY_FRIENDLY_LOCAL],
+  [HdsDisplayKeyValues.FriendlyLocal]: {
+    displayFormat: DATE_DISPLAY_FORMATS[HdsDisplayKeyValues.FriendlyLocal],
     showFriendly: true,
     showRelative: false,
     tooltipFormat: null,
   },
-  [DISPLAY_KEY_FRIENDLY_ONLY]: {
-    displayFormat: DATE_DISPLAY_FORMATS[DISPLAY_KEY_FRIENDLY_ONLY],
+  [HdsDisplayKeyValues.FriendlyOnly]: {
+    displayFormat: DATE_DISPLAY_FORMATS[HdsDisplayKeyValues.FriendlyOnly],
     showFriendly: true,
     showRelative: false,
     tooltipFormat: null,
   },
-  [DISPLAY_KEY_RELATIVE]: {
+  [HdsDisplayKeyValues.Relative]: {
     displayFormat: null,
     showFriendly: false,
     showRelative: true,
     tooltipFormat: FORMAT_PRECISION_MINUTE,
   },
-  [DISPLAY_KEY_UTC]: {
+  [HdsDisplayKeyValues.Utc]: {
     displayFormat: null,
     showFriendly: true,
     showRelative: false,
@@ -111,11 +121,11 @@ export const DEFAULT_DISPLAY_MAPPING: {
 export const DISPLAY_SCALE = Object.keys(DEFAULT_DISPLAY_MAPPING);
 
 export const DISPLAYS = [
-  DISPLAY_KEY_FRIENDLY_RELATIVE,
-  DISPLAY_KEY_FRIENDLY_LOCAL,
-  DISPLAY_KEY_FRIENDLY_ONLY,
-  DISPLAY_KEY_RELATIVE,
-  DISPLAY_KEY_UTC,
+  HdsDisplayKeyValues.FriendlyRelative,
+  HdsDisplayKeyValues.FriendlyLocal,
+  HdsDisplayKeyValues.FriendlyOnly,
+  HdsDisplayKeyValues.Relative,
+  HdsDisplayKeyValues.Utc,
 ];
 
 export default class TimeService extends Service {
@@ -139,12 +149,12 @@ export default class TimeService extends Service {
       // prefered algorithm.
 
       // By default, we assume we will display just a relative display only.
-      displayKey = DISPLAY_KEY_RELATIVE;
+      displayKey = HdsDisplayKeyValues.Relative;
 
       // If the difference in date is greater than the threshold for showing the
       // relative time then switch the display key.
       if (difference.absValueInMs > THRESHOLD_RELATIVE_TIME_IN_MS) {
-        displayKey = DISPLAY_KEY_FRIENDLY_LOCAL;
+        displayKey = HdsDisplayKeyValues.FriendlyLocal;
       }
     }
 
@@ -179,37 +189,37 @@ export default class TimeService extends Service {
       day: number;
     } = DEFAULT_RELATIVE_THRESHOLDS
   ): { value: number; unit: string } {
-    if (absValueInMs < thresholds[RELATIVE_UNIT_SECOND]) {
+    if (absValueInMs < thresholds[HdsTimeRelativeUnitValues.Second]) {
       return this.formatTimeRelativeUnit(
         valueInMs / SECOND_IN_MS,
-        RELATIVE_UNIT_SECOND
+        HdsTimeRelativeUnitValues.Second
       );
     }
 
-    if (absValueInMs < thresholds[RELATIVE_UNIT_MINUTE]) {
+    if (absValueInMs < thresholds[HdsTimeRelativeUnitValues.Minute]) {
       return this.formatTimeRelativeUnit(
         valueInMs / MINUTE_IN_MS,
-        RELATIVE_UNIT_MINUTE
+        HdsTimeRelativeUnitValues.Minute
       );
     }
 
-    if (absValueInMs < thresholds[RELATIVE_UNIT_HOUR]) {
+    if (absValueInMs < thresholds[HdsTimeRelativeUnitValues.Hour]) {
       return this.formatTimeRelativeUnit(
         valueInMs / HOUR_IN_MS,
-        RELATIVE_UNIT_HOUR
+        HdsTimeRelativeUnitValues.Hour
       );
     }
 
-    if (absValueInMs < thresholds[RELATIVE_UNIT_DAY]) {
+    if (absValueInMs < thresholds[HdsTimeRelativeUnitValues.Day]) {
       return this.formatTimeRelativeUnit(
         valueInMs / DAY_IN_MS,
-        RELATIVE_UNIT_DAY
+        HdsTimeRelativeUnitValues.Day
       );
     }
 
     return this.formatTimeRelativeUnit(
       valueInMs / WEEK_IN_MS,
-      RELATIVE_UNIT_WEEK
+      HdsTimeRelativeUnitValues.Week
     );
   }
 
