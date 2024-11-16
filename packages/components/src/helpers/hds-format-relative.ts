@@ -15,12 +15,12 @@ import { helper } from '@ember/component/helper';
  * ```
  */
 
-export function hdsFormatRelative([value, unit]: [number, string]): string {
+export function hdsFormatRelative([value, unit]: [
+  number,
+  Intl.RelativeTimeFormatUnit,
+]): string {
   if (unit) {
-    return new Intl.RelativeTimeFormat(navigator.language).format(
-      value,
-      unit as Intl.RelativeTimeFormatUnit
-    );
+    return new Intl.RelativeTimeFormat(navigator.language).format(value, unit);
   } else {
     return new Intl.RelativeTimeFormat(navigator.language).format(value, 'day');
   }
