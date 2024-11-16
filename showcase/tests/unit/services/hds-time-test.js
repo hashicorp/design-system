@@ -14,9 +14,8 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import sinon from 'sinon';
 import {
+  HdsDisplayKeyValues,
   DEFAULT_DISPLAY_MAPPING,
-  DISPLAY_KEY_RELATIVE,
-  DISPLAY_KEY_FRIENDLY_LOCAL,
   MINUTE_IN_MS,
   WEEK_IN_MS,
   RELATIVE_UNIT_SECOND,
@@ -27,14 +26,14 @@ let table = [
     case: 'triggers relative display',
     date: Date.now() - 1000 * 60,
     difference: -1 * MINUTE_IN_MS,
-    type: DISPLAY_KEY_RELATIVE,
+    type: HdsDisplayKeyValues.Relative,
     relative: { value: -1, unit: 'minute' },
   },
   {
     case: 'triggers friendly local display',
     date: Date.now() - 1000 * 60 * 60 * 24 * 2,
     difference: -1 * (3 * WEEK_IN_MS),
-    type: DISPLAY_KEY_FRIENDLY_LOCAL,
+    type: HdsDisplayKeyValues.FriendlyLocal,
     relative: { value: -21, unit: 'day' },
   },
 ];
