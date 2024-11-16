@@ -4,10 +4,10 @@
  */
 
 export type DefaultDisplayType = {
-  displayFormat: DisplayFormatType | null | undefined;
+  displayFormat?: DisplayFormatType | null;
   showFriendly: boolean;
   showRelative: boolean;
-  tooltipFormat: DisplayFormatType | null | undefined;
+  tooltipFormat?: DisplayFormatType | null;
 };
 
 export type DisplayFormatType = {
@@ -21,7 +21,7 @@ export type DisplayFormatType = {
 };
 
 export type DisplayType = {
-  options: DefaultDisplayType | undefined;
+  options?: DefaultDisplayType;
   difference: { absValueInMs: number; valueInMs: number };
   relative: { value: number; unit: string };
 };
