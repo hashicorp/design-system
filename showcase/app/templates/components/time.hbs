@@ -75,18 +75,32 @@
 <section>
   <Shw::Text::H2>Used in context</Shw::Text::H2>
 
-  <Shw::Flex @gap="2rem" as |SF|>
-    <SF.Item @label="Single date">
+  <Shw::Flex @gap="2rem" @direction="column" as |SF|>
+    <SF.Item @label="Single date with tooltip">
       <Hds::Text::Body @tag="p">
         HashiConf 2024 ended
         <Hds::Time @date="16 October 2024" @display="relative" />.
       </Hds::Text::Body>
     </SF.Item>
 
-    <SF.Item @label="Date range">
+    <SF.Item @label="Single date without tooltip">
+      <Hds::Text::Body @tag="p">
+        HashiConf 2024 ended
+        <Hds::Time @date="16 October 2024" @display="relative" @hasTooltip={{false}} />.
+      </Hds::Text::Body>
+    </SF.Item>
+
+    <SF.Item @label="Date range with tooltip">
       <Hds::Text::Body @tag="p">
         HashiConf is from
         <Hds::Time @startDate="14 October 2024" @endDate="16 October 2024" />.
+      </Hds::Text::Body>
+    </SF.Item>
+
+    <SF.Item @label="Date range without tooltip">
+      <Hds::Text::Body @tag="p">
+        HashiConf is from
+        <Hds::Time @startDate="14 October 2024" @endDate="16 October 2024" @hasTooltip={{false}} />.
       </Hds::Text::Body>
     </SF.Item>
   </Shw::Flex>
