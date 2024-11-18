@@ -2,7 +2,7 @@
 
 The Time component makes use of the Hds-time service, which provides various time and formatting related functions as well as a tracked `Now` property representing current time in milliseconds, which continuously updates.
 
-It uses two helper functions, the format-date helper, which formats a date according to the passed in options, and the format-relative helper, which returns a relative string according to the passed in value and units.
+It uses two helper functions: the format-date helper, which formats a date according to the passed in options, and the format-relative helper, which returns a relative string according to the passed in value and units.
 
 ### Time component
 
