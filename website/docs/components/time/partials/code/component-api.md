@@ -20,10 +20,10 @@ It uses two helper functions: the format-date helper, which formats a date accor
     The display format used for the date and time.
   </C.Property>
   <C.Property @name="hasTooltip" @type="boolean" @default="true">
-    Sets whether a tooltip is included which displays the time in ISO UTC format by default. (Varies according to `@display` value set.)
+    Sets whether a Tooltip is included which displays the time in ISO UTC format by default. (Varies according to `@display` value set.)
   </C.Property>
   <C.Property @name="isOpen" @type="boolean" @default="false">
-    Sets whether tooltip displays as open upon page load.
+    Sets whether Tooltip displays as open upon page load.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
