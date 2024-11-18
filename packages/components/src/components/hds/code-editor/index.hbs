@@ -4,7 +4,7 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if (or @title @description (has-block))}}
+  {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-info">
         {{#if @title}}
@@ -19,16 +19,21 @@
           </Hds::Text::Body>
         {{/if}}
         {{#if @description}}
-          <Hds::Text::Body @tag="p" @size="100" @color="var(--token-color-code-foreground-faint)">
+          <Hds::Text::Body
+            class="hds-code-editor__description"
+            @tag="p"
+            @size="100"
+            @color="var(--token-color-code-foreground-faint)"
+          >
             {{@description}}
           </Hds::Text::Body>
         {{/if}}
       </div>
-      {{#if (or @canCopy @canExpand (has-block))}}
+      {{#if (or this.hasToolbarAction (has-block))}}
         <div class="hds-code-editor__header-toolbar">
           {{#if @canCopy}}
             <Hds::Copy::Button
-              class="hds-code-editor__toolbar-button"
+              class="hds-code-editor__toolbar-button hds-code-editor__copy-button"
               @isIconOnly={{true}}
               @size="small"
               @text="Copy"
@@ -37,6 +42,7 @@
           {{/if}}
           {{#if @canExpand}}
             <Hds::CodeEditor::ToolbarButton
+              class="hds-code-editor__toolbar-button hds-code-editor__expand-button"
               @size="small"
               @icon="maximize"
               @text="Fullscreen"
