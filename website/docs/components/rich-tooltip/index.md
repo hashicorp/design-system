@@ -3,7 +3,7 @@ title: Rich Tooltip
 description: The Rich Tooltip component provides additional information to users in a concise and unobtrusive way while supporting more complex and structured content.
 caption: Provides additional structured informational content for a UI element.
 links:
-  figma: https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?m=auto&node-id=54420%3A1460&t=76JkjDorz1nOezBV-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-82911&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip
 related: ['components/tooltip', 'components/modal']
 previewImage: assets/illustrations/components/rich-tooltip.jpg

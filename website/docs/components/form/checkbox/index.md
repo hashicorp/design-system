@@ -3,7 +3,7 @@ title: Checkbox
 description: A form element that allows users to select one or more items from a group of items.
 caption: A form element that allows users to select one or more items from a group of items.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=9120%3A23132&t=pDgL7LJUJXZUN7Xq-3
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-102811&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/checkbox
 related: ['components/form/toggle','components/form/radio','components/form/select']
 previewImage: assets/illustrations/components/form/checkbox.jpg

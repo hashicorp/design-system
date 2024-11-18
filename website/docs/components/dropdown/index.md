@@ -3,7 +3,7 @@ title: Dropdown
 description: Displays a list of actions or options revealed by a toggle button. Identifiable by the chevron icon in the button.
 caption: Hide/Show a list of actions or options with a toggle button.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=5633%3A16319&t=XC8SUxxJOFHgqYzK-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/dropdown
 related: ['components/segmented-group','patterns/filter-patterns']
 previewImage: assets/illustrations/components/dropdown.jpg

@@ -3,7 +3,7 @@ title: Masked Input
 description: A form input that visually obfuscates characters to protect sensitive information by replacing them with a shape.
 caption: A form input that obfuscates sensitive information.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=39336%3A85955&mode=design&t=Cxb5rUqyu3pTHA9V-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-98270&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/masked-input
 related: ['components/form/text-input', 'components/form/textarea']
 previewImage: assets/illustrations/components/form/masked-input.jpg

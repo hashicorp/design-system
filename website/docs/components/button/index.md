@@ -3,7 +3,7 @@ title: Button
 description: An interactive element that initiates an action or event, such as a form submission.
 caption: An interactive element that initiates an action.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2340%3A21001&t=XC8SUxxJOFHgqYzK-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-95918&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/button
 related: ['components/button-set','patterns/button-organization','components/link/inline','components/link/standalone']
 previewImage: assets/illustrations/components/button.jpg
