@@ -1,2 +1,5 @@
 # Default owners
 *       @hashicorp/hds-engineering
+
+# co-ownership of website docs
+/website/docs/ @hashicorp/hds-engineering @hashicorp/hds-design
