@@ -13,10 +13,7 @@ module(
     setupRenderingTest(hooks);
 
     test('it formats a relative time with the default options', async function (assert) {
-      assert.expect(1);
-
       const value = -1;
-
       const result = hdsFormatRelative([value]);
 
       assert.strictEqual(
@@ -26,11 +23,8 @@ module(
     });
 
     test('it formats a relative time with the provided options', async function (assert) {
-      assert.expect(1);
-
       const value = -1;
       const unit = 'day';
-
       const result = hdsFormatRelative([value, unit]);
 
       assert.strictEqual(
