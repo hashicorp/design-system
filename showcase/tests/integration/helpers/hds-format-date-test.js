@@ -13,8 +13,6 @@ module(
     setupRenderingTest(hooks);
 
     test('it formats a date with the provided options', async function (assert) {
-      assert.expect(1);
-
       const date = new Date('2021-01-01T00:00:00Z');
       const options = {
         month: 'long',
@@ -25,7 +23,6 @@ module(
         second: 'numeric',
         timeZoneName: 'short',
       };
-
       const result = hdsFormatDate([date, options]);
 
       assert.strictEqual(
