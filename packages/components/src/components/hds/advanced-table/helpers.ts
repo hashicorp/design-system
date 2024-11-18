@@ -1,21 +1,52 @@
 // TODO
 // did insert
 // add escape listener to focusable elements inside cell
-// Page Down: Moves focus down an author-determined number of rows, typically scrolling so the bottom row in the currently visible set of rows becomes one of the first visible rows. If focus is in the last row of the grid, focus does not move.
-// Page Up: Moves focus up an author-determined number of rows, typically scrolling so the top row in the currently visible set of rows becomes one of the last visible rows. If focus is in the first row of the grid, focus does not move.
-// Home: moves focus to the first cell in the row that contains focus.
-// End: moves focus to the last cell in the row that contains focus.
-// Control + Home: moves focus to the first cell in the first row.
-// Control + End: moves focus to the last cell in the last row.
 
 import type { HdsAdvancedTableTdSignature } from './td';
 import type { HdsAdvancedTableThSignature } from './th';
+
+const getAllFocusableChildren = (element: HTMLElement): NodeListOf<Element> => {
+  return element.querySelectorAll(
+    'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+};
+
+const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
+  const { key, target } = event;
+
+  console.log('key', key);
+  console.log('target', target);
+
+  if (target instanceof HTMLElement) {
+    if (key === 'Escape') {
+      const cell = target.closest(
+        'hds-advanced-table__th, hds-advanced-table__td'
+      );
+
+      console.log(cell);
+
+      if (cell instanceof HTMLElement) {
+        cell.setAttribute('tabindex', '0');
+        cell.focus();
+      }
+    }
+  }
+};
 
 export const didInsertGridCell = (
   cell:
     | HdsAdvancedTableThSignature['Element']
     | HdsAdvancedTableTdSignature['Element']
 ): void => {
+  const focusableChildren = getAllFocusableChildren(cell);
+
+  for (const child of focusableChildren) {
+    if (child instanceof HTMLElement) {
+      child.setAttribute('tabindex', '-1');
+      child.addEventListener('keydown', handleGridCellChildKeyPress);
+    }
+  }
+
   const currentRow = cell.parentElement;
 
   if (
@@ -79,17 +110,16 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
 
   if (target instanceof HTMLElement) {
     if (key === 'Enter') {
-      const focusableElements = target.querySelectorAll(
-        'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
+      const focusableChildren = getAllFocusableChildren(target);
 
-      // if (focusableElements.length === 1) {
-      //   const element = focusableElements[0] as HTMLElement;
+      // TODO: test this more. if screen reader keeps up with the state of the focusable element, can bring it back.
+      // if (focusableChildren.length === 1) {
+      //   const element = focusableChildren[0] as HTMLElement;
       //   element.click();
       // } else
 
-      if (focusableElements.length > 0) {
-        const element = focusableElements[0] as HTMLElement;
+      if (focusableChildren.length > 0) {
+        const element = focusableChildren[0] as HTMLElement;
         element.focus();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
@@ -114,6 +144,65 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
           const nextCell = nextRow.children[currentCellIndex];
           if (nextCell instanceof HTMLElement) {
             changeActiveCell(target, nextCell);
+          }
+        }
+      }
+    } else if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
+      if (event.ctrlKey) {
+        const table = target.parentElement?.closest('[role="grid"]');
+        const allRows = table?.querySelectorAll('[role="row"]');
+
+        if (allRows) {
+          const nextRow =
+            key === 'Home' ? allRows[0] : allRows[allRows.length - 1];
+
+          if (nextRow) {
+            const cellsInNextRow = nextRow.children;
+            const nextElement =
+              key === 'Home'
+                ? cellsInNextRow[0]
+                : cellsInNextRow[cellsInNextRow.length - 1];
+
+            if (nextElement && nextElement instanceof HTMLElement) {
+              changeActiveCell(target, nextElement);
+            }
+          }
+        }
+      } else {
+        const currentRow = target.parentElement;
+
+        if (currentRow) {
+          const allCells = currentRow.children;
+          const nextElement =
+            key === 'Home' ? allCells[0] : allCells[allCells.length - 1];
+
+          if (nextElement && nextElement instanceof HTMLElement) {
+            changeActiveCell(target, nextElement);
+          }
+        }
+      }
+    } else if (event.key === 'PageUp' || event.key === 'PageDown') {
+      event.preventDefault();
+      const currentRow = target.parentElement;
+
+      if (currentRow instanceof HTMLElement) {
+        const currentCellIndex = Array.from(currentRow.children).indexOf(
+          target
+        );
+
+        const table = currentRow.parentElement?.closest('[role="grid"]');
+        const allRows = table?.querySelectorAll('[role="row"]');
+
+        if (allRows) {
+          const nextRow =
+            event.key === 'PageUp' ? allRows[0] : allRows[allRows.length - 1];
+
+          if (nextRow !== null && nextRow instanceof HTMLElement) {
+            const nextCell = nextRow.children[currentCellIndex];
+            if (nextCell instanceof HTMLElement) {
+              changeActiveCell(target, nextCell);
+            }
           }
         }
       }
