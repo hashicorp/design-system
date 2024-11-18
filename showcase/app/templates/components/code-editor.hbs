@@ -11,13 +11,10 @@
   <Hds::CodeEditor
     @canCopy={{true}}
     @canExpand={{true}}
-    @title="Code Editor"
-    @description="Write some code for us"
+    @title="Lorem Ipsum"
+    @description="lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     @value={{this.demoCode}}
     @language="json"
     @onInput={{fn (mut this.demoCode)}}
-    as |CE|
-  >
-    <CE.ToolbarButton @text="Copy" />
-  </Hds::CodeEditor>
+  />
 </section>
