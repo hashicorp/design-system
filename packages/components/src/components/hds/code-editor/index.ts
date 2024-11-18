@@ -19,6 +19,7 @@ export interface HdsCodeEditorSignature {
     options?: unknown[];
     title?: string;
     value: string;
+    onInput?: (newVal: string) => void;
   };
   Blocks: {
     default: [
@@ -41,5 +42,13 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     }
 
     return classes.join(' ');
+  }
+
+  get hasHeaderInfo(): boolean {
+    return this.args.title !== undefined || this.args.description !== undefined;
+  }
+
+  get hasToolbarAction() {
+    return this.args.canCopy || this.args.canExpand;
   }
 }
