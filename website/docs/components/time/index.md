@@ -8,6 +8,8 @@ links:
 previewImage: assets/illustrations/components/time.jpg
 navigation:
   keywords: ['time']
+status:
+  added: 4.15.0
 ---
 
 <section data-tab="Code">
