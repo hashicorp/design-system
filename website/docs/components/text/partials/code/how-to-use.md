@@ -84,7 +84,7 @@ It is possible to apply a specific **foreground** color to the text (from a pred
 
 ```handlebars
 <Hds::Text::Body @tag="p" @color="strong">Paragraph with "strong" color applied</Hds::Text::Body>
-<Hds::Text::Body @tag="p" @color="action-active">Paragraph with "action-active"color applied</Hds::Text::Body>
+<Hds::Text::Body @tag="p" @color="action-active">Paragraph with "action-active" color applied</Hds::Text::Body>
 <Hds::Text::Body @tag="p" @color="highlight-high-contrast">Paragraph with "highlight-high-contrast" color applied</Hds::Text::Body>
 ```
 
