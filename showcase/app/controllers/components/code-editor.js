@@ -7,31 +7,44 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
-  @tracked demoCode = `function greetUser(username) {
-    // Get the current hour of the day
-    const currentHour = new Date().getHours();
-    let greeting;
+  languages = [
+    {
+      value: 'go',
+      label: 'Go',
+      code: `package main
 
-    // Determine the greeting based on the time of day
-    if (currentHour < 12) {
-        greeting = "Good morning";
-    } else if (currentHour < 18) {
-        greeting = "Good afternoon";
-    } else {
-        greeting = "Good evening";
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, world!")
+    fmt.Println("Welcome to Go!")
+}`
+    },
+    {
+      value: 'javascript',
+      label: 'JavaScript',
+      code: `function greet() {
+    console.log('Hello, world!');
+}
+
+greet();`
+    },
+    {
+      value: 'json',
+      label: 'JSON',
+      code: `{
+    "message": "Hello, world!",
+    "status": "success",
+    "data": null
+}`
+    },
+    {
+      value: 'sql',
+      label: 'SQL',
+      code: `SELECT 'Hello, world!';
+SELECT 'Welcome to SQL!';
+SELECT 'Enjoy coding!';`
     }
+  ];
 
-    // Create a personalized message
-    const message = \`\${greeting}, \${username}! Welcome to our site.\`;
-
-    // Create a new HTML element to display the message
-    const greetingElement = document.createElement("div");
-    greetingElement.textContent = message;
-    greetingElement.style.fontSize = "20px";
-    greetingElement.style.fontWeight = "bold";
-    greetingElement.style.marginTop = "20px";
-
-    // Add the greeting element to the document body
-    document.body.appendChild(greetingElement);
-  }`;
 }

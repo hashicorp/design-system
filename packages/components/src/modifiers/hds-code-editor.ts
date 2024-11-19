@@ -33,7 +33,7 @@ import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-h
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
 
-const LANGUAGE_MAP: Record<HdsCodeEditorLanguages, Extension> = {
+export const LANGUAGE_MAP: Record<HdsCodeEditorLanguages, Extension> = {
   go: go(),
   javascript: javascript(),
   json: json(),
