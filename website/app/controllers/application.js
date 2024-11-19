@@ -100,6 +100,7 @@ export default class ApplicationController extends Controller {
     // Disable transition validation if we're transitioning to the same page
     // and the page is has a filter functionality based on `queryParams`
     // namely the Icon library or the Tokens page
+    // or if the transition is between tabs on the same page
     let hasTabs = document.querySelector('.doc-page-tabs') != null;
     if (
       transition.from.params.path === transition.to.params.path &&
