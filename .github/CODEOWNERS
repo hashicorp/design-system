@@ -1,5 +1,5 @@
 # Default owners
 *       @hashicorp/hds-engineering
 
-# co-ownership of website docs
-/website/docs/ @hashicorp/hds-engineering @hashicorp/hds-design
+# co-ownership of website docs & assets
+/website/docs/ /website/public/assets/ @hashicorp/hds-engineering @hashicorp/hds-design
