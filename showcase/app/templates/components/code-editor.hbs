@@ -14,7 +14,7 @@
       <Hds::CodeEditor />
     </SF.Item>
     <SF.Item @label="With initial content">
-      <Hds::CodeEditor @value={{this.demoJavascript}} />
+      <Hds::CodeEditor @value={{this.demoCode}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -30,7 +30,7 @@
       <Hds::CodeEditor @canExpand={{true}} />
     </SF.Item>
     <SF.Item @label="With copyable content">
-      <Hds::CodeEditor @canCopy={{true}} @value={{this.demoJavascript}} />
+      <Hds::CodeEditor @canCopy={{true}} @value={{this.demoCode}} />
     </SF.Item>
     <SF.Item @label="With custom header content">
       <Hds::CodeEditor as |CE|>
@@ -43,7 +43,7 @@
         @description="This is a complex example"
         @canCopy={{true}}
         @canExpand={{true}}
-        @value={{this.demoJavascript}}
+        @value={{this.demoCode}}
         as |CE|
       >
         <CE.ToolbarButton @text="Custom button" />
