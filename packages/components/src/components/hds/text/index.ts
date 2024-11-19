@@ -142,7 +142,6 @@ export default class HdsText extends Component<HdsTextSignature> {
 
     // add a (helper) class based on the @color argument (if pre-defined)
     if (this.predefinedColor) {
-      console.log('hey');
       classes.push(`hds-foreground-${this.predefinedColor}`);
     }
 
