@@ -163,45 +163,28 @@
   margin: 0 0 0 auto;
 }
 
-// "fake" search button (this triggers another button, the "Algolia search" one, which is hidden)
-
-.doc-page-header__search-button {
+.doc-page-header__desktop-icon-item {
   @include doc-font-style-navigation();
   @include doc-header-custom-focus ();
   display: flex;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
-  height: 36px;
-  margin: 0;
-  padding: 4px 12px;
+  align-self: stretch;
+  padding: 4px 6px;
   color: var(--doc-color-gray-400);
-  background-color: var(--doc-color-gray-100);
-  border: 1px solid var(--doc-color-gray-300);
-  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid transparent;
   cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
   &:hover {
     color: var(--doc-color-white);
   }
-
-  &:focus {
-    border-color: var(--doc-focus-ring-color);
-    outline: 1px solid var(--doc-focus-ring);
-    outline-offset: 0;
-  }
-
-  svg {
-    display: block;
-    width: 16px;
-    height: 16px;
-    color: inherit;
-
-    &:hover { // we need this to avoid overwriting by the `aa-SubmitIcon` class, which is the same classname used in the modal form
-      color: inherit;
-    }
-  }
 }
-
 
 // "MOBILE" ONLY MENU
 
@@ -231,6 +214,11 @@
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 
   &:hover {
     color: var(--doc-color-white);
