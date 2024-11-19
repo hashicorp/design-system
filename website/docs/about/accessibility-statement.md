@@ -2,8 +2,6 @@
 title: Accessibility statement
 navigation:
   order: 105
-layout:
-  tabs: false
 ---
 
 We believe accessibility is a core requirement and not an optional feature. Our approach to accessibility closely aligns with our [HashiCorp principles](https://www.hashicorp.com/our-principles), such as our core principle of integrity.

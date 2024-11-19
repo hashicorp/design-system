@@ -3,8 +3,6 @@ title: Accessibility
 caption: Applications should be usable and accessible for all users of differing abilities.
 description: Applications should be usable and accessible for all users of differing abilities.
 previewImage: assets/illustrations/foundations/accessibility.jpg
-layout:
-  tabs: false
 ---
 
 While our components are designed and developed with accessibility as a core requirement, they can still be implemented in a way that results in an application that doesn’t conform to WCAG Guidelines. 

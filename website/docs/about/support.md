@@ -2,8 +2,6 @@
 title: Support
 navigation:
   order: 103
-layout:
-  tabs: false
 ---
 
 !!! Info

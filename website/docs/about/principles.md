@@ -6,7 +6,6 @@ navigation:
   order: 102
 layout:
   sidecar: false
-  tabs: false
 ---
 
 <!-- TO EDIT THESE PRINCIPLES LOOK AT THE COMPONENT IN `website/app/components/doc/content/hds-principles/index.js` -->
