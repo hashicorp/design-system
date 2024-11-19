@@ -10,7 +10,7 @@ previewImage: assets/illustrations/components/dropdown.jpg
 navigation:
   keywords: ['select', 'menu', 'action menu', 'list']
 status:
-  updated: 4.14.0
+  updated: 4.15.0
 ---
 
 <section data-tab="Guidelines">
@@ -33,6 +33,7 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.14.0.md"
   @include "partials/version-history/4.13.0.md"
   @include "partials/version-history/4.12.0.md"
