@@ -2,4 +2,5 @@
 *       @hashicorp/hds-engineering
 
 # co-ownership of website docs & assets
-/website/docs/ /website/public/assets/ @hashicorp/hds-engineering @hashicorp/hds-design
+/website/docs/ @hashicorp/hds-engineering @hashicorp/hds-design
+/website/public/assets/ @hashicorp/hds-engineering @hashicorp/hds-design
