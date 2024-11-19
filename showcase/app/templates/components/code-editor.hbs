@@ -8,13 +8,55 @@
 <Shw::Text::H1>CodeEditor</Shw::Text::H1>
 
 <section data-test-percy>
-  <Hds::CodeEditor
-    @canCopy={{true}}
-    @canExpand={{true}}
-    @title="Lorem Ipsum"
-    @description="lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    @value={{this.demoCode}}
-    @language="json"
-    @onInput={{fn (mut this.demoCode)}}
-  />
+  <Shw::Text::H2>Content</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="No content">
+      <Hds::CodeEditor />
+    </SF.Item>
+    <SF.Item @label="With initial content">
+      <Hds::CodeEditor @value={{this.demoJavascript}} />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Header</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With title">
+      <Hds::CodeEditor @title="Code editor with title" />
+    </SF.Item>
+    <SF.Item @label="With description">
+      <Hds::CodeEditor @description="Code editor with description" />
+    </SF.Item>
+    <SF.Item @label="Expandable editor">
+      <Hds::CodeEditor @canExpand={{true}} />
+    </SF.Item>
+    <SF.Item @label="With copyable content">
+      <Hds::CodeEditor @canCopy={{true}} @value={{this.demoJavascript}} />
+    </SF.Item>
+    <SF.Item @label="With custom header content">
+      <Hds::CodeEditor as |CE|>
+        <CE.ToolbarButton @text="Custom button" />
+      </Hds::CodeEditor>
+    </SF.Item>
+    <SF.Item @label="Complex header">
+      <Hds::CodeEditor
+        @title="Complex header"
+        @description="This is a complex example"
+        @canCopy={{true}}
+        @canExpand={{true}}
+        @value={{this.demoJavascript}}
+        as |CE|
+      >
+        <CE.ToolbarButton @text="Custom button" />
+      </Hds::CodeEditor>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Syntax highlighting</Shw::Text::H2>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    {{#each this.languages as |lang|}}
+      <SG.Item @label={{lang.label}}>
+        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 </section>
