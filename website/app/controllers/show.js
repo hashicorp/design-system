@@ -246,7 +246,6 @@ export default class ShowController extends Controller {
     }
 
     // TABS
-    // ?? CAN WE EXPLICITLY SET FOCUS ON THE TAB WHEN IT IS SET TO CURRENT?
     this.tabs.forEach((tab) => {
       set(tab, 'isCurrent', tab.index === current);
     });
