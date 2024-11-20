@@ -321,7 +321,7 @@ Follow these formatting options to display dates and times in a way that aligns 
 
 Relative dates work well for periods from one minute up to one week. For added accuracy, a tooltip can display the exact timestamp, including seconds and the local timezone (e.g., "Sep 5, 2018, 4:07:32 PM PST"). This feature helps users who need precise information without manually converting from UTC.
 
-//image here
+![Example of time and tooltip](/assets/components/time/time-tooltip.png)
 
 - Omit "about" in phrases like "about 3 hours ago" since the approximation is implied.
 - To improve readability, show only the most significant unit, e.g., "3 days ago" instead of "3 days, 4 hours ago."
