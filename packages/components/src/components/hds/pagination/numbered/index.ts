@@ -40,6 +40,7 @@ type HdsPaginationQueryFunction = (
 interface HdsPaginationNumberedArgs extends HdsPaginationRoutingProps {
   ariaLabel?: string;
   totalItems: number;
+  totalPages?: number;
   showLabels?: boolean;
   isTruncated?: boolean;
   currentPage?: number;
@@ -320,7 +321,10 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   }
 
   get totalPages() {
-    return Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1);
+    return (
+      this.args.totalPages ??
+      Math.max(Math.ceil(this.args.totalItems / this.currentPageSize), 1)
+    );
   }
 
   buildQueryParamsObject(

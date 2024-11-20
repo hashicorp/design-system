@@ -109,6 +109,18 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-size-selector label').hasText('Custom text');
   });
 
+  test('it displays the correct page numbers if a value is provided for @totalPages', async function (assert) {
+    await render(hbs`
+      <Hds::Pagination::Numbered @totalItems={{1000}} @currentPageSize={{50}} @totalPages={{10}} />
+    `);
+    
+    assert
+    .dom(
+      '.hds-pagination .hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+    )
+    .hasText('page 10');
+  });
+
   // SHOW/HIDE ELEMENTS
   test('it hides the total items from the "info" content when @showTotalItems is false', async function (assert) {
     await render(hbs`
