@@ -4,7 +4,6 @@
  */
 
 import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
   demoCode = `console.log('Hello, world!');`;
@@ -46,7 +45,6 @@ greet();`
       code: `SELECT 'Hello, world!';
 SELECT 'Welcome to SQL!';
 SELECT 'Enjoy coding!';`
-    }
+    },
   ];
-
 }
