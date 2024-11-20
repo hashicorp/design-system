@@ -63,6 +63,10 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
+
+    &::before {
+      border-color: transparent;
+    }
   }
 
   &:disabled,
