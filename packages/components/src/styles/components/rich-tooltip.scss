@@ -132,7 +132,9 @@
 
 .hds-rich-tooltip__bubble {
   position: relative;
-  width: fit-content;
+  // Prevent ResizeObserver: loop completed with undelivered notifications error
+  // https://github.com/floating-ui/floating-ui/issues/2338#issuecomment-1558709673
+  width: max-content;
   max-width: var(--token-tooltip-max-width);
   height: fit-content;
   max-height: none;
