@@ -13,6 +13,7 @@ function processChildren(children, asPrefix, b) {
     let updatedChild;
     let isProcessed = false;
 
+    // Check if the child is an ElementNode with the specified tag
     if (child.type === 'ElementNode' && child.tag === `${asPrefix}.Interactive`) {
       const textAttr = child.attributes.find((a) => a.name === '@text');
 
@@ -23,6 +24,7 @@ function processChildren(children, asPrefix, b) {
 
         let children = [];
 
+        // Handle different types of MustacheStatement values
         if (isHandlebarsAttr) {
           if (textAttr.value.path.type === 'NumberLiteral') {
             children = [b.mustache(b.number(textAttr.value.path.value))];
@@ -41,6 +43,7 @@ function processChildren(children, asPrefix, b) {
           children = [b.text(textAttr.value.chars)];
         }
 
+        // Create a new element with the updated children and attributes
         updatedChild = b.element(
           { name: child.tag, selfClosing: false },
           {
@@ -56,6 +59,7 @@ function processChildren(children, asPrefix, b) {
         updatedChild = child;
       }
     } else if (child.type === 'BlockStatement') {
+      // Recursively process children of BlockStatement nodes
       const { hasUpdatedChildren: nestedHasUpdated, processedChildren: nestedProcessed } =
         processChildren(child.program.body, asPrefix, b);
 
@@ -88,16 +92,19 @@ module.exports = function ({ source /*, path*/ }, { parse, visit }) {
 
     return {
       ElementNode(node) {
+        // Check if the node is an Hds::Dropdown element
         if (node.type === 'ElementNode' && node.tag === 'Hds::Dropdown') {
           if (node.blockParams && node.blockParams.length > 0) {
             const asPrefix = node.blockParams[0];
 
+            // Process the children of the Hds::Dropdown element
             const { hasUpdatedChildren, processedChildren } = processChildren(
               node.children,
               asPrefix,
               b
             );
 
+            // Return the updated element if any children were updated
             if (hasUpdatedChildren && !CODEMOD_ANALYSIS) {
               return [
                 b.element(
