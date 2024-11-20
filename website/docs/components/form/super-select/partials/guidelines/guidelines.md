@@ -95,7 +95,7 @@ The footer for the Single component includes a total count, which is customizabl
 
 ##### Multiple
 
-The footer for the Multiple component includes buttons to modify the options and a count of the number of options selected out of the total.
+The Multiple component footer includes buttons to modify options and a selected count. This default setup is customizable to fit specific needs.
 
 ![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
