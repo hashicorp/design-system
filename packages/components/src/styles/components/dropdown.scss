@@ -52,6 +52,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   &:focus,
   &.mock-focus {
     @include hds-button-state-focus();
+    border-color: var(--token-color-focus-action-internal);
 
     &::before {
       border-color: var(--token-color-focus-action-external);
