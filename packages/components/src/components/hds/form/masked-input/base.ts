@@ -28,16 +28,16 @@ export interface HdsFormMaskedInputBaseSignature {
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
-  @tracked private _isContentMasked;
+  @tracked isContentMasked;
 
   constructor(owner: unknown, args: HdsFormMaskedInputBaseSignature['Args']) {
     super(owner, args);
-    this._isContentMasked = this.args.isContentMasked ?? true;
+    this.isContentMasked = this.args.isContentMasked ?? true;
   }
 
   @action
   onClickToggleMasking(): void {
-    this._isContentMasked = !this._isContentMasked;
+    this.isContentMasked = !this.isContentMasked;
   }
 
   get id(): string {
@@ -47,7 +47,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
   get visibilityToggleAriaLabel(): string {
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
-    } else if (this._isContentMasked) {
+    } else if (this.isContentMasked) {
       return 'Show masked content';
     } else {
       return 'Hide masked content';
@@ -57,7 +57,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
   get visibilityToggleAriaMessageText(): string {
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
-    } else if (this._isContentMasked) {
+    } else if (this.isContentMasked) {
       return 'Input content is hidden';
     } else {
       return 'Input content is visible';
@@ -75,7 +75,7 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
   get classNames(): string {
     const classes = ['hds-form-masked-input'];
 
-    if (this._isContentMasked) {
+    if (this.isContentMasked) {
       classes.push(`hds-form-masked-input--is-masked`);
     } else {
       classes.push(`hds-form-masked-input--is-not-masked`);

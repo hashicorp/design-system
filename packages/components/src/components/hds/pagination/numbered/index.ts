@@ -171,11 +171,11 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   @tracked private _currentPageSize;
   @tracked private _isControlled;
 
-  private _showInfo = this.args.showInfo ?? true; // if the "info" block is visible
-  private _showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
-  private _showSizeSelector = this.args.showSizeSelector ?? true; // if the "size selector" block is visible
-  private _showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
-  private _isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
+  showInfo = this.args.showInfo ?? true; // if the "info" block is visible
+  showLabels = this.args.showLabels ?? false; // if the labels for the "prev/next" controls are visible
+  showSizeSelector = this.args.showSizeSelector ?? true; // if the "size selector" block is visible
+  showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
+  isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
   constructor(owner: unknown, args: HdsPaginationNumberedSignature['Args']) {
     super(owner, args);
@@ -312,7 +312,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       pages.push(i);
     }
 
-    if (this._isTruncated) {
+    if (this.isTruncated) {
       return elliptize({ pages, current: this.currentPage });
     } else {
       return pages;

@@ -40,11 +40,11 @@ export interface HdsFormTextInputFieldSignature {
 
 export default class HdsFormTextInputField extends Component<HdsFormTextInputFieldSignature> {
   @tracked private _isPasswordMasked = true;
-  @tracked private _type;
+  @tracked type;
 
   constructor(owner: unknown, args: HdsFormTextInputFieldSignature['Args']) {
     super(owner, args);
-    this._type = this.args.type ?? 'text';
+    this.type = this.args.type ?? 'text';
   }
 
   get hasVisibilityToggle(): boolean {
@@ -78,6 +78,6 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   @action
   onClickTogglePasswordReadability(): void {
     this._isPasswordMasked = !this._isPasswordMasked;
-    this._type = this._isPasswordMasked ? 'password' : 'text';
+    this.type = this._isPasswordMasked ? 'password' : 'text';
   }
 }

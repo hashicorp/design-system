@@ -65,9 +65,9 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   private _toggleElement?: HTMLButtonElement;
   private _popoverElement?: HTMLElement;
   // this will enable "soft" events for the toggle ("hover" and "focus")
-  private _enableSoftEvents = this.args.enableSoftEvents ?? false;
+  enableSoftEvents = this.args.enableSoftEvents ?? false;
   // this will enable "click" events for the toggle
-  private _enableClickEvents = this.args.enableClickEvents ?? false;
+  enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
 
   constructor(owner: unknown, args: HdsPopoverPrimitiveSignature['Args']) {
@@ -80,7 +80,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       this._containerElement = element;
 
       // we register the "soft" events
-      if (this._enableSoftEvents) {
+      if (this.enableSoftEvents) {
         // @ts-expect-error: known issue with type of invocation
         registerEvent(this._containerElement, [
           'mouseenter',
@@ -122,7 +122,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
       // provided by the Popover API which does all the magic for us without needing JS code
       // (important: to work it needs to be applied to a button)
-      if (this._enableClickEvents) {
+      if (this.enableClickEvents) {
         let popoverId;
         if (this._popoverElement.id) {
           popoverId = this._popoverElement.id;

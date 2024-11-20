@@ -41,7 +41,7 @@ export interface HdsTableThSelectableSignature {
 }
 
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
-  @tracked private _isSelected: boolean;
+  @tracked isSelected: boolean;
   private _guid = guidFor(this);
 
   private _checkboxId = `checkbox-${this._guid}`;
@@ -49,7 +49,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
 
   constructor(owner: unknown, args: HdsTableThSelectableSignature['Args']) {
     super(owner, args);
-    this._isSelected = this.args.isSelected ?? false;
+    this.isSelected = this.args.isSelected ?? false;
   }
 
   get isSortable(): boolean {
@@ -58,7 +58,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
 
   get ariaLabel(): string {
     const { selectionAriaLabelSuffix } = this.args;
-    const prefix = this._isSelected ? 'Deselect' : 'Select';
+    const prefix = this.isSelected ? 'Deselect' : 'Select';
     if (selectionAriaLabelSuffix) {
       return `${prefix} ${selectionAriaLabelSuffix}`;
     } else {
@@ -114,7 +114,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   onSelectionChange(event: Event): void {
     // Assert event.target as HdsFormCheckboxBaseSignature['Element'] to access the 'checked' property
     const target = event.target as HdsFormCheckboxBaseSignature['Element'];
-    this._isSelected = target.checked;
+    this.isSelected = target.checked;
     const { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(target, this.args.selectionKey);
@@ -124,6 +124,6 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   updateAriaLabel(event: Event): void {
     // Assert event.target as HTMLInputElement to access the 'checked' property
     const target = event.target as HdsFormCheckboxBaseSignature['Element'];
-    this._isSelected = target.checked;
+    this.isSelected = target.checked;
   }
 }

@@ -92,8 +92,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   @tracked private _currentPageSize;
   @tracked private _isControlled;
 
-  private _showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
-  private _showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
+  showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
+  showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
   constructor(owner: unknown, args: HdsPaginationCompactSignature['Args']) {
     super(owner, args);

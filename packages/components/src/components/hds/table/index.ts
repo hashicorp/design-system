@@ -88,8 +88,8 @@ export interface HdsTableSignature {
 }
 
 export default class HdsTable extends Component<HdsTableSignature> {
-  @tracked private _sortBy;
-  @tracked private _sortOrder;
+  @tracked sortBy;
+  @tracked sortOrder;
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
@@ -98,14 +98,14 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   constructor(owner: unknown, args: HdsTableSignature['Args']) {
     super(owner, args);
-    this._sortBy = this.args.sortBy ?? undefined;
-    this._sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
+    this.sortBy = this.args.sortBy ?? undefined;
+    this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;
   }
 
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this._sortBy
+      (column) => column.key === this.sortBy
     );
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
@@ -115,7 +115,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
       return currentColumn.sortingFunction;
     } else {
       // otherwise fallback to the default format "sortBy:sortOrder"
-      return `${this._sortBy}:${this._sortOrder}`;
+      return `${this.sortBy}:${this.sortOrder}`;
     }
   }
 
@@ -131,9 +131,9 @@ export default class HdsTable extends Component<HdsTableSignature> {
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
-    } else if (this._sortBy && this._sortOrder) {
+    } else if (this.sortBy && this.sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this._sortBy} ${this._sortOrder}ending`;
+      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
     } else {
       return '';
     }
@@ -201,22 +201,22 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   setSortBy(column: string): void {
-    if (this._sortBy === column) {
+    if (this.sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
-      this._sortOrder =
-        this._sortOrder === HdsTableThSortOrderValues.Asc
+      this.sortOrder =
+        this.sortOrder === HdsTableThSortOrderValues.Asc
           ? HdsTableThSortOrderValues.Desc
           : HdsTableThSortOrderValues.Asc;
     } else {
       // otherwise, set the sort order to ascending
-      this._sortBy = column;
-      this._sortOrder = HdsTableThSortOrderValues.Asc;
+      this.sortBy = column;
+      this.sortOrder = HdsTableThSortOrderValues.Asc;
     }
 
     const { onSort } = this.args;
 
     if (typeof onSort === 'function') {
-      onSort(this._sortBy, this._sortOrder);
+      onSort(this.sortBy, this.sortOrder);
     }
   }
 
