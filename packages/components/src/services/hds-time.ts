@@ -42,21 +42,6 @@ export enum HdsDisplayKeyValues {
   Utc = 'utc', // returns '2018-09-05T23:15:17345Z'
 }
 
-// // returns 'Sep 5, 2018 (30 minutes ago)'
-// export const DISPLAY_KEY_FRIENDLY_RELATIVE: string = 'friendly-relative';
-
-// // returns 'Sep 5, 2018, 4:07:32 pm'
-// export const DISPLAY_KEY_FRIENDLY_LOCAL: string = 'friendly-local';
-
-// // returns 'Sep 5, 2018'
-// export const DISPLAY_KEY_FRIENDLY_ONLY: string = 'friendly-only';
-
-// // returns 'about 2 hours ago'
-// export const DISPLAY_KEY_RELATIVE: string = 'relative';
-
-// // returns '2018-09-05T23:15:17345Z'
-// export const DISPLAY_KEY_UTC: string = 'utc';
-
 export const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
   month: 'short',
   day: 'numeric',
