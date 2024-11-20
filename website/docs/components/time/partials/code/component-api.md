@@ -10,10 +10,10 @@ It uses two helper functions: the format-date helper, which formats a date accor
   <C.Property @name="date" @type="Date | string">
     Specify the date and time for a single date. Value can be specified as a JavaScript Date object or as an ISO date string.
   </C.Property>
-  <C.Property @name="startDate" @type="Date, string">
+  <C.Property @name="startDate" @type="Date | string">
     Specify the starting date and time for a date range. Value can be specified as a JavaScript Date object or as an ISO date string.
   </C.Property>
-  <C.Property @name="endDate" @type="Date, string">
+  <C.Property @name="endDate" @type="Date | string">
     Specify the ending date and time for a date range. Value can be specified as a JavaScript Date object or as an ISO date string.
   </C.Property>
   <C.Property @name="display" @type="string" @values={{array "friendly-relative" "friendly-local" "friendly-only" "relative" "utc" }} @default="friendly-local">
