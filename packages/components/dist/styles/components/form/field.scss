@@ -1,0 +1,101 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > FIELD
+//
+
+
+// "VERTICAL" LAYOUT
+// used for text-input, textarea, select
+
+.hds-form-field--layout-vertical {
+  display: grid;
+  justify-items: start;
+  width: 100%; // we want the input element to fill the parent container
+
+  .hds-form-field__label {
+    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
+  }
+
+  .hds-form-field__helper-text {
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+
+    // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+    & + .hds-form-helper-text {
+      margin-top: 2px;
+    }
+  }
+
+  .hds-form-field__control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    justify-self: stretch; // allows <input> and <textarea> to go full-width
+
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  .hds-form-field__character-count {
+    margin-bottom: 8px;
+  }
+}
+
+
+// "FLAG" LAYOUT
+// used for checkbox, radio, toggle
+// see https://codepen.io/didoo/pen/xxYPNeY
+
+.hds-form-field--layout-flag {
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "control label"
+    "control helper-text"
+    "control error";
+  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 1fr;
+  justify-items: start;
+
+  .hds-form-field__label {
+    grid-area: label;
+    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
+  }
+
+  .hds-form-field__helper-text {
+    grid-area: helper-text;
+    margin-top: 4px;
+  }
+
+  .hds-form-field__control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    grid-area: control;
+
+    &:not(:only-child) {
+      margin-top: 2px; // the line height of the label is bigger than the control size
+      margin-right: 8px;
+    }
+  }
+
+  .hds-form-field__error {
+    grid-area: error;
+    margin-top: 4px;
+  }
+}
+
+
+// Debug (please don't remove)
+//
+// .hds-form-field--layout-vertical,
+// .hds-form-field--layout-flag { outline: 2px dashed pink; }
+// .hds-form-field__label { background-color: #00ff00; }
+// .hds-form-field__helper-text { background-color: #0000ff; }
+// .hds-form-field__error { background-color: #ff0000; }
