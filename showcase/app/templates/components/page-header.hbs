@@ -7,122 +7,109 @@ SPDX-License-Identifier: MPL-2.0
 
 <Shw::Text::H1>PageHeader</Shw::Text::H1>
 
-<section data-test-percy>
+<section data-test-percy class={{if this.showHighlight "shw-component-page-header-layout-highlight"}}>
+
+  <button id="shw-component-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
 
   <Shw::Text::H2>Basic examples</Shw::Text::H2>
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Only title">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Badge">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Badges>
-            <Hds::Badge @text="Badge" @icon="beaker" @color="highlight" />
-          </PH.Badges>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Badges>
+          <Hds::Badge @text="Badge" @icon="beaker" @color="highlight" />
+        </PH.Badges>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="IconTile">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.IconTile @icon="server-cluster" />
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.IconTile @icon="server-cluster" />
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Breadcrumb">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Breadcrumb>
-            <Hds::Breadcrumb aria-label="breadcrumbs with page title example">
-              <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
-              <Hds::Breadcrumb::Item @text="Project" @icon="folder" />
-              <Hds::Breadcrumb::Item @text="User" @icon="user" />
-            </Hds::Breadcrumb>
-          </PH.Breadcrumb>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumbs with page title example">
+            <Hds::Breadcrumb::Item @text="Organization" @icon="org" />
+            <Hds::Breadcrumb::Item @text="Project" @icon="folder" />
+            <Hds::Breadcrumb::Item @text="User" @icon="user" />
+          </Hds::Breadcrumb>
+        </PH.Breadcrumb>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Subtitle + description">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Subtitle>Subtitle lorem ipsum</PH.Subtitle>
-          <PH.Description>Description lorem ipsum dolor sit amet.</PH.Description>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Subtitle>Subtitle lorem ipsum</PH.Subtitle>
+        <PH.Description>Description lorem ipsum dolor sit amet.</PH.Description>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Single action">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Actions>
-            <Hds::Button @text="Create registry" @icon="plus" @iconPosition="leading" @color="primary" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Actions>
+          <Hds::Button @text="Create registry" @icon="plus" @iconPosition="leading" @color="primary" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Two actions">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Actions>
-            <Hds::Dropdown as |D|>
-              <D.ToggleButton @text="Manage" @color="secondary" />
-              <D.Interactive>Manage cluster externally</D.Interactive>
-              <D.Interactive>Launch desktop</D.Interactive>
-              <D.Interactive @color="critical" @icon="trash">Delete</D.Interactive>
-            </Hds::Dropdown>
-            <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Actions>
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage" @color="secondary" />
+            <D.Interactive>Manage cluster externally</D.Interactive>
+            <D.Interactive>Launch desktop</D.Interactive>
+            <D.Interactive @color="critical" @icon="trash">Delete</D.Interactive>
+          </Hds::Dropdown>
+          <Hds::Button @text="Create" @icon="plus" @iconPosition="leading" @color="primary" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Three actions">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Actions>
-            <Hds::Button @color="tertiary" @text="Migrate instructions" @icon="migrate" @iconPosition="leading" />
-            <Hds::Button @color="secondary" @text="Edit cluster" />
-            <Hds::Button @color="primary" @text="Create cluster" @icon="plus" @iconPosition="leading" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Actions>
+          <Hds::Button @color="tertiary" @text="Migrate instructions" @icon="migrate" @iconPosition="leading" />
+          <Hds::Button @color="secondary" @text="Edit cluster" />
+          <Hds::Button @color="primary" @text="Create cluster" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Custom metadata">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Page title</PH.Title>
-          <PH.Generic>
-            <Shw::Placeholder @text="generic content" @width="500" @height="36" @background="#e1f5fe" />
-          </PH.Generic>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Page title</PH.Title>
+        <PH.Generic>
+          <Shw::Placeholder @text="generic content" @width="500" @height="36" @background="#e1f5fe" />
+        </PH.Generic>
+      </Hds::PageHeader>
     </SF.Item>
   </Shw::Flex>
 
@@ -132,119 +119,109 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Product landing page">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>HCP Packer</PH.Title>
-          <PH.Breadcrumb>
-            <Hds::Breadcrumb aria-label="breadcrumbs with complex examples">
-              <Hds::Breadcrumb::Item @text="Sandbox" @icon="org" />
-              <Hds::Breadcrumb::Item @text="HCP Packer" @icon="packer" />
-              <Hds::Breadcrumb::Item @text="jane-doe" @icon="file-text" />
-            </Hds::Breadcrumb>
-          </PH.Breadcrumb>
-          <PH.IconTile @icon="packer-color" @color="packer" />
-          <PH.Description>Create and view Packer registries in HCP.
-          </PH.Description>
-          <PH.Actions>
-            <Hds::Button @text="Create Packer registery" @icon="plus" @iconPosition="leading" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>HCP Packer</PH.Title>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumbs with complex examples">
+            <Hds::Breadcrumb::Item @text="Sandbox" @icon="org" />
+            <Hds::Breadcrumb::Item @text="HCP Packer" @icon="packer" />
+            <Hds::Breadcrumb::Item @text="jane-doe" @icon="file-text" />
+          </Hds::Breadcrumb>
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="packer-color" @color="packer" />
+        <PH.Description>Create and view Packer registries in HCP.
+        </PH.Description>
+        <PH.Actions>
+          <Hds::Button @text="Create Packer registery" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Item page">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Boundary clusters</PH.Title>
-          <PH.IconTile @icon="boundary-color" @color="boundary" />
-          <PH.Breadcrumb>
-            <Hds::Breadcrumb aria-label="breadcrumb example with item page">
-              <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
-              <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
-            </Hds::Breadcrumb>
-          </PH.Breadcrumb>
-          <PH.Badges>
-            <Hds::Badge @text="Active" @icon="check" @color="success" />
-          </PH.Badges>
-          <PH.Subtitle>boundary-cluster-name</PH.Subtitle>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Boundary clusters</PH.Title>
+        <PH.IconTile @icon="boundary-color" @color="boundary" />
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb aria-label="breadcrumb example with item page">
+            <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
+            <Hds::Breadcrumb::Item @text="Boundary clusters" @icon="boundary" />
+          </Hds::Breadcrumb>
+        </PH.Breadcrumb>
+        <PH.Badges>
+          <Hds::Badge @text="Active" @icon="check" @color="success" />
+        </PH.Badges>
+        <PH.Subtitle>boundary-cluster-name</PH.Subtitle>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Multiple badges">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Consul cluster</PH.Title>
-          <PH.Badges>
-            <Hds::Badge @text="Active" @icon="check" @color="success" />
-            <Hds::Badge @text="Deployed to AWS west-2" @color="highlight" @icon="rocket" />
-            <Hds::BadgeCount @text="v1.5" @color="neutral" />
-            <Hds::Badge @text="Locked by jane-doe" @color="warning" @icon="lock" />
-          </PH.Badges>
-          <PH.Description>
-            While this is supported by the contextual component, this many badges being used to represent metadata can
-            be problematic.
-          </PH.Description>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Consul cluster</PH.Title>
+        <PH.Badges>
+          <Hds::Badge @text="Active" @icon="check" @color="success" />
+          <Hds::Badge @text="Deployed to AWS west-2" @color="highlight" @icon="rocket" />
+          <Hds::BadgeCount @text="v1.5" @color="neutral" />
+          <Hds::Badge @text="Locked by jane-doe" @color="warning" @icon="lock" />
+        </PH.Badges>
+        <PH.Description>
+          While this is supported by the contextual component, this many badges being used to represent metadata can be
+          problematic.
+        </PH.Description>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Kitchen sink example">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Users</PH.Title>
-          <PH.Subtitle>Access control (IAM)</PH.Subtitle>
-          <PH.Description>Manage organization users, roles, and access control.
-          </PH.Description>
-          <PH.Description>This is a second description, in case multiple paragraphs are needed.</PH.Description>
-          <PH.Breadcrumb>
-            <Hds::Breadcrumb>
-              <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
-              <Hds::Breadcrumb::Item @text="jane-doe" @icon="file-text" />
-              <Hds::Breadcrumb::Item @text="Access control (IAM)" @icon="users" />
-            </Hds::Breadcrumb>
-          </PH.Breadcrumb>
-          <PH.IconTile @icon="users" @color="terraform" />
-          <PH.Actions>
-            <Hds::Dropdown as |D|>
-              <D.ToggleButton @text="Manage users" @color="secondary" />
-              <D.Interactive @icon="user">Assign roles</D.Interactive>
-              <D.Interactive @icon="edit">Batch edit</D.Interactive>
-              <D.Interactive @icon="trash">Delete user</D.Interactive>
-            </Hds::Dropdown>
-            <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Users</PH.Title>
+        <PH.Subtitle>Access control (IAM)</PH.Subtitle>
+        <PH.Description>Manage organization users, roles, and access control.
+        </PH.Description>
+        <PH.Description>This is a second description, in case multiple paragraphs are needed.</PH.Description>
+        <PH.Breadcrumb>
+          <Hds::Breadcrumb>
+            <Hds::Breadcrumb::Item @text="Cloud sandbox" @icon="org" />
+            <Hds::Breadcrumb::Item @text="jane-doe" @icon="file-text" />
+            <Hds::Breadcrumb::Item @text="Access control (IAM)" @icon="users" />
+          </Hds::Breadcrumb>
+        </PH.Breadcrumb>
+        <PH.IconTile @icon="users" @color="terraform" />
+        <PH.Actions>
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage users" @color="secondary" />
+            <D.Interactive @icon="user">Assign roles</D.Interactive>
+            <D.Interactive @icon="edit">Batch edit</D.Interactive>
+            <D.Interactive @icon="trash">Delete user</D.Interactive>
+          </Hds::Dropdown>
+          <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="With custom metadata">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Custom metadata</PH.Title>
-          <PH.Subtitle>beta-feature-cluster</PH.Subtitle>
-          <PH.Generic>
-            <Hds::Alert @type="compact" @color="warning" as |A|>
-              <A.Title>Beta feature</A.Title>
-              <A.Description>
-                This feature is in beta and is subject to change. Refer to the
-                <Hds::Link::Inline @href="#" @icon="external-link">HCP documentation</Hds::Link::Inline>
-                for more information and roadmap.
-              </A.Description>
-            </Hds::Alert>
-          </PH.Generic>
-          <PH.Actions>
-            <Hds::Button @text="Get started" @icon="beaker" @iconPosition="leading" />
-          </PH.Actions>
-          <PH.Badges>
-            <Hds::Badge @text="Beta feature" @icon="wand" @color="highlight" />
-          </PH.Badges>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Custom metadata</PH.Title>
+        <PH.Subtitle>beta-feature-cluster</PH.Subtitle>
+        <PH.Generic>
+          <Hds::Alert @type="compact" @color="warning" as |A|>
+            <A.Title>Beta feature</A.Title>
+            <A.Description>
+              This feature is in beta and is subject to change. Refer to the
+              <Hds::Link::Inline @href="#" @icon="external-link">HCP documentation</Hds::Link::Inline>
+              for more information and roadmap.
+            </A.Description>
+          </Hds::Alert>
+        </PH.Generic>
+        <PH.Actions>
+          <Hds::Button @text="Get started" @icon="beaker" @iconPosition="leading" />
+        </PH.Actions>
+        <PH.Badges>
+          <Hds::Badge @text="Beta feature" @icon="wand" @color="highlight" />
+        </PH.Badges>
+      </Hds::PageHeader>
     </SF.Item>
   </Shw::Flex>
 
@@ -259,63 +236,57 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="Long title">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>Boundary cluster access control and clusters</PH.Title>
-          <PH.IconTile @icon="boundary-color" @color="boundary" />
-          <PH.Actions>
-            <Hds::Dropdown as |D|>
-              <D.ToggleButton @text="Manage users" @color="secondary" />
-              <D.Interactive @icon="user">Assign roles</D.Interactive>
-              <D.Interactive @icon="edit">Batch edit</D.Interactive>
-              <D.Interactive @icon="trash">Delete user</D.Interactive>
-            </Hds::Dropdown>
-            <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>Boundary cluster access control and clusters</PH.Title>
+        <PH.IconTile @icon="boundary-color" @color="boundary" />
+        <PH.Actions>
+          <Hds::Dropdown as |D|>
+            <D.ToggleButton @text="Manage users" @color="secondary" />
+            <D.Interactive @icon="user">Assign roles</D.Interactive>
+            <D.Interactive @icon="edit">Batch edit</D.Interactive>
+            <D.Interactive @icon="trash">Delete user</D.Interactive>
+          </Hds::Dropdown>
+          <Hds::Button @text="Add user" @icon="plus" @iconPosition="leading" />
+        </PH.Actions>
+      </Hds::PageHeader>
       <Shw::Divider @level={{2}} />
     </SF.Item>
 
     <SF.Item @label="Long title + badge">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>
-            Page title with a very very very very long string that can span multiple lines
-          </PH.Title>
-          <PH.IconTile @logo="vagrant" />
-          <PH.Badges>
-            <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
-          </PH.Badges>
-          <PH.Actions>
-            <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>
+          Page title with a very very very very long string that can span multiple lines
+        </PH.Title>
+        <PH.IconTile @logo="vagrant" />
+        <PH.Badges>
+          <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
+        </PH.Badges>
+        <PH.Actions>
+          <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
+        </PH.Actions>
+      </Hds::PageHeader>
 
       <Shw::Text::Body @tag="p">
         In the case of a badge, the title and badge will wrap if the available space is exceeded.
       </Shw::Text::Body>
     </SF.Item>
     <SF.Item @label="Non-breaking Title/Subtitle/Description + badge">
-      <Shw::Outliner>
-        <Hds::PageHeader as |PH|>
-          <PH.Title>
-            Pagetitlewithaveryveryveryverylongnonbreakingstringthatcanspanmultiplelines
-          </PH.Title>
-          <PH.Subtitle
-          >Subtitlewithaveryveryveryveryveryveryveryveryveryveryveryveryveryveveryveryveryveryveryveryveryveryveryveryveryveryryveryverylongnonbreakingstringthatcanspanmultiplelines</PH.Subtitle>
-          <PH.Description
-          >Descriptionwithaveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongnonbreakingstringthatcanspanmultiplelines.</PH.Description>
-          <PH.IconTile @logo="vagrant" />
-          <PH.Badges>
-            <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
-          </PH.Badges>
-          <PH.Actions>
-            <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
-          </PH.Actions>
-        </Hds::PageHeader>
-      </Shw::Outliner>
+      <Hds::PageHeader as |PH|>
+        <PH.Title>
+          Pagetitlewithaveryveryveryverylongnonbreakingstringthatcanspanmultiplelines
+        </PH.Title>
+        <PH.Subtitle
+        >Subtitlewithaveryveryveryveryveryveryveryveryveryveryveryveryveryveveryveryveryveryveryveryveryveryveryveryveryveryryveryverylongnonbreakingstringthatcanspanmultiplelines</PH.Subtitle>
+        <PH.Description
+        >Descriptionwithaveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryveryverylongnonbreakingstringthatcanspanmultiplelines.</PH.Description>
+        <PH.IconTile @logo="vagrant" />
+        <PH.Badges>
+          <Hds::Badge @text="Wrapping badge" @icon="mic" @color="critical" />
+        </PH.Badges>
+        <PH.Actions>
+          <Hds::Button @text="Get started" @icon="terminal-screen" @iconPosition="trailing" />
+        </PH.Actions>
+      </Hds::PageHeader>
 
       <Shw::Text::Body @tag="p">
         In the case of non-breaking text the long string will be forced to wrap using the
