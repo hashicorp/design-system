@@ -16,9 +16,9 @@
     {{~else~}}
       {{~@isoUtcStringInner}}
     {{~/if~}}
-    {{~#if @displayInner.options.showRelative~}}
-      ({{~hds-format-relative @displayInner.relative.value @displayInner.relative.unit~}})
-    {{~/if~}}
+    {{#if @displayInner.options.showRelative}}
+      ({{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}})
+    {{/if}}
   {{~else~}}
     {{#if @displayInner.options.showRelative}}
       {{~hds-format-relative @displayInner.relative.value @displayInner.relative.unit~}}
