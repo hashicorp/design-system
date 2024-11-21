@@ -89,13 +89,13 @@ By default, the footer displays below the options list and contains content and/
 
 ##### Single
 
-The footer for the Single component includes a total count, which is customizable to fit the context.
+The footer for the Single component includes a total count, which is customizable to fit the context. However, we recommend using "{xx} total" to maintain consistency across products.
 
 ![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-single-variant-footer-with-counter.png)
 
 ##### Multiple
 
-The footer for the Multiple component includes a selected count and buttons to modify the options. While the content can be customized, we recommend using "{xx} selected of {xx} total" to drive consistency across products.
+The footer for the Multiple component includes a selected count and buttons to modify the options. While the content can be customized, we recommend using "{xx} selected of {xx} total" to drive consistency across products, similar to the Single component.
 
 ![Generic content enabled before the list in both Single and Multiple components](/assets/components/form/super-select/super-select-multiple-variant-footer.png)
 
