@@ -1,0 +1,39 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// DISMISS-BUTTON
+//
+
+@use "../mixins/focus-ring" as *;
+
+.hds-dismiss-button {
+  flex: none;
+  padding: 0;
+  color: var(--token-color-foreground-faint);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &.mock-hover {
+    &::before { // we re-use the pseudo-element created by the "focus-ring" mixin
+      background-color: rgba(#dedfe3, 0.4);
+    }
+  }
+
+  // notice: this is used not only for the focus, but also to increase the clickable area
+  @include hds-focus-ring-with-pseudo-element($top: -4px, $right: -4px, $bottom: -4px, $left: -4px);
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-secondary);
+
+    &::before {
+      background-color: rgba(#dedfe3, 0.4);
+      border: 1px solid var(--token-color-border-strong);
+    }
+  }
+}

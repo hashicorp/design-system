@@ -1,0 +1,1 @@
+{"version":3,"file":"hds-register-event.d.ts","sourceRoot":"","sources":["../../src/modifiers/hds-register-event.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAGH,MAAM,WAAW,yBAAyB;IACxC,OAAO,EAAE,WAAW,CAAC;IACrB,IAAI,EAAE;QACJ,UAAU,EAAE,CAAC,MAAM,eAAe,EAAE,aAAa,CAAC,CAAC;QACnD,KAAK,EAAE;YAAE,UAAU,CAAC,EAAE,OAAO,CAAA;SAAE,CAAC;KACjC,CAAC;CACH;;;;;;;;;;AAWD,wBAoBE"}
