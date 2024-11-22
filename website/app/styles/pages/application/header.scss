@@ -147,7 +147,8 @@
   @include doc-font-style-navigation();
   @include doc-header-custom-focus();
   display: block;
-  padding: 0 12px;
+  margin: 0 12px;
+  padding: 0;
   color: var(--doc-color-gray-400);
   background-color: transparent;
   border: 1px solid transparent;
