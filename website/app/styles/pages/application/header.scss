@@ -43,6 +43,10 @@
   padding: 0 24px;
   color: var(--doc-color-white);
   background: var(--doc-color-black);
+
+  @include breakpoint.with-fixed-sidebar() {
+    gap: 32px;
+  }
 }
 
 // LOGO
