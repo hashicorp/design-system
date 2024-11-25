@@ -1,6 +1,6 @@
 ---
 title: Voice and Tone
-caption: How HashiCorp communicates with its users.
+caption: How HashiCorp communicates with our users.
 description: How HashiCorp communicates with its users.
 previewImage: assets/illustrations/content/tone-and-voice.jpg
 ---
@@ -13,7 +13,7 @@ The HashiCorp voice is smart, professional, technical, to the point, factual, cl
 
 ## Tone
 
-We're guiding our customers on a transformational journey to the cloud as an educational steward to illuminate their path to success. Our message should be smart, helpful, and to the point to enable human conversations.
+We're guiding our customers on a transformational journey to the cloud as educational stewards to illuminate their path to success. Our message should be smart, helpful, and to the point to enable human conversations.
 
 ### Smart
 
