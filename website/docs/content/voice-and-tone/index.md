@@ -9,7 +9,7 @@ previewImage: assets/illustrations/content/tone-and-voice.jpg
 
 ## Voice
 
-The HashiCorp voice is smart, professional, technical, to the point, factual, clear, and helpful. Our goal is to be educational and helpful and not portrayed as know-it-alls, mean-spirited, or condescending.
+The HashiCorp voice is smart, professional, technical, to the point, factual, clear, and helpful. Our goal is to be educational and helpful and not come across as know-it-alls, mean-spirited, or condescending.
 
 ## Tone
 
