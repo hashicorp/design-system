@@ -1,6 +1,6 @@
 !!! Info
 
-The Time component exists only in code. The Figma equivalent would be a manually input text object with a formatted string.
+The Time component exists only in code. The Figma equivalent would be a manually input text object with a formatted string. For writing guidelines related to this component, read our content [Date and Time](content/writing-guidelines#date-and-time) section.
 
 !!!
 
