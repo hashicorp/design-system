@@ -2,7 +2,7 @@
 title: Voice and Tone
 caption: How HashiCorp communicates with its users.
 description: How HashiCorp communicates with its users.
-previewImage: assets/illustrations/foundations/accessibility.jpg
+previewImage: assets/illustrations/content/tone-and-voice.jpg
 ---
 
 “Voice and tone” is how we communicate with our users via copy. The “voice” is our personality and the “tone” is how we express that personality.
