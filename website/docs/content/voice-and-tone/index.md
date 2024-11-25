@@ -9,15 +9,15 @@ previewImage: assets/illustrations/content/tone-and-voice.jpg
 
 ## Voice
 
-The HashiCorp voice is smart, professional, technical, to the point/factual, clear, and helpful. We’re not overly know-it-alls, mean-spirited, or condescending. Our goal is to be educational and helpful.
+The HashiCorp voice is smart, professional, technical, to the point, factual, clear, and helpful. Our goal is to be educational and helpful and not portrayed as know-it-alls, mean-spirited, or condescending.
 
 ## Tone
 
-We’re guiding our customers on a transformational journey to the cloud. The goal with everything we do is to be an educational guide that illuminates the path to cloud success. Our message should be smart, helpful, and to the point to enable human conversations.
+We're guiding our customers on a transformational journey to the cloud as an educational steward to illuminate their path to success. Our message should be smart, helpful, and to the point to enable human conversations.
 
 ### Smart
 
-We are professional and our human conversations are pragmatic and kind.
+We are professional and our conversations are pragmatic and kind.
 
 ### Helpful
 
