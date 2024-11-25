@@ -7,8 +7,6 @@ Aligned private class properties to follow a standardized notation
 - `Alert`
 - `AppHeader`
 - `AppSideNav`
-- `AppSideNav::List`
-- `AppSideNav::Portal`
 - `CodeBlock`
 - `Copy::Button`
 - `Copy::Snippet`
@@ -21,7 +19,6 @@ Aligned private class properties to follow a standardized notation
 - `Modal`
 - `Pagination::Compact`
 - `Pagination::Numbered`
-- `Pagination::SizeSelector`
 - `PopoverPrimitive`
 - `Reveal`
 - `Table`
