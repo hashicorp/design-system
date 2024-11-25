@@ -22,7 +22,7 @@
 // general styles
 
 .doc-icons-list-filter__label {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   display: block;
   width: min-content;
   margin-bottom: 8px;

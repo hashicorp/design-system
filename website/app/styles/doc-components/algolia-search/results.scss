@@ -88,7 +88,7 @@
 
 // token
 .aa-ItemPreview--token {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   display: flex;
   align-items: center;
   justify-content: center;

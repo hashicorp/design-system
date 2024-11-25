@@ -125,7 +125,7 @@
 }
 
 .aa-SourceFooterLink {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   color: var(--doc-color-gray-300);
   font-weight: 500;
   font-size: 14px;
@@ -172,7 +172,7 @@
 }
 
 .aa-PanelFooter__keyboard-hints {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   display: flex;
   gap: 12px;
   align-items: center;
@@ -244,7 +244,7 @@
 }
 
 .aa-PanelFooter__algolia-text {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   color: #807ea3;
   font-size: 12px;
   text-decoration: none;

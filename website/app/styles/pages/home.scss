@@ -120,7 +120,7 @@ body.application.index {
   }
 
   p {
-    @include doc-font-family("sans");
+    @include doc-font-family("system");
     max-width: 350px;
     margin: 2em 0;
     color: var(--doc-color-gray-500);

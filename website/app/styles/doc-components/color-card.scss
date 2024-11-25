@@ -28,7 +28,7 @@
 }
 
 .doc-color-card__color-name {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   color: #000;
   font-size: 1rem;
   line-height: 1;
@@ -48,7 +48,7 @@
   }
 
   span {
-    @include doc-font-family("sans");
+    @include doc-font-family("system");
     display: inline-block;
     width: 85px;
     opacity: 0.5;

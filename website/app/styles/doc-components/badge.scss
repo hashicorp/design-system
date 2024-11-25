@@ -8,7 +8,7 @@
 @use "../typography/mixins" as *;
 
 .doc-badge {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   display: inline-flex;
   align-items: center;
   max-width: 100%;

@@ -27,7 +27,7 @@
 }
 
 .doc-content-principles__number {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   margin: 24px 0 0 0;
   color: var(--doc-color-black);
   font-size: 1.25rem; // 20px

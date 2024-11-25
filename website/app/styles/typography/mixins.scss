@@ -14,12 +14,10 @@
   @if ($family == "hashicorp-sans") {
     font-family: hashicorp-sans-variable, Geneva, Tahoma, Helvetica, Verdana, sans-serif;
     font-synthesis: none; // Safari makes this variable font too bold, compared to Chrome, and this fixes the issue
-  } @else if ($family == "sans") {
-    font-family: metro-web, Metro, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   } @else if ($family == "mono") {
     font-family: ui-monospace, Menlo, Consolas, monospace;
   } @else if ($family == "system") {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 }
 
@@ -140,7 +138,7 @@
 // BASE
 
 @mixin doc-font-style-body {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   font-size: 1.063rem; // 17px;
   line-height: 1.765; // 30px
 }
@@ -148,7 +146,7 @@
 // SMALL
 
 @mixin doc-font-style-body-small {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   font-size: 0.938rem; // 15px
   line-height: 1.667; // 25px
 }
@@ -171,7 +169,7 @@
 }
 
 @mixin doc-font-style-label {
-  @include doc-font-family("sans");
+  @include doc-font-family("system");
   font-weight: 700;
   font-size: 0.75rem; // 12px
   line-height: 1.5;
