@@ -11,7 +11,7 @@
 >
   <div class="hds-table__th-content">
     <Hds::Form::Checkbox::Base
-      id={{this.checkboxId}}
+      id={{this._checkboxId}}
       class="hds-table__checkbox"
       checked={{@isSelected}}
       aria-label={{this.ariaLabel}}
@@ -20,11 +20,11 @@
       {{on "change" this.onSelectionChange}}
     />
     {{#if this.isSortable}}
-      <span id={{this.labelId}} class="sr-only">selection state</span>
+      <span id={{this._labelId}} class="sr-only">selection state</span>
       <Hds::Table::ThButtonSort
         @sortOrder={{@sortBySelectedOrder}}
         @onClick={{@onClickSortBySelected}}
-        @labelId={{this.labelId}}
+        @labelId={{this._labelId}}
       />
     {{/if}}
   </div>

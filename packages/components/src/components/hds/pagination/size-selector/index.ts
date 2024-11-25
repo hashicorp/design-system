@@ -21,7 +21,7 @@ export interface HdsPaginationSizeSelectorSignature {
 }
 
 export default class HdsPaginationSizeSelector extends Component<HdsPaginationSizeSelectorSignature> {
-  SizeSelectorId = 'pagination-size-selector-' + guidFor(this);
+  private _sizeSelectorId = 'pagination-size-selector-' + guidFor(this);
 
   get pageSizes(): number[] {
     const { pageSizes } = this.args;

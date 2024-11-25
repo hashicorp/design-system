@@ -42,10 +42,10 @@ export interface HdsTableThSelectableSignature {
 
 export default class HdsTableThSelectable extends Component<HdsTableThSelectableSignature> {
   @tracked isSelected: boolean;
-  guid = guidFor(this);
+  private _guid = guidFor(this);
 
-  checkboxId = `checkbox-${this.guid}`;
-  labelId = `label-${this.guid}`;
+  private _checkboxId = `checkbox-${this._guid}`;
+  private _labelId = `label-${this._guid}`;
 
   constructor(owner: unknown, args: HdsTableThSelectableSignature['Args']) {
     super(owner, args);

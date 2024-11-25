@@ -21,6 +21,7 @@ export default class HdsFormSuperSelectOptionGroup extends Component<HdsFormSupe
   /**
    * Generates a unique ID for the group title
    * @return {string}
+   * @param _groupTitleId
    */
-  groupTitleId = 'group-title-' + guidFor(this);
+  private _groupTitleId = 'group-title-' + guidFor(this);
 }

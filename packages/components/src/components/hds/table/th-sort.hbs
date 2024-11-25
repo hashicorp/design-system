@@ -10,10 +10,10 @@
   scope="col"
 >
   <div class="hds-table__th-content">
-    <span id={{this.labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+    <span id={{this._labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
     {{#if @tooltip}}
-      <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
+      <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
     {{/if}}
-    <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this.labelId}} />
+    <Hds::Table::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this._labelId}} />
   </div>
 </th>
