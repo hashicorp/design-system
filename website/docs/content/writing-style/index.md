@@ -1,8 +1,8 @@
 ---
-title: Writing Style
-caption: How HashiCorp structures writing, in a clear concise manner.
-description: How HashiCorp structures writing, in a clear concise manner.
-previewImage: assets/illustrations/content/writing-guidelines.jpg
+title: Writing style
+caption: Best practices for writing style, grammar, and formatting.
+description: Best practices for writing style, grammar, and formatting.
+previewImage: assets/illustrations/content/writing-style.jpg
 ---
 
 Generally, HashiCorp follows the [2020 AP Stylebook](https://www.apstylebook.com/ap_stylebook) rules and guidelines, unless HashiCorp specific style is indicated.
@@ -11,25 +11,25 @@ Generally, HashiCorp follows the [2020 AP Stylebook](https://www.apstylebook.com
 
 ### Headings and labels
 
-Use sentence-case for titles, headings, labels, links, and buttons. Use title case for proper nouns and when referring to products (e.g., Nomad).
+Use sentence case for titles, headings, labels, links, and buttons. Use title case for proper nouns and when referring to products (e.g., Nomad).
 
 !!! Do
 
-![Showing a title with sentence-case](/assets/content/writing-style/writing-style-capitlization-header-do.png)
+![Title with text "Sync secrets to Terraform"](/assets/content/writing-style/writing-style-capitlization-header-do.png)
 
-![Showing an input with a label using sentence-case and title case for a proper noun](/assets/content/writing-style/writing-style-capitlization-input-do.png)
+![An input with the label "Maximum TTL".](/assets/content/writing-style/writing-style-capitlization-input-do.png)
 
-![Showing a link using sentence-case](/assets/content/writing-style/writing-style-capitlization-link-do.png)
+![Link with text "Edit encryption key"](/assets/content/writing-style/writing-style-capitlization-link-do.png)
 
 !!!
 
 !!! Dont
 
-![Showing a title with capital-case](/assets/content/writing-style/writing-style-capitlization-header-dont.png)
+![Title with text "Sync Secrets to Terraform"](/assets/content/writing-style/writing-style-capitlization-header-dont.png)
 
-![Showing an input with a label using title case](/assets/content/writing-style/writing-style-capitlization-input-dont.png)
+![An input with label "MAXIMUM TTL".](/assets/content/writing-style/writing-style-capitlization-input-dont.png)
 
-![Showing a link using sentence-case](/assets/content/writing-style/writing-style-capitlization-link-dont.png)
+![A link with text "Edit Encryption Key".](/assets/content/writing-style/writing-style-capitlization-link-dont.png)
 
 !!!
 
@@ -61,13 +61,19 @@ We’ll use the Vault Namespaces feature.
 
 !!!
 
-**Capitalization rules for UI elements**
+### Capitalization for direction
 
-Typically you will want to capitalize site or UI elements or sections when referring to them in content if they are capitalized in the UI:
+When referring to specific UI elements or sections within the application, use the same capitalization of the element itself.
 
-“You can set up module sharing from the Site Administration area of a Terraform Enterprise instance. The Registry subsection allows an organization to be chosen to which your current organization’s private module registry will be shared.”
+!!! Do
 
-**Exceptions**: Some terms may seem like they wouldn’t be capitalized, but the Education team has given reasoning for their capitalization:
+You can set up module sharing from the Site Administration area of a Terraform Enterprise instance. The Registry subsection allows an organization to be chosen to which your current organization’s private module registry will be shared.
+
+!!!
+
+#### Exceptions for feature names
+
+The following terms should always use title case:
 
 - Terraform Registry
 - Terraform Stacks
@@ -80,8 +86,6 @@ Typically you will want to capitalize site or UI elements or sections when refer
 - The Infrastructure Cloud
 - Infrastructure Lifecycle Management
 - Security Lifecycle Management
-
-The general capitalization guidance (feature names should not be capitalized unless it can be used as a stand alone product) applies when writing content about new features as well.
 
 ## Grammar
 
@@ -120,7 +124,7 @@ It is a recommendation to enable SSO to...
 
 ### Active voice
 
-Use active voice whenever possible.
+Use active voice whenever possible. An active voice is when we communicate a subject performs an action on an object, instead of the subject being acted upon:
 
 !!! Do
 
@@ -152,19 +156,19 @@ Don't avoid the imperative if you're telling someone to do something.
 
 !!! Do
 
-Run the command `foo.`
+Run the command `foo`.
 
 !!!
 
 !!! Dont
 
-You will be running the command `foo.`
+You will be running the command `foo`.
 
 !!!
 
 ### Uncommon acronyms
 
-The first time you use an acronym or abbreviation, include the abbreviated word in parentheses. Subsequent mentions can use the acronym by itself. This does not apply to common acronyms like ID, IP, or API.
+The first time an acronym or abbreviation is used, include the abbreviated word in parentheses. Subsequent mentions can use the acronym by itself. This does not apply to common acronyms like ID, IP, or API.
 
 !!! Do
 
@@ -180,10 +184,15 @@ This will set the SAN on the certification. The SAN is used to tell clients...
 
 ### Consistent terminology
 
-When labeling buttons, use the format [Verb + Noun] wherever possible. For example:  Add cluster, etc. “Add” and “Create” are frequently used. The general guidelines for their use are as follows:
+Use a verb followed by a noun when labeling actions. 
 
-- **Create/Delete**: Used when a new entity is produced or destroyed in the system. Example create/delete a project (the project didn’t exist before/will no longer exist).
-- **Add/Remove**: Used when a new relationship or dependency between existing objects is produced or destroyed. Example: Add/Remove a user to/from a project (both the user and the project already existed and will continue to exist, but the relationship itself is established or dissolved).
+#### Common actions
+
+When possible, add an icon to action labels. Typically, the icon should represent the action (verb), but sometimes, it can represent the object (noun).
+
+##### Create and Delete
+
+Use when a new entity is produced or destroyed in the system, e.g., "Create a project" or "Delete a project", where the project didn't exist before or will no longer exist.
 
 !!! Do
 
@@ -201,43 +210,37 @@ Using “remove” and “delete” or “create” and “add” interchangeabl
 
 !!!
 
-For actions within an object, use the icon (when possible), the verb and the noun that will be affected.
+##### Add and Remove
+
+Use when a new relationship or dependency between existing objects is produced or destroyed, e.g., "Add a user" (to a project), "Remove a user" (from a project), where both the user and the project already existed and will continue to exist, but the relationship itself is established or dissolved.
 
 !!! Do
 
-“Edit project” or “View Project”
-
-![A menu with two actions in it with icons](/assets/content/writing-style/writing-style-consistent-termonology-menu-actions-do.png)
+![A menu with the actions "Edit project" paired with a pencil icon and "View project" paired with an eye icon.](/assets/content/writing-style/writing-style-consistent-termonology-menu-actions-do.png)
 
 !!!
 
 !!! Dont
 
-Miss the object that the user is doing the action. View what?
+This is missing the object (noun) the user is doing via the action (verb). What is the user going to "View"?
 
-![A menu with two actions in it, with no icons](/assets/content/writing-style/writing-style-consistent-termonology-menu-actions-dont.png)
+![A menu with the actions "Edit name" and "View" and no icons.](/assets/content/writing-style/writing-style-consistent-termonology-menu-actions-dont.png)
 
 !!!
 
-When editing an object, use “Save” for the action on the page. When applying another action, use an imperative, present tense verb.
+When editing an object, use "Save" for the action label. When applying another action, use an imperative, present-tense verb.
 
 !!! Do
 
-E.g. Edit organization. Action: Save organization
+![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save organization".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
 
-![A modal that has a form to edit an organization](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
-
-E.g. Invite users. Action: Invite users.
-
-![A form to invite users by inputting their emails](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
+![A form to invite users by inputting their emails](/assets/content/writing-style/writing-style-consistent-termonology-CTA-invite-do.png)
 
 !!!
 
 !!! Dont
 
-E.g. Edit service principal. Action: Apply changes 
-
-![A form to edit a service principal with the wrong label in the primary button](/assets/content/writing-style/writing-style-consistent-termonology-CTA-apply-dont.png)
+![A form to edit a service principal. The title is "Edit service principal" and the save button is "Apply changes".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-apply-dont.png)
 
 !!!
 
@@ -277,13 +280,13 @@ We are excited to announce Vault 1.3!
 
 ### Percentages
 
-Use the % symbol instead of spelling out "percent."  Correct: 50%
+Use the % symbol instead of spelling out "percent"; e.g. , `50%`.
 
 ### Ranges and spans
 
-Use a hyphen (-) to indicate a range or span of numbers.
+Use an en dash (–) to indicate a range or span of numbers.
 
-- It takes 20-30 days.
+- It takes 20–30 days.
 
 ## Spelling
 
