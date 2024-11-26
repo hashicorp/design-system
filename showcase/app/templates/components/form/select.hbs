@@ -151,64 +151,69 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
-    <SG.Item @label="Only label">
-      <Hds::Form::Select::Field as |F|>
-        <F.Label>Lorem ipsum dolor</F.Label>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text">
-      <Hds::Form::Select::Field as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
-    <SG.Item @label="Label + Error">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error as |E|>
-          <E.Message>First error message</E.Message>
-          <E.Message>Second error message</E.Message>
-        </F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-  </Shw::Grid>
+  {{#let (array "single" "multiple") as |types|}}
+    {{#each types as |type|}}
+      <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
+      <Shw::Grid @columns="3" as |SG|>
+        <SG.Item @label="Only label">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>Lorem ipsum dolor</F.Label>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        {{! left empty on purpose }}
+        <SG.Item />
+        <SG.Item @label="Label + Error">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Error">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Errors">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error as |E|>
+              <E.Message>First error message</E.Message>
+              <E.Message>Second error message</E.Message>
+            </F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
 
   <Shw::Divider @level={{2}} />
 
