@@ -190,29 +190,31 @@ Use a verb followed by a noun when labeling actions.
 
 When possible, add an icon to action labels. Typically, the icon should represent the action (verb), but sometimes, it can represent the object (noun).
 
+![Three buttons, one labeled "Invite user" with a leading user icon, one labeled "Add dependency" with a leading plus icon and one labeled "Delete project" with a leading trash icon.](/assets/content/writing-style/writing-style-consistent-termonology-action-object.png)
+
 ##### Create and Delete
 
 Use when a new entity is produced or destroyed in the system, e.g., "Create a project" or "Delete a project", where the project didn't exist before or will no longer exist.
 
 !!! Do
 
-“Create cluster” or “Delete cluster”
-
-Add user to organization
-
-!!!
-
-!!! Dont
-
-“Create cluster” on a button and “Deploy cluster” on the resulting dialog
-
-Using “remove” and “delete” or “create” and “add” interchangeably
+![Two buttons, one labeled "create project" with a leading plus icon, and one labled "delete project" with a leading trash icon](/assets/content/writing-style/writing-style-consistent-termonology-CTA-create-delete-do.png)
 
 !!!
 
 ##### Add and Remove
 
 Use when a new relationship or dependency between existing objects is produced or destroyed, e.g., "Add a user" (to a project), "Remove a user" (from a project), where both the user and the project already existed and will continue to exist, but the relationship itself is established or dissolved.
+
+!!! Do
+
+![Two buttons, one labeled "Add user" with a leading user icon and the other labeled "Remove user" with a leading trash icon.](/assets/content/writing-style/writing-style-consistent-termonology-CTA-add-remove-do.png)
+
+!!!
+
+##### Edit and View
+
+Use when editing or viewing an entity, e.g. "Edit project" or "View project," where the project will be modified for accuracy or previewed for quality assurance.
 
 !!! Do
 
@@ -248,7 +250,7 @@ When editing an object, use "Save" for the action label. When applying another a
 
 ### Serial/Oxford comma
 
-Use the serial (“Oxford”) comma in lists.
+Use the [serial (“Oxford”)](https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/) comma in lists.
 
 !!! Do
 
@@ -282,11 +284,13 @@ We are excited to announce Vault 1.3!
 
 Use the % symbol instead of spelling out "percent"; e.g. , `50%`.
 
-### Ranges and spans
+![A card showing usage data, along side its status and name](/assets/content/writing-style/writing-style-punctuation-percentage.png)
+
+### Dashes
 
 Use an en dash (–) to indicate a range or span of numbers.
 
-- It takes 20–30 days.
+![Text saying "Event dates Sep 20 – Sep 24, 2020"](/assets/content/writing-style/writing-style-punctuation-en-dashes.png)
 
 ## Spelling
 
