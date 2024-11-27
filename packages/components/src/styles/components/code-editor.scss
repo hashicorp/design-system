@@ -1,0 +1,76 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CODE-EDITOR
+//
+
+.hds-code-editor {
+  $border-strong: rgba(178, 182, 189, 40%);
+
+  background-color: var(--token-color-code-surface-primary);
+  border: 1px solid;
+  border-radius: 6px;
+
+  &--is-fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    border: none;
+    border-radius: 0;
+
+    .hds-code-editor__editor {
+      max-height: unset;
+    }
+  }
+
+  &__header {
+    background-color: var(--token-color-code-surface-faint);
+    // todo - figure out why this gets converted to hex when used as var from tokens
+    border-bottom: 1px solid $border-strong;
+
+    &-info {
+      padding: 8px 16px;
+    }
+
+    &-toolbar {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 16px;
+    }
+  }
+
+  &__editor {
+    height:100%;
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  &__toolbar-button,
+  &__toolbar-button.hds-copy-button {
+    color: var(--token-color-code-foreground-primary);
+    background-color: var(--token-color-code-surface-faint);
+    border: 1px solid $border-strong;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background-color: var(--token-color-code-surface-primary);
+      border-color: var(--token-color-code-border-strong);
+
+      .hds-button__icon {
+        color: var(--token-color-code-foreground-primary);
+      }
+    }
+
+    .hds-button__icon {
+      color: var(--token-color-code-foreground-primary);
+    }
+  }
+}

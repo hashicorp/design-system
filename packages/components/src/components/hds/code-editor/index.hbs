@@ -1,0 +1,59 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
+    <div class="hds-code-editor__header">
+      <div class="hds-code-editor__header-info">
+        {{#if @title}}
+          <Hds::Text::Body
+            class="hds-code-editor__title"
+            @tag="h2"
+            @size="200"
+            @weight="semibold"
+            @color="var(--token-color-code-foreground-primary)"
+          >
+            {{@title}}
+          </Hds::Text::Body>
+        {{/if}}
+        {{#if @description}}
+          <Hds::Text::Body
+            class="hds-code-editor__description"
+            @tag="p"
+            @size="100"
+            @color="var(--token-color-code-foreground-faint)"
+          >
+            {{@description}}
+          </Hds::Text::Body>
+        {{/if}}
+      </div>
+      {{#if (or this.hasToolbarAction (has-block))}}
+        <div class="hds-code-editor__header-toolbar">
+          {{#if @canCopy}}
+            <Hds::Copy::Button
+              class="hds-code-editor__toolbar-button hds-code-editor__copy-button"
+              @isIconOnly={{true}}
+              @size="small"
+              @text="Copy"
+              @textToCopy={{@value}}
+            />
+          {{/if}}
+          {{#if @canExpand}}
+            <Hds::CodeEditor::ToolbarButton
+              class="hds-code-editor__toolbar-button hds-code-editor__expand-button"
+              @size="small"
+              @icon="maximize"
+              @text="Fullscreen"
+              {{on "click" (fn (mut this.isFullscreen) (not this.isFullscreen))}}
+            />
+          {{/if}}
+
+          {{yield (hash ToolbarButton=(component "hds/code-editor/toolbar-button"))}}
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+  <div class="hds-code-editor__editor" {{hds-code-editor value=@value language=@language onInput=@onInput}} />
+</div>
