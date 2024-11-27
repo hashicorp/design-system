@@ -264,7 +264,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Sep 20 – Sep 25, 2024');
     // test tooltip content
-    let expectedTooltipContent = `${this.startDate.toISOString()} – ${this.endDate.toISOString()}`;
+    let expectedTooltipContent = `${this.startDate.toISOString()}–${this.endDate.toISOString()}`;
     assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
@@ -277,7 +277,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     // test tooltip content
     let startDate = new Date('20 September 2024 14:07:32');
     let endDate = new Date('25 September 2024 02:07:32');
-    let expectedTooltipContent = `${startDate.toISOString()} – ${endDate.toISOString()}`;
+    let expectedTooltipContent = `${startDate.toISOString()}–${endDate.toISOString()}`;
     assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
@@ -293,7 +293,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     assert.dom('.hds-time').hasText('Nov 8, 2024 – Jan 20, 2025');
     // test tooltip content
-    let expectedTooltipContent = `${this.startDate.toISOString()} – ${this.endDate.toISOString()}`;
+    let expectedTooltipContent = `${this.startDate.toISOString()}–${this.endDate.toISOString()}`;
     assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 
@@ -306,7 +306,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     // test tooltip content
     let startDate = new Date('8 November 2024 14:07:32');
     let endDate = new Date('20 January 2025 02:07:32');
-    let expectedTooltipContent = `${startDate.toISOString()} – ${endDate.toISOString()}`;
+    let expectedTooltipContent = `${startDate.toISOString()}–${endDate.toISOString()}`;
     assert.dom('.tippy-content').hasText(expectedTooltipContent);
   });
 });
