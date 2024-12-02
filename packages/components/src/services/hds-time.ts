@@ -35,11 +35,11 @@ export const DEFAULT_RELATIVE_THRESHOLDS = {
 };
 
 export enum HdsDisplayKeyValues {
-  FriendlyRelative = 'friendly-relative', // returns 'Sep 5, 2018 (30 minutes ago)'
-  FriendlyLocal = 'friendly-local', // returns 'Sep 5, 2018, 4:07:32 pm'
-  FriendlyOnly = 'friendly-only', // returns 'Sep 5, 2018'
-  Relative = 'relative', // returns 'about 2 hours ago'
-  Utc = 'utc', // returns '2018-09-05T23:15:17345Z'
+  FriendlyRelative = 'friendly-relative', // Example: 'Sep 5, 2018 (30 minutes ago)'
+  FriendlyLocal = 'friendly-local', // Example: 'Sep 5, 2018, 4:07:32 pm'
+  FriendlyOnly = 'friendly-only', // Example: 'Sep 5, 2018'
+  Relative = 'relative', // Example: 'in 7 days'
+  Utc = 'utc', // Example: '2018-09-05T23:15:17345Z'
 }
 
 export const FORMAT_PRECISION_SHORT_DATE: DisplayFormatType = {
