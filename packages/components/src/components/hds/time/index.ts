@@ -25,7 +25,7 @@ export interface HdsTimeSignature {
     isOpen?: boolean;
     hasTooltip?: boolean;
     displayInner: DisplayType;
-    isoUtcStringInner?: string;
+    isoUtcString?: string;
     didInsertNode: () => void;
     willDestroyNode: () => void;
   };
