@@ -77,7 +77,7 @@ The following terms should always use title case:
 
 - Terraform Registry
 - Terraform Stacks
-- Raft algorithm
+- Raft Algorithm
 - Vault Agent
 - Vault Proxy
 - Boundary Client Agent / Client Agent (when referring to the Boundary Client Agent)
@@ -236,7 +236,7 @@ When editing an object, use "Save" for the action label. When applying another a
 
 ![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save organization".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
 
-![A form to invite users by inputting their emails](/assets/content/writing-style/writing-style-consistent-termonology-CTA-invite-do.png)
+![A form to invite users by inputting their emails. The title is "Invite users" and the submit button is "Invite users".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-invite-do.png)
 
 !!!
 
@@ -250,7 +250,7 @@ When editing an object, use "Save" for the action label. When applying another a
 
 ### Serial/Oxford comma
 
-Use the [serial (“Oxford”)](https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/) comma in lists.
+Use the [serial (“Oxford”) comma](https://www.grammarly.com/blog/punctuation-capitalization/what-is-the-oxford-comma/) in lists.
 
 !!! Do
 
@@ -282,15 +282,15 @@ We are excited to announce Vault 1.3!
 
 ### Percentages
 
-Use the % symbol instead of spelling out "percent"; e.g. , `50%`.
+Use the % symbol instead of spelling "percent," e.g., `50%`.
 
-![A card showing usage data, along side its status and name](/assets/content/writing-style/writing-style-punctuation-percentage.png)
+![A card showing usage data, along side its status and name. It includes the text "12%" with an up arrow icon to inform users the requests have increased.](/assets/content/writing-style/writing-style-punctuation-percentage.png)
 
 ### Dashes
 
 Use an en dash (–) to indicate a range or span of numbers.
 
-![Text saying "Event dates Sep 20 – Sep 24, 2020"](/assets/content/writing-style/writing-style-punctuation-en-dashes.png)
+![Event dates Sep 20–Sep 24, 2020](/assets/content/writing-style/writing-style-punctuation-en-dashes.png)
 
 ## Spelling
 
