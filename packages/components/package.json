@@ -56,7 +56,7 @@
     "ember-stargate": "^0.4.3",
     "ember-style-modifier": "^4.4.0",
     "ember-truth-helpers": "^4.0.3",
-    "luxon": "^3.4.2",
+    "luxon": "^2.3.2 || ^3.4.2",
     "prismjs": "^1.29.0",
     "sass": "^1.69.5",
     "tippy.js": "^6.3.7"
