@@ -11,7 +11,7 @@ import { helper } from '@ember/component/helper';
  * Example:
  *
  * ```hbs
- * ({{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}})
+ * ({{hds-format-relative @display.relative.value @display.relative.unit}})
  * ```
  */
 

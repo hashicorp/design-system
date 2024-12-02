@@ -270,6 +270,11 @@ export { default as HdsTextCode } from './components/hds/text/code.ts';
 export { default as HdsTextDisplay } from './components/hds/text/display.ts';
 export * from './components/hds/text/types.ts';
 
+// Time
+export { default as HdsTime } from './components/hds/time/index.ts';
+export { default as HdsTimeRange } from './components/hds/time/range.ts';
+export * from './services/hds-time-types.ts';
+
 // Toast
 export { default as HdsToast } from './components/hds/toast/index.ts';
 
