@@ -12,7 +12,7 @@ import { helper } from '@ember/component/helper';
  * Example:
  *
  * ```hbs
- * {{hds-format-date @date @displayInner.options.displayFormat}}
+ * {{hds-format-date @date @display.options.displayFormat}}
  * ```
  */
 
