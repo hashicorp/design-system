@@ -10,7 +10,7 @@ export interface HdsTimeSingleSignature {
   Args: {
     date?: Date;
     displayInner: DisplayType;
-    isoUtcStringInner?: string;
+    isoUtcString?: string;
     register: () => void;
     unregister: () => void;
   };

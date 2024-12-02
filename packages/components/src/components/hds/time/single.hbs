@@ -5,7 +5,7 @@
 {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
 <time
   class="hds-time hds-time--single"
-  datetime={{@isoUtcStringInner}}
+  datetime={{@isoUtcString}}
   ...attributes
   {{did-insert @register}}
   {{will-destroy @unregister}}
@@ -14,7 +14,7 @@
     {{~#if @displayInner.options.displayFormat~}}
       {{~hds-format-date @date @displayInner.options.displayFormat~}}
     {{~else~}}
-      {{~@isoUtcStringInner}}
+      {{~@isoUtcString}}
     {{~/if~}}
     {{#if @displayInner.options.showRelative}}
       ({{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}})
