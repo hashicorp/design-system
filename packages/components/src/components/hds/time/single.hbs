@@ -10,18 +10,18 @@
   {{did-insert @register}}
   {{will-destroy @unregister}}
 >
-  {{~#if @displayInner.options.showFriendly~}}
-    {{~#if @displayInner.options.displayFormat~}}
-      {{~hds-format-date @date @displayInner.options.displayFormat~}}
+  {{~#if @display.options.showFriendly~}}
+    {{~#if @display.options.displayFormat~}}
+      {{~hds-format-date @date @display.options.displayFormat~}}
     {{~else~}}
       {{~@isoUtcString}}
     {{~/if~}}
-    {{#if @displayInner.options.showRelative}}
-      ({{hds-format-relative @displayInner.relative.value @displayInner.relative.unit}})
+    {{#if @display.options.showRelative}}
+      ({{hds-format-relative @display.relative.value @display.relative.unit}})
     {{/if}}
   {{~else~}}
-    {{#if @displayInner.options.showRelative}}
-      {{~hds-format-relative @displayInner.relative.value @displayInner.relative.unit~}}
+    {{#if @display.options.showRelative}}
+      {{~hds-format-relative @display.relative.value @display.relative.unit~}}
     {{~/if~}}
   {{~/if~}}
 </time>
