@@ -14,7 +14,7 @@ Display dates and times clearly and consistently across products.
 These formatting options are available in the [Time](#) component. Choose the format most appropriate for your user needs.
 
 - **Relative date**: Displays time in relative terms, e.g., "3 hours ago" or "in 2 days". This format is recommended for recent events, particularly within the past or upcoming week, as it simplifies recognition of time-sensitive actions.
-- **Friendly date**: Provides a user-friendly date and time, e.g., "Sep 5, 2018, 3:30 PM EST". Ideal for displaying the date and time to who, or what, set it. Limit time format to the minute.
+- **Friendly date**: Provides a user-friendly date and time, e.g., "Sep 5, 2018, 3:30 PM EST". Limit time format to the minute.
 - **Friendly local date**: Converts the date to the user’s local timezone for added clarity, e.g., "Sep 2, 2024, 3:30 PM EST". Ideal for exact dates and times. Limit time format to the minute.
 - **Date range**: Displays a range by specifying a start and end date, e.g., "Sep 2 – Sep 9, 2024".
 - **Precise time**: Displays date and time in a UTC format for a log stream or where human readability isn't necessary, e.g., “2024-09-05T23:15:17345Z”.

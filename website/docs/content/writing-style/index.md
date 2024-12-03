@@ -282,9 +282,9 @@ We are excited to announce Vault 1.3!
 
 ### Percentages
 
-Use the % symbol instead of spelling "percent," e.g., `50%`.
+Use the % symbol instead of writing “percent,” e.g., “50%.”
 
-![A card showing usage data, along side its status and name. It includes the text "12%" with an up arrow icon to inform users the requests have increased.](/assets/content/writing-style/writing-style-punctuation-percentage.png)
+![A card showing usage data, alongside its status and name. It includes the text “12%” and an up arrow icon to inform users the requests have increased.](/assets/content/writing-style/writing-style-punctuation-percentage.png)
 
 ### Dashes
 
