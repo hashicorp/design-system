@@ -22,5 +22,5 @@ export async function generatePublicZIPFile({ config } : { config: ConfigData })
     }
 
     // zip the standalone SVG folder
-    zipSVGFolder({ srcFolderPath, zipFilePath })
+    await zipSVGFolder({ srcFolderPath, zipFilePath })
 }
