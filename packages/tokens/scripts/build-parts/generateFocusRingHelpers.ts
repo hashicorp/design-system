@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { TransformedTokens }  from 'style-dictionary';
+import type { TransformedTokens }  from 'style-dictionary';
 
-import { PREFIX } from './generateCssHelpers';
+import { PREFIX } from './generateCssHelpers.ts';
 
 type Helpers = string[];
 
@@ -15,7 +15,7 @@ export function generateFocusRingHelpers(tokens: TransformedTokens, outputCssVar
 
     Object.keys(tokens).forEach((key: string) => {
         const color = key;
-        if (tokens[color].hasOwnProperty('box-shadow')) {
+        if (tokens && tokens[color] && tokens[color].hasOwnProperty('box-shadow')) {
             const selector = `.${PREFIX}-focus-ring-${color}-box-shadow`;
             const value = outputCssVars ? `var(--token-focus-ring-${color}-box-shadow)` : tokens[color]['box-shadow'].value;
             helpersFocusRing.push(`${selector} { box-shadow: ${value}; }`);
