@@ -1,0 +1,15 @@
+$shw-test-theme-foreground-color: #eee;
+$shw-test-theme-background-color: #111;
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shw-test-theme-foreground-color: #{$shw-test-theme-foreground-color};
+    --shw-test-theme-background-color: #{$shw-test-theme-background-color};
+  }
+}
+
+.shw-theme-dark,
+[data-shw-theme="dark"] {
+  --shw-test-theme-foreground-color: #{$shw-test-theme-foreground-color};
+  --shw-test-theme-background-color: #{$shw-test-theme-background-color};
+}
