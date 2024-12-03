@@ -6,6 +6,9 @@
 import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
+
+import type ShwThemingService from 'showcase/services/theming';
 
 interface ShwThemeSwitcherSignature {
   // Args: {};
@@ -13,10 +16,40 @@ interface ShwThemeSwitcherSignature {
 }
 
 export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
+  @service declare readonly theming: ShwThemingService;
+
   @action
   onChangePageTheme(event: Event) {
     const select = event.target as HTMLSelectElement;
     console.log(`Theme: ${select.value}`);
+    console.log(`theming.getTheme: ${this.theming.getTheme()}`);
+
+    let theme;
+    let type;
+    switch (select.value) {
+      case 'light-data-attribute':
+        theme = 'light';
+        type = 'data-attribute';
+        break;
+      case 'light-css-class':
+        theme = 'light';
+        type = 'css-class';
+        break;
+      case 'dark-data-attribute':
+        theme = 'dark';
+        type = 'data-attribute';
+        break;
+      case 'dark-css-class':
+        theme = 'dark';
+        type = 'css-class';
+        break;
+      default:
+        theme = 'auto';
+        break;
+    }
+
+    // we set the theme in the global service
+    this.theming.setTheme(theme, type, 'body');
   }
 
   <template>
