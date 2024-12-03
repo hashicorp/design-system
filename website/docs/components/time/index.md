@@ -1,10 +1,10 @@
 ---
 title: Time
-description: The Time component is used to display dates and time in a consistent format.
+description: The Time component displays dates and times in a consistent format.
 caption: Displays dates and times in a consistent format.
-related: ['components/text']
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/time
+related: ['components/text']
 previewImage: assets/illustrations/components/time.jpg
 navigation:
   keywords: ['time']
