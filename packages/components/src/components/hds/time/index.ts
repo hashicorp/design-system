@@ -24,7 +24,6 @@ export interface HdsTimeSignature {
       | 'friendly-relative';
     isOpen?: boolean;
     hasTooltip?: boolean;
-    displayType: DisplayType;
     isoUtcString?: string;
     didInsertNode: () => void;
     willDestroyNode: () => void;

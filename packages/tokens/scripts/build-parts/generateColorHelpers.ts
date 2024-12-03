@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { TransformedToken }  from 'style-dictionary';
+import type { TransformedToken }  from 'style-dictionary';
 
-import { PREFIX } from './generateCssHelpers';
+import { PREFIX } from './generateCssHelpers.ts';
 
 type Helpers = string[];
 
@@ -17,7 +17,7 @@ export function generateColorHelpers(tokens: TransformedToken[], outputCssVars: 
 
         if (!(token.attributes?.category === 'color')) return;
 
-        const group = token.attributes.type || '';
+        const group = typeof token.attributes.type === 'string' ? token.attributes.type : '';
         const value = outputCssVars ? `var(--${token.name})` : token.value;
 
         if (['foreground', 'page', 'surface', 'border'].includes(group)) {

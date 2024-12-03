@@ -37,9 +37,9 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
 }
 
 export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSuperSelectMultipleBaseSignature> {
-  @tracked powerSelectAPI?: PowerSelect;
-  @tracked showOnlySelected = false;
-  @tracked showNoSelectedMessage = false;
+  @tracked private _powerSelectAPI?: PowerSelect;
+  @tracked private _showOnlySelected = false;
+  @tracked private _showNoSelectedMessage = false;
 
   get horizontalPosition(): HdsFormSuperSelectHorizontalPositions {
     const { horizontalPosition = DEFAULT_HORIZONTAL_POSITION } = this.args;
@@ -47,11 +47,11 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   }
 
   get selectedCount(): string {
-    return this.powerSelectAPI?.selected?.length || '0';
+    return this._powerSelectAPI?.selected?.length || '0';
   }
 
   get optionsCount(): string {
-    return this.powerSelectAPI?.resultsCount.toString() || '0';
+    return this._powerSelectAPI?.resultsCount.toString() || '0';
   }
 
   get resultCountMessage(): string {
@@ -96,24 +96,24 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     if (typeof this.args.registerAPI === 'function') {
       this.args.registerAPI(powerSelectAPI);
     }
-    this.powerSelectAPI = powerSelectAPI;
+    this._powerSelectAPI = powerSelectAPI;
   }
 
   @action showSelected(): void {
-    this.showNoSelectedMessage = this.selectedCount === '0';
-    this.showOnlySelected = true;
+    this._showNoSelectedMessage = this.selectedCount === '0';
+    this._showOnlySelected = true;
   }
 
   @action showAll(): void {
-    this.showNoSelectedMessage = false;
-    this.showOnlySelected = false;
+    this._showNoSelectedMessage = false;
+    this._showOnlySelected = false;
   }
 
   @action clearSelected(): void {
-    this.powerSelectAPI?.actions.select(null);
+    this._powerSelectAPI?.actions.select(null);
     // show all options after clearing all selection
-    this.showNoSelectedMessage = false;
-    this.showOnlySelected = false;
+    this._showNoSelectedMessage = false;
+    this._showOnlySelected = false;
   }
 
   /**
@@ -171,7 +171,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     }
 
     // add a class based on the showOnlySelected
-    if (this.showOnlySelected) {
+    if (this._showOnlySelected) {
       classes.push(`hds-form-super-select--show-only-selected`);
     }
 

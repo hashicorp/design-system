@@ -32,12 +32,12 @@ export interface HdsTooltipModifierSignature {
 }
 
 function cleanup(instance: HdsTooltipModifier): void {
-  const { interval, needsTabIndex, tooltip } = instance;
-  if (needsTabIndex) {
-    tooltip?.reference?.removeAttribute('tabindex');
+  const { _interval, _needsTabIndex, _tooltip } = instance;
+  if (_needsTabIndex) {
+    _tooltip?.reference?.removeAttribute('tabindex');
   }
-  clearInterval(interval);
-  tooltip?.destroy();
+  clearInterval(_interval);
+  _tooltip?.destroy();
 }
 
 /**
@@ -54,10 +54,10 @@ function cleanup(instance: HdsTooltipModifier): void {
  *
  */
 export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSignature> {
-  didSetup = false;
-  interval: number | undefined = undefined;
-  needsTabIndex = false;
-  tooltip: TippyInstance | undefined = undefined;
+  private _didSetup = false;
+  _interval: number | undefined = undefined;
+  _needsTabIndex = false;
+  _tooltip: TippyInstance | undefined = undefined;
 
   constructor(owner: unknown, args: ArgsFor<HdsTooltipModifierSignature>) {
     super(owner, args);
@@ -92,9 +92,9 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
   ): void {
     assert('Tooltip must have an element', element);
 
-    if (!this.didSetup) {
+    if (!this._didSetup) {
       this.#setup(element, positional, named);
-      this.didSetup = true;
+      this._didSetup = true;
     }
 
     this.#update(element, positional, named);
@@ -106,7 +106,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     named: HdsTooltipModifierSignature['Args']['Named']
   ): void {
     const tooltipProps = this.#getTooltipProps(element, positional, named);
-    this.tooltip = tippy(element, tooltipProps);
+    this._tooltip = tippy(element, tooltipProps);
   }
 
   #update(
@@ -115,7 +115,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     named: HdsTooltipModifierSignature['Args']['Named']
   ): void {
     const tooltipProps = this.#getTooltipProps(element, positional, named);
-    this.tooltip?.setProps(tooltipProps);
+    this._tooltip?.setProps(tooltipProps);
   }
 
   #getTooltipProps(
@@ -167,8 +167,8 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
       if (Array.isArray(delay) && delay.length) {
         if (typeof delay[1] !== 'undefined') {
           options.onShown = (tooltip) => {
-            clearInterval(this.interval);
-            this.interval = setTimeout(() => {
+            clearInterval(this._interval);
+            this._interval = setTimeout(() => {
               tooltip.hide();
             }, delay[1] ?? 0);
           };
@@ -179,7 +179,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     const $trigger = $anchor;
 
     if (!$trigger.hasAttribute('tabindex')) {
-      this.needsTabIndex = true;
+      this._needsTabIndex = true;
       $trigger.setAttribute('tabindex', '0');
     }
 

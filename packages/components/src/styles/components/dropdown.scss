@@ -28,6 +28,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 // TOGGLE/ICON
 
 .hds-dropdown-toggle-icon {
+  position: relative;
   display: flex;
   gap: 2px;
   align-items: center;
@@ -48,18 +49,24 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element(
-    $top: -1px,
-    $right: -1px,
-    $bottom: -1px,
-    $left: -1px,
-    $radius: $hds-dropdown-toggle-border-radius
-  );
+  &:focus,
+  &.mock-focus {
+    @include hds-button-state-focus();
+    border-color: var(--token-color-focus-action-internal);
+
+    &::before {
+      border-color: var(--token-color-focus-action-external);
+    }
+  }
 
   &:active,
   &.mock-active {
     background-color: var(--token-color-surface-interactive-active);
     border-color: var(--token-color-border-strong);
+
+    &::before {
+      border-color: transparent;
+    }
   }
 
   &:disabled,

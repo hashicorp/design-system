@@ -7,7 +7,12 @@ SPDX-License-Identifier: MPL-2.0
 
 <Shw::Text::H1>PageHeader</Shw::Text::H1>
 
-<section data-test-percy>
+<section data-test-percy class={{if this.showHighlight "shw-component-page-header-layout-highlight"}}>
+
+  <button id="shw-component-toggle-highlight" type="button" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide" "Show"}}
+    layout highlight
+  </button>
 
   <Shw::Text::H2>Basic examples</Shw::Text::H2>
 

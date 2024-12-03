@@ -166,21 +166,21 @@ export default modifier<HdsAnchoredPositionSignature>(
   (element, positional, named = {}) => {
     // the element that "floats" next to the "anchor" (whose position is calculated in relation to the anchor)
     // notice: this is the element the Ember modifier is attached to
-    const floatingElement = element;
+    const _floatingElement = element;
 
     // the element that acts as an "anchor" for the "floating" element
     // it can be a DOM (string) selector or a DOM element
     // notice: it's expressed as "positional" argument (array of arguments) for the modifier
     const _anchorTarget = positional[0];
-    const anchorElement =
+    const _anchorElement =
       typeof _anchorTarget === 'string'
         ? document.querySelector(_anchorTarget)
         : _anchorTarget;
 
     assert(
       '`hds-anchored-position` modifier - the provided "anchoring" element is not defined correctly',
-      anchorElement instanceof HTMLElement ||
-        anchorElement instanceof SVGElement
+      _anchorElement instanceof HTMLElement ||
+        _anchorElement instanceof SVGElement
     );
 
     // the "arrow" element (optional) associated with the "floating" element
@@ -221,14 +221,14 @@ export default modifier<HdsAnchoredPositionSignature>(
       // important to know: `computePosition()` is not stateful, it only positions the "floating" element once
       // see: https://floating-ui.com/docs/computePosition
       const state = await computePosition(
-        anchorElement,
-        floatingElement,
+        _anchorElement,
+        _floatingElement,
         floatingOptions
       );
 
       const { x, y, placement, strategy, middlewareData } = state;
 
-      Object.assign(floatingElement.style, {
+      Object.assign(_floatingElement.style, {
         position: strategy,
         top: `${y}px`,
         left: `${x}px`,
@@ -261,8 +261,8 @@ export default modifier<HdsAnchoredPositionSignature>(
     // it returns a "cleanup" function that should be invoked when the floating element is removed from the DOM or hidden from the screen.
     // see: https://floating-ui.com/docs/autoUpdate
     const cleanupFloatingUI = autoUpdate(
-      anchorElement,
-      floatingElement,
+      _anchorElement,
+      _floatingElement,
       computeFloatingPosition
     );
 

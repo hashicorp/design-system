@@ -58,10 +58,10 @@ export interface HdsFlyoutSignature {
 }
 
 export default class HdsFlyout extends Component<HdsFlyoutSignature> {
-  @tracked isOpen = false;
-  element!: HTMLDialogElement;
-  body!: HTMLElement;
-  bodyInitialOverflowValue = '';
+  @tracked private _isOpen = false;
+  private _element!: HTMLDialogElement;
+  private _body!: HTMLElement;
+  private _bodyInitialOverflowValue = '';
 
   /**
    * Sets the size of the flyout
@@ -110,34 +110,34 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
       this.args.onClose(event);
     }
 
-    this.isOpen = false;
+    this._isOpen = false;
   }
 
   @action
   didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
-    this.element = element;
-    this.body = document.body;
+    this._element = element;
+    this._body = document.body;
 
-    if (this.body) {
+    if (this._body) {
       // Store the initial `overflow` value of `<body>` so we can reset to it
-      this.bodyInitialOverflowValue =
-        this.body.style.getPropertyValue('overflow');
+      this._bodyInitialOverflowValue =
+        this._body.style.getPropertyValue('overflow');
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this.element.addEventListener('close', this.registerOnCloseCallback, true);
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the flyout dialog is not already open
-    if (!this.element.open) {
+    if (!this._element.open) {
       this.open();
     }
   }
 
   @action
   willDestroyNode(): void {
-    if (this.element) {
-      this.element.removeEventListener(
+    if (this._element) {
+      this._element.removeEventListener(
         'close',
         this.registerOnCloseCallback,
         true
@@ -148,11 +148,11 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @action
   open(): void {
     // Make flyout dialog visible using the native `showModal` method
-    this.element.showModal();
-    this.isOpen = true;
+    this._element.showModal();
+    this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
-    if (this.body) this.body.style.setProperty('overflow', 'hidden');
+    if (this._body) this._body.style.setProperty('overflow', 'hidden');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
@@ -165,27 +165,30 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-    if (this.element.open) {
+    if (this._element.open) {
       const token = waiter.beginAsync();
       const listener = () => {
         waiter.endAsync(token);
-        this.element.removeEventListener('close', listener);
+        this._element.removeEventListener('close', listener);
       };
-      this.element.addEventListener('close', listener);
+      this._element.addEventListener('close', listener);
     }
 
     // Make flyout dialog invisible using the native `close` method
-    this.element.close();
+    this._element.close();
 
     // Reset page `overflow` property
-    if (this.body) {
-      this.body.style.removeProperty('overflow');
-      if (this.bodyInitialOverflowValue === '') {
-        if (this.body.style.length === 0) {
-          this.body.removeAttribute('style');
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
         }
       } else {
-        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
       }
     }
 

@@ -51,7 +51,6 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: 8px;
   min-width: 0; // this is important or it will blow beyond the parent flexbox width with long non-breaking names
   max-width: 100%;
 }
@@ -79,6 +78,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  > *:first-child {
+    margin-top: 8px;
+  }
 }
 
 .hds-page-header__subtitle,

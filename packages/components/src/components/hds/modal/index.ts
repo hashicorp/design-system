@@ -57,10 +57,10 @@ export interface HdsModalSignature {
 }
 
 export default class HdsModal extends Component<HdsModalSignature> {
-  @tracked isOpen = false;
-  element!: HTMLDialogElement;
-  body!: HTMLElement;
-  bodyInitialOverflowValue = '';
+  @tracked private _isOpen = false;
+  private _element!: HTMLDialogElement;
+  private _body!: HTMLElement;
+  private _bodyInitialOverflowValue = '';
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -121,41 +121,41 @@ export default class HdsModal extends Component<HdsModalSignature> {
     if (this.isDismissDisabled) {
       // If, in a chain of events, the element is not attached to the DOM, the `showModal` would fail
       // so we add this safeguard condition that checks for the `<dialog>` to have a parent
-      if (this.element.parentElement) {
+      if (this._element.parentElement) {
         // As there is no way to `preventDefault` on `close` events, we call the `showModal` function
         // preserving the state of the modal dialog
-        this.element.showModal();
+        this._element.showModal();
       }
     } else {
-      this.isOpen = false;
+      this._isOpen = false;
     }
   }
 
   @action
   didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
-    this.element = element;
-    this.body = document.body;
+    this._element = element;
+    this._body = document.body;
 
-    if (this.body) {
+    if (this._body) {
       // Store the initial `overflow` value of `<body>` so we can reset to it
-      this.bodyInitialOverflowValue =
-        this.body.style.getPropertyValue('overflow');
+      this._bodyInitialOverflowValue =
+        this._body.style.getPropertyValue('overflow');
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this.element.addEventListener('close', this.registerOnCloseCallback, true);
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the modal dialog is not already open
-    if (!this.element.open) {
+    if (!this._element.open) {
       this.open();
     }
   }
 
   @action
   willDestroyNode(): void {
-    if (this.element) {
-      this.element.removeEventListener(
+    if (this._element) {
+      this._element.removeEventListener(
         'close',
         this.registerOnCloseCallback,
         true
@@ -166,11 +166,11 @@ export default class HdsModal extends Component<HdsModalSignature> {
   @action
   open(): void {
     // Make modal dialog visible using the native `showModal` method
-    this.element.showModal();
-    this.isOpen = true;
+    this._element.showModal();
+    this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
-    if (this.body) this.body.style.setProperty('overflow', 'hidden');
+    if (this._body) this._body.style.setProperty('overflow', 'hidden');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
@@ -183,27 +183,30 @@ export default class HdsModal extends Component<HdsModalSignature> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-    if (this.element.open) {
+    if (this._element.open) {
       const token = waiter.beginAsync();
       const listener = () => {
         waiter.endAsync(token);
-        this.element.removeEventListener('close', listener);
+        this._element.removeEventListener('close', listener);
       };
-      this.element.addEventListener('close', listener);
+      this._element.addEventListener('close', listener);
     }
 
     // Make modal dialog invisible using the native `close` method
-    this.element.close();
+    this._element.close();
 
     // Reset page `overflow` property
-    if (this.body) {
-      this.body.style.removeProperty('overflow');
-      if (this.bodyInitialOverflowValue === '') {
-        if (this.body.style.length === 0) {
-          this.body.removeAttribute('style');
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
         }
       } else {
-        this.body.style.setProperty('overflow', this.bodyInitialOverflowValue);
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
       }
     }
 
