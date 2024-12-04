@@ -272,6 +272,7 @@ export * from './components/hds/text/types.ts';
 
 // Time
 export { default as HdsTime } from './components/hds/time/index.ts';
+export { default as HdsTimeSingle } from './components/hds/time/single.ts';
 export { default as HdsTimeRange } from './components/hds/time/range.ts';
 export * from './services/hds-time-types.ts';
 
