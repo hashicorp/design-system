@@ -6,20 +6,42 @@
 // TYPOGRAPHY
 
 body.foundations-theming {
-  .shw-test-placeholder-with-theme {
+  .shw-theming-demo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-width: 120px;
+    min-height: 120px;
+    padding: 50px;
     color: var(--shw-test-theme-foreground-color);
-    text-shadow: none;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: monaco, Consolas, "Lucida Console", monospace;
+    line-height: 1.2;
     background-color: var(--shw-test-theme-background-color);
   }
 
-  .shw-test-placeholder-with-theme--class {
-    color: var(--shw-test-theme-class-foreground-color, var(--shw-test-theme-foreground-color));
-    background-color: var(--shw-test-theme-class-background-color, var(--shw-test-theme-background-color));
+  .shw-theming-demo-container--class {
+    color: var(
+      --shw-test-theme-class-foreground-color,
+      var(--shw-test-theme-foreground-color)
+    );
+    background-color: var(
+      --shw-test-theme-class-background-color,
+      var(--shw-test-theme-background-color)
+    );
   }
 
-  .shw-test-placeholder-with-theme--data {
-    color: var(--shw-test-theme-data-foreground-color, var(--shw-test-theme-foreground-color));
-    background-color: var(--shw-test-theme-data-background-color, var(--shw-test-theme-background-color));
+  .shw-theming-demo-container--data {
+    color: var(
+      --shw-test-theme-data-foreground-color,
+      var(--shw-test-theme-foreground-color)
+    );
+    background-color: var(
+      --shw-test-theme-data-background-color,
+      var(--shw-test-theme-background-color)
+    );
   }
 
   .shw-theming-container-background-light {

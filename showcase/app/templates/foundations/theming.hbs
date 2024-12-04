@@ -16,25 +16,15 @@
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item as |SGI|>
       <SGI.Label><code>prefers-color-scheme</code></SGI.Label>
-      <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEXT" @width="100" @height="100" />
+      <div class="shw-theming-demo-container">TEXT</div>
     </SG.Item>
     <SG.Item as |SGI|>
       <SGI.Label><code>body.theme</code> class</SGI.Label>
-      <Shw::Placeholder
-        class="shw-test-placeholder-with-theme shw-test-placeholder-with-theme--class"
-        @text="TEXT"
-        @width="100"
-        @height="100"
-      />
+      <div class="shw-theming-demo-container shw-theming-demo-container--class">TEXT</div>
     </SG.Item>
     <SG.Item as |SGI|>
       <SGI.Label><code>body[data-theme]</code> attribute</SGI.Label>
-      <Shw::Placeholder
-        class="shw-test-placeholder-with-theme shw-test-placeholder-with-theme--data"
-        @text="TEXT"
-        @width="100"
-        @height="100"
-      />
+      <div class="shw-theming-demo-container shw-theming-demo-container--data">TEXT</div>
     </SG.Item>
   </Shw::Grid>
 
@@ -46,13 +36,13 @@
     <SF.Item as |SFI|>
       <SFI.Label><code>.theme-light</code> class</SFI.Label>
       <div class="shw-theme-light">
-        <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEXT" @width="100" @height="100" />
+        <div class="shw-theming-demo-container">TEXT</div>
       </div>
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label><code>.theme-dark</code> class</SFI.Label>
       <div class="shw-theme-dark">
-        <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEXT" @width="100" @height="100" />
+        <div class="shw-theming-demo-container">TEXT</div>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -61,19 +51,43 @@
 
   <Shw::Flex @gap="4rem" as |SF|>
     <SF.Item as |SFI|>
-      <SFI.Label><code>.theme</code> class / light</SFI.Label>
+      <SFI.Label><code>.theme-light</code> &gt; <code>.theme-dark</code></SFI.Label>
       <div class="shw-theme-light">
-        <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEXT" @width="100" @height="100" />
+        <div class="shw-theming-demo-container">
+          <div class="shw-theme-dark">
+            <div class="shw-theming-demo-container">
+              TEXT
+            </div>
+          </div>
+        </div>
       </div>
     </SF.Item>
     <SF.Item as |SFI|>
-      <SFI.Label><code>.theme</code> class / dark</SFI.Label>
+      <SFI.Label><code>.theme-dark</code> &gt; <code>.theme-light</code></SFI.Label>
       <div class="shw-theme-dark">
-        <Shw::Placeholder class="shw-test-placeholder-with-theme" @width="200" @height="200">
+        <div class="shw-theming-demo-container">
           <div class="shw-theme-light">
-            <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEXT" @width="100" @height="100" />
+            <div class="shw-theming-demo-container">
+              TEXT
+            </div>
           </div>
-        </Shw::Placeholder>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-dark</code> &gt; <code>.theme-light</code> &gt; <code>.theme-dark</code></SFI.Label>
+      <div class="shw-theme-dark">
+        <div class="shw-theming-demo-container">
+          <div class="shw-theme-light">
+            <div class="shw-theming-demo-container">
+              <div class="shw-theme-dark">
+                <div class="shw-theming-demo-container">
+                  TEXT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </SF.Item>
   </Shw::Flex>
