@@ -12,6 +12,16 @@ body.foundations-theming {
     background-color: var(--shw-test-theme-background-color);
   }
 
+  .shw-test-placeholder-with-theme--class {
+    color: var(--shw-test-theme-class-foreground-color, var(--shw-test-theme-foreground-color));
+    background-color: var(--shw-test-theme-class-background-color, var(--shw-test-theme-background-color));
+  }
+
+  .shw-test-placeholder-with-theme--data {
+    color: var(--shw-test-theme-data-foreground-color, var(--shw-test-theme-foreground-color));
+    background-color: var(--shw-test-theme-data-background-color, var(--shw-test-theme-background-color));
+  }
+
   .shw-theming-container-background-light {
     background-color: #fff;
   }

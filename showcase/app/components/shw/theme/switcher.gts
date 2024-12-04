@@ -64,10 +64,10 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
         {{on "change" this.onChangePageTheme}}
       >
         <option value="auto">Auto (prefers-color-scheme)</option>
-        <option value="light-data-attribute">Light (data-attribute)</option>
         <option value="light-css-class">Light (CSS class)</option>
-        <option value="dark-data-attribute">Dark (data-attribute)</option>
+        <option value="light-data-attribute">Light (data-attribute)</option>
         <option value="dark-css-class">Dark (CSS class)</option>
+        <option value="dark-data-attribute">Dark (data-attribute)</option>
       </select>
     </div>
   </template>

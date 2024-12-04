@@ -71,3 +71,18 @@
   --shw-test-theme-foreground-color: #111;
   --shw-test-theme-background-color: #eee;
 }
+
+// ---
+
+// special variables used in the "theming" showcase page to demonstrate different ways to apply a theme to a page
+
+body.shw-theme-light {
+  --shw-test-theme-class-foreground-color: #008217;
+  --shw-test-theme-class-background-color: #e0ffd9;
+}
+
+body[data-shw-theme="light"] {
+  --shw-test-theme-data-foreground-color: #b01fe3;
+  --shw-test-theme-data-background-color: #f7d9ff;
+}
+
