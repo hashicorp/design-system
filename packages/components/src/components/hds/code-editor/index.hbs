@@ -7,27 +7,7 @@
   {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-info">
-        {{#if @title}}
-          <Hds::Text::Body
-            class="hds-code-editor__title"
-            @tag="h2"
-            @size="200"
-            @weight="semibold"
-            @color="var(--token-color-code-foreground-primary)"
-          >
-            {{@title}}
-          </Hds::Text::Body>
-        {{/if}}
-        {{#if @description}}
-          <Hds::Text::Body
-            class="hds-code-editor__description"
-            @tag="p"
-            @size="100"
-            @color="var(--token-color-code-foreground-faint)"
-          >
-            {{@description}}
-          </Hds::Text::Body>
-        {{/if}}
+        {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
       </div>
       {{#if (or this.hasToolbarAction (has-block))}}
         <div class="hds-code-editor__header-toolbar">
