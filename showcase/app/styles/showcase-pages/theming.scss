@@ -11,4 +11,12 @@ body.foundations-theming {
     text-shadow: none;
     background-color: var(--shw-test-theme-background-color);
   }
+
+  .shw-theming-container-background-light {
+    background-color: #fff;
+  }
+
+  .shw-theming-container-background-dark {
+    background-color: #000;
+  }
 }

@@ -10,6 +10,11 @@ export default class ShwThemingService extends Service {
     // return localStorage.getItem('shwCurrentTheme');
   }
 
+  getInverseTheme() {
+    // TODO what happens if we have four themes, like IBM, instead of just two?
+    return this.currentTheme === 'dark' ? 'light' : 'dark';
+  }
+
   setTheme(theme, type, target) {
     // const fullKey = this.#buildKey(key, appName);
     this.currentTheme = theme;

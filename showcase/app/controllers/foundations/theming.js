@@ -12,4 +12,8 @@ export default class ThemingController extends Controller {
   get currentTheme() {
     return this.theming.getTheme();
   }
+
+  get inverseTheme() {
+    return this.theming.getInverseTheme();
+  }
 }

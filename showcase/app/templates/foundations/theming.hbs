@@ -7,36 +7,84 @@
 
 <Shw::Text::H1>Theming</Shw::Text::H1>
 
+<Shw::Text::Body>Current theme: {{this.currentTheme}} / Inverse theme: {{this.inverseTheme}}</Shw::Text::Body>
+
 <section data-test-percy>
 
   <Shw::Text::H2>Page-level theming</Shw::Text::H2>
 
-  <Shw::Grid @columns={{3}} as |SF|>
-    <SF.Item as |SFI|>
-      <SFI.Label><code>prefers-color-scheme</code></SFI.Label>
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>prefers-color-scheme</code></SGI.Label>
       <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label><code>[data-theme]</code> attribute</SFI.Label>
+    </SG.Item>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>body[data-theme]</code> attribute</SGI.Label>
       <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
-    </SF.Item>
-    <SF.Item as |SFI|>
-      <SFI.Label><code>.theme</code> class</SFI.Label>
+    </SG.Item>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>body.theme</code> class</SGI.Label>
       <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
-    </SF.Item>
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Divider />
 
   <Shw::Text::H2>Contextual theming</Shw::Text::H2>
 
-  <pre>Current theme: {{this.currentTheme}}</pre>
-
-  <Shw::Flex as |SF|>
+  <Shw::Flex @gap="4rem" as |SF|>
     <SF.Item as |SFI|>
-      <SFI.Label><code>.theme</code> class</SFI.Label>
+      <SFI.Label><code>.theme-light</code> class</SFI.Label>
+      <div class="shw-theme-light">
+        <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-dark</code> class</SFI.Label>
       <div class="shw-theme-dark">
         <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Nested</Shw::Text::H4>
+
+  <Shw::Flex @gap="4rem" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme</code> class / light</SFI.Label>
+      <div class="shw-theme-light">
+        <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme</code> class / dark</SFI.Label>
+      <div class="shw-theme-dark">
+        <Shw::Placeholder class="shw-test-placeholder-with-theme" @width="200" @height="200">
+          <div class="shw-theme-light">
+            <Shw::Placeholder class="shw-test-placeholder-with-theme" @text="TEMP" @width="100" @height="100" />
+          </div>
+        </Shw::Placeholder>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Components</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="AppFooter with theme={{this.inverseTheme}}">
+      <div class="shw-theming-container-background-{{this.inverseTheme}}">
+        <Hds::AppFooter @theme={{this.inverseTheme}} as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.LegalLinks />
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">Product Name</Hds::Text::Body>
+          </AF.Item>
+        </Hds::AppFooter>
       </div>
     </SF.Item>
   </Shw::Flex>
