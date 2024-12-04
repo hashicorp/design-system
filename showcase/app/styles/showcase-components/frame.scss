@@ -15,7 +15,7 @@ $shw-frame-navigation-bar-height: 48px;
   max-width: 100%;
   height: calc(var(--iframe-height) + #{$shw-frame-navigation-bar-height});
   max-height: 100%;
-  outline: 1px solid #e4e4d4;
+  outline: 1px solid var(--shw-color-gray-500);
 }
 
 .shw-frame__browser-navigation {
@@ -25,12 +25,12 @@ $shw-frame-navigation-bar-height: 48px;
   height: $shw-frame-navigation-bar-height;
   // safe area for the dots
   padding: 8px 24px 8px 120px;
-  background-color: #fafafa;
+  background-color: var(--shw-frame-browser-navigation-background);
   background-image: url('data:image/svg+xml,<svg width="56" height="14" viewBox="0 0 56 14" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="7" fill="%23FC4847"/><circle cx="28" cy="7" r="7" fill="%23FDAF24"/><circle cx="49" cy="7" r="7" fill="%232AC131"/></svg>');
   background-repeat: no-repeat;
   background-position: 24px 50%;
   background-size: 56px 14px;
-  border-bottom: 1px solid #e4e4d4;
+  border-bottom: 1px solid var(--shw-color-gray-500);
 }
 
 .shw-frame__open-link {

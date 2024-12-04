@@ -1,6 +1,7 @@
 // SHOWCASE COLORS > LIGHT THEME
 
 @mixin shw-theme-color-variables-light() {
+  // SEMANTIC PALETTE
   --shw-color-white: #fff;
   --shw-color-gray-600: #f2f2f3;
   --shw-color-gray-500: #dbdbdc;
@@ -30,6 +31,12 @@
   --shw-color-action-active-foreground: #00f; // HTML "blue"
   --shw-color-action-active-border: #00f; // HTML "blue"
   --shw-color-action-active-background: #f0f8ff; // HTML "aliceblue"
+  // COMPONENTS
+  --shw-frame-browser-navigation-background: #fafafa;
+  --shw-label-text-color: #545454;
+  --shw-placeholder-text-color: #6b6b6b; // if background is #EEE then this has the appropriate color contrast (4.59:1)
+  --shw-placeholder-background-color: #eee;
+  --shw-placeholder-link-color: #333;
 }
 
 @media (prefers-color-scheme: light) {

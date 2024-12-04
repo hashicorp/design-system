@@ -1,6 +1,7 @@
 // SHOWCASE COLORS > DARK THEME
 
 @mixin shw-theme-color-variables-dark() {
+  // SEMANTIC PALETTE
   --shw-color-white: #1a1a1a;
   --shw-color-gray-600: #222225;
   --shw-color-gray-500: #353537;
@@ -30,6 +31,12 @@
   --shw-color-action-active-foreground: #1a1ae5;
   --shw-color-action-active-border: #1a1ae5;
   --shw-color-action-active-background: #062139;
+  // COMPONENTS
+  --shw-frame-browser-navigation-background: #050505;
+  --shw-label-text-color: #c4c4c4;
+  --shw-placeholder-text-color: #949494;
+  --shw-placeholder-background-color: #121212;
+  --shw-placeholder-link-color: #ccc;
 }
 
 @media (prefers-color-scheme: dark) {
