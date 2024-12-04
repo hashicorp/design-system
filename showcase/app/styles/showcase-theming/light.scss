@@ -1,3 +1,52 @@
+// SHOWCASE COLORS > LIGHT THEME
+
+@mixin shw-theme-color-variables-light() {
+  --shw-color-white: #fff;
+  --shw-color-gray-600: #f2f2f3;
+  --shw-color-gray-500: #dbdbdc;
+  --shw-color-gray-400: #bfbfc0;
+  --shw-color-gray-300: #727374;
+  --shw-color-gray-200: #343536;
+  --shw-color-gray-100: #1d1e1f;
+  --shw-color-black: #000;
+  --shw-color-link-on-black: #4294ff;
+  --shw-color-link-on-white: #2264d6;
+  --shw-color-feedback-information-100: #0d44cc;
+  --shw-color-feedback-information-200: #1563ff;
+  --shw-color-feedback-information-300: #d0e0ff;
+  --shw-color-feedback-information-400: #eff5ff;
+  --shw-color-feedback-success-100: #007854;
+  --shw-color-feedback-success-200: #00bc7f;
+  --shw-color-feedback-success-300: #c1f1e0;
+  --shw-color-feedback-success-400: #ebfdf7;
+  --shw-color-feedback-warning-100: #975b06;
+  --shw-color-feedback-warning-200: #eaaa32;
+  --shw-color-feedback-warning-300: #f9eacd;
+  --shw-color-feedback-warning-400: #fcf6ea;
+  --shw-color-feedback-critical-100: #ba2226;
+  --shw-color-feedback-critical-200: #f25054;
+  --shw-color-feedback-critical-300: #ffd4d6;
+  --shw-color-feedback-critical-400: #fcf0f2;
+  --shw-color-action-active-foreground: #00f; // HTML "blue"
+  --shw-color-action-active-border: #00f; // HTML "blue"
+  --shw-color-action-active-background: #f0f8ff; // HTML "aliceblue"
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include shw-theme-color-variables-light();
+  }
+}
+
+.shw-theme-light,
+[data-shw-theme="light"] {
+  @include shw-theme-color-variables-light();
+}
+
+// ######################################################
+
+// TEST COLORS
+
 $shw-test-theme-foreground-color: #111;
 $shw-test-theme-background-color: #eee;
 

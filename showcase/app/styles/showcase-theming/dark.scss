@@ -1,3 +1,52 @@
+// SHOWCASE COLORS > DARK THEME
+
+@mixin shw-theme-color-variables-dark() {
+  --shw-color-white: #1a1a1a;
+  --shw-color-gray-600: #222225;
+  --shw-color-gray-500: #353537;
+  --shw-color-gray-400: #4c4c4d;
+  --shw-color-gray-300: #89898a;
+  --shw-color-gray-200: #babbbc;
+  --shw-color-gray-100: #cccdcf;
+  --shw-color-black: #e5e5e5;
+  --shw-color-link-on-black: #145ab6;
+  --shw-color-link-on-white: #3a6fcb;
+  --shw-color-feedback-information-100: #406dde;
+  --shw-color-feedback-information-200: #1857d6;
+  --shw-color-feedback-information-300: #092150;
+  --shw-color-feedback-information-400: #061a39;
+  --shw-color-feedback-success-100: #7bf0cd;
+  --shw-color-feedback-success-200: #4aebb7;
+  --shw-color-feedback-success-300: #1c5440;
+  --shw-color-feedback-success-400: #0c392a;
+  --shw-color-feedback-warning-100: #e8b265;
+  --shw-color-feedback-warning-200: #bf8b28;
+  --shw-color-feedback-warning-300: #4e3912;
+  --shw-color-feedback-warning-400: #382a0e;
+  --shw-color-feedback-critical-100: #cc4f52;
+  --shw-color-feedback-critical-200: #aa1f23;
+  --shw-color-feedback-critical-300: #4d090c;
+  --shw-color-feedback-critical-400: #320f15;
+  --shw-color-action-active-foreground: #1a1ae5;
+  --shw-color-action-active-border: #1a1ae5;
+  --shw-color-action-active-background: #062139;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include shw-theme-color-variables-dark();
+  }
+}
+
+.shw-theme-dark,
+[data-shw-theme="dark"] {
+  @include shw-theme-color-variables-dark();
+}
+
+// ######################################################
+
+// TEST COLORS
+
 $shw-test-theme-foreground-color: #eee;
 $shw-test-theme-background-color: #111;
 
