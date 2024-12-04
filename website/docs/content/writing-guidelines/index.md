@@ -11,7 +11,7 @@ Display dates and times clearly and consistently across products.
 
 ### Usage
 
-These formatting options are available in the [Time](#) component. Choose the format most appropriate for your user needs.
+These formatting options are available in the [Time](/components/time) component. Choose the format most appropriate for your user needs.
 
 - **Relative date**: Displays time in relative terms, e.g., "3 hours ago" or "in 2 days". This format is recommended for recent events, particularly within the past or upcoming week, as it simplifies recognition of time-sensitive actions.
 - **Friendly date**: Provides a user-friendly date and time, e.g., "Sep 5, 2018, 3:30 PM EST". Limit time format to the minute.
