@@ -50,6 +50,8 @@ import type HdsApplicationStateHeaderComponent from './components/hds/applicatio
 import type HdsApplicationStateMediaComponent from './components/hds/application-state/media';
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
+import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
+import type HdsCodeEditorTitleComponent from './components/hds/code-editor/title.ts';
 import type HdsCodeEditorToolbarButtonComponent from './components/hds/code-editor/toolbar-button.ts';
 import type HdsCodeBlockComponent from './components/hds/code-block';
 import type HdsCodeBlockCopyButtonComponent from './components/hds/code-block/copy-button';
@@ -377,6 +379,10 @@ export default interface HdsComponentsRegistry {
   // Code Editor
   'Hds::CodeEditor': typeof HdsCodeEditorComponent;
   'hds/code-editor': typeof HdsCodeEditorComponent;
+  'Hds::CodeEditor::Description': typeof HdsCodeEditorDescriptionComponent;
+  'hds/code-editor/description': typeof HdsCodeEditorDescriptionComponent;
+  'Hds::CodeEditor::Title': typeof HdsCodeEditorTitleComponent;
+  'hds/code-editor/title': typeof HdsCodeEditorTitleComponent;
   'Hds::CodeEditor::ToolbarButton': typeof HdsCodeEditorToolbarButtonComponent;
   'hds/code-editor/toolbar-button': typeof HdsCodeEditorToolbarButtonComponent;
 
