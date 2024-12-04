@@ -9,6 +9,8 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
 import type { HdsButtonSignature } from 'src/components/hds/button';
+import type { HdsCodeEditorDescriptionSignature } from './description';
+import type { HdsCodeEditorTitleSignature } from './title';
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -24,6 +26,8 @@ export interface HdsCodeEditorSignature {
   Blocks: {
     default: [
       {
+        Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
+        Title?: ComponentLike<HdsCodeEditorTitleSignature>;
         ToolbarButton?: ComponentLike<HdsButtonSignature>;
       },
     ];
