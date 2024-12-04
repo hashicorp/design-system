@@ -59,6 +59,10 @@
         <code>@showLabels=&lcub;&lcub;true&rcub;&rcub;</code></SFI.Label>
       <Hds::Pagination::Numbered @totalItems={{40}} @showPageNumbers={{false}} @showLabels={{true}} />
     </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>With custom <code>@totalPages</code></SFI.Label>
+      <Hds::Pagination::Numbered @totalItems={{1000}} @currentPageSize={{50}} @totalPages={{10}} />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H3>Truncation</Shw::Text::H3>
