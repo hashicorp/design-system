@@ -34,7 +34,8 @@ In addition to displaying single dates, the Time component can be used to displa
 
 ### Display
 
-Use the `@display` argument to specify a date format. You can select from “friendly-relative”, “friendly-only”, and “friendly-local” formats as well as just “relative” or “utc” display.
+Use the `@display` argument to specify a date format. You can select from “friendly-relative”, “friendly-only”, and “friendly-local” formats as well as just “relative” or “utc” display. See the [“Date and time” writing guidelines](/content/writing-guidelines#date-and-time) for more information on when to use each of these formats.
+
 
 ```handlebars
 <Hds::Text::Body>
