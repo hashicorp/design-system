@@ -21,10 +21,14 @@
   <Shw::Text::H2>Header</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="With title">
-      <Hds::CodeEditor @title="Code editor with title" />
+      <Hds::CodeEditor as |CE|>
+        <CE.Title>Code editor with title</CE.Title>
+      </Hds::CodeEditor>
     </SF.Item>
     <SF.Item @label="With description">
-      <Hds::CodeEditor @description="Code editor with description" />
+      <Hds::CodeEditor as |CE|>
+        <CE.Description>This is a code editor with a description</CE.Description>
+      </Hds::CodeEditor>
     </SF.Item>
     <SF.Item @label="Expandable editor">
       <Hds::CodeEditor @canExpand={{true}} />
@@ -38,14 +42,9 @@
       </Hds::CodeEditor>
     </SF.Item>
     <SF.Item @label="Complex header">
-      <Hds::CodeEditor
-        @title="Complex header"
-        @description="This is a complex example"
-        @canCopy={{true}}
-        @canExpand={{true}}
-        @value={{this.demoCode}}
-        as |CE|
-      >
+      <Hds::CodeEditor @canCopy={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
+        <CE.Title>Complex header</CE.Title>
+        <CE.Description>This is a complex example</CE.Description>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
     </SF.Item>
