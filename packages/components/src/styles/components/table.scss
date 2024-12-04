@@ -193,7 +193,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
   .hds-table__th,
   .hds-table__td {
-    padding: $hds-table-cell-padding-medium;
     text-align: left;
     border-top: $hds-table-border-width solid $hds-table-border-color;
     border-left: $hds-table-border-width solid $hds-table-border-color;
