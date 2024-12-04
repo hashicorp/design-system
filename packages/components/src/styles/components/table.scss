@@ -46,11 +46,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     background-color: var(--token-color-surface-strong);
 
     .hds-table__th {
-      position: relative;
       padding: $hds-table-cell-padding-medium;
       text-align: left;
-      border: $hds-table-border-width solid $hds-table-border-color;
-      border-right: none;
+      border-top: $hds-table-border-width solid $hds-table-border-color;
+      border-left: $hds-table-border-width solid $hds-table-border-color;
     }
 
     .hds-table__th:last-child {
@@ -172,10 +171,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
       background-color: var(--token-color-surface-faint);
     }
 
-    .hds-table__td:last-child {
-      border-right: $hds-table-border-width solid $hds-table-border-color;
-    }
-
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
     &:last-of-type {
@@ -198,12 +193,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
   .hds-table__th,
   .hds-table__td {
-    position: relative;
     padding: $hds-table-cell-padding-medium;
     text-align: left;
-    border: $hds-table-border-width solid $hds-table-border-color;
-    border-top: none;
-    border-right: none;
+    border-top: $hds-table-border-width solid $hds-table-border-color;
+    border-left: $hds-table-border-width solid $hds-table-border-color;
 
     // density
 
@@ -218,6 +211,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     .hds-table--density-tall & {
       padding: $hds-table-cell-padding-tall;
     }
+  }
+
+  .hds-table__td:last-child {
+    border-right: $hds-table-border-width solid $hds-table-border-color;
   }
 
   // horizontal alignment
