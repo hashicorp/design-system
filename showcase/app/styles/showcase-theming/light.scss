@@ -39,6 +39,11 @@
   --shw-placeholder-link-color: #333;
 }
 
+// TODO! should we add an entry to act as default for browser that may not support `prefers-color-scheme`?
+// :root {
+//   @include shw-theme-color-variables-light();
+// }
+
 @media (prefers-color-scheme: light) {
   :root {
     @include shw-theme-color-variables-light();
@@ -54,18 +59,15 @@
 
 // TEST COLORS
 
-$shw-test-theme-foreground-color: #111;
-$shw-test-theme-background-color: #eee;
-
 @media (prefers-color-scheme: light) {
   :root {
-    --shw-test-theme-foreground-color: #{$shw-test-theme-foreground-color};
-    --shw-test-theme-background-color: #{$shw-test-theme-background-color};
+    --shw-test-theme-foreground-color: #111;
+    --shw-test-theme-background-color: #eee;
   }
 }
 
 .shw-theme-light,
 [data-shw-theme="light"] {
-  --shw-test-theme-foreground-color: #{$shw-test-theme-foreground-color};
-  --shw-test-theme-background-color: #{$shw-test-theme-background-color};
+  --shw-test-theme-foreground-color: #111;
+  --shw-test-theme-background-color: #eee;
 }

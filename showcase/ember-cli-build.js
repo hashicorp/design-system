@@ -16,15 +16,15 @@ module.exports = function (defaults) {
     // See https://cli.emberjs.com/release/advanced-use/asset-compilation/#configuringoutputpaths
     // Notice: this triggers the warning "Using the `outputPaths` build option is deprecated, as output paths will no longer be predetermined under Embroider."
     // but I was not able to find online documentation or help about what one is supposed to do in alternative
-    outputPaths: {
-      app: {
-        css: {
-          app: '/assets/showcase.css',
-          'showcase-theming/dark': '/assets/showcase-theme-dark.css',
-          'showcase-theming/light': '/assets/showcase-theme-light.css',
-        },
-      },
-    },
+    // outputPaths: {
+    //   app: {
+    //     css: {
+    //       app: '/assets/showcase.css',
+    //       'showcase-theming/dark': '/assets/showcase-theme-dark.css',
+    //       'showcase-theming/light': '/assets/showcase-theme-light.css',
+    //     },
+    //   },
+    // },
 
     // See https://github.com/adopted-ember-addons/ember-cli-sass
     sassOptions: {
