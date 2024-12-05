@@ -6,12 +6,17 @@
 <div class={{this.classNames}} ...attributes>
   {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
     <div class="hds-code-editor__header">
-      <div class="hds-code-editor__header-info">
+      <div class="hds-code-editor__header-content">
         {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
+
+        <div class="hds-code-editor__header-generic-block">
+          {{yield (hash ToolbarButton=(component "hds/code-editor/toolbar-button"))}}
+        </div>
       </div>
-      {{#if (or this.hasToolbarAction (has-block))}}
+
+      {{#if this.hasToolbarAction}}
         <div class="hds-code-editor__header-toolbar">
-          {{#if @canCopy}}
+          {{#if @hasCopyButton}}
             <Hds::Copy::Button
               class="hds-code-editor__toolbar-button hds-code-editor__copy-button"
               @isIconOnly={{true}}
@@ -23,14 +28,13 @@
           {{#if @canExpand}}
             <Hds::CodeEditor::ToolbarButton
               class="hds-code-editor__toolbar-button hds-code-editor__expand-button"
+              @isIconOnly={{true}}
               @size="small"
               @icon="maximize"
               @text="Fullscreen"
               {{on "click" (fn (mut this.isFullscreen) (not this.isFullscreen))}}
             />
           {{/if}}
-
-          {{yield (hash ToolbarButton=(component "hds/code-editor/toolbar-button"))}}
         </div>
       {{/if}}
     </div>

@@ -14,13 +14,13 @@ import type { HdsCodeEditorTitleSignature } from './title';
 
 export interface HdsCodeEditorSignature {
   Args: {
-    canCopy?: boolean;
+    hasCopyButton?: boolean;
     canExpand?: boolean;
     description?: string;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     options?: unknown[];
     title?: string;
-    value: string;
+    value?: string;
     onInput?: (newVal: string) => void;
   };
   Blocks: {
@@ -53,6 +53,6 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   }
 
   get hasToolbarAction() {
-    return this.args.canCopy || this.args.canExpand;
+    return this.args.hasCopyButton || this.args.canExpand;
   }
 }

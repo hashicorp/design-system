@@ -30,19 +30,28 @@
   }
 
   &__header {
+    display: flex;
+    align-items: start;
+    padding: 8px 16px;
     background-color: var(--token-color-code-surface-faint);
     // todo - figure out why this gets converted to hex when used as var from tokens
     border-bottom: 1px solid $border-strong;
 
-    &-info {
-      padding: 8px 16px;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: 4px;
+    }
+
+    &-generic-block:not(:only-child) {
+      padding-top: 8px;
     }
 
     &-toolbar {
       display: flex;
-      gap: 8px;
+      gap: 4px;
       align-items: center;
-      padding: 8px 16px;
     }
   }
 
