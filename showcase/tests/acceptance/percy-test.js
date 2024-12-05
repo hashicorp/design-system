@@ -31,6 +31,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/accordion');
     await percySnapshot('Accordion');
 
+    await visit('/components/advanced-table');
+    await percySnapshot('AdvancedTable');
+
     await visit('/components/alert');
     await percySnapshot('Alert');
 
@@ -182,10 +185,6 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/utilities/popover-primitive');
     await percySnapshot('PopoverPrimitive');
-
-    // MOVE THIS BLOCK IN THE RIGHT POSITION
-    await visit('/components/advanced-table');
-    await percySnapshot('AdvancedTable');
 
     // DO NOT REMOVE – PERCY SNAPSHOTS END
 
