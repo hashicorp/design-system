@@ -44,7 +44,7 @@ export interface HdsCodeEditorSignature {
   Args: {
     Named: {
       language?: HdsCodeEditorLanguages;
-      value: string;
+      value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: (editor: EditorView, event: FocusEvent) => void;
     };

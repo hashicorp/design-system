@@ -34,7 +34,7 @@
       <Hds::CodeEditor @canExpand={{true}} />
     </SF.Item>
     <SF.Item @label="With copyable content">
-      <Hds::CodeEditor @canCopy={{true}} @value={{this.demoCode}} />
+      <Hds::CodeEditor @hasCopyButton={{true}} @value={{this.demoCode}} />
     </SF.Item>
     <SF.Item @label="With custom header content">
       <Hds::CodeEditor as |CE|>
@@ -42,9 +42,20 @@
       </Hds::CodeEditor>
     </SF.Item>
     <SF.Item @label="Complex header">
-      <Hds::CodeEditor @canCopy={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
+      <Hds::CodeEditor @hasCopyButton={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
         <CE.Title>Complex header</CE.Title>
         <CE.Description>This is a complex example</CE.Description>
+        <CE.ToolbarButton @text="Custom button" />
+      </Hds::CodeEditor>
+    </SF.Item>
+    <SF.Item @label="Complex header">
+      <Hds::CodeEditor @value={{this.demoCode}} as |CE|>
+        <CE.Description>This is a complex example</CE.Description>
+        <CE.ToolbarButton @text="Custom button" />
+      </Hds::CodeEditor>
+    </SF.Item>
+    <SF.Item @label="Complex header">
+      <Hds::CodeEditor @hasCopyButton={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
     </SF.Item>

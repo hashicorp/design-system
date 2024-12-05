@@ -46,12 +46,12 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     `);
     assert.dom(`${codeEditorPage.selectors.toolbar} #test-toolbar-button`).exists();
   });
-  // @canCopy
-  test('it should render a copy button when the `@canCopy` argument is true', async function (assert) {
-    await render(hbs`<Hds::CodeEditor @canCopy={{true}} />`);
+  // @hasCopyButton
+  test('it should render a copy button when the `@hasCopyButton` argument is true', async function (assert) {
+    await render(hbs`<Hds::CodeEditor @hasCopyButton={{true}} />`);
     assert.dom(codeEditorPage.selectors.copyButton).exists();
   });
-  test('it should not render a copy button when the `@canCopy` argument is not provided', async function (assert) {
+  test('it should not render a copy button when the `@hasCopyButton` argument is not provided', async function (assert) {
     await render(hbs`<Hds::CodeEditor />`);
     assert.dom(codeEditorPage.selectors.copyButton).doesNotExist();
   });
