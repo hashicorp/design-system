@@ -1,0 +1,1 @@
+The Code Editor is used to edit or create code snippets.
