@@ -25,7 +25,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   display: grid;
   align-items: center;
   width: 100%;
-  border: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
   border-radius: $hds-advanced-table-border-radius;
   border-spacing: 0;
 }
@@ -46,38 +45,24 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__tr {
     display: contents;
-    // color: var(--token-color-foreground-strong);
-    // background-color: var(--token-color-surface-strong);
 
     .hds-advanced-table__th {
-      position: relative;
-  align-content: center;
-  height: 100%;
+      align-content: center;
+      height: 100%;
       padding: $hds-advanced-table-cell-padding-medium;
-  color: var(--token-color-foreground-strong);
+      color: var(--token-color-foreground-strong);
       text-align: left;
-  background-color: var(--token-color-surface-strong);
-      border-top: none;
-      border-right: none;
-      border-bottom: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
-      border-left: none;
+      background-color: var(--token-color-surface-strong);
+      border-top: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
+      border-left: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
 
       &:focus {
         @include hds-focus-ring-with-after-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
       }
+    }
 
-      // border between two cells (we emulate a cell border slightly detached from the top/bottom borders)
-
-      + .hds-advanced-table__th::before {
-        position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: -1px; // we need to offset the border by 1px to render a right border of the previous cell
-        width: 1px;
-        background-color: $hds-advanced-table-border-color;
-        content: "";
-        pointer-events: none;
-      }
+    .hds-table__th:last-child {
+      border-right: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
     }
 
     // horizontal alignment
@@ -207,7 +192,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__tr {
     display: contents;
     color: var(--token-color-foreground-primary);
-    
 
     // striped rows
 
@@ -222,7 +206,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     &:last-of-type {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
-        border-bottom: none;
+        border-bottom: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
       }
 
       .hds-advanced-table__th:first-child,
@@ -239,14 +223,12 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__th,
   .hds-advanced-table__td {
-align-content: center;
-height: 100%;
+    align-content: center;
+    height: 100%;
     text-align: left;
     background-color: var(--token-color-surface-primary);
-    border-top: none;
-    border-right: none;
-    border-bottom: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
-    border-left: none;
+    border-top: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
+    border-left: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
 
     &:focus {
       @include hds-focus-ring-with-after-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
@@ -266,6 +248,10 @@ height: 100%;
       padding: $hds-advanced-table-cell-padding-tall;
     }
 
+  }
+
+  .hds-table__td:last-child {
+    border-right: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
   }
 
   // horizontal alignment
