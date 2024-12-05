@@ -14,7 +14,10 @@ export interface ShwDividerSignature {
 }
 
 const ShwDivider: TemplateOnlyComponent<ShwDividerSignature> = <template>
-  <hr class="shw-divider {{if @level (concat 'shw-divider--level-' @level)}}" />
+  <hr
+    class="shw-divider {{if @level (concat 'shw-divider--level-' @level)}}"
+    ...attributes
+  />
 </template>;
 
 export default ShwDivider;
