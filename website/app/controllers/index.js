@@ -8,16 +8,16 @@ import Controller from '@ember/controller';
 export default class IndexController extends Controller {
   cards = [
     {
-      title: 'About',
-      description:
-        'Our aims, principles, and strategy and how to get started with Helios.',
-      route: 'about',
-    },
-    {
       title: 'Foundations',
       description:
         'Design decisions and guidance for colors, icons, typography, and more.',
       route: 'foundations',
+    },
+    {
+      title: 'Content',
+      description:
+        'Structured guidelines on tone and voice, user communication and more.',
+      route: 'content',
     },
     {
       title: 'Components',
