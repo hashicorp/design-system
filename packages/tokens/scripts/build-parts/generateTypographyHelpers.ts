@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { TransformedTokens }  from 'style-dictionary';
+import type { TransformedTokens } from 'style-dictionary';
 
-import { PREFIX } from './generateCssHelpers';
+import { PREFIX } from './generateCssHelpers.ts';
 
 type Helpers = string[];
 
@@ -39,22 +39,33 @@ export function generateTypographyHelpers(tokens: TransformedTokens, outputCssVa
 
             const fontWeightTokens = tokens[key];
 
-            Object.keys(fontWeightTokens).forEach(weight => {
-                const selector = `.${PREFIX}-font-weight-${weight}`;
-                helpers.push(`${selector} { font-weight: ${fontWeightTokens[weight].value}; }`);
-            });
+            if (fontWeightTokens) {
+                Object.keys(fontWeightTokens).forEach(weight => {
+                    const selector = `.${PREFIX}-font-weight-${weight}`;
+                    helpers.push(`${selector} { font-weight: ${fontWeightTokens[weight].value}; }`);
+                });
+            }
 
         } else {
 
             let stylename = key;
 
             // basic font styles
-            const valueFontFamily = outputCssVars ? `var(--token-typography-${stylename}-font-family)` : tokens[stylename]['font-family'].value;
-            const valueFontSize = outputCssVars ? `var(--token-typography-${stylename}-font-size)` : tokens[stylename]['font-size'].value;
-            const valueLineHeight = outputCssVars ? `var(--token-typography-${stylename}-line-height)` : tokens[stylename]['line-height'].value;
-            declarations.push(`font-family: ${valueFontFamily};`);
-            declarations.push(`font-size: ${valueFontSize};`);
-            declarations.push(`line-height: ${valueLineHeight};`);
+            if (outputCssVars) {
+                declarations.push(`font-family: var(--token-typography-${stylename}-font-family);`);
+                declarations.push(`font-size: var(--token-typography-${stylename}-font-size);`);
+                declarations.push(`line-height: var(--token-typography-${stylename}-line-height);`);
+            } else {
+                if (tokens[key] && tokens[key]['font-family'] && tokens[key]['font-family'].value) {
+                    declarations.push(`font-family: ${tokens[key]['font-family'].value};`);
+                }
+                if (tokens[key] && tokens[key]['font-size'] && tokens[key]['font-size'].value) {
+                    declarations.push(`font-size: ${tokens[key]['font-size'].value};`);
+                }
+                if (tokens[key] && tokens[key]['line-height'] && tokens[key]['line-height'].value) {
+                    declarations.push(`line-height: ${tokens[key]['line-height'].value};`);
+                }
+            }
 
             // we reset margin/padding for all the text elements
             declarations.push('margin: 0;');

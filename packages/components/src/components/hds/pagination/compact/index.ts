@@ -89,8 +89,8 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   // In the second case, the variable stores *only* the initial state of the component (coming from the arguments)
   // at rendering time, but from that moment on it's not updated anymore, no matter what interaction the user
   // has with the component (the state is controlled externally, eg. via query parameters)
-  @tracked _currentPageSize;
-  @tracked isControlled;
+  @tracked private _currentPageSize;
+  @tracked private _isControlled;
 
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
@@ -109,7 +109,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     // initialized and updated using the arguments passed to it.
 
     if (queryFunction === undefined) {
-      this.isControlled = false;
+      this._isControlled = false;
     } else {
       assert(
         '@model, @models, or @route for "Hds::Pagination::Compact" must be provided when using the `@queryFunction` argument',
@@ -121,7 +121,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
         '@queryFunction for "Hds::Pagination::Compact" must be a function',
         typeof queryFunction === 'function'
       );
-      this.isControlled = true;
+      this._isControlled = true;
     }
 
     // we assert that `this.pageSizes` will always be an array with at least one item
@@ -146,14 +146,14 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   // For this reason the "get" and "set" methods always read from or write to the private internal state (_variable).
 
   get currentPageSize(): number | undefined {
-    if (this.isControlled) {
+    if (this._isControlled) {
       return this.args.currentPageSize;
     } else {
       return this._currentPageSize;
     }
   }
   set currentPageSize(value) {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // noop
     } else {
       this._currentPageSize = value;
@@ -175,7 +175,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     page: HdsPaginationDirections,
     pageSize?: number
   ): HdsInteractiveQuery {
-    if (this.isControlled) {
+    if (this._isControlled) {
       // if the component is controlled, we can assert that the queryFunction is defined
       return this.args.queryFunction!(page, pageSize);
     } else {
@@ -192,7 +192,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     };
 
     // the "query" is dynamic and needs to be calculated
-    if (this.isControlled) {
+    if (this._isControlled) {
       routing.queryPrev = this.buildQueryParamsObject(
         HdsPaginationDirectionValues.Prev,
         this.currentPageSize

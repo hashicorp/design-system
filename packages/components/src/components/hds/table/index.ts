@@ -90,10 +90,11 @@ export interface HdsTableSignature {
 export default class HdsTable extends Component<HdsTableSignature> {
   @tracked sortBy;
   @tracked sortOrder;
-  @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+  @tracked
+  private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
-  selectableRows: HdsTableSelectableRow[] = [];
-  @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+  private _selectableRows: HdsTableSelectableRow[] = [];
+  @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
   constructor(owner: unknown, args: HdsTableSignature['Args']) {
     super(owner, args);
@@ -228,13 +229,13 @@ export default class HdsTable extends Component<HdsTableSignature> {
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this.selectableRows.reduce<string[]>((acc, row) => {
+        selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
-        selectableRowsStates: this.selectableRows.reduce(
+        selectableRowsStates: this._selectableRows.reduce(
           (
             acc: { selectionKey: string; isSelected: boolean | undefined }[],
             row
@@ -253,12 +254,13 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   onSelectionAllChange(): void {
-    this.selectableRows.forEach((row) => {
-      row.checkbox.checked = this.selectAllCheckbox?.checked ?? false;
+    this._selectableRows.forEach((row) => {
+      row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
       row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
-    this.isSelectAllCheckboxSelected = this.selectAllCheckbox?.checked ?? false;
-    this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
+    this._isSelectAllCheckboxSelected =
+      this._selectAllCheckbox?.checked ?? false;
+    this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
 
   @action
@@ -274,12 +276,12 @@ export default class HdsTable extends Component<HdsTableSignature> {
   didInsertSelectAllCheckbox(
     checkbox: HdsFormCheckboxBaseSignature['Element']
   ): void {
-    this.selectAllCheckbox = checkbox;
+    this._selectAllCheckbox = checkbox;
   }
 
   @action
   willDestroySelectAllCheckbox(): void {
-    this.selectAllCheckbox = undefined;
+    this._selectAllCheckbox = undefined;
   }
 
   @action
@@ -288,14 +290,14 @@ export default class HdsTable extends Component<HdsTableSignature> {
     selectionKey?: string
   ): void {
     if (selectionKey) {
-      this.selectableRows.push({ selectionKey, checkbox });
+      this._selectableRows.push({ selectionKey, checkbox });
     }
     this.setSelectAllState();
   }
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
-    this.selectableRows = this.selectableRows.filter(
+    this._selectableRows = this._selectableRows.filter(
       (row) => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
@@ -303,18 +305,18 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   setSelectAllState(): void {
-    if (this.selectAllCheckbox) {
-      const selectableRowsCount = this.selectableRows.length;
-      const selectedRowsCount = this.selectableRows.filter(
+    if (this._selectAllCheckbox) {
+      const selectableRowsCount = this._selectableRows.length;
+      const selectedRowsCount = this._selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
-      this.selectAllCheckbox.checked =
+      this._selectAllCheckbox.checked =
         selectedRowsCount === selectableRowsCount;
-      this.selectAllCheckbox.indeterminate =
+      this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
-      this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
-      this.selectAllCheckbox.dispatchEvent(
+      this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
+      this._selectAllCheckbox.dispatchEvent(
         new Event('toggle', { bubbles: false })
       );
     }

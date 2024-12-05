@@ -3,7 +3,7 @@ title: Super Select
 description: An enhanced selection component that enables users to search and select items from a list of options and supports flexible custom content.
 caption: Enhanced selection component that enables users to search and select items from a list.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=55732%3A13611&mode=design&t=OdKVlFNX52MtU0FA-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67543-48702&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/super-select
 related: ['components/form/select', 'components/dropdown']
 previewImage: assets/illustrations/components/form/super-select.jpg
@@ -33,6 +33,7 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.13.0.md"
   @include "partials/version-history/4.10.0.md"
 </section>

@@ -30,7 +30,7 @@
       />
       {{#if this.showVisibilityToggle}}
         <Hds::Form::VisibilityToggle
-          @isVisible={{this.isPasswordMasked}}
+          @isVisible={{this._isPasswordMasked}}
           @ariaLabel={{this.visibilityToggleAriaLabel}}
           @ariaMessageText={{this.visibilityToggleAriaMessageText}}
           aria-controls={{F.id}}

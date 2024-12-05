@@ -26,8 +26,8 @@ export interface HdsIconSignature {
 }
 
 export default class HdsIcon extends Component<HdsIconSignature> {
-  iconId = 'icon-' + guidFor(this);
-  titleId = 'title-' + guidFor(this);
+  private _iconId = 'icon-' + guidFor(this);
+  private _titleId = 'title-' + guidFor(this);
 
   constructor(owner: unknown, args: HdsIconSignature['Args']) {
     super(owner, args);
@@ -83,7 +83,7 @@ export default class HdsIcon extends Component<HdsIconSignature> {
   }
 
   get ariaLabelledby(): string | null {
-    return this.args.title ? this.titleId : null;
+    return this.args.title ? this._titleId : null;
   }
 
   get classNames() {

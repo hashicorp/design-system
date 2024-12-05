@@ -6,7 +6,7 @@
 <Hds::DisclosurePrimitive class="hds-reveal" @isOpen={{@isOpen}} ...attributes>
   <:toggle as |t|>
     <Hds::Reveal::Toggle::Button
-      aria-controls={{this.contentId}}
+      aria-controls={{this._contentId}}
       @text={{this.getText t.isOpen}}
       @isOpen={{t.isOpen}}
       {{on "click" t.onClickToggle}}
@@ -14,7 +14,7 @@
   </:toggle>
 
   <:content>
-    <div class="hds-reveal__content hds-typography-body-200 hds-foreground-primary" id={{this.contentId}}>
+    <div class="hds-reveal__content hds-typography-body-200 hds-foreground-primary" id={{this._contentId}}>
       {{yield}}
     </div>
   </:content>

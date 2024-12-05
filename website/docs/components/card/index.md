@@ -3,7 +3,7 @@ title: Card
 description: A block container that provides styling for elevation, border, and background.
 caption: A block container that provides styling for elevation, border, and background.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=2359%3A19245&t=XC8SUxxJOFHgqYzK-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67251-87362&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/card
 previewImage: assets/illustrations/components/card.jpg
 navigation:

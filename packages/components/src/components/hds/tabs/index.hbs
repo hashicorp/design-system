@@ -7,7 +7,7 @@
   class={{this.classNames}}
   {{did-insert this.didInsert}}
   {{did-update this.didUpdateSelectedTabIndex this.selectedTabIndex}}
-  {{did-update this.didUpdateSelectedTabId this.selectedTabId}}
+  {{did-update this.didUpdateSelectedTabId this._selectedTabId}}
   {{did-update this.didUpdateParentVisibility @isParentVisible}}
   ...attributes
 >
@@ -20,7 +20,7 @@
             didInsertNode=this.didInsertTab
             didUpdateNode=this.didUpdateTab
             willDestroyNode=this.willDestroyTab
-            tabIds=this.tabIds
+            tabIds=this._tabIds
             selectedTabIndex=this.selectedTabIndex
             onClick=this.onClick
             onKeyUp=this.onKeyUp
@@ -37,8 +37,8 @@
         "hds/tabs/panel"
         didInsertNode=this.didInsertPanel
         willDestroyNode=this.willDestroyPanel
-        tabIds=this.tabIds
-        panelIds=this.panelIds
+        tabIds=this._tabIds
+        panelIds=this._panelIds
         selectedTabIndex=this.selectedTabIndex
       )
     )

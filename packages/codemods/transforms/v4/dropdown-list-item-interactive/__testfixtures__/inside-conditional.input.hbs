@@ -1,0 +1,10 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Dropdown as |dd|>
+  <dd.Title @text='Title text' />
+  {{#if this.conditional}}
+    <dd.Interactive @href='#' @text='Test' />
+  {{/if}}
+</Hds::Dropdown>

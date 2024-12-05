@@ -1,13 +1,12 @@
 /**
- * Do not edit directly
- * Generated on Fri, 20 Sep 2024 19:02:21 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
-.hds-elevation-high { box-shadow: var(--token-elevation-high-box-shadow); }
-.hds-elevation-higher { box-shadow: var(--token-elevation-higher-box-shadow); }
 .hds-elevation-inset { box-shadow: var(--token-elevation-inset-box-shadow); }
 .hds-elevation-low { box-shadow: var(--token-elevation-low-box-shadow); }
 .hds-elevation-mid { box-shadow: var(--token-elevation-mid-box-shadow); }
+.hds-elevation-high { box-shadow: var(--token-elevation-high-box-shadow); }
+.hds-elevation-higher { box-shadow: var(--token-elevation-higher-box-shadow); }
 .hds-elevation-overlay { box-shadow: var(--token-elevation-overlay-box-shadow); }
 .hds-surface-inset { box-shadow: var(--token-surface-inset-box-shadow); }
 .hds-surface-base { box-shadow: var(--token-surface-base-box-shadow); }

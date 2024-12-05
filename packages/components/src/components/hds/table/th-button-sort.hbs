@@ -6,10 +6,10 @@
   type="button"
   class={{this.classNames}}
   {{on "click" this.onClick}}
-  aria-labelledby="{{this.prefixLabelId}} {{@labelId}} {{this.suffixLabelId}}"
+  aria-labelledby="{{this._prefixLabelId}} {{@labelId}} {{this._suffixLabelId}}"
   ...attributes
 >
-  <span id={{this.prefixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">Sort by</span>
-  <span id={{this.suffixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">{{this.sortOrderLabel}}</span>
+  <span id={{this._prefixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">Sort by</span>
+  <span id={{this._suffixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">{{this.sortOrderLabel}}</span>
   <Hds::Icon @name={{this.icon}} />
 </button>

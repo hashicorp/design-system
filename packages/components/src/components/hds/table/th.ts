@@ -33,9 +33,9 @@ export default class HdsTableTh extends Component<HdsTableThSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *
-   * @param labelId
+   * @param _labelId
    */
-  labelId = guidFor(this);
+  private _labelId = guidFor(this);
 
   /**
    * @param align

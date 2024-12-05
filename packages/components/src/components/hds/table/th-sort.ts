@@ -42,9 +42,9 @@ export default class HdsTableThSort extends Component<HdsTableThSortSignature> {
   /**
    * Generates a unique ID for the <span> element ("label")
    *
-   * @param labelId
+   * @param _labelId
    */
-  labelId = guidFor(this);
+  private _labelId = guidFor(this);
 
   /**
    * @param ariaSort

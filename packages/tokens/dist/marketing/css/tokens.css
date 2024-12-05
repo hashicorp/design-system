@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Fri, 20 Sep 2024 19:02:21 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 :root {
@@ -178,11 +177,11 @@
   --token-color-waypoint-gradient-primary-stop: #62d4dc;
   --token-color-waypoint-gradient-faint-start: #f6feff; /* this is the 'waypoint-50' value at 25% opacity on white */
   --token-color-waypoint-gradient-faint-stop: #e0fcff;
-  --token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
-  --token-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-elevation-inset-box-shadow: inset 0px 1px 2px 1px #656a761a;
   --token-elevation-low-box-shadow: 0px 1px 1px 0px #656a760d, 0px 2px 2px 0px #656a760d;
   --token-elevation-mid-box-shadow: 0px 2px 3px 0px #656a761a, 0px 8px 16px -10px #656a7633;
+  --token-elevation-high-box-shadow: 0px 2px 3px 0px #656a7626, 0px 16px 16px -10px #656a7633;
+  --token-elevation-higher-box-shadow: 0px 2px 3px 0px #656a761a, 0px 12px 28px 0px #656a7640;
   --token-elevation-overlay-box-shadow: 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-surface-inset-box-shadow: inset 0 0 0 1px #656a764d, inset 0px 1px 2px 1px #656a761a;
   --token-surface-base-box-shadow: 0 0 0 1px #656a7633;
@@ -193,6 +192,47 @@
   --token-surface-overlay-box-shadow: 0 0 0 1px #3b3d4540, 0px 2px 3px 0px #3b3d4540, 0px 12px 24px 0px #3b3d4559;
   --token-focus-ring-action-box-shadow: inset 0 0 0 1px #0c56e9, 0 0 0 3px #5990ff;
   --token-focus-ring-critical-box-shadow: inset 0 0 0 1px #c00005, 0 0 0 3px #dd7578;
+  --token-app-header-height: 60px;
+  --token-app-header-home-link-size: 36px;
+  --token-app-header-logo-size: 28px;
+  --token-app-side-nav-wrapper-border-width: 1px;
+  --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
+  --token-app-side-nav-wrapper-padding-horizontal: 16px;
+  --token-app-side-nav-wrapper-padding-vertical: 16px;
+  --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
+  --token-app-side-nav-toggle-button-border-radius: 5px;
+  --token-app-side-nav-header-home-link-padding: 4px;
+  --token-app-side-nav-header-home-link-logo-size: 48px;
+  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
+  --token-app-side-nav-header-actions-spacing: 8px;
+  --token-app-side-nav-body-list-margin-vertical: 24px;
+  --token-app-side-nav-body-list-item-height: 36px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-item-padding-vertical: 4px;
+  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-app-side-nav-body-list-item-border-radius: 5px;
+  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-faint: var(--token-color-foreground-faint);
+  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
+  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
+  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-form-label-color: #0c0c0e;
+  --token-form-legend-color: #0c0c0e;
+  --token-form-helper-text-color: #656a76;
+  --token-form-indicator-optional-color: #656a76;
+  --token-form-error-color: #c00005;
+  --token-form-error-icon-size: 14px;
+  --token-form-checkbox-size: 16px;
+  --token-form-checkbox-border-radius: 3px;
+  --token-form-checkbox-border-width: 1px;
+  --token-form-checkbox-background-image-size: 12px;
+  --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
   --token-form-control-base-foreground-value-color: #0c0c0e;
   --token-form-control-base-foreground-placeholder-color: #656a76;
   --token-form-control-base-surface-color-default: #ffffff;
@@ -215,20 +255,6 @@
   --token-form-control-padding: 7px; /* Notice: we have to take in account the border, so it's 1px less than in Figma. */
   --token-form-control-border-radius: 5px;
   --token-form-control-border-width: 1px;
-  --token-form-label-color: #0c0c0e;
-  --token-form-legend-color: #0c0c0e;
-  --token-form-helper-text-color: #656a76;
-  --token-form-indicator-optional-color: #656a76;
-  --token-form-error-color: #c00005;
-  --token-form-error-icon-size: 14px;
-  --token-form-checkbox-size: 16px;
-  --token-form-checkbox-border-radius: 3px;
-  --token-form-checkbox-border-width: 1px;
-  --token-form-checkbox-background-image-size: 12px;
-  --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
-  --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
-  --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
-  --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
   --token-form-radio-size: 16px;
   --token-form-radio-border-width: 1px;
   --token-form-radio-background-image-size: 12px;
@@ -264,33 +290,6 @@
   --token-form-toggle-transition-duration: 0.2s;
   --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
   --token-form-toggle-thumb-size: 16px;
-  --token-app-header-height: 60px;
-  --token-app-header-home-link-size: 36px;
-  --token-app-header-logo-size: 28px;
-  --token-app-side-nav-wrapper-border-width: 1px;
-  --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
-  --token-app-side-nav-wrapper-padding-horizontal: 16px;
-  --token-app-side-nav-wrapper-padding-vertical: 16px;
-  --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
-  --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
-  --token-app-side-nav-toggle-button-border-radius: 5px;
-  --token-app-side-nav-header-home-link-padding: 4px;
-  --token-app-side-nav-header-home-link-logo-size: 48px;
-  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
-  --token-app-side-nav-header-actions-spacing: 8px;
-  --token-app-side-nav-body-list-margin-vertical: 24px;
-  --token-app-side-nav-body-list-item-height: 36px;
-  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
-  --token-app-side-nav-body-list-item-padding-vertical: 4px;
-  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
-  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
-  --token-app-side-nav-body-list-item-border-radius: 5px;
-  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
-  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
-  --token-app-side-nav-color-foreground-faint: var(--token-color-foreground-faint);
-  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
-  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
-  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
   --token-pagination-nav-control-height: 36px;
   --token-pagination-nav-control-padding-horizontal: 12px;
   --token-pagination-nav-control-focus-inset: 4px;
@@ -318,7 +317,7 @@
   --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
   --token-side-nav-body-list-item-border-radius: 5px;
   --token-side-nav-color-foreground-primary: #dedfe3;
-  --token-side-nav-color-foreground-strong: #fff;
+  --token-side-nav-color-foreground-strong: #ffffff;
   --token-side-nav-color-foreground-faint: #8c909c;
   --token-side-nav-color-surface-primary: #0c0c0e;
   --token-side-nav-color-surface-interactive-hover: #3b3d45;

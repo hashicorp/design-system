@@ -1,0 +1,15 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// Page Header
+
+body.components-page-header {
+  .shw-component-page-header-layout-highlight {
+    .hds-page-header {
+      outline: 1px dashed #78909c;
+      outline-offset: -1px;
+    }
+  }
+}

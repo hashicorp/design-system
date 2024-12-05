@@ -14,7 +14,7 @@
           role="tab"
           aria-controls={{tab.target}}
           aria-selected={{if tab.isCurrent "true" "false"}}
-          {{on "click" (fn tab.onClickTab tab)}}
+          {{on "click" (fn this.onClickTab tab)}}
         >{{capitalize tab.label}}</button>
       </li>
     {{/each}}

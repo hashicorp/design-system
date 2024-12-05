@@ -15,49 +15,94 @@
 
   <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::Select::Base aria-label="default select" as |C|>
+      <Hds::Form::Select::Base aria-label="default" as |C|>
         <C.Options>
+          <option></option>
           <option>Lorem ipsum dolor</option>
           <option>Sine qua non est</option>
         </C.Options>
       </Hds::Form::Select::Base>
     </SF.Item>
+    <SF.Item @label="Selected">
+      <Hds::Form::Select::Base aria-label="default selected" as |C|>
+        <C.Options>
+          <option></option>
+          <option selected>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+      </Hds::Form::Select::Base>
+    </SF.Item>
+    <SF.Item @label="Multiple">
+      <Hds::Form::Select::Base aria-label="multiple selected" multiple as |C|>
+        <C.Options>
+          <option selected>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </C.Options>
+      </Hds::Form::Select::Base>
+    </SF.Item>
+    <SF.Item @label="Multiple / With groups">
+      <Hds::Form::Select::Base aria-label="multiple groups selected" multiple size="8" as |C|>
+        <C.Options>
+          <optgroup label="Most common">
+            <option value="Kubernetes">Kubernetes</option>
+            <option value="AWS">AWS</option>
+            <option value="Azure" disabled>Azure</option>
+          </optgroup>
+          <optgroup label="Others">
+            <option value="Alibaba" selected>Alibaba</option>
+            <option value="CloudWise" selected>CloudWise</option>
+            <option value="SWA">SWA</option>
+            <option value="Other">Other</option>
+          </optgroup>
+        </C.Options>
+      </Hds::Form::Select::Base>
+    </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Flex @gap="2rem" as |SF|>
+  {{#let (array "single" "multiple") as |types|}}
     {{#let (array "base" "invalid" "disabled") as |variants|}}
-      {{#each @model.STATES as |state|}}
-        <SF.Item>
-          <Shw::Flex @direction="column" as |SF|>
-            {{#each variants as |variant|}}
-              {{! template-lint-disable simple-unless }}
-              {{#unless (and (eq variant "disabled") (eq state "focus"))}}
-                <SF.Item
-                  @label="{{capitalize variant}} / {{capitalize state}}"
-                  mock-state-value={{state}}
-                  mock-state-selector="select"
-                >
-                  <Hds::Form::Select::Field
-                    aria-label="{{state}}"
-                    disabled={{if (eq variant "disabled") "disabled"}}
-                    @isInvalid={{if (eq variant "invalid") true}}
-                    as |F|
-                  >
-                    <F.Options>
-                      <option>Lorem ipsum dolor</option>
-                      <option>Sine qua non est</option>
-                    </F.Options>
-                  </Hds::Form::Select::Field>
-                </SF.Item>
-              {{/unless}}
-            {{/each}}
-          </Shw::Flex>
-        </SF.Item>
+      {{#each types as |type|}}
+        <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
+        <Shw::Flex @gap="2rem" as |SF|>
+          {{#each @model.STATES as |state|}}
+            <SF.Item>
+              <Shw::Flex @direction="column" as |SF|>
+                {{#each variants as |variant|}}
+                  {{! template-lint-disable simple-unless }}
+                  {{#unless (and (eq variant "disabled") (eq state "focus"))}}
+                    <SF.Item
+                      @label="{{capitalize variant}} / {{capitalize state}}"
+                      mock-state-value={{state}}
+                      mock-state-selector="select"
+                    >
+                      <Hds::Form::Select::Base
+                        aria-label="{{state}}"
+                        disabled={{if (eq variant "disabled") "disabled"}}
+                        @isInvalid={{if (eq variant "invalid") true}}
+                        multiple={{if (eq type "multiple") true null}}
+                        as |F|
+                      >
+                        <F.Options>
+                          <option selected>Lorem ipsum dolor</option>
+                          <option>Sine qua non est</option>
+                        </F.Options>
+                      </Hds::Form::Select::Base>
+                    </SF.Item>
+                  {{/unless}}
+                {{/each}}
+              </Shw::Flex>
+            </SF.Item>
+          {{/each}}
+        </Shw::Flex>
       {{/each}}
     {{/let}}
-  </Shw::Flex>
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Custom layout</Shw::Text::H3>
 
@@ -75,6 +120,8 @@
       </div>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
@@ -114,64 +161,71 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
-    <SG.Item @label="Only label">
-      <Hds::Form::Select::Field as |F|>
-        <F.Label>Lorem ipsum dolor</F.Label>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text">
-      <Hds::Form::Select::Field as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
-    <SG.Item @label="Label + Error">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Error">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error>This is the error</F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-    <SG.Item @label="Label + Helper text + Errors">
-      <Hds::Form::Select::Field @isInvalid={{true}} as |F|>
-        <F.Label>This is the label</F.Label>
-        <F.HelperText>This is the helper text</F.HelperText>
-        <F.Options>
-          <option>Lorem ipsum dolor</option>
-          <option>Sine qua non est</option>
-        </F.Options>
-        <F.Error as |E|>
-          <E.Message>First error message</E.Message>
-          <E.Message>Second error message</E.Message>
-        </F.Error>
-      </Hds::Form::Select::Field>
-    </SG.Item>
-  </Shw::Grid>
+  {{#let (array "single" "multiple") as |types|}}
+    {{#each types as |type|}}
+      <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
+      <Shw::Grid @columns="3" as |SG|>
+        <SG.Item @label="Only label">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>Lorem ipsum dolor</F.Label>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        {{! left empty on purpose }}
+        <SG.Item />
+        <SG.Item @label="Label + Error">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Error">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Errors">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+            <F.Error as |E|>
+              <E.Message>First error message</E.Message>
+              <E.Message>Second error message</E.Message>
+            </F.Error>
+          </Hds::Form::Select::Field>
+        </SG.Item>
+      </Shw::Grid>
+    {{/each}}
+  {{/let}}
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
@@ -195,6 +249,8 @@
       </Hds::Form::Select::Field>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 

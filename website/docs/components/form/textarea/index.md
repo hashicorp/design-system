@@ -3,7 +3,7 @@ title: Textarea
 description: A form input that accepts multi-line text.
 caption: A form input that accepts multi-line text.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13343%3A31585&t=pDgL7LJUJXZUN7Xq-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-106340&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/textarea
 related: ['components/form/text-input','components/form/masked-input']
 previewImage: assets/illustrations/components/form/textarea.jpg

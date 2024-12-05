@@ -32,11 +32,12 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
   /**
    * Generate a unique ID for the Tab
    * @return {string}
+   * @param _tabId
    */
-  tabId = 'tab-' + guidFor(this);
+  private _tabId = 'tab-' + guidFor(this);
 
   get nodeIndex(): number | undefined {
-    return this.args.tabIds?.indexOf(this.tabId);
+    return this.args.tabIds?.indexOf(this._tabId);
   }
 
   /**

@@ -3,7 +3,7 @@ title: Alert
 description: Displays a brief message without interrupting a user’s task.
 caption: Displays a brief message without interrupting a user’s task.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=1377%3A11987
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67382-70353&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/alert
 related: ['components/modal', 'components/toast']
 previewImage: assets/illustrations/components/alert.jpg
@@ -34,5 +34,6 @@ navigation:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.10.0.md"
 </section>

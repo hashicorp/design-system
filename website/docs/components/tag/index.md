@@ -3,7 +3,7 @@ title: Tag
 description: Used to indicate an object’s categorization.
 caption: Used to indicate an object’s categorization.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=13720%3A34360&t=XC8SUxxJOFHgqYzK-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67200-19755&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/tag
 related: ['components/badge','components/badge-count']
 previewImage: assets/illustrations/components/tag.jpg

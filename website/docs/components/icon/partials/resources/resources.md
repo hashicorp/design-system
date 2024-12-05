@@ -12,7 +12,7 @@ A list of all icons our component supports.
 
 For internal use only, the Figma library of icons that designers can leverage in their designs.
 
-[Go to Figma library](https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0&t=bWFdjHgfV6aLQjep-1)
+[Go to Figma library](https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1)
 
 ### SVG assets
 

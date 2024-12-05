@@ -5,7 +5,7 @@ caption: The foundational blocks of dialog components.
 related: ['components/modal', 'components/flyout']
 previewImage: assets/illustrations/utilities/dialog-primitive.jpg
 links:
-  figma:
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67199-32008&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/addon/components/hds/dialog-primitive
 navigation:
   keywords: ['modal', 'flyout']

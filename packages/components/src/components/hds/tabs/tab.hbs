@@ -8,7 +8,7 @@
     class="hds-tabs__tab-button"
     role="tab"
     type="button"
-    id={{this.tabId}}
+    id={{this._tabId}}
     aria-selected={{if this.isSelected "true" "false"}}
     tabindex={{unless this.isSelected "-1"}}
     {{did-insert this.didInsertNode @isSelected}}

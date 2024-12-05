@@ -3,7 +3,7 @@ title: Code Block
 description: A container for displaying formatted chunks of code with syntax highlighting and related features.
 caption: A container for formatting chunks of code with syntax highlighting.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=44796%3A2786&mode=design&t=pZ5PoxE7Q7U0kDaa-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/code-block
 related: ['components/copy/snippet', 'components/copy/button']
 previewImage: assets/illustrations/components/code-block.jpg
@@ -33,6 +33,7 @@ status:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.13.0.md"
   @include "partials/version-history/4.12.0.md"
   @include "partials/version-history/4.10.0.md"

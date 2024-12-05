@@ -31,14 +31,15 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
   /**
    * Generate a unique ID for the Panel
    * @return {string}
+   * @param _panelId
    */
-  panelId = 'panel-' + guidFor(this);
+  private _panelId = 'panel-' + guidFor(this);
 
-  elementId?: string;
+  private _elementId?: string;
 
   get nodeIndex(): number | undefined {
     return this.args.panelIds
-      ? this.args.panelIds.indexOf(this.panelId)
+      ? this.args.panelIds.indexOf(this._panelId)
       : undefined;
   }
 
@@ -65,8 +66,8 @@ export default class HdsTabsPanel extends Component<HdsTabsPanelSignature> {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
-      this.elementId = element.id;
-      didInsertNode(element, this.elementId);
+      this._elementId = element.id;
+      didInsertNode(element, this._elementId);
     }
   }
 

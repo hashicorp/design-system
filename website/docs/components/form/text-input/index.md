@@ -3,7 +3,7 @@ title: Text Input
 description: A form element that provides users with a way to read, input, or edit data.
 caption: A form element that provides users with a way to read, input, or edit data.
 links:
-  figma: https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?node-id=11530%3A28348&t=pDgL7LJUJXZUN7Xq-3
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-107808&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/text-input
 related: ['components/form/select', 'components/form/textarea', 'components/form/masked-input']
 previewImage: assets/illustrations/components/form/text-input.jpg
@@ -31,5 +31,6 @@ navigation:
 </section>
 
 <section data-tab="Version history">
+  @include "partials/version-history/4.15.0.md"
   @include "partials/version-history/4.7.0.md"
 </section>

@@ -2,13 +2,13 @@ The `Text` component is a **code-only** component used to apply specific predefi
 
 !!! Info
 
-The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192).
+The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
 
 !!!
 
 ## How to use this component
 
-The `Text` component is available in three different variants with a one-to-one association between the namespace (eg. `::Display`) and the [corresponding style in Figma](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=1262-9192&mode=design).
+The `Text` component is available in three different variants with a one-to-one association between the namespace (eg. `::Display`) and the [corresponding style in Figma](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
 
 ```handlebars
 <Hds::Text::Display>Text as "Display" variant</Hds::Text::Display>
@@ -31,6 +31,7 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 !!! Insight
 
 While by default the component renders a `<span>`, we invite consumers to:
+
 - consider which semantic HTML tag is the correct one for the context in which the text is used
 - always set a `@tag` value accordingly, to make the semantic choice explicit
 
@@ -40,9 +41,8 @@ While by default the component renders a `<span>`, we invite consumers to:
 
 To specify which size to apply to the text, use the `@size` argument:
 
-
 ```handlebars
-<Hds::Text::Display @tag="h1" @size="500">Page title with "Display-500" variant </Hds::Text::Display>
+<Hds::Text::Display @tag="h1" @size="500">Page title with "Display-500" variant</Hds::Text::Display>
 <Hds::Text::Body @tag="p" @size="300">Paragraph text with "Body-300" variant-</Hds::Text::Body>
 <Hds::Text::Code @tag="pre" @size="100">Code sample with "Code-100" variant</Hds::Text::Code>
 ```
@@ -55,7 +55,7 @@ To apply a specific font weight to the text, use the `@weight` argument:
 
 ```handlebars
 <Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with "medium" font weight</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight </Hds::Text::Body>
+<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight</Hds::Text::Body>
 <Hds::Text::Code @tag="pre" @weight="bold">Code sample with "bold" font weight</Hds::Text::Code>
 ```
 
@@ -137,4 +137,3 @@ While this is technically possible, it’s not necessarily desirable (or correct
 Please be mindful of how the markup is structured, in terms of HTML semantics (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
 
 !!!
-

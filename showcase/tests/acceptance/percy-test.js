@@ -126,6 +126,7 @@ module('Acceptance | Percy test', function (hooks) {
     await percySnapshot('Modal');
 
     await visit('/components/page-header');
+    await click('button#shw-component-toggle-highlight');
     await percySnapshot('PageHeader');
 
     await visit('/components/pagination');

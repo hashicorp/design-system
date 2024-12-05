@@ -8,8 +8,8 @@
   {{else}}
     {{#if @tooltip}}
       <div class="hds-table__th-content">
-        <span id={{this.labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
-        <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this.labelId}} />
+        <span id={{this._labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>
+        <Hds::Table::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
       </div>
     {{else}}
       <span class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>

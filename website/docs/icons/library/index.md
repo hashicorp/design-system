@@ -4,7 +4,7 @@ layout:
   sidecar: false
 caption: Icons can be used to support and enhance meaning and can help call out information.
 links:
-  figma: https://www.figma.com/file/TLnoT5AYQfy3tZ0H68BgOr/Flight-Icons?node-id=164%3A0
+  figma: https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=uqfJ7Wtjy9AfhBtY-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/icon
 previewImage: assets/illustrations/icons/library.jpg
 navigation:
