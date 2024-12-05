@@ -57,7 +57,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       border-left: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
 
       &:focus {
-        @include hds-focus-ring-with-after-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+        @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
       }
     }
 
@@ -231,7 +231,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     border-left: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
 
     &:focus {
-      @include hds-focus-ring-with-after-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
+      @include hds-focus-ring-with-pseudo-element($top: -1px, $right: -1px, $bottom: -1px, $left: -1px);
     }
 
     // density
