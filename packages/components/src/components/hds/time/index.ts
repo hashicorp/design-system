@@ -25,8 +25,6 @@ export interface HdsTimeSignature {
     isOpen?: boolean;
     hasTooltip?: boolean;
     isoUtcString?: string;
-    didInsertNode: () => void;
-    willDestroyNode: () => void;
   };
   Element: HTMLElement;
 }
@@ -112,6 +110,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   get display(): DisplayType {
     const date = this.date;
     const { display } = this.args;
+
     if (dateIsValid(date)) {
       const nextDiff = this.hdsTime.timeDifference(this.hdsTime.now, date);
       return this.hdsTime.format(nextDiff, display);
@@ -139,6 +138,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
   @action
   willDestroyNode(): void {
     const date = this.date;
+
     if (dateIsValid(date)) {
       this.hdsTime.unregister(date);
     }
