@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-//components
+// components
 import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
@@ -187,11 +187,16 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsTimeComponent from './components/hds/time';
+import type HdsTimeSingleComponent from './components/hds/time/single';
+import type HdsTimeRangeComponent from './components/hds/time/range';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
 import type HdsLinkToModelsHelper from './helpers/hds-link-to-models.ts';
 import type HdsLinkToQueryHelper from './helpers/hds-link-to-query.ts';
+import type HdsFormatDateHelper from './helpers/hds-format-date.ts';
+import type HdsFormatRelativeHelper from './helpers/hds-format-relative.ts';
 
 // modifiers
 import type HdsAnchoredPositionModifier from './modifiers/hds-anchored-position.ts';
@@ -846,6 +851,16 @@ export default interface HdsComponentsRegistry {
   'Hds::Toast': typeof HdsToastComponent;
   'hds/toast': typeof HdsToastComponent;
 
+  // Time
+  'Hds::Time': typeof HdsTimeComponent;
+  'hds/time': typeof HdsTimeComponent;
+
+  'Hds::Time::Single': typeof HdsTimeSingleComponent;
+  'hds/time/single': typeof HdsTimeSingleComponent;
+
+  'Hds::Time::Range': typeof HdsTimeRangeComponent;
+  'hds/time/range': typeof HdsTimeRangeComponent;
+
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;
   'hds/yield': typeof HdsYieldComponent;
@@ -857,6 +872,12 @@ export default interface HdsComponentsRegistry {
 
   // hds-link-to-query
   'hds-link-to-query': typeof HdsLinkToQueryHelper;
+
+  // hds-format-date
+  'hds-format-date': typeof HdsFormatDateHelper;
+
+  // hds-format-relative
+  'hds-format-relative': typeof HdsFormatRelativeHelper;
 
   // ----- MODIFIERS ----------------------------------------------------
 

@@ -64,6 +64,7 @@ Router.map(function () {
     this.route('table');
     this.route('tag');
     this.route('text');
+    this.route('time');
     this.route('toast');
     this.route('tabs');
     this.route('tooltip');

@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+<span class="hds-time hds-time--range" ...attributes>
+  <time datetime={{this.startDateIsoUtcString}}>
+    {{~hds-format-date @startDate this.startDateDisplayFormat~}}
+  </time>
+  –
+  <time datetime={{this.endDateIsoUtcString}}>
+    {{~hds-format-date @endDate this.endDateDisplayFormat~}}
+  </time>
+</span>
