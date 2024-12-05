@@ -27,12 +27,12 @@
           aria-describedby="search-button"
           aria-label="Search"
         >
-          <Hds::Icon @name="search" />
+          <Hds::Icon @name="search" @size="24" />
         </button>
       </li>
       <li class="doc-page-header__nav-item-generic">
         <LinkTo class="doc-page-header__desktop-icon-item" @route="show" @model="about/support" aria-label="Support">
-          <Hds::Icon @name="help" />
+          <Hds::Icon @name="help" @size="24" />
         </LinkTo>
       </li>
       <li class="doc-page-header__nav-item-generic">
@@ -56,7 +56,7 @@
       aria-describedby="search-button"
       aria-label="Search"
     >
-      <Hds::Icon @name="search" />
+      <Hds::Icon @name="search" @size="24" />
     </button>
     <button
       type="button"
@@ -66,9 +66,9 @@
       {{on "click" @onToggleBurgerMenu}}
     >
       {{#if @isSidebarVisibleOnSmallViewport}}
-        <Hds::Icon @name="x" />
+        <Hds::Icon @name="x" @size="24" />
       {{else}}
-        <Hds::Icon @name="menu" />
+        <Hds::Icon @name="menu" @size="24" />
       {{/if}}
     </button>
   </div>
