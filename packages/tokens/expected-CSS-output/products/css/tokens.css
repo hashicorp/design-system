@@ -1,0 +1,15 @@
+:root {
+  --token-color-palette-blue-500: #1c345f;
+  --token-color-palette-blue-400: #0046d1;
+  --token-color-palette-blue-300: #0c56e9;
+  --token-color-palette-blue-200: #1060ff;
+  --token-color-palette-blue-100: #cce3fe;
+  --token-color-palette-blue-50: #f2f8ff;
+  --token-typography-font-stack-display: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-text: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-code: ui-monospace, Menlo, Consolas, monospace;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
+}
