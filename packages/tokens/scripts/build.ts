@@ -24,6 +24,33 @@ const __filename = fileURLToPath(import.meta.url); // Get the file path of the c
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
 
+// CUSTOM PREPROCESSORS
+
+StyleDictionary.registerPreprocessor({
+    name: 'use-default-theme-values',
+    preprocessor: (dictionary, _options) => {
+      // recursively traverse token objects and replace composite theme values with default ("light")
+      function useDefaultThemeValues(slice: DesignToken) {
+        if (slice.themed) {
+            if (slice.value && slice.value.light) {
+                slice.value = slice.value.light;
+                delete slice.themed;
+            } else {
+                console.error('ERROR - Found themed token without `light` value:', JSON.stringify(slice, null, 2));
+            }
+        } else {
+            Object.values(slice).forEach((value) => {
+              if (typeof value === 'object') {
+                useDefaultThemeValues(value);
+              }
+            });
+        }
+        return slice;
+      }
+      return useDefaultThemeValues(dictionary);
+    },
+});
+
 // CUSTOM TRANSFORMS
 
 const transformPxToRem: Transform['transform'] = (token, platform) => {
@@ -158,14 +185,18 @@ const targets: ConfigTargets = {
             // just uncomment the line below to include overrides for "devdot" tokens
             `src/devdot/**/*.json`
         ],
+        // this platform does not support theming (yet)
+        'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'products/web',
-        'platforms': ['web/css-variables']
+        'platforms': ['web/css-variables'],
     },
     'marketing': {
         'source': [
             `src/global/**/*.json`,
             `src/products/shared/**/*.json`,
         ],
+        // this platform does not support theming (yet)
+        'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'marketing/web',
         'platforms': ['web/css-variables', 'json']
     },
@@ -177,6 +208,8 @@ const targets: ConfigTargets = {
             `src/products/shared/color/**/*.json`,
             `src/products/shared/typography.json`,
         ],
+        // this platform does not support theming (yet)
+        'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'products/email',
         'platforms': ['email/sass-variables']
     }
@@ -184,7 +217,7 @@ const targets: ConfigTargets = {
 
 function getStyleDictionaryConfig({ target }: { target: string }): Config {
     // @ts-ignore safe to ignore, since we control the `targets` object, and the `getStyleDictionaryConfig` invocations
-    const { source, transformGroup, platforms } = targets[target];
+    const { source, transformGroup, platforms, preprocessors } = targets[target];
 
     // we need to explicitly initialize the `config` object this way to make TS happy
     const config: Config = {log: { verbosity: 'verbose' }};
@@ -194,6 +227,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes('web/css-variables')) {
         config.platforms['web/css-variables'] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/${target}/css/`,
             "prefix": "token",
             "basePxFontSize": 16,
@@ -213,6 +247,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("docs/json")) {
         config.platforms["docs/json"] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/docs/${target}/`,
             "prefix": "token",
             "basePxFontSize": 16,
@@ -231,6 +266,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("json")) {
         config.platforms["json"] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/${target}/`,
             "prefix": "token",
             "basePxFontSize": 16,
@@ -249,6 +285,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("email/sass-variables")) {
         config.platforms["email/sass-variables"] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/${target}/`,
             "prefix": "token",
             "files": [
