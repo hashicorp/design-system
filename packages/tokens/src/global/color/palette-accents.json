@@ -17,7 +17,11 @@
                 "group": "palette"
             },
             "blue-200": {
-                "value": "#1060ff",
+                "value": {
+                    "light": "#1060ff",
+                    "dark": "#ff0000"
+                },
+                "themed": true,
                 "type": "color",
                 "group": "palette"
             },

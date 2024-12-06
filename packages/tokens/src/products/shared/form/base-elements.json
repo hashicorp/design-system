@@ -2,14 +2,22 @@
   "form": {
     "label": {
       "color": {
-        "value": "{color.foreground.strong.value}",
+        "value": {
+          "light": "{color.palette.neutral-700.value}",
+          "dark": "{color.palette.neutral-0.value}"
+        },
+        "themed": true,
         "type": "color",
         "group": "components"
       }
     },
     "legend": {
       "color": {
-        "value": "{form.label.color.value}",
+        "value": {
+          "light": "{form.label.color.value}",
+          "dark": "{color.palette.neutral-50.value}"
+        },
+        "themed": true,
         "type": "color",
         "group": "components"
       }
