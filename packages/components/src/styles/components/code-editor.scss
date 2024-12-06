@@ -38,7 +38,10 @@
     border-bottom: 1px solid $border-strong;
 
     &-content {
+      display: flex;
+      flex-direction: column;
       flex-grow: 1;
+      gap: 4px;
     }
 
     &-generic-block {
@@ -48,7 +51,7 @@
 
       // if the generic block has children and is not the only child, add padding
       &:not(:only-child):has(*) {
-        padding-top: 12px;
+        padding-top: 8px;
       }
     }
 
