@@ -1,21 +1,32 @@
 {
-    "form": {
-        "control": {
-            "padding": {
-                "value": "7",
-                "type": "size",
-                "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
-            },
-            "border": {
-                "radius": {
-                    "value": "5",
-                    "type": "size"
-                },
-                "width": {
-                    "value": "1",
-                    "type": "size"
-                }
-            }
+  "form": {
+    "control": {
+      "standard-height": {
+        "value": "32",
+        "type": "size",
+        "comment": "Notice: we use this special token for elements that need to match the 'standard' height of an input element (because that height is actually the result of: text line height + vertical padding + border size)."
+
+      },
+      "padding": {
+        "value": "7",
+        "type": "size",
+        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma."
+      },
+      "padding-with-icon": {
+        "value": "31",
+        "type": "size",
+        "comment": "Notice: we have to take in account the border, so it's 1px less than in Figma. We also consider extra 24px for the icon."
+      },
+      "border": {
+        "radius": {
+          "value": "5",
+          "type": "size"
+        },
+        "width": {
+          "value": "1",
+          "type": "size"
         }
+      }
     }
+  }
 }

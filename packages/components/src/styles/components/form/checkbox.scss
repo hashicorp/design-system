@@ -30,7 +30,7 @@
   &:not(:checked, :indeterminate) {
     background-color: var(--token-form-control-base-surface-color-default);
     border-color: var(--token-form-control-base-border-color-default);
-    box-shadow: var(--token-elevation-inset-box-shadow);
+    box-shadow: var(--token-form-control-base-box-shadow-default);
   }
 
   &:checked {
@@ -65,7 +65,7 @@
 
   &:focus,
   &.mock-focus {
-    outline: 3px solid var(--token-color-focus-action-external);
+    outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
     outline-offset: 1px;
   }
 

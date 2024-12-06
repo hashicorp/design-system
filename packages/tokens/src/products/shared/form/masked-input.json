@@ -1,0 +1,18 @@
+{
+  "form": {
+    "masked-input": {
+      "toggle-button": {
+        "size": {
+          "value": "{form.visibility-toggle.size.value}",
+          "type": "size"
+        }
+      },
+      "copy-button": {
+        "margin-right": {
+          "value": "8",
+          "type": "size"
+        }
+      }
+    }
+  }
+}

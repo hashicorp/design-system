@@ -1,66 +1,82 @@
 {
-    "form": {
-        "toggle": {
-            "width": {
-                "value": "32",
-                "type": "size"
-            },
-            "height": {
-                "value": "16",
-                "type": "size"
-            },
-            "base": {
-                "surface-color": {
-                    "default": {
-                        "value": "{color.surface.strong.value}",
-                        "type": "color",
-                        "group": "components",
-                        "comment": "the toggle has a different base surface color, compared to the other controls"
-                    }
-                }
-            },
-            "border": {
-                "radius": {
-                    "value": "3",
-                    "type": "size"
-                },
-                "width": {
-                    "value": "1",
-                    "type": "size"
-                }
-            },
-            "background-image": {
-                "size": {
-                    "value": "12",
-                    "type": "size"
-                },
-                "position-x": {
-                    "value": "2",
-                    "type": "size"
-                },
-                "data-url": {
-                    "value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e\")",
-                    "comment": "notice: the 'tick' color is hardcoded here!"
-                },
-                "data-url-disabled": {
-                    "value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e\")",
-                    "comment": "notice: the 'tick' color is hardcoded here!"
-                }
-            },
-            "transition": {
-                "duration": {
-                    "value": "0.2",
-                    "type": "time",
-                    "unit": "s"
-                },
-                "timing-function": {
-                    "value": "cubic-bezier(0.68, -0.2, 0.265, 1.15)"
-                }
-            },
-            "thumb-size": {
-                "value": "{form.toggle.height.value}",
-                "type": "size"
-            }
+  "form": {
+    "toggle": {
+      "width": {
+        "value": "32",
+        "type": "size"
+      },
+      "height": {
+        "value": "16",
+        "type": "size"
+      },
+      "base": {
+        "surface-color": {
+          "default": {
+            "value": "{color.surface.strong.value}",
+            "type": "color",
+            "group": "components",
+            "comment": "the toggle has a different base surface color, compared to the other controls"
+          }
         }
+      },
+      "border": {
+        "radius": {
+          "value": "3",
+          "type": "size"
+        },
+        "width": {
+          "value": "1",
+          "type": "size"
+        }
+      },
+      "background-image": {
+        "size": {
+          "value": "12",
+          "type": "size"
+        },
+        "position-x": {
+          "value": "2",
+          "type": "size"
+        },
+        "data-url": {
+          "value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e\")",
+          "comment": "notice: the 'tick' color is hardcoded here!"
+        },
+        "data-url-disabled": {
+          "value": "url(\"data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e\")",
+          "comment": "notice: the 'tick' color is hardcoded here!"
+        }
+      },
+      "transition": {
+        "duration": {
+          "value": "0.2",
+          "type": "time",
+          "unit": "s"
+        },
+        "timing-function": {
+          "value": "cubic-bezier(0.68, -0.2, 0.265, 1.15)"
+        }
+      },
+      "thumb": {
+        "size": {
+          "value": "{form.toggle.height.value}",
+          "type": "size"
+        },
+        "border-radius": {
+          "value": "50%",
+          "type": "size"
+        }
+      },
+      "outline": {
+        "width": {
+          "value": "3",
+          "type": "size"
+        },
+        "offset": {
+          "value": "1",
+          "type": "size"
+        }
+      }
     }
+  }
 }

@@ -9,7 +9,7 @@
 
 .hds-form-error {
   display: flex;
-  gap: 8px;
+  gap: var(--token-form-error-gap);
   align-items: flex-start;
   color: var(--token-form-error-color);
 }
@@ -18,7 +18,7 @@
   flex: none;
   width: var(--token-form-error-icon-size);
   height: var(--token-form-error-icon-size);
-  margin: 2px 0 2px 0;
+  margin: var(--token-form-error-icon-margin-vertical) var(--token-form-error-icon-margin-horizontal);
 }
 
 .hds-form-error__content {

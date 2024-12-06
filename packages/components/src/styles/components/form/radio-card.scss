@@ -15,7 +15,7 @@
   }
 
   .hds-form-group__legend {
-    margin-bottom: 12px;
+    margin-bottom: var(--token-form-radiocard-group-legend-margin-bottom);
   }
 
   .hds-form-radio-card {
@@ -40,7 +40,7 @@
   border: var(--token-form-radiocard-border-width) solid
     var(--token-color-border-primary);
   border-radius: var(--token-form-radiocard-border-radius);
-  box-shadow: var(--token-elevation-mid-box-shadow);
+  box-shadow: var(--token-form-radiocard-box-shadow-default);
   cursor: pointer;
 
   // prevent focus on the form control as it is handled at the card level
@@ -52,27 +52,31 @@
 
   &:hover,
   &.mock-hover {
-    box-shadow: var(--token-elevation-high-box-shadow);
+    box-shadow: var(--token-form-radiocard-box-shadow-hover);
     transition: var(--token-form-radiocard-transition-duration);
   }
 
   &:focus-within,
   &.mock-focus {
+    // TODO! What should we do here???
     border-color: var(--token-color-focus-action-internal);
-    box-shadow: 0 0 0 3px var(--token-color-focus-action-external);
+    box-shadow: var(--token-form-radiocard-box-shadow-focus);
   }
 
   &--checked,
   &.mock-checked {
+    // TODO! What should we do here???
     border-color: var(--token-color-palette-blue-300);
 
     .hds-form-radio-card__control-wrapper {
       background-color: var(--token-color-surface-action);
+      // TODO! What should we do here???
       border-color: var(--token-color-border-action);
     }
 
     &:hover,
     &.mock-hover {
+      // TODO! What should we do here???
       border-color: var(--token-color-palette-blue-400);
     }
   }
@@ -80,8 +84,9 @@
   &--disabled,
   &.mock-disabled {
     background-color: var(--token-color-surface-interactive-disabled);
+    // TODO! What should we do here???
     border-color: var(--token-color-border-primary);
-    box-shadow: none;
+    box-shadow: var(--token-form-radiocard-box-shadow-disabled);
     cursor: not-allowed;
 
     .hds-form-radio-card__control-wrapper {

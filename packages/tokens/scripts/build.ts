@@ -50,7 +50,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/rem',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: transformPxToRem
 });
@@ -59,7 +59,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/px',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: function (token) {
         const val = parseFloat(token.value);

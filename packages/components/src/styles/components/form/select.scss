@@ -13,7 +13,7 @@
 .hds-form-select {
   max-width: 100%;
   padding: var(--token-form-control-padding);
-  padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+  padding-right: var(--token-form-control-padding-with-icon);
   color: var(--token-form-control-base-foreground-value-color);
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
@@ -37,9 +37,10 @@
 
   &:focus,
   &.mock-focus {
+    // TODO! What should we do here???
     border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
-    outline-offset: 0;
+    outline: var(--token-form-control-focus-outline-width) solid var(--token-form-control-focus-outline-color);
+    outline-offset: var(--token-form-select-outline-offset);
   }
 
   // DISABLED
@@ -65,14 +66,16 @@
 
     &:focus,
     &.mock-focus {
+      // TODO! What should we do here???
       border-color: var(--token-color-focus-critical-internal);
-      outline-color: var(--token-color-focus-critical-external);
+      outline-color: var(--token-form-control-invalid-outline-color);
     }
   }
 }
 
 // MULTIPLE/SIZE
 
+// TODO! has this ever been fully implemented? (see added showcase example)
 .hds-form-select {
   &[multiple],
   &[size] {
