@@ -15,16 +15,29 @@ const hdsDark = EditorView.theme(
       height: '100%',
     },
     '.cm-content': {
-      padding: '16px',
+      padding: '16px 0',
     },
-    '.cm-gutters': {
+    '.cm-gutter': {
       backgroundColor: BG_COLOR,
       borderRight: '1px solid rgba(178, 182, 189, 40%)',
       color: '#b2b6bd',
-      padding: '0 16px',
     },
     '.cm-lineNumbers': {
       color: '#b2b6bd',
+    },
+    '.cm-lineNumbers .cm-gutterElement': {
+      borderLeft: '4px solid transparent',
+      padding: '0 16px',
+    },
+    '.cm-gutterElement.cm-activeLineGutter': {
+      borderColor: '#1555D4',
+      backgroundColor: 'rgba(0, 74, 222, 0.2)',
+    },
+    '.cm-line': {
+      padding: '0 16px',
+    },
+    '.cm-activeLine': {
+      backgroundColor: 'rgba(0, 74, 222, 0.2)',
     },
   },
   { dark: true }
