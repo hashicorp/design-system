@@ -62,27 +62,27 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     return this.args.title !== undefined || this.args.description !== undefined;
   }
 
-  get hasToolbarAction() {
-    return this.args.hasCopyButton || this.args.canExpand;
+  get hasToolbarAction(): boolean {
+    return (this.args.hasCopyButton || this.args.canExpand) ?? false;
   }
 
   @action
-  registerCodeEditorHeader(element: HTMLElement) {
+  registerCodeEditorHeader(element: HTMLElement): void {
     this.codeEditorHeader = element;
   }
 
   @action
-  registerFullscreenButton(element: HdsButtonSignature['Element']) {
+  registerFullscreenButton(element: HdsButtonSignature['Element']): void {
     this.fullscreenButton = element;
   }
 
   @action
-  toggleFullscreen() {
+  toggleFullscreen(): void {
     this.isFullscreen = !this.isFullscreen;
   }
 
   @action
-  handleKeyDown(event: KeyboardEvent) {
+  handleKeyDown(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       if (this.isFullscreen) {
         this.toggleFullscreen();
