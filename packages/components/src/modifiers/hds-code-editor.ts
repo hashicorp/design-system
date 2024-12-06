@@ -20,7 +20,7 @@ import { json } from '@codemirror/lang-json';
 import { sql } from '@codemirror/lang-sql';
 import { go } from '@codemirror/lang-go';
 import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
-import { syntaxHighlighting } from '@codemirror/language';
+import { bracketMatching, syntaxHighlighting } from '@codemirror/language';
 
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
@@ -103,6 +103,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       highlightActiveLine(),
       hdsDarkTheme,
       keymap.of([...defaultKeymap, ...historyKeymap]),
+      bracketMatching(),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
       EditorView.updateListener.of((update) => {

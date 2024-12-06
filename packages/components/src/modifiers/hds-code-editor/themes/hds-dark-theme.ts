@@ -6,6 +6,7 @@
 import { EditorView } from '@codemirror/view';
 
 const BG_COLOR = '#0d0e12';
+const ACTIVE_LINE_BG_COLOR = 'rgba(0, 74, 222, 0.2)';
 
 const hdsDark = EditorView.theme(
   {
@@ -31,13 +32,16 @@ const hdsDark = EditorView.theme(
     },
     '.cm-gutterElement.cm-activeLineGutter': {
       borderColor: '#1555D4',
-      backgroundColor: 'rgba(0, 74, 222, 0.2)',
+      backgroundColor: ACTIVE_LINE_BG_COLOR,
     },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
-      backgroundColor: 'rgba(0, 74, 222, 0.2)',
+      backgroundColor: ACTIVE_LINE_BG_COLOR,
+    },
+    '.cm-matchingBracket': {
+      outline: '1px solid #BFBFC0',
     },
   },
   { dark: true }
