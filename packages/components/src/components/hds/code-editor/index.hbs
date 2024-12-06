@@ -3,9 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes>
+<div class={{this.classNames}} {{on "keydown" this.handleKeyDown}} ...attributes>
   {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
-    <div class="hds-code-editor__header">
+    <div class="hds-code-editor__header" {{did-insert this.registerCodeEditorHeader}}>
       <div class="hds-code-editor__header-content">
         {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
 
@@ -32,7 +32,8 @@
               @size="small"
               @icon="maximize"
               @text="Fullscreen"
-              {{on "click" (fn (mut this.isFullscreen) (not this.isFullscreen))}}
+              {{did-insert this.registerFullscreenButton}}
+              {{on "click" this.toggleFullscreen}}
             />
           {{/if}}
         </div>
