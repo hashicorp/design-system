@@ -36,7 +36,7 @@ export interface HdsAdvancedTableThSortSignature {
     colspan?: number;
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
   Element: HTMLDivElement;
 }
