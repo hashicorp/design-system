@@ -11,7 +11,7 @@
 @use "../../mixins/focus-ring" as *;
 
 // Note: "theme" contains just color variables and syntax highlighting styles
-@import "theme";
+@use "theme";
 
 // DIMENSIONS
 $hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px

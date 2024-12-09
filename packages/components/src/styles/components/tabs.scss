@@ -9,6 +9,7 @@
 
 $hds-tabs-sizes: ( "medium", "large" );
 
+@use "sass:map";
 @use "../mixins/focus-ring" as *;
 
 
@@ -142,12 +143,12 @@ $hds-tabs-size-props: (
 @each $size in $hds-tabs-sizes {
   .hds-tabs--size-#{$size} {
     .hds-tabs__tab {
-      height: map-get($hds-tabs-size-props, $size, "tab-height");
-      padding: var(--token-tabs-tab-padding-vertical) map-get($hds-tabs-size-props, $size, "tab-padding-horizontal");
+      height: map.get($hds-tabs-size-props, $size, "tab-height");
+      padding: var(--token-tabs-tab-padding-vertical) map.get($hds-tabs-size-props, $size, "tab-padding-horizontal");
     }
   
     .hds-tabs__tab-button {
-      font-size: map-get($hds-tabs-size-props, $size, "tab-font-size");
+      font-size: map.get($hds-tabs-size-props, $size, "tab-font-size");
     }
   }
 }
