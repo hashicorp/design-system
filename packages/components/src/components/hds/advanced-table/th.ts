@@ -36,7 +36,7 @@ export interface HdsAdvancedTableThSignature {
     depth?: number;
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
   Element: HTMLDivElement;
 }

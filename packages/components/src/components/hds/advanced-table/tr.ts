@@ -40,7 +40,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     childRowIds?: string[];
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
   Element: HTMLDivElement;
 }
