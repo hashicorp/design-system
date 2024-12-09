@@ -3759,12 +3759,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/environment-ember-loose@npm:1.4.0":
-  version: 1.4.0
-  resolution: "@glint/environment-ember-loose@npm:1.4.0"
+"@glint/environment-ember-loose@npm:^1.5.0":
+  version: 1.5.0
+  resolution: "@glint/environment-ember-loose@npm:1.5.0"
   peerDependencies:
     "@glimmer/component": ^1.1.2
-    "@glint/template": ^1.4.0
+    "@glint/template": ^1.5.0
     "@types/ember__array": ^4.0.2
     "@types/ember__component": ^4.0.10
     "@types/ember__controller": ^4.0.2
@@ -3787,39 +3787,7 @@ __metadata:
       optional: true
     ember-modifier:
       optional: true
-  checksum: 10/9db14b8b2e948c121782bd3a3d52b2c4dc97be603efcd93bd65e5d16ee5aacdf5959a8f0fb505e5949fef7649c3e94d6782fc3d97e18a737fdba37d7e971419a
-  languageName: node
-  linkType: hard
-
-"@glint/environment-ember-loose@patch:@glint/environment-ember-loose@npm%3A1.4.0#~/.yarn/patches/@glint-environment-ember-loose-npm-1.4.0-31c2f31bcb.patch":
-  version: 1.4.0
-  resolution: "@glint/environment-ember-loose@patch:@glint/environment-ember-loose@npm%3A1.4.0#~/.yarn/patches/@glint-environment-ember-loose-npm-1.4.0-31c2f31bcb.patch::version=1.4.0&hash=023960"
-  peerDependencies:
-    "@glimmer/component": ^1.1.2
-    "@glint/template": ^1.4.0
-    "@types/ember__array": ^4.0.2
-    "@types/ember__component": ^4.0.10
-    "@types/ember__controller": ^4.0.2
-    "@types/ember__object": ^4.0.4
-    "@types/ember__routing": ^4.0.11
-    ember-cli-htmlbars: ^6.0.1
-    ember-modifier: ^3.2.7 || ^4.0.0
-  peerDependenciesMeta:
-    "@types/ember__array":
-      optional: true
-    "@types/ember__component":
-      optional: true
-    "@types/ember__controller":
-      optional: true
-    "@types/ember__object":
-      optional: true
-    "@types/ember__routing":
-      optional: true
-    ember-cli-htmlbars:
-      optional: true
-    ember-modifier:
-      optional: true
-  checksum: 10/025b200db337ee0353f70e7561a792250ccd530ace9916336faaaafa10670cb05828e613d94b6c5015276bf135148a730bf9d2e416bcd5380804f0ae22d55325
+  checksum: 10/60e3face27c265e774197104cc7061af0833cc1b165fd5abc60093698953a605c8cb56c83c208e647e3826bdca9fffddc2c0e88452970748f96748a201b06994
   languageName: node
   linkType: hard
 
@@ -3906,7 +3874,7 @@ __metadata:
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.4.0"
-    "@glint/environment-ember-loose": "npm:^1.4.0"
+    "@glint/environment-ember-loose": "npm:^1.5.0"
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-tokens": "npm:^2.2.1"
     "@hashicorp/flight-icons": "npm:^3.7.0"
@@ -4017,7 +3985,7 @@ __metadata:
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.2.1"
-    "@glint/environment-ember-loose": "npm:^1.2.1"
+    "@glint/environment-ember-loose": "npm:^1.5.0"
     "@glint/environment-ember-template-imports": "npm:^1.2.1"
     "@glint/template": "npm:^1.2.1"
     "@hashicorp/flight-icons": "npm:^3.7.0"
@@ -24081,7 +24049,7 @@ __metadata:
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.4.0"
-    "@glint/environment-ember-loose": "npm:^1.4.0"
+    "@glint/environment-ember-loose": "npm:^1.5.0"
     "@glint/environment-ember-template-imports": "npm:^1.4.0"
     "@glint/template": "npm:^1.4.0"
     "@hashicorp/design-system-components": "workspace:^"

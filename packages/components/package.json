@@ -73,7 +73,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.4.0",
-    "@glint/environment-ember-loose": "^1.4.0",
+    "@glint/environment-ember-loose": "^1.5.0",
     "@glint/template": "^1.4.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.8",
