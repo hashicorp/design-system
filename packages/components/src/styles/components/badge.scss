@@ -7,6 +7,8 @@
 // BADGE COMPONENT
 //
 
+@use "sass:map";
+
 $hds-badge-types: ( "flat","inverted","outlined" );
 $hds-badge-colors-accents: ( "highlight", "success", "warning", "critical" );
 $hds-badge-sizes: ( "small", "medium", "large" );
@@ -87,18 +89,18 @@ $hds-badge-size-props: (
 
 @each $size in $hds-badge-sizes {
   .hds-badge--size-#{$size} {
-    gap: map-get($hds-badge-size-props, $size, "gap");
-    min-height: map-get($hds-badge-size-props, $size, "height");
-    padding: calc(#{map-get($hds-badge-size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map-get($hds-badge-size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
+    gap: map.get($hds-badge-size-props, $size, "gap");
+    min-height: map.get($hds-badge-size-props, $size, "height");
+    padding: calc(#{map.get($hds-badge-size-props, $size, "padding-vertical")} - #{$hds-badge-border-width}) calc(#{map.get($hds-badge-size-props, $size, "padding-horizontal")} - #{$hds-badge-border-width});
 
     .hds-badge__icon {
-      width: map-get($hds-badge-size-props, $size, "icon-size");
-      height: map-get($hds-badge-size-props, $size, "icon-size");
+      width: map.get($hds-badge-size-props, $size, "icon-size");
+      height: map.get($hds-badge-size-props, $size, "icon-size");
     }
 
     .hds-badge__text {
-      font-size: map-get($hds-badge-size-props, $size, "font-size");
-      line-height: map-get($hds-badge-size-props, $size, "line-height");
+      font-size: map.get($hds-badge-size-props, $size, "font-size");
+      line-height: map.get($hds-badge-size-props, $size, "line-height");
     }
   }
 }
@@ -151,13 +153,13 @@ $hds-badge-size-props: (
 
     &.hds-badge--type-inverted {
       color: var(--token-color-foreground-high-contrast);
-      background-color: map-get($hds-badge-colors-props, $color, "inverted-background-color");
+      background-color: map.get($hds-badge-colors-props, $color, "inverted-background-color");
     }
 
     &.hds-badge--type-outlined {
       color: var(--token-color-foreground-#{$color});
       background-color: transparent;
-      border-color: map-get($hds-badge-colors-props, $color, "outlined-border-color");
+      border-color: map.get($hds-badge-colors-props, $color, "outlined-border-color");
     }
   }
 }

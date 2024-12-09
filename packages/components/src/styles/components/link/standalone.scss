@@ -9,6 +9,7 @@
 // notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
 //
 
+@use "sass:map";
 @use "../../mixins/focus-ring" as *;
 
 $hds-link-standalone-sizes: ( "small", "medium", "large" );
@@ -67,13 +68,13 @@ $hds-link-standalone-size-props: (
 @each $size in $hds-link-standalone-sizes {
   .hds-link-standalone--size-#{$size} {
     .hds-link-standalone__icon {
-      width: map-get($hds-link-standalone-size-props, $size, "icon-size");
-      height: map-get($hds-link-standalone-size-props, $size, "icon-size");
+      width: map.get($hds-link-standalone-size-props, $size, "icon-size");
+      height: map.get($hds-link-standalone-size-props, $size, "icon-size");
     }
 
     .hds-link-standalone__text {
-      font-size: map-get($hds-link-standalone-size-props, $size, "font-size");
-      line-height: map-get($hds-link-standalone-size-props, $size, "line-height");
+      font-size: map.get($hds-link-standalone-size-props, $size, "font-size");
+      line-height: map.get($hds-link-standalone-size-props, $size, "line-height");
     }
   }
 }

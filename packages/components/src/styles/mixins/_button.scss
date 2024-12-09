@@ -3,6 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+@use "sass:map";
+
 $hds-button-sizes: ( "small", "medium", "large" );
 $hds-button-border-radius: 5px;
 $hds-button-border-width: 1px;
@@ -273,24 +275,24 @@ $hds-button-size-props: (
 @mixin hds-button-size-classes($blockName) {
   @each $size in $hds-button-sizes {
     .#{$blockName}--size-#{$size} {
-      min-height: map-get($hds-button-size-props, $size, "min-height");
-      padding: map-get($hds-button-size-props, $size, "padding-vertical") map-get($hds-button-size-props, $size, "padding-horizontal");
+      min-height: map.get($hds-button-size-props, $size, "min-height");
+      padding: map.get($hds-button-size-props, $size, "padding-vertical") map.get($hds-button-size-props, $size, "padding-horizontal");
 
       .#{$blockName}__icon {
-        width: map-get($hds-button-size-props, $size, "icon-size");
-        height: map-get($hds-button-size-props, $size, "icon-size");
+        width: map.get($hds-button-size-props, $size, "icon-size");
+        height: map.get($hds-button-size-props, $size, "icon-size");
       }
 
       .#{$blockName}__text {
-        font-size: map-get($hds-button-size-props, $size, "font-size");
-        line-height: map-get($hds-button-size-props, $size, "line-height");
+        font-size: map.get($hds-button-size-props, $size, "font-size");
+        line-height: map.get($hds-button-size-props, $size, "line-height");
       }
 
       &.#{$blockName}--is-icon-only {
         // overrides to have the icon-only button squared
-        min-width: map-get($hds-button-size-props, $size, "min-height");
-        padding-right: map-get($hds-button-size-props, $size, "padding-vertical");
-        padding-left: map-get($hds-button-size-props, $size, "padding-vertical");
+        min-width: map.get($hds-button-size-props, $size, "min-height");
+        padding-right: map.get($hds-button-size-props, $size, "padding-vertical");
+        padding-left: map.get($hds-button-size-props, $size, "padding-vertical");
       }
     }
   }

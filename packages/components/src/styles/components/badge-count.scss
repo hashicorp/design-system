@@ -8,6 +8,7 @@
 //
 
 @use "sass:math";
+@use "sass:map";
 
 $hds-badge-count-types: ( "flat","inverted","outlined" );
 $hds-badge-count-sizes: ( "small", "medium", "large" );
@@ -52,11 +53,11 @@ $hds-badge-count-size-props: (
 
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
-    min-height: map-get($hds-badge-count-size-props, $size, "height");
-    padding: calc(#{map-get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map-get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
-    font-size: map-get($hds-badge-count-size-props, $size, "font-size");
-    line-height: map-get($hds-badge-count-size-props, $size, "line-height");
-    border-radius: math.div(map-get($hds-badge-count-size-props, $size, "height"), 2);
+    min-height: map.get($hds-badge-count-size-props, $size, "height");
+    padding: calc(#{map.get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map.get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
+    font-size: map.get($hds-badge-count-size-props, $size, "font-size");
+    line-height: map.get($hds-badge-count-size-props, $size, "line-height");
+    border-radius: math.div(map.get($hds-badge-count-size-props, $size, "height"), 2);
   }
 }
 
