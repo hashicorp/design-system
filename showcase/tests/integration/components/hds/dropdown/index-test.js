@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -172,8 +172,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     assert.dom('.hds-dropdown__content').hasStyle({ width: '248px' });
   });
 
-  // flaky erroring with 'ResizeObserver loop completed with undelivered notifications.'
-  skip('it should render the content with the same width as the ToggleButton if @matchToggleWidth is set', async function (assert) {
+  test('it should render the content with the same width as the ToggleButton if @matchToggleWidth is set', async function (assert) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" @matchToggleWidth={{true}} as |D|>
         <D.ToggleButton {{style width="200px"}} @text="toggle button" id="test-toggle-button" />
