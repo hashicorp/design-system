@@ -3737,7 +3737,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/core@npm:^1.2.1, @glint/core@npm:^1.4.0":
+"@glint/core@npm:^1.5.0":
   version: 1.5.0
   resolution: "@glint/core@npm:1.5.0"
   dependencies:
@@ -3816,7 +3816,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/template@npm:^1.2.1, @glint/template@npm:^1.4.0":
+"@glint/template@npm:^1.5.0":
   version: 1.5.0
   resolution: "@glint/template@npm:1.5.0"
   checksum: 10/c8ce99ee395b7b271864d724f23c626ec5947a2392237b057a58c1e4aefc9b88204e57eac18739587ab9dd013f2b3904b701cf751f0394a5aa9086f048d97d78
@@ -3873,9 +3873,9 @@ __metadata:
     "@floating-ui/dom": "npm:^1.6.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.4.0"
+    "@glint/core": "npm:^1.5.0"
     "@glint/environment-ember-loose": "npm:^1.5.0"
-    "@glint/template": "npm:^1.4.0"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/design-system-tokens": "npm:^2.2.1"
     "@hashicorp/flight-icons": "npm:^3.7.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
@@ -3984,10 +3984,10 @@ __metadata:
     "@embroider/addon-shim": "npm:^1.8.7"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.2.1"
+    "@glint/core": "npm:^1.5.0"
     "@glint/environment-ember-loose": "npm:^1.5.0"
     "@glint/environment-ember-template-imports": "npm:^1.2.1"
-    "@glint/template": "npm:^1.2.1"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/flight-icons": "npm:^3.7.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.6"
@@ -24048,10 +24048,10 @@ __metadata:
     "@embroider/test-setup": "npm:^3.0.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.4.0"
+    "@glint/core": "npm:^1.5.0"
     "@glint/environment-ember-loose": "npm:^1.5.0"
     "@glint/environment-ember-template-imports": "npm:^1.4.0"
-    "@glint/template": "npm:^1.4.0"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
     "@percy/cli": "npm:^1.28.8"
