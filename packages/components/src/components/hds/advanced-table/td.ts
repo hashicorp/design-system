@@ -23,7 +23,7 @@ export interface HdsAdvancedTableTdSignature {
     colspan?: number;
   };
   Blocks: {
-    default: [];
+    default?: [];
   };
   Element: HTMLDivElement;
 }
