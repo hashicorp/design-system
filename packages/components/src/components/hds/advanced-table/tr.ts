@@ -60,8 +60,6 @@ export type HdsAdvancedTableTrSignature =
   | BaseHdsAdvancedTableTrSignature
   | SelectableHdsAdvancedTableTrArgs;
 export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSignature> {
-  rowId = guidFor(this);
-
   get selectionKey(): string | undefined {
     if (this.args.isSelectable && this.args.selectionScope === 'row') {
       assert(
