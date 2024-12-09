@@ -3080,7 +3080,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.6.3":
+"@floating-ui/dom@npm:^1.6.12":
   version: 1.6.12
   resolution: "@floating-ui/dom@npm:1.6.12"
   dependencies:
@@ -3902,7 +3902,7 @@ __metadata:
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/addon-dev": "npm:^4.3.1"
     "@embroider/addon-shim": "npm:^1.8.7"
-    "@floating-ui/dom": "npm:^1.6.3"
+    "@floating-ui/dom": "npm:^1.6.12"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.4.0"
