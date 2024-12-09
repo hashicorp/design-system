@@ -1,0 +1,153 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// TABS
+//
+
+$hds-tabs-sizes: ( "medium", "large" );
+
+@use "../mixins/focus-ring" as *;
+
+
+// Sub-components:
+.hds-tabs__tablist-wrapper {
+  position: relative;
+
+  // bottom gray border:
+  &::before {
+    position: absolute;
+    right: 0;
+    bottom: calc((var(--token-tabs-indicator-height) - var(--token-tabs-divider-height)) / 2);
+    left: 0;
+    display: block;
+    border-top: var(--token-tabs-divider-height) solid var(--token-color-border-primary);
+    content: "";
+  }
+}
+
+.hds-tabs__tablist {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  isolation: isolate;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hds-tabs__tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  color: var(--token-color-foreground-primary);
+  white-space: nowrap;
+  text-decoration: none;
+  list-style: none;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action);
+  }
+
+  &.hds-tabs__tab--is-selected {
+    color: var(--token-color-foreground-action);
+
+    &:hover {
+      color: var(--token-color-foreground-action-hover);
+
+      & ~ .hds-tabs__tab-indicator {
+        background: var(--token-color-foreground-action-hover);
+      }
+    }
+  }
+}
+
+.hds-tabs__tab-button {
+  @include hds-focus-ring-with-pseudo-element(
+    $top: var(--token-tabs-tab-focus-inset),
+    $right: var(--token-tabs-tab-focus-inset),
+    $bottom: var(--token-tabs-tab-focus-inset),
+    $left: var(--token-tabs-tab-focus-inset),
+  );
+  position: static;
+  display: flex;
+  gap: var(--token-tabs-tab-gutter);
+  align-items: center;
+  padding: 0;
+  color: inherit;
+  font-weight: var(--token-typography-font-weight-medium);
+  font-family: var(--token-typography-body-200-font-family);
+  background-color: transparent;
+  border: none;
+  border-radius: var(--token-tabs-tab-border-radius);
+  cursor: pointer;
+
+  // Expand click target area
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+  }
+}
+
+.hds-tabs__tab-indicator {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  // notice: this custom prop is set dynamically via JavaScript
+  left: var(--indicator-left-pos, 0);
+  z-index: 1;
+  display: block;
+  // notice: this custom prop is set dynamically via JavaScript
+  width: var(--indicator-width, 0);
+  height: var(--token-tabs-indicator-height);
+  background-color: var(--token-color-foreground-action);
+  border-radius: var(--token-tabs-indicator-height);
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    transition-timing-function: var(--token-tabs-indicator-transition-function);
+    transition-duration: var(--token-tabs-indicator-transition-duration);
+    transition-property: left, width;
+  }
+}
+
+// Prevent consumers from accidentally overriding default styling of HTML “hidden” attribute
+.hds-tabs__panel[hidden] {
+  display: none;
+}
+
+
+// Variants:
+
+// Size
+// medium = default
+
+$hds-tabs-size-props: (
+  "medium": (
+    "tab-height": var(--token-tabs-tab-height-medium),
+    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-medium),
+    "tab-font-size": var(--token-typography-body-200-font-size)
+  ),
+  "large": (
+    "tab-height": var(--token-tabs-tab-height-large),
+    "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-large),
+    "tab-font-size": var(--token-typography-body-300-font-size)
+  )
+);
+
+@each $size in $hds-tabs-sizes {
+  .hds-tabs--size-#{$size} {
+    .hds-tabs__tab {
+      height: map-get($hds-tabs-size-props, $size, "tab-height");
+      padding: var(--token-tabs-tab-padding-vertical) map-get($hds-tabs-size-props, $size, "tab-padding-horizontal");
+    }
+  
+    .hds-tabs__tab-button {
+      font-size: map-get($hds-tabs-size-props, $size, "tab-font-size");
+    }
+  }
+}

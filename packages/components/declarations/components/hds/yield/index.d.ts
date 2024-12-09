@@ -1,0 +1,12 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+export interface HdsYieldSignature {
+    Blocks: {
+        default: [];
+    };
+}
+declare const HdsYield: import("@ember/component/template-only").TemplateOnlyComponent<HdsYieldSignature>;
+export default HdsYield;
+//# sourceMappingURL=index.d.ts.map

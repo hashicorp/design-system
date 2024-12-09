@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APP-SIDE-NAV - VARS
+//
+
+
+// LOCAL VARIABLES
+// we use `hds-app` as prefix to distinguish them from the normal tokens
+// notice: they may be overwritten at consumer-level side if needed by re-defining the variables in a container element
+
+:root {
+  // breakpoint
+  --hds-app-desktop-breakpoint: 1088px; // this is used only to read its value via JS and set the `hds-app-side-nav--is-desktop` class
+  // widths
+  --hds-app-side-nav-width-minimized: 16px;
+  --hds-app-side-nav-width-expanded: 280px;
+  --hds-app-side-nav-width-fixed: var(--hds-app-sidenav-width-expanded);
+  // animation
+  --hds-app-side-nav-animation-duration: 200ms;
+  --hds-app-side-nav-animation-delay: var(--hds-app-sidenav-animation-duration);
+  --hds-app-side-nav-animation-easing: cubic-bezier(0.65, 0, 0.35, 1);
+  // toggle-button
+  --hds-app-side-nav-toggle-button-width: 24px;
+}
+
+// reduced motion
+
+@media (prefers-reduced-motion) {
+  :root {
+    --hds-app-side-nav-animation-duration: 0;
+  }
+}
