@@ -89,14 +89,14 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       hbs`<Hds::AdvancedTable::Tr
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
-  @selectionScope='test-selectionscope'
+  @selectionScope='row'
 />`
     );
     assert
       .dom(
         '#data-test-advanced-table-tr > .hds-advanced-table__th--is-selectable'
       )
-      .hasAttribute('scope', 'test-selectionscope');
+      .hasAttribute('role', 'rowheader');
   });
 
   test('it should invoke the `onSelectionChange` callback when the checkbox is selected', async function (assert) {
