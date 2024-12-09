@@ -1,0 +1,59 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes extra space around the time element - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
+{{~#let this.display as |display|~}}
+  {{~#if this.isValidDate~}}
+    {{~#if this.hasTooltip~}}
+      <Hds::TooltipButton
+        class="hds-time-wrapper"
+        @text={{if
+          display.options.tooltipFormat
+          (hds-format-date this.date display.options.tooltipFormat)
+          this.isoUtcString
+        }}
+        @placement="bottom"
+        @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+      >
+        <Hds::Time::Single
+          @date={{this.date}}
+          @isoUtcString={{this.isoUtcString}}
+          @display={{this.display}}
+          @register={{this.didInsertNode}}
+          @unregister={{this.willDestroyNode}}
+          ...attributes
+        />
+      </Hds::TooltipButton>
+    {{~else~}}
+      <Hds::Time::Single
+        @date={{this.date}}
+        @isoUtcString={{this.isoUtcString}}
+        @display={{this.display}}
+        @register={{this.didInsertNode}}
+        @unregister={{this.willDestroyNode}}
+        ...attributes
+      />
+    {{~/if~}}
+  {{~else if this.isValidDateRange~}}
+    {{~#if this.hasTooltip~}}
+      <Hds::TooltipButton
+        class="hds-time-wrapper"
+        @text={{if
+          display.options.tooltipFormat
+          (concat
+            (hds-format-date this.startDate display.options.tooltipFormat)
+            (hds-format-date this.endDate display.options.tooltipFormat)
+          )
+          this.rangeIsoUtcString
+        }}
+        @placement="bottom"
+        @extraTippyOptions={{hash showOnCreate=this.isOpen}}
+      >
+        <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
+      </Hds::TooltipButton>
+    {{~else~}}
+      <Hds::Time::Range @startDate={{this.startDate}} @endDate={{this.endDate}} ...attributes />
+    {{~/if~}}
+  {{~/if~}}
+{{~/let~}}

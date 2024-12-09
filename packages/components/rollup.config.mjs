@@ -27,11 +27,14 @@ const plugins = [
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
   // not everything in publicEntrypoints necessarily needs to go here.
-  addon.appReexports([
-    'components/**/!(*types).js',
-    'helpers/**/*.js',
-    'modifiers/**/*.js',
-    'instance-initializers/**/*.js'],
+  addon.appReexports(
+    [
+      'components/**/!(*types).js',
+      'helpers/**/*.js',
+      'modifiers/**/*.js',
+      'services/**/!(*types).js',
+      'instance-initializers/**/*.js',
+    ],
     {
       exclude: [
         'components/**/app-header/**/*.js',
