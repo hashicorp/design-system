@@ -18,7 +18,6 @@ export interface HdsAdvancedTableThButtonExpandSignature {
 }
 
 export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvancedTableThButtonExpandSignature> {
-  // @tracked isExpanded = false;
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = 'prefix-' + guidFor(this);
 
@@ -31,7 +30,6 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   }
 
   @action onClick() {
-    // this.isExpanded = !this.isExpanded;
     if (this.args.onToggle) {
       this.args.onToggle();
     }
