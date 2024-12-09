@@ -7,6 +7,16 @@
 import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
+import type HdsAdvancedTableComponent from './components/hds/advanced-table';
+import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
+import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
+import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
+import type HdsAdvancedTableThComponent from './components/hds/advanced-table/th';
+import type HdsAdvancedTableThButtonTooltipComponent from './components/hds/advanced-table/th-button-tooltip';
+import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
+import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
+import type HdsAdvancedTableTrExpandableGroupComponent from './components/hds/advanced-table/tr-expandable-group.ts';
+import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
 import type HdsAlertTitleComponent from './components/hds/alert/title';
@@ -216,6 +226,28 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Accordion::Item::Button': typeof HdsAccordionItemButtonComponent;
   'hds/accordion/item/button': typeof HdsAccordionItemButtonComponent;
+
+  // Advanced Table
+  'Hds::AdvancedTable': typeof HdsAdvancedTableComponent;
+  'hds/advanced-table': typeof HdsAdvancedTableComponent;
+  'Hds::AdvancedTable::Td': typeof HdsAdvancedTableTdComponent;
+  'hds/advanced-table/td': typeof HdsAdvancedTableTdComponent;
+  'Hds::AdvancedTable::Th': typeof HdsAdvancedTableThComponent;
+  'hds/advanced-table/th': typeof HdsAdvancedTableThComponent;
+  'Hds::AdvancedTable::TrExpandableGroup': typeof HdsAdvancedTableTrExpandableGroupComponent;
+  'hds/advanced-table/tr-expandable-group': typeof HdsAdvancedTableTrExpandableGroupComponent;
+  'Hds::AdvancedTable::Tr': typeof HdsAdvancedTableTrComponent;
+  'hds/advanced-table/tr': typeof HdsAdvancedTableTrComponent;
+  'Hds::AdvancedTable::ThButtonExpand': typeof HdsAdvancedTableThButtonExpandComponent;
+  'hds/advanced-table/th-button-expand': typeof HdsAdvancedTableThButtonExpandComponent;
+  'Hds::AdvancedTable::ThButtonSort': typeof HdsAdvancedTableThButtonSortComponent;
+  'hds/advanced-table/th-button-sort': typeof HdsAdvancedTableThButtonSortComponent;
+  'Hds::AdvancedTable::ThButtonTooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
+  'hds/advanced-table/th-button-tooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
+  'Hds::AdvancedTable::ThSort': typeof HdsAdvancedTableThSortComponent;
+  'hds/advanced-table/th-sort': typeof HdsAdvancedTableThSortComponent;
+  'Hds::AdvancedTable::ThSelectable': typeof HdsAdvancedTableThSelectableComponent;
+  'hds/advanced-table/th-selectable': typeof HdsAdvancedTableThSelectableComponent;
 
   // Alert
   'Hds::Alert': typeof HdsAlertComponent;

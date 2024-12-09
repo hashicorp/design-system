@@ -1,0 +1,15 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<button
+  type="button"
+  class={{this.classNames}}
+  {{hds-tooltip this.tooltip}}
+  aria-labelledby="{{this.prefixLabelId}} {{@labelId}}"
+  ...attributes
+>
+  <span id={{this.prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">More information for</span>
+  <Hds::Icon @name="info" />
+</button>
