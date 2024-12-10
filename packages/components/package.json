@@ -84,7 +84,6 @@
     "@glint/template": "^1.4.0",
     "@rollup/plugin-babel": "^6.0.4",
     "@tsconfig/ember": "^3.0.8",
-    "@types/codemirror": "^5.60.15",
     "@types/ember-qunit": "^6.1.1",
     "@types/ember-resolver": "^9.0.0",
     "@types/ember__destroyable": "^4.0.5",
