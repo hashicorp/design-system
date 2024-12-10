@@ -147,7 +147,8 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
     'products': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`
         ],
         'transformGroup': 'products/web',
@@ -155,7 +156,8 @@ const targets: ConfigTargets = {
     },
     'devdot': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`,
             // just uncomment the line below to include overrides for "devdot" tokens
             `src/devdot/**/*.json`
@@ -165,7 +167,8 @@ const targets: ConfigTargets = {
     },
     'marketing': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`,
         ],
         'transformGroup': 'marketing/web',
@@ -175,7 +178,8 @@ const targets: ConfigTargets = {
     'cloud-email': {
         // we need only foundational tokens (colors, typography, etc)
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/color/**/*.json`,
             `src/products/shared/typography.json`,
         ],
