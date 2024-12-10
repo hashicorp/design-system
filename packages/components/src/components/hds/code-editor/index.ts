@@ -42,7 +42,9 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked setupError: Error | null = null;
 
   get classNames(): string {
-    const classes = ['hds-code-editor'];
+    // Currently there is only one theme so the class name is hard-coded.
+    // In the future, additional themes such as a "light" theme could be added.
+    const classes = ['hds-code-editor', 'hds-code-editor--theme-dark'];
 
     if (this.isFullscreen) {
       classes.push('hds-code-editor--is-fullscreen');

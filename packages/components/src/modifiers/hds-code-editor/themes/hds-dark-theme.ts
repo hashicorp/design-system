@@ -33,12 +33,14 @@ const hdsDark = EditorView.theme(
     '.cm-gutterElement.cm-activeLineGutter': {
       borderColor: '#1555D4',
       backgroundColor: ACTIVE_LINE_BG_COLOR,
+      outline: '1px solid #1555D4',
     },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
       backgroundColor: ACTIVE_LINE_BG_COLOR,
+      outline: '1px solid #1555D4',
     },
     '.cm-matchingBracket': {
       outline: '1px solid #BFBFC0',
