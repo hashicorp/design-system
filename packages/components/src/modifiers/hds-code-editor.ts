@@ -11,7 +11,7 @@ import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
-import type { EditorView } from '@codemirror/view';
+import type { EditorView, ViewUpdate } from '@codemirror/view';
 import type {
   HdsCodeEditorLanguages,
   CodemirrorGoModule,
@@ -27,6 +27,7 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: (editor: EditorView, event: FocusEvent) => void;
+      onSetup?: (editor: EditorView) => unknown;
     };
   };
 }
@@ -48,9 +49,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     },
     { rootMargin: '0px', threshold: 1.0 }
   );
-  onInput!: HdsCodeEditorSignature['Args']['Named']['onInput'];
-
-  onBlur!: HdsCodeEditorSignature['Args']['Named']['onBlur'];
+  onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
   modify(
     element: HTMLElement,
@@ -95,7 +94,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     _positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
-    const { onInput, onBlur, language, value } = named;
+    const { onInput, onBlur, onSetup, language, value } = named;
 
     const [
       {
@@ -118,7 +117,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     ]);
 
     this.onInput = onInput;
-    this.onBlur = onBlur;
 
     const languageExtension = yield this.loadLanguageTask.perform(language);
 
@@ -133,16 +131,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       bracketMatching(),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
-      EditorView.updateListener.of(
-        (update: {
-          docChanged: unknown;
-          state: { doc: { toString: () => string } };
-        }) => {
-          if (update.docChanged && this.onInput) {
-            this.onInput(update.state.doc.toString());
-          }
+      EditorView.updateListener.of((update: ViewUpdate) => {
+        if (!update.docChanged || this.onInput === undefined) {
+          return;
         }
-      ),
+
+        this.onInput(update.state.doc.toString());
+      }),
     ];
 
     if (languageExtension !== undefined) {
@@ -158,5 +153,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
     this.editor = editor;
     this.element = element;
+
+    onSetup?.(editor);
   }
 }
