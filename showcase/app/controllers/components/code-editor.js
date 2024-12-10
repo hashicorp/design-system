@@ -22,15 +22,6 @@ func main() {
 }`
     },
     {
-      value: 'javascript',
-      label: 'JavaScript',
-      code: `function greet() {
-    console.log('Hello, world!');
-}
-
-greet();`
-    },
-    {
       value: 'json',
       label: 'JSON',
       code: `{
