@@ -1,0 +1,22 @@
+{
+  "border": {
+    "radius": {
+      "x-small": {
+        "value": "3",
+        "type": "size"
+      },
+      "small": {
+        "value": "5",
+        "type": "size"
+      },
+      "medium": {
+        "value": "6",
+        "type": "size"
+      },
+      "large": {
+        "value": "8",
+        "type": "size"
+      }
+    }
+  }
+}
