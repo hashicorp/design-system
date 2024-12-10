@@ -38,12 +38,18 @@ export interface HdsCodeEditorSignature {
 
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked isFullscreen = false;
+  @tracked isSetupComplete = false;
+  @tracked setupError: Error | null = null;
 
   get classNames(): string {
     const classes = ['hds-code-editor'];
 
     if (this.isFullscreen) {
       classes.push('hds-code-editor--is-fullscreen');
+    }
+
+    if (!this.isSetupComplete) {
+      classes.push('hds-code-editor--is-loading');
     }
 
     return classes.join(' ');
