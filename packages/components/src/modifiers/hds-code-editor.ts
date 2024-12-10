@@ -38,6 +38,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
+  observer!: IntersectionObserver;
+
+  get isSetupComplete() {
+    return;
+  }
+
   modify(
     element: HTMLElement,
     positional: PositionalArgs<HdsCodeEditorSignature>,
@@ -45,7 +51,19 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ): void {
     assert('HdsCodeEditor must have an element', element);
 
-    this.setupTask.perform(element, positional, named);
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && this.setupTask.performCount === 0) {
+          this.setupTask.perform(element, positional, named);
+        }
+      });
+    });
+
+    this.observer.observe(element);
+  }
+
+  willRemove() {
+    this.observer.disconnect();
   }
 
   @dropTask *loadLanguageTask(language?: HdsCodeEditorLanguages) {
