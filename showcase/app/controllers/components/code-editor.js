@@ -9,7 +9,10 @@ import { tracked } from '@glimmer/tracking';
 export default class CodeEditorController extends Controller {
   @tracked showCodeEditor = false;
 
-  demoCode = `console.log('Hello, world!');`;
+  demoCode = `lorem ipsum dolor sit amet
+consectetur adipiscing elit
+sed do eiusmod tempor incididunt
+ut labore et dolore magna aliqua`;
 
   languages = [
     {
