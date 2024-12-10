@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.2.2
+
+**Patch changes**
+
+Upgraded `style-dictionary` to `4.2.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2560](https://github.com/hashicorp/design-system/pull/2560)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.1
 
 **Patch changes**
@@ -192,18 +202,6 @@ Added design tokens for indeterminate `Checkbox`
 **Patch changes**
 
 - [#555](https://github.com/hashicorp/design-system/pull/555) [`0b245333`](https://github.com/hashicorp/design-system/commit/0b24533369ccc2d02aa5c6c8b8ba4f722e07d236) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `code-200` and `code-300` typographic styles
-
-## 1.0.0
-
-**Major changes**
-
-This release signifies the first major release of the HashiCorp Design System. Moving forward we expect to respect [SemVer](https://semver.org/) as we make additional changes to the design system.
-
-**Note:** Even though this is a major version bump, there should not be any breaking changes from the last minor releases.
-
-**Minor changes**
-
-- added specific design tokens for the `form controls` components
 
 
 ---
