@@ -76,6 +76,7 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     const { depth } = this.args;
     if (depth) {
       classes.push(`hds-advanced-table__tr--depth-${depth}`);
+      if (depth > 0) classes.push('hds-advanced-table__tr--nested');
       if (depth % 2 === 0) {
         classes.push(`hds-advanced-table__tr--depth-even`);
       } else {
