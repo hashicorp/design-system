@@ -203,7 +203,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
-    &:last-of-type {
+    &:last-of-type:not(.hds-advanced-table__tr--nested) {
       .hds-advanced-table__th,
       .hds-advanced-table__td {
         border-bottom: $hds-advanced-table-border-width solid $hds-advanced-table-border-color;
