@@ -40,10 +40,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   observer!: IntersectionObserver;
 
-  get isSetupComplete() {
-    return;
-  }
-
   modify(
     element: HTMLElement,
     positional: PositionalArgs<HdsCodeEditorSignature>,
