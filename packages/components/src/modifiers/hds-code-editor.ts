@@ -49,7 +49,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        // @ts-ignore
         if (entry.isIntersecting && this.setupTask.performCount === 0) {
+          // @ts-ignore
           this.setupTask.perform(element, positional, named);
         }
       });
@@ -119,6 +121,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
     this.onInput = onInput;
 
+    // @ts-ignore
     const languageExtension = yield this.loadLanguageTask.perform(language);
 
     let extensions = [
