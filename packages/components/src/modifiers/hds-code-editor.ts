@@ -5,35 +5,20 @@
 
 import { assert } from '@ember/debug';
 import Modifier from 'ember-modifier';
-import {
-  lineNumbers,
-  highlightActiveLineGutter,
-  highlightSpecialChars,
-  drawSelection,
-  highlightActiveLine,
-  EditorView,
-  keymap,
-} from '@codemirror/view';
-import { EditorState, type Extension } from '@codemirror/state';
-import { javascript } from '@codemirror/lang-javascript';
-import { json } from '@codemirror/lang-json';
-import { sql } from '@codemirror/lang-sql';
-import { go } from '@codemirror/lang-go';
-import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
-import { bracketMatching, syntaxHighlighting } from '@codemirror/language';
+import { dropTask } from 'ember-concurrency';
 
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
 import type { PositionalArgs, NamedArgs } from 'ember-modifier';
-import type { HdsCodeEditorLanguages } from 'src/types/hds-code-editor.types';
-
-export const LANGUAGE_MAP: Record<HdsCodeEditorLanguages, Extension> = {
-  go: go(),
-  javascript: javascript(),
-  json: json(),
-  sql: sql(),
-};
+import type { EditorView } from '@codemirror/view';
+import type {
+  HdsCodeEditorLanguages,
+  CodemirrorGoModule,
+  CodemirrorJsonModule,
+  CodemirrorSqlModule,
+  CodemirrorLanguageModule,
+} from 'src/types/hds-code-editor.types';
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -47,8 +32,6 @@ export interface HdsCodeEditorSignature {
 }
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
-  didSetup = false;
-
   editor!: EditorView;
   element!: HTMLElement;
 
@@ -76,24 +59,68 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ): void {
     assert('HdsCodeEditor must have an element', element);
 
-    if (!this.didSetup) {
-      this.#setup(element, positional, named);
-      this.didSetup = true;
-    }
+    this.setupTask.perform(element, positional, named);
   }
 
-  #setup(
+  @dropTask *loadLanguageTask(language?: HdsCodeEditorLanguages) {
+    if (language === undefined) {
+      return;
+    }
+
+    let module: CodemirrorLanguageModule | null = null;
+    let languageFunction = null;
+
+    switch (language) {
+      case 'go':
+        module = yield import('@codemirror/lang-go');
+        languageFunction = (module as CodemirrorGoModule).go;
+        break;
+      case 'json':
+        module = yield import('@codemirror/lang-json');
+        languageFunction = (module as CodemirrorJsonModule).json;
+        break;
+      case 'sql':
+        module = yield import('@codemirror/lang-sql');
+        languageFunction = (module as CodemirrorSqlModule).sql;
+        break;
+      default:
+        throw new Error(`Language ${language} is not supported`);
+    }
+
+    return languageFunction();
+  }
+
+  @dropTask *setupTask(
     element: HTMLElement,
     _positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
     const { onInput, onBlur, language, value } = named;
 
+    const [
+      {
+        EditorView,
+        keymap,
+        lineNumbers,
+        highlightActiveLineGutter,
+        highlightSpecialChars,
+        drawSelection,
+        highlightActiveLine,
+      },
+      { EditorState },
+      { defaultKeymap, history, historyKeymap },
+      { bracketMatching, syntaxHighlighting },
+    ] = yield Promise.all([
+      import('@codemirror/view'),
+      import('@codemirror/state'),
+      import('@codemirror/commands'),
+      import('@codemirror/language'),
+    ]);
+
     this.onInput = onInput;
     this.onBlur = onBlur;
 
-    const languageExtension =
-      language !== undefined ? LANGUAGE_MAP[language] : undefined;
+    const languageExtension = yield this.loadLanguageTask.perform(language);
 
     let extensions = [
       lineNumbers(),
@@ -106,11 +133,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       bracketMatching(),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
-      EditorView.updateListener.of((update) => {
-        if (update.docChanged && this.onInput) {
-          this.onInput(update.state.doc.toString());
+      EditorView.updateListener.of(
+        (update: {
+          docChanged: unknown;
+          state: { doc: { toString: () => string } };
+        }) => {
+          if (update.docChanged && this.onInput) {
+            this.onInput(update.state.doc.toString());
+          }
         }
-      }),
+      ),
     ];
 
     if (languageExtension !== undefined) {
@@ -122,7 +154,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       extensions,
     });
 
-    this.editor = new EditorView({ state, parent: element });
+    const editor = new EditorView({ state, parent: element });
+
+    this.editor = editor;
     this.element = element;
   }
 }
