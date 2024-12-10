@@ -36,19 +36,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   editor!: EditorView;
   element!: HTMLElement;
 
-  // Codemirror does not render if it's not visible so we'll watch for the
-  // element's visibility to enter the viewport and refresh it. This is helpful
-  // in the case of codemirror being in a tab that is not immediately visible.
-  observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio > 0) {
-          // this.editor?.refresh();
-        }
-      });
-    },
-    { rootMargin: '0px', threshold: 1.0 }
-  );
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
   modify(
@@ -94,7 +81,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     _positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ) {
-    const { onInput, onBlur, onSetup, language, value } = named;
+    const { onInput, onSetup, language, value } = named;
 
     const [
       {
