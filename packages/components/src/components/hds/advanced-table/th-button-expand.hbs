@@ -7,7 +7,7 @@
   class={{this.classNames}}
   {{on "click" this.onClick}}
   aria-labelledby="{{this.prefixLabelId}} {{@labelId}}"
-  aria-expanded={{@isExpanded}}
+  aria-expanded="{{this.isExpanded}}"
   ...attributes
 >
   <span id={{this.prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Toggle</span>

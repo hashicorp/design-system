@@ -21,8 +21,14 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   prefixLabelId = 'prefix-' + guidFor(this);
 
+  get isExpanded(): boolean {
+    const { isExpanded = false } = this.args;
+
+    return isExpanded;
+  }
+
   get icon(): HdsAdvancedTableThSortExpandIcons {
-    if (this.args.isExpanded) {
+    if (this.isExpanded) {
       return HdsAdvancedTableThExpandIconValues.ChevronDown;
     } else {
       return HdsAdvancedTableThExpandIconValues.ChevronRight;

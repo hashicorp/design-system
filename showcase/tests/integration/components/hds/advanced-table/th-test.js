@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, focus } from '@ember/test-helpers';
+import { render, focus, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/advanced-table/th', function (hooks) {
@@ -50,6 +50,54 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
         '#data-advanced-test-table-th .hds-advanced-table__th-content > span'
       )
       .hasText('Artist');
+  });
+
+  // EXPAND/COLLAPSE
+
+  test('it does not render an expand button by default', async function (assert) {
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-advanced-test-table-th'
+>Artist</Hds::AdvancedTable::Th>`
+    );
+
+    assert.dom('.hds-advanced-table__th-button--expand').doesNotExist();
+  });
+
+  test('it renders an expand button when `@isExpandable` is true and defaults to collapsed', async function (assert) {
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-advanced-test-table-th'
+  @isExpandable={{true}}
+>Artist</Hds::AdvancedTable::Th>`
+    );
+    assert
+      .dom(
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+      )
+      .hasText('Toggle')
+      .hasAria('expanded', 'false');
+  });
+
+  // ONCLICKTOGGLE
+
+  test('it should call the `@onClickToggle` function if provided', async function (assert) {
+    let isClicked = false;
+    this.set('onClickToggle', () => (isClicked = true));
+
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-advanced-test-table-th'
+  @isExpandable={{true}}
+@onClickToggle={{this.onClickToggle}}
+>Artist</Hds::AdvancedTable::Th>`
+    );
+
+    await click(
+      '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+    );
+
+    assert.ok(isClicked);
   });
 
   // ALIGNMENT
