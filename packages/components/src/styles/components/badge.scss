@@ -39,7 +39,7 @@ $hds-badge-colors-props: (
   max-width: 100%;
   vertical-align: middle;
   border: $hds-badge-border-width solid transparent;
-  border-radius: 5px;
+  border-radius: var(--token-border-radius-small);
 }
 
 .hds-badge__icon {
