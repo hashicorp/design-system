@@ -61,7 +61,9 @@ const transformPxToRem: Transform['transform'] = (token, platform) => {
 }
 
 StyleDictionary.registerTransform({
-    name: 'size/px',
+    // TODO! there is a bug in SD where registering a transform (more in general a "hook") with the same name as a default one doesn't work if another hook is registered before it (in this case, the 'preprocessor')
+    // TODO later when the bug is fixed, rename this transform to `size/px`
+    name: 'size/pixel',
     type: 'value',
     filter: function(token) {
         return token.type === 'size';
@@ -128,18 +130,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'products/email',
     // notice: for emails we need the font-size in `px` (not `rem`)
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerFormat({
