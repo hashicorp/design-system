@@ -12,6 +12,7 @@
     <ul role="list" aria-labelledby="primary-navigation">
       <Doc::Page::Header::NavItem @label="About" @route="about" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Foundations" @route="foundations" @currentTopRoute={{@currentTopRoute}} />
+      <Doc::Page::Header::NavItem @label="Content" @route="content" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Components" @route="components" @currentTopRoute={{@currentTopRoute}} />
       <Doc::Page::Header::NavItem @label="Patterns" @route="patterns" @currentTopRoute={{@currentTopRoute}} />
       <li class="doc-page-header__nav-item-generic doc-page-header__nav-item--split">
@@ -21,24 +22,28 @@
           discover the search results.</div>
         <button
           type="button"
-          class="doc-page-header__search-button"
+          class="doc-page-header__desktop-icon-item"
           data-doc-algolia-search-autocomplete-secondary-trigger
           aria-describedby="search-button"
+          aria-label="Search"
         >
-          <Hds::Icon @name="search" />
-          Search
+          <Hds::Icon @name="search" @size="24" />
         </button>
       </li>
-      <Doc::Page::Header::NavItem
-        @label="Support"
-        @route="show"
-        @model="about/support"
-        @currentTopRoute={{@currentTopRoute}}
-      />
       <li class="doc-page-header__nav-item-generic">
-        <a href="https://github.com/hashicorp/design-system" target="_blank" rel="noopener noreferrer">
+        <LinkTo class="doc-page-header__desktop-icon-item" @route="show" @model="about/support" aria-label="Support">
+          <Hds::Icon @name="help" @size="24" />
+        </LinkTo>
+      </li>
+      <li class="doc-page-header__nav-item-generic">
+        <a
+          href="https://github.com/hashicorp/design-system"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="doc-page-header__desktop-icon-item"
+          aria-label="GitHub"
+        >
           <Hds::Icon @name="github" @size="24" />
-          <span class="doc-sr-only">GitHub</span>
         </a>
       </li>
     </ul>
@@ -49,17 +54,21 @@
       class="doc-page-header__mobile-only-menu-button"
       data-doc-algolia-search-autocomplete-secondary-trigger
       aria-describedby="search-button"
+      aria-label="Search"
     >
-      <Hds::Icon @name="search" />
-      Search
+      <Hds::Icon @name="search" @size="24" />
     </button>
-    <button type="button" class="doc-page-header__mobile-only-menu-button" {{on "click" @onToggleBurgerMenu}}>
+    <button
+      type="button"
+      aria-label="Menu"
+      aria-expanded={{if @isSidebarVisibleOnSmallViewport "true" "false"}}
+      class="doc-page-header__mobile-only-menu-button"
+      {{on "click" @onToggleBurgerMenu}}
+    >
       {{#if @isSidebarVisibleOnSmallViewport}}
-        <Hds::Icon @name="x" />
-        Close
+        <Hds::Icon @name="x" @size="24" />
       {{else}}
-        <Hds::Icon @name="menu" />
-        Menu
+        <Hds::Icon @name="menu" @size="24" />
       {{/if}}
     </button>
   </div>
