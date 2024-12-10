@@ -53,6 +53,33 @@ StyleDictionary.registerPreprocessor({
 
 // CUSTOM TRANSFORMS
 
+StyleDictionary.registerTransform({
+    name: 'theming/use-light-theme',
+    type: 'value',
+    filter: function(token) {
+        return token.themed === true;
+    },
+    // we replace the composite "themed" `value` object with its `light` value
+    transform: function (token) {
+        console.log('FOUND!', JSON.stringify(token, null, 2));
+        if (token.value && token.value.light) {
+            // we remove the "themed" attribute (notice: it remains as is in the `original` value)
+            // delete token.themed;
+            // create a new token object to avoid creating a circular reference (it would trigger a "Maximum call stack size exceeded" error)
+            // const newToken = { ...token, value: token.value.light };
+            const newToken = cloneDeep(token);
+            delete newToken.themed;
+            newToken.value = token.value.light;
+            delete newToken.original.themed;
+            newToken.original.value = token.value.light;
+            console.log('NEW-TOKEN', JSON.stringify(newToken, null, 2));
+            return newToken;
+        } else {
+            throw `ERROR: found "themed" token without a "light" value: ${JSON.stringify(token, null, 2)}\n`;
+        }
+    }
+});
+
 const transformPxToRem: Transform['transform'] = (token, platform) => {
     const val = parseFloat(token.value);
     const baseFont = platform?.basePxFontSize || 16;
@@ -61,7 +88,9 @@ const transformPxToRem: Transform['transform'] = (token, platform) => {
 }
 
 StyleDictionary.registerTransform({
-    name: 'size/px',
+    // TODO! there is a bug in SD where registering a transform (more in general a "hook") with the same name as a default one doesn't work if another hook is registered before it (in this case, the 'preprocessor')
+    // TODO later when the bug is fixed, rename this transform to `size/px`
+    name: 'size/pixel',
     type: 'value',
     filter: function(token) {
         return token.type === 'size';
@@ -128,18 +157,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['theming/use-light-theme', 'attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'products/email',
     // notice: for emails we need the font-size in `px` (not `rem`)
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['theming/use-light-theme', 'attribute/cti', 'name/kebab', 'font-size/px', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['theming/use-light-theme', 'attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerFormat({
@@ -175,6 +204,7 @@ const targets: ConfigTargets = {
             `src/global/**/*.json`,
             `src/products/shared/**/*.json`
         ],
+        'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'products/web',
         'platforms': ['web/css-variables', 'docs/json']
     },
