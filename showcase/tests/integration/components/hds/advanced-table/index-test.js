@@ -18,12 +18,14 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       { key: 'year', name: 'Test 3', description: 'Test 3 description' },
     ]);
 
+    this.set('columns', [
+      { key: 'artist', label: 'components.table.headers.artist' },
+      { key: 'album', label: 'components.table.headers.album' },
+      { key: 'year', label: 'components.table.headers.year' },
+    ]);
+
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{array
-        (hash key='artist' label='components.table.headers.artist')
-        (hash key='album' label='components.table.headers.album')
-        (hash key='year' label='components.table.headers.year')
-      }}/>`
+      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}}/>`
     );
     assert.dom('#data-test-advanced-table').hasClass('hds-advanced-table');
   });
