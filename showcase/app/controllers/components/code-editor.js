@@ -4,8 +4,11 @@
  */
 
 import Controller from '@ember/controller';
+import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
+  @tracked showCodeEditor = false;
+
   demoCode = `console.log('Hello, world!');`;
 
   languages = [
