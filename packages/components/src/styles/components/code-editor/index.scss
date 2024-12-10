@@ -7,14 +7,17 @@
 // CODE-EDITOR
 //
 
+// Note: "theme" contains just color variables
+@import "theme";
+
 .hds-code-editor {
   $border-strong: rgba(178, 182, 189, 40%);
-
+  overflow: hidden;
   background-color: var(--token-color-code-surface-primary);
   border: 1px solid;
   border-radius: 6px;
 
-  &--is-fullscreen {
+  .hds-code-editor--is-fullscreen {
     position: fixed;
     top: 0;
     right: 0;
@@ -29,47 +32,46 @@
     }
   }
 
-  &__header {
+  .hds-code-editor__header {
     display: flex;
+    gap: 12px;
     align-items: start;
-    padding: 8px 16px;
-    background-color: var(--token-color-code-surface-faint);
+    padding: 16px;
+    background-color: var(--hds-code-editor-color-surface-faint);
     // todo - figure out why this gets converted to hex when used as var from tokens
     border-bottom: 1px solid $border-strong;
 
-    &-content {
+    .hds-code-editor__header-content {
       display: flex;
-      flex-direction: column;
       flex-grow: 1;
+      flex-wrap: wrap;
       gap: 4px;
-    }
 
-    &-generic-block {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-
-      // if the generic block has children and is not the only child, add padding
-      &:not(:only-child):has(*) {
-        padding-top: 8px;
+      & > :not(:first-child) {
+        margin-top: 12px;
       }
     }
 
-    &-toolbar {
+    .hds-code-editor__title,
+    .hds-code-editor__description {
+      width: 100%;
+    }
+
+    .hds-code-editor__header-toolbar {
       display: flex;
       gap: 4px;
       align-items: center;
     }
   }
 
-  &__editor {
+  .hds-code-editor__editor {
     height:100%;
     max-height: 600px;
     overflow: auto;
   }
 
-  &__toolbar-button,
-  &__toolbar-button.hds-copy-button {
+  .hds-code-editor__toolbar-button,
+  .hds-code-editor__toolbar-button.hds-copy-button {
     color: var(--token-color-code-foreground-primary);
     background-color: var(--token-color-code-surface-faint);
     border: 1px solid $border-strong;
