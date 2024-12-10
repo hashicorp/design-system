@@ -4,6 +4,7 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
+  {{log this.isSetupComplete}}
   {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
@@ -39,5 +40,8 @@
       {{/if}}
     </div>
   {{/if}}
-  <div class="hds-code-editor__editor" {{hds-code-editor value=@value language=@language onInput=@onInput}} />
+  <div
+    class="hds-code-editor__editor"
+    {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=(fn (mut this.isSetupComplete) true)}}
+  />
 </div>
