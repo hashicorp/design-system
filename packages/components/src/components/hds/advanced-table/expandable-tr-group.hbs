@@ -15,9 +15,9 @@
   )
 }}
 {{#if (and this.hasChildren this.isExpanded)}}
-  <div class="hds-advanced-table__tr-expandable-group">
+  <div class="hds-advanced-table__expandable-tr-group">
     {{#each this.children as |childRecord|}}
-      <Hds::AdvancedTable::TrExpandableGroup
+      <Hds::AdvancedTable::ExpandableTrGroup
         @record={{childRecord}}
         @depth={{this.childrenDepth}}
         @align={{@align}}
@@ -37,7 +37,7 @@
             id=T.id
           )
         }}
-      </Hds::AdvancedTable::TrExpandableGroup>
+      </Hds::AdvancedTable::ExpandableTrGroup>
     {{/each}}
   </div>
 {{/if}}

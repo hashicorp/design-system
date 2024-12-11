@@ -294,7 +294,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 
 
-.hds-advanced-table__tr-expandable-group {
+.hds-advanced-table__expandable-tr-group {
   .hds-advanced-table__tr--depth-odd {
     .hds-advanced-table__th, .hds-advanced-table__td {
       background-color: var(--token-color-surface-faint);
@@ -309,14 +309,9 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 }
 
 
-.hds-advanced-table__tr-expandable-group {
+.hds-advanced-table__expandable-tr-group {
   display: contents;
 }
-
-.hds-advanced-table__tr-expandable-group--hidden {
-  display: none;
-}
-
 
 // ----------------------------------------------------------------
 
