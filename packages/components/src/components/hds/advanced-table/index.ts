@@ -63,7 +63,6 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
-    hasNestedRows?: boolean;
     hasStickyHeader?: boolean;
   };
   Blocks: {
@@ -133,6 +132,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     } else {
       return this.args.identityKey ?? '@identity';
     }
+  }
+
+  get childrenKey(): string {
+    const { childrenKey = 'children' } = this.args;
+
+    return childrenKey;
+  }
+
+  get hasNestedRows(): boolean {
+    const { model } = this.args;
+    let hasNestedRows = false;
+
+    for (const obj of model) {
+      if (this.childrenKey in obj) {
+        hasNestedRows = true;
+        break;
+      }
+    }
+
+    return hasNestedRows;
   }
 
   get sortedMessageText(): string {
