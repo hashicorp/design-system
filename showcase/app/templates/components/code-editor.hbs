@@ -59,18 +59,6 @@
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
     </SF.Item>
-    <SF.Item @label="Hidden">
-      <h1>{{this.showCodeEditor}}</h1>
-      <Hds::Button
-        {{on "click" (fn (mut this.showCodeEditor) (not this.showCodeEditor))}}
-        @text={{if this.showCodeEditor "Hide" "Show"}}
-      />
-      {{#if this.showCodeEditor}}
-        <Hds::CodeEditor @hasCopyButton={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
-          <CE.ToolbarButton @text="Custom button" />
-        </Hds::CodeEditor>
-      {{/if}}
-    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H2>Syntax highlighting</Shw::Text::H2>
