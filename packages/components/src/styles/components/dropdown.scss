@@ -79,7 +79,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--token-border-radius-x-small); // $hds-dropdown-toggle-border-radius - 1px padding - 1px border
+  border-radius: calc(#{$hds-dropdown-toggle-border-radius} - 2px); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;
