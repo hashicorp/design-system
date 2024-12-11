@@ -164,8 +164,32 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
+  get isSelectable(): boolean {
+    const { isSelectable = false } = this.args;
+
+    if (this.hasNestedRows) {
+      assert(
+        '@isSelectable must not be true if there are nested rows.',
+        !isSelectable
+      );
+      return isSelectable;
+    }
+
+    return isSelectable;
+  }
+
   get isStriped(): boolean {
-    return this.args.isStriped ?? false;
+    const { isStriped = false } = this.args;
+
+    if (this.hasNestedRows) {
+      assert(
+        '@isStriped must not be true if there are nested rows.',
+        !isStriped
+      );
+      return isStriped;
+    }
+
+    return isStriped;
   }
 
   get density(): HdsAdvancedTableDensities {

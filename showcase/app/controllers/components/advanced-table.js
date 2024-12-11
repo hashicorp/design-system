@@ -57,6 +57,7 @@ export default class ComponentsTableController extends Controller {
   @deepTracked multiSelectModelData__demo3 = [...this.model.userDataDemo3];
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
+  @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {
@@ -315,5 +316,34 @@ export default class ComponentsTableController extends Controller {
       (user) => !user.isSelected
     );
     this.multiSelectModelData__demo3 = [...newData];
+  }
+
+  // MULTI-SELECT DEMO #4
+  // Execute action on selected rows
+
+  @action
+  onMultiSelectSelectionChange__demo4({ selectedRowsKeys }) {
+    console.log(...arguments);
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isSelected = selectedRowsKeys.includes(user.id);
+    });
+  }
+
+  @action
+  multiSelectAnimateSelectedUsers_demo4() {
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isAnimated = user.isSelected;
+    });
+    // eslint-disable-next-line ember/no-runloop
+    later(() => {
+      this.multiSelectResetUserAnimation_demo4();
+    }, 5000);
+  }
+
+  @action
+  multiSelectResetUserAnimation_demo4() {
+    this.multiSelectUserData__demo4.forEach((user) => {
+      user.isAnimated = false;
+    });
   }
 }
