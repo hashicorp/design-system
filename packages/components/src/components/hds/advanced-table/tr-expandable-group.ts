@@ -15,6 +15,7 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
     record: Record<string, unknown>;
     parentId?: string;
     childrenKey?: string;
+    rowIndex: number | string;
   };
   Blocks: {
     default?: [
@@ -26,6 +27,7 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
         depth: number;
         onClickToggle?: () => void;
         isExpanded?: boolean;
+        rowIndex?: string;
       },
     ];
   };
@@ -78,6 +80,11 @@ export default class HdsAdvancedTableTrExpandableGroup extends Component<HdsAdva
     const { depth = 0 } = this.args;
 
     return depth;
+  }
+
+  get rowIndex(): string {
+    const { rowIndex } = this.args;
+    return `${rowIndex}`;
   }
 
   get childrenDepth(): number {
