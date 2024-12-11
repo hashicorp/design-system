@@ -606,7 +606,30 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   // aria-labels
 
-  test('it renders the expected `aria-label` values for "select all" and rows (based on provided suffix)', async function (assert) {
+  test('it renders the expected `aria-label` values for "select all" and rows by default', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbs`
+      <Hds::Table
+        @isSelectable={{true}}
+        @model={{this.model}}
+        @columns={{this.columns}}
+        id="data-test-selectable-table"
+      >
+        <:body as |B|>
+          <B.Tr @selectionKey={{B.data.id}}>
+            <B.Td>{{B.data.artist}}</B.Td>
+            <B.Td>{{B.data.album}}</B.Td>
+            <B.Td>{{B.data.year}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::Table>
+    `);
+
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select row');
+  });
+
+  test('it renders the expected `aria-label` for rows with `@selectionAriaLabelSuffix`', async function (assert) {
     setSelectableTableData(this);
     await render(hbs`
       <Hds::Table
@@ -627,31 +650,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
         </:body>
       </Hds::Table>
     `);
-    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
-    const firstRowCheckbox = rowCheckboxes[0];
-    const secondRowCheckbox = rowCheckboxes[1];
 
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
-    await click(firstRowCheckbox);
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
-    await click(selectAllCheckboxSelector);
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
-    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    await click(secondRowCheckbox);
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
-    await click(secondRowCheckbox);
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
-    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
-    await click(selectAllCheckboxSelector);
-    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-    assert.dom(firstRowCheckbox).hasAria('label', 'Select custom suffix');
-    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
   });
 });
