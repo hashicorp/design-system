@@ -4,65 +4,77 @@
             "neutral-700": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-600": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-500": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-400": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-300": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-200": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-100": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-50": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-0": {
                 "value": "#FF0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-300": {
                 "value": "{color.palette.neutral-600.value}",
                 "alpha": "0.4",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-200": {
                 "value": "{color.palette.neutral-500.value}",
                 "alpha": "0.2",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-100": {
                 "value": "{color.palette.neutral-500.value}",
                 "alpha": "0.1",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             }
         }
     }
