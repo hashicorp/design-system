@@ -4007,7 +4007,6 @@ __metadata:
     "@hashicorp/flight-icons": "npm:^3.8.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
-    "@types/codemirror": "npm:^5.60.15"
     "@types/ember-qunit": "npm:^6.1.1"
     "@types/ember-resolver": "npm:^9.0.0"
     "@types/ember__destroyable": "npm:^4.0.5"
@@ -4019,6 +4018,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.5.0"
     babel-plugin-ember-template-compilation: "npm:^2.2.4"
     clipboard-polyfill: "npm:^4.1.0"
+    codemirror-lang-hcl: "npm:^0.0.0-beta.2"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
     ember-a11y-refocus: "npm:^4.1.3"
@@ -5730,15 +5730,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/codemirror@npm:^5.60.15":
-  version: 5.60.15
-  resolution: "@types/codemirror@npm:5.60.15"
-  dependencies:
-    "@types/tern": "npm:*"
-  checksum: 10/925ad6b76a703e0ed8ea07f11593cb32498960ece111d21d57a867f30cf151773beeefa2e593df536766d2f3240aa6d3eaa7d5398c8380e0b996a19bf058032e
-  languageName: node
-  linkType: hard
-
 "@types/connect@npm:*":
   version: 3.4.38
   resolution: "@types/connect@npm:3.4.38"
@@ -6449,15 +6440,6 @@ __metadata:
   version: 1.2.2
   resolution: "@types/symlink-or-copy@npm:1.2.2"
   checksum: 10/fb8fc2a356d1d7ab222bbea772ca6bf1b4a90b1f14ea46c1522643d3afd018f3b938ead7ba04af88175432a07497c02904bf428008505acf8a4745f1bc6e3892
-  languageName: node
-  linkType: hard
-
-"@types/tern@npm:*":
-  version: 0.23.9
-  resolution: "@types/tern@npm:0.23.9"
-  dependencies:
-    "@types/estree": "npm:*"
-  checksum: 10/72d26a1abc2b13aa7ee6a34abc0558bfbff1f977beb1c9f2554c4193c6cfc7e1677e4f84663d3f971135b436c5b847f170c74c3b1d6c320e08a1aba7e83cc3c2
   languageName: node
   linkType: hard
 
@@ -10433,6 +10415,17 @@ __metadata:
     chalk: "npm:^2.4.1"
     q: "npm:^1.1.2"
   checksum: 10/3934203d8c2bc0b824c2347cc19060db7affcc522da1f21a3dd79ac1e9d9c8a60124fd5d771a4d99b4a49005e26022cd4e11268d868fb19cabd9a51ab652583f
+  languageName: node
+  linkType: hard
+
+"codemirror-lang-hcl@npm:^0.0.0-beta.2":
+  version: 0.0.0-beta.2
+  resolution: "codemirror-lang-hcl@npm:0.0.0-beta.2"
+  dependencies:
+    "@codemirror/language": "npm:^6.0.0"
+    "@lezer/highlight": "npm:^1.0.0"
+    "@lezer/lr": "npm:^1.0.0"
+  checksum: 10/583246182b00c60a21de247faba4771478cb36878a4e30fa7fce344e238ed079b0d12c102dc9c80ab2014bfc985b45d8ba53a1b4ca9b2f14eb6ecb8c523bb609
   languageName: node
   linkType: hard
 
