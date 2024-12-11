@@ -8,6 +8,7 @@ export enum HdsCodeEditorLanguageValues {
   Json = 'json',
   Sql = 'sql',
   Go = 'go',
+  Hcl = 'hcl',
 }
 
 export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;

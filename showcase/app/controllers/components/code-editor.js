@@ -90,5 +90,13 @@ SELECT 'Enjoy coding!';`,
     password: secret
     name: example_db`,
     },
+    {
+      value: 'hcl',
+      label: 'HCL',
+      code: `variable "region" {
+  type    = string
+  default = "us-west-1"
+}`,
+    },
   ];
 }
