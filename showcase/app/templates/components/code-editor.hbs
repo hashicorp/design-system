@@ -19,47 +19,77 @@
   </Shw::Flex>
 
   <Shw::Text::H2>Header</Shw::Text::H2>
-  <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label="With title">
+
+  <Shw::Text::H3>Title and description</Shw::Text::H3>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="With title">
       <Hds::CodeEditor as |CE|>
         <CE.Title>Code editor with title</CE.Title>
       </Hds::CodeEditor>
-    </SF.Item>
-    <SF.Item @label="With description">
+    </SG.Item>
+    <SG.Item @label="With description">
       <Hds::CodeEditor as |CE|>
         <CE.Description>This is a code editor with a description</CE.Description>
       </Hds::CodeEditor>
-    </SF.Item>
-    <SF.Item @label="Expandable editor">
+    </SG.Item>
+    <SG.Item @label="With title and description">
+      <Hds::CodeEditor as |CE|>
+        <CE.Title>Code editor with title</CE.Title>
+        <CE.Description>This is a code editor with a description</CE.Description>
+      </Hds::CodeEditor>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Actions</Shw::Text::H3>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="Fullscreen toggle">
       <Hds::CodeEditor @canExpand={{true}} />
-    </SF.Item>
-    <SF.Item @label="With copyable content">
-      <Hds::CodeEditor @hasCopyButton={{true}} @value={{this.demoCode}} />
-    </SF.Item>
-    <SF.Item @label="With custom header content">
+    </SG.Item>
+    <SG.Item @label="Copy button">
+      <Hds::CodeEditor @hasCopyButton={{true}} />
+    </SG.Item>
+    <SG.Item @label="Fullscreen toggle and copy button">
+      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} />
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Custom actions</Shw::Text::H3>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="With custom header content">
       <Hds::CodeEditor as |CE|>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
-    </SF.Item>
-    <SF.Item @label="Complex header">
-      <Hds::CodeEditor @hasCopyButton={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
-        <CE.Title>Complex header</CE.Title>
-        <CE.Description>This is a complex example</CE.Description>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Complex examples</Shw::Text::H3>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="With title, description, and internal actions">
+      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
+        <CE.Title>Code editor with title</CE.Title>
+        <CE.Description>This is a code editor with a description</CE.Description>
+      </Hds::CodeEditor>
+    </SG.Item>
+    <SG.Item @label="With title, description, and custom actions">
+      <Hds::CodeEditor as |CE|>
+        <CE.Title>Code editor with title</CE.Title>
+        <CE.Description>This is a code editor with a description</CE.Description>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
-    </SF.Item>
-    <SF.Item @label="Complex header">
-      <Hds::CodeEditor @value={{this.demoCode}} as |CE|>
-        <CE.Description>This is a complex example</CE.Description>
+    </SG.Item>
+    <SG.Item @label="With title, description, and internal and custom actions">
+      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
+        <CE.Title>Code editor with title</CE.Title>
+        <CE.Description>This is a code editor with a description</CE.Description>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
-    </SF.Item>
-    <SF.Item @label="Complex header">
-      <Hds::CodeEditor @hasCopyButton={{true}} @canExpand={{true}} @value={{this.demoCode}} as |CE|>
+    </SG.Item>
+    <SG.Item @label="With internal and custom actions">
+      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.ToolbarButton @text="Custom button" />
       </Hds::CodeEditor>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Text::H2>Syntax highlighting</Shw::Text::H2>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
