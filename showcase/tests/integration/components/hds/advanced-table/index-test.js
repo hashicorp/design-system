@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, pauseTest } from '@ember/test-helpers';
+import { render, click, focus } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -293,30 +293,42 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__th:first-of-type')
       .hasClass('hds-advanced-table__th--sort');
-    // assert.dom('#data-test-table caption').hasText('');
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__caption')
+      .hasText('');
   });
 
-  // test('it updates the caption correctly after a sort has been performed', async function (assert) {
-  //   setSortableTableData(this);
-  //   // unset the sorting applied in the `setSortableTableData`
-  //   this.set('sortBy', undefined);
-  //   this.set('sortOrder', undefined);
-  //   await render(hbsSortableTable);
+  test('it updates the caption correctly after a sort has been performed', async function (assert) {
+    setSortableTableData(this);
+    // unset the sorting applied in the `setSortableTableData`
+    this.set('sortBy', undefined);
+    this.set('sortOrder', undefined);
+    await render(hbsSortableAdvancedTable);
 
-  //   assert.dom('#data-test-table td:nth-of-type(1)').hasText('Nick Drake');
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
+      .hasText('Nick Drake');
 
-  //   await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
-  //   assert.dom('#data-test-table td:nth-of-type(1)').hasText('Melanie');
-  //   assert
-  //     .dom('#data-test-table caption')
-  //     .hasText('Sorted by artist ascending');
+    await click(
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+    );
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
+      .hasText('Melanie');
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__caption')
+      .hasText('Sorted by artist ascending');
 
-  //   await click('#data-test-table .hds-table__th--sort:nth-of-type(1) button');
-  //   assert.dom('#data-test-table td:nth-of-type(1)').hasText('The Beatles');
-  //   assert
-  //     .dom('#data-test-table caption')
-  //     .hasText('Sorted by artist descending');
-  // });
+    await click(
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+    );
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
+      .hasText('The Beatles');
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__caption')
+      .hasText('Sorted by artist descending');
+  });
 
   test('it sorts the rows asc by default when the sort button is clicked on an unsorted column', async function (assert) {
     setSortableTableData(this);
@@ -334,24 +346,26 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('The Beatles');
   });
 
-  // test('it renders a custom sortedMessageText if supplied', async function (assert) {
-  //   setSortableTableData(this);
-  //   this.set('sortedMessageText', 'Melanie will sort it');
+  test('it renders a custom sortedMessageText if supplied', async function (assert) {
+    setSortableTableData(this);
+    this.set('sortedMessageText', 'Melanie will sort it');
 
-  //   await render(hbsSortableTable);
-  //   assert.dom('#data-test-table caption').hasText('Melanie will sort it');
-  // });
+    await render(hbsSortableAdvancedTable);
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__caption')
+      .hasText('Melanie will sort it');
+  });
 
-  // test('it renders both a custom caption and a custom sortedMessageText if supplied', async function (assert) {
-  //   setSortableTableData(this);
-  //   this.set('caption', 'A custom caption.');
-  //   this.set('sortedMessageText', 'Melanie will sort it!');
+  test('it renders both a custom caption and a custom sortedMessageText if supplied', async function (assert) {
+    setSortableTableData(this);
+    this.set('caption', 'A custom caption.');
+    this.set('sortedMessageText', 'Melanie will sort it!');
 
-  //   await render(hbsSortableTable);
-  //   assert
-  //     .dom('#data-test-table caption')
-  //     .hasText('A custom caption. Melanie will sort it!');
-  // });
+    await render(hbsSortableAdvancedTable);
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__caption')
+      .hasText('A custom caption. Melanie will sort it!');
+  });
 
   test('it uses a custom sort function if one is supplied', async function (assert) {
     // contrived example; we don’t care _what_ the custom sorting function does, just that it’s used instead of the default.
@@ -479,7 +493,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.dom(sortBySelectedSelector).exists();
 
-    // await pauseTest();
     assert
       .dom(
         '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td'
