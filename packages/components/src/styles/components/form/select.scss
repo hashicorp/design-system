@@ -80,7 +80,7 @@
 
     option {
       margin: 2px auto;
-      border-radius: 3px;
+      border-radius: var(--token-border-radius-x-small);
 
       &:hover {
         color: var(--token-color-foreground-action);
