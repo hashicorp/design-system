@@ -4,152 +4,182 @@
             "blue-500": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "blue-400": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "blue-300": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "blue-200": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "blue-100": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "blue-50": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-500": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-400": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-300": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-200": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-100": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "purple-50": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-500": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-400": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-300": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-200": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-100": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "green-50": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-500": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-400": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-300": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-200": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-100": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "amber-50": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-500": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-400": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-300": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-200": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-100": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "red-50": {
                 "value": "#ff0000",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             }
         }
     }
