@@ -3,7 +3,17 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes role="grid" {{style grid-template-columns=this.gridTemplateColumns}}>
+<div
+  class={{this.classNames}}
+  ...attributes
+  role="grid"
+  aria-describedby={{this.captionId}}
+  {{style grid-template-columns=this.gridTemplateColumns}}
+>
+  <div id={{this.captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
+    {{@caption}}
+    {{this.sortedMessageText}}
+  </div>
   <div class="hds-advanced-table__thead {{if @hasStickyHeader 'hds-advanced-table__thead--sticky'}}" role="rowgroup">
     <Hds::AdvancedTable::Tr
       @selectionScope="col"

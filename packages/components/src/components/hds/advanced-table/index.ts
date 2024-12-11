@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
+import { guidFor } from '@ember/object/internals';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -44,6 +45,7 @@ export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
 export interface HdsAdvancedTableSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
+    caption?: string;
     columns: HdsAdvancedTableColumn[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
@@ -87,6 +89,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     undefined;
   selectableRows: HdsAdvancedTableSelectableRow[] = [];
   @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+
+  captionId = 'caption-' + guidFor(this);
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
