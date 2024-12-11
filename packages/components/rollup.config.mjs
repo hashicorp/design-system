@@ -73,6 +73,15 @@ const plugins = [
   //     '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
   //   ],
   // }),
+  // TODO let's try this workaround...
+  scss({
+    fileName:
+      'styles/@hashicorp/design-system-components--themed-with-prefers-color-scheme.css',
+  }),
+  scss({
+    fileName:
+      'styles/@hashicorp/design-system-components--themed-with-css-selectors.css',
+  }),
 
   scss({
     fileName: 'styles/@hashicorp/design-system-power-select-overrides.css',
