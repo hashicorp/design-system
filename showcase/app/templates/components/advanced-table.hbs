@@ -41,29 +41,9 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H2>With nested rows and cells that span rows</Shw::Text::H2>
+  <Shw::Divider />
 
-  <Hds::AdvancedTable
-    @model={{this.model.spanningData}}
-    @hasNestedRows={{true}}
-    @columns={{array
-      (hash key="name" label="Name")
-      (hash key="service" label="Service")
-      (hash key="description" label="Description")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        {{#if B.data.name}}
-          <B.Th @rowspan={{if B.isExpanded (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
-        {{/if}}
-        <B.Td>{{B.data.service}}</B.Td>
-        <B.Td>{{B.data.description}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-
-  <Shw::Text::H2>With nested rows</Shw::Text::H2>
+  <Shw::Text::H2>Nested rows</Shw::Text::H2>
 
   <Hds::AdvancedTable
     @model={{this.model.nestedData}}
@@ -89,7 +69,31 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H2>With many rows and custom row width</Shw::Text::H2>
+  <Shw::Text::H3>With nested rows and cells that span rows</Shw::Text::H3>
+
+  <Hds::AdvancedTable
+    @model={{this.model.spanningData}}
+    @hasNestedRows={{true}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="service" label="Service")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        {{#if B.data.name}}
+          <B.Th @rowspan={{if B.isExpanded (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
+        {{/if}}
+        <B.Td>{{B.data.service}}</B.Td>
+        <B.Td>{{B.data.description}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Sticky header</Shw::Text::H2>
 
   <Hds::AdvancedTable
     @isSelectable={{true}}
@@ -117,5 +121,575 @@
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Sorting</Shw::Text::H2>
+
+  <Shw::Text::H3>Basic sorting</Shw::Text::H3>
+
+  <Shw::Text::H4>Sortable table (all columns sortable)</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true)
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4>Sortable table (only some columns sortable)</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4>Sortable table, one column right-aligned</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year" isSortable=true align="right")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td @align="right">{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4>Sortable table, some columns sortable, artist column pre-sorted.</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true)
+      (hash key="album" label="Album" isSortable=true)
+      (hash key="year" label="Release Year")
+    }}
+    @sortBy="artist"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Custom sorting</Shw::Text::H3>
+
+  <Shw::Text::H4>Sortable table with custom sorting done via extra key added to the data model</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.clustersWithExtraData}}
+    @columns={{array
+      (hash label="Peer name" isSortable=true key="peer-name")
+      (hash label="Cluster partition")
+      (hash label="Status" isSortable=true key="status-sort-order")
+      (hash label="Imported services")
+      (hash label="Exported services")
+      (hash label="Actions" align="right")
+    }}
+    @sortBy="status-sort-order"
+    @sortOrder="asc"
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.peer-name}}</B.Td>
+        <B.Td>{{B.data.cluster-partition}}</B.Td>
+        <B.Td>
+          {{#if (eq B.data.status "failing")}}
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
+          {{else if (eq B.data.status "active")}}
+            <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
+          {{else if (eq B.data.status "pending")}}
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
+          {{else if (eq B.data.status "establishing")}}
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
+          {{/if}}
+        </B.Td>
+        <B.Td>{{B.data.services.imported}}</B.Td>
+        <B.Td>{{B.data.services.exported}}</B.Td>
+        <B.Td @align="right">
+          <Hds::Dropdown @isInline={{true}} as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table">Create</dd.Interactive>
+            <dd.Interactive @route="components.table">Read</dd.Interactive>
+            <dd.Interactive @route="components.table">Update</dd.Interactive>
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @color="critical" @icon="trash">Delete</dd.Interactive>
+          </Hds::Dropdown>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4>Sortable table with custom <code>sortingFunction</code> declared in the column hash</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.clusters}}
+    @columns={{array
+      (hash label="Peer name" isSortable=true key="peer-name")
+      (hash label="Cluster partition")
+      (hash label="Status" isSortable=true key="status" sortingFunction=this.customSortingFunction)
+      (hash label="Imported services")
+      (hash label="Exported services")
+      (hash label="Actions" align="right")
+    }}
+    @sortBy="status"
+    @sortOrder="asc"
+    @onSort={{this.customOnSort}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.peer-name}}</B.Td>
+        <B.Td>{{B.data.cluster-partition}}</B.Td>
+        <B.Td>
+          {{#if (eq B.data.status "failing")}}
+            <Hds::Badge @text="Failing" @color="critical" @icon="x" @type="outlined" />
+          {{else if (eq B.data.status "active")}}
+            <Hds::Badge @text="Active" @color="success" @icon="check" @type="outlined" />
+          {{else if (eq B.data.status "pending")}}
+            <Hds::Badge @text="Pending" @color="neutral" @icon="loading" @type="outlined" />
+          {{else if (eq B.data.status "establishing")}}
+            <Hds::Badge @text="Establishing" @color="highlight" @icon="loading" @type="outlined" />
+          {{/if}}
+        </B.Td>
+        <B.Td>{{B.data.services.imported}}</B.Td>
+        <B.Td>{{B.data.services.exported}}</B.Td>
+        <B.Td @align="right">
+          <Hds::Dropdown @isInline={{true}} as |dd|>
+            <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+            <dd.Interactive @route="components.table">Create</dd.Interactive>
+            <dd.Interactive @route="components.table">Read</dd.Interactive>
+            <dd.Interactive @route="components.table">Update</dd.Interactive>
+            <dd.Separator />
+            <dd.Interactive @route="components.table" @color="critical" @icon="trash">Delete</dd.Interactive>
+          </Hds::Dropdown>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Tooltip</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" isSortable=true tooltip="Artist performing the album")
+      (hash key="album" label="Album" tooltip="Name of the album")
+      (hash key="vinyl-cost" label="Vinil Cost (USD)" isSortable=true tooltip="Cost of the vinyl" align="right")
+      (hash key="year" label="Release Year" tooltip="Year of release of the album" align="right")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
+        <B.Td @align="right">{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Multi-select</Shw::Text::H2>
+
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChangeLogArguments}}
+    @model={{this.model.selectableData}}
+    @columns={{array
+      (hash key="lorem" label="Row #")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Sortable table with sorting by selected item</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @selectableColumnKey="isSelected"
+    @onSelectionChange={{this.onMultiSelectSelectionChange}}
+    @model={{this.multiSelectSelectableData}}
+    @columns={{array
+      (hash key="lorem" label="Row #" isSortable=true)
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.lorem}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Functional examples</Shw::Text::H3>
+
+  <Shw::Text::H4>With inline filter</Shw::Text::H4>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo1__toggle-scope"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo1}}
+        {{on "change" this.toggleMultiSelectToggleScope__demo1}}
+      />
+      <label for="multi-select-demo1__toggle-scope">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo1__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo1}}
+        {{on "change" this.toggleMultiSelectToggleDebug__demo1}}
+      />
+      <label for="multi-select-demo1__toggle-debug">Show all rows' state</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__action">
+      <label for="multi-select-demo1__filter">Filter:</label>
+      <Hds::Form::Select::Base
+        id="multi-select-demo1__filter"
+        {{on "change" this.onChangeMultiSelectFilter__demo1}}
+        as |C|
+      >
+        <C.Options>
+          <option value="all" selected={{eq this.multiSelectFilterRows__demo1 "all"}}>Show all rows</option>
+          <option value="even" selected={{eq this.multiSelectFilterRows__demo1 "even"}}>Show even rows</option>
+          <option value="odd" selected={{eq this.multiSelectFilterRows__demo1 "odd"}}>Show odd rows</option>
+        </C.Options>
+      </Hds::Form::Select::Base>
+    </div>
+  </div>
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onSelectionChangeWithModel__demo1}}
+    @model={{this.multiSelectFilteredData__demo1}}
+    @columns={{array
+      (hash key="lorem" label="Row #")
+      (hash key="ipsum" label="Ipsum")
+      (hash key="dolor" label="Dolor")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.lorem}}</B.Td>
+        <B.Td>{{B.data.ipsum}}</B.Td>
+        <B.Td>{{B.data.dolor}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+  {{#if this.multiSelectToggleDebug__demo1}}
+    {{#each this.multiSelectModelData__demo1 as |row|}}
+      <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
+    {{/each}}
+  {{/if}}
+
+  <Shw::Text::H4>With pagination</Shw::Text::H4>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo2__toggle"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo2}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleScope__demo2}}
+      />
+      <label for="multi-select-demo2__toggle">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo2__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo2}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo2}}
+      />
+      <label for="multi-select-demo2__toggle-debug">Show all rows' state</label>
+    </div>
+  </div>
+
+  <div class="shw-component-table-with-pagination-demo-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectPaginatedSelectionChange__demo2}}
+      @model={{this.multiSelectPaginatedData_demo2}}
+      @columns={{array
+        (hash key="lorem" label="Row #")
+        (hash key="ipsum" label="Ipsum")
+        (hash key="dolor" label="Dolor")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.lorem}}</B.Td>
+          <B.Td>{{B.data.ipsum}}</B.Td>
+          <B.Td>{{B.data.dolor}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.multiSelectPaginatedTotalItems_demo2}}
+      @currentPageSize={{this.multiSelectPaginatedCurrentPageSize_demo2}}
+      @pageSizes={{array 2 4}}
+      @currentPage={{this.multiSelectPaginatedCurrentPage_demo2}}
+      @onPageChange={{this.onMultiSelectPaginatedPageChange_demo2}}
+      @onPageSizeChange={{this.onMultiSelectPaginatedPageSizeChange_demo2}}
+      @ariaLabel="Pagination for basic multi-select table"
+    />
+    {{#if this.multiSelectToggleDebug__demo2}}
+      {{#each this.multiSelectModelData__demo2 as |row|}}
+        <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  <Shw::Text::H4>Delete selected rows</Shw::Text::H4>
+
+  <Shw::Text::Body>This demo emulates, for example, when a user needs to delete the selected users.</Shw::Text::Body>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo3__toggle"
+        type="checkbox"
+        checked={{this.multiSelectToggleScope__demo3}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleScope__demo3}}
+      />
+      <label for="multi-select-demo3__toggle">Extend "Select All" scope to non-displayed rows</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__toggle">
+      <input
+        id="multi-select-demo3__toggle-debug"
+        type="checkbox"
+        checked={{this.multiSelectToggleDebug__demo3}}
+        {{on "change" this.toggleMultiSelectPaginatedToggleDebug__demo3}}
+      />
+      <label for="multi-select-demo3__toggle-debug">Show all rows' state</label>
+    </div>
+    <div class="shw-component-table-demo-topbar__action">
+      <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
+    </div>
+  </div>
+
+  <div class="shw-component-table-with-pagination-demo-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.multiSelectUsersData_demo3}}
+      @columns={{array
+        (hash key="id" label="ID")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+    <Hds::Pagination::Numbered
+      @totalItems={{this.multiSelectUsersTotalItems_demo3}}
+      @currentPageSize={{this.multiSelectUsersCurrentPageSize_demo3}}
+      @pageSizes={{array 4 8}}
+      @currentPage={{this.multiSelectUsersCurrentPage_demo3}}
+      @onPageChange={{this.onMultiSelectUsersPageChange_demo3}}
+      @onPageSizeChange={{this.onMultiSelectUsersPageSizeChange_demo3}}
+      @ariaLabel="Pagination for multi-select table with delete action"
+    />
+    {{#if this.multiSelectToggleDebug__demo3}}
+      {{#each this.multiSelectModelData__demo3 as |row|}}
+        <pre>row{{row.id}} = {{if row.isSelected "✅"}}</pre>
+      {{/each}}
+    {{/if}}
+  </div>
+
+  <Shw::Text::H4>Execute action on selected rows</Shw::Text::H4>
+
+  <Shw::Text::Body>This demo emulates, for example, when a user needs to download the selected files.</Shw::Text::Body>
+
+  <div class="shw-component-table-demo-topbar">
+    <div class="shw-component-table-demo-topbar__action">
+      <Hds::Button @text="Animate users" @icon="play" {{on "click" this.multiSelectAnimateSelectedUsers_demo4}} />
+    </div>
+  </div>
+
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onMultiSelectSelectionChange__demo4}}
+    @model={{this.multiSelectUserData__demo4}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>
+          <span class={{if B.data.isAnimated "shw-component-table-animate-user"}}>{{B.data.name}}</span>
+        </B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Table customization</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Density</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    {{#let (array "default" "short" "tall") as |densities|}}
+      {{#each densities as |density|}}
+        <SF.Item @label={{capitalize density}}>
+          <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+            {{#let (array false true) as |booleans|}}
+              {{#each booleans as |bool|}}
+                <SG.Item>
+                  <Hds::AdvancedTable
+                    @isSelectable={{bool}}
+                    @density={{if (not (eq density "default")) density}}
+                    @model={{this.model.music}}
+                    @columns={{array
+                      (hash key="id" label="ID")
+                      (hash key="name" label="Name")
+                      (hash key="email" label="Email")
+                      (hash key="role" label="Role")
+                    }}
+                  >
+                    <:body as |B|>
+                      <B.Tr>
+                        <B.Td>{{B.data.id}}</B.Td>
+                        <B.Td>{{B.data.name}}</B.Td>
+                        <B.Td>{{B.data.email}}</B.Td>
+                        <B.Td>{{B.data.role}}</B.Td>
+                      </B.Tr>
+                    </:body>
+                  </Hds::AdvancedTable>
+                </SG.Item>
+              {{/each}}
+            {{/let}}
+          </Shw::Grid>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Striping</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |bool|}}
+        <SG.Item>
+          <Hds::AdvancedTable
+            @isStriped={{true}}
+            @isSelectable={{bool}}
+            @model={{this.model.music}}
+            @columns={{array
+              (hash key="id" label="ID")
+              (hash key="name" label="Name")
+              (hash key="email" label="Email")
+              (hash key="role" label="Role")
+            }}
+          >
+            <:body as |B|>
+              <B.Tr>
+                <B.Td>{{B.data.id}}</B.Td>
+                <B.Td>{{B.data.name}}</B.Td>
+                <B.Td>{{B.data.email}}</B.Td>
+                <B.Td>{{B.data.role}}</B.Td>
+              </B.Tr>
+            </:body>
+          </Hds::AdvancedTable>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
 </section>
