@@ -6,6 +6,9 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const {
+  createEmberCLIConfig,
+} = require('ember-cli-bundle-analyzer/create-config');
 
 module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
@@ -28,6 +31,7 @@ module.exports = function (defaults) {
         advanced: false,
       },
     },
+    ...createEmberCLIConfig(),
   });
 
   /*
