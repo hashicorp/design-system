@@ -17,6 +17,7 @@ import type {
   CodemirrorGoModule,
   CodemirrorJsonModule,
   CodemirrorSqlModule,
+  CodemirrorHclModule,
   CodemirrorLanguageModule,
 } from 'src/types/hds-code-editor.types';
 
@@ -84,6 +85,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       case 'sql':
         module = yield import('@codemirror/lang-sql');
         languageFunction = (module as CodemirrorSqlModule).sql;
+        break;
+      case 'hcl':
+        module = yield import('codemirror-lang-hcl');
+        languageFunction = (module as CodemirrorHclModule).hcl;
         break;
       default:
         throw new Error(`Language ${language} is not supported`);
