@@ -380,7 +380,6 @@
 
   <Hds::AdvancedTable
     @isSelectable={{true}}
-    @selectableColumnKey="isSelected"
     @onSelectionChange={{this.onMultiSelectSelectionChange}}
     @model={{this.multiSelectSelectableData}}
     @columns={{array
@@ -654,6 +653,7 @@
                 <SG.Item>
                   <Hds::AdvancedTable
                     @isSelectable={{bool}}
+                    @selectableColumnKey="isSelected"
                     @density={{if (not (eq density "default")) density}}
                     @model={{this.model.music}}
                     @columns={{array
@@ -664,7 +664,7 @@
                     }}
                   >
                     <:body as |B|>
-                      <B.Tr>
+                      <B.Tr @selectionKey={{B.data.id}}>
                         <B.Td>{{B.data.id}}</B.Td>
                         <B.Td>{{B.data.name}}</B.Td>
                         <B.Td>{{B.data.email}}</B.Td>
@@ -692,6 +692,7 @@
           <Hds::AdvancedTable
             @isStriped={{true}}
             @isSelectable={{bool}}
+            @selectableColumnKey="isSelected"
             @model={{this.model.music}}
             @columns={{array
               (hash key="id" label="ID")
@@ -701,7 +702,7 @@
             }}
           >
             <:body as |B|>
-              <B.Tr>
+              <B.Tr @selectionKey={{B.data.id}}>
                 <B.Td>{{B.data.id}}</B.Td>
                 <B.Td>{{B.data.name}}</B.Td>
                 <B.Td>{{B.data.email}}</B.Td>
