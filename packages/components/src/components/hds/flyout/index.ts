@@ -126,7 +126,11 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this._dialogElement.addEventListener('close', this.registerOnCloseCallback, true);
+    this._dialogElement.addEventListener(
+      'close',
+      this.registerOnCloseCallback,
+      true
+    );
 
     // If the flyout dialog is not already open
     if (!this._dialogElement.open) {
