@@ -86,7 +86,7 @@ $hds-button-size-props: (
     left: -$shift;
     z-index: -1;
     border: $hds-button-focus-border-width solid transparent;
-    border-radius: $hds-button-border-radius + $hds-button-focus-border-width;
+    border-radius: calc(#{$hds-button-border-radius} + #{$hds-button-focus-border-width});
     content: "";
   }
 }
@@ -121,7 +121,7 @@ $hds-button-size-props: (
       bottom: -$shift;
       left: -$shift;
       border-color: var(--token-color-focus-action-external);
-      border-radius: $hds-button-border-radius + $hds-button-focus-border-width + 2px;
+      border-radius: calc(#{$hds-button-border-radius} + #{$hds-button-focus-border-width} + 2px);
     }
   }
 
