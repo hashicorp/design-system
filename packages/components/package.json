@@ -314,6 +314,7 @@
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
       "./modifiers/hds-code-editor.js": "./dist/_app_/modifiers/hds-code-editor.js",
       "./modifiers/hds-code-editor/highlight-styles/hds-dark-highlight-style.js": "./dist/_app_/modifiers/hds-code-editor/highlight-styles/hds-dark-highlight-style.js",
+      "./modifiers/hds-code-editor/palettes/hds-dark-palette.js": "./dist/_app_/modifiers/hds-code-editor/palettes/hds-dark-palette.js",
       "./modifiers/hds-code-editor/themes/hds-dark-theme.js": "./dist/_app_/modifiers/hds-code-editor/themes/hds-dark-theme.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
