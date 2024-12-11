@@ -1,0 +1,10 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// this CSS tokens file comes from the 'design-system-tokens' package
+@use "themed-tokens-with-css-selectors/tokens.css" as *;
+
+// this file contains the rest of the HDS components-related code
+@use "./partials/design-system-components-common" as *;
