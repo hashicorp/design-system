@@ -1,0 +1,498 @@
+{
+    "color": {
+        "palette": {
+            "hashicorp-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "boundary-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "consul-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "hcp-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "nomad-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "packer-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "terraform-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vagrant-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-secrets-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "vault-radar-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-brand": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-600": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-500": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-400": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-300": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-200": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-100": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            },
+            "waypoint-50": {
+                "value": "#FF0000",
+                "type": "color",
+                "group": "palette",
+                "private": "true"
+            }
+        }
+    }
+}
