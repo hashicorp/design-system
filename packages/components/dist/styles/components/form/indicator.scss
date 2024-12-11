@@ -1,0 +1,13 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > INDICATOR
+//
+
+// Used for the 'optional' indicator
+.hds-form-indicator--optional {
+  color: var(--token-form-indicator-optional-color);
+}
