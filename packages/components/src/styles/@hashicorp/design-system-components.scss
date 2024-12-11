@@ -5,6 +5,8 @@
 
 // this CSS tokens file comes from the 'design-system-tokens' package
 @use "tokens" as *;
+// @use "themed-tokens-with-css-selectors/tokens.css" as *;
+// @use "themed-tokens-with-prefers-color-scheme/tokens.css" as *;
 
 // this file contains the rest of the HDS components-related code
 @use "./partials/design-system-components-common" as *;
