@@ -54,7 +54,7 @@
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record index|}}
       {{#if this.hasNestedRows}}
-        <Hds::AdvancedTable::TrExpandableGroup
+        <Hds::AdvancedTable::ExpandableTrGroup
           @record={{record}}
           @childrenKey={{this.childrenKey}}
           @rowIndex={{index}}
@@ -80,7 +80,7 @@
             )
             to="body"
           }}
-        </Hds::AdvancedTable::TrExpandableGroup>
+        </Hds::AdvancedTable::ExpandableTrGroup>
       {{else}}
         {{yield
           (hash

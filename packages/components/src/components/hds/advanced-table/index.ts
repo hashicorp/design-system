@@ -30,7 +30,6 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';
-import type HdsAdvancedTableTrExpandableGroup from './tr-expandable-group.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -68,7 +67,6 @@ export interface HdsAdvancedTableSignature {
   Blocks: {
     body?: [
       {
-        TrExpandableGroup?: ComponentLike<HdsAdvancedTableTrExpandableGroup>;
         Td?: ComponentLike<HdsAdvancedTableTdSignature>;
         Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
         Th?: ComponentLike<HdsAdvancedTableThSignature>;

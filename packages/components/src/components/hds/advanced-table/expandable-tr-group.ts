@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types';
-export interface HdsAdvancedTableTrExpandableGroupSignature {
+export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     depth?: number;
@@ -34,14 +34,14 @@ export interface HdsAdvancedTableTrExpandableGroupSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsAdvancedTableTrExpandableGroup extends Component<HdsAdvancedTableTrExpandableGroupSignature> {
+export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
   id = guidFor(this);
 
   @tracked isExpanded = false;
 
   constructor(
     owner: unknown,
-    args: HdsAdvancedTableTrExpandableGroupSignature['Args']
+    args: HdsAdvancedTableExpandableTrGroupSignature['Args']
   ) {
     super(owner, args);
 
