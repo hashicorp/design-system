@@ -275,7 +275,9 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                     "destination": "themed-tokens-with-root-selector/common-tokens.css",
                     "format": "css/variables",
                     "options": {
-                        "showFileHeader": false
+                        "showFileHeader": false,
+                        // THIS IS IMPORTANT! (notice: it triggers a warning in the console log)
+                        "outputReferences": true
                     },
                     "filter": function(token: DesignToken) {
                         return !token.private && token.theme === undefined;
