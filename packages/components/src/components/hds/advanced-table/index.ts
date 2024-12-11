@@ -74,6 +74,7 @@ export interface HdsAdvancedTableSignature {
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
         data?: Record<string, unknown>;
         isExpanded?: boolean;
+        rowIndex?: string | number;
       },
     ];
   };

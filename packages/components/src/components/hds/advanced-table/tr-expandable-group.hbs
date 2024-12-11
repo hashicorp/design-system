@@ -11,6 +11,7 @@
     onClickToggle=this.onClickToggle
     isExpanded=this.isExpanded
     parentId=@parentId
+    rowIndex=this.rowIndex
   )
 }}
 {{#if (and this.hasChildren this.isExpanded)}}
@@ -22,6 +23,7 @@
         @align={{@align}}
         @parentId={{this.id}}
         @childrenKey={{this.childrenKey}}
+        @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
         as |T|
       >
         {{yield
