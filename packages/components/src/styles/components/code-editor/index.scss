@@ -7,6 +7,8 @@
 // CODE-EDITOR
 //
 
+@import "theme";
+
 .hds-code-editor {
   $border-strong: rgba(178, 182, 189, 40%);
   overflow: hidden;
@@ -34,9 +36,9 @@
     gap: 12px;
     align-items: start;
     padding: 16px;
-    background-color: var(--token-color-code-surface-faint);
+    background-color: var(--hds-code-editor-color-surface-faint);
     // todo - figure out why this gets converted to hex when used as var from tokens
-    border-bottom: 1px solid $border-strong;
+    border-bottom: 1px solid var(--hds-code-editor-color-border-strong);
 
     .hds-code-editor__header-content {
       display: flex;
@@ -77,23 +79,22 @@
 
   .hds-code-editor__toolbar-button,
   .hds-code-editor__toolbar-button.hds-copy-button {
-    color: var(--token-color-code-foreground-primary);
-    background-color: var(--token-color-code-surface-faint);
-    border: 1px solid $border-strong;
+    color: var(--hds-code-editor-color-foreground-primary);
+    background-color: var(--hds-code-editor-color-surface-faint);
+    border: 1px solid var(--hds-code-editor-color-border-strong);
 
     &:active,
     &:focus,
     &:hover {
-      background-color: var(--token-color-code-surface-primary);
-      border-color: var(--token-color-code-border-strong);
-
+      color: var(--hds-code-editor-color-foreground-high-contrast);
+      
       .hds-button__icon {
-        color: var(--token-color-code-foreground-primary);
+        color: var(--hds-code-editor-color-foreground-high-contrast);
       }
     }
 
     .hds-button__icon {
-      color: var(--token-color-code-foreground-primary);
+      color: var(--hds-code-editor-color-foreground-primary);
     }
   }
 }

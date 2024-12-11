@@ -4,51 +4,54 @@
  */
 
 import { EditorView } from '@codemirror/view';
-
-const BG_COLOR = '#15181E';
-const ACTIVE_LINE_BG_COLOR = 'rgba(0, 74, 222, 0.2)';
-const ACTIVE_LINE_BORDER_COLOR = '#1555D4';
+import {
+  HDS_CODE_BLOCK_LINE_HIGHLIGHT,
+  HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
+  HDS_CODE_BLOCK_WHITE,
+  HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
+  HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
+  HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+} from '../palettes/hds-dark-palette.ts';
 
 const hdsDark = EditorView.theme(
   {
     '&': {
-      color: '#efeff1',
-      backgroundColor: BG_COLOR,
+      color: HDS_CODE_BLOCK_WHITE,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
       height: '100%',
     },
     '.cm-content': {
-      backgroundColor: BG_COLOR,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
       padding: '16px 0',
     },
     '.cm-gutters': {
-      backgroundColor: BG_COLOR,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
     },
     '.cm-gutter': {
       borderRight: '1px solid rgba(178, 182, 189, 40%)',
-      color: '#b2b6bd',
     },
     '.cm-lineNumbers': {
-      color: '#878A8F',
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
     },
     '.cm-lineNumbers .cm-gutterElement': {
       borderLeft: '4px solid transparent',
       padding: '0 16px',
     },
     '.cm-gutterElement.cm-activeLineGutter': {
-      borderColor: ACTIVE_LINE_BORDER_COLOR,
-      backgroundColor: ACTIVE_LINE_BG_COLOR,
-      color: '#EFEFF1',
-      outline: `1px solid ${ACTIVE_LINE_BORDER_COLOR}`,
+      borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
+      backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+      outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
-      backgroundColor: ACTIVE_LINE_BG_COLOR,
-      outline: `1px solid ${ACTIVE_LINE_BORDER_COLOR}`,
+      backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
+      outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },
     '.cm-matchingBracket': {
-      outline: '1px solid #EFEFF1',
+      outline: `1px solid ${HDS_CODE_BLOCK_WHITE}`,
     },
   },
   { dark: true }
