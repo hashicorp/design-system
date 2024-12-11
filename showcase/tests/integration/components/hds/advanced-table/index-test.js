@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus } from '@ember/test-helpers';
+import { render, click, focus, pauseTest } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -74,43 +74,39 @@ const setSelectableTableData = (context) => {
   ]);
 };
 
-const hbsSortableAdvancedTable = hbs`
-  <Hds::AdvancedTable
-    @model={{this.model}}
-    @sortBy={{this.sortBy}}
-    @sortOrder={{this.sortOrder}}
-    @onSort={{this.onSort}}
-    @columns={{this.columns}}
-    @sortedMessageText={{this.sortedMessageText}}
-    @caption={{this.caption}}
-    id="data-test-advanced-table"
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-`;
+const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
+  @model={{this.model}}
+  @sortBy={{this.sortBy}}
+  @sortOrder={{this.sortOrder}}
+  @onSort={{this.onSort}}
+  @columns={{this.columns}}
+  @sortedMessageText={{this.sortedMessageText}}
+  @caption={{this.caption}}
+  id='data-test-advanced-table'
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
 
-const hbsSelectableAdvancedTable = hbs`
-  <Hds::AdvancedTable
-    @isSelectable={{true}}
-    @model={{this.model}}
-    @columns={{this.columns}}
-    id="data-test-selectable-table"
-  >
-    <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}}>
-        <B.Td>{{B.data.artist}}</B.Td>
-        <B.Td>{{B.data.album}}</B.Td>
-        <B.Td>{{B.data.year}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-`;
+const hbsSelectableAdvancedTable = hbs`<Hds::AdvancedTable
+  @isSelectable={{true}}
+  @model={{this.model}}
+  @columns={{this.columns}}
+  id='data-test-selectable-advanced-table'
+>
+  <:body as |B|>
+    <B.Tr @selectionKey={{B.data.id}}>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -119,7 +115,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setSortableTableData(this);
 
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}}/>`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+/>`
     );
     assert.dom('#data-test-advanced-table').hasClass('hds-advanced-table');
   });
@@ -128,7 +128,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setSortableTableData(this);
 
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}} @density="short"/>`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @density='short'
+/>`
     );
 
     assert
@@ -140,7 +145,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setSortableTableData(this);
 
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}}/>`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+/>`
     );
     assert
       .dom('#data-test-advanced-table')
@@ -151,7 +160,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setSortableTableData(this);
 
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}} @valign="middle"/>`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @valign='middle'
+/>`
     );
 
     assert
@@ -162,7 +176,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it should render with a CSS class appropriate if no @valign value is set', async function (assert) {
     setSortableTableData(this);
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}}/>`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+/>`
     );
     assert
       .dom('#data-test-advanced-table')
@@ -172,7 +190,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it should support splattributes', async function (assert) {
     setSortableTableData(this);
     await render(
-      hbs`<Hds::AdvancedTable id="data-test-advanced-table" @model={{this.model}} @columns={{this.columns}} aria-label="data test table" />`
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  aria-label='data test table'
+/>`
     );
     assert
       .dom('#data-test-advanced-table')
@@ -186,23 +209,23 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       { key: 'year', name: 'Test 3', description: 'Test 3 description' },
     ]);
 
-    await render(hbs`
-      <Hds::AdvancedTable id="data-advanced-test-table" @model={{this.model}} @columns={{array
-        (hash key='artist' label='components.table.headers.artist')
-        (hash key='album' label='components.table.headers.album')
-        (hash key='year' label='components.table.headers.year')
-      }}>
-        <:body as |B|>
-          <B.Tr
-           {{!-- id={{B.rowIndex}} --}}
-           >
-            <B.Td>{{B.data.key}}</B.Td>
-            <B.Td>{{B.data.name}}</B.Td>
-            <B.Td>{{B.data.description}}</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::AdvancedTable>
-    `);
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{array
+    (hash key='artist' label='components.table.headers.artist')
+    (hash key='album' label='components.table.headers.album')
+    (hash key='year' label='components.table.headers.year')
+  }}
+>
+  <:body as |B|>
+    <B.Tr {{!-- id={{B.rowIndex}} --}}>
+      <B.Td>{{B.data.key}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
 
     // assert
     //   .dom('#data-advanced-test-table .hds-advanced-table__tr:nth-child(3)')
@@ -437,42 +460,36 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       }
     });
 
-    await render(hbs`
-      <Hds::AdvancedTable
-        id="data-test-advanced-table"
-        @isSelectable={{true}}
-        @selectableColumnKey={{this.selectableColumnKey}}
-        @onSelectionChange={{this.onSelectionChange}}
-        @onSort={{this.onSort}}
-        @model={{this.model}}
-        @columns={{array
-          (hash key="name" label="Name")
-          (hash key="age" label="Age")
-        }}
-      >
-        <:body as |B|>
-          <B.Tr
-            @selectionKey={{B.data.id}}
-            @isSelected={{B.data.isSelected}}
-          >
-            <B.Td>{{B.data.name}}</B.Td>
-            <B.Td>{{B.data.age}}</B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::AdvancedTable>
-    `);
+    await render(hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @isSelectable={{true}}
+  @selectableColumnKey={{this.selectableColumnKey}}
+  @onSelectionChange={{this.onSelectionChange}}
+  @onSort={{this.onSort}}
+  @model={{this.model}}
+  @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+>
+  <:body as |B|>
+    <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
 
     assert.dom(sortBySelectedSelector).exists();
+
+    // await pauseTest();
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td:nth-of-type(1)'
+        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td'
       )
       .hasText('Jim');
 
     await click(sortBySelectedSelector);
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td:nth-of-type(1)'
+        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td'
       )
       .hasText('Sally');
 
@@ -498,163 +515,120 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert.dom(rowCheckboxesSelector).exists({ count: this.model.length });
   });
 
-  // test('it renders a multi-select table when isSelectable is set to true for a table without a model', async function (assert) {
-  //   await render(hbs`
-  //     <Hds::Table @isSelectable={{true}} id="data-test-selectable-table">
-  //       <:head as |H|>
-  //         <H.Tr>
-  //           <H.Th>Cell Header 1</H.Th>
-  //           <H.Th>Cell Header 2</H.Th>
-  //           <H.Th>Cell Header 3</H.Th>
-  //         </H.Tr>
-  //       </:head>
-  //       <:body as |B|>
-  //         <B.Tr @selectionKey="row1">
-  //           <B.Td>Cell Content 1 1</B.Td>
-  //           <B.Td>Cell Content 1 2</B.Td>
-  //           <B.Td>Cell Content 1 3</B.Td>
-  //         </B.Tr>
-  //         <B.Tr @selectionKey="row2">
-  //           <B.Td>Cell Content 2 1</B.Td>
-  //           <B.Td>Cell Content 2 2</B.Td>
-  //           <B.Td>Cell Content 2 3</B.Td>
-  //         </B.Tr>
-  //         <B.Tr @selectionKey="row3">
-  //           <B.Td>Cell Content 3 1</B.Td>
-  //           <B.Td>Cell Content 3 2</B.Td>
-  //           <B.Td>Cell Content 3 3</B.Td>
-  //         </B.Tr>
-  //       </:body>
-  //     </Hds::Table>
-  //   `);
-  //   assert.dom(selectAllCheckboxSelector).exists({ count: 1 });
-  //   assert.dom(rowCheckboxesSelector).exists({ count: 3 });
-  // });
+  // multi-select functionality
 
-  // // multi-select functionality
+  test('it selects all rows when the "select all" checkbox checked state is triggered', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableAdvancedTable);
+    // Default should be unchecked:
+    assert.dom(selectAllCheckboxSelector).isNotChecked();
+    assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
+    // Should change to checked after it is triggered:
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).isChecked();
+    assert.dom(rowCheckboxesSelector).isChecked().exists({ count: 3 });
+  });
 
-  // test('it selects all rows when the "select all" checkbox checked state is triggered', async function (assert) {
-  //   setSelectableTableData(this);
-  //   await render(hbsSelectableTable);
-  //   // Default should be unchecked:
-  //   assert.dom(selectAllCheckboxSelector).isNotChecked();
-  //   assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
-  //   // Should change to checked after it is triggered:
-  //   await click(selectAllCheckboxSelector);
-  //   assert.dom(selectAllCheckboxSelector).isChecked();
-  //   assert.dom(rowCheckboxesSelector).isChecked().exists({ count: 3 });
-  // });
+  test('it deselects all rows when the "select all" checkbox unchecked state is triggered', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableAdvancedTable);
+    // Trigger checked status:
+    await click(selectAllCheckboxSelector);
+    // Trigger unchecked state:
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).isNotChecked();
+    assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
+  });
 
-  // test('it deselects all rows when the "select all" checkbox unchecked state is triggered', async function (assert) {
-  //   setSelectableTableData(this);
-  //   await render(hbsSelectableTable);
-  //   // Trigger checked status:
-  //   await click(selectAllCheckboxSelector);
-  //   // Trigger unchecked state:
-  //   await click(selectAllCheckboxSelector);
-  //   assert.dom(selectAllCheckboxSelector).isNotChecked();
-  //   assert.dom(rowCheckboxesSelector).isNotChecked().exists({ count: 3 });
-  // });
+  test('if some rows are selected but not all, the "select all" checkbox should be in an indeterminate state', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbsSelectableAdvancedTable);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
+    // Check checkbox in just the first row:
+    await click(firstRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasProperty('indeterminate', true);
+  });
 
-  // test('if some rows are selected but not all, the "select all" checkbox should be in an indeterminate state', async function (assert) {
-  //   setSelectableTableData(this);
-  //   await render(hbsSelectableTable);
-  //   const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
-  //   const firstRowCheckbox = rowCheckboxes[0];
-  //   // Check checkbox in just the first row:
-  //   await click(firstRowCheckbox);
-  //   assert.dom(selectAllCheckboxSelector).hasProperty('indeterminate', true);
-  // });
+  test('it should invoke the `onSelectionChange` callback when a checkbox is selected', async function (assert) {
+    let keys;
+    this.set(
+      'onSelectionChange',
+      ({ selectedRowsKeys }) => (keys = selectedRowsKeys)
+    );
+    setSelectableTableData(this);
+    await render(hbs`
+      <Hds::AdvancedTable @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}} @model={{this.model}}
+      @columns={{this.columns}} id="data-test-selectable-advanced-table">
+      <:body as |B|>
+      <B.Tr @selectionKey={{B.data.id}}>
+        <B.Td>{{B.data.artist}}</B.Td>
+        <B.Td>{{B.data.album}}</B.Td>
+        <B.Td>{{B.data.year}}</B.Td>
+      </B.Tr>
+    </:body>
+      </Hds::AdvancedTable>
+    `);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
+    await click(firstRowCheckbox);
+    assert.deepEqual(keys, ['1']);
+    await click(selectAllCheckboxSelector);
+    assert.deepEqual(keys, ['1', '2', '3']);
+    await click(selectAllCheckboxSelector);
+    assert.deepEqual(keys, []);
+  });
 
-  // test('it should invoke the `onSelectionChange` callback when a checkbox is selected', async function (assert) {
-  //   let keys;
-  //   this.set(
-  //     'onSelectionChange',
-  //     ({ selectedRowsKeys }) => (keys = selectedRowsKeys)
-  //   );
-  //   await render(hbs`
-  //     <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}} id="data-test-selectable-table">
-  //       <:head as |H|>
-  //         <H.Tr>
-  //           <H.Th>Cell Header 1</H.Th>
-  //           <H.Th>Cell Header 2</H.Th>
-  //           <H.Th>Cell Header 3</H.Th>
-  //         </H.Tr>
-  //       </:head>
-  //       <:body as |B|>
-  //         <B.Tr @selectionKey="row1">
-  //           <B.Td>Cell Content 1 1</B.Td>
-  //           <B.Td>Cell Content 1 2</B.Td>
-  //           <B.Td>Cell Content 1 3</B.Td>
-  //         </B.Tr>
-  //         <B.Tr @selectionKey="row2">
-  //           <B.Td>Cell Content 2 1</B.Td>
-  //           <B.Td>Cell Content 2 2</B.Td>
-  //           <B.Td>Cell Content 2 3</B.Td>
-  //         </B.Tr>
-  //       </:body>
-  //     </Hds::Table>
-  //   `);
-  //   const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
-  //   const firstRowCheckbox = rowCheckboxes[0];
-  //   await click(firstRowCheckbox);
-  //   assert.deepEqual(keys, ['row1']);
-  //   await click(selectAllCheckboxSelector);
-  //   assert.deepEqual(keys, ['row1', 'row2']);
-  //   await click(selectAllCheckboxSelector);
-  //   assert.deepEqual(keys, []);
-  // });
+  // multi-select options
 
-  // // multi-select options
+  // aria-labels
 
-  // // aria-labels
+  test('it renders the expected `aria-label` values for "select all" and rows (based on provided suffix)', async function (assert) {
+    setSelectableTableData(this);
+    await render(hbs`
+      <Hds::AdvancedTable
+        @isSelectable={{true}}
+        @model={{this.model}}
+        @columns={{this.columns}}
+        id="data-test-selectable-advanced-table"
+      >
+        <:body as |B|>
+          <B.Tr
+            @selectionKey={{B.data.id}}
+            @selectionAriaLabelSuffix="custom suffix"
+          >
+            <B.Td>{{B.data.artist}}</B.Td>
+            <B.Td>{{B.data.album}}</B.Td>
+            <B.Td>{{B.data.year}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+    const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
+    const firstRowCheckbox = rowCheckboxes[0];
+    const secondRowCheckbox = rowCheckboxes[1];
 
-  // test('it renders the expected `aria-label` values for "select all" and rows (based on provided suffix)', async function (assert) {
-  //   setSelectableTableData(this);
-  //   await render(hbs`
-  //     <Hds::Table
-  //       @isSelectable={{true}}
-  //       @model={{this.model}}
-  //       @columns={{this.columns}}
-  //       id="data-test-selectable-table"
-  //     >
-  //       <:body as |B|>
-  //         <B.Tr
-  //           @selectionKey={{B.data.id}}
-  //           @selectionAriaLabelSuffix="custom suffix"
-  //         >
-  //           <B.Td>{{B.data.artist}}</B.Td>
-  //           <B.Td>{{B.data.album}}</B.Td>
-  //           <B.Td>{{B.data.year}}</B.Td>
-  //         </B.Tr>
-  //       </:body>
-  //     </Hds::Table>
-  //   `);
-  //   const rowCheckboxes = this.element.querySelectorAll(rowCheckboxesSelector);
-  //   const firstRowCheckbox = rowCheckboxes[0];
-  //   const secondRowCheckbox = rowCheckboxes[1];
-
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-  //   assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
-  //   await click(firstRowCheckbox);
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-  //   assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
-  //   await click(selectAllCheckboxSelector);
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
-  //   assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   await click(secondRowCheckbox);
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-  //   assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
-  //   await click(secondRowCheckbox);
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
-  //   assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
-  //   await click(selectAllCheckboxSelector);
-  //   assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
-  //   assert.dom(firstRowCheckbox).hasAria('label', 'Select custom suffix');
-  //   assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
-  // });
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
+    await click(firstRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    await click(secondRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
+    await click(secondRowCheckbox);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Deselect all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Deselect custom suffix');
+    await click(selectAllCheckboxSelector);
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(firstRowCheckbox).hasAria('label', 'Select custom suffix');
+    assert.dom(secondRowCheckbox).hasAria('label', 'Select custom suffix');
+  });
 });
