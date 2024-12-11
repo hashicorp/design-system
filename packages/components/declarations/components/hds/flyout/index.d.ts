@@ -34,7 +34,7 @@ export interface HdsFlyoutSignature {
 }
 export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     private _isOpen;
-    private _element;
+    private _dialogElement;
     private _body;
     private _bodyInitialOverflowValue;
     /**
