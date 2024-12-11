@@ -36,7 +36,7 @@
     font-family: var(--token-typography-display-200-font-family);
     line-height: var(--token-typography-display-200-line-height);
     background-color: var(--token-color-surface-faint);
-    border-radius: 3px;
+    border-radius: var(--token-border-radius-x-small);
     transform: translateY(-200%);
     transition: 0.6s ease-in-out;
 
