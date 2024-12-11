@@ -9,6 +9,7 @@ import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
   HDS_CODE_BLOCK_WHITE,
   HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
+  HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
 } from '../palettes/hds-dark-palette.ts';
@@ -17,11 +18,10 @@ const hdsDark = EditorView.theme(
   {
     '&': {
       color: HDS_CODE_BLOCK_WHITE,
-      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
       height: '100%',
     },
     '.cm-content': {
-      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
       padding: '16px 0',
     },
     '.cm-gutters': {

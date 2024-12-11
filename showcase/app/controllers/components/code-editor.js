@@ -4,7 +4,6 @@
  */
 
 import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
   demoCode = `lorem ipsum dolor sit amet
