@@ -31,6 +31,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/accordion');
     await percySnapshot('Accordion');
 
+    await visit('/components/advanced-table');
+    await percySnapshot('AdvancedTable');
+
     await visit('/components/alert');
     await percySnapshot('Alert');
 
