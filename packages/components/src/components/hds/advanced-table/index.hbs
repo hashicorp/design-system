@@ -53,8 +53,8 @@
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record|}}
-      {{#if @hasNestedRows}}
-        <Hds::AdvancedTable::TrExpandableGroup @record={{record}} @childrenKey={{@childrenKey}} as |T|>
+      {{#if this.hasNestedRows}}
+        <Hds::AdvancedTable::TrExpandableGroup @record={{record}} @childrenKey={{this.childrenKey}} as |T|>
           {{yield
             (hash
               Tr=(component "hds/advanced-table/tr" depth=T.depth)

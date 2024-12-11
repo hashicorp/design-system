@@ -47,7 +47,32 @@
 
   <Hds::AdvancedTable
     @model={{this.model.nestedData}}
-    @hasNestedRows={{true}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="status" label="Status" width="auto")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>
+          {{B.data.name}}
+        </B.Th>
+        <B.Td>
+          {{B.data.status}}
+        </B.Td>
+        <B.Td>
+          {{B.data.description}}
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
+
+  <Hds::AdvancedTable
+    @model={{this.model.nestedDataCustom}}
+    @childrenKey="data"
     @columns={{array
       (hash key="name" label="Name")
       (hash key="status" label="Status" width="auto")
@@ -73,7 +98,6 @@
 
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
-    @hasNestedRows={{true}}
     @columns={{array
       (hash key="name" label="Name")
       (hash key="service" label="Service")
