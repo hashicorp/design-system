@@ -73,15 +73,6 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
 />`
     );
     assert.dom(checkboxSelector).hasAria('label', 'Select row 123');
-    await render(
-      hbs`<Hds::AdvancedTable::Tr
-  id='data-test-advanced-table-tr'
-  @isSelectable={{true}}
-  @isSelected={{true}}
-  @selectionAriaLabelSuffix='row 123'
-/>`
-    );
-    assert.dom(checkboxSelector).hasAria('label', 'Deselect row 123');
   });
 
   test('the `th` element has the correct `scope` attribute value provided via `@selectionScope`', async function (assert) {

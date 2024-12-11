@@ -53,13 +53,8 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
   }
 
   get ariaLabel(): string {
-    const { selectionAriaLabelSuffix } = this.args;
-    const prefix = this.isSelected ? 'Deselect' : 'Select';
-    if (selectionAriaLabelSuffix) {
-      return `${prefix} ${selectionAriaLabelSuffix}`;
-    } else {
-      return prefix;
-    }
+    const { selectionAriaLabelSuffix = 'row' } = this.args;
+    return `Select ${selectionAriaLabelSuffix}`;
   }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels | undefined {
