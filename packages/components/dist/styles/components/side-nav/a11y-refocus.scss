@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SIDE-NAV > A11Y-REFOCUS "SKIP LINK"
+//
+
+.hds-side-nav { // this extra qualifier is needed to increase specificity of the selector, please don't remove it
+  .ember-a11y-refocus-skip-link {
+    top: 10px;
+    left: 10px;
+    z-index: 20;
+    width: max-content;
+    padding: 2px 10px 4px;
+    color: var(--token-color-foreground-action);
+    font-size: var(--token-typography-display-200-font-size);
+    font-family: var(--token-typography-display-200-font-family);
+    line-height: var(--token-typography-display-200-line-height);
+    background-color: var(--token-color-surface-faint);
+    border-radius: 3px;
+    transform: translateY(-200%);
+    transition: 0.6s ease-in-out;
+
+    &:focus {
+      transform: translateY(0);
+    }
+  }
+}
