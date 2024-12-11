@@ -10,7 +10,7 @@
 .hds-code-editor {
   $border-strong: rgba(178, 182, 189, 40%);
   overflow: hidden;
-  background-color: var(--token-color-code-surface-primary);
+  background-color: #15181E;
   border: 1px solid;
   border-radius: 6px;
 
@@ -64,7 +64,7 @@
 
     .hds-code-editor__header-toolbar {
       display: flex;
-      gap: 4px;
+      gap: 8px;
       align-items: center;
     }
   }
