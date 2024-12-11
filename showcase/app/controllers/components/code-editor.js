@@ -7,8 +7,6 @@ import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
-  @tracked showCodeEditor = false;
-
   demoCode = `lorem ipsum dolor sit amet
 consectetur adipiscing elit
 sed do eiusmod tempor incididunt
@@ -23,17 +21,17 @@ ut labore et dolore magna aliqua`;
 import "fmt"
 
 func main() {
-    fmt.Println("Hello, world!")
-    fmt.Println("Welcome to Go!")
+  fmt.Println("Hello, world!")
+  fmt.Println("Welcome to Go!")
 }`
     },
     {
       value: 'json',
       label: 'JSON',
       code: `{
-    "message": "Hello, world!",
-    "status": "success",
-    "data": null
+  "message": "Hello, world!",
+  "status": "success",
+  "data": null
 }`
     },
     {
@@ -42,6 +40,14 @@ func main() {
       code: `SELECT 'Hello, world!';
 SELECT 'Welcome to SQL!';
 SELECT 'Enjoy coding!';`
+    },
+    {
+      value: 'hcl',
+      label: 'HCL',
+      code: `variable "region" {
+  type    = string
+  default = "us-west-1"
+}`
     },
   ];
 }
