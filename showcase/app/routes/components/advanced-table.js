@@ -46,6 +46,7 @@ export default class ComponentsAdvancedTableRoute extends Route {
       selectableDataDemo1: clone(selectableData),
       selectableDataDemo2: clone(selectableData),
       userDataDemo3: clone(userData.slice(0, 16)),
+      userDataDemo4: clone(userData.slice(0, 4)),
       DENSITIES,
       STATES,
     };

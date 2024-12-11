@@ -19,7 +19,7 @@
       @selectionScope="col"
       @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
       @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
-      @isSelectable={{@isSelectable}}
+      @isSelectable={{this.isSelectable}}
       @onSelectionChange={{this.onSelectionAllChange}}
       @didInsertCheckbox={{this.didInsertSelectAllCheckbox}}
       @willDestroy={{this.willDestroySelectAllCheckbox}}
@@ -87,7 +87,7 @@
             Tr=(component
               "hds/advanced-table/tr"
               selectionScope="row"
-              isSelectable=@isSelectable
+              isSelectable=this.isSelectable
               onSelectionChange=this.onSelectionRowChange
               didInsertCheckbox=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
