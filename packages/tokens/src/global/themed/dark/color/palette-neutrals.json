@@ -2,55 +2,55 @@
     "color": {
         "palette": {
             "neutral-700": {
-                "value": "#FF0000",
+                "value": "#efeff1",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-600": {
-                "value": "#FF0000",
+                "value": "#d5d7d8",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-500": {
-                "value": "#FF0000",
+                "value": "#b2b6bd",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-400": {
-                "value": "#FF0000",
+                "value": "#616875",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-300": {
-                "value": "#FF0000",
+                "value": "#434956",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-200": {
-                "value": "#FF0000",
+                "value": "#2b303c",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-100": {
-                "value": "#FF0000",
+                "value": "#1e222a",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-50": {
-                "value": "#FF0000",
+                "value": "#15181e",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
             },
             "neutral-0": {
-                "value": "#FF0000",
+                "value": "#0d0e12",
                 "type": "color",
                 "group": "palette",
                 "theme": "dark"
