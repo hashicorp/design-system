@@ -59,6 +59,8 @@ export interface HdsFlyoutSignature {
 
 export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @tracked private _isOpen = false;
+  // TODO: make this property private; currently blocked by our consumers relying on it despite not being part of the public API: https://github.com/hashicorp/cloud-ui/blob/main/engines/waypoint/addon/components/preview-pane.ts#L15
+  // private _element!: HTMLDialogElement;
   element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
