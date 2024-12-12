@@ -627,6 +627,12 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select row');
+
+    await click(selectAllCheckboxSelector);
+    await click(rowCheckboxesSelector);
+
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select row');
   });
 
   test('it renders the expected `aria-label` for rows with `@selectionAriaLabelSuffix`', async function (assert) {
@@ -650,6 +656,10 @@ module('Integration | Component | hds/table/index', function (hooks) {
         </:body>
       </Hds::Table>
     `);
+
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
+
+    await click(rowCheckboxesSelector);
 
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
   });
