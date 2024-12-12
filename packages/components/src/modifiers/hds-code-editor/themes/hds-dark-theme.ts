@@ -9,6 +9,7 @@ import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
   HDS_CODE_BLOCK_GREEN,
   HDS_CODE_BLOCK_WHITE,
+  HDS_CODE_EDITOR_COLOR_BORDER_STRONG,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
@@ -32,7 +33,7 @@ const hdsDark = EditorView.theme(
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
     },
     '.cm-gutter': {
-      borderRight: '1px solid rgba(178, 182, 189, 40%)',
+      borderRight: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
     },
     '.cm-lineNumbers': {
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
