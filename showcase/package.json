@@ -26,6 +26,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "start": "yarn build:packages && ember serve",
+    "analyze": "yarn build:packages && ENABLE_BUNDLE_ANALYZER=true ember serve --pro",
     "test": "concurrently \"yarn:lint\" \"yarn:test:*\" --names \"lint,test:\"",
     "test:ember": "yarn build:packages && ember test",
     "test:ember-compatibility": "ember try:each",
