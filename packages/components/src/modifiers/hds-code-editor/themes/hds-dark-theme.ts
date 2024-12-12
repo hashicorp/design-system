@@ -7,8 +7,8 @@ import { EditorView } from '@codemirror/view';
 import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT,
   HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
+  HDS_CODE_BLOCK_GREEN,
   HDS_CODE_BLOCK_WHITE,
-  HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
@@ -21,11 +21,15 @@ const hdsDark = EditorView.theme(
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
       height: '100%',
     },
+    '& ::selection': {
+      backgroundColor: HDS_CODE_BLOCK_GREEN,
+      color: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+    },
     '.cm-content': {
       padding: '16px 0',
     },
     '.cm-gutters': {
-      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
     },
     '.cm-gutter': {
       borderRight: '1px solid rgba(178, 182, 189, 40%)',
@@ -38,15 +42,20 @@ const hdsDark = EditorView.theme(
       padding: '0 16px',
     },
     '.cm-gutterElement.cm-activeLineGutter': {
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+    },
+    '&:not(.cm-hasSelection) .cm-gutterElement.cm-activeLineGutter': {
       borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
       backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
       outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+    },
+    '&:not(.cm-hasSelection) .cm-activeLine': {
       backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
       outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },
