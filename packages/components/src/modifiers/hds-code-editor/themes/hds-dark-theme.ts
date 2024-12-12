@@ -42,6 +42,7 @@ const hdsDark = EditorView.theme(
       padding: '0 16px',
     },
     '.cm-gutterElement.cm-activeLineGutter': {
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
     },
     '&:not(.cm-hasSelection) .cm-gutterElement.cm-activeLineGutter': {
