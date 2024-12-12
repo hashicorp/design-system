@@ -2,30 +2,49 @@
 
 Whenever there is an update to the components, and these changes have been approved, we need to release them as package to the npm registry.
 
-Please see the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more details about how to setup the project and make changes to the code for these packages.
+### Prerequisites
+
+1. Follow the instructions in the [CONTRIBUTING](CONTRIBUTING.md) file for more details about how to setup the project and make changes to the code for these packages.
+2. Set up Vercel CLI
+    a. [Install Vercel CLI](https://vercel.com/docs/cli#installing-vercel-cli)
+    b. Type `vercel login` in your terminal and select 'Continue with SAML Single Sign-On'
+    c. Enter your team slug: `hashicorp` and press enter; you should be redirected to vercel.com with a 'CLI Login Success' message
 
 ## The release process
 
-Release PRs, titled 'Version Packages', are created and/or automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action).
+A release PR, titled 'Version Packages', is created and/or automatically updated on every PR merge by the [changeset GitHub action](https://github.com/changesets/action). This PR's feature branch is `changeset-release/main`.
+
+### Generate a Vercel deployment
 
 In preparation for a minor or major release, login to Vercel CLI and create a canonical URL for the upcoming version:
 
-1. [Install Vercel CLI](https://vercel.com/docs/cli#installing-vercel-cli)
-2. Type `vercel login` in your terminal and select 'Continue with SAML Single Sign-On'
-3. Enter your team slug: `hashicorp` and press enter; you should be redirected to vercel.com with a 'CLI Login Success' message
-4. Go to the 'Version Packages' PR and identify the URL of the latest deployment (e.g. `hds-website-jeq5lwde8-hashicorp.vercel.app`)
-5. Determine the canonical URL for the version you're preparing to release (for version 4.3.0 it will be `hds-website-4-3-0.vercel.app`)
-6. Return to your terminal and create an alias using the vercel CLI `vercel alias hds-website-<deployment-id>-hashicorp.vercel.app hds-website-<version-number>.vercel.app` (e.g. `vercel alias hds-website-jeq5lwde8-hashicorp.vercel.app hds-website-4-3-0.vercel.app`)
+1. In GitHub, go to the “Version Packages” PR, which comes from the `changeset-release/main branch`
+2. Copy the URL of the latest Vercel deployment. (e.g. `hds-website-jeq5lwde8-hashicorp.vercel.app`)
+3. Determine the canonical URL for the version you're preparing to release (for version 4.3.0 it will be `hds-website-4-3-0.vercel.app`)
+4. In terminal, create an alias between the latest Vercel deployment and the new canonical URL
+    a. Run `vercel alias hds-website-<deployment-id>-hashicorp.vercel.app hds-website-<version-number>.vercel.app`
+    b. E.g `vercel alias hds-website-jeq5lwde8-hashicorp.vercel.app hds-website-4-3-0.vercel.app`
 
-Switch your local branch to `changeset-release/main`, open `packages/components/CHANGELOG.md` and add a link to the upcoming release, right after the heading with the version number, following previous examples (e.g. `[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)`). Push a commit with this change.
+### Update documentation
 
-Approve the 'Version Packages' PR (or request a review from [hashicorp/hds-engineering](https://github.com/orgs/hashicorp/teams/hds-engineering)) then merge it to `main`; this will publish the new package to npm automatically.
+1. Switch your local branch to `changeset-release/main`
+2. Open `packages/components/CHANGELOG.md`
+3. Add a link to the upcoming release, after the heading with the version number, following previous examples
+    a. E.g `[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)`
+4. Push a commit with these changes
+
+### Publish the release to npm
+
+1. On the "Version Packages" PR, request a review from hds/engineering
+2. When approved, merge into `main`
+3. The new package should be published to npm automatically upon merge
+4. Verify that the package has been published successfully on [npm](https://www.npmjs.com/package/@hashicorp/design-system-components)
 
 After the new version is published, don't forget to communicate the release and a summary of changes to the product teams in the #team-design-systems and #tech-frontend channels.
 
 ### If you did not `alias` first
 
-If you didn't alias the website URL before merging the Version Packages PR, here's what you do. 
+If you didn't alias the website URL before merging the Version Packages PR, here's what you do.
 
 1. Follow steps 1-5 in the release process.
 2. From your terminal, type `vercel redeploy hds-website-<deployment-id>-hashicorp.vercel.app`. This will re-deploy that preview, but with a new deployment id assigned.

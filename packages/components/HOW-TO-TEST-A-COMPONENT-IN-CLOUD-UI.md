@@ -34,9 +34,25 @@ At this point run `yarn install` to use the "remote" version of the package, upd
 
 ### 4 - Testing
 
-You can now test your code in Cloud UI, starting the HCP application in your local environment as usual.
+You can now test your code in Cloud UI. Testing can be done either locally, or by creating a draft Pr in the [Cloud UI repo](https://github.com/hashicorp/cloud-ui/).
 
-**IMPORTANT**: the way in which yarn works in this case is that it resolves in a hash referencing a commit in `yarn.lock`; so if you make changes to the branch, they’re not reflected in the local `node_modules` unless you change the hash manually in the `yarn.lock` to point to another commit, and re-run the `yarn install` command.
+**Note:** Cloud UI requires on a node version of 20, so use your node version manager to make sure you are on this version.
+
+#### Local Testing
+
+- Run the test suite for any specific addon/engine/app you would like to test by running `ember test` inside that library
+- Visually inspect any component changes or updates by running the application locally with `yarn cloud:run hcp start` where `hcp` is replaced with the addon/engine/app you are testing.
+
+#### Automated Testing
+
+In certain cases, it will be useful to validate any changes against the entire Cloud UI library. This is best accomplished by creating a draft PR in the [Cloud UI repo](https://github.com/hashicorp/cloud-ui/), and checking that all automated tests pass. It is not currently possible to run the entire test suite locally.
+
+- Commit the changes made to the `package.json` and the `yarn.lock` file
+- Publish the branch to the Cloud UI repo
+- Create a draft PR in the Cloud UI repo, and add "[TEST] DO NOT MERGE" to the title
+- Check that all automated tests are passing
+
+**IMPORTANT**: the way in which yarn works in this case is that it resolves in a hash referencing a commit in `yarn.lock`; so if you make changes to the branch, they’re not reflected in the local `node_modules` unless you change the hash manually in the `yarn.lock` to point to another commit, and re-run the `yarn install` command. You will need to fully delete the `yarn.lock` before re-running `yarn install` in order to get the checksum to be updated as well.
 
 ### 5 - Cleanup
 
@@ -49,7 +65,7 @@ Once done with the testing, remember to remove the `/dist/` and `/declarations/`
 There are cases in which the "start" command in Cloud UI will fail with an error similar to this:
 
 ```log
-Missing yarn packages: 
+Missing yarn packages:
 Package: @hashicorp/design-system-components
   * Specified: ^2.7.1
   * Installed: 2.6.0
