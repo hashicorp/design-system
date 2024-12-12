@@ -41,6 +41,7 @@ export default class ComponentsAdvancedTableRoute extends Route {
       nestedData,
       nestedDataCustom,
       userData,
+      userDataShort: clone(userData.slice(0, 5)),
       clusters,
       selectableData,
       selectableDataDemo1: clone(selectableData),

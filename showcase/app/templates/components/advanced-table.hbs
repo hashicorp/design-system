@@ -20,10 +20,10 @@
       focusable elements in the AdvancedTable.</li>
     <li><strong>Escape</strong>: If focused on an interactive element within a cell, it moves the focus back to the
       cell. After press escape, you can arrow key between the cells again.</li>
-    <li><strong>Home</strong>: Move to first cell in the column</li>
-    <li><strong>End</strong>: Move to last cell in the column</li>
-    <li><strong>PageUp</strong>: Move to first cell in the row</li>
-    <li><strong>PageDown</strong>: Move to last cell in the row</li>
+    <li><strong>Home (fn + left)</strong>: Move to first cell in the row</li>
+    <li><strong>End (fn + right)</strong>: Move to last cell in the row</li>
+    <li><strong>PageUp (fn + up)</strong>: Move to first cell in the column</li>
+    <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
   </ul>
 
   <Hds::AdvancedTable
@@ -670,9 +670,8 @@
                 <SG.Item>
                   <Hds::AdvancedTable
                     @isSelectable={{bool}}
-                    @selectableColumnKey="isSelected"
                     @density={{if (not (eq density "default")) density}}
-                    @model={{this.model.music}}
+                    @model={{this.model.userDataShort}}
                     @columns={{array
                       (hash key="id" label="ID")
                       (hash key="name" label="Name")
@@ -709,8 +708,7 @@
           <Hds::AdvancedTable
             @isStriped={{true}}
             @isSelectable={{bool}}
-            @selectableColumnKey="isSelected"
-            @model={{this.model.music}}
+            @model={{this.model.userDataShort}}
             @columns={{array
               (hash key="id" label="ID")
               (hash key="name" label="Name")
