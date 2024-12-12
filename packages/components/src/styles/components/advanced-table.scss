@@ -191,7 +191,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     // striped rows
 
     .hds-advanced-table--striped &:nth-child(even) {
-      td, th {
+      .hds-advanced-table__th,
+      .hds-advanced-table__td {
         background-color: var(--token-color-surface-faint);
       }
     }
