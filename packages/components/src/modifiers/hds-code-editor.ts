@@ -111,7 +111,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         lineNumbers,
         highlightActiveLineGutter,
         highlightSpecialChars,
-        drawSelection,
         highlightActiveLine,
       },
       { EditorState },
@@ -133,20 +132,27 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       lineNumbers(),
       highlightActiveLineGutter(),
       highlightSpecialChars(),
-      drawSelection(),
       highlightActiveLine(),
+      EditorView.updateListener.of((update: ViewUpdate) => {
+        // toggle a class if the update has/does not have a selection
+        if (update.selectionSet) {
+          update.view.dom.classList.toggle(
+            'cm-hasSelection',
+            !update.state.selection.main.empty
+          );
+        }
+
+        // call the onInput callback if the document has changed
+        if (!update.docChanged || this.onInput === undefined) {
+          return;
+        }
+        this.onInput(update.state.doc.toString());
+      }),
       hdsDarkTheme,
       keymap.of([...defaultKeymap, ...historyKeymap]),
       bracketMatching(),
       syntaxHighlighting(hdsDarkHighlightStyle),
       history(),
-      EditorView.updateListener.of((update: ViewUpdate) => {
-        if (!update.docChanged || this.onInput === undefined) {
-          return;
-        }
-
-        this.onInput(update.state.doc.toString());
-      }),
     ];
 
     if (languageExtension !== undefined) {

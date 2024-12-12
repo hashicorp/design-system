@@ -15,7 +15,7 @@
   border: 1px solid var(--hds-code-editor-color-border-strong);
   border-radius: 6px;
 
-  .hds-code-editor--is-fullscreen {
+  &.hds-code-editor--is-fullscreen {
     position: fixed;
     top: 0;
     right: 0;
