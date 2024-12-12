@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus } from '@ember/test-helpers';
+import { render, click, focus, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -32,6 +32,61 @@ const setSortableTableData = (context) => {
       artist: 'Melanie',
       album: 'Candles in the Rain',
       year: '1971',
+    },
+  ]);
+  context.set('columns', [
+    { key: 'artist', label: 'Artist', isSortable: true },
+    { key: 'album', label: 'Album', isSortable: true },
+    { key: 'year', label: 'Year' },
+  ]);
+  context.set('sortBy', 'artist');
+  context.set('sortOrder', 'asc');
+};
+
+const setNestedTableData = (context) => {
+  context.set('model', [
+    {
+      id: 1,
+      name: 'Policy set 1',
+      status: 'PASS',
+      description: '',
+      children: [
+        {
+          id: 11,
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+        },
+        {
+          id: 12,
+          name: 'test-hard-mandatory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Policy set 2',
+      status: 'FAIL',
+      description: '',
+      isExpanded: true,
+      children: [
+        {
+          id: 21,
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+          children: [
+            {
+              id: 211,
+              name: 'test-advisory-pass.sentinel.primary',
+              status: 'PASS',
+              description: 'Sample description for this thing.',
+            },
+          ],
+        },
+      ],
     },
   ]);
   context.set('columns', [
@@ -185,6 +240,38 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table')
       .hasClass('hds-advanced-table--valign-top');
+  });
+
+  test('it throws an assertion if @isStriped and has nested rows', async function (assert) {
+    const errorMessage =
+      '@isStriped must not be true if there are nested rows.';
+    this.set('model');
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @isStriped={{true}}
+      @selectableColumnKey={{this.selectableColumnKey}}
+      @onSelectionChange={{this.onSelectionChange}}
+      @onSort={{this.onSort}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 
   test('it should support splattributes', async function (assert) {
@@ -528,6 +615,38 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert.dom(rowCheckboxesSelector).exists({ count: this.model.length });
   });
 
+  test('it throws an assertion if @isSelectable and has nested rows', async function (assert) {
+    const errorMessage =
+      '@isSelectable must not be true if there are nested rows.';
+    this.set('model');
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @isSelectable={{true}}
+      @selectableColumnKey={{this.selectableColumnKey}}
+      @onSelectionChange={{this.onSelectionChange}}
+      @onSort={{this.onSort}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   // multi-select functionality
 
   test('it selects all rows when the "select all" checkbox checked state is triggered', async function (assert) {
@@ -617,6 +736,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select row');
+
+    await click(selectAllCheckboxSelector);
+    await click(rowCheckboxesSelector);
+
+    assert.dom(selectAllCheckboxSelector).hasAria('label', 'Select all rows');
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select row');
   });
 
   test('it renders the expected `aria-label` for rows with `@selectionAriaLabelSuffix`', async function (assert) {
@@ -640,6 +765,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </:body>
       </Hds::AdvancedTable>
     `);
+
+    assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
+
+    await click(rowCheckboxesSelector);
 
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
   });
