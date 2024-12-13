@@ -1,0 +1,105 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > SELECT
+//
+
+
+// "BASE" CONTROL
+
+.hds-form-select {
+  max-width: 100%;
+  padding: var(--token-form-control-padding);
+  padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+  color: var(--token-form-control-base-foreground-value-color);
+  background-color: var(--token-form-control-base-surface-color-default);
+  background-image: var(--token-form-select-background-image-data-url);
+  background-repeat: no-repeat;
+  background-position: right var(--token-form-select-background-image-position-right-x) top var(--token-form-select-background-image-position-top-y); // we have to take into account the border
+  background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
+  border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
+  border-radius: var(--token-form-control-border-radius);
+  box-shadow: var(--token-elevation-low-box-shadow);
+  appearance: none;
+
+
+  // STATUS
+
+  &:hover,
+  &.mock-hover {
+    border-color: var(--token-form-control-base-border-color-hover);
+  }
+
+  // focus (same for all the states)
+
+  &:focus,
+  &.mock-focus {
+    border-color: var(--token-color-focus-action-internal);
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 0;
+  }
+
+  // DISABLED
+
+  &:disabled {
+    color: var(--token-form-control-disabled-foreground-color);
+    background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-select-background-image-data-url-disabled);
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  // INVALID
+
+  &.hds-form-select--is-invalid {
+    border-color: var(--token-form-control-invalid-border-color-default);
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-form-control-invalid-border-color-hover);
+    }
+
+    &:focus,
+    &.mock-focus {
+      border-color: var(--token-color-focus-critical-internal);
+      outline-color: var(--token-color-focus-critical-external);
+    }
+  }
+}
+
+// MULTIPLE/SIZE
+
+.hds-form-select {
+  &[multiple],
+  &[size] {
+    background: none;
+
+    option {
+      margin: 2px auto;
+      border-radius: 3px;
+
+      &:hover {
+        color: var(--token-color-foreground-action);
+      }
+
+      &:disabled {
+        color: var(--token-color-foreground-disabled);
+      }
+
+      &:checked {
+        color: var(--token-color-foreground-high-contrast);
+        background: var(--token-color-palette-blue-200);
+      }
+    }
+
+    optgroup {
+      color: var(--token-color-foreground-strong);
+      font-weight: var(--token-typography-font-weight-semibold);
+      font-style: normal; // reset Firefox default
+    }
+  }
+}
