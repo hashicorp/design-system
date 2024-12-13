@@ -25,6 +25,8 @@
 * This theme has been tweaked to meet HDS needs – see comments for original values
 */
 
+@use "typography/mixins" as *;
+
 // scope theme styles to the docs code block so they don't leak and affect the hds code block
 .doc-code-block__code-snippet {
   /* Colors */

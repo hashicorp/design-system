@@ -9,16 +9,16 @@
 
 // application parts
 
-@import "./header";
-@import "./banner";
-@import "./sidebar";
-@import "./stage";
-@import "./cover";
-@import "./tabs";
-@import "./content";
-@import "./sidecar";
-@import "./footer";
-@import "./error";
+@use "./header";
+@use "./banner";
+@use "./sidebar";
+@use "./stage";
+@use "./cover";
+@use "./tabs";
+@use "./content";
+@use "./sidecar";
+@use "./footer";
+@use "./error";
 
 // globals
 

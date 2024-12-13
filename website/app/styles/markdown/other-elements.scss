@@ -3,8 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-@use "../typography/mixins";
-@use "../global/link";
+@use "../typography" as *;
+@use "../typography/mixins" as *;
+@use "../global" as *;
+@use "../global/link" as *;
 
 // LINKS
 

@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-@import "./typography";
-@import "./lists";
-@import "./tables";
-@import "./other-elements";
+@use "./typography";
+@use "./lists";
+@use "./tables";
+@use "./other-elements";
 
 // debugging
-// @import "./debug";
+// @use "./debug";

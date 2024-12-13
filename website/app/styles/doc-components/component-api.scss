@@ -6,7 +6,8 @@
 // COMPONENT API
 
 @use "../breakpoints" as breakpoint;
-@use "../typography/mixins";
+@use "../typography" as *;
+@use "../typography/mixins" as *;
 
 
 // SET OF PROPERTIES
