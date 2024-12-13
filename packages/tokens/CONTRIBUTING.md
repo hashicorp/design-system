@@ -68,4 +68,4 @@ This action will:
 
 ## Releasing a new npm version of the package
 
-See the [RELEASE](RELEASE.md) guide for details.
+See the [release guide](https://hashicorp.atlassian.net/wiki/x/HIBT0Q) for details.
