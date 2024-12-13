@@ -133,8 +133,12 @@ export const getFloatingUIOptions = (
     middleware.push(
       size({
         apply({ rects, elements }) {
-          Object.assign(elements.floating.style, {
-            width: `${rects.reference.width}px`,
+          // wrap Object.assign inside a requestAnimationFrame to avoid ResizeObserver loop limit exceeded error
+          // https://github.com/floating-ui/floating-ui/issues/1740
+          requestAnimationFrame(() => {
+            Object.assign(elements.floating.style, {
+              width: `${rects.reference.width}px`,
+            });
           });
         },
       })
