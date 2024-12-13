@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.8.0
+
+### Minor Changes
+
+`Postgres` service icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#2563](https://github.com/hashicorp/design-system/pull/2563)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.7.0
 
 ### Minor Changes
