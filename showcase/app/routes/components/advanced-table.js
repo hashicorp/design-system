@@ -18,6 +18,9 @@ export default class ComponentsAdvancedTableRoute extends Route {
     const responseMusic = await fetch('/api/folk.json');
     const responseUserData = await fetch('/api/mock-users.json');
     const responseSpanning = await fetch('/api/mock-spanning-cells.json');
+    const responseSpanningManual = await fetch(
+      '/api/mock-spanning-cells-manual.json'
+    );
     const responseNested = await fetch('/api/mock-nested-rows.json');
     const responseNestedCustom = await fetch(
       '/api/mock-nested-rows-custom.json'
@@ -26,18 +29,22 @@ export default class ComponentsAdvancedTableRoute extends Route {
     const responseSelectableData = await fetch(
       '/api/mock-selectable-data.json'
     );
+    let responseManyColumns = await fetch('/api/mock-many-columns.json');
 
     const { data: music } = await responseMusic.json();
     const userData = await responseUserData.json();
     const spanningData = await responseSpanning.json();
+    const spanningManualData = await responseSpanningManual.json();
     const nestedData = await responseNested.json();
     const nestedDataCustom = await responseNestedCustom.json();
     const clusters = await responseClusters.json();
     const selectableData = await responseSelectableData.json();
+    let manyColumns = await responseManyColumns.json();
 
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),
       spanningData,
+      spanningManualData,
       nestedData,
       nestedDataCustom,
       userData,
@@ -48,6 +55,7 @@ export default class ComponentsAdvancedTableRoute extends Route {
       selectableDataDemo2: clone(selectableData),
       userDataDemo3: clone(userData.slice(0, 16)),
       userDataDemo4: clone(userData.slice(0, 4)),
+      manyColumns,
       DENSITIES,
       STATES,
     };

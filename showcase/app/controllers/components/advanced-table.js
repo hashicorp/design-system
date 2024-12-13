@@ -118,6 +118,11 @@ export default class ComponentsTableController extends Controller {
     }
   }
 
+  @action
+  mockIndeterminateState(checkbox) {
+    checkbox.indeterminate = true;
+  }
+
   // MULTI-SELECT DEMO #1
   // Multi-select table with external filter for odd/even rows
 
@@ -345,5 +350,10 @@ export default class ComponentsTableController extends Controller {
     this.multiSelectUserData__demo4.forEach((user) => {
       user.isAnimated = false;
     });
+  }
+
+  @action
+  noop() {
+    // no-op
   }
 }

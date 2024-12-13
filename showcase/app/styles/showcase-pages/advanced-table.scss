@@ -11,4 +11,8 @@ body.components-advanced-table {
     font-family: gilmer-web, Gilmer, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
     line-height: 1.4;
   }
+
+  .shw-component-advanced-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
 }
