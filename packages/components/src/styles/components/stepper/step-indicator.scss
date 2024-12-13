@@ -7,6 +7,8 @@
 // STEPPER > INDICATOR > STEP
 //
 
+@use "sass:map";
+
 $hds-stepper-indicator-step-statuses: (
   "incomplete",
   "progress",
@@ -84,7 +86,7 @@ $hds-stepper-indicator-step-non-interactive-props: (
   // For each status of the non-interactive variant, set the text color, svg fill, and svg stroke colors based on $non-interactive-props
   .hds-stepper-indicator-step--status-#{$status} {
     .hds-stepper-indicator-step__status {
-      color: map-get(
+      color: map.get(
         $hds-stepper-indicator-step-non-interactive-props,
         $status,
         "text-color"
@@ -92,12 +94,12 @@ $hds-stepper-indicator-step-non-interactive-props: (
     }
 
     .hds-stepper-indicator-step__svg-hexagon path {
-      fill: map-get(
+      fill: map.get(
         $hds-stepper-indicator-step-non-interactive-props,
         $status,
         "fill-color"
       );
-      stroke: map-get(
+      stroke: map.get(
         $hds-stepper-indicator-step-non-interactive-props,
         $status,
         "stroke-color"
@@ -155,7 +157,7 @@ $hds-stepper-indicator-step-status-props: (
     // For each status set the text, svg fill, and svg stroke color based on $hds-stepper-indicator-step-status-props
     &.hds-stepper-indicator-step--status-#{$status} {
       .hds-stepper-indicator-step__status {
-        color: map-get(
+        color: map.get(
           $hds-stepper-indicator-step-status-props,
           $status,
           "text-color-default"
@@ -163,12 +165,12 @@ $hds-stepper-indicator-step-status-props: (
       }
 
       .hds-stepper-indicator-step__svg-hexagon path {
-        fill: map-get(
+        fill: map.get(
           $hds-stepper-indicator-step-status-props,
           $status,
           "fill-color-default"
         );
-        stroke: map-get(
+        stroke: map.get(
           $hds-stepper-indicator-step-status-props,
           $status,
           "stroke-color-default"
@@ -178,7 +180,7 @@ $hds-stepper-indicator-step-status-props: (
       &:hover,
       &.mock-hover {
         .hds-stepper-indicator-step__status {
-          color: map-get(
+          color: map.get(
             $hds-stepper-indicator-step-status-props,
             $status,
             "text-color-hover"
@@ -187,12 +189,12 @@ $hds-stepper-indicator-step-status-props: (
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map-get(
+            fill: map.get(
               $hds-stepper-indicator-step-status-props,
               $status,
               "fill-color-hover"
             );
-            stroke: map-get(
+            stroke: map.get(
               $hds-stepper-indicator-step-status-props,
               $status,
               "stroke-color-hover"
@@ -204,7 +206,7 @@ $hds-stepper-indicator-step-status-props: (
       &:active,
       &.mock-active {
         .hds-stepper-indicator-step__status {
-          color: map-get(
+          color: map.get(
             $hds-stepper-indicator-step-status-props,
             $status,
             "text-color-active"
@@ -213,12 +215,12 @@ $hds-stepper-indicator-step-status-props: (
 
         .hds-stepper-indicator-step__svg-hexagon {
           path {
-            fill: map-get(
+            fill: map.get(
               $hds-stepper-indicator-step-status-props,
               $status,
               "fill-color-active"
             );
-            stroke: map-get(
+            stroke: map.get(
               $hds-stepper-indicator-step-status-props,
               $status,
               "stroke-color-active"
