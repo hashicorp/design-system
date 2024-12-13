@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.8.0
+
+**Minor changes**
+
+`Postgres` service icon added.
+
+<small class="doc-whats-new-changelog-metadata">[#2563](https://github.com/hashicorp/design-system/pull/2563)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.7.0
 
 **Minor changes**
@@ -235,14 +245,6 @@ Added `elastic-observability` and `new-relic` icons
 Added Venafi service icon
 
 <small class="doc-whats-new-changelog-metadata">[#1487](https://github.com/hashicorp/design-system/pull/1487)</small>
-
-## 2.14.0
-
-**Minor changes**
-
-Added `robot` icon (for Service Principals)
-
-<small class="doc-whats-new-changelog-metadata">[#1428](https://github.com/hashicorp/design-system/pull/1428)</small>
 
 
 ---

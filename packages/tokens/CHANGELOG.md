@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 2.2.2
+
+### Patch Changes
+
+Upgraded `style-dictionary` to `4.2.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2560](https://github.com/hashicorp/design-system/pull/2560)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.1
 
 ### Patch Changes

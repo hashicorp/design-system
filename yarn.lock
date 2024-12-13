@@ -3908,8 +3908,8 @@ __metadata:
     "@glint/core": "npm:^1.4.0"
     "@glint/environment-ember-loose": "npm:^1.4.0"
     "@glint/template": "npm:^1.4.0"
-    "@hashicorp/design-system-tokens": "npm:^2.2.1"
-    "@hashicorp/flight-icons": "npm:^3.7.0"
+    "@hashicorp/design-system-tokens": "npm:^2.2.2"
+    "@hashicorp/flight-icons": "npm:^3.8.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
     "@types/ember-qunit": "npm:^6.1.1"
@@ -3967,7 +3967,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@npm:^2.2.1, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@npm:^2.2.2, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -4020,7 +4020,7 @@ __metadata:
     "@glint/environment-ember-loose": "npm:^1.2.1"
     "@glint/environment-ember-template-imports": "npm:^1.2.1"
     "@glint/template": "npm:^1.2.1"
-    "@hashicorp/flight-icons": "npm:^3.7.0"
+    "@hashicorp/flight-icons": "npm:^3.8.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.6"
     "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
@@ -4045,7 +4045,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@npm:^3.7.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@npm:^3.8.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:

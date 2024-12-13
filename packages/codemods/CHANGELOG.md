@@ -1,5 +1,15 @@
 # @hashicorp/design-system-codemods
 
+## 0.5.0
+
+### Minor Changes
+
+Update `v4/dropdown-list-item-interactive` codemod to successfully parse nested content blocks such as conditionals
+
+<small class="doc-whats-new-changelog-metadata">[#2575](https://github.com/hashicorp/design-system/pull/2575)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 0.4.0
 
 ### Minor Changes

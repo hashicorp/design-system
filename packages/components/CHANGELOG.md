@@ -1,5 +1,108 @@
 # @hashicorp/design-system-components
 
+## 4.15.0
+
+[4.15.0 documentation](https://hds-website-4-15-0.vercel.app/)
+
+### Minor Changes
+
+`Time` - Added Time component, Time service, and related libraries including:
+
+- luxon (2.x or 3.x)
+- ember-concurrency (4.x)
+
+<small class="doc-whats-new-changelog-metadata">[#2515](https://github.com/hashicorp/design-system/pull/2515)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Exposed the index of the `@each` loop over the `@model` as `rowIndex`
+
+<small class="doc-whats-new-changelog-metadata">[#2554](https://github.com/hashicorp/design-system/pull/2554)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Dropdown` - Fixed an issue with the `ToggleIcon` to make the focus ring visible on mouse click
+
+<small class="doc-whats-new-changelog-metadata">[#2574](https://github.com/hashicorp/design-system/pull/2574)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`PageHeader` - Fixed issue with extra space below title when no metadata is present
+
+<small class="doc-whats-new-changelog-metadata">[#2581](https://github.com/hashicorp/design-system/pull/2581)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Alert` - Removed default color applied to the `hds-alert__text` container (text color is applied via `@color` argument)
+
+<small class="doc-whats-new-changelog-metadata">[#2598](https://github.com/hashicorp/design-system/pull/2598)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown`, `RichTooltip` - Fixed `ResizeObserver`-related errors in tests
+
+Upgraded `@floating-ui/dom` to `1.6.12`
+
+<small class="doc-whats-new-changelog-metadata">[#2550](https://github.com/hashicorp/design-system/pull/2550)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Fixed deprecated Sass syntax (`map-get` replaced with `map.get` and `@import` with `@use`)
+
+<small class="doc-whats-new-changelog-metadata">[#2594](https://github.com/hashicorp/design-system/pull/2594)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`IconTile` - Updated visual design of `IconTile` to make it distinguishable from secondary `IconButton`.
+
+<small class="doc-whats-new-changelog-metadata">[#2555](https://github.com/hashicorp/design-system/pull/2555)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Aligned private properties of the HDS modifiers to follow a standardized notation
+
+- `hds-anchored-position`
+- `hds-register-event`
+- `hds-tooltip`
+
+<small class="doc-whats-new-changelog-metadata">[#2583](https://github.com/hashicorp/design-system/pull/2583)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Aligned private class properties to follow a standardized notation
+
+- `Accordion`
+- `Alert`
+- `AppHeader`
+- `AppSideNav`
+- `CodeBlock`
+- `Copy::Button`
+- `Copy::Snippet`
+- `DisclosurePrimitive`
+- `Dropdown`
+- `Flyout`
+- `Form::SuperSelect`
+- `Form::TextInput`
+- `Icon`
+- `Modal`
+- `Pagination::Compact`
+- `Pagination::Numbered`
+- `PopoverPrimitive`
+- `Reveal`
+- `Table`
+- `Tabs`
+
+<small class="doc-whats-new-changelog-metadata">[#2562](https://github.com/hashicorp/design-system/pull/2562)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/design-system-tokens@2.2.2
+- @hashicorp/flight-icons@3.8.0
+
 ## 4.14.0
 
 [4.14.0 documentation](https://hds-website-4-14-0.vercel.app/)
@@ -1218,7 +1321,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css",
+  'node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css'
 );
 ```
 
