@@ -35,9 +35,10 @@
 }
 
 .doc-content-principles__title {
-  @include doc-font-style-h3();
   margin: 0;
   color: var(--doc-color-black);
+
+  @include doc-font-style-h3();
 }
 
 .doc-content-principles__description {
