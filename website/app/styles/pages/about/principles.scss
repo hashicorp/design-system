@@ -38,6 +38,7 @@
   margin: 0;
   color: var(--doc-color-black);
 
+  // Reason for position: https://sass-lang.com/documentation/breaking-changes/mixed-decls/
   @include doc-font-style-h3();
 }
 

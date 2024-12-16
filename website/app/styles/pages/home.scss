@@ -71,6 +71,7 @@ body.application.index {
   flex-direction: column;
   padding: var(--padding-top) 0 var(--padding-bottom);
 
+  // Reason for position: https://sass-lang.com/documentation/breaking-changes/mixed-decls/
   @include breakpoint.small() {
     --padding-top: 260px; // 200 of decoration on top + 60px of negative space
     --padding-bottom: 100px;
