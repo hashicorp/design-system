@@ -187,6 +187,7 @@ import type HdsTagComponent from './components/hds/tag';
 import type HdsTooltipButtonComponent from './components/hds/tooltip-button';
 import type HdsToastComponent from './components/hds/toast';
 import type HdsTextCodeComponent from './components/hds/text/code';
+import type HdsThemeSwitcherComponent from './components/hds/theme-switcher';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
@@ -845,6 +846,10 @@ export default interface HdsComponentsRegistry {
   // Toast
   'Hds::Toast': typeof HdsToastComponent;
   'hds/toast': typeof HdsToastComponent;
+
+  // ThemeSwitcher
+  'Hds::ThemeSwitcher': typeof HdsThemeSwitcherComponent;
+  'hds/theme-switcher': typeof HdsThemeSwitcherComponent;
 
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;

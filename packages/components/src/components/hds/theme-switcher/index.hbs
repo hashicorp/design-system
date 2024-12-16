@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Form::Select::Base
+  {{on "change" this._onChangePageTheme}}
+  class="hds-theme-switcher-control"
+  as |C|
+>
+  <C.Options>
+    <option value="none" selected={{eq this._selectedTheme "none"}}>None</option>
+    <option value="auto" selected={{eq this._selectedTheme "auto"}}>System</option>
+    <option value="light" selected={{eq this._selectedTheme "light"}}>Light</option>
+    <option value="dark" selected={{eq this._selectedTheme "dark"}}>Dark</option>
+  </C.Options>
+</Hds::Form::Select::Base>

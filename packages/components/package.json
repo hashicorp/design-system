@@ -286,6 +286,7 @@
       "./components/hds/text/code.js": "./dist/_app_/components/hds/text/code.js",
       "./components/hds/text/display.js": "./dist/_app_/components/hds/text/display.js",
       "./components/hds/text/index.js": "./dist/_app_/components/hds/text/index.js",
+      "./components/hds/theme-switcher/index.js": "./dist/_app_/components/hds/theme-switcher/index.js",
       "./components/hds/toast/index.js": "./dist/_app_/components/hds/toast/index.js",
       "./components/hds/tooltip-button/index.js": "./dist/_app_/components/hds/tooltip-button/index.js",
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
