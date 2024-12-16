@@ -7,25 +7,38 @@ import Component from '@glimmer/component';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
+import { eq } from 'ember-truth-helpers';
 
 import type ShwThemingService from 'showcase/services/theming';
 
 interface ShwThemeSwitcherSignature {
-  // Args: {};
+  Args: {};
   Element: HTMLDivElement;
 }
 
+const options = {
+  none: 'None (No theming)',
+  auto: 'Auto (prefers-color-scheme)',
+  light: 'Light (data-attribute)',
+  dark: 'Dark (data-attribute)',
+};
+
 export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
   @service declare readonly theming: ShwThemingService;
+
+  _selectedTheme;
+
+  constructor(owner: unknown, args: ShwThemeSwitcherSignature['Args']) {
+    super(owner, args);
+    this._selectedTheme = this.theming.getTheme() || 'none';
+  }
 
   @action
   onChangePageTheme(event: Event) {
     const select = event.target as HTMLSelectElement;
 
-    const [theme, method] = select.value.split('|');
-
     // we set the theme in the global service
-    this.theming.setTheme(theme, method);
+    this.theming.setTheme(select.value);
   }
 
   <template>
@@ -39,12 +52,12 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
         class="shw-theme-switcher__control"
         {{on "change" this.onChangePageTheme}}
       >
-        <option value="none">None (No theming)</option>
-        <option value="auto">Auto (prefers-color-scheme)</option>
-        <option value="light|css-class">Light (CSS class)</option>
-        <option value="light|data-attribute">Light (data-attribute)</option>
-        <option value="dark|css-class">Dark (CSS class)</option>
-        <option value="dark|data-attribute">Dark (data-attribute)</option>
+        {{#each-in options as |key label|}}
+          <option
+            value={{key}}
+            selected={{eq this._selectedTheme key}}
+          >{{label}}</option>
+        {{/each-in}}
       </select>
     </div>
   </template>
