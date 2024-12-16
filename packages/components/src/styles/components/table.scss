@@ -35,6 +35,14 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   table-layout: fixed;
 }
 
+// table border
+
+.hds-table, 
+.hds-table__th, 
+.hds-table__td {
+  border: calc(#{$hds-table-border-width} / 2) solid $hds-table-border-color;
+  // box-shadow: 0 0 0 calc(#{$hds-table-border-width} / 2) $hds-table-border-color;
+}
 
 // ----------------------------------------------------------------
 
@@ -48,13 +56,13 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     .hds-table__th {
       padding: $hds-table-cell-padding-medium;
       text-align: left;
-      border-top: $hds-table-border-width solid $hds-table-border-color;
-      border-left: $hds-table-border-width solid $hds-table-border-color;
+      // border-top: $hds-table-border-width solid $hds-table-border-color;
+      // border-left: $hds-table-border-width solid $hds-table-border-color;
     }
 
-    .hds-table__th:last-child {
-      border-right: $hds-table-border-width solid $hds-table-border-color;
-    }
+    // .hds-table__th:last-child {
+    //   border-right: $hds-table-border-width solid $hds-table-border-color;
+    // }
 
     // horizontal alignment
 
@@ -174,10 +182,10 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
     &:last-of-type {
-      .hds-table__th,
-      .hds-table__td {
-        border-bottom: $hds-table-border-width solid $hds-table-border-color;
-      }
+      // .hds-table__th,
+      // .hds-table__td {
+      //   border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      // }
 
       .hds-table__th:first-child,
       .hds-table__td:first-child {
@@ -194,8 +202,8 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   .hds-table__th,
   .hds-table__td {
     text-align: left;
-    border-top: $hds-table-border-width solid $hds-table-border-color;
-    border-left: $hds-table-border-width solid $hds-table-border-color;
+    // border-top: $hds-table-border-width solid $hds-table-border-color;
+    // border-left: $hds-table-border-width solid $hds-table-border-color;
 
     // density
 
@@ -212,9 +220,9 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     }
   }
 
-  .hds-table__td:last-child {
-    border-right: $hds-table-border-width solid $hds-table-border-color;
-  }
+  // .hds-table__td:last-child {
+  //   border-right: $hds-table-border-width solid $hds-table-border-color;
+  // }
 
   // horizontal alignment
 
