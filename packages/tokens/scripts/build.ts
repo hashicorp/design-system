@@ -242,7 +242,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
             "basePxFontSize": 16,
             "files": [
                 {
-                    "destination": "themed-tokens-with-root-selector/dark-tokens.css",
+                    "destination": "themed-tokens/with-root-selector/dark-tokens.css",
                     "format": "css/variables",
                     "options": {
                         "showFileHeader": false
@@ -262,7 +262,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
             "basePxFontSize": 16,
             "files": [
                 {
-                    "destination": "themed-tokens-with-root-selector/light-tokens.css",
+                    "destination": "themed-tokens/with-root-selector/light-tokens.css",
                     "format": "css/variables",
                     "options": {
                         "showFileHeader": false
@@ -272,7 +272,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                     },
                 },
                 {
-                    "destination": "themed-tokens-with-root-selector/common-tokens.css",
+                    "destination": "themed-tokens/with-root-selector/common-tokens.css",
                     "format": "css/variables",
                     "options": {
                         "showFileHeader": false,
@@ -280,7 +280,9 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                         "outputReferences": true
                     },
                     "filter": function(token: DesignToken) {
-                        return !token.private && token.theme === undefined;
+                        // TODO! use `outputReferencesFilter` above to decide when to output the reference and when not
+                        // return !token.private && token.theme === undefined;
+                        return token.theme === undefined;
                     },
                 }
             ],
