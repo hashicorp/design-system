@@ -1498,7 +1498,7 @@
                   <Hds::Table::ThSelectable
                     @selectionScope="col"
                     @isSelected={{bool1}}
-                    @onClickSort={{if bool2 this.noop}}
+                    @onClickSortBySelected={{if bool2 this.noop}}
                   />
                   <H.Th>Lorem</H.Th>
                 </H.Tr>
@@ -1517,7 +1517,7 @@
                   <Hds::Table::ThSelectable
                     @selectionScope="col"
                     @isSelected={{bool1}}
-                    @onClickSort={{if bool2 this.noop}}
+                    @onClickSortBySelected={{if bool2 this.noop}}
                     mock-state-value="focus"
                     mock-state-selector="input"
                   />
@@ -1549,7 +1549,7 @@
                 <Hds::Table::ThSelectable
                   @selectionScope="col"
                   @isSelected={{true}}
-                  @onClickSort={{if bool this.noop}}
+                  @onClickSortBySelected={{if bool this.noop}}
                   @didInsert={{this.mockIndeterminateState}}
                 />
                 <H.Th>Lorem</H.Th>
@@ -1574,7 +1574,7 @@
                   @selectionScope="col"
                   @isSelected={{true}}
                   @didInsert={{this.mockIndeterminateState}}
-                  @onClickSort={{if bool this.noop}}
+                  @onClickSortBySelected={{if bool this.noop}}
                   mock-state-value="focus"
                   mock-state-selector="input"
                 />
