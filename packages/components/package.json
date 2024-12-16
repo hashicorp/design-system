@@ -288,6 +288,7 @@
       "./components/hds/text/code.js": "./dist/_app_/components/hds/text/code.js",
       "./components/hds/text/display.js": "./dist/_app_/components/hds/text/display.js",
       "./components/hds/text/index.js": "./dist/_app_/components/hds/text/index.js",
+      "./components/hds/theme-switcher/index.js": "./dist/_app_/components/hds/theme-switcher/index.js",
       "./components/hds/time/index.js": "./dist/_app_/components/hds/time/index.js",
       "./components/hds/time/range.js": "./dist/_app_/components/hds/time/range.js",
       "./components/hds/time/single.js": "./dist/_app_/components/hds/time/single.js",
