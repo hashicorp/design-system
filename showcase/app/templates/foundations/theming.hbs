@@ -7,7 +7,12 @@
 
 <Shw::Text::H1>Theming</Shw::Text::H1>
 
-<Shw::Text::Body>Current theme: {{this.currentTheme}} / Inverse theme: {{this.inverseTheme}}</Shw::Text::Body>
+<Shw::Text::Body>
+  Current SHW theme:
+  {{(if this.currentTheme this.currentTheme "none")}}
+  / Current HDS theme:
+  {{(if this.currentHdsTheme this.currentHdsTheme "none")}}
+</Shw::Text::Body>
 
 <section data-test-percy>
 

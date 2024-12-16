@@ -8,12 +8,13 @@ import { inject as service } from '@ember/service';
 
 export default class ThemingController extends Controller {
   @service theming;
+  @service hdsTheming;
 
   get currentTheme() {
     return this.theming.getTheme();
   }
 
-  get inverseTheme() {
-    return this.theming.getInverseTheme();
+  get currentHdsTheme() {
+    return this.hdsTheming.getTheme();
   }
 }
