@@ -21,35 +21,11 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
   @action
   onChangePageTheme(event: Event) {
     const select = event.target as HTMLSelectElement;
-    console.log(`Theme: ${select.value}`);
-    console.log(`theming.getTheme: ${this.theming.getTheme()}`);
 
-    let theme;
-    let type;
-    switch (select.value) {
-      case 'light-data-attribute':
-        theme = 'light';
-        type = 'data-attribute';
-        break;
-      case 'light-css-class':
-        theme = 'light';
-        type = 'css-class';
-        break;
-      case 'dark-data-attribute':
-        theme = 'dark';
-        type = 'data-attribute';
-        break;
-      case 'dark-css-class':
-        theme = 'dark';
-        type = 'css-class';
-        break;
-      default:
-        theme = 'auto';
-        break;
-    }
+    const [theme, method] = select.value.split('|');
 
     // we set the theme in the global service
-    this.theming.setTheme(theme, type, 'body');
+    this.theming.setTheme(theme, method);
   }
 
   <template>
@@ -63,11 +39,12 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
         class="shw-theme-switcher__control"
         {{on "change" this.onChangePageTheme}}
       >
+        <option value="none">None (No theming)</option>
         <option value="auto">Auto (prefers-color-scheme)</option>
-        <option value="light-css-class">Light (CSS class)</option>
-        <option value="light-data-attribute">Light (data-attribute)</option>
-        <option value="dark-css-class">Dark (CSS class)</option>
-        <option value="dark-data-attribute">Dark (data-attribute)</option>
+        <option value="light|css-class">Light (CSS class)</option>
+        <option value="light|data-attribute">Light (data-attribute)</option>
+        <option value="dark|css-class">Dark (CSS class)</option>
+        <option value="dark|data-attribute">Dark (data-attribute)</option>
       </select>
     </div>
   </template>

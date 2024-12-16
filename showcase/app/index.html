@@ -5,30 +5,31 @@
 -->
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HDS components showcase</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-    <meta name="google-site-verification" content="_aU7ePXLFbs8nz644U2Nv1mpq2OiKnXCrwaDgZFTo-4">
 
-    {{content-for "head"}}
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HDS components showcase</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  <meta name="google-site-verification" content="_aU7ePXLFbs8nz644U2Nv1mpq2OiKnXCrwaDgZFTo-4">
 
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
-    <!-- <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase-theme-light.css"> -->
-    <!-- <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase-theme-dark.css"> -->
+  {{content-for "head"}}
 
-    <link rel="shortcut icon" href="/assets/logos/favicon.png" />
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+  <link integrity="" rel="stylesheet" href="{{rootURL}}assets/showcase.css">
 
-    {{content-for "head-footer"}}
-  </head>
-  <body class="showcase-app">
-    {{content-for "body"}}
+  <link rel="shortcut icon" href="/assets/logos/favicon.png" />
 
-    {{content-for "body-footer"}}
-    <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/showcase.js"></script>
-  </body>
+  {{content-for "head-footer"}}
+</head>
+
+<body class="showcase-app">
+  {{content-for "body"}}
+
+  {{content-for "body-footer"}}
+  <script src="{{rootURL}}assets/vendor.js"></script>
+  <script src="{{rootURL}}assets/showcase.js"></script>
+</body>
+
 </html>

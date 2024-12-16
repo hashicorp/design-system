@@ -39,13 +39,12 @@
   --shw-placeholder-link-color: #333;
 }
 
-// TODO! should we add an entry to act as default for browser that may not support `prefers-color-scheme`?
-// :root {
-//   @include shw-theme-color-variables-light();
-// }
+:root {
+  @include shw-theme-color-variables-light();
+}
 
 @media (prefers-color-scheme: light) {
-  :root {
+  :root[data-shw-theme="auto"] {
     @include shw-theme-color-variables-light();
   }
 }
