@@ -171,7 +171,7 @@ To indicate that the message is an error state, add `@errorCode` to the `[A].Hea
 </Hds::ApplicationState>
 ```
 
-### titleTag
+### Title tag
 
 The `@titleTag` argument changes the HTML element that wraps the `[A].Header` title content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Application State is used as an empty state below the main heading of a page, the value should be `"h2"`. 
 
