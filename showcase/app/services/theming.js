@@ -28,7 +28,6 @@ export default class ShwThemingService extends Service {
 
   setTheme(theme) {
     // console.log('setting SHW theme', theme, this._currentTheme);
-    this._currentTheme = theme;
     localStorage.setItem(LOCALSTORAGE_KEY, theme);
 
     const rootElement = document.querySelector('html');

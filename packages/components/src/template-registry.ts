@@ -190,6 +190,7 @@ import type HdsTextCodeComponent from './components/hds/text/code';
 import type HdsTimeComponent from './components/hds/time';
 import type HdsTimeSingleComponent from './components/hds/time/single';
 import type HdsTimeRangeComponent from './components/hds/time/range';
+import type HdsThemeSwitcherComponent from './components/hds/theme-switcher';
 import type HdsYieldComponent from './components/hds/yield';
 
 // helpers
@@ -860,6 +861,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Time::Range': typeof HdsTimeRangeComponent;
   'hds/time/range': typeof HdsTimeRangeComponent;
+
+  // Toast
+  'Hds::ThemeSwitcher': typeof HdsThemeSwitcherComponent;
+  'hds/theme-switcher': typeof HdsThemeSwitcherComponent;
 
   // Yield
   'Hds::Yield': typeof HdsYieldComponent;
