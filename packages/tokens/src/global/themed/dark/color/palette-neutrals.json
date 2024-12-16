@@ -2,67 +2,79 @@
     "color": {
         "palette": {
             "neutral-700": {
-                "value": "#0c0c0e",
+                "value": "#efeff1",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-600": {
-                "value": "#3b3d45",
+                "value": "#d5d7d8",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-500": {
-                "value": "#656a76",
+                "value": "#b2b6bd",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-400": {
-                "value": "#8c909c",
+                "value": "#616875",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-300": {
-                "value": "#c2c5cb",
+                "value": "#434956",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-200": {
-                "value": "#dedfe3",
+                "value": "#2b303c",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-100": {
-                "value": "#f1f2f3",
+                "value": "#1e222a",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-50": {
-                "value": "#fafafa",
+                "value": "#15181e",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "neutral-0": {
-                "value": "#ffffff",
+                "value": "#0d0e12",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-300": {
                 "value": "{color.palette.neutral-600.value}",
                 "alpha": "0.4",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-200": {
                 "value": "{color.palette.neutral-500.value}",
                 "alpha": "0.2",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             },
             "alpha-100": {
                 "value": "{color.palette.neutral-500.value}",
                 "alpha": "0.1",
                 "type": "color",
-                "group": "palette"
+                "group": "palette",
+                "theme": "dark"
             }
         }
     }

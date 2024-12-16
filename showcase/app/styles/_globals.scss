@@ -30,7 +30,7 @@ body {
   height: 68px;
   padding: 0 24px;
   color: var(--shw-color-black);
-  border-bottom: 1px solid #eaeaea;
+  border-bottom: 1px solid var(--shw-color-gray-500);
 }
 
 .shw-page-header__logo {
@@ -64,6 +64,10 @@ body {
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
+}
+
+.shw-page-header__theme-toggle {
+  margin-left: auto;
 }
 
 .shw-page-aside {

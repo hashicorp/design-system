@@ -8,14 +8,14 @@
 .shw-grid {
   & + &,
   & + .shw-flex {
-    margin-top: var(--shw-layout-gap-base);
+    margin-top: 1rem;
   }
 }
 
 .shw-grid__items {
   display: grid;
   flex-wrap: wrap;
-  gap: var(--shw-layout-gap-base);
+  gap: 1rem;
 
   .shw-grid--cols-1 > & {
     grid-template-columns: 1fr;
