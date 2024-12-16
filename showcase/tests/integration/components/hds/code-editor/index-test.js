@@ -30,7 +30,9 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   // @description
   test('it should render the component with a description', async function (assert) {
     await render(hbs`<Hds::CodeEditor @description="Test Description" />`);
-    assert.dom(codeEditorPage.selectors.description).hasText('Test Description');
+    assert
+      .dom(codeEditorPage.selectors.description)
+      .hasText('Test Description');
   });
   test('it should not render the component with a description when the `@description` argument is not provided', async function (assert) {
     await render(hbs`<Hds::CodeEditor />`);
@@ -44,7 +46,9 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
         <button id="test-toolbar-button">Test Button</button>
       </Hds::CodeEditor>
     `);
-    assert.dom(`${codeEditorPage.selectors.toolbar} #test-toolbar-button`).exists();
+    assert
+      .dom(`${codeEditorPage.selectors.toolbar} #test-toolbar-button`)
+      .exists();
   });
   // @hasCopyButton
   test('it should render a copy button when the `@hasCopyButton` argument is true', async function (assert) {
