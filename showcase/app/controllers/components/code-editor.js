@@ -22,7 +22,7 @@ import "fmt"
 func main() {
   fmt.Println("Hello, world!")
   fmt.Println("Welcome to Go!")
-}`
+}`,
     },
     {
       value: 'json',
@@ -31,14 +31,14 @@ func main() {
   "message": "Hello, world!",
   "status": "success",
   "data": null
-}`
+}`,
     },
     {
       value: 'sql',
       label: 'SQL',
       code: `SELECT 'Hello, world!';
 SELECT 'Welcome to SQL!';
-SELECT 'Enjoy coding!';`
+SELECT 'Enjoy coding!';`,
     },
     {
       value: 'hcl',
@@ -46,7 +46,7 @@ SELECT 'Enjoy coding!';`
       code: `variable "region" {
   type    = string
   default = "us-west-1"
-}`
+}`,
     },
   ];
 }
