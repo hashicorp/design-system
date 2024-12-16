@@ -1,0 +1,29 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import Component from '@glimmer/component';
+import type { HdsAccordionSizes } from '../types.ts';
+export interface HdsAccordionItemButtonSignature {
+    Args: {
+        ariaLabel?: string;
+        ariaLabelledBy?: string;
+        contentId?: string;
+        isOpen?: boolean;
+        onClickToggle?: (event: MouseEvent, ...args: any[]) => void;
+        parentContainsInteractive?: boolean;
+        size?: HdsAccordionSizes;
+        id?: string;
+    };
+    Element: HTMLButtonElement;
+}
+export default class HdsAccordionItemButton extends Component<HdsAccordionItemButtonSignature> {
+    onClick(event: MouseEvent): void;
+    /**
+     * Get the class names to apply to the component.
+     * @method ItemButton#classNames
+     * @return {string} The "class" attribute to apply to the component.
+     */
+    get classNames(): string;
+}
+//# sourceMappingURL=button.d.ts.map

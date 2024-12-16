@@ -1,0 +1,101 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// TAG COMPONENT
+//
+
+@use "../mixins/focus-ring" as *;
+
+// we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
+$hds-tag-border-radius: 50px;
+
+.hds-tag {
+  display: inline-flex;
+  align-items: stretch;
+  line-height: 1rem; // 16px - override `body-100`
+  vertical-align: middle;
+  background-color: var(--token-color-surface-interactive);
+  border: 1px solid var(--token-color-border-strong);
+  border-radius: $hds-tag-border-radius;
+}
+
+.hds-tag__dismiss {
+  flex: 0 0 auto;
+  margin: 0; // reset default button margin
+  padding: 6px 4px 6px 8px;
+  border: none; // reset default button border
+  border-radius: inherit;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.hds-tag__dismiss-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-tag__text,
+.hds-tag__link {
+  flex: 1 0 0;
+  padding: 3px 10px 5px 10px;
+  border-radius: inherit;
+}
+
+.hds-tag__dismiss ~ .hds-tag__text,
+.hds-tag__dismiss ~ .hds-tag__link {
+  padding: 3px 8px 5px 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+// INTERACTIVE ELEMENTS
+
+.hds-tag__dismiss,
+.hds-tag__link {
+  background-color: var(--token-color-surface-interactive);
+  cursor: pointer;
+
+  &:hover,
+  &.mock-hover {
+    background-color: var(--token-color-surface-interactive-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--token-color-surface-interactive-active);
+  }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-basic();
+    z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
+
+// COLORS (FOR LINK)
+
+.hds-tag--color-primary {
+  .hds-tag__link {
+    color: var(--token-color-foreground-action);
+
+    &:hover,
+    &.mock-hover {
+      color: var(--token-color-foreground-action-hover);
+    }
+
+    &:active,
+    &.mock-active {
+      color: var(--token-color-foreground-action-active);
+    }
+  }
+}
+
+.hds-tag--color-secondary {
+  .hds-tag__link {
+    color: var(--token-color-foreground-strong);
+  }
+}
