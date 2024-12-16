@@ -4,7 +4,7 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{#if (or this.hasHeaderInfo this.hasToolbarAction (has-block))}}
+  {{#if (and this.isSetupComplete (or this.hasHeaderInfo this.hasToolbarAction (has-block)))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
         {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
@@ -43,4 +43,9 @@
     class="hds-code-editor__editor"
     {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=(fn (mut this.isSetupComplete) true)}}
   />
+  {{#unless this.isSetupComplete}}
+    <div class="hds-code-editor__loader">
+      <Hds::Icon @name="loading" @color="var(--hds-code-editor-color-foreground-primary)" @size="24" />
+    </div>
+  {{/unless}}
 </div>

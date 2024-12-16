@@ -75,6 +75,14 @@
     overflow: auto;
   }
 
+  .hds-code-editor__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 164px;
+    background-color: var(--hds-code-editor-color-surface-primary);
+  }
+
   .hds-code-editor__toolbar-button,
   .hds-code-editor__toolbar-button.hds-copy-button {
     color: var(--hds-code-editor-color-foreground-primary);
