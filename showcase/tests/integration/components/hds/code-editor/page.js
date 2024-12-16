@@ -6,7 +6,7 @@ const codeEditorPage = {
     toolbar: '.hds-code-editor__header-toolbar',
     copyButton: '.hds-code-editor__copy-button',
     expandButton: '.hds-code-editor__expand-button',
-  }, 
-}
+  },
+};
 
 export default codeEditorPage;
