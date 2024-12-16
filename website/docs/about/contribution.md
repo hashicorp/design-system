@@ -35,7 +35,7 @@ To work in one of the Helios code packages, consult the corresponding `CONTRIBUT
 
 Review the [Engineering Checklist for new components](https://github.com/hashicorp/design-system/blob/main/packages/components/NEW-COMPONENT-CHECKLIST.md#engineering-checklist) if you’re working on a new component.
 
-If you need to test the component in one of our consumers’ codebases, review the [instructions for testing a component in Cloud UI](https://github.com/hashicorp/design-system/blob/main/packages/components/HOW-TO-TEST-A-COMPONENT-IN-CLOUD-UI.md).
+If you need to test the component in one of our consumers’ codebases, review the [instructions for testing a component in consumer's repositories](https://hashicorp.atlassian.net/wiki/x/24Fx0Q).
 
 ### Why large direct contributions are not currently accepted
 

@@ -90,7 +90,7 @@ Note: If you want to ignore a changeset bump in terminal (e.g. major bump for se
 
 ## Releasing
 
-See the [release docs](packages/components/RELEASE.md) for the process we follow to publish a new package version.
+See the [release docs](https://hashicorp.atlassian.net/wiki/x/HIBT0Q) for the process we follow to publish a new package version.
 
 ## License
 
