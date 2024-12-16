@@ -40,7 +40,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root[data-shw-theme="auto"] {
     @include shw-theme-color-variables-dark();
   }
 }
@@ -72,12 +72,12 @@
 
 // special variables used in the "theming" showcase page to demonstrate different ways to apply a theme to a page
 
-body.shw-theme-dark {
+html.shw-theme-dark {
   --shw-test-theme-class-foreground-color: #e0ffd9;
   --shw-test-theme-class-background-color: #008217;
 }
 
-body[data-shw-theme="dark"] {
+html[data-shw-theme="dark"] {
   --shw-test-theme-data-foreground-color: #f7d9ff;
   --shw-test-theme-data-background-color: #b01fe3;
 }
