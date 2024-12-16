@@ -23,7 +23,7 @@ This indicates that the component should take up the full-width of the parent co
 <Hds::Copy::Snippet @textToCopy="e4rt-yg80-39kt" @isFullWidth={{true}} />
 ```
 
-### isTruncated
+### Truncation
 
 When set to `true`, this constrains text to one-line and truncates it if it does not fit the available space.
 
