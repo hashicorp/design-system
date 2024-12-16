@@ -17,6 +17,7 @@ import { cloneDeep } from 'lodash-es';
 import type { ConfigTargets } from './@types/Config.d.ts';
 
 import { generateCssHelpers } from './build-parts/generateCssHelpers.ts';
+import { generateExtraThemingFiles } from './build-parts/generateExtraThemingFiles.ts';
 
 // SCRIPT CONFIG
 
@@ -34,7 +35,9 @@ const transformPxToRem: Transform['transform'] = (token, platform) => {
 }
 
 StyleDictionary.registerTransform({
-    name: 'size/px',
+    // TODO! there is a bug in SD where registering a transform (more in general a "hook") with the same name as a default one doesn't work if another hook is registered before it (in this case, the 'preprocessor')
+    // TODO later when the bug is fixed, rename this transform to `size/px`
+    name: 'size/pixel',
     type: 'value',
     filter: function(token) {
         return token.type === 'size';
@@ -50,7 +53,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/rem',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: transformPxToRem
 });
@@ -59,7 +62,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/px',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: function (token) {
         const val = parseFloat(token.value);
@@ -101,18 +104,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'products/email',
     // notice: for emails we need the font-size in `px` (not `rem`)
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerFormat({
@@ -140,61 +143,159 @@ StyleDictionary.registerAction({
     undo: () => {}
 });
 
+StyleDictionary.registerAction({
+    name: 'generate-extra-theming-files',
+    do: generateExtraThemingFiles,
+    undo: () => {}
+});
+
 // DYNAMIC CONFIG
 
 const targets: ConfigTargets = {
-    'products': {
+    // THEMING
+    // TODO temporary hack, while we come up with a more solid approach based on the Style Dictionary APIs
+    'products/theme[dark]': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/dark/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`
         ],
         'transformGroup': 'products/web',
-        'platforms': ['web/css-variables', 'docs/json']
+        'platforms': ['web/css-variables-theme-dark'],
+        'destination': 'products'
+    },
+    'products/theme[light]': {
+        'source': [
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
+            `src/products/shared/**/*.json`
+        ],
+        'transformGroup': 'products/web',
+        'platforms': ['web/css-variables-theme-light'],
+        'destination': 'products'
+    },
+    // NON-THEMED TARGETS
+    'products': {
+        'source': [
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
+            `src/products/shared/**/*.json`
+        ],
+        'transformGroup': 'products/web',
+        'platforms': ['web/css-variables', 'docs/json'],
+        'destination': 'products'
     },
     'devdot': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`,
             // just uncomment the line below to include overrides for "devdot" tokens
             `src/devdot/**/*.json`
         ],
         'transformGroup': 'products/web',
-        'platforms': ['web/css-variables']
+        'platforms': ['web/css-variables'],
+        'destination': 'devdot'
     },
     'marketing': {
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/**/*.json`,
         ],
         'transformGroup': 'marketing/web',
-        'platforms': ['web/css-variables', 'json']
+        'platforms': ['web/css-variables', 'json'],
+        'destination': 'marketing'
     },
     // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
     'cloud-email': {
         // we need only foundational tokens (colors, typography, etc)
         'source': [
-            `src/global/**/*.json`,
+            `src/global/themed/light/**/*.json`,
+            `src/global/shared/**/*.json`,
             `src/products/shared/color/**/*.json`,
             `src/products/shared/typography.json`,
         ],
         'transformGroup': 'products/email',
-        'platforms': ['email/sass-variables']
+        'platforms': ['email/sass-variables'],
+        'destination': 'cloud-email'
     }
 };
 
 function getStyleDictionaryConfig({ target }: { target: string }): Config {
     // @ts-ignore safe to ignore, since we control the `targets` object, and the `getStyleDictionaryConfig` invocations
-    const { source, transformGroup, platforms } = targets[target];
+    const { source, transformGroup, platforms, destination } = targets[target];
 
     // we need to explicitly initialize the `config` object this way to make TS happy
-    const config: Config = {};
+    const config: Config = {log: { verbosity: 'verbose' }};
     config.source = source;
     config.platforms = {};
+
+    // EXTRA THEME-RELATED FILES
+    // TODO we hide all the complexity here, for the moment, in this super-scrappy implementation, until we have a more solid solution leveraging the proper Style Dictionary APIs
+
+    if (platforms.includes('web/css-variables-theme-dark')) {
+        config.platforms['web/css-variables-theme-dark'] = {
+            transformGroup,
+            "buildPath": `dist/${destination}/css/`,
+            "prefix": "token",
+            "basePxFontSize": 16,
+            "files": [
+                {
+                    "destination": "themed-tokens/with-root-selector/dark-tokens.css",
+                    "format": "css/variables",
+                    "options": {
+                        "showFileHeader": false
+                    },
+                    "filter": function(token: DesignToken) {
+                        return !token.private && token.theme === 'dark';
+                    },
+                }
+            ],
+        }
+    }
+    if (platforms.includes('web/css-variables-theme-light')) {
+        config.platforms['web/css-variables-theme-light'] = {
+            transformGroup,
+            "buildPath": `dist/${destination}/css/`,
+            "prefix": "token",
+            "basePxFontSize": 16,
+            "files": [
+                {
+                    "destination": "themed-tokens/with-root-selector/light-tokens.css",
+                    "format": "css/variables",
+                    "options": {
+                        "showFileHeader": false
+                    },
+                    "filter": function(token: DesignToken) {
+                        return !token.private && token.theme === 'light';
+                    },
+                },
+                {
+                    "destination": "themed-tokens/with-root-selector/common-tokens.css",
+                    "format": "css/variables",
+                    "options": {
+                        "showFileHeader": false,
+                        // THIS IS IMPORTANT! (notice: it triggers a warning in the console log)
+                        "outputReferences": true
+                    },
+                    "filter": function(token: DesignToken) {
+                        // TODO! use `outputReferencesFilter` above to decide when to output the reference and when not
+                        // return !token.private && token.theme === undefined;
+                        return token.theme === undefined;
+                    },
+                }
+            ],
+            "actions": ['generate-extra-theming-files']
+        }
+    }
+
+    // STANDARD (OLD, NON-THEMED) OUTPUTS
 
     if (platforms.includes('web/css-variables')) {
         config.platforms['web/css-variables'] = {
             transformGroup,
-            "buildPath": `dist/${target}/css/`,
+            "buildPath": `dist/${destination}/css/`,
             "prefix": "token",
             "basePxFontSize": 16,
             "files": [
@@ -231,7 +332,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("json")) {
         config.platforms["json"] = {
             transformGroup,
-            "buildPath": `dist/${target}/`,
+            "buildPath": `dist/${destination}/`,
             "prefix": "token",
             "basePxFontSize": 16,
             "files": [
@@ -249,7 +350,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("email/sass-variables")) {
         config.platforms["email/sass-variables"] = {
             transformGroup,
-            "buildPath": `dist/${target}/`,
+            "buildPath": `dist/${destination}/`,
             "prefix": "token",
             "files": [
                 {

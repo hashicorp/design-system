@@ -9,6 +9,7 @@ export type ConfigTarget = {
     source: Config['source'],
     transformGroup: Config['transformGroup'],
     platforms: string[],
+    destination: string,
 };
 
 export type ConfigTargets = {

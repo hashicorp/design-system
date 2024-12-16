@@ -5,492 +5,574 @@
                 "value": "#000000",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-brand": {
                 "value": "#f24c53",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-600": {
                 "value": "#b21e23",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-500": {
                 "value": "#cf2d32",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-400": {
                 "value": "#db363b",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-300": {
                 "value": "#f97076",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-200": {
                 "value": "#ff9da2",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-100": {
                 "value": "#fbd7d8",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "boundary-50": {
                 "value": "#ffecec",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-brand": {
                 "value": "#e03875",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-600": {
                 "value": "#b10743",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-500": {
                 "value": "#d01c5b",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-400": {
                 "value": "#da306e",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-300": {
                 "value": "#ff99be",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-200": {
                 "value": "#ffbbd4",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-100": {
                 "value": "#ffcede",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "consul-50": {
                 "value": "#ffe9f1",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "hcp-brand": {
                 "value": "#000000",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-brand": {
                 "value": "#06d092",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-600": {
                 "value": "#007756",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-500": {
                 "value": "#008661",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-400": {
                 "value": "#22a870",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-300": {
                 "value": "#4cd099",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-200": {
                 "value": "#60dea9",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-100": {
                 "value": "#bff3dd",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "nomad-50": {
                 "value": "#d3fdeb",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-brand": {
                 "value": "#02a8ef",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-600": {
                 "value": "#0071a1",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-500": {
                 "value": "#007eb4",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-400": {
                 "value": "#1d9ed7",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-300": {
                 "value": "#3cc1fb",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-200": {
                 "value": "#63d0ff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-100": {
                 "value": "#b4e4ff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "packer-50": {
                 "value": "#d4f2ff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-brand": {
                 "value": "#7b42bc",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-600": {
                 "value": "#5f219e",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-500": {
                 "value": "#773cb4",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-400": {
                 "value": "#844fba",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-300": {
                 "value": "#bb8deb",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-200": {
                 "value": "#d8b7fc",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-100": {
                 "value": "#ebdbfc",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "terraform-50": {
                 "value": "#f4ecff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-brand": {
                 "value": "#1868f2",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-600": {
                 "value": "#064abe",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-500": {
                 "value": "#1c61d8",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-400": {
                 "value": "#2e71e5",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-300": {
                 "value": "#639cff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-200": {
                 "value": "#7dadff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-100": {
                 "value": "#c7dbfc",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vagrant-50": {
                 "value": "#d6ebff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-brand": {
                 "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-600": {
                 "value": "#8b6400",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-500": {
                 "value": "#9a6f00",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-400": {
                 "value": "#bb8e1a",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-300": {
                 "value": "#f5d712",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-200": {
                 "value": "#ffe543",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-100": {
                 "value": "#feec7b",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-50": {
                 "value": "#fff9cf",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-brand": {
                 "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-600": {
                 "value": "#8b6400",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-500": {
                 "value": "#9a6f00",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-400": {
                 "value": "#bb8e1a",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-300": {
                 "value": "#f5d712",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-200": {
                 "value": "#ffe543",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-100": {
                 "value": "#feec7b",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-secrets-50": {
                 "value": "#fff9cf",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-brand": {
                 "value": "#ffcf25",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-600": {
                 "value": "#8b6400",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-500": {
                 "value": "#9a6f00",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-400": {
                 "value": "#bb8e1a",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-300": {
                 "value": "#f5d712",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-200": {
                 "value": "#ffe543",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-100": {
                 "value": "#feec7b",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "vault-radar-50": {
                 "value": "#fff9cf",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-brand": {
                 "value": "#14c6cb",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-600": {
                 "value": "#007487",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-500": {
                 "value": "#008196",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-400": {
                 "value": "#22a4ac",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-300": {
                 "value": "#4fc9d1",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-200": {
                 "value": "#62d4dc",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-100": {
                 "value": "#cbf1f3",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             },
             "waypoint-50": {
                 "value": "#e0fcff",
                 "type": "color",
                 "group": "palette",
+                "theme": "light",
                 "private": "true"
             }
         }

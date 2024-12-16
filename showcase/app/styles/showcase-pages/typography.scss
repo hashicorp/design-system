@@ -7,11 +7,12 @@
 
 body.foundations-typography {
   .shw-label {
-    color: #999;
+    color: var(--shw-color-gray-300);
   }
 
   p[class^="hds-"] {
     margin: 0;
     padding: 0;
+    color: var(--shw-color-black);
   }
 }
