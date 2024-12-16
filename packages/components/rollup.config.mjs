@@ -35,6 +35,7 @@ const plugins = [
       'components/**/!(*types).js',
       'helpers/**/*.js',
       'modifiers/**/*.js',
+      'services/**/!(*types).js',
       'instance-initializers/**/*.js',
     ],
     {
