@@ -16,13 +16,10 @@ import type { HdsCodeEditorTitleSignature } from './title';
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;
-    canExpand?: boolean;
-    description?: string;
+    hasExpandButton?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
-    options?: unknown[];
-    title?: string;
     value?: string;
-    onInput?: (newVal: string) => void;
+    onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
   };
   Blocks: {
     default: [
@@ -39,7 +36,6 @@ export interface HdsCodeEditorSignature {
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked isFullscreen = false;
   @tracked isSetupComplete = false;
-  @tracked setupError: Error | null = null;
 
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
@@ -50,19 +46,11 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
       classes.push('hds-code-editor--is-fullscreen');
     }
 
-    if (!this.isSetupComplete) {
-      classes.push('hds-code-editor--is-loading');
-    }
-
     return classes.join(' ');
   }
 
-  get hasHeaderInfo(): boolean {
-    return this.args.title !== undefined || this.args.description !== undefined;
-  }
-
-  get hasToolbarAction(): boolean {
-    return (this.args.hasCopyButton || this.args.canExpand) ?? false;
+  get hasToolbarButton(): boolean {
+    return (this.args.hasCopyButton || this.args.hasExpandButton) ?? false;
   }
 
   @action
