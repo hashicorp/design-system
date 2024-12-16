@@ -181,7 +181,7 @@ The `@forceState` argument enables you to implement expand/collapse all function
   </Hds::Accordion>
 ```
 
-### ariaLabel
+### Accessible name
 
 The `ariaLabel` value is applied to the HTML button which controls visibility of the content block. The text does not display in the UI. The default value is "Toggle display" but you can set a custom value useful for translated text for example.
 
@@ -196,7 +196,7 @@ The `ariaLabel` value is applied to the HTML button which controls visibility of
   </Hds::Accordion>
 ```
 
-### titleTag
+### Title tag
 
 The `@titleTag` argument changes the HTML element that wraps the title block of each `Accordion::Item`. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Accordion is within a subsection of the page below a heading level 2, the value should be `"h3"`.
 
@@ -232,7 +232,7 @@ The default `@titleTag` is `"div"` because the correct value is dependent on the
 
 !!!
 
-### isOpen
+### Open
 
 Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
 
@@ -253,7 +253,7 @@ Set `isOpen` to `true` on an `Accordion::Item` to display its associated content
   </Hds::Accordion>
 ```
 
-### isStatic
+### Static
 
 Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to interact with the toggle.
 
@@ -274,7 +274,7 @@ Set `isStatic` to `true` on an `Accordion::Item` to remove the ability to intera
   </Hds::Accordion>
 ```
 
-### containsInteractive
+### Contains interactive
 
 By default, the `containsInteractive` property of the `Accordion::Item` is set to `false`, meaning that the entire `Accordion::Item` toggle block can be clicked to hide and show the associated content. If set to `true`, only the chevron button of the `Accordion::Item` is clickable vs. the entire block. This allows you to add other interactive content inside the toggle block if desired.
 
