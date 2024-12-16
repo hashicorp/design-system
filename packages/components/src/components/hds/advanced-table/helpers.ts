@@ -1,7 +1,3 @@
-// TODO
-// did insert
-// add escape listener to focusable elements inside cell
-
 import type { HdsAdvancedTableTdSignature } from './td';
 import type { HdsAdvancedTableThSignature } from './th';
 
@@ -11,20 +7,19 @@ const getAllFocusableChildren = (element: HTMLElement): NodeListOf<Element> => {
   );
 };
 
+const getParentCell = (element: HTMLElement): Element | null | undefined => {
+  const targetParent = element.parentElement
+
+  if (targetParent) {
+    return targetParent.closest('.hds-advanced-table__th, .hds-advanced-table__td')
+  }
+}
+
 const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
   const { key, target } = event;
-
-  console.log('key', key);
-  console.log('target', target);
-
   if (target instanceof HTMLElement) {
     if (key === 'Escape') {
-      const cell = target.closest(
-        'hds-advanced-table__th, hds-advanced-table__td'
-      );
-
-      console.log(cell);
-
+      const cell = getParentCell(target);
       if (cell instanceof HTMLElement) {
         cell.setAttribute('tabindex', '0');
         cell.focus();
@@ -43,6 +38,7 @@ export const didInsertGridCell = (
   for (const child of focusableChildren) {
     if (child instanceof HTMLElement) {
       child.setAttribute('tabindex', '-1');
+      child.setAttribute('data-advanced-table-child-focusable', '')
       child.addEventListener('keydown', handleGridCellChildKeyPress);
     }
   }
@@ -64,11 +60,11 @@ export const didInsertGridCell = (
   } else if (
     currentRow?.parentElement?.classList.contains('hds-advanced-table__tbody')
   ) {
-    const table = currentRow.parentElement?.closest('[role="grid"]');
-    const thead = table?.querySelector(
+    const grid = currentRow.parentElement?.closest('[role="grid"]');
+    const thead = grid?.querySelector(
       '[role="rowgroup"].hds-advanced-table__thead'
     );
-    const tbody = table?.querySelector(
+    const tbody = grid?.querySelector(
       '[role="rowgroup"].hds-advanced-table__tbody'
     );
 
@@ -98,8 +94,8 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
     currentRow: HTMLElement,
     direction: 'ArrowDown' | 'ArrowUp'
   ) => {
-    const table = currentRow.parentElement?.closest('[role="grid"]');
-    const allRows = table?.querySelectorAll('[role="row"]');
+    const grid = currentRow.parentElement?.closest('[role="grid"]');
+    const allRows = grid?.querySelectorAll('[role="row"]');
 
     if (allRows) {
       const currentRowIndex = Array.from(allRows).indexOf(currentRow);
@@ -110,17 +106,22 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
 
   if (target instanceof HTMLElement) {
     if (key === 'Enter') {
-      const focusableChildren = getAllFocusableChildren(target);
+      const cellFocusableChildren = getAllFocusableChildren(target);
 
-      // TODO: test this more. if screen reader keeps up with the state of the focusable element, can bring it back.
-      // if (focusableChildren.length === 1) {
-      //   const element = focusableChildren[0] as HTMLElement;
-      //   element.click();
-      // } else
-
-      if (focusableChildren.length > 0) {
-        const element = focusableChildren[0] as HTMLElement;
+      if (cellFocusableChildren.length > 0) {
+        const element = cellFocusableChildren[0] as HTMLElement;
         element.focus();
+      }
+
+      const grid = target.parentElement?.closest('[role="grid"]');
+      if (grid instanceof HTMLElement) {
+        const allFocusableChildren = getAllFocusableChildren(grid)
+        for (let i = 0; i < allFocusableChildren.length; i++) {
+          const child  = allFocusableChildren[i]
+          if (child?.hasAttribute('data-advanced-table-child-focusable')) {
+            child.setAttribute('tabindex', '0')
+          }
+        }
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       const nextElement =
@@ -191,8 +192,8 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
           target
         );
 
-        const table = currentRow.parentElement?.closest('[role="grid"]');
-        const allRows = table?.querySelectorAll('[role="row"]');
+        const grid = currentRow.parentElement?.closest('[role="grid"]');
+        const allRows = grid?.querySelectorAll('[role="row"]');
 
         if (allRows) {
           const nextRow =
