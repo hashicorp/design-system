@@ -33,6 +33,8 @@ export interface HdsCodeEditorSignature {
   };
 }
 
+const LOADER_HEIGHT = '164px';
+
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   editor!: EditorView;
   element!: HTMLElement;
@@ -48,15 +50,20 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ): void {
     assert('HdsCodeEditor must have an element', element);
 
-    this.observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        // @ts-ignore
-        if (entry.isIntersecting && this.setupTask.performCount === 0) {
+    this.observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
           // @ts-ignore
-          this.setupTask.perform(element, positional, named);
-        }
-      });
-    });
+          if (entry.isIntersecting && this.setupTask.performCount === 0) {
+            // @ts-ignore
+            this.setupTask.perform(element, positional, named);
+          }
+        });
+      },
+      {
+        rootMargin: LOADER_HEIGHT,
+      }
+    );
 
     this.observer.observe(element);
   }
