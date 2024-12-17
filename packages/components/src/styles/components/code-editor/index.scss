@@ -41,27 +41,33 @@
 
   .hds-code-editor__header-content {
     display: flex;
-    flex-direction: column;
     flex-grow: 1;
-  }
-
-  .hds-code-editor__title,
-  .hds-code-editor__description {
-    &:not(:first-child) {
-      margin-top: 12px;
-    }
-  }
-
-  .hds-code-editor__header-generic-block {
-    display: flex;
-    gap: 8px;
+    flex-wrap: wrap;
     align-items: center;
 
-    // if the generic block has children and is not the only child, add space
-    &:not(:only-child):has(*) {
-      margin-top: 12px;
+    & > *:not(.hds-code-editor__header-content-text):has(+ *) {
+      margin-right: 8px;
     }
   }
+
+  .hds-code-editor__header-content-text {
+    width: 100%;
+
+    &:has(+ *) {
+      margin-bottom: 16px;
+    }
+  }
+
+  // .hds-code-editor__header-generic-block {
+  //   display: flex;
+  //   gap: 8px;
+  //   align-items: center;
+
+  //   // if the generic block has children and is not the only child, add space
+  //   &:not(:only-child):has(*) {
+  //     margin-top: 12px;
+  //   }
+  // }
 
   .hds-code-editor__header-toolbar {
     display: flex;

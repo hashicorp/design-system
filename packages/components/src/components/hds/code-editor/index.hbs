@@ -7,11 +7,13 @@
   {{#if (and this.isSetupComplete (or this.hasToolbarButton (has-block)))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
-        {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
-
-        <div class="hds-code-editor__header-generic-block">
-          {{yield (hash ToolbarButton=(component "hds/code-editor/toolbar-button"))}}
-        </div>
+        {{yield
+          (hash
+            Title=(component "hds/code-editor/title")
+            Description=(component "hds/code-editor/description")
+            ToolbarButton=(component "hds/code-editor/toolbar-button")
+          )
+        }}
       </div>
 
       {{#if this.hasToolbarButton}}
