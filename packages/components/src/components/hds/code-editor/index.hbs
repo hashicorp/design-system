@@ -41,7 +41,7 @@
   {{/if}}
   <div
     class="hds-code-editor__editor"
-    {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=(fn (mut this.isSetupComplete) true)}}
+    {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=this.onSetup}}
   />
   {{#unless this.isSetupComplete}}
     <div class="hds-code-editor__loader">
