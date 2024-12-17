@@ -19,7 +19,7 @@ export interface HdsCodeEditorSignature {
     hasCopyButton?: boolean;
     hasExpandButton?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
-    value?: string;
+    value?: HdsCodeEditorModifierSignature['Args']['Named']['value'];
     onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
     onSetup?: HdsCodeEditorModifierSignature['Args']['Named']['onSetup'];
   };
@@ -58,10 +58,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @action
   onSetup(editorView: EditorView): void {
     this.isSetupComplete = true;
-
-    if (this.args.onSetup) {
-      this.args.onSetup(editorView);
-    }
+    this.args.onSetup?.(editorView);
   }
 
   @action
