@@ -5,6 +5,7 @@
 
 // WHAT'S NEW > CHANGELOG
 
+@use "../../typography/mixins" as *;
 
 #show-content-whats-new-release-notes {
   > section {

@@ -5,7 +5,7 @@
 
 // TYPOGRAPHIC STYLES (CSS HELPERS)
 
-@import "./mixins";
+@use "./mixins" as *;
 
 
 // HEADINGS

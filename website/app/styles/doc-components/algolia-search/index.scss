@@ -5,9 +5,9 @@
 
 // ALGOLIA AUTOCOMPLETE SEARCH
 
-@import "./modal";
-@import "./form";
-@import "./results";
+@use "./modal";
+@use "./form";
+@use "./results";
 
 // "autocomplete" target container - not used
 .doc-algolia-search__autocomplete-container {

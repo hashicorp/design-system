@@ -67,6 +67,11 @@ body.application.index {
 // hero
 
 .doc-page-home__hero {
+  display: flex;
+  flex-direction: column;
+  padding: var(--padding-top) 0 var(--padding-bottom);
+
+  // Reason for position: https://sass-lang.com/documentation/breaking-changes/mixed-decls/
   @include breakpoint.small() {
     --padding-top: 260px; // 200 of decoration on top + 60px of negative space
     --padding-bottom: 100px;
@@ -87,10 +92,6 @@ body.application.index {
     --title-font-size: 4.375rem; // 70px
     --tagline-font-size: 1.25rem; // 24px
   }
-
-  display: flex;
-  flex-direction: column;
-  padding: var(--padding-top) 0 var(--padding-bottom);
 
   h1 {
     @include doc-font-family("hashicorp-sans");

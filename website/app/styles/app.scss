@@ -5,58 +5,58 @@
 
 // HDS COMPONENTS
 
-@import "@hashicorp/design-system-components";
-@import "@hashicorp/design-system-power-select-overrides";
+@use "@hashicorp/design-system-components";
+@use "@hashicorp/design-system-power-select-overrides";
 
 // Tokens (CSS props)
-@import "tokens";
+@use "tokens";
 
 // Global declarations
-@import "global";
-@import "typography";
-@import "spacing";
+@use "global";
+@use "typography";
+@use "spacing";
 
 // "Doc" components
-@import "doc-components";
+@use "doc-components";
 
 // Markdown
-@import "markdown";
+@use "markdown";
 
 // Page-specific declarations
-@import "pages/application"; // main application frame
-@import "pages/home"; // homepage (index)
-@import "pages/about/principles";
-@import "pages/foundations/landing";
-@import "pages/foundations/icon";
-@import "pages/foundations/typography";
-@import "pages/components/accordion";
-@import "pages/components/alert";
-@import "pages/components/app-footer";
-@import "pages/components/application-state";
-@import "pages/components/button";
-@import "pages/components/code-block";
-@import "pages/components/copy-snippet";
-@import "pages/components/copy-button";
-@import "pages/components/dropdown";
-@import "pages/components/flyout";
-@import "pages/components/landing";
-@import "pages/components/modal";
-@import "pages/components/pagination";
-@import "pages/components/radio-card";
-@import "pages/components/rich-tooltip";
-@import "pages/components/side-nav";
-@import "pages/components/super-select";
-@import "pages/components/table";
-@import "pages/components/tabs";
-@import "pages/layouts/app-frame";
-@import "pages/whats-new/changelog";
-@import "pages/patterns/table-multi-select";
-@import "pages/patterns/filter-patterns";
-@import "pages/utilities/dialog-primitive";
+@use "pages/application"; // main application frame
+@use "pages/home"; // homepage (index)
+@use "pages/about/principles" as about-principles;
+@use "pages/foundations/landing" as foundations-landing;
+@use "pages/foundations/icon" as foundations-icon;
+@use "pages/foundations/typography" as foundations-typography;
+@use "pages/components/accordion" as components-accordion;
+@use "pages/components/alert" as components-alert;
+@use "pages/components/app-footer" as components-app-footer;
+@use "pages/components/application-state" as components-application-state;
+@use "pages/components/button" as components-button;
+@use "pages/components/code-block" as components-code-block;
+@use "pages/components/copy-snippet" as components-copy-snippet;
+@use "pages/components/copy-button" as components-copy-button;
+@use "pages/components/dropdown" as components-dropdown;
+@use "pages/components/flyout" as components-flyout;
+@use "pages/components/landing" as components-landing;
+@use "pages/components/modal" as components-modal;
+@use "pages/components/pagination" as components-pagination;
+@use "pages/components/radio-card" as components-radio-card;
+@use "pages/components/rich-tooltip" as components-rich-tooltip;
+@use "pages/components/side-nav" as components-side-nav;
+@use "pages/components/super-select" as components-super-select;
+@use "pages/components/table" as components-table;
+@use "pages/components/tabs" as components-tabs;
+@use "pages/layouts/app-frame" as layouts-app-frame;
+@use "pages/whats-new/changelog" as whats-new-changelog;
+@use "pages/patterns/table-multi-select" as patterns-table-multi-select;
+@use "pages/patterns/filter-patterns" as patterns-filter-patterns;
+@use "pages/utilities/dialog-primitive" as utilities-dialog-primitive;
 
 // Third-party declarations
-@import "prism-dracula";
-@import "ember-power-select";
+@use "prism-dracula";
+@use "ember-power-select";
 
 // GLOBALS
 
