@@ -80,20 +80,34 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
-  @tracked sortBy = this.args.sortBy ?? undefined;
-  @tracked sortOrder =
+  @tracked private _sortBy = this.args.sortBy ?? undefined;
+  @tracked  private _sortOrder =
     this.args.sortOrder || HdsAdvancedTableThSortOrderValues.Asc;
-  @tracked selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+  @tracked private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
-  selectableRows: HdsAdvancedTableSelectableRow[] = [];
-  @tracked isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
-  captionId = 'caption-' + guidFor(this);
+  private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _captionId = 'caption-' + guidFor(this);
+
+  @action didInsert(element: HTMLDivElement): void {
+      const stickyGridHeader = element.querySelector('.hds-advanced-table__thead.hds-advanced-table__thead--sticky')
+
+      if (stickyGridHeader !== null) {
+        const observer = new IntersectionObserver( 
+          ([element]) => element?.target.classList.toggle("hds-advanced-table__thead--is-pinned", element.intersectionRatio < 1),
+          { threshold: [1] }
+        );
+        
+        observer.observe(stickyGridHeader);
+      }
+  }
+
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this.sortBy
+      (column) => column.key === this._sortBy
     );
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
@@ -103,7 +117,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       return currentColumn.sortingFunction;
     } else {
       // otherwise fallback to the default format "sortBy:sortOrder"
-      return `${this.sortBy}:${this.sortOrder}`;
+      return `${this._sortBy}:${this._sortOrder}`;
     }
   }
 
@@ -156,9 +170,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
-    } else if (this.sortBy && this.sortOrder) {
+    } else if (this._sortBy && this._sortOrder) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this.sortBy} ${this.sortOrder}ending`;
+      return `Sorted by ${this._sortBy} ${this._sortOrder}ending`;
     } else {
       return '';
     }
@@ -261,22 +275,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setSortBy(column: string): void {
-    if (this.sortBy === column) {
+    if (this._sortBy === column) {
       // check to see if the column is already sorted and invert the sort order if so
-      this.sortOrder =
-        this.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
+      this._sortOrder =
+        this._sortOrder === HdsAdvancedTableThSortOrderValues.Asc
           ? HdsAdvancedTableThSortOrderValues.Desc
           : HdsAdvancedTableThSortOrderValues.Asc;
     } else {
       // otherwise, set the sort order to ascending
-      this.sortBy = column;
-      this.sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
+      this._sortBy = column;
+      this._sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
     }
 
     const { onSort } = this.args;
 
     if (typeof onSort === 'function') {
-      onSort(this.sortBy, this.sortOrder);
+      onSort(this._sortBy, this._sortOrder);
     }
   }
 
@@ -291,13 +305,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onSelectionChange({
         selectionKey: selectionKey,
         selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this.selectableRows.reduce<string[]>((acc, row) => {
+        selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
           if (row.checkbox.checked) {
             acc.push(row.selectionKey);
           }
           return acc;
         }, []),
-        selectableRowsStates: this.selectableRows.reduce(
+        selectableRowsStates: this._selectableRows.reduce(
           (
             acc: { selectionKey: string; isSelected: boolean | undefined }[],
             row
@@ -316,12 +330,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   onSelectionAllChange(): void {
-    this.selectableRows.forEach((row) => {
-      row.checkbox.checked = this.selectAllCheckbox?.checked ?? false;
+    this._selectableRows.forEach((row) => {
+      row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
       row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
-    this.isSelectAllCheckboxSelected = this.selectAllCheckbox?.checked ?? false;
-    this.onSelectionChangeCallback(this.selectAllCheckbox, 'all');
+    this._isSelectAllCheckboxSelected = this._selectAllCheckbox?.checked ?? false;
+    this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
 
   @action
@@ -337,12 +351,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   didInsertSelectAllCheckbox(
     checkbox: HdsFormCheckboxBaseSignature['Element']
   ): void {
-    this.selectAllCheckbox = checkbox;
+    this._selectAllCheckbox = checkbox;
   }
 
   @action
   willDestroySelectAllCheckbox(): void {
-    this.selectAllCheckbox = undefined;
+    this._selectAllCheckbox = undefined;
   }
 
   @action
@@ -351,14 +365,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     selectionKey?: string
   ): void {
     if (selectionKey) {
-      this.selectableRows.push({ selectionKey, checkbox });
+      this._selectableRows.push({ selectionKey, checkbox });
     }
     this.setSelectAllState();
   }
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
-    this.selectableRows = this.selectableRows.filter(
+    this._selectableRows = this._selectableRows.filter(
       (row) => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
@@ -366,18 +380,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setSelectAllState(): void {
-    if (this.selectAllCheckbox) {
-      const selectableRowsCount = this.selectableRows.length;
-      const selectedRowsCount = this.selectableRows.filter(
+    if (this._selectAllCheckbox) {
+      const selectableRowsCount = this._selectableRows.length;
+      const selectedRowsCount = this._selectableRows.filter(
         (row) => row.checkbox.checked
       ).length;
 
-      this.selectAllCheckbox.checked =
+      this._selectAllCheckbox.checked =
         selectedRowsCount === selectableRowsCount;
-      this.selectAllCheckbox.indeterminate =
+      this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
-      this.isSelectAllCheckboxSelected = this.selectAllCheckbox.checked;
-      this.selectAllCheckbox.dispatchEvent(
+      this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
+      this._selectAllCheckbox.dispatchEvent(
         new Event('toggle', { bubbles: false })
       );
     }

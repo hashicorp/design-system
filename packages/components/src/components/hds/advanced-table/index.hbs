@@ -7,10 +7,11 @@
   class={{this.classNames}}
   ...attributes
   role="grid"
-  aria-describedby={{this.captionId}}
+  aria-describedby={{this._captionId}}
   {{style grid-template-columns=this.gridTemplateColumns}}
+  {{did-insert this.didInsert}}
 >
-  <div id={{this.captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
+  <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
     {{this.sortedMessageText}}
   </div>
@@ -18,7 +19,7 @@
     <Hds::AdvancedTable::Tr
       @selectionScope="col"
       @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
-      @sortBySelectedOrder={{if (eq this.sortBy @selectableColumnKey) this.sortOrder}}
+      @sortBySelectedOrder={{if (eq this._sortBy @selectableColumnKey) this._sortOrder}}
       @isSelectable={{this.isSelectable}}
       @onSelectionChange={{this.onSelectionAllChange}}
       @didInsertCheckbox={{this.didInsertSelectAllCheckbox}}
@@ -28,7 +29,7 @@
       {{#each @columns as |column|}}
         {{#if column.isSortable}}
           <Hds::AdvancedTable::ThSort
-            @sortOrder={{if (eq column.key this.sortBy) this.sortOrder}}
+            @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
             @onClickSort={{fn this.setSortBy column.key}}
             @align={{column.align}}
             @tooltip={{column.tooltip}}

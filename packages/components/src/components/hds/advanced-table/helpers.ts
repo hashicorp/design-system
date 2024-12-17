@@ -23,6 +23,17 @@ const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
       if (cell instanceof HTMLElement) {
         cell.setAttribute('tabindex', '0');
         cell.focus();
+
+        const grid = target.parentElement?.closest('[role="grid"]');
+        if (grid instanceof HTMLElement) {
+          const allFocusableChildren = getAllFocusableChildren(grid)
+          for (let i = 0; i < allFocusableChildren.length; i++) {
+            const child  = allFocusableChildren[i]
+            if (child?.hasAttribute('data-advanced-table-child-focusable')) {
+              child.setAttribute('tabindex', '-1')
+            }
+          }
+        }
       }
     }
   }
@@ -109,19 +120,14 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
       const cellFocusableChildren = getAllFocusableChildren(target);
 
       if (cellFocusableChildren.length > 0) {
-        const element = cellFocusableChildren[0] as HTMLElement;
-        element.focus();
-      }
-
-      const grid = target.parentElement?.closest('[role="grid"]');
-      if (grid instanceof HTMLElement) {
-        const allFocusableChildren = getAllFocusableChildren(grid)
-        for (let i = 0; i < allFocusableChildren.length; i++) {
-          const child  = allFocusableChildren[i]
+        for (let i = 0; i < cellFocusableChildren.length; i++) {
+          const child  = cellFocusableChildren[i]
           if (child?.hasAttribute('data-advanced-table-child-focusable')) {
             child.setAttribute('tabindex', '0')
           }
         }
+        const element = cellFocusableChildren[0] as HTMLElement;
+        element.focus();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       const nextElement =

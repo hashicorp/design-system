@@ -29,9 +29,9 @@
   <Hds::AdvancedTable
     @model={{this.model.music}}
     @columns={{array
-      (hash key="artist" label="Artist" isSortable=true)
-      (hash key="album" label="Album" isSortable=true)
-      (hash key="year" label="Release Year" isSortable=true)
+      (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
+      (hash key="album" label="Album" tooltip="More information." isSortable=true)
+      (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
       (hash key="other" label="Additional Actions")
     }}
   >
@@ -62,6 +62,7 @@
 
   <Shw::Text::H2>Nested rows</Shw::Text::H2>
 
+  <Shw::Text::H3>With default expanded rows</Shw::Text::H3>
   <Hds::AdvancedTable
     @model={{this.model.nestedData}}
     @columns={{array
@@ -1138,7 +1139,7 @@
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
       <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
-        <div class="hds-advanced-table__thead">
+        <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>
               This is a very long text that should go on two lines
