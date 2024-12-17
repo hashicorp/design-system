@@ -70,11 +70,12 @@
         <CE.Description>This is a code editor with a description</CE.Description>
       </Hds::CodeEditor>
     </SG.Item>
-    <SG.Item @label="With title, description, and custom actions">
+    <SG.Item @label="With title, description, and custom content">
       <Hds::CodeEditor as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
         <CE.ToolbarButton @text="Custom button" />
+        <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With title, description, and internal and custom actions">
@@ -82,6 +83,7 @@
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
         <CE.ToolbarButton @text="Custom button" />
+        <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With internal and custom actions">
