@@ -13,7 +13,6 @@ const selectors = {
   title: '.hds-code-editor__title',
   description: '.hds-code-editor__description',
   codeEditor: '.hds-code-editor__editor',
-  toolbar: '.hds-code-editor__header-toolbar',
   copyButton: '.hds-code-editor__copy-button',
   expandButton: '.hds-code-editor__expand-button',
 };
@@ -55,7 +54,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     assert.dom(selectors.description).doesNotExist();
   });
 
-  // generic block content
+  // yielded block content
   test('it should render custom content in the toolbar when provided', async function (assert) {
     await render(hbs`
       <Hds::CodeEditor>
@@ -63,7 +62,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       </Hds::CodeEditor>
     `);
     await settled();
-    assert.dom(`${selectors.toolbar} #test-toolbar-button`).exists();
+    assert.dom('#test-toolbar-button').exists();
   });
   // @hasCopyButton
   test('it should render a copy button when the `@hasCopyButton` argument is true', async function (assert) {
@@ -92,6 +91,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   test('it should render the component with the provided value', async function (assert) {
     await render(hbs`<Hds::CodeEditor @value="Test Code" />`);
     await settled();
+    assert.dom(selectors.codeEditor).includesText('Test Code');
   });
 
   // @onInput

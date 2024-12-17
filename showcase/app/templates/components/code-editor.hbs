@@ -53,11 +53,11 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>Custom actions</Shw::Text::H3>
+  <Shw::Text::H3>Custom content</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With custom header content">
       <Hds::CodeEditor as |CE|>
-        <CE.ToolbarButton @text="Custom button" />
+        <CE.Button @text="Custom button" />
       </Hds::CodeEditor>
     </SG.Item>
   </Shw::Grid>
@@ -74,21 +74,22 @@
       <Hds::CodeEditor as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
-        <CE.ToolbarButton @text="Custom button" />
+        <CE.Button @text="Custom button" />
         <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
     </SG.Item>
-    <SG.Item @label="With title, description, and internal and custom actions">
+    <SG.Item @label="With title, description, and internal and custom content">
       <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
-        <CE.ToolbarButton @text="Custom button" />
+        <CE.Button @text="Custom button" />
         <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
     </SG.Item>
-    <SG.Item @label="With internal and custom actions">
+    <SG.Item @label="With internal and custom content">
       <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
-        <CE.ToolbarButton @text="Custom button" />
+        <CE.Button @text="Custom button" />
+        <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
     </SG.Item>
   </Shw::Grid>

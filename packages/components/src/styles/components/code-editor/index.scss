@@ -63,17 +63,6 @@
     }
   }
 
-  // .hds-code-editor__header-generic-block {
-  //   display: flex;
-  //   gap: 8px;
-  //   align-items: center;
-
-  //   // if the generic block has children and is not the only child, add space
-  //   &:not(:only-child):has(*) {
-  //     margin-top: 12px;
-  //   }
-  // }
-
   .hds-code-editor__header-toolbar {
     display: flex;
     gap: 8px;
@@ -94,8 +83,8 @@
     background-color: var(--hds-code-editor-color-surface-primary);
   }
 
-  .hds-code-editor__toolbar-button,
-  .hds-code-editor__toolbar-button.hds-copy-button {
+  .hds-code-editor__button,
+  .hds-code-editor__button.hds-copy-button {
     color: var(--hds-code-editor-color-foreground-primary);
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);
