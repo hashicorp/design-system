@@ -76,7 +76,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   loadLanguageTask = task(
-    this,
     { drop: true },
     async (language?: HdsCodeEditorLanguages) => {
       if (language === undefined) {
@@ -112,7 +111,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   );
 
   setupTask = task(
-    this,
     { drop: true },
     async (
       element: HTMLElement,
