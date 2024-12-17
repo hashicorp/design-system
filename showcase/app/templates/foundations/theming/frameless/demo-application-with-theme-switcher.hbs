@@ -1,0 +1,311 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "AppFrame Component - Frameless"}}
+
+<Mock::App @hasPageAlert="true" @hasHeader={{false}}>
+  <:sidebar as |S|>
+    <S.SideNav>
+      <:extraBodyAfter>
+        <div {{style margin-top="16px"}}>
+          <Hds::ThemeSwitcher />
+        </div>
+      </:extraBodyAfter>
+    </S.SideNav>
+  </:sidebar>
+  <:main as |M|>
+    <M.PageHeader @showActionButton={{true}} @showActionDropdown={{true}} />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Text</Hds::Text::Display>
+
+    <Hds::Tabs as |T|>
+      <T.Tab>Text components</T.Tab>
+      <T.Tab>Helper classes</T.Tab>
+      <T.Tab>Tokens</T.Tab>
+      <T.Panel {{style padding-top="16px"}}>
+        <M.GenericTextContent @showHeadings={{true}} />
+      </T.Panel>
+      <T.Panel {{style padding-top="16px"}}>
+        <Shw::Flex @direction="column" as |SF|>
+          <SF.Item>
+            <h2 class="hds-typography-display-200 hds-foreground-strong">Heading with hds-typography-display-500 /
+              hds-foreground-strong</h2>
+          </SF.Item>
+          <SF.Item>
+            <p class="hds-typography-body-300 hds-foreground-primary">Paragraph with hds-typography-body-300 /
+              hds-foreground-primary</p>
+          </SF.Item>
+          <SF.Item>
+            <code class="hds-typography-code-300 hds-foreground-success">Code with hds-typography-code-300 /
+              hds-foreground-success</code>
+          </SF.Item>
+        </Shw::Flex>
+      </T.Panel>
+      <T.Panel {{style padding-top="16px"}}>
+        <Shw::Flex @direction="column" as |SF|>
+          <SF.Item>
+            <h2
+              {{style
+                font-family="var(--token-typography-display-200-font-family)"
+                font-size="var(--token-typography-display-200-font-size)"
+                line-height="var(--token-typography-display-200-line-height)"
+                color="var(--token-color-foreground-strong)"
+                margin="0"
+              }}
+            >Heading with --token-typography-display-200-font-family / --token-typography-display-200-font-size /
+              --token-typography-display-200-line-height / --token-color-foreground-strong</h2>
+          </SF.Item>
+          <SF.Item>
+            <p
+              {{style
+                font-family="var(--token-typography-body-300-font-family)"
+                font-size="var(--token-typography-body-300-font-size)"
+                line-height="var(--token-typography-body-300-line-height)"
+                color="var(--token-color-foreground-primary)"
+                margin="0"
+              }}
+            >Paragraph with --token-typography-body-300-font-family / --token-typography-body-300-font-size /
+              --token-typography-body-300-line-height / --token-color-foreground-primary</p>
+          </SF.Item>
+          <SF.Item>
+            <code
+              {{style
+                font-family="var(--token-typography-code-300-font-family)"
+                font-size="var(--token-typography-code-300-font-size)"
+                line-height="var(--token-typography-code-300-line-height)"
+                color="var(--token-color-foreground-success)"
+                margin="0"
+              }}
+            >Code with --token-typography-code-300-font-family / --token-typography-code-300-font-size /
+              --token-typography-code-300-line-height / --token-color-foreground-success</code>
+          </SF.Item>
+        </Shw::Flex>
+      </T.Panel>
+    </Hds::Tabs>
+
+    <Shw::Divider />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Table</Hds::Text::Display>
+
+    <M.TableComplex @showFilters={{true}} @showPagination={{true}} />
+
+    <Shw::Divider />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Form</Hds::Text::Display>
+
+    <M.FormComplex @showAll={{true}} />
+
+    <Shw::Divider />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Overlays</Hds::Text::Display>
+
+    <Shw::Flex @direction="column" as |SF|>
+      <SF.Item>
+
+        <button type="button" {{on "click" (set this "isShowingFlyout" true)}}>Open flyout</button>
+
+        {{#if this.isShowingFlyout}}
+          <Hds::Flyout @onClose={{set this "isShowingFlyout" false}} as |F|>
+            <F.Header @tagline="Tagline" @icon="info">
+              Title
+            </F.Header>
+            <F.Description>Lorem ipsum dolor sit amet</F.Description>
+            <F.Body>
+              <M.GenericTextContent />
+            </F.Body>
+            <F.Footer as |FF|>
+              <Hds::ButtonSet>
+                <Hds::Button type="button" @text="Primary" {{on "click" FF.close}} />
+                <Hds::Button type="button" @text="Secondary" @color="secondary" {{on "click" FF.close}} />
+                <Hds::Button
+                  type="button"
+                  @text="Tertiary"
+                  @color="tertiary"
+                  @icon="arrow-right"
+                  @iconPosition="trailing"
+                  {{on "click" FF.close}}
+                />
+              </Hds::ButtonSet>
+            </F.Footer>
+          </Hds::Flyout>
+        {{/if}}
+
+      </SF.Item>
+      <SF.Item>
+
+        <button type="button" {{on "click" (set this "isShowingModal" true)}}>Open modal</button>
+
+        {{#if this.isShowingModal}}
+          <Hds::Modal @color="critical" @onClose={{set this "isShowingModal" false}} as |MM|>
+            <MM.Header @tagline="Tagline" @icon="alert-diamond">
+              Title
+            </MM.Header>
+            <MM.Body>
+              <M.GenericTextContent />
+            </MM.Body>
+            <MM.Footer as |F|>
+              <Hds::ButtonSet>
+                <Hds::Button type="button" @text="Primary" @color="critical" {{on "click" F.close}} />
+                <Hds::Button type="button" @text="Secondary" @color="secondary" {{on "click" F.close}} />
+                <Hds::Button type="button" @text="Tertiary" @color="tertiary" @icon="plus" {{on "click" F.close}} />
+              </Hds::ButtonSet>
+            </MM.Footer>
+          </Hds::Modal>
+        {{/if}}
+
+      </SF.Item>
+      <SF.Item>
+
+        <Hds::TooltipButton
+          aria-label="Information"
+          @text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        >
+          <Hds::Badge @icon="info" @text="Open tooltip" />
+        </Hds::TooltipButton>
+
+      </SF.Item>
+      <SF.Item>
+
+        <Hds::RichTooltip as |RT|>
+          <RT.Toggle @text="Open rich tooltip" @isInline={{true}} />
+          <RT.Bubble>
+            <Hds::Text::Body @tag="p" size="100">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua.</Hds::Text::Body>
+          </RT.Bubble>
+        </Hds::RichTooltip>
+
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Alerts</Hds::Text::Display>
+
+    <Shw::Flex @direction="column" as |SF|>
+      <SF.Item>
+        <Hds::Alert @type="page" @color="success" as |A|>
+          <A.Title>Lorem ipsum</A.Title>
+          <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+        </Hds::Alert>
+      </SF.Item>
+      <SF.Item>
+        <Hds::Alert @type="inline" @color="warning" as |A|>
+          <A.Title>Lorem ipsum</A.Title>
+          <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+        </Hds::Alert>
+      </SF.Item>
+      <SF.Item>
+        <Hds::Alert @type="compact" @color="critical" as |A|>
+          <A.Title>Lorem ipsum</A.Title>
+          <A.Description>Lorem ipsum dolor sit amet.</A.Description>
+        </Hds::Alert>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
+
+    <Shw::Flex @direction="column" as |SF|>
+      <SF.Item>
+        <Hds::Toast @color="success" @onDismiss={{this.noop}} as |T|>
+          <T.Title>A toast with a rich description (HTML)</T.Title>
+          <T.Description>Using the
+            <code>A.Description</code>
+            contextual component it's possible to have content that contains HTML tags, like
+            <strong>strong text</strong>
+            and
+            <em>emphasized text</em>
+            as well as
+            <code>code</code>,
+            <pre>pre</pre>
+            and
+            <a href="#">inline links</a>.</T.Description>
+        </Hds::Toast>
+      </SF.Item>
+      <SF.Item>
+        <Hds::Toast @color="warning" as |A|>
+          <A.Title>A toast comparing different types of links in the description</A.Title>
+          <A.Description>
+            Description with
+            <a href="#">HTML link</a>
+            compared with
+            <Hds::Link::Inline @href="#">Primary Hds::Link::Inline</Hds::Link::Inline>
+            and
+            <Hds::Link::Inline @href="#" @color="secondary">Secondary Hds::Link::Inline</Hds::Link::Inline>.
+          </A.Description>
+        </Hds::Toast>
+      </SF.Item>
+      <SF.Item>
+        <Hds::Toast @color="critical" @onDismiss={{this.noop}} as |T|>
+          <T.Title>With multiple actions passed as yielded components</T.Title>
+          <T.Description>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</T.Description>
+          <T.Button @text="Secondary" @color="secondary" />
+          <T.Button @icon="plus" @text="Tertiary" @color="tertiary" />
+          <T.LinkStandalone @icon="plus" @text="Standalone" @href="#" @color="secondary" />
+        </Hds::Toast>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider @level={{2}} />
+
+    <Shw::Flex @direction="column" as |SF|>
+      <SF.Item>
+        <Hds::ApplicationState as |A|>
+          <A.Header @title="Empty state title" @icon="alert-circle" @errorCode="404" />
+          <A.Body
+            @text="Sorry, an unexpected error has occurred. Please try again later or contact support for assistance."
+          />
+          <A.Body
+            @text="Sorry, we couldn't find any results matching your search criteria. Please try again with different search terms or refine your filters."
+          />
+          <A.Footer @hasDivider={{true}} as |F|>
+            <F.Button @color="primary" @text="Primary action" />
+            <F.LinkStandalone @icon="docs-link" @text="Learn more" @iconPosition="trailing" @href="#" />
+          </A.Footer>
+        </Hds::ApplicationState>
+      </SF.Item>
+    </Shw::Flex>
+
+    <Shw::Divider />
+
+    <Hds::Text::Display @tag="h1" @size="500" {{style margin="32px 0 24px"}}>Code blocks</Hds::Text::Display>
+    <Shw::Grid @columns={{1}} as |SG|>
+      <SG.Item @forceMinWidth={{true}}>
+        {{! template-lint-disable no-whitespace-for-layout }}
+        <Hds::CodeBlock
+          id="clipboardTarget2"
+          @hasCopyButton={{true}}
+          @hasLineNumbers={{true}}
+          @highlightLines="4-6, 11"
+          @language="javascript"
+          @value="function convertObjectToArray (obj) {
+  let arr = Object
+    .keys(obj) // return object's keys as an array
+    .map(key => {return [key, obj[key] ]}) // map a function on each array item
+    .flat()
+    .sort()
+  ;
+  return arr;
+}
+function assertObjectsEqual (actual, expected, testName) {
+  let actualStr = JSON.stringify( convertObjectToArray(actual) );
+  let expectedStr = JSON.stringify( convertObjectToArray(expected) );
+  console.log(`ACTUAL: ${actualStr}  EXPECTED: ${expectedStr}`);
+  if (actualStr === expectedStr) {
+    console.log('passed');
+  } else {
+    console.log(`FAILED [${testName}] Expected ${JSON.stringify(expected)}, but got ${JSON.stringify(actual)}`);
+  }
+}"
+          as |CB|
+        >
+          <CB.Title>Title</CB.Title>
+          <CB.Description>Description</CB.Description>
+        </Hds::CodeBlock>
+        {{! template-lint-enable no-whitespace-for-layout }}
+      </SG.Item>
+    </Shw::Grid>
+
+  </:main>
+</Mock::App>

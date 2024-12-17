@@ -26,6 +26,9 @@ import MockAppHeaderAppHeader from '../app/components/mock/app/header/app-header
 import MockAppSidebarSideNav from '../app/components/mock/app/sidebar/side-nav';
 import MockAppMainPageHeader from '../app/components/mock/app/main/page-header';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
+import MockAppMainFormComplex from '../app/components/mock/app/main/form-complex';
+import MockAppMainTableComplex from '../app/components/mock/app/main/table-complex';
+import MockAppMainPagination from '../app/components/mock/app/main/pagination';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
 
 export default interface ShowcaseTemplateRegistry {
@@ -75,6 +78,12 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/page-header': typeof MockAppMainPageHeader;
   'Mock::App::Main::GenericTextContent': typeof MockAppMainGenericTextContent;
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
+  'Mock::App::Main::FormComplex': typeof MockAppMainFormComplex;
+  'mock/app/main/form-complex': typeof MockAppMainFormComplex;
+  'Mock::App::Main::TableComplex': typeof MockAppMainTableComplex;
+  'mock/app/main/table-complex': typeof MockAppMainTableComplex;
+  'Mock::App::Main::Pagination': typeof MockAppMainPagination;
+  'mock/app/main/pagination': typeof MockAppMainPagination;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
 }
