@@ -19,7 +19,7 @@ $hds-icon-tile-border-width: 1px;
   position: relative;
   display: flex;
   border: $hds-icon-tile-border-width solid transparent;
-  border-radius: 4px;
+  border-radius: var(--token-border-radius-medium);
 }
 
 .hds-icon-tile__icon,

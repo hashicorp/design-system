@@ -138,7 +138,7 @@
   max-height: none;
   padding: 16px;
   background: var(--token-color-surface-primary);
-  border-radius: 5px;
+  border-radius: var(--token-border-radius-small);
   box-shadow: var(--token-surface-higher-box-shadow);
 
   // fade-in animation (we can't do fade-out because `isOpen` removes the content of the bubble immediately from the DOM)
