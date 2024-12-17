@@ -26,6 +26,7 @@
     ],
     ["@babel/plugin-proposal-decorators", { "legacy": true }],
     "@babel/plugin-transform-class-properties",
-    "@babel/plugin-transform-private-methods"
+    "@babel/plugin-transform-private-methods",
+    "ember-concurrency/async-arrow-task-transform"
   ]
 }
