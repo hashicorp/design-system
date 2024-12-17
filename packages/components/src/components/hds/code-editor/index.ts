@@ -26,8 +26,8 @@ export interface HdsCodeEditorSignature {
   Blocks: {
     default: [
       {
-        Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
         Title?: ComponentLike<HdsCodeEditorTitleSignature>;
+        Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
         ToolbarButton?: ComponentLike<HdsButtonSignature>;
       },
     ];
