@@ -43,13 +43,13 @@
   <Shw::Text::H3>Actions</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="Fullscreen toggle">
-      <Hds::CodeEditor @canExpand={{true}} />
+      <Hds::CodeEditor @hasExpandButton={{true}} />
     </SG.Item>
     <SG.Item @label="Copy button">
       <Hds::CodeEditor @hasCopyButton={{true}} />
     </SG.Item>
     <SG.Item @label="Fullscreen toggle and copy button">
-      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} />
+      <Hds::CodeEditor @hasExpandButton={{true}} @hasCopyButton={{true}} />
     </SG.Item>
   </Shw::Grid>
 
@@ -65,7 +65,7 @@
   <Shw::Text::H3>Complex examples</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With title, description, and internal actions">
-      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
+      <Hds::CodeEditor @hasExpandButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
       </Hds::CodeEditor>
@@ -79,7 +79,7 @@
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With title, description, and internal and custom content">
-      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
+      <Hds::CodeEditor @hasExpandButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
         <CE.Button @text="Custom button" />
@@ -87,7 +87,7 @@
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With internal and custom content">
-      <Hds::CodeEditor @canExpand={{true}} @hasCopyButton={{true}} as |CE|>
+      <Hds::CodeEditor @hasExpandButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Button @text="Custom button" />
         <Hds::Icon @name="code" @color="#fff" />
       </Hds::CodeEditor>
