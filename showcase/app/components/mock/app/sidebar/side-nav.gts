@@ -152,9 +152,11 @@ export default class MockAppSidebarSideNav extends Component<MockAppSidebarSideN
             @text="Documentation"
           />
         </HdsSideNavList>
+        {{yield to="extraBodyAfter"}}
       </:body>
       <:footer>
         {{#if this.showFooter}}
+          {{yield to="extraFooterBefore"}}
           <HdsDropdown
             class="hds-side-nav-hide-when-minimized shw-layout-app-frame-full-width-elem"
             @enableCollisionDetection={{true}}
