@@ -8,12 +8,14 @@ const getAllFocusableChildren = (element: HTMLElement): NodeListOf<Element> => {
 };
 
 const getParentCell = (element: HTMLElement): Element | null | undefined => {
-  const targetParent = element.parentElement
+  const targetParent = element.parentElement;
 
   if (targetParent) {
-    return targetParent.closest('.hds-advanced-table__th, .hds-advanced-table__td')
+    return targetParent.closest(
+      '.hds-advanced-table__th, .hds-advanced-table__td'
+    );
   }
-}
+};
 
 const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
   const { key, target } = event;
@@ -26,11 +28,11 @@ const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
 
         const grid = target.parentElement?.closest('[role="grid"]');
         if (grid instanceof HTMLElement) {
-          const allFocusableChildren = getAllFocusableChildren(grid)
+          const allFocusableChildren = getAllFocusableChildren(grid);
           for (let i = 0; i < allFocusableChildren.length; i++) {
-            const child  = allFocusableChildren[i]
+            const child = allFocusableChildren[i];
             if (child?.hasAttribute('data-advanced-table-child-focusable')) {
-              child.setAttribute('tabindex', '-1')
+              child.setAttribute('tabindex', '-1');
             }
           }
         }
@@ -49,7 +51,7 @@ export const didInsertGridCell = (
   for (const child of focusableChildren) {
     if (child instanceof HTMLElement) {
       child.setAttribute('tabindex', '-1');
-      child.setAttribute('data-advanced-table-child-focusable', '')
+      child.setAttribute('data-advanced-table-child-focusable', '');
       child.addEventListener('keydown', handleGridCellChildKeyPress);
     }
   }
@@ -121,9 +123,9 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
 
       if (cellFocusableChildren.length > 0) {
         for (let i = 0; i < cellFocusableChildren.length; i++) {
-          const child  = cellFocusableChildren[i]
+          const child = cellFocusableChildren[i];
           if (child?.hasAttribute('data-advanced-table-child-focusable')) {
-            child.setAttribute('tabindex', '0')
+            child.setAttribute('tabindex', '0');
           }
         }
         const element = cellFocusableChildren[0] as HTMLElement;

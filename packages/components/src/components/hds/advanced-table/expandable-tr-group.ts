@@ -36,7 +36,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
   @tracked private _isExpanded = false;
-  
+
   private _id = guidFor(this);
 
   constructor(

@@ -81,9 +81,10 @@ export interface HdsAdvancedTableSignature {
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
   @tracked private _sortBy = this.args.sortBy ?? undefined;
-  @tracked  private _sortOrder =
+  @tracked private _sortOrder =
     this.args.sortOrder || HdsAdvancedTableThSortOrderValues.Asc;
-  @tracked private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
+  @tracked
+  private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
@@ -91,18 +92,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _captionId = 'caption-' + guidFor(this);
 
   @action didInsert(element: HTMLDivElement): void {
-      const stickyGridHeader = element.querySelector('.hds-advanced-table__thead.hds-advanced-table__thead--sticky')
+    const stickyGridHeader = element.querySelector(
+      '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
+    );
 
-      if (stickyGridHeader !== null) {
-        const observer = new IntersectionObserver( 
-          ([element]) => element?.target.classList.toggle("hds-advanced-table__thead--is-pinned", element.intersectionRatio < 1),
-          { threshold: [1] }
-        );
-        
-        observer.observe(stickyGridHeader);
-      }
+    if (stickyGridHeader !== null) {
+      const observer = new IntersectionObserver(
+        ([element]) =>
+          element?.target.classList.toggle(
+            'hds-advanced-table__thead--is-pinned',
+            element.intersectionRatio < 1
+          ),
+        { threshold: [1] }
+      );
+
+      observer.observe(stickyGridHeader);
+    }
   }
-
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -334,7 +340,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
       row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
-    this._isSelectAllCheckboxSelected = this._selectAllCheckbox?.checked ?? false;
+    this._isSelectAllCheckboxSelected =
+      this._selectAllCheckbox?.checked ?? false;
     this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
 
