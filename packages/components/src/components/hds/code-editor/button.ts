@@ -6,6 +6,6 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 import type { HdsButtonSignature } from '../button';
 
-const HdsCodeEditorToolbarButton = TemplateOnlyComponent<HdsButtonSignature>();
+const HdsCodeEditorButton = TemplateOnlyComponent<HdsButtonSignature>();
 
-export default HdsCodeEditorToolbarButton;
+export default HdsCodeEditorButton;

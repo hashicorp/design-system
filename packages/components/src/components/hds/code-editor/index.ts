@@ -28,7 +28,7 @@ export interface HdsCodeEditorSignature {
       {
         Title?: ComponentLike<HdsCodeEditorTitleSignature>;
         Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
-        ToolbarButton?: ComponentLike<HdsButtonSignature>;
+        Button?: ComponentLike<HdsButtonSignature>;
       },
     ];
   };
