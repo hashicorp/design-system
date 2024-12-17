@@ -24,7 +24,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
 .hds-table {
   width: 100%;
-  border: $hds-table-border-width solid $hds-table-border-color;
   border-radius: $hds-table-border-radius;
   border-spacing: 0;
 }
@@ -36,6 +35,13 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   table-layout: fixed;
 }
 
+// table border
+
+.hds-table, 
+.hds-table__th, 
+.hds-table__td {
+  border: calc(#{$hds-table-border-width} / 2) solid $hds-table-border-color;
+}
 
 // ----------------------------------------------------------------
 
@@ -47,26 +53,8 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     background-color: var(--token-color-surface-strong);
 
     .hds-table__th {
-      position: relative;
       padding: $hds-table-cell-padding-medium;
       text-align: left;
-      border-top: none;
-      border-right: none;
-      border-bottom: $hds-table-border-width solid $hds-table-border-color;
-      border-left: none;
-
-      // border between two cells (we emulate a cell border slightly detached from the top/bottom borders)
-
-      + .hds-table__th::before {
-        position: absolute;
-        top: 6px;
-        bottom: 6px;
-        left: -1px; // we need to offset the border by 1px to render a right border of the previous cell
-        width: 1px;
-        background-color: $hds-table-border-color;
-        content: "";
-        pointer-events: none;
-      }
     }
 
     // horizontal alignment
@@ -187,11 +175,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
     &:last-of-type {
-      .hds-table__th,
-      .hds-table__td {
-        border-bottom: none;
-      }
-
       .hds-table__th:first-child,
       .hds-table__td:first-child {
         border-bottom-left-radius: $hds-table-inner-border-radius;
@@ -207,10 +190,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   .hds-table__th,
   .hds-table__td {
     text-align: left;
-    border-top: none;
-    border-right: none;
-    border-bottom: $hds-table-border-width solid $hds-table-border-color;
-    border-left: none;
 
     // density
 
@@ -225,9 +204,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     .hds-table--density-tall & {
       padding: $hds-table-cell-padding-tall;
     }
-
   }
-
   // horizontal alignment
 
   .hds-table__th--align-center,
