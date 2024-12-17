@@ -6,6 +6,7 @@
 import { assert } from '@ember/debug';
 import Modifier from 'ember-modifier';
 import { dropTask } from 'ember-concurrency';
+import config from 'ember-get-config';
 
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
@@ -49,23 +50,28 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
     assert('HdsCodeEditor must have an element', element);
-
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          // @ts-ignore
-          if (entry.isIntersecting && this.setupTask.performCount === 0) {
+    // the intersection observer makes loading unreliable in tests
+    if (config.environment === 'test') {
+      // @ts-ignore
+      this.setupTask.perform(element, positional, named);
+    } else {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
             // @ts-ignore
-            this.setupTask.perform(element, positional, named);
-          }
-        });
-      },
-      {
-        rootMargin: LOADER_HEIGHT,
-      }
-    );
+            if (entry.isIntersecting && this.setupTask.performCount === 0) {
+              // @ts-ignore
+              this.setupTask.perform(element, positional, named);
+            }
+          });
+        },
+        {
+          rootMargin: LOADER_HEIGHT,
+        }
+      );
 
-    this.observer.observe(element);
+      this.observer.observe(element);
+    }
   }
 
   willRemove() {
@@ -176,6 +182,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     this.editor = editor;
     this.element = element;
 
-    onSetup?.(editor);
+    onSetup?.(this.editor);
   }
 }
