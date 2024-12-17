@@ -7,6 +7,84 @@
 
 <BasicDropdownWormhole />
 
+TODO: Move this section down to a more appropriate spot
+
+<Shw::Text::H2>searchFieldPosition</Shw::Text::H2>
+
+<Shw::Grid @columns={{2}} {{style padding-bottom="15em"}} as |SG|>
+  <SG.Item @label="Multiple w/ search in “trigger” position">
+    <Hds::Form::SuperSelect::Multiple::Field
+      @onChange={{fn (mut @model.SELECTED_OPTION)}}
+      @options={{@model.OPTIONS}}
+      @selected={{@model.SELECTED_OPTION}}
+      @initiallyOpened={{true}}
+      @verticalPosition="below"
+      @searchEnabled={{true}}
+      @searchFieldPosition="trigger"
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.HelperText>This is the helper text</F.HelperText>
+      {{F.options}}
+    </Hds::Form::SuperSelect::Multiple::Field>
+  </SG.Item>
+
+  <SG.Item @label="Multiple w/ search in “before-options” position">
+    <Hds::Form::SuperSelect::Multiple::Field
+      @onChange={{fn (mut @model.SELECTED_OPTION)}}
+      @options={{@model.OPTIONS}}
+      @selected={{@model.SELECTED_OPTION}}
+      @initiallyOpened={{true}}
+      @verticalPosition="below"
+      @searchEnabled={{true}}
+      @searchFieldPosition="before-options"
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.HelperText>This is the helper text</F.HelperText>
+      {{F.options}}
+    </Hds::Form::SuperSelect::Multiple::Field>
+  </SG.Item>
+</Shw::Grid>
+
+<Shw::Grid @columns={{2}} {{style padding-bottom="15em"}} as |SG|>
+  <SG.Item @label="Single w/ search in “before-options” position">
+    <Hds::Form::SuperSelect::Single::Field
+      @onChange={{fn (mut @model.SELECTED_OPTION)}}
+      @options={{@model.OPTIONS}}
+      @selected={{@model.SELECTED_OPTION}}
+      @initiallyOpened={{true}}
+      @verticalPosition="below"
+      @searchEnabled={{true}}
+      @searchFieldPosition="before-options"
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.HelperText>This is the helper text</F.HelperText>
+      {{F.options}}
+    </Hds::Form::SuperSelect::Single::Field>
+  </SG.Item>
+
+  <SG.Item @label="Multiple w/ search in “before-options” position">
+    <Hds::Form::SuperSelect::Multiple::Field
+      @onChange={{fn (mut @model.SELECTED_OPTION)}}
+      @options={{@model.OPTIONS}}
+      @selected={{@model.SELECTED_OPTION}}
+      @initiallyOpened={{true}}
+      @verticalPosition="below"
+      @searchEnabled={{true}}
+      @searchFieldPosition="before-options"
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.HelperText>This is the helper text</F.HelperText>
+      {{F.options}}
+    </Hds::Form::SuperSelect::Multiple::Field>
+  </SG.Item>
+</Shw::Grid>
+
+<Shw::Divider />
+
 <Shw::Text::H1>Form::SuperSelect</Shw::Text::H1>
 
 <section data-test-percy>
