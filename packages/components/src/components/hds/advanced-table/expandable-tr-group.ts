@@ -35,9 +35,9 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 }
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
-  id = guidFor(this);
-
-  @tracked isExpanded = false;
+  @tracked private _isExpanded = false;
+  
+  private _id = guidFor(this);
 
   constructor(
     owner: unknown,
@@ -45,7 +45,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   ) {
     super(owner, args);
 
-    this.isExpanded =
+    this._isExpanded =
       this.args.record['isExpanded'] &&
       typeof this.args.record['isExpanded'] === 'boolean'
         ? this.args.record['isExpanded']
@@ -92,6 +92,6 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   }
 
   @action onClickToggle() {
-    this.isExpanded = !this.isExpanded;
+    this._isExpanded = !this._isExpanded;
   }
 }

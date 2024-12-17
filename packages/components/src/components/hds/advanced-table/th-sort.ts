@@ -42,7 +42,7 @@ export interface HdsAdvancedTableThSortSignature {
 }
 
 export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableThSortSignature> {
-  labelId = guidFor(this);
+  private _labelId = guidFor(this);
 
   @action
   didInsert(element: HTMLDivElement): void {

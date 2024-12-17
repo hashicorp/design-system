@@ -41,12 +41,11 @@ export interface HdsAdvancedTableThSelectableSignature {
 }
 
 export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedTableThSelectableSignature> {
-  @tracked isSelected = this.args.isSelected ?? false;
+  @tracked private _isSelected = this.args.isSelected ?? false;
 
-  guid = guidFor(this);
-
-  checkboxId = `checkbox-${this.guid}`;
-  labelId = `label-${this.guid}`;
+  private _guid = guidFor(this);
+  private _checkboxId = `checkbox-${this._guid}`;
+  private _labelId = `label-${this._guid}`;
 
   get isSortable(): boolean {
     return this.args.onClickSortBySelected !== undefined;
@@ -105,7 +104,7 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
   onSelectionChange(event: Event): void {
     // Assert event.target as HdsFormCheckboxBaseSignature['Element'] to access the 'checked' property
     const target = event.target as HdsFormCheckboxBaseSignature['Element'];
-    this.isSelected = target.checked;
+    this._isSelected = target.checked;
     const { onSelectionChange } = this.args;
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(target, this.args.selectionKey);
@@ -115,6 +114,6 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
   updateAriaLabel(event: Event): void {
     // Assert event.target as HTMLInputElement to access the 'checked' property
     const target = event.target as HdsFormCheckboxBaseSignature['Element'];
-    this.isSelected = target.checked;
+    this._isSelected = target.checked;
   }
 }

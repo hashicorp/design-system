@@ -6,22 +6,22 @@
   (hash
     data=@record
     isExpandable=this.hasChildren
-    id=this.id
+    id=this._id
     depth=this.depth
     onClickToggle=this.onClickToggle
-    isExpanded=this.isExpanded
+    isExpanded=this._isExpanded
     parentId=@parentId
     rowIndex=this.rowIndex
   )
 }}
-{{#if (and this.hasChildren this.isExpanded)}}
+{{#if (and this.hasChildren this._isExpanded)}}
   <div class="hds-advanced-table__expandable-tr-group">
     {{#each this.children as |childRecord|}}
       <Hds::AdvancedTable::ExpandableTrGroup
         @record={{childRecord}}
         @depth={{this.childrenDepth}}
         @align={{@align}}
-        @parentId={{this.id}}
+        @parentId={{this._id}}
         @childrenKey={{this.childrenKey}}
         @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
         as |T|

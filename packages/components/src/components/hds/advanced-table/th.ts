@@ -42,7 +42,7 @@ export interface HdsAdvancedTableThSignature {
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
-  labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
+  private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
 
   @action
   didInsert(element: HTMLDivElement): void {
