@@ -77,7 +77,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   // @value
   test('it should render the component with the provided value', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor @value="Test Code" />`);
-    assert.dom('hds-code-editor__editor').includesText('Test Code');
+    assert.dom('.hds-code-editor__editor').includesText('Test Code');
   });
 
   // @onInput
