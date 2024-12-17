@@ -174,46 +174,19 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
     'products': {
         'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`
+            `src/test/**/*.json`,
         ],
         'transformGroup': 'products/web',
         'platforms': ['web/css-variables', 'docs/json']
     },
     'devdot': {
         'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`,
-            // just uncomment the line below to include overrides for "devdot" tokens
-            `src/devdot/**/*.json`
+            `src/test/**/*.json`,
         ],
         // this platform does not support theming (yet)
         'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'products/web',
         'platforms': ['web/css-variables'],
-    },
-    'marketing': {
-        'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`,
-        ],
-        // this platform does not support theming (yet)
-        'preprocessors': ['use-default-theme-values'],
-        'transformGroup': 'marketing/web',
-        'platforms': ['web/css-variables', 'json']
-    },
-    // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
-    'cloud-email': {
-        // we need only foundational tokens (colors, typography, etc)
-        'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/color/**/*.json`,
-            `src/products/shared/typography.json`,
-        ],
-        // this platform does not support theming (yet)
-        'preprocessors': ['use-default-theme-values'],
-        'transformGroup': 'products/email',
-        'platforms': ['email/sass-variables']
     }
 };
 
@@ -262,44 +235,6 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                     },
                 }
             ]
-        }
-    }
-
-    if (platforms.includes("json")) {
-        config.platforms["json"] = {
-            transformGroup,
-            preprocessors,
-            "buildPath": `dist/${target}/`,
-            "prefix": "token",
-            "basePxFontSize": 16,
-            "files": [
-                {
-                    "destination": "tokens.json",
-                    "format": "json",
-                    "filter": function(token: DesignToken) {
-                        return !token.private;
-                    },
-                }
-            ]
-        }
-    }
-
-    if (platforms.includes("email/sass-variables")) {
-        config.platforms["email/sass-variables"] = {
-            transformGroup,
-            preprocessors,
-            "buildPath": `dist/${target}/`,
-            "prefix": "token",
-            "files": [
-                {
-                    "destination": "tokens.scss",
-                    "format": "scss/variables",
-                    "filter": function(token: DesignToken) {
-                        return !token.private;
-                    },
-                }
-            ],
-            'actions': ['generate-css-helpers'],
         }
     }
 

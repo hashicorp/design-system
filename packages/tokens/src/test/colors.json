@@ -1,0 +1,22 @@
+{
+  "mycolor": {
+    "value": {
+      "light": "#FFFFFF",
+      "dark": "#000000"
+    },
+    "themed": true,
+    "type": "color",
+    "group": "palette"
+  },
+  "othercolor": {
+    "value": "#00FF00",
+    "type": "color",
+    "group": "palette"
+  },
+  "othercolor2": {
+    "value": "#FF00FF",
+    "type": "color",
+    "group": "palette",
+    "private": true
+  }
+}
