@@ -35,7 +35,7 @@ The `DialogPrimitive` serves as the foundation for dialog derived components lik
 </Hds::DialogPrimitive::Wrapper>
 ```
 
-### Header titleTag
+### Header title tag
 
 The `@titleTag` argument changes the HTML element that wraps the `DialogPrimitive::Header` tagline and "title" content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if the `DialogPrimitive` is used as a Split Window, the value should be `"h2"`. 
 

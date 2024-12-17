@@ -40,7 +40,7 @@ This indicates that the component should take up the full-width of the parent co
 <Hds::Copy::Button @text="Copy" @targetToCopy="#clipboardTarget4" @isFullWidth={{true}} />
 ```
 
-### Text to Copy
+### Text to copy
 
 The consumer can also indicate a string to be copied instead of indicating a target element:
 

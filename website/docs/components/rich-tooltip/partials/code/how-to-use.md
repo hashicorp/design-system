@@ -182,7 +182,7 @@ The default option is a combination of `flip`+`shift` and is the suggested one, 
 
 !!! Info
 
-More in-depth explanations about the different alignment algorithms and how they work can be found in the Floating UI documentation. See [flip](https://floating-ui.com/docs/flip), [shift](https://floating-ui.com/docs/shift), and [autoPlacement](https://floating-ui.com/docs/autoPlacement)).
+More in-depth explanations about the different alignment algorithms and how they work can be found in the Floating UI documentation. See [flip](https://floating-ui.com/docs/flip), [shift](https://floating-ui.com/docs/shift), and [autoPlacement](https://floating-ui.com/docs/autoPlacement).
 
 !!!
 
@@ -260,7 +260,7 @@ The default spacing between the toggle and the tooltip itself can be tweaked usi
 </Hds::RichTooltip>
 ```
 
-#### isOpen
+#### Open
 
 The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
@@ -281,4 +281,3 @@ The tooltip can be rendered as initially opened using the `@isOpen` argument:
 This option should be considered carefully before being implemented in production code, because in this case the popover is in what's called a "manual" state, which means it can't be dismissed via `esc` or "click outside" until the end-user has interacted with it.
 
 !!!
-

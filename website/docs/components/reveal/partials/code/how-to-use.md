@@ -8,7 +8,7 @@ The Reveal component renders a button that triggers the display of additional co
 </Hds::Reveal>
 ```
 
-### textWhenOpen
+### Text when open
 
 You can display different text on the toggle button when the `Reveal` is open.
 
@@ -18,7 +18,7 @@ You can display different text on the toggle button when the `Reveal` is open.
 </Hds::Reveal>
 ```
 
-### isOpen
+### Open
 
 Set `isOpen` to `true` to display the content on page load instead of initially hiding it.
 
