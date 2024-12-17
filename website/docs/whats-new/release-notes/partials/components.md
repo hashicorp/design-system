@@ -12,6 +12,24 @@
   </a>
 </p>
 
+## 4.16.0
+
+**Minor changes**
+
+`Table` - Updated the visual design of `Table` cells by adding borders, making them more distinguishable when spanning rows or columns.
+
+<small class="doc-whats-new-changelog-metadata">[#2588](https://github.com/hashicorp/design-system/pull/2588)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Table` - fixed the aria-labels for select row and select all checkboxes so they do not change based on the state of the checkbox.
+
+<small class="doc-whats-new-changelog-metadata">[#2596](https://github.com/hashicorp/design-system/pull/2596)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.15.0
 
 [4.15.0 documentation](https://hds-website-4-15-0.vercel.app/)
@@ -1234,14 +1252,6 @@ Fixed default export warnings by preventing `types.js` files from being reexport
 `Modal`, `Flyout` - Fixed flaky tests by running `@ember/test-waiters` in all environments
 
 <small class="doc-whats-new-changelog-metadata">[#2011](https://github.com/hashicorp/design-system/pull/2011) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-## 4.1.2
-
-**Patch changes**
-
-This version is a re-release of `@hashicorp/design-system-components@4.1.1` containing the missing pre-compiled CSS
 
 <div class="doc-whats-new-changelog-separator"></div>
 
