@@ -17,9 +17,10 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "concurrently 'npm:build:*'",
+    "build": "concurrently 'npm:build:js' 'npm:build:types'",
     "build:js": "rollup --config",
     "build:types": "glint --declaration",
+    "build:watch": "nodemon --watch '../tokens/dist/*' --ext 'css' --exec 'yarn build'",
     "prepublishOnly": "yarn build && test -f 'dist/styles/@hashicorp/design-system-components.css' || (echo 'The pre-compiled CSS file was not found' && exit 1)",
     "start": "concurrently 'yarn:start:*'",
     "start:js": "rollup --config --watch --environment development",
@@ -99,6 +100,7 @@
     "eslint-plugin-n": "^17.7.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-qunit": "^8.1.1",
+    "nodemon": "^3.1.7",
     "postcss": "^8.4.47",
     "prettier": "^3.3.2",
     "rollup": "^4.22.4",
@@ -303,6 +305,7 @@
       "./modifiers/hds-clipboard.js": "./dist/_app_/modifiers/hds-clipboard.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
+      "./services/hds-theming.js": "./dist/_app_/services/hds-theming.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
     }
   },

@@ -1,0 +1,121 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Theming"}}
+
+<Shw::Text::H1>Theming</Shw::Text::H1>
+
+<Shw::Text::Body>
+  Current SHW theme:
+  {{(if this.currentTheme this.currentTheme "none")}}
+  / Current HDS theme:
+  {{(if this.currentHdsTheme this.currentHdsTheme "none")}}
+</Shw::Text::Body>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Page-level theming</Shw::Text::H2>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>prefers-color-scheme</code></SGI.Label>
+      <div class="shw-theming-demo-container">TEXT</div>
+    </SG.Item>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>body.theme</code> class</SGI.Label>
+      <div class="shw-theming-demo-container shw-theming-demo-container--class">TEXT</div>
+    </SG.Item>
+    <SG.Item as |SGI|>
+      <SGI.Label><code>body[data-theme]</code> attribute</SGI.Label>
+      <div class="shw-theming-demo-container shw-theming-demo-container--data">TEXT</div>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Contextual theming</Shw::Text::H2>
+
+  <Shw::Flex @gap="4rem" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-light</code> class</SFI.Label>
+      <div class="shw-theme-light">
+        <div class="shw-theming-demo-container">TEXT</div>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-dark</code> class</SFI.Label>
+      <div class="shw-theme-dark">
+        <div class="shw-theming-demo-container">TEXT</div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Nested</Shw::Text::H4>
+
+  <Shw::Flex @gap="4rem" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-light</code> &gt; <code>.theme-dark</code></SFI.Label>
+      <div class="shw-theme-light">
+        <div class="shw-theming-demo-container">
+          <div class="shw-theme-dark">
+            <div class="shw-theming-demo-container">
+              TEXT
+            </div>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-dark</code> &gt; <code>.theme-light</code></SFI.Label>
+      <div class="shw-theme-dark">
+        <div class="shw-theming-demo-container">
+          <div class="shw-theme-light">
+            <div class="shw-theming-demo-container">
+              TEXT
+            </div>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.theme-dark</code> &gt; <code>.theme-light</code> &gt; <code>.theme-dark</code></SFI.Label>
+      <div class="shw-theme-dark">
+        <div class="shw-theming-demo-container">
+          <div class="shw-theme-light">
+            <div class="shw-theming-demo-container">
+              <div class="shw-theme-dark">
+                <div class="shw-theming-demo-container">
+                  TEXT
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Components</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="AppFooter with theme={{this.inverseTheme}}">
+      <div class="shw-theming-container-background-{{this.inverseTheme}}">
+        <Hds::AppFooter @theme={{this.inverseTheme}} as |AF|>
+          <AF.StatusLink @status="operational" />
+          <AF.LegalLinks />
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">v.2.0</Hds::Text::Body>
+          </AF.Item>
+          <AF.Item>
+            <Hds::Text::Body @tag="span" @size="100">Product Name</Hds::Text::Body>
+          </AF.Item>
+        </Hds::AppFooter>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>

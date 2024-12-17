@@ -1,0 +1,66 @@
+// SHOWCASE COLORS > DARK THEME
+
+@mixin shw-theme-color-variables-dark() {
+  // SEMANTIC PALETTE
+  --shw-color-white: #1a1a1a;
+  --shw-color-gray-600: #222225;
+  --shw-color-gray-500: #353537;
+  --shw-color-gray-400: #4c4c4d;
+  --shw-color-gray-300: #89898a;
+  --shw-color-gray-200: #babbbc;
+  --shw-color-gray-100: #cccdcf;
+  --shw-color-black: #e5e5e5;
+  --shw-color-action-active-foreground: #1a1ae5;
+  --shw-color-action-active-border: #1a1ae5;
+  --shw-color-action-active-background: #062139;
+  // COMPONENTS
+  --shw-frame-browser-navigation-background: #050505;
+  --shw-label-text-color: #c4c4c4;
+  --shw-placeholder-text-color: #949494;
+  --shw-placeholder-background-color: #121212;
+  --shw-placeholder-link-color: #ccc;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-shw-theme="auto"] {
+    @include shw-theme-color-variables-dark();
+  }
+}
+
+.shw-theme-dark,
+[data-shw-theme="dark"] {
+  @include shw-theme-color-variables-dark();
+}
+
+// ######################################################
+
+// TEST COLORS
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shw-test-theme-foreground-color: #eee;
+    --shw-test-theme-background-color: #111;
+  }
+}
+
+.shw-theme-dark,
+[data-shw-theme="dark"] {
+  --shw-test-theme-foreground-color: #eee;
+  --shw-test-theme-background-color: #111;
+}
+
+
+// ---
+
+// special variables used in the "theming" showcase page to demonstrate different ways to apply a theme to a page
+
+html.shw-theme-dark {
+  --shw-test-theme-class-foreground-color: #e0ffd9;
+  --shw-test-theme-class-background-color: #008217;
+}
+
+html[data-shw-theme="dark"] {
+  --shw-test-theme-data-foreground-color: #f7d9ff;
+  --shw-test-theme-data-background-color: #b01fe3;
+}
+

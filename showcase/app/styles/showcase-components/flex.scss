@@ -8,13 +8,13 @@
 .shw-flex {
   & + &,
   & + .shw-grid {
-    margin-top: var(--shw-layout-gap-base);
+    margin-top: 1rem;
   }
 }
 
 .shw-flex__items {
   display: flex;
-  gap: var(--shw-layout-gap-base);
+  gap: 1rem;
 
   .shw-flex--direction-row > & {
     flex-direction: row;

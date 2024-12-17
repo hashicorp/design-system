@@ -3,8 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-// these files come from the 'design-system-tokens' package
-@use "tokens";
+// this CSS tokens file comes from the 'design-system-tokens' package
+// @use "tokens" as *;
+// TEMP used to include themed tokens in the standard generated CSS file
+@use "themed-tokens/unified.css" as *;
+
+// these helper files come from the 'design-system-tokens' package (they don't depend on theming)
 @use "helpers/color";
 @use "helpers/elevation";
 @use "helpers/focus-ring";
