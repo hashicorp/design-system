@@ -45,7 +45,8 @@
     flex-wrap: wrap;
     align-items: center;
 
-    & > *:not(.hds-code-editor__header-content-text):has(+ *) {
+    // child element that is not the title/description and has subsequent siblings
+    > :not(.hds-code-editor__header-content-text):has(+ *) {
       margin-right: 8px;
     }
   }
@@ -54,7 +55,11 @@
     width: 100%;
 
     &:has(+ *) {
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+    }
+
+    &:has(+ .hds-code-editor__header-content-text) {
+      margin-bottom: 4px;
     }
   }
 
