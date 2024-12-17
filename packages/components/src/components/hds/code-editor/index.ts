@@ -12,6 +12,7 @@ import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 's
 import type { HdsButtonSignature } from 'src/components/hds/button';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
+import type { EditorView } from '@codemirror/view';
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -20,6 +21,7 @@ export interface HdsCodeEditorSignature {
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     value?: string;
     onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
+    onSetup?: HdsCodeEditorModifierSignature['Args']['Named']['onSetup'];
   };
   Blocks: {
     default: [
@@ -51,6 +53,15 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
   get hasToolbarButton(): boolean {
     return (this.args.hasCopyButton || this.args.hasExpandButton) ?? false;
+  }
+
+  @action
+  onSetup(editorView: EditorView): void {
+    this.isSetupComplete = true;
+
+    if (this.args.onSetup) {
+      this.args.onSetup(editorView);
+    }
   }
 
   @action
