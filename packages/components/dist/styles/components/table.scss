@@ -1,0 +1,277 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// TABLE
+//
+//
+
+@use "../mixins/focus-ring" as *;
+
+$hds-table-border-radius: 6px;
+$hds-table-border-width: 1px;
+$hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
+$hds-table-border-color: var(--token-color-border-primary);
+$hds-table-header-height: 48px;
+$hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
+$hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
+$hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
+
+
+// TABLE
+
+.hds-table {
+  width: 100%;
+  border: $hds-table-border-width solid $hds-table-border-color;
+  border-radius: $hds-table-border-radius;
+  border-spacing: 0;
+}
+
+
+// table display
+
+.hds-table--layout-fixed {
+  table-layout: fixed;
+}
+
+
+// ----------------------------------------------------------------
+
+// TABLE HEADER
+
+.hds-table__thead {
+  .hds-table__tr {
+    color: var(--token-color-foreground-strong);
+    background-color: var(--token-color-surface-strong);
+
+    .hds-table__th {
+      position: relative;
+      padding: $hds-table-cell-padding-medium;
+      text-align: left;
+      border-top: none;
+      border-right: none;
+      border-bottom: $hds-table-border-width solid $hds-table-border-color;
+      border-left: none;
+
+      // border between two cells (we emulate a cell border slightly detached from the top/bottom borders)
+
+      + .hds-table__th::before {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        left: -1px; // we need to offset the border by 1px to render a right border of the previous cell
+        width: 1px;
+        background-color: $hds-table-border-color;
+        content: "";
+        pointer-events: none;
+      }
+    }
+
+    // horizontal alignment
+
+    .hds-table__th--align-center,
+    .hds-table__td--align-center {
+      text-align: center;
+
+      .hds-table__th-content {
+        justify-content: center;
+      }
+    }
+
+    .hds-table__th--align-right,
+    .hds-table__td--align-right {
+      text-align: right;
+
+      .hds-table__th-content {
+        justify-content: flex-end;
+      }
+    }
+
+    // border radius: target first and last th elements in the row
+
+    &:first-of-type {
+      .hds-table__th:first-child {
+        border-top-left-radius: $hds-table-inner-border-radius;
+      }
+
+      .hds-table__th:last-child {
+        border-top-right-radius: $hds-table-inner-border-radius;
+      }
+    }
+  }
+}
+
+// multi-select (isSelectable=true)
+
+.hds-table__th--is-selectable {
+  width: 48px;
+}
+
+.hds-table__th-content {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hds-table__th-button {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
+  padding: 0;
+  color: var(--token-color-foreground-faint);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
+    box-shadow: var(--token-elevation-low-box-shadow);
+    cursor: pointer;
+  }
+
+  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-interactive-active);
+    border-color: var(--token-color-border-strong);
+    box-shadow: none;
+  }
+}
+
+.hds-table__th-button--is-sorted {
+  color: var(--token-color-foreground-action);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-action-hover);
+  }
+
+  &:active,
+  &.mock-active {
+    color: var(--token-color-foreground-action-active);
+  }
+}
+
+.hds-table__th-button-aria-label-hidden-segment {
+  display: none;
+}
+
+
+// ----------------------------------------------------------------
+
+// TABLE BODY
+
+.hds-table__tbody {
+  .hds-table__tr {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-primary);
+
+    // striped rows
+
+    .hds-table--striped &:nth-child(even) {
+      background-color: var(--token-color-surface-faint);
+    }
+
+    // border radius: target first th (scope of row) and td, and last td elements in the last row
+
+    &:last-of-type {
+      .hds-table__th,
+      .hds-table__td {
+        border-bottom: none;
+      }
+
+      .hds-table__th:first-child,
+      .hds-table__td:first-child {
+        border-bottom-left-radius: $hds-table-inner-border-radius;
+      }
+
+      // a <th> will never be last child, only first child
+      .hds-table__td:last-child {
+        border-bottom-right-radius: $hds-table-inner-border-radius;
+      }
+    }
+  }
+
+  .hds-table__th,
+  .hds-table__td {
+    text-align: left;
+    border-top: none;
+    border-right: none;
+    border-bottom: $hds-table-border-width solid $hds-table-border-color;
+    border-left: none;
+
+    // density
+
+    .hds-table--density-short & {
+      padding: $hds-table-cell-padding-short;
+    }
+
+    .hds-table--density-medium & {
+      padding: $hds-table-cell-padding-medium;
+    }
+
+    .hds-table--density-tall & {
+      padding: $hds-table-cell-padding-tall;
+    }
+
+  }
+
+  // horizontal alignment
+
+  .hds-table__th--align-center,
+  .hds-table__td--align-center {
+    text-align: center;
+
+    .hds-table__th-content {
+      justify-content: center;
+    }
+  }
+
+  .hds-table__th--align-right,
+  .hds-table__td--align-right {
+    text-align: right;
+
+    .hds-table__th-content {
+      justify-content: flex-end;
+    }
+  }
+
+  // vertical alignment (applied at table level)
+
+  .hds-table__th,
+  .hds-table__td {
+    .hds-table--valign-top & {
+      vertical-align: top;
+    }
+
+    .hds-table--valign-middle & {
+      vertical-align: middle;
+    }
+
+    .hds-table--valign-baseline & {
+      vertical-align: baseline;
+    }
+  }
+}
+
+
+// ----------------------------------------------------------------
+
+// TABLE CONTENT
+
+.hds-table__checkbox {
+  display: block;
+  margin: 2px 0;
+}
