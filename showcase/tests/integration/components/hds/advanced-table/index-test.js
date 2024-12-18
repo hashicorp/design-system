@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  scrollTo,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -251,6 +257,38 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table')
       .hasClass('hds-advanced-table--valign-top');
+  });
+
+  test('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<div id='short-advanced-table-wrapper' style="height: 75px; overflow-y: scroll;"><Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyHeader={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable></div>`
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__thead')
+      .hasClass('hds-advanced-table__thead--sticky');
+
+    await scrollTo('#short-advanced-table-wrapper', 0, 75);
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__thead')
+      .hasClass('hds-advanced-table__thead--sticky')
+      .hasClass('hds-advanced-table__thead--is-pinned');
   });
 
   test('it throws an assertion if @isStriped and has nested rows', async function (assert) {
