@@ -6,7 +6,7 @@
 {{page-title "AdvancedTable Component"}}
 
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
-
+{{! template-lint-disable no-inline-styles }}
 <section data-test-percy>
 
   <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
@@ -946,11 +946,7 @@
   <Shw::Flex @direction="column" @label="Nested rows" as |SF|>
     <SF.Item @grow={{true}}>
 
-      <div
-        class="hds-advanced-table hds-advanced-table--density-medium"
-        {{! @glint-expect-error - using inline styles to match how the component works }}
-        style="grid-template-columns: repeat(4, 1fr);"
-      >
+      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
@@ -1007,7 +1003,6 @@
 
   <Shw::Flex @direction="column" @label="Nested rows with multiline" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
@@ -1068,7 +1063,7 @@
   <Shw::Flex @direction="column" @label="Interactive states + Sorting order" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @grow={{true}}>
-        {{! @glint-expect-error - using inline styles to match how the component works }}
+
         <div class="hds-advanced-table" style="grid-template-columns: repeat(3, 1fr);">
           <div class="hds-advanced-table__thead">
             <div class="hds-advanced-table__tr">
@@ -1094,7 +1089,6 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1118,7 +1112,6 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1140,7 +1133,6 @@
 
   <Shw::Flex @label="Interactive states" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1160,7 +1152,6 @@
   </Shw::Flex>
   <Shw::Flex @label="Expandable" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1174,7 +1165,6 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1196,7 +1186,6 @@
 
   <Shw::Flex @label="Expandable with tooltip" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1215,7 +1204,6 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1238,7 +1226,6 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1256,7 +1243,6 @@
 
   <Shw::Flex @label="Display" as |SF|>
     <SF.Item @label="Th with visually hidden text" @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1272,7 +1258,6 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
         <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
           <div class="hds-advanced-table__tr">
@@ -1297,7 +1282,7 @@
       {{#each booleans as |bool1|}}
         {{#each booleans as |bool2|}}
           <SF.Item @label="{{if bool1 'Selected' 'Deselected'}} {{if bool2 ' with sort'}}">
-            {{! @glint-expect-error - using inline styles to match how the component works }}
+
             <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
@@ -1317,7 +1302,7 @@
               </div>
             </div>
             <br />
-            {{! @glint-expect-error - using inline styles to match how the component works }}
+
             <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
@@ -1350,7 +1335,7 @@
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <SF.Item @label="Indeterminate {{if bool ' with sort'}}">
-          {{! @glint-expect-error - using inline styles to match how the component works }}
+
           <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
@@ -1375,7 +1360,7 @@
             </div>
           </div>
           <br />
-          {{! @glint-expect-error - using inline styles to match how the component works }}
+
           <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
@@ -1414,7 +1399,6 @@
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1530,7 +1514,6 @@
 
   <Shw::Flex @label="Vertical alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-top"
         style="grid-template-columns: repeat(8, 1fr);"
@@ -1579,7 +1562,6 @@
     <SF.Item @grow={{true}}>
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-middle"
-        {{! @glint-expect-error - using inline styles to match how the component works }}
         style="grid-template-columns: repeat(8, 1fr);"
       >
         <div class="hds-advanced-table__thead">
@@ -1628,7 +1610,6 @@
     <SF.Item @grow={{true}}>
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-baseline"
-        {{! @glint-expect-error - using inline styles to match how the component works }}
         style="grid-template-columns: repeat(8, 1fr);"
       >
         <div class="hds-advanced-table__thead">
@@ -1726,3 +1707,4 @@
   </Shw::Grid>
 
 </section>
+{{! template-lint-enable no-inline-styles }}
