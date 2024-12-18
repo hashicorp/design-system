@@ -6,7 +6,6 @@
 {{page-title "AdvancedTable Component"}}
 
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
-{{! template-lint-disable no-inline-styles }}
 <section data-test-percy>
 
   <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
@@ -946,7 +945,7 @@
   <Shw::Flex @direction="column" @label="Nested rows" as |SF|>
     <SF.Item @grow={{true}}>
 
-      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
@@ -1003,7 +1002,7 @@
 
   <Shw::Flex @direction="column" @label="Nested rows with multiline" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
@@ -1064,7 +1063,7 @@
     {{#each @model.STATES as |state|}}
       <SF.Item @grow={{true}}>
 
-        <div class="hds-advanced-table" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(3, 1fr)"}}>
           <div class="hds-advanced-table__thead">
             <div class="hds-advanced-table__tr">
               <Hds::AdvancedTable::ThSort
@@ -1089,7 +1088,7 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(6, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::ThSort>Left</Hds::AdvancedTable::ThSort>
@@ -1112,7 +1111,7 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(2, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::ThSort>
@@ -1133,7 +1132,7 @@
 
   <Shw::Flex @label="Interactive states" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
@@ -1152,7 +1151,7 @@
   </Shw::Flex>
   <Shw::Flex @label="Expandable" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
@@ -1165,7 +1164,7 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
@@ -1186,7 +1185,7 @@
 
   <Shw::Flex @label="Expandable with tooltip" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
@@ -1204,7 +1203,7 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
@@ -1226,7 +1225,7 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(6, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>Left</Hds::AdvancedTable::Th>
@@ -1243,7 +1242,7 @@
 
   <Shw::Flex @label="Display" as |SF|>
     <SF.Item @label="Th with visually hidden text" @grow={{true}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
@@ -1258,7 +1257,7 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
-      <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(2, 1fr)"}}>
         <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>
@@ -1283,7 +1282,7 @@
         {{#each booleans as |bool2|}}
           <SF.Item @label="{{if bool1 'Selected' 'Deselected'}} {{if bool2 ' with sort'}}">
 
-            <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
+            <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="auto 1fr"}}>
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
                   <Hds::AdvancedTable::ThSelectable
@@ -1303,7 +1302,7 @@
             </div>
             <br />
 
-            <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
+            <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="auto 1fr"}}>
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
                   <Hds::AdvancedTable::ThSelectable
@@ -1336,7 +1335,7 @@
       {{#each booleans as |bool|}}
         <SF.Item @label="Indeterminate {{if bool ' with sort'}}">
 
-          <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
+          <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="auto 1fr"}}>
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
                 <Hds::AdvancedTable::ThSelectable
@@ -1361,7 +1360,7 @@
           </div>
           <br />
 
-          <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
+          <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="auto 1fr"}}>
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
                 <Hds::AdvancedTable::ThSelectable
@@ -1399,7 +1398,7 @@
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
+      <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>
@@ -1516,7 +1515,7 @@
     <SF.Item @grow={{true}}>
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-top"
-        style="grid-template-columns: repeat(8, 1fr);"
+        {{style gridTemplateColumns="repeat(8, 1fr)"}}
       >
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1562,7 +1561,7 @@
     <SF.Item @grow={{true}}>
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-middle"
-        style="grid-template-columns: repeat(8, 1fr);"
+        {{style gridTemplateColumns="repeat(8, 1fr)"}}
       >
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1610,7 +1609,7 @@
     <SF.Item @grow={{true}}>
       <div
         class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-baseline"
-        style="grid-template-columns: repeat(8, 1fr);"
+        {{style gridTemplateColumns="repeat(8, 1fr)"}}
       >
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1707,4 +1706,3 @@
   </Shw::Grid>
 
 </section>
-{{! template-lint-enable no-inline-styles }}
