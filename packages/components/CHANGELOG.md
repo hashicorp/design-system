@@ -6,10 +6,7 @@
 
 ### Minor Changes
 
-`Time` - Added Time component, Time service, and related libraries including:
-
-- luxon (2.x or 3.x)
-- ember-concurrency (4.x)
+`Time` - Added Time component, Time service, and related libraries (`luxon` 2.x or 3.x and `ember-concurrency`)
 
 <small class="doc-whats-new-changelog-metadata">[#2515](https://github.com/hashicorp/design-system/pull/2515)</small>
 
@@ -41,7 +38,8 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Dropdown`, `RichTooltip` - Fixed `ResizeObserver`-related errors in tests
+`Dropdown` - Fixed `ResizeObserver`-related errors in tests
+`RichTooltip` - Fixed `ResizeObserver`-related errors in tests
 
 Upgraded `@floating-ui/dom` to `1.6.12`
 
