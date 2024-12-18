@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
@@ -18,6 +19,7 @@ import type {
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort';
+import { didInsertGridCell, handleGridCellKeyPress } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -82,5 +84,11 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsert(element: HTMLDivElement): void {
+    didInsertGridCell(element);
+    element.addEventListener('keydown', handleGridCellKeyPress);
   }
 }
