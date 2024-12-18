@@ -79,6 +79,22 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       .hasAria('expanded', 'false');
   });
 
+  test('it renders an expand button when `@isExpandable` is true and is expanded if `@isExpanded`', async function (assert) {
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-advanced-test-table-th'
+  @isExpandable={{true}}
+  @isExpanded={{true}}
+>Artist</Hds::AdvancedTable::Th>`
+    );
+    assert
+      .dom(
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+      )
+      .hasText('Toggle')
+      .hasAria('expanded', 'true');
+  });
+
   // ONCLICKTOGGLE
 
   test('it should call the `@onClickToggle` function if provided', async function (assert) {

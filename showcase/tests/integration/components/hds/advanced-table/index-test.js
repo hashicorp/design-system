@@ -70,7 +70,6 @@ const setNestedTableData = (context) => {
       name: 'Policy set 2',
       status: 'FAIL',
       description: '',
-      isExpanded: true,
       children: [
         {
           id: 21,
@@ -90,12 +89,10 @@ const setNestedTableData = (context) => {
     },
   ]);
   context.set('columns', [
-    { key: 'artist', label: 'Artist', isSortable: true },
-    { key: 'album', label: 'Album', isSortable: true },
-    { key: 'year', label: 'Year' },
+    { key: 'name', label: 'Name' },
+    { key: 'status', label: 'Status' },
+    { key: 'description', label: 'Description' },
   ]);
-  context.set('sortBy', 'artist');
-  context.set('sortOrder', 'asc');
 };
 
 const setSelectableTableData = (context) => {
@@ -159,6 +156,20 @@ const hbsSelectableAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
+
+const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
+  @model={{this.model}}
+  @columns={{this.columns}}
+  id='data-test-nested-advanced-table'
+>
+  <:body as |B|>
+    <B.Tr @selectionKey={{B.data.id}}>
+      <B.Th>{{B.data.name}}</B.Th>
+      <B.Td>{{B.data.status}}</B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>`;
@@ -245,7 +256,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it throws an assertion if @isStriped and has nested rows', async function (assert) {
     const errorMessage =
       '@isStriped must not be true if there are nested rows.';
-    this.set('model');
 
     setNestedTableData(this);
     assert.expect(2);
@@ -365,6 +375,37 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
+  });
+
+  test('it throws an assertion if there are selectable columns and has nested rows', async function (assert) {
+    const errorMessage =
+      'Cannot have sortable columns if there are nested rows. Sortable columns are Name,Age';
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @isSelectable={{true}}
+      @selectableColumnKey={{this.selectableColumnKey}}
+      @onSelectionChange={{this.onSelectionChange}}
+      @onSort={{this.onSort}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name' isSortable=true) (hash key='age' label='Age' isSortable=true)}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 
   // with an empty caption if no caption is provided
@@ -618,7 +659,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it throws an assertion if @isSelectable and has nested rows', async function (assert) {
     const errorMessage =
       '@isSelectable must not be true if there are nested rows.';
-    this.set('model');
 
     setNestedTableData(this);
     assert.expect(2);
@@ -771,5 +811,88 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await click(rowCheckboxesSelector);
 
     assert.dom(rowCheckboxesSelector).hasAria('label', 'Select custom suffix');
+  });
+
+  const expandRowButtonSelector =
+    '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__th-button--expand';
+
+  // nesting
+
+  test('it renders a nested table when the model has rows with children key', async function (assert) {
+    setNestedTableData(this);
+    await render(hbsNestedAdvancedTable);
+    assert.dom(expandRowButtonSelector).exists({ count: 2 });
+    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 2})
+  });
+
+  test('it renders children rows when click the expand toggle button', async function (assert) {
+    setNestedTableData(this);
+    await render(hbsNestedAdvancedTable);
+
+    const rowToggles = this.element.querySelectorAll(expandRowButtonSelector);
+
+    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 2})
+
+    await click(rowToggles[0])
+
+    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 4})
+
+    await click(rowToggles[1])
+
+    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 5})
+  });
+
+  test('it renders expanded children rows when pass isExpanded in the model', async function (assert) {
+    setNestedTableData(this);
+    this.set('model', [
+      {
+        id: 1,
+        name: 'Policy set 1',
+        status: 'PASS',
+        description: '',
+        isExpanded: true,
+        children: [
+          {
+            id: 11,
+            name: 'test-advisory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+          },
+          {
+            id: 12,
+            name: 'test-hard-mandatory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: 'Policy set 2',
+        status: 'FAIL',
+        description: '',
+        isExpanded: true,
+        children: [
+          {
+            id: 21,
+            name: 'test-advisory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+            isExpanded: true,
+            children: [
+              {
+                id: 211,
+                name: 'test-advisory-pass.sentinel.primary',
+                status: 'PASS',
+                description: 'Sample description for this thing.',
+              },
+            ],
+          },
+        ],
+      },
+    ]);
+    await render(hbsNestedAdvancedTable);
+    assert.dom(expandRowButtonSelector).exists({ count: 3 });
+    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 6})
   });
 });

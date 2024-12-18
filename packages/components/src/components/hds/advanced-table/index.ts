@@ -160,14 +160,30 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get hasNestedRows(): boolean {
-    const { model } = this.args;
+    const { model, columns } = this.args;
     let hasNestedRows = false;
+    let isSortable = false;
+    const sortableColumns: string[] = [];
+
+    for (const column of columns) {
+      if (column.isSortable) {
+        isSortable = true;
+        sortableColumns.push(column.label);
+      }
+    }
 
     for (const obj of model) {
       if (this.childrenKey in obj) {
         hasNestedRows = true;
         break;
       }
+    }
+
+    if (hasNestedRows) {
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumns.toString()}`,
+        !isSortable
+      );
     }
 
     return hasNestedRows;

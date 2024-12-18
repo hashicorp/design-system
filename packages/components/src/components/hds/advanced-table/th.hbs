@@ -4,13 +4,13 @@
 }}
 <div
   class={{this.classNames}}
-  ...attributes
   role={{this.role}}
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
   aria-describedby={{@parentId}}
   {{style grid-row=this.rowspan grid-column=this.colspan padding-left=this.paddingLeft}}
+  ...attributes
 >
   {{#if @isVisuallyHidden}}
     <span class="sr-only">{{yield}}</span>

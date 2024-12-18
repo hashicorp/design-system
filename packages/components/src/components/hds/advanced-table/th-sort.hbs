@@ -5,11 +5,11 @@
 <div
   class={{this.classNames}}
   aria-sort={{this.ariaSort}}
-  ...attributes
   role="columnheader"
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
+  ...attributes
 >
   <div class="hds-advanced-table__th-content">
     <span id={{this._labelId}} class="hds-typography-body-200 hds-font-weight-semibold">{{yield}}</span>

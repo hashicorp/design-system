@@ -3,7 +3,7 @@ import type { HdsAdvancedTableThSignature } from './th';
 
 const getAllFocusableChildren = (element: HTMLElement): NodeListOf<Element> => {
   return element.querySelectorAll(
-    'button, a[href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
   );
 };
 
@@ -130,6 +130,7 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
         }
         const element = cellFocusableChildren[0] as HTMLElement;
         element.focus();
+        target.setAttribute('tabindex', '-1');
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       const nextElement =
