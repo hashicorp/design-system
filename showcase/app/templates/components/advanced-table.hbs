@@ -945,7 +945,12 @@
 
   <Shw::Flex @direction="column" @label="Nested rows" as |SF|>
     <SF.Item @grow={{true}}>
-      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
+
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        {{! @glint-expect-error - using inline styles to match how the component works }}
+        style="grid-template-columns: repeat(4, 1fr);"
+      >
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
@@ -1002,6 +1007,7 @@
 
   <Shw::Flex @direction="column" @label="Nested rows with multiline" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__tbody">
           <div class="hds-advanced-table__expandable-tr-group">
@@ -1062,6 +1068,7 @@
   <Shw::Flex @direction="column" @label="Interactive states + Sorting order" as |SF|>
     {{#each @model.STATES as |state|}}
       <SF.Item @grow={{true}}>
+        {{! @glint-expect-error - using inline styles to match how the component works }}
         <div class="hds-advanced-table" style="grid-template-columns: repeat(3, 1fr);">
           <div class="hds-advanced-table__thead">
             <div class="hds-advanced-table__tr">
@@ -1087,6 +1094,7 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1110,6 +1118,7 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1131,6 +1140,7 @@
 
   <Shw::Flex @label="Interactive states" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1150,6 +1160,7 @@
   </Shw::Flex>
   <Shw::Flex @label="Expandable" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1163,6 +1174,7 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1184,6 +1196,7 @@
 
   <Shw::Flex @label="Expandable with tooltip" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1202,6 +1215,7 @@
       </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1224,6 +1238,7 @@
 
   <Shw::Flex @label="Alignment" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(6, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1241,6 +1256,7 @@
 
   <Shw::Flex @label="Display" as |SF|>
     <SF.Item @label="Th with visually hidden text" @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1256,6 +1272,7 @@
 
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table" style="grid-template-columns: repeat(2, 1fr);">
         <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
           <div class="hds-advanced-table__tr">
@@ -1280,6 +1297,7 @@
       {{#each booleans as |bool1|}}
         {{#each booleans as |bool2|}}
           <SF.Item @label="{{if bool1 'Selected' 'Deselected'}} {{if bool2 ' with sort'}}">
+            {{! @glint-expect-error - using inline styles to match how the component works }}
             <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
@@ -1299,6 +1317,7 @@
               </div>
             </div>
             <br />
+            {{! @glint-expect-error - using inline styles to match how the component works }}
             <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
               <div class="hds-advanced-table__thead">
                 <div class="hds-advanced-table__tr">
@@ -1331,6 +1350,7 @@
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |bool|}}
         <SF.Item @label="Indeterminate {{if bool ' with sort'}}">
+          {{! @glint-expect-error - using inline styles to match how the component works }}
           <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
@@ -1355,6 +1375,7 @@
             </div>
           </div>
           <br />
+          {{! @glint-expect-error - using inline styles to match how the component works }}
           <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: auto 1fr;">
             <div class="hds-advanced-table__thead">
               <div class="hds-advanced-table__tr">
@@ -1393,6 +1414,7 @@
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
     <SF.Item @grow={{true}}>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
       <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(4, 1fr);">
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
@@ -1506,145 +1528,157 @@
     </SF.Item>
   </Shw::Flex>
 
-  {{!-- <Shw::Flex @label="Vertical alignment" as |SF|>
+  <Shw::Flex @label="Vertical alignment" as |SF|>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="top" @isSelectable={{true}}>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Spacer</H.Th>
-            <H.Th>Text</H.Th>
-            <H.Th>Icon</H.Th>
-            <H.Th>Icon + Text</H.Th>
-            <H.Th>Icon + Text (with flex container)</H.Th>
-            <H.Th>Badge</H.Th>
-            <H.Th>Dropdown</H.Th>
-            <H.Th>Tooltip(Button)</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr @selectionKey="row">
-            <B.Th>Top (default)<Shw::Placeholder @height="50" /></B.Th>
-            <B.Td>Text is top aligned</B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
-            <B.Td>
+      {{! @glint-expect-error - using inline styles to match how the component works }}
+      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(8, 1fr);">
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Spacer</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text (with flex container)</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Badge</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Dropdown</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Tooltip(Button)</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Top (default)<Shw::Placeholder @height="50" /></Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Td>Text is top aligned</Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
                 <Hds::Icon @name="film" />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
-            </B.Td>
-            <B.Td><Hds::Badge @text="Badge" /></B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Badge @text="Badge" /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::Dropdown as |D|>
                 <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <D.Interactive @route="components.table">Dropdown</D.Interactive>
               </Hds::Dropdown>
-            </B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::TooltipButton @text="Hello!">
                 December 15, 2022,<br />16:40:09 PM
               </Hds::TooltipButton>
-            </B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
+            </Hds::AdvancedTable::Td>
+          </div>
+        </div>
+      </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="middle" @isSelectable={{true}}>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Spacer</H.Th>
-            <H.Th>Text</H.Th>
-            <H.Th>Icon</H.Th>
-            <H.Th>Icon + Text</H.Th>
-            <H.Th>Icon + Text (with flex container)</H.Th>
-            <H.Th>Badge</H.Th>
-            <H.Th>Dropdown</H.Th>
-            <H.Th>Tooltip(Button)</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr @selectionKey="row">
-            <B.Th><Shw::Placeholder @height="25" />Middle<Shw::Placeholder @height="25" /></B.Th>
-            <B.Td>Text is middle aligned</B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
-            <B.Td>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-middle"
+        {{! @glint-expect-error - using inline styles to match how the component works }}
+        style="grid-template-columns: repeat(8, 1fr);"
+      >
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Spacer</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text (with flex container)</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Badge</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Dropdown</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Tooltip(Button)</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th><Shw::Placeholder @height="25" />Middle<Shw::Placeholder
+                @height="25"
+              /></Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Td>Text is middle aligned</Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
                 <Hds::Icon @name="film" />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
-            </B.Td>
-            <B.Td><Hds::Badge @text="Badge" /></B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Badge @text="Badge" /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::Dropdown as |D|>
                 <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <D.Interactive @route="components.table">Dropdown</D.Interactive>
               </Hds::Dropdown>
-            </B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::TooltipButton @text="Hello!">
                 December 15, 2022,<br />16:40:09 PM
               </Hds::TooltipButton>
-            </B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
+            </Hds::AdvancedTable::Td>
+          </div>
+        </div>
+      </div>
     </SF.Item>
     <SF.Item @grow={{true}}>
-      <Hds::Table @valign="baseline" @isSelectable={{true}}>
-        <:head as |H|>
-          <H.Tr>
-            <H.Th>Spacer</H.Th>
-            <H.Th>Text</H.Th>
-            <H.Th>Icon</H.Th>
-            <H.Th>Icon + Text</H.Th>
-            <H.Th>Icon + Text (with flex container)</H.Th>
-            <H.Th>Badge</H.Th>
-            <H.Th>Dropdown</H.Th>
-            <H.Th>Tooltip(Button)</H.Th>
-          </H.Tr>
-        </:head>
-        <:body as |B|>
-          <B.Tr @selectionKey="row">
-            <B.Th><Shw::Placeholder @height="25" />Baseline<Shw::Placeholder @height="25" /></B.Th>
-            <B.Td>Text is middle aligned</B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /></B.Td>
-            <B.Td><Hds::Icon @name="film" @isInline={{true}} /> <span>Text in a <code>&lt;span&gt;</code></span></B.Td>
-            <B.Td>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-baseline"
+        {{! @glint-expect-error - using inline styles to match how the component works }}
+        style="grid-template-columns: repeat(8, 1fr);"
+      >
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Spacer</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Icon + Text (with flex container)</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Badge</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Dropdown</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Tooltip(Button)</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th><Shw::Placeholder @height="25" />Baseline<Shw::Placeholder
+                @height="25"
+              /></Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Td>Text is middle aligned</Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Icon @name="film" @isInline={{true}} />
+              <span>Text in a <code>&lt;span&gt;</code></span></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <div {{style display="flex" gap="8px" align-items="center"}}>
-                <Hds::Icon @name="film" @isInline={{true}} />
+                <Hds::Icon @name="film" />
                 <span>Text in a <code>&lt;span&gt;</code></span>
               </div>
-            </B.Td>
-            <B.Td><Hds::Badge @text="Badge" /></B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td><Hds::Badge @text="Badge" /></Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::Dropdown as |D|>
                 <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
                 <D.Interactive @route="components.table">Dropdown</D.Interactive>
               </Hds::Dropdown>
-            </B.Td>
-            <B.Td>
+            </Hds::AdvancedTable::Td>
+            <Hds::AdvancedTable::Td>
               <Hds::TooltipButton @text="Hello!">
                 December 15, 2022,<br />16:40:09 PM
               </Hds::TooltipButton>
-            </B.Td>
-          </B.Tr>
-        </:body>
-      </Hds::Table>
+            </Hds::AdvancedTable::Td>
+          </div>
+        </div>
+      </div>
     </SF.Item>
-  </Shw::Flex> --}}
-
-  {{!-- 
-
-  
+  </Shw::Flex>
 
   <Shw::Text::H3>ThButtonTooltip</Shw::Text::H3>
 
   <Shw::Grid @label="Interactive states" @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
-        <Hds::Table::ThButtonTooltip @tooltip="Here is more information" mock-state-value={{state}} />
+        <Hds::AdvancedTable::ThButtonTooltip @tooltip="Here is more information" mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
   </Shw::Grid>
@@ -1658,17 +1692,34 @@
       <SG.Item @label={{capitalize state}}>
         <Shw::Flex @direction="row" as |SF|>
           <SF.Item>
-            <Hds::Table::ThButtonSort mock-state-value={{state}} />
+            <Hds::AdvancedTable::ThButtonSort mock-state-value={{state}} />
           </SF.Item>
           <SF.Item>
-            <Hds::Table::ThButtonSort @sortOrder="asc" mock-state-value={{state}} />
+            <Hds::AdvancedTable::ThButtonSort @sortOrder="asc" mock-state-value={{state}} />
           </SF.Item>
           <SF.Item>
-            <Hds::Table::ThButtonSort @sortOrder="desc" mock-state-value={{state}} />
+            <Hds::AdvancedTable::ThButtonSort @sortOrder="desc" mock-state-value={{state}} />
           </SF.Item>
         </Shw::Flex>
       </SG.Item>
     {{/each}}
-  </Shw::Grid> --}}
+  </Shw::Grid>
+
+  <Shw::Text::H3>ThButtonExpand</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states + Expand state" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <Shw::Flex @direction="row" as |SF|>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand @isExpanded={{true}} mock-state-value={{state}} />
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
 </section>

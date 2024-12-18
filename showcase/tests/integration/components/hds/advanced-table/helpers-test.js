@@ -10,7 +10,6 @@ import {
   focus,
   tab,
   triggerKeyEvent,
-  pauseTest,
   click,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
