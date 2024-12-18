@@ -27,6 +27,13 @@ export enum HdsAdvancedTableScopeValues {
 }
 export type HdsAdvancedTableScope = `${HdsAdvancedTableScopeValues}`;
 
+export enum HdsAdvancedTableThExpandIconValues {
+  ChevronRight = 'chevron-right',
+  ChevronDown = 'chevron-down',
+}
+export type HdsAdvancedTableThSortExpandIcons =
+  `${HdsAdvancedTableThExpandIconValues}`;
+
 export enum HdsAdvancedTableThSortOrderIconValues {
   ArrowDown = 'arrow-down',
   ArrowUp = 'arrow-up',

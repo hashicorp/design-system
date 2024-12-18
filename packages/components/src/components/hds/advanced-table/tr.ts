@@ -24,6 +24,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     selectionKey?: string;
     selectionScope?: HdsAdvancedTableScope;
     sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
+    depth?: number;
     didInsertCheckbox?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
@@ -68,7 +69,18 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
   }
 
   get classNames(): string {
+    const { depth } = this.args;
     const classes = ['hds-advanced-table__tr'];
+
+    if (depth) {
+      if (depth > 0) classes.push('hds-advanced-table__tr--nested');
+      if (depth % 2 === 0) {
+        classes.push(`hds-advanced-table__tr--depth-even`);
+      } else {
+        classes.push(`hds-advanced-table__tr--depth-odd`);
+      }
+    }
+
     return classes.join(' ');
   }
 }

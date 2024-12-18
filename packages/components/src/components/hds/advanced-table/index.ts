@@ -62,6 +62,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasStickyHeader?: boolean;
+    childrenKey?: string;
   };
   Blocks: {
     body?: [
@@ -70,7 +71,8 @@ export interface HdsAdvancedTableSignature {
         Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
         data?: Record<string, unknown>;
-        rowIndex?: number;
+        rowIndex?: number | string;
+        isExpanded?: boolean;
       },
     ];
   };
@@ -132,6 +134,42 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
+  get childrenKey(): string {
+    const { childrenKey = 'children' } = this.args;
+
+    return childrenKey;
+  }
+
+  get hasNestedRows(): boolean {
+    const { model, columns } = this.args;
+    let hasNestedRows = false;
+    let isSortable = false;
+    const sortableColumns: string[] = [];
+
+    for (const column of columns) {
+      if (column.isSortable) {
+        isSortable = true;
+        sortableColumns.push(column.label);
+      }
+    }
+
+    for (const obj of model) {
+      if (this.childrenKey in obj) {
+        hasNestedRows = true;
+        break;
+      }
+    }
+
+    if (hasNestedRows) {
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumns.toString()}`,
+        !isSortable
+      );
+    }
+
+    return hasNestedRows;
+  }
+
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
@@ -146,11 +184,27 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isSelectable(): boolean {
     const { isSelectable = false } = this.args;
 
+    if (this.hasNestedRows) {
+      assert(
+        '@isSelectable must not be true if there are nested rows.',
+        !isSelectable
+      );
+      return isSelectable;
+    }
+
     return isSelectable;
   }
 
   get isStriped(): boolean {
     const { isStriped = false } = this.args;
+
+    if (this.hasNestedRows) {
+      assert(
+        '@isStriped must not be true if there are nested rows.',
+        !isStriped
+      );
+      return isStriped;
+    }
 
     return isStriped;
   }

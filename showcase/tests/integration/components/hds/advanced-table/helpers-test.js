@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, focus, tab, triggerKeyEvent } from '@ember/test-helpers';
+import {
+  render,
+  focus,
+  tab,
+  triggerKeyEvent,
+  click,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
@@ -40,6 +46,58 @@ const setSortableTableData = (context) => {
   ]);
 };
 
+const setNestedTableData = (context) => {
+  context.set('model', [
+    {
+      id: 1,
+      name: 'Policy set 1',
+      status: 'PASS',
+      description: '',
+      children: [
+        {
+          id: 11,
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+        },
+        {
+          id: 12,
+          name: 'test-hard-mandatory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+        },
+      ],
+    },
+    {
+      id: 2,
+      name: 'Policy set 2',
+      status: 'FAIL',
+      description: '',
+      children: [
+        {
+          id: 21,
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.',
+          children: [
+            {
+              id: 211,
+              name: 'test-advisory-pass.sentinel.primary',
+              status: 'PASS',
+              description: 'Sample description for this thing.',
+            },
+          ],
+        },
+      ],
+    },
+  ]);
+  context.set('columns', [
+    { key: 'name', label: 'Name' },
+    { key: 'status', label: 'Status' },
+    { key: 'description', label: 'Description' },
+  ]);
+};
+
 const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   @model={{this.model}}
   @onSort={{this.onSort}}
@@ -57,6 +115,20 @@ const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   </:body>
 </Hds::AdvancedTable>
 <button id='after-advanced-table'>Click me</button>`;
+
+const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
+  @model={{this.model}}
+  @columns={{this.columns}}
+  id='data-test-nested-advanced-table'
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th id="name-{{B.data.id}}">{{B.data.name}}</B.Th>
+      <B.Td id="status-{{B.data.id}}">{{B.data.status}}</B.Td>
+      <B.Td id="description-{{B.data.id}}">{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
 
 module(
   'Integration | Component | hds/advanced-table/helpers',
@@ -145,6 +217,48 @@ module(
       assert.dom('#artist-1').hasAttribute('tabindex', '-1');
     });
 
+    test('it should be navigable with arrow keys when there are nested rows', async function (assert) {
+      setNestedTableData(this);
+      await render(hbsNestedAdvancedTable);
+
+      const gridCells = document.querySelectorAll(
+        '.hds-advanced-table__td, .hds-advanced-table__th'
+      );
+
+      await focus(gridCells[0]);
+      assert.dom(document.activeElement).hasText('Name');
+
+      // check it doesn't break if you try to navigate to cell that doesn't exist
+      await triggerKeyEvent(gridCells[0], 'keydown', 'ArrowUp');
+      assert.dom(gridCells[0]).isFocused().hasAttribute('tabindex', '0');
+
+      await triggerKeyEvent(gridCells[0], 'keydown', 'ArrowDown');
+      assert.dom('#name-1').isFocused().hasAttribute('tabindex', '0');
+      assert.dom(gridCells[0]).hasAttribute('tabindex', '-1');
+
+      // check it doesn't break if you try to navigate to cell that doesn't exist
+      await triggerKeyEvent('#name-1', 'keydown', 'ArrowLeft');
+      assert.dom('#name-1').isFocused().hasAttribute('tabindex', '0');
+
+      await triggerKeyEvent('#name-1', 'keydown', 'ArrowRight');
+      assert.dom('#status-1').isFocused().hasAttribute('tabindex', '0');
+      assert.dom('#name-1').hasAttribute('tabindex', '-1');
+
+      await triggerKeyEvent('#status-1', 'keydown', 'ArrowDown');
+      assert.dom('#status-2').isFocused().hasAttribute('tabindex', '0');
+      assert.dom('#status-1').hasAttribute('tabindex', '-1');
+
+      const expandRowButtonSelector = '.hds-advanced-table__th-button--expand';
+      const rowToggles = this.element.querySelectorAll(expandRowButtonSelector);
+
+      await click(rowToggles[0]);
+
+      // check that can navigate to newly visible cells
+      await triggerKeyEvent('#status-1', 'keydown', 'ArrowDown');
+      assert.dom('#status-11').isFocused().hasAttribute('tabindex', '0');
+      assert.dom('#status-1').hasAttribute('tabindex', '-1');
+    });
+
     test('it should have keyboard shortcuts', async function (assert) {
       setSortableTableData(this);
       await render(hbsSortableAdvancedTable);
@@ -162,6 +276,38 @@ module(
 
       await triggerKeyEvent('#year-3', 'keydown', 'Home');
       assert.dom('#artist-3').isFocused();
+    });
+
+    test('it should have keyboard shortcuts when there are nested rows', async function (assert) {
+      setNestedTableData(this);
+      await render(hbsNestedAdvancedTable);
+
+      const firstCell = document.querySelector('.hds-advanced-table__th');
+
+      await triggerKeyEvent(firstCell, 'keydown', 'PageDown');
+      assert.dom('#name-2').isFocused();
+
+      await triggerKeyEvent('#name-2', 'keydown', 'PageUp');
+      assert.dom(firstCell).isFocused();
+
+      await triggerKeyEvent('#name-2', 'keydown', 'End');
+      assert.dom('#description-2').isFocused();
+
+      await triggerKeyEvent('#description-2', 'keydown', 'Home');
+      assert.dom('#name-2').isFocused();
+
+      const expandRowButtonSelector =
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__th-button--expand';
+      const rowToggles = this.element.querySelectorAll(expandRowButtonSelector);
+
+      await click(rowToggles[rowToggles.length - 1]);
+
+      // check that when the cells are expanded, the shortcuts jump to the new last cell in the column
+      await triggerKeyEvent(firstCell, 'keydown', 'PageDown');
+      assert.dom('#name-21').isFocused();
+
+      await triggerKeyEvent('#name-21', 'keydown', 'PageUp');
+      assert.dom(firstCell).isFocused();
     });
 
     test('it should switch navigation modes properly', async function (assert) {

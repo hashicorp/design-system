@@ -54,24 +54,54 @@
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record index|}}
-      {{yield
-        (hash
-          Tr=(component
-            "hds/advanced-table/tr"
-            selectionScope="row"
-            isSelectable=this.isSelectable
-            onSelectionChange=this.onSelectionRowChange
-            didInsertCheckbox=this.didInsertRowCheckbox
-            willDestroy=this.willDestroyRowCheckbox
-            selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+      {{#if this.hasNestedRows}}
+        <Hds::AdvancedTable::ExpandableTrGroup
+          @record={{record}}
+          @childrenKey={{this.childrenKey}}
+          @rowIndex={{index}}
+          as |T|
+        >
+          {{yield
+            (hash
+              Tr=(component "hds/advanced-table/tr" depth=T.depth)
+              Th=(component
+                "hds/advanced-table/th"
+                scope="row"
+                isExpandable=T.isExpandable
+                newLabel=T.id
+                parentId=T.parentId
+                onClickToggle=T.onClickToggle
+                isExpanded=T.isExpanded
+                depth=T.depth
+              )
+              Td=(component "hds/advanced-table/td" align=@align)
+              data=T.data
+              isExpanded=T.isExpanded
+              rowIndex=T.rowIndex
+            )
+            to="body"
+          }}
+        </Hds::AdvancedTable::ExpandableTrGroup>
+      {{else}}
+        {{yield
+          (hash
+            Tr=(component
+              "hds/advanced-table/tr"
+              selectionScope="row"
+              isSelectable=this.isSelectable
+              onSelectionChange=this.onSelectionRowChange
+              didInsertCheckbox=this.didInsertRowCheckbox
+              willDestroy=this.willDestroyRowCheckbox
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
+            )
+            Th=(component "hds/advanced-table/th" scope="row")
+            Td=(component "hds/advanced-table/td" align=@align)
+            data=record
+            rowIndex=index
           )
-          Th=(component "hds/advanced-table/th" scope="row")
-          Td=(component "hds/advanced-table/td" align=@align)
-          data=record
-          rowIndex=index
-        )
-        to="body"
-      }}
+          to="body"
+        }}
+      {{/if}}
     {{/each}}
   </div>
 </div>
