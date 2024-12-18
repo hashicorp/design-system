@@ -16,3 +16,7 @@
 
 - Added `@onClickSortBySelected` argument which is the callback for the sort button in the selected item column.
 - Added `@sortBySelectedOrder` argument which determines the state of the sort button in the selected item column.
+
+## 4.10.0
+
+Converted component and sub-components to TypeScript.
