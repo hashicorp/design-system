@@ -58,6 +58,81 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Nested rows</Shw::Text::H2>
+
+  <Shw::Text::H3>With default expanded rows</Shw::Text::H3>
+  <Hds::AdvancedTable
+    @model={{this.model.nestedData}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="status" label="Status" width="auto")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>
+          {{B.data.name}}
+        </B.Th>
+        <B.Td>
+          {{B.data.status}}
+        </B.Td>
+        <B.Td>
+          {{B.data.description}}
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
+
+  <Hds::AdvancedTable
+    @model={{this.model.nestedDataCustom}}
+    @childrenKey="data"
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="status" label="Status" width="auto")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th>
+          {{B.data.name}}
+        </B.Th>
+        <B.Td>
+          {{B.data.status}}
+        </B.Td>
+        <B.Td>
+          {{B.data.description}}
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H3>With nested rows and cells that span rows</Shw::Text::H3>
+
+  <Hds::AdvancedTable
+    @model={{this.model.spanningData}}
+    @columns={{array
+      (hash key="name" label="Name")
+      (hash key="service" label="Service")
+      (hash key="description" label="Description")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        {{#if B.data.name}}
+          <B.Th @rowspan={{if B.isExpanded (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
+        {{/if}}
+        <B.Td>{{B.data.service}}</B.Td>
+        <B.Td>{{B.data.description}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Sticky header</Shw::Text::H2>
 
   <div class="shw-component-advanced-table-fixed-height-wrapper">
@@ -864,6 +939,125 @@
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
+  <Shw::Text::H3>Tr</Shw::Text::H3>
+
+  <Shw::Text::Body>These examples are for display only, clicking the expand button will not toggle the rows.</Shw::Text::Body>
+
+  <Shw::Flex @direction="column" @label="Nested rows" as |SF|>
+    <SF.Item @grow={{true}}>
+
+      <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__tbody">
+          <div class="hds-advanced-table__expandable-tr-group">
+            <Hds::AdvancedTable::Tr @depth={{0}}>
+              <Hds::AdvancedTable::Th @depth={{0}} @isExpandable={{true}}>
+                Depth 0
+              </Hds::AdvancedTable::Th>
+              <Hds::AdvancedTable::Td>
+                Lorem
+              </Hds::AdvancedTable::Td>
+              <Hds::AdvancedTable::Td>
+                Ipsum
+              </Hds::AdvancedTable::Td>
+              <Hds::AdvancedTable::Td>
+                Dolor
+              </Hds::AdvancedTable::Td>
+            </Hds::AdvancedTable::Tr>
+            <div class="hds-advanced-table__expandable-tr-group">
+              <Hds::AdvancedTable::Tr @depth={{1}}>
+                <Hds::AdvancedTable::Th @depth={{1}} @isExpandable={{true}}>
+                  Depth 1
+                </Hds::AdvancedTable::Th>
+                <Hds::AdvancedTable::Td>
+                  Lorem
+                </Hds::AdvancedTable::Td>
+                <Hds::AdvancedTable::Td>
+                  Ipsum
+                </Hds::AdvancedTable::Td>
+                <Hds::AdvancedTable::Td>
+                  Dolor
+                </Hds::AdvancedTable::Td>
+              </Hds::AdvancedTable::Tr>
+              <div class="hds-advanced-table__expandable-tr-group">
+                <Hds::AdvancedTable::Tr @depth={{2}}>
+                  <Hds::AdvancedTable::Th @depth={{2}} @isExpandable={{true}}>
+                    Depth 2
+                  </Hds::AdvancedTable::Th>
+                  <Hds::AdvancedTable::Td>
+                    Lorem
+                  </Hds::AdvancedTable::Td>
+                  <Hds::AdvancedTable::Td>
+                    Ipsum
+                  </Hds::AdvancedTable::Td>
+                  <Hds::AdvancedTable::Td>
+                    Dolor
+                  </Hds::AdvancedTable::Td>
+                </Hds::AdvancedTable::Tr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @direction="column" @label="Nested rows with multiline" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__tbody">
+          <div class="hds-advanced-table__expandable-tr-group">
+            <Hds::AdvancedTable::Tr @depth={{0}}>
+              <Hds::AdvancedTable::Th @depth={{0}} @isExpandable={{true}}>
+                Depth 0 - This is a very long text that should go on two lines
+              </Hds::AdvancedTable::Th>
+              <Hds::AdvancedTable::Td>
+                Lorem
+              </Hds::AdvancedTable::Td>
+              <Hds::AdvancedTable::Td>
+                Ipsum
+              </Hds::AdvancedTable::Td>
+              <Hds::AdvancedTable::Td>
+                Dolor
+              </Hds::AdvancedTable::Td>
+            </Hds::AdvancedTable::Tr>
+            <div class="hds-advanced-table__expandable-tr-group">
+              <Hds::AdvancedTable::Tr @depth={{1}}>
+                <Hds::AdvancedTable::Th @depth={{1}} @isExpandable={{true}}>
+                  Depth 1 - This is a very long text that should go on two lines
+                </Hds::AdvancedTable::Th>
+                <Hds::AdvancedTable::Td>
+                  Lorem
+                </Hds::AdvancedTable::Td>
+                <Hds::AdvancedTable::Td>
+                  Ipsum
+                </Hds::AdvancedTable::Td>
+                <Hds::AdvancedTable::Td>
+                  Dolor
+                </Hds::AdvancedTable::Td>
+              </Hds::AdvancedTable::Tr>
+              <div class="hds-advanced-table__expandable-tr-group">
+                <Hds::AdvancedTable::Tr @depth={{2}}>
+                  <Hds::AdvancedTable::Th @depth={{2}} @isExpandable={{true}}>
+                    Depth 2 - This is a very long text that should go on two lines
+                  </Hds::AdvancedTable::Th>
+                  <Hds::AdvancedTable::Td>
+                    Lorem
+                  </Hds::AdvancedTable::Td>
+                  <Hds::AdvancedTable::Td>
+                    Ipsum
+                  </Hds::AdvancedTable::Td>
+                  <Hds::AdvancedTable::Td>
+                    Dolor
+                  </Hds::AdvancedTable::Td>
+                </Hds::AdvancedTable::Tr>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H3>ThSort</Shw::Text::H3>
 
   <Shw::Flex @direction="column" @label="Interactive states + Sorting order" as |SF|>
@@ -947,6 +1141,80 @@
                 @tooltip="Here is more information"
                 mock-state-value={{state}}
                 mock-state-selector="button"
+              >
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Expandable" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th mock-state-value={{state}} mock-state-selector="button" @isExpandable={{true}}>
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+                @isExpanded={{true}}
+              >
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Expandable with tooltip" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th
+                @tooltip="Here is more information"
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+              >
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th
+                @tooltip="Here is more information"
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+                @isExpanded={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1416,6 +1684,25 @@
           </SF.Item>
           <SF.Item>
             <Hds::AdvancedTable::ThButtonSort @sortOrder="desc" mock-state-value={{state}} />
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThButtonExpand</Shw::Text::H3>
+
+  <Shw::Grid @label="Interactive states + Expand state" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <Shw::Flex @direction="row" as |SF|>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand @isExpanded={{true}} mock-state-value={{state}} />
           </SF.Item>
         </Shw::Flex>
       </SG.Item>

@@ -29,6 +29,11 @@ export interface HdsAdvancedTableThSignature {
     rowspan?: number;
     colspan?: number;
     newLabel?: string;
+    isExpandable?: boolean;
+    parentId?: string;
+    onClickToggle?: () => void;
+    isExpanded?: boolean;
+    depth?: number;
   };
   Blocks: {
     default?: [];
@@ -74,6 +79,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       return `span ${this.args.colspan}`;
     }
     return 'auto';
+  }
+
+  get paddingLeft(): string | undefined {
+    if (this.args.depth) {
+      return `calc(${this.args.depth} * 32px + 16px)`;
+    }
   }
 
   get classNames(): string {
