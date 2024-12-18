@@ -19,6 +19,7 @@ Router.map(function () {
   });
   this.route('components', function () {
     this.route('accordion');
+    this.route('advanced-table');
     this.route('alert');
     this.route('app-footer');
     this.route('app-header');

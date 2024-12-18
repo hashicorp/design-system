@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// ADVANCED-TABLE
+
+body.components-advanced-table {
+  .shw-component-advanced-table-instruction-list {
+    font-size: 1rem;
+    font-family: gilmer-web, Gilmer, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+    line-height: 1.4;
+  }
+
+  .shw-component-advanced-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
+}
