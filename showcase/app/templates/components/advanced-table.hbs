@@ -12,6 +12,17 @@
   <Shw::Text::H3>Keyboard interaction</Shw::Text::H3>
 
   <Shw::Text::Body>To navigate the AdvancedTable with a keyboard</Shw::Text::Body>
+  <ul class="shw-component-advanced-table-instruction-list">
+    <li><strong>Arrow Keys</strong>: Move between the cells</li>
+    <li><strong>Enter</strong>: Focuses the first interactive element in the cell. After press enter, you can tab to all
+      focusable elements in the cell. Focus is trapped within the cell.</li>
+    <li><strong>Escape</strong>: If focused on an interactive element within a cell, it moves the focus back to the
+      cell. After press escape, you can arrow key between the cells again.</li>
+    <li><strong>Home (fn + left)</strong>: Move to first cell in the row</li>
+    <li><strong>End (fn + right)</strong>: Move to last cell in the row</li>
+    <li><strong>PageUp (fn + up)</strong>: Move to first cell in the column</li>
+    <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
+  </ul>
 
   <Hds::AdvancedTable
     @model={{this.model.music}}
