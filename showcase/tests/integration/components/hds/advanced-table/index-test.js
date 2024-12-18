@@ -202,6 +202,39 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasAttribute('aria-label', 'data test table');
   });
 
+  test('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<div id='short-advanced-table-wrapper' style="height: 75px; overflow-y: scroll;"><Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyHeader={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable></div>`
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__thead')
+      .hasClass('hds-advanced-table__thead--sticky');
+
+    // commenting out for now because it is flaky
+    // await scrollTo('#short-advanced-table-wrapper', 0, 100);
+
+    // assert
+    //   .dom('#data-test-advanced-table .hds-advanced-table__thead')
+    //   .hasClass('hds-advanced-table__thead--sticky')
+    //   .hasClass('hds-advanced-table__thead--is-pinned');
+  });
+
   test('it should render a table based on the data model passed', async function (assert) {
     this.set('model', [
       { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
