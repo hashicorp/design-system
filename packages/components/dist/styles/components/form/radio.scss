@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > RADIO
+//
+
+
+// "BASE" CONTROL
+
+.hds-form-radio {
+  width: var(--token-form-radio-size);
+  height: var(--token-form-radio-size);
+  margin: 0;
+  padding: 0;
+  background-position: center center;
+  background-size: var(--token-form-radio-background-image-size) var(--token-form-radio-background-image-size);
+  border-style: solid;
+  border-width: var(--token-form-radio-border-width);
+  border-radius: 50%;
+  cursor: pointer;
+  appearance: none;
+
+  // STATUS
+
+  // base (default)
+
+  &:not(:checked) {
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-color: var(--token-form-control-base-border-color-default);
+    box-shadow: var(--token-elevation-inset-box-shadow);
+  }
+
+  &:checked {
+    background-color: var(--token-form-control-checked-surface-color-default);
+    background-image: var(--token-form-radio-background-image-data-url);
+    border-color: var(--token-form-control-checked-border-color-default);
+  }
+
+  // hover
+
+  &:hover:not(:checked),
+  &.mock-hover:not(:checked) {
+    background-color: var(--token-form-control-base-surface-color-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
+  }
+
+  &:hover:checked,
+  &.mock-hover:checked {
+    background-color: var(--token-form-control-checked-border-color-default);
+    border-color: var(--token-form-control-checked-border-color-hover);
+  }
+
+  // focus (same for all the states)
+
+  &:focus,
+  &.mock-focus {
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
+  }
+
+  // DISABLED
+
+  &:disabled:not(:checked) {
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  &:disabled:checked {
+    background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-radio-background-image-data-url-disabled);
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
