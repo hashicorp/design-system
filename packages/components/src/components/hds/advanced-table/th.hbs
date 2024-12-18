@@ -8,6 +8,7 @@
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{style grid-row=this.rowspan grid-column=this.colspan}}
+  {{did-insert this.didInsert}}
   ...attributes
 >
   {{#if @isVisuallyHidden}}

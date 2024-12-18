@@ -5,9 +5,11 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import { action } from '@ember/object';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
+import { didInsertGridCell, handleGridCellKeyPress } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -66,5 +68,11 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsert(element: HTMLDivElement): void {
+    didInsertGridCell(element);
+    element.addEventListener('keydown', handleGridCellKeyPress);
   }
 }

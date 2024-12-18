@@ -123,6 +123,7 @@
       "./components/hds/accordion/index.js": "./dist/_app_/components/hds/accordion/index.js",
       "./components/hds/accordion/item/button.js": "./dist/_app_/components/hds/accordion/item/button.js",
       "./components/hds/accordion/item/index.js": "./dist/_app_/components/hds/accordion/item/index.js",
+      "./components/hds/advanced-table/helpers.js": "./dist/_app_/components/hds/advanced-table/helpers.js",
       "./components/hds/advanced-table/index.js": "./dist/_app_/components/hds/advanced-table/index.js",
       "./components/hds/advanced-table/td.js": "./dist/_app_/components/hds/advanced-table/td.js",
       "./components/hds/advanced-table/th-button-sort.js": "./dist/_app_/components/hds/advanced-table/th-button-sort.js",
