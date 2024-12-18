@@ -822,7 +822,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setNestedTableData(this);
     await render(hbsNestedAdvancedTable);
     assert.dom(expandRowButtonSelector).exists({ count: 2 });
-    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 2})
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+      )
+      .exists({ count: 2 });
   });
 
   test('it renders children rows when click the expand toggle button', async function (assert) {
@@ -831,15 +835,27 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     const rowToggles = this.element.querySelectorAll(expandRowButtonSelector);
 
-    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 2})
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+      )
+      .exists({ count: 2 });
 
-    await click(rowToggles[0])
+    await click(rowToggles[0]);
 
-    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 4})
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+      )
+      .exists({ count: 4 });
 
-    await click(rowToggles[1])
+    await click(rowToggles[1]);
 
-    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 5})
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+      )
+      .exists({ count: 5 });
   });
 
   test('it renders expanded children rows when pass isExpanded in the model', async function (assert) {
@@ -893,6 +909,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     ]);
     await render(hbsNestedAdvancedTable);
     assert.dom(expandRowButtonSelector).exists({ count: 3 });
-    assert.dom('#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr').exists({count: 6})
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+      )
+      .exists({ count: 6 });
   });
 });
