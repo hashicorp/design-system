@@ -61,6 +61,7 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasStickyHeader?: boolean;
   };
   Blocks: {
     body?: [
@@ -219,6 +220,27 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
 
     return classes.join(' ');
+  }
+
+  @action didInsert(element: HTMLDivElement): void {
+    const stickyGridHeader = element.querySelector(
+      '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
+    );
+
+    console.log(stickyGridHeader);
+
+    if (stickyGridHeader !== null) {
+      const observer = new IntersectionObserver(
+        ([element]) =>
+          element?.target.classList.toggle(
+            'hds-advanced-table__thead--is-pinned',
+            element.intersectionRatio < 1
+          ),
+        { threshold: [1] }
+      );
+
+      observer.observe(stickyGridHeader);
+    }
   }
 
   @action
