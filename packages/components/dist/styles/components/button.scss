@@ -1,0 +1,121 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// BUTTON COMPONENT
+//
+// notice: pseudo-classes for the states *must* follow the order link > visited > hover > focus > active
+//
+
+@use "../mixins/button" as *;
+
+.hds-button {
+  @include hds-button();
+
+  // the <a> element behaves differently than a <button>
+  @at-root a#{&} {
+    width: fit-content;
+
+    // for more background on the use of underlining as defined below read the following document: https://docs.google.com/document/d/1acLxdRqmy92vQ8ArShPxoBFmAV0StsbZrqEic6MVt20
+    &:hover,
+    &:focus,
+    &:active,
+    &.mock-hover,
+    &.mock-focus,
+    &.mock-active {
+      text-decoration: underline;
+    }
+  }
+
+  // This covers all of the browsers and focus scenarios (due to the custom focus design).
+  //
+  // IMPORTANT: we need to use also the [disabled] selector because if the "disabled" attribute is applied to a "Button as link",
+  // the ":disabled" pseudo-selector is not applied to the element in the browser (rightly) because a link can't be disabled
+  // but from the product perspective there may be use cases where they need to have a "Button as link" that looks disabled anyway
+  //
+  &:disabled,
+  &[disabled],
+  &.mock-disabled,
+  &:disabled:focus,
+  &[disabled]:focus,
+  &.mock-disabled:focus,
+  &:disabled:hover,
+  &[disabled]:hover,
+  &.mock-disabled:hover {
+    @include hds-button-state-disabled();
+  }
+
+  &.hds-button--width-full {
+    width: 100%;
+    max-width: 100%;
+
+    .hds-button__text {
+      flex: 0 0 auto;
+    }
+  }
+
+  &:focus,
+  &.mock-focus {
+    @include hds-button-state-focus();
+  }
+}
+
+.hds-button__icon {
+  display: block;
+}
+
+.hds-button__text {
+  display: block;
+  flex: 1 0 0;
+  // <button> and <a> elements have different intrinsic text alignments, so we need to normalize it
+  text-align: center;
+}
+
+// COLORS & STATES
+// Note: the order of the pseuo-selectors need to stay the way they are; it doesn't match the Figma file but it's the correct order for browsers to render the styles correctly.
+
+.hds-button--color-primary {
+  @include hds-button-color-primary();
+}
+
+.hds-button--color-secondary {
+  @include hds-button-color-secondary();
+}
+
+.hds-button--color-tertiary {
+  @include hds-button-color-tertiary();
+}
+
+.hds-button--color-critical {
+  @include hds-button-color-critical();
+}
+
+// SIZE
+@include hds-button-size-classes("hds-button");
+
+// ISINLINE
+.hds-button--is-inline {
+  display: inline-flex;
+}
+
+
+// SPECIAL
+
+// we apply a visual treatment to alert the developer if a "href" HTML attribute is used (instead of the "@href" Ember argument)
+
+button.hds-button[href] {
+  color: white !important;
+  background-color: red !important;
+  border: none;
+
+  .hds-button__text,
+  &::before {
+    display: none;
+  }
+
+  &::after {
+    content: ' Attention: you’re passing a "href" attribute to the "Hds::Button" component, you should use an "@href" argument.';
+  }
+}

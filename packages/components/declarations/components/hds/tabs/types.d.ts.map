@@ -1,0 +1,1 @@
+{"version":3,"file":"types.d.ts","sourceRoot":"","sources":["../../../../src/components/hds/tabs/types.ts"],"names":[],"mappings":"AAAA;;;GAGG;AAEH,oBAAY,iBAAiB;IAC3B,MAAM,WAAW;IACjB,KAAK,UAAU;CAChB;AAED,MAAM,MAAM,YAAY,GAAG,GAAG,iBAAiB,EAAE,CAAC;AAElD,MAAM,MAAM,eAAe,GAAG,MAAM,EAAE,CAAC;AAEvC,MAAM,MAAM,aAAa,GAAG,MAAM,EAAE,CAAC"}

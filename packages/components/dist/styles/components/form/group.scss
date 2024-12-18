@@ -1,0 +1,61 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > GROUP
+//
+
+.hds-form-group { // notice: this is a <fieldset> element
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.hds-form-group__legend { // notice: this is a <legend> element
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+.hds-form-group__control-fields-wrapper {
+  // when the group contains a "legend", we reduce the visual weight of the "label"
+  .hds-form-group__legend ~ & {
+    .hds-form-label {
+      font-weight: var(--token-typography-font-weight-regular);
+    }
+  }
+}
+
+.hds-form-group--layout-vertical {
+  .hds-form-group__control-fields-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hds-form-group__control-field + .hds-form-group__control-field {
+    margin-top: 12px;
+  }
+}
+
+.hds-form-group--layout-horizontal {
+  .hds-form-group__control-fields-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -4px;
+  }
+
+  .hds-form-group__control-field {
+    margin-right: 16px;
+    margin-bottom: 4px;
+  }
+}
+
+.hds-form-group__helper-text {
+  margin-bottom: 8px;
+}
+
+.hds-form-group__error {
+  margin-top: 8px;
+}
