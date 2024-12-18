@@ -9,12 +9,13 @@
   role="grid"
   aria-describedby={{this._captionId}}
   {{style grid-template-columns=this.gridTemplateColumns}}
+  {{did-insert this.didInsert}}
 >
   <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
     {{this.sortedMessageText}}
   </div>
-  <div class="hds-advanced-table__thead" role="rowgroup">
+  <div class="hds-advanced-table__thead {{if @hasStickyHeader 'hds-advanced-table__thead--sticky'}}" role="rowgroup">
     <Hds::AdvancedTable::Tr
       @selectionScope="col"
       @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}

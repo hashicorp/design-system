@@ -15,4 +15,9 @@ body.components-advanced-table {
   .shw-component-advanced-table-scrollable-wrapper {
     overflow-x: auto;
   }
+
+  .shw-component-advanced-table-fixed-height-wrapper {
+    height: 400px;
+    overflow-y: scroll;
+  }
 }
