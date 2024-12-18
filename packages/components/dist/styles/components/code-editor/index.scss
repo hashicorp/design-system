@@ -1,0 +1,106 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CODE-EDITOR
+//
+
+@import "theme";
+
+.hds-code-editor {
+  overflow: hidden;
+  background-color: var(--hds-code-editor-color-surface-primary);
+  border: 1px solid var(--hds-code-editor-color-border-strong);
+  border-radius: 6px;
+
+  &.hds-code-editor--is-fullscreen {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    border: none;
+    border-radius: 0;
+
+    .hds-code-editor__editor {
+      max-height: unset;
+    }
+  }
+
+  .hds-code-editor__header {
+    display: flex;
+    gap: 12px;
+    align-items: start;
+    padding: 16px;
+    background-color: var(--hds-code-editor-color-surface-faint);
+    border-bottom: 1px solid var(--hds-code-editor-color-border-strong);
+  }
+
+  .hds-code-editor__header-content {
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: center;
+
+    // child element that is not the title/description and has subsequent siblings
+    > :not(.hds-code-editor__header-content-text):has(+ *) {
+      margin-right: 8px;
+    }
+  }
+
+  .hds-code-editor__header-content-text {
+    width: 100%;
+
+    &:has(+ *) {
+      margin-bottom: 12px;
+    }
+
+    &:has(+ .hds-code-editor__header-content-text) {
+      margin-bottom: 4px;
+    }
+  }
+
+  .hds-code-editor__header-toolbar {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .hds-code-editor__editor {
+    height: 100%;
+    max-height: 600px;
+    overflow: auto;
+  }
+
+  .hds-code-editor__loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 164px;
+    background-color: var(--hds-code-editor-color-surface-primary);
+  }
+
+  .hds-code-editor__button,
+  .hds-code-editor__button.hds-copy-button {
+    color: var(--hds-code-editor-color-foreground-primary);
+    background-color: var(--hds-code-editor-color-surface-faint);
+    border: 1px solid var(--hds-code-editor-color-border-strong);
+
+    &:active,
+    &:focus,
+    &:hover {
+      color: var(--hds-code-editor-color-foreground-high-contrast);
+      
+      .hds-button__icon {
+        color: var(--hds-code-editor-color-foreground-high-contrast);
+      }
+    }
+
+    .hds-button__icon {
+      color: var(--hds-code-editor-color-foreground-primary);
+    }
+  }
+}

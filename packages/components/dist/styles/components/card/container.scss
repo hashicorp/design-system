@@ -1,0 +1,66 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// CARD COMPONENT > CONTAINER
+//
+
+$hds-card-container-style: ( "surface", "elevation" );
+$hds-card-container-levels: ( "base", "mid", "high" );
+$hds-card-container-border-radius: 6px;
+
+.hds-card__container {
+  position: relative;
+  background-color: #fff;
+  border-radius: $hds-card-container-border-radius;
+}
+
+// LEVEL (elevation style as "drop" + "border" shadow effects)
+
+@each $style in $hds-card-container-style {
+  // IMPORTANT: we need to keep separate loops, because we want the "hover" state
+  // to override the "rest" state, and the "active" state to override the "hover" state
+  // so the order of the declaration matters, they need to be one group after another group
+  @each $level in $hds-card-container-levels {
+    .hds-card__container--level-#{$style}-#{$level} {
+      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+    }
+  }
+
+  @each $level in $hds-card-container-levels {
+    .hds-card__container--hover-level-#{$style}-#{$level}:hover,
+    .hds-card__container--hover-level-#{$style}-#{$level}.mock-hover {
+      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+    }
+  }
+
+  @each $level in $hds-card-container-levels {
+    .hds-card__container--active-level-#{$style}-#{$level}:active,
+    .hds-card__container--active-level-#{$style}-#{$level}.mock-active {
+      box-shadow: var(--token-#{$style}-#{$level}-box-shadow);
+    }
+  }
+}
+
+// BACKGROUND
+
+.hds-card__container--background-neutral-primary {
+  background-color: var(--token-color-surface-primary);
+}
+
+.hds-card__container--background-neutral-secondary {
+  background-color: var(--token-color-surface-faint);
+}
+
+
+// OVERFLOW
+
+.hds-card__container--overflow-hidden {
+  overflow: hidden;
+}
+
+.hds-card__container--overflow-visible {
+  overflow: visible;
+}
