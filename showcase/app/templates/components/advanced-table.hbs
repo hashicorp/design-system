@@ -1531,7 +1531,10 @@
   <Shw::Flex @label="Vertical alignment" as |SF|>
     <SF.Item @grow={{true}}>
       {{! @glint-expect-error - using inline styles to match how the component works }}
-      <div class="hds-advanced-table hds-advanced-table--density-medium" style="grid-template-columns: repeat(8, 1fr);">
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium hds-advanced-table--valign-top"
+        style="grid-template-columns: repeat(8, 1fr);"
+      >
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>Spacer</Hds::AdvancedTable::Th>
