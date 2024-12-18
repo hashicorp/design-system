@@ -19,21 +19,41 @@ const getParentCell = (element: HTMLElement): Element | null | undefined => {
 
 const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
   const { key, target } = event;
+
   if (target instanceof HTMLElement) {
-    if (key === 'Escape') {
-      const cell = getParentCell(target);
-      if (cell instanceof HTMLElement) {
+    const cell = getParentCell(target);
+    if (cell instanceof HTMLElement) {
+      const allCellFocusableChildren = Array.from(
+        getAllFocusableChildren(cell)
+      ) as HTMLElement[];
+
+      if (key === 'Tab') {
+        const indexOfTarget = allCellFocusableChildren.indexOf(target);
+        let newTarget;
+
+        if (indexOfTarget === 0 && event.shiftKey) {
+          event.preventDefault();
+          newTarget =
+            allCellFocusableChildren[allCellFocusableChildren.length - 1];
+        }
+
+        if (indexOfTarget === allCellFocusableChildren.length - 1) {
+          event.preventDefault();
+          newTarget = allCellFocusableChildren[0];
+        }
+
+        if (newTarget) {
+          newTarget.focus();
+        }
+      }
+
+      if (key === 'Escape') {
         cell.setAttribute('tabindex', '0');
         cell.focus();
-
-        const grid = target.parentElement?.closest('[role="grid"]');
-        if (grid instanceof HTMLElement) {
-          const allFocusableChildren = getAllFocusableChildren(grid);
-          for (let i = 0; i < allFocusableChildren.length; i++) {
-            const child = allFocusableChildren[i];
-            if (child?.hasAttribute('data-advanced-table-child-focusable')) {
-              child.setAttribute('tabindex', '-1');
-            }
+        for (let i = 0; i < allCellFocusableChildren.length; i++) {
+          const child = allCellFocusableChildren[i];
+          if (child?.hasAttribute('data-advanced-table-child-focusable')) {
+            child.setAttribute('tabindex', '-1');
           }
         }
       }
@@ -129,8 +149,8 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
           }
         }
         const element = cellFocusableChildren[0] as HTMLElement;
-        element.focus();
         target.setAttribute('tabindex', '-1');
+        element.focus();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       const nextElement =

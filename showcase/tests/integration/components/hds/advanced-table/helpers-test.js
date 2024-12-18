@@ -40,7 +40,7 @@ const setSortableTableData = (context) => {
     },
   ]);
   context.set('columns', [
-    { key: 'artist', label: 'Artist', isSortable: true },
+    { key: 'artist', label: 'Artist', isSortable: true, tooltip: 'More info' },
     { key: 'album', label: 'Album', isSortable: true },
     { key: 'year', label: 'Year' },
   ]);
@@ -196,7 +196,9 @@ module(
       );
 
       await focus(gridCells[0]);
-      assert.dom(document.activeElement).hasText('Artist Sort by ascending');
+      assert
+        .dom(document.activeElement)
+        .hasText('Artist More information for Sort by ascending');
 
       // check it doesn't break if you try to navigate to cell that doesn't exist
       await triggerKeyEvent(gridCells[0], 'keydown', 'ArrowUp');
@@ -338,6 +340,29 @@ module(
       assert
         .dom('[data-advanced-table-child-focusable=""][tabindex="0"]')
         .doesNotExist();
+    });
+
+    test('it should trap focus inside a cell when not in navigation mode', async function (assert) {
+      setSortableTableData(this);
+      await render(hbsSortableAdvancedTable);
+
+      const firstCell = document.querySelector('.hds-advanced-table__th');
+      const cellButtons = firstCell.querySelectorAll('button');
+
+      await triggerKeyEvent(firstCell, 'keydown', 'Enter');
+      assert.dom(cellButtons[0]).isFocused().hasAttribute('tabindex', '0');
+
+      await tab();
+      assert.dom(cellButtons[1]).isFocused().hasAttribute('tabindex', '0');
+
+      await tab();
+      assert.dom(cellButtons[0]).isFocused().hasAttribute('tabindex', '0');
+
+      await tab({ backwards: true });
+      assert.dom(cellButtons[1]).isFocused().hasAttribute('tabindex', '0');
+
+      await tab({ backwards: true });
+      assert.dom(cellButtons[0]).isFocused().hasAttribute('tabindex', '0');
     });
   }
 );
