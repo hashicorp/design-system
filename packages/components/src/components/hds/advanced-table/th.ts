@@ -7,6 +7,8 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { focusable, type FocusableElement } from 'tabbable';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -43,6 +45,8 @@ export interface HdsAdvancedTableThSignature {
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
+  private _element!: HTMLDivElement;
+  @tracked private _shouldTrapFocus = false;
 
   get scope(): HdsAdvancedTableScope {
     const { scope = 'col' } = this.args;
@@ -98,9 +102,25 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return classes.join(' ');
   }
 
+  @action onFocusTrapDeactivate(): void {
+    this._shouldTrapFocus = false;
+  }
+
+  @action enableFocusTrap(): void {
+    this._shouldTrapFocus = true;
+  }
+
+  @action getInitialFocus(): FocusableElement | undefined {
+    const cellFocusableElements = focusable(this._element);
+    return cellFocusableElements[0];
+  }
+
   @action
   didInsert(element: HTMLDivElement): void {
+    this._element = element;
     didInsertGridCell(element);
-    element.addEventListener('keydown', handleGridCellKeyPress);
+    element.addEventListener('keydown', (event: KeyboardEvent) => {
+      handleGridCellKeyPress(event, this.enableFocusTrap);
+    });
   }
 }
