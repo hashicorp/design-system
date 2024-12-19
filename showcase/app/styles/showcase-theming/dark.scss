@@ -2,7 +2,7 @@
 
 @mixin shw-theme-color-variables-dark() {
   // SEMANTIC PALETTE
-  --shw-color-white: #ff0000;
+  --shw-color-white: #1a1a1a;
   --shw-color-gray-600: #222225;
   --shw-color-gray-500: #353537;
   --shw-color-gray-400: #4c4c4d;
@@ -10,9 +10,9 @@
   --shw-color-gray-200: #babbbc;
   --shw-color-gray-100: #cccdcf;
   --shw-color-black: #e5e5e5;
-  --shw-color-action-active-foreground: #1a1ae5;
-  --shw-color-action-active-border: #1a1ae5;
-  --shw-color-action-active-background: #062139;
+  --shw-color-action-active-foreground: #90B7FC;
+  --shw-color-action-active-border: #90B7FC;
+  --shw-color-action-active-background: #061F47;
   // COMPONENTS
   --shw-frame-browser-navigation-background: #050505;
   --shw-label-text-color: #c4c4c4;
