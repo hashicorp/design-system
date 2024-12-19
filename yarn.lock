@@ -3834,7 +3834,12 @@ __metadata:
     sass: "npm:^1.83.0"
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
+<<<<<<< HEAD
     stylelint-config-standard-scss: "npm:^14.0.0"
+=======
+    stylelint-config-standard-scss: "npm:^13.1.0"
+    tabbable: "npm:^6.2.0"
+>>>>>>> 8f0ab5c8d (feat: use ember-focus-trap and tabbable libraries)
     tippy.js: "npm:^6.3.7"
     typescript: "npm:^5.7.2"
   peerDependencies:
@@ -24148,6 +24153,7 @@ __metadata:
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^14.0.0"
+    tabbable: "npm:^6.2.0"
     tracked-built-ins: "npm:^3.4.0"
     typescript: "npm:^5.7.2"
     webpack: "npm:^5.97.1"
@@ -25471,6 +25477,13 @@ __metadata:
   version: 5.3.3
   resolution: "tabbable@npm:5.3.3"
   checksum: 10/5da150c9ac7aaed95f901623214794ffac9472a86009a1762c7b436249d33b157b7d86d93610986090d0fb1ef152f5dec2c201552e0b67ca895ba00c145a51c5
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "tabbable@npm:6.2.0"
+  checksum: 10/980fa73476026e99dcacfc0d6e000d41d42c8e670faf4682496d30c625495e412c4369694f2a15cf1e5252d22de3c396f2b62edbe8d60b5dadc40d09e3f2dde3
   languageName: node
   linkType: hard
 

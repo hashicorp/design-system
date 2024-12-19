@@ -3,81 +3,28 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import { focusable, tabbable } from 'tabbable';
+
 import type { HdsAdvancedTableTdSignature } from './td';
 import type { HdsAdvancedTableThSignature } from './th';
-
-const getAllFocusableChildren = (element: HTMLElement): NodeListOf<Element> => {
-  return element.querySelectorAll(
-    'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"]):not([disabled])'
-  );
-};
-
-const getParentCell = (element: HTMLElement): Element | null | undefined => {
-  const targetParent = element.parentElement;
-
-  if (targetParent) {
-    return targetParent.closest(
-      '.hds-advanced-table__th, .hds-advanced-table__td'
-    );
-  }
-};
-
-const handleGridCellChildKeyPress = (event: KeyboardEvent): void => {
-  const { key, target } = event;
-
-  if (target instanceof HTMLElement) {
-    const cell = getParentCell(target);
-    if (cell instanceof HTMLElement) {
-      const allCellFocusableChildren = Array.from(
-        getAllFocusableChildren(cell)
-      ) as HTMLElement[];
-
-      if (key === 'Tab') {
-        const indexOfTarget = allCellFocusableChildren.indexOf(target);
-        let newTarget;
-
-        if (indexOfTarget === 0 && event.shiftKey) {
-          event.preventDefault();
-          newTarget =
-            allCellFocusableChildren[allCellFocusableChildren.length - 1];
-        }
-
-        if (indexOfTarget === allCellFocusableChildren.length - 1) {
-          event.preventDefault();
-          newTarget = allCellFocusableChildren[0];
-        }
-
-        if (newTarget) {
-          newTarget.focus();
-        }
-      }
-
-      if (key === 'Escape') {
-        cell.setAttribute('tabindex', '0');
-        cell.focus();
-        for (let i = 0; i < allCellFocusableChildren.length; i++) {
-          const child = allCellFocusableChildren[i];
-          if (child?.hasAttribute('data-advanced-table-child-focusable')) {
-            child.setAttribute('tabindex', '-1');
-          }
-        }
-      }
-    }
-  }
-};
 
 export const didInsertGridCell = (
   cell:
     | HdsAdvancedTableThSignature['Element']
-    | HdsAdvancedTableTdSignature['Element']
-): void => {
-  const focusableChildren = getAllFocusableChildren(cell);
+    | HdsAdvancedTableTdSignature['Element'],
 
-  for (const child of focusableChildren) {
+  toggleShouldHaveFocusTrap?: (newValue: boolean) => void
+): void => {
+  const cellTabbableChildren = tabbable(cell);
+
+  if (cellTabbableChildren.length > 0) {
+    toggleShouldHaveFocusTrap?.(true);
+  }
+
+  for (const child of cellTabbableChildren) {
     if (child instanceof HTMLElement) {
       child.setAttribute('tabindex', '-1');
       child.setAttribute('data-advanced-table-child-focusable', '');
-      child.addEventListener('keydown', handleGridCellChildKeyPress);
     }
   }
 
@@ -119,7 +66,10 @@ export const didInsertGridCell = (
   }
 };
 
-export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
+export const handleGridCellKeyPress = (
+  event: KeyboardEvent,
+  enableFocusTrap: () => void
+): void => {
   const { key, target } = event;
 
   const changeActiveCell = (oldCell: HTMLElement, newCell: HTMLElement) => {
@@ -142,9 +92,13 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
     }
   };
 
-  if (target instanceof HTMLElement) {
+  if (
+    target instanceof HTMLElement &&
+    (target.classList.contains('hds-advanced-table__th') ||
+      target.classList.contains('hds-advanced-table__td'))
+  ) {
     if (key === 'Enter') {
-      const cellFocusableChildren = getAllFocusableChildren(target);
+      const cellFocusableChildren = focusable(target);
 
       if (cellFocusableChildren.length > 0) {
         for (let i = 0; i < cellFocusableChildren.length; i++) {
@@ -153,9 +107,8 @@ export const handleGridCellKeyPress = (event: KeyboardEvent): void => {
             child.setAttribute('tabindex', '0');
           }
         }
-        const element = cellFocusableChildren[0] as HTMLElement;
         target.setAttribute('tabindex', '-1');
-        element.focus();
+        enableFocusTrap();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
       const nextElement =

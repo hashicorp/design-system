@@ -9,6 +9,12 @@
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap
+    isActive=this._shouldTrapFocus
+    shouldSelfFocus=true
+    focusTrapOptions=(hash onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus)
+  }}
   ...attributes
 >
   <div class="hds-advanced-table__th-content">

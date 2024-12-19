@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import { focusable, type FocusableElement } from 'tabbable';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
@@ -28,6 +30,9 @@ export interface HdsAdvancedTableTdSignature {
   Element: HTMLDivElement;
 }
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
+  @tracked private _shouldTrapFocus = false;
+  private _element!: HTMLDivElement;
+
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
     if (this.args.rowspan) {
@@ -70,9 +75,25 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
     return classes.join(' ');
   }
 
+  @action onFocusTrapDeactivate(): void {
+    this._shouldTrapFocus = false;
+  }
+
+  @action enableFocusTrap(): void {
+    this._shouldTrapFocus = true;
+  }
+
+  @action getInitialFocus(): FocusableElement | undefined {
+    const cellFocusableElements = focusable(this._element);
+    return cellFocusableElements[0];
+  }
+
   @action
   didInsert(element: HTMLDivElement): void {
+    this._element = element;
     didInsertGridCell(element);
-    element.addEventListener('keydown', handleGridCellKeyPress);
+    element.addEventListener('keydown', (event: KeyboardEvent) => {
+      handleGridCellKeyPress(event, this.enableFocusTrap);
+    });
   }
 }

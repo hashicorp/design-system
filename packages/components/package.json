@@ -59,6 +59,7 @@
     "luxon": "^2.3.2 || ^3.4.2",
     "prismjs": "^1.29.0",
     "sass": "^1.83.0",
+    "tabbable": "^6.2.0",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
