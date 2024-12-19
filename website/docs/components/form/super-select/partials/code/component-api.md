@@ -79,6 +79,13 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
     <br><br>
     <strong>Note</strong>: It cannot be overridden.
   </C.Property>
+  <C.Property @name="searchFieldPosition" @type="string">
+    Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
+    <br><br>
+    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. (Rendering the search input within the trigger area creates a nested interaction.)
+    <br><br>
+    <strong>Note</strong>: It cannot be overridden.
+  </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
   </C.Property>
@@ -210,6 +217,13 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
     Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
     <br><br>
     Note: It cannot be overridden.
+  </C.Property>
+  <C.Property @name="searchFieldPosition" @type="string">
+    Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
+    <br><br>
+    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. (Rendering the search input within the trigger area creates a nested interaction.)
+    <br><br>
+    <strong>Note</strong>: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
