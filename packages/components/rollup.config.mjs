@@ -22,6 +22,9 @@ const plugins = [
     'index.js',
     'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
+    // TODO they're added to the main CSS file, unfortunately → discuss with Alex what we can do
+    // 'styles/@hashicorp/design-system-components--themed-with-prefers-color-scheme.scss',
+    // 'styles/@hashicorp/design-system-components--themed-with-css-selectors.scss',
   ]),
 
   // These are the modules that should get reexported into the traditional
@@ -53,6 +56,31 @@ const plugins = [
     includePaths: [
       '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
     ],
+  }),
+
+  // TODO they're added to the main CSS file, unfortunately → discuss with Alex what we can do
+  // scss({
+  //   fileName:
+  //     'styles/@hashicorp/design-system-components--themed-with-prefers-color-scheme.css',
+  //   includePaths: [
+  //     '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+  //   ],
+  // }),
+  // scss({
+  //   fileName:
+  //     'styles/@hashicorp/design-system-components--themed-with-css-selectors.css',
+  //   includePaths: [
+  //     '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+  //   ],
+  // }),
+  // TODO let's try this workaround...
+  scss({
+    fileName:
+      'styles/@hashicorp/design-system-components--themed-with-prefers-color-scheme.css',
+  }),
+  scss({
+    fileName:
+      'styles/@hashicorp/design-system-components--themed-with-css-selectors.css',
   }),
 
   scss({
