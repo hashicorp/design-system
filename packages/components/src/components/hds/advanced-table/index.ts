@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
+import config from 'ember-get-config';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -90,6 +91,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
+  private _observer: IntersectionObserver | undefined = undefined;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -281,10 +283,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
 
-    console.log(stickyGridHeader);
-
-    if (stickyGridHeader !== null) {
-      const observer = new IntersectionObserver(
+    if (stickyGridHeader !== null && config.environment !== 'test') {
+      this._observer = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(
             'hds-advanced-table__thead--is-pinned',
@@ -293,7 +293,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         { threshold: [1] }
       );
 
-      observer.observe(stickyGridHeader);
+      this._observer.observe(stickyGridHeader);
+    }
+  }
+
+  @action willDestroy() {
+    super.willDestroy();
+    if (this._observer) {
+      this._observer.disconnect();
     }
   }
 

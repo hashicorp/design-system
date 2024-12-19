@@ -10,6 +10,7 @@
   aria-describedby={{this._captionId}}
   {{style grid-template-columns=this.gridTemplateColumns}}
   {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroy}}
 >
   <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
