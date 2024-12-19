@@ -4,6 +4,7 @@
  */
 
 import { assert } from '@ember/debug';
+import { registerDestructor } from '@ember/destroyable';
 import Modifier from 'ember-modifier';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
@@ -11,7 +12,7 @@ import config from 'ember-get-config';
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
-import type { PositionalArgs, NamedArgs } from 'ember-modifier';
+import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 import type {
   HdsCodeEditorLanguages,
@@ -44,6 +45,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   observer!: IntersectionObserver;
 
+  constructor(
+    owner: HdsCodeEditorModifier,
+    args: ArgsFor<HdsCodeEditorSignature>
+  ) {
+    super(owner, args);
+    registerDestructor(this, () => this.observer.disconnect());
+  }
+
   modify(
     element: HTMLElement,
     positional: PositionalArgs<HdsCodeEditorSignature>,
@@ -69,10 +78,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       this.observer.observe(element);
     }
-  }
-
-  willRemove() {
-    this.observer.disconnect();
   }
 
   loadLanguageTask = task(
