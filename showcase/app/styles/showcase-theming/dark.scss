@@ -22,45 +22,12 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root[data-shw-theme="auto"] {
+  :root[data-hds-theme="auto"] {
     @include shw-theme-color-variables-dark();
   }
 }
 
-.shw-theme-dark,
-[data-shw-theme="dark"] {
+.hds-theme-dark,
+[data-hds-theme="dark"] {
   @include shw-theme-color-variables-dark();
 }
-
-// ######################################################
-
-// TEST COLORS
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --shw-test-theme-foreground-color: #eee;
-    --shw-test-theme-background-color: #111;
-  }
-}
-
-.shw-theme-dark,
-[data-shw-theme="dark"] {
-  --shw-test-theme-foreground-color: #eee;
-  --shw-test-theme-background-color: #111;
-}
-
-
-// ---
-
-// special variables used in the "theming" showcase page to demonstrate different ways to apply a theme to a page
-
-html.shw-theme-dark {
-  --shw-test-theme-class-foreground-color: #e0ffd9;
-  --shw-test-theme-class-background-color: #008217;
-}
-
-html[data-shw-theme="dark"] {
-  --shw-test-theme-data-foreground-color: #f7d9ff;
-  --shw-test-theme-data-background-color: #b01fe3;
-}
-

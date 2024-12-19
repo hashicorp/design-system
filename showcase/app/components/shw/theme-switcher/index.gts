@@ -8,11 +8,11 @@ import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { service } from '@ember/service';
 import { eq } from 'ember-truth-helpers';
+// import { tracked } from '@glimmer/tracking';
 
-import type ShwThemingService from 'showcase/services/theming';
+import type HdsThemingService from '@hashicorp/design-system-components/services/hds-theming.ts';
 
 interface ShwThemeSwitcherSignature {
-  Args: {};
   Element: HTMLDivElement;
 }
 
@@ -24,21 +24,14 @@ const options = {
 };
 
 export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignature> {
-  @service declare readonly theming: ShwThemingService;
-
-  _selectedTheme;
-
-  constructor(owner: unknown, args: ShwThemeSwitcherSignature['Args']) {
-    super(owner, args);
-    this._selectedTheme = this.theming.getTheme() || 'none';
-  }
+  @service declare readonly hdsTheming: HdsThemingService;
 
   @action
   onChangePageTheme(event: Event) {
     const select = event.target as HTMLSelectElement;
 
     // we set the theme in the global service
-    this.theming.setTheme(select.value);
+    this.hdsTheming.setTheme(select.value);
   }
 
   <template>
@@ -55,7 +48,7 @@ export default class ShwThemeSwitcher extends Component<ShwThemeSwitcherSignatur
         {{#each-in options as |key label|}}
           <option
             value={{key}}
-            selected={{eq this._selectedTheme key}}
+            selected={{eq this.hdsTheming.currentTheme key}}
           >{{label}}</option>
         {{/each-in}}
       </select>
