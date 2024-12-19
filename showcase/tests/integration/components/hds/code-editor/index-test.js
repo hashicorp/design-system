@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, waitFor } from '@ember/test-helpers';
+import { click, render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -72,6 +72,41 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   test('it should not render a toggle fullscreen button when the `@hasExpandButton` argument is not provided', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor />`);
     assert.dom('.hds-code-editor__expand-button').doesNotExist();
+  });
+
+  // expand/colapse
+  test('it should expand the code editor when the expand button is clicked', async function (assert) {
+    await setupCodeEditor(hbs`<Hds::CodeEditor @hasExpandButton={{true}} />`);
+    // initial state
+    assert
+      .dom('.hds-code-editor')
+      .doesNotHaveClass('hds-code-editor--is-full-screen');
+    assert
+      .dom('.hds-code-editor__expand-button')
+      .doesNotHaveAttribute('aria-pressed');
+    assert
+      .dom('.hds-code-editor__expand-button .hds-icon')
+      .hasAttribute('data-test-icon', 'maximize');
+
+    // expanded
+    await click('.hds-code-editor__expand-button');
+    assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-full-screen');
+    assert.dom('.hds-code-editor__expand-button').hasAttribute('aria-pressed');
+    assert
+      .dom('.hds-code-editor__expand-button .hds-icon')
+      .hasProperty('data-test-icon', 'minimize');
+
+    // collapsed
+    await click('.hds-code-editor__expand-button');
+    assert
+      .dom('.hds-code-editor')
+      .doesNotHaveClass('hds-code-editor--is-full-screen');
+    assert
+      .dom('.hds-code-editor__expand-button')
+      .doesNotHaveAttribute('aria-pressed');
+    assert
+      .dom('.hds-code-editor__expand-button .hds-icon')
+      .hasProperty('data-test-icon', 'maximize');
   });
 
   // @value

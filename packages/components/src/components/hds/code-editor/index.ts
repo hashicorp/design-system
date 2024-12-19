@@ -36,7 +36,7 @@ export interface HdsCodeEditorSignature {
 }
 
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
-  @tracked isFullscreen = false;
+  @tracked isFullScreen = false;
   @tracked isSetupComplete = false;
 
   get classNames(): string {
@@ -44,8 +44,8 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     // In the future, additional themes such as a "light" theme could be added.
     const classes = ['hds-code-editor', 'hds-code-editor--theme-dark'];
 
-    if (this.isFullscreen) {
-      classes.push('hds-code-editor--is-fullscreen');
+    if (this.isFullScreen) {
+      classes.push('hds-code-editor--is-full-screen');
     }
 
     return classes.join(' ');
@@ -59,10 +59,5 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   onSetup(editorView: EditorView): void {
     this.isSetupComplete = true;
     this.args.onSetup?.(editorView);
-  }
-
-  @action
-  toggleFullscreen(): void {
-    this.isFullscreen = !this.isFullscreen;
   }
 }
