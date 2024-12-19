@@ -22,11 +22,11 @@
     "build": "ts-node --transpile-only ./scripts/build"
   },
   "devDependencies": {
-    "@figma-export/cli": "^4.8.0",
-    "@figma-export/core": "^4.8.0",
-    "@figma-export/output-components-as-svg": "^4.8.0",
-    "@figma-export/transform-svg-with-svgo": "^4.8.0",
-    "@figma-export/types": "^4.8.0",
+    "@figma-export/cli": "^6.0.2",
+    "@figma-export/core": "^6.0.2",
+    "@figma-export/output-components-as-svg": "^6.0.1",
+    "@figma-export/transform-svg-with-svgo": "^6.0.2",
+    "@figma-export/types": "^6.0.0",
     "@figma/rest-api-spec": "^0.21.0",
     "@svgr/core": "^5.5.0",
     "@svgr/plugin-jsx": "^5.5.0",
