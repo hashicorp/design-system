@@ -243,7 +243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.24.7, @babel/core@npm:^7.25.2, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.25.2, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
   version: 7.26.0
   resolution: "@babel/core@npm:7.26.0"
   dependencies:
@@ -266,7 +266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.23.10, @babel/eslint-parser@npm:^7.24.7":
+"@babel/eslint-parser@npm:^7.23.10, @babel/eslint-parser@npm:^7.25.1":
   version: 7.25.9
   resolution: "@babel/eslint-parser@npm:7.25.9"
   dependencies:
@@ -380,7 +380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.16.7, @babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.25.9":
+"@babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/helper-module-imports@npm:7.25.9"
   dependencies:
@@ -1740,7 +1740,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.6, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.7.2":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.6, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
   version: 7.26.0
   resolution: "@babel/types@npm:7.26.0"
   dependencies:
@@ -2621,7 +2621,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-helpers@npm:^3.3.0, @ember/test-helpers@npm:^3.3.1":
+"@ember/test-helpers@npm:^3.3.1":
   version: 3.3.1
   resolution: "@ember/test-helpers@npm:3.3.1"
   dependencies:
@@ -3097,19 +3097,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/compiler@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/compiler@npm:0.92.0"
-  dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/syntax": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/891c90b8d7e5d16623671ace5d36b3a623f2e6405401c906c56b4420e750ba973c4ef1c46c65a1eaccaf462212dd6a7b49eae3ce664136dd1610c31f5a04c56a
-  languageName: node
-  linkType: hard
-
 "@glimmer/compiler@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/compiler@npm:0.92.4"
@@ -3145,7 +3132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/debug@npm:0.92.4, @glimmer/debug@npm:^0.92.0":
+"@glimmer/debug@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/debug@npm:0.92.4"
   dependencies:
@@ -3156,19 +3143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/destroyable@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/destroyable@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/04f6fae4c36420a4a04221d5758d4d02e8beccf234eeebdc40007fc66009710bb03d43c10b08c95bd8764e4b2d8f400b065c70de798fc2d767d32dde5b2fab2e
-  languageName: node
-  linkType: hard
-
-"@glimmer/destroyable@npm:0.92.3, @glimmer/destroyable@npm:^0.92.0":
+"@glimmer/destroyable@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/destroyable@npm:0.92.3"
   dependencies:
@@ -3197,16 +3172,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/encoder@npm:^0.92.0":
-  version: 0.92.5
-  resolution: "@glimmer/encoder@npm:0.92.5"
-  dependencies:
-    "@glimmer/interfaces": "npm:0.93.0"
-    "@glimmer/vm": "npm:0.93.1"
-  checksum: 10/0da520491e8def33b2e18a35121c1fcca111df3d7d033946138f276ec4450ff92a08f79ea252e278e1b6889cad6a3623b6c2db822f8a211c20c25b7ee08b74ec
-  languageName: node
-  linkType: hard
-
 "@glimmer/env@npm:0.1.7, @glimmer/env@npm:^0.1.7":
   version: 0.1.7
   resolution: "@glimmer/env@npm:0.1.7"
@@ -3232,24 +3197,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/global-context@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/global-context@npm:0.92.0"
-  checksum: 10/517df3de41764a49c8b58c6186b03be422d7c9aa72510ace16e55eed176751032c35b373388d3af9061aca0a924af6a07d0cfed8ee6b76d9484740ac17cb89dd
-  languageName: node
-  linkType: hard
-
 "@glimmer/global-context@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/global-context@npm:0.92.3"
   checksum: 10/42f1f87f14d801a3c7879fffc3a2c0d56391074dc24f1ce83b0ff816b4bba8acacc3e282bce9b68c67b39a7dfbbb93e079c16a05b0c1e029f1472a476be2256e
-  languageName: node
-  linkType: hard
-
-"@glimmer/global-context@npm:^0.92.0":
-  version: 0.92.4
-  resolution: "@glimmer/global-context@npm:0.92.4"
-  checksum: 10/0fe45dd59f019d9059c2bf532bb108757885d0e846c88690cd787c10b3e75c9219f689c6b7c3702e742838b689014ec9ee95e08618006804bb3e56eaf958413e
   languageName: node
   linkType: hard
 
@@ -3271,16 +3222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/interfaces@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/interfaces@npm:0.92.0"
-  dependencies:
-    "@simple-dom/interface": "npm:^1.4.0"
-  checksum: 10/80ce0c04a9772afa3b6003b50328a725d2996a4f86fab8e9415aef7c1dfd7e1f3ec23516b515c5f4c30c41c086457a32dfa2a34dbe6a4560e7d3606197117df1
-  languageName: node
-  linkType: hard
-
-"@glimmer/interfaces@npm:0.92.3, @glimmer/interfaces@npm:^0.92.0":
+"@glimmer/interfaces@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/interfaces@npm:0.92.3"
   dependencies:
@@ -3289,33 +3231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/interfaces@npm:0.93.0":
-  version: 0.93.0
-  resolution: "@glimmer/interfaces@npm:0.93.0"
-  dependencies:
-    "@simple-dom/interface": "npm:^1.4.0"
-  checksum: 10/c630ef04d15cedbe88437e5d4afd4ef9c7afed1cca83bd8b36b99cbd526ef7740ece6fe03c506fb85518a2332a03f5447982ab0ef7f19f82c64856db8fd679a8
-  languageName: node
-  linkType: hard
-
-"@glimmer/manager@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/manager@npm:0.92.0"
-  dependencies:
-    "@glimmer/debug": "npm:^0.92.0"
-    "@glimmer/destroyable": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-  checksum: 10/bb16c02e63b8112d43911bef1ae048d8ff8cb1f3f1c39fb61a6339dd6a84f291ff4184eb04a9110671a3cf410b2eaca198c081fad49fbe2b02ef5b868c7c06b5
-  languageName: node
-  linkType: hard
-
-"@glimmer/manager@npm:0.92.4, @glimmer/manager@npm:^0.92.0":
+"@glimmer/manager@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/manager@npm:0.92.4"
   dependencies:
@@ -3332,18 +3248,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/node@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/node@npm:0.92.0"
-  dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/runtime": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@simple-dom/document": "npm:^1.4.0"
-  checksum: 10/f924f4e0e0a289a9860380c2fb40149a00c6f7ed22e7d7e2263711e2fe23a30f7e1368a63be5a728ede8aa47261d12b6d34b39af29fd4bf585a0d33cf363314b
-  languageName: node
-  linkType: hard
-
 "@glimmer/node@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/node@npm:0.92.4"
@@ -3356,25 +3260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/opcode-compiler@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/opcode-compiler@npm:0.92.0"
-  dependencies:
-    "@glimmer/debug": "npm:^0.92.0"
-    "@glimmer/encoder": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/8ed67483a17d2f5d99c808b7e60981ee298b955ead8c3dee879370094e3df1149d1dbcf86f13e034f275ea5ca0c2da6592873ee89663175e3d49192aca72496c
-  languageName: node
-  linkType: hard
-
-"@glimmer/opcode-compiler@npm:0.92.4, @glimmer/opcode-compiler@npm:^0.92.0":
+"@glimmer/opcode-compiler@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/opcode-compiler@npm:0.92.4"
   dependencies:
@@ -3392,15 +3278,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/owner@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/owner@npm:0.92.0"
-  dependencies:
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/79d2c46c20d0bb31687f5805617dea5eb44dac4156a40b3ed3624c1eecdddc52fd1f63ac09fa974877da844e2c488b4c7916e4f9ee2b21192debe3a78b9ece24
-  languageName: node
-  linkType: hard
-
 "@glimmer/owner@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/owner@npm:0.92.3"
@@ -3410,32 +3287,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/owner@npm:^0.92.0":
-  version: 0.92.5
-  resolution: "@glimmer/owner@npm:0.92.5"
-  dependencies:
-    "@glimmer/util": "npm:0.93.1"
-  checksum: 10/89cbb534fa035fa8de49f1d2917aea8a5910af7778baaeb144bede8c8ca241af3ed57e22d41a2434962485979b98d278e3a25d7d6cb2c51a3a9b710b81d3116a
-  languageName: node
-  linkType: hard
-
-"@glimmer/program@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/program@npm:0.92.0"
-  dependencies:
-    "@glimmer/encoder": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/opcode-compiler": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/1e300b22ab29cc0a2ea006da2367e271189772a960f997db52dd6f527dcd34d6915a55d598268a30f25f7bb0e5d44299c07f1d1e1cd3c200058b049a66d1fd90
-  languageName: node
-  linkType: hard
-
-"@glimmer/program@npm:0.92.4, @glimmer/program@npm:^0.92.0":
+"@glimmer/program@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/program@npm:0.92.4"
   dependencies:
@@ -3451,20 +3303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/reference@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/reference@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-  checksum: 10/69f8d26ded593117e77c8593e2835d40b6df05e35d5faad71246c041d4cda8ce2ebc0f1d4e8bfe97e1501f2cf78a76c75933be5ef3d50fb1fa29b13ea920e3d7
-  languageName: node
-  linkType: hard
-
-"@glimmer/reference@npm:0.92.3, @glimmer/reference@npm:^0.92.0":
+"@glimmer/reference@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/reference@npm:0.92.3"
   dependencies:
@@ -3503,27 +3342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/runtime@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/runtime@npm:0.92.0"
-  dependencies:
-    "@glimmer/destroyable": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/owner": "npm:^0.92.0"
-    "@glimmer/program": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/96ad5ac4198ca89a53393cb67a37645a0587c4b71fc591847bd425aea1301b2135ca528ba8643613f94814ba5d24c40732d2db4d561c821f9c7d778eeb8bc015
-  languageName: node
-  linkType: hard
-
-"@glimmer/runtime@npm:0.92.4, @glimmer/runtime@npm:^0.92.0":
+"@glimmer/runtime@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/runtime@npm:0.92.4"
   dependencies:
@@ -3540,19 +3359,6 @@ __metadata:
     "@glimmer/vm": "npm:0.92.3"
     "@glimmer/wire-format": "npm:0.92.3"
   checksum: 10/89833d35d2707a61ea2a169711900b6fd2ae15bd91b66536c4700472a1b60c8bf14f4416db47a8751b445a0d16dc164720b92b0ef49f3cf12cb47cd649225e75
-  languageName: node
-  linkType: hard
-
-"@glimmer/syntax@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/syntax@npm:0.92.0"
-  dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-    "@handlebars/parser": "npm:~2.0.0"
-    simple-html-tokenizer: "npm:^0.5.11"
-  checksum: 10/fc86dd0a5d23efaded2537138ec551405ab7c009699c4a8add3cf21634775d6e1a3e8f9431526d431245e91e6f17bc68ca0c9b5138da9c33ae8bd529e4f6a789
   languageName: node
   linkType: hard
 
@@ -3625,33 +3431,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/util@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/util@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:^0.92.0"
-  checksum: 10/2dbcde7a67806388b5b6f63046afb001dbcde96e269e65737e865cbdab2a00bf0b6dc945d58e931a1dc106ce5e3c5ca7a57db3ad527b17bcc41f1a90cb5891cf
-  languageName: node
-  linkType: hard
-
-"@glimmer/util@npm:0.92.3, @glimmer/util@npm:^0.92.0":
+"@glimmer/util@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/util@npm:0.92.3"
   dependencies:
     "@glimmer/env": "npm:0.1.7"
     "@glimmer/interfaces": "npm:0.92.3"
   checksum: 10/11f7c08387ca2fbcdc9952ad55051152000aa1ce0efbc4e8656dd4a0bcd894d04b49a85326949d0f83c69238d084b89b276cb96938470488dd188f9613bebf7d
-  languageName: node
-  linkType: hard
-
-"@glimmer/util@npm:0.93.1":
-  version: 0.93.1
-  resolution: "@glimmer/util@npm:0.93.1"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:0.93.0"
-  checksum: 10/f3ffe151142838108730874b81c1cbe1cd2355c1c58dd5146c13aea7529df92035ab7757b9a96a7a0c0a0a6ac974af5bb9afedd04305c27da37e3580f49e6eee
   languageName: node
   linkType: hard
 
@@ -3682,19 +3468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/validator@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/validator@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/7e1441b851765ea46aea53d65ede1a88459a71c4780678ec4ed5897b5cb62f6b64f78e9c6d273722d45fc7ef77a14551909f61417dbdf04963b0cee4e7a6de24
-  languageName: node
-  linkType: hard
-
-"@glimmer/validator@npm:0.92.3, @glimmer/validator@npm:^0.92.0":
+"@glimmer/validator@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/validator@npm:0.92.3"
   dependencies:
@@ -3713,15 +3487,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm-babel-plugins@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/vm-babel-plugins@npm:0.92.0"
-  dependencies:
-    babel-plugin-debug-macros: "npm:^0.3.4"
-  checksum: 10/d32323b21be7bb1e33fb833640650c0a291e1b9ac88bfd55e9b684d42b2203a4604105ec5958909e3829ab5b2cba30eb7869c6f20db3aeab7ce4601d53a3b53d
-  languageName: node
-  linkType: hard
-
 "@glimmer/vm-babel-plugins@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/vm-babel-plugins@npm:0.92.3"
@@ -3731,17 +3496,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/vm@npm:0.92.0"
-  dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/7ce87e5e80da38929ec66a7a762f336da90c2c38e3dbce3ebec766e44cf3eed62d8b4e371adbd9059978dada956139956891ac579594f47b583d46b4187445a6
-  languageName: node
-  linkType: hard
-
-"@glimmer/vm@npm:0.92.3, @glimmer/vm@npm:^0.92.0":
+"@glimmer/vm@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/vm@npm:0.92.3"
   dependencies:
@@ -3751,17 +3506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm@npm:0.93.1":
-  version: 0.93.1
-  resolution: "@glimmer/vm@npm:0.93.1"
-  dependencies:
-    "@glimmer/interfaces": "npm:0.93.0"
-    "@glimmer/util": "npm:0.93.1"
-  checksum: 10/f53a07407aea5be6d6f2e41b1dc3a465516cfac08650fa3564ab5e1cf83c60ff1bfe393b19296ecc373f4f770251db3e329b1499997edff4f49d960d4014a88b
-  languageName: node
-  linkType: hard
-
-"@glimmer/wire-format@npm:0.92.3, @glimmer/wire-format@npm:^0.92.0":
+"@glimmer/wire-format@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/wire-format@npm:0.92.3"
   dependencies:
@@ -7938,16 +7683,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-filter-imports@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "babel-plugin-filter-imports@npm:4.0.0"
-  dependencies:
-    "@babel/types": "npm:^7.7.2"
-    lodash: "npm:^4.17.15"
-  checksum: 10/c953efd34d91578427836b93b1c2ee7295cdd64293775ec442c909329a81653f1f7b11578335153a0c171db4773190d20224ad7382fb4df23f48a0d56993489e
-  languageName: node
-  linkType: hard
-
 "babel-plugin-htmlbars-inline-precompile@npm:^5.0.0, babel-plugin-htmlbars-inline-precompile@npm:^5.2.1, babel-plugin-htmlbars-inline-precompile@npm:^5.3.0":
   version: 5.3.1
   resolution: "babel-plugin-htmlbars-inline-precompile@npm:5.3.1"
@@ -10665,13 +10400,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-tag@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "content-tag@npm:1.2.2"
-  checksum: 10/97ee5dd45c269eef1f3fabf974466f16db9e35b28c952e6947ef3094ee2f0213f651e994df938c9f3d1354094191af3e4ccfc163b5bf3777bb51563123dd944e
-  languageName: node
-  linkType: hard
-
 "content-tag@npm:^2.0.1":
   version: 2.0.3
   resolution: "content-tag@npm:2.0.3"
@@ -12054,7 +11782,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3, ember-auto-import@npm:^2.7.3, ember-auto-import@npm:^2.8.1":
+"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3, ember-auto-import@npm:^2.8.1":
   version: 2.10.0
   resolution: "ember-auto-import@npm:2.10.0"
   dependencies:
@@ -12131,15 +11859,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-app-version@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "ember-cli-app-version@npm:6.0.1"
+"ember-cli-app-version@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ember-cli-app-version@npm:7.0.0"
   dependencies:
     ember-cli-babel: "npm:^7.26.11"
     git-repo-info: "npm:^2.1.1"
   peerDependencies:
     ember-source: ^3.28.0 || >= 4.0.0
-  checksum: 10/fde019caa998a27419b1071de03abf68337ca199f3dbfef5b4bebc59c23ca9996ace719e65fd136adc10473a546725ce9ef1ed242f82f9af5d066378283dd3a3
+  checksum: 10/b11fde143752848443c9f55440d7b01abb0d80af9aff0fca0446674878de44c6639071ff68545413644a526004ac50fde79b070847ff4067c6e9c6fa1cd127dd
   languageName: node
   linkType: hard
 
@@ -12749,100 +12477,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-cli@npm:5.9.0"
-  dependencies:
-    "@pnpm/find-workspace-dir": "npm:^6.0.2"
-    broccoli: "npm:^3.5.2"
-    broccoli-builder: "npm:^0.18.14"
-    broccoli-concat: "npm:^4.2.5"
-    broccoli-config-loader: "npm:^1.0.1"
-    broccoli-config-replace: "npm:^1.1.2"
-    broccoli-debug: "npm:^0.6.5"
-    broccoli-funnel: "npm:^3.0.8"
-    broccoli-funnel-reducer: "npm:^1.0.0"
-    broccoli-merge-trees: "npm:^4.2.0"
-    broccoli-middleware: "npm:^2.1.1"
-    broccoli-slow-trees: "npm:^3.1.0"
-    broccoli-source: "npm:^3.0.1"
-    broccoli-stew: "npm:^3.0.0"
-    calculate-cache-key-for-tree: "npm:^2.0.0"
-    capture-exit: "npm:^2.0.0"
-    chalk: "npm:^4.1.2"
-    ci-info: "npm:^3.8.0"
-    clean-base-url: "npm:^1.0.0"
-    compression: "npm:^1.7.4"
-    configstore: "npm:^5.0.1"
-    console-ui: "npm:^3.1.2"
-    content-tag: "npm:^1.2.2"
-    core-object: "npm:^3.1.5"
-    dag-map: "npm:^2.0.2"
-    diff: "npm:^5.1.0"
-    ember-cli-is-package-missing: "npm:^1.0.0"
-    ember-cli-lodash-subset: "npm:^2.0.1"
-    ember-cli-normalize-entity-name: "npm:^1.0.0"
-    ember-cli-preprocess-registry: "npm:^5.0.1"
-    ember-cli-string-utils: "npm:^1.1.0"
-    ensure-posix-path: "npm:^1.1.1"
-    execa: "npm:^5.1.1"
-    exit: "npm:^0.1.2"
-    express: "npm:^4.18.1"
-    filesize: "npm:^10.0.8"
-    find-up: "npm:^5.0.0"
-    find-yarn-workspace-root: "npm:^2.0.0"
-    fixturify-project: "npm:^2.1.1"
-    fs-extra: "npm:^11.1.1"
-    fs-tree-diff: "npm:^2.0.1"
-    get-caller-file: "npm:^2.0.5"
-    git-repo-info: "npm:^2.1.1"
-    glob: "npm:^8.1.0"
-    heimdalljs: "npm:^0.2.6"
-    heimdalljs-fs-monitor: "npm:^1.1.1"
-    heimdalljs-graph: "npm:^1.0.0"
-    heimdalljs-logger: "npm:^0.1.10"
-    http-proxy: "npm:^1.18.1"
-    inflection: "npm:^2.0.1"
-    inquirer: "npm:^9.1.5"
-    is-git-url: "npm:^1.0.0"
-    is-language-code: "npm:^3.1.0"
-    isbinaryfile: "npm:^5.0.0"
-    lodash: "npm:^4.17.21"
-    markdown-it: "npm:^13.0.1"
-    markdown-it-terminal: "npm:^0.4.0"
-    minimatch: "npm:^7.4.3"
-    morgan: "npm:^1.10.0"
-    nopt: "npm:^3.0.6"
-    npm-package-arg: "npm:^10.1.0"
-    os-locale: "npm:^5.0.0"
-    p-defer: "npm:^3.0.0"
-    portfinder: "npm:^1.0.32"
-    promise-map-series: "npm:^0.3.0"
-    promise.hash.helper: "npm:^1.0.8"
-    quick-temp: "npm:^0.1.8"
-    remove-types: "npm:^1.0.0"
-    resolve: "npm:^1.22.1"
-    resolve-package-path: "npm:^4.0.3"
-    safe-stable-stringify: "npm:^2.4.3"
-    sane: "npm:^5.0.1"
-    semver: "npm:^7.3.5"
-    silent-error: "npm:^1.1.1"
-    sort-package-json: "npm:^1.57.0"
-    symlink-or-copy: "npm:^1.3.1"
-    temp: "npm:0.9.4"
-    testem: "npm:^3.10.1"
-    tiny-lr: "npm:^2.0.0"
-    tree-sync: "npm:^2.1.0"
-    walk-sync: "npm:^3.0.0"
-    watch-detector: "npm:^1.0.2"
-    workerpool: "npm:^6.4.0"
-    yam: "npm:^1.0.0"
-  bin:
-    ember: bin/ember
-  checksum: 10/89efa65e4813e5141605362b83f60c4574def0eb887f822b2537f3579766f112cf470fc7cde3ee8dd4da44f3b9ded456d4d4e8bc7b863806feb76cf95b178d1f
-  languageName: node
-  linkType: hard
-
 "ember-compatibility-helpers@npm:^1.1.2, ember-compatibility-helpers@npm:^1.2.0, ember-compatibility-helpers@npm:^1.2.1, ember-compatibility-helpers@npm:^1.2.5":
   version: 1.2.7
   resolution: "ember-compatibility-helpers@npm:1.2.7"
@@ -13080,7 +12714,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0, ember-modifier@npm:^4.2.0":
+"ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.2.0":
   version: 4.2.0
   resolution: "ember-modifier@npm:4.2.0"
   dependencies:
@@ -13173,20 +12807,6 @@ __metadata:
     ember-source:
       optional: true
   checksum: 10/4ac62524c999b617bb5fe6144dbf6414070919eb962491bfecfeed1669afcc8bc5f3a444cbf8c9662ce7247eb630ca2f0d0b893d73c6d5c12a523450007b286e
-  languageName: node
-  linkType: hard
-
-"ember-resolver@npm:^11.0.1":
-  version: 11.0.1
-  resolution: "ember-resolver@npm:11.0.1"
-  dependencies:
-    ember-cli-babel: "npm:^7.26.11"
-  peerDependencies:
-    ember-source: ^4.8.3 || >= 5.0.0
-  peerDependenciesMeta:
-    ember-source:
-      optional: true
-  checksum: 10/79e6ca1a9d69e670919eb58d8f04f362293ccda21a1436f7472a0a3e1947c67435c74eea51cce20df38d0b2edf8f33ea9b7fce3eb982b4235296a8e3ac33c380
   languageName: node
   linkType: hard
 
@@ -13327,63 +12947,6 @@ __metadata:
   peerDependencies:
     "@glimmer/component": ^1.1.2
   checksum: 10/61114e1d8230deac20a187117028c41e3e5f3728e46480e0cdf7d85da6208b7014a3fd4832acecd1c78e8b230a1cb415bd843623cda884cfdcc6d6c32a129a81
-  languageName: node
-  linkType: hard
-
-"ember-source@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-source@npm:5.9.0"
-  dependencies:
-    "@babel/helper-module-imports": "npm:^7.16.7"
-    "@ember/edition-utils": "npm:^1.2.0"
-    "@glimmer/compiler": "npm:0.92.0"
-    "@glimmer/component": "npm:^1.1.2"
-    "@glimmer/destroyable": "npm:0.92.0"
-    "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:0.92.0"
-    "@glimmer/interfaces": "npm:0.92.0"
-    "@glimmer/manager": "npm:0.92.0"
-    "@glimmer/node": "npm:0.92.0"
-    "@glimmer/opcode-compiler": "npm:0.92.0"
-    "@glimmer/owner": "npm:0.92.0"
-    "@glimmer/program": "npm:0.92.0"
-    "@glimmer/reference": "npm:0.92.0"
-    "@glimmer/runtime": "npm:0.92.0"
-    "@glimmer/syntax": "npm:0.92.0"
-    "@glimmer/util": "npm:0.92.0"
-    "@glimmer/validator": "npm:0.92.0"
-    "@glimmer/vm": "npm:0.92.0"
-    "@glimmer/vm-babel-plugins": "npm:0.92.0"
-    "@simple-dom/interface": "npm:^1.4.0"
-    babel-plugin-debug-macros: "npm:^0.3.4"
-    babel-plugin-ember-template-compilation: "npm:^2.1.1"
-    babel-plugin-filter-imports: "npm:^4.0.0"
-    backburner.js: "npm:^2.8.0"
-    broccoli-concat: "npm:^4.2.5"
-    broccoli-debug: "npm:^0.6.4"
-    broccoli-file-creator: "npm:^2.1.1"
-    broccoli-funnel: "npm:^3.0.8"
-    broccoli-merge-trees: "npm:^4.2.0"
-    chalk: "npm:^4.0.0"
-    ember-auto-import: "npm:^2.6.3"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-cli-get-component-path-option: "npm:^1.0.0"
-    ember-cli-is-package-missing: "npm:^1.0.0"
-    ember-cli-normalize-entity-name: "npm:^1.0.0"
-    ember-cli-path-utils: "npm:^1.0.0"
-    ember-cli-string-utils: "npm:^1.1.0"
-    ember-cli-typescript-blueprint-polyfill: "npm:^0.1.0"
-    ember-cli-version-checker: "npm:^5.1.2"
-    ember-router-generator: "npm:^2.0.0"
-    inflection: "npm:^2.0.1"
-    route-recognizer: "npm:^0.3.4"
-    router_js: "npm:^8.0.5"
-    semver: "npm:^7.5.2"
-    silent-error: "npm:^1.1.1"
-    simple-html-tokenizer: "npm:^0.5.11"
-  peerDependencies:
-    "@glimmer/component": ^1.1.2
-  checksum: 10/736d1fba209071c91077ae7070e13d0db7b9cbee2ba4c9b34a11e0f5f4a5069df14437381c5a4af7f6f5af5856f4363cd77d756463a642959dbd51d0d83d4508
   languageName: node
   linkType: hard
 
@@ -14126,7 +13689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ember@npm:^12.2.0, eslint-plugin-ember@npm:^12.2.1":
+"eslint-plugin-ember@npm:^12.2.1":
   version: 12.3.3
   resolution: "eslint-plugin-ember@npm:12.3.3"
   dependencies:
@@ -14279,7 +13842,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^8.1.1, eslint-plugin-qunit@npm:^8.1.2":
+"eslint-plugin-qunit@npm:^8.1.2":
   version: 8.1.2
   resolution: "eslint-plugin-qunit@npm:8.1.2"
   dependencies:
@@ -22633,7 +22196,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit-dom@npm:^3.0.0, qunit-dom@npm:^3.2.1":
+"qunit-dom@npm:^3.2.1":
   version: 3.4.0
   resolution: "qunit-dom@npm:3.4.0"
   dependencies:
@@ -22646,19 +22209,6 @@ __metadata:
   version: 1.0.0
   resolution: "qunit-theme-ember@npm:1.0.0"
   checksum: 10/8953fe3aff7be1ec911a266a0b2bd4a2f73bdb84ddf20dc29235474646ecabc916d7574880d91fd9c0d8b7570375bbb11c87cdb6770401e6770b6fb5e902a194
-  languageName: node
-  linkType: hard
-
-"qunit@npm:^2.21.0":
-  version: 2.23.0
-  resolution: "qunit@npm:2.23.0"
-  dependencies:
-    commander: "npm:7.2.0"
-    node-watch: "npm:0.7.3"
-    tiny-glob: "npm:0.2.9"
-  bin:
-    qunit: bin/qunit.js
-  checksum: 10/0d4d1385de1b3bc446a35fd86400ec5a2c4f90a5aca88e937b27f931318265aa5728725fddc167c047a663df224693153568899414c262f431bbea63f7a330cc
   languageName: node
   linkType: hard
 
@@ -25764,7 +25314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"testem@npm:^3.10.1, testem@npm:^3.15.1":
+"testem@npm:^3.15.1":
   version: 3.15.2
   resolution: "testem@npm:3.15.2"
   dependencies:
@@ -27320,42 +26870,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.94.0":
-  version: 5.97.0
-  resolution: "webpack@npm:5.97.0"
-  dependencies:
-    "@types/eslint-scope": "npm:^3.7.7"
-    "@types/estree": "npm:^1.0.6"
-    "@webassemblyjs/ast": "npm:^1.14.1"
-    "@webassemblyjs/wasm-edit": "npm:^1.14.1"
-    "@webassemblyjs/wasm-parser": "npm:^1.14.1"
-    acorn: "npm:^8.14.0"
-    browserslist: "npm:^4.24.0"
-    chrome-trace-event: "npm:^1.0.2"
-    enhanced-resolve: "npm:^5.17.1"
-    es-module-lexer: "npm:^1.2.1"
-    eslint-scope: "npm:5.1.1"
-    events: "npm:^3.2.0"
-    glob-to-regexp: "npm:^0.4.1"
-    graceful-fs: "npm:^4.2.11"
-    json-parse-even-better-errors: "npm:^2.3.1"
-    loader-runner: "npm:^4.2.0"
-    mime-types: "npm:^2.1.27"
-    neo-async: "npm:^2.6.2"
-    schema-utils: "npm:^3.2.0"
-    tapable: "npm:^2.1.1"
-    terser-webpack-plugin: "npm:^5.3.10"
-    watchpack: "npm:^2.4.1"
-    webpack-sources: "npm:^3.2.3"
-  peerDependenciesMeta:
-    webpack-cli:
-      optional: true
-  bin:
-    webpack: bin/webpack.js
-  checksum: 10/bcdc585d115de4309e7821c1533118f2d27b1f83a5587ca8db8a74651e88fb813505d412b1dc15586ff35efb53b0425453196655580023b45f35755f6c7b922f
-  languageName: node
-  linkType: hard
-
 "webpack@npm:^5.95.0":
   version: 5.97.1
   resolution: "webpack@npm:5.97.1"
@@ -27399,12 +26913,12 @@ __metadata:
     "@algolia/autocomplete-js": "npm:^1.12.1"
     "@algolia/autocomplete-preset-algolia": "npm:^1.12.1"
     "@algolia/client-search": "npm:^4.22.0"
-    "@babel/core": "npm:^7.24.7"
-    "@babel/eslint-parser": "npm:^7.24.7"
+    "@babel/core": "npm:^7.25.2"
+    "@babel/eslint-parser": "npm:^7.25.1"
     "@ember/optional-features": "npm:^2.1.0"
     "@ember/render-modifiers": "npm:^2.1.0"
     "@ember/string": "npm:^3.1.1"
-    "@ember/test-helpers": "npm:^3.3.0"
+    "@ember/test-helpers": "npm:^3.3.1"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/design-system-components": "workspace:^"
@@ -27419,11 +26933,11 @@ __metadata:
     dotenv: "npm:^16.3.1"
     ember-a11y-refocus: "npm:^4.1.3"
     ember-a11y-testing: "npm:^6.1.1"
-    ember-auto-import: "npm:^2.7.3"
+    ember-auto-import: "npm:^2.8.1"
     ember-basic-dropdown: "npm:^8.1.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
-    ember-cli-app-version: "npm:^6.0.1"
+    ember-cli: "npm:~5.12.0"
+    ember-cli-app-version: "npm:^7.0.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-clipboard: "npm:^1.1.0"
@@ -27442,24 +26956,24 @@ __metadata:
     ember-load-initializers: "npm:^2.1.2"
     ember-math-helpers: "npm:^3.0.0"
     ember-meta: "npm:^2.0.0"
-    ember-modifier: "npm:^4.1.0"
+    ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
     ember-prism: "npm:^0.13.0"
     ember-qunit: "npm:^8.1.0"
-    ember-resolver: "npm:^11.0.1"
+    ember-resolver: "npm:^12.0.1"
     ember-router-scroll: "npm:^4.1.2"
-    ember-source: "npm:~5.9.0"
+    ember-source: "npm:~5.12.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-test-selectors: "npm:^6.0.0"
     ember-truth-helpers: "npm:^4.0.3"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^12.2.0"
+    eslint-plugin-ember: "npm:^12.2.1"
     eslint-plugin-node: "npm:^11.1.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
     fs-extra: "npm:^11.1.1"
     jsdom: "npm:^22.1.0"
     jsonapi-serializer: "npm:^3.6.9"
@@ -27473,9 +26987,9 @@ __metadata:
     prember: "npm:^2.0.0"
     prember-middleware: "npm:^0.1.0"
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
-    prettier: "npm:^3.3.2"
-    qunit: "npm:^2.21.0"
-    qunit-dom: "npm:^3.0.0"
+    prettier: "npm:^3.3.3"
+    qunit: "npm:^2.22.0"
+    qunit-dom: "npm:^3.2.1"
     rehype-raw: "npm:^7.0.0"
     rehype-stringify: "npm:^10.0.0"
     remark: "npm:^15.0.1"
@@ -27492,7 +27006,7 @@ __metadata:
     unist-util-remove: "npm:^4.0.0"
     unist-util-select: "npm:^5.1.0"
     unist-util-visit: "npm:^5.0.0"
-    webpack: "npm:^5.94.0"
+    webpack: "npm:^5.95.0"
     yaml-front-matter: "npm:^4.1.1"
   languageName: unknown
   linkType: soft
