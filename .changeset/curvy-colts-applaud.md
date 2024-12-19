@@ -1,5 +1,4 @@
 ---
-"@hashicorp/ember-flight-icons": patch
 "@hashicorp/design-system-components": patch
 ---
 
