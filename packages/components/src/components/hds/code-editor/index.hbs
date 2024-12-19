@@ -30,12 +30,12 @@
           {{#if @hasExpandButton}}
             <Hds::CodeEditor::Button
               class="hds-code-editor__expand-button"
-              aria-pressed={{this.isFullscreen}}
+              aria-pressed={{this.isFullScreen}}
               @isIconOnly={{true}}
               @size="small"
-              @icon="maximize"
-              @text="Toggle fullscreen view"
-              {{on "click" this.toggleFullscreen}}
+              @icon={{if this.isFullScreen "minimize" "maximize"}}
+              @text="Toggle full screen view"
+              {{on "click" (fn (mut this.isFullScreen) (not this.isFullScreen))}}
             />
           {{/if}}
         </div>
