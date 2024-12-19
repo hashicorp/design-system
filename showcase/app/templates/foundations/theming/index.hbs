@@ -7,12 +7,10 @@
 
 <Shw::Text::H1>Theming</Shw::Text::H1>
 
-<Shw::Text::Body>
-  Current SHW theme:
-  {{(if this.currentTheme this.currentTheme "none")}}
-  / Current HDS theme:
-  {{(if this.currentHdsTheme this.currentHdsTheme "none")}}
-</Shw::Text::Body>
+<div class="shw-foundation-theming-status-bar">
+  <label for="hds-theme-switcher">HDS Theme Switcher:</label>
+  <Hds::ThemeSwitcher id="hds-theme-switcher" />
+</div>
 
 <section data-test-percy>
 
