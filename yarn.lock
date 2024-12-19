@@ -3581,7 +3581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:^0.84.2, @glimmer/syntax@npm:^0.84.3":
+"@glimmer/syntax@npm:^0.84.3":
   version: 0.84.3
   resolution: "@glimmer/syntax@npm:0.84.3"
   dependencies:
@@ -4039,7 +4039,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
-    "@babel/core": "npm:^7.24.7"
+    "@babel/core": "npm:^7.25.2"
     "@babel/plugin-proposal-decorators": "npm:^7.24.1"
     "@babel/plugin-transform-class-properties": "npm:^7.24.1"
     "@babel/plugin-transform-private-methods": "npm:^7.24.1"
@@ -4065,17 +4065,17 @@ __metadata:
     ember-get-config: "npm:^2.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
+    eslint-plugin-ember: "npm:^12.2.1"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-n: "npm:^17.7.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
-    prettier: "npm:^3.3.2"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
+    prettier: "npm:^3.3.3"
     rollup: "npm:^4.22.4"
     rollup-plugin-copy: "npm:^3.5.0"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.6.2"
   languageName: unknown
   linkType: soft
 
@@ -11195,16 +11195,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^2.0.4":
-  version: 2.3.1
-  resolution: "css-tree@npm:2.3.1"
-  dependencies:
-    mdn-data: "npm:2.0.30"
-    source-map-js: "npm:^1.0.1"
-  checksum: 10/e5e39b82eb4767c664fa5c2cd9968c8c7e6b7fd2c0079b52680a28466d851e2826d5e64699c449d933c0e8ca0554beca43c41a9fcb09fb6a46139d462dbdf0df
-  languageName: node
-  linkType: hard
-
 "css-tree@npm:^3.0.1":
   version: 3.0.1
   resolution: "css-tree@npm:3.0.1"
@@ -13131,7 +13121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
+"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
   version: 0.3.18
   resolution: "ember-rfc176-data@npm:0.3.18"
   checksum: 10/14092fdfafa6dd56dddd6a61dc5a38abce9dcb521709d6fbd2bf36abea1914b4f2a22e0ab57fbcef1397ccd98ef9ccab937a6c1faa10840f3dc95e1c79dcc80b
@@ -14025,29 +14015,6 @@ __metadata:
     eslint:
       optional: true
   checksum: 10/dd27791147eca17366afcb83f47d6825b6ce164abb256681e5de4ec1d7e87d8605641eb869298a0dbc70665e2446dbcc2f40d3e1631a9475dd64dd23d4ca5dee
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-ember@npm:^11.12.0":
-  version: 11.12.0
-  resolution: "eslint-plugin-ember@npm:11.12.0"
-  dependencies:
-    "@ember-data/rfc395-data": "npm:^0.0.4"
-    "@glimmer/syntax": "npm:^0.84.2"
-    css-tree: "npm:^2.0.4"
-    ember-rfc176-data: "npm:^0.3.15"
-    ember-template-imports: "npm:^3.4.2"
-    ember-template-recast: "npm:^6.1.4"
-    eslint-utils: "npm:^3.0.0"
-    estraverse: "npm:^5.2.0"
-    lodash.camelcase: "npm:^4.1.1"
-    lodash.kebabcase: "npm:^4.1.1"
-    magic-string: "npm:^0.30.0"
-    requireindex: "npm:^1.2.0"
-    snake-case: "npm:^3.0.3"
-  peerDependencies:
-    eslint: ">= 7"
-  checksum: 10/3239c9734d2996b38871b7663186d1ab09dd26c57420efcda69ea52255e50fde981b8ec41e4083bb33ea905753606e36bed1c3fcb93fc9f36250599a75834b11
   languageName: node
   linkType: hard
 
@@ -19076,7 +19043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.1.1, lodash.camelcase@npm:^4.3.0":
+"lodash.camelcase@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: 10/c301cc379310441dc73cd6cebeb91fb254bea74e6ad3027f9346fc43b4174385153df420ffa521654e502fd34c40ef69ca4e7d40ee7129a99e06f306032bfc65
@@ -19344,7 +19311,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.0, magic-string@npm:^0.30.2":
+"magic-string@npm:^0.30.2":
   version: 0.30.14
   resolution: "magic-string@npm:0.30.14"
   dependencies:
@@ -19730,13 +19697,6 @@ __metadata:
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
   checksum: 10/64c629fcf14807e30d6dc79f97cbcafa16db066f53a294299f3932b3beb0eb0d1386d3a7fe408fc67348c449a4e0999360c894ba4c81eb209d7be4e36503de0e
-  languageName: node
-  linkType: hard
-
-"mdn-data@npm:2.0.30":
-  version: 2.0.30
-  resolution: "mdn-data@npm:2.0.30"
-  checksum: 10/e4944322bf3e0461a2daa2aee7e14e208960a036289531e4ef009e53d32bd41528350c070c4a33be867980443fe4c0523518d99318423cffa7c825fe7b1154e2
   languageName: node
   linkType: hard
 
@@ -26366,7 +26326,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3, typescript@npm:^5.4.5, typescript@npm:^5.6.2, typescript@npm:^5.6.3":
+"typescript@npm:^5.4.5, typescript@npm:^5.6.2, typescript@npm:^5.6.3":
   version: 5.7.2
   resolution: "typescript@npm:5.7.2"
   bin:
@@ -26376,7 +26336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
   version: 5.7.2
   resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=74658d"
   bin:
