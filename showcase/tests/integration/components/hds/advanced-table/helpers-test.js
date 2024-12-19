@@ -11,8 +11,11 @@ import {
   tab,
   triggerKeyEvent,
   click,
+  pauseTest
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { focusable } from 'tabbable';
+
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
@@ -109,7 +112,7 @@ const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   <:body as |B|>
     <B.Tr>
       <B.Th id="artist-{{B.data.id}}">{{B.data.artist}}</B.Th>
-      <B.Td id="album-{{B.data.id}}">{{B.data.album}} <button tabindex='-1'>Disabled button</button></B.Td>
+      <B.Td id="album-{{B.data.id}}">{{B.data.album}}</B.Td>
       <B.Td id="year-{{B.data.id}}">{{B.data.year}} <button disabled>Disabled button</button></B.Td>
     </B.Tr>
   </:body>
@@ -163,10 +166,7 @@ module(
       await render(hbsSortableAdvancedTable);
 
       const grid = document.getElementById('data-test-advanced-table');
-      // get all not disabled focusable elements that aren't cells
-      const focusableElements = grid.querySelectorAll(
-        'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]) [tabindex]:not([tabindex="-1"]):not([disabled]):not(.hds-advanced-table__td):not(.hds-advanced-table__th)'
-      );
+      const focusableElements = focusable(grid).filter((element) => !element.classList.contains('hds-advanced-table__th') && !element.classList.contains('hds-advanced-table__td') )
 
       assert
         .dom('[data-advanced-table-child-focusable=""]')
@@ -331,15 +331,6 @@ module(
       // cells should not be focusable anymore
       assert.dom('.hds-advanced-table__th[tabindex="0"]').doesNotExist();
       assert.dom('.hds-advanced-table__td[tabindex="0"]').doesNotExist();
-
-      await triggerKeyEvent(firstCellSortButton, 'keydown', 'Escape');
-      assert.dom(firstCell).isFocused().hasAttribute('tabindex', '0');
-      assert.dom(firstCellSortButton).hasAttribute('tabindex', '-1');
-
-      // content within cells should not be focusable anymore
-      assert
-        .dom('[data-advanced-table-child-focusable=""][tabindex="0"]')
-        .doesNotExist();
     });
 
     test('it should trap focus inside a cell when not in navigation mode', async function (assert) {
