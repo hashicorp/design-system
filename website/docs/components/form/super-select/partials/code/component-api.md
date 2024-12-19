@@ -82,7 +82,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
   <C.Property @name="searchFieldPosition" @type="string">
     Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
     <br><br>
-    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. (Rendering the search input within the trigger area creates a nested interaction.)
+    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. Rendering the search input within the trigger is not compliant because it nests an interactive element within another interactive element.
     <br><br>
     <strong>Note</strong>: It cannot be overridden.
   </C.Property>
@@ -221,7 +221,7 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
   <C.Property @name="searchFieldPosition" @type="string">
     Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
     <br><br>
-    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. (Rendering the search input within the trigger area creates a nested interaction.)
+    Set to `"before-options"` to fix a `PowerSelect` accessibility issue.  Rendering the search input within the trigger is not compliant because it nests an interactive element within another interactive element.
     <br><br>
     <strong>Note</strong>: It cannot be overridden.
   </C.Property>
