@@ -3856,7 +3856,7 @@ __metadata:
     "@figma/rest-api-spec": "npm:^0.22.0"
     "@svgr/core": "npm:^5.5.0"
     "@svgr/plugin-jsx": "npm:^5.5.0"
-    "@types/archiver": "npm:^5.3.4"
+    "@types/archiver": "npm:^6.0.3"
     "@types/fs-extra": "npm:^11.0.4"
     "@types/lodash": "npm:^4.17.13"
     "@types/node": "npm:^22.10.2"
@@ -5294,12 +5294,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/archiver@npm:^5.3.4":
-  version: 5.3.4
-  resolution: "@types/archiver@npm:5.3.4"
+"@types/archiver@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "@types/archiver@npm:6.0.3"
   dependencies:
     "@types/readdir-glob": "npm:*"
-  checksum: 10/535f85063743d3a5641937957f36a777a0363b501c90ae2b0035e4f08b970a8ea2126c28a576419289999439a81161ab2d6cb30e9ab5705b16f97cab233d4735
+  checksum: 10/c0ab3ca45b02baf2020b5ddb9f61452b5f9600db3a700ea365a46572f81baaaeb3b53ff5391b443df01af1492f470114006721e1850179da513b87cc5e6f441d
   languageName: node
   linkType: hard
 
