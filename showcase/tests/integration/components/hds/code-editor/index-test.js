@@ -94,7 +94,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     assert.dom('.hds-code-editor__expand-button').hasAttribute('aria-pressed');
     assert
       .dom('.hds-code-editor__expand-button .hds-icon')
-      .hasProperty('data-test-icon', 'minimize');
+      .hasAttribute('data-test-icon', 'minimize');
 
     // collapsed
     await click('.hds-code-editor__expand-button');
@@ -106,7 +106,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .doesNotHaveAttribute('aria-pressed');
     assert
       .dom('.hds-code-editor__expand-button .hds-icon')
-      .hasProperty('data-test-icon', 'maximize');
+      .hasAttribute('data-test-icon', 'maximize');
   });
 
   // @value
