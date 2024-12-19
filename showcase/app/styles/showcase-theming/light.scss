@@ -1,0 +1,37 @@
+// SHOWCASE COLORS > LIGHT THEME
+
+@mixin shw-theme-color-variables-light() {
+  // SEMANTIC PALETTE
+  --shw-color-white: #fff;
+  --shw-color-gray-600: #f2f2f3;
+  --shw-color-gray-500: #dbdbdc;
+  --shw-color-gray-400: #bfbfc0;
+  --shw-color-gray-300: #727374;
+  --shw-color-gray-200: #343536;
+  --shw-color-gray-100: #1d1e1f;
+  --shw-color-black: #000;
+  --shw-color-action-active-foreground: #00f; // HTML "blue"
+  --shw-color-action-active-border: #00f; // HTML "blue"
+  --shw-color-action-active-background: #f0f8ff; // HTML "aliceblue"
+  // COMPONENTS
+  --shw-frame-browser-navigation-background: #fafafa;
+  --shw-label-text-color: #545454;
+  --shw-placeholder-text-color: #6b6b6b; // if background is #EEE then this has the appropriate color contrast (4.59:1)
+  --shw-placeholder-background-color: #eee;
+  --shw-placeholder-link-color: #333;
+}
+
+:root {
+  @include shw-theme-color-variables-light();
+}
+
+@media (prefers-color-scheme: light) {
+  :root[data-shw-theme="auto"] {
+    @include shw-theme-color-variables-light();
+  }
+}
+
+.hds-theme-light,
+[data-hds-theme="light"] {
+  @include shw-theme-color-variables-light();
+}

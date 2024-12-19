@@ -1,0 +1,105 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Theming"}}
+
+<Shw::Text::H1>Theming</Shw::Text::H1>
+
+<div class="shw-foundation-theming-status-bar">
+  <label for="hds-theme-switcher">HDS Theme Switcher:</label>
+  <Hds::ThemeSwitcher id="hds-theme-switcher" />
+</div>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Page-level theming</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label>Container with color
+        <code>foreground-strong</code>
+        / background
+        <code>surface-strong</code></SFI.Label>
+      <Mock::Theming::BasicContainer @text="TEXT" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Contextual theming</Shw::Text::H2>
+
+  <Shw::Flex @gap="4rem" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.hds-theme-light</code> class</SFI.Label>
+      <div class="hds-theme-light">
+        <Mock::Theming::BasicContainer @text="TEXT" />
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.hds-theme-dark</code> class</SFI.Label>
+      <div class="hds-theme-dark">
+        <Mock::Theming::BasicContainer @text="TEXT" />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Nested</Shw::Text::H4>
+
+  <Shw::Flex @gap="4rem" as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.hds-theme-light</code> &gt; <code>.hds-theme-dark</code></SFI.Label>
+      <div class="hds-theme-light">
+        <Mock::Theming::BasicContainer>
+          <div class="hds-theme-dark">
+            <Mock::Theming::BasicContainer @text="TEXT" />
+          </div>
+        </Mock::Theming::BasicContainer>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.hds-theme-dark</code> &gt; <code>.hds-theme-light</code></SFI.Label>
+      <div class="hds-theme-dark">
+        <Mock::Theming::BasicContainer>
+          <div class="hds-theme-light">
+            <Mock::Theming::BasicContainer @text="TEXT" />
+          </div>
+        </Mock::Theming::BasicContainer>
+      </div>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label><code>.hds-theme-dark</code>
+        &gt;
+        <code>.hds-theme-light</code>
+        &gt;
+        <code>.hds-theme-dark</code></SFI.Label>
+      <div class="hds-theme-dark">
+        <Mock::Theming::BasicContainer>
+          <div class="hds-theme-light">
+            <Mock::Theming::BasicContainer>
+              <div class="hds-theme-dark">
+                <Mock::Theming::BasicContainer @text="TEXT" />
+              </div>
+            </Mock::Theming::BasicContainer>
+          </div>
+        </Mock::Theming::BasicContainer>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
+<section>
+  <Shw::Divider />
+
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+
+  <Shw::Frame
+    @id="demo-application-with-theme-switcher"
+    @src="/foundations/theming/frameless/demo-application-with-theme-switcher"
+    @label="Demo application with theme switcher"
+    @height="900"
+  />
+</section>
