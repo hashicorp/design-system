@@ -3866,7 +3866,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
     "@typescript-eslint/parser": "npm:^8.18.1"
     archiver: "npm:^7.0.1"
-    chalk: "npm:^4.1.2"
+    chalk: "npm:^5.4.0"
     del: "npm:^6.1.1"
     dotenv: "npm:^10.0.0"
     eslint: "npm:^8.57.1"
@@ -9656,6 +9656,13 @@ __metadata:
   version: 5.4.1
   resolution: "chalk@npm:5.4.1"
   checksum: 10/29df3ffcdf25656fed6e95962e2ef86d14dfe03cd50e7074b06bad9ffbbf6089adbb40f75c00744d843685c8d008adaf3aed31476780312553caf07fa86e5bc7
+  languageName: node
+  linkType: hard
+
+"chalk@npm:^5.4.0":
+  version: 5.4.0
+  resolution: "chalk@npm:5.4.0"
+  checksum: 10/daf2bd8ac206a117be37026c4d128c05507488877c3d30f08c3976850bed75ec15a14ea007811c564764033b92585f339828bd97adb964fae0f012ff863f334a
   languageName: node
   linkType: hard
 

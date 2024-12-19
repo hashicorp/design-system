@@ -40,7 +40,7 @@
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
     "archiver": "^7.0.1",
-    "chalk": "^4.1.2",
+    "chalk": "^5.4.0",
     "del": "^6.1.1",
     "dotenv": "^10.0.0",
     "eslint": "^8.57.1",
