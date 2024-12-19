@@ -50,7 +50,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     args: ArgsFor<HdsCodeEditorSignature>
   ) {
     super(owner, args);
-    registerDestructor(this, () => this.observer.disconnect());
+
+    registerDestructor(this, () => this.observer?.disconnect());
   }
 
   modify(
