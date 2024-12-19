@@ -3085,10 +3085,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma/rest-api-spec@npm:^0.21.0":
-  version: 0.21.0
-  resolution: "@figma/rest-api-spec@npm:0.21.0"
-  checksum: 10/8feee26a50272f22d03de2a284ce1bef3e1aaedc14606e5a8457aaf32773cb05a0a51870d4d157dabee8b16d469c16c8e90efda2685ae36213ac022c7f58760c
+"@figma/rest-api-spec@npm:^0.22.0":
+  version: 0.22.0
+  resolution: "@figma/rest-api-spec@npm:0.22.0"
+  checksum: 10/4be3cd847cc1a74fc0d9eaf1050e3aea2fe0e822516a44b5c21f2e78bcc027d0eb6ce9fa574c6420883ba34d43b6e855a7d4505e27f90eaeb26653d1592f30a0
   languageName: node
   linkType: hard
 
@@ -3853,7 +3853,7 @@ __metadata:
     "@figma-export/output-components-as-svg": "npm:^6.0.1"
     "@figma-export/transform-svg-with-svgo": "npm:^6.0.2"
     "@figma-export/types": "npm:^6.0.0"
-    "@figma/rest-api-spec": "npm:^0.21.0"
+    "@figma/rest-api-spec": "npm:^0.22.0"
     "@svgr/core": "npm:^5.5.0"
     "@svgr/plugin-jsx": "npm:^5.5.0"
     "@types/archiver": "npm:^5.3.4"
