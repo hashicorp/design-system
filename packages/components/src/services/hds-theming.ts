@@ -15,7 +15,7 @@ export type HdsThemes = `${HdsThemeValues}` | undefined;
 export const THEMES: string[] = Object.values(HdsThemeValues);
 
 export default class HdsThemingService extends Service {
-  @tracked _currentTheme: HdsThemes = undefined;
+  @tracked currentTheme: HdsThemes = undefined;
 
   constructor(owner: object | undefined) {
     super(owner);
@@ -34,7 +34,7 @@ export default class HdsThemingService extends Service {
   }
 
   getTheme(): HdsThemes {
-    return this._currentTheme;
+    return this.currentTheme;
   }
 
   setTheme(theme: HdsThemes) {
@@ -52,10 +52,10 @@ export default class HdsThemingService extends Service {
     if (rootElement) {
       if (theme === undefined) {
         rootElement.removeAttribute('data-hds-theme');
-        this._currentTheme = undefined;
+        this.currentTheme = undefined;
       } else {
         rootElement.setAttribute('data-hds-theme', theme);
-        this._currentTheme = theme;
+        this.currentTheme = theme;
       }
     }
   }
