@@ -5,7 +5,7 @@ on:
     - cron: '00 23 * * 0'
 
 env:
-  NODE_VERSION: '20.x'
+  NODE_VERSION: '22.x'
 
 jobs:
   build:
