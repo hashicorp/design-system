@@ -20,6 +20,22 @@ export default class HdsCodeEditorFullScreenButton extends Component<HdsCodeEdit
     return this.args.isFullScreen ? 'minimize' : 'maximize';
   }
 
+  get className() {
+    const classes = [
+      'hds-code-editor__full-screen-button',
+      'hds-code-editor__button',
+    ];
+
+    const stateClass = {
+      minimize: 'hds-code-editor__full-screen-button--minimize',
+      maximize: 'hds-code-editor__full-screen-button--maximize',
+    }[this.state];
+
+    classes.push(stateClass);
+
+    return classes.join(' ');
+  }
+
   get icon(): HdsButtonSignature['Args']['icon'] {
     const stateIcons = {
       minimize: 'minimize',
