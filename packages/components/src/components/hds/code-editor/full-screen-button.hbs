@@ -1,0 +1,9 @@
+<Hds::CodeEditor::Button
+  class="hds-code-editor__button"
+  aria-pressed={{@isFullScreen}}
+  @isIconOnly={{true}}
+  @size="small"
+  @icon={{this.icon}}
+  @text="Toggle full screen view"
+  {{on "click" (fn @onToggleFullScreen (not @isFullScreen))}}
+/>
