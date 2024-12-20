@@ -7,12 +7,30 @@
 
 <Shw::Text::H1>Theming</Shw::Text::H1>
 
-<div class="shw-foundation-theming-status-bar">
-  <label for="hds-theme-switcher">HDS Theme Switcher:</label>
-  <Hds::ThemeSwitcher id="hds-theme-switcher" />
-</div>
-
 <section data-test-percy>
+
+  <Shw::Text::H2>Theme switcher</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Size</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="small (default)">
+      <Hds::ThemeSwitcher />
+    </SF.Item>
+    <SF.Item @label="medium">
+      <Hds::ThemeSwitcher @toggleSize="medium" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="full-width">
+      <div {{style width="150px"}}>
+        <Hds::ThemeSwitcher @toggleIsFullWidth={{true}} />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Page-level theming</Shw::Text::H2>
 

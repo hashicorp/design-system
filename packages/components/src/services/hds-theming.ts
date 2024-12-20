@@ -4,8 +4,7 @@ import { tracked } from '@glimmer/tracking';
 export const LOCALSTORAGE_KEY = 'hds-current-theme';
 
 export enum HdsThemeValues {
-  // `auto` means to use the default in the browser (which depends on what the consumer imports as CSS)
-  Auto = 'auto',
+  System = 'system',
   Light = 'light',
   Dark = 'dark',
 }
@@ -25,7 +24,7 @@ export default class HdsThemingService extends Service {
   initializeTheme() {
     const _initialTheme = localStorage.getItem(LOCALSTORAGE_KEY);
     if (
-      _initialTheme === 'auto' ||
+      _initialTheme === 'system' ||
       _initialTheme === 'light' ||
       _initialTheme === 'dark'
     ) {

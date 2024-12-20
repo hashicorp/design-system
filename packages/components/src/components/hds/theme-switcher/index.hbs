@@ -2,16 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Form::Select::Base
-  {{on "change" this.onChangePageTheme}}
-  class="hds-theme-switcher-control"
-  ...attributes
-  as |C|
->
-  <C.Options>
-    <option value="none" selected={{eq this.currentTheme "none"}}>None</option>
-    <option value="auto" selected={{eq this.currentTheme "auto"}}>System</option>
-    <option value="light" selected={{eq this.currentTheme "light"}}>Light</option>
-    <option value="dark" selected={{eq this.currentTheme "dark"}}>Dark</option>
-  </C.Options>
-</Hds::Form::Select::Base>
+
+<Hds::Dropdown @enableCollisionDetection={{true}} @matchToggleWidth={{@toggleIsFullWidth}} class="hds-theme-switcher-control" ...attributes as |D|>
+  <D.ToggleButton @color="secondary" @size={{this.toggleSize}} @isFullWidth={{@toggleIsFullWidth}} @text={{this.toggleContent.label}} @icon={{this.toggleContent.icon}} />
+  {{#each-in this._options as |key data|}}
+    <D.Interactive @icon={{data.icon}} {{on "click" (fn this.setTheme data.theme)}}>{{data.label}}</D.Interactive>
+  {{/each-in}}
+</Hds::Dropdown>

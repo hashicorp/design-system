@@ -18,7 +18,7 @@ interface ShwThemeSwitcherSignature {
 
 const options = {
   none: 'None (No theming)',
-  auto: 'Auto (prefers-color-scheme)',
+  system: 'System (prefers-color-scheme)',
   light: 'Light (data-attribute)',
   dark: 'Dark (data-attribute)',
 };
