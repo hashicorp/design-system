@@ -1,0 +1,443 @@
+:root {
+  --token-color-focus-action-external: #5990ff; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-focus-critical-external: #dd7578; /* this is a special color used only for the focus style, to pass color contrast for a11y purpose */
+  --token-color-boundary-gradient-faint-start: #fffafa; /* this is the 'boundary-50' value at 25% opacity on white */
+  --token-color-consul-gradient-faint-start: #fff9fb; /* this is the 'consul-50' value at 25% opacity on white */
+  --token-color-nomad-gradient-faint-start: #f3fff9; /* this is the 'nomad-50' value at 25% opacity on white */
+  --token-color-packer-gradient-faint-start: #f3fcff; /* this is the 'packer-50' value at 25% opacity on white */
+  --token-color-terraform-brand-on-dark: #a067da; /* this is an alternative brand color meant to be used on dark backgrounds */
+  --token-color-terraform-gradient-faint-start: #fcfaff; /* this is the 'terraform-50' value at 25% opacity on white */
+  --token-color-vagrant-gradient-faint-start: #f4faff; /* this is the 'vagrant-50' value at 25% opacity on white */
+  --token-color-vault-radar-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault radar would not work */
+  --token-color-vault-radar-gradient-faint-start: #fffdf2; /* this is the 'vault-radar-50' value at 25% opacity on white */
+  --token-color-vault-secrets-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault Secrets would not work */
+  --token-color-vault-secrets-gradient-faint-start: #fffdf2; /* this is the 'vault-secrets-50' value at 25% opacity on white */
+  --token-color-vault-brand-alt: #000000; /* this is a special “alternative” color, used as an exception in some contexts where the normal “brand” color for Vault would not work */
+  --token-color-vault-gradient-faint-start: #fffdf2; /* this is the 'vault-50' value at 25% opacity on white */
+  --token-color-waypoint-gradient-faint-start: #f6feff; /* this is the 'waypoint-50' value at 25% opacity on white */
+  --token-elevation-inset-shadow-01-x: 0px;
+  --token-elevation-inset-shadow-01-y: 1px;
+  --token-elevation-inset-shadow-01-blur: 2px;
+  --token-elevation-inset-shadow-01-spread: 1px;
+  --token-elevation-inset-border-width: 1px;
+  --token-elevation-low-shadow-01-x: 0px;
+  --token-elevation-low-shadow-01-y: 1px;
+  --token-elevation-low-shadow-01-blur: 1px;
+  --token-elevation-low-shadow-01-spread: 0px;
+  --token-elevation-low-shadow-02-x: 0px;
+  --token-elevation-low-shadow-02-y: 2px;
+  --token-elevation-low-shadow-02-blur: 2px;
+  --token-elevation-low-shadow-02-spread: 0px;
+  --token-elevation-low-border-width: 1px;
+  --token-elevation-mid-shadow-01-x: 0px;
+  --token-elevation-mid-shadow-01-y: 2px;
+  --token-elevation-mid-shadow-01-blur: 3px;
+  --token-elevation-mid-shadow-01-spread: 0px;
+  --token-elevation-mid-shadow-02-x: 0px;
+  --token-elevation-mid-shadow-02-y: 8px;
+  --token-elevation-mid-shadow-02-blur: 16px;
+  --token-elevation-mid-shadow-02-spread: -10px;
+  --token-elevation-mid-border-width: 1px;
+  --token-elevation-high-shadow-01-x: 0px;
+  --token-elevation-high-shadow-01-y: 2px;
+  --token-elevation-high-shadow-01-blur: 3px;
+  --token-elevation-high-shadow-01-spread: 0px;
+  --token-elevation-high-shadow-02-x: 0px;
+  --token-elevation-high-shadow-02-y: 16px;
+  --token-elevation-high-shadow-02-blur: 16px;
+  --token-elevation-high-shadow-02-spread: -10px;
+  --token-elevation-high-border-width: 1px;
+  --token-elevation-higher-shadow-01-x: 0px;
+  --token-elevation-higher-shadow-01-y: 2px;
+  --token-elevation-higher-shadow-01-blur: 3px;
+  --token-elevation-higher-shadow-01-spread: 0px;
+  --token-elevation-higher-shadow-02-x: 0px;
+  --token-elevation-higher-shadow-02-y: 12px;
+  --token-elevation-higher-shadow-02-blur: 28px;
+  --token-elevation-higher-shadow-02-spread: 0px;
+  --token-elevation-higher-border-width: 1px;
+  --token-elevation-overlay-shadow-01-x: 0px;
+  --token-elevation-overlay-shadow-01-y: 2px;
+  --token-elevation-overlay-shadow-01-blur: 3px;
+  --token-elevation-overlay-shadow-01-spread: 0px;
+  --token-elevation-overlay-shadow-02-x: 0px;
+  --token-elevation-overlay-shadow-02-y: 12px;
+  --token-elevation-overlay-shadow-02-blur: 24px;
+  --token-elevation-overlay-shadow-02-spread: 0px;
+  --token-elevation-overlay-border-width: 1px;
+  --token-elevation-base-border-width: 1px;
+  --token-app-header-height: 60px;
+  --token-app-header-home-link-size: 36px;
+  --token-app-header-logo-size: 28px;
+  --token-app-side-nav-wrapper-border-width: 1px;
+  --token-app-side-nav-wrapper-border-color: var(--token-color-palette-neutral-200);
+  --token-app-side-nav-wrapper-padding-horizontal: 16px;
+  --token-app-side-nav-wrapper-padding-vertical: 16px;
+  --token-app-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-app-side-nav-wrapper-padding-vertical-minimized: 22px;
+  --token-app-side-nav-toggle-button-border-radius: 5px;
+  --token-app-side-nav-header-home-link-padding: 4px;
+  --token-app-side-nav-header-home-link-logo-size: 48px;
+  --token-app-side-nav-header-home-link-logo-size-minimized: 32px;
+  --token-app-side-nav-header-actions-spacing: 8px;
+  --token-app-side-nav-body-list-margin-vertical: 24px;
+  --token-app-side-nav-body-list-item-height: 36px;
+  --token-app-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-app-side-nav-body-list-item-padding-vertical: 4px;
+  --token-app-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-app-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-app-side-nav-body-list-item-border-radius: 5px;
+  --token-app-side-nav-color-foreground-primary: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-strong: var(--token-color-foreground-primary);
+  --token-app-side-nav-color-foreground-faint: var(--token-color-foreground-faint);
+  --token-app-side-nav-color-surface-primary: var(--token-color-surface-faint);
+  --token-app-side-nav-color-surface-interactive-hover: var(--token-color-surface-interactive-hover);
+  --token-app-side-nav-color-surface-interactive-active: var(--token-color-palette-neutral-300);
+  --token-form-error-icon-size: 14px;
+  --token-form-checkbox-size: 16px;
+  --token-form-checkbox-border-radius: 3px;
+  --token-form-checkbox-border-width: 1px;
+  --token-form-checkbox-background-image-size: 12px;
+  --token-form-checkbox-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-checkbox-background-image-data-url-indeterminate-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m2.03125,6a0.66146,0.75 0 0 1 0.66146,-0.75l6.61458,0a0.66146,0.75 0 0 1 0,1.5l-6.61458,0a0.66146,0.75 0 0 1 -0.66146,-0.75z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dash' color is hardcoded here! */
+  --token-form-control-padding: 7px; /* Notice: we have to take in account the border, so it's 1px less than in Figma. */
+  --token-form-control-border-radius: 5px;
+  --token-form-control-border-width: 1px;
+  --token-form-radio-size: 16px;
+  --token-form-radio-border-width: 1px;
+  --token-form-radio-background-image-size: 12px;
+  --token-form-radio-background-image-data-url: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%23ffffff'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
+  --token-form-radio-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='6' cy='6' r='2.5' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'dot' color is hardcoded here! */
+  --token-form-radiocard-group-gap: 16px;
+  --token-form-radiocard-border-width: 1px;
+  --token-form-radiocard-border-radius: 6px;
+  --token-form-radiocard-content-padding: 24px;
+  --token-form-radiocard-control-padding: 8px;
+  --token-form-radiocard-transition-duration: 0.2s;
+  --token-form-select-background-image-size: 16px;
+  --token-form-select-background-image-position-top-y: 9px;
+  --token-form-select-background-image-data-url: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%23656A76'/%3E%3C/svg%3E"); /* notice: the 'caret' color is hardcoded here! */
+  --token-form-select-background-image-data-url-disabled: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.55 2.24a.75.75 0 0 0-1.1 0L4.2 5.74a.75.75 0 1 0 1.1 1.02L8 3.852l2.7 2.908a.75.75 0 1 0 1.1-1.02l-3.25-3.5Zm-1.1 11.52a.75.75 0 0 0 1.1 0l3.25-3.5a.75.75 0 1 0-1.1-1.02L8 12.148 5.3 9.24a.75.75 0 0 0-1.1 1.02l3.25 3.5Z' fill='%238C909C'/%3E%3C/svg%3E"); /* notice: the 'caret' color is hardcoded here! */
+  --token-form-text-input-background-image-size: 16px;
+  --token-form-text-input-background-image-data-url-date: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.5.75a.75.75 0 00-1.5 0V1H6V.75a.75.75 0 00-1.5 0V1H3.25A2.25 2.25 0 001 3.25v9.5A2.25 2.25 0 003.25 15h9.5A2.25 2.25 0 0015 12.75v-9.5A2.25 2.25 0 0012.75 1H11.5V.75zm-7 2.5V2.5H3.25a.75.75 0 00-.75.75V5h11V3.25a.75.75 0 00-.75-.75H11.5v.75a.75.75 0 01-1.5 0V2.5H6v.75a.75.75 0 01-1.5 0zm9 3.25h-11v6.25c0 .414.336.75.75.75h9.5a.75.75 0 00.75-.75V6.5z' fill-rule='evenodd' clip-rule='evenodd' fill='%233B3D45'/%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-time: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%233B3D45'%3e%3cpath d='M8.5 3.75a.75.75 0 00-1.5 0V8c0 .284.16.544.415.67l2.5 1.25a.75.75 0 10.67-1.34L8.5 7.535V3.75z'/%3e%3cpath d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cg fill='%23656A76'%3e%3cpath d='M7.25 2a5.25 5.25 0 103.144 9.455l2.326 2.325a.75.75 0 101.06-1.06l-2.325-2.326A5.25 5.25 0 007.25 2zM3.5 7.25a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z' fill-rule='evenodd' clip-rule='evenodd'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-cancel: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.78 4.28a.75.75 0 00-1.06-1.06L8 6.94 4.28 3.22a.75.75 0 00-1.06 1.06L6.94 8l-3.72 3.72a.75.75 0 101.06 1.06L8 9.06l3.72 3.72a.75.75 0 101.06-1.06L9.06 8l3.72-3.72z'/%3e%3c/svg%3e"); /* notice: the icon color is hardcoded here! */
+  --token-form-text-input-background-image-data-url-search-loading: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' %3e%3cg fill='%23656A76' fill-rule='evenodd' clip-rule='evenodd'%3e%3canimateTransform attributeName='transform' type='rotate' dur='0.9s' from='0 8 8' to='360 8 8' repeatCount='indefinite'/%3e%3cpath d='M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z' opacity='.2'/%3e%3cpath d='M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z'/%3e%3c/g%3e%3c/svg%3e"); /* notice: the icon color and animation are hardcoded here! */
+  --token-form-toggle-width: 32px;
+  --token-form-toggle-height: 16px;
+  --token-form-toggle-border-radius: 3px;
+  --token-form-toggle-border-width: 1px;
+  --token-form-toggle-background-image-size: 12px;
+  --token-form-toggle-background-image-position-x: 2px;
+  --token-form-toggle-background-image-data-url: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%23FFF'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-toggle-background-image-data-url-disabled: url("data:image/svg+xml,%3csvg viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.78033 3.21967C10.0732 3.51256 10.0732 3.98744 9.78033 4.28033L5.28033 8.78033C4.98744 9.07322 4.51256 9.07322 4.21967 8.78033L2.21967 6.78033C1.92678 6.48744 1.92678 6.01256 2.21967 5.71967C2.51256 5.42678 2.98744 5.42678 3.28033 5.71967L4.75 7.18934L8.71967 3.21967C9.01256 2.92678 9.48744 2.92678 9.78033 3.21967Z' fill='%238C909C'/%3e%3c/svg%3e"); /* notice: the 'tick' color is hardcoded here! */
+  --token-form-toggle-transition-duration: 0.2s;
+  --token-form-toggle-transition-timing-function: cubic-bezier(0.68, -0.2, 0.265, 1.15);
+  --token-pagination-nav-control-height: 36px;
+  --token-pagination-nav-control-padding-horizontal: 12px;
+  --token-pagination-nav-control-focus-inset: 4px;
+  --token-pagination-nav-control-icon-spacing: 6px;
+  --token-pagination-nav-indicator-height: 2px;
+  --token-pagination-nav-indicator-spacing: 6px;
+  --token-pagination-child-spacing-vertical: 8px;
+  --token-pagination-child-spacing-horizontal: 20px;
+  --token-side-nav-wrapper-border-width: 1px;
+  --token-side-nav-wrapper-border-color: #656a76;
+  --token-side-nav-wrapper-padding-horizontal: 16px;
+  --token-side-nav-wrapper-padding-vertical: 16px;
+  --token-side-nav-wrapper-padding-horizontal-minimized: 8px;
+  --token-side-nav-wrapper-padding-vertical-minimized: 22px;
+  --token-side-nav-toggle-button-border-radius: 5px;
+  --token-side-nav-header-home-link-padding: 4px;
+  --token-side-nav-header-home-link-logo-size: 48px;
+  --token-side-nav-header-home-link-logo-size-minimized: 32px;
+  --token-side-nav-header-actions-spacing: 8px;
+  --token-side-nav-body-list-margin-vertical: 24px;
+  --token-side-nav-body-list-item-height: 36px;
+  --token-side-nav-body-list-item-padding-horizontal: 8px;
+  --token-side-nav-body-list-item-padding-vertical: 4px;
+  --token-side-nav-body-list-item-spacing-vertical: 2px;
+  --token-side-nav-body-list-item-content-spacing-horizontal: 8px;
+  --token-side-nav-body-list-item-border-radius: 5px;
+  --token-side-nav-color-foreground-primary: #dedfe3;
+  --token-side-nav-color-foreground-strong: #ffffff;
+  --token-side-nav-color-foreground-faint: #8c909c;
+  --token-side-nav-color-surface-primary: #0c0c0e;
+  --token-side-nav-color-surface-interactive-hover: #3b3d45;
+  --token-side-nav-color-surface-interactive-active: #656a76;
+  --token-tabs-tab-height-medium: 36px;
+  --token-tabs-tab-height-large: 48px;
+  --token-tabs-tab-padding-horizontal-medium: 12px;
+  --token-tabs-tab-padding-horizontal-large: 20px;
+  --token-tabs-tab-padding-vertical: 0px;
+  --token-tabs-tab-border-radius: 5px;
+  --token-tabs-tab-focus-inset: 6px;
+  --token-tabs-tab-gutter: 6px;
+  --token-tabs-indicator-height: 3px;
+  --token-tabs-indicator-transition-function: cubic-bezier(0.5, 1, 0.89, 1);
+  --token-tabs-indicator-transition-duration: 0.6s;
+  --token-tabs-divider-height: 1px;
+  --token-tooltip-border-radius: 5px;
+  --token-tooltip-color-foreground-primary: var(--token-color-foreground-high-contrast);
+  --token-tooltip-color-surface-primary: var(--token-color-palette-neutral-700);
+  --token-tooltip-focus-offset: -2px;
+  --token-tooltip-max-width: 280px;
+  --token-tooltip-padding-horizontal: 12px;
+  --token-tooltip-padding-vertical: 8px;
+  --token-tooltip-transition-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  --token-typography-font-stack-sans-display-mac-os: -apple-system, BlinkMacSystemFont;
+  --token-typography-font-stack-sans-display-windows: Segoe UI;
+  --token-typography-font-stack-sans-display-sans: Helvetica, Arial, sans-serif;
+  --token-typography-font-stack-sans-display-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-sans-text-mac-os: -apple-system, BlinkMacSystemFont;
+  --token-typography-font-stack-sans-text-windows: Segoe UI;
+  --token-typography-font-stack-sans-text-emoji: Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  --token-typography-font-stack-monospace-code-mac-os: ui-monospace, Menlo;
+  --token-typography-font-stack-monospace-code-windows: Consolas;
+  --token-typography-font-weight-regular: 400;
+  --token-typography-font-weight-medium: 500;
+  --token-typography-font-weight-semibold: 600;
+  --token-typography-font-weight-bold: 700;
+  --token-typography-display-500-font-size: 1.875rem; /* 30px/1.875rem */
+  --token-typography-display-500-line-height: 1.2666; /* 38px */
+  --token-typography-display-400-font-size: 1.5rem; /* 24px/1.5rem */
+  --token-typography-display-400-line-height: 1.3333; /* 32px */
+  --token-typography-display-300-font-size: 1.125rem; /* 18px/1.125rem */
+  --token-typography-display-300-line-height: 1.3333; /* 24px */
+  --token-typography-display-300-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-display-200-font-size: 1rem; /* 16px/1rem */
+  --token-typography-display-200-line-height: 1.5; /* 24px */
+  --token-typography-display-200-letter-spacing: -0.5px; /* this is `tracking` */
+  --token-typography-display-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-display-100-line-height: 1.3846; /* 18px */
+  --token-typography-body-300-font-size: 1rem; /* 16px/1rem */
+  --token-typography-body-300-line-height: 1.5; /* 24px */
+  --token-typography-body-200-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-body-200-line-height: 1.4286; /* 20px */
+  --token-typography-body-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-body-100-line-height: 1.3846; /* 18px */
+  --token-typography-code-100-font-size: 0.8125rem; /* 13px/0.8125rem */
+  --token-typography-code-100-line-height: 1.23; /* 16px */
+  --token-typography-code-200-font-size: 0.875rem; /* 14px/0.875rem */
+  --token-typography-code-200-line-height: 1.125; /* 18px */
+  --token-typography-code-300-font-size: 1rem; /* 16px/1rem */
+  --token-typography-code-300-line-height: 1.25; /* 20px */
+  --token-color-border-action: var(--token-color-palette-blue-100);
+  --token-color-border-highlight: var(--token-color-palette-purple-100);
+  --token-color-border-success: var(--token-color-palette-green-100);
+  --token-color-border-warning: var(--token-color-palette-amber-100);
+  --token-color-border-critical: var(--token-color-palette-red-100);
+  --token-color-focus-action-internal: var(--token-color-palette-blue-300);
+  --token-color-focus-critical-internal: var(--token-color-palette-red-300);
+  --token-color-foreground-strong: var(--token-color-palette-neutral-700);
+  --token-color-foreground-primary: var(--token-color-palette-neutral-600);
+  --token-color-foreground-faint: var(--token-color-palette-neutral-500);
+  --token-color-foreground-high-contrast: var(--token-color-palette-neutral-0);
+  --token-color-foreground-disabled: var(--token-color-palette-neutral-400);
+  --token-color-foreground-action: var(--token-color-palette-blue-200);
+  --token-color-foreground-action-hover: var(--token-color-palette-blue-300);
+  --token-color-foreground-action-active: var(--token-color-palette-blue-400);
+  --token-color-foreground-highlight: var(--token-color-palette-purple-200);
+  --token-color-foreground-highlight-on-surface: var(--token-color-palette-purple-300);
+  --token-color-foreground-highlight-high-contrast: var(--token-color-palette-purple-500);
+  --token-color-foreground-success: var(--token-color-palette-green-200);
+  --token-color-foreground-success-on-surface: var(--token-color-palette-green-300);
+  --token-color-foreground-success-high-contrast: var(--token-color-palette-green-500);
+  --token-color-foreground-warning: var(--token-color-palette-amber-200);
+  --token-color-foreground-warning-on-surface: var(--token-color-palette-amber-300);
+  --token-color-foreground-warning-high-contrast: var(--token-color-palette-amber-500);
+  --token-color-foreground-critical: var(--token-color-palette-red-200);
+  --token-color-foreground-critical-on-surface: var(--token-color-palette-red-300);
+  --token-color-foreground-critical-high-contrast: var(--token-color-palette-red-500);
+  --token-color-page-primary: var(--token-color-palette-neutral-0);
+  --token-color-page-faint: var(--token-color-palette-neutral-50);
+  --token-color-surface-primary: var(--token-color-palette-neutral-0);
+  --token-color-surface-faint: var(--token-color-palette-neutral-50);
+  --token-color-surface-strong: var(--token-color-palette-neutral-100);
+  --token-color-surface-interactive: var(--token-color-palette-neutral-0);
+  --token-color-surface-interactive-hover: var(--token-color-palette-neutral-100);
+  --token-color-surface-interactive-active: var(--token-color-palette-neutral-200);
+  --token-color-surface-interactive-disabled: var(--token-color-palette-neutral-50);
+  --token-color-surface-action: var(--token-color-palette-blue-50);
+  --token-color-surface-highlight: var(--token-color-palette-purple-50);
+  --token-color-surface-success: var(--token-color-palette-green-50);
+  --token-color-surface-warning: var(--token-color-palette-amber-50);
+  --token-color-surface-critical: var(--token-color-palette-red-50);
+  --token-color-hashicorp-brand: var(--token-color-palette-hashicorp-brand);
+  --token-color-boundary-brand: var(--token-color-palette-boundary-brand);
+  --token-color-boundary-foreground: var(--token-color-palette-boundary-500);
+  --token-color-boundary-surface: var(--token-color-palette-boundary-50);
+  --token-color-boundary-border: var(--token-color-palette-boundary-100);
+  --token-color-boundary-gradient-primary-start: var(--token-color-palette-boundary-300);
+  --token-color-boundary-gradient-primary-stop: var(--token-color-palette-boundary-400);
+  --token-color-boundary-gradient-faint-stop: var(--token-color-palette-boundary-50);
+  --token-color-consul-brand: var(--token-color-palette-consul-brand);
+  --token-color-consul-foreground: var(--token-color-palette-consul-500);
+  --token-color-consul-surface: var(--token-color-palette-consul-50);
+  --token-color-consul-border: var(--token-color-palette-consul-100);
+  --token-color-consul-gradient-primary-start: var(--token-color-palette-consul-300);
+  --token-color-consul-gradient-primary-stop: var(--token-color-palette-consul-400);
+  --token-color-consul-gradient-faint-stop: var(--token-color-palette-consul-50);
+  --token-color-hcp-brand: var(--token-color-palette-hcp-brand);
+  --token-color-nomad-brand: var(--token-color-palette-nomad-brand);
+  --token-color-nomad-foreground: var(--token-color-palette-nomad-500);
+  --token-color-nomad-surface: var(--token-color-palette-nomad-50);
+  --token-color-nomad-border: var(--token-color-palette-nomad-100);
+  --token-color-nomad-gradient-primary-start: var(--token-color-palette-nomad-100);
+  --token-color-nomad-gradient-primary-stop: var(--token-color-palette-nomad-200);
+  --token-color-nomad-gradient-faint-stop: var(--token-color-palette-nomad-50);
+  --token-color-packer-brand: var(--token-color-palette-packer-brand);
+  --token-color-packer-foreground: var(--token-color-palette-packer-500);
+  --token-color-packer-surface: var(--token-color-palette-packer-50);
+  --token-color-packer-border: var(--token-color-palette-packer-100);
+  --token-color-packer-gradient-primary-start: var(--token-color-palette-packer-100);
+  --token-color-packer-gradient-primary-stop: var(--token-color-palette-packer-200);
+  --token-color-packer-gradient-faint-stop: var(--token-color-palette-packer-50);
+  --token-color-terraform-brand: var(--token-color-palette-terraform-brand);
+  --token-color-terraform-foreground: var(--token-color-palette-terraform-500);
+  --token-color-terraform-surface: var(--token-color-palette-terraform-50);
+  --token-color-terraform-border: var(--token-color-palette-terraform-100);
+  --token-color-terraform-gradient-primary-start: var(--token-color-palette-terraform-300);
+  --token-color-terraform-gradient-primary-stop: var(--token-color-palette-terraform-400);
+  --token-color-terraform-gradient-faint-stop: var(--token-color-palette-terraform-50);
+  --token-color-vagrant-brand: var(--token-color-palette-vagrant-brand);
+  --token-color-vagrant-foreground: var(--token-color-palette-vagrant-500);
+  --token-color-vagrant-surface: var(--token-color-palette-vagrant-50);
+  --token-color-vagrant-border: var(--token-color-palette-vagrant-100);
+  --token-color-vagrant-gradient-primary-start: var(--token-color-palette-vagrant-300);
+  --token-color-vagrant-gradient-primary-stop: var(--token-color-palette-vagrant-400);
+  --token-color-vagrant-gradient-faint-stop: var(--token-color-palette-vagrant-50);
+  --token-color-vault-radar-brand: var(--token-color-palette-vault-radar-brand);
+  --token-color-vault-radar-foreground: var(--token-color-palette-vault-radar-500);
+  --token-color-vault-radar-surface: var(--token-color-palette-vault-radar-50);
+  --token-color-vault-radar-border: var(--token-color-palette-vault-radar-100);
+  --token-color-vault-radar-gradient-primary-start: var(--token-color-palette-vault-radar-100);
+  --token-color-vault-radar-gradient-primary-stop: var(--token-color-palette-vault-radar-200);
+  --token-color-vault-radar-gradient-faint-stop: var(--token-color-palette-vault-radar-50);
+  --token-color-vault-secrets-brand: var(--token-color-palette-vault-secrets-brand);
+  --token-color-vault-secrets-foreground: var(--token-color-palette-vault-secrets-500);
+  --token-color-vault-secrets-surface: var(--token-color-palette-vault-secrets-50);
+  --token-color-vault-secrets-border: var(--token-color-palette-vault-secrets-100);
+  --token-color-vault-secrets-gradient-primary-start: var(--token-color-palette-vault-secrets-100);
+  --token-color-vault-secrets-gradient-primary-stop: var(--token-color-palette-vault-secrets-200);
+  --token-color-vault-secrets-gradient-faint-stop: var(--token-color-palette-vault-secrets-50);
+  --token-color-vault-brand: var(--token-color-palette-vault-brand);
+  --token-color-vault-foreground: var(--token-color-palette-vault-500);
+  --token-color-vault-surface: var(--token-color-palette-vault-50);
+  --token-color-vault-border: var(--token-color-palette-vault-100);
+  --token-color-vault-gradient-primary-start: var(--token-color-palette-vault-100);
+  --token-color-vault-gradient-primary-stop: var(--token-color-palette-vault-200);
+  --token-color-vault-gradient-faint-stop: var(--token-color-palette-vault-50);
+  --token-color-waypoint-brand: var(--token-color-palette-waypoint-brand);
+  --token-color-waypoint-foreground: var(--token-color-palette-waypoint-500);
+  --token-color-waypoint-surface: var(--token-color-palette-waypoint-50);
+  --token-color-waypoint-border: var(--token-color-palette-waypoint-100);
+  --token-color-waypoint-gradient-primary-start: var(--token-color-palette-waypoint-100);
+  --token-color-waypoint-gradient-primary-stop: var(--token-color-palette-waypoint-200);
+  --token-color-waypoint-gradient-faint-stop: var(--token-color-palette-waypoint-50);
+  --token-elevation-inset-box-shadow-01: inset var(--token-elevation-inset-shadow-01-x) var(--token-elevation-inset-shadow-01-y) var(--token-elevation-inset-shadow-01-blur) var(--token-elevation-inset-shadow-01-spread) var(--token-elevation-inset-shadow-01-color);
+  --token-elevation-inset-box-shadow-border: inset 0 0 0 var(--token-elevation-inset-border-width) var(--token-elevation-inset-border-color);
+  --token-elevation-low-box-shadow-01: var(--token-elevation-low-shadow-01-x) var(--token-elevation-low-shadow-01-y) var(--token-elevation-low-shadow-01-blur) var(--token-elevation-low-shadow-01-spread) var(--token-elevation-low-shadow-01-color);
+  --token-elevation-low-box-shadow-02: var(--token-elevation-low-shadow-02-x) var(--token-elevation-low-shadow-02-y) var(--token-elevation-low-shadow-02-blur) var(--token-elevation-low-shadow-02-spread) var(--token-elevation-low-shadow-02-color);
+  --token-elevation-low-box-shadow-border: 0 0 0 var(--token-elevation-low-border-width) var(--token-elevation-low-border-color);
+  --token-elevation-mid-box-shadow-01: var(--token-elevation-mid-shadow-01-x) var(--token-elevation-mid-shadow-01-y) var(--token-elevation-mid-shadow-01-blur) var(--token-elevation-mid-shadow-01-spread) var(--token-elevation-mid-shadow-01-color);
+  --token-elevation-mid-box-shadow-border: 0 0 0 var(--token-elevation-mid-border-width) var(--token-elevation-mid-border-color);
+  --token-elevation-high-box-shadow-01: var(--token-elevation-high-shadow-01-x) var(--token-elevation-high-shadow-01-y) var(--token-elevation-high-shadow-01-blur) var(--token-elevation-high-shadow-01-spread) var(--token-elevation-high-shadow-01-color);
+  --token-elevation-high-box-shadow-02: var(--token-elevation-high-shadow-02-x) var(--token-elevation-high-shadow-02-y) var(--token-elevation-high-shadow-02-blur) var(--token-elevation-high-shadow-02-spread) var(--token-elevation-high-shadow-02-color);
+  --token-elevation-higher-box-shadow-02: var(--token-elevation-higher-shadow-02-x) var(--token-elevation-higher-shadow-02-y) var(--token-elevation-higher-shadow-02-blur) var(--token-elevation-higher-shadow-02-spread) var(--token-elevation-higher-shadow-02-color);
+  --token-elevation-overlay-box-shadow-02: var(--token-elevation-overlay-shadow-02-x) var(--token-elevation-overlay-shadow-02-y) var(--token-elevation-overlay-shadow-02-blur) var(--token-elevation-overlay-shadow-02-spread) var(--token-elevation-overlay-shadow-02-color);
+  --token-elevation-mid-shadow-02-color: var(--token-elevation-color-base);
+  --token-elevation-mid-box-shadow-02: var(--token-elevation-mid-shadow-02-x) var(--token-elevation-mid-shadow-02-y) var(--token-elevation-mid-shadow-02-blur) var(--token-elevation-mid-shadow-02-spread) var(--token-elevation-mid-shadow-02-color);
+  --token-elevation-high-box-shadow-border: 0 0 0 var(--token-elevation-high-border-width) var(--token-elevation-high-border-color);
+  --token-elevation-higher-box-shadow-01: var(--token-elevation-higher-shadow-01-x) var(--token-elevation-higher-shadow-01-y) var(--token-elevation-higher-shadow-01-blur) var(--token-elevation-higher-shadow-01-spread) var(--token-elevation-higher-shadow-01-color);
+  --token-elevation-higher-box-shadow-border: 0 0 0 var(--token-elevation-higher-border-width) var(--token-elevation-higher-border-color);
+  --token-elevation-overlay-box-shadow-01: var(--token-elevation-overlay-shadow-01-x) var(--token-elevation-overlay-shadow-01-y) var(--token-elevation-overlay-shadow-01-blur) var(--token-elevation-overlay-shadow-01-spread) var(--token-elevation-overlay-shadow-01-color);
+  --token-elevation-overlay-box-shadow-border: 0 0 0 var(--token-elevation-overlay-border-width) var(--token-elevation-overlay-border-color);
+  --token-elevation-base-box-shadow-border: 0 0 0 var(--token-elevation-base-border-width) var(--token-elevation-base-border-color);
+  --token-elevation-color-base: var(--token-color-palette-neutral-500);
+  --token-elevation-color-strong: var(--token-color-palette-neutral-600);
+  --token-focus-ring-action-external-box-shadow: 0 0 0 3px var(--token-color-focus-action-external);
+  --token-focus-ring-critical-external-box-shadow: 0 0 0 3px var(--token-color-focus-critical-external);
+  --token-form-error-color: var(--token-color-palette-red-300);
+  --token-form-control-base-border-color-default: var(--token-color-palette-neutral-400);
+  --token-form-control-base-border-color-hover: var(--token-color-palette-neutral-500);
+  --token-form-control-checked-surface-color-default: var(--token-color-palette-blue-200);
+  --token-form-control-checked-surface-color-hover: var(--token-color-palette-blue-300);
+  --token-form-control-checked-border-color-default: var(--token-color-palette-blue-300);
+  --token-form-control-checked-border-color-hover: var(--token-color-palette-blue-400);
+  --token-form-control-invalid-border-color-default: var(--token-color-palette-red-300);
+  --token-form-control-invalid-border-color-hover: var(--token-color-palette-red-400);
+  --token-form-select-background-image-position-right-x: var(--token-form-control-padding);
+  --token-form-text-input-background-image-position-x: var(--token-form-control-padding);
+  --token-form-toggle-thumb-size: var(--token-form-toggle-height);
+  --token-typography-font-stack-display: var(--token-typography-font-stack-sans-display-mac-os), var(--token-typography-font-stack-sans-display-windows), var(--token-typography-font-stack-sans-display-sans), var(--token-typography-font-stack-sans-display-emoji);
+  --token-typography-font-stack-text: var(--token-typography-font-stack-sans-text-mac-os), var(--token-typography-font-stack-sans-text-windows), var(--token-typography-font-stack-sans-display-sans), var(--token-typography-font-stack-sans-text-emoji);
+  --token-typography-font-stack-code: var(--token-typography-font-stack-monospace-code-mac-os), var(--token-typography-font-stack-monospace-code-windows), monospace;
+  --token-color-border-primary: var(--token-color-palette-alpha-200);
+  --token-color-border-faint: var(--token-color-palette-alpha-100);
+  --token-color-border-strong: var(--token-color-palette-alpha-300);
+  --token-elevation-inset-box-shadow: var(--token-elevation-inset-box-shadow-01);
+  --token-elevation-inset-shadow-01-color: var(--token-elevation-color-base);
+  --token-elevation-inset-border-color: var(--token-elevation-color-base);
+  --token-elevation-low-box-shadow: var(--token-elevation-low-box-shadow-01), var(--token-elevation-low-box-shadow-02);
+  --token-elevation-low-shadow-01-color: var(--token-elevation-color-base);
+  --token-elevation-low-shadow-02-color: var(--token-elevation-color-base);
+  --token-elevation-low-border-color: var(--token-elevation-color-base);
+  --token-elevation-mid-box-shadow: var(--token-elevation-mid-box-shadow-01), var(--token-elevation-mid-box-shadow-02);
+  --token-elevation-mid-shadow-01-color: var(--token-elevation-color-base);
+  --token-elevation-mid-border-color: var(--token-elevation-color-base);
+  --token-elevation-high-box-shadow: var(--token-elevation-high-box-shadow-01), var(--token-elevation-high-box-shadow-02);
+  --token-elevation-high-shadow-01-color: var(--token-elevation-color-base);
+  --token-elevation-high-shadow-02-color: var(--token-elevation-color-base);
+  --token-elevation-high-border-color: var(--token-elevation-color-base);
+  --token-elevation-higher-box-shadow: var(--token-elevation-higher-box-shadow-01), var(--token-elevation-higher-box-shadow-02);
+  --token-elevation-higher-shadow-01-color: var(--token-elevation-color-base);
+  --token-elevation-higher-shadow-02-color: var(--token-elevation-color-base);
+  --token-elevation-higher-border-color: var(--token-elevation-color-base);
+  --token-elevation-overlay-box-shadow: var(--token-elevation-overlay-box-shadow-01), var(--token-elevation-overlay-box-shadow-02);
+  --token-elevation-overlay-shadow-01-color: var(--token-elevation-color-strong);
+  --token-elevation-overlay-shadow-02-color: var(--token-elevation-color-strong);
+  --token-elevation-overlay-border-color: var(--token-elevation-color-strong);
+  --token-elevation-base-border-color: var(--token-elevation-color-base);
+  --token-surface-inset-box-shadow: var(--token-elevation-inset-box-shadow-border), var(--token-elevation-inset-box-shadow);
+  --token-surface-base-box-shadow: var(--token-elevation-base-box-shadow-border);
+  --token-surface-low-box-shadow: var(--token-elevation-low-box-shadow-border), var(--token-elevation-low-box-shadow);
+  --token-surface-mid-box-shadow: var(--token-elevation-mid-box-shadow-border), var(--token-elevation-mid-box-shadow);
+  --token-surface-high-box-shadow: var(--token-elevation-high-box-shadow-border), var(--token-elevation-high-box-shadow);
+  --token-surface-higher-box-shadow: var(--token-elevation-higher-box-shadow-border), var(--token-elevation-higher-box-shadow);
+  --token-surface-overlay-box-shadow: var(--token-elevation-overlay-box-shadow-border), var(--token-elevation-overlay-box-shadow);
+  --token-focus-ring-action-internal-box-shadow: inset 0 0 0 1px var(--token-color-focus-action-internal);
+  --token-focus-ring-critical-internal-box-shadow: inset 0 0 0 1px var(--token-color-focus-critical-internal);
+  --token-form-label-color: var(--token-color-foreground-strong);
+  --token-form-helper-text-color: var(--token-color-foreground-faint);
+  --token-form-indicator-optional-color: var(--token-color-foreground-faint);
+  --token-form-control-base-foreground-value-color: var(--token-color-foreground-strong);
+  --token-form-control-base-foreground-placeholder-color: var(--token-color-foreground-faint);
+  --token-form-control-base-surface-color-default: var(--token-color-surface-interactive);
+  --token-form-control-base-surface-color-hover: var(--token-color-surface-interactive-hover);
+  --token-form-control-checked-foreground-color: var(--token-color-foreground-high-contrast);
+  --token-form-control-readonly-foreground-color: var(--token-color-foreground-primary);
+  --token-form-control-readonly-surface-color: var(--token-color-surface-strong);
+  --token-form-control-disabled-foreground-color: var(--token-color-foreground-disabled);
+  --token-form-control-disabled-surface-color: var(--token-color-surface-interactive-disabled);
+  --token-form-toggle-base-surface-color-default: var(--token-color-surface-strong); /* the toggle has a different base surface color, compared to the other controls */
+  --token-typography-display-500-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-400-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-300-font-family: var(--token-typography-font-stack-text);
+  --token-typography-display-200-font-family: var(--token-typography-font-stack-display);
+  --token-typography-display-100-font-family: var(--token-typography-font-stack-text);
+  --token-typography-body-300-font-family: var(--token-typography-font-stack-text);
+  --token-typography-body-200-font-family: var(--token-typography-font-stack-text);
+  --token-typography-body-100-font-family: var(--token-typography-font-stack-text);
+  --token-typography-code-100-font-family: var(--token-typography-font-stack-code);
+  --token-typography-code-200-font-family: var(--token-typography-font-stack-code);
+  --token-typography-code-300-font-family: var(--token-typography-font-stack-code);
+  --token-focus-ring-action-box-shadow: var(--token-focus-ring-action-internal-box-shadow), var(--token-focus-ring-action-external-box-shadow);
+  --token-focus-ring-critical-box-shadow: var(--token-focus-ring-critical-internal-box-shadow), var(--token-focus-ring-critical-external-box-shadow);
+  --token-form-legend-color: var(--token-form-label-color);
+  --token-form-control-readonly-border-color: var(--token-color-border-faint);
+  --token-form-control-disabled-border-color: var(--token-color-border-primary);
+}
