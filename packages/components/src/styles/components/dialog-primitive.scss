@@ -30,6 +30,8 @@ $hds-dialog-primitive-vertical-padding: 16px;
   height: 100%;
   margin: 0;
   padding: 0;
+  // TODO this addition may have side effects on the consumers, something to explore more, but for now for the theming exploration it's OK
+  color: var(--token-color-foreground-primary);
   background: var(--token-color-surface-primary);
   border: none;
 }
