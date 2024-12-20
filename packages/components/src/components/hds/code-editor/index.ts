@@ -17,7 +17,7 @@ import type { EditorView } from '@codemirror/view';
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;
-    hasExpandButton?: boolean;
+    hasFullScreenButton?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     value?: HdsCodeEditorModifierSignature['Args']['Named']['value'];
     onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
@@ -52,7 +52,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   }
 
   get hasToolbarButton(): boolean {
-    return (this.args.hasCopyButton || this.args.hasExpandButton) ?? false;
+    return (this.args.hasCopyButton || this.args.hasFullScreenButton) ?? false;
   }
 
   @action

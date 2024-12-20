@@ -64,19 +64,23 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(hbs`<Hds::CodeEditor />`);
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
   });
-  // @hasExpandButton
-  test('it should render a toggle fullscreen button when the `@hasExpandButton` argument is true', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @hasExpandButton={{true}} />`);
+  // @hasFullScreenButton
+  test('it should render a toggle fullscreen button when the `@hasFullScreenButton` argument is true', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
+    );
     assert.dom('.hds-code-editor__expand-button').exists();
   });
-  test('it should not render a toggle fullscreen button when the `@hasExpandButton` argument is not provided', async function (assert) {
+  test('it should not render a toggle fullscreen button when the `@hasFullScreenButton` argument is not provided', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor />`);
     assert.dom('.hds-code-editor__expand-button').doesNotExist();
   });
 
   // expand/colapse
   test('it should expand the code editor when the expand button is clicked', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @hasExpandButton={{true}} />`);
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
+    );
     // initial state
     assert
       .dom('.hds-code-editor')
