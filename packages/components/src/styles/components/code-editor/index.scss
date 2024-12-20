@@ -63,7 +63,15 @@
     }
   }
 
-  .hds-code-editor__header-toolbar {
+  .hds-code-editor__title {
+    color: var(--hds-code-editor-color-foreground-primary);
+  }
+
+  .hds-code-editor__description {
+    color: var(--hds-code-editor-color-foreground-faint);
+  }
+
+  .hds-code-editor__header-actions {
     display: flex;
     gap: 8px;
     align-items: center;
@@ -80,6 +88,7 @@
     align-items: center;
     justify-content: center;
     height: 164px;
+    color: var(--hds-code-editor-color-foreground-primary);
     background-color: var(--hds-code-editor-color-surface-primary);
   }
 

@@ -13,20 +13,21 @@ export enum HdsCodeEditorLanguageValues {
 
 export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;
 
+export type HdsCodeEditorLanguageFunction = () => Extension;
 export interface CodemirrorJsonModule {
-  json: () => Extension;
+  json: HdsCodeEditorLanguageFunction;
 }
 
 export interface CodemirrorGoModule {
-  go: () => Extension;
+  go: HdsCodeEditorLanguageFunction;
 }
 
 export interface CodemirrorSqlModule {
-  sql: () => Extension;
+  sql: HdsCodeEditorLanguageFunction;
 }
 
 export interface CodemirrorHclModule {
-  hcl: () => Extension;
+  hcl: HdsCodeEditorLanguageFunction;
 }
 
 export type CodemirrorLanguageModule =
