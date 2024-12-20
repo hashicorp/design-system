@@ -11,6 +11,9 @@
   <strong>Figma library: <a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0" target="_blank" rel="noopener noreferrer">HDS Product - Components</a></strong>
 </p>
 
+### Test Date Test
+
+`testcomponent` - I am a new component 
 
 ### September 11th, 2024
 
@@ -84,10 +87,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### August 17th, 2023
 
 `SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
-
-### July 31st, 2023
-
-`Field/Date`, `Field/Time`, `Field/Datetime` - Fixed the default width of the components to match the browser default.
 
 
 ---
