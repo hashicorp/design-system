@@ -11,9 +11,25 @@
   <strong>Figma library: <a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0" target="_blank" rel="noopener noreferrer">HDS Product - Components</a></strong>
 </p>
 
-### Test Date Test
+### December 20th, 2024
 
-`testcomponent` - I am a new component 
+`IconTile` - Visual updates made to the component, including removing the border and updating colors for improved contrast and alignment.
+
+`Figma Library 1.0` - **Deprecated**. It will no longer receive updates or support.
+
+`Figma Library 2.0` - Released. Figma Library link
+
+`Foundations Library 1.0` - **Deprecated**. It will no longer receive updates or support.
+
+`Foundations Library 2.0` - Released.
+
+`Product Patterns 1.0` - **Deprecated**. It will no longer receive updates or support.
+
+`Product Patterns 2.0` - Released. Figma Library link
+
+HDS Wireframes - Released. Figma Library link
+
+SideNav - No longer deprecated due to limited adoption bandwidth and shifting priorities.
 
 ### September 11th, 2024
 

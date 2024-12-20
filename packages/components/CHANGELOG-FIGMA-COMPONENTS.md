@@ -15,9 +15,9 @@
 
 `Product Patterns 2.0` - Released. Figma Library link
 
-HDS Wireframes - Released. Figma Library link
+`HDS Wireframes` - Released. Figma Library link
 
-SideNav - No longer deprecated due to limited adoption bandwidth and shifting priorities.
+`SideNav` - No longer deprecated due to limited adoption bandwidth and shifting priorities.
 
 ## September 11th, 2024
 
