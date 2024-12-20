@@ -53,6 +53,7 @@ import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
 import type HdsCodeEditorTitleComponent from './components/hds/code-editor/title.ts';
 import type HdsCodeEditorButtonComponent from './components/hds/code-editor/button.ts';
+import type HdsCodeEditorFullScreenButtonComponent from './components/hds/code-editor/full-screen-button.ts';
 import type HdsCodeBlockComponent from './components/hds/code-block';
 import type HdsCodeBlockCopyButtonComponent from './components/hds/code-block/copy-button';
 import type HdsCodeBlockDescriptionComponent from './components/hds/code-block/description';
@@ -385,6 +386,8 @@ export default interface HdsComponentsRegistry {
   'hds/code-editor/title': typeof HdsCodeEditorTitleComponent;
   'Hds::CodeEditor::Button': typeof HdsCodeEditorButtonComponent;
   'hds/code-editor/button': typeof HdsCodeEditorButtonComponent;
+  'Hds::CodeEditor::FullScreenButton': typeof HdsCodeEditorFullScreenButtonComponent;
+  'hds/code-editor/full-screen-button': typeof HdsCodeEditorFullScreenButtonComponent;
 
   // Copy Button
   'Hds::Copy::Button': typeof HdsCopyButtonComponent;
