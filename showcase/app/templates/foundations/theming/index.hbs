@@ -7,12 +7,30 @@
 
 <Shw::Text::H1>Theming</Shw::Text::H1>
 
-<div class="shw-foundation-theming-status-bar">
-  <label for="hds-theme-switcher">HDS Theme Switcher:</label>
-  <Hds::ThemeSwitcher id="hds-theme-switcher" />
-</div>
-
 <section data-test-percy>
+
+  <Shw::Text::H2>Theme switcher</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Size</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="small (default)">
+      <Hds::ThemeSwitcher />
+    </SF.Item>
+    <SF.Item @label="medium">
+      <Hds::ThemeSwitcher @toggleSize="medium" />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="full-width">
+      <div {{style width="150px"}}>
+        <Hds::ThemeSwitcher @toggleIsFullWidth={{true}} />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Page-level theming</Shw::Text::H2>
 
@@ -85,6 +103,72 @@
           </div>
         </Mock::Theming::BasicContainer>
       </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>"Themed" components</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">AppFooter</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="theme=light">
+      <div class="shw-foundation-theming-light-background">
+        <Hds::AppFooter @theme="light" as |AF|>
+          <AF.ExtraBefore>
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
+            </Hds::Dropdown>
+          </AF.ExtraBefore>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </div>
+    </SF.Item>
+    <SF.Item @label="theme=dark">
+      <div class="shw-foundation-theming-dark-background">
+        <Hds::AppFooter @theme="dark" as |AF|>
+          <AF.ExtraBefore>
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
+            </Hds::Dropdown>
+          </AF.ExtraBefore>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">CodeBlock</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="default">
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+        @hasLineNumbers={{true}}
+        @hasCopyButton={{true}}
+        @highlightLines="2"
+        as |CB|
+      >
+        <CB.Title>Title</CB.Title>
+        <CB.Description>Description</CB.Description>
+      </Hds::CodeBlock>
+      {{! template-lint-enable no-whitespace-for-layout }}
     </SF.Item>
   </Shw::Flex>
 
