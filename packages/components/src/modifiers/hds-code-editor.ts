@@ -16,6 +16,7 @@ import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 import type {
   HdsCodeEditorLanguages,
+  HdsCodeEditorLanguageFunction,
   CodemirrorGoModule,
   CodemirrorJsonModule,
   CodemirrorSqlModule,
@@ -89,7 +90,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       let module: CodemirrorLanguageModule | null = null;
-      let languageFunction = null;
+      let languageFunction: HdsCodeEditorLanguageFunction | null = null;
 
       switch (language) {
         case 'go':
@@ -112,9 +113,63 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           throw new Error(`Language ${language} is not supported`);
       }
 
-      return languageFunction();
+      return languageFunction?.();
     }
   );
+
+  buildExtensionsTask = task({ drop: true }, async ({ language }) => {
+    const [
+      {
+        EditorView,
+        keymap,
+        lineNumbers,
+        highlightActiveLineGutter,
+        highlightSpecialChars,
+        highlightActiveLine,
+      },
+      { defaultKeymap, history, historyKeymap },
+      { bracketMatching, syntaxHighlighting },
+    ] = await Promise.all([
+      import('@codemirror/view'),
+      import('@codemirror/commands'),
+      import('@codemirror/language'),
+    ]);
+
+    const languageExtension = await this.loadLanguageTask.perform(language);
+
+    let extensions = [
+      lineNumbers(),
+      highlightActiveLineGutter(),
+      highlightSpecialChars(),
+      highlightActiveLine(),
+      EditorView.updateListener.of((update: ViewUpdate) => {
+        // toggle a class if the update has/does not have a selection
+        if (update.selectionSet) {
+          update.view.dom.classList.toggle(
+            'cm-hasSelection',
+            !update.state.selection.main.empty
+          );
+        }
+
+        // call the onInput callback if the document has changed
+        if (!update.docChanged || this.onInput === undefined) {
+          return;
+        }
+        this.onInput(update.state.doc.toString());
+      }),
+      hdsDarkTheme,
+      keymap.of([...defaultKeymap, ...historyKeymap]),
+      bracketMatching(),
+      syntaxHighlighting(hdsDarkHighlightStyle),
+      history(),
+    ];
+
+    if (languageExtension !== undefined) {
+      extensions = [languageExtension, ...extensions];
+    }
+
+    return extensions;
+  });
 
   setupTask = task(
     { drop: true },
@@ -125,59 +180,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     ) => {
       const { onInput, onSetup, language, value } = named;
 
-      const [
-        {
-          EditorView,
-          keymap,
-          lineNumbers,
-          highlightActiveLineGutter,
-          highlightSpecialChars,
-          highlightActiveLine,
-        },
-        { EditorState },
-        { defaultKeymap, history, historyKeymap },
-        { bracketMatching, syntaxHighlighting },
-      ] = await Promise.all([
-        import('@codemirror/view'),
-        import('@codemirror/state'),
-        import('@codemirror/commands'),
-        import('@codemirror/language'),
-      ]);
-
+      this.element = element;
       this.onInput = onInput;
 
-      const languageExtension = await this.loadLanguageTask.perform(language);
+      const { EditorState } = await import('@codemirror/state');
+      const { EditorView } = await import('@codemirror/view');
 
-      let extensions = [
-        lineNumbers(),
-        highlightActiveLineGutter(),
-        highlightSpecialChars(),
-        highlightActiveLine(),
-        EditorView.updateListener.of((update: ViewUpdate) => {
-          // toggle a class if the update has/does not have a selection
-          if (update.selectionSet) {
-            update.view.dom.classList.toggle(
-              'cm-hasSelection',
-              !update.state.selection.main.empty
-            );
-          }
-
-          // call the onInput callback if the document has changed
-          if (!update.docChanged || this.onInput === undefined) {
-            return;
-          }
-          this.onInput(update.state.doc.toString());
-        }),
-        hdsDarkTheme,
-        keymap.of([...defaultKeymap, ...historyKeymap]),
-        bracketMatching(),
-        syntaxHighlighting(hdsDarkHighlightStyle),
-        history(),
-      ];
-
-      if (languageExtension !== undefined) {
-        extensions = [languageExtension, ...extensions];
-      }
+      const extensions = await this.buildExtensionsTask.perform({ language });
 
       const state = EditorState.create({
         doc: value,
@@ -187,7 +196,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const editor = new EditorView({ state, parent: element });
 
       this.editor = editor;
-      this.element = element;
 
       onSetup?.(this.editor);
     }

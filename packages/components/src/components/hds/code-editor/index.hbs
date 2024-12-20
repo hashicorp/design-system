@@ -3,8 +3,14 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes>
-  {{#if (and this.isSetupComplete (or this.hasToolbarButton (has-block)))}}
+<div
+  class={{this.classNames}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap isActive=this._isFullScreen}}
+  {{on "keydown" this.onKeyDown}}
+  ...attributes
+>
+  {{#if (and this._isSetupComplete (or this.hasActions (has-block)))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
         {{yield
@@ -16,8 +22,8 @@
         }}
       </div>
 
-      {{#if this.hasToolbarButton}}
-        <div class="hds-code-editor__header-toolbar">
+      {{#if this.hasActions}}
+        <div class="hds-code-editor__header-actions">
           {{#if @hasCopyButton}}
             <Hds::Copy::Button
               class="hds-code-editor__button hds-code-editor__copy-button"
@@ -29,8 +35,8 @@
           {{/if}}
           {{#if @hasFullScreenButton}}
             <Hds::CodeEditor::FullScreenButton
-              @isFullScreen={{this.isFullScreen}}
-              @onToggleFullScreen={{fn (mut this.isFullScreen)}}
+              @isFullScreen={{this._isFullScreen}}
+              @onToggleFullScreen={{this.toggleFullScreen}}
             />
           {{/if}}
         </div>
@@ -41,9 +47,9 @@
     class="hds-code-editor__editor"
     {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=this.onSetup}}
   />
-  {{#unless this.isSetupComplete}}
-    <div class="hds-code-editor__loader">
-      <Hds::Icon @name="loading" @color="var(--hds-code-editor-color-foreground-primary)" @size="24" />
+  {{#unless this._isSetupComplete}}
+    <div class="hds-code-editor__loader" aria-live="polite" role="status">
+      <Hds::Icon @name="loading" @size="24" />
     </div>
   {{/unless}}
 </div>
