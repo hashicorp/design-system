@@ -19,7 +19,6 @@
 
 Released HDS Components UI Kit v2.0.
 
-
 `SideNav` - No longer deprecated due to adjustments in prioritization.
 
 ### September 11th, 2024
