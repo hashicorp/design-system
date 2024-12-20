@@ -5,6 +5,8 @@
 
 // TAB
 
+@use "../typography" as *;
+
 body.components-tabs {
 
   // we add extra spacing to increase visual separation between the different use cases and examples
