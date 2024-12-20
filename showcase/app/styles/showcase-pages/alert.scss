@@ -5,6 +5,8 @@
 
 // ALERT
 
+@use "../typography" as *;
+
 body.components-alert {
   // we outline the "compact" variant to make its bounding box visible
   .hds-alert--type-compact {

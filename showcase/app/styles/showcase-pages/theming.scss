@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// THEMING
+
+body.foundations-theming {
+  .shw-foundation-theming-light-background {
+    padding: 8px;
+    background: var(--shw-color-white);
+  }
+
+  .shw-foundation-theming-dark-background {
+    padding: 8px;
+    background: var(--shw-color-black);
+  }
+}
