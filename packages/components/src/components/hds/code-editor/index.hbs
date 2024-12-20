@@ -27,15 +27,10 @@
               @textToCopy={{@value}}
             />
           {{/if}}
-          {{#if @hasExpandButton}}
-            <Hds::CodeEditor::Button
-              class="hds-code-editor__expand-button"
-              aria-pressed={{this.isFullScreen}}
-              @isIconOnly={{true}}
-              @size="small"
-              @icon={{if this.isFullScreen "minimize" "maximize"}}
-              @text="Toggle full screen view"
-              {{on "click" (fn (mut this.isFullScreen) (not this.isFullScreen))}}
+          {{#if @hasFullScreenButton}}
+            <Hds::CodeEditor::FullScreenButton
+              @isFullScreen={{this.isFullScreen}}
+              @onToggleFullScreen={{fn (mut this.isFullScreen)}}
             />
           {{/if}}
         </div>

@@ -166,6 +166,7 @@
       "./components/hds/code-block/title.js": "./dist/_app_/components/hds/code-block/title.js",
       "./components/hds/code-editor/button.js": "./dist/_app_/components/hds/code-editor/button.js",
       "./components/hds/code-editor/description.js": "./dist/_app_/components/hds/code-editor/description.js",
+      "./components/hds/code-editor/full-screen-button.js": "./dist/_app_/components/hds/code-editor/full-screen-button.js",
       "./components/hds/code-editor/index.js": "./dist/_app_/components/hds/code-editor/index.js",
       "./components/hds/code-editor/title.js": "./dist/_app_/components/hds/code-editor/title.js",
       "./components/hds/copy/button/index.js": "./dist/_app_/components/hds/copy/button/index.js",
