@@ -69,15 +69,15 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
     );
-    assert.dom('.hds-code-editor__expand-button').exists();
+    assert.dom('.hds-code-editor__full-screen-button').exists();
   });
   test('it should not render a toggle fullscreen button when the `@hasFullScreenButton` argument is not provided', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor />`);
-    assert.dom('.hds-code-editor__expand-button').doesNotExist();
+    assert.dom('.hds-code-editor__full-screen-button').doesNotExist();
   });
 
   // expand/colapse
-  test('it should expand the code editor when the expand button is clicked', async function (assert) {
+  test('it should expand the code editor when the toggle full screen button is clicked', async function (assert) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
     );
@@ -86,30 +86,32 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .dom('.hds-code-editor')
       .doesNotHaveClass('hds-code-editor--is-full-screen');
     assert
-      .dom('.hds-code-editor__expand-button')
+      .dom('.hds-code-editor__full-screen-button')
       .doesNotHaveAttribute('aria-pressed');
     assert
-      .dom('.hds-code-editor__expand-button .hds-icon')
+      .dom('.hds-code-editor__full-screen-button .hds-icon')
       .hasAttribute('data-test-icon', 'maximize');
 
     // expanded
-    await click('.hds-code-editor__expand-button');
+    await click('.hds-code-editor__full-screen-button');
     assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-full-screen');
-    assert.dom('.hds-code-editor__expand-button').hasAttribute('aria-pressed');
     assert
-      .dom('.hds-code-editor__expand-button .hds-icon')
+      .dom('.hds-code-editor__full-screen-button')
+      .hasAttribute('aria-pressed');
+    assert
+      .dom('.hds-code-editor__full-screen-button .hds-icon')
       .hasAttribute('data-test-icon', 'minimize');
 
     // collapsed
-    await click('.hds-code-editor__expand-button');
+    await click('.hds-code-editor__full-screen-button');
     assert
       .dom('.hds-code-editor')
       .doesNotHaveClass('hds-code-editor--is-full-screen');
     assert
-      .dom('.hds-code-editor__expand-button')
+      .dom('.hds-code-editor__full-screen-button')
       .doesNotHaveAttribute('aria-pressed');
     assert
-      .dom('.hds-code-editor__expand-button .hds-icon')
+      .dom('.hds-code-editor__full-screen-button .hds-icon')
       .hasAttribute('data-test-icon', 'maximize');
   });
 
