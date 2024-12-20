@@ -10,7 +10,7 @@ import type { HdsButtonSignature } from '../button';
 export interface HdsCodeEditorFullScreenButtonSignature {
   Args: {
     isFullScreen: boolean;
-    onToggleFullScreen: (isFullScreen: boolean) => void;
+    onToggleFullScreen: () => void;
   };
   Element: HdsButtonSignature['Element'];
 }
