@@ -88,6 +88,72 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>"Themed" components</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">AppFooter</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="theme=light">
+      <div class="shw-foundation-theming-light-background">
+        <Hds::AppFooter @theme="light" as |AF|>
+          <AF.ExtraBefore>
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
+            </Hds::Dropdown>
+          </AF.ExtraBefore>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </div>
+    </SF.Item>
+    <SF.Item @label="theme=dark">
+      <div class="shw-foundation-theming-dark-background">
+        <Hds::AppFooter @theme="dark" as |AF|>
+          <AF.ExtraBefore>
+            <Hds::Dropdown as |D|>
+              <D.ToggleButton @text="Theme" @color="secondary" @size="small" />
+              <D.Interactive @icon="monitor" {{on "click" D.close}}>System</D.Interactive>
+              <D.Interactive @icon="moon" {{on "click" D.close}}>Dark</D.Interactive>
+              <D.Interactive @icon="sun" {{on "click" D.close}}>Light</D.Interactive>
+            </Hds::Dropdown>
+          </AF.ExtraBefore>
+          <AF.StatusLink @status="operational" />
+          <AF.Link @href="https://cloud.hashicorp.com/docs/changelog">Changelog</AF.Link>
+          <AF.LegalLinks />
+        </Hds::AppFooter>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">CodeBlock</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="default">
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock
+        @language="javascript"
+        @value="let codeLang='JavaScript';
+console.log(`I am ${codeLang} code`);"
+        @hasLineNumbers={{true}}
+        @hasCopyButton={{true}}
+        @highlightLines="2"
+        as |CB|
+      >
+        <CB.Title>Title</CB.Title>
+        <CB.Description>Description</CB.Description>
+      </Hds::CodeBlock>
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
 
 {{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}

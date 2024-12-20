@@ -19,4 +19,14 @@ body.foundations-theming {
 
     label { margin-right: 8px; }
   }
+
+  .shw-foundation-theming-light-background {
+    padding: 8px;
+    background: var(--shw-color-white);
+  }
+
+  .shw-foundation-theming-dark-background {
+    padding: 8px;
+    background: var(--shw-color-black);
+  }
 }
