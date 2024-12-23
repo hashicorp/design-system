@@ -13052,7 +13052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-resolver@npm:*":
+"ember-resolver@npm:*, ember-resolver@npm:^13.1.0":
   version: 13.1.0
   resolution: "ember-resolver@npm:13.1.0"
   dependencies:
@@ -13063,20 +13063,6 @@ __metadata:
     ember-source:
       optional: true
   checksum: 10/4ac62524c999b617bb5fe6144dbf6414070919eb962491bfecfeed1669afcc8bc5f3a444cbf8c9662ce7247eb630ca2f0d0b893d73c6d5c12a523450007b286e
-  languageName: node
-  linkType: hard
-
-"ember-resolver@npm:^12.0.1":
-  version: 12.0.1
-  resolution: "ember-resolver@npm:12.0.1"
-  dependencies:
-    ember-cli-babel: "npm:^7.26.11"
-  peerDependencies:
-    ember-source: ^4.12.0 || >= 5.0.0
-  peerDependenciesMeta:
-    ember-source:
-      optional: true
-  checksum: 10/2e15de60e263727658b9db87ab5ef3ca1a7e9de3e470ee0e8f0d0b737e0926b34f468d4de83756709569b022177046579ad431d58d1cb4ac793de6c2a0f34722
   languageName: node
   linkType: hard
 
@@ -24273,7 +24259,7 @@ __metadata:
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
     ember-qunit: "npm:^8.1.1"
-    ember-resolver: "npm:^12.0.1"
+    ember-resolver: "npm:^13.1.0"
     ember-set-helper: "npm:^3.0.1"
     ember-source: "npm:~5.12.0"
     ember-source-channel-url: "npm:^3.0.0"
@@ -27435,7 +27421,7 @@ __metadata:
     ember-power-select: "npm:^8.6.0"
     ember-prism: "npm:^1.0.0"
     ember-qunit: "npm:^8.1.1"
-    ember-resolver: "npm:^12.0.1"
+    ember-resolver: "npm:^13.1.0"
     ember-router-scroll: "npm:^4.1.2"
     ember-source: "npm:~5.12.0"
     ember-template-lint: "npm:^6.0.0"
