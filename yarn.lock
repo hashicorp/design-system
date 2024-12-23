@@ -8532,6 +8532,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-remove-types@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "babel-remove-types@npm:1.0.0"
+  dependencies:
+    "@babel/core": "npm:^7.16.10"
+    "@babel/plugin-syntax-decorators": "npm:^7.16.7"
+    "@babel/plugin-transform-typescript": "npm:^7.16.8"
+    prettier: "npm:^2.5.1"
+  checksum: 10/d200e3012b3cc561e1735463da4e9a6d3f15c03e2288169cf52e6a446c94a97f78294d1f4c25e945c663820e6571457682fd34e2cccfbd596a43b800a1951d38
+  languageName: node
+  linkType: hard
+
 "babel-runtime@npm:^6.18.0, babel-runtime@npm:^6.22.0, babel-runtime@npm:^6.26.0":
   version: 6.26.0
   resolution: "babel-runtime@npm:6.26.0"
@@ -10754,13 +10766,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-tag@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "content-tag@npm:1.2.2"
-  checksum: 10/97ee5dd45c269eef1f3fabf974466f16db9e35b28c952e6947ef3094ee2f0213f651e994df938c9f3d1354094191af3e4ccfc163b5bf3777bb51563123dd944e
-  languageName: node
-  linkType: hard
-
 "content-tag@npm:^2.0.1":
   version: 2.0.3
   resolution: "content-tag@npm:2.0.3"
@@ -12786,11 +12791,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-cli@npm:5.9.0"
+"ember-cli@npm:~6.0.1":
+  version: 6.0.1
+  resolution: "ember-cli@npm:6.0.1"
   dependencies:
     "@pnpm/find-workspace-dir": "npm:^6.0.2"
+    babel-remove-types: "npm:^1.0.0"
     broccoli: "npm:^3.5.2"
     broccoli-builder: "npm:^0.18.14"
     broccoli-concat: "npm:^4.2.5"
@@ -12812,7 +12818,7 @@ __metadata:
     compression: "npm:^1.7.4"
     configstore: "npm:^5.0.1"
     console-ui: "npm:^3.1.2"
-    content-tag: "npm:^1.2.2"
+    content-tag: "npm:^2.0.1"
     core-object: "npm:^3.1.5"
     dag-map: "npm:^2.0.2"
     diff: "npm:^5.1.0"
@@ -12857,7 +12863,6 @@ __metadata:
     promise-map-series: "npm:^0.3.0"
     promise.hash.helper: "npm:^1.0.8"
     quick-temp: "npm:^0.1.8"
-    remove-types: "npm:^1.0.0"
     resolve: "npm:^1.22.1"
     resolve-package-path: "npm:^4.0.3"
     safe-stable-stringify: "npm:^2.4.3"
@@ -12867,7 +12872,7 @@ __metadata:
     sort-package-json: "npm:^1.57.0"
     symlink-or-copy: "npm:^1.3.1"
     temp: "npm:0.9.4"
-    testem: "npm:^3.10.1"
+    testem: "npm:^3.15.1"
     tiny-lr: "npm:^2.0.0"
     tree-sync: "npm:^2.1.0"
     walk-sync: "npm:^3.0.0"
@@ -12876,7 +12881,7 @@ __metadata:
     yam: "npm:^1.0.0"
   bin:
     ember: bin/ember
-  checksum: 10/89efa65e4813e5141605362b83f60c4574def0eb887f822b2537f3579766f112cf470fc7cde3ee8dd4da44f3b9ded456d4d4e8bc7b863806feb76cf95b178d1f
+  checksum: 10/1a58bc92a784c5cfac309fbc5a45bf4e9ddf83a84ca26a7d59b2b34a30dca51ce3b44a983d34f123f28b9a87c59f3580a19e3742aa7750a90b32fed5b8d5dc62
   languageName: node
   linkType: hard
 
@@ -24386,7 +24391,7 @@ __metadata:
     ember-auto-import: "npm:^2.7.3"
     ember-basic-dropdown: "npm:^8.1.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
+    ember-cli: "npm:~6.0.1"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-dependency-checker: "npm:^3.3.2"
@@ -25887,7 +25892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"testem@npm:^3.10.1":
+"testem@npm:^3.15.1":
   version: 3.15.2
   resolution: "testem@npm:3.15.2"
   dependencies:
@@ -27503,7 +27508,7 @@ __metadata:
     ember-auto-import: "npm:^2.7.3"
     ember-basic-dropdown: "npm:^8.1.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
+    ember-cli: "npm:~6.0.1"
     ember-cli-app-version: "npm:^7.0.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
