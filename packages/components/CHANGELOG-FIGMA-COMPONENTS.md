@@ -1,9 +1,9 @@
 # [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
 ## December 20th, 2024
 
-`IconTile` - Visual updates made to the component, including removing the border and updating colors for improved contrast and alignment.
+`IconTile` - Visual updates made to the component, including removing the border and updating colors for improved contrast and visual alignment.
 
-`Figma Library 1.0` - **Deprecated**. It will no longer receive updates or support.
+`[Figma Library v1.0](https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Components?m=auto&node-id=2-7&t=CPG3tlUvMHeQdEos-1)` - **Deprecated**. It will no longer receive updates or support. Instead, use the `[Figma Library v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=9BNZJMDOrABsgaJQ-1)`
 
 `Figma Library 2.0` - Released. Figma Library link
 
@@ -17,7 +17,7 @@
 
 `HDS Wireframes` - Released. Figma Library link
 
-`SideNav` - No longer deprecated due to limited adoption bandwidth and shifting priorities.
+`SideNav` - No longer deprecated due to adjustments in prioritization.
 
 ## September 11th, 2024
 
