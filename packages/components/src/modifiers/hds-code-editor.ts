@@ -13,16 +13,40 @@ import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
+import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
-import {
-  type HdsCodeEditorLanguages,
-  type HdsCodeEditorLanguageFunction,
-  type CodemirrorGoModule,
-  type CodemirrorJsonModule,
-  type CodemirrorSqlModule,
-  type CodemirrorHclModule,
-  type CodemirrorLanguageModule,
-} from '../types/hds-code-editor.types.ts';
+
+export enum HdsCodeEditorLanguageValues {
+  Json = 'json',
+  Sql = 'sql',
+  Go = 'go',
+  Hcl = 'hcl',
+}
+
+export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;
+
+export type HdsCodeEditorLanguageFunction = () => Extension;
+export interface CodemirrorJsonModule {
+  json: HdsCodeEditorLanguageFunction;
+}
+
+export interface CodemirrorGoModule {
+  go: HdsCodeEditorLanguageFunction;
+}
+
+export interface CodemirrorSqlModule {
+  sql: HdsCodeEditorLanguageFunction;
+}
+
+export interface CodemirrorHclModule {
+  hcl: HdsCodeEditorLanguageFunction;
+}
+
+export type CodemirrorLanguageModule =
+  | CodemirrorJsonModule
+  | CodemirrorGoModule
+  | CodemirrorSqlModule
+  | CodemirrorHclModule;
 
 export interface HdsCodeEditorSignature {
   Args: {
