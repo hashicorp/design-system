@@ -29,6 +29,12 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     );
     assert.dom('.hds-code-editor__title').hasText('Test Title');
   });
+  test('it should render the component title with a custom tag when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor as |CE|><CE.Title @tag="h1">Test Title</CE.Title></Hds::CodeEditor>`
+    );
+    assert.dom('.hds-code-editor__title').hasTagName('h1');
+  });
   test('it should not render the component with a title when the `title` contextual component is not yielded', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor />`);
     assert.dom('.hds-code-editor__title').doesNotExist();

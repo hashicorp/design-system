@@ -102,4 +102,11 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Text::H2>Standalone modifier usage</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="`div` element with `hds-code-editor` modifier">
+      <div {{hds-code-editor value=this.demoCode}} />
+    </SF.Item>
+  </Shw::Flex>
 </section>
