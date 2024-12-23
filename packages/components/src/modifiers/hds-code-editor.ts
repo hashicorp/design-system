@@ -199,29 +199,27 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.element = element;
       this.onInput = onInput;
 
-      const { EditorState } = await import('@codemirror/state');
-      const { EditorView } = await import('@codemirror/view');
-
-      let extensions;
       try {
-        extensions = await this.buildExtensionsTask.perform({ language });
+        const { EditorState } = await import('@codemirror/state');
+        const { EditorView } = await import('@codemirror/view');
+
+        const extensions = await this.buildExtensionsTask.perform({ language });
+
+        const state = EditorState.create({
+          doc: value,
+          extensions,
+        });
+
+        const editor = new EditorView({ state, parent: element });
+
+        this.editor = editor;
+
+        onSetup?.(this.editor);
       } catch (error) {
         console.error(
-          `\`hds-code-editor\` modifier - Failed to build extensions for the CodeMirror editor. Error: ${JSON.stringify(error)}`
+          `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`
         );
-        return;
       }
-
-      const state = EditorState.create({
-        doc: value,
-        extensions,
-      });
-
-      const editor = new EditorView({ state, parent: element });
-
-      this.editor = editor;
-
-      onSetup?.(this.editor);
     }
   );
 }
