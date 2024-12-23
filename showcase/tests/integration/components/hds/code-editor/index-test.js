@@ -126,12 +126,17 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
   // copy
   test('it should copy the code editor value to the clipboard when the copy button is clicked', async function (assert) {
+    const clipboardStub = sinon.stub(window.navigator.clipboard, 'writeText');
+
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @hasCopyButton={{true}} @value="Test Code" />`
     );
 
     await click('.hds-code-editor__copy-button');
-    assert.equal(navigator.clipboard.readText(), 'Test Code');
+    assert.true(clipboardStub.calledOnce);
+    assert.true(clipboardStub.calledWith('Test Code'));
+
+    sinon.restore();
   });
 
   // @value
