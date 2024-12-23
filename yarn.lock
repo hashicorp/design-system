@@ -18358,7 +18358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsdom@npm:^25.0.0, jsdom@npm:^25.0.1":
+"jsdom@npm:^25.0.0":
   version: 25.0.1
   resolution: "jsdom@npm:25.0.1"
   dependencies:
@@ -27305,7 +27305,6 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-qunit: "npm:^8.1.2"
     fs-extra: "npm:^11.2.0"
-    jsdom: "npm:^25.0.1"
     jsonapi-serializer: "npm:^3.6.9"
     loader.js: "npm:^4.7.0"
     lodash: "npm:^4.17.21"
