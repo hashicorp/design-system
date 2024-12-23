@@ -12909,6 +12909,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-load-initializers@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "ember-load-initializers@npm:3.0.1"
+  peerDependencies:
+    ember-source: ">= 5"
+  checksum: 10/67d66085792585cd3674602c92a07a21033a15d0af33423dd94f5c9468824d4bf77860aed986f87e14250e0102e80277e3413d288ff7788cba4f93761588b79d
+  languageName: node
+  linkType: hard
+
 "ember-math-helpers@npm:^3.0.0":
   version: 3.0.0
   resolution: "ember-math-helpers@npm:3.0.0"
@@ -27415,7 +27424,7 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-fetch: "npm:^8.1.2"
     ember-get-config: "npm:^2.1.1"
-    ember-load-initializers: "npm:^2.1.2"
+    ember-load-initializers: "npm:^3.0.1"
     ember-math-helpers: "npm:^3.0.0"
     ember-meta: "npm:^2.0.0"
     ember-modifier: "npm:^4.1.0"
