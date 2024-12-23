@@ -12269,15 +12269,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-app-version@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "ember-cli-app-version@npm:6.0.1"
+"ember-cli-app-version@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ember-cli-app-version@npm:7.0.0"
   dependencies:
     ember-cli-babel: "npm:^7.26.11"
     git-repo-info: "npm:^2.1.1"
   peerDependencies:
     ember-source: ^3.28.0 || >= 4.0.0
-  checksum: 10/fde019caa998a27419b1071de03abf68337ca199f3dbfef5b4bebc59c23ca9996ace719e65fd136adc10473a546725ce9ef1ed242f82f9af5d066378283dd3a3
+  checksum: 10/b11fde143752848443c9f55440d7b01abb0d80af9aff0fca0446674878de44c6639071ff68545413644a526004ac50fde79b070847ff4067c6e9c6fa1cd127dd
   languageName: node
   linkType: hard
 
@@ -27511,7 +27511,7 @@ __metadata:
     ember-basic-dropdown: "npm:^8.1.0"
     ember-body-class: "npm:^3.0.0"
     ember-cli: "npm:~5.9.0"
-    ember-cli-app-version: "npm:^6.0.1"
+    ember-cli-app-version: "npm:^7.0.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-clipboard: "npm:^1.1.0"
