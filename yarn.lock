@@ -1525,18 +1525,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:~7.4.0":
-  version: 7.4.5
-  resolution: "@babel/plugin-transform-typescript@npm:7.4.5"
-  dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.0.0"
-    "@babel/plugin-syntax-typescript": "npm:^7.2.0"
-  peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10/f5545d01ac1406616d67abfca05860b2a8fa9a46cf3749472c94dc9d492f9b9cfffc4d3d698d2671f2f303a6c922899c600d7132c40395b9023f22f4f94976d0
-  languageName: node
-  linkType: hard
-
 "@babel/plugin-transform-typescript@npm:~7.5.0":
   version: 7.5.5
   resolution: "@babel/plugin-transform-typescript@npm:7.5.5"
@@ -12307,7 +12295,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.7.3":
+"ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.7.3":
   version: 7.26.11
   resolution: "ember-cli-babel@npm:7.26.11"
   dependencies:
@@ -12693,26 +12681,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "ember-cli-typescript@npm:2.0.2"
-  dependencies:
-    "@babel/plugin-proposal-class-properties": "npm:^7.1.0"
-    "@babel/plugin-transform-typescript": "npm:~7.4.0"
-    ansi-to-html: "npm:^0.6.6"
-    debug: "npm:^4.0.0"
-    ember-cli-babel-plugin-helpers: "npm:^1.0.0"
-    execa: "npm:^1.0.0"
-    fs-extra: "npm:^7.0.0"
-    resolve: "npm:^1.5.0"
-    rsvp: "npm:^4.8.1"
-    semver: "npm:^6.0.0"
-    stagehand: "npm:^1.0.0"
-    walk-sync: "npm:^1.0.0"
-  checksum: 10/5f3ef0ad7abec5c27518197a5a865aa22ec075f65e80aa791fc05e3191dcd4c5b33f0bac27036f5dee61ca8077808c298021e918f4d785170ca84c945567335d
-  languageName: node
-  linkType: hard
-
 "ember-cli-typescript@npm:^4.1.0, ember-cli-typescript@npm:^4.2.1":
   version: 4.2.1
   resolution: "ember-cli-typescript@npm:4.2.1"
@@ -13078,13 +13046,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-load-initializers@npm:^2.1.2":
-  version: 2.1.2
-  resolution: "ember-load-initializers@npm:2.1.2"
-  dependencies:
-    ember-cli-babel: "npm:^7.13.0"
-    ember-cli-typescript: "npm:^2.0.2"
-  checksum: 10/cb0c3c3b02c9cc79e28dfffa3a5fc240248bfdf4ccda51e45ca41b153a96ff8ac44a4d77090521538c504c03b445bf3df2c6695cec80db2b61e1f4bf61ed957e
+"ember-load-initializers@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "ember-load-initializers@npm:3.0.1"
+  peerDependencies:
+    ember-source: ">= 5"
+  checksum: 10/67d66085792585cd3674602c92a07a21033a15d0af33423dd94f5c9468824d4bf77860aed986f87e14250e0102e80277e3413d288ff7788cba4f93761588b79d
   languageName: node
   linkType: hard
 
@@ -15568,7 +15535,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^7.0.0, fs-extra@npm:^7.0.1":
+"fs-extra@npm:^7.0.1":
   version: 7.0.1
   resolution: "fs-extra@npm:7.0.1"
   dependencies:
@@ -24404,7 +24371,7 @@ __metadata:
     ember-cli-terser: "npm:^4.0.2"
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.0"
-    ember-load-initializers: "npm:^2.1.2"
+    ember-load-initializers: "npm:^3.0.1"
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.2.0"
@@ -27525,7 +27492,7 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-fetch: "npm:^8.1.2"
     ember-get-config: "npm:^2.1.1"
-    ember-load-initializers: "npm:^2.1.2"
+    ember-load-initializers: "npm:^3.0.1"
     ember-math-helpers: "npm:^3.0.0"
     ember-meta: "npm:^2.0.0"
     ember-modifier: "npm:^4.1.0"
