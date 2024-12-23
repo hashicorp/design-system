@@ -3650,7 +3650,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:^0.84.2, @glimmer/syntax@npm:^0.84.3":
+"@glimmer/syntax@npm:^0.84.3":
   version: 0.84.3
   resolution: "@glimmer/syntax@npm:0.84.3"
   dependencies:
@@ -4140,7 +4140,7 @@ __metadata:
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     eslint: "npm:^8.57.0"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
+    eslint-plugin-ember: "npm:^12.3.3"
     eslint-plugin-import: "npm:^2.29.1"
     eslint-plugin-n: "npm:^17.7.0"
     eslint-plugin-prettier: "npm:^5.1.3"
@@ -11284,7 +11284,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^2.0.4, css-tree@npm:^2.3.1":
+"css-tree@npm:^2.3.1":
   version: 2.3.1
   resolution: "css-tree@npm:2.3.1"
   dependencies:
@@ -13213,7 +13213,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
+"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
   version: 0.3.18
   resolution: "ember-rfc176-data@npm:0.3.18"
   checksum: 10/14092fdfafa6dd56dddd6a61dc5a38abce9dcb521709d6fbd2bf36abea1914b4f2a22e0ab57fbcef1397ccd98ef9ccab937a6c1faa10840f3dc95e1c79dcc80b
@@ -14073,30 +14073,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ember@npm:^11.12.0":
-  version: 11.12.0
-  resolution: "eslint-plugin-ember@npm:11.12.0"
-  dependencies:
-    "@ember-data/rfc395-data": "npm:^0.0.4"
-    "@glimmer/syntax": "npm:^0.84.2"
-    css-tree: "npm:^2.0.4"
-    ember-rfc176-data: "npm:^0.3.15"
-    ember-template-imports: "npm:^3.4.2"
-    ember-template-recast: "npm:^6.1.4"
-    eslint-utils: "npm:^3.0.0"
-    estraverse: "npm:^5.2.0"
-    lodash.camelcase: "npm:^4.1.1"
-    lodash.kebabcase: "npm:^4.1.1"
-    magic-string: "npm:^0.30.0"
-    requireindex: "npm:^1.2.0"
-    snake-case: "npm:^3.0.3"
-  peerDependencies:
-    eslint: ">= 7"
-  checksum: 10/3239c9734d2996b38871b7663186d1ab09dd26c57420efcda69ea52255e50fde981b8ec41e4083bb33ea905753606e36bed1c3fcb93fc9f36250599a75834b11
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-ember@npm:^12.2.0":
+"eslint-plugin-ember@npm:^12.2.0, eslint-plugin-ember@npm:^12.3.3":
   version: 12.3.3
   resolution: "eslint-plugin-ember@npm:12.3.3"
   dependencies:
@@ -19156,7 +19133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.1.1, lodash.camelcase@npm:^4.3.0":
+"lodash.camelcase@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: 10/c301cc379310441dc73cd6cebeb91fb254bea74e6ad3027f9346fc43b4174385153df420ffa521654e502fd34c40ef69ca4e7d40ee7129a99e06f306032bfc65
@@ -19434,7 +19411,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.0, magic-string@npm:^0.30.2":
+"magic-string@npm:^0.30.2":
   version: 0.30.14
   resolution: "magic-string@npm:0.30.14"
   dependencies:
