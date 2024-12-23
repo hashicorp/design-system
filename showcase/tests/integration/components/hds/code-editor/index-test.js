@@ -23,11 +23,14 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   });
 
   // title
-  test('it should render the component with a title', async function (assert) {
+  test('it should render the component with a title using the default tag', async function (assert) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor as |CE|><CE.Title>Test Title</CE.Title></Hds::CodeEditor>`
     );
-    assert.dom('.hds-code-editor__title').hasText('Test Title');
+    assert
+      .dom('.hds-code-editor__title')
+      .hasTagName('h2')
+      .hasText('Test Title');
   });
   test('it should render the component title with a custom tag when provided', async function (assert) {
     await setupCodeEditor(
@@ -119,6 +122,16 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     assert
       .dom('.hds-code-editor__full-screen-button .hds-icon')
       .hasAttribute('data-test-icon', 'maximize');
+  });
+
+  // copy
+  test('it should copy the code editor value to the clipboard when the copy button is clicked', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @hasCopyButton={{true}} @value="Test Code" />`
+    );
+
+    await click('.hds-code-editor__copy-button');
+    assert.equal(navigator.clipboard.readText(), 'Test Code');
   });
 
   // @value
