@@ -103,7 +103,7 @@
     "qunit": "^2.23.1",
     "qunit-dom": "^3.4.0",
     "sass": "^1.69.5",
-    "sinon": "^17.0.1",
+    "sinon": "^19.0.2",
     "stylelint": "^16.12.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^13.1.0",
