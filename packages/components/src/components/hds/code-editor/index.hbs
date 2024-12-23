@@ -24,7 +24,7 @@
               @isIconOnly={{true}}
               @size="small"
               @text="Copy"
-              @textToCopy={{@value}}
+              @textToCopy={{this._value}}
             />
           {{/if}}
           {{#if @hasFullScreenButton}}
@@ -39,7 +39,7 @@
   {{/if}}
   <div
     class="hds-code-editor__editor"
-    {{hds-code-editor value=@value language=@language onInput=@onInput onSetup=this.onSetup}}
+    {{hds-code-editor value=@value language=@language onInput=this.onInput onSetup=this.onSetup}}
   />
   {{#unless this._isSetupComplete}}
     <div class="hds-code-editor__loader" aria-live="polite" role="status">

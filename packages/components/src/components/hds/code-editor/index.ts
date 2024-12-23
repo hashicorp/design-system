@@ -38,6 +38,15 @@ export interface HdsCodeEditorSignature {
 export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked private _isFullScreen = false;
   @tracked private _isSetupComplete = false;
+  @tracked private _value;
+
+  constructor(owner: unknown, args: HdsCodeEditorSignature['Args']) {
+    super(owner, args);
+
+    if (args.value) {
+      this._value = args.value;
+    }
+  }
 
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
@@ -58,6 +67,12 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @action
   toggleFullScreen(): void {
     this._isFullScreen = !this._isFullScreen;
+  }
+
+  @action
+  onInput(newVal: string): void {
+    this._value = newVal;
+    this.args.onInput?.(newVal);
   }
 
   @action
