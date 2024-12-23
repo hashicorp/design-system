@@ -13331,14 +13331,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-test-selectors@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "ember-test-selectors@npm:6.0.0"
+"ember-test-selectors@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ember-test-selectors@npm:7.0.0"
   dependencies:
     calculate-cache-key-for-tree: "npm:^2.0.0"
     ember-cli-babel: "npm:^7.26.4"
     ember-cli-version-checker: "npm:^5.1.2"
-  checksum: 10/f43e4a1414ef484109953ed0ab68ae80f6e965d7b26ed0b294287f377f07d921f38a47258a85cac63829857c0d8a78353df27a022125ba84723b72f5781b77b7
+  checksum: 10/e5772094b721ce8c00cbc803a7dbaf31866ee646ee5798c19ca67ca12e28f3090d7dedff61fc8b463aca16796ff8eef63bc3a2233c65bd3aa2737b2e88912378
   languageName: node
   linkType: hard
 
@@ -27426,7 +27426,7 @@ __metadata:
     ember-source: "npm:~5.12.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
-    ember-test-selectors: "npm:^6.0.0"
+    ember-test-selectors: "npm:^7.0.0"
     ember-truth-helpers: "npm:^4.0.3"
     eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
