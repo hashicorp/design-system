@@ -46,19 +46,20 @@
     align-items: center;
 
     // child element that is not the title/description and has subsequent siblings
-    > :not(.hds-code-editor__header-content-text):has(+ *) {
+    > :not(.hds-code-editor__title, .hds-code-editor__description):has(+ *) {
       margin-right: 8px;
     }
   }
 
-  .hds-code-editor__header-content-text {
+  .hds-code-editor__title,
+  .hds-code-editor__description {
     width: 100%;
 
     &:has(+ *) {
       margin-bottom: 12px;
     }
 
-    &:has(+ .hds-code-editor__header-content-text) {
+    &:has(+ .hds-code-editor__title, + .hds-code-editor__description) {
       margin-bottom: 4px;
     }
   }
@@ -92,8 +93,7 @@
     background-color: var(--hds-code-editor-color-surface-primary);
   }
 
-  .hds-code-editor__button,
-  .hds-code-editor__button.hds-copy-button {
+  .hds-button {
     color: var(--hds-code-editor-color-foreground-primary);
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);

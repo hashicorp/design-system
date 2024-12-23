@@ -13,13 +13,7 @@
   {{#if (and this._isSetupComplete (or this.hasActions (has-block)))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
-        {{yield
-          (hash
-            Title=(component "hds/code-editor/title")
-            Description=(component "hds/code-editor/description")
-            Button=(component "hds/code-editor/button")
-          )
-        }}
+        {{yield (hash Title=(component "hds/code-editor/title") Description=(component "hds/code-editor/description"))}}
       </div>
 
       {{#if this.hasActions}}
