@@ -289,7 +289,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
   version: 7.26.0
   resolution: "@babel/core@npm:7.26.0"
   dependencies:
@@ -2712,7 +2712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/string@npm:^3.0.0, @ember/string@npm:^3.1.1":
+"@ember/string@npm:^3.1.1":
   version: 3.1.1
   resolution: "@ember/string@npm:3.1.1"
   dependencies:
@@ -9121,7 +9121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-plugin@npm:^4.0.0, broccoli-plugin@npm:^4.0.2, broccoli-plugin@npm:^4.0.3, broccoli-plugin@npm:^4.0.5, broccoli-plugin@npm:^4.0.7":
+"broccoli-plugin@npm:^4.0.0, broccoli-plugin@npm:^4.0.2, broccoli-plugin@npm:^4.0.3, broccoli-plugin@npm:^4.0.7":
   version: 4.0.7
   resolution: "broccoli-plugin@npm:4.0.7"
   dependencies:
@@ -12235,15 +12235,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-deprecation-workflow@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "ember-cli-deprecation-workflow@npm:2.2.0"
+"ember-cli-deprecation-workflow@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "ember-cli-deprecation-workflow@npm:3.0.2"
   dependencies:
-    "@ember/string": "npm:^3.0.0"
-    broccoli-funnel: "npm:^3.0.3"
-    broccoli-merge-trees: "npm:^4.2.0"
-    broccoli-plugin: "npm:^4.0.5"
-  checksum: 10/ef08b58d0cc62afb377798424d22dbdc6345196b224b1f94e7db45cafafcb95bfbd2637f4cccff5717ffd89297cb0ca91efbaa00f62188949b5f6d47ba12fdc8
+    "@babel/core": "npm:^7.23.2"
+    ember-cli-babel: "npm:^8.2.0"
+  peerDependencies:
+    ember-source: ">= 4.0.0"
+  checksum: 10/63c2dc78a7adb0621adebca2861b3f3ddad5df109a9b982127c5f3d60ab2815ecd4bf1fb01be65da5c2c64fd602e8533854ac0c9dbf20b680a513ae93e668d10
   languageName: node
   linkType: hard
 
@@ -24235,7 +24235,7 @@ __metadata:
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-dependency-checker: "npm:^3.3.3"
-    ember-cli-deprecation-workflow: "npm:^2.2.0"
+    ember-cli-deprecation-workflow: "npm:^3.0.2"
     ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-inject-live-reload: "npm:^2.1.0"
     ember-cli-sass: "npm:^11.0.1"
@@ -27392,7 +27392,7 @@ __metadata:
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-clipboard: "npm:^1.2.1"
     ember-cli-dependency-checker: "npm:^3.3.3"
-    ember-cli-deprecation-workflow: "npm:^2.2.0"
+    ember-cli-deprecation-workflow: "npm:^3.0.2"
     ember-cli-fastboot: "npm:^4.1.5"
     ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-inject-live-reload: "npm:^2.1.0"
