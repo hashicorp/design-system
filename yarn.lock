@@ -12329,7 +12329,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^6.0.1, ember-cli-htmlbars@npm:^6.1.0, ember-cli-htmlbars@npm:^6.1.1, ember-cli-htmlbars@npm:^6.3.0":
+"ember-cli-htmlbars@npm:^6.0.1, ember-cli-htmlbars@npm:^6.1.0, ember-cli-htmlbars@npm:^6.3.0":
   version: 6.3.0
   resolution: "ember-cli-htmlbars@npm:6.3.0"
   dependencies:
@@ -12918,14 +12918,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-math-helpers@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "ember-math-helpers@npm:3.0.0"
+"ember-math-helpers@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "ember-math-helpers@npm:4.2.1"
   dependencies:
-    broccoli-funnel: "npm:^3.0.8"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-cli-htmlbars: "npm:^6.1.1"
-  checksum: 10/b902e921db9285b1ef9be57ddad878587572e1bbfd03df4b92823752d134297896702a8698ff6fe946fdec80499cc2cc966c7cf0a61bcf12160bcb02b454a1c6
+    "@embroider/addon-shim": "npm:^1.9.0"
+  peerDependencies:
+    ember-source: ">= 4.0.0"
+  checksum: 10/e23a215ee6295246e02b8a0dc4032c4aded63c6dcd513ae9cfa52488cf25cafcd992d1d3aad4a57ca9cc6e6fd8a9731dff87c0f98cf09fea38c3075e10b00e48
   languageName: node
   linkType: hard
 
@@ -27425,7 +27425,7 @@ __metadata:
     ember-fetch: "npm:^8.1.2"
     ember-get-config: "npm:^2.1.1"
     ember-load-initializers: "npm:^3.0.1"
-    ember-math-helpers: "npm:^3.0.0"
+    ember-math-helpers: "npm:^4.2.1"
     ember-meta: "npm:^2.0.0"
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
