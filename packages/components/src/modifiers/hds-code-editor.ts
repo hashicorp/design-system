@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { assert } from '@ember/debug';
+import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import Modifier from 'ember-modifier';
 import { task } from 'ember-concurrency';
@@ -14,15 +14,15 @@ import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-h
 
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
-import type {
-  HdsCodeEditorLanguages,
-  HdsCodeEditorLanguageFunction,
-  CodemirrorGoModule,
-  CodemirrorJsonModule,
-  CodemirrorSqlModule,
-  CodemirrorHclModule,
-  CodemirrorLanguageModule,
-} from 'src/types/hds-code-editor.types';
+import {
+  type HdsCodeEditorLanguages,
+  type HdsCodeEditorLanguageFunction,
+  type CodemirrorGoModule,
+  type CodemirrorJsonModule,
+  type CodemirrorSqlModule,
+  type CodemirrorHclModule,
+  type CodemirrorLanguageModule,
+} from '../types/hds-code-editor.types.ts';
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -37,6 +37,8 @@ export interface HdsCodeEditorSignature {
 }
 
 const LOADER_HEIGHT = '164px';
+
+const LANGUAGES = ['json', 'sql', 'go', 'hcl'] as HdsCodeEditorLanguages[];
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   editor!: EditorView;
@@ -60,7 +62,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    assert('HdsCodeEditor must have an element', element);
+    assert('HdsCodeEditor must have an element', element !== undefined);
     // the intersection observer makes loading unreliable in tests
     if (config.environment === 'test') {
       this.setupTask.perform(element, positional, named);
@@ -89,28 +91,42 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         return;
       }
 
+      assert(
+        `@language for "hds-code-editor" must be one of the following: ${LANGUAGES.join(
+          ', '
+        )}; received: ${language}`,
+        LANGUAGES.includes(language)
+      );
+
       let module: CodemirrorLanguageModule | null = null;
       let languageFunction: HdsCodeEditorLanguageFunction | null = null;
 
-      switch (language) {
-        case 'go':
-          module = await import('@codemirror/lang-go');
-          languageFunction = (module as CodemirrorGoModule).go;
-          break;
-        case 'json':
-          module = await import('@codemirror/lang-json');
-          languageFunction = (module as CodemirrorJsonModule).json;
-          break;
-        case 'sql':
-          module = await import('@codemirror/lang-sql');
-          languageFunction = (module as CodemirrorSqlModule).sql;
-          break;
-        case 'hcl':
-          module = await import('codemirror-lang-hcl');
-          languageFunction = (module as CodemirrorHclModule).hcl;
-          break;
-        default:
-          throw new Error(`Language ${language} is not supported`);
+      try {
+        switch (language) {
+          case 'go':
+            module = await import('@codemirror/lang-go');
+            languageFunction = (module as CodemirrorGoModule).go;
+            break;
+          case 'json':
+            module = await import('@codemirror/lang-json');
+            languageFunction = (module as CodemirrorJsonModule).json;
+            break;
+          case 'sql':
+            module = await import('@codemirror/lang-sql');
+            languageFunction = (module as CodemirrorSqlModule).sql;
+            break;
+          case 'hcl':
+            module = await import('codemirror-lang-hcl');
+            languageFunction = (module as CodemirrorHclModule).hcl;
+            break;
+        }
+      } catch (error) {
+        warn(
+          `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(error)}`,
+          {
+            id: 'hds-code-editor.load-language-task.import-failed',
+          }
+        );
       }
 
       return languageFunction?.();
@@ -186,7 +202,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const { EditorState } = await import('@codemirror/state');
       const { EditorView } = await import('@codemirror/view');
 
-      const extensions = await this.buildExtensionsTask.perform({ language });
+      let extensions;
+      try {
+        extensions = await this.buildExtensionsTask.perform({ language });
+      } catch (error) {
+        console.error(
+          `\`hds-code-editor\` modifier - Failed to build extensions for the CodeMirror editor. Error: ${JSON.stringify(error)}`
+        );
+        return;
+      }
 
       const state = EditorState.create({
         doc: value,
