@@ -289,7 +289,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.2, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.24.7, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
   version: 7.26.0
   resolution: "@babel/core@npm:7.26.0"
   dependencies:
@@ -12011,7 +12011,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.10.0, ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.3":
+"ember-auto-import@npm:^2.10.0, ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.3, ember-auto-import@npm:^2.7.4":
   version: 2.10.0
   resolution: "ember-auto-import@npm:2.10.0"
   dependencies:
@@ -13003,18 +13003,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-prism@npm:^0.13.0":
-  version: 0.13.0
-  resolution: "ember-prism@npm:0.13.0"
+"ember-prism@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "ember-prism@npm:1.0.0"
   dependencies:
-    "@ember/render-modifiers": "npm:^2.0.0"
-    ember-auto-import: "npm:^2.2.4"
-    ember-cli-babel: "npm:^7.26.11"
-    ember-cli-htmlbars: "npm:^6.0.1"
+    "@babel/core": "npm:^7.24.7"
+    "@ember/render-modifiers": "npm:^2.1.0"
+    ember-auto-import: "npm:^2.7.4"
+    ember-cli-babel: "npm:^8.2.0"
+    ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-node-assets: "npm:^0.2.2"
-    prismjs: "npm:^1.22.0"
+    prismjs: "npm:^1.29.0"
     prismjs-glimmer: "npm:^1.1.1"
-  checksum: 10/f0e1d67b74b2eb5a8af42bd35a712ccd69babfefed354508017427742ef0aa28ed8380aca2d26737b24d7f486b56315b81a5b6b84524ef2571149a4480d1b6d9
+  peerDependencies:
+    ember-source: ">= 4.0.0"
+  checksum: 10/a132492a78f2b9bbcf1a321990aa298fd3cf4c3f664117f29e4be42749570a9741ae6f763e263b28df9e31b8220386822c0fe51ae2f0bb86883c2d15b1170a75
   languageName: node
   linkType: hard
 
@@ -22302,7 +22305,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.22.0, prismjs@npm:^1.29.0":
+"prismjs@npm:^1.29.0":
   version: 1.29.0
   resolution: "prismjs@npm:1.29.0"
   checksum: 10/2080db382c2dde0cfc7693769e89b501ef1bfc8ff4f8d25c07fd4c37ca31bc443f6133d5b7c145a73309dc396e829ddb7cc18560026d862a887ae08864ef6b07
@@ -27430,7 +27433,7 @@ __metadata:
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
-    ember-prism: "npm:^0.13.0"
+    ember-prism: "npm:^1.0.0"
     ember-qunit: "npm:^8.1.1"
     ember-resolver: "npm:^12.0.1"
     ember-router-scroll: "npm:^4.1.2"
