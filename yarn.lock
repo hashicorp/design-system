@@ -2695,7 +2695,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/render-modifiers@npm:^2.0.0, @ember/render-modifiers@npm:^2.0.5, @ember/render-modifiers@npm:^2.1.0":
+"@ember/render-modifiers@npm:^2.0.0, @ember/render-modifiers@npm:^2.1.0":
   version: 2.1.0
   resolution: "@ember/render-modifiers@npm:2.1.0"
   dependencies:
@@ -3772,12 +3772,12 @@ __metadata:
     "@babel/plugin-transform-private-methods": "npm:^7.25.9"
     "@babel/plugin-transform-typescript": "npm:^7.26.3"
     "@babel/runtime": "npm:^7.26.0"
-    "@ember/render-modifiers": "npm:^2.0.5"
+    "@ember/render-modifiers": "npm:^2.1.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^4.0.4"
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/addon-dev": "npm:^4.3.1"
-    "@embroider/addon-shim": "npm:^1.8.7"
+    "@embroider/addon-shim": "npm:^1.9.0"
     "@floating-ui/dom": "npm:^1.6.12"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
@@ -3798,19 +3798,19 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
     "@typescript-eslint/parser": "npm:^8.18.1"
     babel-plugin-ember-template-compilation: "npm:^2.3.0"
-    clipboard-polyfill: "npm:^4.1.0"
+    clipboard-polyfill: "npm:^4.1.1"
     concurrently: "npm:^9.1.0"
-    decorator-transforms: "npm:^1.1.0"
-    ember-a11y-refocus: "npm:^4.1.3"
+    decorator-transforms: "npm:^1.2.1"
+    ember-a11y-refocus: "npm:^4.1.4"
     ember-basic-dropdown: "npm:^8.4.0"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
     ember-concurrency: "npm:^4.0.2"
-    ember-element-helper: "npm:^0.8.5"
-    ember-focus-trap: "npm:^1.1.0"
+    ember-element-helper: "npm:^0.8.6"
+    ember-focus-trap: "npm:^1.1.1"
     ember-get-config: "npm:^2.1.1"
-    ember-modifier: "npm:^4.1.0"
-    ember-power-select: "npm:^8.6.0"
+    ember-modifier: "npm:^4.2.0"
+    ember-power-select: "npm:^8.6.1"
     ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^4.4.0"
     ember-template-lint: "npm:^6.0.0"
@@ -3831,7 +3831,7 @@ __metadata:
     rollup-plugin-copy: "npm:^3.5.0"
     rollup-plugin-scss: "npm:^4.0.1"
     rollup-plugin-ts: "npm:^3.4.5"
-    sass: "npm:^1.69.5"
+    sass: "npm:^1.83.0"
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^14.0.0"
@@ -3887,7 +3887,7 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.26.0"
     "@babel/runtime": "npm:^7.26.0"
     "@embroider/addon-dev": "npm:^4.3.1"
-    "@embroider/addon-shim": "npm:^1.8.7"
+    "@embroider/addon-shim": "npm:^1.9.0"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@glint/core": "npm:^1.5.0"
@@ -3901,7 +3901,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.18.1"
     babel-plugin-ember-template-compilation: "npm:^2.3.0"
     concurrently: "npm:^9.1.0"
-    decorator-transforms: "npm:^1.1.0"
+    decorator-transforms: "npm:^1.2.1"
     ember-get-config: "npm:^2.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
@@ -10010,7 +10010,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clipboard-polyfill@npm:^4.1.0":
+"clipboard-polyfill@npm:^4.1.1":
   version: 4.1.1
   resolution: "clipboard-polyfill@npm:4.1.1"
   checksum: 10/5e1f901709ab8eaa1e3fda377c51946f76953ed79dbdb063490cc267ce4d4969566019d60dabf8d4b1e7246b684a05f05d77f37444c66f7b6c1a292c7d2d1c6e
@@ -11321,7 +11321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"decorator-transforms@npm:^1.0.1, decorator-transforms@npm:^1.1.0":
+"decorator-transforms@npm:^1.0.1, decorator-transforms@npm:^1.2.1":
   version: 1.2.1
   resolution: "decorator-transforms@npm:1.2.1"
   dependencies:
@@ -11844,7 +11844,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-a11y-refocus@npm:^4.1.3":
+"ember-a11y-refocus@npm:^4.1.4":
   version: 4.1.4
   resolution: "ember-a11y-refocus@npm:4.1.4"
   dependencies:
@@ -12681,7 +12681,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-element-helper@npm:^0.8.5, ember-element-helper@npm:^0.8.6":
+"ember-element-helper@npm:^0.8.6":
   version: 0.8.6
   resolution: "ember-element-helper@npm:0.8.6"
   dependencies:
@@ -12736,7 +12736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-focus-trap@npm:^1.1.0":
+"ember-focus-trap@npm:^1.1.1":
   version: 1.1.1
   resolution: "ember-focus-trap@npm:1.1.1"
   dependencies:
@@ -12861,7 +12861,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.1.0, ember-modifier@npm:^4.2.0":
+"ember-modifier@npm:^3.2.7 || ^4.0.0, ember-modifier@npm:^3.2.7 || ^4.1.0, ember-modifier@npm:^4.2.0":
   version: 4.2.0
   resolution: "ember-modifier@npm:4.2.0"
   dependencies:
@@ -12890,9 +12890,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-power-select@npm:^8.6.0":
-  version: 8.6.2
-  resolution: "ember-power-select@npm:8.6.2"
+"ember-power-select@npm:^8.6.1":
+  version: 8.6.1
+  resolution: "ember-power-select@npm:8.6.1"
   dependencies:
     "@embroider/addon-shim": "npm:^1.9.0"
     "@embroider/util": "npm:^1.13.2"
@@ -12908,7 +12908,7 @@ __metadata:
     ember-basic-dropdown: ^8.2.0
     ember-concurrency: ^4.0.2
     ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
-  checksum: 10/2b3ebbf3b7fbfdcb0ce61e507f244d802ac23e8d9a8c4a9e2b76b63b839595511399df2b6ba7503b5beae580154e50234246ca968c352b80bc984c93e39b4bb2
+  checksum: 10/9b32f4681b17cc9a71f9f5b6b5b9dafd9a8fb5cc755a7b21b8970ba9f5da2c2f20362b490674fed886b44231815b7a9568c947a0fb4d8bbb043a89923f5c1631
   languageName: node
   linkType: hard
 
@@ -23793,9 +23793,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.69.5":
-  version: 1.83.1
-  resolution: "sass@npm:1.83.1"
+"sass@npm:^1.83.0":
+  version: 1.83.0
+  resolution: "sass@npm:1.83.0"
   dependencies:
     "@parcel/watcher": "npm:^2.4.1"
     chokidar: "npm:^4.0.0"
@@ -23806,7 +23806,7 @@ __metadata:
       optional: true
   bin:
     sass: sass.js
-  checksum: 10/ee4ea5573faddeed375479eda6ac87a6f34dc6fc5391c6cc2743993f24827f4709f950fba6ef1ad0694215a1df40d43f4ed9006327daa3743c8e3ad1979d3c32
+  checksum: 10/cae7c489ffeb1324ac7e766dda60206a6d7a318d0689b490290a32a6414ef1fd0f376f92d45fb1610e507baa6f6594f1a61d4d706df2f105122ff9a83d2a28e1
   languageName: node
   linkType: hard
 
@@ -24115,9 +24115,9 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.1"
     ember-load-initializers: "npm:^2.1.2"
-    ember-modifier: "npm:^4.1.0"
+    ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
-    ember-power-select: "npm:^8.6.0"
+    ember-power-select: "npm:^8.6.1"
     ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
     ember-set-helper: "npm:^3.0.1"
@@ -24142,7 +24142,7 @@ __metadata:
     prettier-plugin-ember-template-tag: "npm:^2.0.4"
     qunit: "npm:^2.23.1"
     qunit-dom: "npm:^3.4.0"
-    sass: "npm:^1.69.5"
+    sass: "npm:^1.83.0"
     sinon: "npm:^19.0.2"
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
@@ -27212,7 +27212,7 @@ __metadata:
     concurrently: "npm:^9.1.0"
     cspell: "npm:^8.17.1"
     dotenv: "npm:^16.4.7"
-    ember-a11y-refocus: "npm:^4.1.3"
+    ember-a11y-refocus: "npm:^4.1.4"
     ember-a11y-testing: "npm:^7.0.2"
     ember-auto-import: "npm:^2.10.0"
     ember-basic-dropdown: "npm:^8.4.0"
@@ -27237,9 +27237,9 @@ __metadata:
     ember-load-initializers: "npm:^3.0.1"
     ember-math-helpers: "npm:^4.2.1"
     ember-meta: "npm:^2.0.0"
-    ember-modifier: "npm:^4.1.0"
+    ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
-    ember-power-select: "npm:^8.6.0"
+    ember-power-select: "npm:^8.6.1"
     ember-prism: "npm:^0.13.0"
     ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
