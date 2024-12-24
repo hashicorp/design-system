@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
@@ -39,6 +40,22 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked private _isFullScreen = false;
   @tracked private _isSetupComplete = false;
   @tracked private _value;
+
+  private _handleEscape = modifier(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape' || !this._isFullScreen) {
+        return;
+      }
+
+      this.toggleFullScreen();
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  });
 
   constructor(owner: unknown, args: HdsCodeEditorSignature['Args']) {
     super(owner, args);
