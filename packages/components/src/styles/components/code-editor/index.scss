@@ -78,6 +78,10 @@
     display: flex;
     gap: 8px;
     align-items: center;
+
+    .hds-button {
+      outline-offset: 0;
+    }
   }
 
   .hds-code-editor__editor {
