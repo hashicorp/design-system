@@ -115,17 +115,17 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         return;
       }
 
-      assert(
-        `@language for "hds-code-editor" must be one of the following: ${LANGUAGES.join(
-          ', '
-        )}; received: ${language}`,
-        LANGUAGES.includes(language)
-      );
-
-      let module: CodemirrorLanguageModule | null = null;
-      let languageFunction: HdsCodeEditorLanguageFunction | null = null;
-
       try {
+        assert(
+          `@language for "hds-code-editor" must be one of the following: ${LANGUAGES.join(
+            ', '
+          )}; received: ${language}`,
+          LANGUAGES.includes(language)
+        );
+
+        let module: CodemirrorLanguageModule | null = null;
+        let languageFunction: HdsCodeEditorLanguageFunction | null = null;
+
         switch (language) {
           case 'go':
             module = await import('@codemirror/lang-go');
@@ -144,16 +144,18 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
             languageFunction = (module as CodemirrorHclModule).hcl;
             break;
         }
+
+        return languageFunction?.();
       } catch (error) {
         warn(
-          `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(error)}`,
+          `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
+            error
+          )}`,
           {
             id: 'hds-code-editor.load-language-task.import-failed',
           }
         );
       }
-
-      return languageFunction?.();
     }
   );
 

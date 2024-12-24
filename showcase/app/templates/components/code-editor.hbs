@@ -12,6 +12,7 @@
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="No content">
       <Hds::CodeEditor />
+      <Hds::CodeEditor @language="bubba" />
     </SF.Item>
     <SF.Item @label="With initial content">
       <Hds::CodeEditor @value={{this.demoCode}} />
