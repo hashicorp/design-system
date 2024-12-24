@@ -72,6 +72,12 @@ export { default as HdsCodeBlockDescription } from './components/hds/code-block/
 export { default as HdsCodeBlockTitle } from './components/hds/code-block/title.ts';
 export * from './components/hds/code-block/types.ts';
 
+// CodeEditor
+export { default as HdsCodeEditor } from './components/hds/code-editor/index.ts';
+export { default as HdsCodeEditorDescription } from './components/hds/code-editor/description.ts';
+export { default as HdsCodeEditorTitle } from './components/hds/code-editor/title.ts';
+export { default as HdsCodeEditorFullScreenButton } from './components/hds/code-editor/full-screen-button.ts';
+
 // CopyButton
 export { default as HdsCopyButton } from './components/hds/copy/button/index.ts';
 export * from './components/hds/copy/button/types.ts';
