@@ -240,6 +240,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
         onSetup?.(this.editor);
       } catch (error) {
+        console.log({ error });
         console.error(
           `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`
         );
