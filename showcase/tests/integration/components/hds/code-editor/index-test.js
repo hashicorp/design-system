@@ -128,13 +128,34 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   test('it should copy the code editor value to the clipboard when the copy button is clicked', async function (assert) {
     const clipboardStub = sinon.stub(window.navigator.clipboard, 'writeText');
 
+    this.setProperties({
+      handleInput: () => {},
+      handleSetup: (editorView) => {
+        this.set('editorView', editorView);
+      },
+    });
+
     await setupCodeEditor(
-      hbs`<Hds::CodeEditor @hasCopyButton={{true}} @value="Test Code" />`
+      hbs`<Hds::CodeEditor
+        @hasCopyButton={{true}}
+        @value="Test Code"
+        @onInput={{this.handleInput}}
+        @onSetup={{this.handleSetup}}
+      />`
     );
 
     await click('.hds-code-editor__copy-button');
-    assert.true(clipboardStub.calledOnce);
     assert.true(clipboardStub.calledWith('Test Code'));
+
+    this.editorView.dispatch({
+      changes: {
+        from: this.editorView.state.selection.main.from,
+        insert: 'Additional text. ',
+      },
+    });
+
+    await click('.hds-code-editor__copy-button');
+    assert.true(clipboardStub.calledWith('Additional text. Test Code'));
 
     sinon.restore();
   });
