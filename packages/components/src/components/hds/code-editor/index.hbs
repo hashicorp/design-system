@@ -7,7 +7,7 @@
   class={{this.classNames}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap isActive=this._isFullScreen}}
-  {{this._handleEscape this.toggleFullScreen}}
+  {{this._handleEscape}}
   ...attributes
 >
   {{#if (and this._isSetupComplete (or this.hasActions (has-block)))}}
