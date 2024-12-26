@@ -1,0 +1,18 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > TABLE > ADVANCEDTABLE
+
+#show-content-components-table-advanced-table {
+  .doc-advanced-table-scrollable-wrapper {
+    overflow-x: auto;
+  }
+
+  .doc-advanced-table-multiselect-with-pagination-demo {
+    .hds-advanced-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
+}
