@@ -76,7 +76,7 @@ ToggleIcons come in two sizes: **small** and **medium**.
 
 !!! Info
 
-While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table) because the icons and images start to become unrecognizable in smaller sizes.
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
 !!!
 
 <Doc::Layout @spacing="24px">
@@ -104,7 +104,7 @@ ToggleButtons require a visible chevron to indicate interactivity and provide di
 
 ![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x*)
 
-We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table), is typically indicative of this type of interaction.
+We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table/table), is typically indicative of this type of interaction.
 
 ![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png =750x*)
 
