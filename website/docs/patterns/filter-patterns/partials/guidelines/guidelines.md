@@ -4,7 +4,7 @@ A filtering pattern consists of a number of Helios components that work together
 
 ### Data set
 
-A data set is a broad term for an array of items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table) but may be expressed in other formats depending on the type of information.
+A data set is a broad term for an array of items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table/table) or [Advanced Table](/components/table/advanced-table) but may be expressed in other formats depending on the type of information.
 
 ![Data set represented by a table](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
 <Doc::ImageCaption @text="Data set represented by a table"/>

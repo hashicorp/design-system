@@ -21,7 +21,7 @@ Orient filter patterns in either a horizontal filter bar, or a vertical filter s
 
 ![Filter bar orientation](/assets/patterns/filter-patterns/layout-filter-bar.png =559x*)
 
-The most common method of organizing filters is in a filter bar which orients the filters horizontally on top of the data set. This orientation is flexible and is commonly used in tandem when a data set is presented in a [Table](/components/table).
+The most common method of organizing filters is in a filter bar which orients the filters horizontally on top of the data set. This orientation is flexible and is commonly used in tandem when a data set is presented in a [Table](/components/table/table) or [Advanced Table](/components/table/advanced-table).
 
 ### Filter sidebar orientation
 
