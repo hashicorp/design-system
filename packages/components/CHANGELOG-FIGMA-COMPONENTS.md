@@ -1,21 +1,12 @@
-# [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
+# [HDS Components UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1)
 ## December 20th, 2024
 
-`IconTile` - Visual updates made to the component, including removing the border and updating colors for improved contrast and visual alignment.
+`IconTile` - Removed the border and updated the colors for improved contrast and to create a cohesive look that aligns better with the surrounding elements.
 
-`[Figma Library v1.0](https://www.figma.com/design/noyY6dUMDYjmySpHcMjhkN/HDS-Components?m=auto&node-id=2-7&t=CPG3tlUvMHeQdEos-1)` - **Deprecated**. It will no longer receive updates or support. Instead, use the `[Figma Library v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=9BNZJMDOrABsgaJQ-1)`
+**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
 
-`Figma Library 2.0` - Released. Figma Library link
+Released HDS Components UI Kit v2.0.
 
-`Foundations Library 1.0` - **Deprecated**. It will no longer receive updates or support.
-
-`Foundations Library 2.0` - Released.
-
-`Product Patterns 1.0` - **Deprecated**. It will no longer receive updates or support.
-
-`Product Patterns 2.0` - Released. Figma Library link
-
-`HDS Wireframes` - Released. Figma Library link
 
 `SideNav` - No longer deprecated due to adjustments in prioritization.
 
