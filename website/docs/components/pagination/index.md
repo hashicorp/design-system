@@ -10,7 +10,8 @@ links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/pagination
 related:
-  - components/table
+  - components/table/table
+  - components/table/advanced-table
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/pagination.jpg
