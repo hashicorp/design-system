@@ -11,7 +11,6 @@ import {
   tab,
   triggerKeyEvent,
   click,
-  pauseTest
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { focusable } from 'tabbable';
