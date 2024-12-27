@@ -331,6 +331,15 @@ module(
       // cells should not be focusable anymore
       assert.dom('.hds-advanced-table__th[tabindex="0"]').doesNotExist();
       assert.dom('.hds-advanced-table__td[tabindex="0"]').doesNotExist();
+
+      await triggerKeyEvent(firstCellSortButton, 'keydown', 'Escape');
+      assert.dom(firstCell).hasAttribute('tabindex', '0');
+      assert.dom(firstCellSortButton).hasAttribute('tabindex', '-1');
+
+      // content within cells should not be focusable anymore
+      assert
+        .dom('[data-advanced-table-child-focusable=""][tabindex="0"]')
+        .doesNotExist();
     });
 
     test('it should trap focus inside a cell when not in navigation mode', async function (assert) {
