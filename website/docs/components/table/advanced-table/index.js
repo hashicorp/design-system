@@ -157,6 +157,242 @@ export default class Index extends Component {
       },
     ];
   }
+  
+  get demoDataWithNestedRows() {
+    return [
+      {
+        "id": 1,
+        "name": "Policy set 1",
+        "status": "PASS",
+        "description": "",
+        "children": [
+        {
+          "id": 11,
+          "name": "test-advisory-pass.sentinel",
+          "status": "PASS",
+          "description": "Sample description for this thing."
+        },
+        {
+          "id": 12,
+          "name": "test-hard-mandatory-pass.sentinel",
+          "status": "PASS",
+          "description": "Sample description for this thing."
+        }
+       ]
+      },
+      {
+        "id": 2,
+        "name": "Policy set 2",
+        "status": "FAIL",
+        "description": "",
+        "children": [
+          {
+            "id": 21,
+            "name": "test-advisory-pass.sentinel",
+            "status": "PASS",
+            "description": "Sample description for this thing.",
+          },
+          {
+            "id": 22,
+            "name": "test-hard-mandatory-pass.sentinel",
+            "status": "FAIL",
+            "description": "Sample description for this thing."
+          }
+        ]
+      }
+    ];
+  }
+
+  get demoDataWithLargeNumberOfRows() {
+    return [
+      {
+        "id": 1,
+        "name": "Burnaby Kuscha",
+        "email": "1_bkuscha0@tiny.cc",
+        "role": "Owner"
+      },
+      {
+        "id": 2,
+        "name": "Barton Penley",
+        "email": "2_bpenley1@miibeian.gov.cn",
+        "role": "Admin"
+      },
+      {
+        "id": 3,
+        "name": "Norina Emanulsson",
+        "email": "3_nemanulsson2@walmart.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 4,
+        "name": "Orbadiah Smales",
+        "email": "4_osmales3@amazon.co.jp",
+        "role": "Contributor"
+      },
+      {
+        "id": 5,
+        "name": "Dido Titchener",
+        "email": "5_dtitchener4@blogs.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 6,
+        "name": "Trish Horsburgh",
+        "email": "6_thorsburgh5@samsung.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 7,
+        "name": "Orion Laverack",
+        "email": "7_olaverack6@techcrunch.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 8,
+        "name": "Delly Moulsdale",
+        "email": "8_dmoulsdale7@sciencedirect.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 9,
+        "name": "Gil Carlyle",
+        "email": "9_gcarlyle8@canalblog.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 10,
+        "name": "Marinna Corbin",
+        "email": "10_mcorbin9@google.ca",
+        "role": "Contributor"
+      },
+      {
+        "id": 11,
+        "name": "Yardley Entwhistle",
+        "email": "11_yentwhistlea@tumblr.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 12,
+        "name": "Brinn Clack",
+        "email": "12_bclackb@blogger.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 13,
+        "name": "Charleen Millen",
+        "email": "13_cmillenc@mtv.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 14,
+        "name": "Kalie Piers",
+        "email": "14_kpiersd@businessweek.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 15,
+        "name": "Laure Boxer",
+        "email": "15_lboxere@elegantthemes.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 16,
+        "name": "Libby Bonallack",
+        "email": "16_lbonallackf@disqus.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 17,
+        "name": "Zebedee Gofton",
+        "email": "17_zgoftong@bbc.co.uk",
+        "role": "Contributor"
+      },
+      {
+        "id": 18,
+        "name": "Sari Eckford",
+        "email": "18_seckfordh@cloudflare.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 19,
+        "name": "Carlos Byrth",
+        "email": "19_cbyrthi@prlog.org",
+        "role": "Contributor"
+      },
+      {
+        "id": 20,
+        "name": "Avery Allmark",
+        "email": "20_aallmarkj@webnode.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 21,
+        "name": "Ninnette McSpirron",
+        "email": "21_nmcspirronk@amazon.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 22,
+        "name": "Sharlene Ewestace",
+        "email": "22_sewestacel@twitpic.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 23,
+        "name": "Jessamine Kembry",
+        "email": "23_jkembrym@hatena.ne.jp",
+        "role": "Contributor"
+      },
+      {
+        "id": 24,
+        "name": "Homerus Dixcee",
+        "email": "24_hdixceen@deviantart.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 25,
+        "name": "Clevie Clear",
+        "email": "25_cclearo@tmall.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 26,
+        "name": "Mohammed Hubatsch",
+        "email": "26_mhubatschp@salon.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 27,
+        "name": "Gigi Hovard",
+        "email": "27_ghovardq@cbslocal.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 28,
+        "name": "Dorey Tinker",
+        "email": "28_dtinkerr@google.co.uk",
+        "role": "Contributor"
+      },
+      {
+        "id": 29,
+        "name": "Arel Mullarkey",
+        "email": "29_amullarkeys@blogs.com",
+        "role": "Contributor"
+      },
+      {
+        "id": 30,
+        "name": "Veronike Ventura",
+        "email": "30_vventurat@google.fr",
+        "role": "Contributor"
+      },
+      {
+        "id": 31,
+        "name": "Gerti Dranfield",
+        "email": "31_gdranfieldu@vistaprint.com",
+        "role": "Contributor"
+      },
+    ]
+  }
 
   get demoPaginatedData() {
     const start = (this.demoCurrentPage - 1) * this.demoCurrentPageSize;

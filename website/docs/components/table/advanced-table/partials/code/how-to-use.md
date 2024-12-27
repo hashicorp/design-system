@@ -1,6 +1,10 @@
 ## How to use this component
 
-### Non-sortable Advanced Table
+The Advanced Table is a component meant to display tabular data to overcome limitations with the HTML `<table>` elements and increase the accessibility for complex features, like nested rows and [a sticky header](#vertical-scrolling).
+
+Instead of using the `<table>` elements, the Advanced Table uses `<div>`s with explicitly set roles (for example, instead of `<tr>`, it uses `<div role="row">`). This allows the Advanced Table to use [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for styling.
+
+### Basic Advanced Table
 
 To use an Advanced Table, first define the data model in your route or model:
 
@@ -65,6 +69,43 @@ For clarity, there are a couple of important points to note here:
 
 !!!
 
+### Nested rows
+For complex data sets where there is a parent row with several children, you can render them as nested rows. By default, the Advanced Table uses the `children` key on the `@model` argument to render the nested rows. To change the key used, set the `@childrenKey` argument on the Advanced Table.
+
+To ensure the Advanced Table is accessible, the columns in the nested rows **must** match the columns of the parent rows. Otherwise the relationship between the parent and nested rows will not be clear to users.
+
+!!! Warning
+
+It is not currently supported to have `@isStriped`, `@isSelectable`, or sortable columns with nested rows. If your use case requires any of these features, please [contact the Design Systems Team](/about/support).
+
+!!!
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.demoDataWithNestedRows}}
+  @columns={{array
+    (hash key="name" label="Name")
+    (hash key="status" label="Status")
+    (hash key="description" label="Description")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.name}}</B.Th>
+      <B.Td>
+        {{#if (eq B.data.status "FAIL")}}
+          <Hds::Badge @text="Fail" @color="critical" @icon="x" />
+        {{else}}
+          <Hds::Badge @text="Pass" @color="success" @icon="check" />
+        {{/if}}
+      </B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+
 ### Sortable Advanced Table
 
 !!! Info
@@ -74,6 +115,12 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 !!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
+
+!!! Warning
+
+At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, contact the Design System team. 
+
+!!!
 
 ```handlebars
 <Hds::AdvancedTable
@@ -294,7 +341,38 @@ Consuming a large amount of data in a tabular format can lead to an intense cogn
 
 We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table/advanced-table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
 
-That said, there may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can place the Advanced Table inside a container with `overflow: auto`.
+#### Vertical scrolling
+
+For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `hasStickyHeader` argument can be used to make the column headers persist as the user scrolls.
+
+```handlebars
+<!-- this is an element with "overflow: auto" and "max-height: 500px" -->
+<div class="doc-advanced-table-vertical-scrollable-wrapper">
+  <Hds::AdvancedTable
+    @model={{this.demoDataWithLargeNumberOfRows}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name" isSortable=true)
+      (hash key="email" label="Email")
+      (hash key="role" label="Role" isSortable=true)
+    }}
+    @hasStickyHeader={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+</div>
+```
+
+#### Horizontal scrolling
+
+There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can place the Advanced Table inside a container with `overflow: auto`.
 
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
