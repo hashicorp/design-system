@@ -19,7 +19,7 @@
     "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
-    "lint:css:fix": "concurrently \"yarn:lint:css -- --fix\"",
+    "lint:css:fix": "concurrently \"yarn:lint:css --fix\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
