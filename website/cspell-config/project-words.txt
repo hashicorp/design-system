@@ -1,11 +1,16 @@
+affordance
+borderless
+codemod
 codemods
 commodo
 concat
 datacenter
 datacenters
+datagrid
 Deque’s
 devdot
 dropdowm
+duplicative
 flexbox
 flyouts
 frontmatter
@@ -20,6 +25,8 @@ spacebar
 splattributes
 srollbar
 stickersheet
+subcomponent
+subcomponents
 subgrid
 sublist
 toggletip
@@ -27,10 +34,30 @@ viewports
 wcag
 wireframing
 workramp
-duplicative
-borderless
-datagrid
-affordance
+rabbitmq
+Venafi
+luxon
+heatmaps
+SideNav
+wireframe
+Autoscaler
+rgba
+Consolas
+Menlo
+Segoe
+subpages
+subnavigation
+Stargate
+navigations
+dialogprimitive
+powerselect
+topbar
+statuspage
+Credly
+Knowledgebase
+recertification
+recertify
+Println
 
 # Component-specific
 dont
@@ -41,14 +68,29 @@ callout
 callouts
 dismissable
 dismissibility
+distinguishability
+perceivability
 
 # Brands
-terraform
-packer
-vault
-vault-secrets
 boundary
 consul
 nomad
-waypoint
+packer
+terraform
 vagrant
+vault
+vault-secrets
+waypoint
+Hashi
+
+# Github usernames
+didoo
+aklkv
+fivetanley
+natmegs
+valeriia
+ruban
+dstaley
+jorytindall
+meirish
+dstaley

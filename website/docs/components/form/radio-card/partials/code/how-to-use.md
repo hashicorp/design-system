@@ -77,7 +77,7 @@ Customizable options include:
 
 ### Layout and control position
 
-To change how the cards are layed out in a group set the `@layout` argument to `vertical`. To change the position of the control elements within a card set the `@controlPosition` argument to `left`.
+To change how the cards are laid out in a group set the `@layout` argument to `vertical`. To change the position of the control elements within a card set the `@controlPosition` argument to `left`.
 
 ```handlebars
 <Hds::Form::RadioCard::Group

@@ -7,7 +7,7 @@ Since this component is nothing more than a wrapper around generic HTML tags wit
 
 ## The importance of heading levels
 
-Headings are used to describe the structure and organize the text content of a webpage. They should be brief, clear, and meaningful. Heading levels should be used in hierchical order without skipping levels. The `h1` tag should come first in the order and be unique. 
+Headings are used to describe the structure and organize the text content of a webpage. They should be brief, clear, and meaningful. Heading levels should be used in hierarchical order without skipping levels. The `h1` tag should come first in the order and be unique. 
 
 ---
 

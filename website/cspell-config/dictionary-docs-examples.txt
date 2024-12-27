@@ -1,0 +1,25 @@
+# Proper nouns in examples
+O’Shaughnessy
+Tartt
+Picoult
+Maudie
+Atticus
+Exupéry
+pharell
+
+# Example Spanish words
+elemento
+adicional
+Contenido
+ocultar
+Mostrar
+
+# Sample random strings
+tyng
+fbrct
+Mhmn
+Nqpt
+Tcqv
+
+# Example incorrectly spelled word
+organisation

@@ -80,7 +80,7 @@ The topGenericInstance and bottomGenericInstance properties support any addition
 
 ![Generic container within the side-nav body](/assets/components/side-nav/custom-content-body.png)
 
-## Positioning, and responsive behaviour
+## Positioning, and responsive behavior
 
 The Side Nav should always be positioned on the left side of the viewport, occupying 100% of the viewport height to ensure that the navigation is always visible and accessible to the user..
 
