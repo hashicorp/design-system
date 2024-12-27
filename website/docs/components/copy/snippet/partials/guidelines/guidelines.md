@@ -28,7 +28,7 @@ The Copy Snippet comes in two colors: `primary` and `secondary`
 
 !!! Do
 
-When multiple Copy Snippets are needed in a single page, such as in a [Table](/components/table), consider using the `secondary` color to reduce the prominence of each Copy Snippet.
+When multiple Copy Snippets are needed in a single page, such as in a [Table](/components/table/table), consider using the `secondary` color to reduce the prominence of each Copy Snippet.
 
 ![Example of the Copy Snippet component in a table](/assets/components/copy/copy-snippet-table-do.png)
 

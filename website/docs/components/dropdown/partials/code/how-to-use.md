@@ -51,7 +51,7 @@ Alternatively, pass `secondary` to `@color` to display a secondary button with a
 
 #### ToggleIcon as overflow menu
 
-Overflow menus are often found in the last column of a [Tables](/components/table). This is the only use case where it is acceptable to use
+Overflow menus are often found in the last column of a [Table](/components/table/table). This is the only use case where it is acceptable to use
 `@hasChevron={{false}}`. `@text` is still required, because it supplies the `aria-label` for ToggleIcon.
 
 ```handlebars

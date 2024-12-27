@@ -7,6 +7,7 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
 related:
   [
+    'components/table/advanced-table',
     'components/pagination',
     'patterns/filter-patterns',
     'patterns/table-multi-select',
