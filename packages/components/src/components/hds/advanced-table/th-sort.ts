@@ -21,7 +21,7 @@ import type {
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort';
-import { didInsertGridCell, handleGridCellKeyPress } from './helpers.ts';
+import { didInsertGridCell, handleGridCellKeyPress, onFocusTrapDeactivate } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -92,6 +92,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
 
   @action onFocusTrapDeactivate(): void {
     this._shouldTrapFocus = false;
+    onFocusTrapDeactivate(this._element)
   }
 
   @action enableFocusTrap(): void {

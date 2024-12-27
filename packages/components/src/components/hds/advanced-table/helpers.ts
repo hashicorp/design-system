@@ -8,6 +8,16 @@ import { focusable, tabbable } from 'tabbable';
 import type { HdsAdvancedTableTdSignature } from './td';
 import type { HdsAdvancedTableThSignature } from './th';
 
+export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
+  const cellTabbableChildren = tabbable(cell);
+
+  for (const child of cellTabbableChildren) {
+    child.setAttribute('tabindex', '-1')
+  }
+
+  cell.setAttribute('tabindex', '0')
+}
+
 export const didInsertGridCell = (
   cell:
     | HdsAdvancedTableThSignature['Element']
