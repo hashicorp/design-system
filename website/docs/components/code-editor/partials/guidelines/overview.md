@@ -1,0 +1,1 @@
+The Code Editor is used to allow users to edit snippets of code. It supports syntax highlighting, change history, and keyboard navigation. It also provides features like copy to clipboard and full-screen mode for an enhanced editing experience.
