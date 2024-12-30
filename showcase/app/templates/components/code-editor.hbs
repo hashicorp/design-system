@@ -12,7 +12,6 @@
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="No content">
       <Hds::CodeEditor />
-      <Hds::CodeEditor @language="bubba" />
     </SF.Item>
     <SF.Item @label="With initial content">
       <Hds::CodeEditor @value={{this.demoCode}} />
@@ -90,13 +89,13 @@
   </Shw::Grid>
 
   <Shw::Text::H2>Syntax highlighting</Shw::Text::H2>
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <Shw::Flex @direction="column" as |SF|>
     {{#each this.languages as |lang|}}
-      <SG.Item @label={{lang.label}}>
+      <SF.Item @label={{lang.label}}>
         <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} />
-      </SG.Item>
+      </SF.Item>
     {{/each}}
-  </Shw::Grid>
+  </Shw::Flex>
 
   <Shw::Text::H2>Standalone modifier usage</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
