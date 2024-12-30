@@ -25,7 +25,7 @@
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:css": "stylelint \"app/styles/**/*.scss\"",
-    "lint:css:fix": "concurrently \"yarn:lint:css -- --fix\"",
+    "lint:css:fix": "concurrently \"yarn:lint:css --fix\"",
     "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
     "start": "yarn build:packages && ember serve",
     "start:prember": "PREMBER=true ember serve",
