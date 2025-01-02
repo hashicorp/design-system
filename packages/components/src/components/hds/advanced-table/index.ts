@@ -237,19 +237,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
+  // returns the grid-template-column CSS attribute for the grid
   get gridTemplateColumns(): string {
+    // if there is no select checkbox or custom column widths, each column is the same width and they take up the available space
     if (!this.args.isSelectable && !this.columnWidths) {
       return `repeat(${this.args.columns.length}, 1fr)`;
-    }
+    } 
 
+    // if there is a select checkbox, the first column is 'auto' width to hug the checkbox content
     let style = this.args.isSelectable ? 'auto' : '';
 
     if (this.columnWidths) {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
       for (let i = 0; i < this.columnWidths.length; i++) {
         style = `${style} ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
       }
     } else {
+      // if there are no custom column widths, remaining columns are the same width and take up the available space
       for (let i = 0; i < this.args.columns.length; i++) {
+        // Note: can't use `repeat()` syntax because the first column is not the same as the rest.
         style = `${style} 1fr`;
       }
     }
@@ -330,31 +336,32 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     selectionKey?: string
   ): void {
     const { onSelectionChange } = this.args;
-    if (typeof onSelectionChange === 'function') {
-      onSelectionChange({
-        selectionKey: selectionKey,
-        selectionCheckboxElement: checkbox,
-        selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
-          if (row.checkbox.checked) {
-            acc.push(row.selectionKey);
-          }
+
+    if (typeof onSelectionChange !== 'function') return;
+
+    onSelectionChange({
+      selectionKey: selectionKey,
+      selectionCheckboxElement: checkbox,
+      selectedRowsKeys: this._selectableRows.reduce<string[]>((acc, row) => {
+        if (row.checkbox.checked) {
+          acc.push(row.selectionKey);
+        }
+        return acc;
+      }, []),
+      selectableRowsStates: this._selectableRows.reduce(
+        (
+          acc: { selectionKey: string; isSelected: boolean | undefined }[],
+          row
+        ) => {
+          acc.push({
+            selectionKey: row.selectionKey,
+            isSelected: row.checkbox.checked,
+          });
           return acc;
-        }, []),
-        selectableRowsStates: this._selectableRows.reduce(
-          (
-            acc: { selectionKey: string; isSelected: boolean | undefined }[],
-            row
-          ) => {
-            acc.push({
-              selectionKey: row.selectionKey,
-              isSelected: row.checkbox.checked,
-            });
-            return acc;
-          },
-          []
-        ),
-      });
-    }
+        },
+        []
+      ),
+    });
   }
 
   @action
