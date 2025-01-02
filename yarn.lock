@@ -3852,7 +3852,6 @@ __metadata:
     "@types/tinycolor2": "npm:^1.4.6"
     "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
     "@typescript-eslint/parser": "npm:^8.18.1"
-    del: "npm:^5.1.0"
     eslint: "npm:^8.57.1"
     fs-extra: "npm:^11.2.0"
     lodash-es: "npm:^4.17.21"
@@ -3943,7 +3942,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:^8.18.1"
     archiver: "npm:^7.0.1"
     chalk: "npm:^5.4.0"
-    del: "npm:^6.1.1"
+    del: "npm:^8.0.0"
     dotenv: "npm:^16.4.7"
     eslint: "npm:^8.57.1"
     figma-api: "npm:^2.0.1-beta"
@@ -11457,19 +11456,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"del@npm:^6.1.1":
-  version: 6.1.1
-  resolution: "del@npm:6.1.1"
+"del@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "del@npm:8.0.0"
   dependencies:
-    globby: "npm:^11.0.1"
-    graceful-fs: "npm:^4.2.4"
-    is-glob: "npm:^4.0.1"
-    is-path-cwd: "npm:^2.2.0"
-    is-path-inside: "npm:^3.0.2"
-    p-map: "npm:^4.0.0"
-    rimraf: "npm:^3.0.2"
-    slash: "npm:^3.0.0"
-  checksum: 10/563288b73b8b19a7261c47fd21a330eeab6e2acd7c6208c49790dfd369127120dd7836cdf0c1eca216b77c94782a81507eac6b4734252d3bef2795cb366996b6
+    globby: "npm:^14.0.2"
+    is-glob: "npm:^4.0.3"
+    is-path-cwd: "npm:^3.0.0"
+    is-path-inside: "npm:^4.0.0"
+    p-map: "npm:^7.0.2"
+    slash: "npm:^5.1.0"
+  checksum: 10/502dea7a846f989e1d921733f5d41ae4ae9b3eff168d335bfc050c9ce938ddc46198180be133814269268c4b0aed441a82fbace948c0ec5eed4ed086a4ad3b0e
   languageName: node
   linkType: hard
 
@@ -15867,7 +15864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^14.0.1":
+"globby@npm:^14.0.1, globby@npm:^14.0.2":
   version: 14.0.2
   resolution: "globby@npm:14.0.2"
   dependencies:
@@ -17308,10 +17305,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-path-inside@npm:^3.0.1, is-path-inside@npm:^3.0.2, is-path-inside@npm:^3.0.3":
+"is-path-cwd@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "is-path-cwd@npm:3.0.0"
+  checksum: 10/bc34d13b6a03dfca4a3ab6a8a5ba78ae4b24f4f1db4b2b031d2760c60d0913bd16a4b980dcb4e590adfc906649d5f5132684079a3972bd219da49deebb9adea8
+  languageName: node
+  linkType: hard
+
+"is-path-inside@npm:^3.0.1, is-path-inside@npm:^3.0.3":
   version: 3.0.3
   resolution: "is-path-inside@npm:3.0.3"
   checksum: 10/abd50f06186a052b349c15e55b182326f1936c89a78bf6c8f2b707412517c097ce04bc49a0ca221787bc44e1049f51f09a2ffb63d22899051988d3a618ba13e9
+  languageName: node
+  linkType: hard
+
+"is-path-inside@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "is-path-inside@npm:4.0.0"
+  checksum: 10/8810fa11c58e6360b82c3e0d6cd7d9c7d0392d3ac9eb10f980b81f9839f40ac6d1d6d6f05d069db0d227759801228f0b072e1b6c343e4469b065ab5fe0b68fe5
   languageName: node
   linkType: hard
 
@@ -21245,15 +21256,6 @@ __metadata:
   dependencies:
     aggregate-error: "npm:^3.0.0"
   checksum: 10/d4a0664d2af05d7e5f6f342e6493d4cad48f7398ac803c5066afb1f8d2010bfc2a83d935689437288f7b1a743772085b8fa0909a8282b5df4210bcda496c37c8
-  languageName: node
-  linkType: hard
-
-"p-map@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "p-map@npm:4.0.0"
-  dependencies:
-    aggregate-error: "npm:^3.0.0"
-  checksum: 10/7ba4a2b1e24c05e1fc14bbaea0fc6d85cf005ae7e9c9425d4575550f37e2e584b1af97bcde78eacd7559208f20995988d52881334db16cf77bc1bcf68e48ed7c
   languageName: node
   linkType: hard
 

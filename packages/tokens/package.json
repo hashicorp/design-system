@@ -29,7 +29,6 @@
     "@types/tinycolor2": "^1.4.6",
     "@typescript-eslint/eslint-plugin": "^8.18.1",
     "@typescript-eslint/parser": "^8.18.1",
-    "del": "^5.1.0",
     "eslint": "^8.57.1",
     "fs-extra": "^11.2.0",
     "lodash-es": "^4.17.21",
