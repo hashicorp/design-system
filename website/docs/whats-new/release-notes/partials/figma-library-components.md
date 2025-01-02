@@ -8,28 +8,19 @@
 ## Components library
 
 <p class="doc-whats-new-changelog-figma-library">
-  <strong>Figma library: <a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0" target="_blank" rel="noopener noreferrer">HDS Product - Components</a></strong>
+  <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit</a></strong>
 </p>
 
 ### December 20th, 2024
 
-`IconTile` - Visual updates made to the component, including removing the border and updating colors for improved contrast and alignment.
+`IconTile` - Removed the border and updated the colors for improved contrast and to create a cohesive look that aligns better with the surrounding elements.
 
-`Figma Library 1.0` - **Deprecated**. It will no longer receive updates or support.
+**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
 
-`Figma Library 2.0` - Released. Figma Library link
+Released HDS Components UI Kit v2.0.
 
-`Foundations Library 1.0` - **Deprecated**. It will no longer receive updates or support.
 
-`Foundations Library 2.0` - Released.
-
-`Product Patterns 1.0` - **Deprecated**. It will no longer receive updates or support.
-
-`Product Patterns 2.0` - Released. Figma Library link
-
-`HDS Wireframes` - Released. Figma Library link
-
-`SideNav` - No longer deprecated due to limited adoption bandwidth and shifting priorities.
+`SideNav` - No longer deprecated due to adjustments in prioritization.
 
 ### September 11th, 2024
 
