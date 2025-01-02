@@ -17,7 +17,7 @@ Given the Modal is triggered via a keyboard, the dismiss button is first in the 
 
 ### Focus order within a complex Modal
 
-If the Modal body contains interactive content, such as input fields, the first element should receive focus first regardless of how the Modal is triggered; either via a mouse click or via the keyboard. This behaviour should be implemented by [setting the focus on the first element](/components/modal?tab=code#form-within-a-modal-dialog).
+If the Modal body contains interactive content, such as input fields, the first element should receive focus first regardless of how the Modal is triggered; either via a mouse click or via the keyboard. This behavior should be implemented by [setting the focus on the first element](/components/modal?tab=code#form-within-a-modal-dialog).
 
 ![Complex focus within a modal](/assets/components/modal/modal-focus-order-complex.png =1042x*)
 

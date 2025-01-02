@@ -444,7 +444,7 @@ One possible way to do it is to use the **`hds-side-nav-hide-when-minimized` cla
 
 More specifically:
 
-- `minimized → maximized` transition: the content appears with a fade-in effect, when the width animation is already completed (the width is maximised)
+- `minimized → maximized` transition: the content appears with a fade-in effect, when the width animation is already completed (the width is maximized)
 - `maximized → minimized` transition: the content disappears at once with no transition, before the width animation starts
 
 Another option is to use the **`isMinimized` parameter**, which is useful in those cases where the content is so custom/specialized that can't just be faded in/out but needs to have a different kind of transition (eg. remain visible but change layout or respond to the width of the container). This value is passed down by the `<:header/body/footer>` named blocks as parameters, and can be used to build custom logic on the consumers' side.
@@ -469,7 +469,7 @@ By default, the component uses the [ember-a11y-refocus](https://github.com/ember
 
 **Notice**
 
-The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. unfocusing an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
+The addon introduces a refocusing behavior **on route changes** that may interfere with the hosting application (eg. blurring an active element). For details on how to control this behavior, see the section about [customizing the definition of a route change](https://github.com/ember-a11y/ember-a11y-refocus#customizing-the-definition-of-a-route-change).
 
 !!!
 

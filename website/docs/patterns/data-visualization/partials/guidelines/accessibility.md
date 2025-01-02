@@ -1,4 +1,4 @@
-## Accessiblity considerations
+## Accessibility considerations
 
 Do not rely upon color as the sole means for conveying information in charts (or in general). To make charts accessible, combine color with another means of distinction. This could be the use of patterns or symbols combined with or instead of colors. Lightness vs. darkness can also serve as a secondary distinction; however, the visual difference between shades must be large enough to be clearly perceived. You can also add text, such as labels or descriptions of the visual information in the chart.
 

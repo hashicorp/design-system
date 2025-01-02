@@ -173,7 +173,7 @@ The RichTooltip component automatically adapts its alignment depending on its po
 
 It's possible to disable this behavior by setting the `@enableCollisionDetection` argument to `false`.
 
-It's also possible to customize this behaviour using the values:
+It's also possible to customize this behavior using the values:
 - `flip` - adapts the position only along its [axis of alignment](https://floating-ui.com/docs/flip#mainaxis)
 - `shift` - adapts the position only along its [side axis](https://floating-ui.com/docs/shift#mainaxis)
 - `auto` - uses the side where there is [more space available](https://floating-ui.com/docs/autoPlacement) (in relation to the viewport)

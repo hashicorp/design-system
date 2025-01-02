@@ -55,7 +55,7 @@ The visibility of the popover can be toggled via "soft" event listeners (hover/f
 
 _Notice: The actual technical events used are `mouseEnter/Leave` and `focusIn/Out`._
 
-Alternatively, the toggle behaviour can be enabled via "click" events:
+Alternatively, the toggle behavior can be enabled via "click" events:
 
 ```handlebars{data-execute=false}
 <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
