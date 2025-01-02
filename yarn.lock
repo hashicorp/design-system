@@ -12928,21 +12928,6 @@ __metadata:
   linkType: hard
 
 "ember-qunit@npm:*":
-  version: 9.0.1
-  resolution: "ember-qunit@npm:9.0.1"
-  dependencies:
-    "@embroider/addon-shim": "npm:^1.8.6"
-    "@embroider/macros": "npm:^1.13.1"
-    qunit-theme-ember: "npm:^1.0.0"
-  peerDependencies:
-    "@ember/test-helpers": ">=3.0.3"
-    ember-source: ">=4.0.0"
-    qunit: ^2.13.0
-  checksum: 10/547d7e6de8aac5f78c1ef07a4922d2885bff344acf2ae125d0646b4c1eb96e660cdfd114ad6088203ed01d4ca3df04804469e2e3538bc9421979e99e935de5ba
-  languageName: node
-  linkType: hard
-
-"ember-qunit@npm:^8.1.1":
   version: 8.1.1
   resolution: "ember-qunit@npm:8.1.1"
   dependencies:
@@ -12955,6 +12940,21 @@ __metadata:
     ember-source: ">=4.0.0"
     qunit: ^2.13.0
   checksum: 10/547256738a2fddddfffea1a1f0a2b1b66076b0d99548a2c3cc4a89bfa001897fd94cd1a24234149fbd72a13ef7a7ae6586599e51db9d21a0e7ad06ac9719d909
+  languageName: node
+  linkType: hard
+
+"ember-qunit@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "ember-qunit@npm:9.0.1"
+  dependencies:
+    "@embroider/addon-shim": "npm:^1.8.6"
+    "@embroider/macros": "npm:^1.13.1"
+    qunit-theme-ember: "npm:^1.0.0"
+  peerDependencies:
+    "@ember/test-helpers": ">=3.0.3"
+    ember-source: ">=4.0.0"
+    qunit: ^2.13.0
+  checksum: 10/547d7e6de8aac5f78c1ef07a4922d2885bff344acf2ae125d0646b4c1eb96e660cdfd114ad6088203ed01d4ca3df04804469e2e3538bc9421979e99e935de5ba
   languageName: node
   linkType: hard
 
@@ -24118,7 +24118,7 @@ __metadata:
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
-    ember-qunit: "npm:^8.1.1"
+    ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
     ember-set-helper: "npm:^3.0.1"
     ember-source: "npm:~5.12.0"
@@ -27241,7 +27241,7 @@ __metadata:
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
     ember-prism: "npm:^0.13.0"
-    ember-qunit: "npm:^8.1.1"
+    ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
     ember-router-scroll: "npm:^4.1.2"
     ember-source: "npm:~5.12.0"
