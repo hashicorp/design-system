@@ -15,7 +15,11 @@ import type {
   HdsAdvancedTableScope,
 } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
-import { didInsertGridCell, handleGridCellKeyPress, onFocusTrapDeactivate } from './helpers.ts';
+import {
+  didInsertGridCell,
+  handleGridCellKeyPress,
+  onFocusTrapDeactivate,
+} from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -104,8 +108,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action onFocusTrapDeactivate(): void {
     this._shouldTrapFocus = false;
-    onFocusTrapDeactivate(this._element)
-
+    onFocusTrapDeactivate(this._element);
   }
 
   @action enableFocusTrap(): void {

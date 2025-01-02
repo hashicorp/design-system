@@ -242,7 +242,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     // if there is no select checkbox or custom column widths, each column is the same width and they take up the available space
     if (!this.args.isSelectable && !this.columnWidths) {
       return `repeat(${this.args.columns.length}, 1fr)`;
-    } 
+    }
 
     // if there is a select checkbox, the first column is 'auto' width to hug the checkbox content
     let style = this.args.isSelectable ? 'auto' : '';
