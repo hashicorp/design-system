@@ -49,6 +49,14 @@ const LANGUAGES: Record<
       return defineStreamLangugage(ruby);
     },
   },
+  sentinel: {
+    load: async () => {
+      const { sentinel } = await import(
+        './hds-code-editor/languages/sentinel.js'
+      );
+      return defineStreamLangugage(sentinel);
+    },
+  },
   shell: {
     load: async () => {
       const { shell } = await import('@codemirror/legacy-modes/mode/shell');
