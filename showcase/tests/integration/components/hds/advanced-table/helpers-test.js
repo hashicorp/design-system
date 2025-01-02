@@ -15,7 +15,6 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import { focusable } from 'tabbable';
 
-
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -165,7 +164,11 @@ module(
       await render(hbsSortableAdvancedTable);
 
       const grid = document.getElementById('data-test-advanced-table');
-      const focusableElements = focusable(grid).filter((element) => !element.classList.contains('hds-advanced-table__th') && !element.classList.contains('hds-advanced-table__td') )
+      const focusableElements = focusable(grid).filter(
+        (element) =>
+          !element.classList.contains('hds-advanced-table__th') &&
+          !element.classList.contains('hds-advanced-table__td')
+      );
 
       assert
         .dom('[data-advanced-table-child-focusable=""]')
