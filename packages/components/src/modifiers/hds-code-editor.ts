@@ -13,7 +13,7 @@ import config from 'ember-get-config';
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
-import type { HdsCodeEditorLanguages } from './hds-code-editor/types.ts';
+import type { HdsCodeEditorLanguages } from './hds-code-editor/types';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import type { StreamLanguage, StreamParser } from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
@@ -47,6 +47,14 @@ const LANGUAGES: Record<
     load: async () => {
       const { ruby } = await import('@codemirror/legacy-modes/mode/ruby');
       return defineStreamLangugage(ruby);
+    },
+  },
+  sentinel: {
+    load: async () => {
+      const { sentinel } = await import(
+        './hds-code-editor/languages/sentinel.ts'
+      );
+      return defineStreamLangugage(sentinel);
     },
   },
   shell: {
