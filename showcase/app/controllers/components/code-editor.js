@@ -41,6 +41,23 @@ else
 fi`,
     },
     {
+      value: 'sentinel',
+      label: 'Sentinel',
+      code: `policy "cpu_threshold" {
+  source    = "hashicorp/cpu-utilization"
+  enforcement_level = "hard-mandatory"
+}
+
+monitor "cpu_alert" {
+  description = "Alert when CPU utilization exceeds 80%"
+  policy      = policy.cpu_threshold
+  parameters  = {
+    threshold = 80
+  }
+}
+`,
+    },
+    {
       value: 'go',
       label: 'Go',
       code: `package main
