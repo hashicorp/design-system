@@ -68,7 +68,7 @@
     "@babel/plugin-transform-private-methods": "^7.24.1",
     "@babel/plugin-transform-typescript": "^7.23.6",
     "@babel/runtime": "^7.24.5",
-    "@ember/test-helpers": "^3.3.0",
+    "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^4.3.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
@@ -87,7 +87,7 @@
     "@typescript-eslint/eslint-plugin": "^8.5.0",
     "@typescript-eslint/parser": "^8.5.0",
     "babel-plugin-ember-template-compilation": "^2.2.4",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.1.0",
     "ember-basic-dropdown": "^8.1.0",
     "ember-source": "~5.9.0",
     "ember-template-lint": "^6.0.0",
@@ -107,7 +107,7 @@
     "rollup-plugin-ts": "^3.4.5",
     "stylelint": "^16.3.1",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-config-standard-scss": "^14.0.0",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
