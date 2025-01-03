@@ -15,12 +15,12 @@ $hds-tag-border-radius: 50px;
 .hds-tag {
   display: inline-flex;
   align-items: stretch;
+  overflow: hidden;
   line-height: 1rem; // 16px - override `body-100`
   vertical-align: middle;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-tag-border-radius;
-  overflow: hidden;
 }
 
 .hds-tag:focus-within,
