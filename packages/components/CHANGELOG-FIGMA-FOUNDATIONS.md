@@ -1,4 +1,4 @@
-# [HDS Product - Foundations](https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=4728-1879&mode=design&t=vM0eNG3c9YY5rmmu-0)
+# [HDS Foundations UI Kit](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&node-id=2916-4&t=vnWfSubCHQU6J1U3-1)
 
 ## November 2nd, 2023
 

@@ -8,9 +8,18 @@
 ## Components library
 
 <p class="doc-whats-new-changelog-figma-library">
-  <strong>Figma library: <a href="https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0" target="_blank" rel="noopener noreferrer">HDS Product - Components</a></strong>
+  <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit</a></strong>
 </p>
 
+### December 20th, 2024
+
+`IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
+
+**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
+
+Released HDS Components UI Kit v2.0.
+
+`SideNav` - No longer deprecated due to adjustments in prioritization.
 
 ### September 11th, 2024
 
@@ -84,10 +93,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### August 17th, 2023
 
 `SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
-
-### July 31st, 2023
-
-`Field/Date`, `Field/Time`, `Field/Datetime` - Fixed the default width of the components to match the browser default.
 
 
 ---
