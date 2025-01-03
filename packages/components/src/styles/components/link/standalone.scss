@@ -13,7 +13,7 @@
 @use "../../mixins/focus-ring" as *;
 
 $hds-link-standalone-sizes: ( "small", "medium", "large" );
-$hds-link-standalone-focus-border-radius: 5px;
+$hds-link-standalone-focus-border-radius: var(--token-border-radius-small);
 $hds-link-standalone-border-width: 1px;
 
 .hds-link-standalone {

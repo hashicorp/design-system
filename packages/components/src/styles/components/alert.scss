@@ -59,7 +59,7 @@
     line-height: 1em;
     background-color: var(--token-color-surface-primary);
     border: 1px solid var(--token-color-palette-neutral-200);
-    border-radius: 5px;
+    border-radius: var(--token-border-radius-small);
   }
 
   // Default styling for bare HTML links not using HDS::Link components
@@ -116,7 +116,7 @@
   padding: 16px;
   border-style: solid;
   border-width: 1px;
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
 }
 
 .hds-alert--type-compact {

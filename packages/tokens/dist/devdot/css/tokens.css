@@ -3,6 +3,10 @@
  */
 
 :root {
+  --token-border-radius-x-small: 3px;
+  --token-border-radius-small: 5px;
+  --token-border-radius-medium: 6px;
+  --token-border-radius-large: 8px;
   --token-color-palette-blue-500: #1c345f;
   --token-color-palette-blue-400: #0046d1;
   --token-color-palette-blue-300: #0c56e9;
