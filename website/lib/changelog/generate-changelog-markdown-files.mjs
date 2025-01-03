@@ -29,6 +29,16 @@ const figma_changelogs = [
     title: 'Foundations library',
     relativePath: '../packages/components/CHANGELOG-FIGMA-FOUNDATIONS.md',
   },
+  {
+    id: 'figma-library-patterns',
+    title: 'Patterns library',
+    relativePath: '../packages/components/CHANGELOG-FIGMA-PATTERNS.md',
+  },
+  {
+    id: 'figma-library-utilities',
+    title: 'Utility libraries',
+    relativePath: '../packages/components/CHANGELOG-FIGMA-UTILITIES.md',
+  },
 ];
 
 const addHeader = () => {
