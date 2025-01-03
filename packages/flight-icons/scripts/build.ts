@@ -5,7 +5,7 @@
 
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
-import del from 'del';
+import { deleteSync } from 'del';
 import chalk from 'chalk';
 
 import { optimizeAssetsSVG } from './build-parts/optimizeAssetsSVG';
@@ -76,7 +76,7 @@ async function build() {
     // notice: comment this if you need to debug the assets initial SVG processing
     try {
         console.log('Removing the "temp" folder');
-        del.sync(`${config.tempFolder}`, { force: true });
+        deleteSync(`${config.tempFolder}`, { force: true });
     } catch (err) {
         console.error(err);
     }
