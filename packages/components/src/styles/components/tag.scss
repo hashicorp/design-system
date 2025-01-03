@@ -10,7 +10,7 @@
 @use "../mixins/focus-ring" as *;
 
 // we set a higher value than the line-height (~13px) to accommodate cases where the text wraps
-$hds-tag-border-radius: 20px;
+$hds-tag-border-radius: 50px;
 
 .hds-tag {
   display: inline-flex;
@@ -20,6 +20,12 @@ $hds-tag-border-radius: 20px;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-tag-border-radius;
+  overflow: hidden;
+}
+
+.hds-tag:focus-within,
+.hds-tag:has(.mock-focus) {
+  overflow: visible;
 }
 
 .hds-tag__dismiss {
