@@ -13,7 +13,7 @@
 
 ### December 20th, 2024
 
-`IconTile` - Removed the border and updated the colors for improved contrast and to create a cohesive look that aligns better with the surrounding elements.
+`IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
 
 **Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
 
