@@ -1,5 +1,33 @@
 # @hashicorp/design-system-components
 
+## 4.16.0
+
+### Minor Changes
+
+`Table` - Updated the visual design of `Table` cells by adding borders, making them more distinguishable when spanning rows or columns.
+
+<small class="doc-whats-new-changelog-metadata">[#2588](https://github.com/hashicorp/design-system/pull/2588)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Table` - fixed the aria-labels for select row and select all checkboxes so they do not change based on the state of the checkbox.
+
+<small class="doc-whats-new-changelog-metadata">[#2596](https://github.com/hashicorp/design-system/pull/2596)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Shifted our supported version of Node.js from `16* || >= 18` to `>=18`
+
+<small class="doc-whats-new-changelog-metadata">[#2619](https://github.com/hashicorp/design-system/pull/2619)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.9.0
+
 ## 4.15.0
 
 [4.15.0 documentation](https://hds-website-4-15-0.vercel.app/)

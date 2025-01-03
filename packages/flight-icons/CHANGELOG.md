@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.9.0
+
+### Minor Changes
+
+`confluence` and `confluence-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2635](https://github.com/hashicorp/design-system/pull/2635)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.8.0
 
 ### Minor Changes
