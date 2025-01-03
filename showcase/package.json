@@ -75,6 +75,7 @@
     "ember-concurrency": "^4.0.2",
     "ember-deep-tracked": "^2.0.0",
     "ember-load-initializers": "^2.1.2",
+    "ember-math-helpers": "^3.0.0",
     "ember-modifier": "^4.1.0",
     "ember-page-title": "^8.2.3",
     "ember-power-select": "^8.2.0",
@@ -107,6 +108,7 @@
     "stylelint": "^16.3.1",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^13.1.0",
+    "tabbable": "^6.2.0",
     "tracked-built-ins": "^3.3.0",
     "typescript": "^5.4.5",
     "webpack": "^5.94.0"
