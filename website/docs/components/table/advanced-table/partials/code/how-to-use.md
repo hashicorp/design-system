@@ -1,6 +1,6 @@
 ## How to use this component
 
-The Advanced Table is a component meant to display tabular data to overcome limitations with the HTML `<table>` elements and increase the accessibility for complex features, like nested rows and [a sticky header](#vertical-scrolling).
+The Advanced Table is a component meant to display tabular data to overcome limitations with the HTML `<table>` elements and increase the accessibility for complex features, like [nested rows](#nested-rows) and [a sticky header](#vertical-scrolling).
 
 Instead of using the `<table>` elements, the Advanced Table uses `<div>`s with explicitly set roles (for example, instead of `<tr>`, it uses `<div role="row">`). This allows the Advanced Table to use [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for styling.
 
