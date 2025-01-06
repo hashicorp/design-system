@@ -74,11 +74,50 @@ For complex data sets where there is a parent row with several children, you can
 
 To ensure the Advanced Table is accessible, the columns in the nested rows **must** match the columns of the parent rows. Otherwise the relationship between the parent and nested rows will not be clear to users.
 
+```javascript
+  // example of data retrieved for the model:
+  [
+    {
+      id: '1',
+      name: 'Policy set 1',
+      status: 'PASS',
+      children: [
+        {
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        },
+        {
+          name: 'test-hard-mandatory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        }
+      ]
+    },
+    {
+      id: '2',
+      name: 'Policy set 2',
+      status: 'FAIL',
+      children: [
+        {
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        },
+        // ...
+      ]
+    },
+  ]
+```
+
 !!! Warning
 
 It is not currently supported to have `@isStriped`, multi-select, or sortable columns with nested rows. If your use case requires any of these features, please [contact the Design Systems Team](/about/support).
 
 !!!
+
+Similar to the basic AdvancedTable, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows:
+
 
 ```handlebars
 <Hds::AdvancedTable
@@ -114,7 +153,7 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 
 !!!
 
-Add `isSortable=true` to the hash for each column that should be sortable.
+Add `isSortable=true` to the hash for each column that should be sortable. 
 
 !!! Warning
 
@@ -574,7 +613,7 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 
 #### Usability and accessibility considerations
 
-Since the “selected” state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select Advanced Table.
+Since the “selected” state of a row is communicated with the checkbox selection, there are some important considerations to keep in mind when implementing a multi-select Advanced Table.
 
 If the selection status of the rows is persisted even when a row is not displayed in the UI, consider what the expectations of the user might be: how are they made aware that the action they are going to perform may involve rows that were previously selected but not displayed in the current view?
 
