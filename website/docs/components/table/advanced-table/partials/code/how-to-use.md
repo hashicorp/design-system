@@ -155,12 +155,6 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 
 Add `isSortable=true` to the hash for each column that should be sortable. 
 
-!!! Warning
-
-At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
-
-!!!
-
 ```handlebars
 <Hds::AdvancedTable
   @model={{this.model.myDemoData}}
@@ -179,6 +173,12 @@ At this time, the Advanced Table does not support sortable nested rows. If this 
   </:body>
 </Hds::AdvancedTable>
 ```
+
+!!! Warning
+
+At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
+
+!!!
 
 #### Pre-sorting columns
 
