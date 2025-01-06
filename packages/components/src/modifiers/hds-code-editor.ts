@@ -31,7 +31,7 @@ export interface HdsCodeEditorSignature {
   };
 }
 
-async function defineStreamLangugage(streamParser: StreamParser<unknown>) {
+async function defineStreamLanguage(streamParser: StreamParser<unknown>) {
   const { StreamLanguage } = await import('@codemirror/language');
 
   return StreamLanguage.define(streamParser);
@@ -46,13 +46,13 @@ const LANGUAGES: Record<
   ruby: {
     load: async () => {
       const { ruby } = await import('@codemirror/legacy-modes/mode/ruby');
-      return defineStreamLangugage(ruby);
+      return defineStreamLanguage(ruby);
     },
   },
   shell: {
     load: async () => {
       const { shell } = await import('@codemirror/legacy-modes/mode/shell');
-      return defineStreamLangugage(shell);
+      return defineStreamLanguage(shell);
     },
   },
   go: {
