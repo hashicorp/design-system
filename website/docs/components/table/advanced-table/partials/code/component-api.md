@@ -9,7 +9,7 @@ The AdvancedTable component itself is where most of the options will be applied.
     This is a named block where the content for the AdvancedTable body is rendered.
     <Doc::ComponentApi as |C|>
       <C.Property @name="[B].rowIndex" @type="number | string">
-        The value of the index asssociated with the `@each` loop. Returns a number when there are no nested rows. Returns a string in the form `${parentIndex}.${childIndex}` when there are nested rows.
+        The value of the index associated with the `@each` loop. Returns a number when there are no nested rows. Returns a string in the form `${parentIndex}.${childIndex}` when there are nested rows.
       </C.Property>
       <C.Property @name="[B].sortBy" @type="string">
         The value of the internal `sortBy` tracked variable.
