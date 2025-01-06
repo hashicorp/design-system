@@ -339,7 +339,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
 
 Consuming a large amount of data in a tabular format can lead to an intense cognitive load for the user. As a general principle, care should be taken to simplify the information within a table as much as possible.
 
-We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table/advanced-table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
+We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table/advanced-table?tab=code#sortable-advanced-table), and [filtering](/patterns/filter-patterns) to reduce this load.
 
 #### Vertical scrolling
 
