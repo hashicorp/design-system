@@ -4,7 +4,7 @@ You can apply an `elevation` or `surface` effect to an element via **design toke
 
 !!! Info
 
-Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element.
+Note that `border-radius` is not included with this token and needs to be set according to the specs of the UI element. We recommend using the supported [border radius tokens](/foundations/border-radius) for consistency between Helios components, and custom components.
 !!!
 
 ### Design tokens
