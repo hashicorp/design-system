@@ -87,9 +87,9 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   }
 
   @action
-  onInput(newVal: string): void {
-    this._value = newVal;
-    this.args.onInput?.(newVal);
+  onInput(newValue: string): void {
+    this._value = newValue;
+    this.args.onInput?.(newValue);
   }
 
   @action
