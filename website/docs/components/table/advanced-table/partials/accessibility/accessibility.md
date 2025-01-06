@@ -5,6 +5,22 @@
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
 
+## Best practices
+
+### Interactive rows
+
+The table row element is not eligible to receive interactions. That is, actions cannot be attached to a table row. If an interactive element is desired, place it within a table cell element within that row (i.e., `<div role="gridcell"><a href="somelink.html">Some link</a></div>`).
+
+### Focus in Advanced Tables
+
+Unlike the Table component, each cell recieves focus in the Advanced Table to let users navigate through the table efficiently with a keyboard. For any other interactions, there must be interactive elements (buttons, links, etc.) within the cells. 
+
+### Row selection
+
+It is best to clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For more considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
+
+if they have selected rows outside of their current view and how many out of the total data set are selected
+
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
