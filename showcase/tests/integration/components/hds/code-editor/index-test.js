@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render, waitFor } from '@ember/test-helpers';
+import { click, render, waitFor, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -18,7 +18,9 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor id="test-code-editor" />`);
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor id="test-code-editor" @ariaLabel="code editor" />`
+    );
     assert.dom('#test-code-editor').hasClass('hds-code-editor');
   });
 
@@ -38,27 +40,35 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     );
     assert.dom('.hds-code-editor__title').hasTagName('h1');
   });
-  test('it should not render the component with a title when the `title` contextual component is not yielded', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor />`);
+  test('it should not render the component with a title when the `Title` contextual component is not yielded', async function (assert) {
+    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__title').doesNotExist();
+  });
+  test('when aria-label is not provided and the `Title` contextual component is yielded, it should use the title element id as the aria-labelledby value', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor as |CE|><CE.Title id="test-title">Test Title</CE.Title></Hds::CodeEditor>`
+    );
+    assert
+      .dom('.hds-code-editor__editor')
+      .hasAttribute('aria-labelledby', 'test-title');
   });
 
   // description
   test('it should render the component with a description', async function (assert) {
     await setupCodeEditor(
-      hbs`<Hds::CodeEditor as |CE|><CE.Description>Test Description</CE.Description></Hds::CodeEditor>`
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" as |CE|><CE.Description>Test Description</CE.Description></Hds::CodeEditor>`
     );
     assert.dom('.hds-code-editor__description').hasText('Test Description');
   });
   test('it should not render the component with a description when the `description` contextual component is not yielded', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor />`);
+    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('hds-code-editor__description').doesNotExist();
   });
 
   // yielded block content
   test('it should render custom content in the toolbar when provided', async function (assert) {
     await setupCodeEditor(hbs`
-      <Hds::CodeEditor>
+      <Hds::CodeEditor @ariaLabel="code editor">
         <button id="test-toolbar-button">Test Button</button>
       </Hds::CodeEditor>
     `);
@@ -66,29 +76,31 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
   });
   // @hasCopyButton
   test('it should render a copy button when the `@hasCopyButton` argument is true', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @hasCopyButton={{true}} />`);
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} />`
+    );
     assert.dom('.hds-code-editor__copy-button').exists();
   });
   test('it should not render a copy button when the `@hasCopyButton` argument is not provided', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor />`);
+    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
   });
   // @hasFullScreenButton
   test('it should render a toggle fullscreen button when the `@hasFullScreenButton` argument is true', async function (assert) {
     await setupCodeEditor(
-      hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />`
     );
     assert.dom('.hds-code-editor__full-screen-button').exists();
   });
   test('it should not render a toggle fullscreen button when the `@hasFullScreenButton` argument is not provided', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor />`);
+    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__full-screen-button').doesNotExist();
   });
 
   // expand/colapse
   test('it should expand the code editor when the toggle full screen button is clicked', async function (assert) {
     await setupCodeEditor(
-      hbs`<Hds::CodeEditor @hasFullScreenButton={{true}} />`
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasFullScreenButton={{true}} />`
     );
     // initial state
     assert
@@ -137,6 +149,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
 
     await setupCodeEditor(
       hbs`<Hds::CodeEditor
+        @ariaLabel="code editor"
         @hasCopyButton={{true}}
         @value="Test Code"
         @onInput={{this.handleInput}}
@@ -160,9 +173,42 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     sinon.restore();
   });
 
+  // @ariaLabel
+  test('it should render the component with an aria-label when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" />`
+    );
+    assert
+      .dom('.hds-code-editor__editor')
+      .hasAttribute('aria-label', 'Test Code Editor');
+  });
+
+  // @ariaLabelledBy
+  test('it should render the component with an aria-labelledby when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabelledBy="test-label" />`
+    );
+    assert
+      .dom('.hds-code-editor__editor')
+      .hasAttribute('aria-labelledby', 'test-label');
+  });
+  test('it should not render the component with an aria-labbelledby when @ariaLabel is provided as well', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" @ariaLabelledBy="test-label" />`
+    );
+    assert
+      .dom('.hds-code-editor__editor')
+      .hasAttribute('aria-label', 'Test Code Editor');
+    assert
+      .dom('.hds-code-editor__editor')
+      .doesNotHaveAttribute('aria-labelledby');
+  });
+
   // @value
   test('it should render the component with the provided value', async function (assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @value="Test Code" />`);
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @value="Test Code" />`
+    );
     assert.dom('.hds-code-editor__editor').includesText('Test Code');
   });
 
@@ -178,7 +224,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     });
 
     await setupCodeEditor(
-      hbs`<Hds::CodeEditor @onInput={{this.handleInput}} @onSetup={{this.handleSetup}} />`
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @onInput={{this.handleInput}} @onSetup={{this.handleSetup}} />`
     );
 
     this.editorView.dispatch({
@@ -189,5 +235,18 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     });
 
     assert.ok(inputSpy.calledOnceWith('Test string'));
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if both @ariaLabel and the yielded Title component are not used', async function (assert) {
+    const errorMessage = `@ariaLabel for "Hds::CodeEditor" must have a valid value or a yielded "Title" component must be provided`;
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::CodeEditor />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });

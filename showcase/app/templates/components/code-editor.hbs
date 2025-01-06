@@ -11,10 +11,10 @@
   <Shw::Text::H2>Content</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="No content">
-      <Hds::CodeEditor />
+      <Hds::CodeEditor @ariaLabel="No content" />
     </SF.Item>
     <SF.Item @label="With initial content">
-      <Hds::CodeEditor @value={{this.demoCode}} />
+      <Hds::CodeEditor @ariaLabel="With initial content" @value={{this.demoCode}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -28,7 +28,7 @@
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With description">
-      <Hds::CodeEditor as |CE|>
+      <Hds::CodeEditor @ariaLabel="With description" as |CE|>
         <CE.Description>This is a code editor with a description</CE.Description>
       </Hds::CodeEditor>
     </SG.Item>
@@ -43,20 +43,24 @@
   <Shw::Text::H3>Actions</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="Fullscreen toggle">
-      <Hds::CodeEditor @hasFullScreenButton={{true}} />
+      <Hds::CodeEditor @ariaLabel="Fullscreen toggle" @hasFullScreenButton={{true}} />
     </SG.Item>
     <SG.Item @label="Copy button">
-      <Hds::CodeEditor @value="Copy me!" @hasCopyButton={{true}} />
+      <Hds::CodeEditor @ariaLabel="Copy button" @value="Copy me!" @hasCopyButton={{true}} />
     </SG.Item>
     <SG.Item @label="Fullscreen toggle and copy button">
-      <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} />
+      <Hds::CodeEditor
+        @ariaLabel="Fullscreen toggle and copy button"
+        @hasFullScreenButton={{true}}
+        @hasCopyButton={{true}}
+      />
     </SG.Item>
   </Shw::Grid>
 
   <Shw::Text::H3>Custom content</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With custom header content">
-      <Hds::CodeEditor>
+      <Hds::CodeEditor @ariaLabel="With custom header content">
         <Hds::Button @text="Custom button" @size="small" />
       </Hds::CodeEditor>
     </SG.Item>
@@ -92,7 +96,9 @@
   <Shw::Flex @direction="column" as |SF|>
     {{#each this.languages as |lang|}}
       <SF.Item @label={{lang.label}}>
-        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} />
+        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} as |CE|>
+          <CE.Title>{{lang.label}}</CE.Title>
+        </Hds::CodeEditor>
       </SF.Item>
     {{/each}}
   </Shw::Flex>

@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { assert } from '@ember/debug';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
@@ -14,9 +15,12 @@ import type { HdsButtonSignature } from 'src/components/hds/button';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { EditorView } from '@codemirror/view';
+import { guidFor } from '@ember/object/internals';
 
 export interface HdsCodeEditorSignature {
   Args: {
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
     hasCopyButton?: boolean;
     hasFullScreenButton?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
@@ -40,6 +44,9 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked private _isFullScreen = false;
   @tracked private _isSetupComplete = false;
   @tracked private _value;
+  @tracked private _titleId: string | undefined;
+
+  private _id = guidFor(this);
 
   private _handleEscape = modifier(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -65,6 +72,14 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     }
   }
 
+  get ariaLabelledBy(): string | undefined {
+    if (this.args.ariaLabel !== undefined) {
+      return;
+    }
+
+    return this.args.ariaLabelledBy ?? this._titleId;
+  }
+
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
     // In the future, additional themes such as a "light" theme could be added.
@@ -79,6 +94,20 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
   get hasActions(): boolean {
     return (this.args.hasCopyButton || this.args.hasFullScreenButton) ?? false;
+  }
+
+  private _assertAccessiblity(): void {
+    assert(
+      '@ariaLabel for "Hds::CodeEditor" must have a valid value or a yielded "Title" component must be provided',
+      this.args.ariaLabel !== undefined || this._titleId !== undefined
+    );
+  }
+
+  @action
+  registerTitleElement(element: HdsCodeEditorTitleSignature['Element']): void {
+    this._titleId = element.id;
+    // Once the title ID is registered, we can do any post-setup checks:
+    this._assertAccessiblity();
   }
 
   @action
