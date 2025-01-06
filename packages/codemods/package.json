@@ -38,7 +38,7 @@
     "prettier": "^3.3.2"
   },
   "engines": {
-    "node": "14.* || 16.* || >= 18"
+    "node": ">= 18"
   },
   "jest": {
     "testEnvironment": "node"

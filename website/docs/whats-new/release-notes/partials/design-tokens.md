@@ -101,7 +101,7 @@ Added color tokens for “Vault Radar” product
 
 **Minor changes**
 
-Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the SideNav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
 
 <small class="doc-whats-new-changelog-metadata">[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 

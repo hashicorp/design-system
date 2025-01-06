@@ -5,6 +5,8 @@
 
 // COPY > BUTTON
 
+@use "../../typography" as *;
+
 body.components-copy-button {
   .shw-component-copy-button-composition-masked-input-base {
     display: flex;

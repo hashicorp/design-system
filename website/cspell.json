@@ -11,16 +11,23 @@
       "name": "dictionary-lorem",
       "path": "./cspell-config/dictionary-lorem.txt",
       "addWords": true
+    },
+    {
+      "name": "dictionary-docs-examples",
+      "path": "./cspell-config/dictionary-docs-examples.txt",
+      "addWords": true
     }
   ],
   "dictionaries": [
     "project-words",
-    "dictionary-lorem"
+    "dictionary-lorem",
+    "dictionary-docs-examples"
   ],
   "ignorePaths": [
     "node_modules",
     "project-words.txt",
     "dictionary-lorem.txt",
+    "dictionary-docs-examples.txt",
     "docs/testing"
   ]
 }

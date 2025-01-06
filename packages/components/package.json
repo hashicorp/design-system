@@ -27,7 +27,7 @@
     "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
     "lint:fix": "concurrently \"yarn:lint:*:fix\" --names \"fix:\"",
     "lint:css": "stylelint \"src/styles/**/*.scss\"",
-    "lint:css:fix": "concurrently \"yarn:lint:css -- --fix\"",
+    "lint:css:fix": "concurrently \"yarn:lint:css --fix\"",
     "lint:types": "glint",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
@@ -330,6 +330,6 @@
     "dist"
   ],
   "engines": {
-    "node": "16.* || >= 18"
+    "node": ">= 18"
   }
 }
