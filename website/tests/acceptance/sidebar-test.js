@@ -85,8 +85,8 @@ module('Acceptance | Sidebar filter', function (hooks) {
   test('should expand subsection when click a parent container', async function (assert) {
     await visit('/components');
 
-    assert.dom('.doc-table-of-contents__folder').exists({ count: 3 });
-    assert.dom('.doc-table-of-contents__button').exists({ count: 3 });
+    assert.dom('.doc-table-of-contents__folder').exists({ count: 4 });
+    assert.dom('.doc-table-of-contents__button').exists({ count: 4 });
     assert
       .dom('.doc-table-of-contents__button')
       .hasAttribute('aria-expanded', 'false');
