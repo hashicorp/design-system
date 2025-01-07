@@ -26463,9 +26463,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@portal:/Users/cristianorastelli/src/github/style-dictionary-didoo::locator=%40hashicorp%2Fdesign-system%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "style-dictionary@portal:/Users/cristianorastelli/src/github/style-dictionary-didoo::locator=%40hashicorp%2Fdesign-system%40workspace%3A."
+"style-dictionary@npm:^4.2.0":
+  version: 4.3.0
+  resolution: "style-dictionary@npm:4.3.0"
   dependencies:
     "@bundled-es-modules/deepmerge": "npm:^4.3.1"
     "@bundled-es-modules/glob": "npm:^10.4.2"
@@ -26481,9 +26481,10 @@ __metadata:
     prettier: "npm:^3.3.3"
     tinycolor2: "npm:^1.6.0"
   bin:
-    style-dictionary: ./bin/style-dictionary.js
+    style-dictionary: bin/style-dictionary.js
+  checksum: 10/9315f65a8ace9708dca5fa6e3adf76d62caaf3793aca064172efed299dec6a02f00b59114ba012894e9ece4c8bd8e5cface70425b2620e869390d0e1e4c6468f
   languageName: node
-  linkType: soft
+  linkType: hard
 
 "style-loader@npm:^2.0.0":
   version: 2.0.0
