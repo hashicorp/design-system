@@ -224,19 +224,38 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
   test('it should render with a CSS class appropriate for the @valign value', async function (assert) {
     setSortableTableData(this);
+    this.set('valign', 'middle')
 
     await render(
       hbs`<Hds::AdvancedTable
   id='data-test-advanced-table'
   @model={{this.model}}
   @columns={{this.columns}}
-  @valign='middle'
+  @valign={{this.valign}}
 />`
     );
 
     assert
       .dom('#data-test-advanced-table')
       .hasClass('hds-advanced-table--valign-middle');
+  });
+
+  test('it should render with a CSS class appropriate for the @valign value', async function (assert) {
+    setSortableTableData(this);
+    this.set('valign', 'baseline')
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @valign={{this.valign}}
+/>`
+    );
+
+    assert
+      .dom('#data-test-advanced-table')
+      .hasClass('hds-advanced-table--valign-baseline');
   });
 
   test('it should render with a CSS class appropriate if no @valign value is set', async function (assert) {
