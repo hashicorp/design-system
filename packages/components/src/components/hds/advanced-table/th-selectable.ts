@@ -21,7 +21,7 @@ import type { HdsAdvancedTableThSignature } from './th';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {
-    didInsertCheckbox?: (
+    didInsert?: (
       checkbox: HdsFormCheckboxBaseSignature['Element'],
       selectionKey?: string
     ) => void;
@@ -70,9 +70,9 @@ export default class HdsAdvancedTableThSelectable extends Component<HdsAdvancedT
 
   @action
   didInsertCheckbox(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
-    const { didInsertCheckbox } = this.args;
-    if (typeof didInsertCheckbox === 'function') {
-      didInsertCheckbox(checkbox, this.args.selectionKey);
+    const { didInsert } = this.args;
+    if (typeof didInsert === 'function') {
+      didInsert(checkbox, this.args.selectionKey);
       // we need to use a custom event listener here because changing the `checked` value via JS
       // (and this happens with the "select all") doesn't trigger the `change` event
       // and consequently the `aria-label` won't be automatically updated (and so we have to force it)

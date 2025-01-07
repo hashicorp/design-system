@@ -23,7 +23,7 @@
       @sortBySelectedOrder={{if (eq this._sortBy @selectableColumnKey) this._sortOrder}}
       @isSelectable={{this.isSelectable}}
       @onSelectionChange={{this.onSelectionAllChange}}
-      @didInsertCheckbox={{this.didInsertSelectAllCheckbox}}
+      @didInsert={{this.didInsertSelectAllCheckbox}}
       @willDestroy={{this.willDestroySelectAllCheckbox}}
       @selectionAriaLabelSuffix="all rows"
     >
@@ -91,7 +91,7 @@
               selectionScope="row"
               isSelectable=this.isSelectable
               onSelectionChange=this.onSelectionRowChange
-              didInsertCheckbox=this.didInsertRowCheckbox
+              didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
               selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
