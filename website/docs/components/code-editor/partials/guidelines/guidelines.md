@@ -2,11 +2,12 @@
 
 ### When to use
 
-- When a user creates code from scratch, or requires modification from an existing source.
+- When a user needs to create code from scratch
+- When code requires modification from an existing source
 
 ### When not to use
 
-- As a read-only reference for page content, use the [Code Block](/components/code-block) instead.
+- As a read-only reference for code, use the [Code Block](/components/code-block) instead.
 
 ## Standalone
 
@@ -14,35 +15,51 @@ The `isStandalone` property increases the portability of the Code Editor to ensu
 
 ![Code editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
 
-Sometimes it may be necessary to use the Code Editor in a more dense layout or nested within another component. In this circumstance, setting isStandalone to false ensures that the Code Editor fits alongside other elements, in a split view, or as part of a larger layout mechanism.
+Sometimes it may be necessary to use the Code Editor in a more dense layout or nested within another component.
+
+![Code editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png.png)
 
 ### Header
 
-The header is optionally available within the Code Editor. It consists of three sections that each can be toggled as needed: The text content that’s inclusive of the title and description, an actions container for secondary actions, and a custom yielded section of primary actions.
+The header is optionally available within the Code Editor. It consists of three sections that can be toggled as needed: the text content that includes the title and description, an actions container for secondary actions, and a custom yielded section of primary actions.
 
 ## When to use a title and description
 
-A title and description help provide additional contextual information for the Code Editor. Keep in mind that an accessible name is mandatory and can either be provided by the title or by an external text element.
+A title and description provides additional contextual information for the Code Editor. An accessible name is mandatory and can either be provided by the title or by an external text element.
 
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". Then the Code Editor with an external acessible name/title "Policy code (Sentinel)"](/assets/components/code-editor/code-editor-external-accessible-name.png)
+!!! DO
+
+![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". Then the Code Editor with an external acessible name/title "Policy code (Sentinel)"](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+
+This provides an accessible name for the Code Editor so that a user and assistive technology can understand its purpose.
+
+!!!
+
+!!! DONT
+
+![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+
+Assuming a user would understand the intent of the Code Editor without providing an accessible name will cause confusion and fail on accessibility requirements.
+
+!!!
 
 ## Secondary actions
 
-The secondary actions section is for two individually optional buttons: CopyButton and FullScreenButton. The CopyButton copies the content of the CodeEditor to clipboard (more details can be found in the [CopyButton guidelines](/components/copy/button)), while the FullScreenButton maximizes and minimizes the Code Editor view from inline to full screen (and back again). These actions are considered supporting functions that are less vital to the user’s work but are useful from time to time.
+The secondary actions section is for two individually optional buttons: CopyButton and a button to expand the editor. The CopyButton copies the content of the CodeEditor to clipboard (more details can be found in the [CopyButton guidelines](/components/copy/button)), while the other button maximizes and minimizes the Code Editor view from inline to full screen (and back again). These actions are considered supporting functions that are less vital to the user’s work but may be useful.
 
 ![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the FullScreenButton with the maximize icon and the second showing the FullScreenButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
-## Custom yielded elements
+## Custom yielded actions
 
-This space is reserved for primary custom yielded elements. Primary elements are defined as useful or even necessary for the user to do their work.
+This space is reserved for primary custom yielded actions. Primary actions are defined as necessary for the user to complete their work.
 
-![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
+![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
-Currently, the Code Editor has very limited support for dark mode styles (only exposed styles are for buttons) and requires independent maintenance until a dark mode theme is released.
+The Code Editor has limited support for dark mode styles and requires consumer maintenance until a dark mode theme is released. Only Buttons have pre-defined dark mode styles in the Code Editor.
 
 ### External elements
 
-There may be elements or functions outside the Code Editor component that affect the content within the Code Editor. In circumstances like this, turning off the header and only keeping the code content visible helps unify the editor with other elements on the page.
+ome elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header helps unify the editor with the nearby elements.
 
 ![An external accessible name/title with a coupled search field, dropdown labeled with "Copy", another dropdown labeled with "Version" and a button labeled with "Create new version"](/assets/components/code-editor/code-editor-external-functions.png)
 
