@@ -52,13 +52,6 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
 
-  /**
-   * @param ariaSort
-   * @type {HdsAdvancedTableThSortOrderLabels}
-   * @private
-   * @default none
-   * @description Sets the aria-sort attribute based on the sort order defined; acceptable values are ascending, descending, none(default) and other. Authors SHOULD only apply this property to table headers or grid headers. If the property is not provided, there is no defined sort order. For each table or grid, authors SHOULD apply aria-sort to only one header at a time.
-   */
   get ariaSort(): HdsAdvancedTableThSortOrderLabels {
     switch (this.args.sortOrder) {
       case HdsAdvancedTableThSortOrderValues.Asc:
