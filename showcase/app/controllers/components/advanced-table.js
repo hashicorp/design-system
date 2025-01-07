@@ -58,6 +58,7 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPage_demo3 = 1;
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
+  @tracked focusableElementsVisible = false;
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {
@@ -350,6 +351,11 @@ export default class ComponentsTableController extends Controller {
     this.multiSelectUserData__demo4.forEach((user) => {
       user.isAnimated = false;
     });
+  }
+
+  // Example where dynamically add more focusable elements to a cell
+  @action toggleElementsVisibility() {
+    this.focusableElementsVisible = !this.focusableElementsVisible;
   }
 
   @action
