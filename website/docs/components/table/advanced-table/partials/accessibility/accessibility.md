@@ -19,8 +19,6 @@ Unlike the Table component, each cell receives focus in the Advanced Table to le
 
 It is best to clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For more considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
 
-if they have selected rows outside of their current view and how many out of the total data set are selected
-
 ## Applicable WCAG Success Criteria
 
 This section is for reference only. This component intends to conform to the following WCAG Success Criteria:
