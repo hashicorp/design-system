@@ -10489,13 +10489,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-tag@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "content-tag@npm:1.2.2"
-  checksum: 10/97ee5dd45c269eef1f3fabf974466f16db9e35b28c952e6947ef3094ee2f0213f651e994df938c9f3d1354094191af3e4ccfc163b5bf3777bb51563123dd944e
-  languageName: node
-  linkType: hard
-
 "content-tag@npm:^2.0.1":
   version: 2.0.3
   resolution: "content-tag@npm:2.0.3"
@@ -12531,9 +12524,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-cli@npm:5.9.0"
+"ember-cli@npm:~5.12.0":
+  version: 5.12.0
+  resolution: "ember-cli@npm:5.12.0"
   dependencies:
     "@pnpm/find-workspace-dir": "npm:^6.0.2"
     broccoli: "npm:^3.5.2"
@@ -12557,7 +12550,7 @@ __metadata:
     compression: "npm:^1.7.4"
     configstore: "npm:^5.0.1"
     console-ui: "npm:^3.1.2"
-    content-tag: "npm:^1.2.2"
+    content-tag: "npm:^2.0.1"
     core-object: "npm:^3.1.5"
     dag-map: "npm:^2.0.2"
     diff: "npm:^5.1.0"
@@ -12612,7 +12605,7 @@ __metadata:
     sort-package-json: "npm:^1.57.0"
     symlink-or-copy: "npm:^1.3.1"
     temp: "npm:0.9.4"
-    testem: "npm:^3.10.1"
+    testem: "npm:^3.15.1"
     tiny-lr: "npm:^2.0.0"
     tree-sync: "npm:^2.1.0"
     walk-sync: "npm:^3.0.0"
@@ -12621,7 +12614,7 @@ __metadata:
     yam: "npm:^1.0.0"
   bin:
     ember: bin/ember
-  checksum: 10/89efa65e4813e5141605362b83f60c4574def0eb887f822b2537f3579766f112cf470fc7cde3ee8dd4da44f3b9ded456d4d4e8bc7b863806feb76cf95b178d1f
+  checksum: 10/cee1e54196240836e0fa8f38cfe471536482e115ff5f98c646b301ca46db00bf45fcd0204339dbcfdc6c29e28660ff9bd3bf3c4ef8669a0db31864a78b4772ad
   languageName: node
   linkType: hard
 
@@ -24106,7 +24099,7 @@ __metadata:
     ember-auto-import: "npm:^2.10.0"
     ember-basic-dropdown: "npm:^8.4.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
+    ember-cli: "npm:~5.12.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
     ember-cli-dependency-checker: "npm:^3.3.3"
@@ -25621,7 +25614,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"testem@npm:^3.10.1":
+"testem@npm:^3.15.1":
   version: 3.15.2
   resolution: "testem@npm:3.15.2"
   dependencies:
@@ -27222,7 +27215,7 @@ __metadata:
     ember-auto-import: "npm:^2.10.0"
     ember-basic-dropdown: "npm:^8.4.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
+    ember-cli: "npm:~5.12.0"
     ember-cli-app-version: "npm:^7.0.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
