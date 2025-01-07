@@ -229,7 +229,11 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__th,
   .hds-advanced-table__td {
+    display: flex;
+    gap: 8px;
     align-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
     height: 100%;
     text-align: left;
     background-color: var(--token-color-surface-primary);
@@ -288,15 +292,20 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__th,
   .hds-advanced-table__td {
     .hds-advanced-table--valign-top & {
-      vertical-align: top;
+        align-items: flex-start;
     }
 
     .hds-advanced-table--valign-middle & {
-      vertical-align: middle;
+        align-items: center;
     }
 
     .hds-advanced-table--valign-baseline & {
-      vertical-align: baseline;
+      /**
+        setting to center because in FlexBox, when you set align-items: baseline, it also aligns content to the top - unlike display: table-cell which aligns the content to the center
+      
+        we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
+      */
+        align-items: center;
     }
   }
 
