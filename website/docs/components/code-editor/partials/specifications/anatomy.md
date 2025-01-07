@@ -8,7 +8,7 @@
 | Description       | Optional |
 | Custom yielded elements       | Optional |
 | Copy button       | Optional |
-| Expand button     | Optional |
+| FullScreen button | Optional |
 | Code snippet      | Required |
 
 ## Syntax highlighting
