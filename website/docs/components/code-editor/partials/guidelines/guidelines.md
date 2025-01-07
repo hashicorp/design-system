@@ -37,7 +37,7 @@ This provides an accessible name for the Code Editor so that a user and assistiv
 
 !!! DONT
 
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-external-dont-accessible-name.png)
 
 Assuming a user would understand the intent of the Code Editor without providing an accessible name will cause confusion and fail on accessibility requirements.
 
