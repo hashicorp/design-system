@@ -17,13 +17,13 @@ The `isStandalone` property increases the portability of the Code Editor to ensu
 
 Sometimes it may be necessary to use the Code Editor in a more dense layout or nested within another component.
 
-![Code editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png.png)
+![Code editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png)
 
-### Header
+## Header
 
 The header is optionally available within the Code Editor. It consists of three sections that can be toggled as needed: the text content that includes the title and description, an actions container for secondary actions, and a custom yielded section of primary actions.
 
-## When to use a title and description
+### When to use a title and description
 
 A title and description provides additional contextual information for the Code Editor. An accessible name is mandatory and can either be provided by the title or by an external text element.
 
