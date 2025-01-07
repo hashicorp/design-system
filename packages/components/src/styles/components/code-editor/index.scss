@@ -19,10 +19,7 @@
 
   &.hds-code-editor--is-full-screen {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 1000;
     border: none;
     border-radius: 0;
@@ -57,6 +54,7 @@
   .hds-code-editor__description {
     width: 100%;
 
+    // if the title/description has subsequent siblings, add a bottom margin
     &:has(+ *) {
       margin-bottom: 12px;
     }
