@@ -37,7 +37,7 @@
       <B.Tr>
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
         <B.Td>
-          <div class="shw-component-table-cell-content-div">
+          <div class="shw-component-advanced-table-cell-content-div">
             <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
             {{B.data.album}}
           </div>
@@ -425,8 +425,8 @@
 
   <Shw::Text::H4>With inline filter</Shw::Text::H4>
 
-  <div class="shw-component-table-demo-topbar">
-    <div class="shw-component-table-demo-topbar__toggle">
+  <div class="shw-component-advanced-table-demo-topbar">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo1__toggle-scope"
         type="checkbox"
@@ -435,7 +435,7 @@
       />
       <label for="multi-select-demo1__toggle-scope">Extend "Select All" scope to non-displayed rows</label>
     </div>
-    <div class="shw-component-table-demo-topbar__toggle">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo1__toggle-debug"
         type="checkbox"
@@ -444,7 +444,7 @@
       />
       <label for="multi-select-demo1__toggle-debug">Show all rows' state</label>
     </div>
-    <div class="shw-component-table-demo-topbar__action">
+    <div class="shw-component-advanced-table-demo-topbar__action">
       <label for="multi-select-demo1__filter">Filter:</label>
       <Hds::Form::Select::Base
         id="multi-select-demo1__filter"
@@ -489,8 +489,8 @@
 
   <Shw::Text::H4>With pagination</Shw::Text::H4>
 
-  <div class="shw-component-table-demo-topbar">
-    <div class="shw-component-table-demo-topbar__toggle">
+  <div class="shw-component-advanced-table-demo-topbar">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo2__toggle"
         type="checkbox"
@@ -499,7 +499,7 @@
       />
       <label for="multi-select-demo2__toggle">Extend "Select All" scope to non-displayed rows</label>
     </div>
-    <div class="shw-component-table-demo-topbar__toggle">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo2__toggle-debug"
         type="checkbox"
@@ -510,7 +510,7 @@
     </div>
   </div>
 
-  <div class="shw-component-table-with-pagination-demo-wrapper">
+  <div class="shw-component-advanced-table-with-pagination-demo-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectPaginatedSelectionChange__demo2}}
@@ -553,8 +553,8 @@
 
   <Shw::Text::Body>This demo emulates, for example, when a user needs to delete the selected users.</Shw::Text::Body>
 
-  <div class="shw-component-table-demo-topbar">
-    <div class="shw-component-table-demo-topbar__toggle">
+  <div class="shw-component-advanced-table-demo-topbar">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo3__toggle"
         type="checkbox"
@@ -563,7 +563,7 @@
       />
       <label for="multi-select-demo3__toggle">Extend "Select All" scope to non-displayed rows</label>
     </div>
-    <div class="shw-component-table-demo-topbar__toggle">
+    <div class="shw-component-advanced-table-demo-topbar__toggle">
       <input
         id="multi-select-demo3__toggle-debug"
         type="checkbox"
@@ -572,12 +572,12 @@
       />
       <label for="multi-select-demo3__toggle-debug">Show all rows' state</label>
     </div>
-    <div class="shw-component-table-demo-topbar__action">
+    <div class="shw-component-advanced-table-demo-topbar__action">
       <Hds::Button @text="Delete users" @icon="trash" {{on "click" this.multiSelectDeleteSelectedUsers_demo3}} />
     </div>
   </div>
 
-  <div class="shw-component-table-with-pagination-demo-wrapper">
+  <div class="shw-component-advanced-table-with-pagination-demo-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
@@ -622,8 +622,8 @@
 
   <Shw::Text::Body>This demo emulates, for example, when a user needs to download the selected files.</Shw::Text::Body>
 
-  <div class="shw-component-table-demo-topbar">
-    <div class="shw-component-table-demo-topbar__action">
+  <div class="shw-component-advanced-table-demo-topbar">
+    <div class="shw-component-advanced-table-demo-topbar__action">
       <Hds::Button @text="Animate users" @icon="play" {{on "click" this.multiSelectAnimateSelectedUsers_demo4}} />
     </div>
   </div>
@@ -647,7 +647,7 @@
       >
         <B.Td>{{B.data.id}}</B.Td>
         <B.Td>
-          <span class={{if B.data.isAnimated "shw-component-table-animate-user"}}>{{B.data.name}}</span>
+          <span class={{if B.data.isAnimated "shw-component-advanced-table-animate-user"}}>{{B.data.name}}</span>
         </B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.role}}</B.Td>

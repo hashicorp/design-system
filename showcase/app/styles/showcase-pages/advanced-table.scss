@@ -5,6 +5,8 @@
 
 // ADVANCED-TABLE
 
+@use "../typography" as *;
+
 body.components-advanced-table {
   .shw-component-advanced-table-instruction-list {
     font-size: 1rem;
@@ -16,8 +18,55 @@ body.components-advanced-table {
     overflow-x: auto;
   }
 
+    // align table cell content for icon plus text in cell
+    .shw-component-advanced-table-cell-content-div {
+      display: flex;
+      align-items: center;
+  
+      .hds-icon {
+        flex: none;
+        margin-right: 5px;
+      }
+    }
+
   .shw-component-advanced-table-fixed-height-wrapper {
     height: 400px;
     overflow-y: scroll;
   }
+
+  .shw-component-advanced-table-with-pagination-demo-wrapper {
+    .hds-table + .hds-pagination {
+      margin-top: 16px;
+    }
+  }
+
+  .shw-component-advanced-table-demo-topbar {
+    @include shw-font-family("system sans");
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  .shw-component-advanced-table-demo-topbar__toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .shw-component-advanced-table-demo-topbar__action {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  .shw-component-advanced-table-animate-user {
+    display: inline-block;
+    animation: shw-component-table-user-bounce 1s infinite ease-in-out;
+  }
+
 }
