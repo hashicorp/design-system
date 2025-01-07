@@ -13,7 +13,12 @@ While the [ember-power-select documentation](https://ember-power-select.com/docs
 
 !!! Info
 
-The default values of some [ember-power-select](https://ember-power-select.com/docs/api-reference) options have been overridden in some cases to either resolve accessibility issues or to customize according to our needs. These options are documented below.
+The default values of some [ember-power-select](https://ember-power-select.com/docs/api-reference) options have been overridden to either resolve accessibility issues or to customize according to our needs.
+
+Overrides to fix accessibility issues:
+
+- `renderInPlace`: Always set as `true`. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
+- `searchFieldPosition`: Always set to `"before-options"`. (Rendering the search input within the trigger is not compliant because it nests interactive elements within each other.)
 
 !!!
 
@@ -71,20 +76,6 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
     When enabled, the dropdown width matches the width of the trigger.
     <br><br>
     If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
-  </C.Property>
-  <C.Property @name="renderInPlace" @type="boolean">
-    Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
-    <br><br>
-    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
-    <br><br>
-    <strong>Note</strong>: It cannot be overridden.
-  </C.Property>
-  <C.Property @name="searchFieldPosition" @type="string">
-    Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
-    <br><br>
-    Set to `"before-options"` to fix a `PowerSelect` accessibility issue. Rendering the search input within the trigger is not compliant because it nests an interactive element within another interactive element.
-    <br><br>
-    <strong>Note</strong>: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
@@ -210,20 +201,6 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
     When enabled, the dropdown width matches the width of the trigger.
     <br><br>
     If a value for `dropdownMaxWidth` is set, `matchTriggerWidth` is automatically set to false.
-  </C.Property>
-  <C.Property @name="renderInPlace" @type="boolean">
-    Determines whether the dropdown options are rendered in place within the DOM vs. being attached to the root of the HTML `<body>` and positioned with JavaScript.
-    <br><br>
-    Set as `true` in `SuperSelect` components to fix a `PowerSelect` accessibility issue. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
-    <br><br>
-    Note: It cannot be overridden.
-  </C.Property>
-  <C.Property @name="searchFieldPosition" @type="string">
-    Determines whether the search field, when enabled, renders either within the before options content or in the “trigger” area.
-    <br><br>
-    Set to `"before-options"` to fix a `PowerSelect` accessibility issue.  Rendering the search input within the trigger is not compliant because it nests an interactive element within another interactive element.
-    <br><br>
-    <strong>Note</strong>: It cannot be overridden.
   </C.Property>
   <C.Property @name="searchPlaceholder" @type="string" @default="Search">
     Displays placeholder text in the search input when `@searchEnabled` is set to `true`.
