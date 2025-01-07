@@ -5,62 +5,62 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@algolia/autocomplete-core@npm:1.17.8":
-  version: 1.17.8
-  resolution: "@algolia/autocomplete-core@npm:1.17.8"
+"@algolia/autocomplete-core@npm:1.17.9":
+  version: 1.17.9
+  resolution: "@algolia/autocomplete-core@npm:1.17.9"
   dependencies:
-    "@algolia/autocomplete-plugin-algolia-insights": "npm:1.17.8"
-    "@algolia/autocomplete-shared": "npm:1.17.8"
-  checksum: 10/68c624cd1eb2a306451bf81735a4ad73d0b501b2ee1ce0dba606751d2aa622c24d1900ef88445850725c40b547aebf07770ef8bad2cef9bafcf921bd73e6b74e
+    "@algolia/autocomplete-plugin-algolia-insights": "npm:1.17.9"
+    "@algolia/autocomplete-shared": "npm:1.17.9"
+  checksum: 10/cf4f0f1d9e0ca4e7f1ea25291b270e47315385cbda4a01bbc0c56c3659d21f2357ec2026a1b828f063d4cd1d13509b6f76960f0bfd51acafd76a487a752eec3c
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-js@npm:^1.12.1":
-  version: 1.17.8
-  resolution: "@algolia/autocomplete-js@npm:1.17.8"
+"@algolia/autocomplete-js@npm:^1.17.8":
+  version: 1.17.9
+  resolution: "@algolia/autocomplete-js@npm:1.17.9"
   dependencies:
-    "@algolia/autocomplete-core": "npm:1.17.8"
-    "@algolia/autocomplete-preset-algolia": "npm:1.17.8"
-    "@algolia/autocomplete-shared": "npm:1.17.8"
+    "@algolia/autocomplete-core": "npm:1.17.9"
+    "@algolia/autocomplete-preset-algolia": "npm:1.17.9"
+    "@algolia/autocomplete-shared": "npm:1.17.9"
     htm: "npm:^3.1.1"
     preact: "npm:^10.13.2"
   peerDependencies:
     "@algolia/client-search": ">= 4.5.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10/de702ba737f4734d9d40c09a99fc0bb7872fa64cd1224b75c0e8499e57ef7253eac7bdec6207525cba2c31ad78b349cab6ec38c008113a0d3f73cae377197308
+  checksum: 10/38e844868105fefacb07caf88901d1c0559d59925369b2595106ba8a7d1eeba67e992fef51a46744e6598e5b68aadf8d028b08fa5bb78f31a8257f2803c46fe2
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-plugin-algolia-insights@npm:1.17.8":
-  version: 1.17.8
-  resolution: "@algolia/autocomplete-plugin-algolia-insights@npm:1.17.8"
+"@algolia/autocomplete-plugin-algolia-insights@npm:1.17.9":
+  version: 1.17.9
+  resolution: "@algolia/autocomplete-plugin-algolia-insights@npm:1.17.9"
   dependencies:
-    "@algolia/autocomplete-shared": "npm:1.17.8"
+    "@algolia/autocomplete-shared": "npm:1.17.9"
   peerDependencies:
     search-insights: ">= 1 < 3"
-  checksum: 10/c95390d3729f412e2deb5d6da4d02a432728d5106fd906bdba286d6216daa748c8bff7881d0a7af081409c880177b28766719917ebf93f3564e4d80b460efe9e
+  checksum: 10/5cd16d91aff4e5eb0823387d480d04d4cc0e8f1ebf9970f91f0c0bc88a358b09112218d6c9762e35f444a22251a3bbe0934a82fcd55eab32fc2701c9399f3baf
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-preset-algolia@npm:1.17.8, @algolia/autocomplete-preset-algolia@npm:^1.12.1":
-  version: 1.17.8
-  resolution: "@algolia/autocomplete-preset-algolia@npm:1.17.8"
+"@algolia/autocomplete-preset-algolia@npm:1.17.9, @algolia/autocomplete-preset-algolia@npm:^1.17.8":
+  version: 1.17.9
+  resolution: "@algolia/autocomplete-preset-algolia@npm:1.17.9"
   dependencies:
-    "@algolia/autocomplete-shared": "npm:1.17.8"
+    "@algolia/autocomplete-shared": "npm:1.17.9"
   peerDependencies:
     "@algolia/client-search": ">= 4.9.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10/2c09e9e0af04b4de9429c4501c91c2410f7d6e879c6098aa6ed717bc5a2c107fa15a38fb3e862b097f2e2bb8c2f2ca744de53bef4360049eb1f3ddb7ff8c1346
+  checksum: 10/7343b54aa6a7d9a75acf4dfbcc007bf328d1ae991f6bb4a92893bf5492b64ba52b331e9edd2da05008db080aaa6c91889d7ea2ccf0cc99ef44d55440bf22de38
   languageName: node
   linkType: hard
 
-"@algolia/autocomplete-shared@npm:1.17.8":
-  version: 1.17.8
-  resolution: "@algolia/autocomplete-shared@npm:1.17.8"
+"@algolia/autocomplete-shared@npm:1.17.9":
+  version: 1.17.9
+  resolution: "@algolia/autocomplete-shared@npm:1.17.9"
   peerDependencies:
     "@algolia/client-search": ">= 4.9.1 < 6"
     algoliasearch: ">= 4.9.1 < 6"
-  checksum: 10/014dfcf4764b4cf74be712b67533cae2021fd75f83ddb1d489acdfffa8bfa3023584edbd1015fb500448f92204489c9c29ea6f5028fdf577b9d03439ead335ff
+  checksum: 10/32f74fa2efb0a67def376a0a040b553c9109fb0891f6d4dd525048388b613a6ea1440aeff672b7b67da47b0b584f40c37826c34b5346f0a35bd64c08d559acb6
   languageName: node
   linkType: hard
 
@@ -133,7 +133,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@algolia/client-search@npm:4.24.0, @algolia/client-search@npm:^4.22.0":
+"@algolia/client-search@npm:4.24.0, @algolia/client-search@npm:^4.24.0":
   version: 4.24.0
   resolution: "@algolia/client-search@npm:4.24.0"
   dependencies:
@@ -243,7 +243,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.7, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
+"@babel/core@npm:>=7.2.2, @babel/core@npm:^7.0.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.13.10, @babel/core@npm:^7.14.5, @babel/core@npm:^7.16.10, @babel/core@npm:^7.16.7, @babel/core@npm:^7.23.6, @babel/core@npm:^7.23.9, @babel/core@npm:^7.24.4, @babel/core@npm:^7.26.0, @babel/core@npm:^7.3.4":
   version: 7.26.0
   resolution: "@babel/core@npm:7.26.0"
   dependencies:
@@ -266,7 +266,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/eslint-parser@npm:^7.23.10, @babel/eslint-parser@npm:^7.24.7":
+"@babel/eslint-parser@npm:^7.23.10, @babel/eslint-parser@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/eslint-parser@npm:7.25.9"
   dependencies:
@@ -370,7 +370,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-module-imports@npm:^7.16.7, @babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.25.9":
+"@babel/helper-module-imports@npm:^7.18.6, @babel/helper-module-imports@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/helper-module-imports@npm:7.25.9"
   dependencies:
@@ -569,7 +569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.24.1":
+"@babel/plugin-proposal-decorators@npm:^7.13.5, @babel/plugin-proposal-decorators@npm:^7.16.7, @babel/plugin-proposal-decorators@npm:^7.20.13, @babel/plugin-proposal-decorators@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/plugin-proposal-decorators@npm:7.25.9"
   dependencies:
@@ -933,7 +933,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-class-properties@npm:^7.24.1, @babel/plugin-transform-class-properties@npm:^7.25.9":
+"@babel/plugin-transform-class-properties@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/plugin-transform-class-properties@npm:7.25.9"
   dependencies:
@@ -1299,7 +1299,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-private-methods@npm:^7.24.1, @babel/plugin-transform-private-methods@npm:^7.25.9":
+"@babel/plugin-transform-private-methods@npm:^7.25.9":
   version: 7.25.9
   resolution: "@babel/plugin-transform-private-methods@npm:7.25.9"
   dependencies:
@@ -1442,7 +1442,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-typescript@npm:^7.13.0, @babel/plugin-transform-typescript@npm:^7.16.8, @babel/plugin-transform-typescript@npm:^7.20.13, @babel/plugin-transform-typescript@npm:^7.23.6, @babel/plugin-transform-typescript@npm:^7.25.9":
+"@babel/plugin-transform-typescript@npm:^7.13.0, @babel/plugin-transform-typescript@npm:^7.16.8, @babel/plugin-transform-typescript@npm:^7.20.13, @babel/plugin-transform-typescript@npm:^7.25.9, @babel/plugin-transform-typescript@npm:^7.26.3":
   version: 7.26.3
   resolution: "@babel/plugin-transform-typescript@npm:7.26.3"
   dependencies:
@@ -1644,7 +1644,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.1.0, @babel/preset-typescript@npm:^7.24.7":
+"@babel/preset-typescript@npm:^7.1.0, @babel/preset-typescript@npm:^7.26.0":
   version: 7.26.0
   resolution: "@babel/preset-typescript@npm:7.26.0"
   dependencies:
@@ -1683,7 +1683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.17.0, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.24.5, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
+"@babel/runtime@npm:^7.14.0, @babel/runtime@npm:^7.17.8, @babel/runtime@npm:^7.21.0, @babel/runtime@npm:^7.26.0, @babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.4":
   version: 7.26.0
   resolution: "@babel/runtime@npm:7.26.0"
   dependencies:
@@ -1718,7 +1718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.6, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.26.3, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.7.2":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.12.13, @babel/types@npm:^7.12.6, @babel/types@npm:^7.20.7, @babel/types@npm:^7.25.9, @babel/types@npm:^7.26.0, @babel/types@npm:^7.26.3, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4":
   version: 7.26.3
   resolution: "@babel/types@npm:7.26.3"
   dependencies:
@@ -1819,7 +1819,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/cli@npm:^2.26.2":
+"@changesets/cli@npm:^2.27.11":
   version: 2.27.11
   resolution: "@changesets/cli@npm:2.27.11"
   dependencies:
@@ -2559,7 +2559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/optional-features@npm:^2.1.0":
+"@ember/optional-features@npm:^2.2.0":
   version: 2.2.0
   resolution: "@ember/optional-features@npm:2.2.0"
   dependencies:
@@ -2599,7 +2599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-helpers@npm:^3.3.0":
+"@ember/test-helpers@npm:^3.3.1":
   version: 3.3.1
   resolution: "@ember/test-helpers@npm:3.3.1"
   dependencies:
@@ -2662,8 +2662,8 @@ __metadata:
   linkType: hard
 
 "@embroider/core@npm:^3.4.7":
-  version: 3.4.20
-  resolution: "@embroider/core@npm:3.4.20"
+  version: 3.5.0
+  resolution: "@embroider/core@npm:3.5.0"
   dependencies:
     "@babel/core": "npm:^7.14.5"
     "@babel/parser": "npm:^7.14.5"
@@ -2690,7 +2690,7 @@ __metadata:
     semver: "npm:^7.3.5"
     typescript-memoize: "npm:^1.0.1"
     walk-sync: "npm:^3.0.0"
-  checksum: 10/98de553e194820a3ddb89af4ed0e5ffaec7e9dd95c910a680dc40bbb6ee76375ef48a2d720912e4002117707d425cc4fd8784085687e5859771ae3b5841fad2f
+  checksum: 10/dffada94e8db353b5d994173fb3231485b945ca9aad38f41648e5b0630daec49a940ba4934d822aecf044a31fa01299abe68a508ca3cccb1b2a76a59a12456ed
   languageName: node
   linkType: hard
 
@@ -2986,7 +2986,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/cli@npm:^4.7.0":
+"@figma-export/cli@npm:^4.8.0":
   version: 4.8.0
   resolution: "@figma-export/cli@npm:4.8.0"
   dependencies:
@@ -3000,7 +3000,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/core@npm:^4.7.0, @figma-export/core@npm:^4.8.0":
+"@figma-export/core@npm:^4.8.0":
   version: 4.8.0
   resolution: "@figma-export/core@npm:4.8.0"
   dependencies:
@@ -3013,7 +3013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/output-components-as-svg@npm:^4.7.0":
+"@figma-export/output-components-as-svg@npm:^4.8.0":
   version: 4.8.0
   resolution: "@figma-export/output-components-as-svg@npm:4.8.0"
   dependencies:
@@ -3022,7 +3022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/transform-svg-with-svgo@npm:^4.7.0":
+"@figma-export/transform-svg-with-svgo@npm:^4.8.0":
   version: 4.8.0
   resolution: "@figma-export/transform-svg-with-svgo@npm:4.8.0"
   dependencies:
@@ -3033,7 +3033,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@figma-export/types@npm:^4.7.0, @figma-export/types@npm:^4.8.0":
+"@figma-export/types@npm:^4.8.0":
   version: 4.8.0
   resolution: "@figma-export/types@npm:4.8.0"
   dependencies:
@@ -3050,41 +3050,41 @@ __metadata:
   linkType: hard
 
 "@floating-ui/core@npm:^1.6.0":
-  version: 1.6.8
-  resolution: "@floating-ui/core@npm:1.6.8"
+  version: 1.6.9
+  resolution: "@floating-ui/core@npm:1.6.9"
   dependencies:
-    "@floating-ui/utils": "npm:^0.2.8"
-  checksum: 10/87d52989c3d2cc80373bc153b7a40814db3206ce7d0b2a2bdfb63e2ff39ffb8b999b1b0ccf28e548000ebf863bf16e2bed45eab4c4d287a5dbe974ef22368d82
+    "@floating-ui/utils": "npm:^0.2.9"
+  checksum: 10/656fcd383da17fffca2efa0635cbe3c0b835c3312949e30bd19d05bf42479f2ac22aaf336a6a31cb160621fc6f35cfc9e115e76c5cf48ba96e33474d123ced22
   languageName: node
   linkType: hard
 
 "@floating-ui/dom@npm:^1.6.12":
-  version: 1.6.12
-  resolution: "@floating-ui/dom@npm:1.6.12"
+  version: 1.6.13
+  resolution: "@floating-ui/dom@npm:1.6.13"
   dependencies:
     "@floating-ui/core": "npm:^1.6.0"
-    "@floating-ui/utils": "npm:^0.2.8"
-  checksum: 10/5c8e5fdcd3843140a606ab6dc6c12ad740f44e66b898966ef877393faaede0bbe14586e1049e2c2f08856437da8847e884a2762e78275fefa65a5a9cd71e580d
+    "@floating-ui/utils": "npm:^0.2.9"
+  checksum: 10/4bb732baf3270007741bcdc91be1de767b2bb5d8b891eb838e5f1e7c4cccad998643dbdd4e8b8cec4c5d12c9898f80febc68e9793dd6e26a445283c4fb1b6a78
   languageName: node
   linkType: hard
 
-"@floating-ui/utils@npm:^0.2.8":
-  version: 0.2.8
-  resolution: "@floating-ui/utils@npm:0.2.8"
-  checksum: 10/3e3ea3b2de06badc4baebdf358b3dbd77ccd9474a257a6ef237277895943db2acbae756477ec64de65a2a1436d94aea3107129a1feeef6370675bf2b161c1abc
+"@floating-ui/utils@npm:^0.2.9":
+  version: 0.2.9
+  resolution: "@floating-ui/utils@npm:0.2.9"
+  checksum: 10/0ca786347db3dd8d9034b86d1449fabb96642788e5900cc5f2aee433cd7b243efbcd7a165bead50b004ee3f20a90ddebb6a35296fc41d43cfd361b6f01b69ffb
   languageName: node
   linkType: hard
 
-"@glimmer/compiler@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/compiler@npm:0.92.0"
+"@glimmer/compiler@npm:0.92.4":
+  version: 0.92.4
+  resolution: "@glimmer/compiler@npm:0.92.4"
   dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/syntax": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/891c90b8d7e5d16623671ace5d36b3a623f2e6405401c906c56b4420e750ba973c4ef1c46c65a1eaccaf462212dd6a7b49eae3ce664136dd1610c31f5a04c56a
+    "@glimmer/interfaces": "npm:0.92.3"
+    "@glimmer/syntax": "npm:0.92.3"
+    "@glimmer/util": "npm:0.92.3"
+    "@glimmer/vm": "npm:0.92.3"
+    "@glimmer/wire-format": "npm:0.92.3"
+  checksum: 10/4423d73b4f0543101e1c45f88a12f3eff11ce28007942e34cc69b52f0e69e93b770d69c4a99bf078c05fcb780e1704981c09544738d89e3b2c7eb51da77cd0a4
   languageName: node
   linkType: hard
 
@@ -3110,7 +3110,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/debug@npm:0.92.4, @glimmer/debug@npm:^0.92.0":
+"@glimmer/debug@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/debug@npm:0.92.4"
   dependencies:
@@ -3121,19 +3121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/destroyable@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/destroyable@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/04f6fae4c36420a4a04221d5758d4d02e8beccf234eeebdc40007fc66009710bb03d43c10b08c95bd8764e4b2d8f400b065c70de798fc2d767d32dde5b2fab2e
-  languageName: node
-  linkType: hard
-
-"@glimmer/destroyable@npm:0.92.3, @glimmer/destroyable@npm:^0.92.0":
+"@glimmer/destroyable@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/destroyable@npm:0.92.3"
   dependencies:
@@ -3162,16 +3150,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/encoder@npm:^0.92.0":
-  version: 0.92.5
-  resolution: "@glimmer/encoder@npm:0.92.5"
-  dependencies:
-    "@glimmer/interfaces": "npm:0.93.0"
-    "@glimmer/vm": "npm:0.93.1"
-  checksum: 10/0da520491e8def33b2e18a35121c1fcca111df3d7d033946138f276ec4450ff92a08f79ea252e278e1b6889cad6a3623b6c2db822f8a211c20c25b7ee08b74ec
-  languageName: node
-  linkType: hard
-
 "@glimmer/env@npm:0.1.7, @glimmer/env@npm:^0.1.7":
   version: 0.1.7
   resolution: "@glimmer/env@npm:0.1.7"
@@ -3197,24 +3175,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/global-context@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/global-context@npm:0.92.0"
-  checksum: 10/517df3de41764a49c8b58c6186b03be422d7c9aa72510ace16e55eed176751032c35b373388d3af9061aca0a924af6a07d0cfed8ee6b76d9484740ac17cb89dd
-  languageName: node
-  linkType: hard
-
 "@glimmer/global-context@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/global-context@npm:0.92.3"
   checksum: 10/42f1f87f14d801a3c7879fffc3a2c0d56391074dc24f1ce83b0ff816b4bba8acacc3e282bce9b68c67b39a7dfbbb93e079c16a05b0c1e029f1472a476be2256e
-  languageName: node
-  linkType: hard
-
-"@glimmer/global-context@npm:^0.92.0":
-  version: 0.92.4
-  resolution: "@glimmer/global-context@npm:0.92.4"
-  checksum: 10/0fe45dd59f019d9059c2bf532bb108757885d0e846c88690cd787c10b3e75c9219f689c6b7c3702e742838b689014ec9ee95e08618006804bb3e56eaf958413e
   languageName: node
   linkType: hard
 
@@ -3236,16 +3200,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/interfaces@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/interfaces@npm:0.92.0"
-  dependencies:
-    "@simple-dom/interface": "npm:^1.4.0"
-  checksum: 10/80ce0c04a9772afa3b6003b50328a725d2996a4f86fab8e9415aef7c1dfd7e1f3ec23516b515c5f4c30c41c086457a32dfa2a34dbe6a4560e7d3606197117df1
-  languageName: node
-  linkType: hard
-
-"@glimmer/interfaces@npm:0.92.3, @glimmer/interfaces@npm:^0.92.0":
+"@glimmer/interfaces@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/interfaces@npm:0.92.3"
   dependencies:
@@ -3254,33 +3209,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/interfaces@npm:0.93.0":
-  version: 0.93.0
-  resolution: "@glimmer/interfaces@npm:0.93.0"
-  dependencies:
-    "@simple-dom/interface": "npm:^1.4.0"
-  checksum: 10/c630ef04d15cedbe88437e5d4afd4ef9c7afed1cca83bd8b36b99cbd526ef7740ece6fe03c506fb85518a2332a03f5447982ab0ef7f19f82c64856db8fd679a8
-  languageName: node
-  linkType: hard
-
-"@glimmer/manager@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/manager@npm:0.92.0"
-  dependencies:
-    "@glimmer/debug": "npm:^0.92.0"
-    "@glimmer/destroyable": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-  checksum: 10/bb16c02e63b8112d43911bef1ae048d8ff8cb1f3f1c39fb61a6339dd6a84f291ff4184eb04a9110671a3cf410b2eaca198c081fad49fbe2b02ef5b868c7c06b5
-  languageName: node
-  linkType: hard
-
-"@glimmer/manager@npm:0.92.4, @glimmer/manager@npm:^0.92.0":
+"@glimmer/manager@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/manager@npm:0.92.4"
   dependencies:
@@ -3297,37 +3226,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/node@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/node@npm:0.92.0"
+"@glimmer/node@npm:0.92.4":
+  version: 0.92.4
+  resolution: "@glimmer/node@npm:0.92.4"
   dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/runtime": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
+    "@glimmer/interfaces": "npm:0.92.3"
+    "@glimmer/runtime": "npm:0.92.4"
+    "@glimmer/util": "npm:0.92.3"
     "@simple-dom/document": "npm:^1.4.0"
-  checksum: 10/f924f4e0e0a289a9860380c2fb40149a00c6f7ed22e7d7e2263711e2fe23a30f7e1368a63be5a728ede8aa47261d12b6d34b39af29fd4bf585a0d33cf363314b
+  checksum: 10/93a8b969874d30cb955e67eba20c497a7b2e20920350e9db2c0be052c02f5cb31e06e00a1c30faa5fbe6826053295b8d277a0b8bdd078c6ec0114605032100fc
   languageName: node
   linkType: hard
 
-"@glimmer/opcode-compiler@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/opcode-compiler@npm:0.92.0"
-  dependencies:
-    "@glimmer/debug": "npm:^0.92.0"
-    "@glimmer/encoder": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/8ed67483a17d2f5d99c808b7e60981ee298b955ead8c3dee879370094e3df1149d1dbcf86f13e034f275ea5ca0c2da6592873ee89663175e3d49192aca72496c
-  languageName: node
-  linkType: hard
-
-"@glimmer/opcode-compiler@npm:0.92.4, @glimmer/opcode-compiler@npm:^0.92.0":
+"@glimmer/opcode-compiler@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/opcode-compiler@npm:0.92.4"
   dependencies:
@@ -3345,15 +3256,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/owner@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/owner@npm:0.92.0"
-  dependencies:
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/79d2c46c20d0bb31687f5805617dea5eb44dac4156a40b3ed3624c1eecdddc52fd1f63ac09fa974877da844e2c488b4c7916e4f9ee2b21192debe3a78b9ece24
-  languageName: node
-  linkType: hard
-
 "@glimmer/owner@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/owner@npm:0.92.3"
@@ -3363,32 +3265,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/owner@npm:^0.92.0":
-  version: 0.92.5
-  resolution: "@glimmer/owner@npm:0.92.5"
-  dependencies:
-    "@glimmer/util": "npm:0.93.1"
-  checksum: 10/89cbb534fa035fa8de49f1d2917aea8a5910af7778baaeb144bede8c8ca241af3ed57e22d41a2434962485979b98d278e3a25d7d6cb2c51a3a9b710b81d3116a
-  languageName: node
-  linkType: hard
-
-"@glimmer/program@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/program@npm:0.92.0"
-  dependencies:
-    "@glimmer/encoder": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/opcode-compiler": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/1e300b22ab29cc0a2ea006da2367e271189772a960f997db52dd6f527dcd34d6915a55d598268a30f25f7bb0e5d44299c07f1d1e1cd3c200058b049a66d1fd90
-  languageName: node
-  linkType: hard
-
-"@glimmer/program@npm:0.92.4, @glimmer/program@npm:^0.92.0":
+"@glimmer/program@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/program@npm:0.92.4"
   dependencies:
@@ -3404,20 +3281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/reference@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/reference@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-  checksum: 10/69f8d26ded593117e77c8593e2835d40b6df05e35d5faad71246c041d4cda8ce2ebc0f1d4e8bfe97e1501f2cf78a76c75933be5ef3d50fb1fa29b13ea920e3d7
-  languageName: node
-  linkType: hard
-
-"@glimmer/reference@npm:0.92.3, @glimmer/reference@npm:^0.92.0":
+"@glimmer/reference@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/reference@npm:0.92.3"
   dependencies:
@@ -3456,27 +3320,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/runtime@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/runtime@npm:0.92.0"
-  dependencies:
-    "@glimmer/destroyable": "npm:^0.92.0"
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/manager": "npm:^0.92.0"
-    "@glimmer/owner": "npm:^0.92.0"
-    "@glimmer/program": "npm:^0.92.0"
-    "@glimmer/reference": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/validator": "npm:^0.92.0"
-    "@glimmer/vm": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
-  checksum: 10/96ad5ac4198ca89a53393cb67a37645a0587c4b71fc591847bd425aea1301b2135ca528ba8643613f94814ba5d24c40732d2db4d561c821f9c7d778eeb8bc015
-  languageName: node
-  linkType: hard
-
-"@glimmer/runtime@npm:^0.92.0":
+"@glimmer/runtime@npm:0.92.4":
   version: 0.92.4
   resolution: "@glimmer/runtime@npm:0.92.4"
   dependencies:
@@ -3496,16 +3340,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/syntax@npm:0.92.0"
+"@glimmer/syntax@npm:0.92.3, @glimmer/syntax@npm:^0.92.0":
+  version: 0.92.3
+  resolution: "@glimmer/syntax@npm:0.92.3"
   dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-    "@glimmer/wire-format": "npm:^0.92.0"
+    "@glimmer/interfaces": "npm:0.92.3"
+    "@glimmer/util": "npm:0.92.3"
+    "@glimmer/wire-format": "npm:0.92.3"
     "@handlebars/parser": "npm:~2.0.0"
     simple-html-tokenizer: "npm:^0.5.11"
-  checksum: 10/fc86dd0a5d23efaded2537138ec551405ab7c009699c4a8add3cf21634775d6e1a3e8f9431526d431245e91e6f17bc68ca0c9b5138da9c33ae8bd529e4f6a789
+  checksum: 10/0c69f164b71d63e0cf67522057e00e711b57a4655e9ccf9590c104a6685f24baf78510a513bb0d884968bb4aca5d368c8603e0d4645351c12c0376a0a4874800
   languageName: node
   linkType: hard
 
@@ -3521,7 +3365,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:^0.84.2, @glimmer/syntax@npm:^0.84.3":
+"@glimmer/syntax@npm:^0.84.3":
   version: 0.84.3
   resolution: "@glimmer/syntax@npm:0.84.3"
   dependencies:
@@ -3530,19 +3374,6 @@ __metadata:
     "@handlebars/parser": "npm:~2.0.0"
     simple-html-tokenizer: "npm:^0.5.11"
   checksum: 10/92fcc4dbcec58080a14f70065950c34a86efc642c7c237f2ff2c634b4251fc223320482cfee0c33c5c345267b04ac96c3383ccea0b90409938f49d905fbf68c2
-  languageName: node
-  linkType: hard
-
-"@glimmer/syntax@npm:^0.92.0":
-  version: 0.92.3
-  resolution: "@glimmer/syntax@npm:0.92.3"
-  dependencies:
-    "@glimmer/interfaces": "npm:0.92.3"
-    "@glimmer/util": "npm:0.92.3"
-    "@glimmer/wire-format": "npm:0.92.3"
-    "@handlebars/parser": "npm:~2.0.0"
-    simple-html-tokenizer: "npm:^0.5.11"
-  checksum: 10/0c69f164b71d63e0cf67522057e00e711b57a4655e9ccf9590c104a6685f24baf78510a513bb0d884968bb4aca5d368c8603e0d4645351c12c0376a0a4874800
   languageName: node
   linkType: hard
 
@@ -3578,33 +3409,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/util@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/util@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:^0.92.0"
-  checksum: 10/2dbcde7a67806388b5b6f63046afb001dbcde96e269e65737e865cbdab2a00bf0b6dc945d58e931a1dc106ce5e3c5ca7a57db3ad527b17bcc41f1a90cb5891cf
-  languageName: node
-  linkType: hard
-
-"@glimmer/util@npm:0.92.3, @glimmer/util@npm:^0.92.0":
+"@glimmer/util@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/util@npm:0.92.3"
   dependencies:
     "@glimmer/env": "npm:0.1.7"
     "@glimmer/interfaces": "npm:0.92.3"
   checksum: 10/11f7c08387ca2fbcdc9952ad55051152000aa1ce0efbc4e8656dd4a0bcd894d04b49a85326949d0f83c69238d084b89b276cb96938470488dd188f9613bebf7d
-  languageName: node
-  linkType: hard
-
-"@glimmer/util@npm:0.93.1":
-  version: 0.93.1
-  resolution: "@glimmer/util@npm:0.93.1"
-  dependencies:
-    "@glimmer/env": "npm:0.1.7"
-    "@glimmer/interfaces": "npm:0.93.0"
-  checksum: 10/f3ffe151142838108730874b81c1cbe1cd2355c1c58dd5146c13aea7529df92035ab7757b9a96a7a0c0a0a6ac974af5bb9afedd04305c27da37e3580f49e6eee
   languageName: node
   linkType: hard
 
@@ -3635,19 +3446,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/validator@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/validator@npm:0.92.0"
-  dependencies:
-    "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:^0.92.0"
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/7e1441b851765ea46aea53d65ede1a88459a71c4780678ec4ed5897b5cb62f6b64f78e9c6d273722d45fc7ef77a14551909f61417dbdf04963b0cee4e7a6de24
-  languageName: node
-  linkType: hard
-
-"@glimmer/validator@npm:0.92.3, @glimmer/validator@npm:^0.92.0":
+"@glimmer/validator@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/validator@npm:0.92.3"
   dependencies:
@@ -3666,26 +3465,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm-babel-plugins@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/vm-babel-plugins@npm:0.92.0"
+"@glimmer/vm-babel-plugins@npm:0.92.3":
+  version: 0.92.3
+  resolution: "@glimmer/vm-babel-plugins@npm:0.92.3"
   dependencies:
     babel-plugin-debug-macros: "npm:^0.3.4"
-  checksum: 10/d32323b21be7bb1e33fb833640650c0a291e1b9ac88bfd55e9b684d42b2203a4604105ec5958909e3829ab5b2cba30eb7869c6f20db3aeab7ce4601d53a3b53d
+  checksum: 10/254a1647b9f52ed5ad83577f00f06577ba4991281904e1c33e1e06bc9733c4982e264efd1dde688a4bf4be3e56ce16a120d1ec79ea323629cd8cabfa85d2ce7b
   languageName: node
   linkType: hard
 
-"@glimmer/vm@npm:0.92.0":
-  version: 0.92.0
-  resolution: "@glimmer/vm@npm:0.92.0"
-  dependencies:
-    "@glimmer/interfaces": "npm:^0.92.0"
-    "@glimmer/util": "npm:^0.92.0"
-  checksum: 10/7ce87e5e80da38929ec66a7a762f336da90c2c38e3dbce3ebec766e44cf3eed62d8b4e371adbd9059978dada956139956891ac579594f47b583d46b4187445a6
-  languageName: node
-  linkType: hard
-
-"@glimmer/vm@npm:0.92.3, @glimmer/vm@npm:^0.92.0":
+"@glimmer/vm@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/vm@npm:0.92.3"
   dependencies:
@@ -3695,17 +3484,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/vm@npm:0.93.1":
-  version: 0.93.1
-  resolution: "@glimmer/vm@npm:0.93.1"
-  dependencies:
-    "@glimmer/interfaces": "npm:0.93.0"
-    "@glimmer/util": "npm:0.93.1"
-  checksum: 10/f53a07407aea5be6d6f2e41b1dc3a465516cfac08650fa3564ab5e1cf83c60ff1bfe393b19296ecc373f4f770251db3e329b1499997edff4f49d960d4014a88b
-  languageName: node
-  linkType: hard
-
-"@glimmer/wire-format@npm:0.92.3, @glimmer/wire-format@npm:^0.92.0":
+"@glimmer/wire-format@npm:0.92.3":
   version: 0.92.3
   resolution: "@glimmer/wire-format@npm:0.92.3"
   dependencies:
@@ -3715,7 +3494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/core@npm:^1.2.1, @glint/core@npm:^1.4.0":
+"@glint/core@npm:^1.5.0":
   version: 1.5.0
   resolution: "@glint/core@npm:1.5.0"
   dependencies:
@@ -3801,7 +3580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/environment-ember-template-imports@npm:^1.2.1, @glint/environment-ember-template-imports@npm:^1.4.0":
+"@glint/environment-ember-template-imports@npm:^1.5.0":
   version: 1.5.0
   resolution: "@glint/environment-ember-template-imports@npm:1.5.0"
   dependencies:
@@ -3826,7 +3605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glint/template@npm:^1.2.1, @glint/template@npm:^1.4.0":
+"@glint/template@npm:^1.5.0":
   version: 1.5.0
   resolution: "@glint/template@npm:1.5.0"
   checksum: 10/c8ce99ee395b7b271864d724f23c626ec5947a2392237b057a58c1e4aefc9b88204e57eac18739587ab9dd013f2b3904b701cf751f0394a5aa9086f048d97d78
@@ -3853,12 +3632,12 @@ __metadata:
   dependencies:
     codemod-cli: "npm:^3.2.0"
     coveralls: "npm:^3.1.1"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-node: "npm:^11.1.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
+    eslint-plugin-prettier: "npm:^5.2.1"
     jest: "npm:^29.7.0"
-    prettier: "npm:^3.3.2"
+    prettier: "npm:^3.4.2"
   bin:
     design-system-codemods: ./bin/cli.js
   languageName: unknown
@@ -3868,43 +3647,43 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
   dependencies:
-    "@babel/core": "npm:^7.24.7"
-    "@babel/plugin-proposal-decorators": "npm:^7.24.1"
-    "@babel/plugin-transform-class-properties": "npm:^7.24.1"
-    "@babel/plugin-transform-private-methods": "npm:^7.24.1"
-    "@babel/plugin-transform-typescript": "npm:^7.23.6"
-    "@babel/runtime": "npm:^7.24.5"
+    "@babel/core": "npm:^7.26.0"
+    "@babel/plugin-proposal-decorators": "npm:^7.25.9"
+    "@babel/plugin-transform-class-properties": "npm:^7.25.9"
+    "@babel/plugin-transform-private-methods": "npm:^7.25.9"
+    "@babel/plugin-transform-typescript": "npm:^7.26.3"
+    "@babel/runtime": "npm:^7.26.0"
     "@ember/render-modifiers": "npm:^2.0.5"
     "@ember/string": "npm:^3.1.1"
-    "@ember/test-helpers": "npm:^3.3.0"
+    "@ember/test-helpers": "npm:^3.3.1"
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/addon-dev": "npm:^4.3.1"
     "@embroider/addon-shim": "npm:^1.8.7"
     "@floating-ui/dom": "npm:^1.6.12"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.4.0"
+    "@glint/core": "npm:^1.5.0"
     "@glint/environment-ember-loose": "npm:^1.4.0"
-    "@glint/template": "npm:^1.4.0"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/design-system-tokens": "npm:^2.2.2"
     "@hashicorp/flight-icons": "npm:^3.8.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
-    "@types/ember-qunit": "npm:^6.1.1"
-    "@types/ember-resolver": "npm:^9.0.0"
+    "@types/ember-qunit": "npm:^6.1.3"
+    "@types/ember-resolver": "npm:^9.0.2"
     "@types/ember__destroyable": "npm:^4.0.5"
-    "@types/luxon": "npm:^3.2.0"
-    "@types/prismjs": "npm:^1.26.4"
-    "@types/qunit": "npm:^2.19.10"
+    "@types/luxon": "npm:^3.4.2"
+    "@types/prismjs": "npm:^1.26.5"
+    "@types/qunit": "npm:^2.19.12"
     "@types/rsvp": "npm:^4.0.9"
-    "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
-    "@typescript-eslint/parser": "npm:^8.5.0"
-    babel-plugin-ember-template-compilation: "npm:^2.2.4"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
+    babel-plugin-ember-template-compilation: "npm:^2.3.0"
     clipboard-polyfill: "npm:^4.1.0"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
     ember-a11y-refocus: "npm:^4.1.3"
-    ember-basic-dropdown: "npm:^8.1.0"
+    ember-basic-dropdown: "npm:^8.4.0"
     ember-cli-sass: "npm:^11.0.1"
     ember-composable-helpers: "npm:^5.0.0"
     ember-concurrency: "npm:^4.0.2"
@@ -3913,33 +3692,32 @@ __metadata:
     ember-get-config: "npm:^2.1.1"
     ember-modifier: "npm:^4.1.0"
     ember-power-select: "npm:^8.6.0"
-    ember-source: "npm:~5.9.0"
     ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^4.4.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^4.0.3"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^12.2.0"
-    eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-n: "npm:^17.7.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
+    eslint-plugin-ember: "npm:^12.3.3"
+    eslint-plugin-import: "npm:^2.31.0"
+    eslint-plugin-n: "npm:^17.15.0"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
     luxon: "npm:^2.3.2 || ^3.4.2"
-    postcss: "npm:^8.4.47"
-    prettier: "npm:^3.3.2"
+    postcss: "npm:^8.4.49"
+    prettier: "npm:^3.4.2"
     prismjs: "npm:^1.29.0"
-    rollup: "npm:^4.22.4"
+    rollup: "npm:^4.28.1"
     rollup-plugin-copy: "npm:^3.5.0"
-    rollup-plugin-scss: "npm:^4.0.0"
+    rollup-plugin-scss: "npm:^4.0.1"
     rollup-plugin-ts: "npm:^3.4.5"
     sass: "npm:^1.69.5"
-    stylelint: "npm:^16.3.1"
+    stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"
     tippy.js: "npm:^6.3.7"
-    typescript: "npm:^5.4.5"
+    typescript: "npm:^5.7.2"
   peerDependencies:
     ember-source: ^3.28.0 || ^4.0.0 || ^5.3.0
   languageName: unknown
@@ -3949,23 +3727,23 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
-    "@types/fs-extra": "npm:^11.0.3"
-    "@types/lodash-es": "npm:^4"
-    "@types/node": "npm:^22.8.7"
-    "@types/tinycolor2": "npm:^1.4.5"
-    "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
-    "@typescript-eslint/parser": "npm:^8.5.0"
+    "@types/fs-extra": "npm:^11.0.4"
+    "@types/lodash-es": "npm:^4.17.12"
+    "@types/node": "npm:^22.10.2"
+    "@types/tinycolor2": "npm:^1.4.6"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
     del: "npm:^5.1.0"
-    eslint: "npm:^8.57.0"
-    fs-extra: "npm:^11.1.1"
+    eslint: "npm:^8.57.1"
+    fs-extra: "npm:^11.2.0"
     lodash-es: "npm:^4.17.21"
     path: "npm:^0.12.7"
-    prettier: "npm:^3.3.2"
-    style-dictionary: "npm:^4.2.0"
+    prettier: "npm:^3.4.2"
+    style-dictionary: "npm:^4.3.0"
     tinycolor2: "npm:^1.6.0"
     ts-node: "npm:^10.9.2"
     tsx: "npm:^4.19.2"
-    typescript: "npm:^5.6.3"
+    typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
 
@@ -3973,9 +3751,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system@workspace:."
   dependencies:
-    "@changesets/cli": "npm:^2.26.2"
+    "@changesets/cli": "npm:^2.27.11"
     "@changesets/get-github-info": "npm:^0.5.2"
-    dotenv: "npm:^16.3.1"
+    dotenv: "npm:^16.4.7"
   languageName: unknown
   linkType: soft
 
@@ -3983,43 +3761,43 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/ember-flight-icons@workspace:packages/ember-flight-icons"
   dependencies:
-    "@babel/core": "npm:^7.24.7"
-    "@babel/plugin-proposal-decorators": "npm:^7.24.1"
-    "@babel/plugin-transform-class-properties": "npm:^7.24.1"
-    "@babel/plugin-transform-private-methods": "npm:^7.24.1"
-    "@babel/plugin-transform-typescript": "npm:^7.23.6"
-    "@babel/preset-typescript": "npm:^7.24.7"
-    "@babel/runtime": "npm:^7.17.0"
+    "@babel/core": "npm:^7.26.0"
+    "@babel/plugin-proposal-decorators": "npm:^7.25.9"
+    "@babel/plugin-transform-class-properties": "npm:^7.25.9"
+    "@babel/plugin-transform-private-methods": "npm:^7.25.9"
+    "@babel/plugin-transform-typescript": "npm:^7.26.3"
+    "@babel/preset-typescript": "npm:^7.26.0"
+    "@babel/runtime": "npm:^7.26.0"
     "@embroider/addon-dev": "npm:^4.3.1"
     "@embroider/addon-shim": "npm:^1.8.7"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.2.1"
-    "@glint/environment-ember-loose": "npm:^1.2.1"
-    "@glint/environment-ember-template-imports": "npm:^1.2.1"
-    "@glint/template": "npm:^1.2.1"
+    "@glint/core": "npm:^1.5.0"
+    "@glint/environment-ember-loose": "npm:^1.4.0"
+    "@glint/environment-ember-template-imports": "npm:^1.5.0"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/flight-icons": "npm:^3.8.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
-    "@tsconfig/ember": "npm:^3.0.6"
-    "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
-    "@typescript-eslint/parser": "npm:^8.5.0"
-    babel-plugin-ember-template-compilation: "npm:^2.2.1"
+    "@tsconfig/ember": "npm:^3.0.8"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
+    babel-plugin-ember-template-compilation: "npm:^2.3.0"
     concurrently: "npm:^8.2.2"
     decorator-transforms: "npm:^1.1.0"
     ember-get-config: "npm:^2.1.1"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^11.12.0"
-    eslint-plugin-import: "npm:^2.29.1"
-    eslint-plugin-n: "npm:^17.7.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
-    prettier: "npm:^3.3.2"
-    rollup: "npm:^4.22.4"
+    eslint-plugin-ember: "npm:^12.3.3"
+    eslint-plugin-import: "npm:^2.31.0"
+    eslint-plugin-n: "npm:^17.15.0"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
+    prettier: "npm:^3.4.2"
+    rollup: "npm:^4.28.1"
     rollup-plugin-copy: "npm:^3.5.0"
-    typescript: "npm:^5.3.3"
+    typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
 
@@ -4027,37 +3805,37 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
-    "@figma-export/cli": "npm:^4.7.0"
-    "@figma-export/core": "npm:^4.7.0"
-    "@figma-export/output-components-as-svg": "npm:^4.7.0"
-    "@figma-export/transform-svg-with-svgo": "npm:^4.7.0"
-    "@figma-export/types": "npm:^4.7.0"
+    "@figma-export/cli": "npm:^4.8.0"
+    "@figma-export/core": "npm:^4.8.0"
+    "@figma-export/output-components-as-svg": "npm:^4.8.0"
+    "@figma-export/transform-svg-with-svgo": "npm:^4.8.0"
+    "@figma-export/types": "npm:^4.8.0"
     "@figma/rest-api-spec": "npm:^0.21.0"
     "@svgr/core": "npm:^5.5.0"
     "@svgr/plugin-jsx": "npm:^5.5.0"
     "@types/archiver": "npm:^5.3.4"
-    "@types/fs-extra": "npm:^11.0.3"
-    "@types/lodash": "npm:^4.14.200"
-    "@types/node": "npm:^22.8.7"
-    "@types/react": "npm:^18.2.33"
-    "@types/react-dom": "npm:^18.2.14"
+    "@types/fs-extra": "npm:^11.0.4"
+    "@types/lodash": "npm:^4.17.13"
+    "@types/node": "npm:^22.10.2"
+    "@types/react": "npm:^18.3.17"
+    "@types/react-dom": "npm:^18.3.5"
     "@types/svgo": "npm:~1.3.6"
-    "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
-    "@typescript-eslint/parser": "npm:^8.5.0"
-    archiver: "npm:^6.0.1"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
+    archiver: "npm:^6.0.2"
     chalk: "npm:^4.1.2"
     del: "npm:^6.1.1"
     dotenv: "npm:^10.0.0"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     figma-api: "npm:^2.0.1-beta"
-    fs-extra: "npm:^11.1.1"
+    fs-extra: "npm:^11.2.0"
     lodash: "npm:^4.17.21"
     mini-svg-data-uri: "npm:^1.4.4"
-    prettier: "npm:^3.3.2"
+    prettier: "npm:^3.4.2"
     svgo: "npm:~1.3.2"
     svgstore: "npm:^3.0.1"
     ts-node: "npm:^10.9.2"
-    typescript: "npm:^5.6.3"
+    typescript: "npm:^5.7.2"
   languageName: unknown
   linkType: soft
 
@@ -4502,9 +4280,9 @@ __metadata:
   linkType: hard
 
 "@mdn/browser-compat-data@npm:^5.5.49":
-  version: 5.6.27
-  resolution: "@mdn/browser-compat-data@npm:5.6.27"
-  checksum: 10/510361e67aba067faff6a82ceb0cc66525a4bc42878c162b94ca1670ded295732373ff50eaa5a558bf217182d07a64c5580fcf11b9bc8532c1ec6cf8a0628251
+  version: 5.6.28
+  resolution: "@mdn/browser-compat-data@npm:5.6.28"
+  checksum: 10/9be2eb6f1ab5687f0e7273ef91d1add08e79d83f9624e8b47eaffb7518b0b2e48feb62b2bf47ba44bf9ba0f9ccf0d814ca0c0bcd5bf30ccfda928c2db6f50e17
   languageName: node
   linkType: hard
 
@@ -4801,7 +4579,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:^1.28.8":
+"@percy/cli@npm:^1.30.5":
   version: 1.30.6
   resolution: "@percy/cli@npm:1.30.6"
   dependencies:
@@ -5018,135 +4796,135 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/rollup-android-arm-eabi@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-android-arm-eabi@npm:4.30.0"
+"@rollup/rollup-android-arm-eabi@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-android-arm-eabi@npm:4.30.1"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@rollup/rollup-android-arm64@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-android-arm64@npm:4.30.0"
+"@rollup/rollup-android-arm64@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-android-arm64@npm:4.30.1"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-darwin-arm64@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-darwin-arm64@npm:4.30.0"
+"@rollup/rollup-darwin-arm64@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-darwin-arm64@npm:4.30.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-darwin-x64@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-darwin-x64@npm:4.30.0"
+"@rollup/rollup-darwin-x64@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-darwin-x64@npm:4.30.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-freebsd-arm64@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-freebsd-arm64@npm:4.30.0"
+"@rollup/rollup-freebsd-arm64@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-freebsd-arm64@npm:4.30.1"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-freebsd-x64@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-freebsd-x64@npm:4.30.0"
+"@rollup/rollup-freebsd-x64@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-freebsd-x64@npm:4.30.1"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm-gnueabihf@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.30.0"
+"@rollup/rollup-linux-arm-gnueabihf@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-arm-gnueabihf@npm:4.30.1"
   conditions: os=linux & cpu=arm & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm-musleabihf@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.30.0"
+"@rollup/rollup-linux-arm-musleabihf@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-arm-musleabihf@npm:4.30.1"
   conditions: os=linux & cpu=arm & libc=musl
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm64-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.30.0"
+"@rollup/rollup-linux-arm64-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-arm64-gnu@npm:4.30.1"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-arm64-musl@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.30.0"
+"@rollup/rollup-linux-arm64-musl@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-arm64-musl@npm:4.30.1"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-loongarch64-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-loongarch64-gnu@npm:4.30.0"
+"@rollup/rollup-linux-loongarch64-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-loongarch64-gnu@npm:4.30.1"
   conditions: os=linux & cpu=loong64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.0"
+"@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-powerpc64le-gnu@npm:4.30.1"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-riscv64-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.30.0"
+"@rollup/rollup-linux-riscv64-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-riscv64-gnu@npm:4.30.1"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-s390x-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.30.0"
+"@rollup/rollup-linux-s390x-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-s390x-gnu@npm:4.30.1"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-x64-gnu@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.30.0"
+"@rollup/rollup-linux-x64-gnu@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-x64-gnu@npm:4.30.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@rollup/rollup-linux-x64-musl@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-linux-x64-musl@npm:4.30.0"
+"@rollup/rollup-linux-x64-musl@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-linux-x64-musl@npm:4.30.1"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-arm64-msvc@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.30.0"
+"@rollup/rollup-win32-arm64-msvc@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-win32-arm64-msvc@npm:4.30.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-ia32-msvc@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.30.0"
+"@rollup/rollup-win32-ia32-msvc@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-win32-ia32-msvc@npm:4.30.1"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@rollup/rollup-win32-x64-msvc@npm:4.30.0":
-  version: 4.30.0
-  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.30.0"
+"@rollup/rollup-win32-x64-msvc@npm:4.30.1":
+  version: 4.30.1
+  resolution: "@rollup/rollup-win32-x64-msvc@npm:4.30.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -5429,7 +5207,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/ember@npm:^3.0.6, @tsconfig/ember@npm:^3.0.8":
+"@tsconfig/ember@npm:^3.0.8":
   version: 3.0.8
   resolution: "@tsconfig/ember@npm:3.0.8"
   checksum: 10/60ec11739ccbe3c2da87c466b73ea05a224a7edb8dbec6a5f87c8e321834c431d8afd84e458c84b69b2efd83cd0d6904890e53ee7eeea679d611bf2e6b9278fd
@@ -5599,7 +5377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ember-qunit@npm:^6.1.1":
+"@types/ember-qunit@npm:^6.1.3":
   version: 6.1.3
   resolution: "@types/ember-qunit@npm:6.1.3"
   dependencies:
@@ -5608,7 +5386,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ember-resolver@npm:^9.0.0":
+"@types/ember-resolver@npm:^9.0.2":
   version: 9.0.2
   resolution: "@types/ember-resolver@npm:9.0.2"
   dependencies:
@@ -5851,7 +5629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^11.0.3":
+"@types/fs-extra@npm:^11.0.4":
   version: 11.0.4
   resolution: "@types/fs-extra@npm:11.0.4"
   dependencies:
@@ -5999,7 +5777,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash-es@npm:^4":
+"@types/lodash-es@npm:^4.17.12":
   version: 4.17.12
   resolution: "@types/lodash-es@npm:4.17.12"
   dependencies:
@@ -6008,14 +5786,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*, @types/lodash@npm:^4.14.200":
+"@types/lodash@npm:*, @types/lodash@npm:^4.17.13":
   version: 4.17.14
   resolution: "@types/lodash@npm:4.17.14"
   checksum: 10/6ee40725f3e192f5ef1f493caca19210aa7acd7adc3136b8dba84d418a35be0abea0668105aed9f696ad62a54310a9c0d328971ad4b157f5bcda700424ed5aae
   languageName: node
   linkType: hard
 
-"@types/luxon@npm:^3.2.0":
+"@types/luxon@npm:^3.4.2":
   version: 3.4.2
   resolution: "@types/luxon@npm:3.4.2"
   checksum: 10/fd89566e3026559f2bc4ddcc1e70a2c16161905ed50be9473ec0cfbbbe919165041408c4f6e06c4bcf095445535052e2c099087c76b1b38e368127e618fc968d
@@ -6059,7 +5837,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^22.8.7":
+"@types/node@npm:*, @types/node@npm:>=10.0.0, @types/node@npm:^22.10.2, @types/node@npm:^22.8.7":
   version: 22.10.5
   resolution: "@types/node@npm:22.10.5"
   dependencies:
@@ -6103,7 +5881,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.26.4":
+"@types/prismjs@npm:^1.26.5":
   version: 1.26.5
   resolution: "@types/prismjs@npm:1.26.5"
   checksum: 10/617099479db9550119d0f84272dc79d64b2cf3e0d7a17167fe740d55fdf0f155697d935409464392d164e62080c2c88d649cf4bc4fdd30a87127337536657277
@@ -6131,7 +5909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/qunit@npm:^2.19.10":
+"@types/qunit@npm:^2.19.12":
   version: 2.19.12
   resolution: "@types/qunit@npm:2.19.12"
   checksum: 10/6d509f7e8fe5eedf29643a88f4158b5465238a09fa6ea6541564a9fe5cf06148ab9ed3f825dc23a59162fde54f7eca10663ba21d8a4355dddd9b241782e72273
@@ -6145,7 +5923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.14":
+"@types/react-dom@npm:^18.3.5":
   version: 18.3.5
   resolution: "@types/react-dom@npm:18.3.5"
   peerDependencies:
@@ -6154,7 +5932,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.33":
+"@types/react@npm:^18.3.17":
   version: 18.3.18
   resolution: "@types/react@npm:18.3.18"
   dependencies:
@@ -6271,7 +6049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tinycolor2@npm:^1.4.5":
+"@types/tinycolor2@npm:^1.4.6":
   version: 1.4.6
   resolution: "@types/tinycolor2@npm:1.4.6"
   checksum: 10/a662fd177135d27779b7ccba39881a85167f969787c71c7bf51903d288a519ad5b9526e0a4af7bde6444df6b7abe88bae893d569c6d804108c03dfec9509bdf6
@@ -6345,7 +6123,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^8.5.0":
+"@typescript-eslint/eslint-plugin@npm:^8.18.1":
   version: 8.19.1
   resolution: "@typescript-eslint/eslint-plugin@npm:8.19.1"
   dependencies:
@@ -6366,7 +6144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^8.5.0":
+"@typescript-eslint/parser@npm:^8.18.1":
   version: 8.19.1
   resolution: "@typescript-eslint/parser@npm:8.19.1"
   dependencies:
@@ -6850,7 +6628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algoliasearch@npm:^4.20.0":
+"algoliasearch@npm:^4.24.0":
   version: 4.24.0
   resolution: "algoliasearch@npm:4.24.0"
   dependencies:
@@ -7064,7 +6842,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"archiver@npm:^6.0.1":
+"archiver@npm:^6.0.2":
   version: 6.0.2
   resolution: "archiver@npm:6.0.2"
   dependencies:
@@ -7876,23 +7654,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-ember-template-compilation@npm:^2.0.0, babel-plugin-ember-template-compilation@npm:^2.0.1, babel-plugin-ember-template-compilation@npm:^2.1.1, babel-plugin-ember-template-compilation@npm:^2.2.1, babel-plugin-ember-template-compilation@npm:^2.2.4":
+"babel-plugin-ember-template-compilation@npm:^2.0.0, babel-plugin-ember-template-compilation@npm:^2.0.1, babel-plugin-ember-template-compilation@npm:^2.1.1, babel-plugin-ember-template-compilation@npm:^2.3.0":
   version: 2.3.0
   resolution: "babel-plugin-ember-template-compilation@npm:2.3.0"
   dependencies:
     "@glimmer/syntax": "npm:^0.84.3"
     babel-import-util: "npm:^3.0.0"
   checksum: 10/327e0fa8c7490b0d43593cb3cd091c9f18dfb698121c135c80e0b8edfd7b1d1c8688b9b2cf6ef6177a5c5b600d20a5e04b01c6655569b95e00c73fde6cca1952
-  languageName: node
-  linkType: hard
-
-"babel-plugin-filter-imports@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "babel-plugin-filter-imports@npm:4.0.0"
-  dependencies:
-    "@babel/types": "npm:^7.7.2"
-    lodash: "npm:^4.17.15"
-  checksum: 10/c953efd34d91578427836b93b1c2ee7295cdd64293775ec442c909329a81653f1f7b11578335153a0c171db4773190d20224ad7382fb4df23f48a0d56993489e
   languageName: node
   linkType: hard
 
@@ -8506,9 +8274,9 @@ __metadata:
   linkType: hard
 
 "bare-events@npm:^2.2.0":
-  version: 2.5.2
-  resolution: "bare-events@npm:2.5.2"
-  checksum: 10/479f3f062ce8a2159c4a0a47417f441579e7dee4b9a118253466de718d6506b2a0ebadb0948f0819d4a7e228ba1ddb8189829f21928586b459e1dce7ce48705e
+  version: 2.5.3
+  resolution: "bare-events@npm:2.5.3"
+  checksum: 10/76aab0b212e6366bc4512196c59034ec6589508b9339f8d7977eae7db7ee33f1cd4cd73a8d1050be8b7bdbc7080bfd0e473a17a68f9a5e1765d2d35020a6da0b
   languageName: node
   linkType: hard
 
@@ -10632,13 +10400,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"content-tag@npm:^1.2.2":
-  version: 1.2.2
-  resolution: "content-tag@npm:1.2.2"
-  checksum: 10/97ee5dd45c269eef1f3fabf974466f16db9e35b28c952e6947ef3094ee2f0213f651e994df938c9f3d1354094191af3e4ccfc163b5bf3777bb51563123dd944e
-  languageName: node
-  linkType: hard
-
 "content-tag@npm:^2.0.1":
   version: 2.0.3
   resolution: "content-tag@npm:2.0.3"
@@ -11047,7 +10808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cspell@npm:^7.3.8":
+"cspell@npm:^7.3.9":
   version: 7.3.9
   resolution: "cspell@npm:7.3.9"
   dependencies:
@@ -11159,16 +10920,6 @@ __metadata:
     mdn-data: "npm:2.0.14"
     source-map: "npm:^0.6.1"
   checksum: 10/29710728cc4b136f1e9b23ee1228ec403ec9f3d487bc94a9c5dbec563c1e08c59bc917dd6f82521a35e869ff655c298270f43ca673265005b0cd05b292eb05ab
-  languageName: node
-  linkType: hard
-
-"css-tree@npm:^2.0.4":
-  version: 2.3.1
-  resolution: "css-tree@npm:2.3.1"
-  dependencies:
-    mdn-data: "npm:2.0.30"
-    source-map-js: "npm:^1.0.1"
-  checksum: 10/e5e39b82eb4767c664fa5c2cd9968c8c7e6b7fd2c0079b52680a28466d851e2826d5e64699c449d933c0e8ca0554beca43c41a9fcb09fb6a46139d462dbdf0df
   languageName: node
   linkType: hard
 
@@ -11905,7 +11656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.3.1":
+"dotenv@npm:^16.4.7":
   version: 16.4.7
   resolution: "dotenv@npm:16.4.7"
   checksum: 10/f13bfe97db88f0df4ec505eeffb8925ec51f2d56a3d0b6d916964d8b4af494e6fb1633ba5d09089b552e77ab2a25de58d70259b2c5ed45ec148221835fc99a0c
@@ -11972,9 +11723,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.3.47, electron-to-chromium@npm:^1.5.73":
-  version: 1.5.77
-  resolution: "electron-to-chromium@npm:1.5.77"
-  checksum: 10/295afe052165d6422c618d751cf01c13d23217321cb32cb690430bfc85e3929d5922bb0df75ecaaa45371747ef5d99d99db03682467b0500a499b8f0def3a7a8
+  version: 1.5.78
+  resolution: "electron-to-chromium@npm:1.5.78"
+  checksum: 10/5fca292b91f2b5d1cb5dabd92b825cfea37237a18709e9af1953fe64513452ee5cfc723ebfecc8b7b1699cfb338dd5d44729d46b26f2ffc98a83d954bdb510a1
   languageName: node
   linkType: hard
 
@@ -12054,7 +11805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3, ember-auto-import@npm:^2.7.3":
+"ember-auto-import@npm:^2.10.0, ember-auto-import@npm:^2.2.4, ember-auto-import@npm:^2.4.2, ember-auto-import@npm:^2.6.0, ember-auto-import@npm:^2.6.3":
   version: 2.10.0
   resolution: "ember-auto-import@npm:2.10.0"
   dependencies:
@@ -12098,7 +11849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-basic-dropdown@npm:^8.1.0":
+"ember-basic-dropdown@npm:^8.4.0":
   version: 8.4.0
   resolution: "ember-basic-dropdown@npm:8.4.0"
   dependencies:
@@ -12131,15 +11882,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-app-version@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "ember-cli-app-version@npm:6.0.1"
+"ember-cli-app-version@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "ember-cli-app-version@npm:7.0.0"
   dependencies:
     ember-cli-babel: "npm:^7.26.11"
     git-repo-info: "npm:^2.1.1"
   peerDependencies:
     ember-source: ^3.28.0 || >= 4.0.0
-  checksum: 10/fde019caa998a27419b1071de03abf68337ca199f3dbfef5b4bebc59c23ca9996ace719e65fd136adc10473a546725ce9ef1ed242f82f9af5d066378283dd3a3
+  checksum: 10/b11fde143752848443c9f55440d7b01abb0d80af9aff0fca0446674878de44c6639071ff68545413644a526004ac50fde79b070847ff4067c6e9c6fa1cd127dd
   languageName: node
   linkType: hard
 
@@ -12257,7 +12008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-clipboard@npm:^1.1.0":
+"ember-cli-clipboard@npm:^1.2.1":
   version: 1.2.1
   resolution: "ember-cli-clipboard@npm:1.2.1"
   dependencies:
@@ -12275,7 +12026,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-dependency-checker@npm:^3.3.2":
+"ember-cli-dependency-checker@npm:^3.3.3":
   version: 3.3.3
   resolution: "ember-cli-dependency-checker@npm:3.3.3"
   dependencies:
@@ -12290,7 +12041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-deprecation-workflow@npm:^2.1.0":
+"ember-cli-deprecation-workflow@npm:^2.2.0":
   version: 2.2.0
   resolution: "ember-cli-deprecation-workflow@npm:2.2.0"
   dependencies:
@@ -12302,7 +12053,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-fastboot@npm:^4.1.1":
+"ember-cli-fastboot@npm:^4.1.5":
   version: 4.1.5
   resolution: "ember-cli-fastboot@npm:4.1.5"
   dependencies:
@@ -12655,9 +12406,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-cli@npm:5.9.0"
+"ember-cli@npm:~5.12.0":
+  version: 5.12.0
+  resolution: "ember-cli@npm:5.12.0"
   dependencies:
     "@pnpm/find-workspace-dir": "npm:^6.0.2"
     broccoli: "npm:^3.5.2"
@@ -12681,7 +12432,7 @@ __metadata:
     compression: "npm:^1.7.4"
     configstore: "npm:^5.0.1"
     console-ui: "npm:^3.1.2"
-    content-tag: "npm:^1.2.2"
+    content-tag: "npm:^2.0.1"
     core-object: "npm:^3.1.5"
     dag-map: "npm:^2.0.2"
     diff: "npm:^5.1.0"
@@ -12736,7 +12487,7 @@ __metadata:
     sort-package-json: "npm:^1.57.0"
     symlink-or-copy: "npm:^1.3.1"
     temp: "npm:0.9.4"
-    testem: "npm:^3.10.1"
+    testem: "npm:^3.15.1"
     tiny-lr: "npm:^2.0.0"
     tree-sync: "npm:^2.1.0"
     walk-sync: "npm:^3.0.0"
@@ -12745,7 +12496,7 @@ __metadata:
     yam: "npm:^1.0.0"
   bin:
     ember: bin/ember
-  checksum: 10/89efa65e4813e5141605362b83f60c4574def0eb887f822b2537f3579766f112cf470fc7cde3ee8dd4da44f3b9ded456d4d4e8bc7b863806feb76cf95b178d1f
+  checksum: 10/cee1e54196240836e0fa8f38cfe471536482e115ff5f98c646b301ca46db00bf45fcd0204339dbcfdc6c29e28660ff9bd3bf3c4ef8669a0db31864a78b4772ad
   languageName: node
   linkType: hard
 
@@ -12793,7 +12544,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-deep-tracked@npm:^2.0.0":
+"ember-deep-tracked@npm:^2.0.1":
   version: 2.0.1
   resolution: "ember-deep-tracked@npm:2.0.1"
   dependencies:
@@ -13067,7 +12818,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-qunit@npm:^8.1.0":
+"ember-qunit@npm:^8.1.1":
   version: 8.1.1
   resolution: "ember-qunit@npm:8.1.1"
   dependencies:
@@ -13097,17 +12848,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-resolver@npm:^11.0.1":
-  version: 11.0.1
-  resolution: "ember-resolver@npm:11.0.1"
+"ember-resolver@npm:^12.0.1":
+  version: 12.0.1
+  resolution: "ember-resolver@npm:12.0.1"
   dependencies:
     ember-cli-babel: "npm:^7.26.11"
   peerDependencies:
-    ember-source: ^4.8.3 || >= 5.0.0
+    ember-source: ^4.12.0 || >= 5.0.0
   peerDependenciesMeta:
     ember-source:
       optional: true
-  checksum: 10/79e6ca1a9d69e670919eb58d8f04f362293ccda21a1436f7472a0a3e1947c67435c74eea51cce20df38d0b2edf8f33ea9b7fce3eb982b4235296a8e3ac33c380
+  checksum: 10/2e15de60e263727658b9db87ab5ef3ca1a7e9de3e470ee0e8f0d0b737e0926b34f468d4de83756709569b022177046579ad431d58d1cb4ac793de6c2a0f34722
   languageName: node
   linkType: hard
 
@@ -13136,7 +12887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.15, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
+"ember-rfc176-data@npm:^0.3.13, ember-rfc176-data@npm:^0.3.17, ember-rfc176-data@npm:^0.3.18":
   version: 0.3.18
   resolution: "ember-rfc176-data@npm:0.3.18"
   checksum: 10/14092fdfafa6dd56dddd6a61dc5a38abce9dcb521709d6fbd2bf36abea1914b4f2a22e0ab57fbcef1397ccd98ef9ccab937a6c1faa10840f3dc95e1c79dcc80b
@@ -13186,43 +12937,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-source@npm:~5.9.0":
-  version: 5.9.0
-  resolution: "ember-source@npm:5.9.0"
+"ember-source@npm:~5.12.0":
+  version: 5.12.0
+  resolution: "ember-source@npm:5.12.0"
   dependencies:
-    "@babel/helper-module-imports": "npm:^7.16.7"
+    "@babel/core": "npm:^7.24.4"
     "@ember/edition-utils": "npm:^1.2.0"
-    "@glimmer/compiler": "npm:0.92.0"
-    "@glimmer/component": "npm:^1.1.2"
-    "@glimmer/destroyable": "npm:0.92.0"
+    "@glimmer/compiler": "npm:0.92.4"
+    "@glimmer/destroyable": "npm:0.92.3"
     "@glimmer/env": "npm:^0.1.7"
-    "@glimmer/global-context": "npm:0.92.0"
-    "@glimmer/interfaces": "npm:0.92.0"
-    "@glimmer/manager": "npm:0.92.0"
-    "@glimmer/node": "npm:0.92.0"
-    "@glimmer/opcode-compiler": "npm:0.92.0"
-    "@glimmer/owner": "npm:0.92.0"
-    "@glimmer/program": "npm:0.92.0"
-    "@glimmer/reference": "npm:0.92.0"
-    "@glimmer/runtime": "npm:0.92.0"
-    "@glimmer/syntax": "npm:0.92.0"
-    "@glimmer/util": "npm:0.92.0"
-    "@glimmer/validator": "npm:0.92.0"
-    "@glimmer/vm": "npm:0.92.0"
-    "@glimmer/vm-babel-plugins": "npm:0.92.0"
+    "@glimmer/global-context": "npm:0.92.3"
+    "@glimmer/interfaces": "npm:0.92.3"
+    "@glimmer/manager": "npm:0.92.4"
+    "@glimmer/node": "npm:0.92.4"
+    "@glimmer/opcode-compiler": "npm:0.92.4"
+    "@glimmer/owner": "npm:0.92.3"
+    "@glimmer/program": "npm:0.92.4"
+    "@glimmer/reference": "npm:0.92.3"
+    "@glimmer/runtime": "npm:0.92.4"
+    "@glimmer/syntax": "npm:0.92.3"
+    "@glimmer/util": "npm:0.92.3"
+    "@glimmer/validator": "npm:0.92.3"
+    "@glimmer/vm": "npm:0.92.3"
+    "@glimmer/vm-babel-plugins": "npm:0.92.3"
     "@simple-dom/interface": "npm:^1.4.0"
-    babel-plugin-debug-macros: "npm:^0.3.4"
-    babel-plugin-ember-template-compilation: "npm:^2.1.1"
-    babel-plugin-filter-imports: "npm:^4.0.0"
     backburner.js: "npm:^2.8.0"
-    broccoli-concat: "npm:^4.2.5"
-    broccoli-debug: "npm:^0.6.4"
     broccoli-file-creator: "npm:^2.1.1"
     broccoli-funnel: "npm:^3.0.8"
     broccoli-merge-trees: "npm:^4.2.0"
     chalk: "npm:^4.0.0"
     ember-auto-import: "npm:^2.6.3"
-    ember-cli-babel: "npm:^7.26.11"
+    ember-cli-babel: "npm:^8.2.0"
     ember-cli-get-component-path-option: "npm:^1.0.0"
     ember-cli-is-package-missing: "npm:^1.0.0"
     ember-cli-normalize-entity-name: "npm:^1.0.0"
@@ -13239,7 +12984,7 @@ __metadata:
     simple-html-tokenizer: "npm:^0.5.11"
   peerDependencies:
     "@glimmer/component": ^1.1.2
-  checksum: 10/736d1fba209071c91077ae7070e13d0db7b9cbee2ba4c9b34a11e0f5f4a5069df14437381c5a4af7f6f5af5856f4363cd77d756463a642959dbd51d0d83d4508
+  checksum: 10/61114e1d8230deac20a187117028c41e3e5f3728e46480e0cdf7d85da6208b7014a3fd4832acecd1c78e8b230a1cb415bd843623cda884cfdcc6d6c32a129a81
   languageName: node
   linkType: hard
 
@@ -13288,7 +13033,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-template-imports@npm:^4.1.1":
+"ember-template-imports@npm:^4.2.0":
   version: 4.2.0
   resolution: "ember-template-imports@npm:4.2.0"
   dependencies:
@@ -13986,30 +13731,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-ember@npm:^11.12.0":
-  version: 11.12.0
-  resolution: "eslint-plugin-ember@npm:11.12.0"
-  dependencies:
-    "@ember-data/rfc395-data": "npm:^0.0.4"
-    "@glimmer/syntax": "npm:^0.84.2"
-    css-tree: "npm:^2.0.4"
-    ember-rfc176-data: "npm:^0.3.15"
-    ember-template-imports: "npm:^3.4.2"
-    ember-template-recast: "npm:^6.1.4"
-    eslint-utils: "npm:^3.0.0"
-    estraverse: "npm:^5.2.0"
-    lodash.camelcase: "npm:^4.1.1"
-    lodash.kebabcase: "npm:^4.1.1"
-    magic-string: "npm:^0.30.0"
-    requireindex: "npm:^1.2.0"
-    snake-case: "npm:^3.0.3"
-  peerDependencies:
-    eslint: ">= 7"
-  checksum: 10/3239c9734d2996b38871b7663186d1ab09dd26c57420efcda69ea52255e50fde981b8ec41e4083bb33ea905753606e36bed1c3fcb93fc9f36250599a75834b11
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-ember@npm:^12.2.0":
+"eslint-plugin-ember@npm:^12.3.3":
   version: 12.3.3
   resolution: "eslint-plugin-ember@npm:12.3.3"
   dependencies:
@@ -14058,7 +13780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.29.1":
+"eslint-plugin-import@npm:^2.31.0":
   version: 2.31.0
   resolution: "eslint-plugin-import@npm:2.31.0"
   dependencies:
@@ -14108,7 +13830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:^17.7.0":
+"eslint-plugin-n@npm:^17.15.0":
   version: 17.15.1
   resolution: "eslint-plugin-n@npm:17.15.1"
   dependencies:
@@ -14142,7 +13864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^5.1.3":
+"eslint-plugin-prettier@npm:^5.2.1":
   version: 5.2.1
   resolution: "eslint-plugin-prettier@npm:5.2.1"
   dependencies:
@@ -14162,7 +13884,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^8.1.1":
+"eslint-plugin-qunit@npm:^8.1.2":
   version: 8.1.2
   resolution: "eslint-plugin-qunit@npm:8.1.2"
   dependencies:
@@ -14240,7 +13962,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.57.0":
+"eslint@npm:^8.57.1":
   version: 8.57.1
   resolution: "eslint@npm:8.57.1"
   dependencies:
@@ -14706,9 +14428,9 @@ __metadata:
   linkType: hard
 
 "fast-equals@npm:^5.0.1":
-  version: 5.2.0
-  resolution: "fast-equals@npm:5.2.0"
-  checksum: 10/602d892a8fb2f96551ba16902917acdebf3f9745cfbf1e2e51b829295c6835f62c6954e063ab1b18d19cf8382c66b4677b9e8e747a2ba62adbc15ad0456efb9b
+  version: 5.2.1
+  resolution: "fast-equals@npm:5.2.1"
+  checksum: 10/36b835718dd495c72f3bc2d32b01cabdeb7b6d9d77e5f71f69443e525a8c837ce7d5f2dbeed6725d87f630100de4bb5484c327d6224f04f311ecaecd1be65e93
   languageName: node
   linkType: hard
 
@@ -15393,7 +15115,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.1":
+"fs-extra@npm:^11.1.1, fs-extra@npm:^11.2.0":
   version: 11.2.0
   resolution: "fs-extra@npm:11.2.0"
   dependencies:
@@ -19046,7 +18768,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.camelcase@npm:^4.1.1, lodash.camelcase@npm:^4.3.0":
+"lodash.camelcase@npm:^4.3.0":
   version: 4.3.0
   resolution: "lodash.camelcase@npm:4.3.0"
   checksum: 10/c301cc379310441dc73cd6cebeb91fb254bea74e6ad3027f9346fc43b4174385153df420ffa521654e502fd34c40ef69ca4e7d40ee7129a99e06f306032bfc65
@@ -19314,7 +19036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.30.0, magic-string@npm:^0.30.2":
+"magic-string@npm:^0.30.2":
   version: 0.30.17
   resolution: "magic-string@npm:0.30.17"
   dependencies:
@@ -19538,7 +19260,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdast-util-from-markdown@npm:^2.0.0":
+"mdast-util-from-markdown@npm:^2.0.0, mdast-util-from-markdown@npm:^2.0.2":
   version: 2.0.2
   resolution: "mdast-util-from-markdown@npm:2.0.2"
   dependencies:
@@ -19706,13 +19428,6 @@ __metadata:
   version: 2.0.14
   resolution: "mdn-data@npm:2.0.14"
   checksum: 10/64c629fcf14807e30d6dc79f97cbcafa16db066f53a294299f3932b3beb0eb0d1386d3a7fe408fc67348c449a4e0999360c894ba4c81eb209d7be4e36503de0e
-  languageName: node
-  linkType: hard
-
-"mdn-data@npm:2.0.30":
-  version: 2.0.30
-  resolution: "mdn-data@npm:2.0.30"
-  checksum: 10/e4944322bf3e0461a2daa2aee7e14e208960a036289531e4ef009e53d32bd41528350c070c4a33be867980443fe4c0523518d99318423cffa7c825fe7b1154e2
   languageName: node
   linkType: hard
 
@@ -22110,7 +21825,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.15, postcss@npm:^8.4.47, postcss@npm:^8.4.49":
+"postcss@npm:^8.2.15, postcss@npm:^8.4.49":
   version: 8.4.49
   resolution: "postcss@npm:8.4.49"
   dependencies:
@@ -22157,7 +21872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prember@npm:*, prember@npm:^2.0.0":
+"prember@npm:*, prember@npm:^2.1.0":
   version: 2.1.0
   resolution: "prember@npm:2.1.0"
   dependencies:
@@ -22189,7 +21904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-ember-template-tag@npm:^2.0.2":
+"prettier-plugin-ember-template-tag@npm:^2.0.4":
   version: 2.0.4
   resolution: "prettier-plugin-ember-template-tag@npm:2.0.4"
   dependencies:
@@ -22211,7 +21926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.1.1, prettier@npm:^3.3.2, prettier@npm:^3.3.3":
+"prettier@npm:^3.1.1, prettier@npm:^3.3.3, prettier@npm:^3.4.2":
   version: 3.4.2
   resolution: "prettier@npm:3.4.2"
   bin:
@@ -22516,7 +22231,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit-dom@npm:^3.0.0":
+"qunit-dom@npm:^3.4.0":
   version: 3.4.0
   resolution: "qunit-dom@npm:3.4.0"
   dependencies:
@@ -22532,7 +22247,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit@npm:^2.21.0":
+"qunit@npm:^2.23.1":
   version: 2.23.1
   resolution: "qunit@npm:2.23.1"
   dependencies:
@@ -22954,7 +22669,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rehype-stringify@npm:^10.0.0":
+"rehype-stringify@npm:^10.0.1":
   version: 10.0.1
   resolution: "rehype-stringify@npm:10.0.1"
   dependencies:
@@ -23026,7 +22741,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"remark-rehype@npm:^11.0.0":
+"remark-rehype@npm:^11.1.1":
   version: 11.1.1
   resolution: "remark-rehype@npm:11.1.1"
   dependencies:
@@ -23338,7 +23053,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.11.1, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.3, resolve@npm:^1.22.4, resolve@npm:^1.22.8, resolve@npm:^1.3.3, resolve@npm:^1.4.0, resolve@npm:^1.5.0, resolve@npm:^1.8.1":
+"resolve@npm:^1.1.7, resolve@npm:^1.10.0, resolve@npm:^1.10.1, resolve@npm:^1.11.1, resolve@npm:^1.13.1, resolve@npm:^1.14.2, resolve@npm:^1.17.0, resolve@npm:^1.20.0, resolve@npm:^1.22.0, resolve@npm:^1.22.1, resolve@npm:^1.22.2, resolve@npm:^1.22.3, resolve@npm:^1.22.4, resolve@npm:^1.22.8, resolve@npm:^1.22.9, resolve@npm:^1.3.3, resolve@npm:^1.4.0, resolve@npm:^1.5.0, resolve@npm:^1.8.1":
   version: 1.22.10
   resolution: "resolve@npm:1.22.10"
   dependencies:
@@ -23351,7 +23066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-? "resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.11.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.13.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.8.1#optional!builtin<compat/resolve>"
+? "resolve@patch:resolve@npm%3A^1.1.7#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.10.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.11.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.13.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.14.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.17.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.20.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.1#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.2#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.4#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.8#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.22.9#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.3.3#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.4.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.5.0#optional!builtin<compat/resolve>, resolve@patch:resolve@npm%3A^1.8.1#optional!builtin<compat/resolve>"
 :
   version: 1.22.10
   resolution: "resolve@patch:resolve@npm%3A1.22.10#optional!builtin<compat/resolve>::version=1.22.10&hash=c3c19d"
@@ -23501,7 +23216,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-scss@npm:^4.0.0":
+"rollup-plugin-scss@npm:^4.0.1":
   version: 4.0.1
   resolution: "rollup-plugin-scss@npm:4.0.1"
   dependencies:
@@ -23583,29 +23298,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^4.22.4":
-  version: 4.30.0
-  resolution: "rollup@npm:4.30.0"
+"rollup@npm:^4.28.1":
+  version: 4.30.1
+  resolution: "rollup@npm:4.30.1"
   dependencies:
-    "@rollup/rollup-android-arm-eabi": "npm:4.30.0"
-    "@rollup/rollup-android-arm64": "npm:4.30.0"
-    "@rollup/rollup-darwin-arm64": "npm:4.30.0"
-    "@rollup/rollup-darwin-x64": "npm:4.30.0"
-    "@rollup/rollup-freebsd-arm64": "npm:4.30.0"
-    "@rollup/rollup-freebsd-x64": "npm:4.30.0"
-    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.30.0"
-    "@rollup/rollup-linux-arm-musleabihf": "npm:4.30.0"
-    "@rollup/rollup-linux-arm64-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-arm64-musl": "npm:4.30.0"
-    "@rollup/rollup-linux-loongarch64-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-powerpc64le-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-riscv64-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-s390x-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-x64-gnu": "npm:4.30.0"
-    "@rollup/rollup-linux-x64-musl": "npm:4.30.0"
-    "@rollup/rollup-win32-arm64-msvc": "npm:4.30.0"
-    "@rollup/rollup-win32-ia32-msvc": "npm:4.30.0"
-    "@rollup/rollup-win32-x64-msvc": "npm:4.30.0"
+    "@rollup/rollup-android-arm-eabi": "npm:4.30.1"
+    "@rollup/rollup-android-arm64": "npm:4.30.1"
+    "@rollup/rollup-darwin-arm64": "npm:4.30.1"
+    "@rollup/rollup-darwin-x64": "npm:4.30.1"
+    "@rollup/rollup-freebsd-arm64": "npm:4.30.1"
+    "@rollup/rollup-freebsd-x64": "npm:4.30.1"
+    "@rollup/rollup-linux-arm-gnueabihf": "npm:4.30.1"
+    "@rollup/rollup-linux-arm-musleabihf": "npm:4.30.1"
+    "@rollup/rollup-linux-arm64-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-arm64-musl": "npm:4.30.1"
+    "@rollup/rollup-linux-loongarch64-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-powerpc64le-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-riscv64-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-s390x-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-x64-gnu": "npm:4.30.1"
+    "@rollup/rollup-linux-x64-musl": "npm:4.30.1"
+    "@rollup/rollup-win32-arm64-msvc": "npm:4.30.1"
+    "@rollup/rollup-win32-ia32-msvc": "npm:4.30.1"
+    "@rollup/rollup-win32-x64-msvc": "npm:4.30.1"
     "@types/estree": "npm:1.0.6"
     fsevents: "npm:~2.3.2"
   dependenciesMeta:
@@ -23651,7 +23366,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 10/b24d69c67c011947715931d631205c85fc7412ce28d9910817fe57dc22b367b07f5b4065f12892471daf73a385e0d0b8f844ba3eb9fa01f3ebf933e7e66c19d9
+  checksum: 10/f5d240a76a8c3cd7918f7dc97b7eaec5d97d27b3901e3843f74e18b4e9195c77abe8aa61575cd64ad7897f6a6dea6c68a7ad1a8073e3cf3139529e9fa7d06c2b
   languageName: node
   linkType: hard
 
@@ -24156,38 +23871,38 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "showcase@workspace:showcase"
   dependencies:
-    "@babel/core": "npm:^7.24.7"
-    "@ember/optional-features": "npm:^2.1.0"
+    "@babel/core": "npm:^7.26.0"
+    "@ember/optional-features": "npm:^2.2.0"
     "@ember/string": "npm:^3.1.1"
-    "@ember/test-helpers": "npm:^3.3.0"
+    "@ember/test-helpers": "npm:^3.3.1"
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/test-setup": "npm:^3.0.3"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@glint/core": "npm:^1.4.0"
+    "@glint/core": "npm:^1.5.0"
     "@glint/environment-ember-loose": "npm:^1.4.0"
-    "@glint/environment-ember-template-imports": "npm:^1.4.0"
-    "@glint/template": "npm:^1.4.0"
+    "@glint/environment-ember-template-imports": "npm:^1.5.0"
+    "@glint/template": "npm:^1.5.0"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
-    "@percy/cli": "npm:^1.28.8"
+    "@percy/cli": "npm:^1.30.5"
     "@percy/ember": "npm:^4.2.0"
     "@tsconfig/ember": "npm:^3.0.8"
-    "@types/qunit": "npm:^2.19.10"
+    "@types/qunit": "npm:^2.19.12"
     "@types/rsvp": "npm:^4.0.9"
-    "@typescript-eslint/eslint-plugin": "npm:^8.5.0"
-    "@typescript-eslint/parser": "npm:^8.5.0"
+    "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
+    "@typescript-eslint/parser": "npm:^8.18.1"
     broccoli-asset-rev: "npm:^3.0.0"
     concurrently: "npm:^8.2.2"
     ember-a11y-testing: "npm:^6.1.1"
-    ember-auto-import: "npm:^2.7.3"
-    ember-basic-dropdown: "npm:^8.1.0"
+    ember-auto-import: "npm:^2.10.0"
+    ember-basic-dropdown: "npm:^8.4.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
+    ember-cli: "npm:~5.12.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
-    ember-cli-dependency-checker: "npm:^3.3.2"
-    ember-cli-deprecation-workflow: "npm:^2.1.0"
+    ember-cli-dependency-checker: "npm:^3.3.3"
+    ember-cli-deprecation-workflow: "npm:^2.2.0"
     ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-inject-live-reload: "npm:^2.1.0"
     ember-cli-sass: "npm:^11.0.1"
@@ -24195,43 +23910,43 @@ __metadata:
     ember-cli-string-helpers: "npm:^6.1.0"
     ember-cli-terser: "npm:^4.0.2"
     ember-concurrency: "npm:^4.0.2"
-    ember-deep-tracked: "npm:^2.0.0"
+    ember-deep-tracked: "npm:^2.0.1"
     ember-load-initializers: "npm:^2.1.2"
     ember-modifier: "npm:^4.1.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
-    ember-qunit: "npm:^8.1.0"
-    ember-resolver: "npm:^11.0.1"
+    ember-qunit: "npm:^8.1.1"
+    ember-resolver: "npm:^12.0.1"
     ember-set-helper: "npm:^3.0.1"
-    ember-source: "npm:~5.9.0"
+    ember-source: "npm:~5.12.0"
     ember-source-channel-url: "npm:^3.0.0"
     ember-style-modifier: "npm:^4.4.0"
-    ember-template-imports: "npm:^4.1.1"
+    ember-template-imports: "npm:^4.2.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-truth-helpers: "npm:^4.0.3"
     ember-try: "npm:^3.0.0"
     ember-unique-id-helper-polyfill: "npm:^1.2.2"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^12.2.0"
+    eslint-plugin-ember: "npm:^12.3.3"
     eslint-plugin-n: "npm:^16.6.2"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
     loader.js: "npm:^4.7.0"
-    postcss: "npm:^8.4.47"
-    prettier: "npm:^3.3.2"
-    prettier-plugin-ember-template-tag: "npm:^2.0.2"
-    qunit: "npm:^2.21.0"
-    qunit-dom: "npm:^3.0.0"
+    postcss: "npm:^8.4.49"
+    prettier: "npm:^3.4.2"
+    prettier-plugin-ember-template-tag: "npm:^2.0.4"
+    qunit: "npm:^2.23.1"
+    qunit-dom: "npm:^3.4.0"
     sass: "npm:^1.69.5"
-    sinon: "npm:^17.0.0"
-    stylelint: "npm:^16.3.1"
+    sinon: "npm:^17.0.1"
+    stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"
-    tracked-built-ins: "npm:^3.3.0"
-    typescript: "npm:^5.4.5"
-    webpack: "npm:^5.94.0"
+    tracked-built-ins: "npm:^3.4.0"
+    typescript: "npm:^5.7.2"
+    webpack: "npm:^5.97.1"
   languageName: unknown
   linkType: soft
 
@@ -24337,7 +24052,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:^17.0.0":
+"sinon@npm:^17.0.1":
   version: 17.0.1
   resolution: "sinon@npm:17.0.1"
   dependencies:
@@ -24351,7 +24066,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sinon@npm:^18.0.0":
+"sinon@npm:^18.0.1":
   version: 18.0.1
   resolution: "sinon@npm:18.0.1"
   dependencies:
@@ -25121,7 +24836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@npm:^4.2.0":
+"style-dictionary@npm:^4.3.0":
   version: 4.3.0
   resolution: "style-dictionary@npm:4.3.0"
   dependencies:
@@ -25264,7 +24979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^16.3.1":
+"stylelint@npm:^16.12.0":
   version: 16.12.0
   resolution: "stylelint@npm:16.12.0"
   dependencies:
@@ -25701,7 +25416,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"testem@npm:^3.10.1":
+"testem@npm:^3.15.1":
   version: 3.15.2
   resolution: "testem@npm:3.15.2"
   dependencies:
@@ -26024,7 +25739,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tracked-built-ins@npm:^3.3.0":
+"tracked-built-ins@npm:^3.4.0":
   version: 3.4.0
   resolution: "tracked-built-ins@npm:3.4.0"
   dependencies:
@@ -26386,7 +26101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.3.3, typescript@npm:^5.4.5, typescript@npm:^5.6.3":
+"typescript@npm:^5.7.2":
   version: 5.7.2
   resolution: "typescript@npm:5.7.2"
   bin:
@@ -26396,7 +26111,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.3.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.4.5#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.6.3#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.7.2#optional!builtin<compat/typescript>":
   version: 5.7.2
   resolution: "typescript@patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"
   bin:
@@ -27259,7 +26974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.94.0":
+"webpack@npm:^5.97.1":
   version: 5.97.1
   resolution: "webpack@npm:5.97.1"
   dependencies:
@@ -27299,41 +27014,41 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "website@workspace:website"
   dependencies:
-    "@algolia/autocomplete-js": "npm:^1.12.1"
-    "@algolia/autocomplete-preset-algolia": "npm:^1.12.1"
-    "@algolia/client-search": "npm:^4.22.0"
-    "@babel/core": "npm:^7.24.7"
-    "@babel/eslint-parser": "npm:^7.24.7"
-    "@ember/optional-features": "npm:^2.1.0"
+    "@algolia/autocomplete-js": "npm:^1.17.8"
+    "@algolia/autocomplete-preset-algolia": "npm:^1.17.8"
+    "@algolia/client-search": "npm:^4.24.0"
+    "@babel/core": "npm:^7.26.0"
+    "@babel/eslint-parser": "npm:^7.25.9"
+    "@ember/optional-features": "npm:^2.2.0"
     "@ember/render-modifiers": "npm:^2.1.0"
     "@ember/string": "npm:^3.1.1"
-    "@ember/test-helpers": "npm:^3.3.0"
+    "@ember/test-helpers": "npm:^3.3.1"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
     "@hashicorp/design-system-components": "workspace:^"
     "@hashicorp/design-system-tokens": "workspace:^"
     "@hashicorp/flight-icons": "workspace:^"
-    algoliasearch: "npm:^4.20.0"
+    algoliasearch: "npm:^4.24.0"
     broccoli-asset-rev: "npm:^3.0.0"
     broccoli-funnel: "npm:^3.0.8"
     broccoli-merge-trees: "npm:^4.2.0"
     broccoli-multifilter: "https://github.com/broccolijs/broccoli-multifilter.git#commit=3ae609df0cfb1dae0da04ae041eb75c7115c9838"
     concurrently: "npm:^8.2.2"
-    cspell: "npm:^7.3.8"
-    dotenv: "npm:^16.3.1"
+    cspell: "npm:^7.3.9"
+    dotenv: "npm:^16.4.7"
     ember-a11y-refocus: "npm:^4.1.3"
     ember-a11y-testing: "npm:^6.1.1"
-    ember-auto-import: "npm:^2.7.3"
-    ember-basic-dropdown: "npm:^8.1.0"
+    ember-auto-import: "npm:^2.10.0"
+    ember-basic-dropdown: "npm:^8.4.0"
     ember-body-class: "npm:^3.0.0"
-    ember-cli: "npm:~5.9.0"
-    ember-cli-app-version: "npm:^6.0.1"
+    ember-cli: "npm:~5.12.0"
+    ember-cli-app-version: "npm:^7.0.0"
     ember-cli-babel: "npm:^8.2.0"
     ember-cli-clean-css: "npm:^3.0.0"
-    ember-cli-clipboard: "npm:^1.1.0"
-    ember-cli-dependency-checker: "npm:^3.3.2"
-    ember-cli-deprecation-workflow: "npm:^2.1.0"
-    ember-cli-fastboot: "npm:^4.1.1"
+    ember-cli-clipboard: "npm:^1.2.1"
+    ember-cli-dependency-checker: "npm:^3.3.3"
+    ember-cli-deprecation-workflow: "npm:^2.2.0"
+    ember-cli-fastboot: "npm:^4.1.5"
     ember-cli-htmlbars: "npm:^6.3.0"
     ember-cli-inject-live-reload: "npm:^2.1.0"
     ember-cli-sass: "npm:^11.0.1"
@@ -27350,52 +27065,52 @@ __metadata:
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.0"
     ember-prism: "npm:^0.13.0"
-    ember-qunit: "npm:^8.1.0"
-    ember-resolver: "npm:^11.0.1"
+    ember-qunit: "npm:^8.1.1"
+    ember-resolver: "npm:^12.0.1"
     ember-router-scroll: "npm:^4.1.2"
-    ember-source: "npm:~5.9.0"
+    ember-source: "npm:~5.12.0"
     ember-template-lint: "npm:^6.0.0"
     ember-template-lint-plugin-prettier: "npm:^5.0.0"
     ember-test-selectors: "npm:^6.0.0"
     ember-truth-helpers: "npm:^4.0.3"
-    eslint: "npm:^8.57.0"
+    eslint: "npm:^8.57.1"
     eslint-config-prettier: "npm:^9.1.0"
-    eslint-plugin-ember: "npm:^12.2.0"
+    eslint-plugin-ember: "npm:^12.3.3"
     eslint-plugin-node: "npm:^11.1.0"
-    eslint-plugin-prettier: "npm:^5.1.3"
-    eslint-plugin-qunit: "npm:^8.1.1"
-    fs-extra: "npm:^11.1.1"
+    eslint-plugin-prettier: "npm:^5.2.1"
+    eslint-plugin-qunit: "npm:^8.1.2"
+    fs-extra: "npm:^11.2.0"
     jsdom: "npm:^22.1.0"
     jsonapi-serializer: "npm:^3.6.9"
     loader.js: "npm:^4.7.0"
     lodash: "npm:^4.17.21"
-    mdast-util-from-markdown: "npm:^2.0.0"
+    mdast-util-from-markdown: "npm:^2.0.2"
     mdast-util-to-string: "npm:^4.0.0"
     object-hash: "npm:^3.0.0"
-    postcss: "npm:^8.4.47"
-    prember: "npm:^2.0.0"
+    postcss: "npm:^8.4.49"
+    prember: "npm:^2.1.0"
     prember-middleware: "npm:^0.1.0"
     prember-sitemap-generator: "https://github.com/shipshapecode/prember-sitemap-generator.git#commit=c95f47042d86c4fa7b8b631f271da090672e13df"
-    prettier: "npm:^3.3.2"
-    qunit: "npm:^2.21.0"
-    qunit-dom: "npm:^3.0.0"
+    prettier: "npm:^3.4.2"
+    qunit: "npm:^2.23.1"
+    qunit-dom: "npm:^3.4.0"
     rehype-raw: "npm:^7.0.0"
-    rehype-stringify: "npm:^10.0.0"
+    rehype-stringify: "npm:^10.0.1"
     remark: "npm:^15.0.1"
     remark-frontmatter: "npm:^5.0.0"
     remark-gfm: "npm:^4.0.0"
     remark-parse: "npm:^11.0.0"
-    remark-rehype: "npm:^11.0.0"
-    resolve: "npm:^1.22.8"
+    remark-rehype: "npm:^11.1.1"
+    resolve: "npm:^1.22.9"
     showdown: "npm:^2.1.0"
-    sinon: "npm:^18.0.0"
-    stylelint: "npm:^16.3.1"
+    sinon: "npm:^18.0.1"
+    stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^13.1.0"
     unist-util-remove: "npm:^4.0.0"
     unist-util-select: "npm:^5.1.0"
     unist-util-visit: "npm:^5.0.0"
-    webpack: "npm:^5.94.0"
+    webpack: "npm:^5.97.1"
     yaml-front-matter: "npm:^4.1.1"
   languageName: unknown
   linkType: soft
