@@ -448,7 +448,13 @@
         </B.Td>
         <B.Td>
           <Hds::ButtonSet>
-            <Hds::Button @text="Show more buttons" @icon="plus" @size="small" aria-pressed={{this.focusableElementsVisible}}  {{on "click" this.toggleElementsVisibility}} />
+            <Hds::Button
+              @text="Show more buttons"
+              @icon="plus"
+              @size="small"
+              aria-pressed={{this.focusableElementsVisible}}
+              {{on "click" this.toggleElementsVisibility}}
+            />
             {{#if this.focusableElementsVisible}}
               <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
               <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
