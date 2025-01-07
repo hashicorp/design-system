@@ -72,7 +72,7 @@ When a user is editing code on a single line, a highlight will be present to emp
 
 When a user selects code (even if it’s within a single line), the active line highlight will no longer be present, however, the line number on the left will remain highlighted. The highlighted number will be present wherever the cursor is located.
 
-![The Code Editor's line 1 to 3 selected and showing the green selection highlighted color](/assets/components/code-editor/code-editor-code-active-line.png)
+![The Code Editor's line 1 to 3 selected and showing the green selection highlighted color](/assets/components/code-editor/code-editor-line-selection.png)
 
 ## Bracket highlighting
 
