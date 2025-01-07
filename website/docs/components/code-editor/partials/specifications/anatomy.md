@@ -1,18 +1,19 @@
 ## Anatomy
 
-![Anatomy of Code Editor](/assets/components/code-block/code-block-anatomy.png)
+![Anatomy of Code Editor](/assets/components/code-editor/code-editor-anatomy.png)
 
 | Element           | Usage    |
 |-------------------|----------|
 | Title             | Optional |
 | Description       | Optional |
+| Custom yielded elements       | Optional |
 | Copy button       | Optional |
-| Full screen button| Optional |
+| Expand button     | Optional |
 | Code snippet      | Required |
 
 ## Syntax highlighting
 
-To aid in understanding how the highlighting theme is applied via Prism's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
+To aid in understanding how the highlighting theme is applied via CodeMiror's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
 
 <!-- algolia-ignore-start -->
 | Color | Usage |
