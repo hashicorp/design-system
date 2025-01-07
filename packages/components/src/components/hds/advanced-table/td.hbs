@@ -13,7 +13,9 @@
   {{focus-trap
     isActive=this._shouldTrapFocus
     shouldSelfFocus=true
-    focusTrapOptions=(hash onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus)
+    focusTrapOptions=(hash
+      onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus clickOutsideDeactivates=true
+    )
   }}
   ...attributes
 >
