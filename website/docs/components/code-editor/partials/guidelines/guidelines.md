@@ -59,7 +59,7 @@ The Code Editor has limited support for dark mode styles and requires consumer m
 
 ### External elements
 
-ome elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header helps unify the editor with the nearby elements.
+Some elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header helps unify the editor with the nearby elements.
 
 ![An external accessible name/title with a coupled search field, dropdown labeled with "Copy", another dropdown labeled with "Version" and a button labeled with "Create new version"](/assets/components/code-editor/code-editor-external-functions.png)
 
