@@ -222,9 +222,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasClass('hds-advanced-table--density-medium');
   });
 
-  test('it should render with a CSS class appropriate for the @valign value', async function (assert) {
+  test('it should render with a CSS class appropriate for middle @valign value', async function (assert) {
     setSortableTableData(this);
-    this.set('valign', 'middle')
+    this.set('valign', 'middle');
 
     await render(
       hbs`<Hds::AdvancedTable
@@ -240,9 +240,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasClass('hds-advanced-table--valign-middle');
   });
 
-  test('it should render with a CSS class appropriate for the @valign value', async function (assert) {
+  test('it should render with a CSS class appropriate baseline @valign value', async function (assert) {
     setSortableTableData(this);
-    this.set('valign', 'baseline')
+    this.set('valign', 'baseline');
 
     await render(
       hbs`<Hds::AdvancedTable
