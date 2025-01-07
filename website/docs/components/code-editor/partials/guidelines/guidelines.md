@@ -28,15 +28,15 @@ A title and description help provide additional contextual information for the C
 
 ## Secondary actions
 
-The secondary actions section is for two individually optional buttons: CopyButton and ExpandButton. The CopyButton copies the content of the CodeEditor to clipboard (more details can be found in the [CopyButton guidelines](/components/copy/button)), while the ExpandButton maximizes and minimizes the Code Editor view from inline to full screen (and back again). These actions are considered supporting functions that are less vital to the user’s work but are useful from time to time.
+The secondary actions section is for two individually optional buttons: CopyButton and FullScreenButton. The CopyButton copies the content of the CodeEditor to clipboard (more details can be found in the [CopyButton guidelines](/components/copy/button)), while the FullScreenButton maximizes and minimizes the Code Editor view from inline to full screen (and back again). These actions are considered supporting functions that are less vital to the user’s work but are useful from time to time.
 
-![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the ExpandButton with the maximize icon and the second showing the ExpandButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
+![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the FullScreenButton with the maximize icon and the second showing the FullScreenButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
 ## Custom yielded elements
 
 This space is reserved for primary custom yielded elements. Primary elements are defined as useful or even necessary for the user to do their work.
 
-![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and ExpandButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
+![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
 
 Currently, the Code Editor has very limited support for dark mode styles (only exposed styles are for buttons) and requires independent maintenance until a dark mode theme is released.
 
