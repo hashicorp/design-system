@@ -1,0 +1,24 @@
+## 4.14.0
+
+Made accessibility-related improvements including:
+
+- Changed `List::Title` to H3 and added visually hidden H2 to `SideNav`
+- Replaced `aria-label` for `ToggleButton` with `aria-labelledby` and `aria-expanded`.
+
+Fixed bug with hidden panels sometimes causing unnecessary overflow scrolling.
+
+Deprecated the `@ariaLabel` argument as it is no longer needed. Its purpose is replaced by an added `aria-labelledby` attribute referencing the "hds-side-nav-header" `h2` combined with the use of `aria-expanded` on the Toggle button tab.
+
+## 4.10.0
+
+Added a default value of "#hds-main" for `@a11yRefocusSkipTo`.
+
+Fixed styling issue to prevent `Button` and `Dropdown` nested within another `Dropdown` from inheriting dark theme.
+
+Deprecated the `@withAppHeader` argument as it is no longer needed. If you are using this argument, simply remove it.
+
+Deprecated the `SideNav::Header::IconButton` subcomponent. Use the [`Hds::Button` component](/components/button) with isIconOnly set to true as a replacement.
+
+## 4.8.0
+
+Added new `@withAppHeader` option to control the height of the Side Nav when there is also an [App Header](/components/app-header) in the application.
