@@ -84,7 +84,10 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
 
     // prevent duplicate sections if the script is called multiple times
     if (!versionHistoryContent.includes(`## ${version}`)) {
-      const newEntries = componentChangelogEntries[componentName].join('\n\n');
+      // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
+      const newEntries = componentChangelogEntries[componentName]
+        .map((entry) => entry.split(' - ')[1])
+        .join('\n\n');
       const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
       fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
     }
