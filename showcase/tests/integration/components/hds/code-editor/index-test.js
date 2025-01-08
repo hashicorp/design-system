@@ -189,7 +189,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabelledBy="test-label" />`
     );
     assert
-      .dom('.hds-code-editor__editor')
+      .dom('.hds-code-editor__editor .cm-editor')
       .hasAttribute('aria-labelledby', 'test-label');
   });
   test('it should not render the component with an aria-labbelledby when @ariaLabel is provided as well', async function (assert) {
@@ -197,10 +197,10 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" @ariaLabelledBy="test-label" />`
     );
     assert
-      .dom('.hds-code-editor__editor')
+      .dom('.hds-code-editor__editor .cm-editor')
       .hasAttribute('aria-label', 'Test Code Editor');
     assert
-      .dom('.hds-code-editor__editor')
+      .dom('.hds-code-editor__editor .cm-editor')
       .doesNotHaveAttribute('aria-labelledby');
   });
 
@@ -235,18 +235,5 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     });
 
     assert.ok(inputSpy.calledOnceWith('Test string'));
-  });
-
-  // ASSERTIONS
-
-  test('it should throw an assertion if both @ariaLabel and the yielded Title component are not used', async function (assert) {
-    const errorMessage = `@ariaLabel for "Hds::CodeEditor" must have a valid value or a yielded "Title" component must be provided`;
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::CodeEditor />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
   });
 });

@@ -11,7 +11,8 @@
   {{this._handleEscape}}
   ...attributes
 >
-  {{#if (and this._isSetupComplete (or this.hasActions (has-block)))}}
+  {{! header }}
+  {{#if (or this.hasActions (has-block))}}
     <div class="hds-code-editor__header">
       <div class="hds-code-editor__header-content">
         {{yield
@@ -43,12 +44,21 @@
       {{/if}}
     </div>
   {{/if}}
+
+  {{! editor }}
   <div
-    aria-label={{@ariaLabel}}
-    aria-labelledby={{this.ariaLabelledBy}}
     class="hds-code-editor__editor"
-    {{hds-code-editor value=@value language=@language onInput=this.onInput onSetup=this.onSetup}}
+    {{hds-code-editor
+      ariaLabel=@ariaLabel
+      ariaLabelledBy=this.ariaLabelledBy
+      value=@value
+      language=@language
+      onInput=this.onInput
+      onSetup=this.onSetup
+    }}
   />
+
+  {{! loader }}
   {{#unless this._isSetupComplete}}
     <div class="hds-code-editor__loader" aria-live="polite" role="status">
       <Hds::Icon @name="loading" @size="24" />
