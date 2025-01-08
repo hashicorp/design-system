@@ -19,15 +19,29 @@ import type { StreamLanguage, StreamParser } from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 
+interface HdsCodeEditorSignatureNamedArgs {
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
+  language?: HdsCodeEditorLanguages;
+  value?: string;
+  onInput?: (newVal: string) => void;
+  onBlur?: (editor: EditorView, event: FocusEvent) => void;
+  onSetup?: (editor: EditorView) => unknown;
+}
+
+type HdsCodeEditorSignatureNamedArgsWithAriaLabel = Required<
+  Pick<HdsCodeEditorSignatureNamedArgs, 'ariaLabel'>
+>;
+
+type HdsCodeEditorSignatureNamedArgsWithAriaLabelledBy = Required<
+  Pick<HdsCodeEditorSignatureNamedArgs, 'ariaLabelledBy'>
+>;
+
 export interface HdsCodeEditorSignature {
   Args: {
-    Named: {
-      language?: HdsCodeEditorLanguages;
-      value?: string;
-      onInput?: (newVal: string) => void;
-      onBlur?: (editor: EditorView, event: FocusEvent) => void;
-      onSetup?: (editor: EditorView) => unknown;
-    };
+    Named:
+      | HdsCodeEditorSignatureNamedArgsWithAriaLabel
+      | HdsCodeEditorSignatureNamedArgsWithAriaLabelledBy;
   };
 }
 
@@ -117,6 +131,28 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   }
 
+  private _setupEditorAriaAttributes(
+    editor: EditorView,
+    {
+      ariaLabel,
+      ariaLabelledBy,
+    }: Pick<
+      HdsCodeEditorSignature['Args']['Named'],
+      'ariaLabel' | 'ariaLabelledBy'
+    >
+  ) {
+    assert(
+      '`hds-code-editor` modifier - Either `ariaLabel` or `ariaLabelledBy` must be provided',
+      ariaLabel !== undefined || ariaLabelledBy !== undefined
+    );
+
+    if (ariaLabel !== undefined) {
+      editor.dom.setAttribute('aria-label', ariaLabel);
+    } else if (ariaLabelledBy !== undefined) {
+      editor.dom.setAttribute('aria-labelledby', ariaLabelledBy);
+    }
+  }
+
   private _loadLanguageTask = task(
     { drop: true },
     async (language?: HdsCodeEditorLanguages) => {
@@ -128,7 +164,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         const validLanguageKeys = Object.keys(LANGUAGES);
 
         assert(
-          `@language for "hds-code-editor" must be one of the following: ${validLanguageKeys.join(
+          `\`hds-code-editor\` modifier - \`language\` must be one of the following: ${validLanguageKeys.join(
             ', '
           )}; received: ${language}`,
           validLanguageKeys.includes(language)
@@ -208,18 +244,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     return extensions;
   });
 
-  private _setupTask = task(
+  private _createEditorTask = task(
     { drop: true },
     async (
       element: HTMLElement,
-      _positional: PositionalArgs<HdsCodeEditorSignature>,
-      named: NamedArgs<HdsCodeEditorSignature>
+      {
+        language,
+        value,
+      }: Pick<HdsCodeEditorSignature['Args']['Named'], 'language' | 'value'>
     ) => {
-      const { onInput, onSetup, language, value } = named;
-
-      this.element = element;
-      this.onInput = onInput;
-
       try {
         const { EditorState } = await import('@codemirror/state');
         const { EditorView } = await import('@codemirror/view');
@@ -233,16 +266,47 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           extensions,
         });
 
-        const editor = new EditorView({ state, parent: element });
+        const editor = new EditorView({
+          state,
+          parent: element,
+        });
 
-        this.editor = editor;
-
-        onSetup?.(this.editor);
+        return editor;
       } catch (error) {
         console.error(
           `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`
         );
       }
+    }
+  );
+
+  private _setupTask = task(
+    { drop: true },
+    async (
+      element: HTMLElement,
+      _positional: PositionalArgs<HdsCodeEditorSignature>,
+      named: NamedArgs<HdsCodeEditorSignature>
+    ) => {
+      const { onInput, onSetup, ariaLabel, ariaLabelledBy, language, value } =
+        named;
+
+      this.element = element;
+      this.onInput = onInput;
+
+      const editor = await this._createEditorTask.perform(element, {
+        language,
+        value,
+      });
+
+      if (editor === undefined) {
+        return;
+      }
+
+      this.editor = editor;
+
+      this._setupEditorAriaAttributes(editor, { ariaLabel, ariaLabelledBy });
+
+      onSetup?.(this.editor);
     }
   );
 }
