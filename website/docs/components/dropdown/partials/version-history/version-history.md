@@ -1,8 +1,8 @@
 ## 4.15.0
 
-`Dropdown` - Fixed an issue with the `ToggleIcon` to make the focus ring visible on mouse click
+Fixed an issue with the `ToggleIcon` to make the focus ring visible on mouse click
 
-`Dropdown` - Fixed `ResizeObserver`-related errors in tests
+Fixed `ResizeObserver`-related errors in tests
 
 ## 4.14.0
 

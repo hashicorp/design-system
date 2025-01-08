@@ -1,6 +1,6 @@
 ## 4.15.0
 
-`Table` - Exposed the index of the `@each` loop over the `@model` as `rowIndex`
+Exposed the index of the `@each` loop over the `@model` as `rowIndex`
 
 ## 4.11.0
 
