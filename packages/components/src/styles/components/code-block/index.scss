@@ -46,7 +46,7 @@ $hds-code-block-code-padding: 16px;
 
 // isStandalone
 .hds-code-block--is-standalone {
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
 }
 
 // hasLineWrapping
