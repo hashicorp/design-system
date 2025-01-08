@@ -17,8 +17,8 @@ The default values of some [ember-power-select](https://ember-power-select.com/d
 
 Overrides to fix accessibility issues:
 
-- `renderInPlace`: Always set as `true`. (The opener element or “trigger” should be next to dropdown content it hides & reveals.)
-- `searchFieldPosition`: Always set to `"before-options"`. (Rendering the search input within the trigger is not compliant because it nests interactive elements within each other.)
+- `renderInPlace`: Always set as `true`. The opener element or “trigger” must be next to dropdown content it hides & reveals.
+- `searchFieldPosition`: Always set to `"before-options"`. Rendering the search input within the trigger is not compliant because it nests interactive elements within each other.
 
 !!!
 
