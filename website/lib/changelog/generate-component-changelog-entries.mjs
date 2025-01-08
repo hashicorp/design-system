@@ -82,10 +82,12 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
       );
     }
 
-    const newEntries = componentChangelogEntries[componentName].join('\n\n');
-    const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
-
-    fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
+    // prevent duplicate sections if the script is called multiple times
+    if (!versionHistoryContent.includes(`## ${version}`)) {
+      const newEntries = componentChangelogEntries[componentName].join('\n\n');
+      const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
+      fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
+    }
   });
 };
 
