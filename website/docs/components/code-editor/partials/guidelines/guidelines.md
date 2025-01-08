@@ -2,8 +2,8 @@
 
 ### When to use
 
-- When a user needs to create code from scratch
-- When code requires modification from an existing source
+- When a user needs to create code from scratch.
+- When code requires modification from an existing source.
 
 ### When not to use
 
@@ -27,25 +27,25 @@ The header is optionally available within the Code Editor. It consists of three 
 
 A title and description provides additional contextual information for the Code Editor. An accessible name is mandatory and can either be provided by the title or by an external text element.
 
-!!! DO
-
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". Then the Code Editor with an external acessible name/title "Policy code (Sentinel)"](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+!!! Do
 
 This provides an accessible name for the Code Editor so that a user and assistive technology can understand its purpose.
 
+![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". Then the Code Editor with an external acessible name/title "Policy code (Sentinel)"](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+
 !!!
 
-!!! DONT
+!!! Dont
 
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
 
 Assuming a user would understand the intent of the Code Editor without providing an accessible name will cause confusion and fail on accessibility requirements.
+![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
 
 !!!
 
 ## Secondary actions
 
-The secondary actions section is for two individually optional buttons: CopyButton and a button to expand the editor. The CopyButton copies the content of the CodeEditor to clipboard (more details can be found in the [CopyButton guidelines](/components/copy/button)), while the other button maximizes and minimizes the Code Editor view from inline to full screen (and back again). These actions are considered supporting functions that are less vital to the user’s work but may be useful.
+The secondary actions section is for two optional buttons: [Copy Button](/components/copy/button) and a button to expand the editor. The Copy Button copies the content of the Code Editor to the clipboard. The other button maximizes and minimizes the Code Editor from inline to full screen. These actions are considered supporting functions less vital to the user’s work but may be useful.
 
 ![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the FullScreenButton with the maximize icon and the second showing the FullScreenButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
@@ -53,13 +53,23 @@ The secondary actions section is for two individually optional buttons: CopyButt
 
 This space is reserved for primary custom yielded actions. Primary actions are defined as necessary for the user to complete their work.
 
+![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section shows a placeholder.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
+
+!!! Do
+
 ![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
-The Code Editor has limited support for dark mode styles and requires consumer maintenance until a dark mode theme is released. Only Buttons have pre-defined dark mode styles in the Code Editor.
+!!!
 
-### External elements
+!!! Warning
 
-Some elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header helps unify the editor with the nearby elements.
+The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please contact the Design Systems Team for help translating components into dark mode.
+
+!!!
+
+## External elements
+
+Some elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header to couple the editor with the nearby elements.
 
 ![An external accessible name/title with a coupled search field, dropdown labeled with "Copy", another dropdown labeled with "Version" and a button labeled with "Create new version"](/assets/components/code-editor/code-editor-external-functions.png)
 
@@ -70,7 +80,7 @@ When a user is editing code on a single line, a highlight will be present to emp
 
 ![The Code Editor's line 1 with the active line highlight.](/assets/components/code-editor/code-editor-code-active-line.png)
 
-When a user selects code (even if it’s within a single line), the active line highlight will no longer be present, however, the line number on the left will remain highlighted. The highlighted number will be present wherever the cursor is located.
+When a user selects code (even if it’s within a single line), the active line highlight will no longer be present, however, the line number on the left will remain highlighted. The highlighted number will be present wherever the users stops their selection.
 
 ![The Code Editor's line 1 to 3 selected and showing the green selection highlighted color](/assets/components/code-editor/code-editor-line-selection.png)
 

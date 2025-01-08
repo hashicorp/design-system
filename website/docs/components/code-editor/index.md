@@ -6,11 +6,11 @@ links:
   figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=w8xQlWxzH7bwXLe2-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/code-editor
 related: ['components/code-block', 'components/copy/button']
-previewImage: assets/illustrations/components/code-block.jpg
+previewImage: assets/illustrations/components/code-editor.jpg
 navigation:
-  keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example', 'syntax', 'highlight']
+  keywords: ['code', 'snippet', 'copy', 'text', 'editor', 'language', 'example', 'syntax', 'highlight', 'block']
 status:
-  updated: 4.16.0
+  added: 4.16.0
 ---
 
 <section data-tab="Guidelines">
