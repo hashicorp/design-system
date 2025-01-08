@@ -105,12 +105,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   // sticky header
   &.hds-advanced-table__thead--sticky {
     position: sticky;
-    top: -2px;
+    top: -1px;
+    background-color: var(--token-color-surface-primary)
   }
 
   &.hds-advanced-table__thead--sticky.hds-advanced-table__thead--is-pinned {
-    // needs to be twice as thick to offset the -1 positioning
-    border-top: calc(#{$hds-advanced-table-border-width} * 2) solid
+    // need to add 1px to offset `top: -1px`
+    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
       $hds-advanced-table-border-color;
     border-bottom: calc(#{$hds-advanced-table-border-width} / 2) solid
       $hds-advanced-table-border-color;
@@ -260,11 +261,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     .hds-advanced-table--density-tall & {
       padding: $hds-advanced-table-cell-padding-tall;
     }
-  }
-
-  .hds-advanced-table__td:last-child {
-    border-right: $hds-advanced-table-border-width solid
-      $hds-advanced-table-border-color;
   }
 
   // horizontal alignment
