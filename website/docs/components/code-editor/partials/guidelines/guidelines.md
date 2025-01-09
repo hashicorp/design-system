@@ -13,15 +13,19 @@
 
 The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. For example, a common use case of the Code Editor is in a "standalone" context, which can be part of a form, multi-step process, and is generally a part of the normal layout flow.
 
-![Code editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
+![Code Editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
 
 Sometimes it may be necessary to use the Code Editor in a more dense layout or nested within another component.
 
-![Code editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png)
+![Code Editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png)
 
 ## Header
 
-The header is optionally available within the Code Editor. It consists of three sections that can be toggled as needed: the text content that includes the title and description, an actions container for secondary actions, and a custom yielded section of primary actions.
+The header is optionally available within the Code Editor. It consists of three sections that can be toggled as needed:
+
+- the text content that includes the title and description
+- an actions container for secondary actions
+- a custom yielded section of primary actions.
 
 ### When to use a title and description
 
@@ -45,7 +49,7 @@ Assuming a user would understand the intent of the Code Editor without providing
 
 ## Secondary actions
 
-The secondary actions section is for two optional buttons: [Copy Button](/components/copy/button) and a button to expand the editor. The Copy Button copies the content of the Code Editor to the clipboard. The other button maximizes and minimizes the Code Editor from inline to full screen. These actions are considered supporting functions less vital to the user’s work but may be useful.
+The secondary actions section supports two optional buttons: [Copy Button](/components/copy/button) and a button to expand the editor to fill the viewport. The Copy Button copies the content of the Code Editor to the clipboard, while the second button maximizes and minimizes the Code Editor from inline to full screen. These actions are considered supporting functions less vital to the user’s work but may be useful.
 
 ![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the FullScreenButton with the maximize icon and the second showing the FullScreenButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
