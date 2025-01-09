@@ -116,7 +116,7 @@ It is not currently supported to have `@isStriped`, multi-select, or sortable co
 
 !!!
 
-Similar to the basic AdvancedTable, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows:
+Similar to the basic AdvancedTable, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
 
 
 ```handlebars
