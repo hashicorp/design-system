@@ -42,6 +42,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   border-radius: $hds-dropdown-toggle-border-radius;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:hover,
   &.mock-hover {
