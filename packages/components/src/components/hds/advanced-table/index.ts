@@ -237,27 +237,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return valign;
   }
 
-  // returns the grid-template-column CSS attribute for the grid
+  // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    // if there is no select checkbox or custom column widths, each column is the same width and they take up the available space
-    if (!this.args.isSelectable && !this.columnWidths) {
-      return `repeat(${this.args.columns.length}, 1fr)`;
+    const {isSelectable, columns} = this.args
+
+    // if there is no custom column widths, each column is the same width and they take up the available space (except the select checkbox)
+    if (!this.columnWidths) {
+      return `${isSelectable ? 'auto ' : ''}repeat(${columns.length}, 1fr)`;
     }
 
     // if there is a select checkbox, the first column is 'auto' width to hug the checkbox content
-    let style = this.args.isSelectable ? 'auto' : '';
+    let style = isSelectable ? 'auto' : '';
 
-    if (this.columnWidths) {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < this.columnWidths.length; i++) {
-        style = `${style} ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
-      }
-    } else {
-      // if there are no custom column widths, remaining columns are the same width and take up the available space
-      for (let i = 0; i < this.args.columns.length; i++) {
-        // Note: can't use `repeat()` syntax because the first column is not the same as the rest.
-        style = `${style} 1fr`;
-      }
+    // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+    for (let i = 0; i < this.columnWidths.length; i++) {
+      style += ` ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
     }
 
     return style;
