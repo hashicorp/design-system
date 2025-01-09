@@ -16,6 +16,7 @@
   },
   "scripts": {
     "generate-changelog-markdown-files": "node lib/changelog/generate-changelog-markdown-files.mjs",
+    "generate-component-changelog-entries": "node lib/changelog/generate-component-changelog-entries.mjs",
     "build": "yarn build:packages && ember build --environment=production",
     "build:packages": "yarn workspace @hashicorp/design-system-components build",
     "lint": "concurrently \"yarn:lint:*(!fix)\" --names \"lint:\"",
