@@ -12,5 +12,5 @@ Upgraded the following dependencies:
 - `ember-element-helper` from `0.8.5` to `0.8.6`
 - `ember-focus-trap` from `1.1.0` to `1.1.1`
 - `ember-modifier` from `4.1.0` to `4.2.0`
-- `ember-power-select` from `8.2.0` to `8.6.1`
+- `ember-power-select` from `8.2.0` to `8.6.2`
 - `sass` from `1.69.5` to `1.83.0`

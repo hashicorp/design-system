@@ -3810,7 +3810,7 @@ __metadata:
     ember-focus-trap: "npm:^1.1.1"
     ember-get-config: "npm:^2.1.1"
     ember-modifier: "npm:^4.2.0"
-    ember-power-select: "npm:^8.6.1"
+    ember-power-select: "npm:^8.6.2"
     ember-stargate: "npm:^0.4.3"
     ember-style-modifier: "npm:^4.4.0"
     ember-template-lint: "npm:^6.0.0"
@@ -12890,9 +12890,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-power-select@npm:^8.6.1":
-  version: 8.6.1
-  resolution: "ember-power-select@npm:8.6.1"
+"ember-power-select@npm:^8.6.2":
+  version: 8.6.2
+  resolution: "ember-power-select@npm:8.6.2"
   dependencies:
     "@embroider/addon-shim": "npm:^1.9.0"
     "@embroider/util": "npm:^1.13.2"
@@ -12908,7 +12908,7 @@ __metadata:
     ember-basic-dropdown: ^8.2.0
     ember-concurrency: ^4.0.2
     ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
-  checksum: 10/9b32f4681b17cc9a71f9f5b6b5b9dafd9a8fb5cc755a7b21b8970ba9f5da2c2f20362b490674fed886b44231815b7a9568c947a0fb4d8bbb043a89923f5c1631
+  checksum: 10/2b3ebbf3b7fbfdcb0ce61e507f244d802ac23e8d9a8c4a9e2b76b63b839595511399df2b6ba7503b5beae580154e50234246ca968c352b80bc984c93e39b4bb2
   languageName: node
   linkType: hard
 
@@ -24117,7 +24117,7 @@ __metadata:
     ember-load-initializers: "npm:^2.1.2"
     ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
-    ember-power-select: "npm:^8.6.1"
+    ember-power-select: "npm:^8.6.2"
     ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
     ember-set-helper: "npm:^3.0.1"
@@ -27239,7 +27239,7 @@ __metadata:
     ember-meta: "npm:^2.0.0"
     ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
-    ember-power-select: "npm:^8.6.1"
+    ember-power-select: "npm:^8.6.2"
     ember-prism: "npm:^0.13.0"
     ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
