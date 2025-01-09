@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+
+// COMPONENTS > CODE BLOCK
+
+#show-content-components-code-editor {
+  .doc-code-editor-syntax-color-preview {
+    display: inline-block;
+    width: 18px;
+    margin-right: 4px;
+    vertical-align: text-bottom;
+    border-radius: 3px;
+    aspect-ratio: 1/1;
+  }
+}
+
