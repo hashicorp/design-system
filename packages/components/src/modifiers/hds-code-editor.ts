@@ -15,37 +15,28 @@ import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-h
 
 import type { HdsCodeEditorLanguages } from './hds-code-editor/types.ts';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
-import type { StreamLanguage, StreamParser } from '@codemirror/language';
+import type {
+  StreamLanguage as StreamLanguageType,
+  StreamParser as StreamParserType,
+} from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 
-interface HdsCodeEditorSignatureNamedArgs {
-  ariaLabel?: string;
-  ariaLabelledBy?: string;
-  language?: HdsCodeEditorLanguages;
-  value?: string;
-  onInput?: (newVal: string) => void;
-  onBlur?: (editor: EditorView, event: FocusEvent) => void;
-  onSetup?: (editor: EditorView) => unknown;
-}
-
-type HdsCodeEditorSignatureNamedArgsWithAriaLabel = Required<
-  Pick<HdsCodeEditorSignatureNamedArgs, 'ariaLabel'>
->;
-
-type HdsCodeEditorSignatureNamedArgsWithAriaLabelledBy = Required<
-  Pick<HdsCodeEditorSignatureNamedArgs, 'ariaLabelledBy'>
->;
-
 export interface HdsCodeEditorSignature {
   Args: {
-    Named:
-      | HdsCodeEditorSignatureNamedArgsWithAriaLabel
-      | HdsCodeEditorSignatureNamedArgsWithAriaLabelledBy;
+    Named: {
+      ariaLabel?: string;
+      ariaLabelledBy?: string;
+      language?: HdsCodeEditorLanguages;
+      value?: string;
+      onInput?: (newVal: string) => void;
+      onBlur?: (editor: EditorView, event: FocusEvent) => void;
+      onSetup?: (editor: EditorView) => unknown;
+    };
   };
 }
 
-async function defineStreamLanguage(streamParser: StreamParser<unknown>) {
+async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   const { StreamLanguage } = await import('@codemirror/language');
 
   return StreamLanguage.define(streamParser);
@@ -55,7 +46,7 @@ const LOADER_HEIGHT = '164px';
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
-  { load: () => Promise<Extension | StreamLanguage<unknown>> }
+  { load: () => Promise<Extension | StreamLanguageType<unknown>> }
 > = {
   ruby: {
     load: async () => {
