@@ -41,7 +41,7 @@
     "@typescript-eslint/parser": "^8.18.1",
     "archiver": "^7.0.1",
     "chalk": "^5.4.0",
-    "del": "^6.1.1",
+    "del": "^8.0.0",
     "dotenv": "^16.4.7",
     "eslint": "^8.57.1",
     "figma-api": "^2.0.1-beta",
