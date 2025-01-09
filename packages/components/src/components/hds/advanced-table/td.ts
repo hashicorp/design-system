@@ -37,7 +37,7 @@ export interface HdsAdvancedTableTdSignature {
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
   private _element!: HTMLDivElement;
-private _observer: MutationObserver | undefined = undefined;
+  private _observer: MutationObserver | undefined = undefined;
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
@@ -104,12 +104,12 @@ private _observer: MutationObserver | undefined = undefined;
     });
 
     this._observer = new MutationObserver(() => {
-      updateTabbableChildren(this._element, this._shouldTrapFocus)
-    })
+      updateTabbableChildren(this._element, this._shouldTrapFocus);
+    });
 
     this._observer.observe(this._element, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
   }
 

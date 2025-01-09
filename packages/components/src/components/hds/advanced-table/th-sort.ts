@@ -112,12 +112,12 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     });
 
     this._observer = new MutationObserver(() => {
-      updateTabbableChildren(this._element, this._shouldTrapFocus)
-    })
+      updateTabbableChildren(this._element, this._shouldTrapFocus);
+    });
 
     this._observer.observe(this._element, {
       childList: true,
-      subtree: true
+      subtree: true,
     });
   }
 
