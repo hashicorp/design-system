@@ -49,7 +49,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor as |CE|><CE.Title id="test-title">Test Title</CE.Title></Hds::CodeEditor>`
     );
     assert
-      .dom('.hds-code-editor__editor')
+      .dom('.hds-code-editor__editor .cm-editor')
       .hasAttribute('aria-labelledby', 'test-title');
   });
 
@@ -179,7 +179,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" />`
     );
     assert
-      .dom('.hds-code-editor__editor')
+      .dom('.hds-code-editor__editor .cm-editor')
       .hasAttribute('aria-label', 'Test Code Editor');
   });
 
@@ -209,7 +209,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @ariaLabel="code editor" @value="Test Code" />`
     );
-    assert.dom('.hds-code-editor__editor').includesText('Test Code');
+    assert.dom('.hds-code-editor__editor .cm-editor').includesText('Test Code');
   });
 
   // @onInput

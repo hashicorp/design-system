@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, waitFor } from '@ember/test-helpers';
+import { render, waitFor, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -14,7 +14,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   test('it converts the element it is applied to into a CodeMirror editor', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}}></div>`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}} />`
     );
     assert
       .dom('#code-editor-wrapper .cm-editor')
@@ -22,10 +22,11 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
 
   // value
-  test('it should render the component with the provided value', async function (assert) {
+  test('it should render the editor with the provided value', async function (assert) {
     const val = 'Test Code';
+    this.set('val', val);
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=val}}></div>`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`
     );
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
   });
@@ -56,7 +57,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
 
   // ariaLabel
-  test('it should render the component with an aria-label when provided', async function (assert) {
+  test('it should render the editor with an aria-label when provided', async function (assert) {
     await setupCodeEditor(
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="Test Code Editor"}} />`
     );
@@ -66,7 +67,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
 
   // ariaLabelledBy
-  test('it should render the component with an aria-labelledby when provided', async function (assert) {
+  test('it should render the editor with an aria-labelledby when provided', async function (assert) {
     await setupCodeEditor(
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabelledBy="test-label"}} />`
     );
