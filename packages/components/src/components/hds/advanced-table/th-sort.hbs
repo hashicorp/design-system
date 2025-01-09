@@ -9,6 +9,7 @@
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroy}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap
     isActive=this._shouldTrapFocus

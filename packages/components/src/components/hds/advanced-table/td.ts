@@ -14,6 +14,7 @@ import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import {
   didInsertGridCell,
   handleGridCellKeyPress,
+  updateTabbableChildren,
   onFocusTrapDeactivate,
 } from './helpers.ts';
 
@@ -36,6 +37,7 @@ export interface HdsAdvancedTableTdSignature {
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
   private _element!: HTMLDivElement;
+private _observer: MutationObserver | undefined = undefined;
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
@@ -100,5 +102,21 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
     element.addEventListener('keydown', (event: KeyboardEvent) => {
       handleGridCellKeyPress(event, this.enableFocusTrap);
     });
+
+    this._observer = new MutationObserver(() => {
+      updateTabbableChildren(this._element, this._shouldTrapFocus)
+    })
+
+    this._observer.observe(this._element, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  @action willDestroy() {
+    super.willDestroy();
+    if (this._observer) {
+      this._observer.disconnect();
+    }
   }
 }

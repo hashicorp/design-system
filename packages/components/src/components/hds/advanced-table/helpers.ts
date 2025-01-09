@@ -18,26 +18,26 @@ export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
   cell.setAttribute('tabindex', '0');
 };
 
-export const didInsertGridCell = (
-  cell:
-    | HdsAdvancedTableThSignature['Element']
-    | HdsAdvancedTableTdSignature['Element'],
-
-  toggleShouldHaveFocusTrap?: (newValue: boolean) => void
-): void => {
+export const updateTabbableChildren = (cell: HTMLDivElement, isFocusTrapActive?: boolean): void => {
   const cellTabbableChildren = tabbable(cell);
-
-  if (cellTabbableChildren.length > 0) {
-    toggleShouldHaveFocusTrap?.(true);
-  }
 
   for (const child of cellTabbableChildren) {
     if (child instanceof HTMLElement) {
+      if (!isFocusTrapActive) {
       child.setAttribute('tabindex', '-1');
+      }
       child.setAttribute('data-advanced-table-child-focusable', '');
     }
   }
+}
 
+export const didInsertGridCell = (
+  cell:
+    | HdsAdvancedTableThSignature['Element']
+    | HdsAdvancedTableTdSignature['Element']
+): void => {
+  updateTabbableChildren(cell)
+  
   const currentRow = cell.parentElement;
 
   if (

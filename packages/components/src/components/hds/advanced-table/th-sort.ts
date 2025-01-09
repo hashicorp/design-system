@@ -25,6 +25,7 @@ import {
   didInsertGridCell,
   handleGridCellKeyPress,
   onFocusTrapDeactivate,
+  updateTabbableChildren,
 } from './helpers.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
@@ -51,6 +52,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   private _labelId = guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
+  private _observer: MutationObserver | undefined = undefined;
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels {
     switch (this.args.sortOrder) {
@@ -108,5 +110,21 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     element.addEventListener('keydown', (event: KeyboardEvent) => {
       handleGridCellKeyPress(event, this.enableFocusTrap);
     });
+
+    this._observer = new MutationObserver(() => {
+      updateTabbableChildren(this._element, this._shouldTrapFocus)
+    })
+
+    this._observer.observe(this._element, {
+      childList: true,
+      subtree: true
+    });
+  }
+
+  @action willDestroy() {
+    super.willDestroy();
+    if (this._observer) {
+      this._observer.disconnect();
+    }
   }
 }

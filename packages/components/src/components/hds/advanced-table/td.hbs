@@ -9,6 +9,7 @@
   aria-colspan={{@colspan}}
   {{style grid-row=this.rowspan grid-column=this.colspan}}
   {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroy}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap
     isActive=this._shouldTrapFocus
@@ -19,7 +20,5 @@
   }}
   ...attributes
 >
-  {{! <div class="hds-advanced-table__td-content"> }}
   {{yield}}
-  {{! </div> }}
 </div>
