@@ -777,7 +777,7 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 
 #### Usability and accessibility considerations
 
-Since the “selected” state of a row is communicated visually via the checkbox selection and for screen-reader users via the `aria-label` applied to the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
+Since the “selected” state of a row is communicated via the checkbox selection, there are some important considerations to keep in mind when implementing a multi-select table.
 
 If the selection status of the rows is persisted even when a row is not displayed in the UI, consider what the expectations of the user might be: how are they made aware that the action they are going to perform may involve rows that were previously selected but not displayed in the current view?
 
