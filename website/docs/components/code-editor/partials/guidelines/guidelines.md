@@ -67,7 +67,7 @@ This space is reserved for primary custom yielded actions. Primary actions are d
 
 !!! Warning
 
-The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please contact the Design Systems Team for help translating components into dark mode.
+The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](about/support) for help translating components into dark mode.
 
 !!!
 
