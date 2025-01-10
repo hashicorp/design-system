@@ -7,11 +7,12 @@ import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import type { IconName } from '@hashicorp/flight-icons/svg';
-import type { HdsTabsTabIds } from './types';
+import type { HdsTabsTabIds, HdsTabsPanelIds } from './types';
 
 export interface HdsTabsTabSignature {
   Args: {
     tabIds?: HdsTabsTabIds;
+    panelIds?: HdsTabsPanelIds;
     selectedTabIndex?: number;
     icon?: IconName;
     count?: string;
@@ -50,6 +51,16 @@ export default class HdsTabsTab extends Component<HdsTabsTabSignature> {
       this.nodeIndex !== undefined &&
       this.nodeIndex === this.args.selectedTabIndex
     );
+  }
+
+  /**
+   * Get the ID of the panel coupled/associated with the tab (it's used by the `aria-controls` attribute)
+   * @returns string}
+   */
+  get coupledPanelId(): string | undefined {
+    return this.nodeIndex !== undefined
+      ? this.args.panelIds?.[this.nodeIndex]
+      : undefined;
   }
 
   @action
