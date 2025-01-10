@@ -4,7 +4,6 @@
  */
 
 import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { assert } from '@ember/debug';
 
 import type { HdsDisclosurePrimitiveSignature } from '../disclosure-primitive';
@@ -23,13 +22,6 @@ export interface HdsRevealSignature {
 }
 
 export default class HdsReveal extends Component<HdsRevealSignature> {
-  /**
-   * Generates a unique ID for the Content
-   *
-   * @param _contentId
-   */
-  private _contentId = 'content-' + guidFor(this);
-
   /**
    * @param getText
    * @type {string}
