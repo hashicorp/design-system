@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of Code Editor](/assets/components/code-editor/code-editor-anatomy.png)
+![](/assets/components/code-editor/code-editor-anatomy.png)
 
 | Element           | Usage    |
 |-------------------|----------|

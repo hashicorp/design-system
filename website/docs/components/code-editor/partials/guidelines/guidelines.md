@@ -17,7 +17,7 @@ The `isStandalone` property increases the portability of the Code Editor to ensu
 
 Sometimes it may be necessary to use the Code Editor in a more dense layout or nested within another component.
 
-![Code Editor embedded inside of a larger UI, where it is highlighted where the user is actively editing.](/assets/components/code-editor/code-editor-block-level.png)
+![Code Editor embedded inside of a logs UI, where the corners are squared to fit within container.](/assets/components/code-editor/code-editor-block-level.png)
 
 ## Header
 
@@ -35,7 +35,7 @@ A title and description provides additional contextual information for the Code 
 
 This provides an accessible name for the Code Editor so that a user and assistive technology can understand its purpose.
 
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". Then the Code Editor with an external acessible name/title "Policy code (Sentinel)"](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+![A Code Editor embedded in a form following a set of radio buttons. It has the heading "Policy code (Sentinel)" immediately before.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
 
 !!!
 
@@ -43,7 +43,7 @@ This provides an accessible name for the Code Editor so that a user and assistiv
 
 
 Assuming a user would understand the intent of the Code Editor without providing an accessible name will cause confusion and fail on accessibility requirements.
-![A partial form with a radio group labeled with "Enforement behavior" and then the options "Advisory" with helper text "failed policies produce a warning", "Soft mandatory" with helper text "Failed policies can be overriden", "Hard mandatory" with helper text "Failed policies stop the run". The Code Editor has no accessible name.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
+![A Code Editor embedded in a form following a set of radio buttons. The Code Editor has no title before it.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
 
 !!!
 
@@ -51,17 +51,17 @@ Assuming a user would understand the intent of the Code Editor without providing
 
 The secondary actions section supports two optional buttons: [Copy Button](/components/copy/button) and a button to expand the editor to fill the viewport. The Copy Button copies the content of the Code Editor to the clipboard, while the second button maximizes and minimizes the Code Editor from inline to full screen. These actions are considered supporting functions less vital to the user’s work but may be useful.
 
-![The secondary actions container is shown twice, both with the CopyButton and Expand button. First showing the FullScreenButton with the maximize icon and the second showing the FullScreenButton with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
+![The secondary actions container is shown twice, both with the Copy Button and full screen button. First showing the full screen button with the maximize icon and the second showing it with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
 ## Custom yielded actions
 
 This space is reserved for primary custom yielded actions. Primary actions are defined as necessary for the user to complete their work.
 
-![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section shows a placeholder.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
+![The Code Editor with the title "CodeEditor title". The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
 
 !!! Do
 
-![The Code Editor with the title "CodeEditor title," with the secondary actions showing both the CopyButton and FullScreenButton. The custom yielded element section showing a toggle with the label "Reveal secrets."](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
+![The Code Editor with the title "CodeEditor title". The custom yielded section has a "Reveal secrets" toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
 !!!
 
@@ -75,14 +75,14 @@ The Code Editor has limited support for dark mode styles. Buttons have pre-defin
 
 Some elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header to couple the editor with the nearby elements.
 
-![An external accessible name/title with a coupled search field, dropdown labeled with "Copy", another dropdown labeled with "Version" and a button labeled with "Create new version"](/assets/components/code-editor/code-editor-external-functions.png)
+![A Code Editor with the external title "Automations and expressions" coupled with a filter input, "Copy" dropdown, "Version" dropdown, and a "Create new version" button.](/assets/components/code-editor/code-editor-external-functions.png)
 
 
 ## Active line highlighting
 
 When a user is editing code on a single line, a highlight will be present to emphasize their location in the Code Editor.
 
-![The Code Editor's line 1 with the active line highlight.](/assets/components/code-editor/code-editor-code-active-line.png)
+![The Code Editor's line 1 with the active line highlight, shown with a blinking cursor and border around the entire line.](/assets/components/code-editor/code-editor-code-active-line.png)
 
 When a user selects code (even if it’s within a single line), the active line highlight will no longer be present, however, the line number on the left will remain highlighted. The highlighted number will be present wherever the users stops their selection.
 
@@ -105,4 +105,4 @@ In **Figma** we provide a handful of example languages that are intended to be r
 ### Applying syntax highlighting
 
 If you wish to create custom examples using the Code Editor, we publish all of the relevant syntax highlighting variables in the [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=gWdKy44MzTP4cTRo-1) library. However, due to the number of languages supported by the component, the color variables use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
-For more details around syntax visit the [specifications](https://helios.hashicorp.design/components/code-editor?tab=specifications).
+For more details around syntax visit the [specifications](/components/code-editor?tab=specifications).
