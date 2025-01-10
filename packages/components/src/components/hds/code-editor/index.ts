@@ -13,6 +13,7 @@ import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 's
 import type { HdsButtonSignature } from 'src/components/hds/button';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
+import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 
@@ -32,6 +33,7 @@ export interface HdsCodeEditorSignature {
       {
         Title?: ComponentLike<HdsCodeEditorTitleSignature>;
         Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
+        Generic?: ComponentLike<HdsCodeEditorGenericSignature>;
         Button?: ComponentLike<HdsButtonSignature>;
       },
     ];

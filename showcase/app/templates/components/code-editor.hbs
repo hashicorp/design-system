@@ -60,8 +60,10 @@
   <Shw::Text::H3>Custom content</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="With custom header content">
-      <Hds::CodeEditor @ariaLabel="With custom header content">
-        <Hds::Button @text="Custom button" @size="small" />
+      <Hds::CodeEditor @ariaLabel="With custom header content" as |CE|>
+        <CE.Generic class="my-code-editor-custom-content">
+          <Hds::Button @text="Custom button" @size="small" />
+        </CE.Generic>
       </Hds::CodeEditor>
     </SG.Item>
   </Shw::Grid>
@@ -78,16 +80,20 @@
       <Hds::CodeEditor as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
-        <Hds::Button @text="Custom button" @size="small" />
-        <Hds::Icon @name="code" @color="#fff" />
+        <CE.Generic class="my-code-editor-custom-content">
+          <Hds::Button @text="Custom button" @size="small" />
+          <Hds::Icon @name="code" @color="#fff" />
+        </CE.Generic>
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With title, description, internal actions, and custom content">
       <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
-        <Hds::Button @text="Custom button" @size="small" />
-        <Hds::Icon @name="code" @color="#fff" />
+        <CE.Generic class="my-code-editor-custom-content">
+          <Hds::Button @text="Custom button" @size="small" />
+          <Hds::Icon @name="code" @color="#fff" />
+        </CE.Generic>
       </Hds::CodeEditor>
     </SG.Item>
   </Shw::Grid>
