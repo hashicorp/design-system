@@ -51,6 +51,7 @@ import type HdsApplicationStateMediaComponent from './components/hds/application
 import type HdsCardContainerComponent from './components/hds/card/container.ts';
 import type HdsCodeEditorComponent from './components/hds/code-editor/index.ts';
 import type HdsCodeEditorDescriptionComponent from './components/hds/code-editor/description.ts';
+import type HdsCodeEditorGenericComponent from './components/hds/code-editor/generic.ts';
 import type HdsCodeEditorTitleComponent from './components/hds/code-editor/title.ts';
 import type HdsCodeEditorFullScreenButtonComponent from './components/hds/code-editor/full-screen-button.ts';
 import type HdsCodeBlockComponent from './components/hds/code-block';
@@ -381,6 +382,8 @@ export default interface HdsComponentsRegistry {
   'hds/code-editor': typeof HdsCodeEditorComponent;
   'Hds::CodeEditor::Description': typeof HdsCodeEditorDescriptionComponent;
   'hds/code-editor/description': typeof HdsCodeEditorDescriptionComponent;
+  'Hds::CodeEditor::Generic': typeof HdsCodeEditorGenericComponent;
+  'hds/code-editor/generic': typeof HdsCodeEditorGenericComponent;
   'Hds::CodeEditor::Title': typeof HdsCodeEditorTitleComponent;
   'hds/code-editor/title': typeof HdsCodeEditorTitleComponent;
   'Hds::CodeEditor::FullScreenButton': typeof HdsCodeEditorFullScreenButtonComponent;

@@ -29,6 +29,27 @@
     }
   }
 
+  // KB TESTING: START -----------------
+  // Note: Move to appropriate place in styles below if kept
+  .hds-code-editor__header-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .hds-code-editor__title {
+    + .hds-code-editor__description {
+      margin-top: 4px;
+    }
+  }
+
+  .hds-code-editor__description {
+    + .hds-code-editor__header-generic {
+      margin-top: 12px;
+    }
+  }
+  // KB TESTING: END -------------------
+
   .hds-code-editor__header {
     display: flex;
     gap: 12px;
@@ -39,29 +60,29 @@
   }
 
   .hds-code-editor__header-content {
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    align-items: center;
+    // display: flex;
+    // flex-grow: 1;
+    // flex-wrap: wrap;
+    // align-items: center;
 
-    // child element that is not the title/description and has subsequent siblings
-    > :not(.hds-code-editor__title, .hds-code-editor__description):has(+ *) {
-      margin-right: 8px;
-    }
+    // // child element that is not the title/description and has subsequent siblings
+    // > :not(.hds-code-editor__title, .hds-code-editor__description):has(+ *) {
+    //   margin-right: 8px;
+    // }
   }
 
   .hds-code-editor__title,
   .hds-code-editor__description {
-    width: 100%;
+    // width: 100%;
 
-    // if the title/description has subsequent siblings, add a bottom margin
-    &:has(+ *) {
-      margin-bottom: 12px;
-    }
+    // // if the title/description has subsequent siblings, add a bottom margin
+    // &:has(+ *) {
+    //   margin-bottom: 12px;
+    // }
 
-    &:has(+ .hds-code-editor__title, + .hds-code-editor__description) {
-      margin-bottom: 4px;
-    }
+    // &:has(+ .hds-code-editor__title, + .hds-code-editor__description) {
+    //   margin-bottom: 4px;
+    // }
   }
 
   .hds-code-editor__title {
