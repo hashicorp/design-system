@@ -66,19 +66,18 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
       .hasAttribute('aria-expanded', 'true');
   });
 
-  test('the toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
+  test('the toggle button has an aria-controls attribute with a value matching the DisclosurePrimitive content id', async function (assert) {
     await render(
       hbs`<Hds::Reveal @text="More options">Additional content</Hds::Reveal>`
     );
     await click('.hds-reveal__toggle-button');
     assert.dom('.hds-reveal__toggle-button').hasAttribute('aria-controls');
-    assert.dom('.hds-reveal__content').hasAttribute('id');
 
     assert.strictEqual(
       this.element
         .querySelector('.hds-reveal__toggle-button')
         .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-reveal__content').getAttribute('id')
+      this.element.querySelector('.hds-disclosure-primitive__content').getAttribute('id')
     );
   });
 
