@@ -188,7 +188,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
       .hasAttribute('aria-expanded', 'true');
   });
 
-  test('the AccordionItem toggle button has an aria-controls attribute with a value matching the content id', async function (assert) {
+  test('the AccordionItem toggle button has an aria-controls attribute with a value matching the DisclosurePrimitive content id', async function (assert) {
     await render(
       hbs`
         <Hds::Accordion as |A|>
@@ -201,14 +201,13 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     );
     await click('.hds-accordion-item__button');
     assert.dom('.hds-accordion-item__button').hasAttribute('aria-controls');
-    assert.dom('.hds-accordion-item__content').hasAttribute('id');
 
     assert.strictEqual(
       this.element
         .querySelector('.hds-accordion-item__button')
         .getAttribute('aria-controls'),
       this.element
-        .querySelector('.hds-accordion-item__content')
+        .querySelector('.hds-disclosure-primitive__content')
         .getAttribute('id')
     );
   });
