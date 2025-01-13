@@ -1,6 +1,6 @@
 ## Component API
 
-This component uses [CodeMirror](https://codemirror.net/) under the hood.
+This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
 
 ### CodeEditor
 
@@ -12,7 +12,7 @@ This component uses [CodeMirror](https://codemirror.net/) under the hood.
     `ContentBlock::Description` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="value" @type="string">
-    The text/code content for the `CodeEditor`.
+    The text/code content for the Code Editor.
   </C.Property>
   <C.Property @name="language" @type="string" @values={{array "json" "sql" "go" "hcl"}}>
     The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
@@ -27,7 +27,7 @@ This component uses [CodeMirror](https://codemirror.net/) under the hood.
 
 ### Contextual components
 
-#### [CB].Title
+#### [CE].Title
 
 The `CodeEditor::Title` component, yielded as contextual component.
 
@@ -43,7 +43,7 @@ The `CodeEditor::Title` component, yielded as contextual component.
   </C.Property>
 </Doc::ComponentApi>
 
-#### [CB].Description
+#### [CE].Description
 
 The `CodeEditor::Description` component, yielded as contextual component.
 

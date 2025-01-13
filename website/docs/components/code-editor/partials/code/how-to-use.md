@@ -8,7 +8,7 @@ The basic invocation doesn't require any arguments.
 
 ### Title and description
 
-Optionally, you can pass a title and/or a description.
+Optionally, you can pass a title and/or a description using the [CE].Title and [CE].Description components yielded by the Code Editor component.
 
 ```handlebars
 <Hds::CodeEditor @value="Hello, world" as |CE|>
@@ -23,7 +23,7 @@ Optionally, you can pass a title and/or a description.
 
 ### Title tag
 
-The `@tag` argument changes the HTML element that wraps the `[CE].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a CodeEditor is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
+The `@tag` argument changes the HTML element that wraps the `[CE].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a Code Editor is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
 ```handlebars
 <div class="doc-code-block-demo-heading">
@@ -42,13 +42,13 @@ The `@tag` argument changes the HTML element that wraps the `[CE].Title` content
 
 !!! Insight
 
-The default `@tag` is `"h2"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+The default `@tag` is `"h2"`, however, the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 
 !!!
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We only support the following languages: `json`, `sql`, `go`, `hcl`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
+The `language` argument sets the syntax highlighting used. We only support the following languages: `json`, `sql`, `go`, `hcl`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
 
 ```handlebars
 <Hds::CodeEditor
@@ -59,7 +59,7 @@ The `language` argument sets the syntax highlighting used. We only support the f
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy `CodeEditor` content to their computer clipboard.
+Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard.
 
 ```handlebars
 <Hds::CodeEditor @hasCopyButton={{true}} @value={{this.loremIpsum}} />
