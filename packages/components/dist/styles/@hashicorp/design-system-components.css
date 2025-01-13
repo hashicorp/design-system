@@ -7104,10 +7104,10 @@ button.hds-button[href]::after {
   justify-content: flex-end;
 }
 .hds-table__thead .hds-table__tr:first-of-type .hds-table__th:first-child {
-  border-top-left-radius: var(--token-border-radius-medium)-1px;
+  border-top-left-radius: calc(var(--token-border-radius-medium) - 1px);
 }
 .hds-table__thead .hds-table__tr:first-of-type .hds-table__th:last-child {
-  border-top-right-radius: var(--token-border-radius-medium)-1px;
+  border-top-right-radius: calc(var(--token-border-radius-medium) - 1px);
 }
 
 .hds-table__th--is-selectable {
@@ -7198,10 +7198,10 @@ button.hds-button[href]::after {
 }
 .hds-table__tbody .hds-table__tr:last-of-type .hds-table__th:first-child,
 .hds-table__tbody .hds-table__tr:last-of-type .hds-table__td:first-child {
-  border-bottom-left-radius: var(--token-border-radius-medium)-1px;
+  border-bottom-left-radius: calc(var(--token-border-radius-medium) - 1px);
 }
 .hds-table__tbody .hds-table__tr:last-of-type .hds-table__td:last-child {
-  border-bottom-right-radius: var(--token-border-radius-medium)-1px;
+  border-bottom-right-radius: calc(var(--token-border-radius-medium) - 1px);
 }
 .hds-table__tbody .hds-table__th,
 .hds-table__tbody .hds-table__td {
