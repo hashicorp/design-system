@@ -3,7 +3,7 @@ title: Code Editor
 description: A code editor with syntax highlighting, change history, and keyboard navigation.
 caption: A code editor with syntax highlighting, change history, and keyboard navigation.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=w8xQlWxzH7bwXLe2-1
+  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=69795-4433&t=WuWetCw0HQ2E5TJa-1
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/code-editor
 related: ['components/code-block', 'components/copy/button', 'components/copy/snippet']
 previewImage: assets/illustrations/components/code-editor.jpg
