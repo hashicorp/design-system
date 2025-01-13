@@ -12,7 +12,7 @@
 
 $hds-table-border-radius: var(--token-border-radius-medium);
 $hds-table-border-width: 1px;
-$hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
+$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - #{$hds-table-border-width});
 $hds-table-border-color: var(--token-color-border-primary);
 $hds-table-header-height: 48px;
 $hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
