@@ -77,7 +77,9 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
       this.element
         .querySelector('.hds-reveal__toggle-button')
         .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-disclosure-primitive__content').getAttribute('id')
+      this.element
+        .querySelector('.hds-disclosure-primitive__content')
+        .getAttribute('id')
     );
   });
 
