@@ -1,0 +1,51 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FLYOUT
+//
+
+$hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
+
+@mixin hds-flyout-position($size) {
+  width: min(#{$size}, #{$hds-flyout-max-width});
+  max-width: $hds-flyout-max-width;
+
+  &[open] {
+    margin-left: calc(100% - min(#{$size}, #{$hds-flyout-max-width}));
+  }
+}
+
+.hds-flyout {
+  position: fixed;
+  z-index: 49; // modal component is 50; we want to make sure the flyout always stays below the modal, regardless the DOM order
+  inset: 0;
+  height: 100vh;
+  max-height: 100vh;
+  background: var(--token-color-surface-primary);
+  border: none;
+  box-shadow: 0 2px 3px 0 #3b3d4540, 0 12px 24px 0 #3b3d4559; // TODO: convert to token
+
+  // the `<dialog>` element uses a special "open" attribute to determine its visibility status
+  &:not([open]) {
+    display: none;
+  }
+
+  // we hide the native `::backdrop` pseudo-element in favor of using
+  // a custom `overlay` element to detect click events with more ease
+  &::backdrop {
+    display: none;
+  }
+}
+
+// sizes
+
+.hds-flyout--size-medium {
+  @include hds-flyout-position(480px);
+}
+
+.hds-flyout--size-large {
+  @include hds-flyout-position(720px);
+}
