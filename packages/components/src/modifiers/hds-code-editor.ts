@@ -138,9 +138,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     );
 
     if (ariaLabel !== undefined) {
-      editor.dom.setAttribute('aria-label', ariaLabel);
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-label', ariaLabel);
     } else if (ariaLabelledBy !== undefined) {
-      editor.dom.setAttribute('aria-labelledby', ariaLabelledBy);
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-labelledby', ariaLabelledBy);
     }
   }
 

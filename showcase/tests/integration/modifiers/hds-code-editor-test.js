@@ -62,7 +62,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="Test Code Editor"}} />`
     );
     assert
-      .dom('#code-editor-wrapper .cm-editor')
+      .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
       .hasAttribute('aria-label', 'Test Code Editor');
   });
 
@@ -72,7 +72,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabelledBy="test-label"}} />`
     );
     assert
-      .dom('#code-editor-wrapper .cm-editor')
+      .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-label');
   });
 
