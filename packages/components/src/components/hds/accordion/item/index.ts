@@ -57,12 +57,6 @@ export interface HdsAccordionItemSignature {
 }
 
 export default class HdsAccordionItem extends Component<HdsAccordionItemSignature> {
-  /**
-   * Generates a unique ID for the Content
-   *
-   * @param _contentId
-   */
-  private _contentId = 'content-' + guidFor(this);
   private _titleId = 'title-' + guidFor(this);
 
   get ariaLabelledBy(): string | undefined {
