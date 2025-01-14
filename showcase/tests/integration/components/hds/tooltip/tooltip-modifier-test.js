@@ -22,12 +22,19 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
     // test the expected accessibility related attributes:
     assert.dom('#test-tooltip-modifier').hasAttribute('aria-describedby');
-    assert.dom('[data-tippy-root]').hasAttribute('id');
+    assert.dom('.hds-tooltip-container').exists();
+    assert.dom('.hds-tooltip-container').hasAttribute('id');
     assert.strictEqual(
       this.element
         .querySelector('#test-tooltip-modifier')
         .getAttribute('aria-describedby'),
-      this.element.querySelector('[data-tippy-root]').getAttribute('id')
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
+    );
+    assert.strictEqual(
+      this.element
+        .querySelector('#test-tooltip-modifier')
+        .getAttribute('aria-controls'),
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
     );
   });
 });

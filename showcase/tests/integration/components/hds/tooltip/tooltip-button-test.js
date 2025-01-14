@@ -81,19 +81,27 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('.tippy-box').hasAttribute('role', 'tooltip');
   });
 
-  test('the button has an aria-describedby attribute with a value matching the tooltip id', async function (assert) {
+  test('the button has an aria-describedby and aria-controls attribute with a value matching the tooltip container', async function (assert) {
     await render(
       hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`
     );
     await focus('[data-test-tooltip-button]');
     assert.dom('[data-test-tooltip-button]').hasAttribute('aria-describedby');
-    assert.dom('[data-tippy-root]').hasAttribute('id');
+    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-controls');
+    assert.dom('.hds-tooltip-container').hasAttribute('id');
 
     assert.strictEqual(
       this.element
         .querySelector('[data-test-tooltip-button]')
         .getAttribute('aria-describedby'),
-      this.element.querySelector('[data-tippy-root]').getAttribute('id')
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
+    );
+
+    assert.strictEqual(
+      this.element
+        .querySelector('[data-test-tooltip-button]')
+        .getAttribute('aria-controls'),
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
     );
   });
 
