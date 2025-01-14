@@ -239,7 +239,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const {isSelectable, columns} = this.args
+    const { isSelectable, columns } = this.args;
 
     // if there is no custom column widths, each column is the same width and they take up the available space (except the select checkbox)
     if (!this.columnWidths) {

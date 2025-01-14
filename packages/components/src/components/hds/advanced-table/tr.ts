@@ -78,7 +78,7 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
     }
 
     if (isParentRow) {
-      classes.push('hds-advanced-table__tr--parent-row')
+      classes.push('hds-advanced-table__tr--parent-row');
     }
 
     return classes.join(' ');
