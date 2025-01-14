@@ -20,7 +20,7 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
-import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort';
+import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import {
   didInsertGridCell,
   handleGridCellKeyPress,

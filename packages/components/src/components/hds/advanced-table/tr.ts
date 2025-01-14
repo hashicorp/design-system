@@ -11,7 +11,7 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
 } from './types.ts';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
 
@@ -20,6 +20,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
     isSelectable?: boolean;
     isSelected?: false;
+    isParentRow?: boolean;
     selectionAriaLabelSuffix?: string;
     selectionKey?: string;
     selectionScope?: HdsAdvancedTableScope;
@@ -69,16 +70,15 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
   }
 
   get classNames(): string {
-    const { depth } = this.args;
+    const { depth, isParentRow } = this.args;
     const classes = ['hds-advanced-table__tr'];
 
-    if (depth) {
-      if (depth > 0) classes.push('hds-advanced-table__tr--nested');
-      if (depth % 2 === 0) {
-        classes.push(`hds-advanced-table__tr--depth-even`);
-      } else {
-        classes.push(`hds-advanced-table__tr--depth-odd`);
-      }
+    if (depth && depth > 0) {
+      classes.push('hds-advanced-table__tr--nested');
+    }
+
+    if (isParentRow) {
+      classes.push('hds-advanced-table__tr--parent-row')
     }
 
     return classes.join(' ');

@@ -26,8 +26,8 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
-} from './types';
-import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base';
+} from './types.ts';
+import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';

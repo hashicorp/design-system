@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+
 import {
   HdsAdvancedTableThSortOrderIconValues,
   HdsAdvancedTableThSortOrderLabelValues,

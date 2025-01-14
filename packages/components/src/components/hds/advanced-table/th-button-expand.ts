@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+
 import { HdsAdvancedTableThExpandIconValues } from './types.ts';
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
 export interface HdsAdvancedTableThButtonExpandSignature {

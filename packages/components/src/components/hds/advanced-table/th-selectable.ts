@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
+
 import {
   HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableThSortOrderLabelValues,
@@ -16,8 +17,8 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableThSortOrderLabels,
-} from './types';
-import type { HdsAdvancedTableThSignature } from './th';
+} from './types.ts';
+import type { HdsAdvancedTableThSignature } from './th.ts';
 
 export interface HdsAdvancedTableThSelectableSignature {
   Args: {

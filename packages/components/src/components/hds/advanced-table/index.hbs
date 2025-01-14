@@ -64,7 +64,7 @@
         >
           {{yield
             (hash
-              Tr=(component "hds/advanced-table/tr" depth=T.depth)
+              Tr=(component "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth)
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"

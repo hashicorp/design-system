@@ -10,9 +10,9 @@
 
 @use "../mixins/focus-ring" as *;
 
-$hds-advanced-table-border-radius: 6px;
+$hds-advanced-table-border-radius: var(--token-border-radius-medium);
 $hds-advanced-table-border-width: 1px;
-$hds-advanced-table-inner-border-radius: $hds-advanced-table-border-radius - $hds-advanced-table-border-width;
+$hds-advanced-table-inner-border-radius: calc(#{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width});
 $hds-advanced-table-border-color: var(--token-color-border-primary);
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
@@ -310,13 +310,16 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__expandable-tr-group {
     display: contents;
 
-    .hds-advanced-table__tr--depth-odd {
+    .hds-advanced-table__tr {
+      display: contents;
+
       .hds-advanced-table__th, .hds-advanced-table__td {
         background-color: var(--token-color-surface-faint);
+        
       }
     }
-  
-    .hds-advanced-table__tr--depth-even {
+
+    .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
       .hds-advanced-table__th, .hds-advanced-table__td {
         background-color: var(--token-color-surface-primary);
       }
