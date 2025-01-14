@@ -49,7 +49,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor as |CE|><CE.Title id="test-title">Test Title</CE.Title></Hds::CodeEditor>`
     );
     assert
-      .dom('.hds-code-editor__editor .cm-editor')
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-title');
   });
 
@@ -179,7 +179,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" />`
     );
     assert
-      .dom('.hds-code-editor__editor .cm-editor')
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-label', 'Test Code Editor');
   });
 
@@ -189,7 +189,7 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabelledBy="test-label" />`
     );
     assert
-      .dom('.hds-code-editor__editor .cm-editor')
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-labelledby', 'test-label');
   });
   test('it should not render the component with an aria-labbelledby when @ariaLabel is provided as well', async function (assert) {
@@ -197,10 +197,10 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="Test Code Editor" @ariaLabelledBy="test-label" />`
     );
     assert
-      .dom('.hds-code-editor__editor .cm-editor')
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .hasAttribute('aria-label', 'Test Code Editor');
     assert
-      .dom('.hds-code-editor__editor .cm-editor')
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .doesNotHaveAttribute('aria-labelledby');
   });
 
