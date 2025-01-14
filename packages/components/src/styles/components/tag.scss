@@ -23,7 +23,7 @@ $hds-tag-border-radius: 50px;
   border-radius: $hds-tag-border-radius;
 }
 
-.hds-tag:focus-within,
+.hds-tag:has(:focus-visible),
 .hds-tag:has(.mock-focus) {
   overflow: visible;
 }
