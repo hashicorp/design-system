@@ -18,7 +18,7 @@ The AdvancedTable component itself is where most of the options will be applied.
         The value of the internal `sortOrder` tracked variable.
       </C.Property>
       <C.Property @name="[B].isExpanded" @type="boolean">
-        The value of the internal `isExpanded` tracked variable from the row if it has nested rows. Otherwise returns `undefined`.
+        Returns the value of the internal `isExpanded` tracked variable from the row if it has nested rows; otherwise returns `undefined`.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
@@ -93,7 +93,7 @@ The AdvancedTable component itself is where most of the options will be applied.
     Determines if the AdvancedTable has a sticky header.
   </C.Property>
   <C.Property @name="density" @type="enum" @values={{array "short" "medium" "tall" }} @default="medium">
-    If set, determines the density (height) of the body's rows.
+    If set, determines the density (height) of the body’s rows.
   </C.Property>
   <C.Property @name="valign" @type="enum" @values={{array "top" "middle" "baseline" }} @default="top">
     Determines the vertical alignment for content in a table. Does not apply to table headers (`th`). See [MDN reference on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align) for more details.
