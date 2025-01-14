@@ -1,0 +1,90 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APPLICATION-STATE COMPONENT
+//
+
+$hds-application-state-content-max-width: 480px;
+
+.hds-application-state {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: fit-content;
+  margin: 0 auto; // this will center the component in the parent container
+
+  &.hds-application-state--align-center {
+    align-items: center;
+    text-align: center;
+
+    .hds-application-state__header,
+    .hds-application-state__body,
+    .hds-application-state__footer {
+      width: auto;
+    }
+  }
+}
+
+.hds-application-state__media {
+  margin-bottom: 32px;
+
+  > * {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+.hds-application-state__header {
+  display: grid;
+  grid-template-areas:
+    "error error"
+    "icon title";
+  grid-template-columns: min-content 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: $hds-application-state-content-max-width;
+  color: var(--token-color-foreground-strong);
+}
+
+.hds-application-state__error-code {
+  grid-area: error;
+  margin-bottom: 4px;
+}
+
+.hds-application-state__icon {
+  grid-area: icon;
+  margin-right: 8px; // instead of column gap
+  padding-top: 4px; // this seems to align the icon along with line 21
+}
+
+.hds-application-state__title {
+  grid-row: 2;
+  font-weight: var(--token-typography-font-weight-semibold);
+
+  &:not(.hds-application-state__icon + &) {
+    grid-column: icon / title;
+  }
+}
+
+.hds-application-state__body {
+  width: 100%;
+  max-width: $hds-application-state-content-max-width;
+  margin: 12px 0 0;
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-application-state__footer {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  max-width: $hds-application-state-content-max-width;
+  margin-top: 24px;
+
+  // forces the third child and on to be on the right side
+  > :nth-child(3) {
+    margin-left: auto;
+  }
+}
