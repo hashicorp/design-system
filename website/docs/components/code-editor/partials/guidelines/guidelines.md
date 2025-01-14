@@ -25,7 +25,7 @@ An optional header is available within the Code Editor. It consists of three sec
 
 - the text content that includes the title and description
 - an actions container for secondary actions
-- a custom yielded section of primary actions.
+- a custom content section for adding primary actions
 
 ### When to use a title and description
 
@@ -48,13 +48,13 @@ Assume all users will understand the purpose of the Code Editor without providin
 
 ## Secondary actions
 
-The secondary actions section supports two optional buttons: [Copy Button](/components/copy/button) and a button to expand the editor to fill the viewport. The Copy Button copies the content of the Code Editor to the clipboard, while the second button maximizes and minimizes the Code Editor from inline to full screen. These actions are considered supporting functions less vital to the user’s work but may be useful.
+The secondary actions section supports two optional buttons: the [Copy Button](/components/copy/button), and a “full screen” button. The Copy Button copies the content of the Code Editor to the clipboard, while the full screen button toggles the size of the Code Editor from inline view to full screen.
 
 ![The secondary actions container is shown twice, both with the Copy Button and full screen button. First showing the full screen button with the maximize icon and the second showing it with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
-## Custom yielded actions
+## Custom actions
 
-This space is reserved for primary custom yielded actions. Primary actions are defined as necessary for the user to complete their work.
+This space is intended for custom primary actions. Primary actions are those which are necessary for the user to complete their work.
 
 ![The Code Editor with the title "CodeEditor title". The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
 
