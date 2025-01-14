@@ -307,6 +307,18 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   // nested rows
 
+  .hds-advanced-table__tr--parent-row {
+    .hds-advanced-table__th:not(:first-child),
+    .hds-advanced-table__td:not(:first-child) {
+      border-left:0
+    }
+
+    .hds-advanced-table__th:not(:last-child),
+    .hds-advanced-table__td:not(:last-child) {
+      border-right:0
+    }
+  }
+
   .hds-advanced-table__expandable-tr-group {
     display: contents;
 
