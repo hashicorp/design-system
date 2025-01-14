@@ -105,7 +105,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
   get getSortCriteria(): string | HdsTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this.sortBy
+      (column): boolean => column.key === this.sortBy
     );
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
@@ -124,7 +124,9 @@ export default class HdsTable extends Component<HdsTableSignature> {
     if (this.args.identityKey === 'none') {
       return undefined;
     } else {
-      return this.args.identityKey ?? '@identity';
+      // We return a default key to cause an update operation instead of replacement when the model changes to side-step
+      // a bug in Ember which would cause the table to lose its selection state
+      return this.args.identityKey ?? 'hds-table-key';
     }
   }
 
@@ -289,6 +291,13 @@ export default class HdsTable extends Component<HdsTableSignature> {
     checkbox: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
   ): void {
+    // TEST:
+    console.log(
+      `[${this.args.caption}] Did insert row checkbox`,
+      selectionKey,
+      this._selectableRows.map((row) => row.selectionKey)
+    );
+
     if (selectionKey) {
       this._selectableRows.push({ selectionKey, checkbox });
     }
@@ -297,8 +306,15 @@ export default class HdsTable extends Component<HdsTableSignature> {
 
   @action
   willDestroyRowCheckbox(selectionKey?: string): void {
+    // TEST:
+    console.log(
+      `[${this.args.caption}] Will destroy row checkbox`,
+      selectionKey,
+      this._selectableRows.map((row) => row.selectionKey)
+    );
+
     this._selectableRows = this._selectableRows.filter(
-      (row) => row.selectionKey !== selectionKey
+      (row): boolean => row.selectionKey !== selectionKey
     );
     this.setSelectAllState();
   }
@@ -308,7 +324,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
     if (this._selectAllCheckbox) {
       const selectableRowsCount = this._selectableRows.length;
       const selectedRowsCount = this._selectableRows.filter(
-        (row) => row.checkbox.checked
+        (row): boolean => row.checkbox.checked
       ).length;
 
       this._selectAllCheckbox.checked =

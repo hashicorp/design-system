@@ -1,0 +1,73 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Table multi-select bug"}}
+
+<Shw::Text::H1>Table multi-select bug</Shw::Text::H1>
+
+<section>
+  <p>When a table isn't immediately rendered, a bug occurs where table rows render twice. Normally this is not a big
+    deal, but due to the way that row-level checkboxes are registered, we get this unfortunate sequence of events:</p>
+  <ol>
+    <li><code>didInsertRowCheckbox</code>: Insert selection keys to <code>_selectableRows</code></li>
+    <li><code>didInsertRowCheckbox</code>: Insert selection keys to
+      <code>_selectableRows</code>
+      a second time. This results in an array that's 2x of every selection key.</li>
+    <li><code>willDestroyRowCheckbox</code>: Filters
+      <code>_selectableRows</code>
+      by removed selection key, except this removes the first and second insertions resulting in an empty array.</li>
+  </ol>
+
+  <Shw::Text::H2>This will work until you click the "Force new data" button</Shw::Text::H2>
+
+  <Hds::Button @text="Force new data" {{on "click" this.dirtyModel}} />
+
+  <Hds::Table
+    @model={{this.lyrics}}
+    @caption="local property"
+    @columns={{array
+      (hash key="quantity" label="Quantity")
+      (hash key="type" label="Type")
+      (hash key="line" label="Line")
+    }}
+    @isSelectable={{true}}
+    @onSelectionChange={{this.printSelection}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.key}} @selectionAriaLabelSuffix=" {{B.data.key}}">
+        <B.Td>{{B.data.quantity}}</B.Td>
+        <B.Td>{{B.data.type}}</B.Td>
+        <B.Td>{{B.data.line}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+
+  <Shw::Text::H2>This will always work because
+    <code>@identityKey</code>
+    performs an update not a replace.</Shw::Text::H2>
+
+  <Hds::Button @text="Force new data" {{on "click" this.dirtyModel}} />
+
+  <Hds::Table
+    @model={{this.lyrics}}
+    @caption="local property"
+    @columns={{array
+      (hash key="quantity" label="Quantity")
+      (hash key="type" label="Type")
+      (hash key="line" label="Line")
+    }}
+    @identityKey="key"
+    @isSelectable={{true}}
+    @onSelectionChange={{this.printSelection}}
+  >
+    <:body as |B|>
+      <B.Tr @selectionKey={{B.data.key}} @selectionAriaLabelSuffix=" {{B.data.key}}">
+        <B.Td>{{B.data.quantity}}</B.Td>
+        <B.Td>{{B.data.type}}</B.Td>
+        <B.Td>{{B.data.line}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::Table>
+</section>

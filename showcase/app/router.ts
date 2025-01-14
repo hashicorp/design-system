@@ -63,6 +63,7 @@ Router.map(function () {
     this.route('side-nav');
     this.route('stepper');
     this.route('table');
+    this.route('table-multi-select-bug');
     this.route('tag');
     this.route('text');
     this.route('time');
