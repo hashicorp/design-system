@@ -260,19 +260,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get classNames(): string {
     const classes = ['hds-advanced-table'];
 
-    // add a class based on the @isStriped argument
     if (this.isStriped) {
       classes.push('hds-advanced-table--striped');
     }
 
-    // add a class based on the @density argument
     if (this.density) {
       classes.push(`hds-advanced-table--density-${this.density}`);
     }
 
-    // add a class based on the @valign argument
     if (this.valign) {
       classes.push(`hds-advanced-table--valign-${this.valign}`);
+    }
+
+    if (this.hasNestedRows) {
+      classes.push(`hds-advanced-table--nested`);
     }
 
     return classes.join(' ');

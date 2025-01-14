@@ -25,7 +25,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   display: grid;
   align-items: center;
   width: 100%;
-  overflow: hidden;
   border-radius: $hds-advanced-table-border-radius;
   border-spacing: 0;
 }
@@ -216,7 +215,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
-    &:last-of-type:not(.hds-advanced-table__tr--nested) {
+      &:last-of-type{
       .hds-advanced-table__th:first-child,
       .hds-advanced-table__td:first-child {
         border-bottom-left-radius: $hds-advanced-table-inner-border-radius;
@@ -319,24 +318,18 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       border-right:0
     }
   }
+}
 
-  .hds-advanced-table__expandable-tr-group {
-    display: contents;
-
-
-    .hds-advanced-table__tr {
-      display: contents;
-
-      .hds-advanced-table__th, .hds-advanced-table__td {
-        background-color: var(--token-color-surface-faint);
-        
-      }
+.hds-advanced-table--nested {
+  .hds-advanced-table__tr {
+    .hds-advanced-table__th, .hds-advanced-table__td {
+      background-color: var(--token-color-surface-faint);  
     }
+  }
 
-    .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
-      .hds-advanced-table__th, .hds-advanced-table__td {
-        background-color: var(--token-color-surface-primary);
-      }
+  .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
+    .hds-advanced-table__th, .hds-advanced-table__td {
+      background-color: var(--token-color-surface-primary);
     }
   }
 }
