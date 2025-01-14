@@ -46,18 +46,19 @@ const hdsDark = EditorView.theme(
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
     },
-    '&:not(.cm-hasSelection) .cm-gutterElement.cm-activeLineGutter': {
-      borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
-      backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
-      outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
-    },
+    '&:not(.cm-hasSelection).cm-focused .cm-gutterElement.cm-activeLineGutter':
+      {
+        borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
+        backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
+        outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
+      },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
     },
-    '&:not(.cm-hasSelection) .cm-activeLine': {
+    '&:not(.cm-hasSelection).cm-focused .cm-activeLine': {
       backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
       outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },
