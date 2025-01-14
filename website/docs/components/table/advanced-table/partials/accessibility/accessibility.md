@@ -1,6 +1,5 @@
 ## Conformance rating
 
-<!-- Update conformance rating badge with correct status -->
 <Doc::Badge @type="success">Conformant</Doc::Badge>
 
 When used as recommended, there should not be any WCAG conformance issues with this component.
@@ -9,15 +8,15 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ### Interactive rows
 
-The table row element is not eligible to receive interactions. That is, actions cannot be attached to a table row. If an interactive element is desired, place it within a table cell element within that row (i.e., `<div role="gridcell"><a href="somelink.html">Some link</a></div>`).
+The table row element cannot receive interactions, meaning actions cannot be attached directly to a table row. If you need an interactive element, place it within a table cell element in that row (i.e., `<div role="gridcell"><a href="somelink.html">Some link</a></div>`).
 
 ### Focus in Advanced Tables
 
-Unlike the Table component, each cell receives focus in the Advanced Table to let users navigate through the table efficiently with a keyboard. For any other interactions, there must be interactive elements (buttons, links, etc.) within the cells. 
+Unlike the Table component, each cell receives focus in the Advanced Table to let users navigate through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
 
 ### Row selection
 
-It is best to clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For more considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
+You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
 
 ## Applicable WCAG Success Criteria
 
