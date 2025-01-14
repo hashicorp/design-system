@@ -25,6 +25,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   display: grid;
   align-items: center;
   width: 100%;
+  overflow: hidden;
   border-radius: $hds-advanced-table-border-radius;
   border-spacing: 0;
 }
@@ -321,6 +322,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__expandable-tr-group {
     display: contents;
+
 
     .hds-advanced-table__tr {
       display: contents;
