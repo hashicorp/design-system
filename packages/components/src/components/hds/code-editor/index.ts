@@ -10,7 +10,6 @@ import { modifier } from 'ember-modifier';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
-import type { HdsButtonSignature } from 'src/components/hds/button';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
@@ -35,7 +34,6 @@ export interface HdsCodeEditorSignature {
         Title?: ComponentLike<HdsCodeEditorTitleSignature>;
         Description?: ComponentLike<HdsCodeEditorDescriptionSignature>;
         Generic?: ComponentLike<HdsCodeEditorGenericSignature>;
-        Button?: ComponentLike<HdsButtonSignature>;
       },
     ];
   };

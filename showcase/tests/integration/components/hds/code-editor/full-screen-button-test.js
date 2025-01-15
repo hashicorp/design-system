@@ -65,10 +65,10 @@ module(
       this.set('onToggleFullScreen', onToggleFullScreen);
 
       await render(
-        hbs`<Hds::CodeEditor::FullScreenButton @isFullScreen={{false}} @onToggleFullScreen={{this.onToggleFullScreen}} />`
+        hbs`<Hds::CodeEditor::FullScreenButton id="test-button" @isFullScreen={{false}} @onToggleFullScreen={{this.onToggleFullScreen}} />`
       );
 
-      await click('.hds-code-editor__full-screen-button');
+      await click('#test-button');
 
       assert.ok(onToggleFullScreen.calledOnce);
     });
