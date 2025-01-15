@@ -19,13 +19,17 @@
 
 ### Sorting
 
+![Header column sorting](/assets/components/table/advanced-table/table-sorting.png)
+
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns with sorting enabled are interactive and include hover, active, and focus states.
 - An Advanced Table may only be sorted by a single column at a time.
 
 ### Tooltips
 
-Labels within the Advanced Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a Tooltip can be used in conjunction with the label but should be used sparingly and as a last resort.
+Labels within the Advanced Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
+
+![Tooltips in a Header Column](/assets/components/table/advanced-table/table-tooltip-example.png)
 
 Some examples where it may be useful to include additional context in a tooltip include:
 - When the label contains a product or HashiCorp-specific term.
@@ -38,10 +42,13 @@ Column width is determined by manually resizing the header column and cells with
 ## Placement
 
 !!! Info
+
 The column placement property is only relevant within Figma and doesn’t exist as a property in code.
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
+
+![Advanced Table column placement example](/assets/components/table/advanced-table/table-col-placement.png)
 
 ## Alignment
 
@@ -51,6 +58,16 @@ The alignment of text and content within an Advanced Table impacts the readabili
 Helios uses left and right for alignment to match the Ember component API. This documentation follows that convention for consistency across design and development.
 !!!
 
+!!! Do
+
+![Advanced Table column placement example](/assets/components/table/advanced-table/table-alignment-do.png)
+!!!
+
+!!! Dont
+
+![Advanced Table column placement example](/assets/components/table/advanced-table/table-alignment-dont.png)
+!!!
+
 ### Start alignment
 
 Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
@@ -58,7 +75,9 @@ Align content to the start of the cell by default. This ensures readability acro
 String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
-Nested components that display a string or text value, e.g., a Badge.
+Nested components that display a string or text value, e.g., a [Badge](/components/badge).
+
+![Start alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
 
 ### End alignment 
 
@@ -67,17 +86,37 @@ Common examples of end alignment include:
 - Financial information and currency amounts.
 - Fractional and floating point values represented with decimals.
 
+![End alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
+
 End alignment can also be used in the last column of an advanced table to:
 - Highlight a "more options" function pertaining to the content within a row.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
+
+![End alignment example within a table with a date and more options](/assets/components/table/advanced-table/end-alignment-example-02.png)
+
+!!! Dont
+
+Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
+
+![End alignment with content that is variable in length](/assets/components/table/advanced-table/end-alignment-variable-length.png)
+!!!
 
 ### Other alignment methods
 
 We don’t recommend center or justified alignment of content within a cell or advanced table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
+!!! Dont
+
+Don’t center header labels or cell content within a table.
+
+![Example of centered content within an Advanced Table](/assets/components/table/center-justified-alignment.png)
+!!!
+
 ## Rows
 
 ### Striping 
+
+<!-- ![Table striping examples](/assets/components/table/advanced-table/table-striping.png) --> 
 
 Striping improves readability by alternating row colors.
 - Non-nested Advanced Tables: Striping starts with the second row to differentiate it from the header.
@@ -91,12 +130,15 @@ Striping improves readability by alternating row colors.
 - Alternating row colors improve readability for numerical or text-heavy data.
 
 !!! Info
+
 Ensure that nested components within striped rows continue to maintain adequate color contrast with the striped background.
 !!!
 
 ### Expandable rows
 
 Expandable rows allow users to reveal or collapse additional content within the table structure.
+
+![Advanced Table expandable rows examples](/assets/components/table/advanced-table/expandable-rows.png) 
 
 ### When to use
 
@@ -111,7 +153,8 @@ Expandable rows allow users to reveal or collapse additional content within the 
 - When scrolling down, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
 - Expanding a row moves focus to the first child row, while collapsing returns focus to the parent row.
 
-### Considerations for Nested Rows in Advanced Tables
+### Nested Row Best Practices
+
 - Use the same density setting for parent and child rows to keep layouts consistent.
 - Avoid mixing Table and AdvancedTable components, use one type for consistency.
 Ensure focus moves logically when expanding or collapsing nested rows.
@@ -120,10 +163,13 @@ Ensure focus moves logically when expanding or collapsing nested rows.
 ### Placement
 
 !!! Info
+
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end utilize the row placement property; column position middle does not utilize this property.
+
+![Table row placement example](/assets/components/table/advanced-table/table-row-placement.png)
 
 ## Headers
 
@@ -133,9 +179,13 @@ Row placement determines the visual styling based on where the row is placed rel
 
 When sticky headers are enabled, the label in each column remains visible as the user scrolls. This can be useful for large data sets where the user might need to constantly reference the label.
 
+<!-- ![Advanced Table sticky header example](/assets/components/table/advanced-table/sticky-header.png) --> 
+
 ## Cells
 
 ### Density
+
+![Table cell density](/assets/components/table/advanced-table/table-density.png)
 
 - We recommend using medium cell density by default.
 - If content is largely string/text-based, short allows for more content to be displayed within the page.
@@ -147,11 +197,14 @@ When sticky headers are enabled, the label in each column remains visible as the
 - Use column and row spans carefully to avoid misalignment or breaking table interactions.
 - Multi-span cells should use the same alignment for readability.
 
+![Table cell density](/assets/components/table/advanced-table/colspan-table-example.png)
+
 ### Horizontal Scrolling
 
 - Needed when there are many columns of equal priority.
 - Place the Advanced Table in a scrollable container for smooth side-scrolling.
 
+![Advanced Table horizontal scrolling](/assets/components/table/advanced-table/horizontal-scrolling.png)
 
 ## Keyboard Navigation
 
@@ -183,5 +236,8 @@ A multi-select pattern consists of:
 
 1. A select all in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
 
+![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
+
 2. Row level select allowing for the selection of an individual row.
 
+![Example of multi-select within table cells](/assets/components/table/advanced-table/table-multi-select-cells.png)

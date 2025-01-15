@@ -1,1 +1,1 @@
-When advancing through a multi-step flow or feature, a Stepper Indicator helps users maintain context and directionality. In certain circumstances, it could act as a navigational device between steps. It’s generally assembled as part of a larger Stepper pattern.
+The Advanced Table is designed for managing complex datasets that require advanced interactivity, supporting features like sticky headers, keyboard navigation, and multi-select.
