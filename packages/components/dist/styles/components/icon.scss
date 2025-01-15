@@ -1,0 +1,41 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+.hds-icon {
+  display: block;
+}
+
+.hds-icon--is-inline {
+  display: inline-block;
+}
+
+@keyframes hds-icon-animation-rotation {
+  to {transform: rotate(360deg);}
+}
+
+.hds-icon--animation-loading {
+  animation: hds-icon-animation-rotation 9s linear infinite;
+}
+
+.hds-icon--animation-running {
+  animation: hds-icon-animation-rotation 9s linear infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hds-icon--animation-loading {
+    animation-duration: .7s;
+  }
+
+  .hds-icon--animation-running {
+    animation-duration: 1s;
+  }
+}
+
+.flight-sprite-container {
+  position: absolute;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
