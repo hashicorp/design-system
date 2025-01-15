@@ -90,7 +90,10 @@
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);
 
-    &:active,
+    &:active {
+      background-color: var(--hds-code-editor-color-surface-interactive-active)
+    }
+  
     &:focus,
     &:hover {
       color: var(--hds-code-editor-color-foreground-high-contrast);
