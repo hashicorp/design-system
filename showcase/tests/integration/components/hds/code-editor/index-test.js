@@ -85,6 +85,24 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
   });
+  // @isStandalone
+  test('it should render the component with a standalone style when the `@isStandalone` argument is true and when the argument is ommitted', async function (assert) {
+    this.set('isStandalone', true);
+
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @isStandalone={{this.isStandalone}} />`
+    );
+    assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-standalone');
+
+    this.set('isStandalone', undefined);
+    assert.dom('.hds-code-editor').hasClass('hds-code-editor--is-standalone');
+
+    this.set('isStandalone', false);
+    assert
+      .dom('.hds-code-editor')
+      .doesNotHaveClass('hds-code-editor--is-standalone');
+  });
+
   // @hasFullScreenButton
   test('it should render a toggle fullscreen button when the `@hasFullScreenButton` argument is true', async function (assert) {
     await setupCodeEditor(

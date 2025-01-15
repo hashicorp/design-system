@@ -18,6 +18,16 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H2>Standalone</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Standalone editor (default)">
+      <Hds::CodeEditor @ariaLabel="Standalone editor (default)" />
+    </SF.Item>
+    <SF.Item @label="Not standalone editor">
+      <Hds::CodeEditor @ariaLabel="Not standalone editor" @isStandalone={{false}} />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Text::H2>Header</Shw::Text::H2>
 
   <Shw::Text::H3>Title and description</Shw::Text::H3>

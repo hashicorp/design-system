@@ -15,7 +15,6 @@
   overflow: hidden;
   background-color: var(--hds-code-editor-color-surface-primary);
   border: 1px solid var(--hds-code-editor-color-border-strong);
-  border-radius: 6px;
 
   &.hds-code-editor--is-full-screen {
     position: fixed;
@@ -27,6 +26,10 @@
     .hds-code-editor__editor {
       max-height: unset;
     }
+  }
+
+  &.hds-code-editor--is-standalone {
+    border-radius: var(--token-border-radius-medium);
   }
 
   .hds-code-editor__header {

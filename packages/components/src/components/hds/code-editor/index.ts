@@ -23,6 +23,7 @@ export interface HdsCodeEditorSignature {
     ariaLabelledBy?: string;
     hasCopyButton?: boolean;
     hasFullScreenButton?: boolean;
+    isStandalone?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     value?: HdsCodeEditorModifierSignature['Args']['Named']['value'];
     onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
@@ -85,6 +86,10 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     return (this.args.hasCopyButton || this.args.hasFullScreenButton) ?? false;
   }
 
+  get isStandalone(): boolean {
+    return this.args.isStandalone ?? true;
+  }
+
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
     // In the future, additional themes such as a "light" theme could be added.
@@ -92,6 +97,10 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
 
     if (this._isFullScreen) {
       classes.push('hds-code-editor--is-full-screen');
+    }
+
+    if (this.isStandalone) {
+      classes.push('hds-code-editor--is-standalone');
     }
 
     return classes.join(' ');
