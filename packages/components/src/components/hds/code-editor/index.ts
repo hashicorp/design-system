@@ -25,6 +25,7 @@ export interface HdsCodeEditorSignature {
     isStandalone?: boolean;
     language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
     value?: HdsCodeEditorModifierSignature['Args']['Named']['value'];
+    onBlur?: HdsCodeEditorModifierSignature['Args']['Named']['onBlur'];
     onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
     onSetup?: HdsCodeEditorModifierSignature['Args']['Named']['onSetup'];
   };

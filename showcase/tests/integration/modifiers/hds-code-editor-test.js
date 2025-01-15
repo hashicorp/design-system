@@ -1,6 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, waitFor, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  waitFor,
+  setupOnerror,
+  focus,
+  blur,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -29,6 +35,22 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`
     );
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
+  });
+
+  // onBlur
+  test('it should call the onBlur action when the code editor loses focus', async function (assert) {
+    const blurSpy = sinon.spy();
+
+    this.set('handleBlur', blurSpy);
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onBlur=this.handleBlur}} />`
+    );
+
+    await focus('.cm-content');
+    await blur('.cm-content');
+
+    assert.ok(blurSpy.calledOnce);
   });
 
   // onInput
