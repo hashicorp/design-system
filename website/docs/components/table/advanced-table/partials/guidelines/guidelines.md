@@ -116,7 +116,7 @@ Don’t center header labels or cell content within a table.
 
 ### Striping 
 
-<!-- ![Table striping examples](/assets/components/table/advanced-table/table-striping.png) --> 
+![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 Striping improves readability by alternating row colors.
 - Non-nested Advanced Tables: Striping starts with the second row to differentiate it from the header.
