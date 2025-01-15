@@ -54,10 +54,11 @@
 
   .hds-code-editor__description {
     color: var(--hds-code-editor-color-foreground-faint);
-    
-    + .hds-code-editor__header-generic {
-      margin-top: 12px;
-    }
+  }
+
+  .hds-code-editor__title + .hds-code-editor__header-generic,
+  .hds-code-editor__description + .hds-code-editor__header-generic {
+    margin-top: 12px;
   }
 
   .hds-code-editor__header-actions {
