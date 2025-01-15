@@ -179,7 +179,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 When sticky headers are enabled, the label in each column remains visible as the user scrolls. This can be useful for large data sets where the user might need to constantly reference the label.
 
-<!-- ![Advanced Table sticky header example](/assets/components/table/advanced-table/sticky-header.png) --> 
+![Advanced Table sticky header example](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
 ## Cells
 
@@ -230,7 +230,7 @@ When the user is in navigation mode, pressing enter will activate action mode, w
 
 ### Multi-Select
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the Multi-Select Table Pattern.
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
 
 A multi-select pattern consists of:
 

@@ -2,7 +2,7 @@
 
 ### Advanced Table headers
 
-![Table header anatomy](/assets/components/table/table-header-select-anatomy.png)
+![Table header anatomy](/assets/components/table/advanced-table/Advanced-table-table-header-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -14,7 +14,7 @@
 
 ### Advanced Table cells
 
-![Table cells anatomy](/assets/components/table/table-cell-select-anatomy.png)
+![Table cells anatomy](/assets/components/table/advanced-table/Advanced-table-table-cell-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|
