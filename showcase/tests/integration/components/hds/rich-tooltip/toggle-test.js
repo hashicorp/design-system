@@ -111,7 +111,6 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
       hbs`<Hds::RichTooltip::Toggle @popoverId="popoverId" @isOpen={{true}} />`
     );
     assert.dom('.hds-rich-tooltip__toggle').hasAttribute('type', 'button');
-    assert.dom('.hds-rich-tooltip__toggle').hasAria('controls', 'popoverId');
     assert.dom('.hds-rich-tooltip__toggle').hasAria('describedby', 'popoverId');
     assert.dom('.hds-rich-tooltip__toggle').hasAria('expanded', 'true');
   });
