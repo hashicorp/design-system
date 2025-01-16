@@ -1,9 +1,9 @@
 ## How to use this component
 
-The basic invocation doesn't require any arguments.
+To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
 
 ```handlebars
-<Hds::CodeEditor />
+<Hds::CodeEditor @ariaLabel="Basic usage" />
 ```
 
 ### Title and description
@@ -52,6 +52,7 @@ The `language` argument sets the syntax highlighting used. We only support the f
 
 ```handlebars
 <Hds::CodeEditor
+  @ariaLabel="language"
   @language="go"
   @value={{this.goCode}}
 />
@@ -62,5 +63,14 @@ The `language` argument sets the syntax highlighting used. We only support the f
 Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard.
 
 ```handlebars
-<Hds::CodeEditor @hasCopyButton={{true}} @value={{this.loremIpsum}} />
+<Hds::CodeEditor @ariaLabel="copy button" @hasCopyButton={{true}} @value={{this.loremIpsum}} />
+```
+
+
+### Full screen mode
+
+Set `hasFullScreenButton` to `true` to display a button for users to toggle between a full screen view and normal placement within the page.
+
+```handlebars
+<Hds::CodeEditor @ariaLabel="full screen mode" @hasFullScreenButton={{true}} @value={{this.loremIpsum}} />
 ```
