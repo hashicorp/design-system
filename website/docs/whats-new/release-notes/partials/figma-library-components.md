@@ -20,6 +20,21 @@
 
 `Table` - Added column borders.
 
+`DialogPrimitive` - Moved to the "Utilities" section of the file to mirror the organization of the Helios website component pages.
+
+`Dropdown`
+
+- Exposed nested instances for the Toggle and ListItems within the Dropdown and exposed nested properties from Dropdown::ToggleButton, Dropdown::DropdownList, and Dropdown::ListItem.
+- `Disabled` is no longer an option within the state property, it is now a separate `isDisabled` boolean to better align with code and the treatment of other components in the system.
+- Simplified the layer structure and build of all ListItem components as well as Toggle components, resulting in breaking changes.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the number of changes within the layer structure of all Dropdown components, consumers will need to relink and likely repopulate all instances.
+!!!
+
 ### December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
