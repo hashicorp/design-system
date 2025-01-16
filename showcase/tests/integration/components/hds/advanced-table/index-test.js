@@ -909,7 +909,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .exists({ count: 5 });
   });
 
-  test('it renders expanded children rows when pass isExpanded in the model', async function (assert) {
+  test('it renders expanded children rows when pass isOpen in the model', async function (assert) {
     setNestedTableData(this);
     this.set('model', [
       {
@@ -917,7 +917,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         name: 'Policy set 1',
         status: 'PASS',
         description: '',
-        isExpanded: true,
+        isOpen: true,
         children: [
           {
             id: 11,
@@ -938,14 +938,14 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         name: 'Policy set 2',
         status: 'FAIL',
         description: '',
-        isExpanded: true,
+        isOpen: true,
         children: [
           {
             id: 21,
             name: 'test-advisory-pass.sentinel',
             status: 'PASS',
             description: 'Sample description for this thing.',
-            isExpanded: true,
+            isOpen: true,
             children: [
               {
                 id: 211,
