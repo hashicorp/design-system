@@ -148,6 +148,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     let isSortable = false;
     const sortableColumns: string[] = [];
 
+    // if the model is not an array, assume there are no nested rows
+    if (!Array.isArray(model)) return false;
+
     for (const column of columns) {
       if (column.isSortable) {
         isSortable = true;
