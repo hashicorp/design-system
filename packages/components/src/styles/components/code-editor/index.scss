@@ -94,16 +94,12 @@
     border: 1px solid var(--hds-code-editor-color-border-strong);
 
     &:active {
-      background-color: var(--hds-code-editor-color-surface-interactive-active)
+      background-color: var(--hds-code-editor-color-surface-interactive-active);
     }
   
     &:focus,
     &:hover {
-      color: var(--hds-code-editor-color-foreground-high-contrast);
-      
-      .hds-button__icon {
-        color: var(--hds-code-editor-color-foreground-high-contrast);
-      }
+      background-color: var(--hds-code-editor-color-surface-primary);
     }
 
     .hds-button__icon {
