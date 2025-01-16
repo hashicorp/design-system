@@ -46,9 +46,9 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
     super(owner, args);
 
     this._isExpanded =
-      this.args.record['isExpanded'] &&
-      typeof this.args.record['isExpanded'] === 'boolean'
-        ? this.args.record['isExpanded']
+      this.args.record['isOpen'] &&
+      typeof this.args.record['isOpen'] === 'boolean'
+        ? this.args.record['isOpen']
         : false;
   }
 
