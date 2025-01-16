@@ -126,7 +126,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
     } else {
       // We return a default key to cause an update operation instead of replacement when the model changes to side-step
       // a bug in Ember which would cause the table to lose its selection state
-      return this.args.identityKey ?? 'hds-table-key';
+      return this.args.identityKey ?? '@identity';
     }
   }
 
@@ -295,7 +295,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
     console.log(
       `[${this.args.caption}] Did insert row checkbox`,
       selectionKey,
-      this._selectableRows.map((row) => row.selectionKey)
+      this._selectableRows.map((row): string => row.selectionKey)
     );
 
     if (selectionKey) {
@@ -310,12 +310,25 @@ export default class HdsTable extends Component<HdsTableSignature> {
     console.log(
       `[${this.args.caption}] Will destroy row checkbox`,
       selectionKey,
-      this._selectableRows.map((row) => row.selectionKey)
+      this._selectableRows.map((row): string => row.selectionKey)
     );
 
-    this._selectableRows = this._selectableRows.filter(
-      (row): boolean => row.selectionKey !== selectionKey
+    // Fix for selectableRows state not being maintained properly when model updates:
+    // Delete the first row with the given selction key you find from the selectableRows array
+    // Search for the index of the row to delete. If found, delete it.
+    // (Fixes issue of not rows not being properly selectable including "select all" functionality)
+    const rowToDeleteIndex = this._selectableRows.findIndex(
+      (row): boolean => row.selectionKey === selectionKey
     );
+
+    if (rowToDeleteIndex > -1) {
+      this._selectableRows.splice(rowToDeleteIndex, 1);
+    }
+
+    // ORIGINAL:
+    // this._selectableRows = this._selectableRows.filter(
+    //   (row): boolean => row.selectionKey !== selectionKey
+    // );
     this.setSelectAllState();
   }
 
