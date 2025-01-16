@@ -191,6 +191,10 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   display: none;
 }
 
+.hds-advanced-table__th-button--expand {
+  align-self: flex-start;
+}
+
 // ----------------------------------------------------------------
 
 // TABLE BODY
