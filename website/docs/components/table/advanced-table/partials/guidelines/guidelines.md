@@ -2,10 +2,10 @@
 
 ### When to use
 
-- For large datasets displayed in a scrollable container, sticky headers help keep column labels visible while navigating. If using pagination instead of a scrollable table, sticky headers may not be necessary.
-- When displaying hierarchical data that allows users to expand parent rows to reveal related child rows without leaving the table.
-- When full keyboard navigation is needed for moving between cells, interacting with content, and navigating nested rows.
-- When complex interactions that go beyond the standard Table are required.
+- When large datasets need to be viewed in a scrollable container instead of with pagination.
+- When displaying hierarchical data that allows users to expand rows to reveal related data without leaving the table.
+- When advanced keyboard navigation is required, such as moving between cells, focusing and interacting with expandable rows, and managing nested structures.
+- When implementing complex interactions like multi-select, nested rows, or expendable content, which are not supported in the standard Table.
 
 ### When not to use
 
@@ -25,6 +25,7 @@
 - Columns with sorting enabled are interactive and include hover, active, and focus states.
 - An Advanced Table may only be sorted by a single column at a time.
 
+
 ### Tooltips
 
 Labels within the Advanced Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
@@ -33,7 +34,8 @@ Labels within the Advanced Table column should be clear, concise, and straightfo
 
 Some examples where it may be useful to include additional context in a tooltip include:
 - When the label contains a product or HashiCorp-specific term.
-- When the label refers to a setting that can be changed elsewhere in the application
+- When the label refers to a setting that can be changed elsewhere in the application.
+
 
 ## Width 
 
@@ -118,16 +120,11 @@ Don’t center header labels or cell content within a table.
 
 ![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
 
-Striping improves readability by alternating row colors.
-- Non-nested Advanced Tables: Striping starts with the second row to differentiate it from the header.
-- Nested Advanced Tables: Only child rows are striped, keeping parent rows unstriped to reinforce hierarchy.
+Striping enhances readability by alternating row colors, making it easier to scan tabular data.
+- Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
+- Nested Advanced Tables:Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
-### Benefits of striping 
-
-- Striped rows use a subtle background color to differentiate from non-striped rows while maintaining adequate color contrast.
-- In nested Advanced Tables, striping is automatically applied to child rows while parent rows remain unstriped. This visually differentiates hierarchical relationships and cannot be disabled.
-- In non-nested Advanced Tables, striping is optional and must be enabled with an argument. It follows a standard alternating pattern to improve readability and scan ability.
-- Alternating row colors improve readability for numerical or text-heavy data.
+Striping improves clarity for numerical or text-heavy data and ensures hierarchical relationships are visually distinct. For non-nested Advanced Tables, striping is optional and must be enabled with an argument. Always verify adequate color contrast when using striping.
 
 !!! Info
 
@@ -136,15 +133,20 @@ Ensure that nested components within striped rows continue to maintain adequate 
 
 ### Expandable rows
 
-Expandable rows allow users to reveal or collapse additional content within the table structure.
+Expandable rows allow users to expand or collapse additional content within the table structure.
 
 ![Advanced Table expandable rows examples](/assets/components/table/advanced-table/expandable-rows.png) 
 
 ### When to use
 
-- When displaying hierarchical data that requires collapsible details.
-- When grouping related data entries under a single parent row.
-- Avoid when data does not require structured parent-child relationships.
+- When organizing hierarchical data into parent-child relationships, allowing users to expand or collapse details as needed.
+
+!!! Dont
+
+Avoid when data does not require structured parent-child relationships.
+
+![Advanced Table column placement example](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
+!!!
 
 ## Interaction
 

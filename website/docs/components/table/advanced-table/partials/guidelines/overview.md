@@ -1,1 +1,1 @@
-The Advanced Table is designed for managing complex datasets that require advanced interactivity, supporting features like sticky headers, keyboard navigation, and multi-select.
+The Advanced Table is designed to manage complex datasets requiring advanced interactivity, supporting features like sticky headers, keyboard navigation, and multi-select. Don’t mix Table and AdvancedTable components, as they are not interchangeable.
