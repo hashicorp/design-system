@@ -22,6 +22,8 @@ import type {
 import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
 
+type HdsCodeEditorBlurHandler = (editor: EditorView, event: FocusEvent) => void;
+
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
@@ -30,7 +32,7 @@ export interface HdsCodeEditorSignature {
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
-      onBlur?: (editor: EditorView, event: FocusEvent) => void;
+      onBlur?: HdsCodeEditorBlurHandler;
       onSetup?: (editor: EditorView) => unknown;
     };
   };
@@ -81,8 +83,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   editor!: EditorView;
   element!: HTMLElement;
 
+  onBlur: HdsCodeEditorSignature['Args']['Named']['onBlur'];
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
+  blurHandler!: (event: FocusEvent) => void;
   observer!: IntersectionObserver;
 
   constructor(
@@ -91,7 +95,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ) {
     super(owner, args);
 
-    registerDestructor(this, () => this.observer?.disconnect());
+    registerDestructor(this, () => {
+      this.observer?.disconnect();
+
+      if (this.onBlur !== undefined) {
+        this.element.removeEventListener('blur', this.blurHandler);
+      }
+    });
   }
 
   modify(
@@ -122,6 +132,21 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   }
 
+  private _setupEditorBlurHandler(
+    element: HTMLElement,
+    onBlur: HdsCodeEditorBlurHandler
+  ) {
+    const inputElement = element.querySelector('.cm-content');
+
+    if (inputElement === null) {
+      return;
+    }
+
+    this.blurHandler = (event: FocusEvent) => onBlur(this.editor, event);
+
+    (inputElement as HTMLElement).addEventListener('blur', this.blurHandler);
+  }
+
   private _setupEditorAriaAttributes(
     editor: EditorView,
     {
@@ -138,9 +163,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     );
 
     if (ariaLabel !== undefined) {
-      editor.dom.setAttribute('aria-label', ariaLabel);
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-label', ariaLabel);
     } else if (ariaLabelledBy !== undefined) {
-      editor.dom.setAttribute('aria-labelledby', ariaLabelledBy);
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-labelledby', ariaLabelledBy);
     }
   }
 
@@ -278,11 +307,20 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       _positional: PositionalArgs<HdsCodeEditorSignature>,
       named: NamedArgs<HdsCodeEditorSignature>
     ) => {
-      const { onInput, onSetup, ariaLabel, ariaLabelledBy, language, value } =
-        named;
+      const {
+        onBlur,
+        onInput,
+        onSetup,
+        ariaLabel,
+        ariaLabelledBy,
+        language,
+        value,
+      } = named;
+
+      this.onInput = onInput;
+      this.onBlur = onBlur;
 
       this.element = element;
-      this.onInput = onInput;
 
       const editor = await this._createEditorTask.perform(element, {
         language,
@@ -294,6 +332,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       this.editor = editor;
+
+      if (onBlur !== undefined) {
+        this._setupEditorBlurHandler(element, onBlur);
+      }
 
       this._setupEditorAriaAttributes(editor, { ariaLabel, ariaLabelledBy });
 
