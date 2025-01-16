@@ -114,7 +114,7 @@ Don’t center header labels or cell content within a table.
 ![Example of centered content within an Advanced Table](/assets/components/table/center-justified-alignment.png)
 !!!
 
-## Rows
+## Expandable rows
 
 ### Striping 
 
@@ -155,11 +155,9 @@ Avoid when data does not require structured parent-child relationships.
 - When scrolling down, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
 - Expanding a row moves focus to the first child row, while collapsing returns focus to the parent row.
 
-### Nested Row Best Practices
+### Considerations for nested rows
 
 - Use the same density setting for parent and child rows to keep layouts consistent.
-- Avoid mixing Table and AdvancedTable components, use one type for consistency.
-Ensure focus moves logically when expanding or collapsing nested rows.
 - Check that striping and background shading maintain proper contrast.
 
 ### Placement
@@ -201,14 +199,14 @@ When sticky headers are enabled, the label in each column remains visible as the
 
 ![Table cell density](/assets/components/table/advanced-table/colspan-table-example.png)
 
-### Horizontal Scrolling
+### Horizontal scrolling
 
 - Needed when there are many columns of equal priority.
 - Place the Advanced Table in a scrollable container for smooth side-scrolling.
 
 ![Advanced Table horizontal scrolling](/assets/components/table/advanced-table/horizontal-scrolling.png)
 
-## Keyboard Navigation
+## Keyboard navigation
 
 There are two modes when using a keyboard to interact with the Advanced Table: navigation and action.
 
