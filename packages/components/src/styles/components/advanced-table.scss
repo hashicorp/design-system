@@ -106,7 +106,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   &.hds-advanced-table__thead--sticky {
     position: sticky;
     top: -1px;
-    background-color: var(--token-color-surface-primary);
+    background-color: var(--token-color-surface-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
   }
