@@ -58,11 +58,10 @@ This space is intended for custom primary actions. Primary actions are those whi
 
 ![The Code Editor with the title "CodeEditor title". The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
 
-!!! Do
+Here is an example of a custom action to reveal secrets.
 
 ![The Code Editor with the title "CodeEditor title". The custom yielded section has a "Reveal secrets" toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
-!!!
 
 !!! Warning
 
