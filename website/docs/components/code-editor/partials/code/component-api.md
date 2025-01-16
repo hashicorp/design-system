@@ -11,6 +11,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="<[CE].Description>" @type="yielded component">
     `ContentBlock::Description` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="<[CE].Generic>" @type="yielded component">
+    `ContentBlock::Generic` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="ariaLabel" @type="string">
     Accepts a localized string. The `ariaLabel` value is applied to the code editor input element.
   </C.Property>
@@ -71,5 +74,17 @@ The `CodeEditor::Description` component, yielded as contextual component.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
+#### [CE].Generic
+
+A generic container, yielded as contextual component.
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="yield">
+    Elements passed as children are yielded as inner content of the "header content" block, after the "title" and "description".
+    <br/>The content can be a simple string or a more complex/structured one.
+    <br/>`Hds::Button` components inherit styles from the editor theme.
   </C.Property>
 </Doc::ComponentApi>
