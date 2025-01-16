@@ -14,7 +14,7 @@ let HdsAdvancedTableExpandableTrGroup = (_class = class HdsAdvancedTableExpandab
     super(owner, args);
     _initializerDefineProperty(this, "_isExpanded", _descriptor, this);
     _defineProperty(this, "_id", guidFor(this));
-    this._isExpanded = this.args.record['isExpanded'] && typeof this.args.record['isExpanded'] === 'boolean' ? this.args.record['isExpanded'] : false;
+    this._isExpanded = this.args.record['isOpen'] && typeof this.args.record['isOpen'] === 'boolean' ? this.args.record['isOpen'] : false;
   }
   get childrenKey() {
     const {

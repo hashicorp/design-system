@@ -1066,11 +1066,12 @@
 .hds-advanced-table__thead.hds-advanced-table__thead--sticky {
   position: sticky;
   top: -1px;
-  background-color: var(--token-color-surface-primary);
+  background-color: var(--token-color-surface-strong);
+  border-bottom: calc(3px - 1px / 2) solid var(--token-color-border-primary);
 }
 .hds-advanced-table__thead.hds-advanced-table__thead--sticky.hds-advanced-table__thead--is-pinned {
   border-top: calc(1px / 2 + 1px) solid var(--token-color-border-primary);
-  border-bottom: calc(1px / 2) solid var(--token-color-border-primary);
+  border-bottom: 3px solid var(--token-color-border-primary);
 }
 .hds-advanced-table__thead.hds-advanced-table__thead--sticky.hds-advanced-table__thead--is-pinned .hds-advanced-table__tr:first-of-type .hds-advanced-table__th:first-child {
   border-top-left-radius: 0;
@@ -1152,6 +1153,10 @@
 
 .hds-advanced-table__th-button-aria-label-hidden-segment {
   display: none;
+}
+
+.hds-advanced-table__th-button--expand {
+  align-self: flex-start;
 }
 
 .hds-advanced-table__tbody {
