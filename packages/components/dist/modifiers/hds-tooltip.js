@@ -92,13 +92,12 @@ function _createPopoverContainer(element) {
   const containerElement = document.createElement('div');
   containerElement.setAttribute('id', this._containerId);
   containerElement.classList.add('hds-tooltip-container');
+  containerElement.style.setProperty('position', 'absolute');
+  containerElement.style.setProperty('width', '100%');
   element.setAttribute('aria-controls', this._containerId);
   element.setAttribute('aria-describedby', this._containerId);
+  element.after(containerElement);
   this._containerElement = containerElement;
-  const parent = element.parentElement;
-  if (parent) {
-    parent?.appendChild(containerElement);
-  }
 }
 function _getTooltipProps(element, positional, named) {
   const {
