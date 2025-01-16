@@ -991,7 +991,6 @@
 
       <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__tbody">
-          <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
               <Hds::AdvancedTable::Th @depth={{0}} @isExpandable={{true}}>
                 Depth 0
@@ -1006,7 +1005,6 @@
                 Dolor
               </Hds::AdvancedTable::Td>
             </Hds::AdvancedTable::Tr>
-            <div class="hds-advanced-table__expandable-tr-group">
               <Hds::AdvancedTable::Tr @depth={{1}}>
                 <Hds::AdvancedTable::Th @depth={{1}} @isExpandable={{true}}>
                   Depth 1
@@ -1021,7 +1019,6 @@
                   Dolor
                 </Hds::AdvancedTable::Td>
               </Hds::AdvancedTable::Tr>
-              <div class="hds-advanced-table__expandable-tr-group">
                 <Hds::AdvancedTable::Tr @depth={{2}}>
                   <Hds::AdvancedTable::Th @depth={{2}} @isExpandable={{true}}>
                     Depth 2
@@ -1037,9 +1034,6 @@
                   </Hds::AdvancedTable::Td>
                 </Hds::AdvancedTable::Tr>
               </div>
-            </div>
-          </div>
-        </div>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -1048,7 +1042,6 @@
     <SF.Item @grow={{true}}>
       <div class="hds-advanced-table hds-advanced-table--density-medium" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
         <div class="hds-advanced-table__tbody">
-          <div class="hds-advanced-table__expandable-tr-group">
             <Hds::AdvancedTable::Tr @depth={{0}}>
               <Hds::AdvancedTable::Th @depth={{0}} @isExpandable={{true}}>
                 Depth 0 - This is a very long text that should go on two lines
@@ -1063,7 +1056,6 @@
                 Dolor
               </Hds::AdvancedTable::Td>
             </Hds::AdvancedTable::Tr>
-            <div class="hds-advanced-table__expandable-tr-group">
               <Hds::AdvancedTable::Tr @depth={{1}}>
                 <Hds::AdvancedTable::Th @depth={{1}} @isExpandable={{true}}>
                   Depth 1 - This is a very long text that should go on two lines
@@ -1078,7 +1070,6 @@
                   Dolor
                 </Hds::AdvancedTable::Td>
               </Hds::AdvancedTable::Tr>
-              <div class="hds-advanced-table__expandable-tr-group">
                 <Hds::AdvancedTable::Tr @depth={{2}}>
                   <Hds::AdvancedTable::Th @depth={{2}} @isExpandable={{true}}>
                     Depth 2 - This is a very long text that should go on two lines
@@ -1094,9 +1085,6 @@
                   </Hds::AdvancedTable::Td>
                 </Hds::AdvancedTable::Tr>
               </div>
-            </div>
-          </div>
-        </div>
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -1300,10 +1288,37 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Flex @label="Sticky header" as |SF|>
+    <SF.Item @label="Default" @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Ipsum</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Dolor</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @isVisuallyHidden={{true}}>Sit amet</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+     <SF.Item @label="Pinned" @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky hds-advanced-table__thead--is-pinned">
+          <div class="hds-advanced-table__tr">
+            <Hds::AdvancedTable::Th>Lorem</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Ipsum</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th>Dolor</Hds::AdvancedTable::Th>
+            <Hds::AdvancedTable::Th @isVisuallyHidden={{true}}>Sit amet</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Flex @direction="column" @label="Multi-line" as |SF|>
     <SF.Item {{style width="600px"}}>
       <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(2, 1fr)"}}>
-        <div class="hds-advanced-table__thead hds-advanced-table__thead--sticky">
+        <div class="hds-advanced-table__thead hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             <Hds::AdvancedTable::Th>
               This is a very long text that should go on two lines
