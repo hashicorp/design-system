@@ -35,6 +35,15 @@ export default class extends Controller {
       .sort(() => Math.random() - 0.5);
   }
 
+  @action dirtyModelWithLessRows() {
+    this.lyrics = this.lyrics
+      // Deep copy to destroy references
+      .map((r) => ({ ...r }))
+      // Randomly sort to see what happens in this case
+      .sort(() => Math.random() - 0.5)
+      .filter((row) => row.key !== 'five');
+  }
+
   printSelection = (selection) =>
     console.log('Printing selection:', selection.selectedRowsKeys);
 }

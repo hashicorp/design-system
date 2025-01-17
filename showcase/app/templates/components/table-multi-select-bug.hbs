@@ -22,7 +22,10 @@
 
   <Shw::Text::H2>This will work until you click the "Force new data" button</Shw::Text::H2>
 
-  <Hds::Button @text="Force new data" {{on "click" this.dirtyModel}} />
+  <p>
+    <Hds::Button @text="Force new data" {{on "click" this.dirtyModel}} @isInline={{true}} />
+    <Hds::Button @text="Force new data with fewer rows" {{on "click" this.dirtyModelWithLessRows}} @isInline={{true}} />
+  </p>
 
   <Hds::Table
     @model={{this.lyrics}}

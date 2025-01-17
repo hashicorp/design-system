@@ -300,6 +300,11 @@ export default class HdsTable extends Component<HdsTableSignature> {
     );
 
     if (selectionKey) {
+      // Remove any existing item with the same `selectionKey` identifier (this may occur if the model is updated and the rows re-rendered)
+      this._selectableRows = this._selectableRows.filter(
+        (row): boolean => row.selectionKey !== selectionKey
+      );
+      // Add the new item
       this._selectableRows.push({ selectionKey, checkbox });
     }
     this.setSelectAllState();
@@ -314,22 +319,6 @@ export default class HdsTable extends Component<HdsTableSignature> {
       this._selectableRows.map((row): string => row.selectionKey)
     );
 
-    // Fix for selectableRows state not being maintained properly when model updates:
-    // Delete the first row with the given selection key you find from the selectableRows array
-    // Search for the index of the row to delete. If found, delete it.
-    // (Fixes issue of not rows not being properly selectable including "select all" functionality)
-    const rowToDeleteIndex = this._selectableRows.findIndex(
-      (row): boolean => row.selectionKey === selectionKey
-    );
-
-    if (rowToDeleteIndex > -1) {
-      this._selectableRows.splice(rowToDeleteIndex, 1);
-    }
-
-    // ORIGINAL:
-    // this._selectableRows = this._selectableRows.filter(
-    //   (row): boolean => row.selectionKey !== selectionKey
-    // );
     this.setSelectAllState();
   }
 
