@@ -36,7 +36,9 @@
         @href={{@href}}
         @isHrefExternal={{@isHrefExternal}}
       >
-        {{this.text}}
+        <div class="hds-tag__text-container">
+          {{this.text}}
+        </div>
       </Hds::Interactive>
     {{/if}}
   {{else}}
@@ -45,11 +47,15 @@
         class="hds-tag__text"
         {{hds-tooltip this.text options=(hash placement="right")}}
       >
-        {{this.text}}
+        <div class="hds-tag__text-container">
+          {{this.text}}
+        </div>
       </span>
     {{else}}
       <span class="hds-tag__text">
-        {{this.text}}
+        <div class="hds-tag__text-container">
+          {{this.text}}
+        </div>
       </span>
     {{/if}}
   {{/if}}
