@@ -35,6 +35,99 @@
 Due to the number of changes within the layer structure of all Dropdown components, consumers will need to relink and likely repopulate all instances.
 !!!
 
+`Flyout`
+
+- Now uses Dialog Primitive as a base component
+- Now features max-width settings in Figma that match the property in code.
+- Added a `[Template]` component that combines the Flyout with the Overlay.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new structure using the Dialog Primitive as a base, most instances of the Flyout will need to be relinked.
+!!!
+
+##### Form
+
+All components that fall under the Form cateogry have been reordered in the library file and, rather than using the table of contents structure, are now named with "Form /" as a prefix on the page name.
+
+`Primitives`
+
+- New .Label local component to account for repeated label elements.
+    - Instead of using booleans for required and optional (which allowed consumers to accidentally enable both at once), these have been combined into an `indicator` property to better align with code.
+- Changed the name of .baseText to .ValueText to use a more semantic name.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new component layer and naming conventions, each instance of Form::Fieldset will need to have text repopulated.
+!!!
+
+`Checkbox`
+
+- Changed all naming to better match the component in code and subcomponent names.
+- Removed unnecessary variants with Checkbox::Field, migrated to use booleans, and exposed nested properties to simplify the component usability.
+- Created local nested instances for .Checkmark and .Indeterminate icons for easier maintenance.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new component layer and naming structures, each instance of Checkbox::Base, Checkbox::Field, and Checkbox::Group will need to be relinked and repopulated.
+!!!
+
+`File Input`
+
+Changed the structure fo FileInput::Field to expose nested properties rather than using additional variants for control state, labels, helper text, and error message.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new component layer and naming conventions, each instance of FileInput::Base and FileInput::Field will need to be relinked and helper/error text be repopulated.
+
+`Masked Input`
+
+Simplified the construction of MaskedInput::Field by exposing nested component instances for label, character count, control, helper text, and error message.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new nesting structure, all instances of MaskedInput will need to be repopulated with content once relinked.
+!!!
+
+`Radio`
+
+- Changed the structure of Radio::Field to expose nested properties rather than using additional variants for radio settings, helper text, and error message.
+- Exposed nested instances on Radio::Group to make it easier to customize each line item within the group.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the removal of certain variants in favor of nested properties, all instances of Radio::Field and Radio::Group will need to be relinked and all text repopulated.
+!!!
+
+`Radio Card`
+
+- Updated .RadioCard::Item to include text properties for all customizable text fields.
+- Updated RadioCard::Group to expose nested instances of helper text, error text, and card items.
+
+!!! Insight
+
+**Migration Note**
+
+- Due to the restructuring of the component and addition of nested properties, all instances of RadioCard::Group will need to be relinked and all text repopulated.
+- Please note that the intention of the layout in the card group is for the longest card to determine the overall height of the group. Once the longest card has been determined, set all other cards to "Fill Height" to ensure that all cards have the same height.
+!!!
+
+`Select`
+
+- OptionList / Item and OptionGroupLabel have been hidden in favor of the use of [Browser] OptionList and/or [Template] Select.
+
 ### December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
