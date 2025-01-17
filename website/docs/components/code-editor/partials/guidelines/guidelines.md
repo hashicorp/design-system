@@ -41,7 +41,7 @@ Provide an accessible name for the Code Editor so that users of assistive techno
 
 !!! Dont
 
-Assume all users will understand the purpose of the Code Editor without providing an accessible name. (Not providing one may cause confusion and is an accessibility failure.)
+Assume all users will understand the purpose of the Code Editor without providing an accessible name. Not providing one may cause confusion and is an accessibility failure.
 ![A Code Editor embedded in a form following a set of radio buttons. The Code Editor has no title labelling it.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
 
 !!!
@@ -96,9 +96,9 @@ The Code Editor automatically closes open quotes and brackets as the user types.
 
 Language determines how syntax highlighting is applied and formatted within the editor but is handled a bit differently between the Ember and Figma components.
 
-The **Ember** component uses [CodeMirror](https://codemirror.net/) to handle syntax highlighting and comes with a pre-defined set of languages.
+The **Ember** component uses [CodeMirror](https://codemirror.net/) to handle syntax highlighting and comes with a pre-defined set of [languages](/components/code-editor?tab=code#language-1).
 
-In **Figma** we provide a handful of example languages intended as visual examples. (Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code.) You are still able to add a custom code snippet to the Figma component by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
+In **Figma** we provide a handful of example languages intended as visual examples. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. You are still able to add a custom code snippet to the Figma component by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
 ### Applying syntax highlighting
 
