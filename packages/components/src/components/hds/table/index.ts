@@ -124,8 +124,9 @@ export default class HdsTable extends Component<HdsTableSignature> {
     if (this.args.identityKey === 'none') {
       return undefined;
     } else {
-      // We return a default key to cause an update operation instead of replacement when the model changes to side-step
-      // a bug in Ember which would cause the table to lose its selection state
+      // We return `@identity` as default to cause an update operation instead of replacement when the model changes to avoid unexpected side effects
+      // see: "Specifying Keys" here: https://api.emberjs.com/ember/6.1/classes/Ember.Templates.helpers/methods/each?anchor=each
+      // see also: https://github.com/hashicorp/design-system/pull/1160 + https://github.com/hashicorp/cloud-ui/pull/5178 + https://hashicorp.atlassian.net/browse/HDS-4273
       return this.args.identityKey ?? '@identity';
     }
   }
@@ -314,7 +315,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
     );
 
     // Fix for selectableRows state not being maintained properly when model updates:
-    // Delete the first row with the given selction key you find from the selectableRows array
+    // Delete the first row with the given selection key you find from the selectableRows array
     // Search for the index of the row to delete. If found, delete it.
     // (Fixes issue of not rows not being properly selectable including "select all" functionality)
     const rowToDeleteIndex = this._selectableRows.findIndex(

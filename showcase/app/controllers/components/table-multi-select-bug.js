@@ -28,8 +28,11 @@ export default class extends Controller {
   @tracked lyrics = daysOfChristmas.slice();
 
   @action dirtyModel() {
-    // Deep copy to destroy references
-    this.lyrics = this.lyrics.map((r) => ({ ...r }));
+    this.lyrics = this.lyrics
+      // Deep copy to destroy references
+      .map((r) => ({ ...r }))
+      // Randomly sort to see what happens in this case
+      .sort(() => Math.random() - 0.5);
   }
 
   printSelection = (selection) =>
