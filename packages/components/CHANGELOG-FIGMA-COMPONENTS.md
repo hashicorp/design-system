@@ -1,251 +1,32 @@
-# [HDS Components UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1)
-
-## January 23rd, 2025
-
-`Advanced Table` - Added new component.
-`Code Editor` - Added new component.
-`Table` - Added column borders.
-
-`Flyout`
-
-- Now uses Dialog Primitive as a base component
-- Now features max-width settings in Figma that match the property in code.
-- Added a [Template] component that combines the Flyout with the Overlay.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new structure using the Dialog Primitive as a base, most instances of the Flyout will need to be relinked.
-!!!
-
-#### Form
-
-All components that fall under the Form cateogry have been reordered in the library file and, rather than using the table of contents structure, are now named with "Form /" as a prefix on the page name.
-
-`Primitives`
-
-- New .Label local component to account for repeated label elements.
-    - Instead of using booleans for required and optional (which allowed consumers to accidentally enable both at once), these have been combined into an `indicator` property to better align with code.
-- Changed the name of .baseText to .ValueText to use a more semantic name.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new component layer and naming conventions, each instance of Form::Fieldset will need to have text repopulated.
-!!!
-
-`Checkbox`
-
-- Changed all naming to better match the component in code and subcomponent names.
-- Removed unnecessary variants with Checkbox::Field, migrated to use booleans, and exposed nested properties to simplify the component usability.
-- Created local nested instances for .Checkmark and .Indeterminate icons for easier maintenance.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new component layer and naming structures, each instance of Checkbox::Base, Checkbox::Field, and Checkbox::Group will need to be relinked and repopulated.
-!!!
-
-`File Input`
-
-Changed the structure fo FileInput::Field to expose nested properties rather than using additional variants for control state, labels, helper text, and error message.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new component layer and naming conventions, each instance of FileInput::Base and FileInput::Field will need to be relinked and helper/error text be repopulated.
-!!!
-
-`Masked Input`
-
-Simplified the construction of MaskedInput::Field by exposing nested component instances for label, character count, control, helper text, and error message.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new nesting structure, all instances of MaskedInput will need to be repopulated with content once relinked.
-!!!
-
-`Radio`
-
-- Changed the structure of Radio::Field to expose nested properties rather than using additional variants for radio settings, helper text, and error message.
-- Exposed nested instances on Radio::Group to make it easier to customize each line item within the group.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the removal of certain variants in favor of nested properties, all instances of Radio::Field and Radio::Group will need to be relinked and all text repopulated.
-!!!
-
-`Radio Card`
-
-- Updated .RadioCard::Item to include text properties for all customizable text fields.
-- Updated RadioCard::Group to expose nested instances of helper text, error text, and card items.
-
-!!! Insight
-
-**Migration Note**
-
-- Due to the restructuring of the component and addition of nested properties, all instances of RadioCard::Group will need to be relinked and all text repopulated.
-- Please note that the intention of the layout in the card group is for the longest card to determine the overall height of the group. Once the longest card has been determined, set all other cards to "Fill Height" to ensure that all cards have the same height.
-!!!
-
-`Select`
-
-- OptionList / Item and OptionGroupLabel have been hidden in favor of the use of [Browser] OptionList and/or [Template] Select.
-    - Note: the naming difference in these components is due to their lack of corresponding component in code. These are Figma equivalents to the default browser UI that end-users will see in Chrome on MacOS
-- Select::Base now allows text customization in the properties panel or hiding of the text with a boolean property.
-- Select::Field now exposes nested component properties from Select::Base for control state, text within the control, label text, and label indicator (required/optional).
-- Added a [Template] component for easier use of combined components in dropdown layouts.
-
-!!! Insight
-
-**Migration Note**
-
-- Due to the restructuring of these components and the addition of nested properties, all instances of "Select::Base" and "Select::Field" will need to be relinked and all text repopulated.
-- If designs areusing the individual depreacted OptionList / Item components to create custom option lists, we recommend replacing the lists with the component options "[Browser] OptionList" and/or "[Template] Select."
-!!!
-
-`Super Select`
-
-- Text is now customizable as part of the ".value" nested component rather than text layer. This allows the text value to be customized in the properties panel.
-- Generic placeholders have been exposed in the properties panel for easier customization.
-- Component names have been changed for clarity around intended use:
-    - "ListItem / Checkmark" is now "ListItemSingle"
-    - "ListItem / Checkbox" is now "ListItemMultiple"
-- "ListItemSingle" has been reduced in variant number and component complexity using boolean attributes for `checkmark`.
-- Footer components for the dropdown list have been consolidated into the "AfterOptions" set of components.
-- "SuperSelect::Multiple::Base" now exposes properties for each nested Tag.
-- "SuperSelect::Multiple::Field" has been simplified in structure using exposed nested components for the control, label, helper text, and error message.
-- "OptionsListMultiple" now exposes properties for each list item within the list as well as the "BeforeOptions" and "AfterOptions".
-- "SuperSelect::Single::Base" now allows the control to use placeholder text or a filled style in addition to the generic instance.
-- "SuperSelect::Single::Field" has been simplified in structure using exposed nested components for the control, label, helper text, and error message.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
-!!!
-
-`Text Input`
-
-- "TextInput::Base" now has a nested component called ".Value" that allows customization of the text in the control from the properties panel.
-- All Text Input components use "TextInput::Base" and local components for error messaging, indicators, character count, and labels with exposed nested properties in order to reduce the number of variants and streamline maintenance of the entire component set.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
-!!!
-
-`Textarea`
-
-- "Textarea::Base" now has a nested component called ".Value" that allows customization of the text in the control from the properties panel.
-- "Textarea::Field" now uses nested components for the control, label, helper text, error messaging, and character count in order to reduce the number of variants needed and streamline the maintenance of the component.
-
-!!! Insight
-
-**Maintenance Note**
-
-Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
-!!!
-
-`Toggle`
-
-- "Toggle::Field" has been simplified using nested components with exposed properties for label, control, helper text, and error messaging.
-- "Toggle::Group" now has a horizontal layout option.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
-!!!
-
-`Icon Tile`
-
-Combined two components into a single component which better aligns to the component in code.
-
-!!! Insight
-
-**Migration Note**
-
-Because of the consolidation into one component, all instances of the Icon Tile will need to be reset.
-!!!
-
-`Link / Standalone Link`
-
-Small cleanup changes only.
-
-`Modal`
-
-- Now uses Dialog Primitive as a base component.
-- Now features a max-width setting in Figma that match the code settings.
-- Created a [Template] component that combines the Modal with the Overlay.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the new structure using the Dialog Primitive component, all instances of the Modal will need to be relinked.
-!!!
-
-`Page Header`
-
-No longer has a property for `iconTileType` since there is now only one Icon Tile.
-
-`Pagination`
-
-- "_NavArrow / Previous" and "_NavArrow / Next" have been merged into one local component to mirror the code component API more closely.
-- The truncation ellipsis has been moved from being contained within the "_NavNumber" to it's own local component to better match the code component API.
-- "Pagination::Compact" and "Pagination::Numbered" are now separate components to better match the code component API and allow compact pagination with or without labels on the "NavArrow" elements.
-
-!!! Insight
-
-**Migration Note**
-
-Due to the comprehensive restructuring, osme overrides to the original component may need to be repopulated.
-!!!
-
-`Reveal`
-
-Small cleanup changes only.
-
-!!! Insight
-
-**Migration Note**
-
-If overrides were made to the nested Button in design files, this content may need to be repopulated due to breaking changes in the Button component.
-!!!
-
-`Rich Tooltip`
-
-The pointer shape for both Tooltip types has been consolidated into one ".Pointer" component.
-
-!!! Insight
-
-**Migration Note**
-
-This component had minor cleanup changes, but changes within the generic instance may require relinking to other components or variables.
-!!!
+# [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
 ## December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
 
-**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
-
-Released HDS Components UI Kit v2.0.
-
 `SideNav` - No longer deprecated due to adjustments in prioritization.
+
+### Figma v2.0 Components
+
+- Deprecated HDS Components UI Kit v1.0. It will no longer receive updates or support.
+- Released HDS components UI Kit v2.0.
+
+In many cases, replacing v1.0 library components with the components in the Figma v2.0 Library will result in breaking changes. For a comprehensive list of how these changes will impact your designs, refer to the [changelog document](https://docs.google.com/document/d/1q9IGtrsVOf3KrSBGb8AdF3OhPUm3fYAwPdhSml7onMM/edit?tab=t.0#heading=h.15f60fqiivvr).
+
+#### General changes
+
+- Improved consistency in component naming conventions
+- Enhanced property panel customization options
+- Reduced variant complexity through boolean properties
+- Added local tokens for custom styling (hidden from publishing)
+- Standardized nested component structure
+
+#### Component organization updates
+
+- Standardized naming conventions, nested structures, and boolean property usage to reduce complexity.
+- Updated organization with "Form /" prefixes and DialogPrimitive as the base for modal components.
+- Introduced [Template] components for common combinations.
+- Improved nested component accessibility for easier customization.
 
 ## September 11th, 2024
 
