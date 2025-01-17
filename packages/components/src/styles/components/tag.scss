@@ -20,6 +20,7 @@ $hds-tag-border-radius: 50px;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
   border-radius: $hds-tag-border-radius;
+  max-width: 20ch;
 }
 
 .hds-tag__dismiss {
@@ -43,6 +44,9 @@ $hds-tag-border-radius: 50px;
   flex: 1 0 0;
   padding: 3px 10px 5px 10px;
   border-radius: inherit;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .hds-tag__dismiss ~ .hds-tag__text,

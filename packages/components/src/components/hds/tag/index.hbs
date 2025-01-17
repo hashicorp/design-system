@@ -9,22 +9,48 @@
     </button>
   {{/if}}
   {{#if (or @href @route)}}
-    <Hds::Interactive
-      class="hds-tag__link"
-      @current-when={{@current-when}}
-      @models={{hds-link-to-models @model @models}}
-      @query={{hds-link-to-query @query}}
-      @replace={{@replace}}
-      @route={{@route}}
-      @isRouteExternal={{@isRouteExternal}}
-      @href={{@href}}
-      @isHrefExternal={{@isHrefExternal}}
-    >
-      {{this.text}}
-    </Hds::Interactive>
+    {{#if this.isTextTruncated}}
+      <Hds::Interactive
+        class="hds-tag__link"
+        @current-when={{@current-when}}
+        @models={{hds-link-to-models @model @models}}
+        @query={{hds-link-to-query @query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+        {{hds-tooltip this.text options=(hash placement="right")}}
+      >
+        {{this.text}}
+      </Hds::Interactive>
+    {{else}}
+      <Hds::Interactive
+        class="hds-tag__link"
+        @current-when={{@current-when}}
+        @models={{hds-link-to-models @model @models}}
+        @query={{hds-link-to-query @query}}
+        @replace={{@replace}}
+        @route={{@route}}
+        @isRouteExternal={{@isRouteExternal}}
+        @href={{@href}}
+        @isHrefExternal={{@isHrefExternal}}
+      >
+        {{this.text}}
+      </Hds::Interactive>
+    {{/if}}
   {{else}}
-    <span class="hds-tag__text">
-      {{this.text}}
-    </span>
+    {{#if this.isTextTruncated}}
+      <span
+        class="hds-tag__text"
+        {{hds-tooltip this.text options=(hash placement="right")}}
+      >
+        {{this.text}}
+      </span>
+    {{else}}
+      <span class="hds-tag__text">
+        {{this.text}}
+      </span>
+    {{/if}}
   {{/if}}
 </Hds::Text::Body>

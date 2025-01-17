@@ -25,6 +25,8 @@ export interface HdsTagSignature {
 }
 
 export default class HdsTag extends Component<HdsTagSignature> {
+  private _characterLimit = 20;
+
   /**
    * @param onDismiss
    * @type {function}
@@ -52,6 +54,10 @@ export default class HdsTag extends Component<HdsTagSignature> {
     assert('@text for "Hds::Tag" must have a valid value', text !== undefined);
 
     return text;
+  }
+
+  get isTextTruncated(): boolean {
+    return this.args.text.length > this._characterLimit;
   }
 
   /**
