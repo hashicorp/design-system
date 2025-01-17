@@ -2,7 +2,7 @@
 
 ### Advanced Table headers
 
-![Table header anatomy](/assets/components/table/advanced-table/Advanced-table-table-header-anatomy.png)
+![](/assets/components/table/advanced-table/Advanced-table-table-header-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|

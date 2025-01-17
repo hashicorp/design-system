@@ -49,7 +49,7 @@ The column placement property is only relevant within Figma and doesn’t exist 
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
 
-![Advanced Table column placement example](/assets/components/table/advanced-table/table-col-placement.png)
+![For header columns, start placement adds a border radius to the top left corner and a border on the left and right, middle placement has squared corners and a border on the right, end placement has a border radius on the top right corner and a border on the right. For cells, start placement has a border on the left and right, middle and end placement have a border on the right.](/assets/components/table/advanced-table/table-col-placement.png)
 
 ## Alignment
 
@@ -132,7 +132,7 @@ Ensure that content within striped rows continue to maintain adequate color cont
 
 ## Expandable rows
 
-Expandable rows allow users to expand or collapse additional content within the table structure.
+Expandable rows allow users to expand or collapse additional content within the table structure. The additional content must be in a similar form to the parent row.
 
 ![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png) 
 
@@ -158,16 +158,16 @@ Avoid using expandable rows when data is not structured in parent-child relation
 - Use the same density setting for parent and child rows to keep layouts consistent.
 - Ensure that nested content and components within striped rows maintain adequate contrast with the background color.
 
-### Placement
+## Placement
 
 !!! Info
 
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
 !!!
 
-Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end utilize the row placement property; column position middle does not utilize this property.
+Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end use the row placement property; column position middle does not use this property.
 
-![Table row placement example](/assets/components/table/advanced-table/table-row-placement.png)
+![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
 ## Headers
 
@@ -177,13 +177,13 @@ Row placement determines the visual styling based on where the row is placed rel
 
 When sticky headers are enabled, the label in each column remains visible as the user scrolls. This can be useful for large data sets where the user might need to constantly reference the label.
 
-![Advanced Table sticky header example](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
+![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
 ## Cells
 
 ### Density
 
-![Table cell density](/assets/components/table/advanced-table/table-density.png)
+![Medium cell density has 14px vertical padding, tall has 22px vertical padding, and short has 6px vertical padding.](/assets/components/table/advanced-table/table-density.png)
 
 - We recommend using medium cell density by default.
 - If content is largely string/text-based, short allows for more content to be displayed within the page.
@@ -195,14 +195,14 @@ When sticky headers are enabled, the label in each column remains visible as the
 - Use column and row spans carefully to avoid misalignment or breaking table interactions.
 - Multi-span cells should use the same alignment for readability.
 
-![Table cell density](/assets/components/table/advanced-table/colspan-table-example.png)
+![](/assets/components/table/advanced-table/colspan-table-example.png)
 
 ### Horizontal scrolling
 
-- Needed when there are many columns of equal priority.
+- We recommend using this when there are many columns of equal priority.
 - Place the Advanced Table in a scrollable container for smooth side-scrolling.
 
-![Advanced Table horizontal scrolling](/assets/components/table/advanced-table/horizontal-scrolling.png)
+![](/assets/components/table/advanced-table/horizontal-scrolling.png)
 
 ## Keyboard navigation
 
@@ -222,7 +222,7 @@ When the user moves focus into the Advanced Table (tab key), the first cell will
 
 When the user is in navigation mode, pressing enter will activate action mode, where:
 
-- If a cell contains a single interactive element, pressing Enter will focus on that element instead of executing it immediately.
+- If a cell contains a single interactive element, pressing Enter will focus on that element.
 - If there is more than one interactive element within the cell, the first element will be focused, allowing the user to tab between them.
 - Pressing escape will take the user out of action mode and back into navigation mode.
 
@@ -234,8 +234,8 @@ A multi-select pattern consists of:
 
 1. A select all in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
 
-![Example of multi-select in a table header](/assets/components/table/advanced-table/table-multi-select-header.png)
+![](/assets/components/table/advanced-table/table-multi-select-header.png)
 
 2. Row level select allowing for the selection of an individual row.
 
-![Example of multi-select within table cells](/assets/components/table/advanced-table/table-multi-select-cells.png)
+![](/assets/components/table/advanced-table/table-multi-select-cells.png)
