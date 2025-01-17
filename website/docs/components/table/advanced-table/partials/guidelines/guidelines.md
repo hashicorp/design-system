@@ -5,11 +5,10 @@
 - When large datasets benefit from being viewed in a scrollable container instead of with pagination.
 - When displaying hierarchical data that allows users to expand rows to reveal related data without leaving the table.
 - When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns. 
-- When implementing complex interactions like multi-select, nested rows, or expendable content, which are not supported in the standard Table.
 
 ### When not to use
 
-- If sorting and pagination are sufficient for your dataset, use the standard Table instead.
+- If sorting and pagination are sufficient for your dataset, use the standard [Table](/components/table/table) instead.
 - When displaying static or minimal data that doesn’t require advanced interactivity.
 - When a visual representation like charts or graphs better conveys the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
@@ -19,7 +18,7 @@
 
 ### Sorting
 
-![Header column sorting](/assets/components/table/advanced-table/table-sorting.png)
+![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns with sorting enabled are interactive and include hover, active, and focus states.
@@ -30,7 +29,7 @@
 
 Labels within the Advanced Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
 
-![Tooltips in a Header Column](/assets/components/table/advanced-table/table-tooltip-example.png)
+![](/assets/components/table/advanced-table/table-tooltip-example.png)
 
 Some examples where it may be useful to include additional context in a tooltip include:
 - When the label contains a product or HashiCorp-specific term.
@@ -57,29 +56,29 @@ Column placement determines the visual styling based on where the column is plac
 The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, and relative position within the advanced table.
 
 !!! Info 
-Helios uses left and right for alignment to match the Ember component API. This documentation follows that convention for consistency across design and development.
+Helios uses left and right for alignment to match the Ember component API. This documentation follows that convention for consistency across design and code.
 !!!
 
 !!! Do
 
-![Advanced Table column placement example](/assets/components/table/advanced-table/table-alignment-do.png)
+![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
 !!!
 
 !!! Dont
 
-![Advanced Table column placement example](/assets/components/table/advanced-table/table-alignment-dont.png)
+![An Advanced Table with two columns, the header of the first column is left aligned and the cell below is right aligned. The header of the second column is right aligned and the cell below is left aligned.](/assets/components/table/advanced-table/table-alignment-dont.png)
 !!!
 
-### Start alignment
+### Left alignment
 
 Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
-- Use start alignment for:
-String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
+Use start alignment for:
+- String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
-![Start alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
+![Left alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
 
 ### End alignment 
 
