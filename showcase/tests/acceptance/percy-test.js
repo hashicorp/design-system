@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { visit, click } from '@ember/test-helpers';
+import { visit, click, waitFor } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import percySnapshot from '@percy/ember';
 import config from 'showcase/config/environment';
@@ -63,6 +63,10 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/code-block');
     await percySnapshot('CodeBlock');
+
+    await visit('/components/code-editor');
+    await waitFor('.hds-code-editor__loader', { count: 0 });
+    await percySnapshot('CodeEditor');
 
     await visit('/components/copy/button');
     await percySnapshot('CopyButton');

@@ -1,0 +1,11 @@
+<Hds::Button
+  class={{this.className}}
+  aria-pressed={{@isFullScreen}}
+  @isIconOnly={{true}}
+  @color="secondary"
+  @size="small"
+  @icon={{this.state}}
+  @text="Toggle full screen view"
+  {{on "click" @onToggleFullScreen}}
+  ...attributes
+/>

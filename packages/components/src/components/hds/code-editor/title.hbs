@@ -1,0 +1,11 @@
+<Hds::Text::Body
+  id={{this._id}}
+  class="hds-code-editor__title"
+  @tag={{this.tag}}
+  @size="200"
+  @weight="semibold"
+  {{did-insert @onInsert}}
+  ...attributes
+>
+  {{yield}}
+</Hds::Text::Body>
