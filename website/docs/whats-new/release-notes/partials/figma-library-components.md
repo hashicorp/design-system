@@ -39,7 +39,7 @@ Due to the number of changes within the layer structure of all Dropdown componen
 
 - Now uses Dialog Primitive as a base component
 - Now features max-width settings in Figma that match the property in code.
-- Added a `[Template]` component that combines the Flyout with the Overlay.
+- Added a [Template] component that combines the Flyout with the Overlay.
 
 !!! Insight
 
@@ -127,6 +127,76 @@ Due to the removal of certain variants in favor of nested properties, all instan
 `Select`
 
 - OptionList / Item and OptionGroupLabel have been hidden in favor of the use of [Browser] OptionList and/or [Template] Select.
+    - Note: the naming difference in these components is due to their lack of corresponding component in code. These are Figma equivalents to the default browser UI that end-users will see in Chrome on MacOS
+- Select::Base now allows text customization in the properties panel or hiding of the text with a boolean property.
+- Select::Field now exposes nested component properties from Select::Base for control state, text within the control, label text, and label indicator (required/optional).
+- Added a [Template] component for easier use of combined components in dropdown layouts.
+
+!!! Insight
+
+**Migration Note**
+
+- Due to the restructuring of these components and the addition of nested properties, all instances of "Select::Base" and "Select::Field" will need to be relinked and all text repopulated.
+- If designs areusing the individual depreacted OptionList / Item components to create custom option lists, we recommend replacing the lists with the component options "[Browser] OptionList" and/or "[Template] Select."
+!!!
+
+`Super Select`
+
+- Text is now customizable as part of the ".value" nested component rather than text layer. This allows the text value to be customized in the properties panel.
+- Generic placeholders have been exposed in the properties panel for easier customization.
+- Component names have been changed for clarity around intended use:
+    - "ListItem / Checkmark" is now "ListItemSingle"
+    - "ListItem / Checkbox" is now "ListItemMultiple"
+- "ListItemSingle" has been reduced in variant number and component complexity using boolean attributes for `checkmark`.
+- Footer components for the dropdown list have been consolidated into the "AfterOptions" set of components.
+- "SuperSelect::Multiple::Base" now exposes properties for each nested Tag.
+- "SuperSelect::Multiple::Field" has been simplified in structure using exposed nested components for the control, label, helper text, and error message.
+- "OptionsListMultiple" now exposes properties for each list item within the list as well as the "BeforeOptions" and "AfterOptions".
+- "SuperSelect::Single::Base" now allows the control to use placeholder text or a filled style in addition to the generic instance.
+- "SuperSelect::Single::Field" has been simplified in structure using exposed nested components for the control, label, helper text, and error message.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
+!!!
+
+`Text Input`
+
+- "TextInput::Base" now has a nested component called ".Value" that allows customization of the text in the control from the properties panel.
+- All Text Input components use "TextInput::Base" and local components for error messaging, indicators, character count, and labels with exposed nested properties in order to reduce the number of variants and streamline maintenance of the entire component set.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
+!!!
+
+`Textarea`
+
+- "Textarea::Base" now has a nested component called ".Value" that allows customization of the text in the control from the properties panel.
+- "Textarea::Field" now uses nested components for the control, label, helper text, error messaging, and character count in order to reduce the number of variants needed and streamline the maintenance of the component.
+
+!!! Insight
+
+**Maintenance Note**
+
+Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
+!!!
+
+`Toggle`
+
+- "Toggle::Field" has been simplified using nested components with exposed properties for label, control, helper text, and error messaging.
+- "Toggle::Group" now has a horizontal layout option.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
+!!!
 
 ### December 20th, 2024
 

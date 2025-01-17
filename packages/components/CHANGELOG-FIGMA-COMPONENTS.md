@@ -58,6 +58,7 @@ Changed the structure fo FileInput::Field to expose nested properties rather tha
 **Migration Note**
 
 Due to the new component layer and naming conventions, each instance of FileInput::Base and FileInput::Field will need to be relinked and helper/error text be repopulated.
+!!!
 
 `Masked Input`
 
@@ -167,6 +168,73 @@ Due to the comprehensive restructuring, these components and their properties wi
 **Migration Note**
 
 Due to the comprehensive restructuring, these components and their properties will need to be repopulated when relinked.
+!!!
+
+`Icon Tile`
+
+Combined two components into a single component which better aligns to the component in code.
+
+!!! Insight
+
+**Migration Note**
+
+Because of the consolidation into one component, all instances of the Icon Tile will need to be reset.
+!!!
+
+`Link / Standalone Link`
+
+Small cleanup changes only.
+
+`Modal`
+
+- Now uses Dialog Primitive as a base component.
+- Now features a max-width setting in Figma that match the code settings.
+- Created a [Template] component that combines the Modal with the Overlay.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the new structure using the Dialog Primitive component, all instances of the Modal will need to be relinked.
+!!!
+
+`Page Header`
+
+No longer has a property for `iconTileType` since there is now only one Icon Tile.
+
+`Pagination`
+
+- "_NavArrow / Previous" and "_NavArrow / Next" have been merged into one local component to mirror the code component API more closely.
+- The truncation ellipsis has been moved from being contained within the "_NavNumber" to it's own local component to better match the code component API.
+- "Pagination::Compact" and "Pagination::Numbered" are now separate components to better match the code component API and allow compact pagination with or without labels on the "NavArrow" elements.
+
+!!! Insight
+
+**Migration Note**
+
+Due to the comprehensive restructuring, osme overrides to the original component may need to be repopulated.
+!!!
+
+`Reveal`
+
+Small cleanup changes only.
+
+!!! Insight
+
+**Migration Note**
+
+If overrides were made to the nested Button in design files, this content may need to be repopulated due to breaking changes in the Button component.
+!!!
+
+`Rich Tooltip`
+
+The pointer shape for both Tooltip types has been consolidated into one ".Pointer" component.
+
+!!! Insight
+
+**Migration Note**
+
+This component had minor cleanup changes, but changes within the generic instance may require relinking to other components or variables.
 !!!
 
 ## December 20th, 2024
