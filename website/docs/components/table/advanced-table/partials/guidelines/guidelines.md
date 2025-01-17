@@ -2,9 +2,9 @@
 
 ### When to use
 
-- When large datasets need to be viewed in a scrollable container instead of with pagination.
+- When large datasets benefit from being viewed in a scrollable container instead of with pagination.
 - When displaying hierarchical data that allows users to expand rows to reveal related data without leaving the table.
-- When advanced keyboard navigation is required, such as moving between cells, focusing and interacting with expandable rows, and managing nested structures.
+- When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns. 
 - When implementing complex interactions like multi-select, nested rows, or expendable content, which are not supported in the standard Table.
 
 ### When not to use
