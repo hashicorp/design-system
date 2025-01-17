@@ -14,7 +14,7 @@
 
 ### Advanced Table cells
 
-![Table cells anatomy](/assets/components/table/advanced-table/Advanced-table-table-cell-anatomy.png)
+![](/assets/components/table/advanced-table/Advanced-table-table-cell-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|

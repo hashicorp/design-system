@@ -36,11 +36,11 @@ Some examples where it may be useful to include additional context in a tooltip 
 - When the label refers to a setting that can be changed elsewhere in the application.
 
 
-## Width 
+### Width 
 
 Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
-## Placement
+### Placement
 
 !!! Info
 
@@ -51,14 +51,15 @@ Column placement determines the visual styling based on where the column is plac
 
 ![For header columns, start placement adds a border radius to the top left corner and a border on the left and right, middle placement has squared corners and a border on the right, end placement has a border radius on the top right corner and a border on the right. For cells, start placement has a border on the left and right, middle and end placement have a border on the right.](/assets/components/table/advanced-table/table-col-placement.png)
 
-## Alignment
+### Alignment
 
 The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, and relative position within the advanced table.
 
 !!! Info 
 Helios uses left and right for alignment to match the Ember component API. This documentation follows that convention for consistency across design and code.
 !!!
-
+### Consistent alignment
+Use consistent alignment between the header label and the cell content.
 !!! Do
 
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
@@ -72,11 +73,12 @@ Helios uses left and right for alignment to match the Ember component API. This 
 ### Left alignment
 
 Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+
 Use start alignment for:
 - String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
-Nested components that display a string or text value, e.g., a [Badge](/components/badge).
+- Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
 ![Left alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
 
@@ -113,7 +115,7 @@ Don’t center header labels or cell content within a table.
 ![](/assets/components/table/center-justified-alignment.png)
 !!!
 
-## Expandable rows
+## Rows
 
 ## Striping 
 
@@ -123,7 +125,6 @@ Striping enhances readability by alternating row colors, making it easier to sca
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
 - Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
-Striping improves clarity for numerical or text-heavy data and ensures hierarchical relationships are visually distinct. For non-nested Advanced Tables, striping is optional and must be enabled with an argument. Always verify adequate color contrast when using striping.
 
 !!! Info
 
