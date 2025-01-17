@@ -80,69 +80,69 @@ Nested components that display a string or text value, e.g., a [Badge](/componen
 
 ![Left alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
 
-### End alignment 
+### Right alignment 
 
-End alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
-Common examples of end alignment include:
+Right alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
+Common examples of right alignment include:
 - Financial information and currency amounts.
 - Fractional and floating point values represented with decimals.
 
-![End alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
+![Right alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
 
-End alignment can also be used in the last column of an advanced table to:
+Right alignment can also be used in the last column of an advanced table to:
 - Highlight a "more options" function pertaining to the content within a row.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
-![End alignment example within a table with a date and more options](/assets/components/table/advanced-table/end-alignment-example-02.png)
+![](/assets/components/table/advanced-table/end-alignment-example-02.png)
 
 !!! Dont
 
-Don’t end align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t right align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
-![End alignment with content that is variable in length](/assets/components/table/advanced-table/end-alignment-variable-length.png)
+![Column with badges that have different length labels end aligned. The badge labels are "Successful", "Needs confirmation", and "Error".](/assets/components/table/advanced-table/end-alignment-variable-length.png)
 !!!
 
 ### Other alignment methods
 
-We don’t recommend center or justified alignment of content within a cell or advanced table. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
+We don’t recommend center or justified alignment of content within Advanced Table cells. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
 !!! Dont
 
 Don’t center header labels or cell content within a table.
 
-![Example of centered content within an Advanced Table](/assets/components/table/center-justified-alignment.png)
+![](/assets/components/table/center-justified-alignment.png)
 !!!
 
 ## Expandable rows
 
-### Striping 
+## Striping 
 
 ![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
-- Nested Advanced Tables:Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
+- Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
 Striping improves clarity for numerical or text-heavy data and ensures hierarchical relationships are visually distinct. For non-nested Advanced Tables, striping is optional and must be enabled with an argument. Always verify adequate color contrast when using striping.
 
 !!! Info
 
-Ensure that nested components within striped rows continue to maintain adequate color contrast with the striped background.
+Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
 !!!
 
-### Expandable rows
+## Expandable rows
 
 Expandable rows allow users to expand or collapse additional content within the table structure.
 
-![Advanced Table expandable rows examples](/assets/components/table/advanced-table/expandable-rows.png) 
+![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png) 
 
 ### When to use
 
-- When organizing hierarchical data into parent-child relationships, allowing users to expand or collapse details as needed.
+Use expandable rows when organizing hierarchical data into parent-child relationships, allowing users to expand or collapse details as needed without navigating to a new page.
 
 !!! Dont
 
-Avoid when data does not require structured parent-child relationships.
+Avoid using expandable rows when data is not structured in parent-child relationships.
 
 ![Advanced Table column placement example](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
 !!!
@@ -151,13 +151,12 @@ Avoid when data does not require structured parent-child relationships.
 
 - Expanding a parent row reveals its child rows, maintaining indentation for clear relationships.
 - Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it.
-- When scrolling down, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
-- Expanding a row moves focus to the first child row, while collapsing returns focus to the parent row.
+- When scrolling, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
 
 ### Considerations for nested rows
 
 - Use the same density setting for parent and child rows to keep layouts consistent.
-- Check that striping and background shading maintain proper contrast.
+- Ensure that nested content and components within striped rows maintain adequate contrast with the background color.
 
 ### Placement
 
