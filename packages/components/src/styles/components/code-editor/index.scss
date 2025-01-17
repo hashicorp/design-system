@@ -16,6 +16,10 @@
   background-color: var(--hds-code-editor-color-surface-primary);
   border: 1px solid var(--hds-code-editor-color-border-strong);
 
+  &.hds-code-editor--is-standalone {
+    border-radius: var(--token-border-radius-medium);
+  }
+
   &.hds-code-editor--is-full-screen {
     position: fixed;
     inset: 0;
@@ -26,10 +30,6 @@
     .hds-code-editor__editor {
       max-height: unset;
     }
-  }
-
-  &.hds-code-editor--is-standalone {
-    border-radius: var(--token-border-radius-medium);
   }
 
   .hds-code-editor__header {
@@ -93,10 +93,6 @@
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);
 
-    &:active {
-      background-color: var(--hds-code-editor-color-surface-interactive-active)
-    }
-  
     &:focus,
     &:hover {
       background-color: var(--hds-code-editor-color-surface-primary);
@@ -104,6 +100,10 @@
       .hds-button__icon {
         color: var(--hds-code-editor-color-foreground-primary);
       }
+    }
+
+    &:active {
+      background-color: var(--hds-code-editor-color-surface-interactive-active)
     }
 
     .hds-button__icon {
