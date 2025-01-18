@@ -3,12 +3,12 @@
 ### When to use
 
 - When large datasets benefit from being viewed in a scrollable container instead of with pagination.
-- When displaying hierarchical data that allows users to expand rows to reveal related data without leaving the table.
+- When needing an expandable table for hierarchical data.
 - When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns. 
 
 ### When not to use
 
-- If sorting and pagination are sufficient for your dataset, use the standard [Table](/components/table/table) instead.
+- If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](https://github.com/components/table/table) is a more suitable choice.
 - When displaying static or minimal data that doesn’t require advanced interactivity.
 - When a visual representation like charts or graphs better conveys the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
@@ -21,7 +21,6 @@
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
-- Columns with sorting enabled are interactive and include hover, active, and focus states.
 - An Advanced Table may only be sorted by a single column at a time.
 
 
@@ -70,11 +69,11 @@ Use consistent alignment between the header label and the cell content.
 ![An Advanced Table with two columns, the header of the first column is left aligned and the cell below is right aligned. The header of the second column is right aligned and the cell below is left aligned.](/assets/components/table/advanced-table/table-alignment-dont.png)
 !!!
 
-### Left alignment
+#### Left alignment
 
-Align content to the start of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
+Align content to the left of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
 
-Use start alignment for:
+Use left alignment for:
 - String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
@@ -82,7 +81,7 @@ Use start alignment for:
 
 ![Left alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
 
-### Right alignment 
+#### Right alignment 
 
 Right alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
 Common examples of right alignment include:
@@ -92,7 +91,7 @@ Common examples of right alignment include:
 ![Right alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
 
 Right alignment can also be used in the last column of an advanced table to:
-- Highlight a "more options" function pertaining to the content within a row.
+- Highlight a "more options" function.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
 ![](/assets/components/table/advanced-table/end-alignment-example-02.png)
@@ -104,7 +103,7 @@ Don’t right align content that is variable in length. This can make the conten
 ![Column with badges that have different length labels end aligned. The badge labels are "Successful", "Needs confirmation", and "Error".](/assets/components/table/advanced-table/end-alignment-variable-length.png)
 !!!
 
-### Other alignment methods
+#### Other alignment methods
 
 We don’t recommend center or justified alignment of content within Advanced Table cells. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
 
@@ -117,7 +116,7 @@ Don’t center header labels or cell content within a table.
 
 ## Rows
 
-## Striping 
+### Striping 
 
 ![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
 
@@ -131,7 +130,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
 !!!
 
-## Expandable rows
+### Expandable rows
 
 Expandable rows allow users to expand or collapse additional content within the table structure. The additional content must be in a similar form to the parent row.
 
@@ -139,7 +138,7 @@ Expandable rows allow users to expand or collapse additional content within the 
 
 ### When to use
 
-Use expandable rows when organizing hierarchical data into parent-child relationships, allowing users to expand or collapse details as needed without navigating to a new page.
+Use expandable rows to display hierarchical data efficiently. This allows users to explore details within the table without navigating away.
 
 !!! Dont
 
@@ -148,18 +147,18 @@ Avoid using expandable rows when data is not structured in parent-child relation
 ![Advanced Table column placement example](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
 !!!
 
-## Interaction
+### Interaction
 
 - Expanding a parent row reveals its child rows, maintaining indentation for clear relationships.
 - Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it.
 - When scrolling, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
 
-### Considerations for nested rows
+### Nested rows
 
 - Use the same density setting for parent and child rows to keep layouts consistent.
 - Ensure that nested content and components within striped rows maintain adequate contrast with the background color.
 
-## Placement
+### Placement
 
 !!! Info
 
@@ -170,11 +169,13 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
-## Headers
+### Headers
 
 - Labels in headers should be clear, concise, and straightforward.
-- The label should infer clearly what type of content is contained within the cell (string, number, status, etc).
+- The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
 - Labels should use sentence-case capitalization, not all-caps.
+
+#### Sticky headers
 
 When sticky headers are enabled, the label in each column remains visible as the user scrolls. This can be useful for large data sets where the user might need to constantly reference the label.
 
@@ -187,10 +188,10 @@ When sticky headers are enabled, the label in each column remains visible as the
 ![Medium cell density has 14px vertical padding, tall has 22px vertical padding, and short has 6px vertical padding.](/assets/components/table/advanced-table/table-density.png)
 
 - We recommend using medium cell density by default.
-- If content is largely string/text-based, short allows for more content to be displayed within the page.
+- If the content is largely text-based, the short density allows more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
-### Column/Row Span
+### Column and row span
 
 - Supports merging multiple columns or rows.
 - Use column and row spans carefully to avoid misalignment or breaking table interactions.
@@ -198,7 +199,7 @@ When sticky headers are enabled, the label in each column remains visible as the
 
 ![](/assets/components/table/advanced-table/colspan-table-example.png)
 
-### Horizontal scrolling
+## Horizontal scrolling
 
 - We recommend using this when there are many columns of equal priority.
 - Place the Advanced Table in a scrollable container for smooth side-scrolling.
@@ -217,7 +218,6 @@ When the user moves focus into the Advanced Table (tab key), the first cell will
 - End (fn + right): Move focus to the row's last cell.
 - PageUp (fn + up): Moves focus to the first cell in the column.
 - PageDown (fn + down): Moves focus to the last cell in the column.
-- Horizontal Scrolling: Arrow keys allow horizontal movement to access hidden columns if the Table extends beyond the screen width.
 
 ### Action mode
 
@@ -227,13 +227,13 @@ When the user is in navigation mode, pressing enter will activate action mode, w
 - If there is more than one interactive element within the cell, the first element will be focused, allowing the user to tab between them.
 - Pressing escape will take the user out of action mode and back into navigation mode.
 
-### Multi-Select
+## Multi-Select
 
 Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
 
 A multi-select pattern consists of:
 
-1. A select all in the table's header row. This acts as the parent checkbox, allowing the selection or deselection of all child rows in a single table simultaneously.
+1. A select all in the table's header row. This acts as the parent checkbox, allowing the simultaneous selection or deselection of all child rows in a single table.
 
 ![](/assets/components/table/advanced-table/table-multi-select-header.png)
 

@@ -1,1 +1,1 @@
-The Advanced Table is designed to manage complex datasets requiring advanced interactivity, supporting features like sticky headers, keyboard navigation, and nested rows. Don’t mix Table and AdvancedTable components, as they are not interchangeable.
+The Advanced Table is for complex datasets with features like sticky headers, keyboard navigation, and expandable rows. Don't mix Table and Advanced Table components; they aren't interchangeable.
