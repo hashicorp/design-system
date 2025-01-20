@@ -102,6 +102,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-qunit": "^8.1.2",
     "fs-extra": "^11.2.0",
+    "gray-matter": "^4.0.3",
     "jsonapi-serializer": "^3.6.9",
     "loader.js": "^4.7.0",
     "lodash": "^4.17.21",
