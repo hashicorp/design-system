@@ -1,15 +1,27 @@
 ---
 title: Reveal
-description: A toggle that reveals additional information or details about an element or content to the user when triggered.
+description: >-
+  A toggle that reveals additional information or details about an element or
+  content to the user when triggered.
 caption: A toggle that reveals additional content to the user when triggered.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67413-49383&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/reveal
-related: ['components/flyout','components/accordion','components/tooltip']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67413-49383&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/reveal
+related:
+  - components/flyout
+  - components/accordion
+  - components/tooltip
 previewImage: assets/illustrations/components/reveal.jpg
 navigation:
   hidden: false
-  keywords: ['toggle', 'disclosure', 'summary', 'details', 'accordion']
+  keywords:
+    - toggle
+    - disclosure
+    - summary
+    - details
+    - accordion
 ---
 
 <section data-tab="Guidelines">

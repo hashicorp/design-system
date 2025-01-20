@@ -1,16 +1,22 @@
 ---
 title: Icon
-description: Displays an icon from the Helios icon library to enhance the communication of text and UI elements.
+description: >-
+  Displays an icon from the Helios icon library to enhance the communication of
+  text and UI elements.
 caption: Used to display an icon.
 links:
-  figma: https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=zAxxcBG32ycFg6Ew-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/icon
-related: ['icons/library']
+  figma: >-
+    https://www.figma.com/design/TLnoT5AYQfy3tZ0H68BgOr/HDS-Icons?m=auto&node-id=164-0&t=zAxxcBG32ycFg6Ew-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/icon
+related:
+  - icons/library
 previewImage: assets/illustrations/components/icon.jpg
 navigation:
-  keywords: ['icon', 'glyph', 'flight']
-status:
-  added: 4.9.0
+  keywords:
+    - icon
+    - glyph
+    - flight
 ---
 
 <section data-tab="Guidelines">

@@ -3,11 +3,16 @@ title: Application State
 description: An informational element that displays the current state of the application.
 caption: An informational element that displays the current state of the application.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67278-131631&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/application-state
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67278-131631&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/application-state
 previewImage: assets/illustrations/components/application-state.jpg
 navigation:
-  keywords: ['empty state', 'error state', 'message']
+  keywords:
+    - empty state
+    - error state
+    - message
 ---
 
 <section data-tab="Guidelines">
