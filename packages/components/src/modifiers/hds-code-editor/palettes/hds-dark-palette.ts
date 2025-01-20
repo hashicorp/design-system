@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 export const HDS_CODE_BLOCK_WHITE = '#efeff1';
 export const HDS_CODE_BLOCK_BLUE = '#2d8eff';
 export const HDS_CODE_BLOCK_GREEN = '#86ff13';
