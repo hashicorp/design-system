@@ -16,13 +16,10 @@
   background-color: var(--hds-code-editor-color-surface-primary);
   border: 1px solid var(--hds-code-editor-color-border-strong);
 
-<<<<<<< head
-=======
   &.hds-code-editor--is-standalone {
     border-radius: var(--token-border-radius-medium);
   }
 
->>>>>>> main
   &.hds-code-editor--is-full-screen {
     position: fixed;
     inset: 0;
@@ -35,13 +32,6 @@
     }
   }
 
-<<<<<<< head
-  &.hds-code-editor--is-standalone {
-    border-radius: var(--token-border-radius-medium);
-  }
-
-=======
->>>>>>> main
   .hds-code-editor__header {
     display: flex;
     gap: 12px;
