@@ -13,7 +13,7 @@
 
 ## Syntax highlighting
 
-To aid in understanding how the highlighting theme is applied via CodeMiror's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
+To aid in understanding how the highlighting theme is applied via CodeMirror's tokens, we've provided a high-level, non-exhaustive list of token names and how they might be applied depending on the syntax.
 
 <!-- algolia-ignore-start -->
 | Color | Usage |
