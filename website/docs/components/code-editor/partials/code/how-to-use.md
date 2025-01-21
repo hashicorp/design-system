@@ -50,7 +50,7 @@ The default `@tag` is `"h2"`, however, the correct value is dependent on the ind
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We support the following languages: `ruby`, `shell`, `go`, `hcl`, `json`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
+The `language` argument sets the syntax highlighting used. We support the following languages: `ruby`, `sentinel`, `shell`, `go`, `hcl`, `json`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
 
 ```handlebars
 <Hds::CodeEditor
