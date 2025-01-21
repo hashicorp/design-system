@@ -67,11 +67,7 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
   }
 
   get classNames(): string {
-    const classes = [
-      'hds-advanced-table__td',
-      'hds-typography-body-200',
-      'hds-font-weight-regular',
-    ];
+    const classes = ['hds-advanced-table__td'];
 
     // add a class based on the @align argument
     if (this.align) {
