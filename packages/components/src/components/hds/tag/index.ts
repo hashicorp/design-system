@@ -4,6 +4,8 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 import { HdsTagColorValues } from './types.ts';
@@ -25,7 +27,8 @@ export interface HdsTagSignature {
 }
 
 export default class HdsTag extends Component<HdsTagSignature> {
-  private _characterLimit = 20;
+  @tracked private _isTextOverflow!: boolean;
+  private _observer!: ResizeObserver;
 
   /**
    * @param onDismiss
@@ -54,10 +57,6 @@ export default class HdsTag extends Component<HdsTagSignature> {
     assert('@text for "Hds::Tag" must have a valid value', text !== undefined);
 
     return text;
-  }
-
-  get isTextTruncated(): boolean {
-    return this.args.text.length > this._characterLimit;
   }
 
   /**
@@ -109,5 +108,39 @@ export default class HdsTag extends Component<HdsTagSignature> {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  didInsert(element: HTMLElement): void {
+    const textElement = element.querySelector(
+      '.hds-tag__text-container'
+    ) as HTMLElement;
+
+    // Used to detect when text is clipped to one line, and tooltip should be added
+    this._observer = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        this._isTextOverflow = this._isOverflow(
+          entry.target,
+          this._isTextOverflow
+        );
+      });
+    });
+    this._observer.observe(textElement);
+  }
+
+  @action
+  willDestroyNode(): void {
+    super.willDestroy();
+    this._observer.disconnect();
+  }
+
+  private _isOverflow(el: Element, previousOverflow: boolean): boolean {
+    // If any overflow was present previously and was clipped the scroll height and client height will then be equal
+    // Any future resizes will incorrectly see the element as not overflowing unless the previous value is accounted for
+    if (previousOverflow || el.scrollHeight > el.clientHeight) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }

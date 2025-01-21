@@ -46,11 +46,11 @@ $hds-tag-border-radius: 50px;
 }
 
 .hds-tag__text-container {
-  overflow: hidden;
   display: -webkit-box;
+  overflow: hidden;
   -webkit-box-orient: vertical;
-  line-clamp: 1;
   -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .hds-tag__dismiss ~ .hds-tag__text,
@@ -81,6 +81,18 @@ $hds-tag-border-radius: 50px;
   &.mock-focus {
     @include hds-focus-ring-basic();
     z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+}
+
+.hds-tooltip-button.hds-tag__text {
+  &:focus,
+  &.mock-focus {
+    @include hds-focus-ring-basic();
+    z-index: 1; // ensures focus is not obscured by adjacent elements
+  }
+
+  &:focus-visible::before {
+    box-shadow: none; // override default tooltip button focus styles
   }
 }
 

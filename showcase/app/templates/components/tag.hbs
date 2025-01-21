@@ -39,6 +39,16 @@
     <SF.Item {{style width="200px"}}>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" />
     </SF.Item>
+    <SF.Item {{style width="200px"}}>
+      <Hds::Tag
+        @text="This is a very long text that should go on multiple lines"
+        @onDismiss={{this.noop}}
+        @route="components.tag"
+      />
+    </SF.Item>
+    <SF.Item {{style width="200px"}}>
+      <Hds::Tag @text="This is a very long text that should go on multiple lines" @route="components.tag" />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />

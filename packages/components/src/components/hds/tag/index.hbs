@@ -2,14 +2,23 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Text::Body class={{this.classNames}} @tag="span" @size="100" @weight="medium" @color="primary" ...attributes>
+<Hds::Text::Body
+  class={{this.classNames}}
+  @tag="span"
+  @size="100"
+  @weight="medium"
+  @color="primary"
+  {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroyNode}}
+  ...attributes
+>
   {{#if this.onDismiss}}
     <button class="hds-tag__dismiss" type="button" aria-label={{this.ariaLabel}} {{on "click" this.onDismiss}}>
       <Hds::Icon class="hds-tag__dismiss-icon" @name="x" @size="16" />
     </button>
   {{/if}}
   {{#if (or @href @route)}}
-    {{#if this.isTextTruncated}}
+    {{#if this._isTextOverflow}}
       <Hds::Interactive
         class="hds-tag__link"
         @current-when={{@current-when}}
@@ -22,7 +31,9 @@
         @isHrefExternal={{@isHrefExternal}}
         {{hds-tooltip this.text options=(hash placement="right")}}
       >
-        {{this.text}}
+        <div class="hds-tag__text-container">
+          {{this.text}}
+        </div>
       </Hds::Interactive>
     {{else}}
       <Hds::Interactive
@@ -42,15 +53,12 @@
       </Hds::Interactive>
     {{/if}}
   {{else}}
-    {{#if this.isTextTruncated}}
-      <span
-        class="hds-tag__text"
-        {{hds-tooltip this.text options=(hash placement="right")}}
-      >
+    {{#if this._isTextOverflow}}
+      <Hds::TooltipButton class="hds-tag__text" @text={{this.text}} @placement="right">
         <div class="hds-tag__text-container">
           {{this.text}}
         </div>
-      </span>
+      </Hds::TooltipButton>
     {{else}}
       <span class="hds-tag__text">
         <div class="hds-tag__text-container">
