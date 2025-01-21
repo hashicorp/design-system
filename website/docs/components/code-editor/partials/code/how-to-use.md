@@ -10,7 +10,7 @@ The code editor uses [CodeMirror 6](https://codemirror.net/) under the hood.
 
 ### Ember modifier
 
-An Ember modifier is available if your use case does not require a title, description, or any additional interactivity beyond editing code.
+An Ember modifier is available if your use case does not require a visible title, description, or any additional interactivity beyond editing code.
 
 #### Modifier used on a `div`
 
