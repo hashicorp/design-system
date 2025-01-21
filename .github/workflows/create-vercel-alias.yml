@@ -1,0 +1,32 @@
+
+name: 'Create Vercel Alias'
+
+on:
+  workflow_dispatch:
+
+env:
+  NODE_VERSION: '22.x'
+
+jobs:
+  create-vercel-alias:
+    name: 'Create Vercel Alias'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Extract Current Version
+        id: extract_version
+        run: echo "VERSION=$(jq -r .version packages/components/package.json | sed 's/\./-/g')" >> $GITHUB_ENV
+      - name: Get Latest Vercel Deployment
+        id: get_vercel_deployment
+        run: |
+          DEPLOYMENT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+          "https://api.vercel.com/v6/deployments?teamId=${{ secrets.VERCEL_TEAM_ID }}&projectId=${{ secrets.VERCEL_WEBSITE_PROJECT_ID }}" \
+          | jq -r --arg branch "${{ github.head_ref }}" '.deployments[] | select(.meta.githubCommitRef == $branch) | .uid' | head -n 1)
+          echo "DEPLOYMENT_ID=$DEPLOYMENT_ID" >> $GITHUB_ENV
+      - name: Alias Vercel Deployment
+        id: alias_vercel_deployment
+        run: |
+          curl -X POST "https://api.vercel.com/v2/deployments/${{ env.DEPLOYMENT_ID }}/aliases?slug=hashicorp&teamId=${{ secrets.VERCEL_TEAM_ID }}" \
+          -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d "{\"alias\": \"hds-website-${{ env.VERSION }}.vercel.app\", \"teamId\": \"${{ secrets.VERCEL_TEAM_ID }}\", \"slug\": \"hashicorp\"}"
