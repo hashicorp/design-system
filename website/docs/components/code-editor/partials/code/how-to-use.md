@@ -1,11 +1,21 @@
 ## How to use this component
 
-The HDS code editor component is provided as both a `CodeEditor` component and as an `hds-code-editor` Ember [modifier](/components/tooltip?tab=code#ember-modifier). To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
+The HDS code editor component is provided as both a `CodeEditor` component and as an `hds-code-editor` Ember [modifier](/components/code-editor?tab=code#ember-modifier). To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
 
 The code editor uses [CodeMirror 6](https://codemirror.net/) under the hood.
 
 ```handlebars
 <Hds::CodeEditor @ariaLabel="Basic usage" />
+```
+
+### Ember modifier
+
+An Ember modifier is available if your use case does not require a title, description, or any additional interactivity beyond editing code.
+
+#### Modifier used on a `div`
+
+```handlebars
+<div {{hds-code-editor ariaLabel="Ember modifier usage"}} />
 ```
 
 ### Title and description
