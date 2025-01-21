@@ -124,6 +124,7 @@ export const handleGridCellKeyPress = (
         enableFocusTrap();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+      event.preventDefault();
       const nextElement =
         key === 'ArrowRight'
           ? target.nextElementSibling
@@ -133,6 +134,7 @@ export const handleGridCellKeyPress = (
         changeActiveCell(target, nextElement);
       }
     } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
       const currentRow = target.parentElement;
 
       if (currentRow instanceof HTMLElement) {
