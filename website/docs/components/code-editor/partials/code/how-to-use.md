@@ -38,7 +38,7 @@ Optionally, you can pass a title and/or a description using the `[CE].Title` and
 The `@tag` argument changes the HTML element that wraps the `[CE].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a Code Editor is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
 ```handlebars
-<div class="doc-code-block-demo-heading">
+<div class="doc-code-editor-demo-heading">
   <Hds::Text::Display @tag="h2" @size="300">Learn to write functions in Go</Hds::Text::Display>
   <Hds::Text::Body @tag="p">Functions are a critical part of learning Go. They are reusable chunks of code that can perform tasks like convert an object to an array.</Hds::Text::Body>
 </div>
