@@ -3995,6 +3995,7 @@ __metadata:
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^14.0.0"
+    tabbable: "npm:^6.2.0"
     tippy.js: "npm:^6.3.7"
     typescript: "npm:^5.7.2"
   peerDependencies:
@@ -12518,7 +12519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^6.0.1, ember-cli-htmlbars@npm:^6.1.0, ember-cli-htmlbars@npm:^6.3.0":
+"ember-cli-htmlbars@npm:^6.0.1, ember-cli-htmlbars@npm:^6.1.0, ember-cli-htmlbars@npm:^6.1.1, ember-cli-htmlbars@npm:^6.3.0":
   version: 6.3.0
   resolution: "ember-cli-htmlbars@npm:6.3.0"
   dependencies:
@@ -13104,6 +13105,17 @@ __metadata:
   peerDependencies:
     ember-source: ">= 5"
   checksum: 10/67d66085792585cd3674602c92a07a21033a15d0af33423dd94f5c9468824d4bf77860aed986f87e14250e0102e80277e3413d288ff7788cba4f93761588b79d
+  languageName: node
+  linkType: hard
+
+"ember-math-helpers@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-math-helpers@npm:3.0.0"
+  dependencies:
+    broccoli-funnel: "npm:^3.0.8"
+    ember-cli-babel: "npm:^7.26.11"
+    ember-cli-htmlbars: "npm:^6.1.1"
+  checksum: 10/b902e921db9285b1ef9be57ddad878587572e1bbfd03df4b92823752d134297896702a8698ff6fe946fdec80499cc2cc966c7cf0a61bcf12160bcb02b454a1c6
   languageName: node
   linkType: hard
 
@@ -24395,6 +24407,7 @@ __metadata:
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.1"
     ember-load-initializers: "npm:^2.1.2"
+    ember-math-helpers: "npm:^3.0.0"
     ember-modifier: "npm:^4.2.0"
     ember-page-title: "npm:^8.2.3"
     ember-power-select: "npm:^8.6.2"
@@ -24427,6 +24440,7 @@ __metadata:
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^14.0.0"
+    tabbable: "npm:^6.2.0"
     tracked-built-ins: "npm:^3.4.0"
     typescript: "npm:^5.7.2"
     webpack: "npm:^5.97.1"
@@ -25769,6 +25783,13 @@ __metadata:
   version: 5.3.3
   resolution: "tabbable@npm:5.3.3"
   checksum: 10/5da150c9ac7aaed95f901623214794ffac9472a86009a1762c7b436249d33b157b7d86d93610986090d0fb1ef152f5dec2c201552e0b67ca895ba00c145a51c5
+  languageName: node
+  linkType: hard
+
+"tabbable@npm:^6.2.0":
+  version: 6.2.0
+  resolution: "tabbable@npm:6.2.0"
+  checksum: 10/980fa73476026e99dcacfc0d6e000d41d42c8e670faf4682496d30c625495e412c4369694f2a15cf1e5252d22de3c396f2b62edbe8d60b5dadc40d09e3f2dde3
   languageName: node
   linkType: hard
 
