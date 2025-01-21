@@ -2,7 +2,7 @@
 
 ### Advanced Table headers
 
-![](/assets/components/table/advanced-table/Advanced-table-table-header-anatomy.png)
+![](/assets/components/table/advanced-table/advanced-table-header-select-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -14,7 +14,25 @@
 
 ### Advanced Table cells
 
-![](/assets/components/table/advanced-table/Advanced-table-table-cell-anatomy.png)
+![](/assets/components/table/advanced-table/advanced-table-cell-parent-anatomy.png)
+
+| Element      | Usage    |
+|--------------|----------|
+| Expand       | Optional |
+| Cell content | Required |
+| Icon         | Optional |
+| Container    | Required |
+
+![](/assets/components/table/advanced-table/advanced-table-cell-nested-anatomy.png)
+
+| Element      | Usage    |
+|--------------|----------|
+| Indentation  | Required |
+| Cell content | Required |
+| Icon         | Optional |
+| Container    | Required |
+
+![](/assets/components/table/advanced-table/advanced-table-cell-select-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|

@@ -62,11 +62,15 @@ Use consistent alignment between the header label and the cell content.
 
 !!! Do
 
+Header labels and column content should align.
+
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
 
 !!!
 
 !!! Dont
+
+Avoid misaligned header labels and content.
 
 ![An Advanced Table with two columns, the header of the first column is left aligned and the cell below is right aligned. The header of the second column is right aligned and the cell below is left aligned.](/assets/components/table/advanced-table/table-alignment-dont.png)
 
@@ -111,6 +115,14 @@ Don’t right align content that is variable in length. This can make the conten
 
 !!!
 
+### Column and row span
+
+- Supports combining multiple columns or rows into a single cell.
+- Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
+- Multi-span cells should use the same alignment for readability.
+
+![](/assets/components/table/advanced-table/colspan-table-example.png)
+
 #### Other alignment methods
 
 We don’t recommend center or justified alignment of content within Advanced Table cells. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
@@ -125,25 +137,21 @@ Don’t center header labels or cell content within a table.
 
 ## Rows
 
-### Striping 
+### Headers
 
-![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
+- Labels in headers should be clear, concise, and straightforward.
+- The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
+- Labels should use sentence-case capitalization, not all-caps.
 
-Striping enhances readability by alternating row colors, making it easier to scan tabular data.
+#### Sticky headers
 
-- Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
-- Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
+Sticky headers keep column labels visible while scrolling, aiding navigation in large data sets or nested rows.
 
-
-!!! Info
-
-Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
-
-!!!
+![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
 ### Expandable rows
 
-Expandable rows allow users to expand or collapse additional content within the table structure. The additional content must be in a similar form to the parent row.
+Expandable rows let users show or hide more content within the table. The expanded content should align with the header labels, even if the parent row includes minimal data, such as an expand/collapse button and text.
 
 ![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png) 
 
@@ -159,16 +167,36 @@ Avoid using expandable rows when data is not structured in parent-child relation
 
 !!!
 
-### Interaction
+<!-- ### Interaction
 
-- Expanding a parent row reveals its child rows, maintaining indentation for clear relationships.
-- Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it.
-- When scrolling, the header row remains visible, allowing users to reference column labels while interacting with nested rows.
+- Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it. -->
 
 ### Nested rows
 
-- Use the same density setting for parent and child rows to keep layouts consistent.
-- Ensure that nested content and components within striped rows maintain adequate contrast with the background color.
+Use the same density setting for parent and child rows to keep layouts consistent.
+
+
+!!! Dont
+
+![Tall cell density mixed with short density rows. ](/assets/components/table/advanced-table/advanced-table-density-mix.png)
+
+!!!
+
+
+### Striping 
+
+!!! Info
+
+Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
+
+!!!
+
+![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
+
+Striping enhances readability by alternating row colors, making it easier to scan tabular data.
+
+- Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
+- Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
 ### Placement
 
@@ -182,35 +210,13 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ![The cell with column placement end and row placement end has a border radius set on the bottom right corner.](/assets/components/table/advanced-table/table-row-placement.png)
 
-### Headers
-
-- Labels in headers should be clear, concise, and straightforward.
-- The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
-- Labels should use sentence-case capitalization, not all-caps.
-
-#### Sticky headers
-
-When sticky headers are enabled, the label in each column remains visible as the user scrolls. This can be useful for large data sets where the user might need to constantly reference the label.
-
-![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
-
 ## Cells
 
 ### Density
 
-![Medium cell density has 14px vertical padding, tall has 22px vertical padding, and short has 6px vertical padding.](/assets/components/table/advanced-table/table-density.png)
-
 - We recommend using medium cell density by default.
 - If the content is largely text-based, the short density allows more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
-
-### Column and row span
-
-- Supports combining multiple columns or rows into a single cell.
-- Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
-- Multi-span cells should use the same alignment for readability.
-
-![](/assets/components/table/advanced-table/colspan-table-example.png)
 
 ## Horizontal scrolling
 
@@ -218,6 +224,9 @@ When sticky headers are enabled, the label in each column remains visible as the
 - Place the Advanced Table in a scrollable container for smooth side-scrolling.
 
 ![](/assets/components/table/advanced-table/horizontal-scrolling.png)
+
+<!-- 
+This section will be moved to the accessibility tab
 
 ## Keyboard navigation
 
@@ -238,11 +247,17 @@ When the user is in navigation mode, pressing enter will activate action mode, w
 
 - If a cell contains a single interactive element, pressing Enter will focus on that element.
 - If there is more than one interactive element within the cell, the first element will be focused, allowing the user to tab between them.
-- Pressing escape will take the user out of action mode and back into navigation mode.
+- Pressing escape will take the user out of action mode and back into navigation mode. -->
 
 ## Multi-Select
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. 
+
+!!! Info
+
+However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
+
+!!!
 
 A multi-select pattern consists of:
 

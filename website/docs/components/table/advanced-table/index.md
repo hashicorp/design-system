@@ -12,7 +12,7 @@ related:
     'patterns/filter-patterns',
     'patterns/table-multi-select',
   ]
-previewImage: assets/illustrations/components/table.jpg
+previewImage: assets/illustrations/components/advanced-table.jpg
 navigation:
   keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
 status:
