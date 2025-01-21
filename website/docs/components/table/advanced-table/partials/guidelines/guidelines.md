@@ -31,6 +31,7 @@ Labels within the Advanced Table column should be clear, concise, and straightfo
 ![](/assets/components/table/advanced-table/table-tooltip-example.png)
 
 Some examples where it may be useful to include additional context in a tooltip include:
+
 - When the label contains a product or HashiCorp-specific term.
 - When the label refers to a setting that can be changed elsewhere in the application.
 
@@ -44,6 +45,7 @@ Column width is determined by manually resizing the header column and cells with
 !!! Info
 
 The column placement property is only relevant within Figma and doesn’t exist as a property in code.
+
 !!!
 
 Column placement determines the visual styling based on where the column is placed relative to other columns in the Advanced Table.
@@ -54,19 +56,20 @@ Column placement determines the visual styling based on where the column is plac
 
 The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, and relative position within the advanced table.
 
-!!! Info 
-Helios uses left and right for alignment to match the Ember component API. This documentation follows that convention for consistency across design and code.
-!!!
 ### Consistent alignment
+
 Use consistent alignment between the header label and the cell content.
+
 !!! Do
 
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
+
 !!!
 
 !!! Dont
 
 ![An Advanced Table with two columns, the header of the first column is left aligned and the cell below is right aligned. The header of the second column is right aligned and the cell below is left aligned.](/assets/components/table/advanced-table/table-alignment-dont.png)
+
 !!!
 
 #### Left alignment
@@ -74,6 +77,7 @@ Use consistent alignment between the header label and the cell content.
 Align content to the left of the cell by default. This ensures readability across different content types, consistency in content of varying lengths, and alignment between the column header label and the content within the cell.
 
 Use left alignment for:
+
 - String and text-based content (unique identifiers or IDs, names and naming conventions, etc).
 - Numerical values that do not contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters (IP addresses).
@@ -84,13 +88,16 @@ Use left alignment for:
 #### Right alignment 
 
 Right alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
+
 Common examples of right alignment include:
+
 - Financial information and currency amounts.
 - Fractional and floating point values represented with decimals.
 
 ![Right alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
 
 Right alignment can also be used in the last column of an advanced table to:
+
 - Highlight a "more options" function.
 - As a means to visually "bookend" the row with content that is of a similar length, e.g., timestamps, TTL (time-to-live) values, dates.
 
@@ -101,6 +108,7 @@ Right alignment can also be used in the last column of an advanced table to:
 Don’t right align content that is variable in length. This can make the content more difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
 ![Column with badges that have different length labels end aligned. The badge labels are "Successful", "Needs confirmation", and "Error".](/assets/components/table/advanced-table/end-alignment-variable-length.png)
+
 !!!
 
 #### Other alignment methods
@@ -112,6 +120,7 @@ We don’t recommend center or justified alignment of content within Advanced Ta
 Don’t center header labels or cell content within a table.
 
 ![](/assets/components/table/center-justified-alignment.png)
+
 !!!
 
 ## Rows
@@ -121,6 +130,7 @@ Don’t center header labels or cell content within a table.
 ![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
+
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
 - Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
 
@@ -128,6 +138,7 @@ Striping enhances readability by alternating row colors, making it easier to sca
 !!! Info
 
 Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
+
 !!!
 
 ### Expandable rows
@@ -145,6 +156,7 @@ Use expandable rows to display hierarchical data efficiently. This allows users 
 Avoid using expandable rows when data is not structured in parent-child relationships.
 
 ![Advanced Table column placement example](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
+
 !!!
 
 ### Interaction
@@ -163,6 +175,7 @@ Avoid using expandable rows when data is not structured in parent-child relation
 !!! Info
 
 The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
+
 !!!
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Advanced Table. Only cells with a column placement that is either start or end use the row placement property; column position middle does not use this property.
@@ -193,8 +206,8 @@ When sticky headers are enabled, the label in each column remains visible as the
 
 ### Column and row span
 
-- Supports merging multiple columns or rows.
-- Use column and row spans carefully to avoid misalignment or breaking table interactions.
+- Supports combining multiple columns or rows into a single cell.
+- Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
 - Multi-span cells should use the same alignment for readability.
 
 ![](/assets/components/table/advanced-table/colspan-table-example.png)
