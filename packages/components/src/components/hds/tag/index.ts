@@ -125,7 +125,7 @@ export default class HdsTag extends Component<HdsTagSignature> {
             this._isTextOverflow
           );
         });
-      })
+      });
     });
     this._observer.observe(textElement);
   }
