@@ -118,12 +118,14 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
     // Used to detect when text is clipped to one line, and tooltip should be added
     this._observer = new ResizeObserver((entries) => {
-      entries.forEach((entry) => {
-        this._isTextOverflow = this._isOverflow(
-          entry.target,
-          this._isTextOverflow
-        );
-      });
+      requestAnimationFrame(() => {
+        entries.forEach((entry) => {
+          this._isTextOverflow = this._isOverflow(
+            entry.target,
+            this._isTextOverflow
+          );
+        });
+      })
     });
     this._observer.observe(textElement);
   }
