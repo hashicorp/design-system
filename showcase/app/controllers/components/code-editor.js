@@ -70,6 +70,14 @@ func main() {
 }`,
     },
     {
+      value: 'sentinel',
+      label: 'Sentinel',
+      code: `param allowed_regions = ["us-east-1", "us-west-2"]
+
+main = rule { all tfplan.resources[*].instances as r { r.attributes.region in allowed_regions } }
+`,
+    },
+    {
       value: 'sql',
       label: 'SQL',
       code: `SELECT 'Hello, world!';
