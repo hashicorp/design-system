@@ -13,25 +13,32 @@ import config from 'ember-get-config';
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
-import type { HdsCodeEditorLanguages } from './hds-code-editor/types';
+import type { HdsCodeEditorLanguages } from './hds-code-editor/types.ts';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
-import type { StreamLanguage, StreamParser } from '@codemirror/language';
+import type {
+  StreamLanguage as StreamLanguageType,
+  StreamParser as StreamParserType,
+} from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
+
+type HdsCodeEditorBlurHandler = (editor: EditorView, event: FocusEvent) => void;
 
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
+      ariaLabel?: string;
+      ariaLabelledBy?: string;
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
-      onBlur?: (editor: EditorView, event: FocusEvent) => void;
+      onBlur?: HdsCodeEditorBlurHandler;
       onSetup?: (editor: EditorView) => unknown;
     };
   };
 }
 
-async function defineStreamLangugage(streamParser: StreamParser<unknown>) {
+async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   const { StreamLanguage } = await import('@codemirror/language');
 
   return StreamLanguage.define(streamParser);
@@ -41,26 +48,18 @@ const LOADER_HEIGHT = '164px';
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
-  { load: () => Promise<Extension | StreamLanguage<unknown>> }
+  { load: () => Promise<Extension | StreamLanguageType<unknown>> }
 > = {
   ruby: {
     load: async () => {
       const { ruby } = await import('@codemirror/legacy-modes/mode/ruby');
-      return defineStreamLangugage(ruby);
-    },
-  },
-  sentinel: {
-    load: async () => {
-      const { sentinel } = await import(
-        './hds-code-editor/languages/sentinel.ts'
-      );
-      return defineStreamLangugage(sentinel);
+      return defineStreamLanguage(ruby);
     },
   },
   shell: {
     load: async () => {
       const { shell } = await import('@codemirror/legacy-modes/mode/shell');
-      return defineStreamLangugage(shell);
+      return defineStreamLanguage(shell);
     },
   },
   go: {
@@ -84,8 +83,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   editor!: EditorView;
   element!: HTMLElement;
 
+  onBlur: HdsCodeEditorSignature['Args']['Named']['onBlur'];
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
+  blurHandler!: (event: FocusEvent) => void;
   observer!: IntersectionObserver;
 
   constructor(
@@ -94,7 +95,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   ) {
     super(owner, args);
 
-    registerDestructor(this, () => this.observer?.disconnect());
+    registerDestructor(this, () => {
+      this.observer?.disconnect();
+
+      if (this.onBlur !== undefined) {
+        this.element.removeEventListener('blur', this.blurHandler);
+      }
+    });
   }
 
   modify(
@@ -125,6 +132,47 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   }
 
+  private _setupEditorBlurHandler(
+    element: HTMLElement,
+    onBlur: HdsCodeEditorBlurHandler
+  ) {
+    const inputElement = element.querySelector('.cm-content');
+
+    if (inputElement === null) {
+      return;
+    }
+
+    this.blurHandler = (event: FocusEvent) => onBlur(this.editor, event);
+
+    (inputElement as HTMLElement).addEventListener('blur', this.blurHandler);
+  }
+
+  private _setupEditorAriaAttributes(
+    editor: EditorView,
+    {
+      ariaLabel,
+      ariaLabelledBy,
+    }: Pick<
+      HdsCodeEditorSignature['Args']['Named'],
+      'ariaLabel' | 'ariaLabelledBy'
+    >
+  ) {
+    assert(
+      '`hds-code-editor` modifier - Either `ariaLabel` or `ariaLabelledBy` must be provided',
+      ariaLabel !== undefined || ariaLabelledBy !== undefined
+    );
+
+    if (ariaLabel !== undefined) {
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-label', ariaLabel);
+    } else if (ariaLabelledBy !== undefined) {
+      editor.dom
+        .querySelector('[role="textbox"]')
+        ?.setAttribute('aria-labelledby', ariaLabelledBy);
+    }
+  }
+
   private _loadLanguageTask = task(
     { drop: true },
     async (language?: HdsCodeEditorLanguages) => {
@@ -136,7 +184,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         const validLanguageKeys = Object.keys(LANGUAGES);
 
         assert(
-          `@language for "hds-code-editor" must be one of the following: ${validLanguageKeys.join(
+          `\`hds-code-editor\` modifier - \`language\` must be one of the following: ${validLanguageKeys.join(
             ', '
           )}; received: ${language}`,
           validLanguageKeys.includes(language)
@@ -216,18 +264,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     return extensions;
   });
 
-  private _setupTask = task(
+  private _createEditorTask = task(
     { drop: true },
     async (
       element: HTMLElement,
-      _positional: PositionalArgs<HdsCodeEditorSignature>,
-      named: NamedArgs<HdsCodeEditorSignature>
+      {
+        language,
+        value,
+      }: Pick<HdsCodeEditorSignature['Args']['Named'], 'language' | 'value'>
     ) => {
-      const { onInput, onSetup, language, value } = named;
-
-      this.element = element;
-      this.onInput = onInput;
-
       try {
         const { EditorState } = await import('@codemirror/state');
         const { EditorView } = await import('@codemirror/view');
@@ -241,16 +286,60 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           extensions,
         });
 
-        const editor = new EditorView({ state, parent: element });
+        const editor = new EditorView({
+          state,
+          parent: element,
+        });
 
-        this.editor = editor;
-
-        onSetup?.(this.editor);
+        return editor;
       } catch (error) {
         console.error(
           `\`hds-code-editor\` modifier - Failed to setup the CodeMirror editor. Error: ${JSON.stringify(error)}`
         );
       }
+    }
+  );
+
+  private _setupTask = task(
+    { drop: true },
+    async (
+      element: HTMLElement,
+      _positional: PositionalArgs<HdsCodeEditorSignature>,
+      named: NamedArgs<HdsCodeEditorSignature>
+    ) => {
+      const {
+        onBlur,
+        onInput,
+        onSetup,
+        ariaLabel,
+        ariaLabelledBy,
+        language,
+        value,
+      } = named;
+
+      this.onInput = onInput;
+      this.onBlur = onBlur;
+
+      this.element = element;
+
+      const editor = await this._createEditorTask.perform(element, {
+        language,
+        value,
+      });
+
+      if (editor === undefined) {
+        return;
+      }
+
+      this.editor = editor;
+
+      if (onBlur !== undefined) {
+        this._setupEditorBlurHandler(element, onBlur);
+      }
+
+      this._setupEditorAriaAttributes(editor, { ariaLabel, ariaLabelledBy });
+
+      onSetup?.(this.editor);
     }
   );
 }

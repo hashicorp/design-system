@@ -11,10 +11,20 @@
   <Shw::Text::H2>Content</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="No content">
-      <Hds::CodeEditor />
+      <Hds::CodeEditor @ariaLabel="No content" />
     </SF.Item>
     <SF.Item @label="With initial content">
-      <Hds::CodeEditor @value={{this.demoCode}} />
+      <Hds::CodeEditor @ariaLabel="With initial content" @value={{this.demoCode}} />
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H2>Standalone</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="Standalone editor (default)">
+      <Hds::CodeEditor @ariaLabel="Standalone editor (default)" />
+    </SF.Item>
+    <SF.Item @label="Not standalone editor">
+      <Hds::CodeEditor @ariaLabel="Not standalone editor" @isStandalone={{false}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -28,7 +38,7 @@
       </Hds::CodeEditor>
     </SG.Item>
     <SG.Item @label="With description">
-      <Hds::CodeEditor as |CE|>
+      <Hds::CodeEditor @ariaLabel="With description" as |CE|>
         <CE.Description>This is a code editor with a description</CE.Description>
       </Hds::CodeEditor>
     </SG.Item>
@@ -40,59 +50,80 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>Custom content</Shw::Text::H3>
+  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+    <SG.Item @label="With custom content">
+      <Hds::CodeEditor @ariaLabel="With custom content" as |CE|>
+        <CE.Generic>
+          <Shw::Placeholder @text="generic content" @height="24" />
+        </CE.Generic>
+      </Hds::CodeEditor>
+    </SG.Item>
+    <SG.Item @label="With custom content and title">
+      <Hds::CodeEditor as |CE|>
+        <CE.Title>Code editor with custom content and title</CE.Title>
+        <CE.Generic>
+          <Shw::Placeholder @text="generic content" @height="24" />
+        </CE.Generic>
+      </Hds::CodeEditor>
+    </SG.Item>
+    <SG.Item @label="With custom content and description">
+      <Hds::CodeEditor @ariaLabel="With custom content and description" as |CE|>
+        <CE.Description>Description for code editor with custom content and description</CE.Description>
+        <CE.Generic>
+          <Shw::Placeholder @text="generic content" @height="24" />
+        </CE.Generic>
+      </Hds::CodeEditor>
+    </SG.Item>
+    <SG.Item @label="With custom content, title, and description">
+      <Hds::CodeEditor as |CE|>
+        <CE.Title>Code editor with custom content, title, and description</CE.Title>
+        <CE.Description>Description for code editor with custom content, title, and description</CE.Description>
+        <CE.Generic>
+          <Shw::Placeholder @text="generic content" @height="24" />
+        </CE.Generic>
+      </Hds::CodeEditor>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Text::H3>Actions</Shw::Text::H3>
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="Fullscreen toggle">
-      <Hds::CodeEditor @hasFullScreenButton={{true}} />
+      <Hds::CodeEditor @ariaLabel="Fullscreen toggle" @hasFullScreenButton={{true}} />
     </SG.Item>
     <SG.Item @label="Copy button">
-      <Hds::CodeEditor @value="Copy me!" @hasCopyButton={{true}} />
+      <Hds::CodeEditor @ariaLabel="Copy button" @value="Copy me!" @hasCopyButton={{true}} />
     </SG.Item>
     <SG.Item @label="Fullscreen toggle and copy button">
-      <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} />
+      <Hds::CodeEditor
+        @ariaLabel="Fullscreen toggle and copy button"
+        @hasFullScreenButton={{true}}
+        @hasCopyButton={{true}}
+      />
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>Custom content</Shw::Text::H3>
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="With custom header content">
-      <Hds::CodeEditor>
-        <Hds::Button @text="Custom button" @size="small" />
-      </Hds::CodeEditor>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H3>Complex examples</Shw::Text::H3>
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
-    <SG.Item @label="With title, description, and internal actions">
+  <Shw::Text::H3>Complex example</Shw::Text::H3>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="With title, description, internal actions, and custom content">
       <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} as |CE|>
         <CE.Title>Code editor with title</CE.Title>
         <CE.Description>This is a code editor with a description</CE.Description>
+        <CE.Generic class="my-code-editor-custom-content">
+          <Hds::Button @text="Custom action" @size="small" />
+          <Hds::Button @text="Search" @icon="search" @isIconOnly={{true}} @size="small" />
+        </CE.Generic>
       </Hds::CodeEditor>
-    </SG.Item>
-    <SG.Item @label="With title, description, and custom content">
-      <Hds::CodeEditor as |CE|>
-        <CE.Title>Code editor with title</CE.Title>
-        <CE.Description>This is a code editor with a description</CE.Description>
-        <Hds::Button @text="Custom button" @size="small" />
-        <Hds::Icon @name="code" @color="#fff" />
-      </Hds::CodeEditor>
-    </SG.Item>
-    <SG.Item @label="With title, description, internal actions, and custom content">
-      <Hds::CodeEditor @hasFullScreenButton={{true}} @hasCopyButton={{true}} as |CE|>
-        <CE.Title>Code editor with title</CE.Title>
-        <CE.Description>This is a code editor with a description</CE.Description>
-        <Hds::Button @text="Custom button" @size="small" />
-        <Hds::Icon @name="code" @color="#fff" />
-      </Hds::CodeEditor>
-    </SG.Item>
-  </Shw::Grid>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Text::H2>Syntax highlighting</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
     {{#each this.languages as |lang|}}
       <SF.Item @label={{lang.label}}>
-        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} />
+        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} as |CE|>
+          <CE.Title>{{lang.label}}</CE.Title>
+        </Hds::CodeEditor>
       </SF.Item>
     {{/each}}
   </Shw::Flex>
@@ -100,7 +131,7 @@
   <Shw::Text::H2>Standalone modifier usage</Shw::Text::H2>
   <Shw::Flex @direction="column" as |SF|>
     <SF.Item @label="`div` element with `hds-code-editor` modifier">
-      <div {{hds-code-editor value=this.demoCode}} />
+      <div {{hds-code-editor ariaLabel="Standalone modifier usage" value=this.demoCode}} />
     </SF.Item>
   </Shw::Flex>
 </section>

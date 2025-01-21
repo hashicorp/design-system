@@ -1,10 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
 <Hds::Button
   class={{this.className}}
   aria-pressed={{@isFullScreen}}
   @isIconOnly={{true}}
   @color="secondary"
   @size="small"
-  @icon={{this.icon}}
+  @icon={{this.state}}
   @text="Toggle full screen view"
   {{on "click" @onToggleFullScreen}}
+  ...attributes
 />

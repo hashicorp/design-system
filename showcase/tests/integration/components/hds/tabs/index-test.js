@@ -315,6 +315,10 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assert
       .dom('[data-test="tab-1"] .hds-tabs__tab-button')
       .hasAttribute('role', 'tab');
+    const panelId = find('[data-test="panel-1"]').getAttribute('id');
+    assert
+      .dom('[data-test="tab-1"] .hds-tabs__tab-button')
+      .hasAttribute('aria-controls', panelId);
     assert.dom('[data-test="panel-1"]').hasAttribute('role', 'tabpanel');
     const tabId = find(
       '[data-test="tab-1"] .hds-tabs__tab-button'

@@ -5,7 +5,7 @@
 
 import dotenv from 'dotenv';
 import fs from 'fs-extra';
-import del from 'del';
+import { deleteSync } from 'del';
 import chalk from 'chalk';
 import isEqual from 'lodash/isEqual';
 
@@ -44,7 +44,7 @@ async function sync() {
     // remove existing output folder
     try {
         console.log('Removing "svg-original" output folder');
-        del.sync(`${config.mainFolder}/svg-original/`, { force: true })
+        deleteSync(`${config.mainFolder}/svg-original/`, { force: true })
     } catch (err) {
         console.error(err);
     }

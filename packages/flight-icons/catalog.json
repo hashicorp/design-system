@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2024-11-15T20:52:01.535Z",
+  "lastRunTimeISO": "2025-01-03T21:27:03.652Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -881,6 +881,46 @@
       "fileName": "codepen-color-16",
       "iconName": "codepen-color",
       "description": "codepen",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "7057:66",
+      "fileName": "confluence-24",
+      "iconName": "confluence",
+      "description": "confluence, atlassian, document",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "7057:70",
+      "fileName": "confluence-16",
+      "iconName": "confluence",
+      "description": "confluence, atlassian, document",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "7057:77",
+      "fileName": "confluence-color-24",
+      "iconName": "confluence-color",
+      "description": "confluence, atlassian, document",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "7057:81",
+      "fileName": "confluence-color-16",
+      "iconName": "confluence-color",
+      "description": "confluence, atlassian, document",
       "category": "Services",
       "size": "16",
       "width": 16,

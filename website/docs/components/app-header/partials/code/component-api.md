@@ -18,7 +18,7 @@
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
     Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`. Warning: if it is set to false, then it will fail Bypass Blocks, [Success Criteria 2.4.1](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html). Since this component appears on every page, the application will not be considered conformant.
     <br><br>
-    <em>For details about the addon behaviour and functionality, refer to the [official documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme).</em>
+    <em>For details about the addon behavior and functionality, refer to the [official documentation](https://github.com/ember-a11y/ember-a11y-refocus#readme).</em>
     <Doc::ComponentApi as |C|>
       <C.Property @name="a11yRefocusSkipTo" @type="string" @default='"#hds-main"'>
         Pass-through property for the `skipTo` argument - The element ID that should receive focus on skip. The default value matches the default id value on the [`AppFrame::Main` component](/layouts/app-frame#afmain).

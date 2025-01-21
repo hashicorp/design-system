@@ -70,20 +70,6 @@ func main() {
 }`,
     },
     {
-      value: 'sentinel',
-      label: 'Sentinel',
-      code: `import "tfplan/v2" as tfplan
-
-main = rule {
-  all tfplan.resources.aws_instance as _, instances {
-    all instances as _, instance {
-      instance.applied.tags contains "Environment"
-    }
-  }
-}
-`,
-    },
-    {
       value: 'sql',
       label: 'SQL',
       code: `SELECT 'Hello, world!';

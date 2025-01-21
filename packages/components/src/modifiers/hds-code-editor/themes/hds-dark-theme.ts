@@ -9,7 +9,7 @@ import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
   HDS_CODE_BLOCK_GREEN,
   HDS_CODE_BLOCK_WHITE,
-  HDS_CODE_EDITOR_COLOR_BORDER_STRONG,
+  HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
@@ -33,7 +33,7 @@ const hdsDark = EditorView.theme(
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
     },
     '.cm-gutter': {
-      borderRight: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
+      borderRight: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
     },
     '.cm-lineNumbers': {
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
@@ -44,20 +44,21 @@ const hdsDark = EditorView.theme(
     },
     '.cm-gutterElement.cm-activeLineGutter': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
     },
-    '&:not(.cm-hasSelection) .cm-gutterElement.cm-activeLineGutter': {
-      borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
-      backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
-      outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
-    },
+    '&:not(.cm-hasSelection).cm-focused .cm-gutterElement.cm-activeLineGutter':
+      {
+        borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
+        backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
+        color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+        outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
+      },
     '.cm-line': {
       padding: '0 16px',
     },
     '.cm-activeLine': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
     },
-    '&:not(.cm-hasSelection) .cm-activeLine': {
+    '&:not(.cm-hasSelection).cm-focused .cm-activeLine': {
       backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
       outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
     },

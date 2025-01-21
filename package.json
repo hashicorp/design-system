@@ -8,9 +8,9 @@
     "./website"
   ],
   "devDependencies": {
-    "@changesets/cli": "^2.26.2",
-    "@changesets/get-github-info": "^0.5.2",
-    "dotenv": "^16.3.1"
+    "@changesets/cli": "^2.27.11",
+    "@changesets/get-github-info": "^0.6.0",
+    "dotenv": "^16.4.7"
   },
   "scripts": {
     "release-packages": "yarn changeset publish",

@@ -8,7 +8,7 @@
 ## Foundations library
 
 <p class="doc-whats-new-changelog-figma-library">
-  <strong>Figma library: <a href="https://www.figma.com/file/oQsMzMMnynfPWpMEt91OpH/HDS-Product---Foundations?type=design&node-id=4728-1879&mode=design&t=vM0eNG3c9YY5rmmu-0" target="_blank" rel="noopener noreferrer">HDS Product - Foundations</a></strong>
+  <strong>Figma library: <a href="https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&node-id=2916-4&t=vnWfSubCHQU6J1U3-1" target="_blank" rel="noopener noreferrer">HDS Foundations UI Kit</a></strong>
 </p>
 
 

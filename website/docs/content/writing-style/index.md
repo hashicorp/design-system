@@ -198,7 +198,7 @@ Use when a new entity is produced or destroyed in the system, e.g., "Create a pr
 
 !!! Do
 
-![Two buttons, one labeled "create project" with a leading plus icon, and one labled "delete project" with a leading trash icon](/assets/content/writing-style/writing-style-consistent-termonology-CTA-create-delete-do.png)
+![Two buttons, one labeled "create project" with a leading plus icon, and one labelled "delete project" with a leading trash icon](/assets/content/writing-style/writing-style-consistent-termonology-CTA-create-delete-do.png)
 
 !!!
 

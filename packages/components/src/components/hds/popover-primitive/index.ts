@@ -119,19 +119,23 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     ): void => {
       this._popoverElement = element;
 
-      // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
-      // provided by the Popover API which does all the magic for us without needing JS code
-      // (important: to work it needs to be applied to a button)
-      if (this.enableClickEvents) {
+      // We need to create a popoverId in order to connect the popover and the toggle with aria-controls
+      // and an id is needed to implement `onclick` event listeners
+      if (this._toggleElement) {
         let popoverId;
         if (this._popoverElement.id) {
           popoverId = this._popoverElement.id;
         } else {
-          // we need a DOM id for the `popovertarget` attribute
+          // we need a DOM id for the `aria-controls` and `popovertarget` attributes
           popoverId = guidFor(this);
           this._popoverElement.id = popoverId;
         }
-        if (this._toggleElement) {
+        this._toggleElement.setAttribute('aria-controls', popoverId);
+
+        // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
+        // provided by the Popover API which does all the magic for us without needing JS code
+        // (important: to work it needs to be applied to a button)
+        if (this.enableClickEvents) {
           this._toggleElement.setAttribute('popovertarget', popoverId);
         }
       }

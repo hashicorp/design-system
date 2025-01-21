@@ -66,7 +66,7 @@ The default `@tag` is `"div"` because the correct value is dependent on the indi
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We only support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `ruby`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
+The `language` argument sets the syntax highlighting used. We support the following languages: `bash`, `go`, `hcl`, `json`, `log`, `ruby`, `shell-session`, and `yaml`. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>
 
 ```handlebars
 <Hds::CodeBlock

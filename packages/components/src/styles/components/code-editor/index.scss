@@ -7,7 +7,7 @@
 // CODE-EDITOR
 //
 
-@import "theme";
+@use "theme";
 
 .hds-code-editor {
   display: flex;
@@ -15,14 +15,14 @@
   overflow: hidden;
   background-color: var(--hds-code-editor-color-surface-primary);
   border: 1px solid var(--hds-code-editor-color-border-strong);
-  border-radius: 6px;
+
+  &.hds-code-editor--is-standalone {
+    border-radius: var(--token-border-radius-medium);
+  }
 
   &.hds-code-editor--is-full-screen {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 1000;
     border: none;
     border-radius: 0;
@@ -38,40 +38,30 @@
     align-items: start;
     padding: 16px;
     background-color: var(--hds-code-editor-color-surface-faint);
-    border-bottom: 1px solid var(--hds-code-editor-color-border-strong);
+    border-bottom: 1px solid var(--hds-code-editor-color-border-primary);
   }
 
   .hds-code-editor__header-content {
     display: flex;
+    flex-direction: column;
     flex-grow: 1;
-    flex-wrap: wrap;
-    align-items: center;
-
-    // child element that is not the title/description and has subsequent siblings
-    > :not(.hds-code-editor__title, .hds-code-editor__description):has(+ *) {
-      margin-right: 8px;
-    }
-  }
-
-  .hds-code-editor__title,
-  .hds-code-editor__description {
-    width: 100%;
-
-    &:has(+ *) {
-      margin-bottom: 12px;
-    }
-
-    &:has(+ .hds-code-editor__title, + .hds-code-editor__description) {
-      margin-bottom: 4px;
-    }
   }
 
   .hds-code-editor__title {
     color: var(--hds-code-editor-color-foreground-primary);
+
+    + .hds-code-editor__description {
+      margin-top: 4px;
+    }
   }
 
   .hds-code-editor__description {
     color: var(--hds-code-editor-color-foreground-faint);
+  }
+
+  .hds-code-editor__title + .hds-code-editor__header-generic,
+  .hds-code-editor__description + .hds-code-editor__header-generic {
+    margin-top: 12px;
   }
 
   .hds-code-editor__header-actions {
@@ -103,14 +93,17 @@
     background-color: var(--hds-code-editor-color-surface-faint);
     border: 1px solid var(--hds-code-editor-color-border-strong);
 
-    &:active,
     &:focus,
     &:hover {
-      color: var(--hds-code-editor-color-foreground-high-contrast);
+      background-color: var(--hds-code-editor-color-surface-primary);
       
       .hds-button__icon {
-        color: var(--hds-code-editor-color-foreground-high-contrast);
+        color: var(--hds-code-editor-color-foreground-primary);
       }
+    }
+
+    &:active {
+      background-color: var(--hds-code-editor-color-surface-interactive-active)
     }
 
     .hds-button__icon {

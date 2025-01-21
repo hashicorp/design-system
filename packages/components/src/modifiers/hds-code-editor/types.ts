@@ -9,7 +9,6 @@ export enum HdsCodeEditorLanguageValues {
   Go = 'go',
   Hcl = 'hcl',
   Json = 'json',
-  Sentinel = 'sentinel',
   Sql = 'sql',
   Yaml = 'yaml',
 }
