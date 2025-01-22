@@ -50,7 +50,7 @@ Assume all users will understand the purpose of the Code Editor without providin
 
 The secondary actions section supports two optional buttons: the [Copy Button](/components/copy/button), and a “full screen” button. The Copy Button copies the content of the Code Editor to the clipboard, while the full screen button toggles the size of the Code Editor from inline view to full screen.
 
-![The secondary actions container is shown twice, both with the Copy Button and full screen button. First showing the full screen button with the maximize icon and the second showing it with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
+![The secondary actions container is shown twice, both with the Copy Button and full screen button; the first showing the full screen button with the maximize icon, and the second showing it with the minimize icon.](/assets/components/code-editor/code-editor-secondary-actions.png)
 
 ## Custom actions
 
