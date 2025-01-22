@@ -16,7 +16,17 @@ function wordRegexp(words: string[]): RegExp {
 }
 
 // logical operators
-const wordOperators = wordRegexp(['and', 'or', 'not']);
+const wordOperators = wordRegexp([
+  'and',
+  'contains',
+  'else',
+  'in',
+  'is',
+  'matches',
+  'not',
+  'or',
+  'xor',
+]);
 
 // keywords
 const sentinelKeywords = [
