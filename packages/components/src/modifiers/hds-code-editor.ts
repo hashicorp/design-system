@@ -27,6 +27,7 @@ type HdsCodeEditorBlurHandler = (editor: EditorView, event: FocusEvent) => void;
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
+      ariaDescribedBy?: string;
       ariaLabel?: string;
       ariaLabelledBy?: string;
       language?: HdsCodeEditorLanguages;
@@ -155,7 +156,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     (inputElement as HTMLElement).addEventListener('blur', this.blurHandler);
   }
 
-  private _setupEditorAriaAttributes(
+  private _setupEditorAriaLabel(
     editor: EditorView,
     {
       ariaLabel,
@@ -179,6 +180,34 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         .querySelector('[role="textbox"]')
         ?.setAttribute('aria-labelledby', ariaLabelledBy);
     }
+  }
+
+  private _setupEditorAriaDescribedBy(
+    editor: EditorView,
+    ariaDescribedBy?: string
+  ) {
+    if (ariaDescribedBy === undefined) {
+      return;
+    }
+
+    editor.dom
+      .querySelector('[role="textbox"]')
+      ?.setAttribute('aria-describedby', ariaDescribedBy);
+  }
+
+  private _setupEditorAriaAttributes(
+    editor: EditorView,
+    {
+      ariaDescribedBy,
+      ariaLabel,
+      ariaLabelledBy,
+    }: Pick<
+      HdsCodeEditorSignature['Args']['Named'],
+      'ariaDescribedBy' | 'ariaLabel' | 'ariaLabelledBy'
+    >
+  ) {
+    this._setupEditorAriaLabel(editor, { ariaLabel, ariaLabelledBy });
+    this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
   }
 
   private _loadLanguageTask = task(
@@ -319,6 +348,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         onBlur,
         onInput,
         onSetup,
+        ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
         language,
@@ -345,7 +375,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         this._setupEditorBlurHandler(element, onBlur);
       }
 
-      this._setupEditorAriaAttributes(editor, { ariaLabel, ariaLabelledBy });
+      this._setupEditorAriaAttributes(editor, {
+        ariaDescribedBy,
+        ariaLabel,
+        ariaLabelledBy,
+      });
 
       onSetup?.(this.editor);
     }

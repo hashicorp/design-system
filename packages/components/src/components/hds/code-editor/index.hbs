@@ -18,7 +18,9 @@
         {{yield
           (hash
             Title=(component "hds/code-editor/title" editorId=this._id onInsert=this.registerTitleElement)
-            Description=(component "hds/code-editor/description")
+            Description=(component
+              "hds/code-editor/description" editorId=this._id onInsert=this.registerDescriptionElement
+            )
             Generic=(component "hds/code-editor/generic")
           )
         }}
@@ -50,6 +52,7 @@
   <div
     class="hds-code-editor__editor"
     {{hds-code-editor
+      ariaDescribedBy=this.ariaDescribedBy
       ariaLabel=@ariaLabel
       ariaLabelledBy=this.ariaLabelledBy
       value=@value

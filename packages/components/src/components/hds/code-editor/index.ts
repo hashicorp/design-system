@@ -15,20 +15,12 @@ import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
-
 export interface HdsCodeEditorSignature {
   Args: {
-    ariaLabel?: string;
-    ariaLabelledBy?: string;
     hasCopyButton?: boolean;
     hasFullScreenButton?: boolean;
     isStandalone?: boolean;
-    language?: HdsCodeEditorModifierSignature['Args']['Named']['language'];
-    value?: HdsCodeEditorModifierSignature['Args']['Named']['value'];
-    onBlur?: HdsCodeEditorModifierSignature['Args']['Named']['onBlur'];
-    onInput?: HdsCodeEditorModifierSignature['Args']['Named']['onInput'];
-    onSetup?: HdsCodeEditorModifierSignature['Args']['Named']['onSetup'];
-  };
+  } & HdsCodeEditorModifierSignature['Args']['Named'];
   Blocks: {
     default: [
       {
@@ -46,6 +38,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @tracked private _isSetupComplete = false;
   @tracked private _value;
   @tracked private _titleId: string | undefined;
+  @tracked private _descriptionId: string | undefined;
 
   private _id = guidFor(this);
 
@@ -81,6 +74,10 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     return this.args.ariaLabelledBy ?? this._titleId;
   }
 
+  get ariaDescribedBy(): string | undefined {
+    return this.args.ariaDescribedBy ?? this._descriptionId;
+  }
+
   get hasActions(): boolean {
     return (this.args.hasCopyButton || this.args.hasFullScreenButton) ?? false;
   }
@@ -108,6 +105,13 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   @action
   registerTitleElement(element: HdsCodeEditorTitleSignature['Element']): void {
     this._titleId = element.id;
+  }
+
+  @action
+  registerDescriptionElement(
+    element: HdsCodeEditorDescriptionSignature['Element']
+  ): void {
+    this._descriptionId = element.id;
   }
 
   @action
