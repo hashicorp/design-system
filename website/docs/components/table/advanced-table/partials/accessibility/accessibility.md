@@ -12,7 +12,7 @@ The table row element cannot receive interactions, meaning actions cannot be att
 
 ### Focus in Advanced Tables
 
-Unlike the Table component, each cell receives focus in the Advanced Table to let users navigate through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
+Unlike the Table component, each cell receives focus in the Advanced Table to support users navigating through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
 
 ### Row selection
 
