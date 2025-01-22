@@ -11,7 +11,6 @@ type HdsCodeEditorDescriptionElement = HdsTextBodySignature['Element'];
 export interface HdsCodeEditorDescriptionSignature {
   Args: {
     editorId: string;
-    tag?: HdsTextBodySignature['Args']['tag'];
     onInsert: (element: HdsCodeEditorDescriptionElement) => void;
   };
   Blocks: {
