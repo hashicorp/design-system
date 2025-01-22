@@ -134,7 +134,7 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
   });
 };
 
-const cleanComponentFrontMatter = (components) => {
+const cleanComponentFrontMatter = (components, version) => {
   Object.keys(components).forEach((componentName) => {
     const indexPath = `${components[componentName]}/index.md`;
 
