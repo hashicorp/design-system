@@ -42,7 +42,23 @@ const sentinelKeywords = [
 ];
 
 // built-ins / constants
-const sentinelBuiltins = ['true', 'false', 'null'];
+const sentinelBuiltins = [
+  'true',
+  'false',
+  'null',
+  'undefined',
+  'length',
+  'append',
+  'delete',
+  'keys',
+  'values',
+  'range',
+  'print',
+  'int',
+  'float',
+  'string',
+  'bool',
+];
 
 const keywords = wordRegexp(sentinelKeywords);
 const builtins = wordRegexp(sentinelBuiltins);
