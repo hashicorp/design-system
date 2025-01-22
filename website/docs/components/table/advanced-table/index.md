@@ -27,7 +27,3 @@ status:
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
-<section data-tab="Version history">
-  @include "partials/version-history/4.16.0.md"
-</section>
