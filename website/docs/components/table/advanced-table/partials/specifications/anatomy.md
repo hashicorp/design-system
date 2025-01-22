@@ -27,7 +27,7 @@
 
 | Element      | Usage    |
 |--------------|----------|
-| Indentation  | Required |
+| Nested  | Required |
 | Cell content | Required |
 | Icon         | Optional |
 | Container    | Required |

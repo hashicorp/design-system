@@ -87,7 +87,7 @@ Use left alignment for:
 - Numerical values that contain periods or other delimiter characters (IP addresses).
 - Nested components that display a string or text value, e.g., a [Badge](/components/badge).
 
-![Left alignment of content within an Advanced Table](/assets/components/table/advanced-table/start-alignment-example.png)
+![](/assets/components/table/advanced-table/start-alignment-example.png)
 
 #### Right alignment 
 
@@ -98,7 +98,7 @@ Common examples of right alignment include:
 - Financial information and currency amounts.
 - Fractional and floating point values represented with decimals.
 
-![Right alignment of content within a table](/assets/components/table/advanced-table/end-alignment-example.png)
+![](/assets/components/table/advanced-table/end-alignment-example.png)
 
 Right alignment can also be used in the last column of an advanced table to:
 
@@ -163,7 +163,7 @@ Use expandable rows to display hierarchical data efficiently. This allows users 
 
 Avoid using expandable rows when data is not structured in parent-child relationships.
 
-![Advanced Table column placement example](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
+![Advanced Table where the parent row has cells for name and email, but children rows have cells containing order date and total.](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
 
 !!!
 
@@ -178,7 +178,7 @@ Use the same density setting for parent and child rows to keep layouts consisten
 
 !!! Dont
 
-![Tall cell density mixed with short density rows. ](/assets/components/table/advanced-table/advanced-table-density-mix.png)
+![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/advanced-table-density-mix.png)
 
 !!!
 
@@ -191,7 +191,7 @@ Ensure that content within striped rows continue to maintain adequate color cont
 
 !!!
 
-![Table striping examples](/assets/components/table/advanced-table/advanced-table-striping.png)
+![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
 
@@ -251,11 +251,11 @@ When the user is in navigation mode, pressing enter will activate action mode, w
 
 ## Multi-Select
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. 
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
 
 !!! Info
 
-However, multi-select and sorting are not supported for nested rows at this time. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
+Multi-select and sorting are not supported for nested rows at this time. 
 
 !!!
 
