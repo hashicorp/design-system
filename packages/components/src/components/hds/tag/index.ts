@@ -112,22 +112,17 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
   @action
   didInsert(element: HTMLElement): void {
-    const textElement = element.querySelector(
-      '.hds-tag__text-container'
-    ) as HTMLElement;
-
     // Used to detect when text is clipped to one line, and tooltip should be added
     this._observer = new ResizeObserver((entries) => {
       requestAnimationFrame(() => {
         entries.forEach((entry) => {
           this._isTextOverflow = this._isOverflow(
-            entry.target,
-            this._isTextOverflow
+            entry.target.querySelector('.hds-tag__text-container')!
           );
         });
       });
     });
-    this._observer.observe(textElement);
+    this._observer.observe(element);
   }
 
   @action
@@ -136,10 +131,8 @@ export default class HdsTag extends Component<HdsTagSignature> {
     this._observer.disconnect();
   }
 
-  private _isOverflow(el: Element, previousOverflow: boolean): boolean {
-    // If any overflow was present previously and was clipped the scroll height and client height will then be equal
-    // Any future resizes will incorrectly see the element as not overflowing unless the previous value is accounted for
-    if (previousOverflow || el.scrollHeight > el.clientHeight) {
+  private _isOverflow(el: Element): boolean {
+    if (el.scrollHeight > el.clientHeight) {
       return true;
     } else {
       return false;
