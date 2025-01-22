@@ -1,0 +1,97 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > CHECKBOX
+//
+
+
+// "BASE" CONTROL
+
+.hds-form-checkbox {
+  width: var(--token-form-checkbox-size);
+  height: var(--token-form-checkbox-size);
+  margin: 0;
+  padding: 0;
+  background-position: center center;
+  background-size: var(--token-form-checkbox-background-image-size) var(--token-form-checkbox-background-image-size);
+  border-style: solid;
+  border-width: var(--token-form-checkbox-border-width);
+  border-radius: var(--token-form-checkbox-border-radius);
+  cursor: pointer;
+  appearance: none;
+
+  // STATUS
+
+  // base (default)
+
+  &:not(:checked, :indeterminate) {
+    background-color: var(--token-form-control-base-surface-color-default);
+    border-color: var(--token-form-control-base-border-color-default);
+    box-shadow: var(--token-elevation-inset-box-shadow);
+  }
+
+  &:checked {
+    background-color: var(--token-form-control-checked-surface-color-default);
+    background-image: var(--token-form-checkbox-background-image-data-url);
+    border-color: var(--token-form-control-checked-border-color-default);
+  }
+
+  &:indeterminate {
+    background-color: var(--token-form-control-checked-surface-color-default);
+    background-image: var(--token-form-checkbox-background-image-data-url-indeterminate);
+    border-color: var(--token-form-control-checked-border-color-default);
+  }
+
+  // hover
+
+  &:hover:not(:checked, :indeterminate),
+  &.mock-hover:not(:checked, :indeterminate) {
+    background-color: var(--token-form-control-base-surface-color-hover);
+    border-color: var(--token-form-control-base-border-color-hover);
+  }
+
+  &:hover:checked,
+  &.mock-hover:checked,
+  &:hover:indeterminate,
+  &.mock-hover:indeterminate {
+    background-color: var(--token-form-control-checked-border-color-default);
+    border-color: var(--token-form-control-checked-border-color-hover);
+  }
+
+  // focus (same for all the states)
+
+  &:focus,
+  &.mock-focus {
+    outline: 3px solid var(--token-color-focus-action-external);
+    outline-offset: 1px;
+  }
+
+  // DISABLED
+
+  &:disabled:not(:checked, :indeterminate) {
+    background-color: var(--token-form-control-disabled-surface-color);
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  &:disabled:checked {
+    background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-checkbox-background-image-data-url-disabled);
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+
+  &:disabled:indeterminate {
+    background-color: var(--token-form-control-disabled-surface-color);
+    background-image: var(--token-form-checkbox-background-image-data-url-indeterminate-disabled);
+    background-repeat: no-repeat;
+    border-color: var(--token-form-control-disabled-border-color);
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
