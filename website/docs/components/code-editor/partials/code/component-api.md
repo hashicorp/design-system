@@ -70,7 +70,7 @@ The `CodeEditor::Description` component, yielded as contextual component.
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Accepts complex content, such as logic/conditionals, HTML elements, other Ember components, etc. Styling is applied for simple HTML elements, such as `strong`, `em`, `a`, `code/pre`. Consumers will need to style other HTML tags if used as children
+    Supports embedding content such as logic/conditionals, inline HTML elements, and other Ember components. However, since the content is always rendered within a `p` tag, it must adhere to semantic HTML rules, avoiding block-level elements. Consumers should ensure proper styling to maintain consistent rendering when using custom inline child elements.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

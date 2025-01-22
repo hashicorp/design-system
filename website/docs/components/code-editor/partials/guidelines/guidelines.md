@@ -11,7 +11,7 @@
 
 ## Standalone
 
-The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. For example, a common use case of the Code Editor is in a "standalone" context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
+The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. For example, a common use case of the Code Editor is in a “standalone” context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
 
 ![Code Editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
 
@@ -35,7 +35,7 @@ A title and description provides additional contextual information for the Code 
 
 Provide an accessible name for the Code Editor so that users of assistive technology can understand its purpose.
 
-![A Code Editor embedded in a form following a set of radio buttons. It has the heading "Policy code (Sentinel)" immediately before.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+![A Code Editor embedded in a form following a set of radio buttons. It has the heading “Policy code (Sentinel)” immediately before.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
 
 !!!
 
@@ -56,11 +56,11 @@ The secondary actions section supports two optional buttons: the [Copy Button](/
 
 This space is intended for custom primary actions. Primary actions are those which are necessary for the user to complete their work.
 
-![The Code Editor with the title "CodeEditor title". The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
+![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
 
 Here is an example of a custom action to reveal secrets.
 
-![The Code Editor with the title "CodeEditor title". The custom yielded section has a "Reveal secrets" toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
+![The Code Editor with the title “CodeEditor title”. The custom yielded section has a “Reveal secrets” toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
 
 !!! Warning
@@ -73,7 +73,7 @@ The Code Editor has limited support for dark mode styles. Buttons have pre-defin
 
 Some elements or functions outside the Code Editor may affect the content within the Code Editor. In this case, we recommend turning off the header to visually couple the editor with the nearby controlling elements.
 
-![A Code Editor with the external title "Automations and expressions" coupled with a filter input, "Copy" dropdown, "Version" dropdown, and a "Create new version" button.](/assets/components/code-editor/code-editor-external-functions.png)
+![A Code Editor with the external title “Automations and expressions” coupled with a filter input, “Copy” dropdown, “Version” dropdown, and a “Create new version” button.](/assets/components/code-editor/code-editor-external-functions.png)
 
 
 ## Active line highlighting
@@ -98,7 +98,7 @@ Language determines how syntax highlighting is applied and formatted within the 
 
 The **Ember** component uses [CodeMirror](https://codemirror.net/) to handle syntax highlighting and comes with a pre-defined set of [languages](/components/code-editor?tab=code#language-1).
 
-In **Figma** we provide a handful of example languages intended as visual examples. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each "type" of code. You are still able to add a custom code snippet to the Figma component by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
+In **Figma** we provide a handful of example languages intended as visual examples. Syntax highlighting in Figma is a non-trivial process and requires the manual application of color styles to each “type” of code. You are still able to add a custom code snippet to the Figma component by typing/pasting into the text layer, but syntax highlighting will not be automatically applied.
 
 ### Applying syntax highlighting
 
