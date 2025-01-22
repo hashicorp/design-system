@@ -41,7 +41,7 @@ Provide an accessible name for the Code Editor so that users of assistive techno
 
 !!! Dont
 
-Assume all users will understand the purpose of the Code Editor without providing an accessible name. Not providing one may cause confusion and is an accessibility failure.
+Don't assume all users will understand the purpose of the Code Editor without providing an accessible name. Not providing one may cause confusion and is an accessibility failure.
 ![A Code Editor embedded in a form following a set of radio buttons. The Code Editor has no title labelling it.](/assets/components/code-editor/code-editor-dont-external-accessible-name.png)
 
 !!!
@@ -54,7 +54,7 @@ The secondary actions section supports two optional buttons: the [Copy Button](/
 
 ## Custom actions
 
-This space is intended for custom primary actions. Primary actions are those which are necessary for the user to complete their work.
+Custom primary actions can be added to the header. Primary actions include those necessary for the user to complete their work.
 
 ![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
 
