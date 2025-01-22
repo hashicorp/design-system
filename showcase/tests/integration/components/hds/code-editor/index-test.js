@@ -64,6 +64,14 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('hds-code-editor__description').doesNotExist();
   });
+  test('when aria-describedby is not provided and the `Description` contextual component is yielded, it should use the description element id as the aria-describedby value', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" as |CE|><CE.Description id="test-description">Test Description</CE.Description></Hds::CodeEditor>`
+    );
+    assert
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
+      .hasAttribute('aria-describedby', 'test-description');
+  });
 
   // yielded block content
   test('it should render custom content in the toolbar when provided', async function (assert) {
