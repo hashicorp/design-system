@@ -1,0 +1,1 @@
+The Code Editor is used to edit formatted code. It supports syntax highlighting, auto-closing brackets and quotes, and a custom yielded section for additional functions.
