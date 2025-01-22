@@ -3,18 +3,23 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import TemplateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { HdsTextBodySignature } from '../text/body';
 
+type HdsCodeEditorDescriptionElement = HdsTextBodySignature['Element'];
 export interface HdsCodeEditorDescriptionSignature {
+  Args: {
+    editorId: string;
+    tag?: HdsTextBodySignature['Args']['tag'];
+    onInsert: (element: HdsCodeEditorDescriptionElement) => void;
+  };
   Blocks: {
     default: [];
   };
-  Element: HdsTextBodySignature['Element'];
+  Element: HdsCodeEditorDescriptionElement;
 }
 
-const HdsCodeEditorDescription =
-  TemplateOnlyComponent<HdsCodeEditorDescriptionSignature>();
-
-export default HdsCodeEditorDescription;
+export default class HdsCodeEditorDescription extends Component<HdsCodeEditorDescriptionSignature> {
+  private _id = `${this.args.editorId}-title`;
+}

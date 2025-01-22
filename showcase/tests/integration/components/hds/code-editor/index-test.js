@@ -191,6 +191,16 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     sinon.restore();
   });
 
+  // @ariaDescribedBy
+  test('it should render the component with an aria-describedby when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @ariaDescribedBy="test-description" />`
+    );
+    assert
+      .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
+      .hasAttribute('aria-describedby', 'test-description');
+  });
+
   // @ariaLabel
   test('it should render the component with an aria-label when provided', async function (assert) {
     await setupCodeEditor(
