@@ -83,6 +83,16 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.ok(inputSpy.calledOnceWith('Test string'));
   });
 
+  // ariaDescribedBy
+  test('it should render the editor with an aria-describedby when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" ariaDescribedBy="test-description"}} />`
+    );
+    assert
+      .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
+      .hasAttribute('aria-describedby', 'test-description');
+  });
+
   // ariaLabel
   test('it should render the editor with an aria-label when provided', async function (assert) {
     await setupCodeEditor(
