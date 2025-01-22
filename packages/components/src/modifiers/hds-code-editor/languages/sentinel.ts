@@ -20,19 +20,25 @@ const wordOperators = wordRegexp(['and', 'or', 'not']);
 
 // keywords
 const sentinelKeywords = [
-  'import',
-  'main',
-  'rule',
-  'precondition',
-  'if',
-  'else',
-  'for',
-  'while',
+  'all',
+  'any',
+  'as',
   'break',
+  'case',
   'continue',
+  'default',
+  'else',
+  'empty',
+  'filter',
+  'for',
+  'func',
+  'if',
+  'import',
+  'map',
+  'param',
   'return',
-  'in',
-  'each',
+  'rule',
+  'when',
 ];
 
 // built-ins / constants
