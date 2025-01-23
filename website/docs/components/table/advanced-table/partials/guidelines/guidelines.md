@@ -159,9 +159,6 @@ Avoid using expandable rows when data is not structured in parent-child relation
 
 !!!
 
-<!-- ### Interaction
-
-- Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it. -->
 
 !!! Dont
 
@@ -203,9 +200,10 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Density
 
-- We recommend using medium cell density by default.
-- If the content is largely text-based, the short density allows more content to be displayed within the page.
-- While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
+- Use medium density by default for balanced readability and display.
+- Choose short density for text-heavy tables to fit more rows on a page.
+- Dense content can make tables harder to read and scan, so use it thoughtfully.
+
 
 ## Horizontal scrolling
 
@@ -213,29 +211,6 @@ Use horizontal scrolling when the number of columns expands beyond the viewport 
 
 ![](/assets/components/table/advanced-table/horizontal-scrolling.png)
 
-<!-- 
-This section will be moved to the accessibility tab
-
-## Keyboard navigation
-
-There are two modes when using a keyboard to interact with the Advanced Table: navigation and action.
-
-### Navigation mode
-
-When the user moves focus into the Advanced Table (tab key), the first cell will be focused, putting them into navigation mode and allowing the user to navigate freely with their arrow keys. Other keys within navigation mode include: 
-
-- Home (fn + left): Move focus to the row's first cell.
-- End (fn + right): Move focus to the row's last cell.
-- PageUp (fn + up): Moves focus to the first cell in the column.
-- PageDown (fn + down): Moves focus to the last cell in the column.
-
-### Action mode
-
-When the user is in navigation mode, pressing enter will activate action mode, where:
-
-- If a cell contains a single interactive element, pressing Enter will focus on that element.
-- If there is more than one interactive element within the cell, the first element will be focused, allowing the user to tab between them.
-- Pressing escape will take the user out of action mode and back into navigation mode. -->
 
 ## Multi-Select
 

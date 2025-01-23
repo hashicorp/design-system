@@ -14,6 +14,9 @@
 
 ### Advanced Table cells
 
+
+#### Expandable cell
+
 ![](/assets/components/table/advanced-table/advanced-table-cell-parent-anatomy.png)
 
 | Element      | Usage    |
@@ -23,14 +26,19 @@
 | Icon         | Optional |
 | Container    | Required |
 
+
+#### Nested cell
+
 ![](/assets/components/table/advanced-table/advanced-table-cell-nested-anatomy.png)
 
 | Element      | Usage    |
 |--------------|----------|
-| Nested  | Required |
+| Nested       | Required |
 | Cell content | Required |
 | Icon         | Optional |
 | Container    | Required |
+
+#### Selection cell
 
 ![](/assets/components/table/advanced-table/advanced-table-cell-select-anatomy.png)
 
