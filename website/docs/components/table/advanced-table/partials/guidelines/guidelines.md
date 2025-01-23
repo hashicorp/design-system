@@ -8,7 +8,7 @@
 
 ### When not to use
 
-- If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](https://github.com/components/table/table) is a more suitable choice.
+- If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](/components/table/table) is a more suitable choice.
 - When displaying static or minimal data that doesn’t require advanced interactivity.
 - When a visual representation like charts or graphs better conveys the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
