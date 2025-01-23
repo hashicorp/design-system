@@ -1,5 +1,15 @@
 # @hashicorp/design-system-codemods
 
+## 0.5.1
+
+### Patch Changes
+
+Shifted our supported version of Node.js from `16* || >= 18` to `>=18`
+
+<small class="doc-whats-new-changelog-metadata">[#2619](https://github.com/hashicorp/design-system/pull/2619)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 0.5.0
 
 ### Minor Changes

@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 2.3.0
+
+**Minor changes**
+
+Added global tokens for border radius
+
+<small class="doc-whats-new-changelog-metadata">[#2595](https://github.com/hashicorp/design-system/pull/2595)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.2
 
 **Patch changes**
@@ -101,7 +111,7 @@ Added color tokens for “Vault Radar” product
 
 **Minor changes**
 
-Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the SideNav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
+Added design tokens for `SideNav` with `@isCollapsible` (to control if users can collapse the sidenav on 'desktop' viewports) and `@isMinimized` (to control the default state on 'desktop' viewports) arguments
 
 <small class="doc-whats-new-changelog-metadata">[#1630](https://github.com/hashicorp/design-system/pull/1630)</small>
 
@@ -196,12 +206,6 @@ Added design tokens for indeterminate `Checkbox`
 **Minor changes**
 
 - [#584](https://github.com/hashicorp/design-system/pull/584) [`258c06d9`](https://github.com/hashicorp/design-system/commit/258c06d952d41696bb8c5b4bab19eb46e4612cdc) Thanks [@didoo](https://github.com/didoo)! - added specific design tokens for the `RadioCard` component
-
-## 1.0.1
-
-**Patch changes**
-
-- [#555](https://github.com/hashicorp/design-system/pull/555) [`0b245333`](https://github.com/hashicorp/design-system/commit/0b24533369ccc2d02aa5c6c8b8ba4f722e07d236) Thanks [@didoo](https://github.com/didoo)! - Added design tokens for `code-200` and `code-300` typographic styles
 
 
 ---

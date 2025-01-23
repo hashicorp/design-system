@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.9.0
+
+**Minor changes**
+
+`confluence` and `confluence-color` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2635](https://github.com/hashicorp/design-system/pull/2635)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.8.0
 
 **Minor changes**
@@ -237,14 +247,6 @@ Added new `clipboard-x` icon
 Added `elastic-observability` and `new-relic` icons
 
 <small class="doc-whats-new-changelog-metadata">[#1515](https://github.com/hashicorp/design-system/pull/1515)</small>
-
-## 2.15.0
-
-**Minor changes**
-
-Added Venafi service icon
-
-<small class="doc-whats-new-changelog-metadata">[#1487](https://github.com/hashicorp/design-system/pull/1487)</small>
 
 
 ---
