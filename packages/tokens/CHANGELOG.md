@@ -1,5 +1,15 @@
 # @hashicorp/design-system-tokens
 
+## 2.3.0
+
+### Minor Changes
+
+Added global tokens for border radius
+
+<small class="doc-whats-new-changelog-metadata">[#2595](https://github.com/hashicorp/design-system/pull/2595)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 2.2.2
 
 ### Patch Changes

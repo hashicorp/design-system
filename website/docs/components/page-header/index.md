@@ -23,8 +23,6 @@ navigation:
     - landmark
     - banner
     - heading
-status:
-  updated: 4.15.0
 ---
 
 <section data-tab="Guidelines">

@@ -11,6 +11,7 @@
   <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit</a></strong>
 </p>
 
+
 ### January 23rd, 2025
 
 `Advanced Table` - Added new component.
@@ -95,10 +96,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### September 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
-
-### August 17th, 2023
-
-`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 
 ---
