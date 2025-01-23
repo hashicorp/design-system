@@ -9,7 +9,6 @@
 ### When not to use
 
 - If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](/components/table/table) is a more suitable choice.
-- When displaying static or minimal data that doesn’t require advanced interactivity.
 - When a visual representation like charts or graphs better conveys the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
 - When replicating spreadsheet-like functionality with extensive in-cell editing or calculations.
@@ -111,14 +110,6 @@ Don’t right align content that is variable in length. This can make the conten
 
 !!!
 
-## Column and row span
-
-- Supports combining multiple columns or rows into a single cell.
-- Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
-- Multi-span cells should use the same alignment for readability.
-
-![](/assets/components/table/advanced-table/colspan-table-example.png)
-
 #### Other alignment methods
 
 We don’t recommend center or justified alignment of content within Advanced Table cells. These alignment methods can result in the content being difficult to read, especially if it is variable in length.
@@ -130,6 +121,14 @@ Don’t center header labels or cell content within a table.
 ![](/assets/components/table/center-justified-alignment.png)
 
 !!!
+
+## Column and row span
+
+- Supports combining multiple columns or rows into a single cell.
+- Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
+- Multi-span cells should use the same alignment for readability.
+
+![](/assets/components/table/advanced-table/colspan-table-example.png)
 
 ## Rows
 
