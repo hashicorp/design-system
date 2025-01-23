@@ -1,15 +1,27 @@
 ---
 title: App Side Nav
 description: Used as a contextual navigation for subpages within an application.
-caption: A side navigation menu that provides access to subpages within a product or application.
+caption: >-
+  A side navigation menu that provides access to subpages within a product or
+  application.
 links:
-  figma: 
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-side-nav
-related: ['components/side-nav', 'components/breadcrumb','components/tabs','layouts/app-frame','components/app-header']
+  figma: null
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-side-nav
+related:
+  - components/side-nav
+  - components/breadcrumb
+  - components/tabs
+  - layouts/app-frame
+  - components/app-header
 previewImage: assets/illustrations/components/app-side-nav.jpg
 navigation:
   hidden: true
-  keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
+  keywords:
+    - navigation
+    - side navigation
+    - sidenav
+    - sidebar
 ---
 
 <section data-tab="Guidelines">

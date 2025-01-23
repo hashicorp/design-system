@@ -1,19 +1,24 @@
 ---
 title: Table
-description: Used to display organized, two-dimensional tabular data.
-caption: Used to display organized, two-dimensional tabular data.
+description: 'Used to display organized, two-dimensional tabular data.'
+caption: 'Used to display organized, two-dimensional tabular data.'
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
 related:
-  [
-    'components/pagination',
-    'patterns/filter-patterns',
-    'patterns/table-multi-select',
-  ]
+  - components/pagination
+  - patterns/filter-patterns
+  - patterns/table-multi-select
 previewImage: assets/illustrations/components/table.jpg
 navigation:
-  keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
+  keywords:
+    - data table
+    - data grid
+    - datagrid
+    - grid
+    - list
 status:
   updated: 4.15.0
 ---

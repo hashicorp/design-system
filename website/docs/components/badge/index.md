@@ -1,14 +1,22 @@
 ---
 title: Badge
-description: Concise, non-interactive labels that represent metadata.
-caption: Concise, non-interactive labels that represent metadata.
+description: 'Concise, non-interactive labels that represent metadata.'
+caption: 'Concise, non-interactive labels that represent metadata.'
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67237-59854&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/badge
-related: ['components/badge-count','components/tag']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67237-59854&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/badge
+related:
+  - components/badge-count
+  - components/tag
 previewImage: assets/illustrations/components/badge.jpg
 navigation:
-  keywords: ['chip', 'pill', 'tag', 'label']
+  keywords:
+    - chip
+    - pill
+    - tag
+    - label
 ---
 
 <section data-tab="Guidelines">

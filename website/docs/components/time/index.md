@@ -3,11 +3,14 @@ title: Time
 description: The Time component displays dates and times in a consistent format.
 caption: Displays dates and times in a consistent format.
 links:
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/time
-related: ['components/text']
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/time
+related:
+  - components/text
 previewImage: assets/illustrations/components/time.jpg
 navigation:
-  keywords: ['time']
+  keywords:
+    - time
 status:
   added: 4.15.0
 ---

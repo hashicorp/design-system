@@ -4,6 +4,7 @@
  */
 
 import fs from 'fs';
+import matter from 'gray-matter';
 
 const readVersionFromPackageJson = (filePath) => {
   try {
@@ -99,6 +100,83 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
   });
 };
 
+const updateComponentFrontMatter = (componentChangelogEntries, version) => {
+  Object.keys(componentChangelogEntries).forEach((componentName) => {
+    const indexPath = `${allComponentsPath[componentName]}/index.md`;
+
+    if (fs.existsSync(indexPath)) {
+      // Fetch the index markdown file
+      const indexContent = fs.readFileSync(indexPath, 'utf8');
+
+      // Parse the index file content
+      const parsedFrontMatter = matter(indexContent);
+
+      // Update the front matter
+      if (!parsedFrontMatter.data.status) {
+        parsedFrontMatter.data.status = {};
+      }
+      if (
+        parsedFrontMatter.data.status.added !== version &&
+        parsedFrontMatter.data.status.updated !== version
+      ) {
+        // Remove any potential added badge before setting the updated badge
+        delete parsedFrontMatter.data.status.added;
+        parsedFrontMatter.data.status.updated = version;
+      }
+
+      // Stringify the updated content
+      const updatedContent = matter.stringify(
+        parsedFrontMatter.content,
+        parsedFrontMatter.data
+      );
+
+      // Write the updated content back to the index markdown file
+      fs.writeFileSync(indexPath, updatedContent);
+    }
+  });
+};
+
+const cleanComponentFrontMatter = (components, version) => {
+  Object.keys(components).forEach((componentName) => {
+    const indexPath = `${components[componentName]}/index.md`;
+
+    if (fs.existsSync(indexPath)) {
+      // Fetch the index markdown file
+      const indexContent = fs.readFileSync(indexPath, 'utf8');
+
+      // Parse the index file content
+      const parsedFrontMatter = matter(indexContent);
+
+      // Clean the front matter status if 'added' or 'updated' are not matching the current version
+      // Removing the deprecated status will be done manually as we cannot anticipate the removal
+      if (
+        parsedFrontMatter.data.status &&
+        parsedFrontMatter.data.status.added !== version &&
+        parsedFrontMatter.data.status.updated !== version &&
+        (parsedFrontMatter.data.status.added ||
+          parsedFrontMatter.data.status.updated)
+      ) {
+        delete parsedFrontMatter.data.status;
+      }
+
+      // Stringify the updated content
+      const updatedContent = matter.stringify(
+        parsedFrontMatter.content,
+        parsedFrontMatter.data
+      );
+
+      // Write the updated content back to the index markdown file
+      fs.writeFileSync(indexPath, updatedContent);
+    }
+  });
+};
+
+const isNotPatchVersion = (version) => {
+  // eslint-disable-next-line no-unused-vars
+  const [major, minor, patch] = version.split('.').map(Number);
+  return patch === 0;
+};
+
 // Extract current version
 const version = readVersionFromPackageJson(
   '../packages/components/package.json'
@@ -107,7 +185,12 @@ const version = readVersionFromPackageJson(
 // Determine component paths
 const componentPaths = getComponentPaths('./docs/components');
 const formComponentPaths = getComponentPaths('./docs/components/form');
-const allComponentsPath = { ...componentPaths, ...formComponentPaths };
+const utilityComponentPaths = getComponentPaths('./docs/utilities');
+const allComponentsPath = {
+  ...componentPaths,
+  ...formComponentPaths,
+  ...utilityComponentPaths,
+};
 
 // Read the main changelog entry for components
 const changelogContent = readChangelogContent(
@@ -122,5 +205,14 @@ const componentChangelogEntries = extractComponentChangelogEntries(
   currentVersionContent
 );
 
-// Add changelog entries for each component
+// Add changelog entries for each updated component
 updateComponentVersionHistory(componentChangelogEntries, version);
+
+// Check if the current version is a new minor version
+if (isNotPatchVersion(version)) {
+  // Clean previous front matter status for all components
+  cleanComponentFrontMatter(allComponentsPath, version);
+}
+
+// Update front matter for each updated component
+updateComponentFrontMatter(componentChangelogEntries, version);

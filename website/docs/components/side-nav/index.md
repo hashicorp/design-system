@@ -1,15 +1,26 @@
 ---
 title: Side Nav
 description: Used as a contextual navigation for subpages within an application.
-caption: A side navigation menu that provides access to subpages within a product or application.
+caption: >-
+  A side navigation menu that provides access to subpages within a product or
+  application.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67379-82642&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/side-nav
-related: ['components/breadcrumb','components/tabs','layouts/app-frame']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67379-82642&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/side-nav
+related:
+  - components/breadcrumb
+  - components/tabs
+  - layouts/app-frame
 previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
-  keywords: ['navigation', 'side navigation', 'sidenav', 'sidebar']
+  keywords:
+    - navigation
+    - side navigation
+    - sidenav
+    - sidebar
 ---
 
 <section data-tab="Guidelines">
