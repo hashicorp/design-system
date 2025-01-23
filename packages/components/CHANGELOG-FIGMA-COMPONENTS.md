@@ -1,5 +1,11 @@
 # [HDS Components UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1)
 
+## January 23rd, 2025
+
+`Advanced Table` - Added new component.
+`Code Editor` - Added new component.
+`Table` - Added column borders.
+
 ## December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
