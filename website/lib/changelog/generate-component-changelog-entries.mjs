@@ -119,6 +119,8 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
         parsedFrontMatter.data.status.added !== version &&
         parsedFrontMatter.data.status.updated !== version
       ) {
+        // Remove any potential added badge before setting the updated badge
+        delete parsedFrontMatter.data.status.added;
         parsedFrontMatter.data.status.updated = version;
       }
 
@@ -169,6 +171,12 @@ const cleanComponentFrontMatter = (components, version) => {
   });
 };
 
+const isNotPatchVersion = (version) => {
+  // eslint-disable-next-line no-unused-vars
+  const [major, minor, patch] = version.split('.').map(Number);
+  return patch === 0;
+};
+
 // Extract current version
 const version = readVersionFromPackageJson(
   '../packages/components/package.json'
@@ -200,8 +208,11 @@ const componentChangelogEntries = extractComponentChangelogEntries(
 // Add changelog entries for each updated component
 updateComponentVersionHistory(componentChangelogEntries, version);
 
-// Clean previous front matter status for all components
-cleanComponentFrontMatter(allComponentsPath, version);
+// Check if the current version is a new minor version
+if (isNotPatchVersion(version)) {
+  // Clean previous front matter status for all components
+  cleanComponentFrontMatter(allComponentsPath, version);
+}
 
 // Update front matter for each updated component
 updateComponentFrontMatter(componentChangelogEntries, version);
