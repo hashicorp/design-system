@@ -1,20 +1,25 @@
 ---
 title: Advanced Table
-description: Used to display complex, structured tabular data with advanced features.
-caption: Used to display complex, structured tabular data with advanced features.
+description: 'Used to display complex, structured tabular data with advanced features.'
+caption: 'Used to display complex, structured tabular data with advanced features.'
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/advanced-table
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/advanced-table
 related:
-  [
-    'components/table/table',
-    'components/pagination',
-    'patterns/filter-patterns',
-    'patterns/table-multi-select',
-  ]
+  - components/table/table
+  - components/pagination
+  - patterns/filter-patterns
+  - patterns/table-multi-select
 previewImage: assets/illustrations/components/advanced-table.jpg
 navigation:
-  keywords: ['data table', 'data grid', 'datagrid', 'grid', 'list']
+  keywords: 
+    - data table
+    - data grid
+    - datagrid
+    - grid
+    - list
 status:
   added: 4.16.0
 ---
