@@ -3,15 +3,15 @@
 ### When to use
 
 - When large datasets benefit from being viewed in a scrollable container instead of with pagination.
-- When needing an expandable table for hierarchical data.
+- When an expandable table is needed for hierarchical data.
 - When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns. 
 
 ### When not to use
 
 - If your dataset requires only basic interactions, such as simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers, the standard [Table](/components/table/table) is a more suitable choice.
-- When a visual representation like charts or graphs better conveys the data.
+- When visual representations like charts or graphs better convey the data.
 - As a layout mechanism for structuring content that isn’t tabular data.
-- When replicating spreadsheet-like functionality with extensive in-cell editing or calculations.
+- To replicate spreadsheet-like functionality with extensive in-cell editing or calculations.
 
 ## Columns
 
@@ -19,8 +19,8 @@
 
 ![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
-- Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
-- An Advanced Table may only be sorted by a single column at a time.
+- Sorting is not relevant for all content, so thoughtfully consider when to apply sorting.
+- An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment.
 
 
 ### Tooltips
@@ -53,7 +53,7 @@ Column placement determines the visual styling based on where the column is plac
 
 ### Alignment
 
-The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, and relative position within the advanced table.
+The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The proper alignment method depends on the content within the cell, and relative position within the advanced table.
 
 !!! Do
 
