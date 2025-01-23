@@ -31,6 +31,7 @@ Added global tokens for border radius
 <div class="doc-whats-new-changelog-separator"></div>
 
 `CodeEditor` - Added new CodeMirror 6 supported code editor component
+
 `hds-code-editor` modifier - Added new code editor modifier which converts the element it is applied to into a CodeMirror 6 code editor
 
 <small class="doc-whats-new-changelog-metadata">[#2573](https://github.com/hashicorp/design-system/pull/2573)</small>
@@ -77,8 +78,11 @@ Upgraded the following dependencies:
 <div class="doc-whats-new-changelog-separator"></div>
 
 `Breadcrumb` - Implemented `aria-controls` in `Breadcrumb::Truncation` for a11y improvements with toggled content from `PopoverPrimitive`
+
 `Dropdown` - Implemented `aria-controls` in `Dropdown::Toggle::Button` for a11y improvements with toggled content from `PopoverPrimitive`
+
 `PopoverPrimitive` - Implemented `aria-controls` in toggle element for a11y improvements with toggled content
+
 `RichTooltip` - Removed explicitly setting `aria-controls` in `RichTooltip::Toggle` as it is now set through the `PopoverPrimitive`
 
 <small class="doc-whats-new-changelog-metadata">[#2639](https://github.com/hashicorp/design-system/pull/2639)</small>
