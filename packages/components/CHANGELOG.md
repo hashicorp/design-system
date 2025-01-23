@@ -2,6 +2,8 @@
 
 ## 4.16.0
 
+[4.16.0 documentation](https://hds-website-4-16-0.vercel.app/)
+
 ### Minor Changes
 
 `Table` - Updated the visual design of `Table` cells by adding borders, making them more distinguishable when spanning rows or columns.
