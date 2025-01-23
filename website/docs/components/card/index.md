@@ -1,13 +1,18 @@
 ---
 title: Card
-description: A block container that provides styling for elevation, border, and background.
-caption: A block container that provides styling for elevation, border, and background.
+description: 'A block container that provides styling for elevation, border, and background.'
+caption: 'A block container that provides styling for elevation, border, and background.'
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67251-87362&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/card
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67251-87362&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/card
 previewImage: assets/illustrations/components/card.jpg
 navigation:
-  keywords: ['tile', 'container', 'box']
+  keywords:
+    - tile
+    - container
+    - box
 ---
 
 <section data-tab="Guidelines">
@@ -24,5 +29,5 @@ navigation:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.10.0.md"
+  @include "partials/version-history/version-history.md"
 </section>

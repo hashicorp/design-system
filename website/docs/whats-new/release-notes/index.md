@@ -25,4 +25,8 @@ navigation:
   @include "partials/figma-library-components.md"
   <div class="doc-whats-new-changelog-figma-libraries-divider" />
   @include "partials/figma-library-foundations.md"
+  <div class="doc-whats-new-changelog-figma-libraries-divider" />
+  @include "partials/figma-library-patterns.md"
+  <div class="doc-whats-new-changelog-figma-libraries-divider" />
+  @include "partials/figma-library-utilities.md"
 </section>

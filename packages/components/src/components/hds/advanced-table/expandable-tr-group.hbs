@@ -1,0 +1,41 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+{{yield
+  (hash
+    data=@record
+    isExpandable=this.hasChildren
+    id=this._id
+    depth=this.depth
+    onClickToggle=this.onClickToggle
+    isExpanded=this._isExpanded
+    parentId=@parentId
+    rowIndex=this.rowIndex
+  )
+}}
+{{#if (and this.hasChildren this._isExpanded)}}
+  {{#each this.children as |childRecord|}}
+    <Hds::AdvancedTable::ExpandableTrGroup
+      @record={{childRecord}}
+      @depth={{this.childrenDepth}}
+      @align={{@align}}
+      @parentId={{this._id}}
+      @childrenKey={{this.childrenKey}}
+      @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
+      as |T|
+    >
+      {{yield
+        (hash
+          data=T.data
+          isExpandable=T.isExpandable
+          depth=T.depth
+          onClickToggle=T.onClickToggle
+          isExpanded=T.isExpanded
+          parentId=T.parentId
+          id=T.id
+        )
+      }}
+    </Hds::AdvancedTable::ExpandableTrGroup>
+  {{/each}}
+{{/if}}

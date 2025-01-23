@@ -1,0 +1,24 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div
+  class={{this.classNames}}
+  role="gridcell"
+  aria-rowspan={{@rowspan}}
+  aria-colspan={{@colspan}}
+  {{style grid-row=this.rowspan grid-column=this.colspan}}
+  {{did-insert this.didInsert}}
+  {{will-destroy this.willDestroy}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap
+    isActive=this._shouldTrapFocus
+    shouldSelfFocus=true
+    focusTrapOptions=(hash
+      onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus clickOutsideDeactivates=true
+    )
+  }}
+  ...attributes
+>
+  {{yield}}
+</div>

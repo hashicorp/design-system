@@ -67,7 +67,7 @@
 .hds-accordion-item--type-card {
   --hds-accordion-item-focus-ring-offset: 0;
   background: var(--token-color-surface-primary);
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
 
   &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) {
     box-shadow: var(--token-surface-mid-box-shadow);

@@ -10,9 +10,9 @@
 
 @use "../mixins/focus-ring" as *;
 
-$hds-table-border-radius: 6px;
+$hds-table-border-radius: var(--token-border-radius-medium);
 $hds-table-border-width: 1px;
-$hds-table-inner-border-radius: $hds-table-border-radius - $hds-table-border-width;
+$hds-table-inner-border-radius: calc(#{$hds-table-border-radius} - #{$hds-table-border-width});
 $hds-table-border-color: var(--token-color-border-primary);
 $hds-table-header-height: 48px;
 $hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
@@ -116,7 +116,7 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   color: var(--token-color-foreground-faint);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: var(--token-border-radius-x-small);
 
   &:hover,
   &.mock-hover {

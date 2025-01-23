@@ -1,16 +1,28 @@
 ---
 title: Flyout
-description: Displays additional details and information about an item or object, overlaid on the main page content.
-caption: Displays additional details and information about an item or object, overlaid on the main page content.
+description: >-
+  Displays additional details and information about an item or object, overlaid
+  on the main page content.
+caption: >-
+  Displays additional details and information about an item or object, overlaid
+  on the main page content.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/flyout
-related: ['components/reveal','components/modal','components/accordion', 'utilities/dialog-primitive']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/flyout
+related:
+  - components/reveal
+  - components/modal
+  - components/accordion
+  - utilities/dialog-primitive
 previewImage: assets/illustrations/components/flyout.jpg
 navigation:
-  keywords: ['drawer', 'panel', 'side', 'modal']
-status:
-  updated: 4.13.0
+  keywords:
+    - drawer
+    - panel
+    - side
+    - modal
 ---
 
 <section data-tab="Guidelines">
@@ -32,9 +44,5 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.15.0.md"
-  @include "partials/version-history/4.13.0.md"
-  @include "partials/version-history/4.12.0.md"
-  @include "partials/version-history/4.10.0.md"
-  @include "partials/version-history/4.7.0.md"
+  @include "partials/version-history/version-history.md"
 </section>

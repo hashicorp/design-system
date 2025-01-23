@@ -30,6 +30,7 @@ module(
       const popover = this.element.querySelector('main');
       const popoverId = popover.id;
       assert.dom('button').hasAttribute('popovertarget', popoverId);
+      assert.dom('button').hasAttribute('aria-controls', popoverId);
       assert.dom('main').hasAttribute('popover', 'auto');
     });
 

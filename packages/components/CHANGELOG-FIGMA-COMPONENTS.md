@@ -1,4 +1,14 @@
-# [HDS Product - Components](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=6790-10926&mode=design&t=Ps0aMGZ6F3z7bAJ4-0)
+# [HDS Components UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1)
+
+## December 20th, 2024
+
+`IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
+
+**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
+
+Released HDS Components UI Kit v2.0.
+
+`SideNav` - No longer deprecated due to adjustments in prioritization.
 
 ## September 11th, 2024
 

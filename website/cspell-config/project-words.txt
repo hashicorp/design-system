@@ -1,4 +1,5 @@
 affordance
+Automations
 Autoscaler
 borderless
 codemod
@@ -56,6 +57,7 @@ Venafi
 viewports
 wcag
 wireframe
+Wireframes
 wireframing
 workramp
 

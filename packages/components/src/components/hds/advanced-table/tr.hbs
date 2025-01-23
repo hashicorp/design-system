@@ -1,0 +1,22 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} role="row" ...attributes>
+  {{#if @isSelectable}}
+    <Hds::AdvancedTable::ThSelectable
+      @isSelected={{@isSelected}}
+      @selectionScope={{@selectionScope}}
+      @selectionKey={{this.selectionKey}}
+      @selectionAriaLabelSuffix={{@selectionAriaLabelSuffix}}
+      @sortBySelectedOrder={{@sortBySelectedOrder}}
+      @didInsert={{@didInsert}}
+      @willDestroy={{@willDestroy}}
+      @onClickSortBySelected={{@onClickSortBySelected}}
+      @onSelectionChange={{@onSelectionChange}}
+    />
+  {{/if}}
+
+  {{yield}}
+</div>

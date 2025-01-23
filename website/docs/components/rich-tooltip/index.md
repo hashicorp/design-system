@@ -1,14 +1,27 @@
 ---
 title: Rich Tooltip
-description: The Rich Tooltip component provides additional information to users in a concise and unobtrusive way while supporting more complex and structured content.
+description: >-
+  The Rich Tooltip component provides additional information to users in a
+  concise and unobtrusive way while supporting more complex and structured
+  content.
 caption: Provides additional structured informational content for a UI element.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-82911&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip
-related: ['components/tooltip', 'components/modal']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-82911&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/rich-tooltip
+related:
+  - components/tooltip
+  - components/modal
 previewImage: assets/illustrations/components/rich-tooltip.jpg
 navigation:
-  keywords: ['tooltip', 'popover', 'popup', 'modal']
+  keywords:
+    - tooltip
+    - popover
+    - popup
+    - modal
+status:
+  updated: 4.15.0
 ---
 
 <section data-tab="Guidelines">
@@ -27,4 +40,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
 </section>

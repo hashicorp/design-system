@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 /* eslint-env node */
 /* eslint-disable no-console */
 
@@ -28,6 +33,16 @@ const figma_changelogs = [
     id: 'figma-library-foundations',
     title: 'Foundations library',
     relativePath: '../packages/components/CHANGELOG-FIGMA-FOUNDATIONS.md',
+  },
+  {
+    id: 'figma-library-patterns',
+    title: 'Patterns library',
+    relativePath: '../packages/components/CHANGELOG-FIGMA-PATTERNS.md',
+  },
+  {
+    id: 'figma-library-utilities',
+    title: 'Utility libraries',
+    relativePath: '../packages/components/CHANGELOG-FIGMA-UTILITIES.md',
   },
 ];
 

@@ -1,14 +1,23 @@
 ---
 title: Breadcrumb
-description: A Breadcrumb is a type of secondary navigation that reveals the user’s location in an application.
+description: >-
+  A Breadcrumb is a type of secondary navigation that reveals the user’s
+  location in an application.
 caption: A secondary navigation that shows the user’s current location.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-83191&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/breadcrumb
-related: ['components/side-nav', 'components/tabs']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-83191&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/breadcrumb
+related:
+  - components/side-nav
+  - components/tabs
 previewImage: assets/illustrations/components/breadcrumb.jpg
 navigation:
-  keywords: ['navigation', 'crumb', 'path']
+  keywords:
+    - navigation
+    - crumb
+    - path
 ---
 
 <section data-tab="Guidelines">
@@ -31,5 +40,5 @@ navigation:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.10.0.md"
+  @include "partials/version-history/version-history.md"
 </section>

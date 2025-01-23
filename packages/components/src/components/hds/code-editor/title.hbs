@@ -1,0 +1,16 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Text::Body
+  id={{this._id}}
+  class="hds-code-editor__title"
+  @tag={{this.tag}}
+  @size="200"
+  @weight="semibold"
+  {{did-insert @onInsert}}
+  ...attributes
+>
+  {{yield}}
+</Hds::Text::Body>

@@ -12,7 +12,7 @@
 @use "../mixins/focus-ring" as *;
 
 $hds-breadcrumb-item-height: 28px;
-$hds-breadcrumb-item-border-radius: 5px;
+$hds-breadcrumb-item-border-radius: var(--token-border-radius-small);
 $hds-breadcrumb-item-visual-horizontal-padding: 4px;
 
 // MAIN CONTAINER (NAV)
@@ -187,7 +187,7 @@ $hds-breadcrumb-item-visual-horizontal-padding: 4px;
   max-width: 200px; // by design
   padding: 6px 12px;
   background-color: var(--token-color-surface-primary);
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 
   // the "popover" attributes comes with pre-defined styling so we need to override it

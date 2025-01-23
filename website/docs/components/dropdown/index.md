@@ -1,14 +1,24 @@
 ---
 title: Dropdown
-description: Displays a list of actions or options revealed by a toggle button. Identifiable by the chevron icon in the button.
+description: >-
+  Displays a list of actions or options revealed by a toggle button.
+  Identifiable by the chevron icon in the button.
 caption: Hide/Show a list of actions or options with a toggle button.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/dropdown
-related: ['components/segmented-group','patterns/filter-patterns']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67385-76599&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/dropdown
+related:
+  - components/segmented-group
+  - patterns/filter-patterns
 previewImage: assets/illustrations/components/dropdown.jpg
 navigation:
-  keywords: ['select', 'menu', 'action menu', 'list']
+  keywords:
+    - select
+    - menu
+    - action menu
+    - list
 status:
   updated: 4.15.0
 ---
@@ -33,9 +43,5 @@ status:
 </section>
 
 <section data-tab="Version history">
-  @include "partials/version-history/4.15.0.md"
-  @include "partials/version-history/4.14.0.md"
-  @include "partials/version-history/4.13.0.md"
-  @include "partials/version-history/4.12.0.md"
-  @include "partials/version-history/4.10.0.md"
+  @include "partials/version-history/version-history.md"
 </section>

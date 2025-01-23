@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "server name",
+    "service": "2 services",
+    "description": "",
+   "children": [
+    {
+      "id": 11,
+      "service": "blah blah",
+      "description": "Sample description for this thing."
+    },
+    {
+      "id": 12,
+      "service": "sample name",
+      "description": "Sample description for this thing."
+    }
+   ]
+  },
+  {
+    "id": 2,
+    "name": "second server",
+    "service": "3 services",
+    "description": "",
+   "children": [
+    {
+      "id": 21,
+      "service": "test-advisory-pass.sentinel",
+      "description": "Sample description for this thing."
+    },
+    {
+      "id": 22,
+      "service": "test-hard-mandatory-pass.sentinel",
+      "description": "Sample description for this thing."
+    },
+    {
+      "id": 23,
+      "service": "test-hard-mandatory-pass.sentinel",
+      "description": "Sample description for this thing."
+    }
+   ]
+  }
+]

@@ -29,6 +29,7 @@
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
 // START COMPONENT PAGES IMPORTS
 @use "./showcase-pages/accordion" as showcase-accordion;
+@use "./showcase-pages/advanced-table" as showcase-advanced-table;
 @use "./showcase-pages/alert" as showcase-alert;
 @use "./showcase-pages/app-header" as showcase-app-header;
 @use "./showcase-pages/app-footer" as showcase-app-footer;
@@ -40,6 +41,7 @@
 @use "./showcase-pages/button" as showcase-button;
 @use "./showcase-pages/card" as showcase-card;
 @use "./showcase-pages/code-block" as showcase-code-block;
+@use "./showcase-pages/code-editor" as showcase-code-editor;
 @use "./showcase-pages/copy/button" as showcase-copy-button;
 @use "./showcase-pages/copy/snippet" as showcase-copy-snippet;
 @use "./showcase-pages/dialog-primitive" as showcase-dialog-primitive;

@@ -42,6 +42,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   border-radius: $hds-dropdown-toggle-border-radius;
   outline-style: solid; // used to avoid double outline+focus-ring in Safari (see https://github.com/hashicorp/design-system-components/issues/161#issuecomment-1031548656)
   outline-color: transparent; // We need this to be transparent for a11y
+  isolation: isolate; // used to create a new stacking context (needed to have the pseudo element below text/icon but not the parent container)
 
   &:hover,
   &.mock-hover {
@@ -79,7 +80,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 3px; // $hds-dropdown-toggle-border-radius - 1px padding - 1px border
+  border-radius: calc(#{$hds-dropdown-toggle-border-radius} - 2px); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;
@@ -214,7 +215,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   min-width: 200px;
   max-width: 400px;
   background-color: var(--token-color-surface-primary);
-  border-radius: 6px;
+  border-radius: var(--token-border-radius-medium);
   box-shadow: var(--token-surface-high-box-shadow);
 
   // the "popover" attributes comes with pre-defined styling so we need to override it
@@ -369,7 +370,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
       bottom: 0;
       left: 10px;
       z-index: -1;
-      border-radius: 5px;
+      border-radius: var(--token-border-radius-small);
       content: "";
     }
 

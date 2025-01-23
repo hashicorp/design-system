@@ -8,5 +8,9 @@ previewImage: assets/illustrations/foundations/border.jpg
 ---
 
 <section data-tab="Guidelines">
-  @include "partials/border-radius.md"
+  @include "partials/guidelines/guidelines.md"
+</section>
+
+<section data-tab="Code">
+  @include "partials/code/how-to-use.md"
 </section>
