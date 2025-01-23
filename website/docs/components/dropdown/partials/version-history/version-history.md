@@ -1,3 +1,9 @@
+## 4.16.0
+
+Implemented `aria-controls` in `Dropdown::Toggle::Button` for a11y improvements with toggled content from `PopoverPrimitive`
+
+Fixed `z-index` bug which caused the focus ring of the toggle icon to not be visible when the component was nested in a container.
+
 ## 4.15.0
 
 Fixed an issue with the `ToggleIcon` to make the focus ring visible on mouse click

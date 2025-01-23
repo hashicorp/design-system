@@ -58,7 +58,7 @@ Upgraded the following dependencies:
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Table` - fixed the aria-labels for select row and select all checkboxes so they do not change based on the state of the checkbox.
+`Table` - Fixed the `aria-labels` for select row and select all checkboxes so they do not change based on the state of the checkbox.
 
 <small class="doc-whats-new-changelog-metadata">[#2596](https://github.com/hashicorp/design-system/pull/2596)</small>
 

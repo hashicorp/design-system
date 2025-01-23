@@ -1,3 +1,9 @@
+## 4.16.0
+
+Updated the visual design of `Table` cells by adding borders, making them more distinguishable when spanning rows or columns.
+
+Fixed the `aria-labels` for select row and select all checkboxes so they do not change based on the state of the checkbox.
+
 ## 4.15.0
 
 Exposed the index of the `@each` loop over the `@model` as `rowIndex`
