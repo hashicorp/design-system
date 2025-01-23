@@ -1,3 +1,10 @@
+## 4.16.0
+
+### Updated
+
+- Updated `ember-power-select` from `8.2.0` to `8.6.0`
+- Added `searchFieldPosition="before-options"` to fix a11y issue in `Multiple` component
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation

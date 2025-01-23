@@ -53,12 +53,6 @@ The before and after options are areas above and below the list, independent fro
 
 BeforeOptions allows for either a search field or generic content to be displayed before the options list.
 
-!!! Warning
-
-Currently, the Multiple component includes search within an area of the trigger instead of displaying it in the beforeOptions. This causes a nested interaction which is an accessibility violation. We are in the process of working with the Ember Power Select maintainers to resolve this issue and make it the same as in the Single component.
-
-!!!
-
 #### Search
 
 If enabled, search allows the user to filter results based on a query.
