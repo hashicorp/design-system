@@ -31,3 +31,7 @@ status:
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
 </section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
+</section>
