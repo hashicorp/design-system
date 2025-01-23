@@ -116,7 +116,7 @@ It is not currently supported to have `@isStriped`, multi-select, or sortable co
 
 !!!
 
-Similar to the basic AdvancedTable, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
+Similar to the basic Advanced Table, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
 
 
 ```handlebars
@@ -233,7 +233,7 @@ By default, the sort order is set to ascending. To indicate that the column defi
 
 To implement a custom sort callback on a column:
 
-1. add a custom function as the value for `sortingFunction` in the column hash,
+1. add a custom function as the value for `sortingFunction` in the column hash.
 2. include a custom `onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
@@ -298,7 +298,7 @@ customOnSort(_sortBy, sortOrder) {
 
 ### Density
 
-To create a condensed or spacious Table, add `@density` to the Table’s invocation. Note that it only affects the Table body, not the Table header.
+To create a condensed or spacious Advanced Table, add `@density` to the Advanced Table’s invocation. Note that it only affects the table body, not the table header.
 
 ```handlebars
 <Hds::AdvancedTable
@@ -678,7 +678,7 @@ _Notice: only non-sortable headers can be visually hidden._
 
 #### Internationalized column headers, overflow menu dropdown
 
-Here’s an Advanced Table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+Here’s an Advanced Table implementation that uses an array hash with localized strings for the column headers. It indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
 <Hds::AdvancedTable

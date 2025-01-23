@@ -71,7 +71,7 @@ The Advanced Table component itself is where most of the options will be applied
   </C.Property>
   <C.Property @name="isSelectable" @type="boolean" @default="false">
     If set to `true`, creates a “multi-select” table which renders checkboxes in the table header and on the table rows enabling bulk interaction. Use in conjunction with `onSelectionChange` on the `Table` and `selectionKey` on each `Table::Tr`.<br><br>
-    **Important**: AdvancedTable does **not** support having `isSelectable` true when there are nested rows.
+    **Important**: Advanced Table does **not** support having `isSelectable` true when there are nested rows.
   </C.Property>
   <C.Property @name="onSelectionChange" @type="function">
     Use in conjunction with `isSelectable` to pass a callback function to know the selection state. Must be used in conjunction with setting a `selectionKey` on each `Table::Tr`.
