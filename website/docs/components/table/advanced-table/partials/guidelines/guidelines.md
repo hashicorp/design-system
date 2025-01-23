@@ -56,13 +56,9 @@ Column placement determines the visual styling based on where the column is plac
 
 The alignment of text and content within an Advanced Table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, and relative position within the advanced table.
 
-### Consistent alignment
-
-Use consistent alignment between the header label and the cell content.
-
 !!! Do
 
-Header labels and column content should align.
+Use consistent alignment between the header label and the cell content.
 
 ![An Advanced Table with two columns, the first column is left aligned and the second is right aligned.](/assets/components/table/advanced-table/table-alignment-do.png)
 
@@ -115,7 +111,7 @@ Don’t right align content that is variable in length. This can make the conten
 
 !!!
 
-### Column and row span
+## Column and row span
 
 - Supports combining multiple columns or rows into a single cell.
 - Apply column and row spans carefully to maintain alignment, accessibility, and smooth table interactions.
@@ -151,13 +147,9 @@ Sticky headers keep column labels visible while scrolling, aiding navigation in 
 
 ### Expandable rows
 
-Expandable rows let users show or hide more content within the table. The expanded content should align with the header labels, even if the parent row includes minimal data, such as an expand/collapse button and text.
+Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
 
 ![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png) 
-
-### When to use
-
-Use expandable rows to display hierarchical data efficiently. This allows users to explore details within the table without navigating away.
 
 !!! Dont
 
@@ -171,12 +163,9 @@ Avoid using expandable rows when data is not structured in parent-child relation
 
 - Users can navigate between cells using arrow keys. To expand or collapse a row, they must first focus on the expand button using the arrow keys, then press Enter to activate it. -->
 
-### Nested rows
-
-Use the same density setting for parent and child rows to keep layouts consistent.
-
-
 !!! Dont
+
+Avoid using different density settings for parent and child rows.
 
 ![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/advanced-table-density-mix.png)
 
@@ -220,8 +209,7 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Horizontal scrolling
 
-- We recommend using this when there are many columns of equal priority.
-- Place the Advanced Table in a scrollable container for smooth side-scrolling.
+Use horizontal scrolling when the number of columns expands beyond the viewport or container.
 
 ![](/assets/components/table/advanced-table/horizontal-scrolling.png)
 

@@ -9,7 +9,7 @@
 | Checkbox         | Optional, but required when cells yield a checkbox |
 | Label            | Required                                        |
 | Tooltip button   | Optional                                        |
-| Sort button      | Options: none, ascending, descending            |
+| Sort button      | Optional, Options: none, ascending, descending            |
 | Container        | Required                                        |
 
 ### Advanced Table cells
