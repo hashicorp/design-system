@@ -118,7 +118,7 @@ We don’t recommend center or justified alignment of content within Advanced Ta
 
 Don’t center header labels or cell content within a table.
 
-![](/assets/components/table/center-justified-alignment.png)
+![](/assets/components/table/advanced-table/center-justified-alignment.png)
 
 !!!
 
