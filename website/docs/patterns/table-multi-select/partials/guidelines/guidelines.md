@@ -1,4 +1,4 @@
-The Helios Table [multi-select functionality](/components/table#multi-select) supports performing bulk actions and selection of one or more rows within a Table.
+The Helios Table [multi-select functionality](/components/table/table#multi-select) supports performing bulk actions and selection of one or more rows within a Table.
 
 ![Example of Table multi-select in context](/assets/patterns/table-multi-select/multi-select-preview-image.png)
 

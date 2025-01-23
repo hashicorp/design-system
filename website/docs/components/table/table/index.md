@@ -9,6 +9,7 @@ links:
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/table
 related:
   - components/pagination
+  - components/table/advanced-table
   - patterns/filter-patterns
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/table.jpg

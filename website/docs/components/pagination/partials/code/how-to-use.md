@@ -148,7 +148,7 @@ The reason for using a consumer-side function to determine the `query` argument 
 
 Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users’ actions (eg. for logging, tracking, etc.).
 
-Below you can find an example of an integration between the sortable [`Table`](/components/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
+Below you can find an example of an integration between the sortable [`Table`](/components/table/table) component and the `Pagination::Numbered` component that uses query parameters in the URL to preserve the UI state:
 
 ```handlebars
 <div class="doc-pagination-table-demo">
@@ -271,7 +271,7 @@ The reason for using a consumer-side function to determine the `query` argument 
 
 Even if the Pagination is based on routing, the `onPageChange/onPageSizeChange` callbacks are still available and can be used to respond to the users' actions (eg. for logging, tracking, etc.).
 
-Below you can find an example of an integration between the [`Table`](/components/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
+Below you can find an example of an integration between the [`Table`](/components/table/table) component and the `Pagination::Compact` component that uses query parameters in the URL to preserve the UI state:
 
 ```handlebars
 <div class="doc-pagination-table-demo">

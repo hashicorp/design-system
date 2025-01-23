@@ -1,20 +1,27 @@
 ---
-title: Pagination
-description: >-
-  Used to let users navigate through content broken down into pages. Usually
-  paired with tables.
-caption: Used to let users navigate through content broken down into pages.
+title: Advanced Table
+description: 'Used to display complex, structured tabular data with advanced features.'
+caption: 'Used to display complex, structured tabular data with advanced features.'
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67460-85524&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
   github: >-
-    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/pagination
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/advanced-table
 related:
   - components/table/table
-  - components/table/advanced-table
+  - components/pagination
   - patterns/filter-patterns
   - patterns/table-multi-select
-previewImage: assets/illustrations/components/pagination.jpg
+previewImage: assets/illustrations/components/advanced-table.jpg
+navigation:
+  keywords: 
+    - data table
+    - data grid
+    - datagrid
+    - grid
+    - list
+status:
+  added: 4.16.0
 ---
 
 <section data-tab="Guidelines">
@@ -35,8 +42,3 @@ previewImage: assets/illustrations/components/pagination.jpg
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
 </section>
-
-<section data-tab="Version history">
-  @include "partials/version-history/version-history.md"
-</section>
-

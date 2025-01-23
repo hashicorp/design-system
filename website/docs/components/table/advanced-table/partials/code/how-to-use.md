@@ -1,66 +1,17 @@
 ## How to use this component
 
-### Table with no model defined
+The Advanced Table is a component meant to display tabular data to overcome limitations with the HTML `<table>` elements and increase the accessibility for complex features, like [nested rows](#nested-rows) and [a sticky header](#vertical-scrolling).
 
-If you want to use the component but have no model defined (e.g., there are only a few pieces of data but it’s still tabular data), you can manually add each row, or use an `each` to loop over the data (e.g., an array of objects defined in the route) to render the rows.
+Instead of using the `<table>` elements, the Advanced Table uses `<div>`s with explicitly set roles (for example, instead of `<tr>`, it uses `<div role="row">`). This allows the Advanced Table to use [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid) for styling.
 
-#### Manual row implementation
+### Basic Advanced Table
 
-```handlebars
-<Hds::Table @caption="your custom, meaningful caption goes here">
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Column Header One</H.Th>
-      <H.Th>Column Header Two</H.Th>
-      <H.Th>Column Header Three</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>Cell one A</B.Td>
-      <B.Td>Cell two A</B.Td>
-      <B.Td>Cell three A</B.Td>
-    </B.Tr>
-    <B.Tr>
-      <B.Td>Cell one B</B.Td>
-      <B.Td>Cell two B</B.Td>
-      <B.Td>Cell three B</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
-
-#### Using `each` to loop over records to create rows
-
-```handlebars
-<Hds::Table @caption="Products that use Helios">
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Product</H.Th>
-      <H.Th>Brand Color</H.Th>
-      <H.Th>Uses Helios</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each this.myDataItems as |item|}}
-      <B.Tr>
-        <B.Td>{{item.product}}</B.Td>
-        <B.Td>{{item.brandColor}}</B.Td>
-        <B.Td>{{item.usesHelios}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
-
-### Non-sortable Table with model defined
-
-To use a Table with a model, first define the data model in your route or model:
+To use an Advanced Table, first define the data model in your route or model:
 
 ```javascript
 import Route from '@ember/routing/route';
 
-export default class ComponentsTableRoute extends Route {
+export default class ComponentsAdvancedTableRoute extends Route {
   async model() {
     // example of data retrieved:
     //[
@@ -93,7 +44,7 @@ For documentation purposes, we’re imitating fetching data from an API and work
 You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
 >
@@ -104,7 +55,7 @@ You can insert your own content into the `:body` block and the component will ta
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 !!! Info
@@ -118,7 +69,83 @@ For clarity, there are a couple of important points to note here:
 
 !!!
 
-### Sortable table
+### Nested rows
+For complex data sets where there is a parent row with several children, you can render them as nested rows. By default, the Advanced Table uses the `children` key on the `@model` argument to render the nested rows. To change the key used, set the `@childrenKey` argument on the Advanced Table.
+
+To ensure the Advanced Table is accessible, the columns in the nested rows **must** match the columns of the parent rows. Otherwise the relationship between the parent and nested rows will not be clear to users.
+
+```javascript
+  // example of data retrieved for the model:
+  [
+    {
+      id: '1',
+      name: 'Policy set 1',
+      status: 'PASS',
+      children: [
+        {
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        },
+        {
+          name: 'test-hard-mandatory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        }
+      ]
+    },
+    {
+      id: '2',
+      name: 'Policy set 2',
+      status: 'FAIL',
+      children: [
+        {
+          name: 'test-advisory-pass.sentinel',
+          status: 'PASS',
+          description: 'Sample description for this thing.'
+        },
+        // ...
+      ]
+    },
+  ]
+```
+
+!!! Warning
+
+It is not currently supported to have `@isStriped`, multi-select, or sortable columns with nested rows. If your use case requires any of these features, please [contact the Design Systems Team](/about/support).
+
+!!!
+
+Similar to the basic Advanced Table, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
+
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.demoDataWithNestedRows}}
+  @columns={{array
+    (hash key="name" label="Name")
+    (hash key="status" label="Status")
+    (hash key="description" label="Description")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.name}}</B.Th>
+      <B.Td>
+        {{#if (eq B.data.status "FAIL")}}
+          <Hds::Badge @text="Fail" @color="critical" @icon="x" />
+        {{else}}
+          <Hds::Badge @text="Pass" @color="success" @icon="check" />
+        {{/if}}
+      </B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+
+### Sortable Advanced Table
 
 !!! Info
 
@@ -126,10 +153,10 @@ This component takes advantage of the `sort-by` helper provided by [ember-compos
 
 !!!
 
-Add `isSortable=true` to the hash for each column that should be sortable.
+Add `isSortable=true` to the hash for each column that should be sortable. 
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -144,15 +171,21 @@ Add `isSortable=true` to the hash for each column that should be sortable.
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
+
+!!! Warning
+
+At this time, the Advanced Table does not support sortable nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
+
+!!!
 
 #### Pre-sorting columns
 
 To indicate that a specific column should be pre-sorted, add `@sortBy`, where the value is the column’s key.
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -168,7 +201,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 ##### Pre-sorting direction
@@ -176,7 +209,7 @@ To indicate that a specific column should be pre-sorted, add `@sortBy`, where th
 By default, the sort order is set to ascending. To indicate that the column defined in `@sortBy` should be pre-sorted in descending order, pass in `@sortOrder="desc"`.
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -193,14 +226,14 @@ By default, the sort order is set to ascending. To indicate that the column defi
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 #### Custom sort callback
 
 To implement a custom sort callback on a column:
 
-1. add a custom function as the value for `sortingFunction` in the column hash,
+1. add a custom function as the value for `sortingFunction` in the column hash.
 2. include a custom `onSort` action in your Table invocation to track the sorting order and use it in the custom sorting function.
 
 This is useful for cases where the key might not be A-Z or 0-9 sortable by default, e.g., status, and you’re otherwise unable to influence the shape of the data in the model.
@@ -208,7 +241,7 @@ This is useful for cases where the key might not be A-Z or 0-9 sortable by defau
 _The code has been truncated for clarity._
 
 ```handlebars{data-execute=false}
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
       (hash
@@ -223,7 +256,7 @@ _The code has been truncated for clarity._
   @onSort={{this.myCustomOnSort}}
 >
   <!-- <:body> here -->
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 Here’s an example of what a custom sort function could look like. In this example, we are indicating that we want to sort on a status, which takes its order based on the position in the array:
@@ -263,87 +296,12 @@ customOnSort(_sortBy, sortOrder) {
 }
 ```
 
-#### Custom sorting using the yielded sorting arguments/functions
-
-!!! Warning
-
-This is a pretty advanced example, intended to cover some edge cases that we encountered. We strongly suggest using one of the sorting methods described above, or [contact the Design Systems Team](/about/support) before using this approach to make sure there are no better alternatives.
-
-!!!
-
-
-The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
-
-- `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
-- `sortBy` is the "key" of the column used for sorting (when the table is sorted)
-- `sortOrder` is the sorting direction (ascending or descending)
-
-For more details about these properties refer to the [Component API](#component-api) section below.
-
-Below you can see an example of a Table that renders a list of clusters, in which the sorting is based on a custom function that depends on the sorting column (`sortBy`) and direction (`sortOrder`):
-
-_The code has been simplified for clarity._
-
-```handlebars{data-execute=false}
-<Hds::Table>
-  <:head as |H|>
-    <H.Tr>
-      <H.ThSort @onClickSort={{fn H.setSortBy "peer-name"}} @sortOrder={{if (eq "peer-name" H.sortBy) H.sortOrder}}>Peer Name</H.ThSort>
-      <H.ThSort @onClickSort={{fn H.setSortBy "status"}} @sortOrder={{if (eq "status" H.sortBy) H.sortOrder}}>Status</H.ThSort>
-      <H.ThSort @onClickSort={{fn H.setSortBy "partition"}} @sortOrder={{if (eq "partition" H.sortBy) H.sortOrder}}>Partition</H.ThSort>
-      <H.Th>Description</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each (call (fn this.myDemoCustomSortingFunction B.sortBy B.sortOrder)) as |cluster|}}
-      <B.Tr>
-        <B.Td>{{cluster.peer-name}}</B.Td>
-        <B.Td><ClusterStatusBadge @status={{cluster.status}} /></B.Td>
-        <B.Td>{{cluster.cluster-partition}}</B.Td>
-        <B.Td>{{cluster.description}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
-
-In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element is clicked to set the values of `sortBy` and `sortOrder` in the table; in turn these values are then used by the `<ThSort>` element to assign the sorting icon via the `@sortOrder` argument.
-
-In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
-
-_Notice: in this case for the example we're using the [`call` helper](https://github.com/DockYard/ember-composable-helpers#call) from [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)._
-
-The sorting function in the backing class code will look something like this (the actual implementation will depend on the consumer-side/business-logic context):
-
-_The code has been simplified for clarity._
-
-```javascript
-myDemoCustomSortingFunction = (sortBy, sortOrder) => {
-  // here goes the logic for the custom sorting of the `model` or `data` array
-  // based on the `sortBy/sortOrder` arguments
-  if (sortBy === 'peer-name') {
-    myDemoDataArray.sort((s1, s2) => {
-      // logic for sorting by `peer-name` goes here
-    });
-  } else if (sortBy === 'status') {
-    myDemoDataArray.sort((s1, s2) => {
-      // logic for sorting by `status` goes here
-    });
-  //
-  // same for all the other conditions/columns
-  // ...
-  }
-  return myDemoDataArray;
-};
-
-```
-
 ### Density
 
-To create a condensed or spacious Table, add `@density` to the Table’s invocation. Note that it only affects the Table body, not the Table header.
+To create a condensed or spacious Advanced Table, add `@density` to the Advanced Table’s invocation. Note that it only affects the table body, not the table header.
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -359,67 +317,7 @@ To create a condensed or spacious Table, add `@density` to the Table’s invocat
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
-```
-
-### Alignment
-
-#### Vertical alignment
-
-To indicate that the table’s content should have a middle vertical-align, use `@valign` in the table’s invocation.
-
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @valign="middle"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>{{B.data.artist}}</B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
-```
-
-#### Vertical alignment with additional cell content
-
-!!! Info
-
-Note that vertical-align only applies to inline, inline-block and table-cell elements: you can’t use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
-
-If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
-
-!!!
-
-```handlebars
-<Hds::Table
-  @model={{this.model.myDemoData}}
-  @columns={{array
-    (hash key="artist" label="Artist" isSortable=true)
-    (hash key="album" label="Album" isSortable=true)
-    (hash key="year" label="Release Year")
-  }}
-  @valign="middle"
->
-  <:body as |B|>
-    <B.Tr>
-      <B.Td>
-        <div class="doc-table-valign-demo">
-          <Hds::Icon @name="headphones" /> {{B.data.artist}}
-        </div>
-      </B.Td>
-      <B.Td>{{B.data.album}}</B.Td>
-      <B.Td>{{B.data.year}}</B.Td>
-    </B.Tr>
-  </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 #### Horizontal alignment
@@ -427,7 +325,7 @@ If you have more than just text content in the table cell, you'll want to wrap t
 To create a column that has right-aligned content, set `@align` to `right` on both the column’s header and cell (the cell’s horizontal content alignment should be the same as the column’s horizontal content alignment).
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -451,15 +349,15 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       </B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 ### Tooltip
 
-[Table headers](/components/table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
+[Header cells](/components/table/advanced-table#headers) should be clear, concise, and straightforward whenever possible. However, there could be cases where the label is insufficient by itself and extra information is required. In this case, it’s possible to show a tooltip next to the label in the header:
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist")
@@ -474,30 +372,51 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       <B.Td @align="right">{{B.data.vinyl-cost}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
-
 ### Scrollable table
 
 Consuming a large amount of data in a tabular format can lead to an intense cognitive load for the user. As a general principle, care should be taken to simplify the information within a table as much as possible.
 
-We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table?tab=code#sortable-table), and [filtering](/patterns/filter-patterns) to reduce this load.
+We recommend using functionalities like [pagination](/components/pagination), [sorting](/components/table/advanced-table?tab=code#sortable-advanced-table), and [filtering](/patterns/filter-patterns) to reduce this load.
 
-That said, there may be cases when it’s necessary to show a table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can use different approaches, depending on their context, needs and design specs.
+#### Vertical scrolling
 
-Below we show a couple of examples of how a scrollable table could be implemented: use them as starting point (your mileage may vary).
+For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `hasStickyHeader` argument can be used to make the column headers persist as the user scrolls.
 
-#### Using a container with `overflow: auto`
+```handlebars
+<!-- this is an element with "overflow: auto" and "max-height: 500px" -->
+<div class="doc-advanced-table-vertical-scrollable-wrapper">
+  <Hds::AdvancedTable
+    @model={{this.demoDataWithLargeNumberOfRows}}
+    @columns={{array
+      (hash key="id" label="ID")
+      (hash key="name" label="Name" isSortable=true)
+      (hash key="email" label="Email")
+      (hash key="role" label="Role" isSortable=true)
+    }}
+    @hasStickyHeader={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+</div>
+```
 
-In most cases, wrapping the table with a container that has `overflow: auto` does the trick.
+#### Horizontal scrolling
 
-The default table layout is `auto` which means the browser will try to optimize the width of the columns to fit their different content. In some cases, this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to [suggest to the browser](https://www.w3.org/TR/WD-CSS2-971104/tables.html#h-17.2) to apply a specific width to a column (see the `Biography` column).
-
+There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can place the Advanced Table inside a container with `overflow: auto`.
 
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
-<div class="doc-table-scrollable-wrapper">
-  <Hds::Table
+<div class="doc-advanced-table-scrollable-wrapper">
+  <Hds::AdvancedTable
     @model={{this.demoDataWithLargeNumberOfColumns}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true)
@@ -522,64 +441,28 @@ The default table layout is `auto` which means the browser will try to optimize 
         <B.Td>{{B.data.occupation}}</B.Td>
       </B.Tr>
     </:body>
-  </Hds::Table>
+  </Hds::AdvancedTable>
 </div>
 ```
 
-#### Using a container with `overflow: auto` and a sub-container with `width: max-content`
+### Multi-select Advanced Table
 
-If you have specified the width of some of the columns, leaving the others to adapt to their content automatically, and you want to avoid the wrapping of content within the cells, you need to introduce a secondary wrapping element around the table with its `width` set to ` max-content`.
+A multi-select Advanced Table includes checkboxes enabling users to select multiple rows for purposes of performing bulk operations. Checking or unchecking the checkbox in the Advanced Table header either selects or deselects the checkboxes on each row in the body. Individual checkboxes in the rows can also be selected or deselected.
 
-In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
+Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
 
+!!! Warning
 
-```handlebars
-<!-- this is an element with "overflow: auto" -->
-<div class="doc-table-scrollable-wrapper">
-  <!-- this is an element with "width: max-content" -->
-  <div class="doc-table-max-content-width">
-    <Hds::Table
-      @model={{this.demoDataWithLargeNumberOfColumns}}
-      @columns={{array
-        (hash key="first_name" label="First Name" isSortable=true width="200px")
-        (hash key="last_name" label="Last Name" isSortable=true width="200px")
-        (hash key="age" label="Age" isSortable=true)
-        (hash key="email" label="Email")
-        (hash key="phone" label="Phone")
-        (hash key="bio" label="Biography" width="350px")
-        (hash key="education" label="Education Degree")
-        (hash key="occupation" label="Occupation")
-      }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Td>{{B.data.first_name}}</B.Td>
-          <B.Td>{{B.data.last_name}}</B.Td>
-          <B.Td>{{B.data.age}}</B.Td>
-          <B.Td>{{B.data.email}}</B.Td>
-          <B.Td>{{B.data.phone}}</B.Td>
-          <B.Td>{{B.data.bio}}</B.Td>
-          <B.Td>{{B.data.education}}</B.Td>
-          <B.Td>{{B.data.occupation}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::Table>
-  </div>
-</div>
-```
+At this time, the Advanced Table does not support multi-select nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
 
-### Multi-select table
+!!!
 
-A multi-select table includes checkboxes enabling users to select multiple rows in a table for purposes of performing bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
+#### Simple multi-select
 
-Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected table rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the table to an item in your data model.
-
-#### Multi-select table using a model
-
-This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function:
+This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function:
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @isSelectable={{true}}
   @onSelectionChange={{this.demoOnSelectionChange}}
   @model={{this.model.myDemoData}}
@@ -596,14 +479,14 @@ This is a simple example of a table with multi-selection. Notice the `@selection
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 !!! Warning
 
 **Important**
 
-To make the table correctly accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the table’s `tbody`.
+To make the Advanced Table accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the Advanced Table's body.
 
 !!!
 
@@ -629,23 +512,14 @@ demoOnSelectionChange({
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
+#### Multi-select with sorting by selection state
 
-!!! Info
+To enable sorting by selected rows in an Advanced Table, you need to set `@selectableColumnKey` to the key in each row that tracks its selection state. This allows you to sort based on whether rows are selected or not.
 
-**Multi-select table without a model**
-
-While it’s technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest converting the code to provide a `@model` to the table using a local dataset (created using the information/data you need to display).
-
-!!!
-
-#### Multi-select table using a model with sorting by selection state
-
-To enable sorting by selected rows in a table, you need to set `@selectableColumnKey` to the key in each row that tracks its selection state. This allows you to sort the table based on whether rows are selected or not.
-
-In the demo below, we set up a multi-select table that can be sorted based on the selection state of its rows.
+In the demo below, we set up a multi-select Advanced Table that can be sorted based on the selection state of its rows.
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @isSelectable={{true}}
   @selectableColumnKey="isSelected"
   @onSelectionChange={{this.demoOnSelectionChangeSortBySelected}}
@@ -671,58 +545,20 @@ In the demo below, we set up a multi-select table that can be sorted based on th
       <B.Td>{{if B.data.isSelected "Yes" "No"}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
-#### Multi-select table without a model with sorting by selection state
+#### Multi-select with pagination and persisted selection status
 
-To enable sorting by selected rows in a table without using a model, you need to manage the data, selection state, and sorting logic. Set `@selectableColumnKey `to the key in each row that tracks its selection state. Implement the `@onSelectionChange` and `@onSort` actions to handle selection changes and sorting events, updating your data and sorting parameters accordingly.
-
-In the demo below, we set up a multi-select table without a model, where the selection and sorting are controlled externally. This approach allows the table to be sorted based on the selection state of its rows.
-
-```handlebars
-<Hds::Table
-  @isSelectable={{true}}
-  @selectableColumnKey="isSelected"
-  @onSelectionChange={{this.demoSortBySelectedControlledOnSelectionChange}}
-  @sortBy={{this.demoSortBySelectedControlledSortBy}}
-  @sortOrder={{this.demoSortBySelectedControlledSortOrder}}
-  @onSort={{this.demoSortBySelectedControlledOnSort}}
->
-  <:head as |H|>
-    <H.Tr>
-      <H.Th>Artist</H.Th>
-      <H.Th>Album</H.Th>
-      <H.Th>Year</H.Th>
-    </H.Tr>
-  </:head>
-  <:body as |B|>
-    {{#each this.demoSortBySelectedControlledSortedData as |data|}}
-      <B.Tr
-        @selectionKey={{data.id}}
-        @isSelected={{data.isSelected}}
-        @selectionAriaLabelSuffix="row {{data.artist}} / {{data.album}}"
-      >
-        <B.Td>{{data.artist}}</B.Td>
-        <B.Td>{{data.album}}</B.Td>
-        <B.Td>{{data.year}}</B.Td>
-      </B.Tr>
-    {{/each}}
-  </:body>
-</Hds::Table>
-```
-
-#### Multi-select table with pagination and persisted selection status
-
-This is a more complex example, where a table with multi-selection is associated with a [Pagination](/components/pagination) element (a similar use case would apply if a [filter](/patterns/filter-patterns) is applied to the data used to populate the table). In this case, a **subset of rows** is displayed on screen.
+This is a more complex example, where an Advanced Table with multi-selection is associated with a [Pagination](/components/pagination) element (a similar use case would apply if a [filter](/patterns/filter-patterns) is applied to the data used to populate the Advanced Table). In this case, a **subset of rows** is displayed on screen.
 
 When a user selects a row, if the displayed rows are replaced with other ones (e.g., when the user clicks on the “next” button or on a different page number) there’s the question of what happens to the previous selection: is it persisted in the data/model underlying the table? Or is it lost?
 
 In the demo below, we are persisting the selection in the data/model, so that when navigating to different pages, the row selections persist across table re-renderings.
 
 ```handlebars
-<div class="doc-table-multiselect-with-pagination-demo">
-  <Hds::Table
+<div class="doc-advanced-table-multiselect-with-pagination-demo">
+  <Hds::AdvancedTable
     @isSelectable={{true}}
     @onSelectionChange={{this.demoOnSelectionChangeWithPagination}}
     @model={{this.demoPaginatedData}}
@@ -739,7 +575,7 @@ In the demo below, we are persisting the selection in the data/model, so that wh
         <B.Td>{{B.data.year}}</B.Td>
       </B.Tr>
     </:body>
-  </Hds::Table>
+  </Hds::AdvancedTable>
   <Hds::Pagination::Numbered
     @totalItems={{this.demoTotalItems}}
     @currentPage={{this.demoCurrentPage}}
@@ -777,11 +613,11 @@ For details about the arguments provided to the `@onSelectionChange` callback fu
 
 #### Usability and accessibility considerations
 
-Since the “selected” state of a row is communicated by the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
+Since the “selected” state of a row is communicated with the checkbox selection, there are some important considerations to keep in mind when implementing a multi-select Advanced Table.
 
 If the selection status of the rows is persisted even when a row is not displayed in the UI, consider what the expectations of the user might be: how are they made aware that the action they are going to perform may involve rows that were previously selected but not displayed in the current view?
 
-Even more complex is the case of the “Select all” checkbox in the table header. While the expected behavior might seem straightforward when all rows are displayed in the table, it may not be obvious what the expected behavior is when the table rows are paginated or have been filtered.
+Even more complex is the case of the “Select all” checkbox in the Advanced Table header. While the expected behavior might seem straightforward when all rows are displayed, it may not be obvious what the expected behavior is when the rows are paginated or have been filtered.
 
 Consider the experience of a user intending to select all or a subset of all possible rows:
 
@@ -797,14 +633,14 @@ At a bare minimum we recommend clearly communicating to the user if they have se
 
 ### More examples
 
-#### Visually hidden table headers
+#### Visually hidden headers
 
-Labels within the table header are intended to provide contextual information about the column’s content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
+Labels within the header cells are intended to provide contextual information about the column’s content to the end user. There may be special cases in which that label is redundant from a visual perspective, because the kind of content can be inferred by looking at it (eg. a contextual dropdown).
 
 In this example we’re visually hiding the label in the last column by passing `isVisuallyHidden=true` to it:
 
 ```handlebars
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist" isSortable=true)
@@ -835,17 +671,17 @@ In this example we’re visually hiding the label in the last column by passing 
         </B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
 
 _Notice: only non-sortable headers can be visually hidden._
 
 #### Internationalized column headers, overflow menu dropdown
 
-Here’s a Table implementation that uses an array hash with localized strings for the column headers, indicates which columns should be sortable, and adds an overflow menu.
+Here’s an Advanced Table implementation that uses an array hash with localized strings for the column headers. It indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
-<Hds::Table
+<Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
       (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
@@ -876,5 +712,6 @@ Here’s a Table implementation that uses an array hash with localized strings f
         </B.Td>
     </B.Tr>
   </:body>
-</Hds::Table>
+</Hds::AdvancedTable>
 ```
+
