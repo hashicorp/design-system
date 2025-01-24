@@ -15,7 +15,9 @@
 ### January 23rd, 2025
 
 `Advanced Table` - Added new component.
+
 `Code Editor` - Added new component.
+
 `Table` - Added column borders.
 
 ### December 20th, 2024
