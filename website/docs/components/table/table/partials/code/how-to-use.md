@@ -578,7 +578,11 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 
 This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
 
-**Note:** If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+!!! Info
+
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+
+!!!
 
 ```handlebars
 <Hds::Table
