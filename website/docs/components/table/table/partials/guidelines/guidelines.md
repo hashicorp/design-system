@@ -12,9 +12,7 @@
 
 ## Columns
 
-### Headers
-
-#### Header labels
+### Header labels
 
 Header labels should:
 
@@ -22,7 +20,7 @@ Header labels should:
 - Imply the content type within the column cells, e.g., string, number, status, etc.
 - Use sentence-case.
 
-#### Tooltips within headers
+### Tooltips within headers
 
 If header labels require more context, use a [Tooltip](/components/tooltip). Use them sparingly.
 
@@ -171,7 +169,7 @@ For multi-selection to work, it must consists of:
 
 !!! Info
 
-Only rows on the visible page can be selected. An additional action is required outside of the table to select all rows within the table. The [multi-select pattern](https://helios.hashicorp.design/patterns/table-multi-select) documentation provides additional guidance about using multi-selection for performing bulk operations.
+Only rows on the visible page can be selected. An additional action is required outside of the table to select **all** rows within the table. The [multi-select pattern](https://helios.hashicorp.design/patterns/table-multi-select) documentation provides additional guidance about using multi-selection for performing bulk operations.
 !!!
 
 - When individual rows are selected, the checkbox in the Table header displays an indeterminate state. 
