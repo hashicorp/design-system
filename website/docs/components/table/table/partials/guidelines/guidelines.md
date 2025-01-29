@@ -48,7 +48,7 @@ Avoid including a tooltip for all or most header labels. This can add visual clu
 ### Column alignment
 
 - Content alignment impacts the readability and speed at which users can effectively parse information. 
-- The chosen alignment method will depend on the table's purpose, the cell's content, and its position within the table.
+- The chosen alignment method will depend on the table’s purpose, the cell’s content, and its position within the table.
 - Use consistent alignment between the header label and the cell content.
 
 !!! Do
@@ -68,7 +68,7 @@ Align content to the start by default. This ensures readability across different
 Use `start` alignment for:
 
 - Text-based content, e.g., unique identifiers, names, etc.
-- Numerical values that don't contain decimals or floating point numbers.
+- Numerical values that don’t contain decimals or floating point numbers.
 - Numerical values that contain periods or other delimiter characters, e.g., IP addresses.
 - Nested components that display a text value, e.g., a [Badge](/components/badge).
 
@@ -94,7 +94,7 @@ Use `end` alignment in the last column of a table to:
 
 !!! Dont
 
-Don’t align content that's variable in length to the end. This makes the content difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
+Don’t align content that’s variable in length to the end. This makes the content difficult to read by forcing an unnatural [reading pattern](/patterns/button-organization?tab=research#layout-and-reading-patterns).
 
 ![End alignment with content that is variable in length](/assets/components/table/end-alignment-variable-length.png)
 
@@ -133,7 +133,7 @@ We recommend using striping for its added usability benefits.
 
 ![Table striping examples](/assets/components/table/table-striping.png)
 
-Striping should start in the second row so there's a differentiation between the table header and the first row.
+Striping should start in the second row so there’s a differentiation between the table header and the first row.
 
 ![Table striping pattern example](/assets/components/table/table-striping-pattern.png)
 
