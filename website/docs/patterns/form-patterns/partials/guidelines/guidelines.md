@@ -4,63 +4,44 @@ Spacing between sections, fields, text, and other form elements should follow a 
 
 ### Form
 
-A **form** acts as a layout mechanism by wrapping the content, fields and actions to apply consistent spacing while simultaneously handling the logic for submitting information and data collected by the fields.
+A **form** acts as a layout mechanism by wrapping the content, fields, and actions to apply consistent spacing while simultaneously handling the logic for submitting information and data collected by the fields.
 
-As a layout mechanism, a form consisting of more than one section should use a 32px gap in between sections.
+A form can contain more than one section and should use a 32px gap in between each section.
 
-![Form container](/assets/patterns/form-patterns/form-container.png =450x*)
+![A form containing multiple sections with a 32px gap in between each one.](/assets/patterns/form-patterns/form-container.png =450x*)
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical sets. There should be a 32px vertical gap between each section within the form container.
+A **section** occupies the largest hierarchy within a form to organize text, fields, and actions into logical sets.
 
-![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
+![Multiple sections stacked vertically in a form.](/assets/patterns/form-patterns/form-sections.png =450x*)
 
 ### Fields
 
-A **field** describes a form control and label pairing. When displaying multiple fields within a section, there should be a 24px gap between each field.
+A **field** describes a form control and label pairing. When displaying multiple fields within a section, use a 24px gap between each field.
 
-![Example of multiple fields in a section](/assets/patterns/form-patterns/section-fields.png =450x*)
-
-<!-- TODO
-Fields can be further divided into two types: **text fields** and **data fields**.
-
-#### Text fields
-| Form control | Usage | Examples |
-|--------------|-------|----------|
-| [Text input](/components/form/text-input) | lorem ipsum | Name, email, password, string and numerical data |
-| [Textarea](/components/form/textrea) | Lorem ipsum | Messages, longer-form content |
--->
-
-<!-- TODO
-#### Data fields
-| Form control | Usage | Examples |
-|--------------|-------|----------|
-| [Checkbox](/components/form/checkbox) | Lorem ipsum | Lorem ipsum |
-| [Radio](/components/form/radio) | Lorem ipsum | Lorem ipsum |
-| [Radio Card](/components/form/radio-card) | Lorem ipsum | Lorem ipsum |
-| [Select](/components/form/select) | Lorem ipsum | Lorem ipsum |
-| [Toggle](/components/form/toggle) | Lorem ipsum | Lorem ipsum |
--->
+![Multiple form fields within a section stacked vertically, including an input, radio group, select, and textarea, spaced 24px apart.](/assets/patterns/form-patterns/section-fields.png =450x*)
 
 ### Sets
 
-Fields may be organized in a **set** either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a set there should bea 16px gap either horizontally (creating multiple columns), or vertically between each field.
+Fields can be organized in a **set** either horizontally or vertically if they are collecting related information or information that is part of the same object. Within a set use a 16px horiztonal or vertical gap between each field.
 
-![Example of fields organized in a set](/assets/patterns/form-patterns/field-set.png =450x*)
+Within a set use a 16px gap either horizontally (creating multiple columns), or vertically between each field.
+
+![A set of form fields oriented horizontally with a 16px gap in between them.](/assets/patterns/form-patterns/field-set.png =450x*)
 
 !!! Dont
 
-Don't horizontally organize field types in a set that are related but not of the same type, e.g., a text input and a toggle.
+Don't organize filed types that are unrelated in a horizontal set, e.g., a text input and a toggle.
 
-![Organizing different field types](/assets/patterns/form-patterns/different-field-type.png)
+![Two fields, a text input and a toggle, organized horizontally.](/assets/patterns/form-patterns/different-field-type.png)
 !!!
 
 !!! Do
 
 Do stack fields of different types vertically.
 
-![Organizing different field types](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
+![Two fields, a text input and a toggle, organized vertically.](/assets/patterns/form-patterns/different-field-type-do.png =500x*)
 !!!
 
 Common sets of fields can include:
@@ -71,15 +52,15 @@ Common sets of fields can include:
 
 #### Alignment
 
-Fields organized in a horizontal set should be aligned to the baseline of each element to account for fields with helper text.
+Fields organized in a horizontal set should be aligned to the baseline of the tallest element.
 
-![Baseline alignment within a set](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
+![Two form fields organized horizontal, one with a label and helper text, and one with only a label, with the elements aligned to the baseline.](/assets/patterns/form-patterns/baseline-alignment.png =500x*)
 
 ### Button sets
 
 Organize buttons based on the [Button Set](/components/button-set) guidelines, e.g., using a 16px horizontal gap between buttons. More specifications and examples can be found in the documentation for [button organization](/patterns/button-organization).
 
-![Button set](/assets/patterns/form-patterns/button-set.png =500x*)
+![Two buttons organized horiztonally with a 16px gap in between.](/assets/patterns/form-patterns/button-set.png =500x*)
 
 ## Layout
 
