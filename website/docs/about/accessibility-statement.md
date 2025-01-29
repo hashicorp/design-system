@@ -1,7 +1,7 @@
 ---
 title: Accessibility statement
 navigation:
-  order: 105
+order: 105
 ---
 
 We believe accessibility is a core requirement and not an optional feature. Our approach to accessibility closely aligns with our [HashiCorp principles](https://www.hashicorp.com/our-principles), such as our core principle of integrity.
@@ -26,22 +26,18 @@ Because we’re firm in our commitment to accessibility, we take practical steps
 We intend to be compatible with the following assistive technologies:
 
 - Safari with VoiceOver on macOS
-- Chrome with JAWS on Windows
-- Firefox with JAWS and NVDA on Windows
+- Chrome or Edge with JAWS on Windows
+- Firefox with NVDA on Windows
 
 ## Conformance status
 
 The Web Content Accessibility Guidelines (WCAG) define requirements for designers and engineers to improve accessibility for people with disabilities. It defines three levels of conformance: Level A, Level AA, and Level AAA. Helios intends to be fully conformant with WCAG 2.2 Level AA requirements.
 
-For clarity, fully conformant means that the content fully conforms to the accessibility standard.
-
 ### Limitations and alternatives
 
-Despite our best efforts to ensure accessibility of Helios, there may be some limitations.
+Despite our best efforts to ensure the accessibility of Helios, there may be some limitations of browser technology.
 
 If we can’t provide conformance through the component, we’ll provide documentation for implementing an equivalent experience. We outline other accessibility-related exceptions and considerations and provide the relevant WCAG Success Criteria within each component’s documentation.
-
-#### Known limitations
 
 The known WCAG conformance issues are listed on the component’s page under the accessibility tab.
 
