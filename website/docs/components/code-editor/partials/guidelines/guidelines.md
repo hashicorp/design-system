@@ -65,7 +65,7 @@ Here is an example of a custom action to reveal secrets.
 
 !!! Warning
 
-The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](about/support) for help translating components into dark mode.
+The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](/about/support) for help translating components into dark mode.
 
 !!!
 
