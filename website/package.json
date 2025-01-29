@@ -29,7 +29,7 @@
     "lint:css:fix": "concurrently \"yarn:lint:css --fix\"",
     "lint:spell:docs": "cspell --no-progress --show-suggestions --show-context \"docs/**/*.md\"",
     "start": "yarn build:packages && ember serve",
-    "start:prember": "PREMBER=true ember serve",
+    "start:prember": "yarn build:packages && PREMBER=true ember serve",
     "algolia:index": "node docs-scraper/index-website-content.mjs",
     "test": "concurrently \"yarn:lint\" \"yarn:test:*\" --names \"lint,test:\"",
     "test:ember": "yarn build:packages && ember test",
