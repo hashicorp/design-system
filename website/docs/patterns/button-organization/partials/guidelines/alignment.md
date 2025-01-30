@@ -20,8 +20,11 @@ In most scenarios, align buttons to the **left side** of a container or page. Th
 A common example of this alignment method is in [Modals](/components/modal) and page-level forms.
 
 !!! Do
+
 Align buttons to the left side of the container.
-![](/assets/patterns/button-organization/alignment-reading-pattern.png)
+
+![Modal with buttons in the footer aligned to the left. The reading order goes from left to right, top to bottom.](/assets/patterns/button-organization/alignment-reading-pattern-comparison.png)
+
 !!!
 
 ### Right alignment
