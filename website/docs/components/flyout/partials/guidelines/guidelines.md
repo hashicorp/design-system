@@ -21,7 +21,8 @@ A Flyout is useful for more complex content, given the space it occupies in the 
 
 !!! Info
 
-**Note:** Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
+Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
+
 !!!
 
 #### Status and messaging
