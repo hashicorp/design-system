@@ -86,23 +86,9 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
       hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`
     );
     await focus('[data-test-tooltip-button]');
-    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-describedby');
-    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-controls');
-    assert.dom('.hds-tooltip-container').hasAttribute('id');
-
-    assert.strictEqual(
-      this.element
-        .querySelector('[data-test-tooltip-button]')
-        .getAttribute('aria-describedby'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
-    );
-
-    assert.strictEqual(
-      this.element
-        .querySelector('[data-test-tooltip-button]')
-        .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
-    );
+    const tooltipContainerId = this.element.querySelector('.hds-tooltip-container').getAttribute('id');
+    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-describedby', tooltipContainerId);
+    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-controls', tooltipContainerId);
   });
 
   // PLACEMENT
