@@ -29,7 +29,7 @@ Align buttons to the left side of the container.
 
 ### Right alignment
 
-This alignment method is commonly used for page-level functions or actions that create and manage elements within a page. The primary button should be the farthest right, then secondary, then tertiary.
+In the case of page-level functions or actions that manage elements within the page, align buttons to the right of the page. The primary button should be the farthest right, then secondary, then tertiary.
 
 ![Peering connections heading with a "Create connection" button right aligned to the container. A table of peering connections below.](/assets/patterns/button-organization/using-right-alignment.png)
 
