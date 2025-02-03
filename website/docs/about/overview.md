@@ -28,13 +28,13 @@ For more information on how to use the design system, visit our getting started 
 
 Helios was specifically created for **customer-facing products**.
 
-All HashiCorp **product teams** have adopted Helios as the single source of truth for the design language, components, and patterns used to build the UIs of their consumer-facing products.
+All HashiCorp **product teams** have adopted Helios as the single source of truth for the foundations, components, and patterns used to build the UIs of their consumer-facing products.
 
 ### Internal products
 
 Helios is **not** meant to be used as a general-purpose UI library.
 
-If you intend to use Helios for **internal products or tools** in HashiCorp [contact the Design Systems Team](/about/support) before starting so we can discuss if Helios is a good fit for your team and how this might affect system overhead (changes, maintenance, support, etc).
+If you intend to use Helios for **internal products or tools**, [contact the Design Systems Team](/about/support) before starting so we can discuss if Helios is a good fit for your team.
 
 ### External products
 
@@ -44,7 +44,7 @@ If you’re **not a HashiCorp employee**, you’re more than welcome to use the 
 
 ## Benefits of using Helios
 
-While increasing visual and functional consistency across products is the most visibly notable result of design system adoption, other benefits include:
+Helios increases the visual and functional consistency of Hashicorp products. Other benefits include:
 
 - Increased velocity in the design and development of new products and features
 - Dismantling silos between teams that adopt and use the system
@@ -57,7 +57,7 @@ While the scale of a design system largely depends on the needs of those consumi
 
 In Helios, we offer the following:
 
-- **Design Language**: colors, typography, icons, content strategy
+- **Foundations**: colors, typography, icons, content strategy
 - **Components**: component design, component development, tokens, development standards
 - **Patterns**: repetitive combinations of components and foundational styles that yield more complex functions and features
 - **Documentation**: education, issue tracking, contribution, content management, processes
