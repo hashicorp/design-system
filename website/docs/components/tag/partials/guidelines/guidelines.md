@@ -11,13 +11,12 @@
 
 ## Layout
 
-- The Tag component can be used in several different layouts, but we commonly see them in a list or a group.
-- Tags will fill the parent container and then wrap, as necessary.
+The Tag component can be used in several different layouts, but we commonly see them in a list or a group. They will fill the parent container and then wrap, as necessary.
 
-![Tag layout as a list](/assets/components/tag/tag-layout-list.png =678x*)
+![Skeleton of an app with tags in a list below the heading.](/assets/components/tag/tag-layout-list.png =678x*)
 <Doc::ImageCaption @text="Tag layout as a list"/>
 
-![Tag layout as a group](/assets/components/tag/tag-layout-group.png =818x*)
+![Skeleton of an app with tags in a group where they fill the container and wrap onto 4 rows.](/assets/components/tag/tag-layout-group.png =818x*)
 <Doc::ImageCaption @text="Tag layout as a group"/>
 
 ## Spacing
@@ -30,14 +29,14 @@ As a best practice, use a vertical spacing of 12px and horizontal spacing of 8px
 
 !!! Do
 
-![Example of a leading icon in the tag](/assets/components/tag/tag-leading-icon.png =916x*)
+![](/assets/components/tag/tag-leading-icon.png =916x*)
 The leading dismiss icon allows mouse users to clear multiple Tags quickly because they do not need to move their mouse.
 !!!
 
 
 !!! Dont
 
-![Example of a trailing icon in the tag](/assets/components/tag/tag-trailing-icon.png =916x*)
+![](/assets/components/tag/tag-trailing-icon.png =916x*)
 When the dismiss icon is trailing, the mouse user must adjust positioning of their mouse to clear the Tags, which results in slower task completion.
 !!!
 
