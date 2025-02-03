@@ -86,9 +86,15 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
       hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`
     );
     await focus('[data-test-tooltip-button]');
-    const tooltipContainerId = this.element.querySelector('.hds-tooltip-container').getAttribute('id');
-    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-describedby', tooltipContainerId);
-    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-controls', tooltipContainerId);
+    const tooltipContainerId = this.element
+      .querySelector('.hds-tooltip-container')
+      .getAttribute('id');
+    assert
+      .dom('[data-test-tooltip-button]')
+      .hasAttribute('aria-describedby', tooltipContainerId);
+    assert
+      .dom('[data-test-tooltip-button]')
+      .hasAttribute('aria-controls', tooltipContainerId);
   });
 
   // PLACEMENT
