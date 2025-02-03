@@ -12,8 +12,6 @@ Many resources and links on this page are only available to HashiCorp employees.
 
 The Design Systems Team maintains and publishes Figma libraries which contain foundational styles, components, patterns, and icons.
 
-For documentation around broader Figma best practices within HashiCorp design teams, reach out to the [Design Ops team](https://sites.google.com/hashicorp.com/designknowledgehub/design-system) or visit the [#design-ops slack channel](https://hashicorp.slack.com/archives/C029GL8GJDV).
-
 ## Enabling Helios libraries
 
 !!! Insight
