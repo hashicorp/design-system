@@ -1,3 +1,3 @@
-While the alignment, order, and grouping of buttons might seem trivial, the impact on users is immediate and often occurs in experiences of high important and interruption.
+These guidelines aid in the decision-making process for organizing buttons and actions. Different alignment, ordering, and grouping of actions result in different outcomes in user experience.
 
 While these guidelines don’t cover every scenario, they are intended to aid in the decision-making process when determining how to organize buttons and actions. Different methods of alignment and ordering will result in different outcomes with pros and cons for each. What is most important is **consistency** across an application in how actions are aligned, ordered, and grouped.

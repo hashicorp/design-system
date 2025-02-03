@@ -1,6 +1,6 @@
 ## Alignment
 
-Alignment refers to how buttons and actions are aligned relative to the container or page. When combined with different reading patterns and hierarchy focal points, different alignment methods impact a function's readability, usability, and intended outcome.
+Alignment refers to how buttons and actions are aligned relative to the container or page. When combined with different reading patterns and hierarchy, different alignment methods impact a function's readability, usability, and intended outcome.
 
 !!! Info
 
