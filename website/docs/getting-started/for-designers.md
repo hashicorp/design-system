@@ -67,15 +67,9 @@ Because the usage of Helios Foundations reinforces consistency across the produc
 
 3. Select the style you wish to apply from the list of options. Ensure you choose styles within the **HDS - Product Foundations** library.
 
-![Applying styles to a text layer](/assets/getting-started/designers/apply-text-style.png =784x*)
+![](/assets/getting-started/designers/apply-text-style.png =784x*)
 
-To learn more about how to use the foundational styles, visit:
-
-- [Colors](/foundations/colors)
-- [Typography](/foundations/typography)
-- [Elevation](/foundations/elevation)
-- [Borders](/foundations/border)
-- [Focus ring](/foundations/focus-ring)
+To learn more about how to use the foundational styles, visit [the Foundations section](/foundations/).
 
 ## Icons
 
@@ -106,9 +100,7 @@ Add Helios components to your design project by inserting them directly from the
 
 1. Open the [assets panel](https://help.figma.com/hc/en-us/articles/360038663994-Name-and-organize-components#assetspanel) by clicking "Assets" at the top of the left sidebar.
 
-2. Scroll through the list or use the search feature to locate the component you’d like to use.
-
-   - Figma’s search feature returns results based on the component’s name, category, and description.
+2. Scroll through the list or use the search feature to locate the component you’d like to use. **Note:** Figma’s search feature returns results based on the component’s name, category, and description.
 
 3. Click and drag the component into the canvas or frame.
 
@@ -134,7 +126,7 @@ If you prefer to select a component visually, the [Product Components](https://w
 
 4. Navigate back to your project file and paste the component wherever needed.
 
-![Copy from the stickersheet](/assets/getting-started/designers/copy-from-stickersheet.png =752x*)
+![](/assets/getting-started/designers/copy-from-stickersheet.png =752x*)
 
 ### Working with components
 
@@ -203,7 +195,7 @@ We don’t recommend tying core design functionality to third-party plugins beca
 
 The [Figma community](https://www.figma.com/community) contains other useful resources for documenting your designs, wireframing, and collaborating with your team. Access Figma's community by clicking the organization switcher in the dashboard and selecting "Community" or by clicking "Explore Community" in the toolbar.
 
-![Navigating to the Figma community from the desktop app](/assets/getting-started/designers/figma-community.png =804x*)
+![](/assets/getting-started/designers/figma-community.png =804x*)
 
 ### Figma documentation
 
