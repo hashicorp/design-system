@@ -11,7 +11,7 @@ The following should be available as resources for the Project Kickoff.
 
 ## Project Kickoff
 
-A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design Systems team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable).
+A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design Systems Team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable).
 
 ## Design Checklist
 The design checklist has 4 primary parts:
