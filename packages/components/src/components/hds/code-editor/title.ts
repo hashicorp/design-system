@@ -24,7 +24,7 @@ export interface HdsCodeEditorTitleSignature {
 export default class HdsCodeEditorTitle extends Component<HdsCodeEditorTitleSignature> {
   private _id = `${this.args.editorId}-title`;
 
-  get tag() {
+  get tag(): HdsTextBodySignature['Args']['tag'] {
     return this.args.tag ?? 'h2';
   }
 }
