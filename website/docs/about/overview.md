@@ -40,7 +40,7 @@ If you intend to use Helios for **internal products or tools** in HashiCorp [con
 
 Helios is **not** meant to be used outside of HashiCorp. 
 
-If you’re **not a HashiCorp employee**, you’re more than welcome to use the Helios design system as a reference, but we don’t provide support if you use it to build your product or UIs. At any moment, we may introduce changes to our assets or components that could potentially break your product or UIs.
+If you’re **not a HashiCorp employee**, you’re more than welcome to use the Helios Design System as a reference, but we don’t provide support if you use it to build your product or UIs. At any moment, we may introduce changes to our assets or components that could potentially break your product or UIs.
 
 ## Benefits of using Helios
 
