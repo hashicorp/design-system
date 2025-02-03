@@ -8,8 +8,7 @@
   @size="100"
   @weight="medium"
   @color="primary"
-  {{did-insert this.didInsert}}
-  {{will-destroy this.willDestroyNode}}
+  {{this._setUpObserver}}
   ...attributes
 >
   {{#if this.onDismiss}}
