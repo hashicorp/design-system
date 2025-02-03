@@ -9,12 +9,13 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from 'src/modifiers/hds-code-editor';
+import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
+
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;
