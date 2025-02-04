@@ -459,7 +459,14 @@ At this time, the Advanced Table does not support multi-select nested rows. If t
 
 #### Simple multi-select
 
-This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function:
+This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
+
+!!! Info
+
+If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
+
+!!!
+
 
 ```handlebars
 <Hds::AdvancedTable
