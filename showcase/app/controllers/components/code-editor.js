@@ -13,6 +13,21 @@ ut labore et dolore magna aliqua`;
 
   languages = [
     {
+      value: 'rego',
+      label: 'Rego',
+      code: `package example.test
+import data.users
+default allow = false
+# single-line comment
+allow with data.something as foo {
+  some i in input.paths
+  not forbidden
+  time.now() >= /* inline block comment */ 1672531200
+}
+deny { base64.decode(input.encoded) == "decoded" }
+`,
+    },
+    {
       value: 'ruby',
       label: 'Ruby',
       code: `require 'date'
@@ -58,6 +73,18 @@ func main() {
       code: `variable "region" {
   type    = string
   default = "us-west-1"
+}`,
+    },
+    {
+      value: 'javascript',
+      label: 'JavaScript',
+      code: `const message = 'Hello, world!';
+
+function sayMessage() {
+  console.log(message);
+}
+
+sayMessage();
 }`,
     },
     {
