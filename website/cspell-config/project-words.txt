@@ -96,3 +96,6 @@ meirish
 natmegs
 ruban
 valeriia
+
+# Programming languages
+rego
