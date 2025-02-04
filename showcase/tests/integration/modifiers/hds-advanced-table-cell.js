@@ -132,7 +132,7 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
 </Hds::AdvancedTable>`;
 
 module(
-  'Integration | Component | hds/advanced-table/helpers',
+  'Integration | Modifier | hds-advanced-table-cell',
   function (hooks) {
     setupRenderingTest(hooks);
 
