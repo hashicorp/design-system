@@ -37,7 +37,7 @@ export const getTextToCopy = (text: TextToCopy): string => {
       textToCopy = text.toString();
     } else {
       assert(
-        `\`hds-clipboard\` modifier - \`text\` argument must be a string - provided: ${typeof text}`
+        `\`hds-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`
       );
     }
   }
@@ -109,7 +109,7 @@ export const writeTextToClipboard = async (
 ): Promise<boolean> => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-  if (textToCopy) {
+  if (textToCopy || textToCopy === '') {
     try {
       // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
       // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
@@ -151,7 +151,11 @@ export const copyToClipboard = async (
 ): Promise<boolean> => {
   let textToCopy: string = '';
 
-  if (text) {
+  if (text === '') {
+    textToCopy = '';
+  } else if (text === 0) {
+    textToCopy = '0';
+  } else if (text) {
     textToCopy = getTextToCopy(text);
   } else if (target) {
     const targetElement = getTargetElement(target);
