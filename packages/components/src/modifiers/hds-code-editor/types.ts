@@ -4,10 +4,12 @@
  */
 
 export enum HdsCodeEditorLanguageValues {
+  Rego = 'rego',
   Ruby = 'ruby',
   Shell = 'shell',
   Go = 'go',
   Hcl = 'hcl',
+  Javascript = 'javascript',
   Json = 'json',
   Sentinel = 'sentinel',
   Sql = 'sql',

@@ -52,6 +52,12 @@ const LANGUAGES: Record<
   HdsCodeEditorLanguages,
   { load: () => Promise<Extension | StreamLanguageType<unknown>> }
 > = {
+  rego: {
+    load: async () => {
+      const { rego } = await import('./hds-code-editor/languages/rego.ts');
+      return defineStreamLanguage(rego);
+    },
+  },
   ruby: {
     load: async () => {
       const { ruby } = await import('@codemirror/legacy-modes/mode/ruby');
@@ -77,6 +83,10 @@ const LANGUAGES: Record<
   },
   hcl: {
     load: async () => (await import('codemirror-lang-hcl')).hcl(),
+  },
+  javascript: {
+    load: async () =>
+      (await import('@codemirror/lang-javascript')).javascript(),
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
