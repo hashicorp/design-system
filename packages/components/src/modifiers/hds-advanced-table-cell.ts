@@ -7,7 +7,7 @@ import {
   didInsertGridCell,
   updateTabbableChildren,
 } from './hds-advanced-table-cell/dom-management.ts';
-import {handleGridCellKeyPress,} from './hds-advanced-table-cell/keyboard-navigation.ts'
+import { handleGridCellKeyPress } from './hds-advanced-table-cell/keyboard-navigation.ts';
 
 export interface HdsAdvancedTableCellModifierSignature {
   Args: {

@@ -14,4 +14,3 @@ export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
 
   cell.setAttribute('tabindex', '0');
 };
-
