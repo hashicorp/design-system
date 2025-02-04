@@ -27,7 +27,7 @@ Non-interactive steps are a part of a list of steps that can be completed sequen
 
 ### Interactive tasks
 
-Interactive tasks are part of a sequential flow and can be interacted with as a navigational device.
+Interactive tasks are part of a list of tasks that can be completed in any order. They can also be interacted with as a navigational device. 
 
 ![](/assets/components/stepper/task-interactive.png)
 
