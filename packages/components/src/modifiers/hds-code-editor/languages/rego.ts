@@ -273,7 +273,7 @@ export function mkRego(parserConf: ParserConfig = {}) {
       return 'number';
     }
 
-    // operators ---
+    // operators
     for (let i = 0; i < operators.length; i++) {
       if (stream.match(operators[i]!)) {
         return 'operator';

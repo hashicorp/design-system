@@ -17,13 +17,17 @@ ut labore et dolore magna aliqua`;
       label: 'Rego',
       code: `package example.test
 import data.users
+
 default allow = false
+
 # single-line comment
+
 allow with data.something as foo {
   some i in input.paths
   not forbidden
   time.now() >= /* inline block comment */ 1672531200
 }
+
 deny { base64.decode(input.encoded) == "decoded" }
 `,
     },
