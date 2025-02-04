@@ -58,7 +58,7 @@ User edits the settings of a cluster:
 
 A possible exception to this ordering method is in multi-step and progressive flows in which buttons fulfill both a functional purpose (create or edit something) and a navigational purpose (proceed, go back).
 
-- The **directionality** and positive outcome of the overall flow are reinforced by the button order and grouping
+- The **directionality** and positive outcome of the overall flow are reinforced by the button order and grouping.
 - In a multi-step flow, this type of pattern would persist on the page; the repetitiveness acts as a form of consistency scoped to the feature the pattern is used in.
 
 ![Multi-step progressive flow](/assets/patterns/button-organization/multi-step-progressive-flow.png)
@@ -69,7 +69,7 @@ As the viewport size shrinks, buttons should stack vertically in accordance with
 
 - This naturally adheres to our ordering guidelines; button order remains the same, except the container is vertical rather than horizontal.
 - This reduces complexity in engineering.
-- This ensures our applications meet accessibility conformance in [making the DOM order match the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html)
+- This ensures our applications meet accessibility conformance in [making the DOM order match the visual order](https://www.w3.org/TR/WCAG20-TECHS/C27.html).
 
 !!! Do
 
