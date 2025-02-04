@@ -1,7 +1,7 @@
 ---
 title: Button Set
 description: Provides consistent layout and spacing for a set of buttons.
-caption: A set of buttons.
+caption: Provides consistent layout and spacing for a set of buttons.
 links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/button-set

@@ -16,7 +16,7 @@ export default class IndexController extends Controller {
     {
       title: 'Content',
       description:
-        'Structured guidelines on tone and voice, user communication and more.',
+        'Structured guidelines on tone and voice, user communication, and more.',
       route: 'content',
     },
     {
