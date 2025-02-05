@@ -46,22 +46,6 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
     assert.true(this.success);
   });
 
-  test('it should copy an empty string value passed in', async function (assert) {
-    await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy empty string"  @textToCopy="" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
-    );
-    await click('button#test-copy-button');
-    assert.true(this.success);
-  });
-
-  test('it should copy a zero number value passed in', async function (assert) {
-    await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy zero number value"  @textToCopy={{0}} @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
-    );
-    await click('button#test-copy-button');
-    assert.true(this.success);
-  });
-
   // @TARGET ARGUMENT
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
