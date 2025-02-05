@@ -108,38 +108,34 @@ export const writeTextToClipboard = async (
 ): Promise<boolean> => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-  if (textToCopy || textToCopy === '') {
-    try {
-      // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
-      // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
-      await navigator.clipboard.writeText(textToCopy);
-      // DEBUG uncomment this for easy debugging
-      // console.log('success', textToCopy);
-      return true;
-    } catch {
-      // if it is not a secure context, use the polyfill
-      // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
-      if (!navigator.clipboard) {
-        try {
-          const clipboard = await import('clipboard-polyfill');
-          await clipboard.writeText(textToCopy);
-          return true;
-        } catch (error) {
-          warn(
-            `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
-              error
-            )}`,
-            {
-              id: 'hds-clipboard.write-text-to-clipboard.catch-error',
-            }
-          );
-          return false;
-        }
+  try {
+    // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
+    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
+    await navigator.clipboard.writeText(textToCopy);
+    // DEBUG uncomment this for easy debugging
+    // console.log('success', textToCopy);
+    return true;
+  } catch {
+    // if it is not a secure context, use the polyfill
+    // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
+    if (!navigator.clipboard) {
+      try {
+        const clipboard = await import('clipboard-polyfill');
+        await clipboard.writeText(textToCopy);
+        return true;
+      } catch (error) {
+        warn(
+          `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
+            error
+          )}`,
+          {
+            id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+          }
+        );
+        return false;
       }
-
-      return false;
     }
-  } else {
+
     return false;
   }
 };

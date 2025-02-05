@@ -214,9 +214,6 @@ module(
       const success = await writeTextToClipboard('test');
       assert.false(success);
     });
-    test('returns `false` as response if no `textToCopy` argument is provided', async function (assert) {
-      assert.false(await writeTextToClipboard());
-    });
   }
 );
 
