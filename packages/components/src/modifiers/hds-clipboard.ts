@@ -26,21 +26,20 @@ export interface HdsClipboardModifierSignature {
 export const getTextToCopy = (text: TextToCopy): string => {
   let textToCopy: string = '';
 
-  if (text) {
-    if (typeof text === 'string') {
-      textToCopy = text;
-    } else if (
-      // context: https://github.com/hashicorp/design-system/pull/1564
-      typeof text === 'number' ||
-      typeof text === 'bigint'
-    ) {
-      textToCopy = text.toString();
-    } else {
-      assert(
-        `\`hds-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`
-      );
-    }
+  if (typeof text === 'string') {
+    textToCopy = text;
+  } else if (
+    // context: https://github.com/hashicorp/design-system/pull/1564
+    typeof text === 'number' ||
+    typeof text === 'bigint'
+  ) {
+    textToCopy = text.toString();
+  } else {
+    assert(
+      `\`hds-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`
+    );
   }
+
   return textToCopy;
 };
 
@@ -151,11 +150,7 @@ export const copyToClipboard = async (
 ): Promise<boolean> => {
   let textToCopy: string = '';
 
-  if (text === '') {
-    textToCopy = '';
-  } else if (text === 0) {
-    textToCopy = '0';
-  } else if (text) {
+  if (text !== undefined) {
     textToCopy = getTextToCopy(text);
   } else if (target) {
     const targetElement = getTargetElement(target);
