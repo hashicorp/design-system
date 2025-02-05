@@ -56,7 +56,7 @@ When used within a form we recommend using component composition, passing a `Seg
 
 ### Generic Segment
 
-Use the `Generic` block to pass custom Segments to the group". The predefined Segments adjust their styles automatically depending on their placement within the group. You will need to ensure similar styling for your custom Segment.
+Use the `Generic` block to pass custom Segments to the group. The predefined Segments adjust their styles automatically depending on their placement within the group. You will need to ensure similar styling for your custom Segment.
 
 ```handlebars
 <Hds::SegmentedGroup as |SG|>
