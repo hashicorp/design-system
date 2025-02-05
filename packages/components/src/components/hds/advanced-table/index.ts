@@ -9,7 +9,6 @@ import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
-import config from 'ember-get-config';
 import { modifier } from 'ember-modifier';
 
 import {
@@ -288,7 +287,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
 
-    if (stickyGridHeader !== null && config.environment !== 'test') {
+    if (stickyGridHeader !== null) {
       this._observer = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(

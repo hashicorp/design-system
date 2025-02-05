@@ -3,9 +3,15 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  scrollTo,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -318,7 +324,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasAttribute('aria-label', 'data test table');
   });
 
-  skip('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
+  test('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
     setSortableTableData(this);
 
     await render(
