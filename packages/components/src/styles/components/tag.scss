@@ -16,6 +16,7 @@ $hds-tag-border-radius: 50px;
   display: inline-flex;
   align-items: stretch;
   width: fit-content;
+  max-width: 100%;
   line-height: 1rem; // 16px - override `body-100`
   vertical-align: middle;
   background-color: var(--token-color-surface-interactive);
