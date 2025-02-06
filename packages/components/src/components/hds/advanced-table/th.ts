@@ -34,8 +34,10 @@ export interface HdsAdvancedTableThSignature {
     isExpandable?: boolean;
     parentId?: string;
     onClickToggle?: () => void;
-    isExpanded?: boolean;
+    isExpanded?: boolean | 'mixed';
     depth?: number;
+    didInsertExpandButton?: (button?: HTMLButtonElement) => void;
+    willDestroyExpandButton?: () => void;
   };
   Blocks: {
     default?: [];
@@ -119,4 +121,21 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
   }
+
+    @action
+    didInsertExpandButton(button: HTMLButtonElement): void {
+      const { didInsertExpandButton } = this.args;
+      if (typeof didInsertExpandButton === 'function') {
+        didInsertExpandButton(button);
+      }
+    }
+  
+    @action
+    willDestroyExpandButton(): void {
+      super.willDestroy();
+      const { willDestroyExpandButton } = this.args;
+      if (typeof willDestroyExpandButton === 'function') {
+        willDestroyExpandButton();
+      }
+    }
 }
