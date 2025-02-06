@@ -36,7 +36,7 @@ export interface HdsAdvancedTableThSignature {
     onClickToggle?: () => void;
     isExpanded?: boolean | 'mixed';
     depth?: number;
-    didInsertExpandButton?: (button?: HTMLButtonElement) => void;
+    didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: () => void;
   };
   Blocks: {
