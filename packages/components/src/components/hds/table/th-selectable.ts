@@ -82,7 +82,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   }
 
   @action
-  willDestroyNode(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
+  willDestroyNode(): void {
     super.willDestroy();
     const { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
