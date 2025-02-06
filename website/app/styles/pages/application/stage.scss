@@ -19,6 +19,7 @@
   grid-template-rows: auto auto 1fr;
   grid-template-columns: 1fr;
   width: 100%; // needed (otherwise it collapses, because is in a grid)
+  scroll-margin-top: var(--doc-page-header-height);
 
   @include breakpoint.with-fixed-sidebar() {
     padding-left: var(--doc-page-sidebar-width); // we need to compensate for the fixed position of the sidebar
