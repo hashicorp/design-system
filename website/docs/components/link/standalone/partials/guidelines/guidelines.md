@@ -15,9 +15,9 @@
 We recommend using a medium size, but use whichever size fits best in the UI. For example, don’t use large links in tables.
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @size="small" @text="Small" @icon="arrow-right" @iconPosition="trailing" @route="components" />
-  <Hds::Link::Standalone @size="medium" @text="Medium" @icon="arrow-right" @iconPosition="trailing" @route="components" />
-  <Hds::Link::Standalone @size="large" @text="Large" @icon="arrow-right" @iconPosition="trailing" @route="components" />
+  <Hds::Link::Standalone @size="small" @text="Small" @icon="arrow-right" @iconPosition="trailing" @href="#" />
+  <Hds::Link::Standalone @size="medium" @text="Medium" @icon="arrow-right" @iconPosition="trailing" @href="#" />
+  <Hds::Link::Standalone @size="large" @text="Large" @icon="arrow-right" @iconPosition="trailing" @href="#" />
 </Doc::Layout>
 
 ## Color
@@ -33,7 +33,7 @@ We recommend using the `primary` variant as the default and for more important l
 
 For example, when navigating the user to “View clusters”:
 
-<Hds::Link::Standalone @text="View clusters" @icon="arrow-right" @iconPosition="trailing" @type="primary" @route="components" />
+<Hds::Link::Standalone @text="View clusters" @icon="arrow-right" @iconPosition="trailing" @type="primary" @href="#" />
 
 ### Secondary
 
@@ -41,7 +41,7 @@ Use the Secondary variant for less important links, when the primary color can�
 
 For example, on an install page, when navigating the user to “Learn more about Vault”:
 
-<Hds::Link::Standalone @text="Learn more about Vault" @icon="external-link" @iconPosition="trailing" @color="secondary" @route="components" />
+<Hds::Link::Standalone @text="Learn more about Vault" @icon="external-link" @iconPosition="trailing" @color="secondary" @href="#" />
 
 ## Icon position
 
@@ -52,8 +52,8 @@ A Standalone Link can include a leading or trailing icon. Avoid creating links w
 In most cases, use leading icons. Choose icons that add meaning and clarity to the action described in the link’s text.
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @text="Download" @icon="download" @iconPosition="leading" @color="primary" @route="components" />
-  <Hds::Link::Standalone @text="View connections" @icon="network-alt" @iconPosition="leading" @color="primary" @route="components" />
+  <Hds::Link::Standalone @text="Download" @icon="download" @iconPosition="leading" @color="primary" @href="#" />
+  <Hds::Link::Standalone @text="View connections" @icon="network-alt" @iconPosition="leading" @color="primary" @href="#" />
 </Doc::Layout>
 
 !!! Do
@@ -61,7 +61,7 @@ In most cases, use leading icons. Choose icons that add meaning and clarity to t
 Consider directionality; if directing the user backward in a flow, use the leading position. 
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @text="Back to Dashboard" @icon="chevron-left" @iconPosition="leading" @color="primary" @route="components" />
+  <Hds::Link::Standalone @text="Back to Dashboard" @icon="chevron-left" @iconPosition="leading" @color="primary" @href="#" />
 </Doc::Layout>
 
 !!!
@@ -70,13 +70,13 @@ Consider directionality; if directing the user backward in a flow, use the leadi
 
 Always use the leading position for product or service icons (e.g., GitHub).
 
-<Hds::Link::Standalone @text="Edit pages in GitHub" @icon="github" @iconPosition="leading" @color="primary" @route="components" />
+<Hds::Link::Standalone @text="Edit pages in GitHub" @icon="github" @iconPosition="leading" @color="primary" @href="#" />
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @text="Boundary" @icon="boundary-color" @iconPosition="leading" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Consul" @icon="consul-color" @iconPosition="leading" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Vault" @icon="vault-color" @iconPosition="leading" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Waypoint" @icon="waypoint-color" @iconPosition="leading" @color="secondary" @route="components" />
+  <Hds::Link::Standalone @text="Boundary" @icon="boundary-color" @iconPosition="leading" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Consul" @icon="consul-color" @iconPosition="leading" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Vault" @icon="vault-color" @iconPosition="leading" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Waypoint" @icon="waypoint-color" @iconPosition="leading" @color="secondary" @href="#" />
 </Doc::Layout>
 
 !!!
@@ -93,10 +93,10 @@ Consider trailing icons when there’s no other meaningful icon or when guiding 
 !!! Do
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @text="View billing" @icon="arrow-right" @iconPosition="trailing" @color="primary" @route="components" />
-  <Hds::Link::Standalone @text="Service mesh tutorial" @icon="learn-link" @iconPosition="trailing" @color="primary" @route="components" />
-  <Hds::Link::Standalone @text="Consul documentation" @icon="docs-link" @iconPosition="trailing" @color="primary" @route="components" />
-  <Hds::Link::Standalone @text="Submit feedback" @icon="external-link" @iconPosition="trailing" @color="primary" @route="components" />
+  <Hds::Link::Standalone @text="View billing" @icon="arrow-right" @iconPosition="trailing" @color="primary" @href="#" />
+  <Hds::Link::Standalone @text="Service mesh tutorial" @icon="learn-link" @iconPosition="trailing" @color="primary" @href="#" />
+  <Hds::Link::Standalone @text="Consul documentation" @icon="docs-link" @iconPosition="trailing" @color="primary" @href="#" />
+  <Hds::Link::Standalone @text="Submit feedback" @icon="external-link" @iconPosition="trailing" @color="primary" @href="#" />
 </Doc::Layout>
 
 !!!
@@ -105,13 +105,13 @@ Consider trailing icons when there’s no other meaningful icon or when guiding 
 
 Don’t put product or service icons in the trailing position. 
 
-<Hds::Link::Standalone @text="Edit pages in GitHub" @icon="github" @iconPosition="trailing" @color="primary" @route="components" />
+<Hds::Link::Standalone @text="Edit pages in GitHub" @icon="github" @iconPosition="trailing" @color="primary" @href="#" />
 
 <Doc::Layout @spacing="12px">
-  <Hds::Link::Standalone @text="Boundary" @icon="boundary-color" @iconPosition="trailing" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Consul" @icon="consul-color" @iconPosition="trailing" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Vault" @icon="vault-color" @iconPosition="trailing" @color="secondary" @route="components" />
-  <Hds::Link::Standalone @text="Waypoint" @icon="waypoint-color" @iconPosition="trailing" @color="secondary" @route="components" />
+  <Hds::Link::Standalone @text="Boundary" @icon="boundary-color" @iconPosition="trailing" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Consul" @icon="consul-color" @iconPosition="trailing" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Vault" @icon="vault-color" @iconPosition="trailing" @color="secondary" @href="#" />
+  <Hds::Link::Standalone @text="Waypoint" @icon="waypoint-color" @iconPosition="trailing" @color="secondary" @href="#" />
 </Doc::Layout>
 !!!
 
@@ -145,7 +145,7 @@ We recommend at least 16px between Standalone Links when placed in a horizontal 
 Standalone Links often appear in [Button Sets](/components/button-set).
 
 <Hds::ButtonSet>
-  <Hds::Link::Standalone @text="Previous" @icon="chevron-left" @iconPosition="leading" @color="primary" @route="components" />
+  <Hds::Link::Standalone @text="Previous" @icon="chevron-left" @iconPosition="leading" @color="primary" @href="#" />
   <Hds::Button @text="Submit" @color="primary" />
   <Hds::Button @text="Cancel" @color="secondary" />
 </Hds::ButtonSet>
