@@ -42,8 +42,8 @@
             @tooltip={{column.tooltip}}
             @isVisuallyHidden={{column.isVisuallyHidden}}
             @isExpandable={{column.isExpandable}}
-            @didInsertExpandButton={{if column.isExpandable (fn this.didInsertExpandAllButton)}}
-            @willDestroyExpandButton={{if column.isExpandable (fn this.willDestroyExpandAllButton)}}
+            @didInsertExpandButton={{if column.isExpandable this.didInsertExpandAllButton}}
+            @willDestroyExpandButton={{if column.isExpandable this.willDestroyExpandAllButton}}
             @isExpanded={{this._expandAllButtonState}}
             @onClickToggle={{this.onExpandAllChange}}
           >{{column.label}}</Hds::AdvancedTable::Th>

@@ -436,11 +436,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
-  didInsertExpandAllButton(
-    button: HTMLButtonElement
-  ): void {
+  didInsertExpandAllButton(button: HTMLButtonElement): void {
     this._expandAllButton = button;
-    console.log(this._expandAllButton)
+    console.log(this._expandAllButton);
   }
 
   @action
@@ -449,10 +447,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
-  didInsertExpandButton(
-    button: HTMLButtonElement
-  ): void {
-    this._expandableRows.push({button});
+  didInsertExpandButton(button: HTMLButtonElement): void {
+    this._expandableRows.push({ button });
     this.setExpandAllState();
   }
 
@@ -465,9 +461,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
-  setExpandAllState(): void{
+  setExpandAllState(): void {
     if (this._expandAllButton) {
-      const parentRowsCount = this._expandableRows.length
+      const parentRowsCount = this._expandableRows.length;
       const expandedRowsCount = this._expandableRows.filter(
         (row) => row.button.getAttribute('aria-expanded') === 'true'
       ).length;
@@ -478,12 +474,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       if (expandedRowsCount === 0) expandAllState = false;
       else expandAllState = 'mixed';
 
-      this._expandAllButtonState = expandAllState
+      this._expandAllButtonState = expandAllState;
 
       this._expandAllButton.dispatchEvent(
         new Event('click', { bubbles: false })
       );
-
     }
   }
 

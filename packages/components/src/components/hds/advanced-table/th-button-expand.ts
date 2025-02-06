@@ -31,7 +31,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   get icon(): HdsAdvancedTableThSortExpandIcons {
     if (this.isExpanded === true) {
       return HdsAdvancedTableThExpandIconValues.ChevronDown;
-    }else if (this.isExpanded === 'mixed') {
+    } else if (this.isExpanded === 'mixed') {
       return HdsAdvancedTableThExpandIconValues.Caret;
     } else {
       return HdsAdvancedTableThExpandIconValues.ChevronRight;

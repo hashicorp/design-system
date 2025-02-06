@@ -122,20 +122,20 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._element = element;
   }
 
-    @action
-    didInsertExpandButton(button: HTMLButtonElement): void {
-      const { didInsertExpandButton } = this.args;
-      if (typeof didInsertExpandButton === 'function') {
-        didInsertExpandButton(button);
-      }
+  @action
+  didInsertExpandButton(button: HTMLButtonElement): void {
+    const { didInsertExpandButton } = this.args;
+    if (typeof didInsertExpandButton === 'function') {
+      didInsertExpandButton(button);
     }
-  
-    @action
-    willDestroyExpandButton(): void {
-      super.willDestroy();
-      const { willDestroyExpandButton } = this.args;
-      if (typeof willDestroyExpandButton === 'function') {
-        willDestroyExpandButton();
-      }
+  }
+
+  @action
+  willDestroyExpandButton(): void {
+    super.willDestroy();
+    const { willDestroyExpandButton } = this.args;
+    if (typeof willDestroyExpandButton === 'function') {
+      willDestroyExpandButton();
     }
+  }
 }
