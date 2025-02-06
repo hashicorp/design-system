@@ -30,6 +30,7 @@ export type HdsAdvancedTableScope = `${HdsAdvancedTableScopeValues}`;
 export enum HdsAdvancedTableThExpandIconValues {
   ChevronRight = 'chevron-right',
   ChevronDown = 'chevron-down',
+  Caret = 'caret',
 }
 export type HdsAdvancedTableThSortExpandIcons =
   `${HdsAdvancedTableThExpandIconValues}`;
@@ -70,6 +71,10 @@ export type HdsAdvancedTableSelectableRow = {
   selectionKey: string;
 };
 
+export type HdsAdvancedTableExpandableRow = {
+  button: HTMLButtonElement;
+};
+
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
   isVisuallyHidden?: boolean;
@@ -87,6 +92,7 @@ interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
 interface NonSortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
   isSortable?: false;
   key?: string;
+  isExpandable?: boolean;
 }
 
 export type HdsAdvancedTableColumn =

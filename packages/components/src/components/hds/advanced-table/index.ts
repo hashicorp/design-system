@@ -26,6 +26,7 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
+  HdsAdvancedTableExpandableRow,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
@@ -88,8 +89,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked _expandAllButton?: HTMLButtonElement = undefined;
+  @tracked _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _expandableRows: HdsAdvancedTableExpandableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _observer: IntersectionObserver | undefined = undefined;
 
@@ -429,5 +433,68 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         new Event('toggle', { bubbles: false })
       );
     }
+  }
+
+  @action
+  didInsertExpandAllButton(
+    button: HTMLButtonElement
+  ): void {
+    this._expandAllButton = button;
+    console.log(this._expandAllButton)
+  }
+
+  @action
+  willDestroyExpandAllButton(): void {
+    this._expandAllButton = undefined;
+  }
+
+  @action
+  didInsertExpandButton(
+    button: HTMLButtonElement
+  ): void {
+    this._expandableRows.push({button});
+    this.setExpandAllState();
+  }
+
+  @action
+  willDestroyExpandButton(button?: HTMLButtonElement): void {
+    this._expandableRows = this._expandableRows.filter(
+      (row) => row.button !== button
+    );
+    this.setExpandAllState();
+  }
+
+  @action
+  setExpandAllState(): void{
+    if (this._expandAllButton) {
+      const parentRowsCount = this._expandableRows.length
+      const expandedRowsCount = this._expandableRows.filter(
+        (row) => row.button.getAttribute('aria-expanded') === 'true'
+      ).length;
+
+      let expandAllState: boolean | 'mixed';
+
+      if (parentRowsCount === expandedRowsCount) expandAllState = true;
+      if (expandedRowsCount === 0) expandAllState = false;
+      else expandAllState = 'mixed';
+
+      this._expandAllButtonState = expandAllState
+
+      this._expandAllButton.dispatchEvent(
+        new Event('click', { bubbles: false })
+      );
+
+    }
+  }
+
+  @action
+  onExpandAllChange(): void {
+    this._expandableRows.forEach((row) => {
+      row.button.setAttribute('aria-expanded', `${this._expandAllButtonState}`);
+      // row.button.dispatchEvent(new Event('click', { bubbles: false }));
+    });
+    // this._isSelectAllCheckboxSelected =
+    //   this._selectAllCheckbox?.checked ?? false;
+    // this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
 }
