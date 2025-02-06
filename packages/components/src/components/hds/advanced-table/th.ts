@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import {modifier} from 'ember-modifier';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -122,20 +123,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._element = element;
   }
 
-  @action
-  didInsertExpandButton(button: HTMLButtonElement): void {
-    const { didInsertExpandButton } = this.args;
+  private _manageExpandButton = modifier((button: HTMLButtonElement) => {
+    const { didInsertExpandButton, willDestroyExpandButton } = this.args;
     if (typeof didInsertExpandButton === 'function') {
       didInsertExpandButton(button);
     }
-  }
 
-  @action
-  willDestroyExpandButton(): void {
-    super.willDestroy();
-    const { willDestroyExpandButton } = this.args;
-    if (typeof willDestroyExpandButton === 'function') {
-      willDestroyExpandButton();
-    }
-  }
+    return () => {
+      if (typeof willDestroyExpandButton === 'function') {
+        willDestroyExpandButton();
+      }
+    };
+  });
 }
