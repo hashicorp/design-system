@@ -5,8 +5,6 @@ description: Best practices for writing style, grammar, and formatting.
 previewImage: assets/illustrations/content/writing-style.jpg
 ---
 
-Generally, HashiCorp follows the [2020 AP Stylebook](https://www.apstylebook.com/ap_stylebook) rules and guidelines, unless HashiCorp specific style is indicated.
-
 ## Capitalization
 
 ### Headings and labels
