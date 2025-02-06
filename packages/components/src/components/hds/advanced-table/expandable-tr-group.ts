@@ -17,6 +17,8 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     parentId?: string;
     childrenKey?: string;
     rowIndex: number | string;
+    didInsertExpandButton?: (button: HTMLButtonElement) => void;
+    willDestroyExpandButton?: () => void;
   };
   Blocks: {
     default?: [
@@ -29,6 +31,8 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         onClickToggle?: () => void;
         isExpanded?: boolean;
         rowIndex?: string;
+        didInsertExpandButton?: (button: HTMLButtonElement) => void;
+        willDestroyExpandButton?: () => void;
       },
     ];
   };
