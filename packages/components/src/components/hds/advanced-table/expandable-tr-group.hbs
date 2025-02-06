@@ -12,6 +12,8 @@
     isExpanded=this._isExpanded
     parentId=@parentId
     rowIndex=this.rowIndex
+    didInsertExpandButton=@didInsertExpandButton
+    willDestroyExpandButton=@willDestroyExpandButton
   )
 }}
 {{#if (and this.hasChildren this._isExpanded)}}

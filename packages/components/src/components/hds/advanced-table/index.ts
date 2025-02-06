@@ -90,7 +90,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
-  @tracked _expandAllButtonState?: boolean | 'mixed' = undefined;
+  // @tracked _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _expandableRows: HdsAdvancedTableExpandableRow[] = [];
@@ -470,11 +470,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       let expandAllState: boolean | 'mixed';
 
+      console.log(this._expandableRows)
+
+      console.log('parentRowsCount', parentRowsCount)
+      console.log('expandedRowsCount', expandedRowsCount)
+
       if (parentRowsCount === expandedRowsCount) expandAllState = true;
       if (expandedRowsCount === 0) expandAllState = false;
       else expandAllState = 'mixed';
 
-      this._expandAllButtonState = expandAllState;
+      this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
 
       this._expandAllButton.dispatchEvent(
         new Event('click', { bubbles: false })
@@ -482,14 +487,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
+
   @action
   onExpandAllChange(): void {
     this._expandableRows.forEach((row) => {
-      row.button.setAttribute('aria-expanded', `${this._expandAllButtonState}`);
+      // row.button.setAttribute('aria-expanded', `${this._expandAllButtonState}`);
       // row.button.dispatchEvent(new Event('click', { bubbles: false }));
     });
     // this._isSelectAllCheckboxSelected =
     //   this._selectAllCheckbox?.checked ?? false;
     // this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
   }
+
+  @action
+  onExpandRowChange(
+    // button?: HTMLButtonElement,
+  ): void {
+    this.setExpandAllState();
+    // this.onSelectionChangeCallback(checkbox, selectionKey);
+  }
+
 }
