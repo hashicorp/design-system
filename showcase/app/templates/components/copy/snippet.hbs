@@ -28,12 +28,18 @@
         />
       </Shw::Outliner>
     </SF.Item>
+    <SF.Item @label="With an empty string to copy">
+      <Hds::Copy::Snippet @textToCopy="" />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With number to copy">
       {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
       <Hds::Copy::Snippet @textToCopy={{123456789}} />
+    </SF.Item>
+    <SF.Item @label="With the number '0' to copy">
+      <Hds::Copy::Snippet @textToCopy={{0}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -99,36 +105,6 @@
       {{/let}}
     {{/each}}
   </Shw::Grid>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>Demo</Shw::Text::H2>
-
-  <Shw::Text::H3>With <code>text</code> as argument</Shw::Text::H3>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Copy a secret key">
-      <Hds::Copy::Snippet @textToCopy="someSecretThingGoesHere" />
-    </SF.Item>
-    <SF.Item @label="Copy a number">
-      {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
-      <Hds::Copy::Snippet @textToCopy={{123456789}} />
-    </SF.Item>
-    <SF.Item @label="Copy a Bigint number">
-      <Hds::Copy::Snippet @textToCopy={{this.bigIntNumber}} />
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Text::H4>Special cases</Shw::Text::H4>
-
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Copy an empty string">
-      <Hds::Copy::Snippet @textToCopy="" />
-    </SF.Item>
-    <SF.Item @label="Copy the number '0'">
-      <Hds::Copy::Snippet @textToCopy={{0}} />
-    </SF.Item>
-  </Shw::Flex>
 
   <Shw::Divider />
 
