@@ -11,6 +11,11 @@ $doc-page-sidebar-transition-duration: 0.25s;
 
 // ⚠️ ---  the sidebar "navigation" is different between the homepage and the other pages --- ⚠️
 
+// if dialog is open, set sidebar z-index to 1
+.doc-page-wrapper:has(dialog[open]) {
+  --doc-z-index-sidebar: 1;
+}
+
 // HOME PAGE
 // This is a special case: the sidebar is horizontal and is visible *only* on small viewports (when opened)
 
