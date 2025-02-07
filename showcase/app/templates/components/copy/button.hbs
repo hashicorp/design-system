@@ -142,6 +142,17 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H4>Special cases</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy an empty string" @textToCopy="" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Copy::Button @text="Copy the number '0'" @textToCopy={{0}} />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>With <code>target</code> element</Shw::Text::H3>

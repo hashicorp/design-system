@@ -214,9 +214,6 @@ module(
       const success = await writeTextToClipboard('test');
       assert.false(success);
     });
-    test('returns `false` as response if no `textToCopy` argument is provided', async function (assert) {
-      assert.false(await writeTextToClipboard());
-    });
   }
 );
 
@@ -265,11 +262,35 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
     assert.true(this.success);
   });
 
+  test('it should copy an empty string provided as a `@text` argument', async function (assert) {
+    await render(
+      hbs`<button id="test-button" {{hds-clipboard
+        text=""
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}>Test</button>`
+    );
+    await click('button#test-button');
+    assert.true(this.success);
+  });
+
   // context: https://github.com/hashicorp/design-system/pull/1564
   test('it should allow to copy an `integer` provided as `@text` argument', async function (assert) {
     await render(
       hbs`<button id="test-button" {{hds-clipboard
         text=1234
+        onSuccess=this.onSuccess
+        onError=this.onError
+      }}>Test</button>`
+    );
+    await click('button#test-button');
+    assert.true(this.success);
+  });
+
+  test('it should copy a zero number value provided as a `@text` argument', async function (assert) {
+    await render(
+      hbs`<button id="test-button" {{hds-clipboard
+        text=0
         onSuccess=this.onSuccess
         onError=this.onError
       }}>Test</button>`

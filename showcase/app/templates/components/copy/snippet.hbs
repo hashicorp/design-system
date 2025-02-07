@@ -28,12 +28,18 @@
         />
       </Shw::Outliner>
     </SF.Item>
+    <SF.Item @label="With an empty string to copy">
+      <Hds::Copy::Snippet @textToCopy="" />
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With number to copy">
       {{! context: https://github.com/hashicorp/design-system/pull/1564 }}
       <Hds::Copy::Snippet @textToCopy={{123456789}} />
+    </SF.Item>
+    <SF.Item @label="With the number '0' to copy">
+      <Hds::Copy::Snippet @textToCopy={{0}} />
     </SF.Item>
   </Shw::Flex>
 

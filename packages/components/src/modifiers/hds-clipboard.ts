@@ -26,21 +26,20 @@ export interface HdsClipboardModifierSignature {
 export const getTextToCopy = (text: TextToCopy): string => {
   let textToCopy: string = '';
 
-  if (text) {
-    if (typeof text === 'string') {
-      textToCopy = text;
-    } else if (
-      // context: https://github.com/hashicorp/design-system/pull/1564
-      typeof text === 'number' ||
-      typeof text === 'bigint'
-    ) {
-      textToCopy = text.toString();
-    } else {
-      assert(
-        `\`hds-clipboard\` modifier - \`text\` argument must be a string - provided: ${typeof text}`
-      );
-    }
+  if (typeof text === 'string') {
+    textToCopy = text;
+  } else if (
+    // context: https://github.com/hashicorp/design-system/pull/1564
+    typeof text === 'number' ||
+    typeof text === 'bigint'
+  ) {
+    textToCopy = text.toString();
+  } else {
+    assert(
+      `\`hds-clipboard\` modifier - \`text\` argument must be a string or number - provided: ${typeof text}`
+    );
   }
+
   return textToCopy;
 };
 
@@ -109,38 +108,34 @@ export const writeTextToClipboard = async (
 ): Promise<boolean> => {
   // finally copy the text to the clipboard using the Clipboard API
   // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
-  if (textToCopy) {
-    try {
-      // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
-      // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
-      await navigator.clipboard.writeText(textToCopy);
-      // DEBUG uncomment this for easy debugging
-      // console.log('success', textToCopy);
-      return true;
-    } catch {
-      // if it is not a secure context, use the polyfill
-      // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
-      if (!navigator.clipboard) {
-        try {
-          const clipboard = await import('clipboard-polyfill');
-          await clipboard.writeText(textToCopy);
-          return true;
-        } catch (error) {
-          warn(
-            `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
-              error
-            )}`,
-            {
-              id: 'hds-clipboard.write-text-to-clipboard.catch-error',
-            }
-          );
-          return false;
-        }
+  try {
+    // notice: the "clipboard-write" permission is granted automatically to pages when they are in the active tab
+    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/write
+    await navigator.clipboard.writeText(textToCopy);
+    // DEBUG uncomment this for easy debugging
+    // console.log('success', textToCopy);
+    return true;
+  } catch {
+    // if it is not a secure context, use the polyfill
+    // to test that this works in a non-secure context, access the port through your IP address (ie. XXX.XXX.X.XXX:4200/)
+    if (!navigator.clipboard) {
+      try {
+        const clipboard = await import('clipboard-polyfill');
+        await clipboard.writeText(textToCopy);
+        return true;
+      } catch (error) {
+        warn(
+          `copy action failed, unable to use clipboard-polyfill: ${JSON.stringify(
+            error
+          )}`,
+          {
+            id: 'hds-clipboard.write-text-to-clipboard.catch-error',
+          }
+        );
+        return false;
       }
-
-      return false;
     }
-  } else {
+
     return false;
   }
 };
@@ -151,7 +146,7 @@ export const copyToClipboard = async (
 ): Promise<boolean> => {
   let textToCopy: string = '';
 
-  if (text) {
+  if (text !== undefined) {
     textToCopy = getTextToCopy(text);
   } else if (target) {
     const targetElement = getTargetElement(target);
