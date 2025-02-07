@@ -256,7 +256,6 @@ export default class HdsTable extends Component<HdsTableSignature> {
   onSelectionAllChange(): void {
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
-      row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
@@ -316,9 +315,6 @@ export default class HdsTable extends Component<HdsTableSignature> {
       this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
-      this._selectAllCheckbox.dispatchEvent(
-        new Event('toggle', { bubbles: false })
-      );
     }
   }
 }
