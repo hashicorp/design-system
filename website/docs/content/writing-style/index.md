@@ -5,6 +5,8 @@ description: Best practices for writing style, grammar, and formatting.
 previewImage: assets/illustrations/content/writing-style.jpg
 ---
 
+Generally, HashiCorp follows the [AP Style rules and guidelines](https://writer.com/blog/a-comprehensive-guide-to-the-ap-style-of-writing/), unless HashiCorp specific style is indicated.
+
 ## Capitalization
 
 ### Headings and labels
