@@ -81,20 +81,20 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     assert.dom('.tippy-box').hasAttribute('role', 'tooltip');
   });
 
-  test('the button has an aria-describedby attribute with a value matching the tooltip id', async function (assert) {
+  test('the button has an aria-describedby and aria-controls attribute with a value matching the tooltip container', async function (assert) {
     await render(
       hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`
     );
     await focus('[data-test-tooltip-button]');
-    assert.dom('[data-test-tooltip-button]').hasAttribute('aria-describedby');
-    assert.dom('[data-tippy-root]').hasAttribute('id');
-
-    assert.strictEqual(
-      this.element
-        .querySelector('[data-test-tooltip-button]')
-        .getAttribute('aria-describedby'),
-      this.element.querySelector('[data-tippy-root]').getAttribute('id')
-    );
+    const tooltipContainerId = this.element
+      .querySelector('.hds-tooltip-container')
+      .getAttribute('id');
+    assert
+      .dom('[data-test-tooltip-button]')
+      .hasAttribute('aria-describedby', tooltipContainerId);
+    assert
+      .dom('[data-test-tooltip-button]')
+      .hasAttribute('aria-controls', tooltipContainerId);
   });
 
   // PLACEMENT
