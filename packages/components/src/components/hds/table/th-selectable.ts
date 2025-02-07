@@ -78,30 +78,15 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     const { didInsert } = this.args;
     if (typeof didInsert === 'function') {
       didInsert(checkbox, this.args.selectionKey);
-      // we need to use a custom event listener here because changing the `checked` value via JS
-      // (and this happens with the "select all") doesn't trigger the `change` event
-      // and consequently the `aria-label` won't be automatically updated (and so we have to force it)
-      checkbox.addEventListener(
-        'toggle',
-        this.updateAriaLabel.bind(this),
-        true
-      );
     }
   }
 
   @action
-  willDestroyNode(checkbox: HdsFormCheckboxBaseSignature['Element']): void {
+  willDestroyNode(): void {
     super.willDestroy();
     const { willDestroy } = this.args;
     if (typeof willDestroy === 'function') {
       willDestroy(this.args.selectionKey);
-      if (checkbox) {
-        checkbox.removeEventListener(
-          'toggle',
-          this.updateAriaLabel.bind(this),
-          true
-        );
-      }
     }
   }
 
@@ -114,11 +99,5 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
     if (typeof onSelectionChange === 'function') {
       onSelectionChange(target, this.args.selectionKey);
     }
-  }
-
-  updateAriaLabel(event: Event): void {
-    // Assert event.target as HTMLInputElement to access the 'checked' property
-    const target = event.target as HdsFormCheckboxBaseSignature['Element'];
-    this.isSelected = target.checked;
   }
 }
