@@ -10,16 +10,21 @@ import { modifier } from 'ember-modifier';
 
 import { HdsTagColorValues } from './types.ts';
 import type { HdsTagColors } from './types.ts';
+import { HdsTagTooltipPlacementValues } from './types.ts';
+import type { HdsTagTooltipPlacements } from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/';
 
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
+export const TOOLTIP_PLACEMENTS: string[] = Object.values(HdsTagTooltipPlacementValues);
+export const DEFAULT_TOOLTIP_PLACEMENT = HdsTagTooltipPlacementValues.Top;
 
 export interface HdsTagSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsTagColors;
     text: string;
     ariaLabel?: string;
+    tooltipPlacement: HdsTagTooltipPlacements;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -45,6 +50,23 @@ export default class HdsTag extends Component<HdsTagSignature> {
       this._observer.disconnect();
     };
   });
+
+  /**
+   * @param tooltioPlacement
+   * @type {string}
+   * @default top
+   * @description The placement property of the tooltip attached to the tag text.
+   */
+  get tooltipPlacement(): HdsTagTooltipPlacements {
+    const { tooltipPlacement = DEFAULT_TOOLTIP_PLACEMENT } = this.args;
+
+    assert(
+      '@tooltipPlacement for "Hds::Tag" must have a valid value',
+      tooltipPlacement == undefined || TOOLTIP_PLACEMENTS.includes(tooltipPlacement)
+    );
+
+    return tooltipPlacement;
+  }
 
   /**
    * @param onDismiss

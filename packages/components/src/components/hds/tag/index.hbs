@@ -28,7 +28,7 @@
         @isRouteExternal={{@isRouteExternal}}
         @href={{@href}}
         @isHrefExternal={{@isHrefExternal}}
-        {{hds-tooltip this.text options=(hash placement="right")}}
+        {{hds-tooltip this.text options=(hash placement=this.tooltipPlacement)}}
       >
         <div class="hds-tag__text-container">
           {{this.text}}
@@ -53,7 +53,7 @@
     {{/if}}
   {{else}}
     {{#if this._isTextOverflow}}
-      <Hds::TooltipButton class="hds-tag__text" @text={{this.text}} @placement="right">
+      <Hds::TooltipButton class="hds-tag__text" @text={{this.text}} @placement={{this.tooltipPlacement}}>
         <div class="hds-tag__text-container">
           {{this.text}}
         </div>
