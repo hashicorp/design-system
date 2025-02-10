@@ -43,3 +43,9 @@ When the dismiss icon is trailing, the mouse user must adjust positioning of the
 ## Content
 
 When content within the tag is not user-generated, it should be concise and consistent with the category name.
+
+### Truncation
+
+The text container of the tag has a max-width of 150px and will truncate text if any content overflows beyond that limit. If truncation is present, a tooltip will appear with the full text, on hover or focus of the text container. By default, the tooltip's placement will be top, however, this can be customized if necessary.
+
+![](/assets/components/tag/tag-truncation-tooltip.png)
