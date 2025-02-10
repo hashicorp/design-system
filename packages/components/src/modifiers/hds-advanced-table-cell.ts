@@ -6,7 +6,6 @@
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
-// import { tracked } from '@glimmer/tracking';
 
 import {
   didInsertGridCell,
