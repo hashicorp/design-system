@@ -15,7 +15,7 @@ import type {
   HdsAdvancedTableScope,
 } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
-import { onFocusTrapDeactivate } from './helpers.ts';
+import { onFocusTrapDeactivate } from 'src/modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues

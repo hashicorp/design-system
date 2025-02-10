@@ -21,7 +21,7 @@ import type {
   HdsAdvancedTableThSortOrderLabels,
 } from './types.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
-import { onFocusTrapDeactivate } from './helpers.ts';
+import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues

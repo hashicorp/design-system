@@ -11,7 +11,7 @@ import { focusable, type FocusableElement } from 'tabbable';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
-import { onFocusTrapDeactivate } from './helpers.ts';
+import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues

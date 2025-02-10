@@ -3,6 +3,16 @@ import { tabbable } from 'tabbable';
 import type { HdsAdvancedTableTdSignature } from '../../components/hds/advanced-table/td.ts';
 import type { HdsAdvancedTableThSignature } from '../../components/hds/advanced-table/th.ts';
 
+export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
+  const cellTabbableChildren = tabbable(cell);
+
+  for (const child of cellTabbableChildren) {
+    child.setAttribute('tabindex', '-1');
+  }
+
+  cell.setAttribute('tabindex', '0');
+};
+
 export const updateTabbableChildren = (
   cell: HTMLDivElement,
   isFocusTrapActive?: boolean
