@@ -5,7 +5,12 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror, waitFor } from '@ember/test-helpers';
+import {
+  render,
+  resetOnerror,
+  setupOnerror,
+  waitFor,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tag/index', function (hooks) {
