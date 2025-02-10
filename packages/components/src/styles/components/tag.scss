@@ -43,9 +43,9 @@ $hds-tag-border-radius: 50px;
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
+  max-width: 150px;
   padding: 3px 10px 5px 10px;
   border-radius: inherit;
-  max-width: 150px;
 }
 
 .hds-tag__text-container {

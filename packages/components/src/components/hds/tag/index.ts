@@ -16,7 +16,9 @@ import type { HdsInteractiveSignature } from '../interactive/';
 
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
-export const TOOLTIP_PLACEMENTS: string[] = Object.values(HdsTagTooltipPlacementValues);
+export const TOOLTIP_PLACEMENTS: string[] = Object.values(
+  HdsTagTooltipPlacementValues
+);
 export const DEFAULT_TOOLTIP_PLACEMENT = HdsTagTooltipPlacementValues.Top;
 
 export interface HdsTagSignature {
@@ -62,7 +64,8 @@ export default class HdsTag extends Component<HdsTagSignature> {
 
     assert(
       '@tooltipPlacement for "Hds::Tag" must have a valid value',
-      tooltipPlacement == undefined || TOOLTIP_PLACEMENTS.includes(tooltipPlacement)
+      tooltipPlacement == undefined ||
+        TOOLTIP_PLACEMENTS.includes(tooltipPlacement)
     );
 
     return tooltipPlacement;
