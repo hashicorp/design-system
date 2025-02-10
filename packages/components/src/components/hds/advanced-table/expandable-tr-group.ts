@@ -19,6 +19,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     rowIndex: number | string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: () => void;
+    onClickToggle?: () => void;
   };
   Blocks: {
     default?: [
@@ -98,5 +99,9 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
 
   @action onClickToggle() {
     this._isExpanded = !this._isExpanded;
+
+    if (this.args.onClickToggle) {
+      this.args.onClickToggle()
+    }
   }
 }
