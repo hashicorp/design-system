@@ -38,8 +38,13 @@
   }
 }
 
-// Make tabs position sticky/fixed if the viewport height is greater than 480px and dialog is NOT open
-.doc-page-wrapper:not(:has(dialog[open])) {
+// Make tabs position sticky/fixed if:
+// * the viewport height is greater than 480px AND
+// * dialog is NOT open
+// * code editor is NOT in full screen mode
+.doc-page-wrapper
+  :not(:has(dialog[open]))
+  :not(:has(.hds-code-editor--is-full-screen)) {
   @media (height >= 480px) {
     .doc-page-tabs {
       position: sticky;
