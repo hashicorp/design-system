@@ -6,7 +6,7 @@
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
-import { tracked } from '@glimmer/tracking';
+// import { tracked } from '@glimmer/tracking';
 
 import {
   didInsertGridCell,
@@ -33,8 +33,8 @@ function cleanup(instance: HdsAdvancedTableCellModifier): void {
 }
 
 export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTableCellModifierSignature> {
-  // track shouldTrapFocus internally so the correct value is used when update tabbable children
-  @tracked private _shouldTrapFocus = false;
+  // have a copy of shouldTrapFocus internally so the correct value is used when update tabbable children
+  private _shouldTrapFocus = false;
   private _didSetup = false;
   _observer: MutationObserver | undefined = undefined;
 
