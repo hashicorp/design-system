@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import { tabbable } from 'tabbable';
 
 import type { HdsAdvancedTableTdSignature } from '../../components/hds/advanced-table/td.ts';

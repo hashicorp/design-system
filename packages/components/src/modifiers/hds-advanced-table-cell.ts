@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import Modifier from 'ember-modifier';
 import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
