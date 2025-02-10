@@ -87,6 +87,9 @@ $hds-tag-border-radius: 50px;
 }
 
 .hds-tooltip-button.hds-tag__text {
+  cursor: text;
+  user-select: text;
+
   &:focus,
   &.mock-focus {
     @include hds-focus-ring-basic();
