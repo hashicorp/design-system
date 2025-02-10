@@ -34,6 +34,16 @@ $hds-badge-colors-props: (
 
 
 .hds-badge {
+  // Redefine color values to increase contrast
+  --token-color-surface-success: var(--token-color-palette-green-100);
+  --token-color-foreground-success-on-surface: var(--token-color-palette-green-400);
+  --token-color-surface-warning: var(--token-color-palette-amber-100);
+  --token-color-foreground-warning-on-surface: var(--token-color-palette-amber-400);
+  --token-color-surface-critical: var(--token-color-palette-red-100);
+  --token-color-foreground-critical-on-surface: var(--token-color-palette-red-400);
+  --token-color-surface-highlight: var(--token-color-palette-purple-100);
+  --token-color-foreground-highlight-on-surface: var(--token-color-palette-purple-400);
+
   display: inline-flex;
   align-items: center;
   max-width: 100%;
@@ -111,7 +121,7 @@ $hds-badge-size-props: (
 .hds-badge--color-neutral {
   &.hds-badge--type-filled {
     color: var(--token-color-foreground-primary);
-    background-color: var(--token-color-surface-strong);
+    background-color: var(--token-color-palette-neutral-200);
   }
 
   &.hds-badge--type-inverted {
