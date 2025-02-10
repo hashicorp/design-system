@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, resetOnerror, setupOnerror } from '@ember/test-helpers';
+import { render, resetOnerror, setupOnerror, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/tag/index', function (hooks) {
@@ -103,6 +103,7 @@ module('Integration | Component | hds/tag/index', function (hooks) {
         <Hds::Tag @text="This is a very long text that should go on multiple lines" id="test-tag"/>
       </div>
     `);
+    await waitFor('.hds-tooltip-button', { timeout: 1000 });
     assert.dom('.hds-tooltip-button').exists();
   });
 });
