@@ -25,6 +25,9 @@
       @parentId={{this._id}}
       @childrenKey={{this.childrenKey}}
       @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
+      @onClickToggle={{@onClickToggle}}
+      @didInsertExpandButton={{@didInsertExpandButton}}
+      @willDestroyExpandButton={{@willDestroyExpandButton}}
       as |T|
     >
       {{yield
@@ -36,6 +39,8 @@
           isExpanded=T.isExpanded
           parentId=T.parentId
           id=T.id
+          didInsertExpandButton=T.didInsertExpandButton
+          willDestroyExpandButton=T.willDestroyExpandButton
         )
       }}
     </Hds::AdvancedTable::ExpandableTrGroup>

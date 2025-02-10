@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import {modifier} from 'ember-modifier';
 
 import { HdsAdvancedTableThExpandIconValues } from './types.ts';
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
@@ -39,10 +40,27 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   }
 
   @action onClick() {
+    // console.log('expand button click')
     if (this.args.onToggle) {
       this.args.onToggle();
     }
   }
+
+  // private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
+  //   button.addEventListener(
+  //     'toggle',
+  //     this.onClick.bind(this),
+  //     true
+  //   );
+
+  //   return () => {
+  //     button.removeEventListener(
+  //       'toggle',
+  //       this.onClick.bind(this),
+  //       true
+  //     );
+  //   };
+  // });
 
   get classNames(): string {
     const classes = [
