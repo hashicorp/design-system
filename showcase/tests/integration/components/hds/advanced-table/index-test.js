@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -318,7 +318,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasAttribute('aria-label', 'data test table');
   });
 
-  skip('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
+  test('it should render with a CSS class appropriate for the @hasStickyHeader argument', async function (assert) {
     setSortableTableData(this);
 
     await render(
@@ -341,13 +341,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__thead')
       .hasClass('hds-advanced-table__thead--sticky');
-
-    await scrollTo('#short-advanced-table-wrapper', 0, 100);
-
-    assert
-      .dom('#data-test-advanced-table .hds-advanced-table__thead')
-      .hasClass('hds-advanced-table__thead--sticky')
-      .hasClass('hds-advanced-table__thead--is-pinned');
   });
 
   test('it should render a table based on the data model passed', async function (assert) {

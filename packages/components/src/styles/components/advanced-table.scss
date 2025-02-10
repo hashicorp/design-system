@@ -241,6 +241,10 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
+    font-weight: var(--token-typography-font-weight-regular);
+    font-size: var(--token-typography-body-200-font-size);
+    font-family: var(--token-typography-body-200-font-family);
+    line-height: var(--token-typography-body-200-line-height);
     text-align: left;
     background-color: var(--token-color-surface-primary);
 
