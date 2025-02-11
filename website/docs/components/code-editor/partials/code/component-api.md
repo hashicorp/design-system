@@ -23,6 +23,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.
   </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="'Copy'">
+    Override this value to provide a meaningful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
+  </C.Property>
   <C.Property @name="hasFullScreenButton" @type="boolean" @default="false">
     Used to control whether a toggle button for toggling full-screen mode will be displayed.
   </C.Property>
