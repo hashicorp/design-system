@@ -81,7 +81,7 @@ func main() {
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the Copy Button.
+Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button.
 
 ```handlebars
 <Hds::CodeBlock
