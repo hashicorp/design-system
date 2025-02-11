@@ -19,7 +19,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     rowIndex: number | string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: () => void;
-    onClickToggle?: () => void;
+    onClickToggle?: (newValue?: boolean | 'mixed') => void;
   };
   Blocks: {
     default?: [
@@ -29,7 +29,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         id?: string;
         parentId?: string;
         depth: number;
-        onClickToggle?: () => void;
+        onClickToggle?: (newValue?: boolean | 'mixed') => void;
         isExpanded?: boolean;
         rowIndex?: string;
         didInsertExpandButton?: (button: HTMLButtonElement) => void;
@@ -41,7 +41,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 }
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
-  @tracked private _isExpanded = false;
+  @tracked private _isExpanded: boolean = false;
 
   private _id = guidFor(this);
 
@@ -97,8 +97,12 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
     return this.depth + 1;
   }
 
-  @action onClickToggle() {
-    this._isExpanded = !this._isExpanded;
+  @action onClickToggle(newValue?: boolean) {
+    if (newValue) {
+      this._isExpanded = newValue;
+    } else {
+      this._isExpanded = !this._isExpanded;
+    }
 
     if (this.args.onClickToggle) {
       this.args.onClickToggle()

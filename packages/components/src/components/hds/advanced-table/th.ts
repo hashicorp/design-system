@@ -34,7 +34,7 @@ export interface HdsAdvancedTableThSignature {
     newLabel?: string;
     isExpandable?: boolean;
     parentId?: string;
-    onClickToggle?: () => void;
+    onClickToggle?: (newValue?: boolean | 'mixed') => void;
     isExpanded?: boolean | 'mixed';
     depth?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;

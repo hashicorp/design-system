@@ -93,9 +93,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   // @tracked _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
-  private _expandableRows: HdsAdvancedTableExpandableRow[] = [];
+  // private _expandableRows: HdsAdvancedTableExpandableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _observer: IntersectionObserver | undefined = undefined;
+  private _element?: HTMLDivElement = undefined;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -286,10 +287,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpObserver = modifier((element: HTMLElement) => {
+  private _setUpObserver = modifier((element: HTMLDivElement) => {
     const stickyGridHeader = element.querySelector(
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
+
+    this._element = element;
 
     if (stickyGridHeader !== null) {
       this._observer = new IntersectionObserver(
@@ -309,6 +312,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         this._observer.disconnect();
       }
     };
+  });
+
+  private _setUpExpandAllButton = modifier((element: HTMLDivElement) => {
+    const expandAllButton = element.querySelector('.hds-advanced-table__th-button--expand');
+
+    if (expandAllButton) {
+      this._expandAllButton = expandAllButton as HTMLButtonElement;
+    }
+
+    return () => {
+      this._expandAllButton = undefined;
+    }
   });
 
   @action
@@ -432,43 +447,28 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   @action
-  didInsertExpandAllButton(button: HTMLButtonElement): void {
-    this._expandAllButton = button;
-  }
-
-  @action
-  willDestroyExpandAllButton(): void {
-    this._expandAllButton = undefined;
-  }
-
-  @action
   didInsertExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.push({ button });
-    this.setExpandAllState();
+    // this.setExpandAllState();
   }
 
   @action
   willDestroyExpandButton(button?: HTMLButtonElement): void {
-    this._expandableRows = this._expandableRows.filter(
-      (row) => row.button !== button
-    );
-    this.setExpandAllState();
+    // this.setExpandAllState();
   }
 
   @action
   setExpandAllState(): void {
-    if (this._expandAllButton) {
-      const parentRowsCount = this._expandableRows.length;
-      const expandedRowsCount = this._expandableRows.filter(
-        (row) => {
-          console.log(row.button, row.button.getAttribute('aria-expanded'));
-          return row.button.getAttribute('aria-expanded') === 'true'
-        }
+    if (this._expandAllButton && this._element) {
+      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__th-button--expand')).filter((el) => el !== this._expandAllButton)
+
+      const parentRowsCount = expandButtons.length;
+      const expandedRowsCount = expandButtons.filter(
+        (button) => button.getAttribute('aria-expanded') === 'true'
       ).length;
 
       let expandAllState: boolean | 'mixed';
 
-      console.log(this._expandableRows)
+      // console.log(this._expandableRows)
 
       console.log('parentRowsCount', parentRowsCount)
       console.log('expandedRowsCount', expandedRowsCount)
@@ -478,23 +478,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       else expandAllState = 'mixed';
 
       this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
-
-      this._expandAllButton.dispatchEvent(
-        new Event('click', { bubbles: false })
-      );
     }
   }
 
 
   @action
   onExpandAllChange(): void {
-    this._expandableRows.forEach((row) => {
-      // row.button.setAttribute('aria-expanded', `${this._expandAllButtonState}`);
-      // row.button.dispatchEvent(new Event('click', { bubbles: false }));
-    });
-    // this._isSelectAllCheckboxSelected =
-    //   this._selectAllCheckbox?.checked ?? false;
-    // this.onSelectionChangeCallback(this._selectAllCheckbox, 'all');
+    if (this._expandAllButton && this._element) {
+      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__th-button--expand')).filter((el) => el !== this._expandAllButton)
+
+      const newState= this._expandAllButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+
+      expandButtons.forEach((button) => {
+        button.setAttribute('aria-expanded', newState)
+      })
+
+      this._expandAllButton.setAttribute('aria-expanded', newState);
+    }
   }
 
   @action
@@ -502,7 +502,5 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     // button?: HTMLButtonElement,
   ): void {
     this.setExpandAllState();
-    // this.onSelectionChangeCallback(checkbox, selectionKey);
   }
-
 }

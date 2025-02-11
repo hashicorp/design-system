@@ -14,7 +14,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
     isExpanded?: boolean | 'mixed';
-    onToggle?: () => void;
+    onToggle?: (newValue?: boolean | 'mixed') => void;
   };
   Element: HTMLButtonElement;
 }
@@ -22,6 +22,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
 export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvancedTableThButtonExpandSignature> {
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   private _prefixLabelId = 'prefix-' + guidFor(this);
+  _observer: MutationObserver | undefined = undefined;
 
   get isExpanded(): boolean | 'mixed' {
     const { isExpanded = false } = this.args;
@@ -40,27 +41,46 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   }
 
   @action onClick() {
-    // console.log('expand button click')
     if (this.args.onToggle) {
       this.args.onToggle();
     }
   }
 
-  // private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
-  //   button.addEventListener(
-  //     'toggle',
-  //     this.onClick.bind(this),
-  //     true
-  //   );
+  // todo change to observer
+  private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
+    this._observer = new MutationObserver((mutationList) => {
+      // console.log(button.getAttribute('aria-expanded')) 
+      // console.log('aria-expanded changed')
 
-  //   return () => {
-  //     button.removeEventListener(
-  //       'toggle',
-  //       this.onClick.bind(this),
-  //       true
-  //     );
-  //   };
-  // });
+      const ariaExpanded = button.getAttribute('aria-expanded');
+      
+      for (const mutation of mutationList) {
+        if (mutation.oldValue !== ariaExpanded) {
+          let newValue: boolean | 'mixed' | undefined = undefined;
+
+          if (ariaExpanded === 'true') newValue = true;
+          else if (ariaExpanded === 'false') newValue = false;
+          else if (ariaExpanded === 'mixed') newValue = 'mixed';
+    
+          if (this.args.onToggle) {
+            this.args.onToggle(newValue)
+          }
+        }
+      }
+    });
+
+    this._observer.observe(button, {
+      attributes: true,
+      attributeFilter: ['aria-expanded'],
+      attributeOldValue: true,
+    });
+
+    return () => {
+      if (this._observer) {
+        this._observer.disconnect();
+      }
+    };
+  });
 
   get classNames(): string {
     const classes = [
