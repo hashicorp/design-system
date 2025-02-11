@@ -15,12 +15,14 @@ import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
+import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
 
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;
     hasFullScreenButton?: boolean;
     isStandalone?: boolean;
+    copyButtonText?: HdsCopyButtonSignature['Args']['text'];
   } & HdsCodeEditorModifierSignature['Args']['Named'];
   Blocks: {
     default: [
@@ -101,6 +103,10 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     }
 
     return classes.join(' ');
+  }
+
+  get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
+    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy'
   }
 
   @action
