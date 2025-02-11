@@ -14,6 +14,29 @@ The table row element cannot receive interactions, meaning actions cannot be att
 
 Unlike the Table component, each cell receives focus in the Advanced Table to support users navigating through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
 
+## Keyboard Navigation
+
+The Advanced Table supports two keyboard interaction modes: Navigation Mode and Action Mode. These modes allow users to move through table data and interact with elements using only a keyboard.
+
+### Navigation Mode
+
+When a user moves focus into the Advanced Table (Tab key), the first cell is focused, enabling Navigation Mode. In this mode, users can move freely between cells using arrow keys:
+
+- Home (fn + left) – Move focus to the first cell in the row.
+- End (fn + right) – Move focus to the last cell in the row.
+- Page Up (fn + up) – Move focus to the first cell in the column.
+- Page Down (fn + down) – Move focus to the last cell in the column.
+- Arrow Keys – Navigate between adjacent cells.
+- Horizontal Scrolling – Arrow keys allow movement to access hidden columns when the table extends beyond the screen width.
+
+### Action Mode
+
+Pressing Enter while in Navigation Mode switches the user to Action Mode, allowing interaction with elements inside a cell:
+
+- If a cell contains one interactive element, pressing Enter will focus on that element instead of activating it immediately.
+- If a cell contains multiple interactive elements, the first element will be focused, and the user can Tab between them.
+- Pressing Escape exits Action Mode and returns the user to Navigation Mode.
+
 ### Row selection
 
 You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
