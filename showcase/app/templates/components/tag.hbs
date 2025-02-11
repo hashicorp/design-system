@@ -33,20 +33,20 @@
   </Shw::Flex>
 
   <Shw::Flex @label="With long text" as |SF|>
-    <SF.Item {{style width="176px"}}>
+    <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
     </SF.Item>
-    <SF.Item {{style width="150px"}}>
+    <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" />
     </SF.Item>
-    <SF.Item {{style width="176px"}}>
+    <SF.Item>
       <Hds::Tag
         @text="This is a very long text that should go on multiple lines"
         @onDismiss={{this.noop}}
         @route="components.tag"
       />
     </SF.Item>
-    <SF.Item {{style width="150px"}}>
+    <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" @route="components.tag" />
     </SF.Item>
   </Shw::Flex>
