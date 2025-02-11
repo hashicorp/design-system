@@ -106,7 +106,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
   }
 
   get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
-    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy'
+    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
   }
 
   @action

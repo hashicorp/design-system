@@ -87,16 +87,24 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} />`
     );
-    assert.dom('.hds-code-editor__copy-button').exists().hasAria('label', 'Copy');
+    assert
+      .dom('.hds-code-editor__copy-button')
+      .exists()
+      .hasAria('label', 'Copy');
   });
   test('it should not render a copy button when the `@hasCopyButton` argument is not provided', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
   });
-  test('it renders a copy button with custom text', async function(assert) {
-    await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} @copyButtonText="Foo" />`);
-    assert.dom('.hds-code-editor__copy-button').exists().hasAria('label', 'Foo');
-  })
+  test('it renders a copy button with custom text', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} @copyButtonText="Foo" />`
+    );
+    assert
+      .dom('.hds-code-editor__copy-button')
+      .exists()
+      .hasAria('label', 'Foo');
+  });
   // @isStandalone
   test('it should render the component with a standalone style when the `@isStandalone` argument is true and when the argument is ommitted', async function (assert) {
     this.set('isStandalone', true);

@@ -18,7 +18,6 @@ export interface HdsCodeBlockCopyButtonSignature {
   Element: HdsCopyButtonSignature['Element'];
 }
 
-
 export default class HdsCodeBlockCopyButton extends Component<HdsCodeBlockCopyButtonSignature> {
   get text(): HdsCopyButtonSignature['Args']['text'] {
     return this.args.text ? this.args.text : 'Copy';

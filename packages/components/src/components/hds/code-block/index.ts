@@ -137,7 +137,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   }
 
   get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
-    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy'
+    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
   }
 
   @action
