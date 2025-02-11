@@ -63,11 +63,6 @@ body.application:not(.index) {
   &.doc-page-wrapper:has(.hds-code-editor--is-full-screen) {
     --doc-z-index-sidebar: 1;
 
-    .doc-scroll-to-top {z-index: 1;}
-  }
-
-  // if code editor is in full screen mode, set page header & scroll to top z-index to 1
-  &.doc-page-wrapper:has(.hds-code-editor--is-full-screen) {
     .doc-page-header, .doc-scroll-to-top {z-index: 1;}
   }
 
