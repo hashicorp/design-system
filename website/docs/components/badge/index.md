@@ -17,6 +17,8 @@ navigation:
     - pill
     - tag
     - label
+status:
+  updated: 4.16.1
 ---
 
 <section data-tab="Guidelines">
