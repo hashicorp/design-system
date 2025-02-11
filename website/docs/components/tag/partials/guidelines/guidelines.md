@@ -52,6 +52,6 @@ The text container of the tag has a max-width of 150px. The text will truncate i
 
 !!! Info
 
-Changing the tooltip placement is only possible in the Ember component. In order to keep the Figma component simple, we are only showing one type of placement.
+It is only possible to change the Tooltip placement in Ember. To keep the Figma component simple, there is only one placement (top).
 
 !!!
