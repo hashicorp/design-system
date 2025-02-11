@@ -46,12 +46,12 @@ When content within the tag is not user-generated, it should be concise and cons
 
 ### Truncation
 
-The text container of the tag has a max-width of 150px and will truncate text if any content overflows beyond that limit. If truncation is present, a tooltip will appear with the full text, on hover or focus of the text container. By default, the tooltip's placement will be top, however, this can be customized if necessary.
+The text container of the tag has a max-width of 150px. The text will truncate if it goes beyond that limit. A tooltip will display the full text when the user hovers or focuses on the truncated text. The tooltip will be placed at the top by default, but this can be customized.
 
 ![](/assets/components/tag/tag-truncation-tooltip.png)
 
 !!! Info
 
-Updating the tooltip placement is only possible in the ember component. In order to keep the Figma component simple, we are only showing one type of placement for the tooltip.
+Changing the tooltip placement is only possible in the Ember component. In order to keep the Figma component simple, we are only showing one type of placement.
 
 !!!
