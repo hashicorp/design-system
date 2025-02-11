@@ -71,10 +71,6 @@ export type HdsAdvancedTableSelectableRow = {
   selectionKey: string;
 };
 
-export type HdsAdvancedTableExpandableRow = {
-  button: HTMLButtonElement;
-};
-
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
   isVisuallyHidden?: boolean;

@@ -26,7 +26,6 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
-  HdsAdvancedTableExpandableRow,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
@@ -90,10 +89,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
-  // @tracked _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
-  // private _expandableRows: HdsAdvancedTableExpandableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _observer: IntersectionObserver | undefined = undefined;
   private _element?: HTMLDivElement = undefined;
