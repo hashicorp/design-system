@@ -3,12 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
+
 import type { HdsCopyButtonSignature } from '../copy/button';
 
 export interface HdsCodeBlockCopyButtonSignature {
   Args: {
     targetToCopy?: HdsCopyButtonSignature['Args']['targetToCopy'];
+    text?: HdsCopyButtonSignature['Args']['text'];
   };
   Blocks: {
     default: [];
@@ -16,7 +18,9 @@ export interface HdsCodeBlockCopyButtonSignature {
   Element: HdsCopyButtonSignature['Element'];
 }
 
-const HdsCodeBlockCopyButton =
-  templateOnlyComponent<HdsCodeBlockCopyButtonSignature>();
 
-export default HdsCodeBlockCopyButton;
+export default class HdsCodeBlockCopyButton extends Component<HdsCodeBlockCopyButtonSignature> {
+  get text(): HdsCopyButtonSignature['Args']['text'] {
+    return this.args.text ? this.args.text : 'Copy';
+  }
+}
