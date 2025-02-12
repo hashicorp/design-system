@@ -37,6 +37,13 @@ Pressing Enter while in Navigation Mode switches the user to Action Mode, allowi
 - If a cell contains multiple interactive elements, the first element will be focused, and the user can Tab between them.
 - Pressing Escape exits Action Mode and returns the user to Navigation Mode.
 
+<video width="100%" controls loop>
+  <source
+    src="/assets/components/table/advanced-table/advanced-table-keyboard-navigation.mov"
+    type="video/mp4"
+  />
+</video>
+
 ### Row selection
 
 You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
