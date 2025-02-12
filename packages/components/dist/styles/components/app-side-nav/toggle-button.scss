@@ -1,0 +1,101 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// APP-SIDE-NAV > TOGGLE BUTTON
+//
+
+
+.hds-app-side-nav__toggle-button {
+  position: absolute;
+  top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
+  left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+  z-index: 1;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: var(--hds-app-side-nav-toggle-button-width);
+  height: 36px;
+  padding: 0 4px;
+  color: var(--token-color-foreground-primary);
+  background: none;
+  background-color: var(--token-app-side-nav-color-surface-primary);
+  border: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+  border-left-color: transparent;
+  border-top-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
+  border-bottom-right-radius: var(--token-app-side-nav-toggle-button-border-radius);
+  transform: translateX(var(--hds-app-side-nav-width-expanded));
+  cursor: pointer;
+  transition:
+    transform var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing),
+    width var(--hds-app-side-nav-animation-duration)
+    var(--hds-app-side-nav-animation-easing);
+
+  &::before {
+    position: absolute;
+    top: calc(var(--token-app-side-nav-toggle-button-border-radius) * -2);
+    left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+    box-sizing: border-box;
+    width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+    border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+    border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    bottom: calc(var(--token-app-side-nav-toggle-button-border-radius) * -2);
+    left: calc(var(--token-app-side-nav-wrapper-border-width) * -1);
+    box-sizing: border-box;
+    width: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    height: calc(var(--token-app-side-nav-toggle-button-border-radius) * 2);
+    border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+    border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
+    border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+    transform: scaleY(-1); // rotate so same clip path can be used
+    content: "";
+  }
+
+  &:hover,
+  &.mock-hover {
+    width: 30px;
+    background-color: var(--token-app-side-nav-color-surface-interactive-hover);
+
+    &::before,
+    &::after {
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-hover);
+    }
+  }
+
+  &:active,
+  &.mock-active {
+    background-color: var(--token-app-side-nav-color-surface-interactive-active);
+
+    &::before,
+    &::after {
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-active);
+    }
+  }
+
+  &:focus-visible,
+  &.mock-focus {
+    border-color: var(--token-color-focus-action-internal);
+    outline: 3px solid var(--token-color-focus-action-external);
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .hds-app-side-nav--is-minimized & {
+    transform: translateX(var(--hds-app-side-nav-width-minimized));
+  }
+}
