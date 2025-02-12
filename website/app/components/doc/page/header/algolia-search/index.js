@@ -62,7 +62,7 @@ export default class DocAlgoliaSearchComponent extends Component {
         this.isModalOpen = state.isOpen;
         // used to reset the query to an empty state/string when the modal is closed (via "click" or "esc" key)
         if (!state.isOpen && prevState.isOpen) {
-          autocompleteInstance.setQuery('');          
+          autocompleteInstance.setQuery('');
           document.getElementById('search-button').focus();
         }
       },
