@@ -247,9 +247,6 @@ export default class DocAlgoliaSearchComponent extends Component {
       // add event listener to open/close the modal via `command-K` hot-key
       if (event.metaKey && event.key === 'k') {
         autocompleteInstance.setIsOpen(!this.isModalOpen);
-        if (!this.isModalOpen) {
-          document.getElementById('search-button').focus();
-        }
       }
     });
 
