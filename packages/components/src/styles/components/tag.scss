@@ -43,7 +43,7 @@ $hds-tag-border-radius: 50px;
 .hds-tag__text,
 .hds-tag__link {
   flex: 1 0 0;
-  max-width: 160px;
+  max-width: 166px;
   padding: 3px 10px 5px 10px;
   border-radius: inherit;
 }
@@ -51,6 +51,7 @@ $hds-tag-border-radius: 50px;
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
+  word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   line-clamp: 1;
@@ -58,6 +59,7 @@ $hds-tag-border-radius: 50px;
 
 .hds-tag__dismiss ~ .hds-tag__text,
 .hds-tag__dismiss ~ .hds-tag__link {
+  max-width: 160px;
   padding: 3px 8px 5px 6px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
