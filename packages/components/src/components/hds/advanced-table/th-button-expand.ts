@@ -46,39 +46,25 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     }
   }
 
-  // todo change to observer
+  updateButton(event: Event) {
+    const target = event.target as HTMLButtonElement;
+    const ariaExpanded = target.getAttribute('aria-expanded')
+    let newValue: boolean | 'mixed' | undefined = undefined;
+
+    if (ariaExpanded === 'true') newValue = true;
+    else if (ariaExpanded === 'false') newValue = false;
+    else if (ariaExpanded === 'mixed') newValue = 'mixed';
+
+    if (this.args.onToggle) {
+      this.args.onToggle(newValue)
+    }
+  }
+
   private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
-    this._observer = new MutationObserver((mutationList) => {
-      // console.log(button.getAttribute('aria-expanded')) 
-      // console.log('aria-expanded changed')
-
-      const ariaExpanded = button.getAttribute('aria-expanded');
-      
-      for (const mutation of mutationList) {
-        if (mutation.oldValue !== ariaExpanded) {
-          let newValue: boolean | 'mixed' | undefined = undefined;
-
-          if (ariaExpanded === 'true') newValue = true;
-          else if (ariaExpanded === 'false') newValue = false;
-          else if (ariaExpanded === 'mixed') newValue = 'mixed';
-    
-          if (this.args.onToggle) {
-            this.args.onToggle(newValue)
-          }
-        }
-      }
-    });
-
-    this._observer.observe(button, {
-      attributes: true,
-      attributeFilter: ['aria-expanded'],
-      attributeOldValue: true,
-    });
+    button.addEventListener('toggle', this.updateButton.bind(this), true)
 
     return () => {
-      if (this._observer) {
-        this._observer.disconnect();
-      }
+      button.removeEventListener('toggle', this.updateButton.bind(this), true)
     };
   });
 
