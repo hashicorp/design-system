@@ -1,0 +1,25 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+import Modifier from 'ember-modifier';
+import type { ArgsFor, PositionalArgs } from 'ember-modifier';
+export interface HdsAdvancedTableCellModifierSignature {
+    Args: {
+        Named: {
+            handleEnableFocusTrap: () => void;
+            shouldTrapFocus: boolean;
+            setCellElement: (el: HTMLDivElement) => void;
+        };
+    };
+    Element: HTMLDivElement;
+}
+export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTableCellModifierSignature> {
+    #private;
+    private _shouldTrapFocus;
+    private _didSetup;
+    _observer: MutationObserver | undefined;
+    constructor(owner: unknown, args: ArgsFor<HdsAdvancedTableCellModifierSignature>);
+    modify(element: HTMLDivElement, positional: PositionalArgs<HdsAdvancedTableCellModifierSignature>, named: HdsAdvancedTableCellModifierSignature['Args']['Named']): void;
+}
+//# sourceMappingURL=hds-advanced-table-cell.d.ts.map
