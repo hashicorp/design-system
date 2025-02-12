@@ -29,7 +29,7 @@ export default class HdsFlyoutDescription extends Component<HdsFlyoutDescription
         url: 'https://helios.hashicorp.design/components/flyout?tab=version%20history#460',
         for: '@hashicorp/design-system-components',
         since: {
-          available: '4.5.0',
+          available: '4.6.0',
           enabled: '4.6.0',
         },
       }
