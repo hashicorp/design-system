@@ -71,10 +71,15 @@ The `language` argument sets the syntax highlighting used. We support the follow
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard.
+Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button.
 
 ```handlebars
-<Hds::CodeEditor @ariaLabel="copy button" @hasCopyButton={{true}} @value={{this.loremIpsum}} />
+<Hds::CodeEditor
+  @ariaLabel="copy button"
+  @hasCopyButton={{true}}
+  @copyButtonText="Copy lorem ipsum code"
+  @value={{this.loremIpsum}}
+/>
 ```
 
 

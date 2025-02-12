@@ -140,7 +140,19 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     await render(hbs`
       <Hds::CodeBlock @value="console.log('Hello world');" @hasCopyButton={{true}} />
     `);
-    assert.dom('.hds-code-block__copy-button').exists();
+
+    assert
+      .dom('.hds-code-block__copy-button')
+      .exists()
+      .hasAria('label', 'Copy');
+  });
+
+  test('it renders a Copy button with custom text', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @hasCopyButton={{true}} @copyButtonText="Foo" />
+    `);
+
+    assert.dom('.hds-code-block__copy-button').exists().hasAria('label', 'Foo');
   });
 
   // hasLineNumbers

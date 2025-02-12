@@ -20,6 +20,7 @@ import type { HdsCodeBlockTitleSignature } from './title';
 import type { HdsCodeBlockDescriptionSignature } from './description';
 import { HdsCodeBlockLanguageValues } from './types.ts';
 import type { HdsCodeBlockLanguages } from './types.ts';
+import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -52,6 +53,7 @@ export interface HdsCodeBlockSignature {
     language?: HdsCodeBlockLanguages;
     maxHeight?: string;
     value: string;
+    copyButtonText?: HdsCopyButtonSignature['Args']['text'];
   };
   Blocks: {
     default: [
@@ -132,6 +134,10 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
    */
   get hasLineWrapping(): boolean {
     return this.args.hasLineWrapping ?? false;
+  }
+
+  get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
+    return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
   }
 
   @action

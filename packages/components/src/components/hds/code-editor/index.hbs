@@ -33,7 +33,7 @@
               class="hds-code-editor__button hds-code-editor__copy-button"
               @isIconOnly={{true}}
               @size="small"
-              @text="Copy"
+              @text={{this.copyButtonText}}
               @textToCopy={{this._value}}
             />
           {{/if}}
