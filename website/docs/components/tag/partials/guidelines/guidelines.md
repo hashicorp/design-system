@@ -46,7 +46,7 @@ When content within the tag is not user-generated, it should be concise and cons
 
 ### Truncation
 
-Tags have a max-width of 160px and if the text is longer it will truncate. The full text is displayed in a [Tooltip](/components/tooltip) when the user hover or focuses the Tag's text. The Tooltip is above the Tag by default, but this can be customized.
+Tags have a max character limit of about 20 and if the text is longer it will truncate. The full text is displayed in a [Tooltip](/components/tooltip) when the user hover or focuses the Tag's text. The Tooltip is above the Tag by default, but this can be customized.
 
 ![](/assets/components/tag/tag-truncation-tooltip.png)
 
