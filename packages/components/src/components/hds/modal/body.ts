@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
+import type Owner from '@ember/owner';
 
 export interface HdsModalBodySignature {
   // when component has no args, but constructor still needs to be defined, use `never`
@@ -17,7 +18,7 @@ export interface HdsModalBodySignature {
 }
 
 export default class HdsModalBody extends Component<HdsModalBodySignature> {
-  constructor(owner: unknown, args: HdsModalBodySignature['Args']) {
+  constructor(owner: Owner, args: HdsModalBodySignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -29,6 +30,7 @@ export default class HdsModalBody extends Component<HdsModalBodySignature> {
         url: 'https://helios.hashicorp.design/components/flyout?tab=version%20history#460',
         for: '@hashicorp/design-system-components',
         since: {
+          available: '4.6.0',
           enabled: '4.6.0',
         },
       }

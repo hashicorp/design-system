@@ -15,6 +15,7 @@ import type {
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
 import type { HdsInteractiveSignature } from '../../interactive/index.ts';
+import type Owner from '@ember/owner';
 interface ElliptizeProps {
   pages: number[];
   current: number;
@@ -177,7 +178,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
   showPageNumbers = this.args.showPageNumbers ?? true; // if the "page numbers" block is visible
   isTruncated = this.args.isTruncated ?? true; // if the list of "page numbers" is truncated
 
-  constructor(owner: unknown, args: HdsPaginationNumberedSignature['Args']) {
+  constructor(owner: Owner, args: HdsPaginationNumberedSignature['Args']) {
     super(owner, args);
 
     const { queryFunction } = this.args;

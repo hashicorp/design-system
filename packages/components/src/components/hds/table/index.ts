@@ -30,6 +30,7 @@ import type { HdsTableTdSignature } from './td.ts';
 import type { HdsTableThSignature } from './th.ts';
 import type { HdsTableThSortSignature } from './th-sort.ts';
 import type { HdsTableTrSignature } from './tr.ts';
+import type Owner from '@ember/owner';
 
 export const DENSITIES: HdsTableDensities[] = Object.values(
   HdsTableDensityValues
@@ -96,7 +97,7 @@ export default class HdsTable extends Component<HdsTableSignature> {
   private _selectableRows: HdsTableSelectableRow[] = [];
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
-  constructor(owner: unknown, args: HdsTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsTableSignature['Args']) {
     super(owner, args);
     this.sortBy = this.args.sortBy ?? undefined;
     this.sortOrder = this.args.sortOrder ?? HdsTableThSortOrderValues.Asc;

@@ -16,6 +16,7 @@ import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.t
 
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 import type { ModifierLike } from '@glint/template';
+import type Owner from '@ember/owner';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
@@ -70,7 +71,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   enableClickEvents = this.args.enableClickEvents ?? false;
   private _timer?: ReturnType<typeof setTimeout> | null;
 
-  constructor(owner: unknown, args: HdsPopoverPrimitiveSignature['Args']) {
+  constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
     this._isOpen = this.args.isOpen ?? false;
   }

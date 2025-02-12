@@ -7,16 +7,16 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
+import { guidFor } from '@ember/object/internals';
 
+import type Owner from '@ember/owner';
 import type { ComponentLike } from '@glint/template';
-import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor';
+import type { HdsCodeEditorSignature as HdsCodeEditorModifierSignature } from '../../../modifiers/hds-code-editor.ts';
 import type { HdsCodeEditorDescriptionSignature } from './description';
 import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
-import { guidFor } from '@ember/object/internals';
 import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
-
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;
@@ -61,7 +61,7 @@ export default class HdsCodeEditor extends Component<HdsCodeEditorSignature> {
     };
   });
 
-  constructor(owner: unknown, args: HdsCodeEditorSignature['Args']) {
+  constructor(owner: Owner, args: HdsCodeEditorSignature['Args']) {
     super(owner, args);
 
     if (args.value) {

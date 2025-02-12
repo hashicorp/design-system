@@ -10,6 +10,7 @@ import { HdsLinkColorValues, HdsLinkIconPositionValues } from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/';
 import type { HdsLinkColors, HdsLinkIconPositions } from './types.ts';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export const DEFAULT_ICONPOSITION = HdsLinkIconPositionValues.Trailing;
 export const DEFAULT_COLOR = HdsLinkColorValues.Primary;
@@ -29,7 +30,7 @@ export interface HdsLinkInlineSignature {
 }
 
 export default class HdsLinkInline extends Component<HdsLinkInlineSignature> {
-  constructor(owner: unknown, args: HdsLinkInlineSignature['Args']) {
+  constructor(owner: Owner, args: HdsLinkInlineSignature['Args']) {
     super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Inline>');

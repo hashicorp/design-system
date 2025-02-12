@@ -21,6 +21,7 @@ import type {
 } from 'tippy.js';
 // used by custom SVG arrow:
 import 'tippy.js/dist/svg-arrow.css';
+import type Owner from '@ember/owner';
 
 export interface HdsTooltipModifierSignature {
   Args: {
@@ -65,7 +66,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
   _tooltip: TippyInstance | undefined = undefined;
   _containerElement?: HTMLElement;
 
-  constructor(owner: unknown, args: ArgsFor<HdsTooltipModifierSignature>) {
+  constructor(owner: Owner, args: ArgsFor<HdsTooltipModifierSignature>) {
     super(owner, args);
     registerDestructor(this, cleanup);
   }

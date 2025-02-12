@@ -51,6 +51,7 @@
     "@floating-ui/dom": "^1.6.12",
     "@hashicorp/design-system-tokens": "^2.3.0",
     "@hashicorp/flight-icons": "^3.9.0",
+    "@lezer/highlight": "^1.2.1",
     "clipboard-polyfill": "^4.1.1",
     "codemirror-lang-hcl": "^0.0.0-beta.2",
     "decorator-transforms": "^1.2.1",

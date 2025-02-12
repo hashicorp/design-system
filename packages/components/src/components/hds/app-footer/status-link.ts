@@ -5,14 +5,15 @@
 
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
-import type { SafeString } from '@ember/template/-private/handlebars';
 import { assert } from '@ember/debug';
 
+import type { SafeString } from '@ember/template';
 import type { HdsInteractiveSignature } from '../interactive/';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
 import type { HdsAppFooterLinkSignature } from './link.ts';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export const STATUSES = HdsAppFooterStatusLinkStatusValues;
 
@@ -28,7 +29,7 @@ export interface HdsAppFooterStatusLinkSignature {
 }
 
 export default class HdsAppFooterStatusLink extends Component<HdsAppFooterStatusLinkSignature> {
-  constructor(owner: unknown, args: HdsInteractiveSignature['Args']) {
+  constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 
     assert(

@@ -12,6 +12,7 @@ import {
   updateTabbableChildren,
 } from './hds-advanced-table-cell/dom-management.ts';
 import { handleGridCellKeyPress } from './hds-advanced-table-cell/keyboard-navigation.ts';
+import type Owner from '@ember/owner';
 
 export interface HdsAdvancedTableCellModifierSignature {
   Args: {
@@ -38,7 +39,7 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
   _observer: MutationObserver | undefined = undefined;
 
   constructor(
-    owner: unknown,
+    owner: Owner,
     args: ArgsFor<HdsAdvancedTableCellModifierSignature>
   ) {
     super(owner, args);

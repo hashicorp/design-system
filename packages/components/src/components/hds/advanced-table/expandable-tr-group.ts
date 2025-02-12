@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
+import type Owner from '@ember/owner';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
@@ -40,7 +41,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   private _id = guidFor(this);
 
   constructor(
-    owner: unknown,
+    owner: Owner,
     args: HdsAdvancedTableExpandableTrGroupSignature['Args']
   ) {
     super(owner, args);

@@ -14,6 +14,7 @@
     </div>
   {{else}}
     {{#if @isRouteExternal}}
+      {{! @glint-expect-error: FIXME: pnpm migration }}
       <LinkToExternal
         class="hds-breadcrumb__link"
         @current-when={{@current-when}}

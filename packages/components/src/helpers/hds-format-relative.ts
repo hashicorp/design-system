@@ -16,8 +16,8 @@ import { helper } from '@ember/component/helper';
  */
 
 export function hdsFormatRelative([value, unit]: [
-  number,
-  Intl.RelativeTimeFormatUnit,
+  value: number,
+  unit?: Intl.RelativeTimeFormatUnit,
 ]): string {
   if (unit) {
     return new Intl.RelativeTimeFormat(navigator.language).format(value, unit);

@@ -21,6 +21,7 @@ import type {
 } from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
 import type { EditorView, ViewUpdate } from '@codemirror/view';
+import type Owner from '@ember/owner';
 
 type HdsCodeEditorBlurHandler = (editor: EditorView, event: FocusEvent) => void;
 
@@ -98,10 +99,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   blurHandler!: (event: FocusEvent) => void;
   observer!: IntersectionObserver;
 
-  constructor(
-    owner: HdsCodeEditorModifier,
-    args: ArgsFor<HdsCodeEditorSignature>
-  ) {
+  constructor(owner: Owner, args: ArgsFor<HdsCodeEditorSignature>) {
     super(owner, args);
 
     registerDestructor(this, () => {

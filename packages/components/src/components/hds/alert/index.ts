@@ -19,6 +19,7 @@ import type { HdsAlertColors, HdsAlertTypes } from './types.ts';
 import type { HdsAlertTitleSignature } from './title.ts';
 import type { HdsAlertDescriptionSignature } from './description.ts';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export const TYPES: string[] = Object.values(HdsAlertTypeValues);
 export const DEFAULT_COLOR = HdsAlertColorValues.Neutral;
@@ -65,7 +66,7 @@ export default class HdsAlert extends Component<HdsAlertSignature> {
   @tracked private _role?: string;
   @tracked private _ariaLabelledBy?: string;
 
-  constructor(owner: unknown, args: HdsAlertSignature['Args']) {
+  constructor(owner: Owner, args: HdsAlertSignature['Args']) {
     super(owner, args);
 
     assert(

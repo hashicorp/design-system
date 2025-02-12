@@ -161,8 +161,8 @@ export default class TimeService extends Service {
   // Formats the value of a relative unit.
   formatTimeRelativeUnit(
     value: number,
-    unit: string
-  ): { value: number; unit: string } {
+    unit: Intl.RelativeTimeFormatUnit
+  ): { value: number; unit: Intl.RelativeTimeFormatUnit } {
     return {
       value: Math.trunc(value),
       unit,
@@ -178,7 +178,7 @@ export default class TimeService extends Service {
       hour: number;
       day: number;
     } = DEFAULT_RELATIVE_THRESHOLDS
-  ): { value: number; unit: string } {
+  ): { value: number; unit: Intl.RelativeTimeFormatUnit } {
     if (absValueInMs < thresholds[HdsTimeRelativeUnitValues.Second]) {
       return this.formatTimeRelativeUnit(
         valueInMs / SECOND_IN_MS,

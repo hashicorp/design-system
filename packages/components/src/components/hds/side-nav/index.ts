@@ -10,6 +10,7 @@ import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsSideNavBaseSignature } from './base';
+import type Owner from '@ember/owner';
 
 export interface HdsSideNavSignature {
   Args: {
@@ -68,7 +69,7 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
     '--hds-app-desktop-breakpoint'
   );
 
-  constructor(owner: unknown, args: HdsSideNavSignature['Args']) {
+  constructor(owner: Owner, args: HdsSideNavSignature['Args']) {
     super(owner, args);
     // sets the default minimized state on 'desktop' viewports
     this.isMinimized = this.args.isMinimized ?? false;

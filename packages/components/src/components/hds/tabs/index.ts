@@ -13,6 +13,7 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsTabsTabSignature } from './tab';
 import type { HdsTabsPanelSignature } from './panel';
 import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
+import type Owner from '@ember/owner';
 
 export const DEFAULT_SIZE: HdsTabsSizes = 'medium' as const;
 export const SIZES: HdsTabsSizes[] = Object.values(HdsTabsSizeValues);
@@ -64,7 +65,7 @@ export default class HdsTabs extends Component<HdsTabsSignature> {
     return size;
   }
 
-  constructor(owner: unknown, args: HdsTabsSignature['Args']) {
+  constructor(owner: Owner, args: HdsTabsSignature['Args']) {
     super(owner, args);
 
     // this is to determine if the "selected" tab logic is controlled in the consumers' code or is maintained as an internal state

@@ -15,6 +15,7 @@ import {
 
 // types
 import type { HdsAppHeaderSignature } from '@hashicorp/design-system-components/components/hds/app-header/index';
+import type Owner from '@ember/owner';
 
 export interface MockAppHeaderAppHeaderSignature {
   Args: {
@@ -32,7 +33,7 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
   showRegionPicker;
   showSearch;
 
-  constructor(owner: unknown, args: MockAppHeaderAppHeaderSignature['Args']) {
+  constructor(owner: Owner, args: MockAppHeaderAppHeaderSignature['Args']) {
     super(owner, args);
     this.showOrgPicker = this.args.showOrgPicker ?? true;
     this.orgPickerLabel = this.args.orgPickerLabel ?? 'organization-name';

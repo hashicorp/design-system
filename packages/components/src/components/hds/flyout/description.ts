@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 import type { HdsTextBodySignature } from '../text/body';
+import type Owner from '@ember/owner';
 
 export interface HdsFlyoutDescriptionSignature {
   Args: never;
@@ -16,7 +17,7 @@ export interface HdsFlyoutDescriptionSignature {
 }
 
 export default class HdsFlyoutDescription extends Component<HdsFlyoutDescriptionSignature> {
-  constructor(owner: unknown, args: HdsFlyoutDescriptionSignature['Args']) {
+  constructor(owner: Owner, args: HdsFlyoutDescriptionSignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -28,6 +29,7 @@ export default class HdsFlyoutDescription extends Component<HdsFlyoutDescription
         url: 'https://helios.hashicorp.design/components/flyout?tab=version%20history#460',
         for: '@hashicorp/design-system-components',
         since: {
+          available: '4.5.0',
           enabled: '4.6.0',
         },
       }

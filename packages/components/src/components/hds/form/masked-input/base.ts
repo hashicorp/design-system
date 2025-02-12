@@ -9,6 +9,7 @@ import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
 import { tracked } from '@glimmer/tracking';
+import type Owner from '@ember/owner';
 
 export interface HdsFormMaskedInputBaseSignature {
   Args: {
@@ -30,7 +31,7 @@ export interface HdsFormMaskedInputBaseSignature {
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
   @tracked isContentMasked;
 
-  constructor(owner: unknown, args: HdsFormMaskedInputBaseSignature['Args']) {
+  constructor(owner: Owner, args: HdsFormMaskedInputBaseSignature['Args']) {
     super(owner, args);
     this.isContentMasked = this.args.isContentMasked ?? true;
   }
