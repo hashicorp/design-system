@@ -58,9 +58,12 @@ export default class DocAlgoliaSearchComponent extends Component {
         detachedCancelButtonText: 'Close', // https://www.algolia.com/doc/ui-libraries/autocomplete/api-reference/autocomplete-js/autocomplete/#param-translations
       },
       onStateChange: ({ state, prevState }) => {
+        // keep tracked state in sync with internal state so cmd+k properly opens/closes the dialog
+        this.isModalOpen = state.isOpen;
         // used to reset the query to an empty state/string when the modal is closed (via "click" or "esc" key)
         if (!state.isOpen && prevState.isOpen) {
-          autocompleteInstance.setQuery('');
+          autocompleteInstance.setQuery('');          
+          document.getElementById('search-button').focus();
         }
       },
       // onSubmit: ({ state, setQuery, setIsOpen, refresh }) => {
@@ -240,11 +243,13 @@ export default class DocAlgoliaSearchComponent extends Component {
       });
     }
 
-    // add event listener to open/close the modal via `command-K` hot-key
     document.addEventListener('keydown', (event) => {
+      // add event listener to open/close the modal via `command-K` hot-key
       if (event.metaKey && event.key === 'k') {
         autocompleteInstance.setIsOpen(!this.isModalOpen);
-        this.isModalOpen = !this.isModalOpen;
+        if (!this.isModalOpen) {
+          document.getElementById('search-button').focus();
+        }
       }
     });
 
