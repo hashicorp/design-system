@@ -27,7 +27,7 @@ const getComponentPaths = (baseDir) => {
         const partialsPath = `${componentPath}/partials`;
         if (fs.existsSync(partialsPath)) {
           // we have two special cases where intermediate namespacing is used to group components:
-          // copy components and link components
+          // `copy` components and `link` components
           if (baseDir.endsWith('/copy')) {
             components[`copy-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/link')) {
