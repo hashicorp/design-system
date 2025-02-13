@@ -63,9 +63,9 @@
           @record={{record}}
           @childrenKey={{this.childrenKey}}
           @rowIndex={{index}}
-          {{!-- @didInsertExpandButton={{this.didInsertExpandButton}}
-          @willDestroyExpandButton={{this.willDestroyExpandButton}} --}}
-          @onClickToggle={{this.onExpandRowClick}}
+          @didInsertExpandButton={{this.didInsertExpandButton}}
+          @willDestroyExpandButton={{this.willDestroyExpandButton}}
+          @onClickToggle={{this.setExpandAllState}}
           as |T|
         >
           {{yield
