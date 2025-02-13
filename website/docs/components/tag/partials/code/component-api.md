@@ -25,7 +25,7 @@
     Controls if the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the @route.
   </C.Property>
   <C.Property @name="tooltipPlacement" @type="enum" @values={{array "top" "right" "bottom" "left" }} @default="top">
-    Placement for the preferred starting tooltip position relative to the text when the text is truncated. The tooltip will automatically shift position to remain visible when near the edges of the screen regardless of the starting placement. (Tippy.js supports [additional placement options](https://atomiks.github.io/tippyjs/v6/all-props/#placement) which you can explore if needed.)
+    Placement for the preferred starting tooltip position relative to the text when the text is truncated. The tooltip will automatically shift position to remain visible when near the edges of the screen regardless of the starting placement. (The Tooltip component supports [additional placement options](/components/tooltip?tab=code#component-api) which you can explore if needed.)
   </C.Property>
   <C.Property @name="onDismiss" @type="function">
     Enables the dismiss feature. When a function is passed, the "dismiss" button is displayed.
