@@ -2,8 +2,8 @@
 
 ## Linting
 
-* `yarn run lint`
-* `yarn run lint:fix`
+* `pnpm lint`
+* `pnpm lint:fix`
 
 ## Running tests
 

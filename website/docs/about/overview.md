@@ -62,7 +62,7 @@ In Helios, we offer the following:
 - **Patterns**: repetitive combinations of components and foundational styles that yield more complex functions and features
 - **Documentation**: education, issue tracking, contribution, content management, processes
 
-We structure our components, icons, and design tokens in a [monorepo](https://github.com/hashicorp/design-system) using yarn workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478).
+We structure our components, icons, and design tokens in a [monorepo](https://github.com/hashicorp/design-system) using pnpm workspaces and publish a collection of libraries in [Figma](https://www.figma.com/files/team/1030156573400567478).
 
 ## Resources
 

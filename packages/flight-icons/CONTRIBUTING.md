@@ -2,16 +2,16 @@
 
 ## Linting
 
-* `yarn run lint`
+* `pnpm lint`
 
 ## TypeChecking
 
-* `yarn typecheck`
+* `pnpm typecheck`
 
 ## Running the scripts
 
-* `yarn sync`
-* `yarn build`
+* `pnpm sync`
+* `pnpm build`
 
 See below for more details about what these scripts do.
 
@@ -53,7 +53,7 @@ You can find the code that relates to this step in the file `/scripts/sync.ts`.
 To run this script launch the following commands in your CLI (while in the `flight-icons` folder):
 
 ```bash
-yarn sync
+pnpm sync
 ```
 
 This action will:
@@ -72,7 +72,7 @@ You can find the code that relates to this step in the file `/scripts/build.ts`.
 To run this script use the following command in your CLI (while in the `flight-icons` folder):
 
 ```bash
-yarn build
+pnpm build
 ```
 
 This action will:

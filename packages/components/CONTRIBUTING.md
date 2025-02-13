@@ -3,30 +3,31 @@
 ## Installation
 
 * `git clone <repository-url>`
-* `yarn install`
+* `pnpm install`
 * `cd packages/components`
 
 ## Building
 
-* `yarn run build`
+* `pnpm build`
 
 To set a watcher on files located in `src` and rebuild on change
 
-* `yarn start`
+* `pnpm start`
 
 ## Linting
 
-* `yarn run lint`
-* `yarn run lint:fix`
+* `pnpm lint`
+* `pnpm lint:fix`
 
 ## Stylelinting
 
-* `yarn run lint:css`
-* `yarn run lint:css:fix`
+* `pnpm lint:css`
+* `pnpm lint:css:fix`
 
 Notice: to have VSCode autofix the code on save, you have to:
-- install the [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
-- in either the user or workspace settings add the entry `"source.fixAll.stylelint": true` to the `editor.codeActionsOnSave` option
+
+* install the [Stylelint extension](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint)
+* in either the user or workspace settings add the entry `"source.fixAll.stylelint": true` to the `editor.codeActionsOnSave` option
 
 ## Running tests
 
@@ -40,7 +41,7 @@ The associated test application is located at the root of the monorepo, in `show
 ## Running the `showcase` application
 
 * `cd showcase`
-* `yarn run start`
+* `pnpm start`
 * Visit the application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

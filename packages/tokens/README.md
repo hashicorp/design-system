@@ -10,8 +10,8 @@ Any platform/framework that can process CSS files and can use CSS custom propert
 
 ## Installation
 
-```
-yarn add @hashicorp/design-system-tokens
+```bash
+pnpm add @hashicorp/design-system-tokens
 ```
 
 Then import one of those files in your app's style file (`app.scss` or similar):

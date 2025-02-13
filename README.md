@@ -33,6 +33,7 @@ Ember.js addon with `<FlightIcon />` component (deprecated)
 - more info: see [ember-flight-icons/README](packages/ember-flight-icons/README.md) and [ember-flight-icons/CONTRIBUTING](packages/ember-flight-icons/CONTRIBUTING.md) for details on how to build and test the Ember.js addon.
 
 ### `packages/flight-icons` [![npm version](https://badge.fury.io/js/%40hashicorp%2Fflight-icons.svg)](https://badge.fury.io/js/%40hashicorp%2Fflight-icons)
+
 - website: [https://helios.hashicorp.design/icons/library](https://helios.hashicorp.design/icons/library)
 
 Flight icons in different formats (SVG/SVG Sprite/React)
@@ -52,27 +53,27 @@ Design tokens
 
 ### Workspaces
 
-This monorepo uses [yarn workspaces](https://yarnpkg.com/features/workspaces/) to manage dependencies for all packages.
+This monorepo uses [pnpm workspaces](https://pnpm.io/workspaces) to manage dependencies for all packages.
 
 #### Adding new packages
 
 Run this command from the monorepo root:
 
 ```bash
-yarn workspace <workspace-npm-package> add --dev <npm-package>
+pnpm -F <workspace-npm-package> add --dev <npm-package>
 ```
 
-e.g. `yarn workspace @hashicorp/design-system-components add --dev ember-cli-flash`
+e.g. `pnpm -F @hashicorp/design-system-components add --dev ember-cli-flash`
 
 #### Using ember install in the monorepo
 
 Run this command from the monorepo root:
 
 ```bash
-yarn workspace <workspace-npm-package> run ember install <npm-package>
+pnpm -F <workspace-npm-package> run ember install <npm-package>
 ```
 
-e.g. `yarn workspace @hashicorp/design-system-components run ember install ember-a11y-refocus`
+e.g. `pnpm -F @hashicorp/design-system-components run ember install ember-a11y-refocus`
 
 ### Changesets
 
@@ -81,7 +82,7 @@ This project uses [changesets](https://github.com/changesets/changesets) to mana
 To create a changeset, run and follow the prompts in your terminal:
 
 ```bash
-yarn changeset
+pnpm changeset
 ```
 
 See the [changeset docs](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) for more information.
