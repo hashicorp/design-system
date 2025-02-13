@@ -291,6 +291,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     );
 
     this._element = element;
+    this.setExpandAllState();
 
     if (stickyGridHeader !== null) {
       this._observer = new IntersectionObserver(
@@ -444,23 +445,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
-  // @action
-  // didInsertExpandButton(): void {
-  //   console.log('did insert')
-  //   // this.setExpandAllState();
-  //   console.log('-------------------')
-  // }
+  @action
+  didInsertExpandButton(): void {
+    this.setExpandAllState();
+  }
 
-  // @action
-  // willDestroyExpandButton(): void {
-  //   console.log('will destroy')
-  //   // this.setExpandAllState();
-  //   console.log('-------------------')
-  // }
+  @action
+  willDestroyExpandButton(): void {
+    this.setExpandAllState();
+  }
 
   @action
   setExpandAllState(): void {
-    console.log('-------------------')
     if (this._expandAllButton && this._element) {
       const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'))
 
@@ -480,13 +476,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       if (expandedRowsCount === 0) expandAllState = false;
       else expandAllState = 'mixed';
 
-
       this._expandAllButtonState = expandAllState;
-      // this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
-      // this._expandAllButton.dispatchEvent(new CustomEvent('toggle', {bubbles: false, detail: true}))
     }
   }
-
 
   @action
   onExpandAllClick(): void {
@@ -502,10 +494,5 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       this._expandAllButtonState = newState;
     }
-  }
-
-  @action
-  onExpandRowClick(): void {
-    this.setExpandAllState();
   }
 }
