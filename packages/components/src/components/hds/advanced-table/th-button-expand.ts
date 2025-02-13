@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-import {modifier} from 'ember-modifier';
+import { modifier } from 'ember-modifier';
 
 import { HdsAdvancedTableThExpandIconValues } from './types.ts';
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
@@ -48,7 +48,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
 
   updateButton(event: Event) {
     const target = event.target as HTMLButtonElement;
-    const ariaExpanded = target.getAttribute('aria-expanded')
+    const ariaExpanded = target.getAttribute('aria-expanded');
     let newValue: boolean | 'mixed' | undefined = undefined;
 
     if (ariaExpanded === 'true') newValue = true;
@@ -57,15 +57,15 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
 
     if (this.args.onToggle) {
       // debugger;
-      this.args.onToggle(newValue)
+      this.args.onToggle(newValue);
     }
   }
 
   private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
-    button.addEventListener('toggle', this.updateButton.bind(this), true)
+    button.addEventListener('toggle', this.updateButton.bind(this), true);
 
     return () => {
-      button.removeEventListener('toggle', this.updateButton.bind(this), true)
+      button.removeEventListener('toggle', this.updateButton.bind(this), true);
     };
   });
 

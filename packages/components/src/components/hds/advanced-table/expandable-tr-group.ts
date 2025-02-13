@@ -101,7 +101,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
 
   get shouldDisplayChildRows(): boolean {
     if (typeof this._isExpanded === 'boolean') {
-      return this.hasChildren && this._isExpanded
+      return this.hasChildren && this._isExpanded;
     }
 
     return false;
@@ -115,7 +115,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
     }
 
     if (this.args.onClickToggle) {
-      this.args.onClickToggle()
+      this.args.onClickToggle();
     }
   }
 }
