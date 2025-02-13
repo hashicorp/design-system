@@ -48,20 +48,6 @@ In many cases, replacing v1.0 library components with the components in the Figm
 - Introduced [Template] components for common combinations.
 - Improved nested component accessibility for easier customization.
 
-### September 15th, 2024
-
-`IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
-
-### September 11th, 2024
-
-`Text Input` - Added support for types `Tel`, `Week` and `Month`.
-
-`Dropdown` - `ListItem Interactive` added support for the `Badge` component.
-
-### August 17th, 2024
-
-`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
-
 ### August 2nd, 2024
 
 `AppHeader` - Added a new navigation component to contain global and utility navigation elements.
@@ -114,6 +100,20 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### November 3rd, 2023
 
 `Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
+
+### October 23rd, 2023
+
+`Button` - Updated icon only button variants to be square to match the ToggleIcon.
+
+`Dropdown / ToggleIcon` - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.
+
+### September 15th, 2023
+
+`IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
+
+### August 17th, 2023
+
+`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 
 ---
