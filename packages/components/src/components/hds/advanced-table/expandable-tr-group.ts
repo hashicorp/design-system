@@ -114,8 +114,8 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
       this._isExpanded = !this._isExpanded;
     }
 
-    // if (this.args.onClickToggle) {
-    //   this.args.onClickToggle()
-    // }
+    if (this.args.onClickToggle) {
+      this.args.onClickToggle()
+    }
   }
 }
