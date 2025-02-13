@@ -12,6 +12,14 @@
 </p>
 
 
+### January 23rd, 2025
+
+`Advanced Table` - Added new component.
+
+`CodeEditor` - Added new component.
+
+`Table` - Added column borders.
+
 ### December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
@@ -108,10 +116,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### September 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
-
-### August 17th, 2023
-
-`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 
 ---
