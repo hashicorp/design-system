@@ -14,7 +14,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
     isExpanded?: boolean | 'mixed';
-    onToggle?: (newValue?: boolean | 'mixed', foo?: boolean) => void;
+    onToggle?: (newValue?: boolean | 'mixed') => void;
   };
   Element: HTMLButtonElement;
 }
