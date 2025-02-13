@@ -20,6 +20,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: () => void;
     onClickToggle?: () => void;
+    shouldDisplayChildRows?: boolean;
   };
   Blocks: {
     default?: [
@@ -34,6 +35,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         rowIndex?: string;
         didInsertExpandButton?: (button: HTMLButtonElement) => void;
         willDestroyExpandButton?: () => void;
+        shouldDisplayChildRows?: boolean;
       },
     ];
   };
@@ -97,6 +99,14 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
     return this.depth + 1;
   }
 
+  get shouldDisplayChildRows(): boolean {
+    if (typeof this._isExpanded === 'boolean') {
+      return this.hasChildren && this._isExpanded
+    }
+
+    return false;
+  }
+
   @action onClickToggle(newValue?: boolean | 'mixed') {
     if (newValue) {
       this._isExpanded = newValue;
@@ -104,8 +114,8 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
       this._isExpanded = !this._isExpanded;
     }
 
-    if (this.args.onClickToggle) {
-      this.args.onClickToggle()
-    }
+    // if (this.args.onClickToggle) {
+    //   this.args.onClickToggle()
+    // }
   }
 }

@@ -14,7 +14,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
     isExpanded?: boolean | 'mixed';
-    onToggle?: (newValue?: boolean | 'mixed') => void;
+    onToggle?: (newValue?: boolean | 'mixed', foo?: boolean) => void;
   };
   Element: HTMLButtonElement;
 }
@@ -56,6 +56,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     else if (ariaExpanded === 'mixed') newValue = 'mixed';
 
     if (this.args.onToggle) {
+      // debugger;
       this.args.onToggle(newValue)
     }
   }

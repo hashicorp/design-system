@@ -36,6 +36,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     ) => void;
     willDestroy?: () => void;
     onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
+    displayRow?: boolean;
   };
   Blocks: {
     default?: [];
@@ -70,7 +71,7 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
   }
 
   get classNames(): string {
-    const { depth, isParentRow } = this.args;
+    const { depth, isParentRow, displayRow } = this.args;
     const classes = ['hds-advanced-table__tr'];
 
     if (depth && depth > 0) {
@@ -79,6 +80,10 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
 
     if (isParentRow) {
       classes.push('hds-advanced-table__tr--parent-row');
+    }
+
+    if (displayRow === false) {
+      classes.push('hds-advanced-table__tr--hidden')
     }
 
     return classes.join(' ');

@@ -89,11 +89,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
+  @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _observer: IntersectionObserver | undefined = undefined;
-  private _element?: HTMLDivElement = undefined;
+  private _element!: HTMLDivElement;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -443,20 +444,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
-  @action
-  didInsertExpandButton(): void {
-    this.setExpandAllState();
-  }
+  // @action
+  // didInsertExpandButton(): void {
+  //   console.log('did insert')
+  //   // this.setExpandAllState();
+  //   console.log('-------------------')
+  // }
 
-  @action
-  willDestroyExpandButton(): void {
-    this.setExpandAllState();
-  }
+  // @action
+  // willDestroyExpandButton(): void {
+  //   console.log('will destroy')
+  //   // this.setExpandAllState();
+  //   console.log('-------------------')
+  // }
 
   @action
   setExpandAllState(): void {
+    console.log('this._expandAllButton',this._expandAllButton)
+    console.log('this._element', this._element)
     if (this._expandAllButton && this._element) {
-      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__th-button--expand')).filter((el) => el !== this._expandAllButton)
+      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'))
 
       const parentRowsCount = expandButtons.length;
       const expandedRowsCount = expandButtons.filter(
@@ -473,13 +480,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       else expandAllState = 'mixed';
 
       this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
-      // this._expandAllButton.dispatchEvent(new Event('toggle', {bubbles: false}))
+      this._expandAllButton.dispatchEvent(new CustomEvent('toggle', {bubbles: false, detail: true}))
     }
   }
 
 
   @action
-  onExpandAllChange(): void {
+  onExpandAllClick(): void {
     if (this._expandAllButton && this._element) {
       const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__th-button--expand')).filter((el) => el !== this._expandAllButton)
 
@@ -490,12 +497,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         button.dispatchEvent(new Event('toggle', {bubbles: false}))
       })
 
-      this._expandAllButton.setAttribute('aria-expanded', newState);
+      // this._expandAllButton.setAttribute('aria-expanded', newState);
+      this._expandAllButtonState = this._expandAllButton.getAttribute('aria-expanded') === 'true' ? false : true;
+      // this._expandAllButton.dispatchEvent(new Event('toggle', {bubbles: false}))
     }
   }
 
-  @action
-  onExpandRowChange(): void {
-    this.setExpandAllState();
-  }
+  // @action
+  // onExpandRowChange(): void {
+  //   console.log('did change')
+  //   this.setExpandAllState();
+  //   console.log('-------------------')
+  // }
 }
