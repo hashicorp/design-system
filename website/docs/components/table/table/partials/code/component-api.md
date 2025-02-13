@@ -106,7 +106,7 @@ The Table component itself is where most of the options will be applied. However
   <C.Property @name="caption" @type="string">
     Adds a (non-visible) caption for users with assistive technology. If set on a sortable table, the provided table caption is paired with the automatically generated sorted message text.
   </C.Property>
-  <C.Property @name="identityKey" @type="'none'|string" @default="@identity">
+  <C.Property @name="identityKey" @type="'@identity'|'none'|string" @default="@identity">
     Option to [specify a custom key](https://api.emberjs.com/ember/release/classes/Ember.Templates.helpers/methods/each?anchor=each#:~:text=%3C/ul%3E-,Specifying%20Keys,-In%20order%20to) to the `each` iterator. If `identityKey="none"`, this is interpreted as an `undefined` value for the `@identity` key option.
   </C.Property>
   <C.Property @name="sortedMessageText" @type="string" @default="Sorted by (label), (asc/desc)ending">
