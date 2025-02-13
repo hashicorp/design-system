@@ -9,7 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
-import {modifier} from 'ember-modifier';
+import { modifier } from 'ember-modifier';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
