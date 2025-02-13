@@ -1,5 +1,69 @@
 # @hashicorp/design-system-components
 
+## 4.17.0
+
+### Minor Changes
+
+`Badge` - Update foreground and background colors to improve contrast for a11y
+
+`BadgeCount` - Update foreground color of neutral variant to improve contrast for a11y
+
+<small class="doc-whats-new-changelog-metadata">[#2695](https://github.com/hashicorp/design-system/pull/2695)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added `@copyButtonText` argument to `CodeBlock` and `@text` argument to the `CodeBlock::CopyButton` subcomponent to customize the `aria-label` of the Copy Button. The default label is still "Copy".
+
+`CodeEditor` - Added `@copyButtonText` argument to customize the `aria-label` of the Copy Button. The default label is still "Copy".
+
+<small class="doc-whats-new-changelog-metadata">[#2696](https://github.com/hashicorp/design-system/pull/2696)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Time` - Fixed type declarations
+
+`CodeEditor` - Added missing `@lezer/highlight` dependency
+
+<small class="doc-whats-new-changelog-metadata">[#2700](https://github.com/hashicorp/design-system/pull/2700) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on trigger elements for a11y improvements with toggled content
+
+`Tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on button for a11y improvements with toggled content
+
+<small class="doc-whats-new-changelog-metadata">[#2648](https://github.com/hashicorp/design-system/pull/2648)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CopyButton` - Fixed issue preventing copying of empty string and zero number values
+
+`CopySnippet` - Fixed issue preventing copying of empty string and zero number values
+
+<small class="doc-whats-new-changelog-metadata">[#2685](https://github.com/hashicorp/design-system/pull/2685)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeEditor` - Fixed import path for `HdsCodeEditorModifierSignature`
+
+<small class="doc-whats-new-changelog-metadata">[#2681](https://github.com/hashicorp/design-system/pull/2681)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Refactored keyboard navigation to a new modifier `hds-advanced-table-cell` for reusability, and disabled default behavior for arrow keys in focused cells.
+
+<small class="doc-whats-new-changelog-metadata">[#2659](https://github.com/hashicorp/design-system/pull/2659)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Removed unused `updateAriaLabel` function and event listener
+
+<small class="doc-whats-new-changelog-metadata">[#2690](https://github.com/hashicorp/design-system/pull/2690)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.16.0
 
 [4.16.0 documentation](https://hds-website-4-16-0.vercel.app/)
