@@ -42,6 +42,7 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
     registerDestructor(this, () => {
       this._observer?.disconnect();
       this._element?.removeEventListener('keydown', this._keydownHandler);
+      this._element = undefined;
     });
   }
 
