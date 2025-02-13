@@ -2942,7 +2942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/macros@npm:1.16.10":
+"@embroider/macros@npm:1.16.10, @embroider/macros@npm:^1.16.10":
   version: 1.16.10
   resolution: "@embroider/macros@npm:1.16.10"
   dependencies:
@@ -3912,7 +3912,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-components@workspace:^, @hashicorp/design-system-components@workspace:packages/components":
+"@hashicorp/design-system-components@workspace:*, @hashicorp/design-system-components@workspace:packages/components":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-components@workspace:packages/components"
   dependencies:
@@ -3937,6 +3937,7 @@ __metadata:
     "@ember/test-waiters": "npm:^3.1.0"
     "@embroider/addon-dev": "npm:^4.3.1"
     "@embroider/addon-shim": "npm:^1.9.0"
+    "@embroider/macros": "npm:^1.16.10"
     "@floating-ui/dom": "npm:^1.6.12"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
@@ -4004,7 +4005,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/design-system-tokens@npm:^2.3.0, @hashicorp/design-system-tokens@workspace:^, @hashicorp/design-system-tokens@workspace:packages/tokens":
+"@hashicorp/design-system-tokens@npm:^2.3.0, @hashicorp/design-system-tokens@workspace:*, @hashicorp/design-system-tokens@workspace:packages/tokens":
   version: 0.0.0-use.local
   resolution: "@hashicorp/design-system-tokens@workspace:packages/tokens"
   dependencies:
@@ -4056,7 +4057,7 @@ __metadata:
     "@glint/environment-ember-loose": "npm:^1.4.0"
     "@glint/environment-ember-template-imports": "npm:^1.5.0"
     "@glint/template": "npm:^1.5.0"
-    "@hashicorp/flight-icons": "npm:^3.9.0"
+    "@hashicorp/flight-icons": "workspace:*"
     "@rollup/plugin-babel": "npm:^6.0.4"
     "@tsconfig/ember": "npm:^3.0.8"
     "@typescript-eslint/eslint-plugin": "npm:^8.18.1"
@@ -4081,7 +4082,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@hashicorp/flight-icons@npm:^3.9.0, @hashicorp/flight-icons@workspace:^, @hashicorp/flight-icons@workspace:packages/flight-icons":
+"@hashicorp/flight-icons@npm:^3.9.0, @hashicorp/flight-icons@workspace:*, @hashicorp/flight-icons@workspace:packages/flight-icons":
   version: 0.0.0-use.local
   resolution: "@hashicorp/flight-icons@workspace:packages/flight-icons"
   dependencies:
@@ -4625,9 +4626,9 @@ __metadata:
   linkType: hard
 
 "@mdn/browser-compat-data@npm:^5.5.49":
-  version: 5.6.28
-  resolution: "@mdn/browser-compat-data@npm:5.6.28"
-  checksum: 10/9be2eb6f1ab5687f0e7273ef91d1add08e79d83f9624e8b47eaffb7518b0b2e48feb62b2bf47ba44bf9ba0f9ccf0d814ca0c0bcd5bf30ccfda928c2db6f50e17
+  version: 5.6.38
+  resolution: "@mdn/browser-compat-data@npm:5.6.38"
+  checksum: 10/6b9f43f280a9f2a6e9cbdfbc521940eeb24d766242a3c9584e04e054b02b7c16d906dfe3e4fee409287d8ed3ae58ceda4d21141aa3c5cbb662d72a9901830adb
   languageName: node
   linkType: hard
 
@@ -9884,10 +9885,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000844, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001653, caniuse-lite@npm:^1.0.30001688":
+"caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000844, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001688":
   version: 1.0.30001690
   resolution: "caniuse-lite@npm:1.0.30001690"
   checksum: 10/9fb4659eb09a298601b9593739072c481e2f5cc524bd0530e5e0f002e66246da5e866669854dfc0d53195ee36b201dab02f7933a7cdf60ccba7adb2d4a304caf
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001653":
+  version: 1.0.30001699
+  resolution: "caniuse-lite@npm:1.0.30001699"
+  checksum: 10/325bf4d4ea8ab377046b6d5a43685359d5426adbb62aa1bea2c851cb5673547ef22b4a2b0e172e5a87ac74a7042e6ad23b87b78fdd04543c152d4e799397d7ba
   languageName: node
   linkType: hard
 
@@ -24391,6 +24399,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.26.0"
     "@ember/optional-features": "npm:^2.2.0"
+    "@ember/render-modifiers": "npm:^2.1.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^4.0.4"
     "@ember/test-waiters": "npm:^3.1.0"
@@ -24401,8 +24410,8 @@ __metadata:
     "@glint/environment-ember-loose": "npm:^1.4.0"
     "@glint/environment-ember-template-imports": "npm:^1.5.0"
     "@glint/template": "npm:^1.5.0"
-    "@hashicorp/design-system-components": "workspace:^"
-    "@hashicorp/design-system-tokens": "workspace:^"
+    "@hashicorp/design-system-components": "workspace:*"
+    "@hashicorp/design-system-tokens": "workspace:*"
     "@percy/cli": "npm:^1.30.5"
     "@percy/ember": "npm:^4.2.0"
     "@tsconfig/ember": "npm:^3.0.8"
@@ -24426,6 +24435,7 @@ __metadata:
     ember-cli-sass: "npm:^11.0.1"
     ember-cli-sri: "npm:^2.1.1"
     ember-cli-string-helpers: "npm:^6.1.0"
+    ember-cli-string-utils: "npm:^1.1.0"
     ember-cli-terser: "npm:^4.0.2"
     ember-concurrency: "npm:^4.0.2"
     ember-deep-tracked: "npm:^2.0.1"
@@ -24436,6 +24446,7 @@ __metadata:
     ember-power-select: "npm:^8.6.2"
     ember-qunit: "npm:^9.0.1"
     ember-resolver: "npm:^13.1.0"
+    ember-router-generator: "npm:^2.0.0"
     ember-set-helper: "npm:^3.0.1"
     ember-source: "npm:~5.12.0"
     ember-source-channel-url: "npm:^3.0.0"
@@ -24452,6 +24463,7 @@ __metadata:
     eslint-plugin-n: "npm:^17.15.1"
     eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-qunit: "npm:^8.1.2"
+    fs-extra: "npm:^11.2.0"
     loader.js: "npm:^4.7.0"
     postcss: "npm:^8.4.49"
     prettier: "npm:^3.4.2"
@@ -26774,7 +26786,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unified@npm:^11.0.0":
+"unified@npm:^11.0.0, unified@npm:^11.0.5":
   version: 11.0.5
   resolution: "unified@npm:11.0.5"
   dependencies:
@@ -27552,15 +27564,16 @@ __metadata:
     "@algolia/client-search": "npm:^5.18.0"
     "@babel/core": "npm:^7.26.0"
     "@babel/eslint-parser": "npm:^7.25.9"
+    "@babel/plugin-proposal-decorators": "npm:^7.25.9"
     "@ember/optional-features": "npm:^2.2.0"
     "@ember/render-modifiers": "npm:^2.1.0"
     "@ember/string": "npm:^3.1.1"
     "@ember/test-helpers": "npm:^4.0.4"
     "@glimmer/component": "npm:^1.1.2"
     "@glimmer/tracking": "npm:^1.1.2"
-    "@hashicorp/design-system-components": "workspace:^"
-    "@hashicorp/design-system-tokens": "workspace:^"
-    "@hashicorp/flight-icons": "workspace:^"
+    "@hashicorp/design-system-components": "workspace:*"
+    "@hashicorp/design-system-tokens": "workspace:*"
+    "@hashicorp/flight-icons": "workspace:*"
     algoliasearch: "npm:^4.24.0"
     broccoli-asset-rev: "npm:^3.0.0"
     broccoli-funnel: "npm:^3.0.8"
@@ -27587,6 +27600,7 @@ __metadata:
     ember-cli-sass: "npm:^11.0.1"
     ember-cli-sri: "npm:^2.1.1"
     ember-cli-string-helpers: "npm:^6.1.0"
+    ember-cli-string-utils: "npm:^1.1.0"
     ember-cli-terser: "npm:^4.0.2"
     ember-concurrency: "npm:^4.0.2"
     ember-fetch: "npm:^8.1.2"
@@ -27640,6 +27654,7 @@ __metadata:
     stylelint: "npm:^16.12.0"
     stylelint-config-rational-order: "npm:^0.1.2"
     stylelint-config-standard-scss: "npm:^14.0.0"
+    unified: "npm:^11.0.5"
     unist-util-remove: "npm:^4.0.0"
     unist-util-select: "npm:^5.1.0"
     unist-util-visit: "npm:^5.0.0"
