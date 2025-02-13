@@ -109,8 +109,10 @@ export function initialize(/* application */) {
         selfExecutingBlock += `  <div class="doc-code-block__code-rendered">`;
         selfExecutingBlock += `    ${inputCodeblock}`;
         selfExecutingBlock += '  </div>';
-        selfExecutingBlock += `  <Doc::CopyButton @id='${blockUniqueId}' @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} aria-labelledby="copy-label-${blockUniqueId} pre-block-${blockUniqueId}"/>`;
-        selfExecutingBlock += `  ${preBlock}`;
+        selfExecutingBlock += '  <div class="doc-code-block__code-snippet-wrapper">';
+        selfExecutingBlock += `    <Doc::CopyButton @id='${blockUniqueId}' @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} aria-labelledby="copy-label-${blockUniqueId} pre-block-${blockUniqueId}"/>`;
+        selfExecutingBlock += `    ${preBlock}`;
+        selfExecutingBlock += '  </div>';
         selfExecutingBlock += '</div>';
 
         if(attributeString.includes('data-execute=false')) {

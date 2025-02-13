@@ -7,7 +7,7 @@
   position: fixed;
   right: 40px;
   bottom: 40px;
-  z-index: 99;
+  z-index: 48; // Needs to be below z-index of hds-dialog-primitive__overlay
   width: 44px;
   height: 44px;
   padding: 8px;
