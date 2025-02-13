@@ -1,20 +1,32 @@
-# [HDS Components UI Kit](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1)
-
-## January 23rd, 2025
-
-`Advanced Table` - Added new component.
-`Code Editor` - Added new component.
-`Table` - Added column borders.
+# [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
 ## December 20th, 2024
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
 
-**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
-
-Released HDS Components UI Kit v2.0.
-
 `SideNav` - No longer deprecated due to adjustments in prioritization.
+
+### Figma v2.0 Components
+
+- Deprecated HDS Components UI Kit v1.0. It will no longer receive updates or support.
+- Released HDS components UI Kit v2.0.
+
+In many cases, replacing v1.0 library components with the components in the Figma v2.0 Library will result in breaking changes. For a comprehensive list of how these changes will impact your designs, refer to the [changelog document](https://docs.google.com/document/d/1q9IGtrsVOf3KrSBGb8AdF3OhPUm3fYAwPdhSml7onMM/edit?tab=t.0#heading=h.15f60fqiivvr).
+
+#### General changes
+
+- Improved consistency in component naming conventions
+- Enhanced property panel customization options
+- Reduced variant complexity through boolean properties
+- Added local tokens for custom styling (hidden from publishing)
+- Standardized nested component structure
+
+#### Component organization updates
+
+- Standardized naming conventions, nested structures, and boolean property usage to reduce complexity.
+- Updated organization with "Form /" prefixes and DialogPrimitive as the base for modal components.
+- Introduced [Template] components for common combinations.
+- Improved nested component accessibility for easier customization.
 
 ## September 11th, 2024
 
