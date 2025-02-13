@@ -118,7 +118,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return {
       options: undefined,
       difference: { absValueInMs: 0, valueInMs: 0 },
-      relative: { value: 0, unit: '' },
+      relative: { value: 0, unit: undefined },
     };
   }
 

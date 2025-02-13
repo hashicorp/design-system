@@ -15,6 +15,7 @@ import type { HdsFormHelperTextSignature } from '../helper-text';
 import type { HdsFormLabelSignature } from '../label';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle';
 import HdsFormCharacterCountComponent from '../character-count/index.ts';
+import type Owner from '@ember/owner';
 
 export interface HdsFormTextInputFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> &
@@ -42,7 +43,7 @@ export default class HdsFormTextInputField extends Component<HdsFormTextInputFie
   @tracked private _isPasswordMasked = true;
   @tracked type;
 
-  constructor(owner: unknown, args: HdsFormTextInputFieldSignature['Args']) {
+  constructor(owner: Owner, args: HdsFormTextInputFieldSignature['Args']) {
     super(owner, args);
     this.type = this.args.type ?? 'text';
   }

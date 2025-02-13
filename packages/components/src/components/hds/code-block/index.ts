@@ -13,7 +13,7 @@ import { guidFor } from '@ember/object/internals';
 
 import Prism from 'prismjs';
 
-import type { SafeString } from '@ember/template/-private/handlebars';
+import type { SafeString } from '@ember/template';
 import type { ComponentLike } from '@glint/template';
 
 import type { HdsCodeBlockTitleSignature } from './title';

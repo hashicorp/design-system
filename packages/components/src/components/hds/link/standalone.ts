@@ -18,6 +18,7 @@ import type {
   HdsLinkStandaloneSizes,
 } from './types.ts';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export interface HdsLinkStandaloneSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -38,7 +39,7 @@ export const COLORS: string[] = Object.values(HdsLinkColorValues);
 export const SIZES: string[] = Object.values(HdsLinkStandaloneSizeValues);
 
 export default class HdsLinkStandalone extends Component<HdsLinkStandaloneSignature> {
-  constructor(owner: unknown, args: HdsLinkStandaloneSignature['Args']) {
+  constructor(owner: Owner, args: HdsLinkStandaloneSignature['Args']) {
     super(owner, args);
     if (!(this.args.href || this.args.route)) {
       assert('@href or @route must be defined for <Hds::Link::Standalone>');

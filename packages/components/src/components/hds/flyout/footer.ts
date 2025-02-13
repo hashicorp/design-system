@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
+import type Owner from '@ember/owner';
 
 export interface HdsFlyoutFooterSignature {
   Args: {
@@ -17,7 +18,7 @@ export interface HdsFlyoutFooterSignature {
 }
 
 export default class HdsFlyoutFooter extends Component<HdsFlyoutFooterSignature> {
-  constructor(owner: unknown, args: HdsFlyoutFooterSignature['Args']) {
+  constructor(owner: Owner, args: HdsFlyoutFooterSignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -30,6 +31,7 @@ export default class HdsFlyoutFooter extends Component<HdsFlyoutFooterSignature>
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

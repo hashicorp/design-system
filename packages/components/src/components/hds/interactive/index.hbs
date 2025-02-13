@@ -3,6 +3,7 @@
 {{! NOTICE: we can't support the direct use of the "href" HTML attribute via ...attributes in the <a> elements, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
 {{~#if @route~}}
   {{~#if this.isRouteExternal~}}
+    {{! @glint-expect-error: FIXME: pnpm migration }}
     <LinkToExternal
       @current-when={{@current-when}}
       @models={{hds-link-to-models @model @models}}

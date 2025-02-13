@@ -14,6 +14,7 @@ import type {
   HdsPaginationDirections,
 } from '../types';
 import type { HdsInteractiveSignature } from '../../interactive';
+import type Owner from '@ember/owner';
 
 type HdsInteractiveQuery = HdsInteractiveSignature['Args']['query'];
 
@@ -95,7 +96,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
   showLabels = this.args.showLabels ?? true; // if the labels for the "prev/next" controls are visible
   showSizeSelector = this.args.showSizeSelector ?? false; // if the "size selector" block is visible
 
-  constructor(owner: unknown, args: HdsPaginationCompactSignature['Args']) {
+  constructor(owner: Owner, args: HdsPaginationCompactSignature['Args']) {
     super(owner, args);
 
     const { queryFunction } = this.args;

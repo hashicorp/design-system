@@ -18,6 +18,7 @@ import type {
   HdsTableThSortOrderLabels,
 } from './types';
 import type { HdsTableThSignature } from './th';
+import type Owner from '@ember/owner';
 
 export interface HdsTableThSelectableSignature {
   Args: {
@@ -47,7 +48,7 @@ export default class HdsTableThSelectable extends Component<HdsTableThSelectable
   private _checkboxId = `checkbox-${this._guid}`;
   private _labelId = `label-${this._guid}`;
 
-  constructor(owner: unknown, args: HdsTableThSelectableSignature['Args']) {
+  constructor(owner: Owner, args: HdsTableThSelectableSignature['Args']) {
     super(owner, args);
     this.isSelected = this.args.isSelected ?? false;
   }
