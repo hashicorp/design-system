@@ -460,8 +460,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setExpandAllState(): void {
-    console.log('this._expandAllButton',this._expandAllButton)
-    console.log('this._element', this._element)
+    console.log('-------------------')
     if (this._expandAllButton && this._element) {
       const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'))
 
@@ -472,15 +471,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       let expandAllState: boolean | 'mixed';
 
-      console.log('parentRowsCount', parentRowsCount)
-      console.log('expandedRowsCount', expandedRowsCount)
+      console.log('parentRows', expandButtons)
+      console.log('expandedRows', expandButtons.filter(
+        (button) => button.getAttribute('aria-expanded') === 'true'
+      ))
 
       if (parentRowsCount === expandedRowsCount) expandAllState = true;
       if (expandedRowsCount === 0) expandAllState = false;
       else expandAllState = 'mixed';
 
-      this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
-      this._expandAllButton.dispatchEvent(new CustomEvent('toggle', {bubbles: false, detail: true}))
+
+      this._expandAllButtonState = expandAllState;
+      // this._expandAllButton.setAttribute('aria-expanded', `${expandAllState}`)
+      // this._expandAllButton.dispatchEvent(new CustomEvent('toggle', {bubbles: false, detail: true}))
     }
   }
 
@@ -488,25 +491,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @action
   onExpandAllClick(): void {
     if (this._expandAllButton && this._element) {
-      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__th-button--expand')).filter((el) => el !== this._expandAllButton)
+      const expandButtons = Array.from(this._element.querySelectorAll('.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'))
 
-      const newState= this._expandAllButton.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+      const newState= this._expandAllButton.getAttribute('aria-expanded') === 'true' ? false : true
 
       expandButtons.forEach((button) => {
-        button.setAttribute('aria-expanded', newState)
+        button.setAttribute('aria-expanded', `${newState}`)
         button.dispatchEvent(new Event('toggle', {bubbles: false}))
       })
 
-      // this._expandAllButton.setAttribute('aria-expanded', newState);
-      this._expandAllButtonState = this._expandAllButton.getAttribute('aria-expanded') === 'true' ? false : true;
-      // this._expandAllButton.dispatchEvent(new Event('toggle', {bubbles: false}))
+      this._expandAllButtonState = newState;
     }
   }
 
-  // @action
-  // onExpandRowChange(): void {
-  //   console.log('did change')
-  //   this.setExpandAllState();
-  //   console.log('-------------------')
-  // }
+  @action
+  onExpandRowClick(): void {
+    this.setExpandAllState();
+  }
 }
