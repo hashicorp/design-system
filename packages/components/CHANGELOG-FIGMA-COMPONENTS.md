@@ -42,6 +42,10 @@ In many cases, replacing v1.0 library components with the components in the Figm
 
 `Dropdown` - `ListItem Interactive` added support for the `Badge` component.
 
+## August 17th, 2024
+
+`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
+
 ## August 2nd, 2024
 
 `AppHeader` - Added a new navigation component to contain global and utility navigation elements.
