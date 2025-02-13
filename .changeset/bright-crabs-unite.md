@@ -3,4 +3,5 @@
 ---
 
 `Time` - Fixed type declarations
-`CodeEditor` - Explicitly added `@lezer/highlight` as a dependency
+
+`CodeEditor` - Added missing `@lezer/highlight` dependency
