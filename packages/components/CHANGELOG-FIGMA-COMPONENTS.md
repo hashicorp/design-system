@@ -36,6 +36,10 @@ In many cases, replacing v1.0 library components with the components in the Figm
 - Introduced [Template] components for common combinations.
 - Improved nested component accessibility for easier customization.
 
+## September 15th, 2024
+
+`IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
+
 ## September 11th, 2024
 
 `Text Input` - Added support for types `Tel`, `Week` and `Month`.
