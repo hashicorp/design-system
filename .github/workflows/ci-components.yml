@@ -70,11 +70,12 @@ jobs:
       matrix:
         try-scenario:
           - ember-lts-3.28
-          - ember-lts-4.12         # - ember-release
+          - ember-lts-4.12
+          # - ember-release
           - ember-beta
-         # - ember-canary
+          # - ember-canary
           - embroider-safe
-         # - embroider-optimized
+          # - embroider-optimized
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2

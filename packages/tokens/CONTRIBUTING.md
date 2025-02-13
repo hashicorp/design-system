@@ -2,23 +2,23 @@
 
 ## Initial setup
 
-*Notice: [Node.js](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/getting-started/install) needs to be installed on your local machine.*
+*Notice: [Node.js](https://nodejs.org/en/) and `Pnpm` through `corepack` needs to be installed on your local machine.*
 
 * `git clone <repository-url>`
-* `yarn install`
+* `pnpm install`
 * `cd packages/tokens`
 
 ## Linting
 
-* `yarn run lint`
+* `pnpm run lint`
 
 ## TypeChecking
 
-* `yarn typecheck`
+* `pnpm typecheck`
 
 ## Running the scripts
 
-* `yarn build`
+* `pnpm build`
 
 See below for more details about what these scripts do.
 
@@ -46,7 +46,7 @@ You can find the code that relates to this step in the file `/scripts/build.ts`.
 To run this script use the following command in your CLI (while in the `packages/tokens` folder):
 
 ```bash
-yarn build
+pnpm build
 ```
 
 This action will:
