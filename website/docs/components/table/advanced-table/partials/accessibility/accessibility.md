@@ -20,29 +20,49 @@ The Advanced Table supports two keyboard interaction modes: Navigation Mode and 
 
 ### Navigation Mode
 
-When a user moves focus into the Advanced Table (Tab key), the first cell is focused, enabling Navigation Mode. In this mode, users can move freely between cells using arrow keys:
+When a user tabs into the Advanced Table, the first cell is focused. Arrow keys move between cells.
 
-- Home (fn + left) – Move focus to the first cell in the row.
-- End (fn + right) – Move focus to the last cell in the row.
-- Page Up (fn + up) – Move focus to the first cell in the column.
-- Page Down (fn + down) – Move focus to the last cell in the column.
-- Arrow Keys – Navigate between adjacent cells.
-- Horizontal Scrolling – Arrow keys allow movement to access hidden columns when the table extends beyond the screen width.
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
+
+<Doc::Badge @type="neutral">Arrow key Down</Doc::Badge>
+
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
+
+**Home (fn + left)**
+Move focus to the first cell in the row.
+
+**End (fn + right)**
+Move focus to the last cell in the row.
+
+**Page Up (fn + up)**
+Move focus to the first cell in the column.
+
+**Page Down (fn + down)**
+Move focus to the last cell in the column.
+
+**Horizontal Scrolling**
+If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
 
 ### Action Mode
 
-Pressing Enter while in Navigation Mode switches the user to Action Mode, allowing interaction with elements inside a cell:
+Press Enter in Navigation Mode to enter Action Mode and interact with elements inside a cell.
 
-- If a cell contains one interactive element, pressing Enter will focus on that element instead of activating it immediately.
-- If a cell contains multiple interactive elements, the first element will be focused, and the user can Tab between them.
-- Pressing Escape exits Action Mode and returns the user to Navigation Mode.
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-<video width="100%" controls loop>
-  <source
-    src="/assets/components/table/advanced-table/advanced-table-keyboard-navigation.mov"
-    type="video/mp4"
-  />
-</video>
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
+
+**Enter**
+- If the cell contains one interactive element, focus moves to that element instead of activating it.
+- If multiple interactive elements exist, focus moves to the first one. Use Tab to navigate between them.
+
+**Escape**
+Returns to navigation mode.
+
+<Doc::Badge @type="neutral">Escape</Doc::Badge>
+
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
 
 ### Row selection
 
