@@ -11,7 +11,7 @@ import {
   DEFAULT_DISPLAY_MAPPING,
   MINUTE_IN_MS,
   WEEK_IN_MS,
-  RELATIVE_UNIT_SECOND,
+  HdsTimeRelativeUnitValues,
 } from '@hashicorp/design-system-components/services/hds-time';
 
 let table = [
@@ -96,7 +96,7 @@ module('Unit | Service | time', function (hooks) {
 
   test(`it can formatTimeRelativeUnit`, function (assert) {
     let value = -1.523423423;
-    let unit = RELATIVE_UNIT_SECOND;
+    let unit = HdsTimeRelativeUnitValues.Second;
     let relativeUnit = this.service.formatTimeRelativeUnit(value, unit);
 
     assert.ok(relativeUnit, 'relativeUnit is defined');
