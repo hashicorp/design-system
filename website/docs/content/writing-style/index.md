@@ -234,7 +234,7 @@ When editing an object, use "Save" for the action label. When applying another a
 
 !!! Do
 
-![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save organization".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
+![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save name".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
 
 ![A form to invite users by inputting their emails. The title is "Invite users" and the submit button is "Invite users".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-invite-do.png)
 
