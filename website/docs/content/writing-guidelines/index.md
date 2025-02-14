@@ -21,7 +21,7 @@ These formatting options are available in the [Time](/components/time) component
 
 ### Relative dates
 
-Relative dates work well for periods from one minute up to one week. For added accuracy, a [Tooltip](/components/tooltip) can display the exact timestamp, including seconds and the local timezone, e.g., "Sep 5, 2018, 4:07:32 PM PST". This helps users who need precise information without manually converting from UTC.
+Relative dates work well for periods from one minute up to one week. For added accuracy, a [Tooltip](/components/tooltip) can display the exact timestamp, including seconds and the local timezone, e.g., "Sep 5, 2018, 4:07:32 PM EST". This helps users who need precise information without manually converting from a relative date.
 
 ![A relative date displayed as "5 days ago" with the full date shown in a tooltip in the friendly local format "Sep 5, 2018, 4:07:32 PM EST".](/assets/content/writing-guidelines/writing-guidelines-relative-dates-with-tooltip.png)
 
