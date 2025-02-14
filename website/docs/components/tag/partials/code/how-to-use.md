@@ -28,7 +28,7 @@ In most cases, the Tag should be dismissable. If you don’t provide a callback 
 
 ### Truncation
 
-If the Tag’s content causes it to exceed its max width of about 20 characters (160px), the text will be truncated, and a [Tooltip](/components/tooltip) will be rendered including the full text. The default Tooltip placement is `top`, but this can be customized using the `@tooltipPlacement` argument.
+If the Tag’s content causes it to exceed its max width of about 20 characters, the text will be truncated, and a [Tooltip](/components/tooltip) will be rendered including the full text. The default Tooltip placement is `top`, but this can be customized using the `@tooltipPlacement` argument.
 
 ```handlebars
 <Hds::Tag @text="This is a very long text that should go on multiple lines" @tooltipPlacement="right" />
