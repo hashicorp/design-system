@@ -89,7 +89,7 @@ function sayMessage() {
 }
 
 sayMessage();
-}`,
+`,
     },
     {
       value: 'json',

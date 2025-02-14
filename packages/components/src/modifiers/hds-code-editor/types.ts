@@ -9,7 +9,7 @@ export enum HdsCodeEditorLanguageValues {
   Shell = 'shell',
   Go = 'go',
   Hcl = 'hcl',
-  Javascript = 'javascript',
+  JavaScript = 'javascript',
   Json = 'json',
   Sentinel = 'sentinel',
   Sql = 'sql',
