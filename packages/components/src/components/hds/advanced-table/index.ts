@@ -314,12 +314,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   });
 
   private _setUpExpandAllButton = modifier((element: HTMLDivElement) => {
-    const expandAllButton = element.querySelector(
+    const expandAllButton = element.querySelector<HTMLButtonElement>(
       '.hds-advanced-table__th-button--expand'
     );
 
     if (expandAllButton) {
-      this._expandAllButton = expandAllButton as HTMLButtonElement;
+      this._expandAllButton = expandAllButton;
     }
 
     return () => {
@@ -482,7 +482,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       );
 
       if (parentRowsCount === expandedRowsCount) expandAllState = true;
-      if (expandedRowsCount === 0) expandAllState = false;
+      else if (expandedRowsCount === 0) expandAllState = false;
       else expandAllState = 'mixed';
 
       this._expandAllButtonState = expandAllState;
