@@ -57,6 +57,14 @@ Press Enter in Navigation Mode to enter Action Mode and interact with elements i
 - If the cell contains one interactive element, focus moves to that element instead of activating it.
 - If multiple interactive elements exist, focus moves to the first one. Use Tab to navigate between them.
 
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png =402x*)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png =402x*)
+
 **Escape**
 Returns to navigation mode.
 
