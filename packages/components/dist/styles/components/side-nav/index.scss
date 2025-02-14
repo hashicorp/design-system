@@ -1,0 +1,11 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "./vars";
+@use "./main";
+@use "./header";
+@use "./content";
+@use "./toggle-button";
+@use "./a11y-refocus";
