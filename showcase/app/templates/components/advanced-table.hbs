@@ -90,7 +90,7 @@
     @model={{this.model.nestedDataCustom}}
     @childrenKey="data"
     @columns={{array
-      (hash key="name" label="Name")
+      (hash key="name" label="Name" isExpandable=true)
       (hash key="status" label="Status" width="auto")
       (hash key="description" label="Description")
     }}
@@ -115,7 +115,7 @@
   <Hds::AdvancedTable
     @model={{this.model.spanningData}}
     @columns={{array
-      (hash key="name" label="Name")
+      (hash key="name" label="Name" isExpandable=true)
       (hash key="service" label="Service")
       (hash key="description" label="Description")
     }}
@@ -1214,6 +1214,24 @@
         </div>
       </div>
     </SF.Item>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+                @isExpanded="mixed"
+              >
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Flex @label="Expandable with tooltip" as |SF|>
@@ -1246,6 +1264,25 @@
                 mock-state-selector="button"
                 @isExpandable={{true}}
                 @isExpanded={{true}}
+              >
+                {{capitalize state}}
+              </Hds::AdvancedTable::Th>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+    <SF.Item @grow={{true}}>
+      <div class="hds-advanced-table" {{style gridTemplateColumns="repeat(4, 1fr)"}}>
+        <div class="hds-advanced-table__thead">
+          <div class="hds-advanced-table__tr">
+            {{#each @model.STATES as |state|}}
+              <Hds::AdvancedTable::Th
+                @tooltip="Here is more information"
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+                @isExpanded="mixed"
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1761,6 +1798,9 @@
           </SF.Item>
           <SF.Item>
             <Hds::AdvancedTable::ThButtonExpand @isExpanded={{true}} mock-state-value={{state}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand @isExpanded="mixed" mock-state-value={{state}} />
           </SF.Item>
         </Shw::Flex>
       </SG.Item>
