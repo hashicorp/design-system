@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
+import { next } from '@ember/runloop';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -466,26 +467,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         )
       );
 
-      const parentRowsCount = expandButtons.length;
-      const expandedRowsCount = expandButtons.filter(
-        (button) => button.getAttribute('aria-expanded') === 'true'
-      ).length;
-
-      let expandAllState: boolean | 'mixed';
-
-      console.log('parentRows', expandButtons);
-      console.log(
-        'expandedRows',
-        expandButtons.filter(
+      // eslint-disable-next-line ember/no-runloop
+      next(() => {
+        const parentRowsCount = expandButtons.length;
+        const expandedRowsCount = expandButtons.filter(
           (button) => button.getAttribute('aria-expanded') === 'true'
-        )
-      );
+        ).length;
 
-      if (parentRowsCount === expandedRowsCount) expandAllState = true;
-      else if (expandedRowsCount === 0) expandAllState = false;
-      else expandAllState = 'mixed';
+        let expandAllState: boolean | 'mixed';
 
-      this._expandAllButtonState = expandAllState;
+        if (parentRowsCount === expandedRowsCount) expandAllState = true;
+        else if (expandedRowsCount === 0) expandAllState = false;
+        else expandAllState = 'mixed';
+
+        this._expandAllButtonState = expandAllState;
+      });
     }
   }
 
