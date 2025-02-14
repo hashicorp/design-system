@@ -24,11 +24,11 @@ When a user tabs into the Advanced Table, the first cell is focused. Arrow keys 
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
+![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
 <Doc::Badge @type="neutral">Arrow key Down</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
 
 **Home (fn + left)**
 Move focus to the first cell in the row.
@@ -51,7 +51,7 @@ Press Enter in Navigation Mode to enter Action Mode and interact with elements i
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
+![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
 
 **Enter**
 - If the cell contains one interactive element, focus moves to that element instead of activating it.
@@ -59,18 +59,18 @@ Press Enter in Navigation Mode to enter Action Mode and interact with elements i
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png =402x*)
+![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png =402x*)
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png =402x*)
+![Tooltip appears on focus for the info icon in the 'Artist' column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png =402x*)
 
 **Escape**
 Returns to navigation mode.
 
 <Doc::Badge @type="neutral">Escape</Doc::Badge>
 
-![Keyboard tab navigation example](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
 
 ### Row selection
 
