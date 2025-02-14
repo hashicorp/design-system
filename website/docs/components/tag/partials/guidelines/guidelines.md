@@ -46,12 +46,12 @@ When content within the tag is not user-generated, it should be concise and cons
 
 ### Truncation
 
-Tags have a max character limit of about 20 and if the text is longer it will truncate. The full text is displayed in a [Tooltip](/components/tooltip) when the user hover or focuses the Tag's text. The Tooltip is above the Tag by default, but this can be customized.
+Tags can display about 20 characters maximum before the text becomes automatically truncated. When truncated, the full text will display in a [Tooltip](/components/tooltip) that appears when the user hovers or focuses the Tag. This Tooltip displays above the Tag by default; however, the placement can be customized.
 
 ![](/assets/components/tag/tag-truncation-tooltip.png)
 
 !!! Info
 
-It is only possible to change the Tooltip placement in Ember. To keep the Figma component simple, there is only one placement (top).
+Tooltip placement can only be customized in the Ember component. For simplicity, the Figma component only includes top placement.
 
 !!!
