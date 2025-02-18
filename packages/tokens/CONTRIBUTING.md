@@ -2,7 +2,7 @@
 
 ## Initial setup
 
-*Notice: [Node.js](https://nodejs.org/en/) and `Pnpm` through `corepack` needs to be installed on your local machine.*
+*Notice: [Node.js](https://nodejs.org/en/) and [Pnpm through `corepack`](https://pnpm.io/installation#using-corepack) needs to be installed on your local machine.*
 
 * `git clone <repository-url>`
 * `pnpm install`
