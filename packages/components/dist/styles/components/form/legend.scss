@@ -1,0 +1,21 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > LEGEND
+//
+
+.hds-form-legend {
+  display: block;
+  color: var(--token-form-legend-color);
+
+  // if a "badge" element (included the 'required' indicator) is child of the legend
+  // we need to make sure that it correctly aligns with the legend text because the
+  // "Hds::Badge" component has "vertical-align: middle" applied to it
+  // and this mess up the vertical alignment (increasing the container's height too)
+  .hds-badge {
+    vertical-align: initial;
+  }
+}

@@ -1,8 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist/
-/declarations/
+# (to test components in consumer repos, comment out dist & declarations, run yarn build in components/, & commit)
+# /dist/
+# /declarations/
 
 # dependencies
 /bower_components/

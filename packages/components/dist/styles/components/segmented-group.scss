@@ -1,0 +1,59 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// SEGMENTED-GROUP
+//
+
+.hds-segmented-group {
+  display: inline-flex;
+
+  > .hds-button,
+  > .hds-dropdown,
+  > .hds-form-select,
+  > .hds-form-text-input {
+    &:first-child:not(:only-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &::before,
+      .hds-dropdown-toggle-button,
+      .hds-dropdown-toggle-button::before {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+      }
+    }
+
+    &:last-child:not(:only-child) {
+      margin-left: -1px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &::before,
+      .hds-dropdown-toggle-button,
+      .hds-dropdown-toggle-button::before {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+      }
+    }
+
+    &:not(:first-child, :last-child, :only-child) {
+      margin-left: -1px;
+      border-radius: 0;
+
+      &::before,
+      .hds-dropdown-toggle-button,
+      .hds-dropdown-toggle-button::before {
+        border-radius: inherit;
+      }
+    }
+
+    &:focus,
+    &.mock-focus,
+    .hds-dropdown-toggle-button:focus {
+      z-index: 1;
+    }
+  }
+}
