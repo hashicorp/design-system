@@ -29,6 +29,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="hasFullScreenButton" @type="boolean" @default="false">
     Used to control whether a toggle button for toggling full-screen mode will be displayed.
   </C.Property>
+  <C.Property @name="isLineWrappingEnabled" @type="boolean" @default="false">
+    Enables line wrapping within the editor.
+  </C.Property>
   <C.Property @name="isStandalone" @type="boolean" @default="true">
     Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
   </C.Property>

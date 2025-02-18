@@ -82,7 +82,6 @@ Set `hasCopyButton` to `true` to display a button for users to copy Code Editor 
 />
 ```
 
-
 ### Full screen mode
 
 Set `hasFullScreenButton` to `true` to display a button for users to toggle between a full screen view and normal placement within the page.
