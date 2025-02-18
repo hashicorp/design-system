@@ -260,12 +260,12 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       hbs`<Hds::CodeEditor @ariaLabel="test" @isLineWrappingEnabled={{this.isLineWrappingEnabled}} />`
     );
     assert
-      .dom('#code-editor-wrapper .cm-editor .cm-content')
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
       .hasClass('cm-lineWrapping');
 
     this.set('isLineWrappingEnabled', false);
     assert
-      .dom('#code-editor-wrapper .cm-editor .cm-content')
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
       .doesNotHaveClass('cm-lineWrapping');
   });
 
