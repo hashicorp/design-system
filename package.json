@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "release-packages": "pnpm changeset publish",
-    "version-packages": "pnpm changeset version && pnpm install --mode update-lockfile && pnpm -F website generate-changelog-markdown-files"
+    "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.25.9",
