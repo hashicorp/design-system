@@ -17,6 +17,7 @@ import type { HdsCodeEditorTitleSignature } from './title';
 import type { HdsCodeEditorGenericSignature } from './generic';
 import type { EditorView } from '@codemirror/view';
 import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
+
 export interface HdsCodeEditorSignature {
   Args: {
     hasCopyButton?: boolean;

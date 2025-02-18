@@ -17,6 +17,7 @@ export async function initialize(
     appInstance.__flightIconsSpriteLoaded !== true
   ) {
     const { default: svgSprite } = await import(
+      // @ts-expect-error: missing types
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
 

@@ -1,6 +1,6 @@
 {
-  "buildCommand": "yarn workspace website build && yarn workspace website algolia:index",
-  "devCommand": "yarn workspace website ember serve",
+  "buildCommand": "pnpm -F website build && pnpm -F website algolia:index",
+  "devCommand": "pnpm -F website ember serve",
   "headers": [
     {
       "source": "/(.*)",
@@ -24,6 +24,10 @@
   "framework": "ember",
   "rewrites": [{ "source": "/(.*)", "destination": "/_empty.html" }],
   "redirects": [
-    { "source": "/support", "destination": "/about/support", "permanent": false }
+    {
+      "source": "/support",
+      "destination": "/about/support",
+      "permanent": false
+    }
   ]
 }
