@@ -134,4 +134,26 @@
       <div {{hds-code-editor ariaLabel="Standalone modifier usage" value=this.demoCode}} />
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="toggle line wrapping">
+      <Hds::Form::Checkbox::Field
+        name="enable-line-wrapping"
+        checked={{this.isLineWrappingEnabled}}
+        class="hds-code-editor-line-wrapper-controls"
+        {{on "change" this.toggleLineWrapping}}
+        as |F|
+      >
+        <F.Label>Line wrapping: {{if this.isLineWrappingEnabled "Enabled" "Disabled"}}</F.Label>
+      </Hds::Form::Checkbox::Field>
+      <div
+        {{hds-code-editor
+          ariaLabel="Standalone modifier usage"
+          value=this.demoCode
+          isLineWrappingEnabled=this.isLineWrappingEnabled
+          onInput=this.setDemoCode
+        }}
+      />
+    </SF.Item>
+  </Shw::Flex>
 </section>

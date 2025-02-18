@@ -113,6 +113,23 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       .hasAttribute('aria-labelledby', 'test-label');
   });
 
+  // isLineWrappingEnabled
+  test('it should render the editor with line wrapping enabled when isLineWrappingEnabled is true and not when it is false', async function (assert) {
+    this.set('isLineWrappingEnabled', true);
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLineWrappingEnabled=this.isLineWrappingEnabled}} />`
+    );
+    assert
+      .dom('#code-editor-wrapper .cm-editor .cm-content')
+      .hasClass('cm-lineWrapping');
+
+    this.set('isLineWrappingEnabled', false);
+    assert
+      .dom('#code-editor-wrapper .cm-editor .cm-content')
+      .doesNotHaveClass('cm-lineWrapping');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if both ariaLabel and ariaLabelledBy are ommitted', async function (assert) {

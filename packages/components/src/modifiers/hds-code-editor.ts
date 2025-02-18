@@ -8,6 +8,8 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
+import { Compartment } from '@codemirror/state';
+import { EditorView } from '@codemirror/view';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -20,10 +22,16 @@ import type {
   StreamParser as StreamParserType,
 } from '@codemirror/language';
 import type { Extension } from '@codemirror/state';
-import type { EditorView, ViewUpdate } from '@codemirror/view';
+import type {
+  EditorView as EditorViewType,
+  ViewUpdate,
+} from '@codemirror/view';
 import type Owner from '@ember/owner';
 
-type HdsCodeEditorBlurHandler = (editor: EditorView, event: FocusEvent) => void;
+type HdsCodeEditorBlurHandler = (
+  editor: EditorViewType,
+  event: FocusEvent
+) => void;
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -31,11 +39,12 @@ export interface HdsCodeEditorSignature {
       ariaDescribedBy?: string;
       ariaLabel?: string;
       ariaLabelledBy?: string;
+      isLineWrappingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
-      onSetup?: (editor: EditorView) => unknown;
+      onSetup?: (editor: EditorViewType) => unknown;
     };
   };
 }
@@ -90,7 +99,7 @@ const LANGUAGES: Record<
 } as const;
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
-  editor!: EditorView;
+  editor!: EditorViewType;
   element!: HTMLElement;
 
   onBlur: HdsCodeEditorSignature['Args']['Named']['onBlur'];
@@ -98,6 +107,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   blurHandler!: (event: FocusEvent) => void;
   observer!: IntersectionObserver;
+
+  lineWrappingCompartment = new Compartment();
 
   constructor(owner: Owner, args: ArgsFor<HdsCodeEditorSignature>) {
     super(owner, args);
@@ -116,26 +127,37 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    // the intersection observer makes loading unreliable in tests
-    if (config.environment === 'test') {
-      this._setupTask.perform(element, positional, named);
-    } else {
-      this.observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            const setupHasNotRun = this._setupTask.performCount === 0;
+    const { isLineWrappingEnabled = false } = named;
 
-            if (entry.isIntersecting && setupHasNotRun) {
-              this._setupTask.perform(element, positional, named);
-            }
-          });
-        },
-        {
-          rootMargin: LOADER_HEIGHT,
-        }
-      );
+    // if the editor already exists, update the line wrapping
+    if (this.editor) {
+      this.editor.dispatch({
+        effects: this.lineWrappingCompartment.reconfigure(
+          isLineWrappingEnabled ? EditorView.lineWrapping : []
+        ),
+      });
+    }
+    // if the editor does not exist, setup the editor
+    else {
+      // the intersection observer makes loading unreliable in tests
+      if (config.environment === 'test') {
+        this._setupTask.perform(element, positional, named);
+      } else {
+        this.observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting && this.editor === undefined) {
+                this._setupTask.perform(element, positional, named);
+              }
+            });
+          },
+          {
+            rootMargin: LOADER_HEIGHT,
+          }
+        );
 
-      this.observer.observe(element);
+        this.observer.observe(element);
+      }
     }
   }
 
@@ -155,7 +177,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   private _setupEditorAriaLabel(
-    editor: EditorView,
+    editor: EditorViewType,
     {
       ariaLabel,
       ariaLabelledBy,
@@ -181,7 +203,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   private _setupEditorAriaDescribedBy(
-    editor: EditorView,
+    editor: EditorViewType,
     ariaDescribedBy?: string
   ) {
     if (ariaDescribedBy === undefined) {
@@ -194,7 +216,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   private _setupEditorAriaAttributes(
-    editor: EditorView,
+    editor: EditorViewType,
     {
       ariaDescribedBy,
       ariaLabel,
@@ -239,65 +261,72 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   );
 
-  private _buildExtensionsTask = task({ drop: true }, async ({ language }) => {
-    const [
-      {
-        EditorView,
-        keymap,
-        lineNumbers,
-        highlightActiveLineGutter,
-        highlightSpecialChars,
-        highlightActiveLine,
-      },
-      { defaultKeymap, history, historyKeymap },
-      { bracketMatching, syntaxHighlighting },
-    ] = await Promise.all([
-      import('@codemirror/view'),
-      import('@codemirror/commands'),
-      import('@codemirror/language'),
-    ]);
+  private _buildExtensionsTask = task(
+    { drop: true },
+    async ({ language, isLineWrappingEnabled }) => {
+      const [
+        {
+          keymap,
+          lineNumbers,
+          highlightActiveLineGutter,
+          highlightSpecialChars,
+          highlightActiveLine,
+        },
+        { defaultKeymap, history, historyKeymap },
+        { bracketMatching, syntaxHighlighting },
+      ] = await Promise.all([
+        import('@codemirror/view'),
+        import('@codemirror/commands'),
+        import('@codemirror/language'),
+      ]);
 
-    const languageExtension = await this._loadLanguageTask.perform(language);
+      const languageExtension = await this._loadLanguageTask.perform(language);
 
-    const handleUpdateExtension = EditorView.updateListener.of(
-      (update: ViewUpdate) => {
-        // toggle a class if the update has/does not have a selection
-        if (update.selectionSet) {
-          update.view.dom.classList.toggle(
-            'cm-hasSelection',
-            !update.state.selection.main.empty
-          );
+      const handleUpdateExtension = EditorView.updateListener.of(
+        (update: ViewUpdate) => {
+          // toggle a class if the update has/does not have a selection
+          if (update.selectionSet) {
+            update.view.dom.classList.toggle(
+              'cm-hasSelection',
+              !update.state.selection.main.empty
+            );
+          }
+
+          // call the onInput callback if the document has changed
+          if (!update.docChanged || this.onInput === undefined) {
+            return;
+          }
+          this.onInput(update.state.doc.toString());
         }
+      );
 
-        // call the onInput callback if the document has changed
-        if (!update.docChanged || this.onInput === undefined) {
-          return;
-        }
-        this.onInput(update.state.doc.toString());
+      const lineWrappingExtension = this.lineWrappingCompartment.of(
+        isLineWrappingEnabled ? EditorView.lineWrapping : []
+      );
+
+      let extensions = [
+        lineWrappingExtension,
+        bracketMatching(),
+        highlightActiveLine(),
+        highlightActiveLineGutter(),
+        highlightSpecialChars(),
+        history(),
+        lineNumbers(),
+        keymap.of([...defaultKeymap, ...historyKeymap]),
+        // custom extensions
+        handleUpdateExtension,
+        // hds dark theme
+        hdsDarkTheme,
+        syntaxHighlighting(hdsDarkHighlightStyle),
+      ];
+
+      if (languageExtension !== undefined) {
+        extensions = [languageExtension, ...extensions];
       }
-    );
 
-    let extensions = [
-      bracketMatching(),
-      highlightActiveLine(),
-      highlightActiveLineGutter(),
-      highlightSpecialChars(),
-      history(),
-      lineNumbers(),
-      keymap.of([...defaultKeymap, ...historyKeymap]),
-      // custom extensions
-      handleUpdateExtension,
-      // hds dark theme
-      hdsDarkTheme,
-      syntaxHighlighting(hdsDarkHighlightStyle),
-    ];
-
-    if (languageExtension !== undefined) {
-      extensions = [languageExtension, ...extensions];
+      return extensions;
     }
-
-    return extensions;
-  });
+  );
 
   private _createEditorTask = task(
     { drop: true },
@@ -306,14 +335,18 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       {
         language,
         value,
-      }: Pick<HdsCodeEditorSignature['Args']['Named'], 'language' | 'value'>
+        isLineWrappingEnabled,
+      }: Pick<
+        HdsCodeEditorSignature['Args']['Named'],
+        'language' | 'value' | 'isLineWrappingEnabled'
+      >
     ) => {
       try {
         const { EditorState } = await import('@codemirror/state');
-        const { EditorView } = await import('@codemirror/view');
 
         const extensions = await this._buildExtensionsTask.perform({
           language,
+          isLineWrappingEnabled: isLineWrappingEnabled ?? false,
         });
 
         const state = EditorState.create({
@@ -349,6 +382,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
+        isLineWrappingEnabled,
         language,
         value,
       } = named;
@@ -361,6 +395,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const editor = await this._createEditorTask.perform(element, {
         language,
         value,
+        isLineWrappingEnabled,
       });
 
       if (editor === undefined) {
