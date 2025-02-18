@@ -11,24 +11,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Install PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
       - uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
-          cache-dependency-path: yarn.lock
+          cache: pnpm
 
       - name: Install Dependencies
-        run: yarn install --immutable
+        run: pnpm install
 
       - name: Sync icons
         env:
           # this is Brian's personal access token
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
-        run: yarn sync
+        run: pnpm sync
         working-directory: packages/flight-icons
 
       - name: Build icons
-        run: yarn build
+        run: pnpm build
         working-directory: packages/flight-icons
 
       - name: Open a PR

@@ -51,7 +51,7 @@ const plugins = [
   scss({
     fileName: 'styles/@hashicorp/design-system-components.css',
     includePaths: [
-      '../../node_modules/@hashicorp/design-system-tokens/dist/products/css',
+      'node_modules/@hashicorp/design-system-tokens/dist/products/css',
     ],
   }),
 
@@ -64,6 +64,9 @@ const plugins = [
 
   // Ensure that .gjs files are properly integrated as Javascript
   addon.gjs(),
+
+  // Emit .d.ts declaration files
+  addon.declarations('declarations'),
 
   // This babel config should *not* apply presets or compile away ES modules.
   // It exists only to provide development niceties for you, like automatic
