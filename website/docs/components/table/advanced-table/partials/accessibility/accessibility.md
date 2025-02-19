@@ -16,17 +16,20 @@ Unlike the Table component, each cell receives focus in the Advanced Table to su
 
 ## Keyboard Navigation
 
-The Advanced Table supports two keyboard interaction modes: Navigation Mode and Action Mode. These modes allow users to move through table data and interact with elements using only a keyboard.
+The Advanced Table supports two keyboard interaction modes: Navigation Mode and Action Mode. These modes allow users to move through table data and interact with elements using a keyboard.
 
 ### Navigation Mode
 
-When a user tabs into the Advanced Table, the first cell is focused. Arrow keys move between cells.
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
+When a user tabs into the Advanced Table, the first cell is focused.
+
 ![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
-<Doc::Badge @type="neutral">Arrow key Down</Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-top" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-bottom" /></Doc::Badge>
+
+Arrow keys move between cells.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
 
