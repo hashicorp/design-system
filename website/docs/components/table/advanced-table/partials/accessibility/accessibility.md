@@ -27,7 +27,7 @@ When a user tabs into the Advanced Table, the first cell is focused.
 
 ![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-top" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-bottom" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" /></Doc::Badge>
 
 Arrow keys move between cells.
 
