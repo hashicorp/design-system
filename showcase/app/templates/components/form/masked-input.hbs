@@ -192,6 +192,26 @@
     {{/each}}
   {{/let}}
 
+  <Shw::Text::H3>Functional examples</Shw::Text::H3>
+
+  <Shw::Text::H4>Externally controlled</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <div class="shw-component-form-masked-input-controls">
+        <Hds::Form::Checkbox::Field
+          name="toggle-visibility"
+          checked={{this.isContentMasked}}
+          {{on "change" this.updateIsMasked}}
+          as |F|
+        >
+          <F.Label>Content masking: {{if this.isContentMasked "Enabled" "Disabled"}}</F.Label>
+        </Hds::Form::Checkbox::Field>
+      </div>
+      <Hds::Form::MaskedInput::Base @isContentMasked={{this.isContentMasked}} @value="Lorem ipsum dolor" />
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
   <Shw::Text::H2>"Field" control</Shw::Text::H2>
