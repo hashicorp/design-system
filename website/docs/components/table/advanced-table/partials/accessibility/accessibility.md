@@ -50,15 +50,15 @@ If the table extends beyond the screen, arrow keys allow movement to access hidd
 
 ### Action Mode
 
-Press Enter in Navigation Mode to enter Action Mode and interact with elements inside a cell.
-
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
+Press Enter in Navigation Mode to enter Action Mode and interact with elements inside a cell. 
 
-**Enter**
 - If the cell contains one interactive element, focus moves to that element instead of activating it.
-- If multiple interactive elements exist, focus moves to the first one. Use Tab to navigate between them.
+- If multiple interactive elements exist, focus moves to the first one. 
+
+
+![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
@@ -66,14 +66,16 @@ Press Enter in Navigation Mode to enter Action Mode and interact with elements i
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
+Use Tab to navigate between actions within the cell.
+
 ![Tooltip appears on focus for the info icon in the 'Artist' column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png =402x*)
 
 **Escape**
-Returns to navigation mode.
-
 <Doc::Badge @type="neutral">Escape</Doc::Badge>
 
-![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
+Returns to navigation mode.
+
+![Keyboard focus on 'The Beatles' row using the arrow key.](website/public/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
 ### Row selection
 
