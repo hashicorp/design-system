@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<ul class={{this.classNames}} ...attributes>
+<ol class={{this.classNames}} ...attributes>
   {{yield
     (hash
       Step=(component
@@ -15,4 +15,4 @@
     )
     to="steps"
   }}
-</ul>
+</ol>
