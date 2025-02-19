@@ -1,0 +1,38 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<li {{did-insert this.didInsertNode}} class={{this.classNames}} ...attributes id={{this._stepId}}>
+  <div class="hds-stepper-list__step__progress">
+    <Hds::Stepper::Step::Indicator
+      @text="{{this.stepNumber}}"
+      @status={{this.status}}
+      @isInteractive={{false}}
+      class="hds-stepper-list__step__indicator"
+    />
+  </div>
+  <div class="hds-stepper-list__step__text">
+    <span class="sr-only">{{this.statusSrOnlyText}}</span>
+    <Hds::Text::Display
+      class="hds-stepper-list__step__title"
+      @tag={{this.titleTag}}
+      @size="300"
+      @weight="medium"
+      @color="primary"
+    >
+      {{yield to="title"}}
+    </Hds::Text::Display>
+    <Hds::Text::Body
+      class="hds-stepper-list__step__description"
+      @tag="div"
+      @size="200"
+      @weight="regular"
+      @color="faint"
+    >
+      {{yield to="description"}}
+    </Hds::Text::Body>
+    <div class="hds-stepper-list__step__content">
+      {{yield to="content"}}
+    </div>
+  </div>
+</li>

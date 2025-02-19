@@ -22,3 +22,42 @@ export const HdsStepperStatusToIconsValues: Record<
   [HdsStepperStatusesValues.Processing]: 'loading',
   [HdsStepperStatusesValues.Complete]: 'check-circle',
 };
+
+export const HdsStepperStatusToSrOnlyText: Record<
+  HdsStepperStatusesValues,
+  string
+> = {
+  [HdsStepperStatusesValues.Incomplete]: '',
+  [HdsStepperStatusesValues.Progress]: 'Current: ',
+  [HdsStepperStatusesValues.Processing]: 'In progress: ',
+  [HdsStepperStatusesValues.Complete]: 'Complete: ',
+};
+
+export enum HdsStepperTitleTagValues {
+  Div = 'div',
+  H1 = 'h1',
+  H2 = 'h2',
+  H3 = 'h3',
+  H4 = 'h4',
+  H5 = 'h5',
+  H6 = 'h6',
+}
+
+export type HdsStepperTitleTags = `${HdsStepperTitleTagValues}`;
+
+export type HdsStepperNavigationStepIds = string[];
+
+export interface HdsStepperNavigationStep {
+  title: string;
+  description?: string;
+  isInteractive?: boolean;
+  isComplete?: boolean;
+}
+
+export type HdsStepperListStepIds = string[];
+
+export interface HdsStepperListStep {
+  title: string;
+  description?: string;
+  isComplete?: boolean;
+}
