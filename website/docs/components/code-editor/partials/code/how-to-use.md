@@ -82,11 +82,18 @@ Set `hasCopyButton` to `true` to display a button for users to copy Code Editor 
 />
 ```
 
-
 ### Full screen mode
 
 Set `hasFullScreenButton` to `true` to display a button for users to toggle between a full screen view and normal placement within the page.
 
 ```handlebars
 <Hds::CodeEditor @ariaLabel="full screen mode" @hasFullScreenButton={{true}} @value={{this.loremIpsum}} />
+```
+
+### Line wrapping
+
+Set `hasLineWrapping` to `true` to enable line wrapping within the editor.
+
+```handlebars
+<Hds::CodeEditor @ariaLabel="line wrapping example" @hasLineWrapping={{true}} @value={{this.loremIpsum}} />
 ```

@@ -252,6 +252,23 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .doesNotHaveAttribute('aria-labelledby');
   });
 
+  // @hasLineWrapping
+  test('it should render the editor with line wrapping enabled when hasLineWrapping is true and not when it is false', async function (assert) {
+    this.set('hasLineWrapping', true);
+
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="test" @hasLineWrapping={{this.hasLineWrapping}} />`
+    );
+    assert
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
+      .hasClass('cm-lineWrapping');
+
+    this.set('hasLineWrapping', false);
+    assert
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
+      .doesNotHaveClass('cm-lineWrapping');
+  });
+
   // @value
   test('it should render the component with the provided value', async function (assert) {
     await setupCodeEditor(
