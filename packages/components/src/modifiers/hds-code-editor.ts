@@ -39,7 +39,7 @@ export interface HdsCodeEditorSignature {
       ariaDescribedBy?: string;
       ariaLabel?: string;
       ariaLabelledBy?: string;
-      isLineWrappingEnabled?: boolean;
+      hasLineWrapping?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
@@ -127,13 +127,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
-    const { isLineWrappingEnabled = false } = named;
+    const { hasLineWrapping = false } = named;
 
     // if the editor already exists, update the line wrapping
     if (this.editor) {
       this.editor.dispatch({
         effects: this.lineWrappingCompartment.reconfigure(
-          isLineWrappingEnabled ? EditorView.lineWrapping : []
+          hasLineWrapping ? EditorView.lineWrapping : []
         ),
       });
     }
@@ -263,7 +263,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ language, isLineWrappingEnabled }) => {
+    async ({ language, hasLineWrapping }) => {
       const [
         {
           keymap,
@@ -301,7 +301,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       );
 
       const lineWrappingExtension = this.lineWrappingCompartment.of(
-        isLineWrappingEnabled ? EditorView.lineWrapping : []
+        hasLineWrapping ? EditorView.lineWrapping : []
       );
 
       let extensions = [
@@ -335,10 +335,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       {
         language,
         value,
-        isLineWrappingEnabled,
+        hasLineWrapping,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'language' | 'value' | 'isLineWrappingEnabled'
+        'language' | 'value' | 'hasLineWrapping'
       >
     ) => {
       try {
@@ -346,7 +346,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
         const extensions = await this._buildExtensionsTask.perform({
           language,
-          isLineWrappingEnabled: isLineWrappingEnabled ?? false,
+          hasLineWrapping: hasLineWrapping ?? false,
         });
 
         const state = EditorState.create({
@@ -382,7 +382,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
-        isLineWrappingEnabled,
+        hasLineWrapping,
         language,
         value,
       } = named;
@@ -395,7 +395,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const editor = await this._createEditorTask.perform(element, {
         language,
         value,
-        isLineWrappingEnabled,
+        hasLineWrapping,
       });
 
       if (editor === undefined) {
