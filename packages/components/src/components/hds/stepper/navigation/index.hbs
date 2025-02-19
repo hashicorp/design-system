@@ -2,40 +2,38 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} ...attributes>
-  <ul class="hds-stepper-navigation__step-list">
-    {{#if @steps}}
-      {{#each @steps as |step|}}
-        <Hds::Stepper::Navigation::Step
-          @currentStep={{this.currentStep}}
-          @isComplete={{step.isComplete}}
-          @isInteractive={{step.isInteractive}}
-          @titleTag={{this.titleTag}}
-          @didInsertNode={{this.didInsertStep}}
-          @stepIds={{this._stepIds}}
-          @onStepChange={{@onStepChange}}
-          @onKeyUp={{this.onKeyUp}}
-        >
-          <:title>{{step.title}}</:title>
-          <:description>{{step.description}}</:description>
-        </Hds::Stepper::Navigation::Step>
-      {{/each}}
-    {{else}}
-      {{yield
-        (hash
-          Step=(component
-            "hds/stepper/navigation/step"
-            currentStep=this.currentStep
-            titleTag=this.titleTag
-            didInsertNode=this.didInsertStep
-            stepIds=this._stepIds
-            onStepChange=@onStepChange
-            onKeyUp=this.onKeyUp
-          )
+<ol class={{this.classNames}} ...attributes>
+  {{#if @steps}}
+    {{#each @steps as |step|}}
+      <Hds::Stepper::Navigation::Step
+        @currentStep={{this.currentStep}}
+        @isComplete={{step.isComplete}}
+        @isInteractive={{step.isInteractive}}
+        @titleTag={{this.titleTag}}
+        @didInsertNode={{this.didInsertStep}}
+        @stepIds={{this._stepIds}}
+        @onStepChange={{@onStepChange}}
+        @onKeyUp={{this.onKeyUp}}
+      >
+        <:title>{{step.title}}</:title>
+        <:description>{{step.description}}</:description>
+      </Hds::Stepper::Navigation::Step>
+    {{/each}}
+  {{else}}
+    {{yield
+      (hash
+        Step=(component
+          "hds/stepper/navigation/step"
+          currentStep=this.currentStep
+          titleTag=this.titleTag
+          didInsertNode=this.didInsertStep
+          stepIds=this._stepIds
+          onStepChange=@onStepChange
+          onKeyUp=this.onKeyUp
         )
-        to="steps"
-      }}
-    {{/if}}
-  </ul>
-</div>
+      )
+      to="steps"
+    }}
+  {{/if}}
+</ol>
 {{yield to="body"}}
