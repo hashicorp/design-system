@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
@@ -52,13 +53,14 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     this._isControlled = false;
   }
 
-  @action
-  onStateChange(): void {
+  private _manageState = modifier(() => {
     if (this.args.isContentMasked !== undefined) {
       this.isContentMasked = this.args.isContentMasked;
     }
     this._isControlled = true;
-  }
+
+    return () => {};
+  });
 
   get id(): string {
     return getElementId(this);
