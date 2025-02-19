@@ -1,0 +1,79 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<li class={{this.classNames}} ...attributes>
+  {{#if this.isInteractive}}
+    <button
+      class="hds-stepper-navigation__step__btn"
+      id={{this._stepId}}
+      tabindex={{unless this.isActive "-1"}}
+      type="button"
+      {{did-insert this.didInsertNode}}
+      {{on "click" this.onStepChange}}
+      {{on "keyup" this.onKeyUp}}
+    >
+      <div class="hds-stepper-navigation__step__progress">
+        <Hds::Stepper::Step::Indicator
+          @text="{{this.stepNumber}}"
+          @status={{this.status}}
+          @isInteractive={{this.isInteractive}}
+          class="hds-stepper-navigation__step__indicator"
+        />
+      </div>
+      <div class="hds-stepper-navigation__step__text">
+        <span class="sr-only">{{this.statusSrOnlyText}}</span>
+        <Hds::Text::Display
+          class="hds-stepper-navigation__step__title"
+          @tag={{this.titleTag}}
+          @size="300"
+          @weight="medium"
+          @color="primary"
+        >
+          {{yield to="title"}}
+        </Hds::Text::Display>
+        <Hds::Text::Body
+          class="hds-stepper-navigation__step__description"
+          @tag="div"
+          @size="200"
+          @weight="regular"
+          @color="faint"
+        >
+          {{yield to="description"}}
+        </Hds::Text::Body>
+      </div>
+    </button>
+  {{else}}
+    <div class="hds-stepper-navigation__step__content" id={{this._stepId}} {{did-insert this.didInsertNode}}>
+      <div class="hds-stepper-navigation__step__progress">
+        <Hds::Stepper::Step::Indicator
+          @text="{{this.stepNumber}}"
+          @status={{this.status}}
+          @isInteractive={{this.isInteractive}}
+          class="hds-stepper-navigation__step__indicator"
+        />
+      </div>
+      <div class="hds-stepper-navigation__step__text">
+        <span class="sr-only">{{this.statusSrOnlyText}}</span>
+        <Hds::Text::Display
+          class="hds-stepper-navigation__step__title"
+          @tag={{this.titleTag}}
+          @size="300"
+          @weight="medium"
+          @color="primary"
+        >
+          {{yield to="title"}}
+        </Hds::Text::Display>
+        <Hds::Text::Body
+          class="hds-stepper-navigation__step__description"
+          @tag="div"
+          @size="200"
+          @weight="regular"
+          @color="faint"
+        >
+          {{yield to="description"}}
+        </Hds::Text::Body>
+      </div>
+    </div>
+  {{/if}}
+</li>
