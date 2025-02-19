@@ -20,6 +20,7 @@ navigation:
     - datagrid
     - grid
     - list
+  order: 100
 status:
   updated: 4.16.0
 ---
