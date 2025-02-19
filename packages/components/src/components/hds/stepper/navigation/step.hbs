@@ -22,7 +22,6 @@
         />
       </div>
       <div class="hds-stepper-navigation__step__text">
-        <span class="sr-only">{{this.statusSrOnlyText}}</span>
         <Hds::Text::Display
           class="hds-stepper-navigation__step__title"
           @tag={{this.titleTag}}
@@ -30,6 +29,7 @@
           @weight="medium"
           @color="primary"
         >
+          <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
         </Hds::Text::Display>
         <Hds::Text::Body
