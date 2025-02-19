@@ -1,0 +1,51 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// STEPPER > LIST
+//
+
+$hds-stepper-list-step-padding-bottom: 18px;
+$hds-stepper-list-step-indicator-margin: 4px;
+$hds-stepper-indicator-step-size: 24px;
+
+.hds-stepper-list,
+.hds-stepper-list__step {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hds-stepper-list__step {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns: auto 1fr;
+
+  &:not(:last-of-type) {
+    padding-bottom: $hds-stepper-list-step-padding-bottom;
+
+    .hds-stepper-list__step__progress::before {
+      position: absolute;
+      top: $hds-stepper-indicator-step-size + $hds-stepper-list-step-indicator-margin;
+      left: 11px;
+      width: 1px;
+      height: calc(100% - ($hds-stepper-indicator-step-size + $hds-stepper-list-step-indicator-margin) + ($hds-stepper-list-step-padding-bottom - $hds-stepper-list-step-indicator-margin));
+      background-color: var(--token-color-border-primary);
+      content: "";
+    }
+  }
+}
+
+.hds-stepper-list__step__progress {
+  position: relative;
+}
+
+.hds-stepper-list__step__description {
+  margin-top: 4px;
+}
+
+.hds-stepper-list__step__content {
+  margin-top: 12px;
+}
