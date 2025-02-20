@@ -17,9 +17,7 @@
   "license": "MPL-2.0",
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "scripts": {
-    "build": "concurrently 'pnpm:build:*'",
-    "build:js": "rollup --config",
-    "build:types": "glint --declaration",
+    "build": "rollup --config",
     "lint": "concurrently 'pnpm:lint:*(!fix)' --names 'lint:'",
     "lint:fix": "concurrently 'pnpm:lint:*:fix' --names 'fix:'",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
@@ -28,9 +26,7 @@
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
     "prepublishOnly": "concurrently 'pnpm:build:*'",
-    "start": "concurrently 'pnpm:start:*'",
-    "start:js": "rollup --config --watch --no-watch.clearScreen",
-    "start:types": "glint --declaration --watch",
+    "start": "rollup --config --watch",
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
@@ -41,11 +37,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
-    "@babel/plugin-proposal-decorators": "^7.25.9",
-    "@babel/plugin-transform-class-properties": "^7.25.9",
-    "@babel/plugin-transform-private-methods": "^7.25.9",
     "@babel/plugin-transform-typescript": "^7.26.3",
-    "@babel/preset-typescript": "^7.26.0",
     "@babel/runtime": "^7.26.0",
     "@embroider/addon-dev": "^7.1.1",
     "@glimmer/component": "^1.1.2",
