@@ -75,7 +75,7 @@ Use Tab to navigate between actions within the cell.
 
 Returns to navigation mode.
 
-![Keyboard focus on 'The Beatles' row using the arrow key.](website/public/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
 ### Row selection
 
