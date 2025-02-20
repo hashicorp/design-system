@@ -6,6 +6,6 @@
 | Element          | Usage                          |
 |------------------|------------------------------- |
 | Text             | Required                       |
-| Tooltip           | Required when text is truncated|
+| Tooltip          | Required when text is truncated|
 | Dismiss icon     | Required for isDismissible     |
 | Container        | Required                       |
