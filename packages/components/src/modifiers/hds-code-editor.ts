@@ -8,8 +8,12 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
+<<<<<<< HEAD
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
+=======
+import { linter } from '@codemirror/lint';
+>>>>>>> d7925fb42 (working on linting)
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -321,7 +325,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       let lintingExtensions: Extension[] = [];
 
-      if (isLintingEnabled && language === 'json') {
+      if (isLintingEnabled) {
         const [{ linter, lintGutter }, { syntaxTree }] = await Promise.all([
           import('@codemirror/lint'),
           import('@codemirror/language'),
@@ -365,7 +369,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ];
 
       if (languageExtension !== undefined) {
-        extensions = [languageExtension, ...extensions];
+        extensions = [...extensions, languageExtension];
       }
 
       if (lintingExtensions.length !== 0) {

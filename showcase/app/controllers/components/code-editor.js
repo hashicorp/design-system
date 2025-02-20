@@ -17,6 +17,7 @@ export default class CodeEditorController extends Controller {
     {
       value: 'rego',
       label: 'Rego',
+      isLintingEnabled: true,
       code: `package example.test
 import data.users
 
@@ -36,6 +37,7 @@ deny { base64.decode(input.encoded) == "decoded" }
     {
       value: 'ruby',
       label: 'Ruby',
+      isLintingEnabled: true,
       code: `require 'date'
 
 file_name = 'example_file.txt'
@@ -51,6 +53,7 @@ end`,
     {
       value: 'shell',
       label: 'Shell',
+      isLintingEnabled: true,
       code: `DIR="example_directory"
 LOG_FILE="script.log"
 
@@ -64,6 +67,7 @@ fi`,
     {
       value: 'go',
       label: 'Go',
+      isLintingEnabled: true,
       code: `package main
 
 import "fmt"
@@ -76,6 +80,7 @@ func main() {
     {
       value: 'hcl',
       label: 'HCL',
+      isLintingEnabled: true,
       code: `variable "region" {
   type    = string
   default = "us-west-1"
@@ -84,6 +89,7 @@ func main() {
     {
       value: 'javascript',
       label: 'JavaScript',
+      isLintingEnabled: true,
       code: `const message = 'Hello, world!';
 
 function sayMessage() {
@@ -120,6 +126,7 @@ A [link](https://example.com) and a \`code snippet\`.
     {
       value: 'sentinel',
       label: 'Sentinel',
+      isLintingEnabled: true,
       code: `param allowed_regions = ["us-east-1", "us-west-2"]
 
 main = rule { all tfplan.resources[*].instances as r { r.attributes.region in allowed_regions } }
@@ -128,6 +135,7 @@ main = rule { all tfplan.resources[*].instances as r { r.attributes.region in al
     {
       value: 'sql',
       label: 'SQL',
+      isLintingEnabled: true,
       code: `SELECT 'Hello, world!';
 SELECT 'Welcome to SQL!';
 SELECT 'Enjoy coding!';`,
@@ -135,6 +143,7 @@ SELECT 'Enjoy coding!';`,
     {
       value: 'yaml',
       label: 'YAML',
+      isLintingEnabled: true,
       code: `app_config:
   name: ExampleApp
   version: 1.0.0
