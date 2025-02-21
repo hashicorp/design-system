@@ -8,12 +8,8 @@ import { assert, warn } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
 import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
-<<<<<<< HEAD
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
-=======
-import { linter } from '@codemirror/lint';
->>>>>>> d7925fb42 (working on linting)
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
