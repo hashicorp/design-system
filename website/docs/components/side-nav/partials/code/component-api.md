@@ -22,7 +22,7 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="isCollapsible" @type="boolean" @default="false">
     Controls whether the Side Nav is collapsible on large viewports. When this argument and `isResponsive` are set to `true`, a toggle button will permanently be rendered to collapse and expand the Side Nav.
     <br><br>
-    <em>Notice: if `@isResponsive` is set to false, this argument has no effect. If you are not injecting content via portals, you can apply the special `hds-side-nav-hide-when-minimized` class name to the top-level elements of your content to have it automatically fade in/out when the Side Nav changes its "minimization" state.</em>
+    <em>Notice: if `@isResponsive` is set to false, this argument has no effect. If you are not injecting content via portals, and you want your content to automatically fade in/out when the Side Nav changes its "minimization" state, you will have to have apply the special `hds-side-nav-hide-when-minimized` class name to the top-level elements of the content you're adding.</em>
   </C.Property>
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the Side Nav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the Side Nav or resize the window) and it is not a suitable way of controlling the Side Nav state from outside after render (it’s an internal state).
