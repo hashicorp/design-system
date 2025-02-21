@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<section
+  ...attributes
+  role="tabpanel"
+  id={{this._panelId}}
+  hidden={{not this.isVisible}}
+  aria-labelledby={{this.coupledStepId}}
+  {{did-insert this.didInsertNode}}
+>
+  {{yield (hash isVisible=this.isVisible)}}
+</section>

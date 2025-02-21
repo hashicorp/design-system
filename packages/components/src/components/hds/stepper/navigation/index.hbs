@@ -2,38 +2,51 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<ol class={{this.classNames}} ...attributes>
-  {{#if @steps}}
-    {{#each @steps as |step|}}
-      <Hds::Stepper::Navigation::Step
-        @currentStep={{this.currentStep}}
-        @isComplete={{step.isComplete}}
-        @isInteractive={{step.isInteractive}}
-        @titleTag={{this.titleTag}}
-        @didInsertNode={{this.didInsertStep}}
-        @stepIds={{this._stepIds}}
-        @onStepChange={{@onStepChange}}
-        @onKeyUp={{this.onKeyUp}}
-      >
-        <:title>{{step.title}}</:title>
-        <:description>{{step.description}}</:description>
-      </Hds::Stepper::Navigation::Step>
-    {{/each}}
-  {{else}}
-    {{yield
-      (hash
-        Step=(component
-          "hds/stepper/navigation/step"
-          currentStep=this.currentStep
-          titleTag=this.titleTag
-          didInsertNode=this.didInsertStep
-          stepIds=this._stepIds
-          onStepChange=@onStepChange
-          onKeyUp=this.onKeyUp
+<div class={{this.classNames}} ...attributes>
+  <ol class="hds-stepper-navigation__list" role="tablist">
+    {{#if @steps}}
+      {{#each @steps as |step|}}
+        <Hds::Stepper::Navigation::Step
+          @currentStep={{this.currentStep}}
+          @isComplete={{step.isComplete}}
+          @isInteractive={{step.isInteractive}}
+          @titleTag={{this.titleTag}}
+          @didInsertNode={{this.didInsertStep}}
+          @stepIds={{this._stepIds}}
+          @panelIds={{this._panelIds}}
+          @onStepChange={{@onStepChange}}
+          @onKeyUp={{this.onKeyUp}}
+        >
+          <:title>{{step.title}}</:title>
+          <:description>{{step.description}}</:description>
+        </Hds::Stepper::Navigation::Step>
+      {{/each}}
+    {{else}}
+      {{yield
+        (hash
+          Step=(component
+            "hds/stepper/navigation/step"
+            currentStep=this.currentStep
+            titleTag=this.titleTag
+            stepIds=this._stepIds
+            panelIds=this._panelIds
+            didInsertNode=this.didInsertStep
+            onStepChange=@onStepChange
+            onKeyUp=this.onKeyUp
+          )
         )
+      }}
+    {{/if}}
+  </ol>
+  {{yield
+    (hash
+      Panel=(component
+        "hds/stepper/navigation/panel"
+        currentStep=this.currentStep
+        stepIds=this._stepIds
+        panelIds=this._panelIds
+        didInsertNode=this.didInsertPanel
       )
-      to="steps"
-    }}
-  {{/if}}
-</ol>
-{{yield to="body"}}
+    )
+  }}
+</div>

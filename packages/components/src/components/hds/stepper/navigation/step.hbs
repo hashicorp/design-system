@@ -2,13 +2,17 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li class={{this.classNames}} ...attributes>
+{{! template-lint-disable require-presentational-children }}
+<li class={{this.classNames}} ...attributes role="presentation">
   {{#if this.isInteractive}}
     <button
       class="hds-stepper-navigation__step__btn"
       id={{this._stepId}}
       tabindex={{unless this.isActive "-1"}}
       type="button"
+      role="tab"
+      aria-selected={{if this.isActive "true" "false"}}
+      aria-controls={{this.coupledPanelId}}
       {{did-insert this.didInsertNode}}
       {{on "click" this.onStepChange}}
       {{on "keyup" this.onKeyUp}}
@@ -44,7 +48,15 @@
       </div>
     </button>
   {{else}}
-    <div class="hds-stepper-navigation__step__content" id={{this._stepId}} {{did-insert this.didInsertNode}}>
+    <div
+      class="hds-stepper-navigation__step__content"
+      id={{this._stepId}}
+      role="tab"
+      aria-selected={{if this.isActive "true" "false"}}
+      aria-controls={{this.coupledPanelId}}
+      aria-disabled="true"
+      {{did-insert this.didInsertNode}}
+    >
       <div class="hds-stepper-navigation__step__progress">
         <Hds::Stepper::Step::Indicator
           @text="{{this.stepNumber}}"
@@ -77,3 +89,4 @@
     </div>
   {{/if}}
 </li>
+{{! template-lint-enable require-presentational-children }}
