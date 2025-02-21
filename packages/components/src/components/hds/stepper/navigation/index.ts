@@ -27,6 +27,7 @@ export interface HdsStepperNavigationSignature {
     onStepChange?: (event: MouseEvent, stepNumber: number) => void;
   };
   Blocks: {
+    body?: [];
     default: [
       {
         Step?: ComponentLike<HdsStepperNavigationStepSignature>;
