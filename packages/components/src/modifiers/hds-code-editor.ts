@@ -28,6 +28,7 @@ import type {
   ViewUpdate,
 } from '@codemirror/view';
 import type Owner from '@ember/owner';
+import type { ParseError } from 'jsonc-parser';
 
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
@@ -322,26 +323,32 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       let lintingExtensions: Extension[] = [];
 
       if (isLintingEnabled) {
-        const [{ linter, lintGutter }, { syntaxTree }] = await Promise.all([
-          import('@codemirror/lint'),
-          import('@codemirror/language'),
-        ]);
+        const [{ linter, lintGutter }, { parse, printParseErrorCode }] =
+          await Promise.all([
+            import('@codemirror/lint'),
+            import('jsonc-parser'),
+          ]);
 
         lintingExtensions = [
           linter((view): Diagnostic[] => {
             const diagnostics: Diagnostic[] = [];
-            try {
-              JSON.parse(view.state.doc.toString());
-            } catch (error: any) {
-              const message = error.message;
-              const pos = error.position || 0;
+            const code = view.state.doc.toString();
+            const errors: ParseError[] = [];
+
+            parse(code, errors, {
+              allowTrailingComma: false,
+              disallowComments: true,
+            });
+
+            for (const err of errors) {
               diagnostics.push({
-                from: pos,
-                to: pos + 1,
+                from: err.offset,
+                to: err.offset + err.length,
                 severity: 'error',
-                message,
+                message: printParseErrorCode(err.error),
               });
             }
+
             return diagnostics;
           }),
           lintGutter(),
