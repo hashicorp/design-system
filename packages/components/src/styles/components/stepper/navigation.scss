@@ -25,35 +25,13 @@
 }
 
 .hds-stepper-navigation__step__btn {
-  @include hds-focus-ring-with-pseudo-element(
-    $top: -3px,
-    $right: -1px,
-    $bottom: -1px,
-    $left: -1px,
-    $radius: 0 0 6px 6px
-  );
-  border: none;
-  cursor: pointer;
-
-  &:hover,
-  &.mock-hover,
-  &:focus,
-  &.mock-focus {
-    .hds-stepper-navigation__step__text {
-      background-color: var(--token-color-surface-interactive-hover);
-      border-radius: 0 0 var(--token-border-radius-small) var(--token-border-radius-small);
-    }
-  }
-}
-
-.hds-stepper-navigation__step__btn,
-.hds-stepper-navigation__step__content {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0;
   background-color: transparent;
+  border: none;
 }
 
 .hds-stepper-navigation__step__progress {
@@ -132,6 +110,27 @@
 // INTERACTIVE
 
 .hds-stepper-navigation__step-interactive {
+  .hds-stepper-navigation__step__btn {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0 0 6px 6px
+    );
+    cursor: pointer;
+
+    &:hover,
+    &.mock-hover,
+    &:focus,
+    &.mock-focus {
+      .hds-stepper-navigation__step__text {
+        background-color: var(--token-color-surface-interactive-hover);
+        border-radius: 0 0 var(--token-border-radius-small) var(--token-border-radius-small);
+      }
+    }
+  }
+
   .hds-stepper-navigation__step__progress::after {
     background-color: var(--token-color-palette-blue-200);
   }
