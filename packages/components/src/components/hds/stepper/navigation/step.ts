@@ -14,6 +14,7 @@ import {
 import type {
   HdsStepperTitleTags,
   HdsStepperNavigationStepIds,
+  HdsStepperNavigationPanelIds,
   HdsStepperStatuses,
 } from '../types.ts';
 
@@ -27,8 +28,9 @@ export interface HdsStepperNavigationStepSignature {
     isInteractive?: boolean;
     isComplete?: boolean;
     titleTag?: HdsStepperTitleTags;
-    stepIds: HdsStepperNavigationStepIds;
-    didInsertNode?: (element: HTMLElement) => void;
+    stepIds?: HdsStepperNavigationStepIds;
+    panelIds?: HdsStepperNavigationPanelIds;
+    didInsertNode?: (element: HTMLElement, stepId: string) => void;
     onStepChange?: (event: MouseEvent, nodeIndex: number) => void;
     onKeyUp?: (nodeIndex: number, event: KeyboardEvent) => void;
   };
@@ -47,6 +49,8 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    */
   private _stepId = 'step-' + guidFor(this);
 
+  private _elementId?: string;
+
   /**
    * Get the index of the step from the _stepIds list
    * @param nodeIndex
@@ -62,7 +66,17 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    * @type {number}
    */
   get stepNumber(): number | undefined {
-    return this.args.stepNumber ?? this.args.stepIds?.indexOf(this._stepId) + 1;
+    return this.args.stepNumber ?? (this.args.stepIds ? this.args.stepIds.indexOf(this._stepId) + 1 : undefined);
+  }
+
+  /**
+   * Get the ID of the panel coupled/associated with the step (it's used by the `aria-controls` attribute)
+   * @returns string}
+   */
+  get coupledPanelId(): string | undefined {
+    return this.nodeIndex !== undefined
+      ? this.args.panelIds?.[this.nodeIndex]
+      : undefined;
   }
 
   /**
@@ -140,8 +154,9 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   didInsertNode(element: HTMLElement): void {
     const { didInsertNode } = this.args;
 
-    if (typeof didInsertNode === 'function' && this._stepId != undefined) {
-      didInsertNode(element);
+    if (typeof didInsertNode === 'function') {
+      this._elementId = element.id;
+      didInsertNode(element, this._elementId);
     }
   }
 
