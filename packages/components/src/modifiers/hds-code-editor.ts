@@ -466,10 +466,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaLabelledBy,
       });
 
-      this.editor.dispatch({
-        changes: { from: 0, to: 0, insert: ' ' },
-      });
-
       onSetup?.(this.editor);
     }
   );
