@@ -6,14 +6,17 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 import type { ComponentLike } from '@glint/template';
 import type { HdsStepperNavigationStepSignature } from './step';
+import type { HdsStepperNavigationPanelSignature } from './panel';
 
 import { HdsStepperTitleTagValues } from '../types.ts';
 import type {
   HdsStepperTitleTags,
   HdsStepperNavigationStepIds,
   HdsStepperNavigationStep,
+  HdsStepperNavigationPanelIds,
 } from '../types.ts';
 
 export interface HdsStepperNavigationSignature {
@@ -24,12 +27,12 @@ export interface HdsStepperNavigationSignature {
     onStepChange?: (event: MouseEvent, stepNumber: number) => void;
   };
   Blocks: {
-    steps?: [
+    default: [
       {
         Step?: ComponentLike<HdsStepperNavigationStepSignature>;
+        Panel?: ComponentLike<HdsStepperNavigationPanelSignature>;
       },
     ];
-    body?: [];
   };
   Element: HTMLElement;
 }
@@ -37,6 +40,16 @@ export interface HdsStepperNavigationSignature {
 export default class HdsStepperNavigation extends Component<HdsStepperNavigationSignature> {
   @tracked private _stepIds: HdsStepperNavigationStepIds = [];
   @tracked private _stepNodes: HTMLElement[] = [];
+  @tracked private _panelNodes: HTMLElement[] = [];
+  @tracked private _panelIds: HdsStepperNavigationPanelIds = [];
+  @tracked private _currentStepId?: string;
+
+  /**
+   * Generate a unique ID for the panel
+   * @return {string}
+   * @param _panelId
+   */
+  private _panelId = 'panel-' + guidFor(this);
 
   /**
    * @param titleTag
@@ -67,9 +80,18 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
   }
 
   @action
-  didInsertStep(element: HTMLElement): void {
-    this._stepIds = [...this._stepIds, element.id];
+  didInsertStep(element: HTMLElement, stepId: string): void {
+    this._stepIds = [...this._stepIds, stepId];
     this._stepNodes = [...this._stepNodes, element];
+    if (this.currentStep === this._stepIds.length - 1) {
+      this._currentStepId = stepId;
+    }
+  }
+
+  @action
+  didInsertPanel(element: HTMLElement, panelId: string): void {
+    this._panelNodes = [...this._panelNodes, element];
+    this._panelIds = [...this._panelIds, panelId];
   }
 
   @action
