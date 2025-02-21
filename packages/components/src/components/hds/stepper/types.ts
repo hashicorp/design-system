@@ -54,6 +54,8 @@ export interface HdsStepperNavigationStep {
   isComplete?: boolean;
 }
 
+export type HdsStepperNavigationPanelIds = string[];
+
 export type HdsStepperListStepIds = string[];
 
 export interface HdsStepperListStep {

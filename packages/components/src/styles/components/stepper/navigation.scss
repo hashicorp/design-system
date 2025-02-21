@@ -9,14 +9,14 @@
 
 @use "../../mixins/focus-ring" as *;
 
-.hds-stepper-navigation,
+.hds-stepper-navigation__list,
 .hds-stepper-navigation__step {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.hds-stepper-navigation {
+.hds-stepper-navigation__list {
   display: flex;
 }
 
