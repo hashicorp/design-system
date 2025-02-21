@@ -421,16 +421,15 @@
     @titleTag="h3"
     @currentStep={{this.currentStepDemo3}}
     @onStepChange={{this.updateCurrentStepDemo3}}
-    as |S|
   >
-    <S.Panel>
-      <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
-    </S.Panel>
-    <S.Panel>
-      <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-    </S.Panel>
-    <S.Panel>
-      <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
-    </S.Panel>
+    <:body>
+      {{#if (eq this.currentStepDemo3 0)}}
+        <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+      {{else if (eq this.currentStepDemo3 1)}}
+        <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+      {{else}}
+        <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+      {{/if}}
+    </:body>
   </Hds::Stepper::Navigation>
 </section>
