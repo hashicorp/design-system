@@ -406,12 +406,6 @@ When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) 
 
 ### Responsiveness
 
-!!! Info
-
-If not injecting content via portals, add `hds-side-nav-hide-when-minimized` class name to the top-level elements of your content to have it automatically fade in/out when the Side Nav changes its "minimization" state.
-
-!!!
-
 As mentioned previously, the full-fledged `Hds::SideNav` component is "responsive" by default:
 
 - when the **viewport is `desktop`** the sidebar navigation is static and has a fixed width
