@@ -17,78 +17,79 @@
     @titleTag="h3"
     @currentStep={{this.currentStepDemo1}}
     @onStepChange={{this.updateCurrentStepDemo1}}
+    as |S|
   >
-    <:steps as |S|>
-      <S.Step @isComplete={{true}} @isInteractive={{true}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{true}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{false}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-    </:steps>
-    <:body>
-      {{#if (eq this.currentStepDemo1 0)}}
-        <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
-      {{else if (eq this.currentStepDemo1 1)}}
-        <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      {{else}}
-        <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
-      {{/if}}
-    </:body>
+    <S.Step @isComplete={{true}} @isInteractive={{true}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{true}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+    </S.Panel>
   </Hds::Stepper::Navigation>
 
   <Shw::Text::Body>Non-interactive</Shw::Text::Body>
 
-  <Hds::Stepper::Navigation @titleTag="h3" @currentStep={{1}}>
-    <:steps as |S|>
-      <S.Step @isComplete={{true}} @isInteractive={{false}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{false}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{false}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-    </:steps>
-    <:body>
+  <Hds::Stepper::Navigation @titleTag="h3" @currentStep={{1}} as |S|>
+    <S.Step @isComplete={{true}} @isInteractive={{false}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-    </:body>
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+    </S.Panel>
   </Hds::Stepper::Navigation>
 
   <Shw::Divider />
 
   <Shw::Text::H2>List</Shw::Text::H2>
 
-  <Hds::Stepper::List @titleTag="h3" {{style width="200px"}}>
-    <:steps as |S|>
-      <S.Step @status="complete">
-        <:title>Title</:title>
-        <:description>Description</:description>
-        <:content>
-          <Shw::Placeholder @text="Step 1: Generic content" @height="20" />
-        </:content>
-      </S.Step>
-      <S.Step @status="progress">
-        <:title>Title</:title>
-        <:description>Description</:description>
-        <:content>
-          <Shw::Placeholder @text="Step 2: Generic content" @height="20" />
-        </:content>
-      </S.Step>
-      <S.Step @status="incomplete">
-        <:title>Title</:title>
-      </S.Step>
-    </:steps>
+  <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} as |S|>
+    <S.Step @status="complete">
+      <:title>Title</:title>
+      <:description>Description</:description>
+      <:content>
+        <Shw::Placeholder @text="Step 1: Generic content" @height="20" />
+      </:content>
+    </S.Step>
+    <S.Step @status="progress">
+      <:title>Title</:title>
+      <:description>Description</:description>
+      <:content>
+        <Shw::Placeholder @text="Step 2: Generic content" @height="20" />
+      </:content>
+    </S.Step>
+    <S.Step @status="incomplete">
+      <:title>Title</:title>
+    </S.Step>
   </Hds::Stepper::List>
 
   <Shw::Divider />
@@ -290,6 +291,12 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>Navigation::Panel</Shw::Text::H3>
+
+  <Hds::Stepper::Navigation::Panel>
+    <Shw::Placeholder @text="Generic content" @height="100" />
+  </Hds::Stepper::Navigation::Panel>
+
   <Shw::Text::H3>List::Step</Shw::Text::H3>
 
   <Shw::Text::H4>Status</Shw::Text::H4>
@@ -379,29 +386,28 @@
     @titleTag="h3"
     @currentStep={{this.currentStepDemo2}}
     @onStepChange={{this.updateCurrentStepDemo2}}
+    as |S|
   >
-    <:steps as |S|>
-      <S.Step @isComplete={{true}} @isInteractive={{true}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{true}}>
-        <:title>Title</:title>
-        <:description>Description</:description>
-      </S.Step>
-      <S.Step @isComplete={{false}} @isInteractive={{false}}>
-        <:title>Title</:title>
-      </S.Step>
-    </:steps>
-    <:body>
-      {{#if (eq this.currentStepDemo2 0)}}
-        <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
-      {{else if (eq this.currentStepDemo2 1)}}
-        <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      {{else}}
-        <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
-      {{/if}}
-    </:body>
+    <S.Step @isComplete={{true}} @isInteractive={{true}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{true}}>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+      <:title>Title</:title>
+    </S.Step>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+    </S.Panel>
   </Hds::Stepper::Navigation>
 
   <Shw::Text::H3>Using @steps array</Shw::Text::H3>
@@ -415,15 +421,16 @@
     @titleTag="h3"
     @currentStep={{this.currentStepDemo3}}
     @onStepChange={{this.updateCurrentStepDemo3}}
+    as |S|
   >
-    <:body>
-      {{#if (eq this.currentStepDemo3 0)}}
-        <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
-      {{else if (eq this.currentStepDemo3 1)}}
-        <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      {{else}}
-        <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
-      {{/if}}
-    </:body>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+    </S.Panel>
+    <S.Panel>
+      <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+    </S.Panel>
   </Hds::Stepper::Navigation>
 </section>

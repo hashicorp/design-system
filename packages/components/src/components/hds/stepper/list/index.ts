@@ -18,7 +18,7 @@ export interface HdsStepperListSignature {
     titleTag?: HdsStepperTitleTags;
   };
   Blocks: {
-    steps?: [
+    default: [
       {
         Step?: ComponentLike<HdsStepperListStepSignature>;
       },
