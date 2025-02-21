@@ -41,12 +41,12 @@ node ./packages/codemods/bin/cli.js v3/dropdown path/to/some/glob/**/*.hbs
 
 * clone the repo
 * change into the repo directory
-* `yarn`
+* `pnpm i`
 
 ### Running tests
 
-* `yarn test`
+* `pnpm test`
 
 ### Update documentation
 
-* `yarn update-docs`
+* `pnpm update-docs`

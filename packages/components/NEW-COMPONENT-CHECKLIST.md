@@ -128,7 +128,7 @@ The engineering checklist has six parts: creating the feature branch, component 
   - [ ] test all accessibility attributes
   - [ ] test assertions
   - [ ] add an entry to the file `/showcase/tests/acceptance/percy-test.js` and make sure the visual regression tests are passing
-  - [ ] run the accessibility automation tests (`yarn test:a11y --filter="COMPONENT-NAME"`)
+  - [ ] run the accessibility automation tests (`pnpm test:a11y --filter="COMPONENT-NAME"`)
 - [ ] **documentation**
   - create component page `ember generate route components/COMPONENT_NAME --dummy`
   - add link to `templates/index.hbs` page
@@ -146,7 +146,7 @@ The engineering checklist has six parts: creating the feature branch, component 
 
 Pre-review request checks:
 
-- [ ] run `yarn lint` and fix any issues (`yarn lint:hbs --fix` will resolve most issues)
+- [ ] run `pnpm lint` and fix any issues (`pnpm lint:hbs --fix` will resolve most issues)
 - [ ] make sure all tests pass (`ember s` then visit /tests; or `ember t -s`)
 - [ ] make sure the visual regression test pass
 - [ ] check for basic a11y on docs page:
@@ -165,4 +165,4 @@ When ready for review:
 
 - [ ] add situationally appropriate reviewers
 - [ ] add instructions for reviewers in your PR, letting them know what kind of review you need
-- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `yarn changeset` (in the project root) using the [predefined format](https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3243114706/Changelog+authoring+best+practices#Templates))
+- [ ] add a changelog update via [Changesets](https://github.com/changesets/changesets) if needed using the command `pnpm changeset` (in the project root) using the [predefined format](https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3243114706/Changelog+authoring+best+practices#Templates))

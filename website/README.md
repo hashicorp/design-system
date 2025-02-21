@@ -16,12 +16,12 @@ You will need the following things properly installed on your computer.
 
 * `git clone https://github.com/hashicorp/design-system.git`
 * `cd website`
-* `yarn`
+* `pnpm`
 
 ## Running / Development
 
-* `yarn start`
-* `yarn start:prember` - starts local server with prember pre-rendering enabled
+* `pnpm start`
+* `pnpm start:prember` - starts local server with prember pre-rendering enabled
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 * Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
@@ -36,13 +36,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Linting
 
-* `yarn lint`
-* `yarn lint:fix`
-* `yarn lint:hbs`
-* `yarn lint:hbs:fix`
-* `yarn lint:css`
-* `yarn lint:css:fix`
-* `yarn lint:spell:docs`
+* `pnpm lint`
+* `pnpm lint:fix`
+* `pnpm lint:hbs`
+* `pnpm lint:hbs:fix`
+* `pnpm lint:css`
+* `pnpm lint:css:fix`
+* `pnpm lint:spell:docs`
 
 ### Building
 

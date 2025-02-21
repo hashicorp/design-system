@@ -18,21 +18,26 @@ jobs:
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
+      
+      - name: Install PNPM
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+        with:
+          run_install: false
 
       - name: Setup Node.js
         uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache-dependency-path: yarn.lock
+          cache: pnpm
 
       - name: Install Dependencies
-        run: yarn
+        run: pnpm install
 
       - name: Create Release Pull Request
         uses: changesets/action@c8bada60c408975afd1a20b3db81d6eee6789308 # v1.4.9
         with:
-          version: yarn version-packages
-          publish: yarn release-packages
+          version: pnpm version-packages
+          publish: pnpm release-packages
         env:
           # Token setup in hashibot-hds' account
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}

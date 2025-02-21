@@ -14,7 +14,7 @@ We provide components as an [Ember](https://emberjs.com/) addon with associated 
 ### Install components package
 
 ```bash
-yarn add @hashicorp/design-system-components
+pnpm add @hashicorp/design-system-components
 ```
 
 ### Import component styles
@@ -92,7 +92,7 @@ There are multiple ways to use icons in your codebase. We provide icons:
 Because the `Hds::Icon` component is part of the HDS components, you have to install the corresponding package:
 
 ```bash
-yarn add @hashicorp/design-system-components
+pnpm add @hashicorp/design-system-components
 ```
 
 and then use the component in your code like this:
@@ -116,7 +116,7 @@ The `ember-flight-icons` package is an Ember addon that provides a standalone `F
 Since it's an independent package, you have to install it first:
 
 ```bash
-yarn add @hashicorp/ember-flight-icons
+pnpm add @hashicorp/ember-flight-icons
 ```
 
 and then use the component in your code like this:
@@ -160,7 +160,7 @@ You can copy the code for the `Hds::Icon` into your codebase, or you can [take i
 To add icons to a React application, you need to install the `@hashicorp/flight-icons` package:
 
 ```bash
-yarn add @hashicorp/flight-icons
+pnpm add @hashicorp/flight-icons
 ```
 
 This package can be consumed in React applications via direct import of the SVG file or as a standalone React/SVG icon component.
@@ -228,7 +228,7 @@ If the Ember components are not an option for your project, you can still use th
 ### Install tokens package
 
 ```bash
-yarn add @hashicorp/design-system-tokens
+pnpm add @hashicorp/design-system-tokens
 ```
 
 ### Import styles as CSS variables

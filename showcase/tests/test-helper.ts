@@ -51,8 +51,8 @@ setRunOptions({
 
 // This will be used by developers to run the tests locally
 // Either with the `enableA11yAudit` as a query param in the URL
-// or `yarn test:a11y` in the CLI
-// Note: if you want to filter what test is run from the start, use the --filter flag: `yarn test:a11y --filter="alert"`
+// or `pnpm test:a11y` in the CLI
+// Note: if you want to filter what test is run from the start, use the --filter flag: `pnpm test:a11y --filter="alert"`
 // Docs: https://guides.emberjs.com/release/testing/#toc_how-to-filter-tests
 if (shouldForceAudit()) {
   setEnableA11yAudit(true);
