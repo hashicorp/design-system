@@ -66,7 +66,12 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    * @type {number}
    */
   get stepNumber(): number | undefined {
-    return this.args.stepNumber ?? (this.args.stepIds ? this.args.stepIds.indexOf(this._stepId) + 1 : undefined);
+    return (
+      this.args.stepNumber ??
+      (this.args.stepIds
+        ? this.args.stepIds.indexOf(this._stepId) + 1
+        : undefined)
+    );
   }
 
   /**

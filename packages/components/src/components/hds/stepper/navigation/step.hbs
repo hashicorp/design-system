@@ -21,7 +21,7 @@
         <Hds::Stepper::Step::Indicator
           @text="{{this.stepNumber}}"
           @status={{this.status}}
-          @isInteractive={{this.isInteractive}}
+          @isInteractive={{true}}
           class="hds-stepper-navigation__step__indicator"
         />
       </div>
@@ -48,25 +48,26 @@
       </div>
     </button>
   {{else}}
-    <div
-      class="hds-stepper-navigation__step__content"
+    <button
+      class="hds-stepper-navigation__step__btn"
       id={{this._stepId}}
+      tabindex={{unless this.isActive "-1"}}
+      type="button"
       role="tab"
       aria-selected={{if this.isActive "true" "false"}}
-      aria-controls={{this.coupledPanelId}}
       aria-disabled="true"
+      aria-controls={{this.coupledPanelId}}
       {{did-insert this.didInsertNode}}
     >
       <div class="hds-stepper-navigation__step__progress">
         <Hds::Stepper::Step::Indicator
           @text="{{this.stepNumber}}"
           @status={{this.status}}
-          @isInteractive={{this.isInteractive}}
+          @isInteractive={{false}}
           class="hds-stepper-navigation__step__indicator"
         />
       </div>
       <div class="hds-stepper-navigation__step__text">
-        <span class="sr-only">{{this.statusSrOnlyText}}</span>
         <Hds::Text::Display
           class="hds-stepper-navigation__step__title"
           @tag={{this.titleTag}}
@@ -74,6 +75,7 @@
           @weight="medium"
           @color="primary"
         >
+          <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
         </Hds::Text::Display>
         <Hds::Text::Body
@@ -86,7 +88,7 @@
           {{yield to="description"}}
         </Hds::Text::Body>
       </div>
-    </div>
+    </button>
   {{/if}}
 </li>
 {{! template-lint-enable require-presentational-children }}
