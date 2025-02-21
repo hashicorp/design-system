@@ -20,11 +20,7 @@ export interface HdsStepperNavigationPanelSignature {
     didInsertNode?: (element: HTMLElement, panelId: string) => void;
   };
   Blocks: {
-    default: [
-      {
-        isVisible?: boolean;
-      },
-    ];
+    default: [];
   };
   Element: HTMLElement;
 }

@@ -38,15 +38,28 @@
       }}
     {{/if}}
   </ol>
-  {{yield
-    (hash
-      Panel=(component
-        "hds/stepper/navigation/panel"
-        currentStep=this.currentStep
-        stepIds=this._stepIds
-        panelIds=this._panelIds
-        didInsertNode=this.didInsertPanel
+  {{#if @steps}}
+    {{#each @steps as |step|}}
+      <Hds::Stepper::Navigation::Panel
+        @currentStep={{this.currentStep}}
+        @stepIds={{this._stepIds}}
+        @panelIds={{this._panelIds}}
+        @didInsertNode={{this.didInsertPanel}}
+      >
+        {{yield to="body"}}
+      </Hds::Stepper::Navigation::Panel>
+    {{/each}}
+  {{else}}
+    {{yield
+      (hash
+        Panel=(component
+          "hds/stepper/navigation/panel"
+          currentStep=this.currentStep
+          stepIds=this._stepIds
+          panelIds=this._panelIds
+          didInsertNode=this.didInsertPanel
+        )
       )
-    )
-  }}
+    }}
+  {{/if}}
 </div>
