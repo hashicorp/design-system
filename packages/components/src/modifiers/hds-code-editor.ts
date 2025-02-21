@@ -28,6 +28,7 @@ import type {
 } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
+import type { ParseError } from 'jsonc-parser';
 
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
@@ -352,6 +353,41 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const lineWrappingExtension = this.lineWrappingCompartment.of(
         hasLineWrapping ? EditorView.lineWrapping : []
       );
+
+      let lintingExtensions: Extension[] = [];
+
+      if (isLintingEnabled) {
+        const [{ linter, lintGutter }, { parse, printParseErrorCode }] =
+          await Promise.all([
+            import('@codemirror/lint'),
+            import('jsonc-parser'),
+          ]);
+
+        lintingExtensions = [
+          linter((view): Diagnostic[] => {
+            const diagnostics: Diagnostic[] = [];
+            const code = view.state.doc.toString();
+            const errors: ParseError[] = [];
+
+            parse(code, errors, {
+              allowTrailingComma: false,
+              disallowComments: true,
+            });
+
+            for (const err of errors) {
+              diagnostics.push({
+                from: err.offset,
+                to: err.offset + err.length,
+                severity: 'error',
+                message: printParseErrorCode(err.error),
+              });
+            }
+
+            return diagnostics;
+          }),
+          lintGutter(),
+        ];
+      }
 
       let extensions = [
         lineWrappingExtension,
