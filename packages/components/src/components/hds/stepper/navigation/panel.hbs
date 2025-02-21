@@ -10,5 +10,7 @@
   aria-labelledby={{this.coupledStepId}}
   {{did-insert this.didInsertNode}}
 >
-  {{yield (hash isVisible=this.isVisible)}}
+  {{#if this.isVisible}}
+    {{yield}}
+  {{/if}}
 </section>
