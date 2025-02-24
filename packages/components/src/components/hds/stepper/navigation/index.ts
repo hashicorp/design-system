@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { schedule } from '@ember/runloop';
 import type { ComponentLike } from '@glint/template';
 import type { HdsStepperNavigationStepSignature } from './step';
 import type { HdsStepperNavigationPanelSignature } from './panel';
@@ -82,17 +83,41 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
 
   @action
   didInsertStep(element: HTMLElement, stepId: string): void {
-    this._stepIds = [...this._stepIds, stepId];
-    this._stepNodes = [...this._stepNodes, element];
-    if (this.currentStep === this._stepIds.length - 1) {
-      this._currentStepId = stepId;
-    }
+    schedule('afterRender', (): void => {
+      this._stepIds = [...this._stepIds, stepId];
+      this._stepNodes = [...this._stepNodes, element];
+      if (this.currentStep === this._stepIds.length - 1) {
+        this._currentStepId = stepId;
+      }
+    });
+  }
+
+  @action
+  willDestroyStep(element: HTMLElement): void {
+    this._stepNodes = this._stepNodes.filter(
+      (node): boolean => node.id !== element.id
+    );
+    this._stepIds = this._stepIds.filter(
+      (stepId): boolean => stepId !== element.id
+    );
   }
 
   @action
   didInsertPanel(element: HTMLElement, panelId: string): void {
-    this._panelNodes = [...this._panelNodes, element];
-    this._panelIds = [...this._panelIds, panelId];
+    schedule('afterRender', (): void => {
+      this._panelIds = [...this._panelIds, panelId];
+      this._panelNodes = [...this._panelNodes, element];
+    });
+  }
+
+  @action
+  willDestroyPanel(element: HTMLElement): void {
+    this._panelNodes = this._panelNodes.filter(
+      (node): boolean => node.id !== element.id
+    );
+    this._panelIds = this._panelIds.filter(
+      (panelId): boolean => panelId !== element.id
+    );
   }
 
   @action
