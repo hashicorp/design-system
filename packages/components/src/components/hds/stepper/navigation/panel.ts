@@ -36,17 +36,22 @@ export default class HdsStepperNavigationPanel extends Component<HdsStepperNavig
   private _panelId = 'panel-' + guidFor(this);
   private _elementId?: string;
 
-  private _setUpPanel = modifier((element: HTMLElement, [insertCallbackFunction, destoryCallbackFunction]) => {
-    if (typeof insertCallbackFunction === 'function') {
-      insertCallbackFunction(element);
-    }
-
-    return () => {
-      if (typeof destoryCallbackFunction === 'function') {
-        destoryCallbackFunction(element);
+  private _setUpPanel = modifier(
+    (
+      element: HTMLElement,
+      [insertCallbackFunction, destoryCallbackFunction]
+    ) => {
+      if (typeof insertCallbackFunction === 'function') {
+        insertCallbackFunction(element);
       }
-    };
-  });
+
+      return () => {
+        if (typeof destoryCallbackFunction === 'function') {
+          destoryCallbackFunction(element);
+        }
+      };
+    }
+  );
 
   /**
    * Get the index of the step from the _panelIds list
