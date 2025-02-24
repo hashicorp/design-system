@@ -3,5 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+@use "./list";
+@use "./navigation";
 @use "./step-indicator";
 @use "./task-indicator";
