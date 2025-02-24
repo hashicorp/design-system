@@ -12,6 +12,7 @@
           @isInteractive={{step.isInteractive}}
           @titleTag={{this.titleTag}}
           @didInsertNode={{this.didInsertStep}}
+          @willDestroyNode={{this.willDestroyStep}}
           @stepIds={{this._stepIds}}
           @panelIds={{this._panelIds}}
           @onStepChange={{@onStepChange}}
@@ -31,6 +32,7 @@
             stepIds=this._stepIds
             panelIds=this._panelIds
             didInsertNode=this.didInsertStep
+            willDestroyNode=this.willDestroyStep
             onStepChange=@onStepChange
             onKeyUp=this.onKeyUp
           )
@@ -45,6 +47,7 @@
         @stepIds={{this._stepIds}}
         @panelIds={{this._panelIds}}
         @didInsertNode={{this.didInsertPanel}}
+        @willDestroyNode={{this.willDestroyPanel}}
       >
         {{yield to="body"}}
       </Hds::Stepper::Navigation::Panel>
@@ -58,6 +61,7 @@
           stepIds=this._stepIds
           panelIds=this._panelIds
           didInsertNode=this.didInsertPanel
+          willDestroyNode=this.willDestroyPanel
         )
       )
     }}
