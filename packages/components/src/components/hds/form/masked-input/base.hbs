@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} {{style width=@width}}>
+<div class={{this.classNames}} {{style width=@width}} {{this._manageState}}>
   {{#if @isMultiline}}
     <Hds::Form::Textarea::Base
       class="hds-form-masked-input__control"
