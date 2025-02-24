@@ -21,14 +21,12 @@ import type {
   StreamLanguage as StreamLanguageType,
   StreamParser as StreamParserType,
 } from '@codemirror/language';
-import type { Diagnostic } from '@codemirror/lint';
 import type { Extension } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
   ViewUpdate,
 } from '@codemirror/view';
 import type Owner from '@ember/owner';
-import type { ParseError } from 'jsonc-parser';
 
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
@@ -62,7 +60,10 @@ const LOADER_HEIGHT = '164px';
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
-  { load: () => Promise<Extension | StreamLanguageType<unknown>> }
+  {
+    load: () => Promise<Extension | StreamLanguageType<unknown>>;
+    loadLinter?: () => Promise<Extension>;
+  }
 > = {
   rego: {
     load: async () => {
@@ -102,6 +103,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
+    loadLinter: async () => {
+      const linter = await import('./hds-code-editor/linters/json-linter.ts');
+      return linter.default();
+    },
   },
   markdown: {
     load: async () => (await import('@codemirror/lang-markdown')).markdown(),
@@ -246,9 +251,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
   }
 
-  private _loadLanguageTask = task(
+  private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async (language?: HdsCodeEditorLanguages) => {
+    async (
+      language?: HdsCodeEditorLanguages,
+      isLintingEnabled: boolean = false
+    ) => {
       if (language === undefined) {
         return;
       }
@@ -263,7 +271,18 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           validLanguageKeys.includes(language)
         );
 
-        return LANGUAGES[language].load();
+        let extensionPromises = [LANGUAGES[language].load()];
+
+        if (isLintingEnabled && LANGUAGES[language].loadLinter) {
+          extensionPromises = [
+            ...extensionPromises,
+            LANGUAGES[language].loadLinter(),
+          ];
+        }
+
+        const loadedExtensions = await Promise.all(extensionPromises);
+
+        return loadedExtensions;
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
@@ -296,7 +315,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         import('@codemirror/language'),
       ]);
 
-      const languageExtension = await this._loadLanguageTask.perform(language);
+      const languageExtensions = await this._loadLanguageExtensionsTask.perform(
+        language,
+        isLintingEnabled
+      );
 
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
@@ -320,41 +342,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         hasLineWrapping ? EditorView.lineWrapping : []
       );
 
-      let lintingExtensions: Extension[] = [];
-
-      if (isLintingEnabled) {
-        const [{ linter, lintGutter }, { parse, printParseErrorCode }] =
-          await Promise.all([
-            import('@codemirror/lint'),
-            import('jsonc-parser'),
-          ]);
-
-        lintingExtensions = [
-          linter((view): Diagnostic[] => {
-            const diagnostics: Diagnostic[] = [];
-            const code = view.state.doc.toString();
-            const errors: ParseError[] = [];
-
-            parse(code, errors, {
-              allowTrailingComma: false,
-              disallowComments: true,
-            });
-
-            for (const err of errors) {
-              diagnostics.push({
-                from: err.offset,
-                to: err.offset + err.length,
-                severity: 'error',
-                message: printParseErrorCode(err.error),
-              });
-            }
-
-            return diagnostics;
-          }),
-          lintGutter(),
-        ];
-      }
-
       let extensions = [
         lineWrappingExtension,
         bracketMatching(),
@@ -371,12 +358,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         syntaxHighlighting(hdsDarkHighlightStyle),
       ];
 
-      if (languageExtension !== undefined) {
-        extensions = [...extensions, languageExtension];
-      }
-
-      if (lintingExtensions.length !== 0) {
-        extensions = [...extensions, ...lintingExtensions];
+      if (languageExtensions !== undefined) {
+        extensions = [...extensions, ...languageExtensions];
       }
 
       return extensions;
