@@ -122,7 +122,7 @@ For clarity, there are a couple of important points to note here:
 
 !!! Info
 
-This component takes advantage of the `sort-by` helper provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
+This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers).
 
 !!!
 
@@ -311,7 +311,7 @@ In the `<:head>` the `setSortBy` function is invoked when the `<ThSort>` element
 
 In the `<:body>` the values of `sortBy` and `sortOrder` are provided instead as arguments to a consumer-side function that takes care of custom sorting the model/data.
 
-_Notice: in this case for the example we're using the [`call` helper](https://github.com/DockYard/ember-composable-helpers#call) from [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers)._
+_Notice: in this case for the example we're using the [`call` helper](https://github.com/NullVoxPopuli/ember-composable-helpers?tab=readme-ov-file#call) from [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)._
 
 The sorting function in the backing class code will look something like this (the actual implementation will depend on the consumer-side/business-logic context):
 
