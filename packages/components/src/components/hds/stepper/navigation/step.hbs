@@ -13,7 +13,7 @@
       role="tab"
       aria-selected={{if this.isActive "true" "false"}}
       aria-controls={{this.coupledPanelId}}
-      {{did-insert this.didInsertNode}}
+      {{this._setUpStep this.didInsertNode this.willDestroyNode}}
       {{on "click" this.onStepChange}}
       {{on "keyup" this.onKeyUp}}
     >
@@ -57,7 +57,7 @@
       aria-selected={{if this.isActive "true" "false"}}
       aria-disabled="true"
       aria-controls={{this.coupledPanelId}}
-      {{did-insert this.didInsertNode}}
+      {{this._setUpStep this.didInsertNode}}
     >
       <div class="hds-stepper-navigation__step__progress">
         <Hds::Stepper::Step::Indicator

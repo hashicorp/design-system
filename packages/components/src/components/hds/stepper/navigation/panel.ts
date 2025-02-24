@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 import type {
   HdsStepperNavigationStepIds,
@@ -18,6 +19,7 @@ export interface HdsStepperNavigationPanelSignature {
     stepIds?: HdsStepperNavigationStepIds;
     panelIds?: HdsStepperNavigationPanelIds;
     didInsertNode?: (element: HTMLElement, panelId: string) => void;
+    willDestroyNode?: (element: HTMLElement) => void;
   };
   Blocks: {
     default: [];
@@ -32,8 +34,19 @@ export default class HdsStepperNavigationPanel extends Component<HdsStepperNavig
    * @param _panelId
    */
   private _panelId = 'panel-' + guidFor(this);
-
   private _elementId?: string;
+
+  private _setUpPanel = modifier((element: HTMLElement, [insertCallbackFunction, destoryCallbackFunction]) => {
+    if (typeof insertCallbackFunction === 'function') {
+      insertCallbackFunction(element);
+    }
+
+    return () => {
+      if (typeof destoryCallbackFunction === 'function') {
+        destoryCallbackFunction(element);
+      }
+    };
+  });
 
   /**
    * Get the index of the step from the _panelIds list
@@ -69,6 +82,15 @@ export default class HdsStepperNavigationPanel extends Component<HdsStepperNavig
     if (typeof didInsertNode === 'function') {
       this._elementId = element.id;
       didInsertNode(element, this._elementId);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLElement): void {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
     }
   }
 
