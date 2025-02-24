@@ -121,16 +121,16 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
     increment: number
   ): number {
     let newStepIndex = (currentStepIndex + increment) % this._stepIds.length;
-    let isNewStepInteractive = this._stepNodes[
-      newStepIndex
-    ]?.classList.contains('hds-stepper-navigation__step__btn');
+    let isNewStepInteractive = this.isStepInteractive(this._stepNodes[newStepIndex]!)
     while (!isNewStepInteractive) {
       newStepIndex = (newStepIndex + increment) % this._stepIds.length;
-      isNewStepInteractive = this._stepNodes[newStepIndex]?.classList.contains(
-        'hds-stepper-navigation__step__btn'
-      );
+      isNewStepInteractive = this.isStepInteractive(this._stepNodes[newStepIndex]!);
     }
     return newStepIndex;
+  }
+
+  private isStepInteractive(el: HTMLElement): boolean {
+    return !el.classList.contains('hds-stepper-navigation__step__btn-disabled');
   }
 
   // Focus step for keyboard & mouse navigation

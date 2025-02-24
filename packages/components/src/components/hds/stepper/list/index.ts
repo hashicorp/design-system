@@ -14,7 +14,6 @@ import type { HdsStepperTitleTags, HdsStepperListStepIds } from '../types.ts';
 
 export interface HdsStepperListSignature {
   Args: {
-    currentStep?: number;
     titleTag?: HdsStepperTitleTags;
   };
   Blocks: {
@@ -39,25 +38,6 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
    */
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
-  }
-
-  /**
-   * @param currentStep
-   * @type {number}
-   * @default 0
-   */
-  get currentStep(): number {
-    const { currentStep } = this.args;
-
-    if (currentStep) {
-      if (currentStep < 0) {
-        return 0;
-      } else {
-        return currentStep;
-      }
-    } else {
-      return 0;
-    }
   }
 
   @action
