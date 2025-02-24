@@ -41,7 +41,7 @@
     {{/if}}
   </ol>
   {{#if @steps}}
-    {{#each @steps as |step|}}
+    {{#each @steps}}
       <Hds::Stepper::Navigation::Panel
         @currentStep={{this.currentStep}}
         @stepIds={{this._stepIds}}
