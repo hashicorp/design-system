@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 import {
   HdsStepperStatusesValues,
@@ -30,7 +31,8 @@ export interface HdsStepperNavigationStepSignature {
     titleTag?: HdsStepperTitleTags;
     stepIds?: HdsStepperNavigationStepIds;
     panelIds?: HdsStepperNavigationPanelIds;
-    didInsertNode?: (element: HTMLElement, stepId: string) => void;
+    didInsertNode?: (element: HTMLButtonElement, stepId: string) => void;
+    willDestroyNode?: (element: HTMLButtonElement) => void;
     onStepChange?: (event: MouseEvent, nodeIndex: number) => void;
     onKeyUp?: (nodeIndex: number, event: KeyboardEvent) => void;
   };
@@ -48,8 +50,19 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    * @param _stepId
    */
   private _stepId = 'step-' + guidFor(this);
-
   private _elementId?: string;
+
+  private _setUpStep = modifier((element: HTMLElement, [insertCallbackFunction, destoryCallbackFunction]) => {
+    if (typeof insertCallbackFunction === 'function') {
+      insertCallbackFunction(element);
+    }
+
+    return () => {
+      if (typeof destoryCallbackFunction === 'function') {
+        destoryCallbackFunction(element);
+      }
+    };
+  });
 
   /**
    * Get the index of the step from the _stepIds list
@@ -156,12 +169,21 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   }
 
   @action
-  didInsertNode(element: HTMLElement): void {
+  didInsertNode(element: HTMLButtonElement): void {
     const { didInsertNode } = this.args;
 
     if (typeof didInsertNode === 'function') {
       this._elementId = element.id;
       didInsertNode(element, this._elementId);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLButtonElement): void {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
     }
   }
 
