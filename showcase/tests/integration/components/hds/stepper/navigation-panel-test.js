@@ -39,20 +39,20 @@ module(
         hbs`<Hds::Stepper::Navigation::Panel data-test="panel-1" />`
       );
       assert
-        .dom('[data-test="panel-1"')
+        .dom('[data-test="panel-1"]')
         .hasClass('hds-stepper-navigation__panel');
     });
 
     // VISIBILITY
 
     test('it sets the panel content to not visible when the @currentStep argument does not match the panel index in the @panelIds argument', async function (assert) {
-      await this.createNavigationPanel({currentStep: 1});
+      await this.createNavigationPanel({ currentStep: 1 });
       assert.dom('.hds-stepper-navigation__panel').hasAttribute('hidden');
       assert.dom('#test-panel-content').doesNotExist();
     });
 
     test('it sets the panel content to visible when the @currentStep argument matches the panel index in the @panelIds argument', async function (assert) {
-      await this.createNavigationPanel({currentStep: 0});
+      await this.createNavigationPanel({ currentStep: 0 });
       assert.dom('.hds-stepper-navigation__panel').hasNoAttribute('hidden');
       assert.dom('#test-panel-content').exists();
     });

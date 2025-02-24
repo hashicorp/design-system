@@ -8,48 +8,41 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module(
-  'Integration | Component | hds/stepper/list',
-  function (hooks) {
-    setupRenderingTest(hooks);
+module('Integration | Component | hds/stepper/list', function (hooks) {
+  setupRenderingTest(hooks);
 
-    // CLASSES
+  // CLASSES
 
-    test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(
-        hbs`<Hds::Stepper::List id="test-stepper-list" />`
-      );
-      assert
-        .dom('#test-stepper-list')
-        .hasClass('hds-stepper-list');
-    });
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::Stepper::List id="test-stepper-list" />`);
+    assert.dom('#test-stepper-list').hasClass('hds-stepper-list');
+  });
 
-    // TITLE TAG
+  // TITLE TAG
 
-    test('it renders a div when the @titleTag argument is not provided', async function (assert) {
-      await render(
-        hbs`
+  test('it renders a div when the @titleTag argument is not provided', async function (assert) {
+    await render(
+      hbs`
           <Hds::Stepper::List as |S|>
             <S.Step>
               <:title>Test</:title>
             </S.Step>
           </Hds::Stepper::List>
         `
-      );
-      assert.dom('.hds-stepper-list__step__title').hasTagName('div');
-    });
+    );
+    assert.dom('.hds-stepper-list__step__title').hasTagName('div');
+  });
 
-    test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
-      await render(
-        hbs`
+  test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
+    await render(
+      hbs`
           <Hds::Stepper::List @titleTag="h2" as |S|>
             <S.Step>
               <:title>Test</:title>
             </S.Step>
           </Hds::Stepper::List>
         `
-      );
-      assert.dom('.hds-stepper-list__step__title').hasTagName('h2');
-    });
-  }
-);
+    );
+    assert.dom('.hds-stepper-list__step__title').hasTagName('h2');
+  });
+});
