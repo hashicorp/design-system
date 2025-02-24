@@ -354,7 +354,7 @@ When the Side Nav is used in conjunction with portals, the nesting of navigation
 
 This area usually contains a “context switcher” (e.g., “org switcher” or “project switcher”) control, but technically it can contain anything (it depends on the context/application where the Side Nav is used).
 
-If you want (and you probably do) the content automatically fades in/out when the Side Nav changes its "minimization" state, you have to apply the specific class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
+Note: To make the content automatically fade in/out when the Side Nav changes its "minimization" state, apply the special class `hds-side-nav-hide-when-minimized` to the top-level elements of your content.
 
 ```handlebars{data-execute=false}
 <Hds::SideNav>
@@ -406,7 +406,7 @@ When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) 
 
 ### Responsiveness
 
-As mentioned above, the full-fledged `Hds::SideNav` component is "responsive" by default:
+As mentioned previously, the full-fledged `Hds::SideNav` component is "responsive" by default:
 
 - when the **viewport is `desktop`** the sidebar navigation is static and has a fixed width
     - the width at which the viewport is considered "desktop" is controlled by a dedicated CSS variable `--hds-app-desktop-breakpoint`; if needed it can be overwritten (at `:root` level) to define a custom "desktop" breakpoint
