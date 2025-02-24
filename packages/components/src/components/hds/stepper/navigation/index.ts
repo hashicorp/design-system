@@ -56,6 +56,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
   private _panelId = 'panel-' + guidFor(this);
 
   private _setUpStepperNavigation = modifier(() => {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       assert(
         'The number of Steps must be equal to the number of Panels',
@@ -96,6 +97,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
 
   @action
   didInsertStep(element: HTMLElement, stepId: string): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._stepIds = [...this._stepIds, stepId];
       this._stepNodes = [...this._stepNodes, element];
@@ -117,6 +119,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
 
   @action
   didInsertPanel(element: HTMLElement, panelId: string): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._panelIds = [...this._panelIds, panelId];
       this._panelNodes = [...this._panelNodes, element];
