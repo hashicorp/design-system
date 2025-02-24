@@ -28,7 +28,6 @@ import type {
 } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
-import type { ParseError } from 'jsonc-parser';
 
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
@@ -65,9 +64,7 @@ const LANGUAGES: Record<
   HdsCodeEditorLanguages,
   {
     load: () => Promise<Extension | StreamLanguageType<unknown>>;
-    loadLinter?: (
-      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
-    ) => Promise<Extension>;
+    loadLinter?: () => Promise<Extension>;
   }
 > = {
   rego: {
@@ -108,14 +105,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
-    loadLinter: async (onLint) => {
+    loadLinter: async () => {
       const linter = await import('./hds-code-editor/linters/json-linter.ts');
-
-      return linter.default(onLint);
+      return linter.default();
     },
-  },
-  markdown: {
-    load: async () => (await import('@codemirror/lang-markdown')).markdown(),
   },
   sql: {
     load: async () => (await import('@codemirror/lang-sql')).sql(),
@@ -259,15 +252,10 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async ({
-      language,
-      isLintingEnabled,
-      onLint,
-    }: {
-      language?: HdsCodeEditorLanguages;
-      isLintingEnabled?: boolean;
-      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'];
-    }) => {
+    async (
+      language?: HdsCodeEditorLanguages,
+      isLintingEnabled: boolean = false
+    ) => {
       if (language === undefined) {
         return;
       }
@@ -287,11 +275,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         if (isLintingEnabled && LANGUAGES[language].loadLinter) {
           extensionPromises = [
             ...extensionPromises,
-            LANGUAGES[language].loadLinter(onLint),
+            LANGUAGES[language].loadLinter(),
           ];
         }
 
-        return Promise.all(extensionPromises);
+        const loadedExtensions = await Promise.all(extensionPromises);
+
+        return loadedExtensions;
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
@@ -325,11 +315,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ]);
 
       const languageExtensions = await this._loadLanguageExtensionsTask.perform(
-        {
-          language,
-          isLintingEnabled,
-          onLint,
-        }
+        language,
+        isLintingEnabled
       );
 
       const handleUpdateExtension = EditorView.updateListener.of(
@@ -354,41 +341,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         hasLineWrapping ? EditorView.lineWrapping : []
       );
 
-      let lintingExtensions: Extension[] = [];
-
-      if (isLintingEnabled) {
-        const [{ linter, lintGutter }, { parse, printParseErrorCode }] =
-          await Promise.all([
-            import('@codemirror/lint'),
-            import('jsonc-parser'),
-          ]);
-
-        lintingExtensions = [
-          linter((view): Diagnostic[] => {
-            const diagnostics: Diagnostic[] = [];
-            const code = view.state.doc.toString();
-            const errors: ParseError[] = [];
-
-            parse(code, errors, {
-              allowTrailingComma: false,
-              disallowComments: true,
-            });
-
-            for (const err of errors) {
-              diagnostics.push({
-                from: err.offset,
-                to: err.offset + err.length,
-                severity: 'error',
-                message: printParseErrorCode(err.error),
-              });
-            }
-
-            return diagnostics;
-          }),
-          lintGutter(),
-        ];
-      }
-
       let extensions = [
         lineWrappingExtension,
         bracketMatching(),
@@ -407,9 +359,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (languageExtensions !== undefined) {
         extensions = [...extensions, ...languageExtensions];
       }
-
-      // ensure we add lineNumber last in the stack to create the right gutter order for linting
-      extensions = [...extensions, lineNumbers()];
 
       return extensions;
     }
