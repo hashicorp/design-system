@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class={{this.classNames}} ...attributes>
+<div class={{this.classNames}} ...attributes {{this._setUpStepperNavigation}}>
   <ol class="hds-stepper-navigation__list" role="tablist">
     {{#if @steps}}
       {{#each @steps as |step|}}
