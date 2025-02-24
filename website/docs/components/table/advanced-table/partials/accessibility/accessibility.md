@@ -14,6 +14,69 @@ The table row element cannot receive interactions, meaning actions cannot be att
 
 Unlike the Table component, each cell receives focus in the Advanced Table to support users navigating through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
 
+## Keyboard Navigation
+
+The Advanced Table supports two keyboard interaction modes: Navigation Mode and Action Mode. These modes allow users to move through table data and interact with elements using a keyboard.
+
+### Navigation Mode
+
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+When a user tabs into the Advanced Table, the first cell is focused.
+
+![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
+
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" /></Doc::Badge>
+
+Arrow keys move between cells.
+
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
+
+**Home (fn + left)**
+Move focus to the first cell in the row.
+
+**End (fn + right)**
+Move focus to the last cell in the row.
+
+**Page Up (fn + up)**
+Move focus to the first cell in the column.
+
+**Page Down (fn + down)**
+Move focus to the last cell in the column.
+
+**Horizontal Scrolling**
+If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
+
+### Action Mode
+
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Press Enter in Navigation Mode to enter Action Mode and interact with elements inside a cell. 
+
+- If the cell contains one interactive element, focus moves to that element instead of activating it.
+- If multiple interactive elements exist, focus moves to the first one. 
+
+
+![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
+
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png =402x*)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+Use Tab to navigate between actions within the cell.
+
+![Tooltip appears on focus for the info icon in the 'Artist' column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png =402x*)
+
+**Escape**
+<Doc::Badge @type="neutral">Escape</Doc::Badge>
+
+Returns to navigation mode.
+
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
+
 ### Row selection
 
 You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
