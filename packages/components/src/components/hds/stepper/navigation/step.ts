@@ -52,17 +52,22 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   private _stepId = 'step-' + guidFor(this);
   private _elementId?: string;
 
-  private _setUpStep = modifier((element: HTMLElement, [insertCallbackFunction, destoryCallbackFunction]) => {
-    if (typeof insertCallbackFunction === 'function') {
-      insertCallbackFunction(element);
-    }
-
-    return () => {
-      if (typeof destoryCallbackFunction === 'function') {
-        destoryCallbackFunction(element);
+  private _setUpStep = modifier(
+    (
+      element: HTMLElement,
+      [insertCallbackFunction, destoryCallbackFunction]
+    ) => {
+      if (typeof insertCallbackFunction === 'function') {
+        insertCallbackFunction(element);
       }
-    };
-  });
+
+      return () => {
+        if (typeof destoryCallbackFunction === 'function') {
+          destoryCallbackFunction(element);
+        }
+      };
+    }
+  );
 
   /**
    * Get the index of the step from the _stepIds list

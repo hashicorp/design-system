@@ -8,10 +8,12 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { schedule } from '@ember/runloop';
+import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 import type { ComponentLike } from '@glint/template';
+
 import type { HdsStepperNavigationStepSignature } from './step';
 import type { HdsStepperNavigationPanelSignature } from './panel';
-
 import { HdsStepperTitleTagValues } from '../types.ts';
 import type {
   HdsStepperTitleTags,
@@ -52,6 +54,17 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
    * @param _panelId
    */
   private _panelId = 'panel-' + guidFor(this);
+
+  private _setUpStepperNavigation = modifier(() => {
+    schedule('afterRender', (): void => {
+      assert(
+        'The number of Steps must be equal to the number of Panels',
+        this._stepNodes.length === this._panelNodes.length
+      );
+    });
+
+    return () => {};
+  });
 
   /**
    * @param titleTag
@@ -146,10 +159,14 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
     increment: number
   ): number {
     let newStepIndex = (currentStepIndex + increment) % this._stepIds.length;
-    let isNewStepInteractive = this.isStepInteractive(this._stepNodes[newStepIndex]!)
+    let isNewStepInteractive = this.isStepInteractive(
+      this._stepNodes[newStepIndex]!
+    );
     while (!isNewStepInteractive) {
       newStepIndex = (newStepIndex + increment) % this._stepIds.length;
-      isNewStepInteractive = this.isStepInteractive(this._stepNodes[newStepIndex]!);
+      isNewStepInteractive = this.isStepInteractive(
+        this._stepNodes[newStepIndex]!
+      );
     }
     return newStepIndex;
   }
