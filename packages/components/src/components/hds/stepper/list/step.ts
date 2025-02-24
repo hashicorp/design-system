@@ -26,7 +26,6 @@ export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperStatusToSrOnlyText;
 export interface HdsStepperListStepSignature {
   Args: {
     status: HdsStepperStatusesValues;
-    currentStep: number;
     stepNumber?: number;
     titleTag?: HdsStepperTitleTags;
     stepIds: HdsStepperListStepIds;
