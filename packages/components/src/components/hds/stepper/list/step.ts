@@ -120,6 +120,8 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
   get classNames(): string {
     const classes = ['hds-stepper-list__step'];
 
+    classes.push(`hds-stepper-list__step-${this.status}`);
+
     return classes.join(' ');
   }
 }
