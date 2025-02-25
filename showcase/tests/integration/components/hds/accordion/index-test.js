@@ -78,7 +78,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" as |A|>
-          <A.Item>Item</A.Item>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -92,7 +95,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" @size="large" as |A|>
-          <A.Item>Item</A.Item>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -106,8 +112,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" @size="large" as |A|>
-          <A.Item id="test-accordion-item1">Item 1</A.Item>
-          <A.Item id="test-accordion-item2" @size="small">Item 2</A.Item>
+          <A.Item id="test-accordion-item1">
+          <:toggle>Item one</:toggle>
+          <:content>Additional content</:content>
+          </A.Item>
+          <A.Item id="test-accordion-item2" @size="small">
+          <:toggle>Item two</:toggle>
+          <:content>Additional content</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -125,7 +137,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" as |A|>
-          <A.Item>Item</A.Item>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -139,7 +154,10 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" @type="flush" as |A|>
-          <A.Item>Item</A.Item>
+        <A.Item>
+          <:toggle>Item one</:toggle>
+          <:content>Content one</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
@@ -153,8 +171,14 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     await render(
       hbs`
         <Hds::Accordion id="test-accordion" @type="flush" as |A|>
-          <A.Item id="test-accordion-item1">Item 1</A.Item>
-          <A.Item id="test-accordion-item2" @type="card">Item 2</A.Item>
+          <A.Item id="test-accordion-item1">
+          <:toggle>Item one</:toggle>
+          <:content>Additional content</:content>
+          </A.Item>
+          <A.Item id="test-accordion-item2" @type="card">
+          <:toggle>Item two</:toggle>
+          <:content>Additional content</:content>
+          </A.Item>
         </Hds::Accordion>
       `
     );
