@@ -26,22 +26,21 @@
         />
       </div>
       <div class="hds-stepper-navigation__step__text">
-        <Hds::Text::Display
+        <Hds::Text::Body
           class="hds-stepper-navigation__step__title"
           @tag={{this.titleTag}}
-          @size="300"
-          @weight="medium"
-          @color="primary"
+          @size="200"
+          @weight="semibold"
         >
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
-        </Hds::Text::Display>
+        </Hds::Text::Body>
         <Hds::Text::Body
           class="hds-stepper-navigation__step__description"
           @tag="div"
-          @size="200"
+          @size="100"
           @weight="regular"
-          @color="faint"
+          @color="regular"
         >
           {{yield to="description"}}
         </Hds::Text::Body>
@@ -68,22 +67,21 @@
         />
       </div>
       <div class="hds-stepper-navigation__step__text">
-        <Hds::Text::Display
+        <Hds::Text::Body
           class="hds-stepper-navigation__step__title"
           @tag={{this.titleTag}}
-          @size="300"
-          @weight="medium"
-          @color="primary"
+          @size="200"
+          @weight="semibold"
         >
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
-        </Hds::Text::Display>
+        </Hds::Text::Body>
         <Hds::Text::Body
           class="hds-stepper-navigation__step__description"
           @tag="div"
-          @size="200"
+          @size="100"
           @weight="regular"
-          @color="faint"
+          @color="regular"
         >
           {{yield to="description"}}
         </Hds::Text::Body>
