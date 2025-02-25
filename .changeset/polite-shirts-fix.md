@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-swap unmaintained `ember-composable-helpers` -> `@nullvoxpopuli/ember-composable-helpers` - this package is no longer maintained
+Swap unmaintained `ember-composable-helpers` with `@nullvoxpopuli/ember-composable-helpers`
