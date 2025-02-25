@@ -8,8 +8,6 @@ project {
   # Supports doublestar glob patterns for more flexibility in defining which
   # files or folders should be ignored
   header_ignore = [
-    # Dependency files
-    "pnpm-lock.yaml",
     # Generic configuration files
     "**/*.yml",
     "**/*.yaml",
