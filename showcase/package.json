@@ -30,8 +30,8 @@
     "test:ember": "pnpm build:packages && ember test",
     "test:ember-compatibility": "ember try:each",
     "test:ember:percy": "percy exec ember test",
-    "test:a11y": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ember test --server",
-    "test:a11y-report": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test"
+    "test:a11y": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ember test --server -f=\"Acceptance\"",
+    "test:a11y-report": "pnpm build:packages && ENABLE_A11Y_AUDIT=true ENABLE_A11Y_MIDDLEWARE_REPORTER=true ember test -f=\"Acceptance\""
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -59,7 +59,7 @@
     "@typescript-eslint/parser": "^8.18.1",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.1.0",
-    "ember-a11y-testing": "^7.0.2",
+    "ember-a11y-testing": "^7.1.0",
     "ember-auto-import": "^2.10.0",
     "ember-basic-dropdown": "^8.4.0",
     "ember-body-class": "^3.0.0",
