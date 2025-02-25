@@ -7,9 +7,7 @@
 // STEPPER > LIST
 //
 
-$hds-stepper-list-step-padding-bottom: 18px;
-$hds-stepper-list-step-indicator-margin: 4px;
-$hds-stepper-indicator-step-size: 24px;
+$hds-stepper-list-step-padding-bottom: 16px;
 
 .hds-stepper-list,
 .hds-stepper-list__step {
@@ -17,6 +15,8 @@ $hds-stepper-indicator-step-size: 24px;
   padding: 0;
   list-style: none;
 }
+
+// SUB COMPONENT: STEPPER > LIST > STEP
 
 .hds-stepper-list__step {
   display: grid;
@@ -26,14 +26,26 @@ $hds-stepper-indicator-step-size: 24px;
   &:not(:last-of-type) {
     padding-bottom: $hds-stepper-list-step-padding-bottom;
 
-    .hds-stepper-list__step__progress::before {
-      position: absolute;
-      top: $hds-stepper-indicator-step-size + $hds-stepper-list-step-indicator-margin;
-      left: 11px;
-      width: 1px;
-      height: calc(100% - ($hds-stepper-indicator-step-size + $hds-stepper-list-step-indicator-margin) + ($hds-stepper-list-step-padding-bottom - $hds-stepper-list-step-indicator-margin));
-      background-color: var(--token-color-border-primary);
-      content: "";
+    .hds-stepper-list__step__progress {
+      &::before,
+      &::after {
+        position: absolute;
+        top: 2px;
+        left: 11px;
+        width: 2px;
+        content: "";
+      }
+
+      &::before {
+        height: calc(100% + $hds-stepper-list-step-padding-bottom);
+        background-color: var(--token-color-palette-alpha-200);
+      }
+
+      &::after {
+        z-index: -1;
+        background-color: var(--token-color-palette-neutral-700);
+        border-radius: 0 0 20px 20px;
+      }
     }
   }
 }
@@ -42,10 +54,52 @@ $hds-stepper-indicator-step-size: 24px;
   position: relative;
 }
 
+.hds-stepper-list__step__text {
+  margin-top: 2px;
+}
+
+.hds-stepper-list__step__title {
+  color: var(--token-color-foreground-primary);
+}
+
 .hds-stepper-list__step__description {
   margin-top: 4px;
 }
 
 .hds-stepper-list__step__content {
   margin-top: 12px;
+}
+
+// STATUSES
+
+// Complete & Active
+
+.hds-stepper-list__step-complete .hds-stepper-list__step__title,
+.hds-stepper-list__step-progress .hds-stepper-list__step__title,
+.hds-stepper-list__step-processing .hds-stepper-list__step__title {
+  color: var(--token-color-foreground-strong);
+}
+
+// Complete
+
+.hds-stepper-list__step {
+  &:not(:last-of-type).hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+    height: calc(100% + $hds-stepper-list-step-padding-bottom - 4px);
+  }
+
+  &:not(:last-of-type, :first-of-type).hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+    top: -4px;
+    height: calc(100% + $hds-stepper-list-step-padding-bottom);
+  }
+
+  &:not(:first-of-type):last-of-type.hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+    position: absolute;
+    top: -4px;
+    left: 11px;
+    z-index: -1;
+    width: 2px;
+    height: 6px;
+    background-color: var(--token-color-palette-neutral-700);
+    content: "";
+  }
 }
