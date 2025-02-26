@@ -45,46 +45,46 @@ export enum HdsStepperTitleTagValues {
 
 export type HdsStepperTitleTags = `${HdsStepperTitleTagValues}`;
 
-export type HdsStepperNavigationStepIds = string[];
+export type HdsStepperNavStepIds = string[];
 
-export interface HdsStepperNavigationStep {
+export interface HdsStepperNavStep {
   title: string;
   description?: string;
   isInteractive?: boolean;
   isComplete?: boolean;
 }
 
-export enum HdsStepperNavigationStatusesValues {
+export enum HdsStepperNavStatusesValues {
   Incomplete = 'incomplete',
   Active = 'active',
   Complete = 'complete',
 }
 
-export type HdsStepperNavigationStatuses =
-  `${HdsStepperNavigationStatusesValues}`;
+export type HdsStepperNavStatuses =
+  `${HdsStepperNavStatusesValues}`;
 
-export const HdsStepperNavigationStatusToIndicatorStatus: Record<
-  HdsStepperNavigationStatusesValues,
+export const HdsStepperNavStatusToIndicatorStatus: Record<
+  HdsStepperNavStatusesValues,
   HdsStepperStatusesValues
 > = {
-  [HdsStepperNavigationStatusesValues.Incomplete]:
+  [HdsStepperNavStatusesValues.Incomplete]:
     HdsStepperStatusesValues.Incomplete,
-  [HdsStepperNavigationStatusesValues.Active]:
+  [HdsStepperNavStatusesValues.Active]:
     HdsStepperStatusesValues.Progress,
-  [HdsStepperNavigationStatusesValues.Complete]:
+  [HdsStepperNavStatusesValues.Complete]:
     HdsStepperStatusesValues.Complete,
 };
 
-export const HdsStepperNavigationStatusToSrOnlyText: Record<
-  HdsStepperNavigationStatusesValues,
+export const HdsStepperNavStatusToSrOnlyText: Record<
+  HdsStepperNavStatusesValues,
   string
 > = {
-  [HdsStepperNavigationStatusesValues.Incomplete]: '',
-  [HdsStepperNavigationStatusesValues.Active]: 'Current: ',
-  [HdsStepperNavigationStatusesValues.Complete]: 'Complete: ',
+  [HdsStepperNavStatusesValues.Incomplete]: '',
+  [HdsStepperNavStatusesValues.Active]: 'Current: ',
+  [HdsStepperNavStatusesValues.Complete]: 'Complete: ',
 };
 
-export type HdsStepperNavigationPanelIds = string[];
+export type HdsStepperNavPanelIds = string[];
 
 export type HdsStepperListStepIds = string[];
 
