@@ -30,6 +30,7 @@ export type HdsAdvancedTableScope = `${HdsAdvancedTableScopeValues}`;
 export enum HdsAdvancedTableThExpandIconValues {
   ChevronRight = 'chevron-right',
   ChevronDown = 'chevron-down',
+  Caret = 'caret',
 }
 export type HdsAdvancedTableThSortExpandIcons =
   `${HdsAdvancedTableThExpandIconValues}`;
@@ -87,6 +88,7 @@ interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
 interface NonSortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
   isSortable?: false;
   key?: string;
+  isExpandable?: boolean;
 }
 
 export type HdsAdvancedTableColumn =
