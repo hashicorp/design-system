@@ -149,7 +149,7 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 
 !!! Info
 
-This component takes advantage of the `sort-by` helper provided by [ember-composable-helpers](https://github.com/DockYard/ember-composable-helpers).
+This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
 
 !!!
 
