@@ -96,6 +96,7 @@ sayMessage();
     {
       value: 'json',
       label: 'JSON',
+      isLintingEnabled: true,
       code: `{
   "message": "Hello, world!",
   "status": "success",
