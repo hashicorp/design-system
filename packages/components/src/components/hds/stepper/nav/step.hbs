@@ -28,12 +28,7 @@
         />
       </div>
       <div class="hds-stepper-nav__step__text">
-        <Hds::Text::Body
-          class="hds-stepper-nav__step__title"
-          @tag={{this.titleTag}}
-          @size="200"
-          @weight="semibold"
-        >
+        <Hds::Text::Body class="hds-stepper-nav__step__title" @tag={{this.titleTag}} @size="200" @weight="semibold">
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
         </Hds::Text::Body>
@@ -64,12 +59,7 @@
         />
       </div>
       <div class="hds-stepper-nav__step__text">
-        <Hds::Text::Body
-          class="hds-stepper-nav__step__title"
-          @tag={{this.titleTag}}
-          @size="200"
-          @weight="semibold"
-        >
+        <Hds::Text::Body class="hds-stepper-nav__step__title" @tag={{this.titleTag}} @size="200" @weight="semibold">
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
         </Hds::Text::Body>
