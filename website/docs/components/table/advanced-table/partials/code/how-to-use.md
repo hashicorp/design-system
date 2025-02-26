@@ -123,7 +123,7 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 <Hds::AdvancedTable
   @model={{this.demoDataWithNestedRows}}
   @columns={{array
-    (hash key="name" label="Name")
+    (hash key="name" label="Name" isExpandable=true)
     (hash key="status" label="Status")
     (hash key="description" label="Description")
   }}
