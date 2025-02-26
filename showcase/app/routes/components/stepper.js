@@ -10,10 +10,10 @@ import { STATUSES as TASK_STATUSES } from '@hashicorp/design-system-components/c
 
 export default class ComponentsStepperRoute extends Route {
   model() {
-    const NAVIGATION_STATES = ['default', 'hover', 'active', 'focus'];
+    const NAV_STATES = ['default', 'hover', 'active', 'focus'];
     const INDICATOR_STATES = ['default', 'hover', 'active'];
     return {
-      NAVIGATION_STATES,
+      NAV_STATES,
       INDICATOR_STATES,
       STEP_STATUSES,
       TASK_STATUSES,
