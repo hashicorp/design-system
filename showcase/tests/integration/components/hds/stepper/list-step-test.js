@@ -30,7 +30,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     );
     assert
       .dom('.hds-stepper-list__step')
-      .hasClass('hds-stepper-list__step-incomplete');
+      .hasClass('hds-stepper-list__step--incomplete');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-incomplete');
@@ -47,7 +47,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     );
     assert
       .dom('.hds-stepper-list__step')
-      .hasClass('hds-stepper-list__step-complete');
+      .hasClass('hds-stepper-list__step--complete');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-complete');
