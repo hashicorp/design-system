@@ -11,19 +11,19 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 import type { ComponentLike } from '@glint/template';
 
-import type { HdsStepperNavigationStepSignature } from './step';
-import type { HdsStepperNavigationPanelSignature } from './panel';
+import type { HdsStepperNavStepSignature } from './step';
+import type { HdsStepperNavPanelSignature } from './panel';
 import { HdsStepperTitleTagValues } from '../types.ts';
 import type {
   HdsStepperTitleTags,
-  HdsStepperNavigationStepIds,
-  HdsStepperNavigationStep,
-  HdsStepperNavigationPanelIds,
+  HdsStepperNavStepIds,
+  HdsStepperNavStep,
+  HdsStepperNavPanelIds,
 } from '../types.ts';
 
-export interface HdsStepperNavigationSignature {
+export interface HdsStepperNavSignature {
   Args: {
-    steps?: HdsStepperNavigationStep[];
+    steps?: HdsStepperNavStep[];
     currentStep?: number;
     isInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
@@ -33,21 +33,21 @@ export interface HdsStepperNavigationSignature {
     body?: [];
     default: [
       {
-        Step?: ComponentLike<HdsStepperNavigationStepSignature>;
-        Panel?: ComponentLike<HdsStepperNavigationPanelSignature>;
+        Step?: ComponentLike<HdsStepperNavStepSignature>;
+        Panel?: ComponentLike<HdsStepperNavPanelSignature>;
       },
     ];
   };
   Element: HTMLElement;
 }
 
-export default class HdsStepperNavigation extends Component<HdsStepperNavigationSignature> {
-  @tracked private _stepIds: HdsStepperNavigationStepIds = [];
+export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
+  @tracked private _stepIds: HdsStepperNavStepIds = [];
   @tracked private _stepNodes: HTMLElement[] = [];
   @tracked private _panelNodes: HTMLElement[] = [];
-  @tracked private _panelIds: HdsStepperNavigationPanelIds = [];
+  @tracked private _panelIds: HdsStepperNavPanelIds = [];
 
-  private _setUpStepperNavigation = modifier(() => {
+  private _setUpStepperNav = modifier(() => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       assert(
@@ -176,7 +176,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
     return !(el.getAttribute('aria-disabled') === 'true');
   }
 
-  // Focus step for keyboard & mouse navigation
+  // Focus step for keyboard & mouse nav
   private focusStep(stepIndex: number, event: KeyboardEvent): void {
     event.preventDefault();
     const step = this._stepNodes[stepIndex];
@@ -189,7 +189,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames() {
-    const classes = ['hds-stepper-navigation'];
+    const classes = ['hds-stepper-nav'];
 
     return classes.join(' ');
   }

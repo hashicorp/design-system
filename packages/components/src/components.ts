@@ -259,9 +259,9 @@ export { default as HdsSideNavToggleButton } from './components/hds/side-nav/tog
 // Stepper
 export { default as HdsStepperList } from './components/hds/stepper/list/index.ts';
 export { default as HdsStepperListStep } from './components/hds/stepper/list/step.ts';
-export { default as HdsStepperNavigation } from './components/hds/stepper/navigation/index.ts';
-export { default as HdsStepperNavigationPanel } from './components/hds/stepper/navigation/panel.ts';
-export { default as HdsStepperNavigationStep } from './components/hds/stepper/navigation/step.ts';
+export { default as HdsStepperNav } from './components/hds/stepper/nav/index.ts';
+export { default as HdsStepperNavPanel } from './components/hds/stepper/nav/panel.ts';
+export { default as HdsStepperNavStep } from './components/hds/stepper/nav/step.ts';
 export { default as HdsStepperStepIndicator } from './components/hds/stepper/step/indicator.ts';
 export { default as HdsStepperTaskIndicator } from './components/hds/stepper/task/indicator.ts';
 export * from './components/hds/stepper/types.ts';

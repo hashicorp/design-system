@@ -10,31 +10,31 @@ import { modifier } from 'ember-modifier';
 
 import {
   HdsStepperTitleTagValues,
-  HdsStepperNavigationStatusesValues,
-  HdsStepperNavigationStatusToIndicatorStatus,
-  HdsStepperNavigationStatusToSrOnlyText,
+  HdsStepperNavStatusesValues,
+  HdsStepperNavStatusToIndicatorStatus,
+  HdsStepperNavStatusToSrOnlyText,
 } from '../types.ts';
 import type {
   HdsStepperTitleTags,
-  HdsStepperNavigationStepIds,
-  HdsStepperNavigationPanelIds,
+  HdsStepperNavStepIds,
+  HdsStepperNavPanelIds,
   HdsStepperStatuses,
-  HdsStepperNavigationStatuses,
+  HdsStepperNavStatuses,
 } from '../types.ts';
 
 export const MAPPING_STATUS_TO_INDICATOR_STATUS =
-  HdsStepperNavigationStatusToIndicatorStatus;
+  HdsStepperNavStatusToIndicatorStatus;
 export const MAPPING_STATUS_TO_SR_ONLY_TEXT =
-  HdsStepperNavigationStatusToSrOnlyText;
+  HdsStepperNavStatusToSrOnlyText;
 
-export interface HdsStepperNavigationStepSignature {
+export interface HdsStepperNavStepSignature {
   Args: {
     currentStep: number;
     stepNumber?: number;
     isNavInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
-    stepIds?: HdsStepperNavigationStepIds;
-    panelIds?: HdsStepperNavigationPanelIds;
+    stepIds?: HdsStepperNavStepIds;
+    panelIds?: HdsStepperNavPanelIds;
     didInsertNode?: (element: HTMLButtonElement, stepId: string) => void;
     willDestroyNode?: (element: HTMLButtonElement) => void;
     onStepChange?: (event: MouseEvent, nodeIndex: number) => void;
@@ -47,7 +47,7 @@ export interface HdsStepperNavigationStepSignature {
   Element: HTMLElement;
 }
 
-export default class HdsStepperNavigationStep extends Component<HdsStepperNavigationStepSignature> {
+export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignature> {
   /**
    * Generate a unique ID for the Step
    * @return {string}
@@ -129,20 +129,20 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   /**
    * Get the status that should be set on the Step::Indicator
    * @param status
-   * @type {HdsStepperNavigationStatuses}
+   * @type {HdsStepperNavStatuses}
    * @default 'incomplete'
    */
-  get status(): HdsStepperNavigationStatuses {
+  get status(): HdsStepperNavStatuses {
     if (this.nodeIndex != undefined) {
       if (this.nodeIndex === this.args.currentStep) {
-        return HdsStepperNavigationStatusesValues.Active;
+        return HdsStepperNavStatusesValues.Active;
       } else if (this.nodeIndex < this.args.currentStep) {
-        return HdsStepperNavigationStatusesValues.Complete;
+        return HdsStepperNavStatusesValues.Complete;
       } else {
-        return HdsStepperNavigationStatusesValues.Incomplete;
+        return HdsStepperNavStatusesValues.Incomplete;
       }
     } else {
-      return HdsStepperNavigationStatusesValues.Incomplete;
+      return HdsStepperNavStatusesValues.Incomplete;
     }
   }
 
@@ -174,7 +174,7 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   get isInteractive(): boolean {
     return (
       this.isNavInteractive &&
-      this.status === HdsStepperNavigationStatusesValues.Complete
+      this.status === HdsStepperNavStatusesValues.Complete
     );
   }
 
@@ -223,16 +223,16 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames(): string {
-    const classes = ['hds-stepper-navigation__step'];
+    const classes = ['hds-stepper-nav__step'];
 
-    classes.push(`hds-stepper-navigation__step--${this.status}`);
+    classes.push(`hds-stepper-nav__step--${this.status}`);
 
     if (this.isInteractive) {
-      classes.push('hds-stepper-navigation__step--interactive');
+      classes.push('hds-stepper-nav__step--interactive');
     }
 
     if (this.isNavInteractive) {
-      classes.push('hds-stepper-navigation__step--navigation-interactive');
+      classes.push('hds-stepper-nav__step--nav-interactive');
     }
 
     return classes.join(' ');

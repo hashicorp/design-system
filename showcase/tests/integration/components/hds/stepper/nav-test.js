@@ -8,18 +8,18 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, click, focus, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/stepper/navigation', function (hooks) {
+module('Integration | Component | hds/stepper/nav', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
-    this.set('createStepperNavigation', async (args = {}) => {
+    this.set('createStepperNav', async (args = {}) => {
       this.currentStep = args.currentStep ?? undefined;
       this.titleTag = args.titleTag ?? undefined;
       this.onStepChange = args.onStepChange ?? undefined;
       this.isInteractive = args.isInteractive ?? undefined;
       return await render(hbs`
-          <Hds::Stepper::Navigation
-            id="test-stepper-navigation"
+          <Hds::Stepper::Nav
+            id="test-stepper-nav"
             @currentStep={{this.currentStep}}
             @titleTag={{this.titleTag}}
             @isInteractive={{this.isInteractive}}
@@ -32,19 +32,19 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
             </S.Step>
             <S.Panel></S.Panel>
             <S.Panel></S.Panel>
-          </Hds::Stepper::Navigation>
+          </Hds::Stepper::Nav>
         `);
     });
 
-    this.set('createStepperNavigationArray', async (args = {}) => {
+    this.set('createStepperNavArray', async (args = {}) => {
       this.currentStep = args.currentStep ?? undefined;
       this.titleTag = args.titleTag ?? undefined;
       this.onStepChange = args.onStepChange ?? undefined;
       this.step1Title = args.step1Title ?? undefined;
       this.step1Description = args.step1Description ?? undefined;
       return await render(hbs`
-          <Hds::Stepper::Navigation
-            id="test-stepper-navigation"
+          <Hds::Stepper::Nav
+            id="test-stepper-nav"
             @steps={{array
               (hash title=this.step1Title description=this.step1Description)
               (hash title="Step 2")
@@ -55,7 +55,7 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
           >
             <:body>
             </:body>
-          </Hds::Stepper::Navigation>
+          </Hds::Stepper::Nav>
         `);
     });
   });
@@ -63,74 +63,74 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
   // CLASSES
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await this.createStepperNavigation();
-    assert.dom('#test-stepper-navigation').hasClass('hds-stepper-navigation');
+    await this.createStepperNav();
+    assert.dom('#test-stepper-nav').hasClass('hds-stepper-nav');
   });
 
   // STEPS
 
   test('it sets the step title when using the @steps argument', async function (assert) {
-    await this.createStepperNavigationArray({ step1Title: 'Test' });
-    assert.dom('.hds-stepper-navigation__step__title').containsText('Test');
+    await this.createStepperNavArray({ step1Title: 'Test' });
+    assert.dom('.hds-stepper-nav__step__title').containsText('Test');
   });
 
   test('it sets the step description when using the @steps argument', async function (assert) {
-    await this.createStepperNavigationArray({ step1Description: 'Test' });
+    await this.createStepperNavArray({ step1Description: 'Test' });
     assert
-      .dom('.hds-stepper-navigation__step__description')
+      .dom('.hds-stepper-nav__step__description')
       .containsText('Test');
   });
 
   test('it should have 2 Steps and 2 Panels', async function (assert) {
-    await this.createStepperNavigationArray();
-    assert.dom('.hds-stepper-navigation__step').exists({ count: 2 });
-    assert.dom('.hds-stepper-navigation__panel').exists({ count: 2 });
+    await this.createStepperNavArray();
+    assert.dom('.hds-stepper-nav__step').exists({ count: 2 });
+    assert.dom('.hds-stepper-nav__panel').exists({ count: 2 });
   });
 
   // TITLE TAG
 
   test('it renders a div when the @titleTag argument is not provided', async function (assert) {
-    await this.createStepperNavigation();
-    assert.dom('.hds-stepper-navigation__step__title').hasTagName('div');
+    await this.createStepperNav();
+    assert.dom('.hds-stepper-nav__step__title').hasTagName('div');
   });
 
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
-    await this.createStepperNavigation({ titleTag: 'h2' });
-    assert.dom('.hds-stepper-navigation__step__title').hasTagName('h2');
+    await this.createStepperNav({ titleTag: 'h2' });
+    assert.dom('.hds-stepper-nav__step__title').hasTagName('h2');
   });
 
   // CURRENT STEP
 
   test('it sets the first step to active when the @currentStep argument is not provided', async function (assert) {
-    await this.createStepperNavigation();
+    await this.createStepperNav();
     assert
       .dom('[data-test="step-1"]')
-      .hasClass('hds-stepper-navigation__step--active');
+      .hasClass('hds-stepper-nav__step--active');
   });
 
   test('it sets the step number provided active when the @currentStep argument is provided', async function (assert) {
-    await this.createStepperNavigation({ currentStep: 1 });
+    await this.createStepperNav({ currentStep: 1 });
     assert
       .dom('[data-test="step-2"]')
-      .hasClass('hds-stepper-navigation__step--active');
+      .hasClass('hds-stepper-nav__step--active');
   });
 
   // ISINTERACTIVE
 
   test('it sets the steps to not interactive when the @isInteractive argument is not provided', async function (assert) {
-    await this.createStepperNavigation();
-    assert.dom('.hds-stepper-navigation__list').hasNoAttribute('role');
+    await this.createStepperNav();
+    assert.dom('.hds-stepper-nav__list').hasNoAttribute('role');
     assert
       .dom('[data-test="step-1"]')
-      .hasNoClass('hds-stepper-navigation__step--navigation-interactive');
+      .hasNoClass('hds-stepper-nav__step--nav-interactive');
   });
 
   test('it sets the steps to interactive when the @isInteractive argument is provided', async function (assert) {
-    await this.createStepperNavigation({ isInteractive: true });
-    assert.dom('.hds-stepper-navigation__list').hasAttribute('role', 'tablist');
+    await this.createStepperNav({ isInteractive: true });
+    assert.dom('.hds-stepper-nav__list').hasAttribute('role', 'tablist');
     assert
       .dom('[data-test="step-1"]')
-      .hasClass('hds-stepper-navigation__step--navigation-interactive');
+      .hasClass('hds-stepper-nav__step--nav-interactive');
   });
 
   // CALLBACKS: ONSTEPCHANGE
@@ -142,12 +142,12 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
       clicked = true;
       stepNumber = index;
     });
-    await this.createStepperNavigation({
+    await this.createStepperNav({
       currentStep: stepNumber,
       onStepChange: this.onClick,
       isInteractive: true,
     });
-    await click('[data-test="step-1"] .hds-stepper-navigation__step__btn');
+    await click('[data-test="step-1"] .hds-stepper-nav__step__btn');
     assert.ok(clicked);
     assert.strictEqual(stepNumber, 0);
   });
@@ -157,41 +157,41 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
   test('it should focus interactive steps and navigate through them using left and right arrow keys', async function (assert) {
     const leftArrowKey = 37;
     const rightArrowKey = 39;
-    await this.createStepperNavigation({
+    await this.createStepperNav({
       isInteractive: true,
       currentStep: 1,
     });
 
     // focus 2nd step:
     assert
-      .dom('[data-test="step-2"] .hds-stepper-navigation__step__btn')
+      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
       .exists();
-    await focus('[data-test="step-2"] .hds-stepper-navigation__step__btn');
+    await focus('[data-test="step-2"] .hds-stepper-nav__step__btn');
     // test that the navigated to step is now focused:
     assert
-      .dom('[data-test="step-2"] .hds-stepper-navigation__step__btn')
+      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
       .isFocused();
 
     // navigate to the previous (1st) step using right arrow key:
     await triggerKeyEvent(
-      '[data-test="step-2"] .hds-stepper-navigation__step__btn',
+      '[data-test="step-2"] .hds-stepper-nav__step__btn',
       'keyup',
       rightArrowKey
     );
     // test that the navigated to step is now focused:
     assert
-      .dom('[data-test="step-1"] .hds-stepper-navigation__step__btn')
+      .dom('[data-test="step-1"] .hds-stepper-nav__step__btn')
       .isFocused();
 
     // navigate back to the next (2nd) step using left arrow key:
     await triggerKeyEvent(
-      '[data-test="step-1"] .hds-stepper-navigation__step__btn',
+      '[data-test="step-1"] .hds-stepper-nav__step__btn',
       'keyup',
       leftArrowKey
     );
     // test that the navigated to step is now focused:
     assert
-      .dom('[data-test="step-2"] .hds-stepper-navigation__step__btn')
+      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
       .isFocused();
   });
 });
