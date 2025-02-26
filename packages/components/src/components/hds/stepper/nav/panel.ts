@@ -9,15 +9,15 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import type {
-  HdsStepperNavigationStepIds,
-  HdsStepperNavigationPanelIds,
+  HdsStepperNavStepIds,
+  HdsStepperNavPanelIds,
 } from '../types.ts';
 
-export interface HdsStepperNavigationPanelSignature {
+export interface HdsStepperNavPanelSignature {
   Args: {
     currentStep: number;
-    stepIds?: HdsStepperNavigationStepIds;
-    panelIds?: HdsStepperNavigationPanelIds;
+    stepIds?: HdsStepperNavStepIds;
+    panelIds?: HdsStepperNavPanelIds;
     didInsertNode?: (element: HTMLElement, panelId: string) => void;
     willDestroyNode?: (element: HTMLElement) => void;
   };
@@ -27,7 +27,7 @@ export interface HdsStepperNavigationPanelSignature {
   Element: HTMLElement;
 }
 
-export default class HdsStepperNavigationPanel extends Component<HdsStepperNavigationPanelSignature> {
+export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSignature> {
   /**
    * Generate a unique ID for the Step
    * @return {string}
@@ -105,7 +105,7 @@ export default class HdsStepperNavigationPanel extends Component<HdsStepperNavig
    * @return {string} The "class" attribute to apply to the component.
    */
   get classNames(): string {
-    const classes = ['hds-stepper-navigation__panel'];
+    const classes = ['hds-stepper-nav__panel'];
 
     return classes.join(' ');
   }

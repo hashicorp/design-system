@@ -14,20 +14,20 @@ import { hbs } from 'ember-cli-htmlbars';
 // in this file it will be wrapped inside its parent comoponent.
 
 module(
-  'Integration | Component | hds/stepper/navigation/panel',
+  'Integration | Component | hds/stepper/nav/panel',
   function (hooks) {
     setupRenderingTest(hooks);
 
     hooks.beforeEach(function () {
-      this.set('createNavigationPanel', async (args = {}) => {
+      this.set('createNavPanel', async (args = {}) => {
         this.currentStep = args.currentStep ?? undefined;
         return await render(hbs`
-          <Hds::Stepper::Navigation @currentStep={{this.currentStep}} as |S|>
+          <Hds::Stepper::Nav @currentStep={{this.currentStep}} as |S|>
             <S.Step></S.Step>
             <S.Panel>
               <div id="test-panel-content">Test</div>
             </S.Panel>
-          </Hds::Stepper::Navigation>
+          </Hds::Stepper::Nav>
         `);
       });
     });
@@ -36,24 +36,24 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Stepper::Navigation::Panel data-test="panel-1" />`
+        hbs`<Hds::Stepper::Nav::Panel data-test="panel-1" />`
       );
       assert
         .dom('[data-test="panel-1"]')
-        .hasClass('hds-stepper-navigation__panel');
+        .hasClass('hds-stepper-nav__panel');
     });
 
     // VISIBILITY
 
     test('it sets the panel content to not visible when the @currentStep argument does not match the panel index in the @panelIds argument', async function (assert) {
-      await this.createNavigationPanel({ currentStep: 1 });
-      assert.dom('.hds-stepper-navigation__panel').hasAttribute('hidden');
+      await this.createNavPanel({ currentStep: 1 });
+      assert.dom('.hds-stepper-nav__panel').hasAttribute('hidden');
       assert.dom('#test-panel-content').doesNotExist();
     });
 
     test('it sets the panel content to visible when the @currentStep argument matches the panel index in the @panelIds argument', async function (assert) {
-      await this.createNavigationPanel({ currentStep: 0 });
-      assert.dom('.hds-stepper-navigation__panel').hasNoAttribute('hidden');
+      await this.createNavPanel({ currentStep: 0 });
+      assert.dom('.hds-stepper-nav__panel').hasNoAttribute('hidden');
       assert.dom('#test-panel-content').exists();
     });
   }
