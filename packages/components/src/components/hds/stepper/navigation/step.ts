@@ -9,25 +9,29 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import {
-  HdsStepperStatusesValues,
   HdsStepperTitleTagValues,
+  HdsStepperNavigationStatusesValues,
+  HdsStepperNavigationStatusToIndicatorStatus,
+  HdsStepperNavigationStatusToSrOnlyText,
 } from '../types.ts';
 import type {
   HdsStepperTitleTags,
   HdsStepperNavigationStepIds,
   HdsStepperNavigationPanelIds,
   HdsStepperStatuses,
+  HdsStepperNavigationStatuses,
 } from '../types.ts';
 
-export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
-export const STATUSES: string[] = Object.values(HdsStepperStatusesValues);
+export const MAPPING_STATUS_TO_INDICATOR_STATUS =
+  HdsStepperNavigationStatusToIndicatorStatus;
+export const MAPPING_STATUS_TO_SR_ONLY_TEXT =
+  HdsStepperNavigationStatusToSrOnlyText;
 
 export interface HdsStepperNavigationStepSignature {
   Args: {
     currentStep: number;
     stepNumber?: number;
-    isInteractive?: boolean;
-    isComplete?: boolean;
+    isNavInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
     stepIds?: HdsStepperNavigationStepIds;
     panelIds?: HdsStepperNavigationPanelIds;
@@ -70,6 +74,26 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   );
 
   /**
+   * Get the DOM tag that should be used for the title
+   * @param titleTag
+   * @type {HdsStepperTitleTags}
+   * @default 'div'
+   */
+  get titleTag(): HdsStepperTitleTags {
+    return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
+  }
+
+  /**
+   * Get the interactivity of the Nav parent
+   * @param isNavInteractive
+   * @type {boolean}
+   * @default false
+   */
+  get isNavInteractive(): boolean {
+    return this.args.isNavInteractive || false;
+  }
+
+  /**
    * Get the index of the step from the _stepIds list
    * @param nodeIndex
    * @type {number}
@@ -105,17 +129,31 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   /**
    * Get the status that should be set on the Step::Indicator
    * @param status
+   * @type {HdsStepperNavigationStatuses}
+   * @default 'incomplete'
+   */
+  get status(): HdsStepperNavigationStatuses {
+    if (this.nodeIndex != undefined) {
+      if (this.nodeIndex === this.args.currentStep) {
+        return HdsStepperNavigationStatusesValues.Active;
+      } else if (this.nodeIndex < this.args.currentStep) {
+        return HdsStepperNavigationStatusesValues.Complete;
+      } else {
+        return HdsStepperNavigationStatusesValues.Incomplete;
+      }
+    } else {
+      return HdsStepperNavigationStatusesValues.Incomplete;
+    }
+  }
+
+  /**
+   * Get the status that should be set on the Step::Indicator
+   * @param stepIndicatorStatus
    * @type {HdsStepperStatuses}
    * @default 'incomplete'
    */
-  get status(): HdsStepperStatuses {
-    if (this.isActive) {
-      return HdsStepperStatusesValues.Progress;
-    } else if (this.isComplete) {
-      return HdsStepperStatusesValues.Complete;
-    } else {
-      return HdsStepperStatusesValues.Incomplete;
-    }
+  get stepIndicatorStatus(): HdsStepperStatuses {
+    return MAPPING_STATUS_TO_INDICATOR_STATUS[this.status];
   }
 
   /**
@@ -125,52 +163,19 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
    * @default ''
    */
   get statusSrOnlyText(): string {
-    if (this.isActive) {
-      return 'Current: ';
-    } else if (this.isComplete) {
-      return 'Complete: ';
-    } else {
-      return '';
-    }
+    return MAPPING_STATUS_TO_SR_ONLY_TEXT[this.status];
   }
 
   /**
-   * Check if the step number matches the currentStep value
-   * @param isActive
-   * @type {boolean}
-   */
-  get isActive(): boolean {
-    return (
-      this.nodeIndex !== undefined && this.nodeIndex === this.args.currentStep
-    );
-  }
-
-  /**
-   * Get the DOM tag that should be used for the title
-   * @param titleTag
-   * @type {HdsStepperTitleTags}
-   * @default 'div'
-   */
-  get titleTag(): HdsStepperTitleTags {
-    return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
-  }
-
-  /**
+   * Get if the step should be interactive
    * @param isInteractive
    * @type {boolean}
-   * @default false
    */
   get isInteractive(): boolean {
-    return this.args.isInteractive || false;
-  }
-
-  /**
-   * @param isComplete
-   * @type {boolean}
-   * @default false
-   */
-  get isComplete(): boolean {
-    return this.args.isComplete || false;
+    return (
+      this.isNavInteractive &&
+      this.status === HdsStepperNavigationStatusesValues.Complete
+    );
   }
 
   @action
@@ -220,16 +225,14 @@ export default class HdsStepperNavigationStep extends Component<HdsStepperNaviga
   get classNames(): string {
     const classes = ['hds-stepper-navigation__step'];
 
-    if (this.isActive) {
-      classes.push('hds-stepper-navigation__step-active');
-    } else if (this.isComplete) {
-      classes.push('hds-stepper-navigation__step-complete');
-    } else {
-      classes.push('hds-stepper-navigation__step-incomplete');
-    }
+    classes.push(`hds-stepper-navigation__step--${this.status}`);
 
     if (this.isInteractive) {
-      classes.push('hds-stepper-navigation__step-interactive');
+      classes.push('hds-stepper-navigation__step--interactive');
+    }
+
+    if (this.isNavInteractive) {
+      classes.push('hds-stepper-navigation__step--navigation-interactive');
     }
 
     return classes.join(' ');

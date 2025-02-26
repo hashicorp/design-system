@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { schedule } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
@@ -26,6 +25,7 @@ export interface HdsStepperNavigationSignature {
   Args: {
     steps?: HdsStepperNavigationStep[];
     currentStep?: number;
+    isInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
     onStepChange?: (event: MouseEvent, stepNumber: number) => void;
   };
@@ -46,14 +46,6 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
   @tracked private _stepNodes: HTMLElement[] = [];
   @tracked private _panelNodes: HTMLElement[] = [];
   @tracked private _panelIds: HdsStepperNavigationPanelIds = [];
-  @tracked private _currentStepId?: string;
-
-  /**
-   * Generate a unique ID for the panel
-   * @return {string}
-   * @param _panelId
-   */
-  private _panelId = 'panel-' + guidFor(this);
 
   private _setUpStepperNavigation = modifier(() => {
     // eslint-disable-next-line ember/no-runloop
@@ -66,15 +58,6 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
 
     return () => {};
   });
-
-  /**
-   * @param titleTag
-   * @type {HdsStepperTitleTags}
-   * @default 'div'
-   */
-  get titleTag(): HdsStepperTitleTags {
-    return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
-  }
 
   /**
    * @param currentStep
@@ -95,15 +78,30 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
     }
   }
 
+  /**
+   * @param isInteractive
+   * @type {boolean}
+   * @default false
+   */
+  get isInteractive(): boolean {
+    return this.args.isInteractive || false;
+  }
+
+  /**
+   * @param titleTag
+   * @type {HdsStepperTitleTags}
+   * @default 'div'
+   */
+  get titleTag(): HdsStepperTitleTags {
+    return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
+  }
+
   @action
   didInsertStep(element: HTMLElement, stepId: string): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._stepIds = [...this._stepIds, stepId];
       this._stepNodes = [...this._stepNodes, element];
-      if (this.currentStep === this._stepIds.length - 1) {
-        this._currentStepId = stepId;
-      }
     });
   }
 
@@ -175,7 +173,7 @@ export default class HdsStepperNavigation extends Component<HdsStepperNavigation
   }
 
   private isStepInteractive(el: HTMLElement): boolean {
-    return !el.classList.contains('hds-stepper-navigation__step__btn-disabled');
+    return !(el.getAttribute('aria-disabled') === 'true');
   }
 
   // Focus step for keyboard & mouse navigation
