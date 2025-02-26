@@ -1,0 +1,326 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// STEPPER > NAV
+//
+
+@use "sass:map";
+@use "../../mixins/focus-ring" as *;
+@use "./step-indicator.scss" as *;
+
+.hds-stepper-nav__list,
+.hds-stepper-nav__step {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hds-stepper-nav__list {
+  display: flex;
+}
+
+// STEPPER > NAV > STEP
+
+.hds-stepper-nav__step {
+  width: 100%;
+}
+
+.hds-stepper-nav__step__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+.hds-stepper-nav__step__progress {
+  position: absolute;
+  top: -14px;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 4px;
+    content: "";
+  }
+
+  &::before {
+    background-color: var(--token-color-palette-alpha-200);
+  }
+
+  &::after {
+    background-color: var(--token-color-palette-neutral-700);
+  }
+}
+
+.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step__progress::before,
+.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step__progress::after {
+  border-radius: 20px 0 0 20px;
+}
+
+.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step__progress::before,
+.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step__progress::after {
+  border-radius: 0 20px 20px 0;
+}
+
+.hds-stepper-nav__step__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 12px 12px 12px;
+  border-radius: 0 0 var(--token-border-radius-small) var(--token-border-radius-small);
+}
+
+.hds-stepper-nav__step__title {
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-stepper-nav__step__description {
+  margin-top: 4px;
+  color: var(--token-color-foreground-primary);
+}
+
+// STAUSES
+
+// Complete & Active
+
+.hds-stepper-nav__step--complete .hds-stepper-nav__step__title,
+.hds-stepper-nav__step--active .hds-stepper-nav__step__title {
+  color: var(--token-color-foreground-strong);
+}
+
+// Incomplete
+
+.hds-stepper-nav__step--incomplete .hds-stepper-nav__step__progress::after {
+  width: 0;
+}
+
+// Active
+
+.hds-stepper-nav__step--active {
+  .hds-stepper-nav__step__btn {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0 0 6px 6px
+    );
+  }
+
+  .hds-stepper-nav__step__progress::after {
+    width: calc(50% - 16px); // 1/2 width of icon (12px) + 4px margin
+    border-radius: 0 20px 20px 0;
+  }
+}
+
+// Complete
+
+.hds-stepper-nav__step--complete .hds-stepper-nav__step__progress::after {
+  width: 100%;
+}
+
+// NAV INTERACTIVE
+
+.hds-stepper-nav__step--nav-interactive {
+  .hds-stepper-nav__step__progress::after {
+    background-color: var(--token-color-palette-blue-300);
+  }
+
+  &.hds-stepper-nav__step-complete .hds-stepper-nav__step__title,
+  &.hds-stepper-nav__step-active .hds-stepper-nav__step__title {
+    color: var(--token-color-foreground-action);
+  }
+}
+
+// INTERACTIVE
+
+.hds-stepper-nav__step--interactive {
+  .hds-stepper-nav__step__btn {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0 0 6px 6px
+    );
+    cursor: pointer;
+
+    &:hover,
+    &.mock-hover {
+      .hds-stepper-nav__step__text {
+        background-color: var(--token-color-surface-interactive-hover);
+      }
+
+      .hds-stepper-nav__step__title {
+        color: var(--token-color-foreground-action-hover);
+      }
+    }
+
+    &:active,
+    &.mock-active {
+      .hds-stepper-nav__step__text {
+        background-color: var(--token-color-surface-interactive-active);
+      }
+
+      .hds-stepper-nav__step__title {
+        color: var(--token-color-foreground-action-active);
+      }
+    }
+  }
+}
+
+// INTERACTIVE > STEP INDICATOR
+
+// The step indicator has its own hover / active styles that we need to prevent from occuring,
+// and have those styles be added based on interaction with step buttons instead.
+
+@each $status in $hds-stepper-indicator-step-statuses {
+  .hds-stepper-nav__step--nav-interactive {
+    .hds-stepper-nav__step__btn:hover,
+    .hds-stepper-nav__step__btn.mock-hover {
+      .hds-stepper-indicator-step--status-#{$status} {
+        &.hds-stepper-indicator-step {
+          cursor: default;
+        }
+
+        .hds-stepper-indicator-step__status {
+          color: map.get(
+          $hds-stepper-indicator-step-status-props,
+          $status,
+          "text-color-default"
+          );
+        }
+
+        .hds-stepper-indicator-step__svg-hexagon {
+          path {
+            fill: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "fill-color-default"
+            );
+            stroke: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "stroke-color-default"
+            );
+          }
+        }
+      }
+    }
+
+    &.hds-stepper-nav__step--interactive {
+      .hds-stepper-nav__step__btn:hover,
+      .hds-stepper-nav__step__btn.mock-hover {
+        .hds-stepper-indicator-step--status-#{$status} {
+          &.hds-stepper-indicator-step {
+            cursor: pointer;
+          }
+
+          .hds-stepper-indicator-step__status {
+            color: map.get(
+            $hds-stepper-indicator-step-status-props,
+            $status,
+            "text-color-hover"
+            );
+          }
+
+          .hds-stepper-indicator-step__svg-hexagon {
+            path {
+              fill: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "fill-color-hover"
+              );
+              stroke: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "stroke-color-hover"
+              );
+            }
+          }
+        }
+      }
+    }
+
+    .hds-stepper-nav__step__btn:active,
+    .hds-stepper-nav__step__btn.mock-active {
+      .hds-stepper-indicator-step--status-#{$status} {
+        &.hds-stepper-indicator-step {
+          cursor: default;
+        }
+
+        .hds-stepper-indicator-step__status {
+          color: map.get(
+            $hds-stepper-indicator-step-status-props,
+            $status,
+            "text-color-default"
+          );
+        }
+
+        .hds-stepper-indicator-step__svg-hexagon {
+          path {
+            fill: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "fill-color-default"
+            );
+            stroke: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "stroke-color-default"
+            );
+          }
+        }
+      }
+    }
+
+    &.hds-stepper-nav__step--interactive {
+      .hds-stepper-nav__step__btn:active,
+      .hds-stepper-nav__step__btn.mock-active {
+        .hds-stepper-indicator-step--status-#{$status} {
+          &.hds-stepper-indicator-step {
+            cursor: pointer;
+          }
+
+          .hds-stepper-indicator-step__status {
+            color: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "text-color-active"
+            );
+          }
+
+          .hds-stepper-indicator-step__svg-hexagon {
+            path {
+              fill: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "fill-color-active"
+              );
+              stroke: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "stroke-color-active"
+              );
+            }
+          }
+        }
+      }
+    }
+  }
+}

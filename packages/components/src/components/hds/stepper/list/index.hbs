@@ -1,0 +1,13 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<ol class={{this.classNames}} ...attributes>
+  {{yield
+    (hash
+      Step=(component
+        "hds/stepper/list/step" titleTag=this.titleTag didInsertNode=this.didInsertStep stepIds=this._stepIds
+      )
+    )
+  }}
+</ol>

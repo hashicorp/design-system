@@ -22,3 +22,70 @@ export const HdsStepperStatusToIconsValues: Record<
   [HdsStepperStatusesValues.Processing]: 'loading',
   [HdsStepperStatusesValues.Complete]: 'check-circle',
 };
+
+export const HdsStepperStatusToSrOnlyText: Record<
+  HdsStepperStatusesValues,
+  string
+> = {
+  [HdsStepperStatusesValues.Incomplete]: '',
+  [HdsStepperStatusesValues.Progress]: 'Current: ',
+  [HdsStepperStatusesValues.Processing]: 'In progress: ',
+  [HdsStepperStatusesValues.Complete]: 'Complete: ',
+};
+
+export enum HdsStepperTitleTagValues {
+  Div = 'div',
+  H1 = 'h1',
+  H2 = 'h2',
+  H3 = 'h3',
+  H4 = 'h4',
+  H5 = 'h5',
+  H6 = 'h6',
+}
+
+export type HdsStepperTitleTags = `${HdsStepperTitleTagValues}`;
+
+export type HdsStepperNavStepIds = string[];
+
+export interface HdsStepperNavStep {
+  title: string;
+  description?: string;
+  isInteractive?: boolean;
+  isComplete?: boolean;
+}
+
+export enum HdsStepperNavStatusesValues {
+  Incomplete = 'incomplete',
+  Active = 'active',
+  Complete = 'complete',
+}
+
+export type HdsStepperNavStatuses = `${HdsStepperNavStatusesValues}`;
+
+export const HdsStepperNavStatusToIndicatorStatus: Record<
+  HdsStepperNavStatusesValues,
+  HdsStepperStatusesValues
+> = {
+  [HdsStepperNavStatusesValues.Incomplete]: HdsStepperStatusesValues.Incomplete,
+  [HdsStepperNavStatusesValues.Active]: HdsStepperStatusesValues.Progress,
+  [HdsStepperNavStatusesValues.Complete]: HdsStepperStatusesValues.Complete,
+};
+
+export const HdsStepperNavStatusToSrOnlyText: Record<
+  HdsStepperNavStatusesValues,
+  string
+> = {
+  [HdsStepperNavStatusesValues.Incomplete]: '',
+  [HdsStepperNavStatusesValues.Active]: 'Current: ',
+  [HdsStepperNavStatusesValues.Complete]: 'Complete: ',
+};
+
+export type HdsStepperNavPanelIds = string[];
+
+export type HdsStepperListStepIds = string[];
+
+export interface HdsStepperListStep {
+  title: string;
+  description?: string;
+  isComplete?: boolean;
+}
