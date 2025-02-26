@@ -76,9 +76,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
 
   test('it sets the step description when using the @steps argument', async function (assert) {
     await this.createStepperNavArray({ step1Description: 'Test' });
-    assert
-      .dom('.hds-stepper-nav__step__description')
-      .containsText('Test');
+    assert.dom('.hds-stepper-nav__step__description').containsText('Test');
   });
 
   test('it should have 2 Steps and 2 Panels', async function (assert) {
@@ -163,14 +161,10 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     });
 
     // focus 2nd step:
-    assert
-      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
-      .exists();
+    assert.dom('[data-test="step-2"] .hds-stepper-nav__step__btn').exists();
     await focus('[data-test="step-2"] .hds-stepper-nav__step__btn');
     // test that the navigated to step is now focused:
-    assert
-      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
-      .isFocused();
+    assert.dom('[data-test="step-2"] .hds-stepper-nav__step__btn').isFocused();
 
     // navigate to the previous (1st) step using right arrow key:
     await triggerKeyEvent(
@@ -179,9 +173,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       rightArrowKey
     );
     // test that the navigated to step is now focused:
-    assert
-      .dom('[data-test="step-1"] .hds-stepper-nav__step__btn')
-      .isFocused();
+    assert.dom('[data-test="step-1"] .hds-stepper-nav__step__btn').isFocused();
 
     // navigate back to the next (2nd) step using left arrow key:
     await triggerKeyEvent(
@@ -190,8 +182,6 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       leftArrowKey
     );
     // test that the navigated to step is now focused:
-    assert
-      .dom('[data-test="step-2"] .hds-stepper-nav__step__btn')
-      .isFocused();
+    assert.dom('[data-test="step-2"] .hds-stepper-nav__step__btn').isFocused();
   });
 });

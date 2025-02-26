@@ -60,19 +60,15 @@ export enum HdsStepperNavStatusesValues {
   Complete = 'complete',
 }
 
-export type HdsStepperNavStatuses =
-  `${HdsStepperNavStatusesValues}`;
+export type HdsStepperNavStatuses = `${HdsStepperNavStatusesValues}`;
 
 export const HdsStepperNavStatusToIndicatorStatus: Record<
   HdsStepperNavStatusesValues,
   HdsStepperStatusesValues
 > = {
-  [HdsStepperNavStatusesValues.Incomplete]:
-    HdsStepperStatusesValues.Incomplete,
-  [HdsStepperNavStatusesValues.Active]:
-    HdsStepperStatusesValues.Progress,
-  [HdsStepperNavStatusesValues.Complete]:
-    HdsStepperStatusesValues.Complete,
+  [HdsStepperNavStatusesValues.Incomplete]: HdsStepperStatusesValues.Incomplete,
+  [HdsStepperNavStatusesValues.Active]: HdsStepperStatusesValues.Progress,
+  [HdsStepperNavStatusesValues.Complete]: HdsStepperStatusesValues.Complete,
 };
 
 export const HdsStepperNavStatusToSrOnlyText: Record<

@@ -8,10 +8,7 @@ import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
-import type {
-  HdsStepperNavStepIds,
-  HdsStepperNavPanelIds,
-} from '../types.ts';
+import type { HdsStepperNavStepIds, HdsStepperNavPanelIds } from '../types.ts';
 
 export interface HdsStepperNavPanelSignature {
   Args: {
