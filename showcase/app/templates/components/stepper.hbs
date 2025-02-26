@@ -16,44 +16,70 @@
   <Hds::Stepper::Navigation
     @titleTag="h3"
     @currentStep={{this.currentStepDemo1}}
+    @isInteractive={{true}}
     @onStepChange={{this.updateCurrentStepDemo1}}
     as |S|
   >
-    <S.Step @isComplete={{true}} @isInteractive={{true}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{true}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
     <S.Panel>
       <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+      <Hds::Button
+        type="button"
+        @text="Next"
+        @isInline={{true}}
+        class="shw-component-stepper-sample-form-btn"
+        {{on "click" this.onNextClickDemo1}}
+      />
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+      <div class="shw-component-stepper-sample-form-btn">
+        <Hds::Button
+          type="button"
+          @text="Previous"
+          @color="secondary"
+          @isInline={{true}}
+          {{on "click" this.onPreviousClickDemo1}}
+        />
+        <Hds::Button type="button" @text="Next" @isInline={{true}} {{on "click" this.onNextClickDemo1}} />
+      </div>
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+      <Hds::Button
+        type="button"
+        @text="Previous"
+        @color="secondary"
+        @isInline={{true}}
+        class="shw-component-stepper-sample-form-btn"
+        {{on "click" this.onPreviousClickDemo1}}
+      />
     </S.Panel>
   </Hds::Stepper::Navigation>
 
   <Shw::Text::Body>Non-interactive</Shw::Text::Body>
 
   <Hds::Stepper::Navigation @titleTag="h3" @currentStep={{1}} as |S|>
-    <S.Step @isComplete={{true}} @isInteractive={{false}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
@@ -140,26 +166,27 @@
   <Shw::Text::H4>Default</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Incomplete">
-      <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Navigation::Step @isComplete={{false}} @stepNumber={{1}}>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </Hds::Stepper::Navigation::Step>
-      </ul>
-    </SG.Item>
-    <SG.Item @label="Active">
-      <Hds::Stepper::Navigation as |S|>
-        <S.Step @isComplete={{false}} @currentStep={{0}} @stepNumber={{1}} class="hds-stepper-navigation__step-active">
+    <SG.Item @label="Complete">
+      <Hds::Stepper::Navigation @currentStep={{1}} as |S|>
+        <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
       </Hds::Stepper::Navigation>
     </SG.Item>
-    <SG.Item @label="Complete">
-      <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Navigation::Step @isComplete={{true}} @stepNumber={{1}}>
+    <SG.Item @label="Active">
+      <Hds::Stepper::Navigation @currentStep={{0}} as |S|>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Navigation>
+    </SG.Item>
+    <SG.Item @label="Incomplete">
+      <ul class="shw-component-stepper-sample-ul-wrapper">
+        <Hds::Stepper::Navigation::Step @stepNumber={{1}} @currentStep={{2}}>
           <:title>Title</:title>
           <:description>Description</:description>
         </Hds::Stepper::Navigation::Step>
@@ -167,35 +194,30 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Interactive</Shw::Text::H4>
+  <Shw::Text::H4>Navigation Interactive</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Incomplete">
-      <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Navigation::Step @isComplete={{false}} @stepNumber={{1}} @isInteractive={{true}}>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </Hds::Stepper::Navigation::Step>
-      </ul>
-    </SG.Item>
-    <SG.Item @label="Active">
-      <Hds::Stepper::Navigation as |S|>
-        <S.Step
-          @isComplete={{false}}
-          @currentStep={{0}}
-          @stepNumber={{1}}
-          @isInteractive={{true}}
-          class="hds-stepper-navigation__step-active"
-        >
+    <SG.Item @label="Complete">
+      <Hds::Stepper::Navigation @currentStep={{1}} @isInteractive={{true}} as |S|>
+        <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
       </Hds::Stepper::Navigation>
     </SG.Item>
-    <SG.Item @label="Complete">
+    <SG.Item @label="Active">
+      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Navigation>
+    </SG.Item>
+    <SG.Item @label="Incomplete">
       <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Navigation::Step @isComplete={{true}} @stepNumber={{1}} @isInteractive={{true}}>
+        <Hds::Stepper::Navigation::Step @isNavInteractive={{true}} @stepNumber={{1}} @currentStep={{2}}>
           <:title>Title</:title>
           <:description>Description</:description>
         </Hds::Stepper::Navigation::Step>
@@ -207,36 +229,9 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.NAVIGATION_STATES as |state|}}
-      <SG.Item @label="Incomplete/{{state}}">
-        <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-          <Hds::Stepper::Navigation::Step
-            @isComplete={{false}}
-            @stepNumber={{1}}
-            @isInteractive={{true}}
-            mock-state-value={{state}}
-            mock-state-selector="button"
-          >
-            <:title>Title</:title>
-            <:description>Description</:description>
-          </Hds::Stepper::Navigation::Step>
-        </ul>
-      </SG.Item>
-    {{/each}}
-  </Shw::Grid>
-
-  <Shw::Grid @columns={{4}} as |SG|>
-    {{#each @model.NAVIGATION_STATES as |state|}}
-      <SG.Item @label="Active/{{state}}">
-        <Hds::Stepper::Navigation as |S|>
-          <S.Step
-            @isComplete={{false}}
-            @currentStep={{0}}
-            @stepNumber={{1}}
-            @isInteractive={{true}}
-            mock-state-value={{state}}
-            mock-state-selector="button"
-            class="hds-stepper-navigation__step-active"
-          >
+      <SG.Item @label="Complete/{{state}}">
+        <Hds::Stepper::Navigation @currentStep={{1}} @isInteractive={{true}} as |S|>
+          <S.Step mock-state-value={{state}} mock-state-selector="button">
             <:title>Title</:title>
             <:description>Description</:description>
           </S.Step>
@@ -247,22 +242,24 @@
   </Shw::Grid>
 
   <Shw::Grid @columns={{4}} as |SG|>
-    {{#each @model.NAVIGATION_STATES as |state|}}
-      <SG.Item @label="Complete/{{state}}">
-        <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-          <Hds::Stepper::Navigation::Step
-            @isComplete={{true}}
-            @stepNumber={{1}}
-            @isInteractive={{true}}
-            mock-state-value={{state}}
-            mock-state-selector="button"
-          >
-            <:title>Title</:title>
-            <:description>Description</:description>
-          </Hds::Stepper::Navigation::Step>
-        </ul>
-      </SG.Item>
-    {{/each}}
+    <SG.Item @label="Active/default">
+      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+        <S.Step mock-state-value="default" mock-state-selector="button">
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Navigation>
+    </SG.Item>
+    <SG.Item @label="Active/focus">
+      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+        <S.Step mock-state-value="focus" mock-state-selector="button">
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Navigation>
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Text::H3>Navigation::Panel</Shw::Text::H3>
@@ -279,7 +276,7 @@
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label="{{capitalize status}}">
         <ul class="shw-component-stepper-sample-ul-wrapper">
-          <Hds::Stepper::List::Step @status={{status}} @stepNumber={{1}}>
+          <Hds::Stepper::List::Step @status={{status}} @stepNumber={{1}} @isNavInteractive={{true}}>
             <:title>Title</:title>
             <:description>Description</:description>
             <:content>
@@ -359,28 +356,54 @@
   <Hds::Stepper::Navigation
     @titleTag="h3"
     @currentStep={{this.currentStepDemo2}}
+    @isInteractive={{true}}
     @onStepChange={{this.updateCurrentStepDemo2}}
     as |S|
   >
-    <S.Step @isComplete={{true}} @isInteractive={{true}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{true}}>
+    <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
     </S.Step>
-    <S.Step @isComplete={{false}} @isInteractive={{false}}>
+    <S.Step>
       <:title>Title</:title>
     </S.Step>
     <S.Panel>
       <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+      <Hds::Button
+        type="button"
+        @text="Next"
+        @isInline={{true}}
+        class="shw-component-stepper-sample-form-btn"
+        {{on "click" this.onNextClickDemo2}}
+      />
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+      <div class="shw-component-stepper-sample-form-btn">
+        <Hds::Button
+          type="button"
+          @text="Previous"
+          @color="secondary"
+          @isInline={{true}}
+          {{on "click" this.onPreviousClickDemo2}}
+        />
+        <Hds::Button type="button" @text="Next" @isInline={{true}} {{on "click" this.onNextClickDemo2}} />
+      </div>
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+      <Hds::Button
+        type="button"
+        @text="Previous"
+        @color="secondary"
+        @isInline={{true}}
+        class="shw-component-stepper-sample-form-btn"
+        {{on "click" this.onPreviousClickDemo2}}
+      />
     </S.Panel>
   </Hds::Stepper::Navigation>
 
@@ -388,21 +411,47 @@
 
   <Hds::Stepper::Navigation
     @steps={{array
-      (hash title="Title" description="Description" isComplete=true isInteractive=true)
-      (hash title="Title" description="Description" isComplete=false isInteractive=true)
-      (hash title="Title" isComplete=false isInteractive=false)
+      (hash title="Title" description="Description")
+      (hash title="Title" description="Description")
+      (hash title="Title")
     }}
     @titleTag="h3"
     @currentStep={{this.currentStepDemo3}}
+    @isInteractive={{true}}
     @onStepChange={{this.updateCurrentStepDemo3}}
   >
     <:body>
       {{#if (eq this.currentStepDemo3 0)}}
         <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
+        <Hds::Button
+          type="button"
+          @text="Next"
+          @isInline={{true}}
+          class="shw-component-stepper-sample-form-btn"
+          {{on "click" this.onNextClickDemo3}}
+        />
       {{else if (eq this.currentStepDemo3 1)}}
         <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
+        <div class="shw-component-stepper-sample-form-btn">
+          <Hds::Button
+            type="button"
+            @text="Previous"
+            @color="secondary"
+            @isInline={{true}}
+            {{on "click" this.onPreviousClickDemo3}}
+          />
+          <Hds::Button type="button" @text="Next" @isInline={{true}} {{on "click" this.onNextClickDemo3}} />
+        </div>
       {{else}}
         <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
+        <Hds::Button
+          type="button"
+          @text="Previous"
+          @color="secondary"
+          @isInline={{true}}
+          class="shw-component-stepper-sample-form-btn"
+          {{on "click" this.onPreviousClickDemo3}}
+        />
       {{/if}}
     </:body>
   </Hds::Stepper::Navigation>
