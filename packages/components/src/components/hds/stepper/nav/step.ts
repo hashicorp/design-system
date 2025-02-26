@@ -24,8 +24,7 @@ import type {
 
 export const MAPPING_STATUS_TO_INDICATOR_STATUS =
   HdsStepperNavStatusToIndicatorStatus;
-export const MAPPING_STATUS_TO_SR_ONLY_TEXT =
-  HdsStepperNavStatusToSrOnlyText;
+export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperNavStatusToSrOnlyText;
 
 export interface HdsStepperNavStepSignature {
   Args: {

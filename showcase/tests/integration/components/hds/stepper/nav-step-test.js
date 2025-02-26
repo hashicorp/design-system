@@ -13,20 +13,18 @@ import { hbs } from 'ember-cli-htmlbars';
 // it's practically impossible to test in isolation, so in our tests
 // in this file it will be wrapped inside its parent comoponent.
 
-module(
-  'Integration | Component | hds/stepper/nav/step',
-  function (hooks) {
-    setupRenderingTest(hooks);
+module('Integration | Component | hds/stepper/nav/step', function (hooks) {
+  setupRenderingTest(hooks);
 
-    hooks.beforeEach(function () {
-      this.set('createNavStep', async (args = {}) => {
-        this.title = args.title ?? undefined;
-        this.description = args.description ?? undefined;
-        this.currentStep = args.currentStep ?? undefined;
-        this.stepNumber = args.stepNumber ?? undefined;
-        this.isInteractive = args.isInteractive ?? undefined;
-        this.titleTag = args.titleTag ?? undefined;
-        return await render(hbs`
+  hooks.beforeEach(function () {
+    this.set('createNavStep', async (args = {}) => {
+      this.title = args.title ?? undefined;
+      this.description = args.description ?? undefined;
+      this.currentStep = args.currentStep ?? undefined;
+      this.stepNumber = args.stepNumber ?? undefined;
+      this.isInteractive = args.isInteractive ?? undefined;
+      this.titleTag = args.titleTag ?? undefined;
+      return await render(hbs`
           <Hds::Stepper::Nav
             @currentStep={{this.currentStep}}
             @isInteractive={{this.isInteractive}}
@@ -42,149 +40,134 @@ module(
             <S.Panel />
           </Hds::Stepper::Nav>
         `);
-      });
     });
+  });
 
-    // CLASSES
+  // CLASSES
 
-    test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(
-        hbs`<Hds::Stepper::Nav::Step id="test-stepper-nav-step" />`
-      );
-      assert
-        .dom('#test-stepper-nav-step')
-        .hasClass('hds-stepper-nav__step');
-    });
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
+    await render(hbs`<Hds::Stepper::Nav::Step id="test-stepper-nav-step" />`);
+    assert.dom('#test-stepper-nav-step').hasClass('hds-stepper-nav__step');
+  });
 
-    // STEP NUMBER
+  // STEP NUMBER
 
-    test('it sets the step number automatically when the @stepNumber argument is not provided', async function (assert) {
-      await this.createNavStep();
-      assert.dom('.hds-stepper-indicator-step__text').hasText('1');
-    });
+  test('it sets the step number automatically when the @stepNumber argument is not provided', async function (assert) {
+    await this.createNavStep();
+    assert.dom('.hds-stepper-indicator-step__text').hasText('1');
+  });
 
-    test('it sets the step number when the @stepNumber argument is provided', async function (assert) {
-      await this.createNavStep({ stepNumber: 3 });
-      assert.dom('.hds-stepper-indicator-step__text').hasText('3');
-    });
+  test('it sets the step number when the @stepNumber argument is provided', async function (assert) {
+    await this.createNavStep({ stepNumber: 3 });
+    assert.dom('.hds-stepper-indicator-step__text').hasText('3');
+  });
 
-    // NAV INTERACTIVE
+  // NAV INTERACTIVE
 
-    test('it sets the step to not interactive when the @isInteractive argument is not provided to the parent', async function (assert) {
-      await this.createNavStep();
-      assert.dom('.hds-stepper-nav__step').hasNoAttribute('role');
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasNoClass('hds-stepper-nav__step--interactive');
-      assert
-        .dom('.hds-stepper-indicator-step')
-        .hasNoClass('hds-stepper-indicator-step--is-interactive');
-      assert
-        .dom('.hds-stepper-nav__step__content')
-        .hasNoClass('hds-stepper-nav__step__btn');
-    });
+  test('it sets the step to not interactive when the @isInteractive argument is not provided to the parent', async function (assert) {
+    await this.createNavStep();
+    assert.dom('.hds-stepper-nav__step').hasNoAttribute('role');
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasNoClass('hds-stepper-nav__step--interactive');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasNoClass('hds-stepper-indicator-step--is-interactive');
+    assert
+      .dom('.hds-stepper-nav__step__content')
+      .hasNoClass('hds-stepper-nav__step__btn');
+  });
 
-    test('it sets the step to interactive when the @isInteractive argument is provided to the parent', async function (assert) {
-      await this.createNavStep({ isInteractive: true });
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasAttribute('role', 'presentation');
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasClass('hds-stepper-nav__step--nav-interactive');
-      assert
-        .dom('.hds-stepper-indicator-step')
-        .hasClass('hds-stepper-indicator-step--is-interactive');
-      assert
-        .dom('.hds-stepper-nav__step__content')
-        .hasClass('hds-stepper-nav__step__btn');
-    });
+  test('it sets the step to interactive when the @isInteractive argument is provided to the parent', async function (assert) {
+    await this.createNavStep({ isInteractive: true });
+    assert.dom('.hds-stepper-nav__step').hasAttribute('role', 'presentation');
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--nav-interactive');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--is-interactive');
+    assert
+      .dom('.hds-stepper-nav__step__content')
+      .hasClass('hds-stepper-nav__step__btn');
+  });
 
-    // STATES
+  // STATES
 
-    test('it sets the step to incomplete when the @currentStep is less than the nodeIndex', async function (assert) {
-      await render(
-        hbs`
+  test('it sets the step to incomplete when the @currentStep is less than the nodeIndex', async function (assert) {
+    await render(
+      hbs`
         <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}} @isNavInteractive={{true}}>
           <:title>Title</:title>
           <:description>Description</:description>
         </Hds::Stepper::Nav::Step>`
-      );
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasClass('hds-stepper-nav__step--incomplete');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasAttribute('tabindex', '-1');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasAttribute('aria-selected', 'false');
-      assert
-        .dom('.hds-stepper-indicator-step')
-        .hasClass('hds-stepper-indicator-step--status-incomplete');
-      assert.dom('.sr-only').hasNoText();
-    });
+    );
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--incomplete');
+    assert.dom('.hds-stepper-nav__step__btn').hasAttribute('tabindex', '-1');
+    assert
+      .dom('.hds-stepper-nav__step__btn')
+      .hasAttribute('aria-selected', 'false');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-incomplete');
+    assert.dom('.sr-only').hasNoText();
+  });
 
-    test('it sets the step to complete when the @currentStep is greater than the nodeIndex', async function (assert) {
-      await this.createNavStep({ currentStep: 1, isInteractive: true });
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasClass('hds-stepper-nav__step--complete');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasAttribute('tabindex', '-1');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasAttribute('aria-selected', 'false');
-      assert
-        .dom('.hds-stepper-indicator-step')
-        .hasClass('hds-stepper-indicator-step--status-complete');
-      assert.dom('.sr-only').hasText('Complete: ');
-    });
+  test('it sets the step to complete when the @currentStep is greater than the nodeIndex', async function (assert) {
+    await this.createNavStep({ currentStep: 1, isInteractive: true });
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--complete');
+    assert.dom('.hds-stepper-nav__step__btn').hasAttribute('tabindex', '-1');
+    assert
+      .dom('.hds-stepper-nav__step__btn')
+      .hasAttribute('aria-selected', 'false');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-complete');
+    assert.dom('.sr-only').hasText('Complete: ');
+  });
 
-    test('it sets the step to active when the @currentStep is equal to the nodeIndex', async function (assert) {
-      await this.createNavStep({ currentStep: 0, isInteractive: true });
-      assert
-        .dom('.hds-stepper-nav__step')
-        .hasClass('hds-stepper-nav__step--active');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasNoAttribute('tabindex');
-      assert
-        .dom('.hds-stepper-nav__step__btn')
-        .hasAttribute('aria-selected', 'true');
-      assert
-        .dom('.hds-stepper-indicator-step')
-        .hasClass('hds-stepper-indicator-step--status-progress');
-      assert.dom('.sr-only').hasText('Current: ');
-    });
+  test('it sets the step to active when the @currentStep is equal to the nodeIndex', async function (assert) {
+    await this.createNavStep({ currentStep: 0, isInteractive: true });
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--active');
+    assert.dom('.hds-stepper-nav__step__btn').hasNoAttribute('tabindex');
+    assert
+      .dom('.hds-stepper-nav__step__btn')
+      .hasAttribute('aria-selected', 'true');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-progress');
+    assert.dom('.sr-only').hasText('Current: ');
+  });
 
-    // TITLE TAG
+  // TITLE TAG
 
-    test('it renders a div when the @titleTag argument is not provided', async function (assert) {
-      await this.createNavStep();
-      assert.dom('.hds-stepper-nav__step__title').hasTagName('div');
-    });
+  test('it renders a div when the @titleTag argument is not provided', async function (assert) {
+    await this.createNavStep();
+    assert.dom('.hds-stepper-nav__step__title').hasTagName('div');
+  });
 
-    test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
-      await this.createNavStep({ titleTag: 'h2' });
-      assert.dom('.hds-stepper-nav__step__title').hasTagName('h2');
-    });
+  test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
+    await this.createNavStep({ titleTag: 'h2' });
+    assert.dom('.hds-stepper-nav__step__title').hasTagName('h2');
+  });
 
-    // TITLE
+  // TITLE
 
-    test('it renders the title when the title contextual component block is used', async function (assert) {
-      await this.createNavStep({ title: 'Test' });
-      assert.dom('.hds-stepper-nav__step__title').containsText('Test');
-    });
+  test('it renders the title when the title contextual component block is used', async function (assert) {
+    await this.createNavStep({ title: 'Test' });
+    assert.dom('.hds-stepper-nav__step__title').containsText('Test');
+  });
 
-    // DESCRIPTION
+  // DESCRIPTION
 
-    test('it renders the description when the description contextual component block is used', async function (assert) {
-      await this.createNavStep({ description: 'Test' });
-      assert
-        .dom('.hds-stepper-nav__step__description')
-        .containsText('Test');
-    });
-  }
-);
+  test('it renders the description when the description contextual component block is used', async function (assert) {
+    await this.createNavStep({ description: 'Test' });
+    assert.dom('.hds-stepper-nav__step__description').containsText('Test');
+  });
+});
