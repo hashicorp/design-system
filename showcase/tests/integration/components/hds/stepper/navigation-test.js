@@ -16,18 +16,23 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
       this.currentStep = args.currentStep ?? undefined;
       this.titleTag = args.titleTag ?? undefined;
       this.onStepChange = args.onStepChange ?? undefined;
-      this.step1IsInteractive = args.step1IsInteractive ?? undefined;
-      this.step2IsInteractive = args.step2IsInteractive ?? undefined;
+      this.isInteractive = args.isInteractive ?? undefined;
       return await render(hbs`
-          <Hds::Stepper::Navigation id="test-stepper-navigation" @currentStep={{this.currentStep}} @titleTag={{this.titleTag}} @onStepChange={{this.onStepChange}} as |S|>
-            <S.Step data-test="step-1" @isInteractive={{this.step1IsInteractive}}>
+          <Hds::Stepper::Navigation
+            id="test-stepper-navigation"
+            @currentStep={{this.currentStep}}
+            @titleTag={{this.titleTag}}
+            @isInteractive={{this.isInteractive}}
+            @onStepChange={{this.onStepChange}}
+            as |S|
+          >
+            <S.Step data-test="step-1">
             </S.Step>
-            <S.Step data-test="step-2" @isInteractive={{this.step2IsInteractive}}>
+            <S.Step data-test="step-2">
             </S.Step>
             <S.Panel></S.Panel>
             <S.Panel></S.Panel>
           </Hds::Stepper::Navigation>
-          <button id="test-button">Hello</button>
         `);
     });
 
@@ -37,13 +42,11 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
       this.onStepChange = args.onStepChange ?? undefined;
       this.step1Title = args.step1Title ?? undefined;
       this.step1Description = args.step1Description ?? undefined;
-      this.step1IsComplete = args.step1IsComplete ?? undefined;
-      this.step1IsInteractive = args.step1IsInteractive ?? undefined;
       return await render(hbs`
           <Hds::Stepper::Navigation
             id="test-stepper-navigation"
             @steps={{array
-              (hash title=this.step1Title description=this.step1Description isComplete=this.step1IsComplete isInteractive=this.step1IsInteractive)
+              (hash title=this.step1Title description=this.step1Description)
               (hash title="Step 2")
             }}
             @currentStep={{this.currentStep}}
@@ -78,38 +81,6 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
       .containsText('Test');
   });
 
-  test('it sets the step to incomplete when using the @steps argument and isComplete is not provided', async function (assert) {
-    await this.createStepperNavigationArray();
-    let step2 = document.querySelectorAll('.hds-stepper-navigation__step')[1];
-    assert.true(
-      step2.classList.contains('hds-stepper-navigation__step-incomplete')
-    );
-  });
-
-  test('it sets the step to complete when using the @steps argument and isComplete is provided', async function (assert) {
-    await this.createStepperNavigationArray({
-      step1IsComplete: true,
-      currentStep: 1,
-    });
-    assert
-      .dom('.hds-stepper-navigation__step')
-      .hasClass('hds-stepper-navigation__step-complete');
-  });
-
-  test('it doest not set the step to interactive when using the @steps argument and isInteractive is not provided', async function (assert) {
-    await this.createStepperNavigationArray();
-    assert
-      .dom('.hds-stepper-navigation__step .hds-stepper-navigation__step__btn')
-      .hasAttribute('aria-disabled', 'true');
-  });
-
-  test('it sets the step to interactive when using the @steps argument and isInteractive is provided', async function (assert) {
-    await this.createStepperNavigationArray({ step1IsInteractive: true });
-    assert
-      .dom('.hds-stepper-navigation__step .hds-stepper-navigation__step__btn')
-      .doesNotHaveAttribute('aria-disabled');
-  });
-
   test('it should have 2 Steps and 2 Panels', async function (assert) {
     await this.createStepperNavigationArray();
     assert.dom('.hds-stepper-navigation__step').exists({ count: 2 });
@@ -134,28 +105,47 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
     await this.createStepperNavigation();
     assert
       .dom('[data-test="step-1"]')
-      .hasClass('hds-stepper-navigation__step-active');
+      .hasClass('hds-stepper-navigation__step--active');
   });
 
   test('it sets the step number provided active when the @currentStep argument is provided', async function (assert) {
     await this.createStepperNavigation({ currentStep: 1 });
     assert
       .dom('[data-test="step-2"]')
-      .hasClass('hds-stepper-navigation__step-active');
+      .hasClass('hds-stepper-navigation__step--active');
+  });
+
+  // ISINTERACTIVE
+
+  test('it sets the steps to not interactive when the @isInteractive argument is not provided', async function (assert) {
+    await this.createStepperNavigation();
+    assert.dom('.hds-stepper-navigation__list').hasNoAttribute('role');
+    assert
+      .dom('[data-test="step-1"]')
+      .hasNoClass('hds-stepper-navigation__step--navigation-interactive');
+  });
+
+  test('it sets the steps to interactive when the @isInteractive argument is provided', async function (assert) {
+    await this.createStepperNavigation({ isInteractive: true });
+    assert.dom('.hds-stepper-navigation__list').hasAttribute('role', 'tablist');
+    assert
+      .dom('[data-test="step-1"]')
+      .hasClass('hds-stepper-navigation__step--navigation-interactive');
   });
 
   // CALLBACKS: ONSTEPCHANGE
 
   test('on step click it should invoke the `onStepChange` callback function', async function (assert) {
     let clicked = false;
-    let stepNumber = -1;
+    let stepNumber = 1;
     this.set('onClick', (_event, index) => {
       clicked = true;
       stepNumber = index;
     });
     await this.createStepperNavigation({
+      currentStep: stepNumber,
       onStepChange: this.onClick,
-      step1IsInteractive: true,
+      isInteractive: true,
     });
     await click('[data-test="step-1"] .hds-stepper-navigation__step__btn');
     assert.ok(clicked);
@@ -168,8 +158,7 @@ module('Integration | Component | hds/stepper/navigation', function (hooks) {
     const leftArrowKey = 37;
     const rightArrowKey = 39;
     await this.createStepperNavigation({
-      step1IsInteractive: true,
-      step2IsInteractive: true,
+      isInteractive: true,
       currentStep: 1,
     });
 

@@ -2,25 +2,27 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+{{! template-lint-disable require-context-role no-invalid-role }}
 {{! template-lint-disable require-presentational-children }}
-<li class={{this.classNames}} ...attributes role="presentation">
-  {{#if this.isInteractive}}
+<li class={{this.classNames}} ...attributes role={{if this.isNavInteractive "presentation"}}>
+  {{#if this.isNavInteractive}}
     <button
-      class="hds-stepper-navigation__step__btn"
+      class="hds-stepper-navigation__step__content hds-stepper-navigation__step__btn"
       id={{this._stepId}}
-      tabindex={{unless this.isActive "-1"}}
+      tabindex={{unless (eq this.status "active") "-1"}}
       type="button"
       role="tab"
-      aria-selected={{if this.isActive "true" "false"}}
       aria-controls={{this.coupledPanelId}}
-      {{this._setUpStep this.didInsertNode this.willDestroyNode}}
+      aria-selected={{if (eq this.status "active") "true" "false"}}
+      aria-disabled={{if (eq this.status "incomplete") "true" "false"}}
       {{on "click" this.onStepChange}}
       {{on "keyup" this.onKeyUp}}
+      {{this._setUpStep this.didInsertNode this.willDestroyNode}}
     >
       <div class="hds-stepper-navigation__step__progress">
         <Hds::Stepper::Step::Indicator
           @text="{{this.stepNumber}}"
-          @status={{this.status}}
+          @status={{this.stepIndicatorStatus}}
           @isInteractive={{true}}
           class="hds-stepper-navigation__step__indicator"
         />
@@ -47,21 +49,16 @@
       </div>
     </button>
   {{else}}
-    <button
-      class="hds-stepper-navigation__step__btn hds-stepper-navigation__step__btn-disabled"
+    <div
+      class="hds-stepper-navigation__step__content"
       id={{this._stepId}}
-      tabindex={{unless this.isActive "-1"}}
-      type="button"
-      role="tab"
-      aria-selected={{if this.isActive "true" "false"}}
-      aria-disabled="true"
-      aria-controls={{this.coupledPanelId}}
-      {{this._setUpStep this.didInsertNode}}
+      aria-current={{if (eq this.status "active") "true" "false"}}
+      {{this._setUpStep this.didInsertNode this.willDestroyNode}}
     >
       <div class="hds-stepper-navigation__step__progress">
         <Hds::Stepper::Step::Indicator
           @text="{{this.stepNumber}}"
-          @status={{this.status}}
+          @status={{this.stepIndicatorStatus}}
           @isInteractive={{false}}
           class="hds-stepper-navigation__step__indicator"
         />
@@ -86,7 +83,8 @@
           {{yield to="description"}}
         </Hds::Text::Body>
       </div>
-    </button>
+    </div>
   {{/if}}
 </li>
 {{! template-lint-enable require-presentational-children }}
+{{! template-lint-enable require-context-role no-invalid-role }}
