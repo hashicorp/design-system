@@ -74,25 +74,25 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
 // Complete & Active
 
-.hds-stepper-list__step-complete .hds-stepper-list__step__title,
-.hds-stepper-list__step-progress .hds-stepper-list__step__title,
-.hds-stepper-list__step-processing .hds-stepper-list__step__title {
+.hds-stepper-list__step--complete .hds-stepper-list__step__title,
+.hds-stepper-list__step--progress .hds-stepper-list__step__title,
+.hds-stepper-list__step--processing .hds-stepper-list__step__title {
   color: var(--token-color-foreground-strong);
 }
 
 // Complete
 
 .hds-stepper-list__step {
-  &:not(:last-of-type).hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+  &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
     height: calc(100% + $hds-stepper-list-step-padding-bottom - 4px);
   }
 
-  &:not(:last-of-type, :first-of-type).hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+  &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
     top: -4px;
     height: calc(100% + $hds-stepper-list-step-padding-bottom);
   }
 
-  &:not(:first-of-type):last-of-type.hds-stepper-list__step-complete .hds-stepper-list__step__progress::after {
+  &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
     position: absolute;
     top: -4px;
     left: 11px;
