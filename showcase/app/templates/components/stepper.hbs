@@ -9,11 +9,11 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Navigation</Shw::Text::H2>
+  <Shw::Text::H2>Nav</Shw::Text::H2>
 
   <Shw::Text::Body>Interactive</Shw::Text::Body>
 
-  <Hds::Stepper::Navigation
+  <Hds::Stepper::Nav
     @titleTag="h3"
     @currentStep={{this.currentStepDemo1}}
     @isInteractive={{true}}
@@ -66,11 +66,11 @@
         {{on "click" this.onPreviousClickDemo1}}
       />
     </S.Panel>
-  </Hds::Stepper::Navigation>
+  </Hds::Stepper::Nav>
 
   <Shw::Text::Body>Non-interactive</Shw::Text::Body>
 
-  <Hds::Stepper::Navigation @titleTag="h3" @currentStep={{1}} as |S|>
+  <Hds::Stepper::Nav @titleTag="h3" @currentStep={{1}} as |S|>
     <S.Step>
       <:title>Title</:title>
       <:description>Description</:description>
@@ -92,7 +92,7 @@
     <S.Panel>
       <Shw::Placeholder @text="Step 3: Generic content" @height="100" />
     </S.Panel>
-  </Hds::Stepper::Navigation>
+  </Hds::Stepper::Nav>
 
   <Shw::Divider />
 
@@ -161,66 +161,66 @@
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
-  <Shw::Text::H3>Navigation::Step</Shw::Text::H3>
+  <Shw::Text::H3>Nav::Step</Shw::Text::H3>
 
   <Shw::Text::H4>Default</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Complete">
-      <Hds::Stepper::Navigation @currentStep={{1}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{1}} as |S|>
         <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Active">
-      <Hds::Stepper::Navigation @currentStep={{0}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} as |S|>
         <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
       <ul class="shw-component-stepper-sample-ul-wrapper">
-        <Hds::Stepper::Navigation::Step @stepNumber={{1}} @currentStep={{2}}>
+        <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}}>
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Navigation::Step>
+        </Hds::Stepper::Nav::Step>
       </ul>
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H4>Navigation Interactive</Shw::Text::H4>
+  <Shw::Text::H4>Nav Interactive</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Complete">
-      <Hds::Stepper::Navigation @currentStep={{1}} @isInteractive={{true}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{1}} @isInteractive={{true}} as |S|>
         <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Active">
-      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} as |S|>
         <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
       <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Navigation::Step @isNavInteractive={{true}} @stepNumber={{1}} @currentStep={{2}}>
+        <Hds::Stepper::Nav::Step @isNavInteractive={{true}} @stepNumber={{1}} @currentStep={{2}}>
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Navigation::Step>
+        </Hds::Stepper::Nav::Step>
       </ul>
     </SG.Item>
   </Shw::Grid>
@@ -228,45 +228,45 @@
   <Shw::Text::H4>Interactive States</Shw::Text::H4>
 
   <Shw::Grid @columns={{4}} as |SG|>
-    {{#each @model.NAVIGATION_STATES as |state|}}
+    {{#each @model.NAV_STATES as |state|}}
       <SG.Item @label="Complete/{{state}}">
-        <Hds::Stepper::Navigation @currentStep={{1}} @isInteractive={{true}} as |S|>
+        <Hds::Stepper::Nav @currentStep={{1}} @isInteractive={{true}} as |S|>
           <S.Step mock-state-value={{state}} mock-state-selector="button">
             <:title>Title</:title>
             <:description>Description</:description>
           </S.Step>
           <S.Panel />
-        </Hds::Stepper::Navigation>
+        </Hds::Stepper::Nav>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Active/default">
-      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} as |S|>
         <S.Step mock-state-value="default" mock-state-selector="button">
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Active/focus">
-      <Hds::Stepper::Navigation @currentStep={{0}} @isInteractive={{true}} as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} as |S|>
         <S.Step mock-state-value="focus" mock-state-selector="button">
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
         <S.Panel />
-      </Hds::Stepper::Navigation>
+      </Hds::Stepper::Nav>
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>Navigation::Panel</Shw::Text::H3>
+  <Shw::Text::H3>Nav::Panel</Shw::Text::H3>
 
-  <Hds::Stepper::Navigation::Panel>
+  <Hds::Stepper::Nav::Panel>
     <Shw::Placeholder @text="Generic content" @height="100" />
-  </Hds::Stepper::Navigation::Panel>
+  </Hds::Stepper::Nav::Panel>
 
   <Shw::Text::H3>List::Step</Shw::Text::H3>
 
@@ -349,11 +349,11 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Examples of navigation implementation</Shw::Text::H2>
+  <Shw::Text::H2>Examples of nav implementation</Shw::Text::H2>
 
   <Shw::Text::H3>Using contextual components</Shw::Text::H3>
 
-  <Hds::Stepper::Navigation
+  <Hds::Stepper::Nav
     @titleTag="h3"
     @currentStep={{this.currentStepDemo2}}
     @isInteractive={{true}}
@@ -405,11 +405,11 @@
         {{on "click" this.onPreviousClickDemo2}}
       />
     </S.Panel>
-  </Hds::Stepper::Navigation>
+  </Hds::Stepper::Nav>
 
   <Shw::Text::H3>Using @steps array</Shw::Text::H3>
 
-  <Hds::Stepper::Navigation
+  <Hds::Stepper::Nav
     @steps={{array
       (hash title="Title" description="Description")
       (hash title="Title" description="Description")
@@ -454,5 +454,5 @@
         />
       {{/if}}
     </:body>
-  </Hds::Stepper::Navigation>
+  </Hds::Stepper::Nav>
 </section>
