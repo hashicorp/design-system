@@ -201,7 +201,11 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   onStepChange(event: MouseEvent): false | undefined {
     const { onStepChange } = this.args;
 
-    if (typeof onStepChange === 'function' && this.nodeIndex !== undefined) {
+    if (
+      this.isInteractive &&
+      this.nodeIndex !== undefined &&
+      typeof onStepChange === 'function'
+    ) {
       onStepChange(event, this.nodeIndex);
     } else {
       return false;
@@ -212,7 +216,11 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   onKeyUp(event: KeyboardEvent): void {
     const { onKeyUp } = this.args;
 
-    if (typeof onKeyUp === 'function' && this.nodeIndex !== undefined) {
+    if (
+      !(this.status === HdsStepperNavStatusesValues.Incomplete) &&
+      this.nodeIndex !== undefined &&
+      typeof onKeyUp === 'function'
+    ) {
       onKeyUp(this.nodeIndex, event);
     }
   }
