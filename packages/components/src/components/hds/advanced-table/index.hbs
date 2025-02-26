@@ -44,6 +44,7 @@
             @isExpandable={{column.isExpandable}}
             @onClickToggle={{this.onExpandAllClick}}
             @isExpanded={{this._expandAllButtonState}}
+            @hasExpandAllButton={{this.hasNestedRows}}
             {{this._setUpExpandAllButton}}
           >{{column.label}}</Hds::AdvancedTable::Th>
         {{/if}}

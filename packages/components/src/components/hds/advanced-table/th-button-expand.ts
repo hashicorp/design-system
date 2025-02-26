@@ -15,6 +15,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
     labelId?: string;
     isExpanded?: boolean | 'mixed';
     onToggle?: (newValue?: boolean | 'mixed') => void;
+    isExpandAll?: boolean;
   };
   Element: HTMLButtonElement;
 }
@@ -32,11 +33,15 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
 
   get icon(): HdsAdvancedTableThSortExpandIcons {
     if (this.isExpanded === true) {
-      return HdsAdvancedTableThExpandIconValues.ChevronDown;
-    } else if (this.isExpanded === 'mixed') {
-      return HdsAdvancedTableThExpandIconValues.Caret;
+      return this.args.isExpandAll
+        ? HdsAdvancedTableThExpandIconValues.UnfoldClose
+        : HdsAdvancedTableThExpandIconValues.ChevronDown;
+    } else if (this.isExpanded === 'mixed' && this.args.isExpandAll) {
+      return HdsAdvancedTableThExpandIconValues.UnfoldOpen;
     } else {
-      return HdsAdvancedTableThExpandIconValues.ChevronRight;
+      return this.args.isExpandAll
+        ? HdsAdvancedTableThExpandIconValues.UnfoldOpen
+        : HdsAdvancedTableThExpandIconValues.ChevronRight;
     }
   }
 
@@ -56,7 +61,6 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     else if (ariaExpanded === 'mixed') newValue = 'mixed';
 
     if (this.args.onToggle) {
-      // debugger;
       this.args.onToggle(newValue);
     }
   }
