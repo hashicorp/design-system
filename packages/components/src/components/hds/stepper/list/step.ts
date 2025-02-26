@@ -74,7 +74,7 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
     const { status = DEFAULT_STATUS } = this.args;
 
     assert(
-      `@status for "Hds::Stepper::Step::Indicator" must be one of the following: ${STATUSES.join(
+      `@status for "Hds::Stepper::List::Step" must be one of the following: ${STATUSES.join(
         ', '
       )}; received: ${status}`,
       STATUSES.includes(status)
@@ -120,7 +120,7 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
   get classNames(): string {
     const classes = ['hds-stepper-list__step'];
 
-    classes.push(`hds-stepper-list__step-${this.status}`);
+    classes.push(`hds-stepper-list__step--${this.status}`);
 
     return classes.join(' ');
   }
