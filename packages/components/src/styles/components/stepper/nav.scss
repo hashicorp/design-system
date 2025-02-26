@@ -141,8 +141,8 @@
     background-color: var(--token-color-palette-blue-300);
   }
 
-  &.hds-stepper-nav__step-complete .hds-stepper-nav__step__title,
-  &.hds-stepper-nav__step-active .hds-stepper-nav__step__title {
+  &.hds-stepper-nav__step--complete .hds-stepper-nav__step__title,
+  &.hds-stepper-nav__step--active .hds-stepper-nav__step__title {
     color: var(--token-color-foreground-action);
   }
 }
