@@ -54,6 +54,36 @@ export interface HdsStepperNavigationStep {
   isComplete?: boolean;
 }
 
+export enum HdsStepperNavigationStatusesValues {
+  Incomplete = 'incomplete',
+  Active = 'active',
+  Complete = 'complete',
+}
+
+export type HdsStepperNavigationStatuses =
+  `${HdsStepperNavigationStatusesValues}`;
+
+export const HdsStepperNavigationStatusToIndicatorStatus: Record<
+  HdsStepperNavigationStatusesValues,
+  HdsStepperStatusesValues
+> = {
+  [HdsStepperNavigationStatusesValues.Incomplete]:
+    HdsStepperStatusesValues.Incomplete,
+  [HdsStepperNavigationStatusesValues.Active]:
+    HdsStepperStatusesValues.Progress,
+  [HdsStepperNavigationStatusesValues.Complete]:
+    HdsStepperStatusesValues.Complete,
+};
+
+export const HdsStepperNavigationStatusToSrOnlyText: Record<
+  HdsStepperNavigationStatusesValues,
+  string
+> = {
+  [HdsStepperNavigationStatusesValues.Incomplete]: '',
+  [HdsStepperNavigationStatusesValues.Active]: 'Current: ',
+  [HdsStepperNavigationStatusesValues.Complete]: 'Complete: ',
+};
+
 export type HdsStepperNavigationPanelIds = string[];
 
 export type HdsStepperListStepIds = string[];

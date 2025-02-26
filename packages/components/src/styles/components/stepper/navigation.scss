@@ -22,11 +22,13 @@
   display: flex;
 }
 
+// STEPPER > NAVIGATION > STEP
+
 .hds-stepper-navigation__step {
   width: 100%;
 }
 
-.hds-stepper-navigation__step__btn {
+.hds-stepper-navigation__step__content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -96,33 +98,58 @@
 
 // Complete & Active
 
-.hds-stepper-navigation__step-complete .hds-stepper-navigation__step__title,
-.hds-stepper-navigation__step-active .hds-stepper-navigation__step__title {
+.hds-stepper-navigation__step--complete .hds-stepper-navigation__step__title,
+.hds-stepper-navigation__step--active .hds-stepper-navigation__step__title {
   color: var(--token-color-foreground-strong);
 }
 
 // Incomplete
 
-.hds-stepper-navigation__step-incomplete .hds-stepper-navigation__step__progress::after {
+.hds-stepper-navigation__step--incomplete .hds-stepper-navigation__step__progress::after {
   width: 0;
 }
 
 // Active
 
-.hds-stepper-navigation__step-active .hds-stepper-navigation__step__progress::after {
-  width: calc(50% - 16px); // 1/2 width of icon (12px) + 4px margin
-  border-radius: 0 20px 20px 0;
+.hds-stepper-navigation__step--active {
+  .hds-stepper-navigation__step__btn {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0 0 6px 6px
+    );
+  }
+
+  .hds-stepper-navigation__step__progress::after {
+    width: calc(50% - 16px); // 1/2 width of icon (12px) + 4px margin
+    border-radius: 0 20px 20px 0;
+  }
 }
 
 // Complete
 
-.hds-stepper-navigation__step-complete .hds-stepper-navigation__step__progress::after {
+.hds-stepper-navigation__step--complete .hds-stepper-navigation__step__progress::after {
   width: 100%;
+}
+
+// NAVIGATION INTERACTIVE
+
+.hds-stepper-navigation__step--navigation-interactive {
+  .hds-stepper-navigation__step__progress::after {
+    background-color: var(--token-color-palette-blue-300);
+  }
+
+  &.hds-stepper-navigation__step-complete .hds-stepper-navigation__step__title,
+  &.hds-stepper-navigation__step-active .hds-stepper-navigation__step__title {
+    color: var(--token-color-foreground-action);
+  }
 }
 
 // INTERACTIVE
 
-.hds-stepper-navigation__step-interactive {
+.hds-stepper-navigation__step--interactive {
   .hds-stepper-navigation__step__btn {
     @include hds-focus-ring-with-pseudo-element(
       $top: -3px,
@@ -155,71 +182,143 @@
       }
     }
   }
-
-  .hds-stepper-navigation__step__progress::after {
-    background-color: var(--token-color-palette-blue-300);
-  }
-
-  &.hds-stepper-navigation__step-complete .hds-stepper-navigation__step__title,
-  &.hds-stepper-navigation__step-active .hds-stepper-navigation__step__title {
-    color: var(--token-color-foreground-action);
-  }
 }
 
 // INTERACTIVE > STEP INDICATOR
 
+// The step indicator has its own hover / active styles that we need to prevent from occuring,
+// and have those styles be added based on interaction with step buttons instead.
+
 @each $status in $hds-stepper-indicator-step-statuses {
-  .hds-stepper-navigation__step-interactive .hds-stepper-navigation__step__btn:hover,
-  .hds-stepper-navigation__step-interactive .hds-stepper-navigation__step__btn.mock-hover {
-    .hds-stepper-indicator-step--status-#{$status} {
-      .hds-stepper-indicator-step__status {
-        color: map.get(
+  .hds-stepper-navigation__step--navigation-interactive {
+    .hds-stepper-navigation__step__btn:hover,
+    .hds-stepper-navigation__step__btn.mock-hover {
+      .hds-stepper-indicator-step--status-#{$status} {
+        &.hds-stepper-indicator-step {
+          cursor: default;
+        }
+
+        .hds-stepper-indicator-step__status {
+          color: map.get(
           $hds-stepper-indicator-step-status-props,
           $status,
-          "text-color-hover"
-        );
-      }
+          "text-color-default"
+          );
+        }
 
-      .hds-stepper-indicator-step__svg-hexagon {
-        path {
-          fill: map.get(
-            $hds-stepper-indicator-step-status-props,
-            $status,
-            "fill-color-hover"
-          );
-          stroke: map.get(
-            $hds-stepper-indicator-step-status-props,
-            $status,
-            "stroke-color-hover"
-          );
+        .hds-stepper-indicator-step__svg-hexagon {
+          path {
+            fill: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "fill-color-default"
+            );
+            stroke: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "stroke-color-default"
+            );
+          }
         }
       }
     }
-  }
 
-  .hds-stepper-navigation__step-interactive .hds-stepper-navigation__step__btn:active,
-  .hds-stepper-navigation__step-interactive .hds-stepper-navigation__step__btn.mock-active {
-    .hds-stepper-indicator-step--status-#{$status} {
-      .hds-stepper-indicator-step__status {
-        color: map.get(
-          $hds-stepper-indicator-step-status-props,
-          $status,
-          "text-color-active"
-        );
+    &.hds-stepper-navigation__step--interactive {
+      .hds-stepper-navigation__step__btn:hover,
+      .hds-stepper-navigation__step__btn.mock-hover {
+        .hds-stepper-indicator-step--status-#{$status} {
+          &.hds-stepper-indicator-step {
+            cursor: pointer;
+          }
+
+          .hds-stepper-indicator-step__status {
+            color: map.get(
+            $hds-stepper-indicator-step-status-props,
+            $status,
+            "text-color-hover"
+            );
+          }
+
+          .hds-stepper-indicator-step__svg-hexagon {
+            path {
+              fill: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "fill-color-hover"
+              );
+              stroke: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "stroke-color-hover"
+              );
+            }
+          }
+        }
       }
+    }
 
-      .hds-stepper-indicator-step__svg-hexagon {
-        path {
-          fill: map.get(
+    .hds-stepper-navigation__step__btn:active,
+    .hds-stepper-navigation__step__btn.mock-active {
+      .hds-stepper-indicator-step--status-#{$status} {
+        &.hds-stepper-indicator-step {
+          cursor: default;
+        }
+
+        .hds-stepper-indicator-step__status {
+          color: map.get(
             $hds-stepper-indicator-step-status-props,
             $status,
-            "fill-color-active"
+            "text-color-default"
           );
-          stroke: map.get(
-            $hds-stepper-indicator-step-status-props,
-            $status,
-            "stroke-color-active"
-          );
+        }
+
+        .hds-stepper-indicator-step__svg-hexagon {
+          path {
+            fill: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "fill-color-default"
+            );
+            stroke: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "stroke-color-default"
+            );
+          }
+        }
+      }
+    }
+
+    &.hds-stepper-navigation__step--interactive {
+      .hds-stepper-navigation__step__btn:active,
+      .hds-stepper-navigation__step__btn.mock-active {
+        .hds-stepper-indicator-step--status-#{$status} {
+          &.hds-stepper-indicator-step {
+            cursor: pointer;
+          }
+
+          .hds-stepper-indicator-step__status {
+            color: map.get(
+              $hds-stepper-indicator-step-status-props,
+              $status,
+              "text-color-active"
+            );
+          }
+
+          .hds-stepper-indicator-step__svg-hexagon {
+            path {
+              fill: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "fill-color-active"
+              );
+              stroke: map.get(
+                $hds-stepper-indicator-step-status-props,
+                $status,
+                "stroke-color-active"
+              );
+            }
+          }
         }
       }
     }

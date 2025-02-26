@@ -25,14 +25,15 @@ module(
         this.currentStep = args.currentStep ?? undefined;
         this.stepNumber = args.stepNumber ?? undefined;
         this.isInteractive = args.isInteractive ?? undefined;
-        this.isComplete = args.isComplete ?? undefined;
         this.titleTag = args.titleTag ?? undefined;
         return await render(hbs`
-          <Hds::Stepper::Navigation @currentStep={{this.currentStep}} as |S|>
+          <Hds::Stepper::Navigation
+            @currentStep={{this.currentStep}}
+            @isInteractive={{this.isInteractive}}
+            as |S|
+          >
             <S.Step
               @stepNumber={{this.stepNumber}}
-              @isInteractive={{this.isInteractive}}
-              @isComplete={{this.isComplete}}
               @titleTag={{this.titleTag}}
             >
               <:title>{{this.title}}</:title>
@@ -67,47 +68,51 @@ module(
       assert.dom('.hds-stepper-indicator-step__text').hasText('3');
     });
 
-    // INTERACTIVE
+    // NAVIGATION INTERACTIVE
 
-    test('it sets the step to not interactive when the @isInteractive argument is not provided', async function (assert) {
+    test('it sets the step to not interactive when the @isInteractive argument is not provided to the parent', async function (assert) {
       await this.createNavigationStep();
+      assert.dom('.hds-stepper-navigation__step').hasNoAttribute('role');
       assert
         .dom('.hds-stepper-navigation__step')
-        .hasNoClass('hds-stepper-navigation__step-interactive');
-      assert
-        .dom('.hds-stepper-navigation__step__btn')
-        .hasClass('hds-stepper-navigation__step__btn-disabled');
-      assert
-        .dom('.hds-stepper-navigation__step__btn')
-        .hasAttribute('aria-disabled', 'true');
+        .hasNoClass('hds-stepper-navigation__step--interactive');
       assert
         .dom('.hds-stepper-indicator-step')
         .hasNoClass('hds-stepper-indicator-step--is-interactive');
+      assert
+        .dom('.hds-stepper-navigation__step__content')
+        .hasNoClass('hds-stepper-navigation__step__btn');
     });
 
-    test('it sets the step to interactive when the @isInteractive argument is provided', async function (assert) {
+    test('it sets the step to interactive when the @isInteractive argument is provided to the parent', async function (assert) {
       await this.createNavigationStep({ isInteractive: true });
       assert
         .dom('.hds-stepper-navigation__step')
-        .hasClass('hds-stepper-navigation__step-interactive');
+        .hasAttribute('role', 'presentation');
       assert
-        .dom('.hds-stepper-navigation__step__btn')
-        .hasNoClass('hds-stepper-navigation__step__btn-disabled');
-      assert
-        .dom('.hds-stepper-navigation__step__btn')
-        .hasNoAttribute('aria-disabled');
+        .dom('.hds-stepper-navigation__step')
+        .hasClass('hds-stepper-navigation__step--navigation-interactive');
       assert
         .dom('.hds-stepper-indicator-step')
         .hasClass('hds-stepper-indicator-step--is-interactive');
+      assert
+        .dom('.hds-stepper-navigation__step__content')
+        .hasClass('hds-stepper-navigation__step__btn');
     });
 
     // STATES
 
-    test('it sets the step to incomplete when the @isComplete argument is not provided, and the step is not active', async function (assert) {
-      await this.createNavigationStep({ currentStep: 1 });
+    test('it sets the step to incomplete when the @currentStep is less than the nodeIndex', async function (assert) {
+      await render(
+        hbs`
+        <Hds::Stepper::Navigation::Step @stepNumber={{1}} @currentStep={{2}} @isNavInteractive={{true}}>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </Hds::Stepper::Navigation::Step>`
+      );
       assert
         .dom('.hds-stepper-navigation__step')
-        .hasClass('hds-stepper-navigation__step-incomplete');
+        .hasClass('hds-stepper-navigation__step--incomplete');
       assert
         .dom('.hds-stepper-navigation__step__btn')
         .hasAttribute('tabindex', '-1');
@@ -120,11 +125,11 @@ module(
       assert.dom('.sr-only').hasNoText();
     });
 
-    test('it sets the step to complete when the @isComplete argument is provided, and the step is not active', async function (assert) {
-      await this.createNavigationStep({ currentStep: 1, isComplete: true });
+    test('it sets the step to complete when the @currentStep is greater than the nodeIndex', async function (assert) {
+      await this.createNavigationStep({ currentStep: 1, isInteractive: true });
       assert
         .dom('.hds-stepper-navigation__step')
-        .hasClass('hds-stepper-navigation__step-complete');
+        .hasClass('hds-stepper-navigation__step--complete');
       assert
         .dom('.hds-stepper-navigation__step__btn')
         .hasAttribute('tabindex', '-1');
@@ -137,11 +142,11 @@ module(
       assert.dom('.sr-only').hasText('Complete: ');
     });
 
-    test('it sets the step to active when the @currentStep argument matches the steps index in the @stepIds argument', async function (assert) {
-      await this.createNavigationStep();
+    test('it sets the step to active when the @currentStep is equal to the nodeIndex', async function (assert) {
+      await this.createNavigationStep({ currentStep: 0, isInteractive: true });
       assert
         .dom('.hds-stepper-navigation__step')
-        .hasClass('hds-stepper-navigation__step-active');
+        .hasClass('hds-stepper-navigation__step--active');
       assert
         .dom('.hds-stepper-navigation__step__btn')
         .hasNoAttribute('tabindex');

@@ -3,13 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class={{this.classNames}} ...attributes {{this._setUpStepperNavigation}}>
-  <ol class="hds-stepper-navigation__list" role="tablist">
+  <ol class="hds-stepper-navigation__list" role={{if this.isInteractive "tablist"}}>
     {{#if @steps}}
       {{#each @steps as |step|}}
         <Hds::Stepper::Navigation::Step
           @currentStep={{this.currentStep}}
-          @isComplete={{step.isComplete}}
-          @isInteractive={{step.isInteractive}}
+          @isNavInteractive={{this.isInteractive}}
           @titleTag={{this.titleTag}}
           @didInsertNode={{this.didInsertStep}}
           @willDestroyNode={{this.willDestroyStep}}
@@ -28,6 +27,7 @@
           Step=(component
             "hds/stepper/navigation/step"
             currentStep=this.currentStep
+            isNavInteractive=this.isInteractive
             titleTag=this.titleTag
             stepIds=this._stepIds
             panelIds=this._panelIds
