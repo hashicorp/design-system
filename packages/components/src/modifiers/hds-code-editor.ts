@@ -277,9 +277,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           ];
         }
 
-        const loadedExtensions = await Promise.all(extensionPromises);
-
-        return loadedExtensions;
+        return Promise.all(extensionPromises);
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
