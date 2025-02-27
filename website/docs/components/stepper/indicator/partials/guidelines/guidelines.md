@@ -15,13 +15,13 @@
 
 Interactive steps are part of a sequential flow and can be interacted with as a navigational device.
 
-![](/assets/components/stepper/step-interactive.png)
+![](/assets/components/stepper/indicator/step-interactive.png)
 
 ### Non-interactive steps
 
 Non-interactive steps are a part of a list of steps that can be completed sequentially, out of order, or asynchronously. They cannot be interacted with.
 
-![](/assets/components/stepper/step-noninteractive.png)
+![](/assets/components/stepper/indicator/step-noninteractive.png)
 
 ## Tasks
 
@@ -29,13 +29,13 @@ Non-interactive steps are a part of a list of steps that can be completed sequen
 
 Interactive tasks are part of a list of tasks that can be completed in any order. They can also be interacted with as a navigational device. 
 
-![](/assets/components/stepper/task-interactive.png)
+![](/assets/components/stepper/indicator/task-interactive.png)
 
 ### Non-interactive tasks
 
 Non-interactive tasks are part of a list of tasks which can be completed in any order. They are not interactive but serve as a visual list item indicator. 
 
-![](/assets/components/stepper/task-noninteractive.png)
+![](/assets/components/stepper/indicator/task-noninteractive.png)
 
 ## Content
 
