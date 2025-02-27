@@ -1,12 +1,12 @@
 ---
 title: Stepper List
 description: >-
-  A visual indicator of a linear progress, where users can see where they are in a given flow.
+  A visual indicator of a linear vertical progress, where users can see where they are in a given flow.
 caption: >-
-  A visual indicator of a linear progress, where users can see where they are in a given flow.
+  A visual indicator of a linear vertical progress, where users can see where they are in a given flow.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67221-68491&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=A4lORtbini1AMxQN-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper
 previewImage: assets/illustrations/components/stepper.jpg
