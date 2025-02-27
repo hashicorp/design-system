@@ -19,7 +19,7 @@ Interactive steps are part of a sequential flow and can be interacted with as a 
 
 ### Non-interactive steps
 
-Non-interactive steps are a part of a list of steps that can be completed sequentially, out of order, or asynchronously. They cannot be interacted with.
+Non-interactive steps are a part of a list of steps that can be completed sequentially, or asynchronously. They cannot be interacted with.
 
 ![](/assets/components/stepper/indicator/step-noninteractive.png)
 
