@@ -185,12 +185,20 @@
       </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
-      <ul class="shw-component-stepper-sample-ul-wrapper">
-        <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}}>
+      {{! template-lint-disable no-inline-styles }}
+      <Hds::Stepper::Nav as |S|>
+        <S.Step style="display: none;">
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Nav::Step>
-      </ul>
+        </S.Step>
+        <S.Step class="hds-stepper-navigation__step--incomplete">
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+        <S.Panel />
+      </Hds::Stepper::Nav>
+      {{! template-lint-enable no-inline-styles }}
     </SG.Item>
   </Shw::Grid>
 
@@ -216,12 +224,20 @@
       </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Incomplete">
-      <ul class="shw-component-stepper-sample-ul-wrapper" role="tablist">
-        <Hds::Stepper::Nav::Step @isNavInteractive={{true}} @stepNumber={{1}} @currentStep={{2}}>
+      {{! template-lint-disable no-inline-styles }}
+      <Hds::Stepper::Nav @isInteractive={{true}} as |S|>
+        <S.Step style="display: none;">
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Nav::Step>
-      </ul>
+        </S.Step>
+        <S.Step class="hds-stepper-navigation__step--incomplete">
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+        <S.Panel />
+      </Hds::Stepper::Nav>
+      {{! template-lint-enable no-inline-styles }}
     </SG.Item>
   </Shw::Grid>
 
@@ -275,15 +291,15 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label="{{capitalize status}}">
-        <ul class="shw-component-stepper-sample-ul-wrapper">
-          <Hds::Stepper::List::Step @status={{status}} @stepNumber={{1}} @isNavInteractive={{true}}>
+        <Hds::Stepper::List as |S|>
+          <S.Step @status={{status}}>
             <:title>Title</:title>
             <:description>Description</:description>
             <:content>
               <Shw::Placeholder @text="Generic content" @height="20" />
             </:content>
-          </Hds::Stepper::List::Step>
-        </ul>
+          </S.Step>
+        </Hds::Stepper::List>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
@@ -370,6 +386,7 @@
     </S.Step>
     <S.Step>
       <:title>Title</:title>
+      <:description>Description</:description>
     </S.Step>
     <S.Panel>
       <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
@@ -413,7 +430,7 @@
     @steps={{array
       (hash title="Title" description="Description")
       (hash title="Title" description="Description")
-      (hash title="Title")
+      (hash title="Title" description="Description")
     }}
     @titleTag="h3"
     @currentStep={{this.currentStepDemo3}}
