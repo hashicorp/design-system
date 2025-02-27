@@ -1,7 +1,50 @@
 import RSVP from 'rsvp';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
-import type { Extension } from '@codemirror/state';
+import type { Extension, Text } from '@codemirror/state';
+
+function getSurroundingTokens(
+  doc: Text,
+  errorStart: number,
+  errorEnd: number
+): {
+  previousToken: string;
+  nextToken: string;
+} {
+  let previousToken = '';
+  let nextToken = '';
+
+  // find the previous non-whitespace token
+  let left = errorStart - 1;
+  while (left >= 0) {
+    const token = doc.sliceString(left, left + 1);
+
+    if (token.trim() !== '') {
+      previousToken = token;
+      break;
+    }
+
+    left--;
+  }
+
+  // find the next non-whitespace token
+  let right = errorEnd;
+  while (right < doc.length) {
+    const token = doc.sliceString(right, right + 1);
+
+    if (token.trim() !== '') {
+      nextToken = token;
+      break;
+    }
+
+    right++;
+  }
+
+  return { previousToken, nextToken };
+}
+
+// lezer JSON parser uses '⚠' as a placeholder for syntax errors
+const errorNodeName = '⚠';
 
 export default async function jsonLinter(): Promise<Extension[]> {
   const [{ syntaxTree }, { linter, lintGutter }] = await RSVP.all([
@@ -13,35 +56,49 @@ export default async function jsonLinter(): Promise<Extension[]> {
     const diagnostics: DiagnosticType[] = [];
     const doc = view.state.doc;
     const tree = syntaxTree(view.state);
-    const seenKeys = new Set();
+
+    const seenLines = new Set();
 
     tree.cursor().iterate((node) => {
-      // lezer JSON parser uses '⚠' as a placeholder for syntax errors
-      if (node.name === '⚠') {
-        console.log({ node });
-        const errorChar = doc.sliceString(node.from, node.to);
-        const prevChar = doc.sliceString(node.from - 1, node.from);
-        const nextChar = doc.sliceString(node.to, node.to + 1);
+      if (node.name === errorNodeName) {
+        const lineNumber = doc.lineAt(node.from).number;
 
-        let message = 'Syntax error in JSON.';
+        if (seenLines.has(lineNumber)) {
+          return;
+        }
 
-        // use specific characters to provide more context for the error
-        if (errorChar === ',') {
-          message = 'Trailing commas are not allowed in JSON.';
-        } else if (prevChar === ':' && !['"', '{'].includes(errorChar)) {
-          message = 'Invalid value after colon.';
-        } else if (
-          errorChar.match(/[a-zA-Z]/) &&
-          prevChar !== '"' &&
-          prevChar !== ':'
-        ) {
-          message = 'Unquoted keys must be enclosed in double quotes.';
-        } else if (nextChar === '' || nextChar === undefined) {
-          message = 'Unexpected end of JSON input.';
-        } else if (prevChar === ',' && !['"', '{', '['].includes(errorChar)) {
-          message = 'Missing comma between properties.';
-        } else if (errorChar === '"') {
-          message = 'String is not closed properly.';
+        const errorToken = doc.sliceString(node.from, node.to);
+        const { previousToken, nextToken } = getSurroundingTokens(
+          doc,
+          node.from,
+          node.to
+        );
+
+        let message = 'Invalid syntax';
+
+        if (errorToken === '') {
+          if (previousToken === '{' && nextToken === ':') {
+            message = 'Key expected';
+          } else if (previousToken === '"' && nextToken === '"') {
+            message = 'Missing comma';
+          } else if (
+            previousToken === ',' &&
+            (nextToken === '}' || nextToken === ']')
+          ) {
+            message = 'Trailing comma';
+          }
+        } else {
+          if (
+            (previousToken === '{' || previousToken === ',') &&
+            (nextToken === '"' || nextToken === ':')
+          ) {
+            message = 'Key must be double quoted';
+          } else if (
+            previousToken === ':' &&
+            (nextToken === ',' || nextToken === '}' || nextToken === ']')
+          ) {
+            message = 'Value expected';
+          }
         }
 
         diagnostics.push({
@@ -50,26 +107,8 @@ export default async function jsonLinter(): Promise<Extension[]> {
           message,
           severity: 'error',
         });
-      }
 
-      // detect duplicate keys in objects
-      if (node.name === 'Property') {
-        const keyNode = node.node.firstChild;
-
-        if (keyNode) {
-          const keyText = doc.sliceString(keyNode.from, keyNode.to);
-
-          if (seenKeys.has(keyText)) {
-            diagnostics.push({
-              from: keyNode.from,
-              to: keyNode.to,
-              message: `Duplicate key '${keyText}' found in JSON object.`,
-              severity: 'error',
-            });
-          }
-
-          seenKeys.add(keyText);
-        }
+        seenLines.add(lineNumber);
       }
     });
 
