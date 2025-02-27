@@ -42,9 +42,9 @@ It is recommended that the max number of steps be 4, however if that isn’t pos
 
 ## Interactive vs non-interactive
 
-The Stepper Navigation allows for both interactive (default) and non-interactive variants. Once a user navigates backward with the interactive variant, they cannot progress forward through the Stepper. The Non-interactive variant is for read-only purposes and does not allow backwards navigation within the Stepper.
+The Stepper Nav allows for both interactive (default) and non-interactive variants. Once a user navigates backward with the interactive variant, they cannot progress forward through the Stepper. The Non-interactive variant is for read-only purposes and does not allow backwards navigation within the Stepper.
 
-![Subtitle "Interactive" followed by an interactive variant of the Stepper Navigation. Another subtitle "Non-interactive" followed by a non-interactive variant of the Stepper Navigation.](/assets/components/stepper/navigation/stepper-navigation-interactive-non-interactive.png)
+![Subtitle "Interactive" followed by an interactive variant of the Stepper Nav. Another subtitle "Non-interactive" followed by a non-interactive variant of the Stepper Nav.](/assets/components/stepper/navigation/stepper-navigation-interactive-non-interactive.png)
 
 The interactive variant allows for backward movement after a step has been completed.
 
