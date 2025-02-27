@@ -1,0 +1,85 @@
+name: Release Candidate
+
+on:
+  workflow_call:
+    secrets:
+      NPM_TOKEN:
+        required: true
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - labeled
+
+env:
+  NODE_VERSION: '22.x'
+
+jobs:
+  release-candidate:
+    name: Release Candidate
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'release-candidate')
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+          fetch-depth: 0
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@fe02b34f77f8bc703788d5817da081398fad5dd2 # v4.0.0
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Components
+        run: pnpm build
+        working-directory: packages/components
+
+      - name: Version and Publish RC Packages
+        id: changesets
+        uses: changesets/action@c8bada60c408975afd1a20b3db81d6eee6789308 # v1.4.9
+        with:
+          version: pnpm version-candidate-packages
+          publish: pnpm release-candidate-packages
+          createGithubReleases: false
+        env:
+          # Token setup in hashibot-hds' account
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+          # Token setup in hashibot-hds' account
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Compute new packages info
+        id: packagesData
+        if: success() && steps.changesets.outputs.published == 'true'
+        # We're using the special GH Actions syntax to add step outputs (ref: https://docs.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-output-parameter)
+        # for count: use jq to determine the length of the array
+        # for packageList: use jq reduce to build up a string of markdown (ref: https://stedolan.github.io/jq/manual/#Reduce)
+        run: |
+          echo "::set-output name=count::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq '. | length')"
+          echo "::set-output name=packageList::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\nyarn up -C \($item.name)@rc\n```\n")')"
+
+      - name: Comment
+        uses: marocchino/sticky-pull-request-comment@331f8f5b4215f0445d3c07b4967662a32a2d3e31 # v2.9.0
+        if: success() && steps.changesets.outputs.published == 'true'
+        with:
+          header: 'rc-release'
+          message: |
+            ### :package: RC Packages Published
+
+            Latest commit: ${{ github.event.pull_request.head.sha }}
+
+            <details><summary>Published ${{ steps.packagesData.outputs.count }} packages</summary>
+
+            ${{ fromJSON(steps.packagesData.outputs.packageList) }}
+
+            </details>
