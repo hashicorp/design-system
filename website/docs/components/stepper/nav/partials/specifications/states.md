@@ -1,3 +1,3 @@
 ## States
 
-![Stepper navigation states](/assets/components/stepper/navigation/stepper-navigation-states.png =477x*)
+![Stepper Nav states](/assets/components/stepper/navigation/stepper-navigation-states.png =477x*)
