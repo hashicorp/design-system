@@ -52,14 +52,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
 
   // STEP NUMBER
 
-  test('it sets the step number automatically when the @stepNumber argument is not provided', async function (assert) {
+  test('it sets the step number automatically based on the step ids provided', async function (assert) {
     await this.createNavStep();
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
-  });
-
-  test('it sets the step number when the @stepNumber argument is provided', async function (assert) {
-    await this.createNavStep({ stepNumber: 3 });
-    assert.dom('.hds-stepper-indicator-step__text').hasText('3');
   });
 
   // NAV INTERACTIVE

@@ -26,9 +26,8 @@ export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperStatusToSrOnlyText;
 export interface HdsStepperListStepSignature {
   Args: {
     status: HdsStepperStatusesValues;
-    stepNumber?: number;
     titleTag?: HdsStepperTitleTags;
-    stepIds: HdsStepperListStepIds;
+    stepIds?: HdsStepperListStepIds;
     didInsertNode?: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -62,7 +61,11 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
    * @type {number}
    */
   get stepNumber(): number | undefined {
-    return this.args.stepNumber ?? this.args.stepIds?.indexOf(this._stepId) + 1;
+    return (
+      (this.args.stepIds
+        ? this.args.stepIds.indexOf(this._stepId) + 1
+        : undefined)
+    );
   }
 
   /**
