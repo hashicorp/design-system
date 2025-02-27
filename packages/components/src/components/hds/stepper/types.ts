@@ -50,8 +50,6 @@ export type HdsStepperNavStepIds = string[];
 export interface HdsStepperNavStep {
   title: string;
   description?: string;
-  isInteractive?: boolean;
-  isComplete?: boolean;
 }
 
 export enum HdsStepperNavStatusesValues {
@@ -83,9 +81,3 @@ export const HdsStepperNavStatusToSrOnlyText: Record<
 export type HdsStepperNavPanelIds = string[];
 
 export type HdsStepperListStepIds = string[];
-
-export interface HdsStepperListStep {
-  title: string;
-  description?: string;
-  isComplete?: boolean;
-}
