@@ -41,6 +41,11 @@
             @align={{column.align}}
             @tooltip={{column.tooltip}}
             @isVisuallyHidden={{column.isVisuallyHidden}}
+            @isExpandable={{column.isExpandable}}
+            @onClickToggle={{this.onExpandAllClick}}
+            @isExpanded={{this._expandAllButtonState}}
+            @hasExpandAllButton={{this.hasNestedRows}}
+            {{this._setUpExpandAllButton}}
           >{{column.label}}</Hds::AdvancedTable::Th>
         {{/if}}
       {{/each}}
@@ -59,11 +64,16 @@
           @record={{record}}
           @childrenKey={{this.childrenKey}}
           @rowIndex={{index}}
+          @didInsertExpandButton={{this.didInsertExpandButton}}
+          @willDestroyExpandButton={{this.willDestroyExpandButton}}
+          @onClickToggle={{this.setExpandAllState}}
           as |T|
         >
           {{yield
             (hash
-              Tr=(component "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth)
+              Tr=(component
+                "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth displayRow=T.shouldDisplayChildRows
+              )
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"
@@ -73,6 +83,8 @@
                 onClickToggle=T.onClickToggle
                 isExpanded=T.isExpanded
                 depth=T.depth
+                didInsertExpandButton=T.didInsertExpandButton
+                willDestroyExpandButton=T.willDestroyExpandButton
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data
