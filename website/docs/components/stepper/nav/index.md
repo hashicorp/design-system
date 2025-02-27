@@ -1,5 +1,5 @@
 ---
-title: Stepper Navigation
+title: Stepper Nav
 description: >-
   A visual indicator of an on-page linear progress, where users can see where they are in a given flow.
 caption: >-
