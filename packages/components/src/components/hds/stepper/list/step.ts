@@ -61,11 +61,9 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
    * @type {number}
    */
   get stepNumber(): number | undefined {
-    return (
-      (this.args.stepIds
-        ? this.args.stepIds.indexOf(this._stepId) + 1
-        : undefined)
-    );
+    return this.args.stepIds
+      ? this.args.stepIds.indexOf(this._stepId) + 1
+      : undefined;
   }
 
   /**
