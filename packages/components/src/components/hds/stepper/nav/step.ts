@@ -29,7 +29,6 @@ export const MAPPING_STATUS_TO_SR_ONLY_TEXT = HdsStepperNavStatusToSrOnlyText;
 export interface HdsStepperNavStepSignature {
   Args: {
     currentStep: number;
-    stepNumber?: number;
     isNavInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
     stepIds?: HdsStepperNavStepIds;
@@ -108,7 +107,6 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
    */
   get stepNumber(): number | undefined {
     return (
-      this.args.stepNumber ??
       (this.args.stepIds
         ? this.args.stepIds.indexOf(this._stepId) + 1
         : undefined)

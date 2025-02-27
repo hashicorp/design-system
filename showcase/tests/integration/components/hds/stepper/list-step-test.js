@@ -80,7 +80,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
 
   // STEP NUMBER
 
-  test('it sets the step number automatically when the @stepNumber argument is not provided', async function (assert) {
+  test('it sets the step number automatically based on the step ids provided', async function (assert) {
     // Note: Testing this use case requires wrapping the element in its parent element
     await render(
       hbs`
@@ -90,16 +90,6 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
         `
     );
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
-  });
-
-  test('it sets the step number when the @stepNumber argument is provided', async function (assert) {
-    await render(
-      hbs`
-          <Hds::Stepper::List::Step @stepNumber={{3}}>
-          </Hds::Stepper::List::Step>
-        `
-    );
-    assert.dom('.hds-stepper-indicator-step__text').hasText('3');
   });
 
   // TITLE
