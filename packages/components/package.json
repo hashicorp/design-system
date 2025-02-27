@@ -46,6 +46,7 @@
     "@ember/test-waiters": "^3.1.0",
     "@embroider/addon-shim": "^1.9.0",
     "@embroider/macros": "^1.16.10",
+    "@embroider/util": "^1.13.2",
     "@floating-ui/dom": "^1.6.12",
     "@hashicorp/design-system-tokens": "^2.3.0",
     "@hashicorp/flight-icons": "^3.9.0",
