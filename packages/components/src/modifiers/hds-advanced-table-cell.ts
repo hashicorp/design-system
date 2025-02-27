@@ -25,25 +25,25 @@ export interface HdsAdvancedTableCellModifierSignature {
   Element: HTMLDivElement;
 }
 
-function cleanup(instance: HdsAdvancedTableCellModifier): void {
-  const { _observer } = instance;
-  if (_observer) {
-    _observer.disconnect();
-  }
-}
-
 export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTableCellModifierSignature> {
   // have a copy of shouldTrapFocus internally so the correct value is used when update tabbable children
   private _shouldTrapFocus = false;
   private _didSetup = false;
-  _observer: MutationObserver | undefined = undefined;
+  private _element: HTMLDivElement | undefined = undefined;
+  private _observer: MutationObserver | undefined = undefined;
+  private _keydownHandler!: (event: KeyboardEvent) => void;
 
   constructor(
     owner: Owner,
     args: ArgsFor<HdsAdvancedTableCellModifierSignature>
   ) {
     super(owner, args);
-    registerDestructor(this, cleanup);
+
+    registerDestructor(this, () => {
+      this._observer?.disconnect();
+      this._element?.removeEventListener('keydown', this._keydownHandler);
+      this._element = undefined;
+    });
   }
 
   modify(
@@ -57,6 +57,7 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
       this.#setupObserver(element, positional, named);
       named.setCellElement(element);
       this._didSetup = true;
+      this._element = element;
     }
   }
 
@@ -66,16 +67,16 @@ export default class HdsAdvancedTableCellModifier extends Modifier<HdsAdvancedTa
     named: HdsAdvancedTableCellModifierSignature['Args']['Named']
   ): void {
     const { handleEnableFocusTrap } = named;
-
     didInsertGridCell(element);
-    element.addEventListener('keydown', (event: KeyboardEvent) => {
+
+    this._keydownHandler = (event: KeyboardEvent) => {
       handleGridCellKeyPress(event, handleEnableFocusTrap);
-    });
+    };
+    element.addEventListener('keydown', this._keydownHandler);
 
     this._observer = new MutationObserver(() => {
       updateTabbableChildren(element, this._shouldTrapFocus);
     });
-
     this._observer.observe(element, {
       childList: true,
       subtree: true,

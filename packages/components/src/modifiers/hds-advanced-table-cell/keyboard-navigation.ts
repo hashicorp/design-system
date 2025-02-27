@@ -22,12 +22,15 @@ export const handleGridCellKeyPress = (
     direction: 'ArrowDown' | 'ArrowUp'
   ) => {
     const grid = currentRow.parentElement?.closest('[role="grid"]');
-    const allRows = grid?.querySelectorAll('[role="row"]');
+    const allVisibleRows = grid?.querySelectorAll(
+      '[role="row"]:not(.hds-advanced-table__tr--hidden)'
+    );
 
-    if (allRows) {
-      const currentRowIndex = Array.from(allRows).indexOf(currentRow);
-      if (direction === 'ArrowDown') return allRows[currentRowIndex + 1];
-      else if (direction === 'ArrowUp') return allRows[currentRowIndex - 1];
+    if (allVisibleRows) {
+      const currentRowIndex = Array.from(allVisibleRows).indexOf(currentRow);
+      if (direction === 'ArrowDown') return allVisibleRows[currentRowIndex + 1];
+      else if (direction === 'ArrowUp')
+        return allVisibleRows[currentRowIndex - 1];
     }
   };
 
@@ -80,11 +83,15 @@ export const handleGridCellKeyPress = (
       event.preventDefault();
       if (event.ctrlKey) {
         const table = target.parentElement?.closest('[role="grid"]');
-        const allRows = table?.querySelectorAll('[role="row"]');
+        const allVisibleRows = table?.querySelectorAll(
+          '[role="row"]:not(.hds-advanced-table__tr--hidden)'
+        );
 
-        if (allRows) {
+        if (allVisibleRows) {
           const nextRow =
-            key === 'Home' ? allRows[0] : allRows[allRows.length - 1];
+            key === 'Home'
+              ? allVisibleRows[0]
+              : allVisibleRows[allVisibleRows.length - 1];
 
           if (nextRow) {
             const cellsInNextRow = nextRow.children;
@@ -121,11 +128,15 @@ export const handleGridCellKeyPress = (
         );
 
         const grid = currentRow.parentElement?.closest('[role="grid"]');
-        const allRows = grid?.querySelectorAll('[role="row"]');
+        const allVisibleRows = grid?.querySelectorAll(
+          '[role="row"]:not(.hds-advanced-table__tr--hidden)'
+        );
 
-        if (allRows) {
+        if (allVisibleRows) {
           const nextRow =
-            event.key === 'PageUp' ? allRows[0] : allRows[allRows.length - 1];
+            event.key === 'PageUp'
+              ? allVisibleRows[0]
+              : allVisibleRows[allVisibleRows.length - 1];
 
           if (nextRow !== null && nextRow instanceof HTMLElement) {
             const nextCell = nextRow.children[currentCellIndex];
