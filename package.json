@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "release-candidate-packages": "changeset publish --tag rc",
     "release-packages": "pnpm changeset publish",
+    "version-candidate-packages": "pnpm changeset version --snapshot rc",
     "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files"
   },
   "devDependencies": {
