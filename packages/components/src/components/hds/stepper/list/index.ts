@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
 import type { ComponentLike } from '@glint/template';
 import type { HdsStepperListStepSignature } from './step';
 
@@ -42,8 +43,21 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
 
   @action
   didInsertStep(element: HTMLElement): void {
-    this._stepIds = [...this._stepIds, element.id];
-    this._stepNodes = [...this._stepNodes, element];
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      this._stepIds = [...this._stepIds, element.id];
+      this._stepNodes = [...this._stepNodes, element];
+    });
+  }
+
+  @action
+  willDestroyStep(element: HTMLElement): void {
+    this._stepNodes = this._stepNodes.filter(
+      (node): boolean => node.id !== element.id
+    );
+    this._stepIds = this._stepIds.filter(
+      (stepId): boolean => stepId !== element.id
+    );
   }
 
   /**
