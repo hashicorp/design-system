@@ -6,7 +6,11 @@
   {{yield
     (hash
       Step=(component
-        "hds/stepper/list/step" titleTag=this.titleTag didInsertNode=this.didInsertStep stepIds=this._stepIds
+        "hds/stepper/list/step"
+        titleTag=this.titleTag
+        stepIds=this._stepIds
+        didInsertNode=this.didInsertStep
+        willDestroyNode=this.willDestroyStep
       )
     )
   }}

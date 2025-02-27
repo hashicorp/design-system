@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 import {
   HdsStepperStatusesValues,
@@ -29,6 +30,7 @@ export interface HdsStepperListStepSignature {
     titleTag?: HdsStepperTitleTags;
     stepIds?: HdsStepperListStepIds;
     didInsertNode?: (element: HTMLElement) => void;
+    willDestroyNode?: (element: HTMLElement) => void;
   };
   Blocks: {
     title: [];
@@ -45,6 +47,23 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
    * @param _stepId
    */
   private _stepId = 'step-' + guidFor(this);
+
+  private _setUpStep = modifier(
+    (
+      element: HTMLElement,
+      [insertCallbackFunction, destoryCallbackFunction]
+    ) => {
+      if (typeof insertCallbackFunction === 'function') {
+        insertCallbackFunction(element);
+      }
+
+      return () => {
+        if (typeof destoryCallbackFunction === 'function') {
+          destoryCallbackFunction(element);
+        }
+      };
+    }
+  );
 
   /**
    * Get the index of the step from the _stepIds list
@@ -108,8 +127,17 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
   didInsertNode(element: HTMLElement): void {
     const { didInsertNode } = this.args;
 
-    if (typeof didInsertNode === 'function' && this._stepId != undefined) {
+    if (typeof didInsertNode === 'function') {
       didInsertNode(element);
+    }
+  }
+
+  @action
+  willDestroyNode(element: HTMLElement): void {
+    const { willDestroyNode } = this.args;
+
+    if (typeof willDestroyNode === 'function') {
+      willDestroyNode(element);
     }
   }
 
