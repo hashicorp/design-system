@@ -217,10 +217,12 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         background-color: var(--token-color-surface-faint);
       }
     }
+  }
 
+  .hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden) {
     // border radius: target first th (scope of row) and td, and last td elements in the last row
 
-      &:last-of-type{
+    &:last-of-type{
       .hds-advanced-table__th:first-child,
       .hds-advanced-table__td:first-child {
         border-bottom-left-radius: $hds-advanced-table-inner-border-radius;
