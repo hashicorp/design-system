@@ -8,6 +8,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
+@use '../../../node_modules/tippy.js/dist/svg-arrow.css';
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
