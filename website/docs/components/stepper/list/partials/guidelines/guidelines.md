@@ -8,7 +8,7 @@
 
 ### When not to use 
 
-- For page level, linear progress that requires a user to remain on the page for, use the [Stepper Navigation](/components/stepper/navigation).
+- For page level, linear progress that requires a user to remain on the page for, use the [Stepper Nav](/components/stepper/nav).
 - Don't require specific progress tracking, use structured page content.
 
 
