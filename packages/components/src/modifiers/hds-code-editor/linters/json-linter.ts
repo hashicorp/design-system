@@ -108,6 +108,13 @@ export default async function jsonLinter(): Promise<Extension[]> {
           to: node.to,
           message,
           severity: 'error',
+          renderMessage: () => {
+            const element = document.createElement('div');
+
+            element.textContent = message;
+
+            return element;
+          },
         });
 
         seenLines.add(lineNumber);
