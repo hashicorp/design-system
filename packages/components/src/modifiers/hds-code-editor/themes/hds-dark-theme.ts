@@ -65,6 +65,8 @@ const hdsDark = EditorView.theme(
     '.cm-matchingBracket': {
       outline: `1px solid ${HDS_CODE_BLOCK_WHITE}`,
     },
+
+    // linting
   },
   { dark: true }
 );
