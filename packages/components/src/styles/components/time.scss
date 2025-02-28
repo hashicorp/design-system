@@ -14,6 +14,7 @@
 
 // Note: The time-wrapper is only present when time is wrapped by a tooltip button
 .hds-time-wrapper .hds-time {
+  // decoration style is specified separately to fix a bug in Safari causing it not to render
   text-decoration: underline;
   text-decoration-style: dotted;
 }
