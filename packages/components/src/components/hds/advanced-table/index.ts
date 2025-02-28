@@ -32,6 +32,7 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';
+import { updateLastRowClass } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -94,7 +95,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  private _observer: IntersectionObserver | undefined = undefined;
+  private _intersectionObserver: IntersectionObserver | undefined = undefined;
+  private _mutationObserver: MutationObserver | undefined = undefined;
   private _element!: HTMLDivElement;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -286,7 +288,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpObserver = modifier((element: HTMLDivElement) => {
+  private _setUpObservers = modifier((element: HTMLDivElement) => {
     const stickyGridHeader = element.querySelector(
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
@@ -295,7 +297,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this.setExpandAllState();
 
     if (stickyGridHeader !== null) {
-      this._observer = new IntersectionObserver(
+      this._intersectionObserver = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(
             'hds-advanced-table__thead--is-pinned',
@@ -304,12 +306,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         { threshold: [1] }
       );
 
-      this._observer.observe(stickyGridHeader);
+      this._intersectionObserver.observe(stickyGridHeader);
     }
 
+    updateLastRowClass(element);
+
     return () => {
-      if (this._observer) {
-        this._observer.disconnect();
+      if (this._intersectionObserver) {
+        this._intersectionObserver.disconnect();
+      }
+
+      if (this._mutationObserver) {
+        this._mutationObserver.disconnect();
       }
     };
   });
@@ -481,6 +489,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         else expandAllState = 'mixed';
 
         this._expandAllButtonState = expandAllState;
+        updateLastRowClass(this._element);
       });
     }
   }
@@ -505,6 +514,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
 
       this._expandAllButtonState = newState;
+      updateLastRowClass(this._element);
     }
   }
 }

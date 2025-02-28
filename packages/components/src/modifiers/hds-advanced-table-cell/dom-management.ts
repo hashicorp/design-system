@@ -78,3 +78,31 @@ export const didInsertGridCell = (
     }
   }
 };
+
+export const updateLastRowClass = (element: HTMLDivElement) => {
+  console.log('in update last row class');
+  const previousLastRow = element.querySelectorAll(
+    '.hds-advanced-table__tr--last-row'
+  );
+
+  console.log(previousLastRow);
+
+  if (previousLastRow) {
+    for (let i = 0; i < previousLastRow.length; i++) {
+      previousLastRow[i]?.classList.remove('hds-advanced-table__tr--last-row');
+    }
+  }
+
+  const visibleRows = Array.from(
+    element.querySelectorAll(
+      '.hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden)'
+    )
+  );
+
+  console.log(visibleRows);
+  if (visibleRows) {
+    visibleRows[visibleRows.length - 1]?.classList.add(
+      'hds-advanced-table__tr--last-row'
+    );
+  }
+};
