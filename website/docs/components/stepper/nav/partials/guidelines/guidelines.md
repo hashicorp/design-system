@@ -3,28 +3,48 @@
 ### When to use
 
 - In complex flows that are broken up into multiple steps to more easily segment content.
-- To communicate progress in a mult-step flow; what has been completed, and what has yet to be completed.
+- To communicate what has and has not been completed in a mult-step flow.
 - For a single, on-page experience that requires completion.
 
 ### When not to use 
 
-- Non-complex flow, use the [form pattern](/patterns/form-patterns) on a single page.
-- Don't require specific progress tracking, use structured page content.
+- For non-complex flows, use the [form pattern](/patterns/form-patterns) on a single page.
+- For simple forms or when progress doesn't need to be tracked, use structured page content.
 - For progression that doesn’t require a user to remain on the page for, use the [Stepper List](/components/stepper/list).
+
+## Interactive vs non-interactive
+
+The Stepper Nav allows for both interactive (default) and non-interactive variants. 
+
+### Interactive steps
+
+A user is able to navigate backwards within the Stepper Nav, however, they cannot progress forward. The reason for this is to ensure consistency in behavior and no dirty forms exist.
+
+![](/assets/components/stepper/navigation/stepper-navigation-interactive-steps.png)
+
+![The user's mouse is hovering over step one of four, showing its hover state.](/assets/components/stepper/navigation/stepper-navigation-interactive-backwards-movement.png)
+
+### Non-interactive steps
+
+The non-interactive variant is for read-only purposes and does not allow backwards navigation within the Stepper Nav.
+
+![](/assets/components/stepper/navigation/stepper-navigation-non-interactive-steps.png)
 
 ## Content
 
-Content in the Stepper should be brief and to the point. The Stepper has a title and an optional description.
+The Stepper Nav has a title and an optional description. Content should be brief and to the point.
 
 ### Title
 
-Titles are required and help users understand, from an overview perspective, what tasks need to be completed. Titles should be brief, and only a couple of words.
+Titles provide an overview to help users understand what tasks need to be completed. Titles are required and should be brief.
 
 ### Description
 
-Descriptions are optional and should be brief and provide additional context to the title. We recommend that all steps either have a description or none do.
+Descriptions are optional. They should provide additional context but be brief. We recommend that all steps either have a description or do not.
 
 !!! Do
+
+Ensure description visibility is consistent.
 
 ![The stepper with descriptions enabled in every step.](/assets/components/stepper/navigation/stepper-navigation-description-do.png)
 
@@ -32,32 +52,36 @@ Descriptions are optional and should be brief and provide additional context to 
 
 !!! Dont
 
+Don't mix and match description visibility.
+
 ![Steps one and four with enabled descriptions, while two and three have only a title.](/assets/components/stepper/navigation/stepper-navigation-description-dont.png)
 
 !!!
 
 ### Number of steps
 
-It is recommended that the max number of steps be 4, however if that isn’t possible, be mindful of how the content within the title and description wraps in smaller screens.
-
-## Interactive vs non-interactive
-
-The Stepper Nav allows for both interactive (default) and non-interactive variants. Once a user navigates backward with the interactive variant, they cannot progress forward through the Stepper. The Non-interactive variant is for read-only purposes and does not allow backwards navigation within the Stepper.
-
-![Subtitle "Interactive" followed by an interactive variant of the Stepper Nav. Another subtitle "Non-interactive" followed by a non-interactive variant of the Stepper Nav.](/assets/components/stepper/navigation/stepper-navigation-interactive-non-interactive.png)
-
-The interactive variant allows for backward movement after a step has been completed.
-
-![The user's mouse is hovering over step one, showing its hover state.](/assets/components/stepper/navigation/stepper-navigation-interactive-backwards-movement.png)
+We recommended the maximum number of steps be 4. If that isn’t possible, be mindful of how the content within the title and description wraps on smaller screens.
 
 ## Spacing
 
-To account for the absolutely positioned indicator within each Step, it is recommended to provide a 32px padding on the top of the Stepper and 24px below. 
+There should be 32px of padding above the Stepper Nav and 24px below.
 
 ![](/assets/components/stepper/navigation/stepper-navigation-spacing-example.png)
 
-## Mirroring experiences
+## Resizing behavior
 
-A [Button Set](/components/button-set) should always be present alongside a Stepper. Ensure that navigation between the Stepper and the Button Set matches. If a user can navigate backward within the Button Set, use the interactive variant. Otherwise, use the non-interactive variant. It is recommended that the Stepper’s width matches the width of the page’s content.
+Each Step will scale evenly within the Stepper Nav's width. This ensures consistency in hit targets for hover, active and focus states, especially in larger screens. Ensure that the Stepper Nav's total width matches the content of the page.
+
+### Responsive wrapping
+
+Once the browser width is 550px, the Steps within the Stepper Nav will wrap, and the progress bar will be removed.
+
+![The Stepper Nav is stacked vertically](/assets/components/stepper/navigation/stepper-navigation-responsive-behavior.png)
+
+## Composition with other components
+
+Always pair a Stepper Nav with a [Button Set](/components/button-set). Ensure that navigation interactions between the Stepper Nav and the Button Set match. 
+
+If a user can navigate backward within the Button Set, use the interactive variant. Otherwise, use the non-interactive variant.
 
 ![](/assets/components/stepper/navigation/stepper-navigation-matching-experiences.png)
