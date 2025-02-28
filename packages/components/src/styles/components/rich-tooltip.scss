@@ -65,6 +65,8 @@
 
 .hds-rich-tooltip__toggle-text {
   color: var(--text-color);
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-text-decoration: underline dotted; // Safari
   text-decoration: underline dotted;
 }
 
