@@ -9,6 +9,9 @@ links:
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=A4lORtbini1AMxQN-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper
+related:
+  - components/stepper/indicator
+  - components/stepper/nav
 previewImage: assets/illustrations/components/stepper.jpg
 navigation:
   keywords:
