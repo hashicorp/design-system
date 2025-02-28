@@ -13,8 +13,8 @@
 }
 
 // Note: The time-wrapper is only present when time is wrapped by a tooltip button
-.hds-time-wrapper {
+.hds-time-wrapper .hds-time {
   // stylelint-disable-next-line property-no-vendor-prefix
-  -webkit-text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted; // Safari
   text-decoration: underline dotted;
 }
