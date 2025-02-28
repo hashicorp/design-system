@@ -7,5 +7,5 @@
 | Stepper Indicator| Required                                        |
 | Title            | Required                                        |
 | Description      | Optional                                        |
-| Generic instance | Optional                                        |
+| Body             | Optional; accepts any custom component instance (local or from Helios)|
 | Progress bar     | Required                                        |
