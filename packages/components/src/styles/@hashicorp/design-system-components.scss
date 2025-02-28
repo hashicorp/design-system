@@ -3,6 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+ // Vendor
+ @use "svg-arrow.css"; // tippy.js
+
 // these files come from the 'design-system-tokens' package
 @use "tokens";
 @use "helpers/color";
