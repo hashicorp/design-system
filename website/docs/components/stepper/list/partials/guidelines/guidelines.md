@@ -2,29 +2,30 @@
 
 ### When to use
 
-- In complex flows that are broken up into multiple steps to more easily segment content.
-- To communicate progress in a mult-step flow; what has been completed, and what has yet to be completed.
+- In onboarding, account creation or initial setups that are broken up into multiple steps to more easily segment content.
+- To communicate what has and has not been completed in a mult-step flow.
 - For progress that does not require a user to remain on a single page to complete.
 
 ### When not to use 
 
-- For page level, linear progress that requires a user to remain on the page for, use the [Stepper Nav](/components/stepper/nav).
-- Don't require specific progress tracking, use structured page content.
-
+- When the user needs to remain within the step to complete it, use the [Stepper Nav](/components/stepper/nav).
+- For simple forms or when progress doesn't need to be tracked, use structured page content.
 
 ## Content
 
-The Stepper has a title, an optional description and a generic slot for content.
+The Stepper List has a title, an optional description, and a generic slot for content.
 
 ### Title
 
-Titles are required and help users understand, from an overview perspective, what tasks need to be completed. Titles should be brief, and only a couple of words.
+Titles provide an overview to help users understand what tasks need to be completed and their purpose within the flow. Titles are required and should be brief.
 
 ### Description
 
-Descriptions are optional and should be brief and provide additional context to the title. We recommend that all steps either have a description or none do.
+Descriptions are optional. They should provide additional context but be brief. We recommend that all steps either have a description or do not.
 
 !!! Do
+
+Ensure description visibility is consistent.
 
 ![The stepper with descriptions enabled in every step.](/assets/components/stepper/list/stepper-list-description-do.png)
 
@@ -32,20 +33,24 @@ Descriptions are optional and should be brief and provide additional context to 
 
 !!! Dont
 
+Don't mix and match description visibility.
+
 ![Steps one and four with enabled descriptions, while two and three have only a title.](/assets/components/stepper/list/stepper-list-description-dont.png)
 
 !!!
 
 ## Progressive disclosure
 
-We recommend that the contents of the in-progress step be displayed at a time. This narrows the focus on the specific task at hand and ensures that they are completed in the specified order. However, this isn’t always possible and sometimes context from the previous step allows the user to complete the next step.
+We recommend showing only the contents of the **in-progress** step. This narrows the focus to the specific step and ensures steps are completed in order. However, this isn’t always possible, and sometimes context from the previous step allows the user to complete the next step. Use your best judgment.
 
 ![All steps only showing a title and description other than step 2. Step 2 shows a title, description and a button.](/assets/components/stepper/list/stepper-list-progressive-disclosure.png)
 
 ## Using processing status
 
-If a Step’s contents have submission capabilities, a processing status can help the user understand that their data is in the process of being submitted.
+If data can be submitted within a step, showing the status as `processing` provides the user with immediate feedback.
 
 ![A Stepper list with two steps. The first step the user is pressing a button, and the status of the first step is in a processing state.](/assets/components/stepper/list/stepper-list-processing-status.png)
 
-If an error occurs, that error should be displayed within the Step, and the status of the Step will revert back to “progress.”
+If an error occurs, that error should be displayed within the step. The steps status will revert to `progress`.
+
+![A Stepper list with two steps. The first step has an errored out form text input with a message explaining how to fix the error.](/assets/components/stepper/list/stepper-list-processing-status-errored.png)
