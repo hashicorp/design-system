@@ -47,10 +47,12 @@ function getSurroundingTokens(
 const errorNodeName = '⚠';
 
 export default async function jsonLinter(): Promise<Extension[]> {
-  const [{ syntaxTree }, { linter, lintGutter }] = await RSVP.all([
-    import('@codemirror/language'),
-    import('@codemirror/lint'),
-  ]);
+  const [{ keymap }, { syntaxTree }, { linter, lintGutter, lintKeymap }] =
+    await RSVP.all([
+      import('@codemirror/view'),
+      import('@codemirror/language'),
+      import('@codemirror/lint'),
+    ]);
 
   const jsonLinter = linter((view) => {
     const diagnostics: DiagnosticType[] = [];
@@ -115,5 +117,5 @@ export default async function jsonLinter(): Promise<Extension[]> {
     return diagnostics;
   });
 
-  return [jsonLinter, lintGutter()];
+  return [jsonLinter, lintGutter(), keymap.of([...lintKeymap])];
 }
