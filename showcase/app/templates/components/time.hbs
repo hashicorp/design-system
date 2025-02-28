@@ -7,21 +7,20 @@
 
 <Shw::Text::H1>Time</Shw::Text::H1>
 
+{{! Note: The dynamic nature of the Time component triggers an infinite rendering invalidation error when attempting to test in Percy}}
+
 <section>
   <Shw::Text::H2>Has tooltip</Shw::Text::H2>
 
-  {{! Only very limited sections are tested using Percy due to dynamic nature of the Time component }}
-  <div data-test-percy>
-    <Shw::Flex @gap="2rem" as |SF|>
-      <SF.Item @label="With tooltip (default)">
-        <Hds::Time @date="05 September 2018 14:48" />
-      </SF.Item>
+  <Shw::Flex @gap="2rem" as |SF|>
+    <SF.Item @label="With tooltip (default)">
+      <Hds::Time @date="05 September 2018 14:48" />
+    </SF.Item>
 
-      <SF.Item @label="Without tooltip">
-        <Hds::Time @date="05 September 2018 14:48" @hasTooltip={{false}} />
-      </SF.Item>
-    </Shw::Flex>
-  </div>
+    <SF.Item @label="Without tooltip">
+      <Hds::Time @date="05 September 2018 14:48" @hasTooltip={{false}} />
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Text::H2>Display</Shw::Text::H2>
 
@@ -65,10 +64,7 @@
     </SF.Item>
 
     <SF.Item @label="With different year range & no tooltip">
-      {{! Only very limited sections are tested using Percy due to dynamic nature of the Time component }}
-      <div data-test-percy>
-        <Hds::Time @startDate="8 November 2024" @endDate="20 January 2025" @hasTooltip={{false}} />
-      </div>
+      <Hds::Time @startDate="8 November 2024" @endDate="20 January 2025" @hasTooltip={{false}} />
     </SF.Item>
   </Shw::Flex>
 </section>
