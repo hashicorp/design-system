@@ -344,7 +344,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         highlightActiveLineGutter(),
         highlightSpecialChars(),
         history(),
-        lineNumbers(),
         keymap.of([...defaultKeymap, ...historyKeymap]),
         // custom extensions
         handleUpdateExtension,
@@ -356,6 +355,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (languageExtensions !== undefined) {
         extensions = [...extensions, ...languageExtensions];
       }
+
+      // ensure we add lineNumber last in the stack to create the right gutter order for linting
+      extensions = [...extensions, lineNumbers()];
 
       return extensions;
     }
