@@ -30,7 +30,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
       &::before,
       &::after {
         position: absolute;
-        top: 2px;
+        top: 1px;
         left: 11px;
         width: 2px;
         content: "";
@@ -44,7 +44,6 @@ $hds-stepper-list-step-padding-bottom: 16px;
       &::after {
         z-index: -1;
         background-color: var(--token-color-palette-neutral-700);
-        border-radius: 0 0 20px 20px;
       }
     }
   }
@@ -59,7 +58,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
 }
 
 .hds-stepper-list__step__title {
-  color: var(--token-color-foreground-primary);
+  color: var(--token-color-foreground-strong);
 }
 
 .hds-stepper-list__step__description {
@@ -67,7 +66,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
 }
 
 .hds-stepper-list__step__content {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 // STATUSES
@@ -101,5 +100,12 @@ $hds-stepper-list-step-padding-bottom: 16px;
     height: 6px;
     background-color: var(--token-color-palette-neutral-700);
     content: "";
+  }
+
+  // Border radius for progress line if completed step is followed by a step that is not complete
+  &.hds-stepper-list__step--complete:has(+ :not(.hds-stepper-list__step--complete)) {
+    .hds-stepper-list__step__progress::after {
+      border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
+    }
   }
 }
