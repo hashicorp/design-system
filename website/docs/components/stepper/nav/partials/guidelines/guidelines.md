@@ -3,7 +3,7 @@
 ### When to use
 
 - In complex flows that are broken up into multiple steps to more easily segment content.
-- To communicate what has and has not been completed in a mult-step flow.
+- To communicate what has and has not been completed in a multi-step flow.
 - For a single, on-page experience that requires completion.
 
 ### When not to use 
@@ -18,7 +18,7 @@ The Stepper Nav allows for both interactive (default) and non-interactive varian
 
 ### Interactive steps
 
-A user is able to navigate backwards within the Stepper Nav, however, they cannot progress forward. The reason for this is to ensure consistency in behavior and no dirty forms exist.
+A user is able to navigate backwards within the Stepper Nav, however, they cannot navigate forward unless they have completed their current step. This creates consistency for step flow behavior and order of operations.
 
 ![](/assets/components/stepper/navigation/stepper-navigation-interactive-steps.png)
 
@@ -26,13 +26,13 @@ A user is able to navigate backwards within the Stepper Nav, however, they canno
 
 ### Non-interactive steps
 
-The non-interactive variant is for read-only purposes and does not allow backwards navigation within the Stepper Nav.
+The non-interactive variant is for read-only purposes and does not allow backwards navigation.
 
 ![](/assets/components/stepper/navigation/stepper-navigation-non-interactive-steps.png)
 
 ## Content
 
-The Stepper Nav has a title and an optional description. Content should be brief and to the point.
+The Stepper Nav has a title and an optional description. Content should be limited to necessary context, and long form content should live within the body of the page.
 
 ### Title
 
@@ -44,7 +44,7 @@ Descriptions are optional. They should provide additional context but be brief. 
 
 !!! Do
 
-Ensure description visibility is consistent.
+Implement consistent description visibility.
 
 ![The stepper with descriptions enabled in every step.](/assets/components/stepper/navigation/stepper-navigation-description-do.png)
 
@@ -70,17 +70,17 @@ There should be 32px of padding above the Stepper Nav and 24px below.
 
 ## Resizing behavior
 
-Each Step will scale evenly within the Stepper Nav's width. This ensures consistency in hit targets for hover, active and focus states, especially in larger screens. Ensure that the Stepper Nav's total width matches the content of the page.
+Each Step will scale evenly within the Stepper Nav's width. This creates consistency in hit targets for hover, active and focus states, especially in larger screens. The total width of the Stepper Nav should match the content of the page.
 
 ### Responsive wrapping
 
-Once the browser width is 550px, the Steps within the Stepper Nav will wrap, and the progress bar will be removed.
+Starting at 550px browser width, the Steps within the Stepper Nav will begin to wrap and the progress bar will be removed.
 
 ![The Stepper Nav is stacked vertically](/assets/components/stepper/navigation/stepper-navigation-responsive-behavior.png)
 
 ## Composition with other components
 
-Always pair a Stepper Nav with a [Button Set](/components/button-set). Ensure that navigation interactions between the Stepper Nav and the Button Set match. 
+Always pair a Stepper Nav with a [Button Set](/components/button-set). Navigation interactions between the Stepper Nav and the Button Set should always match. 
 
 If a user can navigate backward within the Button Set, use the interactive variant. Otherwise, use the non-interactive variant.
 
