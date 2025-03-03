@@ -324,3 +324,30 @@
     }
   }
 }
+
+// MOBILE
+
+@media screen and (width <= 550px) {
+  .hds-stepper-nav__list {
+    flex-direction: column;
+  }
+
+  .hds-stepper-nav__step:not(:last-of-type) {
+    margin-bottom: 16px;
+  }
+
+  .hds-stepper-nav__step__progress {
+    top: -12px;
+    left: 8px;
+    justify-content: start;
+
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
+  .hds-stepper-nav__step__text {
+    align-items: start;
+  }
+}
