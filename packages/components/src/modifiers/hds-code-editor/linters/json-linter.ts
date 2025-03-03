@@ -1,4 +1,5 @@
 import RSVP from 'rsvp';
+import { EditorView } from '@codemirror/view';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { Extension, Text } from '@codemirror/state';
@@ -124,5 +125,12 @@ export default async function jsonLinter(): Promise<Extension[]> {
     return diagnostics;
   });
 
-  return [jsonLinter, lintGutter(), keymap.of([...lintKeymap])];
+  return [
+    jsonLinter,
+    lintGutter(),
+    // needed to enable the `cmd + shift + m` keyboard shortcut for opening the linting console drawer
+    keymap.of([...lintKeymap]),
+    // add a class to the top-level .cm-editor element when linting is enabled
+    EditorView.editorAttributes.of({ class: 'cm-lintingEnabled' }),
+  ];
 }
