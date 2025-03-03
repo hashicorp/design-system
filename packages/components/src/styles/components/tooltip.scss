@@ -8,7 +8,6 @@
 //
 
 @use "../mixins/focus-ring" as *;
-@use '../../../node_modules/tippy.js/dist/svg-arrow.css';
 
 .hds-tooltip-button {
   @include hds-focus-ring-with-pseudo-element(
@@ -86,6 +85,55 @@
 
   // works with Tippy's custom SVG arrow variation:
   .tippy-svg-arrow {
+    width: 16px;
+    height: 16px;
+    text-align: initial;
     fill: var(--token-tooltip-color-surface-primary);
+
+    &, 
+    & > svg {
+      position: absolute;
+    }
+  }
+
+  // Arrow positioning styles taken from tippy.js (tippy.js/dist/svg-arrow.css)
+  &[data-placement^="top"] > .tippy-svg-arrow {
+    bottom: 0;
+  }
+
+  &[data-placement^="top"] > .tippy-svg-arrow::after,
+  &[data-placement^="top"] > .tippy-svg-arrow > svg {
+    top: 16px;
+    transform: rotate(180deg);
+  }
+
+  &[data-placement^="bottom"] > .tippy-svg-arrow {
+    top: 0;
+  }
+
+  &[data-placement^="bottom"] > .tippy-svg-arrow > svg {
+    bottom: 16px;
+  }
+
+  &[data-placement^="left"] > .tippy-svg-arrow {
+    right: 0;
+  }
+
+  &[data-placement^="left"] > .tippy-svg-arrow::after,
+  &[data-placement^="left"] > .tippy-svg-arrow > svg {
+    top: calc(50% - 3px);
+    left: 11px;
+    transform: rotate(90deg);
+  }
+
+  &[data-placement^="right"] > .tippy-svg-arrow {
+    left: 0;
+  }
+
+  &[data-placement^="right"] > .tippy-svg-arrow::after,
+  &[data-placement^="right"] > .tippy-svg-arrow > svg {
+    top: calc(50% - 3px);
+    right: 11px;
+    transform: rotate(-90deg);
   }
 }
