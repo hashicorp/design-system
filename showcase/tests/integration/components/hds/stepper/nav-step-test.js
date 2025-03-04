@@ -69,8 +69,8 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .dom('.hds-stepper-indicator-step')
       .hasNoClass('hds-stepper-indicator-step--is-interactive');
     assert
-      .dom('.hds-stepper-nav__step__content')
-      .hasNoClass('hds-stepper-nav__step__btn');
+      .dom('.hds-stepper-nav__step-content')
+      .hasNoClass('hds-stepper-nav__step-btn');
   });
 
   test('it sets the step to interactive when the @isInteractive argument is provided to the parent', async function (assert) {
@@ -83,8 +83,8 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--is-interactive');
     assert
-      .dom('.hds-stepper-nav__step__content')
-      .hasClass('hds-stepper-nav__step__btn');
+      .dom('.hds-stepper-nav__step-content')
+      .hasClass('hds-stepper-nav__step-btn');
   });
 
   // STATES
@@ -100,9 +100,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--incomplete');
-    assert.dom('.hds-stepper-nav__step__btn').hasAttribute('tabindex', '-1');
+    assert.dom('.hds-stepper-nav__step-btn').hasAttribute('tabindex', '-1');
     assert
-      .dom('.hds-stepper-nav__step__btn')
+      .dom('.hds-stepper-nav__step-btn')
       .hasAttribute('aria-selected', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
@@ -115,9 +115,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--complete');
-    assert.dom('.hds-stepper-nav__step__btn').hasAttribute('tabindex', '-1');
+    assert.dom('.hds-stepper-nav__step-btn').hasAttribute('tabindex', '-1');
     assert
-      .dom('.hds-stepper-nav__step__btn')
+      .dom('.hds-stepper-nav__step-btn')
       .hasAttribute('aria-selected', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
@@ -130,9 +130,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--active');
-    assert.dom('.hds-stepper-nav__step__btn').hasNoAttribute('tabindex');
+    assert.dom('.hds-stepper-nav__step-btn').hasNoAttribute('tabindex');
     assert
-      .dom('.hds-stepper-nav__step__btn')
+      .dom('.hds-stepper-nav__step-btn')
       .hasAttribute('aria-selected', 'true');
     assert
       .dom('.hds-stepper-indicator-step')
@@ -144,25 +144,25 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
 
   test('it renders a div when the @titleTag argument is not provided', async function (assert) {
     await this.createNavStep();
-    assert.dom('.hds-stepper-nav__step__title').hasTagName('div');
+    assert.dom('.hds-stepper-nav__step-title').hasTagName('div');
   });
 
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
     await this.createNavStep({ titleTag: 'h2' });
-    assert.dom('.hds-stepper-nav__step__title').hasTagName('h2');
+    assert.dom('.hds-stepper-nav__step-title').hasTagName('h2');
   });
 
   // TITLE
 
   test('it renders the title when the title contextual component block is used', async function (assert) {
     await this.createNavStep({ title: 'Test' });
-    assert.dom('.hds-stepper-nav__step__title').containsText('Test');
+    assert.dom('.hds-stepper-nav__step-title').containsText('Test');
   });
 
   // DESCRIPTION
 
   test('it renders the description when the description contextual component block is used', async function (assert) {
     await this.createNavStep({ description: 'Test' });
-    assert.dom('.hds-stepper-nav__step__description').containsText('Test');
+    assert.dom('.hds-stepper-nav__step-description').containsText('Test');
   });
 });

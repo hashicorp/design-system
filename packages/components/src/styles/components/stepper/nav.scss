@@ -28,7 +28,7 @@
   width: 100%;
 }
 
-.hds-stepper-nav__step__content {
+.hds-stepper-nav__step-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
   border: none;
 }
 
-.hds-stepper-nav__step__progress {
+.hds-stepper-nav__step-progress {
   position: absolute;
   top: -14px;
   left: 0;
@@ -67,17 +67,17 @@
   }
 }
 
-.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step__progress::before,
-.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step__progress::after {
+.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-progress::before,
+.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-progress::after {
   border-radius: var(--token-border-radius-x-small) 0 0 var(--token-border-radius-x-small);
 }
 
-.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step__progress::before,
-.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step__progress::after {
+.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step-progress::before,
+.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step-progress::after {
   border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
 }
 
-.hds-stepper-nav__step__text {
+.hds-stepper-nav__step-text {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,11 +85,11 @@
   border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
 }
 
-.hds-stepper-nav__step__title {
+.hds-stepper-nav__step-title {
   color: var(--token-color-foreground-primary);
 }
 
-.hds-stepper-nav__step__description {
+.hds-stepper-nav__step-description {
   margin-top: 4px;
   color: var(--token-color-foreground-primary);
 }
@@ -98,21 +98,21 @@
 
 // Complete & Active
 
-.hds-stepper-nav__step--complete .hds-stepper-nav__step__title,
-.hds-stepper-nav__step--active .hds-stepper-nav__step__title {
+.hds-stepper-nav__step--complete .hds-stepper-nav__step-title,
+.hds-stepper-nav__step--active .hds-stepper-nav__step-title {
   color: var(--token-color-foreground-strong);
 }
 
 // Incomplete
 
-.hds-stepper-nav__step--incomplete .hds-stepper-nav__step__progress::after {
+.hds-stepper-nav__step--incomplete .hds-stepper-nav__step-progress::after {
   width: 0;
 }
 
 // Active
 
 .hds-stepper-nav__step--active {
-  .hds-stepper-nav__step__btn {
+  .hds-stepper-nav__step-btn {
     @include hds-focus-ring-with-pseudo-element(
       $top: -3px,
       $right: -1px,
@@ -122,7 +122,7 @@
     );
   }
 
-  .hds-stepper-nav__step__progress::after {
+  .hds-stepper-nav__step-progress::after {
     width: calc(50% - 16px); // 1/2 width of icon (12px) + 4px margin
     border-radius: 0 20px 20px 0;
   }
@@ -130,19 +130,19 @@
 
 // Complete
 
-.hds-stepper-nav__step--complete .hds-stepper-nav__step__progress::after {
+.hds-stepper-nav__step--complete .hds-stepper-nav__step-progress::after {
   width: 100%;
 }
 
 // NAV INTERACTIVE
 
 .hds-stepper-nav__step--nav-interactive {
-  .hds-stepper-nav__step__progress::after {
+  .hds-stepper-nav__step-progress::after {
     background-color: var(--token-color-palette-blue-300);
   }
 
-  &.hds-stepper-nav__step--complete .hds-stepper-nav__step__title,
-  &.hds-stepper-nav__step--active .hds-stepper-nav__step__title {
+  &.hds-stepper-nav__step--complete .hds-stepper-nav__step-title,
+  &.hds-stepper-nav__step--active .hds-stepper-nav__step-title {
     color: var(--token-color-foreground-action);
   }
 }
@@ -150,7 +150,7 @@
 // INTERACTIVE
 
 .hds-stepper-nav__step--interactive {
-  .hds-stepper-nav__step__btn {
+  .hds-stepper-nav__step-btn {
     @include hds-focus-ring-with-pseudo-element(
       $top: -3px,
       $right: -1px,
@@ -162,22 +162,22 @@
 
     &:hover,
     &.mock-hover {
-      .hds-stepper-nav__step__text {
+      .hds-stepper-nav__step-text {
         background-color: var(--token-color-surface-interactive-hover);
       }
 
-      .hds-stepper-nav__step__title {
+      .hds-stepper-nav__step-title {
         color: var(--token-color-foreground-action-hover);
       }
     }
 
     &:active,
     &.mock-active {
-      .hds-stepper-nav__step__text {
+      .hds-stepper-nav__step-text {
         background-color: var(--token-color-surface-interactive-active);
       }
 
-      .hds-stepper-nav__step__title {
+      .hds-stepper-nav__step-title {
         color: var(--token-color-foreground-action-active);
       }
     }
@@ -191,8 +191,8 @@
 
 @each $status in $hds-stepper-indicator-step-statuses {
   .hds-stepper-nav__step--nav-interactive {
-    .hds-stepper-nav__step__btn:hover,
-    .hds-stepper-nav__step__btn.mock-hover {
+    .hds-stepper-nav__step-btn:hover,
+    .hds-stepper-nav__step-btn.mock-hover {
       .hds-stepper-indicator-step--status-#{$status} {
         &.hds-stepper-indicator-step {
           cursor: default;
@@ -224,8 +224,8 @@
     }
 
     &.hds-stepper-nav__step--interactive {
-      .hds-stepper-nav__step__btn:hover,
-      .hds-stepper-nav__step__btn.mock-hover {
+      .hds-stepper-nav__step-btn:hover,
+      .hds-stepper-nav__step-btn.mock-hover {
         .hds-stepper-indicator-step--status-#{$status} {
           &.hds-stepper-indicator-step {
             cursor: pointer;
@@ -257,8 +257,8 @@
       }
     }
 
-    .hds-stepper-nav__step__btn:active,
-    .hds-stepper-nav__step__btn.mock-active {
+    .hds-stepper-nav__step-btn:active,
+    .hds-stepper-nav__step-btn.mock-active {
       .hds-stepper-indicator-step--status-#{$status} {
         &.hds-stepper-indicator-step {
           cursor: default;
@@ -290,8 +290,8 @@
     }
 
     &.hds-stepper-nav__step--interactive {
-      .hds-stepper-nav__step__btn:active,
-      .hds-stepper-nav__step__btn.mock-active {
+      .hds-stepper-nav__step-btn:active,
+      .hds-stepper-nav__step-btn.mock-active {
         .hds-stepper-indicator-step--status-#{$status} {
           &.hds-stepper-indicator-step {
             cursor: pointer;
@@ -336,7 +336,7 @@
     margin-bottom: 16px;
   }
 
-  .hds-stepper-nav__step__progress {
+  .hds-stepper-nav__step-progress {
     top: -12px;
     left: 8px;
     justify-content: start;
@@ -347,7 +347,7 @@
     }
   }
 
-  .hds-stepper-nav__step__text {
+  .hds-stepper-nav__step-text {
     align-items: start;
   }
 }
