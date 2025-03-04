@@ -3,7 +3,7 @@ import RSVP from 'rsvp';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { Extension, Text } from '@codemirror/state';
 
-enum HdsCodeEditorJsonLintingError {
+export enum HdsCodeEditorJsonLintingError {
   InvalidSyntax = 'Invalid syntax',
   KeyExpected = 'Key expected',
   KeyMustBeDoubleQuoted = 'Key must be double quoted',

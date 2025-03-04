@@ -4,30 +4,84 @@
  */
 
 import { module, test } from 'qunit';
-import { hdsLinkToModels } from '@hashicorp/design-system-components/helpers/hds-link-to-models';
+import { Text } from '@codemirror/state';
+import {
+  findNextToken,
+  determineErrorMessage,
+  renderErrorMessage,
+  HdsCodeEditorJsonLintingError,
+} from '@hashicorp/design-system-component/modifiers/hds-code-editor/linters/json-linter';
 
 module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
-  test('returns the same array of models that is passed as argument', async function (assert) {
-    // NOTICE: helpers arguments are positional, so we have to use this trick
-    const args = new Array(2);
-    args[1] = ['model-1', 'model-2', 'model-3'];
-    assert.deepEqual(hdsLinkToModels(args), ['model-1', 'model-2', 'model-3']);
+  test('findNextToken returns the next non-whitespace token', function (assert) {
+    const doc = new Text('  {');
+
+    assert.strictEqual(
+      findNextToken(doc, 0, 1),
+      '{',
+      'Finds the next token correctly'
+    );
+    assert.strictEqual(
+      findNextToken(doc, 2, 1),
+      '{',
+      'Skips whitespace and finds next token'
+    );
+    assert.strictEqual(
+      findNextToken(doc, 3, 1),
+      '',
+      'Returns empty string when out of bounds'
+    );
   });
-  test('returns an array containing the model if a single model is passed as argument', async function (assert) {
-    const args = new Array(2);
-    args[0] = 'model';
-    assert.deepEqual(hdsLinkToModels(args), ['model']);
+
+  test('determineErrorMessage returns correct error messages', function (assert) {
+    assert.strictEqual(
+      determineErrorMessage({
+        previousToken: '{',
+        nextToken: ':',
+        errorToken: '',
+      }),
+      HdsCodeEditorJsonLintingError.KeyExpected,
+      'Detects missing key error'
+    );
+
+    assert.strictEqual(
+      determineErrorMessage({
+        previousToken: '"',
+        nextToken: '"',
+        errorToken: '',
+      }),
+      HdsCodeEditorJsonLintingError.MissingComma,
+      'Detects missing comma error'
+    );
+
+    assert.strictEqual(
+      determineErrorMessage({
+        previousToken: ',',
+        nextToken: '}',
+        errorToken: '',
+      }),
+      HdsCodeEditorJsonLintingError.TrailingComma,
+      'Detects trailing comma error'
+    );
   });
-  test('returns an empty array if no argument is passed', async function (assert) {
-    const args = new Array(2);
-    assert.deepEqual(hdsLinkToModels(args), []);
-  });
-  test('it should throw an assertion if both "model" and "models" are provided', async function (assert) {
-    const args = new Array(2);
-    args[0] = 'model';
-    args[1] = ['model-1', 'model-2', 'model-3'];
-    assert.throws(function () {
-      hdsLinkToModels(args);
-    });
+
+  test('renderErrorMessage creates correct HTML structure', function (assert) {
+    const message = 'Syntax Error';
+    const element = renderErrorMessage(message);
+
+    assert.ok(
+      element.classList.contains('cm-diagnosticText-inner'),
+      'Has correct wrapper class'
+    );
+    assert.strictEqual(element.children.length, 2, 'Has two children');
+    assert.ok(
+      element.children[0].classList.contains('cm-lint-marker-error'),
+      'Has error icon'
+    );
+    assert.strictEqual(
+      element.children[1].textContent,
+      message,
+      'Has correct text content'
+    );
   });
 });
