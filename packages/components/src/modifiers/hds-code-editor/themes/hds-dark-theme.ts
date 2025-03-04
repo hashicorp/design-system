@@ -126,6 +126,11 @@ const hdsDark = EditorView.theme(
       display: 'flex',
       gap: '16px',
     },
+    '.cm-diagnosticText-inner .cm-lint-marker-error': {
+      width: '16px',
+      height: '16px',
+      padding: '0',
+    },
     // linter diagnostics panel close button
     [`${CLOSE_BUTTON_SELECTOR}`]: {
       alignItems: 'center',
@@ -164,6 +169,13 @@ const hdsDark = EditorView.theme(
       fontSize: '13px',
       padding: '8px 12px',
     },
+    '.cm-tooltip-above': {
+      transform: 'translateX(-4px) translateY(-6px)',
+    },
+    '.cm-tooltip-below': {
+      transform: 'translateX(-4px) translateY(6px)',
+    },
+    // tooltips arrow
     '.cm-tooltip::before': {
       borderLeft: '8px solid transparent',
       borderRight: '8px solid transparent',
@@ -171,12 +183,6 @@ const hdsDark = EditorView.theme(
       left: '16px',
       position: 'absolute',
       transform: 'translateX(-50%)',
-    },
-    '.cm-tooltip-above': {
-      transform: 'translateX(-4px) translateY(-6px)',
-    },
-    '.cm-tooltip-below': {
-      transform: 'translateX(-4px) translateY(6px)',
     },
     '.cm-tooltip-above::before': {
       borderTop: `8px solid ${HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND}`,
@@ -186,6 +192,7 @@ const hdsDark = EditorView.theme(
       borderBottom: `8px solid ${HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND}`,
       top: '-8px',
     },
+    // only show the marker within the diagnostics panel
     '.cm-tooltip .cm-lint-marker-error': {
       display: 'none',
     },
