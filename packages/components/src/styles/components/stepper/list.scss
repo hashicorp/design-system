@@ -26,7 +26,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
   &:not(:last-of-type) {
     padding-bottom: $hds-stepper-list-step-padding-bottom;
 
-    .hds-stepper-list__step__progress {
+    .hds-stepper-list__step-progress {
       &::before,
       &::after {
         position: absolute;
@@ -49,23 +49,23 @@ $hds-stepper-list-step-padding-bottom: 16px;
   }
 }
 
-.hds-stepper-list__step__progress {
+.hds-stepper-list__step-progress {
   position: relative;
 }
 
-.hds-stepper-list__step__text {
+.hds-stepper-list__step-text {
   margin-top: 2px;
 }
 
-.hds-stepper-list__step__title {
+.hds-stepper-list__step-title {
   color: var(--token-color-foreground-strong);
 }
 
-.hds-stepper-list__step__description {
+.hds-stepper-list__step-description {
   margin-top: 4px;
 }
 
-.hds-stepper-list__step__content {
+.hds-stepper-list__step-content {
   margin-top: 8px;
 }
 
@@ -73,25 +73,25 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
 // Complete & Active
 
-.hds-stepper-list__step--complete .hds-stepper-list__step__title,
-.hds-stepper-list__step--progress .hds-stepper-list__step__title,
-.hds-stepper-list__step--processing .hds-stepper-list__step__title {
+.hds-stepper-list__step--complete .hds-stepper-list__step-title,
+.hds-stepper-list__step--progress .hds-stepper-list__step-title,
+.hds-stepper-list__step--processing .hds-stepper-list__step-title {
   color: var(--token-color-foreground-strong);
 }
 
 // Complete
 
 .hds-stepper-list__step {
-  &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
+  &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
     height: calc(100% + $hds-stepper-list-step-padding-bottom - 4px);
   }
 
-  &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
+  &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
     top: -4px;
     height: calc(100% + $hds-stepper-list-step-padding-bottom);
   }
 
-  &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step__progress::after {
+  &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
     position: absolute;
     top: -4px;
     left: 11px;
@@ -104,7 +104,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
   // Border radius for progress line if completed step is followed by a step that is not complete
   &.hds-stepper-list__step--complete:has(+ :not(.hds-stepper-list__step--complete)) {
-    .hds-stepper-list__step__progress::after {
+    .hds-stepper-list__step-progress::after {
       border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
     }
   }

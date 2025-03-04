@@ -30,7 +30,7 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
           </Hds::Stepper::List>
         `
     );
-    assert.dom('.hds-stepper-list__step__title').hasTagName('div');
+    assert.dom('.hds-stepper-list__step-title').hasTagName('div');
   });
 
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
@@ -43,6 +43,6 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
           </Hds::Stepper::List>
         `
     );
-    assert.dom('.hds-stepper-list__step__title').hasTagName('h2');
+    assert.dom('.hds-stepper-list__step-title').hasTagName('h2');
   });
 });
