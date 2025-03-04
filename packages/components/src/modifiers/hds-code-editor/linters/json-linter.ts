@@ -1,5 +1,4 @@
 import RSVP from 'rsvp';
-import { EditorView } from '@codemirror/view';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { Extension, Text } from '@codemirror/state';
@@ -48,12 +47,15 @@ function getSurroundingTokens(
 const errorNodeName = '⚠';
 
 export default async function jsonLinter(): Promise<Extension[]> {
-  const [{ keymap }, { syntaxTree }, { linter, lintGutter, lintKeymap }] =
-    await RSVP.all([
-      import('@codemirror/view'),
-      import('@codemirror/language'),
-      import('@codemirror/lint'),
-    ]);
+  const [
+    { EditorView, keymap },
+    { syntaxTree },
+    { linter, lintGutter, lintKeymap },
+  ] = await RSVP.all([
+    import('@codemirror/view'),
+    import('@codemirror/language'),
+    import('@codemirror/lint'),
+  ]);
 
   const jsonLinter = linter((view) => {
     const diagnostics: DiagnosticType[] = [];
@@ -110,11 +112,18 @@ export default async function jsonLinter(): Promise<Extension[]> {
           message,
           severity: 'error',
           renderMessage: () => {
-            const element = document.createElement('div');
+            const errorWrapperElement = document.createElement('div');
+            const errorIconElement = document.createElement('div');
+            const errorTextElement = document.createElement('span');
 
-            element.textContent = message;
+            errorWrapperElement.classList.add('cm-diagnosticText-inner');
+            errorIconElement.classList.add('cm-lint-marker-error');
+            errorTextElement.textContent = message;
 
-            return element;
+            errorWrapperElement.appendChild(errorIconElement);
+            errorWrapperElement.appendChild(errorTextElement);
+
+            return errorWrapperElement;
           },
         });
 
