@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Stepper Nav Anatomy](/assets/components/stepper/navigation/stepper-navigation-anatomy.png =257x*)
+![Stepper Nav Anatomy](/assets/components/stepper/nav/stepper-nav-anatomy.png =257x*)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
