@@ -2,9 +2,9 @@
 
 ### When to use
 
-- In onboarding, account creation or initial setups that are broken up into multiple steps to more easily segment content.
+- In onboarding, account creation, or initial setups that are broken up into multiple steps to more easily segment content.
 - To communicate what has and has not been completed in a multi-step flow.
-- For progress that does not require a user to remain on a single page to complete.
+- For progress that does not require a user to remain on the current page to complete.
 
 ### When not to use
 
