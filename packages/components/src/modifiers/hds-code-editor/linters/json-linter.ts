@@ -3,44 +3,85 @@ import RSVP from 'rsvp';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { Extension, Text } from '@codemirror/state';
 
-function getSurroundingTokens(
+enum HdsCodeEditorJsonLintingError {
+  InvalidSyntax = 'Invalid syntax',
+  KeyExpected = 'Key expected',
+  KeyMustBeDoubleQuoted = 'Key must be double quoted',
+  MissingComma = 'Missing comma',
+  TrailingComma = 'Trailing comma',
+  ValueExpected = 'Value expected',
+}
+
+export function findNextToken(
   doc: Text,
-  errorStart: number,
-  errorEnd: number
-): {
+  index: number,
+  step: number = 1
+): string {
+  while (index >= 0 && index < doc.length) {
+    const token = doc.sliceString(index, index + 1);
+
+    if (token.trim() !== '') {
+      return token;
+    }
+
+    index += step;
+  }
+  return '';
+}
+
+export function determineErrorMessage({
+  previousToken,
+  nextToken,
+  errorToken,
+}: {
   previousToken: string;
   nextToken: string;
-} {
-  let previousToken = '';
-  let nextToken = '';
+  errorToken: string;
+}): HdsCodeEditorJsonLintingError {
+  let message: HdsCodeEditorJsonLintingError =
+    HdsCodeEditorJsonLintingError.InvalidSyntax;
 
-  // find the previous non-whitespace token
-  let left = errorStart - 1;
-  while (left >= 0) {
-    const token = doc.sliceString(left, left + 1);
-
-    if (token.trim() !== '') {
-      previousToken = token;
-      break;
+  if (errorToken === '') {
+    if (previousToken === '{' && nextToken === ':') {
+      message = HdsCodeEditorJsonLintingError.KeyExpected;
+    } else if (previousToken === '"' && nextToken === '"') {
+      message = HdsCodeEditorJsonLintingError.MissingComma;
+    } else if (
+      previousToken === ',' &&
+      (nextToken === '}' || nextToken === ']')
+    ) {
+      message = HdsCodeEditorJsonLintingError.TrailingComma;
     }
-
-    left--;
+  } else {
+    if (
+      (previousToken === '{' || previousToken === ',') &&
+      (nextToken === '"' || nextToken === ':')
+    ) {
+      message = HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted;
+    } else if (
+      previousToken === ':' &&
+      (nextToken === ',' || nextToken === '}' || nextToken === ']')
+    ) {
+      message = HdsCodeEditorJsonLintingError.ValueExpected;
+    }
   }
 
-  // find the next non-whitespace token
-  let right = errorEnd;
-  while (right < doc.length) {
-    const token = doc.sliceString(right, right + 1);
+  return message;
+}
 
-    if (token.trim() !== '') {
-      nextToken = token;
-      break;
-    }
+export function renderErrorMessage(message: string): HTMLElement {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('cm-diagnosticText-inner');
 
-    right++;
-  }
+  const icon = document.createElement('div');
+  icon.classList.add('cm-lint-marker-error');
 
-  return { previousToken, nextToken };
+  const text = document.createElement('span');
+  text.textContent = message;
+
+  wrapper.append(icon, text);
+
+  return wrapper;
 }
 
 // lezer JSON parser uses '⚠' as a placeholder for syntax errors
@@ -61,7 +102,6 @@ export default async function jsonLinter(): Promise<Extension[]> {
     const diagnostics: DiagnosticType[] = [];
     const doc = view.state.doc;
     const tree = syntaxTree(view.state);
-
     const seenLines = new Set();
 
     tree.cursor().iterate((node) => {
@@ -72,59 +112,18 @@ export default async function jsonLinter(): Promise<Extension[]> {
           return;
         }
 
-        const errorToken = doc.sliceString(node.from, node.to);
-        const { previousToken, nextToken } = getSurroundingTokens(
-          doc,
-          node.from,
-          node.to
-        );
-
-        let message = 'Invalid syntax';
-
-        if (errorToken === '') {
-          if (previousToken === '{' && nextToken === ':') {
-            message = 'Key expected';
-          } else if (previousToken === '"' && nextToken === '"') {
-            message = 'Missing comma';
-          } else if (
-            previousToken === ',' &&
-            (nextToken === '}' || nextToken === ']')
-          ) {
-            message = 'Trailing comma';
-          }
-        } else {
-          if (
-            (previousToken === '{' || previousToken === ',') &&
-            (nextToken === '"' || nextToken === ':')
-          ) {
-            message = 'Key must be double quoted';
-          } else if (
-            previousToken === ':' &&
-            (nextToken === ',' || nextToken === '}' || nextToken === ']')
-          ) {
-            message = 'Value expected';
-          }
-        }
+        const message = determineErrorMessage({
+          previousToken: findNextToken(doc, node.from - 1, -1),
+          nextToken: findNextToken(doc, node.to),
+          errorToken: doc.sliceString(node.from, node.to),
+        });
 
         diagnostics.push({
           from: node.from,
           to: node.to,
           message,
           severity: 'error',
-          renderMessage: () => {
-            const errorWrapperElement = document.createElement('div');
-            const errorIconElement = document.createElement('div');
-            const errorTextElement = document.createElement('span');
-
-            errorWrapperElement.classList.add('cm-diagnosticText-inner');
-            errorIconElement.classList.add('cm-lint-marker-error');
-            errorTextElement.textContent = message;
-
-            errorWrapperElement.appendChild(errorIconElement);
-            errorWrapperElement.appendChild(errorTextElement);
-
-            return errorWrapperElement;
-          },
+          renderMessage: () => renderErrorMessage(message),
         });
 
         seenLines.add(lineNumber);
@@ -137,9 +136,7 @@ export default async function jsonLinter(): Promise<Extension[]> {
   return [
     jsonLinter,
     lintGutter(),
-    // needed to enable the `cmd + shift + m` keyboard shortcut for opening the linting console drawer
     keymap.of([...lintKeymap]),
-    // add a class to the top-level .cm-editor element when linting is enabled
     EditorView.editorAttributes.of({ class: 'cm-lintingEnabled' }),
   ];
 }
