@@ -71,7 +71,7 @@ By default `@currentStep` is equal to 0.
 
 ### Interactivity
 
-The `@isInteractive` argument is used to control if navigation between steps is allowed using the steps. If `true`, users can navigate to completed steps by clicking on the Step. Users can only navigate to completed steps, not incomplete 1s.
+The `@isInteractive` argument is used to control if navigation between steps is allowed using the steps. If `true`, users can navigate to completed steps by clicking on the Step. Users can only navigate to completed steps, not incomplete ones.
 
 When a click on a step occurs, the `@onStepChange` handler can be used to pass a custom function to update the current step number.
 

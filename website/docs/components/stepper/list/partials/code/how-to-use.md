@@ -32,7 +32,7 @@ To change the status of a Step, set the `@status` argument in the `[S].Step` con
 </Hds::Stepper::List>
 ```
 
-A `processing` status is used instead of `progress` to indicate an ongoing process, such as a user's data being submitted.
+A `processing` status is used instead of `progress` to indicate an ongoing process in the background, such as a user's data being submitted.
 
 ```handlebars
 <Hds::Stepper::List as |S|>
