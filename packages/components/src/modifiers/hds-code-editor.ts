@@ -34,6 +34,11 @@ type HdsCodeEditorBlurHandler = (
   event: FocusEvent
 ) => void;
 
+export type HdsCodeEditorLintDiagnostic = Pick<
+  DiagnosticType,
+  'from' | 'to' | 'message' | 'severity'
+>;
+
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
@@ -46,7 +51,11 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
+<<<<<<< HEAD
       onLint?: (diagnostics: DiagnosticType[]) => void;
+=======
+      onLint?: (diagnostics: HdsCodeEditorLintDiagnostic[]) => void;
+>>>>>>> 85288c57a (working on documentation)
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -64,7 +73,9 @@ const LANGUAGES: Record<
   HdsCodeEditorLanguages,
   {
     load: () => Promise<Extension | StreamLanguageType<unknown>>;
-    loadLinter?: () => Promise<Extension>;
+    loadLinter?: (
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
+    ) => Promise<Extension>;
   }
 > = {
   rego: {
@@ -105,9 +116,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
-    loadLinter: async () => {
+    loadLinter: async (onLint) => {
       const linter = await import('./hds-code-editor/linters/json-linter.ts');
-      return linter.default();
+
+      return linter.default(onLint);
     },
   },
   sql: {
@@ -252,10 +264,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async (
-      language?: HdsCodeEditorLanguages,
-      isLintingEnabled: boolean = false
-    ) => {
+    async ({
+      language,
+      isLintingEnabled,
+      onLint,
+    }: {
+      language?: HdsCodeEditorLanguages;
+      isLintingEnabled?: boolean;
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'];
+    }) => {
       if (language === undefined) {
         return;
       }
@@ -275,7 +292,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         if (isLintingEnabled && LANGUAGES[language].loadLinter) {
           extensionPromises = [
             ...extensionPromises,
-            LANGUAGES[language].loadLinter(),
+            LANGUAGES[language].loadLinter(onLint),
           ];
         }
 
@@ -315,8 +332,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ]);
 
       const languageExtensions = await this._loadLanguageExtensionsTask.perform(
-        language,
-        isLintingEnabled
+        {
+          language,
+          isLintingEnabled,
+          onLint,
+        }
       );
 
       const handleUpdateExtension = EditorView.updateListener.of(

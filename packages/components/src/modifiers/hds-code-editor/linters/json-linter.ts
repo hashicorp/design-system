@@ -1,10 +1,116 @@
 import RSVP from 'rsvp';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
-import type { Extension } from '@codemirror/state';
+import type {
+  HdsCodeEditorLintDiagnostic,
+  HdsCodeEditorSignature,
+} from '../../hds-code-editor';
+import type { Extension, Text } from '@codemirror/state';
 
-export default async function jsonLinter(): Promise<Extension[]> {
-  const [{ syntaxTree }, { linter, lintGutter }] = await RSVP.all([
+export enum HdsCodeEditorJsonLintingError {
+  InvalidSyntax = 'Invalid syntax',
+  KeyExpected = 'Key expected',
+  KeyMustBeDoubleQuoted = 'Key must be double quoted',
+  MissingComma = 'Missing comma',
+  TrailingComma = 'Trailing comma',
+  ValueExpected = 'Value expected',
+}
+
+export function parseDiagnostics(
+  diagnostics: DiagnosticType[]
+): HdsCodeEditorLintDiagnostic[] {
+  return diagnostics.map((diagnostic) => ({
+    from: diagnostic.from,
+    to: diagnostic.to,
+    message: diagnostic.message,
+    severity: diagnostic.severity,
+  }));
+}
+
+export function findNextToken(
+  doc: Text,
+  index: number,
+  step: number = 1
+): string {
+  while (index >= 0 && index < doc.length) {
+    const token = doc.sliceString(index, index + 1);
+
+    if (token.trim() !== '') {
+      return token;
+    }
+
+    index += step;
+  }
+  return '';
+}
+
+export function determineErrorMessage({
+  previousToken,
+  nextToken,
+  errorToken,
+}: {
+  previousToken: string;
+  nextToken: string;
+  errorToken: string;
+}): HdsCodeEditorJsonLintingError {
+  let message: HdsCodeEditorJsonLintingError =
+    HdsCodeEditorJsonLintingError.InvalidSyntax;
+
+  if (errorToken === '') {
+    if (previousToken === '{' && nextToken === ':') {
+      message = HdsCodeEditorJsonLintingError.KeyExpected;
+    } else if (previousToken === '"' && nextToken === '"') {
+      message = HdsCodeEditorJsonLintingError.MissingComma;
+    } else if (
+      previousToken === ',' &&
+      (nextToken === '}' || nextToken === ']')
+    ) {
+      message = HdsCodeEditorJsonLintingError.TrailingComma;
+    }
+  } else {
+    if (
+      (previousToken === '{' || previousToken === ',') &&
+      (nextToken === '"' || nextToken === ':')
+    ) {
+      message = HdsCodeEditorJsonLintingError.KeyMustBeDoubleQuoted;
+    } else if (
+      previousToken === ':' &&
+      (nextToken === ',' || nextToken === '}' || nextToken === ']')
+    ) {
+      message = HdsCodeEditorJsonLintingError.ValueExpected;
+    }
+  }
+
+  return message;
+}
+
+export function renderErrorMessage(message: string): HTMLElement {
+  const wrapper = document.createElement('div');
+  wrapper.classList.add('cm-diagnosticText-inner');
+
+  const icon = document.createElement('div');
+  icon.classList.add('cm-lint-marker-error');
+
+  const text = document.createElement('span');
+  text.textContent = message;
+
+  wrapper.append(icon, text);
+
+  return wrapper;
+}
+
+// lezer JSON parser uses '⚠' as a placeholder for syntax errors
+const errorNodeName = '⚠';
+
+export default async function jsonLinter(
+  onLint: HdsCodeEditorSignature['Args']['Named']['onLint']
+): Promise<Extension[]> {
+  const [
+    { EditorView, keymap },
+    { syntaxTree },
+    { linter, lintGutter, lintKeymap },
+  ] = await RSVP.all([
+    import('@codemirror/view'),
     import('@codemirror/language'),
     import('@codemirror/lint'),
   ]);
@@ -72,6 +178,10 @@ export default async function jsonLinter(): Promise<Extension[]> {
         }
       }
     });
+
+    if (onLint) {
+      onLint(parseDiagnostics(diagnostics));
+    }
 
     return diagnostics;
   });
