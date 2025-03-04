@@ -11,10 +11,13 @@ import {
   HDS_CODE_BLOCK_WHITE,
   HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
   HDS_CODE_EDITOR_COLOR_BORDER_STRONG,
+  HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
   HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL,
   HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_EXTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_INTERNAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
@@ -24,6 +27,8 @@ import {
 } from '../palettes/hds-dark-palette.ts';
 
 const CLOSE_BUTTON_SELECTOR = '.cm-panel.cm-panel-lint button[name="close"]';
+const PANEL_DIAGNOSTIC_ITEM_SELECTOR =
+  '.cm-panel.cm-panel-lint ul li.cm-diagnostic';
 
 const hdsDark = EditorView.theme(
   {
@@ -99,21 +104,30 @@ const hdsDark = EditorView.theme(
     },
 
     // linter diagnostics panel
-    '.cm-panel.cm-panel-lint ul li.cm-diagnostic': {
+    '.cm-panel.cm-panel-lint ul': {
+      backgroundColor: HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
+    },
+    [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
-      borderBottom: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
+      border: '4px solid transparent',
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
       fontFamily: 'var(--token-typography-body-100-font-family)',
       fontSize: '13px',
-      padding: '16px',
+      marginBottom: '1px',
+      padding: '16px 12px',
+    },
+    [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}:last-of-type`]: {
+      marginBottom: '0',
+    },
+    [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}:hover`]: {
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
     },
     '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
       background: 'none',
-      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
+      border: `4px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_EXTERNAL}`,
+      boxShadow: `inset 0 0 0 1px ${HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_INTERNAL}`,
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
-    },
-    '.cm-panel.cm-panel-lint ul li.cm-diagnostic:last-of-type': {
-      borderBottom: '0',
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {
       borderTop: `3px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
