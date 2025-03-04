@@ -3,10 +3,10 @@
 ### When to use
 
 - In onboarding, account creation or initial setups that are broken up into multiple steps to more easily segment content.
-- To communicate what has and has not been completed in a mult-step flow.
+- To communicate what has and has not been completed in a multi-step flow.
 - For progress that does not require a user to remain on a single page to complete.
 
-### When not to use 
+### When not to use
 
 - When the user needs to remain within the step to complete it, use the [Stepper Nav](/components/stepper/nav).
 - For simple forms or when progress doesn't need to be tracked, use structured page content.
