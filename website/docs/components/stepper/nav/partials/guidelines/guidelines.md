@@ -20,15 +20,15 @@ The Stepper Nav supports both interactive (default) and non-interactive variants
 
 A user is able to navigate backwards within the Stepper Nav, however, they cannot navigate forward unless they have completed the current step. This creates consistency for step flow behavior and order of operations.
 
-![](/assets/components/stepper/navigation/stepper-navigation-interactive-steps.png)
+![](/assets/components/stepper/nav/stepper-nav-interactive-steps.png)
 
-![The user's mouse is hovering over step one of four, showing its hover state.](/assets/components/stepper/navigation/stepper-navigation-interactive-backwards-movement.png)
+![The user's mouse is hovering over step one of four, showing its hover state.](/assets/components/stepper/nav/stepper-nav-interactive-backwards-movement.png)
 
 ### Non-interactive steps
 
 The non-interactive variant is for read-only purposes and does not allow backwards navigation.
 
-![](/assets/components/stepper/navigation/stepper-navigation-non-interactive-steps.png)
+![](/assets/components/stepper/nav/stepper-nav-non-interactive-steps.png)
 
 ## Content
 
@@ -46,7 +46,7 @@ Descriptions provide additional context about the step and are optional. We reco
 
 Implement consistent description visibility.
 
-![The stepper with descriptions enabled in every step.](/assets/components/stepper/navigation/stepper-navigation-description-do.png)
+![The stepper with descriptions enabled in every step.](/assets/components/stepper/nav/stepper-nav-description-do.png)
 
 !!!
 
@@ -54,7 +54,7 @@ Implement consistent description visibility.
 
 Don't mix and match description visibility.
 
-![Steps one and four with enabled descriptions, while two and three have only a title.](/assets/components/stepper/navigation/stepper-navigation-description-dont.png)
+![Steps one and four with enabled descriptions, while two and three have only a title.](/assets/components/stepper/nav/stepper-nav-description-dont.png)
 
 !!!
 
@@ -66,7 +66,7 @@ We recommended the maximum number of steps be 4. If that isn’t possible, be mi
 
 There should be 32px of padding above the Stepper Nav and 24px below.
 
-![](/assets/components/stepper/navigation/stepper-navigation-spacing-example.png)
+![](/assets/components/stepper/nav/stepper-nav-spacing-example.png)
 
 ## Resizing behavior
 
@@ -76,7 +76,7 @@ Each Step will scale evenly within the Stepper Nav's width. This creates consist
 
 Starting at 550px browser width, the Steps within the Stepper Nav will begin to wrap and the progress bar will be removed.
 
-![The Stepper Nav is stacked vertically](/assets/components/stepper/navigation/stepper-navigation-responsive-behavior.png)
+![The Stepper Nav is stacked vertically](/assets/components/stepper/nav/stepper-nav-responsive-behavior.png)
 
 ## Composition with other components
 
@@ -84,4 +84,4 @@ Always pair a Stepper Nav with a [Button Set](/components/button-set). Navigatio
 
 If a user can navigate backward within the Button Set, use the interactive variant. Otherwise, use the non-interactive variant.
 
-![](/assets/components/stepper/navigation/stepper-navigation-matching-experiences.png)
+![](/assets/components/stepper/nav/stepper-nav-matching-experiences.png)

@@ -15,7 +15,7 @@ Keyboard navigation with the following keys is only available when `@isInteracti
 
 Focus on the active step.
 
-![Example Stepper Nav with 3 steps showing on tab press the second step, which is active, is focused](/assets/components/stepper/navigation/stepper-navigation-focus.png)
+![Example Stepper Nav with 3 steps showing on tab press the second step, which is active, is focused](/assets/components/stepper/nav/stepper-nav-focus.png)
 
 <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge>
 <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
@@ -27,20 +27,20 @@ Move between completed and active steps.
 If focus is on the first step, `left arrow` moves focus to the last completed or active step. If focus is on the last completed or active step, `right arrow` moves focus to the first completed or active step.
 !!!
 
-![Example Stepper Nav with 3 steps showing on left arrow press the focus moves to step 1 from step 2](/assets/components/stepper/navigation/stepper-navigation-arrow-key.png)
+![Example Stepper Nav with 3 steps showing on left arrow press the focus moves to step 1 from step 2](/assets/components/stepper/nav/stepper-nav-arrow-key.png)
 
 <Doc::Badge @type="neutral">Spacebar</Doc::Badge>
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
 Activate step to display step content.
 
-![Example Stepper Nav showing on spacebar or enter on a completed step, that step is made active](/assets/components/stepper/navigation/stepper-navigation-enter.png)
+![Example Stepper Nav showing on spacebar or enter on a completed step, that step is made active](/assets/components/stepper/nav/stepper-nav-enter.png)
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
 Move to interactive element within the content area.
 
-![Example Stepper Nav showing on tab press while focus is on a step, focus moves to next interactive element](/assets/components/stepper/navigation/stepper-navigation-focus-to-content.png)
+![Example Stepper Nav showing on tab press while focus is on a step, focus moves to next interactive element](/assets/components/stepper/nav/stepper-nav-focus-to-content.png)
 
 ## Applicable WCAG Success Criteria
 
