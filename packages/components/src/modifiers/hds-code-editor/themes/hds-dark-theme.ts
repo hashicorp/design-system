@@ -38,6 +38,8 @@ const hdsDark = EditorView.theme(
       height: '100%',
     },
     '.cm-content': {
+      borderLeft: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
+      minHeight: '200px',
       padding: '16px 0',
     },
     '.cm-content ::selection': {
@@ -49,9 +51,6 @@ const hdsDark = EditorView.theme(
     },
     '.cm-gutter:first-of-type .cm-gutterElement': {
       borderLeft: '4px solid transparent',
-    },
-    '.cm-gutter:last-of-type': {
-      borderRight: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
     },
     '.cm-lineNumbers': {
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
@@ -104,6 +103,9 @@ const hdsDark = EditorView.theme(
     },
 
     // linter diagnostics panel
+    '.cm-panels.cm-panels-bottom': {
+      position: 'absolute',
+    },
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
     },
