@@ -14,11 +14,11 @@
 
 ## Interactive vs non-interactive
 
-The Stepper Nav allows for both interactive (default) and non-interactive variants. 
+The Stepper Nav supports both interactive (default) and non-interactive variants. 
 
 ### Interactive steps
 
-A user is able to navigate backwards within the Stepper Nav, however, they cannot navigate forward unless they have completed their current step. This creates consistency for step flow behavior and order of operations.
+A user is able to navigate backwards within the Stepper Nav, however, they cannot navigate forward unless they have completed the current step. This creates consistency for step flow behavior and order of operations.
 
 ![](/assets/components/stepper/navigation/stepper-navigation-interactive-steps.png)
 
@@ -32,7 +32,7 @@ The non-interactive variant is for read-only purposes and does not allow backwar
 
 ## Content
 
-The Stepper Nav has a title and an optional description. Content should be limited to necessary context, and long form content should live within the body of the page.
+The Stepper Nav supports a title and an optional description. Content should be limited to only what is necessary, and long form content should live within the body of the page.
 
 ### Title
 
@@ -40,7 +40,7 @@ Titles provide an overview to help users understand what tasks need to be comple
 
 ### Description
 
-Descriptions are optional. They should provide additional context but be brief. We recommend that all steps either have a description or do not.
+Descriptions provide additional context about the step and are optional. We recommend that all steps either have a description or do not.
 
 !!! Do
 
@@ -60,7 +60,7 @@ Don't mix and match description visibility.
 
 ### Number of steps
 
-We recommended the maximum number of steps be 4. If that isn’t possible, be mindful of how the content within the title and description wraps on smaller screens.
+We recommended the maximum number of steps be 4. If that isn’t possible, be mindful of how the content within the title and description will wrap on smaller screens.
 
 ## Spacing
 
@@ -70,7 +70,7 @@ There should be 32px of padding above the Stepper Nav and 24px below.
 
 ## Resizing behavior
 
-Each Step will scale evenly within the Stepper Nav's width. This creates consistency in hit targets for hover, active and focus states, especially in larger screens. The total width of the Stepper Nav should match the content of the page.
+Each Step will scale evenly within the Stepper Nav's width. This creates consistency in the sizes of touch targets for hover, active and focus states, especially in larger screens. The total width of the Stepper Nav should match the content of the page.
 
 ### Responsive wrapping
 
