@@ -1,5 +1,13 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+### March 5th, 2025
+
+`CodeEditor` - Added support for Javascript and Rego languages.
+
+`Badge` - Updated colors for improved contrast and accessibility.
+
+`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
+
 ## January 23rd, 2025
 
 `Advanced Table` - Added new component.
