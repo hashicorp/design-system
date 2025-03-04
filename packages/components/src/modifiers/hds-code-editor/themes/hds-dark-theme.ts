@@ -12,11 +12,18 @@ import {
   HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
   HDS_CODE_EDITOR_COLOR_BORDER_STRONG,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+  HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
+  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+  HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_300,
+  HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
   HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND,
 } from '../palettes/hds-dark-palette.ts';
+
+const CLOSE_BUTTON_SELECTOR = '.cm-panel.cm-panel-lint button[name="close"]';
 
 const hdsDark = EditorView.theme(
   {
@@ -100,6 +107,11 @@ const hdsDark = EditorView.theme(
       fontSize: '13px',
       padding: '16px',
     },
+    '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
+      background: 'none',
+      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+    },
     '.cm-panel.cm-panel-lint ul li.cm-diagnostic:last-of-type': {
       borderBottom: '0',
     },
@@ -113,6 +125,34 @@ const hdsDark = EditorView.theme(
       alignItems: 'center',
       display: 'flex',
       gap: '16px',
+    },
+    // linter diagnostics panel close button
+    [`${CLOSE_BUTTON_SELECTOR}`]: {
+      alignItems: 'center',
+      borderRadius: '5px',
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_300,
+      cursor: 'pointer',
+      display: 'flex',
+      fontFamily: 'var(--token-typography-body-100-font-family)',
+      height: '20px',
+      lineHeight: '20px',
+      justifyContent: 'center',
+      right: '22px',
+      top: '6px',
+      width: '20px',
+    },
+    [`${CLOSE_BUTTON_SELECTOR}:hover, ${CLOSE_BUTTON_SELECTOR}:active, ${CLOSE_BUTTON_SELECTOR}:focus`]:
+      {
+        backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
+        border: '1px solid transparent',
+        color: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
+      },
+    [`${CLOSE_BUTTON_SELECTOR}:active`]: {
+      borderColor: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
+    },
+    [`${CLOSE_BUTTON_SELECTOR}:focus`]: {
+      borderColor: HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
+      outline: `3px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL}`,
     },
 
     // tooltips
