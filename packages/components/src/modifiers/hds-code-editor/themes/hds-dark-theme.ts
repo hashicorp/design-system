@@ -159,6 +159,7 @@ const hdsDark = EditorView.theme(
       cursor: 'pointer',
       display: 'flex',
       fontFamily: 'var(--token-typography-body-100-font-family)',
+      fontSize: '20px',
       height: '20px',
       lineHeight: '20px',
       justifyContent: 'center',
