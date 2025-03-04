@@ -39,7 +39,6 @@ const hdsDark = EditorView.theme(
     },
     '.cm-content': {
       borderLeft: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
-      minHeight: '200px',
       padding: '16px 0',
     },
     '.cm-content ::selection': {
@@ -83,6 +82,11 @@ const hdsDark = EditorView.theme(
     },
     '.cm-matchingBracket': {
       outline: `1px solid ${HDS_CODE_BLOCK_WHITE}`,
+    },
+
+    // set a minimum height on the editor content when linting is enabled
+    '&.cm-lintingEnabled .cm-content': {
+      minHeight: '200px',
     },
 
     // linting gutter
