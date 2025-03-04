@@ -1,6 +1,10 @@
 import RSVP from 'rsvp';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
+import type {
+  HdsCodeEditorLintDiagnostic,
+  HdsCodeEditorSignature,
+} from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
 
 export enum HdsCodeEditorJsonLintingError {
@@ -10,6 +14,17 @@ export enum HdsCodeEditorJsonLintingError {
   MissingComma = 'Missing comma',
   TrailingComma = 'Trailing comma',
   ValueExpected = 'Value expected',
+}
+
+export function parseDiagnostics(
+  diagnostics: DiagnosticType[]
+): HdsCodeEditorLintDiagnostic[] {
+  return diagnostics.map((diagnostic) => ({
+    from: diagnostic.from,
+    to: diagnostic.to,
+    message: diagnostic.message,
+    severity: diagnostic.severity,
+  }));
 }
 
 export function findNextToken(
@@ -87,7 +102,9 @@ export function renderErrorMessage(message: string): HTMLElement {
 // lezer JSON parser uses '⚠' as a placeholder for syntax errors
 const errorNodeName = '⚠';
 
-export default async function jsonLinter(): Promise<Extension[]> {
+export default async function jsonLinter(
+  onLint: HdsCodeEditorSignature['Args']['Named']['onLint']
+): Promise<Extension[]> {
   const [
     { EditorView, keymap },
     { syntaxTree },
@@ -129,6 +146,10 @@ export default async function jsonLinter(): Promise<Extension[]> {
         seenLines.add(lineNumber);
       }
     });
+
+    if (onLint) {
+      onLint(parseDiagnostics(diagnostics));
+    }
 
     return diagnostics;
   });

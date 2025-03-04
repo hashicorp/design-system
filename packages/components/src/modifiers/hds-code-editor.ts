@@ -26,12 +26,18 @@ import type {
   EditorView as EditorViewType,
   ViewUpdate,
 } from '@codemirror/view';
+import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
   event: FocusEvent
 ) => void;
+
+export type HdsCodeEditorLintDiagnostic = Pick<
+  DiagnosticType,
+  'from' | 'to' | 'message' | 'severity'
+>;
 
 export interface HdsCodeEditorSignature {
   Args: {
@@ -45,6 +51,7 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
+      onLint?: (diagnostics: HdsCodeEditorLintDiagnostic[]) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -62,7 +69,9 @@ const LANGUAGES: Record<
   HdsCodeEditorLanguages,
   {
     load: () => Promise<Extension | StreamLanguageType<unknown>>;
-    loadLinter?: () => Promise<Extension>;
+    loadLinter?: (
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
+    ) => Promise<Extension>;
   }
 > = {
   rego: {
@@ -103,9 +112,10 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
-    loadLinter: async () => {
+    loadLinter: async (onLint) => {
       const linter = await import('./hds-code-editor/linters/json-linter.ts');
-      return linter.default();
+
+      return linter.default(onLint);
     },
   },
   sql: {
@@ -250,10 +260,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async (
-      language?: HdsCodeEditorLanguages,
-      isLintingEnabled: boolean = false
-    ) => {
+    async ({
+      language,
+      isLintingEnabled,
+      onLint,
+    }: {
+      language?: HdsCodeEditorLanguages;
+      isLintingEnabled?: boolean;
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'];
+    }) => {
       if (language === undefined) {
         return;
       }
@@ -273,7 +288,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         if (isLintingEnabled && LANGUAGES[language].loadLinter) {
           extensionPromises = [
             ...extensionPromises,
-            LANGUAGES[language].loadLinter(),
+            LANGUAGES[language].loadLinter(onLint),
           ];
         }
 
@@ -293,7 +308,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ language, hasLineWrapping, isLintingEnabled }) => {
+    async ({ language, hasLineWrapping, isLintingEnabled, onLint }) => {
       const [
         {
           keymap,
@@ -311,8 +326,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ]);
 
       const languageExtensions = await this._loadLanguageExtensionsTask.perform(
-        language,
-        isLintingEnabled
+        {
+          language,
+          isLintingEnabled,
+          onLint,
+        }
       );
 
       const handleUpdateExtension = EditorView.updateListener.of(
@@ -368,22 +386,24 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     async (
       element: HTMLElement,
       {
+        onLint,
+        hasLineWrapping,
         isLintingEnabled,
         language,
         value,
-        hasLineWrapping,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'language' | 'value' | 'hasLineWrapping' | 'isLintingEnabled'
+        'language' | 'value' | 'hasLineWrapping' | 'isLintingEnabled' | 'onLint'
       >
     ) => {
       try {
         const { EditorState } = await import('@codemirror/state');
 
         const extensions = await this._buildExtensionsTask.perform({
+          onLint,
+          hasLineWrapping: hasLineWrapping ?? false,
           isLintingEnabled,
           language,
-          hasLineWrapping: hasLineWrapping ?? false,
         });
 
         const state = EditorState.create({
@@ -415,6 +435,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const {
         onBlur,
         onInput,
+        onLint,
         onSetup,
         ariaDescribedBy,
         ariaLabel,
@@ -431,10 +452,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.element = element;
 
       const editor = await this._createEditorTask.perform(element, {
+        onLint,
+        hasLineWrapping,
         isLintingEnabled,
         language,
         value,
-        hasLineWrapping,
       });
 
       if (editor === undefined) {
