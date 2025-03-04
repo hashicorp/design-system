@@ -39,6 +39,7 @@ const hdsDark = EditorView.theme(
     },
     '.cm-content': {
       borderLeft: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
+      height: '100%',
       padding: '16px 0',
     },
     '.cm-content ::selection': {

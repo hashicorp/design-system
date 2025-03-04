@@ -121,16 +121,27 @@
   <Shw::Flex @direction="column" as |SF|>
     {{#each this.languages as |lang|}}
       <SF.Item @label={{lang.label}}>
-        <Hds::CodeEditor
-          @language={{lang.value}}
-          @value={{lang.code}}
-          @isLintingEnabled={{lang.isLintingEnabled}}
-          as |CE|
-        >
+        <Hds::CodeEditor @language={{lang.value}} @value={{lang.code}} as |CE|>
           <CE.Title>{{lang.label}}</CE.Title>
         </Hds::CodeEditor>
       </SF.Item>
     {{/each}}
+  </Shw::Flex>
+
+  <Shw::Text::H2>Linting</Shw::Text::H2>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="JSON with linting">
+      <Hds::CodeEditor
+        @language="json"
+        @value={{this.badJsonCode}}
+        @isLintingEnabled={{true}}
+        @hasFullScreenButton={{true}}
+        @onLint={{this.handleLint}}
+        as |CE|
+      >
+        <CE.Title>JSON with linting</CE.Title>
+      </Hds::CodeEditor>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Text::H2>Standalone modifier usage</Shw::Text::H2>
