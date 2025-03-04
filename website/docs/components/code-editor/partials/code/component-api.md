@@ -32,6 +32,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="hasLineWrapping" @type="boolean" @default="false">
     Enables line wrapping within the editor.
   </C.Property>
+  <C.Property @name="isLintingEnabled" @type="boolean" @default="false">
+    Enables linting of content on initial render and when the content changes. Only enabled when `language` is set to `json`. If you need linting for additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
+  </C.Property>
   <C.Property @name="isStandalone" @type="boolean" @default="true">
     Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
   </C.Property>
@@ -46,6 +49,9 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   </C.Property>
   <C.Property @name="onInput" @type="function">
     Callback function invoked when the editor receives an input event.
+  </C.Property>
+  <C.Property @name="onLint" @type="function">
+    Callback function invoked when the editor completes linting if linting is enabled.
   </C.Property>
   <C.Property @name="onSetup" @type="function">
     Callback function invoked when the editor completes setup.

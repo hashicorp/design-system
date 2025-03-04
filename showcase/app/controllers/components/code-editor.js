@@ -13,6 +13,12 @@ export default class CodeEditorController extends Controller {
   @tracked demoCode =
     `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
+  badJsonCode = `{
+  message: "Hello, world!",
+  : "success"
+  "data": null,
+}`;
+
   languages = [
     {
       value: 'rego',
@@ -96,7 +102,6 @@ sayMessage();
     {
       value: 'json',
       label: 'JSON',
-      isLintingEnabled: true,
       code: `{
   "message": "Hello, world!",
   "status": "success",
@@ -156,5 +161,10 @@ SELECT 'Enjoy coding!';`,
   @action
   setDemoCode(value) {
     this.demoCode = value;
+  }
+
+  @action
+  handleLint(diagnostics) {
+    console.log('Lint diagnostics:', diagnostics);
   }
 }
