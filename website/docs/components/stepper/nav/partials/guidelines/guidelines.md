@@ -6,7 +6,7 @@
 - To communicate what has and has not been completed in a multi-step flow.
 - For a single, on-page experience that requires completion.
 
-### When not to use 
+### When not to use
 
 - For non-complex flows, use the [form pattern](/patterns/form-patterns) on a single page.
 - For simple forms or when progress doesn't need to be tracked, use structured page content.
@@ -14,7 +14,7 @@
 
 ## Interactive vs non-interactive
 
-The Stepper Nav supports both interactive (default) and non-interactive variants. 
+The Stepper Nav supports both interactive (default) and non-interactive variants.
 
 ### Interactive steps
 
