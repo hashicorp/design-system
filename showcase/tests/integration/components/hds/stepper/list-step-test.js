@@ -64,7 +64,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
-    assert.dom('.hds-stepper-list__step__title').hasTagName('div');
+    assert.dom('.hds-stepper-list__step-title').hasTagName('div');
   });
 
   test('it renders the custom title tag when the @titleTag argument is provided', async function (assert) {
@@ -75,7 +75,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
-    assert.dom('.hds-stepper-list__step__title').hasTagName('h2');
+    assert.dom('.hds-stepper-list__step-title').hasTagName('h2');
   });
 
   // STEP NUMBER
@@ -102,7 +102,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
-    assert.dom('.hds-stepper-list__step__title').containsText('Test');
+    assert.dom('.hds-stepper-list__step-title').containsText('Test');
   });
 
   // DESCRIPTION
@@ -115,7 +115,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
-    assert.dom('.hds-stepper-list__step__description').containsText('Test');
+    assert.dom('.hds-stepper-list__step-description').containsText('Test');
   });
 
   // CONTENT
@@ -128,6 +128,6 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
-    assert.dom('.hds-stepper-list__step__content').containsText('Test');
+    assert.dom('.hds-stepper-list__step-content').containsText('Test');
   });
 });
