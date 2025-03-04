@@ -47,6 +47,7 @@ const hdsDark = EditorView.theme(
     '.cm-lineNumbers .cm-gutterElement': {
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'end',
       padding: '0px 16px',
     },
     '.cm-gutterElement.cm-activeLineGutter': {
@@ -73,7 +74,7 @@ const hdsDark = EditorView.theme(
       outline: `1px solid ${HDS_CODE_BLOCK_WHITE}`,
     },
 
-    // linting
+    // linting gutter
     '&.cm-lintingEnabled .cm-lineNumbers .cm-gutterElement': {
       paddingLeft: '8px',
     },
@@ -93,19 +94,32 @@ const hdsDark = EditorView.theme(
     // linter diagnostics panel
     '.cm-panel.cm-panel-lint ul li.cm-diagnostic': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
+      borderBottom: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
       fontFamily: 'var(--token-typography-body-100-font-family)',
+      fontSize: '13px',
       padding: '16px',
+    },
+    '.cm-panel.cm-panel-lint ul li.cm-diagnostic:last-of-type': {
+      borderBottom: '0',
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {
       borderTop: `3px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
+    },
+    '.cm-diagnostic': {
+      borderLeft: 'none',
+    },
+    '.cm-diagnosticText-inner': {
+      alignItems: 'center',
+      display: 'flex',
+      gap: '16px',
     },
 
     // tooltips
     '.cm-tooltip': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND,
       borderRadius: '5px',
-      color: '#fff',
+      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
       fontFamily: 'var(--token-typography-body-100-font-family)',
       fontSize: '13px',
       padding: '8px 12px',
@@ -132,8 +146,8 @@ const hdsDark = EditorView.theme(
       borderBottom: `8px solid ${HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND}`,
       top: '-8px',
     },
-    '.cm-diagnostic': {
-      borderLeft: 'none',
+    '.cm-tooltip .cm-lint-marker-error': {
+      display: 'none',
     },
   },
   { dark: true }
