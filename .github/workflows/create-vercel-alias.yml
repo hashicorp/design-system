@@ -13,6 +13,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Determine Branch Name
+        id: determine_branch
+        run: |
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's|refs/heads/||')
+          else
+            BRANCH_NAME="${{ github.ref_name }}"
+          fi
+          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          echo "Branch Name: $BRANCH_NAME"
       - name: Extract Current Version
         id: extract_version
         run: echo "VERSION=$(jq -r .version packages/components/package.json | sed 's/\./-/g')" >> $GITHUB_ENV
@@ -21,7 +31,7 @@ jobs:
         run: |
           DEPLOYMENT_ID=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
           "https://api.vercel.com/v6/deployments?teamId=${{ secrets.VERCEL_TEAM_ID }}&projectId=${{ secrets.VERCEL_WEBSITE_PROJECT_ID }}" \
-          | jq -r --arg branch "${{ github.head_ref }}" '.deployments[] | select(.meta.githubCommitRef == $branch) | .uid' | head -n 1)
+          | jq -r --arg branch "${{ env.BRANCH_NAME }}" '.deployments[] | select(.meta.githubCommitRef == $branch) | .uid' | head -n 1)
           echo "DEPLOYMENT_ID=$DEPLOYMENT_ID" >> $GITHUB_ENV
       - name: Alias Vercel Deployment
         id: alias_vercel_deployment
