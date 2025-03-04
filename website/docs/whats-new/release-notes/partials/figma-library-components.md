@@ -11,6 +11,17 @@
   <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit v2.0</a></strong>
 </p>
 
+### March 5th, 2025
+
+`CodeEditor` - Added support for Javascript and Rego languages.
+
+`Badge` - Updated colors for improved contrast and accessibility.
+
+`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
+
+#### Organization updates
+
+Local HDS Component 2.0 color variables removed in favor of Product Foundations 2.0 colors.
 
 ### January 23rd, 2025
 
