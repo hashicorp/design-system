@@ -45,11 +45,19 @@ jobs:
         run: pnpm build
         working-directory: packages/components
 
-      - name: Version and Publish RC Packages
-        id: changesets
+      - name: Version RC Packages
+        id: version
         uses: changesets/action@c8bada60c408975afd1a20b3db81d6eee6789308 # v1.4.9
         with:
           version: pnpm version-candidate-packages
+        env:
+          # Token setup in hashibot-hds' account
+          GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+
+      - name: Publish RC Packages
+        id: changesets
+        uses: changesets/action@c8bada60c408975afd1a20b3db81d6eee6789308 # v1.4.9
+        with:
           publish: pnpm release-candidate-packages
           createGithubReleases: false
         env:
