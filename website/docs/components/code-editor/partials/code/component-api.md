@@ -35,7 +35,7 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="isStandalone" @type="boolean" @default="true">
     Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
   </C.Property>
-  <C.Property @name="language" @type="string" @values={{array "go" "hcl" "javascript" "json" "rego" "ruby" "sentinel" "shell" "sql" "yaml"}}>
+  <C.Property @name="language" @type="string" @values={{array "go" "hcl" "javascript" "json" "markdown" "rego" "ruby" "sentinel" "shell" "sql" "yaml"}}>
     The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
   </C.Property>
   <C.Property @name="value" @type="string">

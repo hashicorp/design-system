@@ -11,6 +11,7 @@ export enum HdsCodeEditorLanguageValues {
   Hcl = 'hcl',
   JavaScript = 'javascript',
   Json = 'json',
+  Markdown = 'markdown',
   Sentinel = 'sentinel',
   Sql = 'sql',
   Yaml = 'yaml',

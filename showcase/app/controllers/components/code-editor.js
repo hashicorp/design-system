@@ -103,6 +103,20 @@ sayMessage();
 }`,
     },
     {
+      value: 'markdown',
+      label: 'Markdown',
+      code: `# Heading Example
+
+This is **bold**, *italic*, and \`monospace\`.  
+A [link](https://example.com) and a \`code snippet\`.
+
+> A blockquote example.
+
+- List item 1
+- List item 2
+`,
+    },
+    {
       value: 'sentinel',
       label: 'Sentinel',
       code: `param allowed_regions = ["us-east-1", "us-west-2"]

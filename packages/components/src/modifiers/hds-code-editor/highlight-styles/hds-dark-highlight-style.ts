@@ -49,6 +49,19 @@ const hdsDarkHighlightStyle = HighlightStyle.define([
 
   // Gray | Used for comments across languages
   { tag: tags.comment, color: HDS_CODE_EDITOR_COLOR_FOREGROUND_PRIMARY },
+
+  // Markdown specific
+  { tag: tags.heading, color: HDS_CODE_BLOCK_BLUE, fontWeight: 'bold' },
+  { tag: tags.strong, color: HDS_CODE_BLOCK_ORANGE, fontWeight: 'bold' },
+  { tag: tags.emphasis, color: HDS_CODE_BLOCK_ORANGE, fontStyle: 'italic' },
+  { tag: tags.link, color: HDS_CODE_BLOCK_CYAN, textDecoration: 'underline' },
+  {
+    tag: tags.quote,
+    color: HDS_CODE_EDITOR_COLOR_FOREGROUND_PRIMARY,
+    fontStyle: 'italic',
+  },
+  { tag: tags.list, color: HDS_CODE_BLOCK_WHITE },
+  { tag: tags.monospace, color: HDS_CODE_BLOCK_GREEN },
 ]);
 
 export default hdsDarkHighlightStyle;
