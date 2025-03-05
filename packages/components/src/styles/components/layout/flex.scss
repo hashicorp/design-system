@@ -32,3 +32,51 @@
 .hds-layout-flex--has-wrapping {
   flex-wrap: wrap;
 }
+
+// justify
+
+.hds-layout-flex--justify-content-start {
+  justify-content: start;
+}
+
+.hds-layout-flex--justify-content-center {
+  justify-content: center;
+}
+
+.hds-layout-flex--justify-content-end {
+  justify-content: end;
+}
+
+.hds-layout-flex--justify-content-space-between {
+  justify-content: space-between;
+}
+
+.hds-layout-flex--justify-content-space-around {
+  justify-content: space-around;
+}
+
+.hds-layout-flex--justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.hds-layout-flex--justify-content-stretch {
+  justify-content: stretch;
+}
+
+// align
+
+.hds-layout-flex--align-items-start {
+  align-items: start;
+}
+
+.hds-layout-flex--align-items-center {
+  align-items: center;
+}
+
+.hds-layout-flex--align-items-end {
+  align-items: end;
+}
+
+.hds-layout-flex--align-items-stretch {
+  align-items: stretch;
+}

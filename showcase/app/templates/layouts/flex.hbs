@@ -58,6 +58,65 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H2>Justify + Align</Shw::Text::H2>
+  <Shw::Text::Body>These are the
+    <code>justify-content</code>
+    and
+    <code>align-items</code>
+    CSS properties of
+    <code>flexbox</code>.</Shw::Text::Body>
+
+  {{#each @model.DIRECTIONS as |direction|}}
+    <Shw::Text::H3>direction={{direction}}</Shw::Text::H3>
+    <Shw::Grid @columns={{@model.JUSTIFYS.length}} @gap="2rem" as |SG|>
+      {{#each @model.ALIGNS as |align ac|}}
+        {{#if (eq ac 0)}}
+          {{#each @model.JUSTIFYS as |justify|}}
+            <SG.Item>
+              <span class="shw-label">justify={{justify}}</span>
+            </SG.Item>
+          {{/each}}
+        {{/if}}
+        {{#each @model.JUSTIFYS as |justify jc|}}
+          <SG.Item @label={{if (eq jc 0) (concat "align=" align) "​"}}>
+            <Shw::Outliner {{style width="120px" height="120px"}}>
+              <Hds::Layout::Flex
+                @direction={{direction}}
+                @justify={{justify}}
+                @align={{align}}
+                {{style width="100%" height="100%"}}
+              >
+                <Shw::Placeholder
+                  @text="#A"
+                  @width="auto"
+                  @height="auto"
+                  {{style min-width="24px" min-height="24px"}}
+                  @background="#e4c5f3"
+                />
+                <Shw::Placeholder
+                  @text="#B"
+                  @width="auto"
+                  @height="auto"
+                  {{style min-width="24px" min-height="24px"}}
+                  @background="#e5ffd2"
+                />
+                <Shw::Placeholder
+                  @text="#C"
+                  @width="auto"
+                  @height="auto"
+                  {{style min-width="24px" min-height="24px"}}
+                  @background="#d2f4ff"
+                />
+              </Hds::Layout::Flex>
+            </Shw::Outliner>
+          </SG.Item>
+        {{/each}}
+      {{/each}}
+    </Shw::Grid>
+  {{/each}}
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Display</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
