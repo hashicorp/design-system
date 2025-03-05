@@ -14,6 +14,7 @@ export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
 export interface HdsLayoutFlexSignature {
   Args: {
     direction?: HdsLayoutFlexDirections;
+    isInline?: boolean;
   };
   Blocks: {
     default: [];
@@ -31,6 +32,11 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
 
     // add a class based on the @direction argument
     classes.push(`hds-layout-flex--direction-${this.direction}`);
+
+    // add a class based on the @isInline argument
+    if (this.args.isInline) {
+      classes.push('hds-layout-flex--is-inline');
+    }
 
     return classes.join(' ');
   }

@@ -11,6 +11,12 @@
   display: flex;
 }
 
+// inline
+
+.hds-layout-flex--is-inline {
+  display: inline-flex;
+}
+
 // direction
 
 .hds-layout-flex--direction-row {
