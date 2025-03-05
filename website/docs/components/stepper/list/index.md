@@ -21,6 +21,8 @@ navigation:
     - progress bar
     - steps
     - tracker
+    - nav
+    - indicator
 ---
 
 <section data-tab="Guidelines">
