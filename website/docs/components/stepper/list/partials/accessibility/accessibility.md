@@ -8,7 +8,7 @@ When used as recommended, there should not be any WCAG conformance issues with t
 
 ### Using processing status
 
-Only use the `@status` value of `processing` on a step, when it is related to a loading or background process, or if user interaction can not continue until completed. If used outside these use cases this status is not conformant.
+The `@status` value of "processing" should only be used on a step in relation to a loading or background process or if user interaction is halted until a process completes. Using this status outside these use cases is not conformant.
 
 ## Applicable WCAG Success Criteria
 

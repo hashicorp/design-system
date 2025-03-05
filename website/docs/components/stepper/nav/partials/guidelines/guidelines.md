@@ -4,7 +4,7 @@
 
 - In complex flows that are broken up into multiple steps.
 - To communicate what has and has not been completed in a multi-step flow.
-- For a single, on-page experience that requires completion.
+- For a single page multi-step flow that requires completion.
 
 ### When not to use
 
