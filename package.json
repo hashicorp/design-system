@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "release-candidate-packages": "pnpm changeset publish --tag rc",
     "release-packages": "pnpm changeset publish",
+    "version-candidate-packages": "pnpm changeset version --snapshot rc && pnpm install --lockfile-only",
     "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files"
   },
   "devDependencies": {
@@ -18,6 +20,9 @@
     "pnpm": ">= 10.0.0"
   },
   "pnpm": {
+    "overrides": {
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.9"
+    },
     "patchedDependencies": {
       "@embroider/core": "patches/@embroider__core.patch",
       "@glint/environment-ember-loose": "patches/@glint__environment-ember-loose.patch",

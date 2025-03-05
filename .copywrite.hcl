@@ -10,6 +10,7 @@ project {
   header_ignore = [
     # Generic configuration files
     "**/*.yml",
+    "**/*.yaml",
     "**/*.cjs",
     "**/*rc.js",
     # Distribution files

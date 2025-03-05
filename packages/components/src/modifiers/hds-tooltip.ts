@@ -19,8 +19,7 @@ import type {
   Instance as TippyInstance,
   Props as TippyProps,
 } from 'tippy.js';
-// used by custom SVG arrow:
-import 'tippy.js/dist/svg-arrow.css';
+
 import type Owner from '@ember/owner';
 
 export interface HdsTooltipModifierSignature {

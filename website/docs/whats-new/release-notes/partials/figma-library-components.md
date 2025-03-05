@@ -12,6 +12,7 @@
 </p>
 
 
+<<<<<<< HEAD
 ### March 4th, 2025
 
 `Advanced Table` - Removed an unnecessary border from `Header::Selection`.
@@ -21,6 +22,15 @@
 `Advanced Table` - Restructured `Cell::Selection` to mimic the `Table::Cell::Selection` component.
 
 _This change alters the layer structure of the component and results in a breaking change for the `Advanced Table` cell "selection" components only._
+=======
+#### March 5th, 2025
+
+`CodeEditor` - Added support for Javascript and Rego languages.
+
+`Badge` - Updated colors for improved contrast and accessibility.
+
+`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
+>>>>>>> 4cd9bd7d2e64f4838a72ddbd2800226d05a5ebb5
 
 ### January 23rd, 2025
 
