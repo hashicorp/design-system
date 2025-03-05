@@ -16,7 +16,7 @@ export interface HdsInteractiveSignature {
     route?: string;
     models?: unknown[];
     model?: unknown;
-    query?: Record<string, string>;
+    query?: Record<string, unknown>;
     'current-when'?: string | boolean;
     replace?: boolean;
   };
