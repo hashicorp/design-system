@@ -2,7 +2,7 @@
 
 The Stepper Nav component is used to track the linear progress of a user in a given on-page flow.
 
-To use this component, you must either use the contextual components for Step and Panel, or use the `@steps` argument.
+To use this component, you can either pass in the contextual Step and Panel components, or use the `@steps` argument to pass in an array of steps.
 
 ### Using contextual components
 
