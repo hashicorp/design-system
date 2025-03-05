@@ -37,17 +37,25 @@ Arrow keys move between cells. If the table extends beyond the screen, arrow key
 
 Move focus to the first cell in the row.
 
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-left.png =402x*)
+
 <Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
 
 Move focus to the last cell in the row.
+
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-right.png =402x*)
 
 <Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" /></Doc::Badge>
 
 Move focus to the first cell in the column.
 
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-up.png =402x*)
+
 <Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" /></Doc::Badge>
 
 Move focus to the last cell in the column.
+
+![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-down.png =402x*)
 
 ### Action Mode
 
@@ -57,7 +65,6 @@ Press Enter in Navigation Mode to enter Action Mode and interact with elements i
 
 - If the cell contains one interactive element, focus moves to that element instead of activating it.
 - If multiple interactive elements exist, the focus moves to the first one. Use the tab key to navigate between them.
-
 
 ![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
 
