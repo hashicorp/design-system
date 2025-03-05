@@ -12,6 +12,14 @@
 </p>
 
 
+#### March 5th, 2025
+
+`CodeEditor` - Added support for Javascript and Rego languages.
+
+`Badge` - Updated colors for improved contrast and accessibility.
+
+`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
+
 ### January 23rd, 2025
 
 `Advanced Table` - Added new component.
