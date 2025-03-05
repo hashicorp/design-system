@@ -14,7 +14,7 @@ related:
   - patterns/table-multi-select
 previewImage: assets/illustrations/components/advanced-table.jpg
 navigation:
-  keywords: 
+  keywords:
     - data table
     - data grid
     - datagrid
@@ -22,7 +22,7 @@ navigation:
     - list
   order: 101
 status:
-  added: 4.16.0
+  updated: 4.17.1
 ---
 
 <section data-tab="Guidelines">

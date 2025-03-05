@@ -24,6 +24,7 @@ heatmaps
 hmac
 Knowledgebase
 letterforms
+lezer
 luxon
 Menlo
 navigations

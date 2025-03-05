@@ -1,3 +1,7 @@
+## 4.17.1
+
+Fixed Safari bug causing the dotted underline style not to display
+
 ## 4.16.0
 
 Removed explicitly setting `aria-controls` in `RichTooltip::Toggle` as it is now set through the `PopoverPrimitive`
