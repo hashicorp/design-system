@@ -2,7 +2,8 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-{{! ADD YOUR TEMPLATE CONTENT HERE }}
-<div class={{this.classNames}} ...attributes>
-  {{yield}}
-</div>
+{{#if (eq this.componentTag "div")}}
+  <div class={{this.classNames}} ...attributes>{{yield}}</div>
+{{else}}
+  {{#let (element this.componentTag) as |Tag|}}<Tag class={{this.classNames}} ...attributes>{{yield}}</Tag>{{/let}}
+{{/if}}
