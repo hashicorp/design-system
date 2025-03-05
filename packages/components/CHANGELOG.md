@@ -36,9 +36,9 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`hds-code-editor` modifier - Added language syntax highlighting suport for JavaScript and Rego
+`hds-code-editor` modifier - Added language syntax highlighting support for JavaScript and Rego
 
-`CodeEditor` - Added language syntax highlighting suport for JavaScript and Rego
+`CodeEditor` - Added language syntax highlighting support for JavaScript and Rego
 
 Dependencies - added @codemirror/lang-javascript
 

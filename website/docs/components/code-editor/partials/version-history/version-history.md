@@ -2,7 +2,7 @@
 
 Added `@copyButtonText` argument to customize the `aria-label` of the Copy Button. The default label is still "Copy".
 
-Added language syntax highlighting suport for JavaScript and Rego
+Added language syntax highlighting support for JavaScript and Rego
 
 Added `@hasLineWrapping` argument that is passed to the `hds-code-editor` modifier
 
