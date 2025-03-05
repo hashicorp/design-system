@@ -8,5 +8,15 @@
 //
 
 .hds-layout-flex {
-  // add the component styles here
+  display: flex;
+}
+
+// direction
+
+.hds-layout-flex--direction-row {
+  flex-direction: row;
+}
+
+.hds-layout-flex--direction-column {
+  flex-direction: column;
 }

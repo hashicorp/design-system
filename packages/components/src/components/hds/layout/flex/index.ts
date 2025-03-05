@@ -5,34 +5,32 @@
 
 import Component from '@glimmer/component';
 
+import { HdsLayoutFlexDirectionValues } from './types.ts';
+
+import type { HdsLayoutFlexDirections } from './types.ts';
+
+export const DEFAULT_DIRECTION = HdsLayoutFlexDirectionValues.Row;
+export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
 export interface HdsLayoutFlexSignature {
-  // The arguments accepted by the component
-  Args: {};
-  // Any blocks yielded by the component
+  Args: {
+    direction?: HdsLayoutFlexDirections;
+  };
   Blocks: {
     default: [];
   };
-  // The element to which `...attributes` is applied in the component template
   Element: HTMLDivElement;
 }
 
 export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
-  // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
-  //   // ADD YOUR ASSERTIONS HERE
-  // }
+  get direction(): HdsLayoutFlexDirections {
+    return this.args.direction ?? DEFAULT_DIRECTION;
+  }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames() {
-    let classes = ['hds-layout-flex'];
+    const classes = ['hds-layout-flex'];
 
-    // add a class based on the @xxx argument
-    // classes.push(`hds-layout-flex--[variant]-${this.xxx}`);
+    // add a class based on the @direction argument
+    classes.push(`hds-layout-flex--direction-${this.direction}`);
 
     return classes.join(' ');
   }
