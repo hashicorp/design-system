@@ -9,3 +9,24 @@ export enum HdsLayoutFlexDirectionValues {
 }
 
 export type HdsLayoutFlexDirections = `${HdsLayoutFlexDirectionValues}`;
+
+export enum HdsLayoutFlexJustifyValues {
+  Start = 'start',
+  Center = 'center',
+  End = 'end',
+  SpaceBetween = 'space-between',
+  SpaceAround = 'space-around',
+  SpaceEvenly = 'space-evenly',
+}
+
+export type HdsLayoutFlexJustifys = `${HdsLayoutFlexJustifyValues}`;
+
+export enum HdsLayoutFlexAlignValues {
+  Start = 'start',
+  Center = 'center',
+  End = 'end',
+  Stretch = 'stretch',
+}
+
+export type HdsLayoutFlexAligns = `${HdsLayoutFlexAlignValues}`;
+

@@ -5,4 +5,14 @@
 
 import Route from '@ember/routing/route';
 
-export default class LayoutsFlexRoute extends Route {}
+import {
+  DIRECTIONS,
+  JUSTIFYS,
+  ALIGNS,
+} from '@hashicorp/design-system-components/components/hds/layout/flex';
+
+export default class LayoutsFlexRoute extends Route {
+  model() {
+    return { DIRECTIONS, JUSTIFYS, ALIGNS };
+  }
+}
