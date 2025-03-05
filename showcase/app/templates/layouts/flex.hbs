@@ -9,9 +9,29 @@
 
 <section data-test-percy>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <Shw::Text::H2>Direction</Shw::Text::H2>
 
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Layout::Flex>This is the Hds::Layout::Flex component </Hds::Layout::Flex>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="row (default)">
+      <Shw::Outliner>
+        <Hds::Layout::Flex @direction="row">
+          <Shw::Placeholder @text="item #1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="item #2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="item #3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="item #4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Flex>
+      </Shw::Outliner>
+    </SF.Item>
+    <SF.Item @label="column" {{style width="25%"}}>
+      <Shw::Outliner>
+        <Hds::Layout::Flex @direction="column">
+          <Shw::Placeholder @text="item #1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="item #2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="item #3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="item #4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Flex>
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>
