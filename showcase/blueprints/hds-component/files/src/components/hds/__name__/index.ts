@@ -19,8 +19,8 @@ export interface Hds<%= classifiedModuleName %>Signature {
 
 export default class Hds<%= classifiedModuleName %> extends Component<Hds<%= classifiedModuleName %>Signature> {
   // UNCOMMENT THIS IF YOU NEED A CONSTRUCTOR
-  // constructor() {
-  //   super(...arguments);
+  // constructor(owner: Owner, args: <%= classifiedModuleName %>Signature['Args']) {
+  //   super(owner, args);
   //   // ADD YOUR ASSERTIONS HERE
   // }
 
