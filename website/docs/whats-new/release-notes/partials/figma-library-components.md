@@ -20,6 +20,14 @@
 
 `Tag` - Updated to support truncation and tooltip. Content no longer wraps.
 
+`Advanced Table` - Removed an unnecessary border from `Header::Selection`.
+
+#### Breaking changes
+
+`Advanced Table` - Restructured `Cell::Selection` to mimic the `Table::Cell::Selection` component.
+
+_This change alters the layer structure of the component and results in a breaking change for the `Advanced Table` cell "selection" components only._
+
 ### January 23rd, 2025
 
 `Advanced Table` - Added new component.
