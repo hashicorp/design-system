@@ -59,15 +59,4 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
       (stepId): boolean => stepId !== element.id
     );
   }
-
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames() {
-    const classes = ['hds-stepper-list'];
-
-    return classes.join(' ');
-  }
 }
