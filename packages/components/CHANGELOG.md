@@ -1,5 +1,129 @@
 # @hashicorp/design-system-components
 
+## 4.17.0
+
+### Minor Changes
+
+`Tag` - Truncate any text that is longer than about 20 characters, and add a tooltip with the full text when truncation occurs
+
+`Tag` - Added `@tooltipPlacement` argument
+
+<small class="doc-whats-new-changelog-metadata">[#2655](https://github.com/hashicorp/design-system/pull/2655)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`MaskedInput` - added support for externally controlled content masking
+
+<small class="doc-whats-new-changelog-metadata">[#2716](https://github.com/hashicorp/design-system/pull/2716)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Badge` - Update foreground and background colors to improve contrast for a11y
+
+`BadgeCount` - Update foreground color of neutral variant to improve contrast for a11y
+
+<small class="doc-whats-new-changelog-metadata">[#2695](https://github.com/hashicorp/design-system/pull/2695)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added `@copyButtonText` argument to `CodeBlock` and `@text` argument to the `CodeBlock::CopyButton` subcomponent to customize the `aria-label` of the Copy Button. The default label is still "Copy".
+
+`CodeEditor` - Added `@copyButtonText` argument to customize the `aria-label` of the Copy Button. The default label is still "Copy".
+
+<small class="doc-whats-new-changelog-metadata">[#2696](https://github.com/hashicorp/design-system/pull/2696)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add language syntax highlighting suport for JavaScript and Rego
+
+`CodeEditor` - Add language syntax highlighting suport for JavaScript and Rego
+
+Dependencies - added @codemirror/lang-javascript
+
+<small class="doc-whats-new-changelog-metadata">[#2684](https://github.com/hashicorp/design-system/pull/2684)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Time` - Updated visual style to display a dotted underline when the `hasTooltip` argument is true
+
+`RichTooltip` - Fixed Safari bug causing the dotted underline style not to display
+
+<small class="doc-whats-new-changelog-metadata">[#2725](https://github.com/hashicorp/design-system/pull/2725)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Added `hasLineWrapping` named argument that sets line wrapping behavior within the code editor.
+
+`CodeEditor` - Added `@hasLineWrapping` argument that is passed to the `hds-code-editor` modifier
+
+<small class="doc-whats-new-changelog-metadata">[#2712](https://github.com/hashicorp/design-system/pull/2712)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Time` - Fixed type declarations
+
+`CodeEditor` - Added missing `@lezer/highlight` dependency
+
+<small class="doc-whats-new-changelog-metadata">[#2700](https://github.com/hashicorp/design-system/pull/2700) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on trigger elements for a11y improvements with toggled content
+
+`Tooltip` - Changed structure of tooltip content to add a wrapper that is always in the DOM and set `aria-controls` on button for a11y improvements with toggled content
+
+<small class="doc-whats-new-changelog-metadata">[#2648](https://github.com/hashicorp/design-system/pull/2648)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CopyButton` - Fixed issue preventing copying of empty string and zero number values
+
+`CopySnippet` - Fixed issue preventing copying of empty string and zero number values
+
+<small class="doc-whats-new-changelog-metadata">[#2685](https://github.com/hashicorp/design-system/pull/2685)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeEditor` - Fixed import path for `HdsCodeEditorModifierSignature`
+
+<small class="doc-whats-new-changelog-metadata">[#2681](https://github.com/hashicorp/design-system/pull/2681)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Swap unmaintained `ember-composable-helpers` with `@nullvoxpopuli/ember-composable-helpers`
+
+<small class="doc-whats-new-changelog-metadata">[#2493](https://github.com/hashicorp/design-system/pull/2493) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Migrated our tooling from yarn to pnpm and updated our JavaScript compiler configuration
+
+Updated `decorator-transforms` from `1.2.1` to `2.3.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2671](https://github.com/hashicorp/design-system/pull/2671) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Refactored keyboard navigation to a new modifier `hds-advanced-table-cell` for reusability, and disabled default behavior for arrow keys in focused cells.
+
+<small class="doc-whats-new-changelog-metadata">[#2659](https://github.com/hashicorp/design-system/pull/2659)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Table` - Removed unused `updateAriaLabel` function and event listener
+
+<small class="doc-whats-new-changelog-metadata">[#2690](https://github.com/hashicorp/design-system/pull/2690)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Tooltip` - Remove style import from Tippy.js, copy arrow positioning styles into component styles
+
+<small class="doc-whats-new-changelog-metadata">[#2726](https://github.com/hashicorp/design-system/pull/2726)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.16.0
 
 [4.16.0 documentation](https://hds-website-4-16-0.vercel.app/)
