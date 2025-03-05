@@ -34,4 +34,34 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Display</Shw::Text::H3>
+
+  <Shw::Flex @gap="2rem" as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |isInline|}}
+        <SF.Item @label={{if isInline "inline-flex (isInline=true)" "flex (default)"}}>
+          <Hds::Text::Body @size="200" @tag="p">
+            Lorem
+            <Hds::Layout::Flex @isInline={{isInline}}>
+              <Shw::Placeholder @text="#1" @width="24" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#2" @width="24" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#3" @width="24" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#4" @width="24" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Flex>
+            sit amet
+            <Hds::Layout::Flex @isInline={{isInline}}>
+              <Shw::Placeholder @text="#A" @width="24" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#B" @width="24" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#C" @width="24" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#D" @width="24" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Flex>
+            elit.
+          </Hds::Text::Body>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
 </section>
