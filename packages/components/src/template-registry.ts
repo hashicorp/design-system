@@ -141,6 +141,7 @@ import type HdsFormVisibilityToggleComponent from './components/hds/form/visibil
 import type HdsIconComponent from './components/hds/icon';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
+import type HdsLayoutFlexComponent from './components/hds/layout/flex';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
@@ -693,6 +694,10 @@ export default interface HdsComponentsRegistry {
   // Interactive
   'Hds::Interactive': typeof HdsInteractiveComponent;
   'hds/interactive': typeof HdsInteractiveComponent;
+
+  // Layout Flex
+  'Hds::Layout::Flex': typeof HdsLayoutFlexComponent;
+  'hds/layout/flex': typeof HdsLayoutFlexComponent;
 
   // Link Inline
   'Hds::Link::Inline': typeof HdsLinkInlineComponent;
