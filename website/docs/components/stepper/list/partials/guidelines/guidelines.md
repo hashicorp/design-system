@@ -43,7 +43,21 @@ Don't mix and match inclusion of descriptions.
 
 We recommend showing the contents of only the **in-progress** step while hiding the contents of other steps. This narrows the focus to only the current step and ensures steps are completed in order. However, this isn’t always feasible, and sometimes context from the previous step is needed for the user to complete the next step. Use your best judgment.
 
+!!! Do 
+
+Only show one call to action at a time.
+
 ![All steps only showing a title and description other than step 2. Step 2 shows a title, description and a button.](/assets/components/stepper/list/stepper-list-progressive-disclosure.png)
+
+!!!
+
+!!! Dont
+
+Reduce visual noise by focusing which action the user should be taking first.
+
+![Steps 2 and 3 in the Stepper have primary buttons exposed.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
+
+!!!
 
 ## Using processing status
 
