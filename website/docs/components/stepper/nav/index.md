@@ -1,9 +1,9 @@
 ---
 title: Stepper Nav
 description: >-
-  A visual indicator of an on-page linear progress, where users can see where they are in a given flow.
+  Navigates users through a sequential flow allowing them to visually track progress.
 caption: >-
-  A visual indicator of an on-page linear progress, where users can see where they are in a given flow.
+  Navigates users through a sequential progress flow.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=72931-2356&t=A4lORtbini1AMxQN-1

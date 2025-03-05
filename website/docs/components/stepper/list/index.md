@@ -1,9 +1,9 @@
 ---
 title: Stepper List
 description: >-
-  A visual indicator of a linear vertical progress, where users can see where they are in a given flow.
+  Lists sequential steps for a user to complete.
 caption: >-
-  A visual indicator of a linear vertical progress, where users can see where they are in a given flow.
+  Lists sequential steps for a user to complete.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=A4lORtbini1AMxQN-1
