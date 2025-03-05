@@ -22,8 +22,14 @@ export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
 export const JUSTIFYS: string[] = Object.values(HdsLayoutFlexJustifyValues);
 export const ALIGNS: string[] = Object.values(HdsLayoutFlexAlignValues);
 
+// A list of all existing tag names in the HTMLElementTagNameMap interface
+type AvailableTagNames = keyof HTMLElementTagNameMap;
+// A union of all types in the HTMLElementTagNameMap interface
+type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
+
 export interface HdsLayoutFlexSignature {
   Args: {
+    tag?: AvailableTagNames;
     direction?: HdsLayoutFlexDirections;
     justify?: HdsLayoutFlexJustifys;
     align?: HdsLayoutFlexAligns;
@@ -33,10 +39,14 @@ export interface HdsLayoutFlexSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLDivElement;
+  Element: AvailableElements;
 }
 
 export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
+  get componentTag(): AvailableTagNames {
+    return this.args.tag ?? 'div';
+  }
+
   get direction(): HdsLayoutFlexDirections {
     return this.args.direction ?? DEFAULT_DIRECTION;
   }
