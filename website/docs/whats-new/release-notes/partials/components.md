@@ -12,11 +12,13 @@
   </a>
 </p>
 
-## 4.17.0
+## 4.17.1
+
+[4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)
 
 **Minor changes**
 
-`Tag` - Truncate any text that is longer than about 20 characters, and add a tooltip with the full text when truncation occurs
+`Tag` - Truncated any text that is longer than about 20 characters, and added a tooltip with the full text when truncation occurs
 
 `Tag` - Added `@tooltipPlacement` argument
 
@@ -24,15 +26,15 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`MaskedInput` - added support for externally controlled content masking
+`MaskedInput` - Added support for externally controlled content masking
 
 <small class="doc-whats-new-changelog-metadata">[#2716](https://github.com/hashicorp/design-system/pull/2716)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Badge` - Update foreground and background colors to improve contrast for a11y
+`Badge` - Updated foreground and background colors to improve contrast for a11y
 
-`BadgeCount` - Update foreground color of neutral variant to improve contrast for a11y
+`BadgeCount` - Updated foreground color of neutral variant to improve contrast for a11y
 
 <small class="doc-whats-new-changelog-metadata">[#2695](https://github.com/hashicorp/design-system/pull/2695)</small>
 
@@ -46,9 +48,9 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`hds-code-editor` modifier - Add language syntax highlighting suport for JavaScript and Rego
+`hds-code-editor` modifier - Added language syntax highlighting suport for JavaScript and Rego
 
-`CodeEditor` - Add language syntax highlighting suport for JavaScript and Rego
+`CodeEditor` - Added language syntax highlighting suport for JavaScript and Rego
 
 Dependencies - added @codemirror/lang-javascript
 
@@ -104,7 +106,7 @@ Dependencies - added @codemirror/lang-javascript
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-Swap unmaintained `ember-composable-helpers` with `@nullvoxpopuli/ember-composable-helpers`
+Swapped unmaintained `ember-composable-helpers` with `@nullvoxpopuli/ember-composable-helpers`
 
 <small class="doc-whats-new-changelog-metadata">[#2493](https://github.com/hashicorp/design-system/pull/2493) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
 
@@ -130,7 +132,7 @@ Updated `decorator-transforms` from `1.2.1` to `2.3.0`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Tooltip` - Remove style import from Tippy.js, copy arrow positioning styles into component styles
+`Tooltip` - Removed style import from Tippy.js, copied arrow positioning styles into component styles
 
 <small class="doc-whats-new-changelog-metadata">[#2726](https://github.com/hashicorp/design-system/pull/2726)</small>
 
