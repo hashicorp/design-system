@@ -16,14 +16,15 @@ import {
   HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
   HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL,
   HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
-  HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_EXTERNAL,
-  HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_INTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_EXTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_INTERNAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_300,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
   HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND,
+  HDS_CODE_EDITOR_COLOR_PALETTE_NEUTRAL_700,
 } from '../palettes/hds-dark-palette.ts';
 
 const CLOSE_BUTTON_SELECTOR = '.cm-panel.cm-panel-lint button[name="close"]';
@@ -87,7 +88,12 @@ const hdsDark = EditorView.theme(
 
     // set a minimum height on the editor content when linting is enabled
     '&.cm-lintingEnabled .cm-content': {
-      minHeight: '200px',
+      minHeight: '160px',
+    },
+
+    // replace the underline svg
+    '.cm-lintRange-error': {
+      backgroundImage: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="6" height="3">%3Cpath%20d%3D%22m0%202.5%20l2%20-1.5%20l1%200%20l2%201.5%20l1%200%22%20stroke%3D%22${encodeURIComponent(HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL)}%22%20fill%3D%22none%22%20stroke-width%3D%22.7%22%2F%3E</svg>')`,
     },
 
     // linting gutter
@@ -111,6 +117,9 @@ const hdsDark = EditorView.theme(
     '.cm-panels.cm-panels-bottom': {
       position: 'absolute',
     },
+    '.cm-panel.cm-panel-lint': {
+      maxHeight: '80px',
+    },
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
     },
@@ -131,9 +140,9 @@ const hdsDark = EditorView.theme(
     },
     '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
       background: 'none',
-      backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
-      border: `4px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_EXTERNAL}`,
-      boxShadow: `inset 0 0 0 1px ${HDS_CODE_EDITOR_COLOR_FOCUS_DIAGNOSTIC_INTERNAL}`,
+      backgroundColor: HDS_CODE_EDITOR_COLOR_PALETTE_NEUTRAL_700,
+      border: `4px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_EXTERNAL}`,
+      boxShadow: `inset 0 0 0 1px ${HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_INTERNAL}`,
       color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {
@@ -163,6 +172,7 @@ const hdsDark = EditorView.theme(
       fontSize: '20px',
       height: '20px',
       lineHeight: '20px',
+      paddingBottom: '3px',
       justifyContent: 'center',
       right: '22px',
       top: '6px',
