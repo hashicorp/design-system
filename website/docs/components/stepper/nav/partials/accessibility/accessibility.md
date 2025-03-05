@@ -15,7 +15,7 @@ Keyboard navigation with the following keys is only available when `@isInteracti
 
 Focus on the active step.
 
-![Example Stepper Nav with 3 steps showing on tab press the second step, which is active, is focused](/assets/components/stepper/nav/stepper-nav-focus.png)
+![Example Stepper Nav with 3 steps. The second step, which is active, is focused.](/assets/components/stepper/nav/stepper-nav-focus.png)
 
 <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge>
 <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
@@ -27,7 +27,7 @@ Move between completed and active steps.
 If focus is on the first step, `left arrow` moves focus to the last completed or active step. If focus is on the last completed or active step, `right arrow` moves focus to the first completed or active step.
 !!!
 
-![Example Stepper Nav with 3 steps showing on left arrow press the focus moves to step 1 from step 2](/assets/components/stepper/nav/stepper-nav-arrow-key.png)
+![Example Stepper Nav with 3 steps. The left arrow has been pressed moving focus from step 1 to step 2.](/assets/components/stepper/nav/stepper-nav-arrow-key.png)
 
 <Doc::Badge @type="neutral">Spacebar</Doc::Badge>
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
