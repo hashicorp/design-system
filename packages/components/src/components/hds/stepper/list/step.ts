@@ -123,24 +123,6 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
 
-  @action
-  didInsertNode(element: HTMLElement): void {
-    const { didInsertNode } = this.args;
-
-    if (typeof didInsertNode === 'function') {
-      didInsertNode(element);
-    }
-  }
-
-  @action
-  willDestroyNode(element: HTMLElement): void {
-    const { willDestroyNode } = this.args;
-
-    if (typeof willDestroyNode === 'function') {
-      willDestroyNode(element);
-    }
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
