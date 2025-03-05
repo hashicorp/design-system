@@ -66,7 +66,7 @@ const updateDummyAppCSS = (options) => {
     lastComponentImportIndex + 1
   );
   importLinesArray.push(
-    `@import "./showcase-pages/${getDummyCSSFileName(name)}";`
+    `@use "./showcase-pages/${getDummyCSSFileName(name)}" as showcase-${getKebabizedModuleName(name)};`
   );
   const newImportLinesArray = importLinesArray
     .filter((line, index, self) => self.indexOf(line) === index)
