@@ -17,8 +17,6 @@ previewImage: assets/illustrations/components/tabs.jpg
 navigation:
   keywords:
     - tabbed interface
-status:
-  updated: 4.16.0
 ---
 
 <section data-tab="Guidelines">

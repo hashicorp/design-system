@@ -1,3 +1,7 @@
+## 4.17.1
+
+Removed unused `updateAriaLabel` function and event listener
+
 ## 4.16.0
 
 Updated the visual design of `Table` cells by adding borders, making them more distinguishable when spanning rows or columns.
