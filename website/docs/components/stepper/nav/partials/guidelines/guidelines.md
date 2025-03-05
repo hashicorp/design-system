@@ -2,15 +2,15 @@
 
 ### When to use
 
-- In complex flows that are broken up into multiple steps to more easily segment content.
+- In complex flows that are broken up into multiple steps.
 - To communicate what has and has not been completed in a multi-step flow.
 - For a single, on-page experience that requires completion.
 
 ### When not to use
 
-- For non-complex flows, use the [form pattern](/patterns/form-patterns) on a single page.
+- For simple flows, use the [form pattern](/patterns/form-patterns) on a single page.
 - For simple forms or when progress doesn't need to be tracked, use structured page content.
-- For progression that doesn’t require a user to remain on the page for, use the [Stepper List](/components/stepper/list).
+- For a progression of tasks that doesn’t require a user to remain on the same page, use the [Stepper List](/components/stepper/list).
 
 ## Interactive vs non-interactive
 
@@ -18,7 +18,7 @@ The Stepper Nav supports both interactive (default) and non-interactive variants
 
 ### Interactive steps
 
-A user is able to navigate backwards within the Stepper Nav, however, they cannot navigate forward unless they have completed the current step. This creates consistency for step flow behavior and order of operations.
+A user can navigate backwards within the Stepper Nav steps but cannot navigate forwards unless they have completed the current step. This creates consistency for step flow behavior and the order of operations.
 
 ![](/assets/components/stepper/nav/stepper-nav-interactive-steps.png)
 
@@ -44,17 +44,17 @@ Descriptions provide additional context about the step and are optional. We reco
 
 !!! Do
 
-Implement consistent description visibility.
+Use descriptions consistently.
 
-![The stepper with descriptions enabled in every step.](/assets/components/stepper/nav/stepper-nav-description-do.png)
+![The stepper with descriptions included in every step.](/assets/components/stepper/nav/stepper-nav-description-do.png)
 
 !!!
 
 !!! Dont
 
-Don't mix and match description visibility.
+Don't mix and match inclusion of descriptions.
 
-![Steps one and four with enabled descriptions, while two and three have only a title.](/assets/components/stepper/nav/stepper-nav-description-dont.png)
+![Steps one and four include descriptions, while steps two and three have only a title.](/assets/components/stepper/nav/stepper-nav-description-dont.png)
 
 !!!
 
@@ -64,7 +64,7 @@ We recommended the maximum number of steps be 4. If that isn’t possible, be mi
 
 ## Spacing
 
-There should be 32px of padding above the Stepper Nav and 24px below.
+There should be 32px of spacing above the Stepper Nav and 24px below.
 
 ![](/assets/components/stepper/nav/stepper-nav-spacing-example.png)
 
