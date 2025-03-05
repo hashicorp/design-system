@@ -25,7 +25,7 @@ export default class Hds<%= classifiedModuleName %> extends Component<Hds<%= cla
   // }
 
   get classNames() {
-    let classes = ['hds-<%= kebabizedModuleName %>'];
+    const classes = ['hds-<%= kebabizedModuleName %>'];
 
     // add a class based on the @xxx argument
     // classes.push(`hds-<%= kebabizedModuleName %>--[variant]-${this.xxx}`);
