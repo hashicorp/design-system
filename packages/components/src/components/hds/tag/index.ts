@@ -26,7 +26,7 @@ export interface HdsTagSignature {
     color?: HdsTagColors;
     text: string;
     ariaLabel?: string;
-    tooltipPlacement: HdsTagTooltipPlacements;
+    tooltipPlacement?: HdsTagTooltipPlacements;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
