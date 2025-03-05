@@ -36,6 +36,28 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H2>Wrap</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |wrap|}}
+        <SF.Item @label={{if wrap "wrap" "nowrap (default)"}}>
+          <Shw::Outliner {{style width="650px" max-width="100%"}}>
+            <Hds::Layout::Flex @wrap={{wrap}}>
+              <Shw::Placeholder @text="#1" @width="200" @height="40" @background="#e4c5f3" {{style flex="none"}} />
+              <Shw::Placeholder @text="#2" @width="200" @height="40" @background="#e5ffd2" {{style flex="none"}} />
+              <Shw::Placeholder @text="#3" @width="200" @height="40" @background="#d2f4ff" {{style flex="none"}} />
+              <Shw::Placeholder @text="#4" @width="200" @height="40" @background="#fff8d2" {{style flex="none"}} />
+              <Shw::Placeholder @text="#5" @width="200" @height="40" @background="#f3d9c5" {{style flex="none"}} />
+            </Hds::Layout::Flex>
+          </Shw::Outliner>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Display</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
