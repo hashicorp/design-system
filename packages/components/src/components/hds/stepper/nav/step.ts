@@ -128,7 +128,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
    * @default 'incomplete'
    */
   get status(): HdsStepperNavStatuses {
-    if (this.nodeIndex != undefined) {
+    if (this.nodeIndex != undefined && this.nodeIndex >= 0) {
       if (this.nodeIndex === this.args.currentStep) {
         return HdsStepperNavStatusesValues.Active;
       } else if (this.nodeIndex < this.args.currentStep) {
