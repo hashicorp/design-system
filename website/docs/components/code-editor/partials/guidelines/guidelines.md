@@ -109,12 +109,12 @@ For more details around syntax, visit the [specifications](/components/code-edit
 ## Linting
 The Code Editor supports "linting" (currently only of JSON code) a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS)
 
-![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/code-editor-linting-preview-tooltip.png)
+![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
 
 When linting is enabled, the CodeEditor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minumum height for the CodeEditor with linting is 160px. The linting alert dialog is always 80px in height.
 
-![Code Editor with linting enabled and errors present](/assets/components/code-editor/code-editor-linting-preview.png)
+![Code Editor with linting enabled and errors present](/assets/components/code-editor/codeeditor-linting-preview.png)
 
 To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
 
-![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/code-editor-linting-preview-dialog.png)
+![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
