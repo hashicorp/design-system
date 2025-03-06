@@ -2,7 +2,7 @@
 
 ### Step indicator
 
-![Step Indicator Anatomy](/assets/components/stepper/indicator/step-indicator-anatomy.png)
+![](/assets/components/stepper/indicator/step-indicator-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
@@ -12,7 +12,7 @@
 
 ### Task indicator
 
-![Task Indicator Anatomy](/assets/components/stepper/indicator/task-indicator-anatomy.png)
+![](/assets/components/stepper/indicator/task-indicator-anatomy.png)
 
 | Element          | Usage                              |
 |------------------|------------------------------------|
