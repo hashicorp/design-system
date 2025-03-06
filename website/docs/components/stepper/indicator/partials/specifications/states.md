@@ -2,7 +2,7 @@
 
 ### Step indicator
 
-![Step indicator states](/assets/components/stepper/indicator/stepper-step-states.png)
+![Static step indicators only have one state for each of the statuses. Interactive step indicators have: default, hover, and active for all of the statuses.](/assets/components/stepper/indicator/stepper-step-states.png)
 
 ### Task indicator
 
