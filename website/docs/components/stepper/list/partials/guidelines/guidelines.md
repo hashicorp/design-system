@@ -35,7 +35,7 @@ Ensure inclusion of descriptions is consistent.
 
 Don't mix and match inclusion of descriptions.
 
-![Steps one and four include descriptions, while steps two and three only have titles.](/assets/components/stepper/list/stepper-list-description-dont.png)
+![A stepper where steps one and four have description but steps two and three only have titles.](/assets/components/stepper/list/stepper-list-description-dont.png)
 
 !!!
 
@@ -55,7 +55,7 @@ Only show one call to action at a time.
 
 Reduce visual noise by focusing which action the user should be taking first.
 
-![Steps 2 and 3 in the Stepper have primary buttons exposed.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
+![A stepper with 4 steps. The current active step is step 2. Both step 2 and 3 have a call to action button in their content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
 
 !!!
 
