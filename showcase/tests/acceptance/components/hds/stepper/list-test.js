@@ -8,10 +8,10 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Component | hds/stepper', function (hooks) {
+module('Acceptance | Component | hds/stepper/list', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/hds/stepper page passes automated a11y checks', async function (assert) {
+  test('Components/hds/stepper/list page passes automated a11y checks', async function (assert) {
     let axeOptions = {
       rules: {
         'landmark-unique': {
@@ -19,7 +19,7 @@ module('Acceptance | Component | hds/stepper', function (hooks) {
         },
       },
     };
-    await visit('/components/stepper');
+    await visit('/components/stepper/list');
     await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');

@@ -8,11 +8,48 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class StepperController extends Controller {
-  queryParams = ['currentStep_demo1', 'currentStep_demo2', 'currentStep_demo3'];
+  queryParams = [
+    'currentStep_demo1',
+    'currentStep_demo2',
+    'currentStep_demo3',
+    'currentStep_demo4',
+    'steps_demo4',
+  ];
 
   @tracked currentStep_demo1 = 1;
   @tracked currentStep_demo2 = 1;
   @tracked currentStep_demo3 = 1;
+  @tracked currentStep_demo4 = 1;
+  @tracked currentStep_demo5 = 0;
+
+  demoSteps = [
+    {
+      title: 'Step 1',
+    },
+    {
+      title: 'Step 2',
+    },
+    {
+      title: 'Last step',
+    },
+  ];
+
+  demoStepAdditions = [
+    {
+      title: 'Step 1',
+    },
+    {
+      title: 'Step 2',
+    },
+    {
+      title: 'New step',
+    },
+    {
+      title: 'Last step',
+    },
+  ];
+
+  @tracked steps_demo5 = this.demoSteps;
 
   // =============================
   // DEMOS
@@ -78,5 +115,56 @@ export default class StepperController extends Controller {
   @action
   onPreviousClickDemo3() {
     this.currentStep_demo3--;
+  }
+
+  get currentStepDemo4() {
+    return this.currentStep_demo4 !== undefined
+      ? parseInt(this.currentStep_demo4, 10)
+      : 1;
+  }
+
+  @action
+  updateCurrentStepDemo4(_element, stepNumber) {
+    this.currentStep_demo4 = stepNumber;
+  }
+
+  @action
+  onNextClickDemo4() {
+    this.currentStep_demo4++;
+  }
+
+  @action
+  onPreviousClickDemo4() {
+    this.currentStep_demo4--;
+  }
+
+  get currentStepDemo5() {
+    return this.currentStep_demo5 !== undefined
+      ? parseInt(this.currentStep_demo5, 10)
+      : 0;
+  }
+
+  @action
+  updateCurrentStepDemo5(_element, stepNumber) {
+    this.currentStep_demo5 = stepNumber;
+  }
+
+  @action
+  onNextClickDemo5() {
+    if (this.currentStep_demo5 === 0) {
+      this.steps_demo5 = this.demoSteps;
+    }
+    this.currentStep_demo5++;
+  }
+
+  @action
+  onPreviousClickDemo5() {
+    this.currentStep_demo5--;
+  }
+
+  @action
+  onNextAddStepsClickDemo5() {
+    this.currentStep_demo5++;
+    this.steps_demo5 = this.demoStepAdditions;
   }
 }
