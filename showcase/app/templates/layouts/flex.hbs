@@ -299,4 +299,55 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Text::H3>enableCollapseBelowContentSize</Shw::Text::H3>
+
+  <Shw::Text::Body>This property applies a
+    <code>min-width: 0</code>
+    to the flex item to allow the element to shrink below its content's intrinsic minimum width.</Shw::Text::Body>
+
+  <Shw::Grid @columns={{1}} as |SG|>
+    <SG.Item @label="first flex item has enableCollapseBelowContentSize=true">
+      <Shw::Outliner {{style max-width="600px"}}>
+        <Hds::Layout::Flex as |HLF|>
+          <HLF.Item @enableCollapseBelowContentSize={{true}}>
+            <Shw::Placeholder @height="40" @background="#e4c5f3">
+              <span {{style display="block" white-space="nowrap" overflow="hidden" text-overflow="ellipsis"}}>item #1
+                with a very long text that might cause overflow issues</span>
+            </Shw::Placeholder>
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #2 with width=150px" @width="150px" @height="40" @background="#e5ffd2" />
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #3 with width=150px" @width="150px" @height="40" @background="#d2f4ff" />
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #4" @height="40" @background="#fff8d2" />
+          </HLF.Item>
+        </Hds::Layout::Flex>
+      </Shw::Outliner>
+    </SG.Item>
+    <SG.Item @label="first flex item has basis=0px">
+      <Shw::Outliner {{style max-width="600px"}}>
+        <Hds::Layout::Flex as |HLF|>
+          <HLF.Item @basis="0px">
+            <Shw::Placeholder @height="40" @background="#e4c5f3">
+              <pre {{style white-space="nowrap" overflow="hidden" text-overflow="ellipsis"}}>item #1 with a very long
+                text that might cause overflow issues</pre>
+            </Shw::Placeholder>
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #2 with width=150px" @width="150px" @height="40" @background="#e5ffd2" />
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #3 with width=150px" @width="150px" @height="40" @background="#d2f4ff" />
+          </HLF.Item>
+          <HLF.Item>
+            <Shw::Placeholder @text="item #4" @height="40" @background="#fff8d2" />
+          </HLF.Item>
+        </Hds::Layout::Flex>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
 </section>

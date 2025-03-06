@@ -99,3 +99,8 @@
 .hds-layout-flex-item--shrink-1 {
   flex-shrink: 1;
 }
+
+.hds-layout-flex-item--enable-collapse-below-content-size {
+  // this allows the element to shrink below its content's intrinsic minimum width (eg. used with elliptized text)
+  min-width: 0;
+}

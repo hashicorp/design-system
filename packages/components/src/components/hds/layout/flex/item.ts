@@ -16,6 +16,8 @@ export interface HdsLayoutFlexItemSignature {
     basis?: string | 0;
     grow?: boolean | number | string;
     shrink?: boolean | number | string;
+    // TODO final name TBD
+    enableCollapseBelowContentSize?: boolean;
   };
   Blocks: {
     default: [];
@@ -77,6 +79,11 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutFlexItemSignat
       classes.push('hds-layout-flex-item--shrink-0');
     } else if (this.args.shrink === 1 || this.args.shrink === true) {
       classes.push('hds-layout-flex-item--shrink-1');
+    }
+
+    // add a class based on the @enableCollapseBelowContentSize argument (applies a `min-width: 0`)
+    if (this.args.enableCollapseBelowContentSize) {
+      classes.push('hds-layout-flex-item--enable-collapse-below-content-size');
     }
 
     return classes.join(' ');
