@@ -13,6 +13,7 @@ import type { HdsStepperNavStepIds, HdsStepperNavPanelIds } from '../types.ts';
 export interface HdsStepperNavPanelSignature {
   Args: {
     currentStep: number;
+    isNavInteractive?: boolean;
     stepIds?: HdsStepperNavStepIds;
     panelIds?: HdsStepperNavPanelIds;
     didInsertNode?: (element: HTMLElement, panelId: string) => void;
@@ -49,6 +50,16 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
       };
     }
   );
+
+  /**
+   * Get the interactivity of the Nav parent
+   * @param isNavInteractive
+   * @type {boolean}
+   * @default false
+   */
+  get isNavInteractive(): boolean {
+    return this.args.isNavInteractive || false;
+  }
 
   /**
    * Get the index of the step from the _panelIds list
