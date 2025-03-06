@@ -47,7 +47,7 @@
     <div
       class="hds-stepper-nav__step-content"
       id={{this._stepId}}
-      aria-current={{if (eq this.status "active") "true" "false"}}
+      aria-current={{if (eq this.status "active") "step" "false"}}
       {{this._setUpStep this.didInsertNode this.willDestroyNode}}
     >
       <div class="hds-stepper-nav__step-progress">

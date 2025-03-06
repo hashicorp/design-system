@@ -121,6 +121,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     assert
       .dom('[data-test="step-1"]')
       .hasNoClass('hds-stepper-nav__step--nav-interactive');
+    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
   });
 
   test('it sets the steps to interactive when the @isInteractive argument is provided', async function (assert) {
@@ -129,6 +130,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     assert
       .dom('[data-test="step-1"]')
       .hasClass('hds-stepper-nav__step--nav-interactive');
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
   });
 
   // CALLBACKS: ONSTEPCHANGE
