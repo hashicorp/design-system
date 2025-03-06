@@ -14,9 +14,7 @@ import {
 
 module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
   test('findNextToken returns the next non-whitespace token', function (assert) {
-    const doc = Text.of('  {');
-
-    console.log({ doc });
+    const doc = Text.of(['  {']);
 
     assert.strictEqual(
       findNextToken(doc, 0, 1),
