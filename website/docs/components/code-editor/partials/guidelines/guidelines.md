@@ -106,5 +106,15 @@ In **Figma** we provide a handful of example languages intended as visual exampl
 If you wish to create custom examples using the Code Editor, we publish all of the relevant syntax highlighting variables in the [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=gWdKy44MzTP4cTRo-1) library. However, due to the number of languages supported by the component, the color variables use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
 
-## Linting (JSON language only)
-The Code Editor has a feature available with the JSON language variant that will perform "linting" of a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+## Linting
+The Code Editor has a feature available with the JSON language variant that will perform "linting" of a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover.
+
+![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/code-editor-linting-preview-tooltip.png)
+
+When linting is enabled, the CodeEditor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minumum height for the CodeEditor with linting is 160px. The linting alert dialog is always 80px in height.
+
+![Code Editor with linting enabled and errors present](/assets/components/code-editor/code-editor-linting-preview.png)
+
+To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+
+![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/code-editor-linting-preview-dialog.png)
