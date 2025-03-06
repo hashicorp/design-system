@@ -80,3 +80,22 @@
 .hds-layout-flex--align-items-stretch {
   align-items: stretch;
 }
+
+
+// FLEX ITEM
+
+.hds-layout-flex-item--grow-0 {
+  flex-grow: 0;
+}
+
+.hds-layout-flex-item--grow-1 {
+  flex-grow: 1;
+}
+
+.hds-layout-flex-item--shrink-0 {
+  flex-shrink: 0;
+}
+
+.hds-layout-flex-item--shrink-1 {
+  flex-shrink: 1;
+}

@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{#if (eq this.componentTag "div")}}
-  <div class={{this.classNames}} ...attributes>{{yield}}</div>
+  <div class={{this.classNames}} ...attributes>{{yield (hash Item=(component "hds/layout/flex/item"))}}</div>
 {{else}}
-  {{#let (element this.componentTag) as |Tag|}}<Tag class={{this.classNames}} ...attributes>{{yield}}</Tag>{{/let}}
+  {{#let (element this.componentTag) as |Tag|}}<Tag class={{this.classNames}} ...attributes>{{yield (hash Item=(component "hds/layout/flex/item"))}}</Tag>{{/let}}
 {{/if}}

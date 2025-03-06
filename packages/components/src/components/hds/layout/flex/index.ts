@@ -5,6 +5,10 @@
 
 import Component from '@glimmer/component';
 
+import type { ComponentLike } from '@glint/template';
+
+import type { HdsLayoutFlexItemSignature } from './item.ts';
+
 import {
   HdsLayoutFlexDirectionValues,
   HdsLayoutFlexJustifyValues,
@@ -37,7 +41,11 @@ export interface HdsLayoutFlexSignature {
     isInline?: boolean;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        Item?: ComponentLike<HdsLayoutFlexItemSignature>;
+      }
+    ];
   };
   Element: AvailableElements;
 }
