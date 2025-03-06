@@ -10,11 +10,13 @@ import {
   determineErrorMessage,
   renderErrorMessage,
   HdsCodeEditorJsonLintingError,
-} from '@hashicorp/design-system-component/modifiers/hds-code-editor/linters/json-linter';
+} from '@hashicorp/design-system-components/modifiers/hds-code-editor/linters/json-linter';
 
 module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
   test('findNextToken returns the next non-whitespace token', function (assert) {
-    const doc = new Text('  {');
+    const doc = Text.of('  {');
+
+    console.log({ doc });
 
     assert.strictEqual(
       findNextToken(doc, 0, 1),
