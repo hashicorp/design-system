@@ -147,7 +147,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       onStepChange: this.onClick,
       isInteractive: true,
     });
-    await click('[data-test="step-1"] .hds-stepper-nav__step-btn');
+    await click('[data-test="step-1"] .hds-stepper-nav__step-button');
     assert.ok(clicked);
     assert.strictEqual(stepNumber, 0);
   });
@@ -163,27 +163,33 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     });
 
     // focus 2nd step:
-    assert.dom('[data-test="step-2"] .hds-stepper-nav__step-btn').exists();
-    await focus('[data-test="step-2"] .hds-stepper-nav__step-btn');
+    assert.dom('[data-test="step-2"] .hds-stepper-nav__step-button').exists();
+    await focus('[data-test="step-2"] .hds-stepper-nav__step-button');
     // test that the navigated to step is now focused:
-    assert.dom('[data-test="step-2"] .hds-stepper-nav__step-btn').isFocused();
+    assert
+      .dom('[data-test="step-2"] .hds-stepper-nav__step-button')
+      .isFocused();
 
     // navigate to the previous (1st) step using right arrow key:
     await triggerKeyEvent(
-      '[data-test="step-2"] .hds-stepper-nav__step-btn',
+      '[data-test="step-2"] .hds-stepper-nav__step-button',
       'keyup',
       rightArrowKey
     );
     // test that the navigated to step is now focused:
-    assert.dom('[data-test="step-1"] .hds-stepper-nav__step-btn').isFocused();
+    assert
+      .dom('[data-test="step-1"] .hds-stepper-nav__step-button')
+      .isFocused();
 
     // navigate back to the next (2nd) step using left arrow key:
     await triggerKeyEvent(
-      '[data-test="step-1"] .hds-stepper-nav__step-btn',
+      '[data-test="step-1"] .hds-stepper-nav__step-button',
       'keyup',
       leftArrowKey
     );
     // test that the navigated to step is now focused:
-    assert.dom('[data-test="step-2"] .hds-stepper-nav__step-btn').isFocused();
+    assert
+      .dom('[data-test="step-2"] .hds-stepper-nav__step-button')
+      .isFocused();
   });
 });
