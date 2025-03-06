@@ -92,6 +92,7 @@ The Code Editor automatically closes open quotes and brackets as the user types.
 
 ![The Code Editor's line 1 is highlighted and the user's cursor is next to a bracket. That bracket and its pair are both highlighted with a white border.](/assets/components/code-editor/code-editor-bracket-highlighting.png)
 
+
 ## Language
 
 Language determines how syntax highlighting is applied and formatted within the editor but is handled a bit differently between the Ember and Figma components.
@@ -104,3 +105,6 @@ In **Figma** we provide a handful of example languages intended as visual exampl
 
 If you wish to create custom examples using the Code Editor, we publish all of the relevant syntax highlighting variables in the [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=gWdKy44MzTP4cTRo-1) library. However, due to the number of languages supported by the component, the color variables use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
+
+## Linting (JSON language only)
+The Code Editor has a feature available with the JSON language variant that will perform "linting" of a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
