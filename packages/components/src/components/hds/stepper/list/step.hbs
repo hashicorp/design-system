@@ -2,12 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<li
-  class={{this.classNames}}
-  ...attributes
-  id={{this._stepId}}
-  {{this._setUpStep @didInsertNode @willDestroyNode}}
->
+<li class={{this.classNames}} ...attributes id={{this._stepId}} {{this._setUpStep @didInsertNode @willDestroyNode}}>
   <div class="hds-stepper-list__step-progress">
     <Hds::Stepper::Step::Indicator
       @text="{{this.stepNumber}}"

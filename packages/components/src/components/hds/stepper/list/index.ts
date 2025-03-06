@@ -29,14 +29,7 @@ export interface HdsStepperListSignature {
 
 export default class HdsStepperList extends Component<HdsStepperListSignature> {
   @tracked private _stepIds: HdsStepperListStepIds = [];
-  @tracked private _stepNodes: HTMLElement[] = [];
 
-  /**
-   * Get the DOM tag that should be used for the title
-   * @param titleTag
-   * @type {HdsStepperTitleTags}
-   * @default 'div'
-   */
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
@@ -46,15 +39,11 @@ export default class HdsStepperList extends Component<HdsStepperListSignature> {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._stepIds = [...this._stepIds, element.id];
-      this._stepNodes = [...this._stepNodes, element];
     });
   }
 
   @action
   willDestroyStep(element: HTMLElement): void {
-    this._stepNodes = this._stepNodes.filter(
-      (node): boolean => node.id !== element.id
-    );
     this._stepIds = this._stepIds.filter(
       (stepId): boolean => stepId !== element.id
     );

@@ -70,7 +70,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .hasNoClass('hds-stepper-indicator-step--is-interactive');
     assert
       .dom('.hds-stepper-nav__step-content')
-      .hasNoClass('hds-stepper-nav__step-btn');
+      .hasNoClass('hds-stepper-nav__step-button');
   });
 
   test('it sets the step to interactive when the @isInteractive argument is provided to the parent', async function (assert) {
@@ -84,7 +84,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .hasClass('hds-stepper-indicator-step--is-interactive');
     assert
       .dom('.hds-stepper-nav__step-content')
-      .hasClass('hds-stepper-nav__step-btn');
+      .hasClass('hds-stepper-nav__step-button');
   });
 
   // STATES - INTERACTIVE
@@ -100,9 +100,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--incomplete');
-    assert.dom('.hds-stepper-nav__step-btn').hasAttribute('tabindex', '-1');
+    assert.dom('.hds-stepper-nav__step-button').hasAttribute('tabindex', '-1');
     assert
-      .dom('.hds-stepper-nav__step-btn')
+      .dom('.hds-stepper-nav__step-button')
       .hasAttribute('aria-selected', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
@@ -115,9 +115,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--complete');
-    assert.dom('.hds-stepper-nav__step-btn').hasAttribute('tabindex', '-1');
+    assert.dom('.hds-stepper-nav__step-button').hasAttribute('tabindex', '-1');
     assert
-      .dom('.hds-stepper-nav__step-btn')
+      .dom('.hds-stepper-nav__step-button')
       .hasAttribute('aria-selected', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
@@ -130,9 +130,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--active');
-    assert.dom('.hds-stepper-nav__step-btn').hasNoAttribute('tabindex');
+    assert.dom('.hds-stepper-nav__step-button').hasNoAttribute('tabindex');
     assert
-      .dom('.hds-stepper-nav__step-btn')
+      .dom('.hds-stepper-nav__step-button')
       .hasAttribute('aria-selected', 'true');
     assert
       .dom('.hds-stepper-indicator-step')
