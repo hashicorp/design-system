@@ -87,9 +87,9 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .hasClass('hds-stepper-nav__step-btn');
   });
 
-  // STATES
+  // STATES - INTERACTIVE
 
-  test('it sets the step to incomplete when the @currentStep is less than the nodeIndex', async function (assert) {
+  test('it sets the step to incomplete when the @currentStep is less than the nodeIndex and @isInteractive is true', async function (assert) {
     await render(
       hbs`
         <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}} @isNavInteractive={{true}}>
@@ -110,7 +110,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.dom('.sr-only').hasNoText();
   });
 
-  test('it sets the step to complete when the @currentStep is greater than the nodeIndex', async function (assert) {
+  test('it sets the step to complete when the @currentStep is greater than the nodeIndex and @isInteractive is true', async function (assert) {
     await this.createNavStep({ currentStep: 1, isInteractive: true });
     assert
       .dom('.hds-stepper-nav__step')
@@ -125,7 +125,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert.dom('.sr-only').hasText('Complete: ');
   });
 
-  test('it sets the step to active when the @currentStep is equal to the nodeIndex', async function (assert) {
+  test('it sets the step to active when the @currentStep is equal to the nodeIndex and @isInteractive is true', async function (assert) {
     await this.createNavStep({ currentStep: 0, isInteractive: true });
     assert
       .dom('.hds-stepper-nav__step')
@@ -134,6 +134,56 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step-btn')
       .hasAttribute('aria-selected', 'true');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-progress');
+    assert.dom('.sr-only').hasText('Current: ');
+  });
+
+  // STATES - NOT INTERACTIVE
+
+  test('it sets the step to incomplete when the @currentStep is less than the nodeIndex and @isInteractive is false', async function (assert) {
+    await render(
+      hbs`
+        <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}}>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </Hds::Stepper::Nav::Step>`
+    );
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--incomplete');
+    assert
+      .dom('.hds-stepper-nav__step-content')
+      .hasAttribute('aria-current', 'false');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-incomplete');
+    assert.dom('.sr-only').hasNoText();
+  });
+
+  test('it sets the step to complete when the @currentStep is greater than the nodeIndex and @isInteractive is false', async function (assert) {
+    await this.createNavStep({ currentStep: 1 });
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--complete');
+    assert
+      .dom('.hds-stepper-nav__step-content')
+      .hasAttribute('aria-current', 'false');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-complete');
+    assert.dom('.sr-only').hasText('Complete: ');
+  });
+
+  test('it sets the step to active when the @currentStep is equal to the nodeIndex and @isInteractive is false', async function (assert) {
+    await this.createNavStep({ currentStep: 0 });
+    assert
+      .dom('.hds-stepper-nav__step')
+      .hasClass('hds-stepper-nav__step--active');
+    assert
+      .dom('.hds-stepper-nav__step-content')
+      .hasAttribute('aria-current', 'step');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-progress');
