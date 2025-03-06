@@ -96,6 +96,21 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
 
+  get progressBarWidthStyle(): string {
+    let progressBarWidth = 0;
+    let progressBarOffset = 0;
+    if (this.currentStep >= this._stepIds.length) {
+      progressBarWidth = 100;
+      progressBarOffset = 0;
+    } else {
+      const activeStepWidth = 1 / this._stepIds.length / 2;
+      const width = this.currentStep / this._stepIds.length;
+      progressBarWidth = (width + activeStepWidth) * 100;
+      progressBarOffset = 16;
+    }
+    return `calc(${progressBarWidth}% - ${progressBarOffset}px)`;
+  }
+
   @action
   didInsertStep(element: HTMLElement, stepId: string): void {
     // eslint-disable-next-line ember/no-runloop
@@ -190,6 +205,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
    */
   get classNames() {
     const classes = ['hds-stepper-nav'];
+
+    if (this.isInteractive) {
+      classes.push('hds-stepper-nav--interactive');
+    }
 
     return classes.join(' ');
   }
