@@ -44,7 +44,7 @@ export interface HdsLayoutFlexSignature {
     default: [
       {
         Item?: ComponentLike<HdsLayoutFlexItemSignature>;
-      }
+      },
     ];
   };
   Element: AvailableElements;
