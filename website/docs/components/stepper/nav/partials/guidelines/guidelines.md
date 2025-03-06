@@ -32,7 +32,7 @@ The non-interactive variant is for read-only purposes and does not allow backwar
 
 ## Content
 
-The Stepper Nav supports a title and an optional description. Content should be limited to only what is necessary, and long form content should live within the body of the page.
+The Stepper Nav supports a title and an optional description. Content should be limited to only what is necessary, and long form content should live within the body of the Step.
 
 ### Title
 
@@ -54,7 +54,7 @@ Use descriptions consistently.
 
 Don't mix and match inclusion of descriptions.
 
-![Steps one and four include descriptions, while steps two and three have only a title.](/assets/components/stepper/nav/stepper-nav-description-dont.png)
+![Stepper where steps one and four include descriptions, while steps two and three have only a title.](/assets/components/stepper/nav/stepper-nav-description-dont.png)
 
 !!!
 
@@ -70,18 +70,18 @@ There should be 32px of spacing above the Stepper Nav and 24px below.
 
 ## Resizing behavior
 
-Each Step will scale evenly within the Stepper Nav's width. This creates consistency in the sizes of touch targets for hover, active and focus states, especially in larger screens. The total width of the Stepper Nav should match the content of the page.
+Each step scales evenly to fit within the total width of the Stepper Nav. This ensures consistent touch target sizes for hover, active, and focus states. The total width of the Stepper Nav should match the page content width.
 
-### Responsive wrapping
+### Responsive layout
 
-Starting at 550px browser width, the Steps within the Stepper Nav will begin to wrap and the progress bar will be removed.
+At browser widths of 550px and below the steps will stack vertically and not display a connecting progress bar.
 
-![The Stepper Nav is stacked vertically](/assets/components/stepper/nav/stepper-nav-responsive-behavior.png)
+![On small screens, the steps in a Stepper Nav switch from horizontal orientation to vertical.](/assets/components/stepper/nav/stepper-nav-responsive-behavior.png)
 
 ## Composition with other components
 
 Always pair a Stepper Nav with a [Button Set](/components/button-set). Navigation interactions between the Stepper Nav and the Button Set should always match. 
 
-If a user can navigate backward within the Button Set, use the interactive variant. Otherwise, use the non-interactive variant.
+If a user can navigate backward within the Button Set, use the interactive Stepper Nav. Otherwise, use the non-interactive variant.
 
 ![](/assets/components/stepper/nav/stepper-nav-matching-experiences.png)
