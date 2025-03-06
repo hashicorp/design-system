@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Stepper Nav Anatomy](/assets/components/stepper/nav/stepper-nav-anatomy.png)
+![](/assets/components/stepper/nav/stepper-nav-anatomy.png)
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
