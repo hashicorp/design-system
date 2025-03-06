@@ -107,7 +107,7 @@ If you wish to create custom examples using the Code Editor, we publish all of t
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
 
 ## Linting
-The Code Editor has a feature available with the JSON language variant that will perform "linting" of a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover.
+The Code Editor supports "linting" (currently only of JSON code) a user's code. This feature will highlight an error with an underline and display an icon next to the line number, each of which will show a tooltip on hover. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS)
 
 ![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/code-editor-linting-preview-tooltip.png)
 
