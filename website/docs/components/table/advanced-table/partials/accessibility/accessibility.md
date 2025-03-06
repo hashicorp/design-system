@@ -61,10 +61,7 @@ Move focus to the last cell in the column.
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
-Press Enter in Navigation Mode to enter Action Mode and interact with elements inside a cell. 
-
-- If the cell contains one interactive element, focus moves to that element instead of activating it.
-- If multiple interactive elements exist, the focus moves to the first one. Use the tab key to navigate between them.
+Press Enter in Navigation Mode to enable Action Mode and interact with elements inside a cell. Focus will move to the first actionable element.
 
 ![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png =402x*)
 
