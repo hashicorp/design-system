@@ -144,6 +144,7 @@ Sticky headers keep column labels visible while scrolling, aiding navigation in 
 
 ![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
+
 ### Expandable rows
 
 Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
@@ -167,6 +168,25 @@ Avoid using different density settings for parent and child rows.
 
 !!!
 
+### Expand/Collapse All Button
+
+#### Button States
+
+The button updates based on the current expansion state of the table:
+
+- Expand All will display when all rows are collapsed.
+
+![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
+
+- Collapse All will display when all rows are expanded.
+
+![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
+
+- Mixed State – Displays when some, but not all, rows are expanded.
+    - Mixed State Behavior
+        - The mixed state provides a visual cue that expansion states vary within the table. Selecting the button in this state expands all rows.
+
+![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
 ### Striping 
 
