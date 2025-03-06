@@ -6,4 +6,4 @@
 
 ### Task indicator
 
-![Task indicator states](/assets/components/stepper/indicator/stepper-task-states.png)
+![Static task indicators only have one state for each of the statuses. Interactive task indicators have: default, hover, and active for all of the statuses.](/assets/components/stepper/indicator/stepper-task-states.png)
