@@ -13,7 +13,7 @@ type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
 export interface HdsLayoutFlexItemSignature {
   Args: {
     tag?: AvailableTagNames;
-    basis?: string;
+    basis?: string | 0;
     grow?: boolean | number | string;
     shrink?: boolean | number | string;
   };
@@ -36,7 +36,10 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutFlexItemSignat
     } = {};
 
     // we handle all cases of `basis` values via inline styles
-    if (this.args.basis) {
+    if (typeof this.args.basis === 'number' && this.args.basis === 0) {
+      // the `{{style}}` modifier accepts only strings
+      inlineStyles['flex-basis'] = this.args.basis.toString();
+    } else if (typeof this.args.basis === 'string') {
       inlineStyles['flex-basis'] = this.args.basis;
     }
 
