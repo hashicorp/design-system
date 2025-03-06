@@ -26,11 +26,6 @@ export interface HdsStepperNavPanelSignature {
 }
 
 export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSignature> {
-  /**
-   * Generate a unique ID for the Step
-   * @return {string}
-   * @param _panelId
-   */
   private _panelId = 'panel-' + guidFor(this);
   private _elementId?: string;
 
@@ -51,39 +46,20 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
     }
   );
 
-  /**
-   * Get the interactivity of the Nav parent
-   * @param isNavInteractive
-   * @type {boolean}
-   * @default false
-   */
   get isNavInteractive(): boolean {
     return this.args.isNavInteractive || false;
   }
 
-  /**
-   * Get the index of the step from the _panelIds list
-   * @param nodeIndex
-   * @type {number}
-   */
   get nodeIndex(): number | undefined {
     return this.args.panelIds?.indexOf(this._panelId);
   }
 
-  /**
-   * Get the ID of the panel coupled/associated with the step (it's used by the `aria-controls` attribute)
-   * @returns string}
-   */
   get coupledStepId(): string | undefined {
     return this.nodeIndex !== undefined
       ? this.args.stepIds?.[this.nodeIndex]
       : undefined;
   }
 
-  /**
-   * Check the condition if the panel is visible (because the coupled/associated step is active) or not
-   * @returns {boolean}
-   */
   get isVisible(): boolean {
     return this.nodeIndex === this.args.currentStep;
   }
@@ -105,16 +81,5 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
     if (typeof willDestroyNode === 'function') {
       willDestroyNode(element);
     }
-  }
-
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
-  get classNames(): string {
-    const classes = ['hds-stepper-nav__panel'];
-
-    return classes.join(' ');
   }
 }

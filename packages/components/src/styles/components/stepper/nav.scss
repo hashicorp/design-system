@@ -112,7 +112,7 @@
 // Active
 
 .hds-stepper-nav__step--active {
-  .hds-stepper-nav__step-btn {
+  .hds-stepper-nav__step-button {
     @include hds-focus-ring-with-pseudo-element(
       $top: -3px,
       $right: -1px,
@@ -150,7 +150,7 @@
 // INTERACTIVE
 
 .hds-stepper-nav__step--interactive {
-  .hds-stepper-nav__step-btn {
+  .hds-stepper-nav__step-button {
     @include hds-focus-ring-with-pseudo-element(
       $top: -3px,
       $right: -1px,
@@ -191,8 +191,8 @@
 
 @each $status in $hds-stepper-indicator-step-statuses {
   .hds-stepper-nav__step--nav-interactive {
-    .hds-stepper-nav__step-btn:hover,
-    .hds-stepper-nav__step-btn.mock-hover {
+    .hds-stepper-nav__step-button:hover,
+    .hds-stepper-nav__step-button.mock-hover {
       .hds-stepper-indicator-step--status-#{$status} {
         &.hds-stepper-indicator-step {
           cursor: default;
@@ -224,8 +224,8 @@
     }
 
     &.hds-stepper-nav__step--interactive {
-      .hds-stepper-nav__step-btn:hover,
-      .hds-stepper-nav__step-btn.mock-hover {
+      .hds-stepper-nav__step-button:hover,
+      .hds-stepper-nav__step-button.mock-hover {
         .hds-stepper-indicator-step--status-#{$status} {
           &.hds-stepper-indicator-step {
             cursor: pointer;
@@ -257,8 +257,8 @@
       }
     }
 
-    .hds-stepper-nav__step-btn:active,
-    .hds-stepper-nav__step-btn.mock-active {
+    .hds-stepper-nav__step-button:active,
+    .hds-stepper-nav__step-button.mock-active {
       .hds-stepper-indicator-step--status-#{$status} {
         &.hds-stepper-indicator-step {
           cursor: default;
@@ -290,8 +290,8 @@
     }
 
     &.hds-stepper-nav__step--interactive {
-      .hds-stepper-nav__step-btn:active,
-      .hds-stepper-nav__step-btn.mock-active {
+      .hds-stepper-nav__step-button:active,
+      .hds-stepper-nav__step-button.mock-active {
         .hds-stepper-indicator-step--status-#{$status} {
           &.hds-stepper-indicator-step {
             cursor: pointer;

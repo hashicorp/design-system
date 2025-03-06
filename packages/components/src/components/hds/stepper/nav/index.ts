@@ -38,7 +38,7 @@ export interface HdsStepperNavSignature {
       },
     ];
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
@@ -59,11 +59,6 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     return () => {};
   });
 
-  /**
-   * @param currentStep
-   * @type {number}
-   * @default 0
-   */
   get currentStep(): number {
     const { currentStep } = this.args;
 
@@ -78,20 +73,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     }
   }
 
-  /**
-   * @param isInteractive
-   * @type {boolean}
-   * @default false
-   */
   get isInteractive(): boolean {
     return this.args.isInteractive || false;
   }
 
-  /**
-   * @param titleTag
-   * @type {HdsStepperTitleTags}
-   * @default 'div'
-   */
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
@@ -183,11 +168,6 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     step?.focus();
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames() {
     const classes = ['hds-stepper-nav'];
 
