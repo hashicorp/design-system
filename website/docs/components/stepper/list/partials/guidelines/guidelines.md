@@ -27,7 +27,7 @@ Descriptions are optional. They can be used to provide additional brief context.
 
 Ensure inclusion of descriptions is consistent.
 
-![The stepper with descriptions enabled in every step.](/assets/components/stepper/list/stepper-list-description-do.png)
+![A stepper with descriptions for all four steps.](/assets/components/stepper/list/stepper-list-description-do.png)
 
 !!!
 
@@ -47,7 +47,7 @@ We recommend showing the contents of only the **in-progress** step while hiding 
 
 Only show one call to action at a time.
 
-![All steps only showing a title and description other than step 2. Step 2 shows a title, description and a button.](/assets/components/stepper/list/stepper-list-progressive-disclosure.png)
+![Stepper with 4 steps. The current active step is step 2 and it has a call to action button in the content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure.png)
 
 !!!
 
