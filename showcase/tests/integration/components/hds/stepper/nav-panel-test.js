@@ -19,8 +19,9 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
   hooks.beforeEach(function () {
     this.set('createNavPanel', async (args = {}) => {
       this.currentStep = args.currentStep ?? undefined;
+      this.isNavInteractive = args.isNavInteractive ?? false;
       return await render(hbs`
-          <Hds::Stepper::Nav @currentStep={{this.currentStep}} as |S|>
+          <Hds::Stepper::Nav @currentStep={{this.currentStep}} @isInteractive={{this.isNavInteractive}} as |S|>
             <S.Step></S.Step>
             <S.Panel>
               <div id="test-panel-content">Test</div>
@@ -43,11 +44,25 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
     await this.createNavPanel({ currentStep: 1 });
     assert.dom('.hds-stepper-nav__panel').hasAttribute('hidden');
     assert.dom('#test-panel-content').doesNotExist();
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('aria-labelledby');
   });
 
   test('it sets the panel content to visible when the @currentStep argument matches the panel index in the @panelIds argument', async function (assert) {
     await this.createNavPanel({ currentStep: 0 });
     assert.dom('.hds-stepper-nav__panel').hasNoAttribute('hidden');
     assert.dom('#test-panel-content').exists();
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('aria-labelledby');
+  });
+
+  // INTERACTIVITY
+
+  test('it sets the panel to not interactive when the @isNavInteractive argument is not provided', async function (assert) {
+    await this.createNavPanel({ currentStep: 0 });
+    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
+  });
+
+  test('it sets the panel to interactive when the @isNavInteractive argument is  provided', async function (assert) {
+    await this.createNavPanel({ isNavInteractive: true });
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
   });
 });

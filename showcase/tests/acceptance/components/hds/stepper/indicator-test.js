@@ -12,15 +12,8 @@ module('Acceptance | Component | hds/stepper/indicator', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Components/hds/stepper/indicator page passes automated a11y checks', async function (assert) {
-    let axeOptions = {
-      rules: {
-        'landmark-unique': {
-          enabled: false,
-        },
-      },
-    };
     await visit('/components/stepper/indicator');
-    await a11yAudit(axeOptions);
+    await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');
   });
