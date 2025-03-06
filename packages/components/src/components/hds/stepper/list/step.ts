@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import {
@@ -41,11 +40,6 @@ export interface HdsStepperListStepSignature {
 }
 
 export default class HdsStepperListStep extends Component<HdsStepperListStepSignature> {
-  /**
-   * Generate a unique ID for the Step
-   * @return {string}
-   * @param _stepId
-   */
   private _stepId = 'step-' + guidFor(this);
 
   private _setUpStep = modifier(
@@ -65,31 +59,12 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
     }
   );
 
-  /**
-   * Get the index of the step from the _stepIds list
-   * @param nodeIndex
-   * @type {number}
-   */
-  get nodeIndex(): number | undefined {
-    return this.args.stepIds?.indexOf(this._stepId);
-  }
-
-  /**
-   * Get the step number that should be displayed
-   * @param stepNumber
-   * @type {number}
-   */
   get stepNumber(): number | undefined {
     return this.args.stepIds
       ? this.args.stepIds.indexOf(this._stepId) + 1
       : undefined;
   }
 
-  /**
-   * @param status
-   * @type {HdsStepperStatuses}
-   * @default "incomplete"
-   */
   get status(): HdsStepperStatuses {
     const { status = DEFAULT_STATUS } = this.args;
 
@@ -103,31 +78,14 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
     return status;
   }
 
-  /**
-   * Get the screen reader only text that should be added based on the step status
-   * @param statusSrOnlyText
-   * @type {string}
-   * @default ''
-   */
   get statusSrOnlyText(): string {
     return MAPPING_STATUS_TO_SR_ONLY_TEXT[this.status];
   }
 
-  /**
-   * Get the DOM tag that should be used for the title
-   * @param titleTag
-   * @type {HdsStepperTitleTags}
-   * @default 'div'
-   */
   get titleTag(): HdsStepperTitleTags {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-stepper-list__step'];
 
