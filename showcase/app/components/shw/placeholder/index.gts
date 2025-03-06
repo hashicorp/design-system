@@ -80,7 +80,7 @@ export default class ShwPlaceholder extends Component<ShwPlaceholderSignature> {
   }
 
   <template>
-    <div class="shw-placeholder" style={{this.style}} ...attributes>
+    <div class="shw-placeholder" ...attributes>
       {{#if @text}}
         {{@text}}
       {{else}}
