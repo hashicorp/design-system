@@ -34,11 +34,6 @@ type HdsCodeEditorBlurHandler = (
   event: FocusEvent
 ) => void;
 
-export type HdsCodeEditorLintDiagnostic = Pick<
-  DiagnosticType,
-  'from' | 'to' | 'message' | 'severity'
->;
-
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
@@ -51,7 +46,7 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
-      onLint?: (diagnostics: HdsCodeEditorLintDiagnostic[]) => void;
+      onLint?: (diagnostics: DiagnosticType[]) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
