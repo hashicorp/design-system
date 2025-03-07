@@ -56,7 +56,7 @@ minifyCSS: {
 5. Add the following line to the main Sass file in your application (for example, in `app.scss`):
 
 ```scss
-@import "@hashicorp/design-system-components";
+@use "@hashicorp/design-system-components";
 ```
 
 #### CSS
@@ -204,7 +204,7 @@ To use the icons which are meant to be animated ([loading](/icons/library?search
 
 ```scss
 // the path here depends if you’re using 'svg-react' or 'svg' icons
-@import ~@hashicorp/flight-icons/svg-react/animation.css';
+@use ~@hashicorp/flight-icons/svg-react/animation.css';
 ```
 
 Then declare them the same way you would with any other icon.
@@ -237,16 +237,16 @@ Import design tokens as CSS variables by adding one of the following lines to th
 
 ```scss
 // for product applications (Ember apps)
-@import "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
 // for Cloud UI email templating
-@import "@hashicorp/design-system-tokens/dist/cloud-email/tokens.scss";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/tokens.scss";
 
 // for HashiCorp developer platform
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
 
 // for HashiCorp web/marketing websites
-@import '@hashicorp/design-system-tokens/dist/marketing/css/tokens.css';
+@use '@hashicorp/design-system-tokens/dist/marketing/css/tokens.css';
 ```
 
 ### Import styles as CSS helper classes
@@ -255,28 +255,28 @@ Import CSS helper classes by adding any of the following lines to the main Sass 
 
 ```scss
 // for product applications (Ember apps)
-@import "@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
-@import "@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
-@import "@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
-@import "@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/colors.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/typography.css";
+@use "@hashicorp/design-system-tokens/dist/products/css/helpers/focus-ring.css";
 
 // for Cloud UI email templating
-@import "@hashicorp/design-system-tokens/dist/cloud-email/helpers/colors.css";
-@import "@hashicorp/design-system-tokens/dist/cloud-email/helpers/elevation.css";
-@import "@hashicorp/design-system-tokens/dist/cloud-email/helpers/typography.css";
-@import "@hashicorp/design-system-tokens/dist/cloud-email/helpers/focus-ring.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/colors.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/typography.css";
+@use "@hashicorp/design-system-tokens/dist/cloud-email/helpers/focus-ring.css";
 
 // for HashiCorp developer platform
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/colors.css";
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/typography.css";
-@import "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/colors.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/elevation.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/typography.css";
+@use "~@hashicorp/design-system-tokens/dist/devdot/css/helpers/focus-ring.css";
 
 // for HashiCorp web/marketing websites
-@import "@hashicorp/design-system-tokens/dist/marketing/css/helpers/color.css";
-@import "@hashicorp/design-system-tokens/dist/marketing/css/helpers/elevation.css";
-@import "@hashicorp/design-system-tokens/dist/marketing/css/helpers/focus-ring.css";
-@import "@hashicorp/design-system-tokens/dist/marketing/css/helpers/typography.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/color.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/elevation.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/focus-ring.css";
+@use "@hashicorp/design-system-tokens/dist/marketing/css/helpers/typography.css";
 ```
 
 For more examples and guidelines read [the tokens documentation](/foundations/tokens).
