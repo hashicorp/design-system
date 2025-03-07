@@ -423,4 +423,34 @@
       {{/if}}
     </:body>
   </Hds::Stepper::Nav>
+
+  <Shw::Text::H3>Standalone using contextual components</Shw::Text::H3>
+
+  <Hds::Stepper::Nav @titleTag="h4" @currentStep={{1}} @isInteractive={{false}} as |S|>
+    <S.Step>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+    <S.Step>
+      <:title>Title</:title>
+      <:description>Description</:description>
+    </S.Step>
+  </Hds::Stepper::Nav>
+
+  <Shw::Text::H3>Standalone using @steps array</Shw::Text::H3>
+
+  <Hds::Stepper::Nav
+    @steps={{array
+      (hash title="Title" description="Description")
+      (hash title="Title" description="Description")
+      (hash title="Title" description="Description")
+    }}
+    @titleTag="h4"
+    @currentStep={{1}}
+    @isInteractive={{false}}
+  />
 </section>
