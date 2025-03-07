@@ -28,9 +28,9 @@ export const HdsStepperStatusToSrOnlyText: Record<
   string
 > = {
   [HdsStepperStatusesValues.Incomplete]: '',
-  [HdsStepperStatusesValues.Progress]: 'Current: ',
-  [HdsStepperStatusesValues.Processing]: 'In progress: ',
-  [HdsStepperStatusesValues.Complete]: 'Complete: ',
+  [HdsStepperStatusesValues.Progress]: '(current)',
+  [HdsStepperStatusesValues.Processing]: '(in progress)',
+  [HdsStepperStatusesValues.Complete]: '(complete)',
 };
 
 export enum HdsStepperTitleTagValues {
@@ -74,8 +74,8 @@ export const HdsStepperNavStatusToSrOnlyText: Record<
   string
 > = {
   [HdsStepperNavStatusesValues.Incomplete]: '',
-  [HdsStepperNavStatusesValues.Active]: 'Current: ',
-  [HdsStepperNavStatusesValues.Complete]: 'Complete: ',
+  [HdsStepperNavStatusesValues.Active]: '(current)',
+  [HdsStepperNavStatusesValues.Complete]: '(complete)',
 };
 
 export type HdsStepperNavPanelIds = string[];
