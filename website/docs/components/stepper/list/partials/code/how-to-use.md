@@ -1,7 +1,7 @@
 ## How to use this component
 
 ```handlebars
-<Hds::Stepper::List as |S|>
+<Hds::Stepper::List @ariaLabel="Basic usage" as |S|>
   <S.Step>
     <:title>One</:title>
   </S.Step>
@@ -19,7 +19,7 @@
 To change the status of a Step, set the `@status` argument in the `[S].Step` contextual component. The default status value is `incomplete`.
 
 ```handlebars
-<Hds::Stepper::List as |S|>
+<Hds::Stepper::List @ariaLabel="Indicating status" as |S|>
   <S.Step @status="complete">
     <:title>Completed step</:title>
   </S.Step>
@@ -35,7 +35,7 @@ To change the status of a Step, set the `@status` argument in the `[S].Step` con
 A `processing` status is used instead of `progress` to indicate an ongoing process in the background, such as a user's data being submitted.
 
 ```handlebars
-<Hds::Stepper::List as |S|>
+<Hds::Stepper::List @ariaLabel="Processing status" as |S|>
   <S.Step @status="complete">
     <:title>Completed step</:title>
   </S.Step>
@@ -55,7 +55,7 @@ Using the named `<:title>` block is required. Additional information for a step 
 
 
 ```handlebars
-<Hds::Stepper::List as |S|>
+<Hds::Stepper::List @ariaLabel="Additional information" as |S|>
   <S.Step @status="complete">
     <:title>Completed step</:title>
     <:description>Step description</:description>

@@ -9,6 +9,9 @@
   <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
     The HTML tag that wraps the content of each Nav Step title block.
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
+    The value of the aria-label. If no text value is defined, an error will be thrown.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

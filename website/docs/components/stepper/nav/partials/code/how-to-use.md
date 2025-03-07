@@ -9,7 +9,7 @@ To use this component, you can either pass in the contextual Step and Panel comp
 The `Hds::Stepper::Nav::Step` and `Hds::Stepper::Nav::Panel` are yielded as contextual components. The number of steps and panels added must be equal.
 
 ```handlebars
-<Hds::Stepper::Nav as |S|>
+<Hds::Stepper::Nav @ariaLabel="Basic usage" as |S|>
   <S.Step>
     <:title>Step 1</:title>
   </S.Step>
@@ -37,6 +37,7 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
     (hash title="Step 2")
     (hash title="Step 3")
   }}
+  @ariaLabel="Using steps argument"
 >
   <:body>
     {{#if (eq this.currentStep 0)}}
@@ -50,9 +51,9 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
 </Hds::Stepper::Nav>
 ```
 
-### Step state
+### Step status
 
-The state of steps is controlled automatically through the `@currentStep` argument. The argument is base-indexed and sets the active step to the value provided. The status of a step is determined in the following ways in relation to the `@currentStep`.
+The status of steps is controlled automatically through the `@currentStep` argument. The argument is base-indexed and sets the active step to the value provided. The status of a step is determined in the following ways in relation to the `@currentStep`.
 - A step equal to `@currentStep` is active
 - All steps less than `@currentStep` are completed
 - All steps greater than `@currentStep` are incomplete
@@ -60,7 +61,7 @@ The state of steps is controlled automatically through the `@currentStep` argume
 By default, `@currentStep` is equal to 0.
 
 ```handlebars
-<Hds::Stepper::Nav @currentStep={{1}} as |S|>
+<Hds::Stepper::Nav @currentStep={{1}} @ariaLabel="Status" as |S|>
   <S.Step>
     <:title>Step 1</:title>
   </S.Step>
@@ -87,6 +88,7 @@ When a click on a step occurs, the `@onStepChange` handler can be used to pass a
 <Hds::Stepper::Nav
   @currentStep={{this.demoCurrentStep}}
   @isInteractive={{true}}
+  @ariaLabel="Interactive"
   @onStepChange={{this.demoOnStepChange}}
   as |S|
 >
