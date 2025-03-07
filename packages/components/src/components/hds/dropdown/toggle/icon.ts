@@ -13,6 +13,7 @@ import type { HdsIconSignature } from '../../icon';
 import type { HdsDropdownToggleIconSizes } from './types';
 import type { ModifierLike } from '@glint/template';
 import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index.ts';
+import type Owner from '@ember/owner';
 
 export const DEFAULT_SIZE = HdsDropdownToggleIconSizeValues.Medium;
 export const SIZES: string[] = Object.values(HdsDropdownToggleIconSizeValues);
@@ -33,7 +34,7 @@ export interface HdsDropdownToggleIconSignature {
 export default class HdsDropdownToggleIcon extends Component<HdsDropdownToggleIconSignature> {
   @tracked private _hasImage = true;
 
-  constructor(owner: unknown, args: HdsDropdownToggleIconSignature['Args']) {
+  constructor(owner: Owner, args: HdsDropdownToggleIconSignature['Args']) {
     super(owner, args);
     if (!(this.args.icon || this.args.imageSrc)) {
       assert(

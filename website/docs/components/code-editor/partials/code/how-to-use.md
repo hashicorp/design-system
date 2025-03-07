@@ -59,7 +59,7 @@ The default `@tag` is `"h2"`, however, the correct value is dependent on the ind
 
 ### Language
 
-The `language` argument sets the syntax highlighting used. We support the following languages: `ruby`, `sentinel`, `shell`, `go`, `hcl`, `json`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
+The `language` argument sets the syntax highlighting used. We support the following languages: `rego`, `ruby`, `sentinel`, `shell`, `go`, `hcl`, `javascript`, `json`, `sql`, and `yaml`. If you need additional languages, <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
 
 ```handlebars
 <Hds::CodeEditor
@@ -71,12 +71,16 @@ The `language` argument sets the syntax highlighting used. We support the follow
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard.
+Set `hasCopyButton` to `true` to display a button for users to copy Code Editor content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button.
 
 ```handlebars
-<Hds::CodeEditor @ariaLabel="copy button" @hasCopyButton={{true}} @value={{this.loremIpsum}} />
+<Hds::CodeEditor
+  @ariaLabel="copy button"
+  @hasCopyButton={{true}}
+  @copyButtonText="Copy lorem ipsum code"
+  @value={{this.loremIpsum}}
+/>
 ```
-
 
 ### Full screen mode
 
@@ -84,4 +88,12 @@ Set `hasFullScreenButton` to `true` to display a button for users to toggle betw
 
 ```handlebars
 <Hds::CodeEditor @ariaLabel="full screen mode" @hasFullScreenButton={{true}} @value={{this.loremIpsum}} />
+```
+
+### Line wrapping
+
+Set `hasLineWrapping` to `true` to enable line wrapping within the editor.
+
+```handlebars
+<Hds::CodeEditor @ariaLabel="line wrapping example" @hasLineWrapping={{true}} @value={{this.loremIpsum}} />
 ```

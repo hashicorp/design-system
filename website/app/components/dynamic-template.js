@@ -1,21 +1,14 @@
-/* eslint-disable ember/no-classic-components, ember/no-classic-classes, prettier/prettier, no-console */
-
-import Component from '@ember/component';
-import GlimmerComponent from '@glimmer/component';
-import layout from './dynamic-template';
-
-import { computed } from '@ember/object';
+import { setComponentTemplate } from '@ember/component';
 import { getOwner } from '@ember/application';
 import { compileTemplate } from '@ember/template-compilation';
+import { importSync } from '@embroider/macros';
+import Component from '@glimmer/component';
 
 let templateOwnerMap = new Map();
-let templateId = 0;
 
-export default Component.extend({
-  tagName: '',
-  layout,
-  init() {
-    this._super(...arguments);
+export default class DynamicTemplate extends Component {
+  constructor() {
+    super(...arguments);
 
     let owner = getOwner(this);
     let templateMap = templateOwnerMap.get(owner);
@@ -23,39 +16,53 @@ export default Component.extend({
       templateMap = templateOwnerMap.set(owner, new Map());
     }
     this.templateMap = templateMap;
-  },
+  }
 
-  componentName: computed('templateString', 'componentId', function() {
-    let { templateMap, templateString } = this;
-    if (!templateString) { return null; }
+  get component() {
+    let owner = getOwner(this);
 
-    let componentName = templateMap.get(templateString);
-    if (componentName === undefined) {
-      let owner = getOwner(this);
+    let { templateString } = this.args;
+    if (!templateString) {
+      return null;
+    }
 
+    let component = this.templateMap.get(templateString);
+    if (component === undefined) {
       let compiledTemplate;
       try {
         compiledTemplate = compileTemplate(templateString);
       } catch (err) {
         console.error(err);
         console.error(templateString);
-        compiledTemplate = compileTemplate(`<DynamicTemplateError />`)
+        compiledTemplate = compileTemplate(`<DynamicTemplateError />`);
       }
 
-      let component = owner.factoryFor(`component:${this.componentId}`);
+      component = owner.factoryFor(`component:${this.args.componentId}`);
 
-      if(!component) {
-        component = class extends GlimmerComponent {};
+      if (component) {
+        component = class extends component.class {};
       } else {
-        component = class extends component.class {}
+        // if component couldn't be found the old way try importing it directly
+        let module;
+        try {
+          module = importSync(`/docs/${this.args.componentId}.js`);
+        } catch (err) {
+          // backing class doesn't exist so just ignore the error
+        }
+
+        component = module?.default;
       }
 
-      componentName = `doc-dynamic-template-${templateId++}__${this.componentId}`;
+      if (!component) {
+        component = class extends Component {};
+      }
 
-      owner.register(`component:${componentName}`, component);
-      owner.register(`template:components/${componentName}`, compiledTemplate);
+      setComponentTemplate(compiledTemplate, component);
+
+      // eslint-disable-next-line ember/no-side-effects
+      this.templateMap.set(templateString, component);
     }
 
-    return componentName;
-  }),
-});
+    return component;
+  }
+}

@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 
+import type Owner from '@ember/owner';
+
 export interface HdsFlyoutBodySignature {
   // when component has no args, but constructor still needs to be defined, use `never`
   // see: https://github.com/hashicorp/design-system/pull/2511/files/f2146e5243d0431892a62d2fbf2889f1cbd3e525#r1815255004
@@ -17,7 +19,7 @@ export interface HdsFlyoutBodySignature {
 }
 
 export default class HdsFlyoutBody extends Component<HdsFlyoutBodySignature> {
-  constructor(owner: unknown, args: HdsFlyoutBodySignature['Args']) {
+  constructor(owner: Owner, args: HdsFlyoutBodySignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -30,6 +32,7 @@ export default class HdsFlyoutBody extends Component<HdsFlyoutBodySignature> {
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.6.0',
+          available: '4.6.0',
         },
       }
     );

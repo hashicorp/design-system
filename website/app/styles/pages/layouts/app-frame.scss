@@ -9,6 +9,7 @@
   .doc-app-frame-mock-viewport {
     width: 100%;
     aspect-ratio: 16 / 9;
+    isolation: isolate;
 
     .hds-app-frame {
       position: relative;
@@ -23,7 +24,6 @@
 
     .hds-app-frame__modals {
       position: absolute;
-      z-index: 10;
       width: 100%;
       height: 100%;
     }

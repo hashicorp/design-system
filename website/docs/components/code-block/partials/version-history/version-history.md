@@ -1,3 +1,7 @@
+## 4.17.1
+
+Added `@copyButtonText` argument to `CodeBlock` and `@text` argument to the `CodeBlock::CopyButton` subcomponent to customize the `aria-label` of the Copy Button. The default label is still "Copy".
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation

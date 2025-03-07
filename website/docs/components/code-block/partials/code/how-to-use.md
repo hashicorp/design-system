@@ -81,12 +81,13 @@ func main() {
 
 ### Copy button
 
-Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard.
+Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` content to their computer clipboard. Use `copyButtonText` to provide a meaningful and unique label for the copy button.
 
 ```handlebars
 <Hds::CodeBlock
   @language="javascript"
   @hasCopyButton={{true}}
+  @copyButtonText="Copy javascript code"
   @value="let codeLang=`JavaScript`;
 console.log(`I am ${codeLang} code`);"
 />

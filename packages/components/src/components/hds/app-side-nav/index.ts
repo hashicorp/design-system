@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
+import type Owner from '@ember/owner';
 
 export interface HdsAppSideNavSignature {
   Args: {
@@ -36,7 +37,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     document.documentElement
   ).getPropertyValue('--hds-app-desktop-breakpoint');
 
-  constructor(owner: unknown, args: HdsAppSideNavSignature['Args']) {
+  constructor(owner: Owner, args: HdsAppSideNavSignature['Args']) {
     super(owner, args);
     this._isMinimized = this.args.isMinimized ?? false; // sets the default state on 'desktop' viewports
     this._desktopMQ = window.matchMedia(`(min-width:${this._desktopMQVal})`);

@@ -19,6 +19,7 @@ import {
 
 // types
 import type { HdsPageHeaderSignature } from '@hashicorp/design-system-components/components/hds/page-header/index';
+import type Owner from '@ember/owner';
 
 export interface MockAppMainPageHeaderSignature {
   Args: {
@@ -32,7 +33,7 @@ export default class MockAppMainPageHeader extends Component<MockAppMainPageHead
   showActionButton;
   showActionDropdown;
 
-  constructor(owner: unknown, args: MockAppMainPageHeaderSignature['Args']) {
+  constructor(owner: Owner, args: MockAppMainPageHeaderSignature['Args']) {
     super(owner, args);
     this.showActionButton = this.args.showActionButton ?? false;
     this.showActionDropdown = this.args.showActionDropdown ?? false;

@@ -33,7 +33,7 @@
               class="hds-code-editor__button hds-code-editor__copy-button"
               @isIconOnly={{true}}
               @size="small"
-              @text="Copy"
+              @text={{this.copyButtonText}}
               @textToCopy={{this._value}}
             />
           {{/if}}
@@ -55,8 +55,9 @@
       ariaDescribedBy=this.ariaDescribedBy
       ariaLabel=@ariaLabel
       ariaLabelledBy=this.ariaLabelledBy
-      value=@value
+      hasLineWrapping=@hasLineWrapping
       language=@language
+      value=@value
       onBlur=@onBlur
       onInput=this.onInput
       onSetup=this.onSetup

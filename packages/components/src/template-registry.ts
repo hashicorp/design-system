@@ -219,6 +219,7 @@ import type HdsCodeEditorModifier from './modifiers/hds-code-editor.ts';
 import type HdsClipboardModifier from './modifiers/hds-clipboard.ts';
 import type HdsRegisterEventModifier from './modifiers/hds-register-event.ts';
 import type HdsTooltipModifier from './modifiers/hds-tooltip.ts';
+import type HdsAdvancedTableCellModifier from './modifiers/hds-advanced-table-cell.ts';
 
 export default interface HdsComponentsRegistry {
   // ----- COMPONENTS ---------------------------------------------------
@@ -945,4 +946,7 @@ export default interface HdsComponentsRegistry {
 
   // hds-tooltip
   'hds-tooltip': typeof HdsTooltipModifier;
+
+  // hds-advanced-table-cell
+  'hds-advanced-table-cell': typeof HdsAdvancedTableCellModifier;
 }

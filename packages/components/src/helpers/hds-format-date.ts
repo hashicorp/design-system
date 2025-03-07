@@ -17,8 +17,8 @@ import { helper } from '@ember/component/helper';
  */
 
 export function hdsFormatDate([date, options]: [
-  Date,
-  {
+  date: Date | undefined,
+  options: {
     month: Intl.DateTimeFormatOptions['month'];
     day: Intl.DateTimeFormatOptions['day'];
     year?: Intl.DateTimeFormatOptions['year'];

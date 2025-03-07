@@ -23,13 +23,19 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.
   </C.Property>
+  <C.Property @name="copyButtonText" @type="string" @default="'Copy'">
+    Override this value to provide a meaningful `aria-label` for the [`Copy::Button`](/components/copy/button) component.
+  </C.Property>
   <C.Property @name="hasFullScreenButton" @type="boolean" @default="false">
     Used to control whether a toggle button for toggling full-screen mode will be displayed.
+  </C.Property>
+  <C.Property @name="hasLineWrapping" @type="boolean" @default="false">
+    Enables line wrapping within the editor.
   </C.Property>
   <C.Property @name="isStandalone" @type="boolean" @default="true">
     Applies rounded borders to the component. When used within another component or when the context requires it, you can turn it off.
   </C.Property>
-  <C.Property @name="language" @type="string" @values={{array "go" "hcl" "json" "ruby" "sentinel" "shell" "sql" "yaml"}}>
+  <C.Property @name="language" @type="string" @values={{array "go" "hcl" "javascript" "json" "rego" "ruby" "sentinel" "shell" "sql" "yaml"}}>
     The coding language to use for syntax highlighting. If you need additional languages <LinkTo class="doc-link-generic" @route="show" @model="about/support">contact the Design Systems Team</LinkTo>.
   </C.Property>
   <C.Property @name="value" @type="string">

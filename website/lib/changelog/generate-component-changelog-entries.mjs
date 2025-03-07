@@ -26,7 +26,15 @@ const getComponentPaths = (baseDir) => {
         const componentPath = `${baseDir}/${folder.name}`;
         const partialsPath = `${componentPath}/partials`;
         if (fs.existsSync(partialsPath)) {
-          components[folder.name] = componentPath;
+          // we have two special cases where intermediate namespacing is used to group components:
+          // `copy` components and `link` components
+          if (baseDir.endsWith('/copy')) {
+            components[`copy-${folder.name}`] = componentPath;
+          } else if (baseDir.endsWith('/link')) {
+            components[`link-${folder.name}`] = componentPath;
+          } else {
+            components[folder.name] = componentPath;
+          }
         }
       }
     });
@@ -184,11 +192,17 @@ const version = readVersionFromPackageJson(
 
 // Determine component paths
 const componentPaths = getComponentPaths('./docs/components');
+const copyComponentPaths = getComponentPaths('./docs/components/copy');
 const formComponentPaths = getComponentPaths('./docs/components/form');
+const linkComponentPaths = getComponentPaths('./docs/components/link');
+const tableComponentPaths = getComponentPaths('./docs/components/table');
 const utilityComponentPaths = getComponentPaths('./docs/utilities');
 const allComponentsPath = {
   ...componentPaths,
+  ...copyComponentPaths,
   ...formComponentPaths,
+  ...linkComponentPaths,
+  ...tableComponentPaths,
   ...utilityComponentPaths,
 };
 

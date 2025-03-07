@@ -33,11 +33,21 @@
   </Shw::Flex>
 
   <Shw::Flex @label="With long text" as |SF|>
-    <SF.Item {{style width="200px"}}>
+    <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
     </SF.Item>
-    <SF.Item {{style width="200px"}}>
+    <SF.Item>
       <Hds::Tag @text="This is a very long text that should go on multiple lines" />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag
+        @text="This is a very long text that should go on multiple lines"
+        @onDismiss={{this.noop}}
+        @route="components.tag"
+      />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag @text="This is a very long text that should go on multiple lines" @route="components.tag" />
     </SF.Item>
   </Shw::Flex>
 
@@ -117,6 +127,21 @@
         </SG.Item>
       {{/each}}
     {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Tooltip Placements</Shw::Text::H2>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    {{#each @model.TOOLTIP_PLACEMENTS as |place|}}
+      <SG.Item>
+        <Hds::Tag
+          @text="{{place}} This is a very long text that should go on multiple lines"
+          @tooltipPlacement={{place}}
+        />
+      </SG.Item>
+    {{/each}}
   </Shw::Grid>
 
 </section>

@@ -14,6 +14,7 @@ export default class FormMaskedInputController extends Controller {
   @tracked multilineDefaultText = 'Lorem ipsum dolor';
   @tracked multilineCustomText = 'Lorem ipsum dolor';
   @tracked multilineWithErrorMessage = 'Lorem ipsum dolor sit amet';
+  @tracked isContentMasked = true;
 
   multilineText1 = 'Lorem\nipsum\ndolor';
   multilineText2 = `Lorem
@@ -31,5 +32,9 @@ dolor`;
 
   @action updateValue(propName, event) {
     this[propName] = event.target.value;
+  }
+
+  @action updateIsMasked() {
+    this.isContentMasked = !this.isContentMasked;
   }
 }

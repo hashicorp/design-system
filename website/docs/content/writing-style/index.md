@@ -5,7 +5,7 @@ description: Best practices for writing style, grammar, and formatting.
 previewImage: assets/illustrations/content/writing-style.jpg
 ---
 
-Generally, HashiCorp follows the [2020 AP Stylebook](https://www.apstylebook.com/ap_stylebook) rules and guidelines, unless HashiCorp specific style is indicated.
+Generally, HashiCorp follows the [AP Style](https://writer.com/blog/a-comprehensive-guide-to-the-ap-style-of-writing/) rules and guidelines unless a HashiCorp-specific style is indicated.
 
 ## Capitalization
 
@@ -234,7 +234,7 @@ When editing an object, use "Save" for the action label. When applying another a
 
 !!! Do
 
-![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save organization".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
+![A modal that has a form to edit an organization. The title is "Edit organization name" and the save button is "Save name".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-save-do.png)
 
 ![A form to invite users by inputting their emails. The title is "Invite users" and the submit button is "Invite users".](/assets/content/writing-style/writing-style-consistent-termonology-CTA-invite-do.png)
 

@@ -17,6 +17,7 @@ import {
 
 // types
 import type { HdsSideNavSignature } from '@hashicorp/design-system-components/components/hds/side-nav/index';
+import type Owner from '@ember/owner';
 
 export interface MockAppSidebarSideNavSignature {
   Args: {
@@ -36,7 +37,7 @@ export default class MockAppSidebarSideNav extends Component<MockAppSidebarSideN
   showHeader;
   showFooter;
 
-  constructor(owner: unknown, args: MockAppSidebarSideNavSignature['Args']) {
+  constructor(owner: Owner, args: MockAppSidebarSideNavSignature['Args']) {
     super(owner, args);
     this.isResponsive = this.args.isResponsive ?? true;
     this.hasA11yRefocus = this.args.hasA11yRefocus ?? true;

@@ -65,7 +65,10 @@
 
 .hds-rich-tooltip__toggle-text {
   color: var(--text-color);
-  text-decoration: underline dotted;
+  // decoration style is specified separately to fix a bug in Safari causing it not to render
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
 }
 
 // icon

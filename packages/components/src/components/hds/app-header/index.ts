@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
+import type Owner from '@ember/owner';
 
 export interface HdsAppHeaderSignature {
   Args: {
@@ -50,7 +51,7 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
       '--hds-app-desktop-breakpoint'
     );
 
-  constructor(owner: unknown, args: Record<string, never>) {
+  constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
     this._desktopMQ = window.matchMedia(`(min-width: ${this._desktopMQVal})`);
     this.addEventListeners();

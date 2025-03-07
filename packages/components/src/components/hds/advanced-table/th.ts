@@ -15,12 +15,7 @@ import type {
   HdsAdvancedTableScope,
 } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
-import {
-  didInsertGridCell,
-  handleGridCellKeyPress,
-  onFocusTrapDeactivate,
-  updateTabbableChildren,
-} from './helpers.ts';
+import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -52,7 +47,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
-  private _observer: MutationObserver | undefined = undefined;
 
   get scope(): HdsAdvancedTableScope {
     const { scope = 'col' } = this.args;
@@ -122,28 +116,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return cellFocusableElements[0];
   }
 
-  @action
-  didInsert(element: HTMLDivElement): void {
+  @action setElement(element: HTMLDivElement): void {
     this._element = element;
-    didInsertGridCell(element);
-    element.addEventListener('keydown', (event: KeyboardEvent) => {
-      handleGridCellKeyPress(event, this.enableFocusTrap);
-    });
-
-    this._observer = new MutationObserver(() => {
-      updateTabbableChildren(this._element, this._shouldTrapFocus);
-    });
-
-    this._observer.observe(this._element, {
-      childList: true,
-      subtree: true,
-    });
-  }
-
-  @action willDestroy() {
-    super.willDestroy();
-    if (this._observer) {
-      this._observer.disconnect();
-    }
   }
 }

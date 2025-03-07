@@ -18,8 +18,8 @@
   "author": "HashiCorp Design Systems <design-systems@hashicorp.com>",
   "type": "module",
   "scripts": {
-    "typecheck": "yarn tsc --noEmit",
-    "lint": "yarn eslint --quiet --ext .js,.ts",
+    "typecheck": "pnpm tsc --noEmit",
+    "lint": "pnpm eslint --quiet --ext .js,.ts",
     "build": "tsx ./scripts/build"
   },
   "devDependencies": {

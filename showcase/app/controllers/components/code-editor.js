@@ -4,14 +4,35 @@
  */
 
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class CodeEditorController extends Controller {
-  demoCode = `lorem ipsum dolor sit amet
-consectetur adipiscing elit
-sed do eiusmod tempor incididunt
-ut labore et dolore magna aliqua`;
+  @tracked hasLineWrapping = true;
+
+  @tracked demoCode =
+    `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
   languages = [
+    {
+      value: 'rego',
+      label: 'Rego',
+      code: `package example.test
+import data.users
+
+default allow = false
+
+# single-line comment
+
+allow with data.something as foo {
+  some i in input.paths
+  not forbidden
+  time.now() >= /* inline block comment */ 1672531200
+}
+
+deny { base64.decode(input.encoded) == "decoded" }
+`,
+    },
     {
       value: 'ruby',
       label: 'Ruby',
@@ -61,6 +82,18 @@ func main() {
 }`,
     },
     {
+      value: 'javascript',
+      label: 'JavaScript',
+      code: `const message = 'Hello, world!';
+
+function sayMessage() {
+  console.log(message);
+}
+
+sayMessage();
+`,
+    },
+    {
       value: 'json',
       label: 'JSON',
       code: `{
@@ -99,4 +132,14 @@ SELECT 'Enjoy coding!';`,
     name: example_db`,
     },
   ];
+
+  @action
+  toggleLineWrapping(event) {
+    this.hasLineWrapping = event.target.checked;
+  }
+
+  @action
+  setDemoCode(value) {
+    this.demoCode = value;
+  }
 }

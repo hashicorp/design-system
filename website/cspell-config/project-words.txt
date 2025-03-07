@@ -24,6 +24,7 @@ heatmaps
 hmac
 Knowledgebase
 letterforms
+lezer
 luxon
 Menlo
 navigations
@@ -60,6 +61,7 @@ wireframe
 Wireframes
 wireframing
 workramp
+nullvoxpopuli
 
 # Component-specific
 dont
@@ -96,3 +98,6 @@ meirish
 natmegs
 ruban
 valeriia
+
+# Programming languages
+rego

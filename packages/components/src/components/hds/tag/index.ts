@@ -4,20 +4,29 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 import { HdsTagColorValues } from './types.ts';
 import type { HdsTagColors } from './types.ts';
+import { HdsTagTooltipPlacementValues } from './types.ts';
+import type { HdsTagTooltipPlacements } from './types.ts';
 import type { HdsInteractiveSignature } from '../interactive/';
 
 export const COLORS: string[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;
+export const TOOLTIP_PLACEMENTS: string[] = Object.values(
+  HdsTagTooltipPlacementValues
+);
+export const DEFAULT_TOOLTIP_PLACEMENT = HdsTagTooltipPlacementValues.Top;
 
 export interface HdsTagSignature {
   Args: HdsInteractiveSignature['Args'] & {
     color?: HdsTagColors;
     text: string;
     ariaLabel?: string;
+    tooltipPlacement?: HdsTagTooltipPlacements;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onDismiss?: (event: MouseEvent, ...args: any[]) => void;
   };
@@ -25,6 +34,43 @@ export interface HdsTagSignature {
 }
 
 export default class HdsTag extends Component<HdsTagSignature> {
+  @tracked private _isTextOverflow!: boolean;
+  private _observer!: ResizeObserver;
+
+  private _setUpObserver = modifier((element: HTMLElement) => {
+    // Used to detect when text is clipped to one line, and tooltip should be added
+    this._observer = new ResizeObserver((entries) => {
+      entries.forEach((entry) => {
+        this._isTextOverflow = this._isOverflow(
+          entry.target.querySelector('.hds-tag__text-container')!
+        );
+      });
+    });
+    this._observer.observe(element);
+
+    return () => {
+      this._observer.disconnect();
+    };
+  });
+
+  /**
+   * @param tooltioPlacement
+   * @type {string}
+   * @default top
+   * @description The placement property of the tooltip attached to the tag text.
+   */
+  get tooltipPlacement(): HdsTagTooltipPlacements {
+    const { tooltipPlacement = DEFAULT_TOOLTIP_PLACEMENT } = this.args;
+
+    assert(
+      '@tooltipPlacement for "Hds::Tag" must have a valid value',
+      tooltipPlacement == undefined ||
+        TOOLTIP_PLACEMENTS.includes(tooltipPlacement)
+    );
+
+    return tooltipPlacement;
+  }
+
   /**
    * @param onDismiss
    * @type {function}
@@ -103,5 +149,9 @@ export default class HdsTag extends Component<HdsTagSignature> {
     }
 
     return classes.join(' ');
+  }
+
+  private _isOverflow(el: Element): boolean {
+    return el.scrollHeight > el.clientHeight;
   }
 }

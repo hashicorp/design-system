@@ -8,6 +8,7 @@ import { assert, deprecate } from '@ember/debug';
 
 import type { HdsIconSignature } from '../../icon';
 import type { HdsInteractiveSignature } from '../../interactive/';
+import type Owner from '@ember/owner';
 
 export interface HdsSideNavHeaderIconButtonSignature {
   Args: HdsInteractiveSignature['Args'] & {
@@ -18,10 +19,7 @@ export interface HdsSideNavHeaderIconButtonSignature {
 }
 
 export default class HdsSideNavHeaderIconButton extends Component<HdsSideNavHeaderIconButtonSignature> {
-  constructor(
-    owner: unknown,
-    args: HdsSideNavHeaderIconButtonSignature['Args']
-  ) {
+  constructor(owner: Owner, args: HdsSideNavHeaderIconButtonSignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -33,6 +31,7 @@ export default class HdsSideNavHeaderIconButton extends Component<HdsSideNavHead
         url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4100',
         for: '@hashicorp/design-system-components',
         since: {
+          available: '4.10.0',
           enabled: '4.10.0',
         },
       }

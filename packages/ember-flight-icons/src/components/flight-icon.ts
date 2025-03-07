@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { iconNames } from '@hashicorp/flight-icons/svg';
 
 import type { IconName } from '@hashicorp/flight-icons/svg';
+import type Owner from '@ember/owner';
 
 export interface FlightIconSignature {
   Args: {
@@ -23,7 +24,7 @@ export interface FlightIconSignature {
 }
 
 export default class FlightIcon extends Component<FlightIconSignature> {
-  constructor(owner: unknown, args: FlightIconSignature['Args']) {
+  constructor(owner: Owner, args: FlightIconSignature['Args']) {
     super(owner, args);
 
     if (!this.args.name) {

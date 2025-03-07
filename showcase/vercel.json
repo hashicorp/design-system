@@ -1,13 +1,13 @@
 {
-  "buildCommand": "yarn workspace showcase build",
-  "devCommand": "yarn workspace showcase ember serve",
+  "buildCommand": "pnpm -F showcase build",
+  "devCommand": "pnpm -F showcase ember serve",
   "headers": [
     {
       "source": "/(.*)",
-      "headers" : [
+      "headers": [
         {
-          "key" : "X-Robots-Tag",
-          "value" : "none"
+          "key": "X-Robots-Tag",
+          "value": "none"
         }
       ]
     }

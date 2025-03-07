@@ -11,6 +11,7 @@ import type { ArgsFor } from 'ember-modifier';
 
 import { assert } from '@ember/debug';
 import { registerDestructor } from '@ember/destroyable';
+import { guidFor } from '@ember/object/internals';
 
 import tippy, { followCursor } from 'tippy.js';
 import type {
@@ -18,8 +19,8 @@ import type {
   Instance as TippyInstance,
   Props as TippyProps,
 } from 'tippy.js';
-// used by custom SVG arrow:
-import 'tippy.js/dist/svg-arrow.css';
+
+import type Owner from '@ember/owner';
 
 export interface HdsTooltipModifierSignature {
   Args: {
@@ -32,9 +33,12 @@ export interface HdsTooltipModifierSignature {
 }
 
 function cleanup(instance: HdsTooltipModifier): void {
-  const { _interval, _needsTabIndex, _tooltip } = instance;
+  const { _interval, _needsTabIndex, _tooltip, _containerElement } = instance;
   if (_needsTabIndex) {
     _tooltip?.reference?.removeAttribute('tabindex');
+  }
+  if (_containerElement) {
+    _containerElement.remove();
   }
   clearInterval(_interval);
   _tooltip?.destroy();
@@ -55,11 +59,13 @@ function cleanup(instance: HdsTooltipModifier): void {
  */
 export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSignature> {
   private _didSetup = false;
+  private _containerId: string = 'container-' + guidFor(this);
   _interval: number | undefined = undefined;
   _needsTabIndex = false;
   _tooltip: TippyInstance | undefined = undefined;
+  _containerElement?: HTMLElement;
 
-  constructor(owner: unknown, args: ArgsFor<HdsTooltipModifierSignature>) {
+  constructor(owner: Owner, args: ArgsFor<HdsTooltipModifierSignature>) {
     super(owner, args);
     registerDestructor(this, cleanup);
   }
@@ -105,6 +111,7 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     positional: HdsTooltipModifierSignature['Args']['Positional'],
     named: HdsTooltipModifierSignature['Args']['Named']
   ): void {
+    this.#createPopoverContainer(element);
     const tooltipProps = this.#getTooltipProps(element, positional, named);
     this._tooltip = tippy(element, tooltipProps);
   }
@@ -116,6 +123,20 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
   ): void {
     const tooltipProps = this.#getTooltipProps(element, positional, named);
     this._tooltip?.setProps(tooltipProps);
+  }
+
+  #createPopoverContainer(
+    element: HdsTooltipModifierSignature['Element']
+  ): void {
+    const containerElement = document.createElement('div');
+    containerElement.setAttribute('id', this._containerId);
+    containerElement.classList.add('hds-tooltip-container');
+    containerElement.style.setProperty('position', 'absolute');
+    containerElement.style.setProperty('width', '100%');
+    element.setAttribute('aria-controls', this._containerId);
+    element.setAttribute('aria-describedby', this._containerId);
+    element.after(containerElement);
+    this._containerElement = containerElement;
   }
 
   #getTooltipProps(
@@ -200,9 +221,9 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
         </svg>`,
       // keeps tooltip itself open on hover:
       interactive: true,
+      appendTo: this._containerElement,
       // fix accessibility features that get messed up with setting interactive: true
       aria: {
-        content: 'describedby',
         expanded: false,
       },
       content: () => content,

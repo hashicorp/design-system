@@ -13,6 +13,7 @@ import type { HdsInteractiveSignature } from '../../interactive';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsBadgeSignature } from '../../badge/index.ts';
+import type Owner from '@ember/owner';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
 export const COLORS: string[] = Object.values(
@@ -42,7 +43,7 @@ export interface HdsDropdownListItemInteractiveSignature {
 
 export default class HdsDropdownListItemInteractive extends Component<HdsDropdownListItemInteractiveSignature> {
   constructor(
-    owner: unknown,
+    owner: Owner,
     args: HdsDropdownListItemInteractiveSignature['Args']
   ) {
     super(owner, args);

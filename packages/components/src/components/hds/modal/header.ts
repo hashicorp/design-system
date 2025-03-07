@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { deprecate } from '@ember/debug';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export interface HdsModalHeaderSignature {
   Args: {
@@ -21,7 +22,7 @@ export interface HdsModalHeaderSignature {
 }
 
 export default class HdsModalHeader extends Component<HdsModalHeaderSignature> {
-  constructor(owner: unknown, args: HdsModalHeaderSignature['Args']) {
+  constructor(owner: Owner, args: HdsModalHeaderSignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -33,6 +34,7 @@ export default class HdsModalHeader extends Component<HdsModalHeaderSignature> {
         url: 'https://helios.hashicorp.design/components/flyout?tab=version%20history#460',
         for: '@hashicorp/design-system-components',
         since: {
+          available: '4.6.0',
           enabled: '4.6.0',
         },
       }

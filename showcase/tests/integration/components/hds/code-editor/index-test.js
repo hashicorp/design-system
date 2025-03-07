@@ -87,11 +87,23 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     await setupCodeEditor(
       hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} />`
     );
-    assert.dom('.hds-code-editor__copy-button').exists();
+    assert
+      .dom('.hds-code-editor__copy-button')
+      .exists()
+      .hasAria('label', 'Copy');
   });
   test('it should not render a copy button when the `@hasCopyButton` argument is not provided', async function (assert) {
     await setupCodeEditor(hbs`<Hds::CodeEditor @ariaLabel="code editor" />`);
     assert.dom('.hds-code-editor__copy-button').doesNotExist();
+  });
+  test('it renders a copy button with custom text', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="code editor" @hasCopyButton={{true}} @copyButtonText="Foo" />`
+    );
+    assert
+      .dom('.hds-code-editor__copy-button')
+      .exists()
+      .hasAria('label', 'Foo');
   });
   // @isStandalone
   test('it should render the component with a standalone style when the `@isStandalone` argument is true and when the argument is ommitted', async function (assert) {
@@ -238,6 +250,23 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
     assert
       .dom('.hds-code-editor__editor .cm-editor [role="textbox"]')
       .doesNotHaveAttribute('aria-labelledby');
+  });
+
+  // @hasLineWrapping
+  test('it should render the editor with line wrapping enabled when hasLineWrapping is true and not when it is false', async function (assert) {
+    this.set('hasLineWrapping', true);
+
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor @ariaLabel="test" @hasLineWrapping={{this.hasLineWrapping}} />`
+    );
+    assert
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
+      .hasClass('cm-lineWrapping');
+
+    this.set('hasLineWrapping', false);
+    assert
+      .dom('.hds-code-editor__editor .cm-editor .cm-content')
+      .doesNotHaveClass('cm-lineWrapping');
   });
 
   // @value

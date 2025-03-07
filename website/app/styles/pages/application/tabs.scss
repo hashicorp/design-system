@@ -37,7 +37,6 @@
     padding: 24px var(--doc-page-stage-gutter-x-large) 0;
   }
 
-  // Make tabs position sticky/fixed if the viewport height is greater than 480px
   @media (height >= 480px) {
     position: sticky;
     top: var(--doc-page-header-height);

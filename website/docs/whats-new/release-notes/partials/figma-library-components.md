@@ -8,15 +8,31 @@
 ## Components library
 
 <p class="doc-whats-new-changelog-figma-library">
-  <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=YeAupEyKdQqauO1k-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit</a></strong>
+  <strong>Figma library: <a href="https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1" target="_blank" rel="noopener noreferrer">HDS Components UI Kit v2.0</a></strong>
 </p>
 
+
+#### March 5th, 2025
+
+`CodeEditor` - Added support for Javascript and Rego languages.
+
+`Badge` - Updated colors for improved contrast and accessibility.
+
+`Tag` - Updated to support truncation and tooltip. Content no longer wraps.
+
+`Advanced Table` - Removed an unnecessary border from `Header::Selection`.
+
+#### Breaking changes
+
+`Advanced Table` - Restructured `Cell::Selection` to mimic the `Table::Cell::Selection` component.
+
+_This change alters the layer structure of the component and results in a breaking change for the `Advanced Table` cell "selection" components only._
 
 ### January 23rd, 2025
 
 `Advanced Table` - Added new component.
 
-`Code Editor` - Added new component.
+`CodeEditor` - Added new component.
 
 `Table` - Added column borders.
 
@@ -24,17 +40,29 @@
 
 `IconTile` - Removed the border and updated the colors for improved contrast and to create a distinctive look that aligns better with the surrounding elements.
 
-**Deprecated** HDS Components UI Kit v1.0. It will no longer receive updates or support. 
-
-Released HDS Components UI Kit v2.0.
-
 `SideNav` - No longer deprecated due to adjustments in prioritization.
 
-### September 11th, 2024
+#### Figma v2.0 Components
 
-`Text Input` - Added support for types `Tel`, `Week` and `Month`.
+- Deprecated HDS Components UI Kit v1.0. It will no longer receive updates or support.
+- Released HDS components UI Kit v2.0.
 
-`Dropdown` - `ListItem Interactive` added support for the `Badge` component.
+In many cases, replacing v1.0 library components with the components in the Figma v2.0 Library will result in breaking changes. For a comprehensive list of how these changes will impact your designs, refer to the [changelog document](https://docs.google.com/document/d/1q9IGtrsVOf3KrSBGb8AdF3OhPUm3fYAwPdhSml7onMM/edit?tab=t.0#heading=h.15f60fqiivvr).
+
+##### General changes
+
+- Improved consistency in component naming conventions
+- Enhanced property panel customization options
+- Reduced variant complexity through boolean properties
+- Added local tokens for custom styling (hidden from publishing)
+- Standardized nested component structure
+
+##### Component organization updates
+
+- Standardized naming conventions, nested structures, and boolean property usage to reduce complexity.
+- Updated organization with "Form /" prefixes and DialogPrimitive as the base for modal components.
+- Introduced [Template] components for common combinations.
+- Improved nested component accessibility for easier customization.
 
 ### August 2nd, 2024
 
@@ -98,6 +126,10 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### September 15th, 2023
 
 `IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
+
+### August 17th, 2023
+
+`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 
 ---

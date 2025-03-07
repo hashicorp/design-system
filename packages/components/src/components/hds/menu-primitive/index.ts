@@ -8,6 +8,7 @@ import { deprecate } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import type Owner from '@ember/owner';
 
 export interface MenuPrimitiveSignature {
   Args: {
@@ -37,7 +38,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
   @tracked toggleRef: HTMLElement | undefined;
   @tracked element!: HTMLElement;
 
-  constructor(owner: unknown, args: MenuPrimitiveSignature['Args']) {
+  constructor(owner: Owner, args: MenuPrimitiveSignature['Args']) {
     super(owner, args);
 
     deprecate(
@@ -50,6 +51,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
         for: '@hashicorp/design-system-components',
         since: {
           enabled: '4.10.0',
+          available: '4.10.0',
         },
       }
     );

@@ -22,7 +22,11 @@
       </code></pre>
 
     {{#if @hasCopyButton}}
-      <Hds::CodeBlock::CopyButton @targetToCopy="#{{this._preCodeId}}" aria-describedby={{this._preCodeId}} />
+      <Hds::CodeBlock::CopyButton
+        @targetToCopy="#{{this._preCodeId}}"
+        aria-describedby={{this._preCodeId}}
+        @text={{this.copyButtonText}}
+      />
     {{/if}}
   </div>
 </div>
