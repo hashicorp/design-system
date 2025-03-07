@@ -50,10 +50,12 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   private _setUpStepperNav = modifier(() => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      assert(
-        'The number of Steps must be equal to the number of Panels',
-        this._stepNodes.length === this._panelNodes.length
-      );
+      if (this.isInteractive) {
+        assert(
+          'If @isInteractive is true, the number of Steps must be equal to the number of Panels',
+          this._stepNodes.length === this._panelNodes.length
+        );
+      }
     });
 
     return () => {};
