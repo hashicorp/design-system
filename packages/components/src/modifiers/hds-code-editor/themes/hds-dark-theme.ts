@@ -9,8 +9,6 @@ import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
   HDS_CODE_BLOCK_GREEN,
   HDS_CODE_BLOCK_WHITE,
-  HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
-  HDS_CODE_EDITOR_COLOR_BORDER_STRONG,
   HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
@@ -30,7 +28,7 @@ const hdsDark = EditorView.theme(
       height: '100%',
     },
     '.cm-content': {
-      borderLeft: `1px solid ${HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY}`,
+      borderLeft: `1px solid var(--token-color-palette-neutral-500)`,
       height: '100%',
       padding: '16px 0',
     },
@@ -115,7 +113,7 @@ const hdsDark = EditorView.theme(
       bottom: '0',
     },
     '.cm-panel.cm-panel-lint ul': {
-      backgroundColor: HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
+      backgroundColor: 'var(--token-color-palette-neutral-500)',
       maxHeight: '80px',
     },
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
@@ -141,7 +139,7 @@ const hdsDark = EditorView.theme(
       color: 'var(--token-color-foreground-high-contrast)',
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {
-      borderTop: `3px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
+      borderTop: `3px solid var(--token-color-palette-neutral-500)`,
     },
     '.cm-diagnostic': {
       borderLeft: 'none',
