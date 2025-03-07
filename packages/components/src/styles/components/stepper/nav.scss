@@ -11,6 +11,37 @@
 @use "../../mixins/focus-ring" as *;
 @use "./step-indicator.scss" as *;
 
+$progress-bar-animation-duration: .25s;
+
+.hds-stepper-nav {
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: -4px;
+    left: 0;
+    z-index: -1;
+    height: 4px;
+    content: "";
+  }
+
+  &::before {
+    width: 100%;
+    background-color: var(--token-color-palette-alpha-200);
+  }
+
+  &::after {
+    width: var(--progress-bar-width, 0);
+    background-color: var(--token-color-palette-neutral-700);
+    border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: width $progress-bar-animation-duration ease-in-out;
+    }
+  }
+}
+
 .hds-stepper-nav__list,
 .hds-stepper-nav__step {
   margin: 0;
@@ -46,35 +77,6 @@
   display: flex;
   justify-content: center;
   width: 100%;
-
-  &::before,
-  &::after {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 4px;
-    content: "";
-  }
-
-  &::before {
-    background-color: var(--token-color-palette-alpha-200);
-  }
-
-  &::after {
-    background-color: var(--token-color-palette-neutral-700);
-  }
-}
-
-.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-progress::before,
-.hds-stepper-nav .hds-stepper-nav__step:first-of-type .hds-stepper-nav__step-progress::after {
-  border-radius: var(--token-border-radius-x-small) 0 0 var(--token-border-radius-x-small);
-}
-
-.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step-progress::before,
-.hds-stepper-nav .hds-stepper-nav__step:last-of-type .hds-stepper-nav__step-progress::after {
-  border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
 }
 
 .hds-stepper-nav__step-text {
@@ -103,12 +105,6 @@
   color: var(--token-color-foreground-strong);
 }
 
-// Incomplete
-
-.hds-stepper-nav__step--incomplete .hds-stepper-nav__step-progress::after {
-  width: 0;
-}
-
 // Active
 
 .hds-stepper-nav__step--active {
@@ -122,27 +118,24 @@
     );
   }
 
-  .hds-stepper-nav__step-progress::after {
-    width: calc(50% - 16px); // 1/2 width of icon (12px) + 4px margin
-    border-radius: 0 20px 20px 0;
+  .hds-stepper-indicator-step__svg-hexagon path,
+  .hds-stepper-indicator-step__status,
+  .hds-stepper-nav__step-title {
+    @media (prefers-reduced-motion: no-preference) {
+      transition: all .15s ease-in-out ($progress-bar-animation-duration);
+    }
   }
-}
-
-// Complete
-
-.hds-stepper-nav__step--complete .hds-stepper-nav__step-progress::after {
-  width: 100%;
 }
 
 // NAV INTERACTIVE
 
-.hds-stepper-nav__step--nav-interactive {
-  .hds-stepper-nav__step-progress::after {
+.hds-stepper-nav--interactive {
+  &::after {
     background-color: var(--token-color-palette-blue-300);
   }
 
-  &.hds-stepper-nav__step--complete .hds-stepper-nav__step-title,
-  &.hds-stepper-nav__step--active .hds-stepper-nav__step-title {
+  .hds-stepper-nav__step--complete .hds-stepper-nav__step-title,
+  .hds-stepper-nav__step--active .hds-stepper-nav__step-title {
     color: var(--token-color-foreground-action);
   }
 }
@@ -328,6 +321,13 @@
 // MOBILE
 
 @media screen and (width <= 550px) {
+  .hds-stepper-nav {
+    &::before,
+    &::after {
+      content: none;
+    }
+  }
+
   .hds-stepper-nav__list {
     flex-direction: column;
   }
@@ -340,11 +340,6 @@
     top: -12px;
     left: 8px;
     justify-content: start;
-
-    &::before,
-    &::after {
-      content: none;
-    }
   }
 
   .hds-stepper-nav__step-text {
