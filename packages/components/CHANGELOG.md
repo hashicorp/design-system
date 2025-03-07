@@ -1,5 +1,37 @@
 # @hashicorp/design-system-components
 
+## 4.18.0
+
+### Minor Changes
+
+`Time` - Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.
+
+`RichTooltip` - Increase spacing above the dotted text decoration underline to 2px from the default.
+
+<small class="doc-whats-new-changelog-metadata">[#2745](https://github.com/hashicorp/design-system/pull/2745)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add language syntax highlighting suport for Markdown
+
+`CodeEditor` - Add language syntax highlighting suport for Markdown
+
+Dependencies - added @codemirror/lang-markdown
+
+<small class="doc-whats-new-changelog-metadata">[#2740](https://github.com/hashicorp/design-system/pull/2740)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Added `@embroider/util` dependency
+
+Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component` helper
+
+<small class="doc-whats-new-changelog-metadata">[#2728](https://github.com/hashicorp/design-system/pull/2728) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.17.1
 
 [4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)
