@@ -65,7 +65,7 @@ export default class ShwGrid extends Component<ShwGridSignature> {
         <ShwLabel>{{@label}}</ShwLabel>
       {{/if}}
       {{yield (hash Label=ShwLabel)}}
-      <div class="shw-grid__items" ...attributes>
+      <div class="shw-grid__items" style={{this.itemsStyle}} ...attributes>
         {{yield (hash Item=ShwGridItem)}}
       </div>
     </div>
