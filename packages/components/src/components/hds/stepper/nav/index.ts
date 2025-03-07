@@ -27,6 +27,7 @@ export interface HdsStepperNavSignature {
     currentStep?: number;
     isInteractive?: boolean;
     titleTag?: HdsStepperTitleTags;
+    ariaLabel: string;
     onStepChange?: (event: MouseEvent, stepNumber: number) => void;
   };
   Blocks: {
