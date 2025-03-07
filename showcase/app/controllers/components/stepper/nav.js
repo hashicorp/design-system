@@ -7,13 +7,12 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class StepperController extends Controller {
+export default class StepperNavController extends Controller {
   queryParams = [
     'currentStep_demo1',
     'currentStep_demo2',
     'currentStep_demo3',
     'currentStep_demo4',
-    'steps_demo4',
   ];
 
   @tracked currentStep_demo1 = 1;
