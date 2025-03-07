@@ -55,7 +55,7 @@ export default class ShwFlex extends Component<ShwFlexSignature> {
         <ShwLabel>{{@label}}</ShwLabel>
       {{/if}}
       {{yield (hash Label=ShwLabel)}}
-      <div class="shw-flex__items" ...attributes>
+      <div class="shw-flex__items" style={{this.itemsStyle}} ...attributes>
         {{yield (hash Item=ShwFlexItem)}}
       </div>
     </div>
