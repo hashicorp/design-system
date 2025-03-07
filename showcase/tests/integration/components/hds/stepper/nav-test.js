@@ -23,12 +23,14 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       this.titleTag = args.titleTag ?? undefined;
       this.onStepChange = args.onStepChange ?? undefined;
       this.isInteractive = args.isInteractive ?? undefined;
+      this.ariaLabel = args.ariaLabel ?? 'Label';
       return await render(hbs`
           <Hds::Stepper::Nav
             id="test-stepper-nav"
             @currentStep={{this.currentStep}}
             @titleTag={{this.titleTag}}
             @isInteractive={{this.isInteractive}}
+            @ariaLabel={{this.ariaLabel}}
             @onStepChange={{this.onStepChange}}
             as |S|
           >
@@ -48,6 +50,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       this.onStepChange = args.onStepChange ?? undefined;
       this.step1Title = args.step1Title ?? undefined;
       this.step1Description = args.step1Description ?? undefined;
+      this.ariaLabel = args.ariaLabel ?? 'Label';
       return await render(hbs`
           <Hds::Stepper::Nav
             id="test-stepper-nav"
@@ -57,6 +60,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
             }}
             @currentStep={{this.currentStep}}
             @titleTag={{this.titleTag}}
+            @ariaLabel={{this.ariaLabel}}
             @onStepChange={{this.onStepChange}}
           >
             <:body>
@@ -155,6 +159,13 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       .dom('[data-test="step-1"]')
       .hasClass('hds-stepper-nav__step--nav-interactive');
     assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
+  });
+
+  // ARIA LABEL
+
+  test('it sets the aria-label of the ol to the value provided to the @ariaLabel argument', async function (assert) {
+    await this.createStepperNav({ ariaLabel: 'test' });
+    assert.dom('.hds-stepper-nav__list').hasAttribute('aria-label', 'test');
   });
 
   // CALLBACKS: ONSTEPCHANGE
