@@ -16,6 +16,7 @@ import type { HdsStepperTitleTags, HdsStepperListStepIds } from '../types.ts';
 export interface HdsStepperListSignature {
   Args: {
     titleTag?: HdsStepperTitleTags;
+    ariaLabel: string,
   };
   Blocks: {
     default: [

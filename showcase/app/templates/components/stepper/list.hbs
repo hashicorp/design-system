@@ -13,7 +13,7 @@
 
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item @label="Default">
-      <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} as |S|>
+      <Hds::Stepper::List @titleTag="h3" @ariaLabel="Label" {{style width="200px"}} as |S|>
         <S.Step @status="complete">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -81,7 +81,7 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.STEP_STATUSES as |status|}}
       <SG.Item @label="{{capitalize status}}">
-        <Hds::Stepper::List as |S|>
+        <Hds::Stepper::List @ariaLabel="Label" as |S|>
           <S.Step @status={{status}}>
             <:title>Title</:title>
             <:description>Description</:description>
@@ -100,7 +100,7 @@
 
   <Shw::Grid @columns={{2}} as |SG|>
     <SG.Item @label="Default">
-      <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} as |S|>
+      <Hds::Stepper::List @titleTag="h3" @ariaLabel="Label" {{style width="200px"}} as |S|>
         {{#each this.steps_demo1 as |step|}}
           <S.Step @status={{step.status}}>
             <:title>{{step.title}}</:title>
@@ -123,7 +123,7 @@
       </Hds::ButtonSet>
     </SG.Item>
     <SG.Item @label="Processing state">
-      <Hds::Stepper::List @titleTag="h3" {{style width="200px"}} as |S|>
+      <Hds::Stepper::List @titleTag="h3" @ariaLabel="Label" {{style width="200px"}} as |S|>
         {{#each this.steps_demo2 as |step|}}
           <S.Step @status={{step.status}}>
             <:title>{{step.title}}</:title>
