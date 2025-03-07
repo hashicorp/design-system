@@ -84,15 +84,11 @@ Press Enter again to trigger the action.
 Use Tab to navigate between actions within the cell.
 
 
-
-
 ![Tooltip appears on focus for the info icon in the 'Artist' column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png)
 
 <Doc::Badge @type="neutral">Escape</Doc::Badge>
 
 Returns to navigation mode.
-
-
 
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png)
