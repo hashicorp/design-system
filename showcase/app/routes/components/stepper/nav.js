@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-export default class ComponentsStepperRoute extends Route {
+export default class ComponentsStepperNavRoute extends Route {
   model() {
     const NAV_STATES = ['default', 'hover', 'active', 'focus'];
     const INDICATOR_STATES = ['default', 'hover', 'active'];
