@@ -12,7 +12,7 @@ The table row element cannot receive interactions, meaning actions cannot be att
 
 ### Focus in Advanced Tables
 
-Unlike the Table component, each cell receives focus in the Advanced Table to support users navigating through the table efficiently with a keyboard. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
+Unlike the Table component, Advanced Table supports keyboard navigation with focus states for each cell. For any other interactions, you must use interactive elements (buttons, links, etc.) within the cells. 
 
 ## Keyboard Navigation
 
@@ -27,9 +27,9 @@ When a user tabs into the Advanced Table, the first cell is focused.
 
 ![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png =402x*)
 
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrowy" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" @title="Up arrow" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" @title="Down arrow" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrow" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" @title="Up arrow" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" @title="Down arrow" /></Doc::Badge>
 
-Arrow keys move between cells. If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
+Arrow keys move focus to cells in the direction of the input. If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png =402x*)
 
