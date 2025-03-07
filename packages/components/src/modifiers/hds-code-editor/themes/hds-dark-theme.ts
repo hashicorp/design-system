@@ -14,17 +14,8 @@ import {
   HDS_CODE_EDITOR_COLOR_SURFACE_FAINT,
   HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
   HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
-  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL,
-  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
-  HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_EXTERNAL,
-  HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_INTERNAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
-  HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
-  HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_300,
-  HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
-  HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND,
-  HDS_CODE_EDITOR_COLOR_PALETTE_NEUTRAL_700,
 } from '../palettes/hds-dark-palette.ts';
 
 const CLOSE_BUTTON_SELECTOR = '.cm-panel.cm-panel-lint button[name="close"]';
@@ -69,7 +60,7 @@ const hdsDark = EditorView.theme(
       {
         borderColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER,
         backgroundColor: HDS_CODE_BLOCK_LINE_HIGHLIGHT,
-        color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+        color: 'var(--token-color-foreground-high-contrast)',
         outline: `1px solid ${HDS_CODE_BLOCK_LINE_HIGHLIGHT_BORDER}`,
       },
     '.cm-line': {
@@ -126,7 +117,7 @@ const hdsDark = EditorView.theme(
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
       border: '4px solid transparent',
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+      color: 'var(--token-color-foreground-high-contrast)',
       fontFamily: 'var(--token-typography-body-100-font-family)',
       fontSize: '13px',
       marginBottom: '1px',
@@ -140,10 +131,10 @@ const hdsDark = EditorView.theme(
     },
     '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
       background: 'none',
-      backgroundColor: HDS_CODE_EDITOR_COLOR_PALETTE_NEUTRAL_700,
-      border: `4px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_EXTERNAL}`,
-      boxShadow: `inset 0 0 0 1px ${HDS_CODE_EDITOR_COLOR_FOCUS_CRITICAL_INTERNAL}`,
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+      backgroundColor: 'var(--token-color-palette-neutral-700)',
+      border: `4px solid var(--token-color-focus-critical-external)`,
+      boxShadow: `inset 0 0 0 1px var(--token-color-focus-critical-internal)`,
+      color: 'var(--token-color-foreground-high-contrast)',
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {
       borderTop: `3px solid ${HDS_CODE_EDITOR_COLOR_BORDER_STRONG}`,
@@ -165,7 +156,7 @@ const hdsDark = EditorView.theme(
     [`${CLOSE_BUTTON_SELECTOR}`]: {
       alignItems: 'center',
       borderRadius: '5px',
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_300,
+      color: 'var(--token-color-palette-neutral-300)',
       cursor: 'pointer',
       display: 'flex',
       fontFamily: 'var(--token-typography-body-100-font-family)',
@@ -182,21 +173,18 @@ const hdsDark = EditorView.theme(
       {
         backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
         border: '1px solid transparent',
-        color: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
+        color: 'var(--token-color-palette-neutral-400)',
       },
-    [`${CLOSE_BUTTON_SELECTOR}:active`]: {
-      borderColor: HDS_CODE_EDITOR_COLOR_FOREGROUND_NEUTRAL_400,
-    },
     [`${CLOSE_BUTTON_SELECTOR}:focus`]: {
-      borderColor: HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
-      outline: `3px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL}`,
+      borderColor: 'var(--token-color-focus-action-internal)',
+      outline: `3px solid var(--token-color-focus-action-external)`,
     },
 
     // tooltips
     '.cm-tooltip': {
-      backgroundColor: HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND,
+      backgroundColor: 'var(--token-color-palette-neutral-600)',
       borderRadius: '5px',
-      color: HDS_CODE_EDITOR_COLOR_FOREGROUND_HIGH_CONTRAST,
+      color: 'var(--token-color-foreground-high-contrast)',
       fontFamily: 'var(--token-typography-body-100-font-family)',
       fontSize: '13px',
       padding: '8px 12px',
@@ -217,11 +205,11 @@ const hdsDark = EditorView.theme(
       transform: 'translateX(-50%)',
     },
     '.cm-tooltip-above::before': {
-      borderTop: `8px solid ${HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND}`,
+      borderTop: `8px solid var(--token-color-palette-neutral-600)`,
       bottom: '-8px',
     },
     '.cm-tooltip-below::before': {
-      borderBottom: `8px solid ${HDS_CODE_EDITOR_COLOR_TOOLTIP_BACKGROUND}`,
+      borderBottom: `8px solid var(--token-color-palette-neutral-600)`,
       top: '-8px',
     },
     // only show the marker within the diagnostics panel
