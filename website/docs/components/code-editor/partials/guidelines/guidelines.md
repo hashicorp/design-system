@@ -104,3 +104,22 @@ In **Figma** we provide a handful of example languages intended as visual exampl
 
 If you wish to create custom examples using the Code Editor, we publish all of the relevant syntax highlighting variables in the [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=gWdKy44MzTP4cTRo-1) library. However, due to the number of languages supported by the component, the color variables use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
+
+## Linting
+The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+
+!!! Info 
+This component is only available in Ember and is not supported in Figma.
+!!!
+
+![](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
+
+When linting is enabled, the CodeEditor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minimum height for the CodeEditor with linting is 160px. The linting alert dialog is always 80px in height.
+
+![](/assets/components/code-editor/codeeditor-linting-preview.png)
+
+To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+
+![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
+
+If you require linting for addition languages [contact the HDS team](/about/support).
