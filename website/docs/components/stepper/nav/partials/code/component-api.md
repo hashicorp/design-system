@@ -32,6 +32,9 @@
   <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
     The HTML tag that wraps the content of each Nav Step title block.
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
+    The value of the aria-label. If no text value is defined, an error will be thrown.
+  </C.Property>
   <C.Property @name="onStepChange" @type="function">
     Callback function invoked when `@isInteractive` is set to `true` and a click occurs on an interactive step. The function receives the DOM `event` and the steps's `index` (integer number) as arguments.
   </C.Property>
