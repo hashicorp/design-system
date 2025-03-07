@@ -7,7 +7,10 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { HdsAdvancedTableExpandState, HdsAdvancedTableHorizontalAlignment } from './types.ts';
+import type {
+  HdsAdvancedTableExpandState,
+  HdsAdvancedTableHorizontalAlignment,
+} from './types.ts';
 import type Owner from '@ember/owner';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
