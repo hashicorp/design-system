@@ -38,7 +38,15 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
     (hash title="Step 3")
   }}
 >
-  <:body>Content</:body>
+  <:body>
+    {{#if (eq this.currentStep 0)}}
+      Content 1
+    {{else if (eq this.currentStep 1)}}
+      Content 2
+    {{else}}
+      Content 3
+    {{/if}}
+  </:body>
 </Hds::Stepper::Nav>
 ```
 
@@ -49,7 +57,7 @@ The state of steps is controlled automatically through the `@currentStep` argume
 - All steps less than `@currentStep` are completed
 - All steps greater than `@currentStep` are incomplete
 
-By default `@currentStep` is equal to 0.
+By default, `@currentStep` is equal to 0.
 
 ```handlebars
 <Hds::Stepper::Nav @currentStep={{1}} as |S|>
@@ -77,9 +85,9 @@ When a click on a step occurs, the `@onStepChange` handler can be used to pass a
 
 ```handlebars
 <Hds::Stepper::Nav
-  @currentStep={{1}}
+  @currentStep={{this.demoCurrentStep}}
   @isInteractive={{true}}
-  @onStepChange={{this.updateStepNumber}}
+  @onStepChange={{this.demoOnStepChange}}
   as |S|
 >
   <S.Step>
