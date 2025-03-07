@@ -109,8 +109,6 @@ For more details around syntax, visit the [specifications](/components/code-edit
 The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
 
 !!! Info 
-Linting within the Code Editor is only supported for JSON. If you require linting for addition languages [contact](/about/support) the HDS team.
-
 This component is only available in Ember and is not supported in Figma.
 !!!
 
