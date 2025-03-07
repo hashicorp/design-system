@@ -122,6 +122,6 @@ When linting is enabled, the CodeEditor will have a minimum height set by defaul
 
 To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
 
-![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
+![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
 
 If you require linting for addition languages [contact](/about/support) the HDS team.
