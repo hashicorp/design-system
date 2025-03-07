@@ -56,7 +56,7 @@ async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   return StreamLanguage.define(streamParser);
 }
 
-function getCSPNonceFromMeta(): string | undefined {
+export function getCSPNonceFromMeta(): string | undefined {
   const meta = document.querySelector(
     'meta[http-equiv="Content-Security-Policy"]'
   );
