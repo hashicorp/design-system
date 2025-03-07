@@ -143,6 +143,7 @@ import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLayoutFlexComponent from './components/hds/layout/flex';
 import type HdsLayoutFlexItemComponent from './components/hds/layout/flex/item';
+import type HdsLayoutGridComponent from './components/hds/layout/grid';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
@@ -701,6 +702,10 @@ export default interface HdsComponentsRegistry {
   'hds/layout/flex': typeof HdsLayoutFlexComponent;
   'Hds::Layout::Flex::Item': typeof HdsLayoutFlexItemComponent;
   'hds/layout/flex/item': typeof HdsLayoutFlexItemComponent;
+
+  // Layout Grid
+  'Hds::Layout::Grid': typeof HdsLayoutGridComponent;
+  'hds/layout/grid': typeof HdsLayoutGridComponent;
 
   // Link Inline
   'Hds::Link::Inline': typeof HdsLinkInlineComponent;
