@@ -5,7 +5,13 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, focus, triggerKeyEvent } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/stepper/nav', function (hooks) {
@@ -83,6 +89,24 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     await this.createStepperNavArray();
     assert.dom('.hds-stepper-nav__step').exists({ count: 2 });
     assert.dom('.hds-stepper-nav__panel').exists({ count: 2 });
+  });
+
+  test('it should have 2 Steps and no Panels if no :body named block is added', async function (assert) {
+    await render(hbs`
+      <Hds::Stepper::Nav
+        id="test-stepper-nav"
+        @steps={{array
+          (hash title=this.step1Title description=this.step1Description)
+          (hash title="Step 2")
+        }}
+        @currentStep={{this.currentStep}}
+        @titleTag={{this.titleTag}}
+        @onStepChange={{this.onStepChange}}
+      >
+      </Hds::Stepper::Nav>
+    `);
+    assert.dom('.hds-stepper-nav__step').exists({ count: 2 });
+    assert.dom('.hds-stepper-nav__panel').doesNotExist();
   });
 
   // TITLE TAG
@@ -191,5 +215,32 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     assert
       .dom('[data-test="step-2"] .hds-stepper-nav__step-button')
       .isFocused();
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if the number of steps does not match the number of panels and @isInteractive is provided', async function (assert) {
+    await render(hbs`
+      <Hds::Stepper::Nav
+        id="test-stepper-nav"
+        @steps={{array
+          (hash title=this.step1Title description=this.step1Description)
+          (hash title="Step 2")
+        }}
+        @currentStep={{this.currentStep}}
+        @titleTag={{this.titleTag}}
+        @onStepChange={{this.onStepChange}}
+      >
+      </Hds::Stepper::Nav>
+    `);
+    const errorMessage =
+      'If @isInteractive is true, the number of Steps must be equal to the number of Panels';
+    assert.expect(1);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
