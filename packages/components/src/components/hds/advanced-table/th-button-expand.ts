@@ -8,13 +8,13 @@ import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
-import { HdsAdvancedTableThExpandIconValues } from './types.ts';
+import { HdsAdvancedTableThExpandIconValues, type HdsAdvancedTableExpandState } from './types.ts';
 import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
 export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
     isExpanded?: boolean | 'mixed';
-    onToggle?: (newValue?: boolean | 'mixed') => void;
+    onToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
     isExpandAll?: boolean;
   };
   Element: HTMLButtonElement;

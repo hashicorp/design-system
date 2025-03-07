@@ -7,7 +7,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
+import type { HdsAdvancedTableExpandState, HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import type Owner from '@ember/owner';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
@@ -30,8 +30,8 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         id?: string;
         parentId?: string;
         depth: number;
-        onClickToggle?: (newValue?: boolean | 'mixed') => void;
-        isExpanded?: boolean | 'mixed';
+        onClickToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
+        isExpanded?: HdsAdvancedTableExpandState;
         rowIndex?: string;
         didInsertExpandButton?: (button: HTMLButtonElement) => void;
         willDestroyExpandButton?: () => void;
@@ -43,7 +43,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 }
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
-  @tracked private _isExpanded: boolean | 'mixed' = false;
+  @tracked private _isExpanded: HdsAdvancedTableExpandState = false;
 
   private _id = guidFor(this);
 

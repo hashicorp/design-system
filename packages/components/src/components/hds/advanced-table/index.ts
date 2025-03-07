@@ -27,6 +27,7 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
+  HdsAdvancedTableExpandState,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
@@ -75,7 +76,7 @@ export interface HdsAdvancedTableSignature {
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
         data?: Record<string, unknown>;
         rowIndex?: number | string;
-        isOpen?: boolean | 'mixed';
+        isOpen?: HdsAdvancedTableExpandState;
       },
     ];
   };
@@ -482,7 +483,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
           (button) => button.getAttribute('aria-expanded') === 'true'
         ).length;
 
-        let expandAllState: boolean | 'mixed';
+        let expandAllState: HdsAdvancedTableExpandState;
 
         if (parentRowsCount === expandedRowsCount) expandAllState = true;
         else if (expandedRowsCount === 0) expandAllState = false;

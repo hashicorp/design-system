@@ -110,27 +110,6 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H3>With nested rows and cells that span rows</Shw::Text::H3>
-
-  <Hds::AdvancedTable
-    @model={{this.model.spanningData}}
-    @columns={{array
-      (hash key="name" label="Name" isExpandable=true)
-      (hash key="service" label="Service")
-      (hash key="description" label="Description")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        {{#if B.data.name}}
-          <B.Th @rowspan={{if B.isOpen (add B.data.children.length 1) 1}}>{{B.data.name}}</B.Th>
-        {{/if}}
-        <B.Td>{{B.data.service}}</B.Td>
-        <B.Td>{{B.data.description}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-
   <Shw::Divider />
 
   <Shw::Text::H2>Sticky header</Shw::Text::H2>

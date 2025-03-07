@@ -17,7 +17,7 @@
     onClickToggle=this.onClickToggle
   )
 }}
-{{#if (and this.hasChildren)}}
+{{#if this.hasChildren}}
   {{#each this.children as |childRecord|}}
     <Hds::AdvancedTable::ExpandableTrGroup
       @record={{childRecord}}

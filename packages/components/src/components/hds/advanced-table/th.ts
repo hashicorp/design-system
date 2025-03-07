@@ -14,6 +14,7 @@ import { modifier } from 'ember-modifier';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
+  HdsAdvancedTableExpandState,
 } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
@@ -34,8 +35,8 @@ export interface HdsAdvancedTableThSignature {
     newLabel?: string;
     isExpandable?: boolean;
     parentId?: string;
-    onClickToggle?: (newValue?: boolean | 'mixed') => void;
-    isExpanded?: boolean | 'mixed';
+    onClickToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
+    isExpanded?: HdsAdvancedTableExpandState;
     depth?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: () => void;
