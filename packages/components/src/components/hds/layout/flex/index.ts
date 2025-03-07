@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { assert } from '@ember/debug';
 
 import type { ComponentLike } from '@glint/template';
 
@@ -60,22 +61,69 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
   }
 
   get direction(): HdsLayoutFlexDirections {
-    return this.args.direction ?? DEFAULT_DIRECTION;
+    const { direction = DEFAULT_DIRECTION } = this.args;
+
+    assert(
+      `@direction for "Hds::Layout::Flex" must be one of the following: ${DIRECTIONS.join(
+        ', '
+      )}; received: ${direction}`,
+      DIRECTIONS.includes(direction)
+    );
+
+    return direction;
   }
 
   get justify(): HdsLayoutFlexJustifys | undefined {
-    return this.args.justify ?? undefined;
+    const { justify } = this.args;
+
+    if (justify) {
+      assert(
+        `@justify for "Hds::Layout::Flex" must be one of the following: ${JUSTIFYS.join(
+          ', '
+        )}; received: ${justify}`,
+        JUSTIFYS.includes(justify)
+      );
+    }
+
+    return justify;
   }
 
   get align(): HdsLayoutFlexAligns | undefined {
-    return this.args.align ?? undefined;
+    const { align } = this.args;
+
+    if (align) {
+      assert(
+        `@align for "Hds::Layout::Flex" must be one of the following: ${ALIGNS.join(
+          ', '
+        )}; received: ${align}`,
+        ALIGNS.includes(align)
+      );
+    }
+
+    return align;
   }
 
   get gap():
-    | HdsLayoutFlexGaps
+    | [HdsLayoutFlexGaps]
     | [HdsLayoutFlexGaps, HdsLayoutFlexGaps]
     | undefined {
-    return this.args.gap ?? undefined;
+    const { gap } = this.args;
+
+    if (gap) {
+      assert(
+        `@gap for "Hds::Layout::Flex" must be a single value or an array of two values of one of the following: ${GAPS.join(
+          ', '
+        )}; received: ${gap}`,
+        (!Array.isArray(gap) && GAPS.includes(gap)) ||
+          (Array.isArray(gap) &&
+            gap.length === 2 &&
+            GAPS.includes(gap[0]) &&
+            GAPS.includes(gap[1]))
+      );
+      return Array.isArray(gap) ? gap : [gap];
+    } else {
+      return undefined;
+    }
   }
 
   get classNames() {
@@ -96,11 +144,11 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
 
     // add a class based on the @gap argument
     if (this.gap) {
-      if (Array.isArray(this.gap) && this.gap.length === 2) {
+      if (this.gap.length === 2) {
         classes.push(`hds-layout-flex--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-flex--column-gap-${this.gap[1]}`);
-      } else {
-        classes.push(`hds-layout-flex--gap-${this.gap}`);
+      } else if (this.gap.length === 1) {
+        classes.push(`hds-layout-flex--gap-${this.gap[0]}`);
       }
     }
 
