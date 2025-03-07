@@ -38,13 +38,13 @@
         type="button"
         @text="Next"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onNextClickDemo1}}
       />
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      <Hds::ButtonSet class="shw-component-stepper-sample-form-btn">
+      <Hds::ButtonSet class="shw-component-stepper-nav-sample-form-btn">
         <Hds::Button
           type="button"
           @text="Previous"
@@ -62,7 +62,7 @@
         @text="Previous"
         @color="secondary"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onPreviousClickDemo1}}
       />
     </S.Panel>
@@ -94,13 +94,13 @@
         type="button"
         @text="Next"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onNextClickDemo2}}
       />
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      <Hds::ButtonSet class="shw-component-stepper-sample-form-btn">
+      <Hds::ButtonSet class="shw-component-stepper-nav-sample-form-btn">
         <Hds::Button
           type="button"
           @text="Previous"
@@ -118,7 +118,7 @@
         @text="Previous"
         @color="secondary"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onPreviousClickDemo2}}
       />
     </S.Panel>
@@ -153,12 +153,12 @@
     </SG.Item>
     <SG.Item @label="Incomplete">
       {{! template-lint-disable no-inline-styles }}
-      <Hds::Stepper::Nav as |S|>
+      <Hds::Stepper::Nav class="shw-component-stepper-nav-mock-incomplete" as |S|>
         <S.Step style="display: none;">
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
-        <S.Step class="hds-stepper-navigation__step--incomplete">
+        <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
@@ -192,7 +192,7 @@
     </SG.Item>
     <SG.Item @label="Incomplete">
       {{! template-lint-disable no-inline-styles }}
-      <Hds::Stepper::Nav @isInteractive={{true}} as |S|>
+      <Hds::Stepper::Nav @isInteractive={{true}} class="shw-component-stepper-nav-mock-incomplete" as |S|>
         <S.Step style="display: none;">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -280,13 +280,13 @@
         type="button"
         @text="Next"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onNextClickDemo3}}
       />
     </S.Panel>
     <S.Panel>
       <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-      <Hds::ButtonSet class="shw-component-stepper-sample-form-btn">
+      <Hds::ButtonSet class="shw-component-stepper-nav-sample-form-btn">
         <Hds::Button
           type="button"
           @text="Previous"
@@ -304,7 +304,7 @@
         @text="Previous"
         @color="secondary"
         @isInline={{true}}
-        class="shw-component-stepper-sample-form-btn"
+        class="shw-component-stepper-nav-sample-form-btn"
         {{on "click" this.onPreviousClickDemo3}}
       />
     </S.Panel>
@@ -330,12 +330,12 @@
           type="button"
           @text="Next"
           @isInline={{true}}
-          class="shw-component-stepper-sample-form-btn"
+          class="shw-component-stepper-nav-sample-form-btn"
           {{on "click" this.onNextClickDemo4}}
         />
       {{else if (eq this.currentStepDemo4 1)}}
         <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-        <Hds::ButtonSet class="shw-component-stepper-sample-form-btn">
+        <Hds::ButtonSet class="shw-component-stepper-nav-sample-form-btn">
           <Hds::Button
             type="button"
             @text="Previous"
@@ -352,7 +352,7 @@
           @text="Previous"
           @color="secondary"
           @isInline={{true}}
-          class="shw-component-stepper-sample-form-btn"
+          class="shw-component-stepper-nav-sample-form-btn"
           {{on "click" this.onPreviousClickDemo4}}
         />
       {{/if}}
@@ -371,7 +371,7 @@
     <:body>
       {{#if (eq this.currentStepDemo5 0)}}
         <Shw::Placeholder @text="Step 1: Generic content" @height="100" />
-        <div class="shw-component-stepper-sample-form-btn">
+        <div class="shw-component-stepper-nav-sample-form-btn">
           <Hds::Button
             type="button"
             @text="Next: No new step"
@@ -388,7 +388,7 @@
         </div>
       {{else if (eq this.currentStepDemo5 1)}}
         <Shw::Placeholder @text="Step 2: Generic content" @height="100" />
-        <div class="shw-component-stepper-sample-form-btn">
+        <div class="shw-component-stepper-nav-sample-form-btn">
           <Hds::Button
             type="button"
             @text="Previous"
@@ -400,7 +400,7 @@
         </div>
       {{else if (and (eq this.currentStepDemo5 2) (eq this.steps_demo5.length 4))}}
         <Shw::Placeholder @text="New step: Generic content" @height="100" />
-        <div class="shw-component-stepper-sample-form-btn">
+        <div class="shw-component-stepper-nav-sample-form-btn">
           <Hds::Button
             type="button"
             @text="Previous"
@@ -417,7 +417,7 @@
           @text="Previous"
           @color="secondary"
           @isInline={{true}}
-          class="shw-component-stepper-sample-form-btn"
+          class="shw-component-stepper-nav-sample-form-btn"
           {{on "click" this.onPreviousClickDemo5}}
         />
       {{/if}}
