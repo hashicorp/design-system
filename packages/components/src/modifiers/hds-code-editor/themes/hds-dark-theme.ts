@@ -109,10 +109,14 @@ const hdsDark = EditorView.theme(
       position: 'absolute',
     },
     '.cm-panel.cm-panel-lint': {
-      maxHeight: '80px',
+      position: 'absolute',
+      right: '0',
+      left: '0',
+      bottom: '0',
     },
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: HDS_CODE_EDITOR_COLOR_BORDER_PRIMARY,
+      maxHeight: '80px',
     },
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
