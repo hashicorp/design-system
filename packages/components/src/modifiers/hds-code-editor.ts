@@ -26,6 +26,7 @@ import type {
   EditorView as EditorViewType,
   ViewUpdate,
 } from '@codemirror/view';
+import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
 type HdsCodeEditorBlurHandler = (
@@ -40,10 +41,12 @@ export interface HdsCodeEditorSignature {
       ariaLabel?: string;
       ariaLabelledBy?: string;
       hasLineWrapping?: boolean;
+      isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
+      onLint?: (diagnostics: DiagnosticType[]) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -59,7 +62,12 @@ const LOADER_HEIGHT = '164px';
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
-  { load: () => Promise<Extension | StreamLanguageType<unknown>> }
+  {
+    load: () => Promise<Extension | StreamLanguageType<unknown>>;
+    loadLinter?: (
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
+    ) => Promise<Extension>;
+  }
 > = {
   rego: {
     load: async () => {
@@ -99,6 +107,11 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
+    loadLinter: async (onLint) => {
+      const linter = await import('./hds-code-editor/linters/json-linter.ts');
+
+      return linter.default(onLint);
+    },
   },
   markdown: {
     load: async () => (await import('@codemirror/lang-markdown')).markdown(),
@@ -243,9 +256,17 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
   }
 
-  private _loadLanguageTask = task(
+  private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async (language?: HdsCodeEditorLanguages) => {
+    async ({
+      language,
+      isLintingEnabled,
+      onLint,
+    }: {
+      language?: HdsCodeEditorLanguages;
+      isLintingEnabled?: boolean;
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'];
+    }) => {
       if (language === undefined) {
         return;
       }
@@ -260,7 +281,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           validLanguageKeys.includes(language)
         );
 
-        return LANGUAGES[language].load();
+        let extensionPromises = [LANGUAGES[language].load()];
+
+        if (isLintingEnabled && LANGUAGES[language].loadLinter) {
+          extensionPromises = [
+            ...extensionPromises,
+            LANGUAGES[language].loadLinter(onLint),
+          ];
+        }
+
+        return Promise.all(extensionPromises);
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
@@ -276,7 +306,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ language, hasLineWrapping }) => {
+    async ({ language, hasLineWrapping, isLintingEnabled, onLint }) => {
       const [
         {
           keymap,
@@ -293,7 +323,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         import('@codemirror/language'),
       ]);
 
-      const languageExtension = await this._loadLanguageTask.perform(language);
+      const languageExtensions = await this._loadLanguageExtensionsTask.perform(
+        {
+          language,
+          isLintingEnabled,
+          onLint,
+        }
+      );
 
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
@@ -324,7 +360,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         highlightActiveLineGutter(),
         highlightSpecialChars(),
         history(),
-        lineNumbers(),
         keymap.of([...defaultKeymap, ...historyKeymap]),
         // custom extensions
         handleUpdateExtension,
@@ -333,9 +368,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         syntaxHighlighting(hdsDarkHighlightStyle),
       ];
 
-      if (languageExtension !== undefined) {
-        extensions = [languageExtension, ...extensions];
+      if (languageExtensions !== undefined) {
+        extensions = [...extensions, ...languageExtensions];
       }
+
+      // ensure we add lineNumber last in the stack to create the right gutter order for linting
+      extensions = [...extensions, lineNumbers()];
 
       return extensions;
     }
@@ -346,20 +384,24 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     async (
       element: HTMLElement,
       {
+        onLint,
+        hasLineWrapping,
+        isLintingEnabled,
         language,
         value,
-        hasLineWrapping,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'language' | 'value' | 'hasLineWrapping'
+        'language' | 'value' | 'hasLineWrapping' | 'isLintingEnabled' | 'onLint'
       >
     ) => {
       try {
         const { EditorState } = await import('@codemirror/state');
 
         const extensions = await this._buildExtensionsTask.perform({
-          language,
+          onLint,
           hasLineWrapping: hasLineWrapping ?? false,
+          isLintingEnabled,
+          language,
         });
 
         const state = EditorState.create({
@@ -391,11 +433,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const {
         onBlur,
         onInput,
+        onLint,
         onSetup,
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
         hasLineWrapping,
+        isLintingEnabled,
         language,
         value,
       } = named;
@@ -406,9 +450,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.element = element;
 
       const editor = await this._createEditorTask.perform(element, {
+        onLint,
+        hasLineWrapping,
+        isLintingEnabled,
         language,
         value,
-        hasLineWrapping,
       });
 
       if (editor === undefined) {

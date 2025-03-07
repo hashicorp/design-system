@@ -95,6 +95,9 @@ importers:
       '@codemirror/legacy-modes':
         specifier: ^6.4.2
         version: 6.4.2
+      '@codemirror/lint':
+        specifier: ^6.8.4
+        version: 6.8.4
       '@codemirror/state':
         specifier: ^6.5.0
         version: 6.5.1
@@ -583,6 +586,9 @@ importers:
       '@babel/core':
         specifier: ^7.26.0
         version: 7.26.0
+      '@codemirror/state':
+        specifier: ^6.5.0
+        version: 6.5.1
       '@ember/optional-features':
         specifier: ^2.2.0
         version: 2.2.0
