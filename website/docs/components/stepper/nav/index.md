@@ -1,28 +1,30 @@
 ---
-title: Stepper Indicator
+title: Stepper Nav
 description: >-
-  Helps the user maintain context and directionality when advancing through a
-  multi-step flow or feature; generally assembled as part of a larger stepper
-  pattern.
+  Navigates users through a sequential flow allowing them to visually track progress.
 caption: >-
-  Helps the user maintain context and directionality when advancing through a
-  multi-step flow or feature.
+  Navigates users through a sequential progress flow.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67221-68491&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=72931-2356&t=A4lORtbini1AMxQN-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper
+related:
+  - components/stepper/indicator
+  - components/stepper/list
 previewImage: assets/illustrations/components/stepper.jpg
 navigation:
   keywords:
+    - page level
     - progress
     - progress bar
     - steps
     - tracker
+    - list
+    - indicator
 ---
 
 <section data-tab="Guidelines">
-  @include "partials/guidelines/overview.md"
   @include "partials/guidelines/guidelines.md"
 </section>
 

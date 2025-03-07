@@ -8,17 +8,17 @@ import { visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'website/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/stepper', function (hooks) {
+module('Acceptance | components/stepper/nav', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('visiting /components/stepper', async function (assert) {
-    await visit('/components/stepper');
+  test('visiting /components/stepper/nav', async function (assert) {
+    await visit('/components/stepper/nav');
 
-    assert.strictEqual(currentURL(), '/components/stepper');
+    assert.strictEqual(currentURL(), '/components/stepper/nav');
   });
 
-  test('components/stepper passes a11y automated checks', async function (assert) {
-    await visit('/components/stepper');
+  test('components/stepper/nav passes a11y automated checks', async function (assert) {
+    await visit('/components/stepper/nav');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');
   });
