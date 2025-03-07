@@ -114,7 +114,7 @@ Linting within the Code Editor is only supported for JSON. If you require lintin
 This component is only available in Ember and is not supported in Figma.
 !!!
 
-![Code Editor linting with errors present and a tooltip displayed](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
+![](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
 
 When linting is enabled, the CodeEditor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minumum height for the CodeEditor with linting is 160px. The linting alert dialog is always 80px in height.
 
