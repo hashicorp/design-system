@@ -37,7 +37,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert.dom('.sr-only').hasNoText();
   });
 
-  test('it sets the status to the provided value when the @status argument is provided', async function (assert) {
+  test('it sets the status to complete when the @status argument is provided', async function (assert) {
     await render(
       hbs`
           <Hds::Stepper::List::Step @status="complete">
@@ -51,7 +51,41 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-complete');
-    assert.dom('.sr-only').hasText('Complete: ');
+    assert.dom('.sr-only').hasText('(complete)');
+  });
+
+  test('it sets the status to progress when the @status argument is provided', async function (assert) {
+    await render(
+      hbs`
+          <Hds::Stepper::List::Step @status="progress">
+            <:title>Test</:title>
+          </Hds::Stepper::List::Step>
+        `
+    );
+    assert
+      .dom('.hds-stepper-list__step')
+      .hasClass('hds-stepper-list__step--progress');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-progress');
+    assert.dom('.sr-only').hasText('(current)');
+  });
+
+  test('it sets the status to processing when the @status argument is provided', async function (assert) {
+    await render(
+      hbs`
+          <Hds::Stepper::List::Step @status="processing">
+            <:title>Test</:title>
+          </Hds::Stepper::List::Step>
+        `
+    );
+    assert
+      .dom('.hds-stepper-list__step')
+      .hasClass('hds-stepper-list__step--processing');
+    assert
+      .dom('.hds-stepper-indicator-step')
+      .hasClass('hds-stepper-indicator-step--status-processing');
+    assert.dom('.sr-only').hasText('(in progress)');
   });
 
   // TITLE TAG
