@@ -70,6 +70,7 @@ export function determineErrorMessage({
   return message;
 }
 
+// this renders the error message for both the tooltip and the drawer item
 export function renderErrorMessage(message: string): HTMLElement {
   const wrapper = document.createElement('div');
   wrapper.classList.add('cm-diagnosticText-inner');
