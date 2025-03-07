@@ -120,7 +120,7 @@ const setNestedTableData = (context) => {
     },
   ]);
   context.set('columns', [
-    { key: 'name', label: 'Name' },
+    { key: 'name', label: 'Name', isExpandable: true },
     { key: 'status', label: 'Status' },
     { key: 'description', label: 'Description' },
   ]);
@@ -865,12 +865,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   test('it renders a nested table when the model has rows with children key', async function (assert) {
     setNestedTableData(this);
     await render(hbsNestedAdvancedTable);
-    assert.dom(expandRowButtonSelector).exists({ count: 2 });
+    assert.dom(expandRowButtonSelector).exists({ count: 3 });
     assert
       .dom(
         '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
       )
-      .exists({ count: 2 });
+      .exists({ count: 6 });
   });
 
   test('it renders children rows when click the expand toggle button', async function (assert) {
@@ -881,25 +881,25 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
       )
-      .exists({ count: 2 });
+      .exists({ count: 4 });
 
     await click(rowToggles[0]);
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
       )
-      .exists({ count: 4 });
+      .exists({ count: 2 });
 
     await click(rowToggles[1]);
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
       )
-      .exists({ count: 5 });
+      .exists({ count: 1 });
   });
 
   test('it renders expanded children rows when pass isOpen in the model', async function (assert) {
@@ -958,5 +958,113 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
       )
       .exists({ count: 6 });
+  });
+
+  test('it renders an expand all button when pass isExpandable to the columns', async function (assert) {
+    setNestedTableData(this);
+    this.set('model', [
+      {
+        id: 1,
+        name: 'Policy set 1',
+        status: 'PASS',
+        description: '',
+        isOpen: true,
+        children: [
+          {
+            id: 11,
+            name: 'test-advisory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+          },
+          {
+            id: 12,
+            name: 'test-hard-mandatory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+          },
+        ],
+      },
+      {
+        id: 2,
+        name: 'Policy set 2',
+        status: 'FAIL',
+        description: '',
+        children: [
+          {
+            id: 21,
+            name: 'test-advisory-pass.sentinel',
+            status: 'PASS',
+            description: 'Sample description for this thing.',
+            children: [
+              {
+                id: 211,
+                name: 'test-advisory-pass.sentinel.primary',
+                status: 'PASS',
+                description: 'Sample description for this thing.',
+              },
+            ],
+          },
+        ],
+      },
+    ]);
+    await render(hbsNestedAdvancedTable);
+
+    const expandAllButton = document.querySelector(
+      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+    );
+
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+      )
+      .exists({ count: 1 });
+
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+      )
+      .exists({ count: 2 });
+    assert.dom(expandAllButton).hasAria('expanded', 'mixed');
+
+    await click(expandAllButton);
+
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+      )
+      .doesNotExist();
+    assert.dom(expandAllButton).hasAria('expanded', 'true');
+
+    await click(expandAllButton);
+
+    assert
+      .dom(
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+      )
+      .exists({ count: 4 });
+    assert.dom(expandAllButton).hasAria('expanded', 'false');
+  });
+
+  test('the expand all button state updates when expand buttons are clicked', async function (assert) {
+    setNestedTableData(this);
+    await render(hbsNestedAdvancedTable);
+
+    const rowToggles = Array.from(
+      this.element.querySelectorAll(expandRowButtonSelector)
+    );
+    const expandAllButton = document.querySelector(
+      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+    );
+
+    assert.dom(expandAllButton).hasAria('expanded', 'false');
+
+    for (let i = 0; i < rowToggles.length; i++) {
+      await click(rowToggles[i]);
+      if (i < rowToggles.length - 1) {
+        assert.dom(expandAllButton).hasAria('expanded', 'mixed');
+      }
+    }
+
+    assert.dom(expandAllButton).hasAria('expanded', 'true');
   });
 });

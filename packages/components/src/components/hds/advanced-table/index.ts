@@ -10,6 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
+import { next } from '@ember/runloop';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -26,11 +27,13 @@ import type {
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
+  HdsAdvancedTableExpandState,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';
+import { updateLastRowClass } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -73,7 +76,7 @@ export interface HdsAdvancedTableSignature {
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
         data?: Record<string, unknown>;
         rowIndex?: number | string;
-        isOpen?: boolean;
+        isOpen?: HdsAdvancedTableExpandState;
       },
     ];
   };
@@ -88,10 +91,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked _expandAllButton?: HTMLButtonElement = undefined;
+  @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  private _observer: IntersectionObserver | undefined = undefined;
+  private _intersectionObserver: IntersectionObserver | undefined = undefined;
+  private _mutationObserver: MutationObserver | undefined = undefined;
+  private _element!: HTMLDivElement;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -282,13 +289,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpObserver = modifier((element: HTMLElement) => {
+  private _setUpObservers = modifier((element: HTMLDivElement) => {
     const stickyGridHeader = element.querySelector(
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
 
+    this._element = element;
+    this.setExpandAllState();
+
     if (stickyGridHeader !== null) {
-      this._observer = new IntersectionObserver(
+      this._intersectionObserver = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(
             'hds-advanced-table__thead--is-pinned',
@@ -297,13 +307,33 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         { threshold: [1] }
       );
 
-      this._observer.observe(stickyGridHeader);
+      this._intersectionObserver.observe(stickyGridHeader);
+    }
+
+    updateLastRowClass(element);
+
+    return () => {
+      if (this._intersectionObserver) {
+        this._intersectionObserver.disconnect();
+      }
+
+      if (this._mutationObserver) {
+        this._mutationObserver.disconnect();
+      }
+    };
+  });
+
+  private _setUpExpandAllButton = modifier((element: HTMLDivElement) => {
+    const expandAllButton = element.querySelector<HTMLButtonElement>(
+      '.hds-advanced-table__th-button--expand'
+    );
+
+    if (expandAllButton) {
+      this._expandAllButton = expandAllButton;
     }
 
     return () => {
-      if (this._observer) {
-        this._observer.disconnect();
-      }
+      this._expandAllButton = undefined;
     };
   });
 
@@ -365,7 +395,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   onSelectionAllChange(): void {
     this._selectableRows.forEach((row) => {
       row.checkbox.checked = this._selectAllCheckbox?.checked ?? false;
-      row.checkbox.dispatchEvent(new Event('toggle', { bubbles: false }));
     });
     this._isSelectAllCheckboxSelected =
       this._selectAllCheckbox?.checked ?? false;
@@ -425,9 +454,68 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
-      this._selectAllCheckbox.dispatchEvent(
-        new Event('toggle', { bubbles: false })
+    }
+  }
+
+  @action
+  didInsertExpandButton(): void {
+    this.setExpandAllState();
+  }
+
+  @action
+  willDestroyExpandButton(): void {
+    this.setExpandAllState();
+  }
+
+  @action
+  setExpandAllState(): void {
+    if (this._expandAllButton && this._element) {
+      const expandButtons = Array.from(
+        this._element.querySelectorAll(
+          '.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'
+        )
       );
+
+      // eslint-disable-next-line ember/no-runloop
+      next(() => {
+        const parentRowsCount = expandButtons.length;
+        const expandedRowsCount = expandButtons.filter(
+          (button) => button.getAttribute('aria-expanded') === 'true'
+        ).length;
+
+        let expandAllState: HdsAdvancedTableExpandState;
+
+        if (parentRowsCount === expandedRowsCount) expandAllState = true;
+        else if (expandedRowsCount === 0) expandAllState = false;
+        else expandAllState = 'mixed';
+
+        this._expandAllButtonState = expandAllState;
+        updateLastRowClass(this._element);
+      });
+    }
+  }
+
+  @action
+  onExpandAllClick(): void {
+    if (this._expandAllButton && this._element) {
+      const expandButtons = Array.from(
+        this._element.querySelectorAll(
+          '.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'
+        )
+      );
+
+      const newState =
+        this._expandAllButton.getAttribute('aria-expanded') === 'true'
+          ? false
+          : true;
+
+      expandButtons.forEach((button) => {
+        button.setAttribute('aria-expanded', `${newState}`);
+        button.dispatchEvent(new Event('toggle', { bubbles: false }));
+      });
+
+      this._expandAllButtonState = newState;
+      updateLastRowClass(this._element);
     }
   }
 }
