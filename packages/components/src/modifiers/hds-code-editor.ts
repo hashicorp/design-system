@@ -100,6 +100,9 @@ const LANGUAGES: Record<
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
   },
+  markdown: {
+    load: async () => (await import('@codemirror/lang-markdown')).markdown(),
+  },
   sql: {
     load: async () => (await import('@codemirror/lang-sql')).sql(),
   },
