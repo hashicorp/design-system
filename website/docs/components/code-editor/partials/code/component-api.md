@@ -51,7 +51,7 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
     Callback function invoked when the editor receives an input event.
   </C.Property>
   <C.Property @name="onLint" @type="function">
-    Callback function invoked when the editor completes linting if linting is enabled. The function receives an array of diagnostic objects with error message, postition, and severity.
+    Callback function invoked when the editor completes linting if linting is enabled. The function receives an array of diagnostic objects with error message, position, and severity.
   </C.Property>
   <C.Property @name="onSetup" @type="function">
     Callback function invoked when the editor completes setup.
