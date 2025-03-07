@@ -87,7 +87,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
       .hasClass('hds-stepper-nav__step-button');
   });
 
-  // STATES - INTERACTIVE
+  // STATUS - INTERACTIVE
 
   test('it sets the step to incomplete when the @currentStep is less than the nodeIndex and @isInteractive is true', async function (assert) {
     await render(
@@ -122,7 +122,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-complete');
-    assert.dom('.sr-only').hasText('Complete: ');
+    assert.dom('.sr-only').hasText('(complete)');
   });
 
   test('it sets the step to active when the @currentStep is equal to the nodeIndex and @isInteractive is true', async function (assert) {
@@ -137,10 +137,10 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-progress');
-    assert.dom('.sr-only').hasText('Current: ');
+    assert.dom('.sr-only').hasText('(current)');
   });
 
-  // STATES - NOT INTERACTIVE
+  // STATUS - NOT INTERACTIVE
 
   test('it sets the step to incomplete when the @currentStep is less than the nodeIndex and @isInteractive is false', async function (assert) {
     await render(
@@ -153,9 +153,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--incomplete');
-    assert
-      .dom('.hds-stepper-nav__step-content')
-      .hasAttribute('aria-current', 'false');
+    assert.dom('.hds-stepper-nav__step').hasAttribute('aria-current', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-incomplete');
@@ -167,13 +165,11 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--complete');
-    assert
-      .dom('.hds-stepper-nav__step-content')
-      .hasAttribute('aria-current', 'false');
+    assert.dom('.hds-stepper-nav__step').hasAttribute('aria-current', 'false');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-complete');
-    assert.dom('.sr-only').hasText('Complete: ');
+    assert.dom('.sr-only').hasText('(complete)');
   });
 
   test('it sets the step to active when the @currentStep is equal to the nodeIndex and @isInteractive is false', async function (assert) {
@@ -181,13 +177,11 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
     assert
       .dom('.hds-stepper-nav__step')
       .hasClass('hds-stepper-nav__step--active');
-    assert
-      .dom('.hds-stepper-nav__step-content')
-      .hasAttribute('aria-current', 'step');
+    assert.dom('.hds-stepper-nav__step').hasAttribute('aria-current', 'step');
     assert
       .dom('.hds-stepper-indicator-step')
       .hasClass('hds-stepper-indicator-step--status-progress');
-    assert.dom('.sr-only').hasText('Current: ');
+    assert.dom('.sr-only').hasText('(current)');
   });
 
   // TITLE TAG

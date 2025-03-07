@@ -194,7 +194,12 @@
     </SG.Item>
     <SG.Item @label="Incomplete">
       {{! template-lint-disable no-inline-styles }}
-      <Hds::Stepper::Nav @isInteractive={{true}} @ariaLabel="Label" class="shw-component-stepper-nav-mock-incomplete" as |S|>
+      <Hds::Stepper::Nav
+        @isInteractive={{true}}
+        @ariaLabel="Label"
+        class="shw-component-stepper-nav-mock-incomplete"
+        as |S|
+      >
         <S.Step style="display: none;">
           <:title>Title</:title>
           <:description>Description</:description>
