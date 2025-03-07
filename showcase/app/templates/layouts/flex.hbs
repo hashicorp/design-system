@@ -117,6 +117,53 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>Gap</Shw::Text::H3>
+
+  <Shw::Text::H4>Single value</Shw::Text::H4>
+
+  {{#each @model.DIRECTIONS as |direction|}}
+    <Shw::Grid @columns={{@model.GAPS.length}} @gap="2rem" as |SG|>
+      {{#each @model.GAPS as |gap|}}
+        <SG.Item @label="gap={{gap}}">
+          <Shw::Outliner>
+            <Hds::Layout::Flex @direction={{direction}} @gap={{gap}}>
+              <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Flex>
+          </Shw::Outliner>
+        </SG.Item>
+      {{/each}}
+    </Shw::Grid>
+  {{/each}}
+
+  <Shw::Text::H4>Double value (row/column)</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem 4rem" as |SF|>
+    {{! we use only a subset of possible combinations, just for testing purposes }}
+    {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
+      {{#each gapsList as |gapsArray|}}
+        <SF.Item @label="gap=[{{gapsArray}}]">
+          <Shw::Outliner {{style width="500px"}}>
+            <Hds::Layout::Flex @gap={{gapsArray}} @wrap={{true}}>
+              <Shw::Placeholder @text="item #1" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #3" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #4" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #5" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #6" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #7" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #8" @width="100px" @height="24" />
+            </Hds::Layout::Flex>
+          </Shw::Outliner>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Display</Shw::Text::H3>
 
   <Shw::Flex @gap="2rem" as |SF|>
@@ -360,15 +407,13 @@
 
   <Shw::Flex @direction="column" @gap="2rem" as |SF|>
     <SF.Item @label="icon + text" class="shw-layout-flex-example-outline-flex-blocks">
-      {{! TODO! add the right value of gap here }}
-      <Hds::Layout::Flex @align="center" @gap="4px">
+      <Hds::Layout::Flex @align="center" @gap="8">
         <Hds::Icon @name="info" @size="24" />
         <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
       </Hds::Layout::Flex>
     </SF.Item>
     <SF.Item @label="media + text" class="shw-layout-flex-example-outline-flex-blocks">
-      {{! TODO! add the right value of gap here }}
-      <Hds::Layout::Flex @align="center" @gap="4px">
+      <Hds::Layout::Flex @align="center" @gap="8">
         <img
           src="/assets/images/avatar.png"
           alt="portrait of a cat wearing old-fashioned formal wear"
@@ -378,8 +423,7 @@
       </Hds::Layout::Flex>
     </SF.Item>
     <SF.Item @label="generic input + button" class="shw-layout-flex-example-outline-flex-blocks">
-      {{! TODO! add the right value of gap here }}
-      <Hds::Layout::Flex @align="center" @gap="4px">
+      <Hds::Layout::Flex @align="center" @gap="8">
         <input id="example-input-1" type="text" placeholder="Just a generic input" />
         <button type="button">Button</button>
       </Hds::Layout::Flex>
@@ -409,8 +453,7 @@
       @label="one item growing"
       class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
     >
-      {{! TODO! add the right value of gap here }}
-      <Hds::Layout::Flex @gap="4px" as |HLF|>
+      <Hds::Layout::Flex @gap="16" as |HLF|>
         <Hds::Text::Body @size="200" @tag="p">I use only the content width</Hds::Text::Body>
         <HLF.Item @grow={{1}}>
           <Hds::Text::Body @size="200" @tag="p">I use all the rest of the available space</Hds::Text::Body>
@@ -422,12 +465,12 @@
       @label="one item at the end"
       class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
     >
-      {{! TODO! add the right value of gap here }}
-      <Hds::Layout::Flex @gap="4px">
+      <Hds::Layout::Flex @gap="16">
         <Hds::Text::Body @size="200" @tag="p">I am on the left side</Hds::Text::Body>
         <Hds::Text::Body @size="200" @tag="p">I am on the left side too</Hds::Text::Body>
         <Hds::Text::Body @size="200" @tag="p" {{style margin-left="auto"}}>I on the right side (using margin-left auto)</Hds::Text::Body>
       </Hds::Layout::Flex>
+
     </SF.Item>
   </Shw::Flex>
 
