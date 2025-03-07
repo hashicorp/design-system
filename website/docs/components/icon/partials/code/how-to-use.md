@@ -66,6 +66,14 @@ We don’t validate the CSS color string to ensure that the value used is correc
 
 !!!
 
+### Title
+
+To add an accessible name to an icon that conveys information to users, set the `@title` argument. 
+
+```handlebars
+<Hds::Icon @name="alert-circle" @title="Warning" />
+```
+
 ### Stretched
 
 To have the icon fill the parent container (width: 100%, height: 100%), set the `@stretched` attribute to true:
