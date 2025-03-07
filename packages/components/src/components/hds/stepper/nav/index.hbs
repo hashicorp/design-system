@@ -8,7 +8,7 @@
   {{style --progress-bar-width=this.progressBarWidthStyle}}
   {{this._setUpStepperNav}}
 >
-  <ol class="hds-stepper-nav__list" role={{if this.isInteractive "tablist"}}>
+  <ol class="hds-stepper-nav__list" aria-label={{@ariaLabel}} role={{if this.isInteractive "tablist"}}>
     {{#if @steps}}
       {{#each @steps as |step|}}
         <Hds::Stepper::Nav::Step
