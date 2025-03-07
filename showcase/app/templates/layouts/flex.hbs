@@ -351,3 +351,84 @@
   </Shw::Grid>
 
 </section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Examples</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="icon + text" class="shw-layout-flex-example-outline-flex-blocks">
+      {{! TODO! add the right value of gap here }}
+      <Hds::Layout::Flex @align="center" @gap="4px">
+        <Hds::Icon @name="info" @size="24" />
+        <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="media + text" class="shw-layout-flex-example-outline-flex-blocks">
+      {{! TODO! add the right value of gap here }}
+      <Hds::Layout::Flex @align="center" @gap="4px">
+        <img
+          src="/assets/images/avatar.png"
+          alt="portrait of a cat wearing old-fashioned formal wear"
+          class="shw-layout-flex-example-avatar"
+        />
+        <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="generic input + button" class="shw-layout-flex-example-outline-flex-blocks">
+      {{! TODO! add the right value of gap here }}
+      <Hds::Layout::Flex @align="center" @gap="4px">
+        <input id="example-input-1" type="text" placeholder="Just a generic input" />
+        <button type="button">Button</button>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item
+      @label="centered content"
+      class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
+    >
+      <Hds::Layout::Flex @justify="center" @align="center" {{style width="300px" height="200px"}}>
+        <Hds::Text::Body @size="200" @tag="p">I am centered</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item
+      @label="equally spaced"
+      class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
+    >
+      <Hds::Layout::Flex @justify="space-between" @align="center">
+        <Hds::Text::Body @size="200" @tag="p">We</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">Should</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">All</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">Be</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">Equally</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">Spaced</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item
+      @label="one item growing"
+      class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
+    >
+      {{! TODO! add the right value of gap here }}
+      <Hds::Layout::Flex @gap="4px" as |HLF|>
+        <Hds::Text::Body @size="200" @tag="p">I use only the content width</Hds::Text::Body>
+        <HLF.Item @grow={{1}}>
+          <Hds::Text::Body @size="200" @tag="p">I use all the rest of the available space</Hds::Text::Body>
+        </HLF.Item>
+        <Hds::Text::Body @size="200" @tag="p">I use only the content width</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item
+      @label="one item at the end"
+      class="shw-layout-flex-example-outline-flex-blocks shw-layout-flex-example-outline-flex-blocks--with-backgrounds"
+    >
+      {{! TODO! add the right value of gap here }}
+      <Hds::Layout::Flex @gap="4px">
+        <Hds::Text::Body @size="200" @tag="p">I am on the left side</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p">I am on the left side too</Hds::Text::Body>
+        <Hds::Text::Body @size="200" @tag="p" {{style margin-left="auto"}}>I on the right side (using margin-left auto)</Hds::Text::Body>
+      </Hds::Layout::Flex>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
