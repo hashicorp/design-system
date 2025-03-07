@@ -1,10 +1,7 @@
 import RSVP from 'rsvp';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
-import type {
-  HdsCodeEditorLintDiagnostic,
-  HdsCodeEditorSignature,
-} from '../../hds-code-editor';
+import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
 
 export enum HdsCodeEditorJsonLintingError {
@@ -14,17 +11,6 @@ export enum HdsCodeEditorJsonLintingError {
   MissingComma = 'Missing comma',
   TrailingComma = 'Trailing comma',
   ValueExpected = 'Value expected',
-}
-
-export function parseDiagnostics(
-  diagnostics: DiagnosticType[]
-): HdsCodeEditorLintDiagnostic[] {
-  return diagnostics.map((diagnostic) => ({
-    from: diagnostic.from,
-    to: diagnostic.to,
-    message: diagnostic.message,
-    severity: diagnostic.severity,
-  }));
 }
 
 export function findNextToken(
@@ -147,9 +133,7 @@ export default async function jsonLinter(
       }
     });
 
-    if (onLint) {
-      onLint(parseDiagnostics(diagnostics));
-    }
+    onLint?.(diagnostics);
 
     return diagnostics;
   });
