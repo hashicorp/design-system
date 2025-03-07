@@ -240,7 +240,7 @@ Import design tokens as CSS variables by adding one of the following lines to th
 @import "@hashicorp/design-system-tokens/dist/products/css/tokens.css";
 
 // for Cloud UI email templating
-@import "@hashicorp/design-system-tokens/dist/cloud-email/tokens.css";
+@import "@hashicorp/design-system-tokens/dist/cloud-email/tokens.scss";
 
 // for HashiCorp developer platform
 @import "~@hashicorp/design-system-tokens/dist/devdot/css/tokens.css";
