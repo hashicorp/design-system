@@ -8,10 +8,145 @@
 <Shw::Text::H1>Layout::Grid</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Flex @direction="column" as |SF|>
+    <SF.Item @label="TEMP - grid">
+      <Shw::Outliner>
+        <Hds::Layout::Grid>
+          <Shw::Placeholder @text="item #1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="item #2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="item #3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="item #4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SF.Item>
+  </Shw::Flex>
 
-  {{! ADD YOUR CONTENT HERE }}
+  <Shw::Divider />
 
-  {{! This below is just an example of invocation, to get started }}
-  <Hds::Layout::Grid>This is the Hds::Layout::Grid component </Hds::Layout::Grid>
+  <Shw::Text::H2>Justify + Align</Shw::Text::H2>
+  <Shw::Text::Body>These are the
+    <code>justify-content</code>
+    and
+    <code>align-items</code>
+    CSS properties of
+    <code>flexbox</code>.</Shw::Text::Body>
+
+  <Shw::Grid @columns={{@model.JUSTIFYS.length}} @gap="2rem" as |SG|>
+    {{#each @model.ALIGNS as |align ac|}}
+      {{#if (eq ac 0)}}
+        {{#each @model.JUSTIFYS as |justify|}}
+          <SG.Item>
+            <span class="shw-label">justify={{justify}}</span>
+          </SG.Item>
+        {{/each}}
+      {{/if}}
+      {{#each @model.JUSTIFYS as |justify jc|}}
+        <SG.Item @label={{if (eq jc 0) (concat "align=" align) "​"}}>
+          <Shw::Outliner {{style width="120px" height="120px"}}>
+            <Hds::Layout::Grid @justify={{justify}} @align={{align}} {{style width="100%" height="100%"}}>
+              <Shw::Placeholder
+                @text="#A"
+                @width="auto"
+                @height="auto"
+                {{style min-width="24px" min-height="24px"}}
+                @background="#e4c5f3"
+              />
+              <Shw::Placeholder
+                @text="#B"
+                @width="auto"
+                @height="auto"
+                {{style min-width="24px" min-height="24px"}}
+                @background="#e5ffd2"
+              />
+              <Shw::Placeholder
+                @text="#C"
+                @width="auto"
+                @height="auto"
+                {{style min-width="24px" min-height="24px"}}
+                @background="#d2f4ff"
+              />
+            </Hds::Layout::Grid>
+          </Shw::Outliner>
+        </SG.Item>
+      {{/each}}
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Gap</Shw::Text::H3>
+
+  <Shw::Text::H4>Single value</Shw::Text::H4>
+
+  <Shw::Grid @columns={{@model.GAPS.length}} @gap="1.5rem" as |SG|>
+    {{#each @model.GAPS as |gap|}}
+      <SG.Item @label="gap={{gap}}">
+        <Shw::Outliner>
+          <Hds::Layout::Grid @gap={{gap}}>
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </Hds::Layout::Grid>
+        </Shw::Outliner>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4>Double value (row/column)</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem 4rem" as |SF|>
+    {{! we use only a subset of possible combinations, just for testing purposes }}
+    {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
+      {{#each gapsList as |gapsArray|}}
+        <SF.Item @label="gap=[{{gapsArray}}]">
+          <Shw::Outliner {{style width="500px"}}>
+            <Hds::Layout::Grid @gap={{gapsArray}}>
+              <Shw::Placeholder @text="item #1" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #3" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #4" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #5" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #6" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #7" @width="100px" @height="24" />
+              <Shw::Placeholder @text="item #8" @width="100px" @height="24" />
+            </Hds::Layout::Grid>
+          </Shw::Outliner>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Display</Shw::Text::H3>
+
+  <Shw::Grid @gap="2rem" @columns={{2}} as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |isInline|}}
+        <SF.Item @label={{if isInline "inline-grid (isInline=true)" "grid (default)"}}>
+          <Hds::Text::Body @size="200" @tag="div">
+            Lorem
+            <Hds::Layout::Grid @isInline={{isInline}}>
+              <Shw::Placeholder @text="#1" @width="24" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#2" @width="24" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#3" @width="24" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#4" @width="24" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Grid>
+            sit amet
+            <Hds::Layout::Grid @isInline={{isInline}}>
+              <Shw::Placeholder @text="#A" @width="24" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#B" @width="24" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#C" @width="24" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#D" @width="24" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Grid>
+            elit.
+          </Hds::Text::Body>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
 </section>
