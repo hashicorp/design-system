@@ -1,0 +1,19 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+export declare enum HdsCodeEditorLanguageValues {
+    Rego = "rego",
+    Ruby = "ruby",
+    Shell = "shell",
+    Go = "go",
+    Hcl = "hcl",
+    JavaScript = "javascript",
+    Json = "json",
+    Markdown = "markdown",
+    Sentinel = "sentinel",
+    Sql = "sql",
+    Yaml = "yaml"
+}
+export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;
+//# sourceMappingURL=types.d.ts.map

@@ -1,0 +1,21 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// TIME COMPONENT
+//
+
+.hds-time--range {
+  display: inline-flex; // remove excess space between time range elements
+  gap: 2px; // add a bit of space around en dash so it doesn't touch some number characters
+}
+
+// Note: The time-wrapper is only present when time is wrapped by a tooltip button
+.hds-time-wrapper .hds-time {
+  // decoration style is specified separately to fix a bug in Safari causing it not to render
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 2px;
+}
