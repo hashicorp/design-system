@@ -1,0 +1,21 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{!
+  TODO: Determine if Grid needs its own "Item" child component or should use the Flex::Item 
+  (if so, maybe change name to Layout::Item)
+}}
+
+{{#if (eq this.componentTag "div")}}
+  <div class={{this.classNames}} ...attributes>
+    {{yield (hash Item=(component "hds/layout/flex/item"))}}
+  </div>
+{{else}}
+  {{#let (element this.componentTag) as |Tag|}}
+    <Tag class={{this.classNames}} ...attributes>
+      {{yield (hash Item=(component "hds/layout/flex/item"))}}
+    </Tag>
+  {{/let}}
+{{/if}}
