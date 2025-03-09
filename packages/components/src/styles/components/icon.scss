@@ -12,7 +12,9 @@
 }
 
 @keyframes hds-icon-animation-rotation {
-  to {transform: rotate(360deg);}
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hds-icon--animation-loading {
@@ -25,7 +27,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .hds-icon--animation-loading {
-    animation-duration: .7s;
+    animation-duration: 0.7s;
   }
 
   .hds-icon--animation-running {
