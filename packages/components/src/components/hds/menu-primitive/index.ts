@@ -36,7 +36,7 @@ export interface MenuPrimitiveSignature {
 export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
   @tracked isOpen: boolean | undefined; // notice: if in the future we need to add a "@isOpen" prop to control the status from outside (eg to have the MenuPrimitive opened on render) just add  "this.args.isOpen" here to initalize the variable
   @tracked toggleRef: HTMLElement | undefined;
-  @tracked element!: HTMLElement;
+  @tracked _element!: HTMLElement;
 
   constructor(owner: Owner, args: MenuPrimitiveSignature['Args']) {
     super(owner, args);
@@ -59,7 +59,7 @@ export default class MenuPrimitive extends Component<MenuPrimitiveSignature> {
 
   @action
   didInsert(element: HTMLElement): void {
-    this.element = element;
+    this._element = element;
   }
 
   @action
