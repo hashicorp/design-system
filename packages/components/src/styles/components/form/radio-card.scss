@@ -37,8 +37,7 @@
   display: flex;
   flex-direction: column;
   background-color: var(--token-color-surface-primary);
-  border: var(--token-form-radiocard-border-width) solid
-    var(--token-color-border-primary);
+  border: var(--token-form-radiocard-border-width) solid var(--token-color-border-primary);
   border-radius: var(--token-form-radiocard-border-radius);
   box-shadow: var(--token-elevation-mid-box-shadow);
   cursor: pointer;

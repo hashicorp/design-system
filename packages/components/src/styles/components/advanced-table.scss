@@ -12,7 +12,9 @@
 
 $hds-advanced-table-border-radius: var(--token-border-radius-medium);
 $hds-advanced-table-border-width: 1px;
-$hds-advanced-table-inner-border-radius: calc(#{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width});
+$hds-advanced-table-inner-border-radius: calc(
+  #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
+);
 $hds-advanced-table-border-color: var(--token-color-border-primary);
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
@@ -49,13 +51,12 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 // table border
 .hds-advanced-table__th,
 .hds-advanced-table__td {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid
-    $hds-advanced-table-border-color;
+  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
 }
 
-.hds-advanced-table__thead, .hds-advanced-table__tbody {
-  border: calc(#{$hds-advanced-table-border-width} / 2) solid
-  $hds-advanced-table-border-color;
+.hds-advanced-table__thead,
+.hds-advanced-table__tbody {
+  border: calc(#{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
 }
 
 .hds-advanced-table__thead {
@@ -140,17 +141,17 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     .hds-advanced-table__th--is-sticky-column-pinned {
       &:first-of-type {
         left: -1px;
-        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
-      $hds-advanced-table-border-color;
+        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
       }
     }
-  
+
     // Only apply the thick border to the last sticky column
     .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
       border-right: 3px solid $hds-advanced-table-border-color;
     }
 
-    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
+    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
+      + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
       position: sticky;
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
       left: var(--hds-advanced-table-sticky-column-offset, 0);
@@ -181,8 +182,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   &.hds-advanced-table__thead--is-pinned {
     background-color: var(--token-color-surface-strong);
     // need to add 1px to offset `top: -1px`
-    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
-    $hds-advanced-table-border-color;
+    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid $hds-advanced-table-border-color;
     border-bottom: 3px solid $hds-advanced-table-border-color;
 
     .hds-advanced-table__tr {
@@ -276,7 +276,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__tr {
     display: contents;
     color: var(--token-color-foreground-primary);
-  
+
     // striped rows
 
     .hds-advanced-table--striped &:nth-child(even) {
@@ -315,7 +315,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     text-align: left;
     background-color: var(--token-color-surface-primary);
 
-    &:focus, &.mock-focus {
+    &:focus,
+    &.mock-focus {
       // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
       @include hds-focus-ring-with-pseudo-element(
         $top: 3px,
@@ -357,8 +358,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__th--is-sticky-column-pinned {
     &:first-of-type {
       left: -1px;
-      border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
-    $hds-advanced-table-border-color;
+      border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
     }
   }
 
@@ -367,12 +367,12 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     border-right: 3px solid $hds-advanced-table-border-color;
   }
 
-  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
+  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
+    + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
     position: sticky;
     // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
     left: var(--hds-advanced-table-sticky-column-offset, 0);
   }
-
 
   // horizontal alignment
 
@@ -399,11 +399,11 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__th,
   .hds-advanced-table__td {
     .hds-advanced-table--valign-top & {
-        align-items: flex-start;
+      align-items: flex-start;
     }
 
     .hds-advanced-table--valign-middle & {
-        align-items: center;
+      align-items: center;
     }
 
     .hds-advanced-table--valign-baseline & {
@@ -412,7 +412,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       
         we decided as a team to match the Table behavior instead of actually setting align-items to baseline to mitigate the difference.
       */
-        align-items: center;
+      align-items: center;
     }
   }
 
@@ -425,25 +425,27 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__tr--parent-row {
     .hds-advanced-table__th:not(:first-child),
     .hds-advanced-table__td:not(:first-child) {
-      border-left:0
+      border-left: 0;
     }
 
     .hds-advanced-table__th:not(:last-child),
     .hds-advanced-table__td:not(:last-child) {
-      border-right:0
+      border-right: 0;
     }
   }
 }
 
 .hds-advanced-table--nested {
   .hds-advanced-table__tr {
-    .hds-advanced-table__th, .hds-advanced-table__td {
-      background-color: var(--token-color-surface-faint);  
+    .hds-advanced-table__th,
+    .hds-advanced-table__td {
+      background-color: var(--token-color-surface-faint);
     }
   }
 
   .hds-advanced-table__tr.hds-advanced-table__tr--parent-row {
-    .hds-advanced-table__th, .hds-advanced-table__td {
+    .hds-advanced-table__th,
+    .hds-advanced-table__td {
       background-color: var(--token-color-surface-primary);
     }
   }
@@ -462,7 +464,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   position: absolute;
 }
 
-.hds-advanced-table__scroll-indicator-left, .hds-advanced-table__scroll-indicator-right {
+.hds-advanced-table__scroll-indicator-left,
+.hds-advanced-table__scroll-indicator-right {
   top: 0;
   width: 8px;
 }

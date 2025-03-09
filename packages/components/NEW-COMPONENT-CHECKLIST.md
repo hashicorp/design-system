@@ -14,7 +14,9 @@ The following should be available as resources for the Project Kickoff.
 A project kickoff will be scheduled before the project start date. The kickoff will be used to align on project scope, timelines, and milestones and as a space to discuss any open questions. In attendance should be Design Systems Team leadership, lead Designer and Engineer on the project, and Design/Engineer buddies (if applicable).
 
 ## Design Checklist
+
 The design checklist has 4 primary parts:
+
 1. component design
 2. testing
 3. documentation
@@ -23,6 +25,7 @@ The design checklist has 4 primary parts:
 The design process is largely cyclical, so some steps may be repeated until final approval.
 
 ### Component Design
+
 - [ ] [create a branch](https://help.figma.com/hc/en-us/articles/360063144053-Create-branches-and-merge-changes#Create_a_branch) in the [product components ui kit](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components)
 - [ ] add a new page for the component, as needed
 - [ ] copy & paste the [new component template](https://www.figma.com/file/noyY6dUMDYjmySpHcMjhkN/HDS-Product---Components?type=design&node-id=46856-287&mode=design&t=V4zCk5Jv07PcHYzZ-4) to the new page
@@ -59,6 +62,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
   - let them know it's been approved and answer any remaining questions
 
 ### Component Testing
+
 - [ ] prepare for testing
   - [ ] lock the components
   - [ ] change the badge in the banner to "Experimental"
@@ -72,6 +76,7 @@ The design process is largely cyclical, so some steps may be repeated until fina
 - [ ] if iterations are needed, work through the process until approved (don't forget to branch!)
 
 ### Documentation
+
 - [ ] while the component is being tested, write the documentation
   - artifacts should include:
     - design guidelines
@@ -79,17 +84,19 @@ The design process is largely cyclical, so some steps may be repeated until fina
     - relevant accessibility details
 
 ### Release in Figma
+
 Once key stakeholders have tested the component and iterations are approved, prepare for a final release of the component.
 
 - [ ] add a changelog entry to [CHANGELOG-FIGMA-COMPONENTS.md](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-COMPONENTS.md)
 - [ ] if changes were made, publish the component
 - [ ] once the code has been released, communicate the release in the slack channel [#team-design-systems](https://hashicorp.slack.com/archives/C7KTUHNUS)
 
-
 ## Engineering Checklist
+
 The engineering checklist has six parts: creating the feature branch, component template, component backing class, component style, tests, and documentation.
 
 ### Dependency
+
 - Since we are trying to align the component API naming with the same terms used in the Figma file, it is likely useful to have a fairly stable Figma design before we create a component; it should definitely be finalized before the component ships, however.
 
 ### Component Creation

@@ -81,10 +81,10 @@ In many cases, replacing v1.0 library components with the components in the Figm
 - Added an `alignment` property which can be set at the root level to `left` or `center`.
 - The footer now supports up to three actions at once. The actions are now organized in accordance with our [Button Organization](/patterns/button-organization) pattern.
 - Updated several visual styles including:
-    - Removing the divider
-    - Reducing the title from `Display/400/Bold` to `Display/300/Bold`
-    - Changing the icon and the title color from `Foreground/Faint` to `Foreground/Strong`
-    - Changing the body text color from `Foreground/Faint` to `Foreground/Primary`
+  - Removing the divider
+  - Reducing the title from `Display/400/Bold` to `Display/300/Bold`
+  - Changing the icon and the title color from `Foreground/Faint` to `Foreground/Strong`
+  - Changing the body text color from `Foreground/Faint` to `Foreground/Primary`
 
 _Adding support for three actions within the `ApplicationState` results in a breaking change to the previous actions. Before updating the library, we recommend annotating the text and icon name (with a comment or otherwise) in files that are in progress or still being referenced by engineering._
 

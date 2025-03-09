@@ -1703,7 +1703,7 @@ Alternatively, you can import the CSS by adding this configuration in `ember-cli
 
 ```js
 app.import(
-  'node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css'
+  "node_modules/@hashicorp/design-system-components/dist/styles/@hashicorp/design-system-components.css"
 );
 ```
 

@@ -7,7 +7,6 @@
 // CODE-BLOCK
 //
 
-
 @use "../../mixins/focus-ring" as *;
 
 // Note: "theme" contains just color variables and syntax highlighting styles
@@ -38,7 +37,9 @@ $hds-code-block-code-padding: 16px;
     hyphens: none;
     scrollbar-width: thin;
 
-    @media print { text-shadow: none; }
+    @media print {
+      text-shadow: none;
+    }
   }
 }
 
@@ -180,7 +181,9 @@ $hds-code-block-code-padding: 16px;
     }
   }
 
-  .hds-icon { color: var(--hds-code-block-color-foreground-primary); }
+  .hds-icon {
+    color: var(--hds-code-block-color-foreground-primary);
+  }
 }
 
 .hds-code-block {
@@ -246,6 +249,11 @@ $hds-code-block-code-padding: 16px;
   }
 
   // commmon tokens
-  .token.bold { font-weight: bold; }
-  .token.italic { font-style: italic; }
+  .token.bold {
+    font-weight: bold;
+  }
+
+  .token.italic {
+    font-style: italic;
+  }
 }

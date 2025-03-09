@@ -7,7 +7,6 @@
 // FORM > TEXT-INPUT
 //
 
-
 // "BASE" CONTROL
 
 .hds-form-text-input {
@@ -79,7 +78,6 @@
   }
 }
 
-
 // "TYPE" CUSTOMIZATION
 
 .hds-form-text-input__wrapper {
@@ -100,7 +98,6 @@
 }
 
 .hds-form-text-input {
-
   // DATE/TIME
 
   &[type="date"],
@@ -108,7 +105,6 @@
   &[type="datetime-local"],
   &[type="month"],
   &[type="week"] {
-
     // browsers set a specific width for these controls, we want to keep it
     width: initial;
 

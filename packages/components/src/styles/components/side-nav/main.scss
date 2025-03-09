@@ -9,7 +9,9 @@
 
 .hds-side-nav {
   position: relative;
-  width: var(--hds-app-sidenav-width-fixed); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
+  width: var(
+    --hds-app-sidenav-width-fixed
+  ); // "default" width used by the `SideNav::Base` subcomponent (that is not responsive)
   height: 100%;
   min-height: 100%;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
@@ -26,9 +28,7 @@
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
   &.hds-side-nav--is-responsive {
-    transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+    transition: width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
   }
 
   // mobile
@@ -56,9 +56,7 @@
   inset: 0;
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
-  transition:
-    opacity var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing)
+  transition: opacity var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing)
     var(--hds-app-sidenav-animation-delay);
 
   // when we're minimized (mobile) we don't want the overlay to be visible/interactive
@@ -80,16 +78,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--token-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
+  color: var(
+    --token-side-nav-color-foreground-primary
+  ); // we set a default color (in case generic content is added to the header/body/footer of the sidenav)
   background: var(--token-side-nav-color-surface-primary);
   border-right: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
   .hds-side-nav--is-responsive & {
-    transition:
-      width var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing);
+    transition: width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
   }
 
   .hds-side-nav--is-minimized & {
@@ -108,9 +106,7 @@
   padding-right: var(--token-side-nav-wrapper-padding-horizontal);
   padding-bottom: 8px; // by design
   padding-left: var(--token-side-nav-wrapper-padding-horizontal);
-  transition:
-    padding var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing);
+  transition: padding var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
 
   .hds-side-nav--is-minimized & {
     padding-top: var(--token-side-nav-wrapper-padding-vertical-minimized);
@@ -126,9 +122,7 @@
 
 .hds-side-nav__wrapper-body {
   flex: 1;
-  padding:
-    var(--token-side-nav-wrapper-padding-vertical)
-    var(--token-side-nav-wrapper-padding-horizontal);
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
   // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
   // (if there are words longer than the width of the available space for the list "item" content)
   overflow-x: hidden;
@@ -137,17 +131,14 @@
 }
 
 .hds-side-nav__wrapper-footer {
-  padding:
-    var(--token-side-nav-wrapper-padding-vertical)
-    var(--token-side-nav-wrapper-padding-horizontal);
-  
+  padding: var(--token-side-nav-wrapper-padding-vertical) var(--token-side-nav-wrapper-padding-horizontal);
+
   // Remove padding when it contains no child nodes
   &:empty {
     min-height: var(--token-side-nav-wrapper-padding-horizontal); // acts as spacer
     padding: 0;
   }
 }
-
 
 // "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
 // this is a special class that is used to control which elements of the sidenav need to be:
@@ -176,9 +167,7 @@
   .hds-side-nav--is-not-minimized & {
     visibility: visible;
     opacity: 1;
-    transition:
-      opacity var(--hds-app-sidenav-animation-duration)
-      var(--hds-app-sidenav-animation-easing)
+    transition: opacity var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing)
       var(--hds-app-sidenav-animation-delay);
   }
 

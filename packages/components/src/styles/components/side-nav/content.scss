@@ -9,7 +9,6 @@
 
 @use "../../mixins/focus-ring" as *;
 
-
 // PANELS (wrappers used in conjunction with the portal elements)
 
 .hds-side-nav__content {
@@ -60,15 +59,16 @@
 // LIST (root elements)
 
 .hds-side-nav__list-wrapper, // <nav> element
-.hds-side-nav__list {        // <ul> element
+.hds-side-nav__list {
+  // <ul> element
   margin: 0;
   padding: 0;
 }
 
-
 // ITEM (generic container)
 
-.hds-side-nav__list-item { // <li> element
+.hds-side-nav__list-item {
+  // <li> element
   list-style-type: none;
 
   & + & {
@@ -76,7 +76,8 @@
   }
 }
 
-.hds-side-nav__list-item-link { // <a>/<button> element (via Hds::Interactive)
+.hds-side-nav__list-item-link {
+  // <a>/<button> element (via Hds::Interactive)
   display: flex;
   gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
   align-items: center;
@@ -145,7 +146,6 @@
     }
   }
 }
-
 
 // LIST ITEM > INNER ELEMENTS
 

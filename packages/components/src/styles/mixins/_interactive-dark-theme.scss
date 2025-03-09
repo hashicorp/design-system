@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
- @use "../mixins/focus-ring" as *;
- @use "../mixins/button" as *;
+@use "../mixins/focus-ring" as *;
+@use "../mixins/button" as *;
 
 // Used to apply dark theme to interactive elements such as Button & Dropdown
 @mixin hds-interactive-dark-theme($add-visible-border: true, $is-within-side-nav: false) {
@@ -45,7 +45,7 @@
       background-color: var(--token-color-palette-neutral-600);
     }
   }
-  
+
   // Focus:
   &:focus,
   &.mock-focus {
@@ -83,7 +83,7 @@
       color: var(--token-color-foreground-high-contrast); // to avoid overrides by specificity (eg. `a:hover`)
       background-color: var(--token-color-palette-neutral-500);
     }
-    
+
     @if ($add-visible-border) {
       border-color: var(--token-color-palette-neutral-400);
     }

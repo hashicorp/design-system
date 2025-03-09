@@ -10,10 +10,9 @@
 @use "sass:math";
 @use "sass:map";
 
-$hds-badge-count-types: ( "flat","inverted","outlined" );
-$hds-badge-count-sizes: ( "small", "medium", "large" );
+$hds-badge-count-types: ("flat", "inverted", "outlined");
+$hds-badge-count-sizes: ("small", "medium", "large");
 $hds-badge-count-border-width: 1px;
-
 
 .hds-badge-count {
   display: inline-flex;
@@ -29,38 +28,44 @@ $hds-badge-count-border-width: 1px;
 // these values later may come from the design tokens
 $hds-badge-count-size-props: (
   "small": (
-    "font-size": 0.8125rem, // 13px
+    "font-size": 0.8125rem,
+    // 13px
     "height": 1.25rem,
-    "line-height": 1.2308, // 16px
+    "line-height": 1.2308,
+    // 16px
     "padding-vertical": 0.125rem,
     "padding-horizontal": 0.5rem,
   ),
   "medium": (
-    "font-size": 0.8125rem, // 13px
+    "font-size": 0.8125rem,
+    // 13px
     "height": 1.5rem,
-    "line-height": 1.2308, // 16px
+    "line-height": 1.2308,
+    // 16px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.75rem,
   ),
   "large": (
-    "font-size": 1rem, // 16px
+    "font-size": 1rem,
+    // 16px
     "height": 2rem,
-    "line-height": 1.5, // 24px
+    "line-height": 1.5,
+    // 24px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.875rem,
-  )
+  ),
 );
 
 @each $size in $hds-badge-count-sizes {
   .hds-badge-count--size-#{$size} {
     min-height: map.get($hds-badge-count-size-props, $size, "height");
-    padding: calc(#{map.get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width}) calc(#{map.get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
+    padding: calc(#{map.get($hds-badge-count-size-props, $size, "padding-vertical")} - #{$hds-badge-count-border-width})
+      calc(#{map.get($hds-badge-count-size-props, $size, "padding-horizontal")} - #{$hds-badge-count-border-width});
     font-size: map.get($hds-badge-count-size-props, $size, "font-size");
     line-height: map.get($hds-badge-count-size-props, $size, "line-height");
     border-radius: math.div(map.get($hds-badge-count-size-props, $size, "height"), 2);
   }
 }
-
 
 // COLOR + TYPE COMBINATIONS
 

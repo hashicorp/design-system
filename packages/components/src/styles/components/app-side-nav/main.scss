@@ -9,7 +9,9 @@
 
 .hds-app-side-nav {
   position: relative;
-  width: var(--hds-app-side-nav-width-fixed); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
+  width: var(
+    --hds-app-side-nav-width-fixed
+  ); // "default" width used by the `AppSideNav::Base` subcomponent (that is not responsive)
   height: 100%;
   min-height: 100%;
   isolation: isolate; // used to create a new stacking context (so we can set the overlay's z-index to -1)
@@ -17,9 +19,7 @@
   // RESPONSIVENESS - This controls the width of the top-level container ("sidebar") in the grid, and impacts the available space for the "main" grid area
 
   &.hds-app-side-nav--is-responsive {
-    transition:
-      width var(--hds-app-side-nav-animation-duration)
-      var(--hds-app-side-nav-animation-easing);
+    transition: width var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing);
   }
 
   // mobile
@@ -47,9 +47,7 @@
   inset: 0;
   background-color: var(--token-color-palette-neutral-700);
   opacity: 0.2;
-  transition:
-    opacity var(--hds-app-side-nav-animation-duration)
-    var(--hds-app-side-nav-animation-easing)
+  transition: opacity var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing)
     var(--hds-app-side-nav-animation-delay);
 
   // when we're minimized (mobile) we don't want the overlay to be visible/interactive
@@ -71,16 +69,16 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  color: var(--token-app-side-nav-color-foreground-primary); // we set a default color (in case generic content is added to the body of the appsidenav)
+  color: var(
+    --token-app-side-nav-color-foreground-primary
+  ); // we set a default color (in case generic content is added to the body of the appsidenav)
   background: var(--token-app-side-nav-color-surface-primary);
   border-right: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
 
   // RESPONSIVENESS - This controls the width of the "sidenav" container, and is independent (bur related) from the parent "sidebar" grid area
 
   .hds-app-side-nav--is-responsive & {
-    transition:
-      width var(--hds-app-side-nav-animation-duration)
-      var(--hds-app-side-nav-animation-easing);
+    transition: width var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing);
   }
 
   .hds-app-side-nav--is-minimized & {
@@ -96,9 +94,7 @@
 
 .hds-app-side-nav__wrapper-body {
   flex: 1;
-  padding:
-    var(--token-app-side-nav-wrapper-padding-vertical)
-    var(--token-app-side-nav-wrapper-padding-horizontal);
+  padding: var(--token-app-side-nav-wrapper-padding-vertical) var(--token-app-side-nav-wrapper-padding-horizontal);
   // this is necessary, otherwise when the sidenav is minimized an horizontal scrollbar may appear
   // (if there are words longer than the width of the available space for the list "item" content)
   overflow-x: hidden;
@@ -133,9 +129,7 @@
   .hds-app-side-nav--is-not-minimized & {
     visibility: visible;
     opacity: 1;
-    transition:
-      opacity var(--hds-app-side-nav-animation-duration)
-      var(--hds-app-side-nav-animation-easing)
+    transition: opacity var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing)
       var(--hds-app-side-nav-animation-delay);
   }
 
