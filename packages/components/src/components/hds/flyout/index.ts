@@ -61,7 +61,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @tracked private _isOpen = false;
   // TODO: make this property private; currently blocked by our consumers relying on it despite not being part of the public API: https://github.com/hashicorp/cloud-ui/blob/main/engines/waypoint/addon/components/preview-pane.ts#L15
   // private _element!: HTMLDialogElement;
-  element!: HTMLDialogElement;
+  _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
 
@@ -118,7 +118,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @action
   didInsert(element: HTMLDialogElement): void {
     // Store references of `<dialog>` and `<body>` elements
-    this.element = element;
+    this._element = element;
     this._body = document.body;
 
     if (this._body) {
@@ -128,18 +128,18 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
-    this.element.addEventListener('close', this.registerOnCloseCallback, true);
+    this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the flyout dialog is not already open
-    if (!this.element.open) {
+    if (!this._element.open) {
       this.open();
     }
   }
 
   @action
   willDestroyNode(): void {
-    if (this.element) {
-      this.element.removeEventListener(
+    if (this._element) {
+      this._element.removeEventListener(
         'close',
         this.registerOnCloseCallback,
         true
@@ -150,7 +150,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   @action
   open(): void {
     // Make flyout dialog visible using the native `showModal` method
-    this.element.showModal();
+    this._element.showModal();
     this._isOpen = true;
 
     // Prevent page from scrolling when the dialog is open
@@ -167,17 +167,17 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
-    if (this.element.open) {
+    if (this._element.open) {
       const token = waiter.beginAsync();
       const listener = () => {
         waiter.endAsync(token);
-        this.element.removeEventListener('close', listener);
+        this._element.removeEventListener('close', listener);
       };
-      this.element.addEventListener('close', listener);
+      this._element.addEventListener('close', listener);
     }
 
     // Make flyout dialog invisible using the native `close` method
-    this.element.close();
+    this._element.close();
 
     // Reset page `overflow` property
     if (this._body) {
