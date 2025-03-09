@@ -1,4 +1,5 @@
 import '@glint/environment-ember-loose';
+import '@glint/environment-ember-template-imports';
 
 import { LinkTo } from '@ember/routing';
 import { Portal, PortalTarget } from 'ember-stargate';
