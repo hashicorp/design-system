@@ -9,7 +9,6 @@
 
 @use "../../mixins/focus-ring" as *;
 
-
 // PANELS (wrappers used in conjunction with the portal elements)
 
 .hds-app-side-nav__content {
@@ -60,15 +59,16 @@
 // LIST (root elements)
 
 .hds-app-side-nav__list-wrapper, // <nav> element
-.hds-app-side-nav__list {        // <ul> element
+.hds-app-side-nav__list {
+  // <ul> element
   margin: 0;
   padding: 0;
 }
 
-
 // ITEM (generic container)
 
-.hds-app-side-nav__list-item { // <li> element
+.hds-app-side-nav__list-item {
+  // <li> element
   position: relative; // for the "active" state indicator
   list-style-type: none;
 
@@ -77,13 +77,15 @@
   }
 }
 
-.hds-app-side-nav__list-item-link { // <a>/<button> element (via Hds::Interactive)
+.hds-app-side-nav__list-item-link {
+  // <a>/<button> element (via Hds::Interactive)
   display: flex;
   gap: var(--token-app-side-nav-body-list-item-content-spacing-horizontal);
   align-items: center;
   width: 100%;
   min-height: var(--token-app-side-nav-body-list-item-height);
-  padding: var(--token-app-side-nav-body-list-item-padding-vertical) var(--token-app-side-nav-body-list-item-padding-horizontal);
+  padding: var(--token-app-side-nav-body-list-item-padding-vertical)
+    var(--token-app-side-nav-body-list-item-padding-horizontal);
   color: var(--token-app-side-nav-color-foreground-primary);
   text-decoration: none;
   // "Link" could render as an HTML button element so this overrides the default border style in that case:
@@ -160,7 +162,6 @@
     }
   }
 }
-
 
 // LIST ITEM > INNER ELEMENTS
 

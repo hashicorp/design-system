@@ -7,7 +7,6 @@
 // APP-SIDE-NAV > TOGGLE BUTTON
 //
 
-
 .hds-app-side-nav__toggle-button {
   position: absolute;
   top: var(--token-app-side-nav-wrapper-padding-vertical); // visually align with :header content
@@ -29,10 +28,8 @@
   transform: translateX(var(--hds-app-side-nav-width-expanded));
   cursor: pointer;
   transition:
-    transform var(--hds-app-side-nav-animation-duration)
-    var(--hds-app-side-nav-animation-easing),
-    width var(--hds-app-side-nav-animation-duration)
-    var(--hds-app-side-nav-animation-easing);
+    transform var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing),
+    width var(--hds-app-side-nav-animation-duration) var(--hds-app-side-nav-animation-easing);
 
   &::before {
     position: absolute;
@@ -44,7 +41,8 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+      var(--token-app-side-nav-color-surface-primary);
     content: "";
   }
 
@@ -58,7 +56,8 @@
     border-bottom: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-left: var(--token-app-side-nav-wrapper-border-width) solid var(--token-app-side-nav-wrapper-border-color);
     border-bottom-left-radius: var(--token-app-side-nav-toggle-button-border-radius);
-    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-primary);
+    box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+      var(--token-app-side-nav-color-surface-primary);
     transform: scaleY(-1); // rotate so same clip path can be used
     content: "";
   }
@@ -70,7 +69,8 @@
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+        var(--token-app-side-nav-color-surface-interactive-hover);
     }
   }
 
@@ -80,7 +80,8 @@
 
     &::before,
     &::after {
-      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0 var(--token-app-side-nav-color-surface-interactive-active);
+      box-shadow: 0 var(--token-app-side-nav-toggle-button-border-radius) 0
+        var(--token-app-side-nav-color-surface-interactive-active);
     }
   }
 
