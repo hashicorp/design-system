@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "format": "pnpm -r --if-present format",
+    "lint": "pnpm -r --if-present lint",
+    "lint:fix": "pnpm -r --if-present lint:fix",
     "release-candidate-packages": "pnpm changeset publish --tag rc",
     "release-packages": "pnpm changeset publish",
     "version-candidate-packages": "pnpm changeset version --snapshot rc && pnpm install --lockfile-only",
