@@ -19,7 +19,6 @@ $hds-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to
 $hds-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 
-
 // TABLE
 
 .hds-table {
@@ -27,7 +26,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   border-radius: $hds-table-border-radius;
   border-spacing: 0;
 }
-
 
 // table display
 
@@ -37,8 +35,8 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
 
 // table border
 
-.hds-table, 
-.hds-table__th, 
+.hds-table,
+.hds-table__th,
 .hds-table__td {
   border: calc(#{$hds-table-border-width} / 2) solid $hds-table-border-color;
 }
@@ -156,7 +154,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
   display: none;
 }
 
-
 // ----------------------------------------------------------------
 
 // TABLE BODY
@@ -242,7 +239,6 @@ $hds-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to a
     }
   }
 }
-
 
 // ----------------------------------------------------------------
 

@@ -7,7 +7,9 @@
 // REVEAL COMPONENT
 //
 
-.hds-reveal { width: fit-content; }
+.hds-reveal {
+  width: fit-content;
+}
 
 .hds-reveal__toggle-button {
   // overriding some styles of the tertiary button, per design specs
