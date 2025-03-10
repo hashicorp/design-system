@@ -39,7 +39,7 @@ export interface HdsAdvancedTableThSignature {
     isExpanded?: HdsAdvancedTableExpandState;
     depth?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
-    willDestroyExpandButton?: () => void;
+    willDestroyExpandButton?: (button: HTMLButtonElement) => void;
     hasExpandAllButton?: boolean;
   };
   Blocks: {
@@ -133,7 +133,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     return () => {
       if (typeof willDestroyExpandButton === 'function') {
-        willDestroyExpandButton();
+        willDestroyExpandButton(button);
       }
     };
   });

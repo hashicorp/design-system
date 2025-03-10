@@ -21,7 +21,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     childrenKey?: string;
     rowIndex: number | string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
-    willDestroyExpandButton?: () => void;
+    willDestroyExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     shouldDisplayChildRows?: boolean;
   };
@@ -37,7 +37,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         isExpanded?: HdsAdvancedTableExpandState;
         rowIndex?: string;
         didInsertExpandButton?: (button: HTMLButtonElement) => void;
-        willDestroyExpandButton?: () => void;
+        willDestroyExpandButton?: (button: HTMLButtonElement) => void;
         shouldDisplayChildRows?: boolean;
       },
     ];

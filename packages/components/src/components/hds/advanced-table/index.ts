@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { next } from '@ember/runloop';
+// import { next } from '@ember/runloop';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -95,6 +95,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
+  private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _mutationObserver: MutationObserver | undefined = undefined;
@@ -323,20 +324,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     };
   });
 
-  private _setUpExpandAllButton = modifier((element: HTMLDivElement) => {
-    const expandAllButton = element.querySelector<HTMLButtonElement>(
-      '.hds-advanced-table__th-button--expand'
-    );
-
-    if (expandAllButton) {
-      this._expandAllButton = expandAllButton;
-    }
-
-    return () => {
-      this._expandAllButton = undefined;
-    };
-  });
-
   @action
   setSortBy(column: string): void {
     if (this._sortBy === column) {
@@ -457,59 +444,51 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
+  @action didInsertExpandAllButton(button: HTMLButtonElement): void {
+    this._expandAllButton = button;
+  }
+
+  @action willDestroyExpandAllButton(): void {
+    this._expandAllButton = undefined;
+  }
+
   @action
-  didInsertExpandButton(): void {
+  didInsertExpandButton(button: HTMLButtonElement): void {
+    this._expandableRows.push(button);
     this.setExpandAllState();
   }
 
   @action
-  willDestroyExpandButton(): void {
+  willDestroyExpandButton(button: HTMLButtonElement): void {
+    this._expandableRows.filter((btn) => button === btn);
     this.setExpandAllState();
   }
 
   @action
   setExpandAllState(): void {
     if (this._expandAllButton && this._element) {
-      const expandButtons = Array.from(
-        this._element.querySelectorAll(
-          '.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'
-        )
-      );
+      const parentRowsCount = this._expandableRows.length;
+      const expandedRowsCount = this._expandableRows.filter(
+        (button) => button.getAttribute('aria-expanded') === 'true'
+      ).length;
 
-      // eslint-disable-next-line ember/no-runloop
-      next(() => {
-        const parentRowsCount = expandButtons.length;
-        const expandedRowsCount = expandButtons.filter(
-          (button) => button.getAttribute('aria-expanded') === 'true'
-        ).length;
+      let expandAllState: HdsAdvancedTableExpandState;
 
-        let expandAllState: HdsAdvancedTableExpandState;
+      if (parentRowsCount === expandedRowsCount) expandAllState = true;
+      else if (expandedRowsCount === 0) expandAllState = false;
+      else expandAllState = 'mixed';
 
-        if (parentRowsCount === expandedRowsCount) expandAllState = true;
-        else if (expandedRowsCount === 0) expandAllState = false;
-        else expandAllState = 'mixed';
-
-        this._expandAllButtonState = expandAllState;
-        updateLastRowClass(this._element);
-      });
+      this._expandAllButtonState = expandAllState;
+      updateLastRowClass(this._element);
     }
   }
 
   @action
   onExpandAllClick(): void {
     if (this._expandAllButton && this._element) {
-      const expandButtons = Array.from(
-        this._element.querySelectorAll(
-          '.hds-advanced-table__tbody .hds-advanced-table__th-button--expand'
-        )
-      );
+      const newState = this._expandAllButtonState === true ? false : true;
 
-      const newState =
-        this._expandAllButton.getAttribute('aria-expanded') === 'true'
-          ? false
-          : true;
-
-      expandButtons.forEach((button) => {
+      this._expandableRows.forEach((button) => {
         button.setAttribute('aria-expanded', `${newState}`);
         button.dispatchEvent(new Event('toggle', { bubbles: false }));
       });
