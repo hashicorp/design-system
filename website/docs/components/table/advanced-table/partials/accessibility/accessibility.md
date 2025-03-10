@@ -20,13 +20,11 @@ The Advanced Table supports two keyboard interaction modes: Navigation Mode and 
 
 ### Navigation Mode
 
-
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
 When a user tabs into the Advanced Table, the first cell is focused.
 
 ![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png)
-
 <Doc::BadgeGroup>
   <Doc::Badge @type="neutral">
     <Hds::Icon @name="arrow-left" @title="Left arrow" />
@@ -45,7 +43,6 @@ When a user tabs into the Advanced Table, the first cell is focused.
 Arrow keys move focus to cells in the direction of the input. If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png)
-
 <Doc::BadgeGroup>
   <Doc::Badge @type="neutral">Fn</Doc::Badge>
   <Doc::Badge @type="neutral">
@@ -56,7 +53,6 @@ Arrow keys move focus to cells in the direction of the input. If the table exten
 Move focus to the first cell in the row.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-left.png)
-
 <Doc::BadgeGroup>
   <Doc::Badge @type="neutral">Fn</Doc::Badge>
   <Doc::Badge @type="neutral">
