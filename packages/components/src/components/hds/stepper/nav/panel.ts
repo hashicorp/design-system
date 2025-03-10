@@ -16,7 +16,7 @@ export interface HdsStepperNavPanelSignature {
     isNavInteractive?: boolean;
     stepIds?: HdsStepperNavStepIds;
     panelIds?: HdsStepperNavPanelIds;
-    didInsertNode?: (element: HTMLElement, panelId: string) => void;
+    didInsertNode?: () => void;
     willDestroyNode?: (element: HTMLElement) => void;
   };
   Blocks: {
@@ -70,7 +70,7 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
 
     if (typeof didInsertNode === 'function') {
       this._elementId = element.id;
-      didInsertNode(element, this._elementId);
+      didInsertNode();
     }
   }
 
