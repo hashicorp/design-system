@@ -37,11 +37,8 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutFlexItemSignat
       'flex-shrink'?: string;
     } = {};
 
-    // we handle all cases of `basis` values via inline styles
-    if (typeof this.args.basis === 'number' && this.args.basis === 0) {
-      // the `{{style}}` modifier accepts only strings
-      inlineStyles['flex-basis'] = this.args.basis.toString();
-    } else if (typeof this.args.basis === 'string') {
+    // we handle all non-zero cases of `basis` values via inline styles
+    if (typeof this.args.basis === 'string') {
       inlineStyles['flex-basis'] = this.args.basis;
     }
 
@@ -66,6 +63,11 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutFlexItemSignat
 
   get classNames() {
     const classes = ['hds-layout-flex-item'];
+
+    // add a class based on the @basis argument (if set to `0`)
+    if (this.args.basis === 0) {
+      classes.push('hds-layout-flex-item--basis-0');
+    }
 
     // add a class based on the @grow argument (if set to `0/1` or `true/false`)
     if (this.args.grow === 0 || this.args.grow === false) {

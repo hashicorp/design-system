@@ -107,6 +107,13 @@
 
 // FLEX ITEM
 
+// note: these are just the most common values for `flex-[basis|grow|shrink]`
+// all other special cases are handled via inline styles
+
+.hds-layout-flex-item--basis-0 {
+  flex-basis: 0;
+}
+
 .hds-layout-flex-item--grow-0 {
   flex-grow: 0;
 }
