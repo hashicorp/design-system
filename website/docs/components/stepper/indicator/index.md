@@ -9,7 +9,7 @@ caption: >-
   multi-step flow or feature.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67221-68491&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=67221-68491&t=ezD7qfSafYAlTSGy-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper
 related:

@@ -6,7 +6,7 @@ caption: >-
   Lists sequential steps for a user to complete.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/whv92tH8FWhxb4kk6Ip3qp/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=A4lORtbini1AMxQN-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=ezD7qfSafYAlTSGy-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/stepper
 related:
