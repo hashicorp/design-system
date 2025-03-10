@@ -93,6 +93,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
   @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
+  @tracked private _expandButtons: HTMLButtonElement[] = [];
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _expandableRows: HTMLButtonElement[] = [];
@@ -457,6 +458,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   willDestroyExpandButton(button: HTMLButtonElement): void {
     this._expandableRows.filter((btn) => button === btn);
     this.setExpandAllState();
+  }
+
+  @action
+  registerExpandButton(button: HTMLButtonElement): void {
+    this._expandButtons.push(button);
+  }
+
+  @action
+  unregisterExpandButton(button: HTMLButtonElement): void {
+    this._expandButtons = this._expandButtons.filter(
+      (expandButton) => expandButton !== button
+    );
   }
 
   @action

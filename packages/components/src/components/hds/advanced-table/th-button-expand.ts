@@ -66,12 +66,20 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
       this.args.onToggle(newValue);
     }
   }
-
-  private _setUpEventHandler = modifier((button: HTMLButtonElement) => {
+  private _setUpEventHandler(button: HTMLButtonElement) {
     button.addEventListener('toggle', this.updateButton.bind(this), true);
 
     return () => {
       button.removeEventListener('toggle', this.updateButton.bind(this), true);
+    };
+  }
+
+  private _setupElement = modifier((button: HTMLButtonElement) => {
+    this._setUpEventHandler(button);
+    this.args.onRegister?.(button);
+
+    return () => {
+      this.args.onUnregister?.(button);
     };
   });
 

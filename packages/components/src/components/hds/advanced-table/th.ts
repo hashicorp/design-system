@@ -41,6 +41,8 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
     hasExpandAllButton?: boolean;
+    onRegisterExpandButton?: (element: HTMLButtonElement) => void;
+    onUnregisterExpandButton?: (element: HTMLButtonElement) => void;
   };
   Blocks: {
     default?: [];

@@ -86,6 +86,8 @@
                 depth=T.depth
                 didInsertExpandButton=T.didInsertExpandButton
                 willDestroyExpandButton=T.willDestroyExpandButton
+                onRegisterExpandButton=this.registerExpandButton
+                onUnregisterExpandButton=this.unregisterExpandButton
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data
@@ -107,7 +109,12 @@
               willDestroy=this.willDestroyRowCheckbox
               selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
-            Th=(component "hds/advanced-table/th" scope="row")
+            Th=(component
+              "hds/advanced-table/th"
+              scope="row"
+              onRegisterExpandButton=this.registerExpandButton
+              onUnregisterExpandButton=this.unregisterExpandButton
+            )
             Td=(component "hds/advanced-table/td" align=@align)
             data=record
             rowIndex=index
