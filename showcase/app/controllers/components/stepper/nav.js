@@ -22,20 +22,20 @@ export default class StepperNavController extends Controller {
   @tracked currentStep_demo5 = 0;
 
   demoStep1 = {
-    title: 'Step 1'
-  }
+    title: 'Step 1',
+  };
 
   demoStep2 = {
-    title: 'Step 2'
-  }
+    title: 'Step 2',
+  };
 
   demoStepNew = {
-    title: 'Step new'
-  }
+    title: 'Step new',
+  };
 
   demoStepLast = {
-    title: 'Step last'
-  }
+    title: 'Step last',
+  };
 
   @tracked steps_demo5 = [this.demoStep1, this.demoStep2, this.demoStepLast];
 
@@ -153,6 +153,11 @@ export default class StepperNavController extends Controller {
   @action
   onNextAddStepsClickDemo5() {
     this.currentStep_demo5++;
-    this.steps_demo5 = [this.demoStep1, this.demoStep2, this.demoStepNew, this.demoStepLast];
+    this.steps_demo5 = [
+      this.demoStep1,
+      this.demoStep2,
+      this.demoStepNew,
+      this.demoStepLast,
+    ];
   }
 }
