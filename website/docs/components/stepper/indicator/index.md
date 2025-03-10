@@ -15,7 +15,7 @@ links:
 related:
   - components/stepper/list
   - components/stepper/nav
-previewImage: assets/illustrations/components/stepper.jpg
+previewImage: assets/illustrations/components/stepper-indicator.jpg
 navigation:
   keywords:
     - progress

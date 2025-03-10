@@ -12,7 +12,7 @@ links:
 related:
   - components/stepper/indicator
   - components/stepper/list
-previewImage: assets/illustrations/components/stepper.jpg
+previewImage: assets/illustrations/components/stepper-nav.jpg
 navigation:
   keywords:
     - page level
