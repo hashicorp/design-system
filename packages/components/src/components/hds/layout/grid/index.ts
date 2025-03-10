@@ -112,6 +112,11 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
   get classNames(): string {
     const classes = ['hds-layout-grid'];
 
+    // add a class based on the @justify argument
+    if (this.justify) {
+      classes.push(`hds-layout-grid--justify-content-${this.justify}`);
+    }
+
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-layout-grid--align-items-${this.align}`);

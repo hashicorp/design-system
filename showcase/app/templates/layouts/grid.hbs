@@ -29,7 +29,7 @@
     and
     <code>align-items</code>
     CSS properties of
-    <code>flexbox</code>.</Shw::Text::Body>
+    <code>css grid</code>.</Shw::Text::Body>
 
   <Shw::Grid @columns={{@model.JUSTIFYS.length}} @gap="2rem" as |SG|>
     {{#each @model.ALIGNS as |align ac|}}
@@ -40,6 +40,7 @@
           </SG.Item>
         {{/each}}
       {{/if}}
+
       {{#each @model.JUSTIFYS as |justify jc|}}
         <SG.Item @label={{if (eq jc 0) (concat "align=" align) "​"}}>
           <Shw::Outliner {{style width="120px" height="120px"}}>
