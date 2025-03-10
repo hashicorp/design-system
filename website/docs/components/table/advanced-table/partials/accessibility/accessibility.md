@@ -27,36 +27,64 @@ When a user tabs into the Advanced Table, the first cell is focused.
 
 ![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png)
 
-
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrow" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" @title="Up arrow" /></Doc::Badge> <Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" @title="Down arrow" /></Doc::Badge>
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-left" @title="Left arrow" />
+  </Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-right" @title="Right arrow" />
+  </Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-up" @title="Up arrow" />
+  </Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-down" @title="Down arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
 
 Arrow keys move focus to cells in the direction of the input. If the table extends beyond the screen, arrow keys allow movement to access hidden columns.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-arrow-key-down.png)
 
-
-<Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrow" /></Doc::Badge>
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">Fn</Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-left" @title="Left arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
 
 Move focus to the first cell in the row.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-left.png)
 
-
-<Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge>
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">Fn</Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-right" @title="Right arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
 
 Move focus to the last cell in the row.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-right.png)
 
-
-<Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up"  @title="Up arrow" /></Doc::Badge>
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">Fn</Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-up" @title="Up arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
 
 Move focus to the first cell in the column.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-up.png)
 
-
-<Doc::Badge @type="neutral">Fn</Doc::Badge><Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down"  @title="Down arrow" /></Doc::Badge>
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">Fn</Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-down" @title="Down arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
 
 Move focus to the last cell in the column.
 
