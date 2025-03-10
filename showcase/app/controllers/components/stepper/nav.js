@@ -21,34 +21,23 @@ export default class StepperNavController extends Controller {
   @tracked currentStep_demo4 = 1;
   @tracked currentStep_demo5 = 0;
 
-  demoSteps = [
-    {
-      title: 'Step 1',
-    },
-    {
-      title: 'Step 2',
-    },
-    {
-      title: 'Last step',
-    },
-  ];
+  demoStep1 = {
+    title: 'Step 1'
+  }
 
-  demoStepAdditions = [
-    {
-      title: 'Step 1',
-    },
-    {
-      title: 'Step 2',
-    },
-    {
-      title: 'New step',
-    },
-    {
-      title: 'Last step',
-    },
-  ];
+  demoStep2 = {
+    title: 'Step 2'
+  }
 
-  @tracked steps_demo5 = this.demoSteps;
+  demoStepNew = {
+    title: 'Step new'
+  }
+
+  demoStepLast = {
+    title: 'Step last'
+  }
+
+  @tracked steps_demo5 = [this.demoStep1, this.demoStep2, this.demoStepLast];
 
   // =============================
   // DEMOS
@@ -151,7 +140,7 @@ export default class StepperNavController extends Controller {
   @action
   onNextClickDemo5() {
     if (this.currentStep_demo5 === 0) {
-      this.steps_demo5 = this.demoSteps;
+      this.steps_demo5 = [this.demoStep1, this.demoStep2, this.demoStepLast];
     }
     this.currentStep_demo5++;
   }
@@ -164,6 +153,6 @@ export default class StepperNavController extends Controller {
   @action
   onNextAddStepsClickDemo5() {
     this.currentStep_demo5++;
-    this.steps_demo5 = this.demoStepAdditions;
+    this.steps_demo5 = [this.demoStep1, this.demoStep2, this.demoStepNew, this.demoStepLast];
   }
 }
