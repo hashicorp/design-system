@@ -86,34 +86,29 @@ Move focus to the last cell in the column.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-fn-down.png)
 
-
 ### Action Mode
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
 Press Enter in Navigation Mode to enable Action Mode and interact with elements inside a cell. Focus will move to the first actionable element.
 
-
-![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png)
+![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png)
 
 <Doc::Badge @type="neutral">Enter</Doc::Badge>
 
 Press Enter again to trigger the action.
 
-
-![Keyboard focus on the sortable 'Artist' column header with sorting controls active.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-sort.png)
+![Keyboard focus on 'The Beatles' link inside the table.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-link.png)
 
 <Doc::Badge @type="neutral">Tab</Doc::Badge>
 
 Use Tab to navigate between actions within the cell.
-
 
 ![Tooltip appears on focus for the info icon in the 'Artist' column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-tooltip.png)
 
 <Doc::Badge @type="neutral">Escape</Doc::Badge>
 
 Returns to navigation mode.
-
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png)
 
