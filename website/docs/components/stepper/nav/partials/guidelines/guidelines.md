@@ -80,7 +80,7 @@ At browser widths of 550px and below the steps will stack vertically and not dis
 
 ## Composition with other components
 
-Always pair a Stepper Nav with a [Button Set](/components/button-set). Navigation interactions between the Stepper Nav and the Button Set should always match. 
+Always pair a Stepper Nav with a [Button Set](/components/button-set) or [Button](/components/button). Navigation interactions between the Stepper Nav and the Button Set should always match. 
 
 If a user can navigate backward within the Button Set, use the interactive Stepper Nav. Otherwise, use the non-interactive variant.
 
