@@ -33,7 +33,7 @@ export interface HdsStepperNavStepSignature {
     titleTag?: HdsStepperTitleTags;
     stepIds?: HdsStepperNavStepIds;
     panelIds?: HdsStepperNavPanelIds;
-    didInsertNode?: (element: HTMLButtonElement, stepId: string) => void;
+    didInsertNode?: () => void;
     willDestroyNode?: (element: HTMLButtonElement) => void;
     onStepChange?: (event: MouseEvent, nodeIndex: number) => void;
     onKeyUp?: (nodeIndex: number, event: KeyboardEvent) => void;
@@ -125,7 +125,7 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
 
     if (typeof didInsertNode === 'function') {
       this._elementId = element.id;
-      didInsertNode(element, this._elementId);
+      didInsertNode();
     }
   }
 
