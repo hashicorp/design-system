@@ -109,13 +109,14 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   @action
   didInsertStep(): void {
     // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {;
+    schedule('afterRender', (): void => {
       this.updateSteps();
     });
   }
 
   @action
   willDestroyStep(element: HTMLElement): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._stepNodes = this._stepNodes.filter(
         (node): boolean => node.id !== element.id
@@ -136,6 +137,7 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
   @action
   willDestroyPanel(element: HTMLElement): void {
+    // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._panelNodes = this._panelNodes.filter(
         (node): boolean => node.id !== element.id
@@ -168,26 +170,26 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
   // Update the step arrays based on how they are ordered in the DOM
   private updateSteps(): void {
-    let steps = this._element.querySelectorAll(STEP_ELEMENT_SELECTOR);
+    const steps = this._element.querySelectorAll(STEP_ELEMENT_SELECTOR);
     let newStepIds: HdsStepperNavStepIds = [];
     let newStepNodes: HTMLElement[] = [];
-    steps.forEach(step => {
-      newStepIds = [...newStepIds, step.id]
+    steps.forEach((step) => {
+      newStepIds = [...newStepIds, step.id];
       newStepNodes = [...newStepNodes, step as HTMLElement];
-    })
+    });
     this._stepIds = newStepIds;
     this._stepNodes = newStepNodes;
   }
 
   // Update the panel arrays based on how they are ordered in the DOM
   private updatePanels(): void {
-    let panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
+    const panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
     let newPanelIds: HdsStepperNavPanelIds = [];
     let newPanelNodes: HTMLElement[] = [];
-    panels.forEach(panel => {
-      newPanelIds = [...newPanelIds, panel.id]
+    panels.forEach((panel) => {
+      newPanelIds = [...newPanelIds, panel.id];
       newPanelNodes = [...newPanelNodes, panel as HTMLElement];
-    })
+    });
     this._panelIds = newPanelIds;
     this._panelNodes = newPanelNodes;
   }
