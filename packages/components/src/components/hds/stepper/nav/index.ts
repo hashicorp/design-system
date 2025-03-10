@@ -21,6 +21,9 @@ import type {
   HdsStepperNavPanelIds,
 } from '../types.ts';
 
+const STEP_ELEMENT_SELECTOR = '.hds-stepper-nav__step-content';
+const PANEL_ELEMENT_SELECTOR = '.hds-stepper-nav__panel';
+
 export interface HdsStepperNavSignature {
   Args: {
     steps?: HdsStepperNavStep[];
@@ -48,7 +51,9 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   @tracked private _panelNodes: HTMLElement[] = [];
   @tracked private _panelIds: HdsStepperNavPanelIds = [];
 
-  private _setUpStepperNav = modifier(() => {
+  private _element!: HTMLDivElement;
+
+  private _setUpStepperNav = modifier((element: HTMLDivElement) => {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       if (this.isInteractive) {
@@ -58,6 +63,8 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
         );
       }
     });
+
+    this._element = element;
 
     return () => {};
   });
@@ -100,41 +107,43 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   }
 
   @action
-  didInsertStep(element: HTMLElement, stepId: string): void {
+  didInsertStep(): void {
     // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      this._stepIds = [...this._stepIds, stepId];
-      this._stepNodes = [...this._stepNodes, element];
+    schedule('afterRender', (): void => {;
+      this.updateSteps();
     });
   }
 
   @action
   willDestroyStep(element: HTMLElement): void {
-    this._stepNodes = this._stepNodes.filter(
-      (node): boolean => node.id !== element.id
-    );
-    this._stepIds = this._stepIds.filter(
-      (stepId): boolean => stepId !== element.id
-    );
+    schedule('afterRender', (): void => {
+      this._stepNodes = this._stepNodes.filter(
+        (node): boolean => node.id !== element.id
+      );
+      this._stepIds = this._stepIds.filter(
+        (stepId): boolean => stepId !== element.id
+      );
+    });
   }
 
   @action
-  didInsertPanel(element: HTMLElement, panelId: string): void {
+  didInsertPanel(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this._panelIds = [...this._panelIds, panelId];
-      this._panelNodes = [...this._panelNodes, element];
+      this.updatePanels();
     });
   }
 
   @action
   willDestroyPanel(element: HTMLElement): void {
-    this._panelNodes = this._panelNodes.filter(
-      (node): boolean => node.id !== element.id
-    );
-    this._panelIds = this._panelIds.filter(
-      (panelId): boolean => panelId !== element.id
-    );
+    schedule('afterRender', (): void => {
+      this._panelNodes = this._panelNodes.filter(
+        (node): boolean => node.id !== element.id
+      );
+      this._panelIds = this._panelIds.filter(
+        (panelId): boolean => panelId !== element.id
+      );
+    });
   }
 
   @action
@@ -155,6 +164,32 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
       );
       this.focusStep(prevStepIndex, event);
     }
+  }
+
+  // Update the step arrays based on how they are ordered in the DOM
+  private updateSteps(): void {
+    let steps = this._element.querySelectorAll(STEP_ELEMENT_SELECTOR);
+    let newStepIds: HdsStepperNavStepIds = [];
+    let newStepNodes: HTMLElement[] = [];
+    steps.forEach(step => {
+      newStepIds = [...newStepIds, step.id]
+      newStepNodes = [...newStepNodes, step as HTMLElement];
+    })
+    this._stepIds = newStepIds;
+    this._stepNodes = newStepNodes;
+  }
+
+  // Update the panel arrays based on how they are ordered in the DOM
+  private updatePanels(): void {
+    let panels = this._element.querySelectorAll(PANEL_ELEMENT_SELECTOR);
+    let newPanelIds: HdsStepperNavPanelIds = [];
+    let newPanelNodes: HTMLElement[] = [];
+    panels.forEach(panel => {
+      newPanelIds = [...newPanelIds, panel.id]
+      newPanelNodes = [...newPanelNodes, panel as HTMLElement];
+    })
+    this._panelIds = newPanelIds;
+    this._panelNodes = newPanelNodes;
   }
 
   // Find the next interactive step to focus based on keyboard input
