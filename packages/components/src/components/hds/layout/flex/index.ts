@@ -61,6 +61,7 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
   }
 
   get direction(): HdsLayoutFlexDirections {
+    // TODO! discuss with Kristin if we want to have an explicit default her, or just rely on the CSS default (it's the same)
     const { direction = DEFAULT_DIRECTION } = this.args;
 
     assert(
