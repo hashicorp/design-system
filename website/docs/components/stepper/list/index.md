@@ -12,7 +12,7 @@ links:
 related:
   - components/stepper/indicator
   - components/stepper/nav
-previewImage: assets/illustrations/components/stepper.jpg
+previewImage: assets/illustrations/components/stepper-list.jpg
 navigation:
   keywords:
     - asynchronous
