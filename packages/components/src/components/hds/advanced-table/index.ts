@@ -98,7 +98,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
-  private _mutationObserver: MutationObserver | undefined = undefined;
   private _element!: HTMLDivElement;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -316,10 +315,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return () => {
       if (this._intersectionObserver) {
         this._intersectionObserver.disconnect();
-      }
-
-      if (this._mutationObserver) {
-        this._mutationObserver.disconnect();
       }
     };
   });

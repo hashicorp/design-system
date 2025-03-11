@@ -16,7 +16,7 @@ import type { HdsAdvancedTableThSortExpandIcons } from './types.ts';
 export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
-    isExpanded?: boolean | 'mixed';
+    isExpanded?: HdsAdvancedTableExpandState;
     onToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
     isExpandAll?: boolean;
   };
@@ -26,9 +26,8 @@ export interface HdsAdvancedTableThButtonExpandSignature {
 export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvancedTableThButtonExpandSignature> {
   // Generates a unique ID for the (hidden) "label prefix" <span> element
   private _prefixLabelId = 'prefix-' + guidFor(this);
-  _observer: MutationObserver | undefined = undefined;
 
-  get isExpanded(): boolean | 'mixed' {
+  get isExpanded(): HdsAdvancedTableExpandState {
     const { isExpanded = false } = this.args;
 
     return isExpanded;
@@ -57,7 +56,7 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
   updateButton(event: Event) {
     const target = event.target as HTMLButtonElement;
     const ariaExpanded = target.getAttribute('aria-expanded');
-    let newValue: boolean | 'mixed' | undefined = undefined;
+    let newValue: HdsAdvancedTableExpandState | undefined = undefined;
 
     if (ariaExpanded === 'true') newValue = true;
     else if (ariaExpanded === 'false') newValue = false;

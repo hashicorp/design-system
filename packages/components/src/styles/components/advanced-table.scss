@@ -232,18 +232,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     }
   }
 
-  // .hds-advanced-table__tr:has(+ .hds-advanced-table__tr--hidden) {
-  //   .hds-advanced-table__th:first-child,
-  //   .hds-advanced-table__td:first-child {
-  //     border-bottom-left-radius: $hds-advanced-table-inner-border-radius;
-  //   }
-
-  //   // a <th> will never be last child, only first child
-  //   .hds-advanced-table__td:last-child {
-  //     border-bottom-right-radius: $hds-advanced-table-inner-border-radius;
-  //   }
-  // }
-
   .hds-advanced-table__th,
   .hds-advanced-table__td {
     display: flex;
