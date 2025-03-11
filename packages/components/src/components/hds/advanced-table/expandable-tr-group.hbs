@@ -8,7 +8,7 @@
     isExpandable=(not-eq @record.children undefined)
     id=this._id
     depth=this.depth
-    isExpanded=(get @record "isOpen")
+    isExpanded=@record.isExpanded
     parentId=@parentId
     rowIndex=this.rowIndex
     didInsertExpandButton=@didInsertExpandButton
@@ -24,7 +24,6 @@
       @depth={{this.childrenDepth}}
       @align={{@align}}
       @parentId={{this._id}}
-      @childrenKey={{@record.childrenKey}}
       @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
       @onClickToggle={{@onClickToggle}}
       @didInsertExpandButton={{@didInsertExpandButton}}

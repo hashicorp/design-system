@@ -112,7 +112,6 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 
 export interface HdsAdvancedTableModelItem {
   [key: string]: unknown;
-  childrenKey?: string;
   isOpen?: boolean;
 }
 

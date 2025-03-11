@@ -5,19 +5,18 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
-import type { InternalModelItem } from './index.ts';
 
 import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableHorizontalAlignment,
 } from './types.ts';
+import type HdsAdvancedTableRow from './models/row.ts';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     depth?: number;
-    record: InternalModelItem;
+    record: HdsAdvancedTableRow;
     parentId?: string;
-    childrenKey?: string;
     rowIndex: number | string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
@@ -27,7 +26,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
   Blocks: {
     default?: [
       {
-        data: Record<string, unknown>;
+        data: HdsAdvancedTableRow;
         isExpandable: boolean;
         id?: string;
         parentId?: string;
@@ -64,7 +63,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   // @action onClickToggle(newValue?: boolean | 'mixed') {
   @action onClickToggle() {
     // fix the state
-    this.args.record.toggleOpen();
+    this.args.record.toggleIsExpanded();
 
     if (this.args.onClickToggle) {
       this.args.onClickToggle();
