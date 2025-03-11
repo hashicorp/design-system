@@ -111,3 +111,41 @@ When a click on a step occurs, the `@onStepChange` handler can be used to pass a
   <S.Panel>Content 3</S.Panel>
 </Hds::Stepper::Nav>
 ```
+
+### Without panels
+
+The component can be used without the `[S].Panel` contextual component, or `<:body>` named block. In this use case, the component operates similar to a static list. This can be used if the content of the steps is outside of the component.
+
+!!! Info
+
+Due to accessibility implications, `@isInteractive` can not be set to `true` when using the component without panels.
+
+!!!
+
+```handlebars
+<Hds::Stepper::Nav @ariaLabel="Standalone contextual components" as |S|>
+  <S.Step>
+    <:title>Step 1</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 2</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 3</:title>
+  </S.Step>
+</Hds::Stepper::Nav>
+Steps content
+```
+
+```handlebars
+<Hds::Stepper::Nav
+  @steps={{array
+    (hash title="Step 1")
+    (hash title="Step 2")
+    (hash title="Step 3")
+  }}
+  @ariaLabel="Standalone steps argument"
+>
+</Hds::Stepper::Nav>
+Steps content
+```
