@@ -47,7 +47,7 @@ We recommend showing the contents of only the **in-progress** step while hiding 
 
 Only show one call to action at a time.
 
-![Stepper with 4 steps. The current active step is step 2 and it has a call to action button in the content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure.png)
+![Stepper with 3 steps. The current active step is step 1 and it has a call to action button in the content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-do.png)
 
 !!!
 
@@ -55,7 +55,7 @@ Only show one call to action at a time.
 
 Reduce visual noise by focusing which action the user should be taking first.
 
-![A stepper with 4 steps. The current active step is step 2. Both step 2 and 3 have a call to action button in their content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
+![A stepper with 3 steps. The current active step is step 1. Both step 1 and 2 have a call to action button in their content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
 
 !!!
 
