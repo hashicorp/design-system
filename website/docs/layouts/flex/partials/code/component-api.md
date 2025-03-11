@@ -49,17 +49,17 @@ The `Layout::Flex::Item` component, yielded as contextual component, to be used 
   <C.Property @name="basis" @type="string|0">
     The value (size) of the CSS `flex-basis` property, which sets the initial main size the flex item (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)).
     <br/><br/>
-    <em>Notice: when the value is set to `0` a CSS class is used to apply the `flex-basis` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property allows.</em>
+    <em>Notice: when the value is set to `0` a CSS class is used to apply the `flex-basis` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="grow" @type="boolean|number|string">
     The value (size or keyword) of the CSS `flex-grow` property, which sets the flex grow factor of the flex item (for a technical explanation:  [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)).
     <br/><br/>
-    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-grow` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property allows.</em>
+    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-grow` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="shrink" @type="boolean|number|string">
     The value (size or keyword) of the CSS `flex-shrink` property, which sets sets the flex shrink factor of the flex item (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)).
     <br/><br/>
-    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-shrink` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property allows.</em>
+    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-shrink` property; in all the other cases an inline `style` declaration is used, to accomodate for all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="enableCollapseBelowContentSize" @type="boolean">
     When this special argument is set to `true` it applies a `min-width: 0` to the element, allowing the flex item to shrink below its content's intrinsic minimum width (e.g. used with elliptized text)
