@@ -6,7 +6,7 @@ To use this component, you can either pass in the contextual Step and Panel comp
 
 ### Using contextual components
 
-The `Hds::Stepper::Nav::Step` and `Hds::Stepper::Nav::Panel` are yielded as contextual components. The number of steps and panels added must be equal.
+The `Hds::Stepper::Nav::Step` and `Hds::Stepper::Nav::Panel` are yielded as contextual components.
 
 ```handlebars
 <Hds::Stepper::Nav @ariaLabel="Basic usage" as |S|>
@@ -28,10 +28,11 @@ The `Hds::Stepper::Nav::Step` and `Hds::Stepper::Nav::Panel` are yielded as cont
 
 ### Using the @steps argument
 
-When using the `@steps` argument, use the named block `<:body>` to pass in step content.
+When using the `@steps` argument, use the named block `<:body>` to pass in step content. This can be used if the template for steps content is consistent across steps, or conditionally rendered based on arguments other than the `currentStep`.
 
 ```handlebars
 <Hds::Stepper::Nav
+  @currentStep={{this.demoCurrentStep}}
   @steps={{array
     (hash title="Step 1")
     (hash title="Step 2")
@@ -40,12 +41,15 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
   @ariaLabel="Using steps argument"
 >
   <:body>
-    {{#if (eq this.currentStep 0)}}
+    {{#if (eq this.demoCurrentStep 0)}}
       Content 1
-    {{else if (eq this.currentStep 1)}}
+    {{else if (eq this.demoCurrentStep 1)}}
       Content 2
     {{else}}
       Content 3
+    {{/if}}
+    {{#if true}}
+      Conditional content
     {{/if}}
   </:body>
 </Hds::Stepper::Nav>
