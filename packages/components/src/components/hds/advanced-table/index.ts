@@ -246,11 +246,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     // if there is no custom column widths, each column is the same width and they take up the available space (except the select checkbox)
     if (!this.columnWidths) {
-      return `${isSelectable ? '50px ' : ''}repeat(${columns.length}, 1fr)`;
+      return `${isSelectable ? 'min-content ' : ''}repeat(${columns.length}, 1fr)`;
     }
 
-    // if there is a select checkbox, the first column is '50px' width to hug the checkbox content
-    let style = isSelectable ? '50px ' : '';
+    // if there is a select checkbox, the first column is 'min-content' width to hug the checkbox content
+    let style = isSelectable ? 'min-content ' : '';
 
     // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
     for (let i = 0; i < this.columnWidths.length; i++) {
