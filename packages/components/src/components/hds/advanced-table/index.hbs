@@ -46,10 +46,8 @@
             @isVisuallyHidden={{column.isVisuallyHidden}}
             @isExpandable={{column.isExpandable}}
             @onClickToggle={{this.onExpandAllClick}}
-            @isExpanded={{this._expandAllButtonState}}
+            @isExpanded={{this.model.allRowsExpanded}}
             @hasExpandAllButton={{this.hasNestedRows}}
-            @didInsertExpandButton={{this.didInsertExpandAllButton}}
-            @willDestroyExpandButton={{this.willDestroyExpandAllButton}}
           >{{column.label}}</Hds::AdvancedTable::Th>
         {{/if}}
       {{/each}}
