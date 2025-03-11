@@ -94,14 +94,16 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   get progressBarWidthStyle(): string {
     let progressBarWidth = 0;
     let progressBarOffset = 0;
-    if (this.currentStep >= this._stepIds.length) {
-      progressBarWidth = 100;
-      progressBarOffset = 0;
-    } else {
-      const activeStepWidth = 1 / this._stepIds.length / 2;
-      const width = this.currentStep / this._stepIds.length;
-      progressBarWidth = (width + activeStepWidth) * 100;
-      progressBarOffset = 16;
+    if (this._stepIds.length != 0) {
+      if (this.currentStep >= this._stepIds.length) {
+        progressBarWidth = 100;
+        progressBarOffset = 0;
+      } else {
+        const activeStepWidth = 1 / this._stepIds.length / 2;
+        const width = this.currentStep / this._stepIds.length;
+        progressBarWidth = (width + activeStepWidth) * 100;
+        progressBarOffset = 16;
+      }
     }
     return `calc(${progressBarWidth}% - ${progressBarOffset}px)`;
   }

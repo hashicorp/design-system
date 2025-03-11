@@ -15,6 +15,7 @@ $progress-bar-animation-duration: .25s;
 
 .hds-stepper-nav {
   position: relative;
+  z-index: 0;
 
   &::before,
   &::after {
@@ -51,6 +52,7 @@ $progress-bar-animation-duration: .25s;
 
 .hds-stepper-nav__list {
   display: flex;
+  text-align: center;
 }
 
 // STEPPER > NAV > STEP
