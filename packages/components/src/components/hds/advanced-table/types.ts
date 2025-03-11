@@ -110,4 +110,10 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
   }[];
 }
 
-export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+export interface HdsAdvancedTableModelItem {
+  [key: string]: unknown;
+  childrenKey?: string;
+  isOpen?: boolean;
+}
+
+export type HdsAdvancedTableModel = HdsAdvancedTableModelItem[];

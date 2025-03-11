@@ -10,7 +10,6 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { next } from '@ember/runloop';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -28,6 +27,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableModelItem,
 } from './types.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
@@ -83,6 +83,43 @@ export interface HdsAdvancedTableSignature {
   Element: HTMLDivElement;
 }
 
+export class InternalModelItem {
+  [key: string]: unknown;
+  childrenKey: string = 'children';
+
+  @tracked isOpen = false;
+
+  constructor(model: Partial<HdsAdvancedTableModelItem>) {
+    Object.assign(this, model);
+  }
+
+  get _children(): InternalModelItem[] | undefined {
+    return (this[this.childrenKey] as InternalModelItem[]).map(
+      (child) => new InternalModelItem(child)
+    );
+  }
+
+  get showChildren(): boolean {
+    return this.isOpen && this._children !== undefined;
+  }
+
+  @action
+  toggleOpen(): void {
+    this.isOpen = !this.isOpen;
+  }
+}
+
+function getVisibleRows(rows: InternalModelItem[]): InternalModelItem[] {
+  return rows.reduce((acc, row) => {
+    acc.push(row);
+
+    if (row.isOpen && row['children']) {
+      acc.push(...getVisibleRows(row['children'] as InternalModelItem[]));
+    }
+
+    return acc;
+  }, [] as InternalModelItem[]);
+}
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
   @tracked private _sortBy = this.args.sortBy ?? undefined;
   @tracked private _sortOrder =
@@ -94,12 +131,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
   @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
   @tracked private _expandButtons: HTMLButtonElement[] = [];
+  @tracked private _internalModel = this.args.model.map(
+    (item) => new InternalModelItem(item)
+  );
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _element!: HTMLDivElement;
+
+  get flattenedVisible(): InternalModelItem[] {
+    return getVisibleRows(this._internalModel);
+  }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -492,6 +536,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         updateLastRowClass(this._element);
       });
     }
+
+    const parentRowsCount = this._expandButtons.length;
+    const expandedRowsCount = this._expandButtons.filter(
+      (button) => button.getAttribute('aria-expanded') === 'true'
+    ).length;
+
+    let expandAllState: HdsAdvancedTableExpandState = 'mixed';
+
+    if (parentRowsCount === expandedRowsCount) {
+      expandAllState = true;
+    } else if (expandedRowsCount === 0) {
+      expandAllState = false;
+    }
+
+    this._expandAllButtonState = expandAllState;
+
+    updateLastRowClass(this._element);
   }
 
   @action

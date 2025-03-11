@@ -8,7 +8,7 @@
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
 <section data-test-percy>
 
-  <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
+  {{! <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
   <Shw::Text::H3>Keyboard interaction</Shw::Text::H3>
 
   <Shw::Text::Body>To navigate the AdvancedTable with a keyboard</Shw::Text::Body>
@@ -22,9 +22,9 @@
     <li><strong>End (fn + right)</strong>: Move to last cell in the row</li>
     <li><strong>PageUp (fn + up)</strong>: Move to first cell in the column</li>
     <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
-  </ul>
+  </ul> }}
 
-  <Hds::AdvancedTable
+  {{!-- <Hds::AdvancedTable
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
@@ -54,9 +54,9 @@
         </B.Td>
       </B.Tr>
     </:body>
-  </Hds::AdvancedTable>
+  </Hds::AdvancedTable> --}}
 
-  <Shw::Divider />
+  {{! <Shw::Divider /> }}
 
   <Shw::Text::H2>Nested rows</Shw::Text::H2>
 
@@ -84,7 +84,7 @@
     </:body>
   </Hds::AdvancedTable>
 
-  <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
+  {{!-- <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
 
   <Hds::AdvancedTable
     @model={{this.model.nestedDataCustom}}
@@ -1784,6 +1784,6 @@
         </Shw::Flex>
       </SG.Item>
     {{/each}}
-  </Shw::Grid>
+  </Shw::Grid> --}}
 
 </section>
