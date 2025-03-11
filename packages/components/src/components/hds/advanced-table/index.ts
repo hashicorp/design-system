@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-// import { next } from '@ember/runloop';
+import { next } from '@ember/runloop';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -467,19 +467,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @action
   setExpandAllState(): void {
     if (this._expandAllButton && this._element) {
-      const parentRowsCount = this._expandableRows.length;
-      const expandedRowsCount = this._expandableRows.filter(
-        (button) => button.getAttribute('aria-expanded') === 'true'
-      ).length;
+      // eslint-disable-next-line ember/no-runloop
+      next(() => {
+        const parentRowsCount = this._expandableRows.length;
+        const expandedRowsCount = this._expandableRows.filter(
+          (button) => button.getAttribute('aria-expanded') === 'true'
+        ).length;
 
-      let expandAllState: HdsAdvancedTableExpandState;
+        let expandAllState: HdsAdvancedTableExpandState;
 
-      if (parentRowsCount === expandedRowsCount) expandAllState = true;
-      else if (expandedRowsCount === 0) expandAllState = false;
-      else expandAllState = 'mixed';
+        if (parentRowsCount === expandedRowsCount) expandAllState = true;
+        else if (expandedRowsCount === 0) expandAllState = false;
+        else expandAllState = 'mixed';
 
-      this._expandAllButtonState = expandAllState;
-      updateLastRowClass(this._element);
+        this._expandAllButtonState = expandAllState;
+        updateLastRowClass(this._element);
+      });
     }
   }
 
