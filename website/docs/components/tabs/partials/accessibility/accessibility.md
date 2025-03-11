@@ -21,8 +21,8 @@ Activate tab to display matching content area
 
 ![Keyboard tab navigation example](/assets/components/tabs/tab-spacebar-enter.png =402x*)
 
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge>
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrow" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge>
 
 Move between tabs
 
