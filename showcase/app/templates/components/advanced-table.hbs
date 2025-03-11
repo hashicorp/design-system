@@ -928,19 +928,16 @@
     </Hds::AdvancedTable>
   </div>
 
-    <Shw::Divider @level={{2}} />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Wide container with a narrow AdvancedTable</Shw::Text::H3>
 
-    <div class="shw-component-advanced-table-narrow-wrapper">
+  <div class="shw-component-advanced-table-narrow-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
       @model={{this.model.userData}}
-      @columns={{array
-        (hash key="id" label="ID" width="150px")
-        (hash key="name" label="Name" width='150px')
-      }}
+      @columns={{array (hash key="id" label="ID" width="150px") (hash key="name" label="Name" width="150px")}}
       @hasStickyHeader={{true}}
       @isStriped={{true}}
     >
