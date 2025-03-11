@@ -29,7 +29,7 @@ $progress-bar-animation-duration: .25s;
 
   &::before {
     width: 100%;
-    background-color: var(--token-color-palette-alpha-200);
+    background: linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%), var(--token-color-palette-neutral-100);
   }
 
   &::after {
@@ -90,7 +90,7 @@ $progress-bar-animation-duration: .25s;
 }
 
 .hds-stepper-nav__step-title {
-  color: var(--token-color-foreground-primary);
+  color: var(--token-color-foreground-strong);
 }
 
 .hds-stepper-nav__step-description {
@@ -133,13 +133,21 @@ $progress-bar-animation-duration: .25s;
 
 .hds-stepper-nav--interactive {
   &::after {
-    background-color: var(--token-color-palette-blue-300);
+    background-color: var(--token-color-palette-blue-200);
   }
 
   .hds-stepper-nav__step--complete .hds-stepper-nav__step-title,
   .hds-stepper-nav__step--active .hds-stepper-nav__step-title {
     color: var(--token-color-foreground-action);
   }
+
+  .hds-stepper-nav__step--incomplete {
+    .hds-stepper-nav__step-title,
+    .hds-stepper-nav__step-description {
+      color: var(--token-color-foreground-faint);
+    }
+  }
+
 }
 
 // INTERACTIVE
