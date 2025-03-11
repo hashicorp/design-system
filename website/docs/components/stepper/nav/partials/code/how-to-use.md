@@ -57,7 +57,7 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
 
 ### Step status
 
-The status of steps is controlled automatically through the `@currentStep` argument. The argument is base-indexed and sets the active step to the value provided. The status of a step is determined in the following ways in relation to the `@currentStep`.
+The status of steps is controlled automatically through the `@currentStep` argument. The argument is zero-indexed and sets the active step to the value provided. The status of a step is determined in the following ways in relation to the `@currentStep`.
 - A step equal to `@currentStep` is active
 - All steps less than `@currentStep` are completed
 - All steps greater than `@currentStep` are incomplete
