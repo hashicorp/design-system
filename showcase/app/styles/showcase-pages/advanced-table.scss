@@ -18,6 +18,10 @@ body.components-advanced-table {
     overflow-x: auto;
   }
 
+  .shw-component-advanced-table-narrow-wrapper {
+    width: fit-content;
+  }
+
     // align table cell content for icon plus text in cell
     .shw-component-advanced-table-cell-content-div {
       display: flex;
