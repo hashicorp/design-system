@@ -38,7 +38,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
       &::before {
         height: calc(100% + $hds-stepper-list-step-padding-bottom);
-        background-color: var(--token-color-palette-alpha-200);
+        background: linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%), var(--token-color-palette-neutral-100);
       }
 
       &::after {
