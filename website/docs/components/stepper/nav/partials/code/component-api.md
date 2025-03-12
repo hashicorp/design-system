@@ -26,7 +26,7 @@
   <C.Property @name="currentStep" @type="integer" @default="0">
     Sets the active step to the base-indexed number provided.
   </C.Property>
-  <C.Property @name="isInteractive" @type="boolean" @default="false">
+  <C.Property @name="isInteractive" @type="boolean" @default="true">
     If set to `true`, navigation to completed steps is allowed using the nav steps.
   </C.Property>
   <C.Property @name="titleTag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
