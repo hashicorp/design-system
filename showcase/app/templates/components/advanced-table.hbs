@@ -936,10 +936,8 @@
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      @model={{this.model.userData}}
+      @model={{this.model.userDataShort}}
       @columns={{array (hash key="id" label="ID" width="150px") (hash key="name" label="Name" width="150px")}}
-      @hasStickyHeader={{true}}
-      @isStriped={{true}}
     >
       <:body as |B|>
         <B.Tr
