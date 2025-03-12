@@ -19,15 +19,15 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
   hooks.beforeEach(function () {
     this.set('createNavPanel', async (args = {}) => {
       this.currentStep = args.currentStep ?? undefined;
-      this.isNavInteractive = args.isNavInteractive ?? false;
+      this.isNavInteractive = args.isNavInteractive ?? undefined;
       return await render(hbs`
-          <Hds::Stepper::Nav @currentStep={{this.currentStep}} @isInteractive={{this.isNavInteractive}} as |S|>
-            <S.Step></S.Step>
-            <S.Panel>
-              <div id="test-panel-content">Test</div>
-            </S.Panel>
-          </Hds::Stepper::Nav>
-        `);
+        <Hds::Stepper::Nav @currentStep={{this.currentStep}} @isInteractive={{this.isNavInteractive}} as |S|>
+          <S.Step></S.Step>
+          <S.Panel>
+            <div id="test-panel-content">Test</div>
+          </S.Panel>
+        </Hds::Stepper::Nav>
+      `);
     });
   });
 
@@ -56,13 +56,13 @@ module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
 
   // INTERACTIVITY
 
-  test('it sets the panel to not interactive when the @isNavInteractive argument is not provided', async function (assert) {
+  test('it sets the panel to interactive when the @isNavInteractive argument is not provided', async function (assert) {
     await this.createNavPanel({ currentStep: 0 });
-    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
+    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
   });
 
-  test('it sets the panel to interactive when the @isNavInteractive argument is  provided', async function (assert) {
-    await this.createNavPanel({ isNavInteractive: true });
-    assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
+  test('it sets the panel to non-interactive when the @isNavInteractive argument is provided', async function (assert) {
+    await this.createNavPanel({ isNavInteractive: false });
+    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
   });
 });

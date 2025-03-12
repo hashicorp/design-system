@@ -47,7 +47,9 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
   );
 
   get isNavInteractive(): boolean {
-    return this.args.isNavInteractive || false;
+    return this.args.isNavInteractive != undefined
+      ? this.args.isNavInteractive
+      : true;
   }
 
   get nodeIndex(): number | undefined {
