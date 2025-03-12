@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { next } from '@ember/runloop';
+import HdsAdvancedTableTableModel from './models/table.ts';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -92,13 +92,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   @tracked _expandAllButton?: HTMLButtonElement = undefined;
-  @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _element!: HTMLDivElement;
+  private _tableModel!: HdsAdvancedTableTableModel;
+
+  setupTableModel(): void {
+    this._tableModel = new HdsAdvancedTableTableModel({
+      model: this.args.model,
+      childrenKey: this.childrenKey,
+    });
+  }
+
+  constructor(owner: unknown, args: HdsAdvancedTableSignature['Args']) {
+    super(owner, args);
+
+    this.setupTableModel();
+  }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -295,7 +308,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     );
 
     this._element = element;
-    this.setExpandAllState();
 
     if (stickyGridHeader !== null) {
       this._intersectionObserver = new IntersectionObserver(
@@ -439,60 +451,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
-  @action didInsertExpandAllButton(button: HTMLButtonElement): void {
-    this._expandAllButton = button;
-  }
-
-  @action willDestroyExpandAllButton(): void {
-    this._expandAllButton = undefined;
-  }
-
-  @action
-  didInsertExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.push(button);
-    this.setExpandAllState();
-  }
-
-  @action
-  willDestroyExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.filter((btn) => button === btn);
-    this.setExpandAllState();
-  }
-
-  @action
-  setExpandAllState(): void {
-    if (this._expandAllButton && this._element) {
-      // eslint-disable-next-line ember/no-runloop
-      next(() => {
-        const parentRowsCount = this._expandableRows.length;
-        const expandedRowsCount = this._expandableRows.filter(
-          (button) => button.getAttribute('aria-expanded') === 'true'
-        ).length;
-
-        let expandAllState: HdsAdvancedTableExpandState;
-
-        if (parentRowsCount === expandedRowsCount) expandAllState = true;
-        else if (expandedRowsCount === 0) expandAllState = false;
-        else expandAllState = 'mixed';
-
-        this._expandAllButtonState = expandAllState;
-        updateLastRowClass(this._element);
-      });
-    }
-  }
-
   @action
   onExpandAllClick(): void {
-    if (this._expandAllButton && this._element) {
-      const newState = this._expandAllButtonState === true ? false : true;
-
-      this._expandableRows.forEach((button) => {
-        button.setAttribute('aria-expanded', `${newState}`);
-        button.dispatchEvent(new Event('toggle', { bubbles: false }));
-      });
-
-      this._expandAllButtonState = newState;
-      updateLastRowClass(this._element);
+    if (this._tableModel.openState === true) {
+      this._tableModel.collapseAll();
+    } else {
+      this._tableModel.openAll();
     }
   }
 }

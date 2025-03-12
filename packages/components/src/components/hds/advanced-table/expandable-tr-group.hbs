@@ -5,45 +5,36 @@
 {{yield
   (hash
     data=@record
-    isExpandable=this.hasChildren
-    id=this._id
     depth=this.depth
-    isExpanded=this._isExpanded
+    id=this._id
+    isExpandable=@record.hasChildren
+    isOpen=@record.openState
     parentId=@parentId
     rowIndex=this.rowIndex
-    didInsertExpandButton=@didInsertExpandButton
-    willDestroyExpandButton=@willDestroyExpandButton
-    shouldDisplayChildRows=@shouldDisplayChildRows
-    onClickToggle=this.onClickToggle
+    shouldDisplayChildRows=@record.showChildren
+    onClickToggle=@record.toggleIsOpen
   )
 }}
-{{#if this.hasChildren}}
-  {{#each this.children as |childRecord|}}
+{{#if @record.hasChildren}}
+  {{#each @record.children as |childRecord|}}
     <Hds::AdvancedTable::ExpandableTrGroup
-      @record={{childRecord}}
-      @depth={{this.childrenDepth}}
       @align={{@align}}
+      @depth={{this.childrenDepth}}
+      @record={{childRecord}}
       @parentId={{this._id}}
-      @childrenKey={{this.childrenKey}}
       @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
-      @onClickToggle={{@onClickToggle}}
-      @didInsertExpandButton={{@didInsertExpandButton}}
-      @willDestroyExpandButton={{@willDestroyExpandButton}}
-      @shouldDisplayChildRows={{this.shouldDisplayChildRows}}
+      @shouldDisplayChildRows={{childRecord.showChildren}}
       as |T|
     >
       {{yield
         (hash
           data=T.data
-          isExpandable=T.isExpandable
           depth=T.depth
-          isExpanded=T.isExpanded
-          parentId=T.parentId
           id=T.id
-          didInsertExpandButton=T.didInsertExpandButton
-          willDestroyExpandButton=T.willDestroyExpandButton
+          isExpandable=T.isExpandable
+          isOpen=T.isOpen
+          parentId=T.parentId
           shouldDisplayChildRows=T.shouldDisplayChildRows
-          onClickToggle=T.onClickToggle
         )
       }}
     </Hds::AdvancedTable::ExpandableTrGroup>

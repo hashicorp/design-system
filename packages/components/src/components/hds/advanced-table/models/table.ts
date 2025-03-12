@@ -1,7 +1,10 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 
-import type { HdsAdvancedTableModel } from '../types';
+import type {
+  HdsAdvancedTableExpandState,
+  HdsAdvancedTableModel,
+} from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
@@ -20,7 +23,7 @@ function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
   }, [] as HdsAdvancedTableRow[]);
 }
 
-export default class HdsAdvancedTableTable {
+export default class HdsAdvancedTableTableModel {
   rows: HdsAdvancedTableRow[] = [];
 
   get flattenedVisibleRows(): HdsAdvancedTableRow[] {
@@ -31,12 +34,12 @@ export default class HdsAdvancedTableTable {
     return this.flattenedVisibleRows[this.flattenedVisibleRows.length - 1];
   }
 
-  get openState(): boolean | null {
+  get openState(): HdsAdvancedTableExpandState {
     if (this.rows.length === 0) {
       return false;
     }
 
-    return this.rows.every((row) => row.openState) ? true : null;
+    return this.rows.every((row) => row.openState) ? true : 'mixed';
   }
 
   get hasRowsWithChildren(): boolean {

@@ -30,7 +30,7 @@ export default class HdsAdvancedTableRow {
       return this.isOpen;
     }
 
-    return this.children.every((child) => child.openState) ? true : null;
+    return this.children.every((child) => child.openState) ? true : 'mixed';
   }
 
   get hasChildren(): boolean {
@@ -71,5 +71,6 @@ export default class HdsAdvancedTableRow {
   @action
   toggleIsOpen() {
     this.isOpen = !this.isOpen;
+    console.log(this.isOpen);
   }
 }
