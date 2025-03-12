@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -26,7 +26,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   });
 
   // TODO: Create Item child component
-  skip('it should render the `Item` yielded contextual component', async function (assert) {
+  test('it should render the `Item` yielded contextual component', async function (assert) {
     await render(
       hbs`
         <Hds::Layout::Grid id="test-layout-grid" as |LG|>
