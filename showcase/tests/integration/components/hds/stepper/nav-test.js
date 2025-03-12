@@ -104,6 +104,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
           (hash title="Step 2")
         }}
         @currentStep={{this.currentStep}}
+        @isInteractive={{false}}
         @titleTag={{this.titleTag}}
         @onStepChange={{this.onStepChange}}
       >
@@ -143,22 +144,22 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
 
   // ISINTERACTIVE
 
-  test('it sets the steps to not interactive when the @isInteractive argument is not provided', async function (assert) {
+  test('it sets the steps to interactive when the @isInteractive argument is not provided', async function (assert) {
     await this.createStepperNav();
-    assert.dom('.hds-stepper-nav__list').hasNoAttribute('role');
-    assert
-      .dom('[data-test="step-1"]')
-      .hasNoClass('hds-stepper-nav__step--nav-interactive');
-    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
-  });
-
-  test('it sets the steps to interactive when the @isInteractive argument is provided', async function (assert) {
-    await this.createStepperNav({ isInteractive: true });
     assert.dom('.hds-stepper-nav__list').hasAttribute('role', 'tablist');
     assert
       .dom('[data-test="step-1"]')
       .hasClass('hds-stepper-nav__step--nav-interactive');
     assert.dom('.hds-stepper-nav__panel').hasAttribute('role', 'tabpanel');
+  });
+
+  test('it sets the steps to non-interactive when the @isInteractive argument is provided', async function (assert) {
+    await this.createStepperNav({ isInteractive: false });
+    assert.dom('.hds-stepper-nav__list').hasNoAttribute('role');
+    assert
+      .dom('[data-test="step-1"]')
+      .hasNoClass('hds-stepper-nav__step--nav-interactive');
+    assert.dom('.hds-stepper-nav__panel').hasNoAttribute('role');
   });
 
   // ARIA LABEL
@@ -231,6 +232,12 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
   // ASSERTIONS
 
   test('it should throw an assertion if the number of steps does not match the number of panels and @isInteractive is provided', async function (assert) {
+    const errorMessage =
+      'If @isInteractive is true, the number of Steps must be equal to the number of Panels';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
     await render(hbs`
       <Hds::Stepper::Nav
         id="test-stepper-nav"
@@ -244,12 +251,6 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
       >
       </Hds::Stepper::Nav>
     `);
-    const errorMessage =
-      'If @isInteractive is true, the number of Steps must be equal to the number of Panels';
-    assert.expect(1);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
     assert.throws(function () {
       throw new Error(errorMessage);
     });
