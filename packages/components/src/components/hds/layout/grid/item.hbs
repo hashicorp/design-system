@@ -4,10 +4,10 @@
 }}
 
 {{#if (eq this.componentTag "div")}}
-  <div class={{this.classNames}} ...attributes>{{yield}}</div>
+  <div class={{this.classNames}} {{style this.colSpanStyle this.rowSpanStyle}} ...attributes>{{yield}}</div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class={{this.classNames}} ...attributes>
+    <Tag class={{this.classNames}} {{style this.colSpanStyle this.rowSpanStyle}} ...attributes>
       {{yield}}
     </Tag>
   {{/let}}

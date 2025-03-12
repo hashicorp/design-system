@@ -213,3 +213,155 @@
     {{/let}}
   </Shw::Grid>
 </section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Grid::Item</Shw::Text::H2>
+
+  <Shw::Grid @columns={{1}} as |SG|>
+    <SG.Item @label="used directly or via yielded component">
+      <Shw::Outliner>
+        <Hds::Layout::Grid as |HLG|>
+          <Shw::Placeholder @text="item #1" @height="40" @background="#e4c5f3" />
+
+          <Hds::Layout::Grid::Item>
+            <Shw::Placeholder @text="item #2 within Grid::Item" @height="40" @background="#e5ffd2" />
+          </Hds::Layout::Grid::Item>
+
+          <Shw::Placeholder @text="item #3" @height="40" @background="#d2f4ff" />
+
+          <HLG.Item>
+            <Shw::Placeholder @text="item #4 within HLG.Item" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>colSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="colSpan=2">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="2">
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="colSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item>
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item @colSpan="3">
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="colSpan=4">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="4">
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>rowSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="rowSpan=2">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
+          <HLG.Item @rowSpan="2">
+            <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="rowSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="50%" @gap="12" as |HLG|>
+          <HLG.Item>
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item @rowSpan="3">
+            <Shw::Placeholder @text="#2" @height="100%" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>colSpan & rowSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="colSpan=2, rowSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="2" @rowSpan="3">
+            <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+</section>
