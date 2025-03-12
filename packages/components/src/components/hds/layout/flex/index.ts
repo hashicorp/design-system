@@ -22,6 +22,8 @@ import type {
   HdsLayoutFlexJustifys,
   HdsLayoutFlexAligns,
   HdsLayoutFlexGaps,
+  AvailableTagNames,
+  AvailableElements,
 } from './types.ts';
 
 export const DEFAULT_DIRECTION = HdsLayoutFlexDirectionValues.Row;
@@ -29,11 +31,6 @@ export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
 export const JUSTIFYS: string[] = Object.values(HdsLayoutFlexJustifyValues);
 export const ALIGNS: string[] = Object.values(HdsLayoutFlexAlignValues);
 export const GAPS: string[] = Object.values(HdsLayoutFlexGapValues);
-
-// A list of all existing tag names in the HTMLElementTagNameMap interface
-type AvailableTagNames = keyof HTMLElementTagNameMap;
-// A union of all types in the HTMLElementTagNameMap interface
-type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
 
 export interface HdsLayoutFlexSignature {
   Args: {
