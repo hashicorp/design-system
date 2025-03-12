@@ -140,15 +140,15 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
       .dom('#test-layout-flex-item-1')
       .hasAttribute('style', 'flex-grow: 0; flex-shrink: 0;')
       .hasStyle({ flexGrow: '0', flexShrink: '0' });
-      assert
+    assert
       .dom('#test-layout-flex-item-2')
       .hasAttribute('style', 'flex-grow: 1; flex-shrink: 1;')
       .hasStyle({ flexGrow: '1', flexShrink: '1' });
-      assert
+    assert
       .dom('#test-layout-flex-item-3')
       .hasAttribute('style', 'flex-grow: 2; flex-shrink: 2;')
       .hasStyle({ flexGrow: '2', flexShrink: '2' });
-      assert
+    assert
       .dom('#test-layout-flex-item-4')
       .hasAttribute('style', 'flex-grow: initial; flex-shrink: initial;')
       // grow=0 and shrink=1 are the CSS defaults (initial)
