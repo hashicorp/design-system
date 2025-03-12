@@ -74,14 +74,14 @@ Each step scales evenly to fit within the total width of the Stepper Nav. This e
 
 ### Responsive layout
 
-At browser widths of 550px and below the steps will stack vertically and not display a connecting progress bar.
+At browser widths of 550px and below, the steps will stack vertically and not display a connecting progress bar.
 
 ![On small screens, the steps in a Stepper Nav switch from horizontal orientation to vertical.](/assets/components/stepper/nav/stepper-nav-responsive-behavior.png)
 
 ## Composition with other components
 
-Always pair a Stepper Nav with a [Button Set](/components/button-set) or [Button](/components/button). Navigation interactions between the Stepper Nav and the Button Set should always match. 
+Always pair the Stepper Nav with appropriate navigation [Button](/components/button) such as "Next" and "Previous". Buttons can be wrapped with a [Button Set](/components/button-set) to ensure consistent spacing between them.
 
-If a user can navigate backward within the Button Set, use the interactive Stepper Nav. Otherwise, use the non-interactive variant.
+If backwards navigation is allowed, use an interactive Stepper Nav, otherwise use the non-interactive variant.
 
 ![](/assets/components/stepper/nav/stepper-nav-matching-experiences.png)
