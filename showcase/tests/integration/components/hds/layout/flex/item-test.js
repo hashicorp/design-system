@@ -54,9 +54,8 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
     );
     assert
       .dom('#test-layout-flex-item')
-      .doesNotHaveClass(/hds-layout-flex-item--grow-/);
-    assert
-      .dom('#test-layout-flex-item')
+      .doesNotHaveAttribute('style')
+      .doesNotHaveClass(/hds-layout-flex-item--grow-/)
       .doesNotHaveClass(/hds-layout-flex-item--shrink-/);
     assert.dom('#test-layout-flex-item').doesNotHaveAttribute('style');
   });
