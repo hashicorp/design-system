@@ -244,17 +244,17 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get gridTemplateColumns(): string {
     const { isSelectable, columns } = this.args;
 
-    // if there is no custom column widths, each column is the same width and they take up the available space (except the select checkbox)
-    if (!this.columnWidths) {
-      return `${isSelectable ? 'min-content ' : ''}repeat(${columns.length}, 1fr)`;
-    }
-
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-    for (let i = 0; i < this.columnWidths.length; i++) {
-      style += ` ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
+    if (!this.columnWidths) {
+      // if there are no custom column widths, each column is the same width and they take up the available space
+      style += `repeat(${columns.length}, 1fr)`;
+    } else {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+      for (let i = 0; i < this.columnWidths.length; i++) {
+        style += `${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
+      }
     }
 
     return style;
