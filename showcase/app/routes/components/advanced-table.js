@@ -29,7 +29,6 @@ export default class ComponentsAdvancedTableRoute extends Route {
     const responseNestedCustom = await fetch(
       '/api/mock-nested-rows-custom.json'
     );
-    const responseSpanning = await fetch('/api/mock-spanning-cells.json');
 
     const { data: music } = await responseMusic.json();
     const userData = await responseUserData.json();
@@ -39,7 +38,6 @@ export default class ComponentsAdvancedTableRoute extends Route {
     const spanningManualData = await responseSpanningManual.json();
     const nestedData = await responseNested.json();
     const nestedDataCustom = await responseNestedCustom.json();
-    const spanningData = await responseSpanning.json();
 
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),
@@ -55,7 +53,6 @@ export default class ComponentsAdvancedTableRoute extends Route {
       manyColumns,
       nestedData,
       nestedDataCustom,
-      spanningData,
       DENSITIES,
       STATES,
     };

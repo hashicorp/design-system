@@ -15,8 +15,7 @@
       class="hds-advanced-table__checkbox"
       checked={{@isSelected}}
       aria-label={{this.ariaLabel}}
-      {{did-insert this.didInsertCheckbox}}
-      {{will-destroy this.willDestroyNode}}
+      {{this._manageCheckbox}}
       {{on "change" this.onSelectionChange}}
     />
     {{#if this.isSortable}}

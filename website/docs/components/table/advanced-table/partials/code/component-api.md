@@ -61,6 +61,9 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="tooltip" @type="string">
         Text string which will appear in [`Tooltip`](/components/tooltip). May contain basic HTML tags for formatting text such as `strong` and `em` tags. Not intended for multi-paragraph text or other more complex content. May not contain interactive content such as links or buttons. The `placement` and `offset` are automatically set and can’t be overwritten.
       </C.Property>
+      <C.Property @name="isExpandable" @type="boolean">
+        If there are nested rows, an expand all button can be added in the header by adding `isExpandable: true` to the desired column.
+      </C.Property>
     </Doc::ComponentApi>
   </C.Property>
   <C.Property @name="sortBy" @type="string">

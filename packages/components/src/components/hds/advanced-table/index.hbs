@@ -9,7 +9,7 @@
   role="grid"
   aria-describedby={{this._captionId}}
   {{style grid-template-columns=this.gridTemplateColumns}}
-  {{this._setUpObserver}}
+  {{this._setUpObservers}}
 >
   <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
@@ -41,6 +41,12 @@
             @align={{column.align}}
             @tooltip={{column.tooltip}}
             @isVisuallyHidden={{column.isVisuallyHidden}}
+            @isExpandable={{column.isExpandable}}
+            @onClickToggle={{this.onExpandAllClick}}
+            @isExpanded={{this._expandAllButtonState}}
+            @hasExpandAllButton={{this.hasNestedRows}}
+            @didInsertExpandButton={{this.didInsertExpandAllButton}}
+            @willDestroyExpandButton={{this.willDestroyExpandAllButton}}
           >{{column.label}}</Hds::AdvancedTable::Th>
         {{/if}}
       {{/each}}
@@ -59,11 +65,16 @@
           @record={{record}}
           @childrenKey={{this.childrenKey}}
           @rowIndex={{index}}
+          @didInsertExpandButton={{this.didInsertExpandButton}}
+          @willDestroyExpandButton={{this.willDestroyExpandButton}}
+          @onClickToggle={{this.setExpandAllState}}
           as |T|
         >
           {{yield
             (hash
-              Tr=(component "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth)
+              Tr=(component
+                "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth displayRow=T.shouldDisplayChildRows
+              )
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"
@@ -73,6 +84,8 @@
                 onClickToggle=T.onClickToggle
                 isExpanded=T.isExpanded
                 depth=T.depth
+                didInsertExpandButton=T.didInsertExpandButton
+                willDestroyExpandButton=T.willDestroyExpandButton
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data

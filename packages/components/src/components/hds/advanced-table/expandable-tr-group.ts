@@ -7,7 +7,10 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
+import type {
+  HdsAdvancedTableExpandState,
+  HdsAdvancedTableHorizontalAlignment,
+} from './types.ts';
 import type Owner from '@ember/owner';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
@@ -17,6 +20,10 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     parentId?: string;
     childrenKey?: string;
     rowIndex: number | string;
+    didInsertExpandButton?: (button: HTMLButtonElement) => void;
+    willDestroyExpandButton?: (button: HTMLButtonElement) => void;
+    onClickToggle?: () => void;
+    shouldDisplayChildRows?: boolean;
   };
   Blocks: {
     default?: [
@@ -26,9 +33,12 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         id?: string;
         parentId?: string;
         depth: number;
-        onClickToggle?: () => void;
-        isExpanded?: boolean;
+        onClickToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
+        isExpanded?: HdsAdvancedTableExpandState;
         rowIndex?: string;
+        didInsertExpandButton?: (button: HTMLButtonElement) => void;
+        willDestroyExpandButton?: (button: HTMLButtonElement) => void;
+        shouldDisplayChildRows?: boolean;
       },
     ];
   };
@@ -36,7 +46,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 }
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
-  @tracked private _isExpanded = false;
+  @tracked private _isExpanded: HdsAdvancedTableExpandState = false;
 
   private _id = guidFor(this);
 
@@ -92,7 +102,26 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
     return this.depth + 1;
   }
 
-  @action onClickToggle() {
-    this._isExpanded = !this._isExpanded;
+  get shouldDisplayChildRows(): boolean {
+    if (
+      typeof this._isExpanded === 'boolean' &&
+      this.args.shouldDisplayChildRows !== false
+    ) {
+      return this.hasChildren && this._isExpanded;
+    }
+
+    return false;
+  }
+
+  @action onClickToggle(newValue?: boolean | 'mixed') {
+    if (newValue) {
+      this._isExpanded = newValue;
+    } else {
+      this._isExpanded = !this._isExpanded;
+    }
+
+    if (this.args.onClickToggle) {
+      this.args.onClickToggle();
+    }
   }
 }

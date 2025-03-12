@@ -22,7 +22,7 @@ export const updateTabbableChildren = (
   cell: HTMLDivElement,
   isFocusTrapActive?: boolean
 ): void => {
-  const cellTabbableChildren = tabbable(cell);
+  const cellTabbableChildren = tabbable(cell, { displayCheck: 'none' });
 
   for (const child of cellTabbableChildren) {
     if (child instanceof HTMLElement) {
@@ -76,5 +76,29 @@ export const didInsertGridCell = (
     } else {
       cell.setAttribute('tabindex', '-1');
     }
+  }
+};
+
+export const updateLastRowClass = (element: HTMLDivElement) => {
+  const previousLastRow = element.querySelectorAll(
+    '.hds-advanced-table__tr--last-row'
+  );
+
+  if (previousLastRow) {
+    for (let i = 0; i < previousLastRow.length; i++) {
+      previousLastRow[i]?.classList.remove('hds-advanced-table__tr--last-row');
+    }
+  }
+
+  const visibleRows = Array.from(
+    element.querySelectorAll(
+      '.hds-advanced-table__tr:not(.hds-advanced-table__tr--hidden)'
+    )
+  );
+
+  if (visibleRows) {
+    visibleRows[visibleRows.length - 1]?.classList.add(
+      'hds-advanced-table__tr--last-row'
+    );
   }
 };
