@@ -6,6 +6,12 @@
 // LAYOUTS > FLEX
 
 body.layouts-flex {
+  .shw-layout-flex-example-outline-flex-container {
+    .hds-layout-flex {
+      outline: 1px dotted var(--shw-color-gray-400);
+    }
+  }
+
   .shw-layout-flex-example-outline-flex-blocks {
     .hds-layout-flex {
       outline: 1px dashed var(--shw-color-gray-400);
@@ -16,10 +22,8 @@ body.layouts-flex {
     }
   }
 
-  .shw-layout-flex-example-outline-flex-blocks--with-backgrounds {
+  .shw-layout-flex-example-tint-flex-items {
     .hds-layout-flex > * {
-      padding: 4px 8px;
-
       &:nth-child(6n+1) { background-color: #e4c5f3; }
       &:nth-child(6n+2) { background-color: #e5ffd2; }
       &:nth-child(6n+3) { background-color: #d2f4ff; }
