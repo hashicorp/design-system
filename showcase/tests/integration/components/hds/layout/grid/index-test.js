@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/layout/grid/index', function (hooks) {
@@ -122,5 +122,46 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     );
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-4');
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-48');
+  });
+
+  // ASSERTIONS
+
+  test('it should throw an assertion if an incorrect value for @justify is provided', async function (assert) {
+    const errorMessage =
+      '@justify for "Hds::Layout::Grid" must be one of the following: start, center, end, space-between, space-around, space-evenly; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Layout::Grid @justify="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @align is provided', async function (assert) {
+    const errorMessage =
+      '@align for "Hds::Layout::Grid" must be one of the following: start, center, end, stretch; received: foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Layout::Grid @align="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if an incorrect value for @gap is provided', async function (assert) {
+    const errorMessage =
+      '@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Layout::Grid @gap={{array 4 "foo"}} />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
   });
 });
