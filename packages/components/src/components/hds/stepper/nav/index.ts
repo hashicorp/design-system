@@ -84,7 +84,9 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   }
 
   get isInteractive(): boolean {
-    return this.args.isInteractive || false;
+    return this.args.isInteractive != undefined
+      ? this.args.isInteractive
+      : true;
   }
 
   get titleTag(): HdsStepperTitleTags {

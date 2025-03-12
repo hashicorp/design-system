@@ -16,7 +16,6 @@
   <Hds::Stepper::Nav
     @titleTag="h3"
     @currentStep={{this.currentStepDemo1}}
-    @isInteractive={{true}}
     @ariaLabel="Label"
     @onStepChange={{this.updateCurrentStepDemo1}}
     as |S|
@@ -74,6 +73,7 @@
   <Hds::Stepper::Nav
     @titleTag="h3"
     @currentStep={{this.currentStepDemo2}}
+    @isInteractive={{false}}
     @ariaLabel="Label"
     @onStepChange={{this.updateCurrentStepDemo2}}
     as |S|
@@ -136,6 +136,50 @@
 
   <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Complete">
+      <Hds::Stepper::Nav @currentStep={{1}} @isInteractive={{false}} @ariaLabel="Label" as |S|>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Nav>
+    </SG.Item>
+    <SG.Item @label="Active">
+      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{false}} @ariaLabel="Label" as |S|>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+      </Hds::Stepper::Nav>
+    </SG.Item>
+    <SG.Item @label="Incomplete">
+      {{! template-lint-disable no-inline-styles }}
+      <Hds::Stepper::Nav
+        @ariaLabel="Label"
+        @isInteractive={{false}}
+        class="shw-component-stepper-nav-mock-incomplete"
+        as |S|
+      >
+        <S.Step style="display: none;">
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Step>
+          <:title>Title</:title>
+          <:description>Description</:description>
+        </S.Step>
+        <S.Panel />
+        <S.Panel />
+      </Hds::Stepper::Nav>
+      {{! template-lint-enable no-inline-styles }}
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>Nav Interactive</Shw::Text::H4>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Complete">
       <Hds::Stepper::Nav @currentStep={{1}} @ariaLabel="Label" as |S|>
         <S.Step>
           <:title>Title</:title>
@@ -160,50 +204,6 @@
           <:title>Title</:title>
           <:description>Description</:description>
         </S.Step>
-        <S.Step>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </S.Step>
-        <S.Panel />
-        <S.Panel />
-      </Hds::Stepper::Nav>
-      {{! template-lint-enable no-inline-styles }}
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H4>Nav Interactive</Shw::Text::H4>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    <SG.Item @label="Complete">
-      <Hds::Stepper::Nav @currentStep={{1}} @isInteractive={{true}} @ariaLabel="Label" as |S|>
-        <S.Step>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </S.Step>
-        <S.Panel />
-      </Hds::Stepper::Nav>
-    </SG.Item>
-    <SG.Item @label="Active">
-      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} @ariaLabel="Label" as |S|>
-        <S.Step>
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </S.Step>
-        <S.Panel />
-      </Hds::Stepper::Nav>
-    </SG.Item>
-    <SG.Item @label="Incomplete">
-      {{! template-lint-disable no-inline-styles }}
-      <Hds::Stepper::Nav
-        @isInteractive={{true}}
-        @ariaLabel="Label"
-        class="shw-component-stepper-nav-mock-incomplete"
-        as |S|
-      >
-        <S.Step style="display: none;">
-          <:title>Title</:title>
-          <:description>Description</:description>
-        </S.Step>
         <S.Step class="hds-stepper-navigation__step--incomplete">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -220,7 +220,7 @@
   <Shw::Grid @columns={{4}} as |SG|>
     {{#each @model.NAV_STATES as |state|}}
       <SG.Item @label="Complete/{{state}}">
-        <Hds::Stepper::Nav @currentStep={{1}} @isInteractive={{true}} @ariaLabel="Label" as |S|>
+        <Hds::Stepper::Nav @currentStep={{1}} @ariaLabel="Label" as |S|>
           <S.Step mock-state-value={{state}} mock-state-selector="button">
             <:title>Title</:title>
             <:description>Description</:description>
@@ -233,7 +233,7 @@
 
   <Shw::Grid @columns={{4}} as |SG|>
     <SG.Item @label="Active/default">
-      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} @ariaLabel="Label" as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} @ariaLabel="Label" as |S|>
         <S.Step mock-state-value="default" mock-state-selector="button">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -242,7 +242,7 @@
       </Hds::Stepper::Nav>
     </SG.Item>
     <SG.Item @label="Active/focus">
-      <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{true}} @ariaLabel="Label" as |S|>
+      <Hds::Stepper::Nav @currentStep={{0}} @ariaLabel="Label" as |S|>
         <S.Step mock-state-value="focus" mock-state-selector="button">
           <:title>Title</:title>
           <:description>Description</:description>
@@ -265,7 +265,6 @@
   <Hds::Stepper::Nav
     @titleTag="h3"
     @currentStep={{this.currentStepDemo3}}
-    @isInteractive={{true}}
     @ariaLabel="Label"
     @onStepChange={{this.updateCurrentStepDemo3}}
     as |S|
@@ -328,7 +327,6 @@
     }}
     @titleTag="h3"
     @currentStep={{this.currentStepDemo4}}
-    @isInteractive={{true}}
     @ariaLabel="Label"
     @onStepChange={{this.updateCurrentStepDemo4}}
   >
@@ -374,7 +372,6 @@
     @steps={{this.steps_demo5}}
     @titleTag="h3"
     @currentStep={{this.currentStepDemo5}}
-    @isInteractive={{true}}
     @ariaLabel="Label"
     @onStepChange={{this.updateCurrentStepDemo5}}
   >
