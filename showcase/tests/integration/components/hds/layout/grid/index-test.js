@@ -25,7 +25,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     assert.dom('#test-layout-grid > pre').exists().hasText('test');
   });
 
-  // TODO: Create Item child component
   test('it should render the `Item` yielded contextual component', async function (assert) {
     await render(
       hbs`
@@ -37,6 +36,24 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .dom('#test-layout-grid > .hds-layout-grid-item > pre')
       .exists()
       .hasText('test');
+  });
+
+  // COLUMN MIN WIDTH
+
+  test('it should render a default min-width of 0px if @columnMinWidth is not declared', async function (assert) {
+    await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-min-width': '0px' });
+  });
+
+  test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" />`
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
   // TAG
