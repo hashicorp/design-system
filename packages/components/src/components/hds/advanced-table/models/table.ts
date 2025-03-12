@@ -16,7 +16,7 @@ function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
     acc.push(row);
 
     if (row.isOpen && row.children) {
-      acc.push(...getVisibleRows(row['children'] as HdsAdvancedTableRow[]));
+      acc.push(...getVisibleRows(row.children));
     }
 
     return acc;

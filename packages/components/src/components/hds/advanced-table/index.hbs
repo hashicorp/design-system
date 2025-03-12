@@ -68,20 +68,21 @@
             (hash
               Tr=(component
                 "hds/advanced-table/tr"
-                depth=T.depth
-                isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
                 isParentRow=T.isExpandable
+                depth=T.depth
+                displayRow=T.shouldDisplayChildRows
+                isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
               )
               Th=(component
                 "hds/advanced-table/th"
-                depth=T.depth
+                scope="row"
                 isExpandable=T.isExpandable
                 isExpanded=T.isOpen
-                isOpen=T.isOpen
                 newLabel=T.id
                 parentId=T.parentId
-                scope="row"
                 onClickToggle=T.onClickToggle
+                isOpen=T.isOpen
+                depth=T.depth
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data
@@ -96,13 +97,13 @@
           (hash
             Tr=(component
               "hds/advanced-table/tr"
+              selectionScope="row"
               isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
               isSelectable=this.isSelectable
-              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-              selectionScope="row"
-              didInsert=this.didInsertRowCheckbox
               onSelectionChange=this.onSelectionRowChange
+              didInsert=this.didInsertRowCheckbox
               willDestroy=this.willDestroyRowCheckbox
+              selectionAriaLabelSuffix=@selectionAriaLabelSuffix
             )
             Th=(component "hds/advanced-table/th" scope="row")
             Td=(component "hds/advanced-table/td" align=@align)

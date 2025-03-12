@@ -71,6 +71,6 @@ export default class HdsAdvancedTableRow {
   @action
   toggleIsOpen() {
     this.isOpen = !this.isOpen;
-    console.log(this.isOpen);
+    console.log(this.showChildren);
   }
 }
