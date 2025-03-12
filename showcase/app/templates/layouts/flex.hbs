@@ -224,15 +224,15 @@
       <SGI.Label>with <code>size</code> values</SGI.Label>
       <Shw::Outliner>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @basis={{0}}>
+          <HLF.Item @basis={{0}}>
             <Shw::Placeholder @text="item #1 with basis=0" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @basis="10em">
+          </HLF.Item>
+          <HLF.Item @basis="10em">
             <Shw::Placeholder @text="item #2 with basis=10em" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @basis="200px">
+          </HLF.Item>
+          <HLF.Item @basis="200px">
             <Shw::Placeholder @text="item #3 with basis=200px" @height="40" @background="#d2f4ff" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @basis="40%">
             <Shw::Placeholder @text="item #4 with basis=40%" @height="40" @background="#fff8d2" />
           </HLF.Item>
@@ -246,12 +246,12 @@
       <SGI.Label>with <code>keyword</code> values</SGI.Label>
       <Shw::Outliner>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @basis="auto">
+          <HLF.Item @basis="auto">
             <Shw::Placeholder @text="item #1 with basis=auto" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @basis="content">
+          </HLF.Item>
+          <HLF.Item @basis="content">
             <Shw::Placeholder @text="item #2 with basis=content" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @basis="max-content">
             <Shw::Placeholder @text="item #3 with basis=max-content" @height="40" @background="#d2f4ff" />
           </HLF.Item>
@@ -270,12 +270,12 @@
       <SGI.Label>with <code>0/1</code> and <code>true/false</code> values</SGI.Label>
       <Shw::Outliner>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @grow={{0}}>
+          <HLF.Item @grow={{0}}>
             <Shw::Placeholder @text="item #1 with grow=0" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @grow={{1}}>
+          </HLF.Item>
+          <HLF.Item @grow={{1}}>
             <Shw::Placeholder @text="item #2 with grow=1" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @grow={{false}}>
             <Shw::Placeholder @text="item #3 with grow=false" @height="40" @background="#d2f4ff" />
           </HLF.Item>
@@ -289,12 +289,12 @@
       <SGI.Label>with <code>numeric/string</code> values (to handle special cases)</SGI.Label>
       <Shw::Outliner>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @grow={{2}}>
+          <HLF.Item @grow={{2}}>
             <Shw::Placeholder @text="item #1 with grow=2" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @grow={{3}}>
+          </HLF.Item>
+          <HLF.Item @grow={{3}}>
             <Shw::Placeholder @text="item #2 with grow=3" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @grow="4">
             <Shw::Placeholder @text="item #3 with grow='4'" @height="40" @background="#d2f4ff" />
           </HLF.Item>
@@ -313,12 +313,12 @@
       <SGI.Label>with <code>0/1</code> and <code>true/false</code> values</SGI.Label>
       <Shw::Outliner {{style max-width="600px"}}>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @basis="300px" @shrink={{0}}>
+          <HLF.Item @basis="300px" @shrink={{0}}>
             <Shw::Placeholder @text="item #1 with shrink=0" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @basis="300px" @shrink={{1}}>
+          </HLF.Item>
+          <HLF.Item @basis="300px" @shrink={{1}}>
             <Shw::Placeholder @text="item #2 with shrink=1" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @basis="300px" @shrink={{false}}>
             <Shw::Placeholder @text="item #3 with shrink=false" @height="40" @background="#d2f4ff" />
           </HLF.Item>
@@ -332,12 +332,12 @@
       <SGI.Label>with <code>numeric/string</code> values (to handle special cases)</SGI.Label>
       <Shw::Outliner {{style max-width="600px"}}>
         <Hds::Layout::Flex as |HLF|>
-          <Hds::Layout::Flex::Item @basis="300px" @shrink={{2}}>
+          <HLF.Item @basis="300px" @shrink={{2}}>
             <Shw::Placeholder @text="item #1 with shrink=2" @height="40" @background="#e4c5f3" />
-          </Hds::Layout::Flex::Item>
-          <Hds::Layout::Flex::Item @basis="300px" @shrink={{3}}>
+          </HLF.Item>
+          <HLF.Item @basis="300px" @shrink={{3}}>
             <Shw::Placeholder @text="item #2 with shrink=3" @height="40" @background="#e5ffd2" />
-          </Hds::Layout::Flex::Item>
+          </HLF.Item>
           <HLF.Item @basis="300px" @shrink="4">
             <Shw::Placeholder @text="item #3 with shrink='4'" @height="40" @background="#d2f4ff" />
           </HLF.Item>
