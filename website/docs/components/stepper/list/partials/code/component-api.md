@@ -1,6 +1,6 @@
 ## Component API
 
-### Stepper List
+### Stepper::List
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[S].Step>" @type="yielded component">
