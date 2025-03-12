@@ -27,10 +27,10 @@ Move focus to the selected card. If nothing is selected, focus will move to the 
 
 ![Keyboard tab focus in a RadioCard group](/assets/components/form/radio-card/radio-card-accessibility-tab.png =980x*)
 
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" /></Doc::Badge>
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" /></Doc::Badge>
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" /></Doc::Badge>
-<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-left" @title="Left arrow" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-right" @title="Right arrow" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-up" @title="Up arrow" /></Doc::Badge>
+<Doc::Badge @type="neutral"><Hds::Icon @name="arrow-down" @title="Down arrow" /></Doc::Badge>
 
 Navigate between Radio Cards. As the card is focused it also becomes selected.
 
