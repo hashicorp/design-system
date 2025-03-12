@@ -68,15 +68,9 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" />`);
     assert
       .dom('#test-layout-flex')
-      .doesNotHaveClass(/hds-layout-flex--justify-content-/);
-    assert
-      .dom('#test-layout-flex')
-      .doesNotHaveClass(/hds-layout-flex--align-items-/);
-    assert
-      .dom('#test-layout-flex')
-      .doesNotHaveClass('.hds-layout-flex--has-wrapping');
-    assert
-      .dom('#test-layout-flex')
+      .doesNotHaveClass(/hds-layout-flex--justify-content-/)
+      .doesNotHaveClass(/hds-layout-flex--align-items-/)
+      .doesNotHaveClass('.hds-layout-flex--has-wrapping')
       .doesNotHaveClass('.hds-layout-flex--is-inline');
   });
   test('it should render the correct CSS classes if the @justify/@align/@wrap/@isInline props are declared', async function (assert) {
@@ -85,24 +79,19 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     );
     assert
       .dom('#test-layout-flex')
-      .hasClass('hds-layout-flex--justify-content-space-between');
-    assert
-      .dom('#test-layout-flex')
-      .hasClass('hds-layout-flex--align-items-stretch');
-    assert.dom('#test-layout-flex').hasClass('hds-layout-flex--has-wrapping');
-    assert.dom('#test-layout-flex').hasClass('hds-layout-flex--is-inline');
+      .hasClass('hds-layout-flex--justify-content-space-between')
+      .hasClass('hds-layout-flex--align-items-stretch')
+      .hasClass('hds-layout-flex--has-wrapping')
+      .hasClass('hds-layout-flex--is-inline');
   });
 
   // GAP
 
   test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" />`);
-    assert.dom('#test-layout-flex').doesNotHaveClass(/hds-layout-flex--gap-/);
-    assert
-      .dom('#test-layout-flex')
-      .doesNotHaveClass(/hds-layout-flex--row-gap-/);
-    assert
-      .dom('#test-layout-flex')
+    assert.dom('#test-layout-flex')
+      .doesNotHaveClass(/hds-layout-flex--gap-/)
+      .doesNotHaveClass(/hds-layout-flex--row-gap-/)
       .doesNotHaveClass(/hds-layout-flex--column-gap-/);
   });
   test('it should render the correct CSS class if the @gap prop is declared as single value', async function (assert) {
@@ -113,7 +102,8 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     await render(
       hbs`<Hds::Layout::Flex id="test-layout-flex" @gap={{array "4" "48"}} />`
     );
-    assert.dom('#test-layout-flex').hasClass('hds-layout-flex--row-gap-4');
-    assert.dom('#test-layout-flex').hasClass('hds-layout-flex--column-gap-48');
+    assert.dom('#test-layout-flex')
+      .hasClass('hds-layout-flex--row-gap-4')
+      .hasClass('hds-layout-flex--column-gap-48');
   });
 });
