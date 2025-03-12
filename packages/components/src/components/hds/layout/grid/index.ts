@@ -7,8 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import type { ComponentLike } from '@glint/template';
-// TODO: Determine if "GridItem" should be created & used instead of "FlexItem"
-import type { HdsLayoutFlexItemSignature } from '../flex/item.ts';
+import type { HdsLayoutGridItemSignature } from '../grid/item.ts';
 
 import {
   HdsLayoutGridJustifyValues,
@@ -34,6 +33,7 @@ type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
 export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
+    columnMinWidth?: string;
     justify?: HdsLayoutGridJustifys;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
@@ -42,16 +42,23 @@ export interface HdsLayoutGridSignature {
   Blocks: {
     default: [
       {
-        // TODO: Determine if "GridItem" should be created & used instead of "FlexItem"
-        Item?: ComponentLike<HdsLayoutFlexItemSignature>;
+        Item?: ComponentLike<HdsLayoutGridItemSignature>;
       },
     ];
   };
   Element: AvailableElements;
 }
-// More info on types and signatures: https://hashicorp.atlassian.net/wiki/spaces/HDS/pages/3245932580/Using+Typescript
 
 export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
+  get columnMinWidthStyle(): Record<string, string> {
+    const columnMinWidthStyle: { [key: string]: string } = {};
+
+    columnMinWidthStyle['--hds-layout-grid-column-min-width'] =
+      this.args.columnMinWidth ?? '0px';
+
+    return columnMinWidthStyle;
+  }
+
   get componentTag(): AvailableTagNames {
     return this.args.tag ?? 'div';
   }
