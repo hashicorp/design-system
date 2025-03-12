@@ -3,17 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-export enum HdsLayoutGridJustifyValues {
-  Start = 'start',
-  Center = 'center',
-  End = 'end',
-  SpaceBetween = 'space-between',
-  SpaceAround = 'space-around',
-  SpaceEvenly = 'space-evenly',
-}
-
-export type HdsLayoutGridJustifys = `${HdsLayoutGridJustifyValues}`;
-
 export enum HdsLayoutGridAlignValues {
   Start = 'start',
   Center = 'center',

@@ -9,19 +9,10 @@ import { assert } from '@ember/debug';
 import type { ComponentLike } from '@glint/template';
 import type { HdsLayoutGridItemSignature } from '../grid/item.ts';
 
-import {
-  HdsLayoutGridJustifyValues,
-  HdsLayoutGridAlignValues,
-  HdsLayoutGridGapValues,
-} from './types.ts';
+import { HdsLayoutGridAlignValues, HdsLayoutGridGapValues } from './types.ts';
 
-import type {
-  HdsLayoutGridJustifys,
-  HdsLayoutGridAligns,
-  HdsLayoutGridGaps,
-} from './types.ts';
+import type { HdsLayoutGridAligns, HdsLayoutGridGaps } from './types.ts';
 
-export const JUSTIFYS: string[] = Object.values(HdsLayoutGridJustifyValues);
 export const ALIGNS: string[] = Object.values(HdsLayoutGridAlignValues);
 export const GAPS: string[] = Object.values(HdsLayoutGridGapValues);
 
@@ -34,7 +25,6 @@ export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
-    justify?: HdsLayoutGridJustifys;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
     isInline?: boolean;
@@ -63,21 +53,6 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
 
   get componentTag(): AvailableTagNames {
     return this.args.tag ?? 'div';
-  }
-
-  get justify(): HdsLayoutGridJustifys | undefined {
-    const { justify } = this.args;
-
-    if (justify) {
-      assert(
-        `@justify for "Hds::Layout::Grid" must be one of the following: ${JUSTIFYS.join(
-          ', '
-        )}; received: ${justify}`,
-        JUSTIFYS.includes(justify)
-      );
-    }
-
-    return justify;
   }
 
   get align(): HdsLayoutGridAligns | undefined {
@@ -120,11 +95,6 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
 
   get classNames(): string {
     const classes = ['hds-layout-grid'];
-
-    // add a class based on the @justify argument
-    if (this.justify) {
-      classes.push(`hds-layout-grid--justify-content-${this.justify}`);
-    }
 
     // add a class based on the @align argument
     if (this.align) {
