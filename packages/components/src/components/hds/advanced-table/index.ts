@@ -249,7 +249,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       return `${isSelectable ? 'min-content ' : ''}repeat(${columns.length}, 1fr)`;
     }
 
-    // if there is a select checkbox, the first column is 'min-content' width to hug the checkbox content
+    // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
     // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
