@@ -70,13 +70,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     assert.dom('#test-layout-grid').hasTagName('section');
   });
 
-  // JUSTIFY / ALIGN / IS-INLINE
+  // ALIGN / IS-INLINE
 
-  test('it should render the element without specific classes if no @justify/@align/@isInline are declared', async function (assert) {
+  test('it should render the element without specific classes if no @align/@isInline are declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--justify-content-/);
     assert
       .dom('#test-layout-grid')
       .doesNotHaveClass(/hds-layout-grid--align-items-/);
@@ -85,13 +82,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .doesNotHaveClass('.hds-layout-grid--is-inline');
   });
 
-  test('it should render the correct CSS classes if the @justify/@align/@isInline props are declared', async function (assert) {
+  test('it should render the correct CSS classes if the @align/@isInline props are declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @justify="space-between" @align="stretch" @wrap={{true}} @isInline={{true}} />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @align="stretch" @wrap={{true}} @isInline={{true}} />`
     );
-    assert
-      .dom('#test-layout-grid')
-      .hasClass('hds-layout-grid--justify-content-space-between');
     assert
       .dom('#test-layout-grid')
       .hasClass('hds-layout-grid--align-items-stretch');
@@ -125,19 +119,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   });
 
   // ASSERTIONS
-
-  test('it should throw an assertion if an incorrect value for @justify is provided', async function (assert) {
-    const errorMessage =
-      '@justify for "Hds::Layout::Grid" must be one of the following: start, center, end, space-between, space-around, space-evenly; received: foo';
-    assert.expect(2);
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
-    });
-    await render(hbs`<Hds::Layout::Grid @justify="foo" />`);
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    });
-  });
 
   test('it should throw an assertion if an incorrect value for @align is provided', async function (assert) {
     const errorMessage =
