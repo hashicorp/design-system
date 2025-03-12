@@ -79,3 +79,10 @@
 .hds-layout-grid--column-gap-24 { --hds-layout-grid-column-gap: 24px;  }
 .hds-layout-grid--column-gap-32 { --hds-layout-grid-column-gap: 32px; }
 .hds-layout-grid--column-gap-48 { --hds-layout-grid-column-gap: 48px; }
+
+// LAYOUT > GRID > ITEM
+
+.hds-layout-grid-item {
+  grid-row-start: span var(--hds-layout-grid-row-span);
+  grid-column-start: span var(--hds-layout-grid-column-span);
+}
