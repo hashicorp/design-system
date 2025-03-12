@@ -168,7 +168,36 @@ Avoid using different density settings for parent and child rows.
 
 !!!
 
-### Expand/Collapse All Button
+### Expand/Collapse All Control
+
+#### Button Behavior
+
+The button expands first unless all rows have already been expanded, and then it switches to Collapse All. 
+- Manual expanding/collapsing does not change the button state.
+- If users collapse rows individually, the button stays Expand All until all rows are collapsed.
+
+#### Interactions
+
+#### Default State
+
+The table can load with any combination of expanded or collapsed rows.
+The button reflects the initial state:
+- Expand All if any rows are collapsed.
+- Collapse All if all rows are expanded.
+
+#### Expanding All Rows
+
+Clicking Expand All expands everything, including nested rows.
+- The button updates to Collapse All.
+
+#### Mixed State
+
+Some rows are expanded while others are collapsed.
+The button stays Expand All, as its following action will expand all collapsed rows.
+- Clicking Expand All in this state expands everything and updates the button to Collapse All.
+Expanding from a Mixed State
+- Clicking Expand All expands all rows, including manually collapsed ones.
+- The button updates to Collapse All.
 
 #### Button States
 
@@ -176,18 +205,17 @@ The button updates based on the current expansion state of the table:
 
 - Expand All will display when all rows are collapsed.
 
-![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
+![](/assets/components/table/advanced-table/expandable-rows-collapsed-state.png)
 
 - Collapse All will display when all rows are expanded.
 
-![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
+![](/assets/components/table/advanced-table/expandable-rows-expanded-state.png)  
 
-- Mixed State – Displays when some, but not all, rows are expanded.
-    - Mixed State Behavior
-        - The mixed state provides a visual cue that expansion states vary within the table. Selecting the button in this state expands all rows.
+- Mixed State displays when some, but not all, rows are expanded.
 
-![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
-
+![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png) 
+<Doc::ImageCaption @text="The mixed state provides a visual cue that expansion states vary within the table. Selecting the button in this state expands all rows.
+"/> -->
 ### Striping 
 
 !!! Info
