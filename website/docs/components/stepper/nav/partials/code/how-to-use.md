@@ -39,6 +39,7 @@ When using the `@steps` argument, use the named block `<:body>` to pass in step 
     (hash title="Step 3")
   }}
   @ariaLabel="Using steps argument"
+  @onStepChange={{this.demoOnStepChange}}
 >
   <:body>
     {{#if (eq this.demoCurrentStep 0)}}
@@ -65,7 +66,12 @@ The status of steps is controlled automatically through the `@currentStep` argum
 By default, `@currentStep` is equal to 0.
 
 ```handlebars
-<Hds::Stepper::Nav @currentStep={{1}} @ariaLabel="Status" as |S|>
+<Hds::Stepper::Nav
+  @currentStep={{this.demoCurrentStep}}
+  @ariaLabel="Status"
+  @onStepChange={{this.demoOnStepChange}}
+  as |S|
+>
   <S.Step>
     <:title>Step 1</:title>
   </S.Step>
@@ -84,16 +90,46 @@ By default, `@currentStep` is equal to 0.
 
 ### Interactivity
 
-The `@isInteractive` argument is used to control if navigation between steps is allowed using the steps. If `true`, users can navigate to completed steps by clicking on the Step. Users can only navigate to completed steps, not incomplete ones.
+The `@isInteractive` argument controls if navigation between steps is allowed using the steps. By default `@isInteractive` is `true`.
+
+#### Interactive
+
+When `@isInteractive` is set to `true`, users can navigate to completed steps by clicking on the step. Users can only navigate to completed steps, not incomplete ones.
 
 When a click on a step occurs, the `@onStepChange` handler can be used to pass a custom function to update the current step number.
 
 ```handlebars
 <Hds::Stepper::Nav
   @currentStep={{this.demoCurrentStep}}
-  @isInteractive={{true}}
   @ariaLabel="Interactive"
   @onStepChange={{this.demoOnStepChange}}
+  as |S|
+>
+  <S.Step>
+    <:title>Step 1</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 2</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 3</:title>
+  </S.Step>
+
+  <S.Panel>Content 1</S.Panel>
+  <S.Panel>Content 2</S.Panel>
+  <S.Panel>Content 3</S.Panel>
+</Hds::Stepper::Nav>
+```
+
+#### Not interactive
+
+When `@isInteractive` is set to `false`, the component steps do not allow navigation between steps.
+
+```handlebars
+<Hds::Stepper::Nav
+  @currentStep={{1}}
+  @isInteractive={{false}}
+  @ariaLabel="Interactive"
   as |S|
 >
   <S.Step>
@@ -118,12 +154,16 @@ The component can be used without the `[S].Panel` contextual component, or `<:bo
 
 !!! Info
 
-Due to accessibility implications, `@isInteractive` can not be set to `true` when using the component without panels.
+Due to accessibility implications, `@isInteractive` must be set to `false` when using the component without panels.
 
 !!!
 
 ```handlebars
-<Hds::Stepper::Nav @ariaLabel="Standalone contextual components" as |S|>
+<Hds::Stepper::Nav
+  @isInteractive={{false}}
+  @ariaLabel="Standalone contextual components"
+  as |S|
+>
   <S.Step>
     <:title>Step 1</:title>
   </S.Step>
@@ -144,6 +184,7 @@ Steps content
     (hash title="Step 2")
     (hash title="Step 3")
   }}
+  @isInteractive={{false}}
   @ariaLabel="Standalone steps argument"
 >
 </Hds::Stepper::Nav>
