@@ -1,6 +1,6 @@
 ## Component API
 
-### Stepper Navigation
+### Stepper::Nav
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[S].Step>" @type="yielded component">
