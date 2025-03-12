@@ -9,6 +9,7 @@
 
 .hds-layout-grid {
   display: grid;
+  // Note: 0px value requires unit to work in calculation
   grid-template-columns: 
     repeat(
       auto-fit, 

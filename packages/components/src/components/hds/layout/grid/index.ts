@@ -53,6 +53,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
   get columnMinWidthStyle(): Record<string, string> {
     const columnMinWidthStyle: { [key: string]: string } = {};
 
+    // Note: 0px value requires unit to work in calculation
     columnMinWidthStyle['--hds-layout-grid-column-min-width'] =
       this.args.columnMinWidth ?? '0px';
 
