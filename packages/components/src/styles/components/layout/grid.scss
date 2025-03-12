@@ -9,7 +9,9 @@
 
 .hds-layout-grid {
   display: grid;
-  // Note: 0px value requires unit to work in calculation
+  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as the default col min width
+  // https://drafts.csswg.org/css-values/#calc-type-checking
+
   // Gap is subtracted from column-min-width to prevent overflow & simplify API for consumers
   grid-template-columns: 
     repeat(

@@ -53,7 +53,8 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
   get columnMinWidthStyle(): Record<string, string> {
     const columnMinWidthStyle: { [key: string]: string } = {};
 
-    // Note: 0px value requires unit to work in calculation
+    // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as the default col min width
+    // https://drafts.csswg.org/css-values/#calc-type-checking
     columnMinWidthStyle['--hds-layout-grid-column-min-width'] =
       this.args.columnMinWidth ?? '0px';
 
