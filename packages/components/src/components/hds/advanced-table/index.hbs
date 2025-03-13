@@ -46,7 +46,7 @@
             @isVisuallyHidden={{column.isVisuallyHidden}}
             @isExpandable={{column.isExpandable}}
             @onClickToggle={{this.onExpandAllClick}}
-            @isExpanded={{this._expandAllButtonState}}
+            @isExpanded={{this._tableModel.isExpanded}}
             @hasExpandAllButton={{this.hasNestedRows}}
             @didInsertExpandButton={{this.didInsertExpandAllButton}}
             @willDestroyExpandButton={{this.willDestroyExpandAllButton}}
