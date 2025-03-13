@@ -128,9 +128,9 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Gap</Shw::Text::H3>
+  <Shw::Text::H2>Gap</Shw::Text::H2>
 
-  <Shw::Text::H4>Single value</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3>Single value</Shw::Text::H4>
 
   <Shw::Grid @columns="4" @gap="2rem" as |SG|>
     {{#each @model.GAPS as |gap|}}
@@ -147,7 +147,7 @@
     {{/each}}
   </Shw::Grid>
 
-  <Shw::Text::H4>Double value (row/column)</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3>Double value (row/column)</Shw::Text::H4>
 
   <Shw::Grid @columns={{2}} @gap="2rem 4rem" as |SG|>
     {{! we use only a subset of possible combinations, just for testing purposes }}
@@ -173,7 +173,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Display</Shw::Text::H3>
+  <Shw::Text::H2>Display</Shw::Text::H2>
 
   <Shw::Grid @gap="2rem" @columns={{2}} as |SF|>
     {{#let (array false true) as |booleans|}}
@@ -252,10 +252,10 @@
     <SG.Item @label="colSpan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
-          <HLG.Item>
+          <HLG.Item @colSpan="3">
             <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
           </HLG.Item>
-          <HLG.Item @colSpan="3">
+          <HLG.Item>
             <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
           </HLG.Item>
           <HLG.Item>
