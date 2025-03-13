@@ -449,6 +449,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   onExpandAllClick(): void {
-    // do nothing
+    if (this._tableModel.allDescendantsAreOpen) {
+      this._tableModel.collapseAll();
+    } else {
+      this._tableModel.openAll();
+    }
   }
 }

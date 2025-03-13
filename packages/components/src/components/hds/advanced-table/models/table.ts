@@ -1,10 +1,7 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 
-import type {
-  HdsAdvancedTableExpandState,
-  HdsAdvancedTableModel,
-} from '../types';
+import type { HdsAdvancedTableModel } from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
@@ -38,14 +35,12 @@ export default class HdsAdvancedTableTableModel {
     return this.rows.some((row) => row.hasChildren);
   }
 
-  get isExpanded(): HdsAdvancedTableExpandState {
-    if (this.rows.every((row) => row.isOpen === false)) {
-      return false;
-    } else if (this.rows.every((row) => row.isOpen === true)) {
-      return true;
-    }
+  get hasOpenRows(): boolean {
+    return this.rows.some((row) => row.isOpen);
+  }
 
-    return 'mixed';
+  get allDescendantsAreOpen(): boolean {
+    return this.rows.every((row) => row.isOpen && row.allDescendantsAreOpen);
   }
 
   constructor(args: HdsAdvancedTableTableArgs) {

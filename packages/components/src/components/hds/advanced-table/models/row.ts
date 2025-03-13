@@ -27,6 +27,12 @@ export default class HdsAdvancedTableRow {
     return this.isOpen && this.hasChildren;
   }
 
+  get allDescendantsAreOpen(): boolean {
+    return this.children.every(
+      (child) => child.isOpen && child.allDescendantsAreOpen
+    );
+  }
+
   constructor(args: HdsAdvancedTableRowArgs) {
     // set row data
     Object.assign(this, args);
