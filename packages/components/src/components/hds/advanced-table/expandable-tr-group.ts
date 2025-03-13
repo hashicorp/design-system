@@ -63,15 +63,6 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
         : false;
   }
 
-  get children(): HdsAdvancedTableRow[] {
-    return this.args.record.children;
-  }
-
-  get hasChildren(): boolean {
-    if (!this.children) return false;
-    return true;
-  }
-
   get depth(): number {
     const { depth = 0 } = this.args;
 
@@ -92,7 +83,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
       typeof this._isExpanded === 'boolean' &&
       this.args.shouldDisplayChildRows !== false
     ) {
-      return this.hasChildren && this._isExpanded;
+      return this.args.record.hasChildren && this._isExpanded;
     }
 
     return false;
