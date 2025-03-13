@@ -74,7 +74,11 @@
           {{yield
             (hash
               Tr=(component
-                "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth displayRow=T.shouldDisplayChildRows
+                "hds/advanced-table/tr"
+                isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
+                isParentRow=T.isExpandable
+                depth=T.depth
+                displayRow=T.shouldDisplayChildRows
               )
               Th=(component
                 "hds/advanced-table/th"
@@ -100,6 +104,7 @@
             Tr=(component
               "hds/advanced-table/tr"
               selectionScope="row"
+              isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
               isSelectable=this.isSelectable
               onSelectionChange=this.onSelectionRowChange
               didInsert=this.didInsertRowCheckbox

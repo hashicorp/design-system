@@ -18,6 +18,7 @@ import type { HdsAdvancedTableThSelectableSignature } from './th-selectable.ts';
 export interface BaseHdsAdvancedTableTrSignature {
   Args: {
     selectableColumnKey?: HdsAdvancedTableSignature['Args']['selectableColumnKey'];
+    isLastRow?: boolean;
     isSelectable?: boolean;
     isSelected?: false;
     isParentRow?: boolean;
@@ -71,7 +72,7 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
   }
 
   get classNames(): string {
-    const { depth, isParentRow, displayRow } = this.args;
+    const { depth, isLastRow, isParentRow, displayRow } = this.args;
     const classes = ['hds-advanced-table__tr'];
 
     if (depth && depth > 0) {
@@ -84,6 +85,10 @@ export default class HdsAdvancedTableTr extends Component<HdsAdvancedTableTrSign
 
     if (displayRow === false) {
       classes.push('hds-advanced-table__tr--hidden');
+    }
+
+    if (isLastRow) {
+      classes.push('hds-advanced-table__tr--last-row');
     }
 
     return classes.join(' ');
