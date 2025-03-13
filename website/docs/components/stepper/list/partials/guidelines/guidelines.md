@@ -45,7 +45,7 @@ We recommend showing the contents of the **in-progress** step while hiding the c
 
 !!! Do 
 
-Only show one call to action at a time.
+Show the contents of one step at a time.
 
 ![Stepper with 3 steps. The current active step is step 1 and it has a call to action button in the content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-do.png)
 
