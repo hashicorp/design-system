@@ -177,20 +177,6 @@ Due to accessibility implications, `@isInteractive` must be set to `false` when 
 Steps content
 ```
 
-```handlebars
-<Hds::Stepper::Nav
-  @steps={{array
-    (hash title="Step 1")
-    (hash title="Step 2")
-    (hash title="Step 3")
-  }}
-  @isInteractive={{false}}
-  @ariaLabel="Standalone steps argument"
->
-</Hds::Stepper::Nav>
-Steps content
-```
-
 ## Composition with other components
 
 The Stepper Nav should be paired with appropriate navigation [Buttons](/components/button). Buttons can be wrapped with a [Button Set](/components/button-set) to ensure consistent spacing between them.
