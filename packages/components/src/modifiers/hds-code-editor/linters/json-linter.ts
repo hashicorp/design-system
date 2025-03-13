@@ -1,10 +1,7 @@
 import RSVP from 'rsvp';
 
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
-import type {
-  HdsCodeEditorLintDiagnostic,
-  HdsCodeEditorSignature,
-} from '../../hds-code-editor';
+import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
 
 export enum HdsCodeEditorJsonLintingError {
@@ -14,17 +11,6 @@ export enum HdsCodeEditorJsonLintingError {
   MissingComma = 'Missing comma',
   TrailingComma = 'Trailing comma',
   ValueExpected = 'Value expected',
-}
-
-export function parseDiagnostics(
-  diagnostics: DiagnosticType[]
-): HdsCodeEditorLintDiagnostic[] {
-  return diagnostics.map((diagnostic) => ({
-    from: diagnostic.from,
-    to: diagnostic.to,
-    message: diagnostic.message,
-    severity: diagnostic.severity,
-  }));
 }
 
 export function findNextToken(
@@ -84,6 +70,7 @@ export function determineErrorMessage({
   return message;
 }
 
+// this renders the error message for both the tooltip and the drawer item
 export function renderErrorMessage(message: string): HTMLElement {
   const wrapper = document.createElement('div');
   wrapper.classList.add('cm-diagnosticText-inner');
@@ -119,72 +106,43 @@ export default async function jsonLinter(
     const diagnostics: DiagnosticType[] = [];
     const doc = view.state.doc;
     const tree = syntaxTree(view.state);
-    const seenKeys = new Set();
+    const seenLines = new Set();
 
     tree.cursor().iterate((node) => {
-      // lezer JSON parser uses '⚠' as a placeholder for syntax errors
-      if (node.name === '⚠') {
-        console.log({ node });
-        const errorChar = doc.sliceString(node.from, node.to);
-        const prevChar = doc.sliceString(node.from - 1, node.from);
-        const nextChar = doc.sliceString(node.to, node.to + 1);
+      if (node.name === errorNodeName) {
+        const lineNumber = doc.lineAt(node.from).number;
 
-        let message = 'Syntax error in JSON.';
-
-        // use specific characters to provide more context for the error
-        if (errorChar === ',') {
-          message = 'Trailing commas are not allowed in JSON.';
-        } else if (prevChar === ':' && !['"', '{'].includes(errorChar)) {
-          message = 'Invalid value after colon.';
-        } else if (
-          errorChar.match(/[a-zA-Z]/) &&
-          prevChar !== '"' &&
-          prevChar !== ':'
-        ) {
-          message = 'Unquoted keys must be enclosed in double quotes.';
-        } else if (nextChar === '' || nextChar === undefined) {
-          message = 'Unexpected end of JSON input.';
-        } else if (prevChar === ',' && !['"', '{', '['].includes(errorChar)) {
-          message = 'Missing comma between properties.';
-        } else if (errorChar === '"') {
-          message = 'String is not closed properly.';
+        if (seenLines.has(lineNumber)) {
+          return;
         }
+
+        const message = determineErrorMessage({
+          previousToken: findNextToken(doc, node.from - 1, -1),
+          nextToken: findNextToken(doc, node.to),
+          errorToken: doc.sliceString(node.from, node.to),
+        });
 
         diagnostics.push({
           from: node.from,
           to: node.to,
           message,
           severity: 'error',
+          renderMessage: () => renderErrorMessage(message),
         });
-      }
 
-      // detect duplicate keys in objects
-      if (node.name === 'Property') {
-        const keyNode = node.node.firstChild;
-
-        if (keyNode) {
-          const keyText = doc.sliceString(keyNode.from, keyNode.to);
-
-          if (seenKeys.has(keyText)) {
-            diagnostics.push({
-              from: keyNode.from,
-              to: keyNode.to,
-              message: `Duplicate key '${keyText}' found in JSON object.`,
-              severity: 'error',
-            });
-          }
-
-          seenKeys.add(keyText);
-        }
+        seenLines.add(lineNumber);
       }
     });
 
-    if (onLint) {
-      onLint(parseDiagnostics(diagnostics));
-    }
+    onLint?.(diagnostics);
 
     return diagnostics;
   });
 
-  return [jsonLinter, lintGutter()];
+  return [
+    jsonLinter,
+    lintGutter(),
+    keymap.of([...lintKeymap]),
+    EditorView.editorAttributes.of({ class: 'cm-lintingEnabled' }),
+  ];
 }

@@ -34,11 +34,6 @@ type HdsCodeEditorBlurHandler = (
   event: FocusEvent
 ) => void;
 
-export type HdsCodeEditorLintDiagnostic = Pick<
-  DiagnosticType,
-  'from' | 'to' | 'message' | 'severity'
->;
-
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
@@ -51,11 +46,7 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
-<<<<<<< HEAD
       onLint?: (diagnostics: DiagnosticType[]) => void;
-=======
-      onLint?: (diagnostics: HdsCodeEditorLintDiagnostic[]) => void;
->>>>>>> 85288c57a (working on documentation)
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -121,6 +112,9 @@ const LANGUAGES: Record<
 
       return linter.default(onLint);
     },
+  },
+  markdown: {
+    load: async () => (await import('@codemirror/lang-markdown')).markdown(),
   },
   sql: {
     load: async () => (await import('@codemirror/lang-sql')).sql(),
@@ -296,9 +290,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           ];
         }
 
-        const loadedExtensions = await Promise.all(extensionPromises);
-
-        return loadedExtensions;
+        return Promise.all(extensionPromises);
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
@@ -379,6 +371,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (languageExtensions !== undefined) {
         extensions = [...extensions, ...languageExtensions];
       }
+
+      // ensure we add lineNumber last in the stack to create the right gutter order for linting
+      extensions = [...extensions, lineNumbers()];
 
       return extensions;
     }
