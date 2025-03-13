@@ -33,7 +33,7 @@
 
 .hds-layout-grid--is-inline {
   display: inline-grid;
-  // prevents issue preventing grid columns from lining up in a row
+  // prevents issue where grid columns don't line up in a row
   max-width: 100%;
 }
 
