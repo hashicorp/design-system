@@ -10,12 +10,10 @@
 <section data-test-percy>
   <Shw::Text::H2>Column min width</Shw::Text::H2>
 
-  <Shw::Text::H3>gap size 0 (default)</Shw::Text::H3>
-
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="No min width columns (defaults to 0)">
+    <SG.Item @label="No min width columns (min-width defaults to 0px)">
       <Shw::Outliner>
-        <Hds::Layout::Grid>
+        <Hds::Layout::Grid @gap="48">
           <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
           <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
           <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
@@ -26,7 +24,7 @@
 
     <SG.Item @label="250px min width columns">
       <Shw::Outliner>
-        <Hds::Layout::Grid @columnMinWidth="250px">
+        <Hds::Layout::Grid @gap="48" @columnMinWidth="250px">
           <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
           <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
           <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
@@ -37,7 +35,7 @@
 
     <SG.Item @label="33.33% min width columns">
       <Shw::Outliner>
-        <Hds::Layout::Grid @columnMinWidth="33.33%">
+        <Hds::Layout::Grid @gap="48" @columnMinWidth="33.33%">
           <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
           <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
           <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
@@ -46,45 +44,6 @@
       </Shw::Outliner>
     </SG.Item>
   </Shw::Grid>
-
-  {{#each @model.GAPS as |gap|}}
-    <Shw::Text::H3>gap size {{gap}}</Shw::Text::H3>
-
-    <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-      <SG.Item @label="No min width columns (defaults to 0)">
-        <Shw::Outliner>
-          <Hds::Layout::Grid @gap={{gap}}>
-            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
-            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
-            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
-            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
-          </Hds::Layout::Grid>
-        </Shw::Outliner>
-      </SG.Item>
-
-      <SG.Item @label="250px min width columns">
-        <Shw::Outliner>
-          <Hds::Layout::Grid @columnMinWidth="250px" @gap={{gap}}>
-            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
-            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
-            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
-            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
-          </Hds::Layout::Grid>
-        </Shw::Outliner>
-      </SG.Item>
-
-      <SG.Item @label="33.33% min width columns">
-        <Shw::Outliner>
-          <Hds::Layout::Grid @columnMinWidth="33.33%" @gap={{gap}}>
-            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
-            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
-            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
-            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
-          </Hds::Layout::Grid>
-        </Shw::Outliner>
-      </SG.Item>
-    </Shw::Grid>
-  {{/each}}
 
   <Shw::Divider @level={{2}} />
 
@@ -130,7 +89,7 @@
 
   <Shw::Text::H2>Gap</Shw::Text::H2>
 
-  <Shw::Text::H4 @tag="h3>Single value</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
   <Shw::Grid @columns="4" @gap="2rem" as |SG|>
     {{#each @model.GAPS as |gap|}}
@@ -147,7 +106,7 @@
     {{/each}}
   </Shw::Grid>
 
-  <Shw::Text::H4 @tag="h3>Double value (row/column)</Shw::Text::H4>
+  <Shw::Text::H4 @tag="h3">Double value (row/column)</Shw::Text::H4>
 
   <Shw::Grid @columns={{2}} @gap="2rem 4rem" as |SG|>
     {{! we use only a subset of possible combinations, just for testing purposes }}
@@ -230,7 +189,7 @@
   <Shw::Text::H3>colSpan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="colSpan=2">
+    <SG.Item @label="1st item w/ colSpan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
           <HLG.Item @colSpan="2">
@@ -249,7 +208,7 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="colSpan=3">
+    <SG.Item @label="1st item w/ colSpan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
           <HLG.Item @colSpan="3">
@@ -268,7 +227,7 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="colSpan=4">
+    <SG.Item @label="1st item w/ colSpan=4">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
           <HLG.Item @colSpan="4">
@@ -291,10 +250,10 @@
   <Shw::Text::H3>rowSpan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="rowSpan=2">
+    <SG.Item @label="1st item w/ rowSpan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
-          <HLG.Item @rowSpan="2">
+          <HLG.Item @rowSpan="3">
             <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -310,7 +269,7 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="rowSpan=3">
+    <SG.Item @label="2nd item w/ rowSpan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="50%" @gap="12" as |HLG|>
           <HLG.Item>
@@ -333,7 +292,7 @@
   <Shw::Text::H3>colSpan & rowSpan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="colSpan=2, rowSpan=3">
+    <SG.Item @label="1st item w/ colSpan=2 & rowSpan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
           <HLG.Item @colSpan="2" @rowSpan="3">
@@ -347,6 +306,12 @@
           </HLG.Item>
           <HLG.Item>
             <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#5" @height="24" @background="#f3d9c5" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#6" @height="24" @background="#fee1ec" />
           </HLG.Item>
         </Hds::Layout::Grid>
       </Shw::Outliner>
