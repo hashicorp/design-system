@@ -53,7 +53,7 @@ Show the contents of one step at a time.
 
 !!! Dont
 
-Reduce visual noise by focusing which action the user should be taking first.
+Don’t introduce visual noise. Instead, focus the user’s attention on which action should be taken first.
 
 ![A stepper with 3 steps. The current active step is step 1. Both step 1 and 2 have a call to action button in their content for the user to do the action required for the step.](/assets/components/stepper/list/stepper-list-progressive-disclosure-dont.png)
 
