@@ -9,16 +9,17 @@
 
 .hds-layout-grid {
   display: grid;
-  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as the default col min width
-  // https://drafts.csswg.org/css-values/#calc-type-checking
+  // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
 
-  // Gap is subtracted from column-min-width to prevent overflow & simplify API for consumers
+  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
+  // https://drafts.csswg.org/css-values/#calc-type-checking
   grid-template-columns: 
     repeat(
       auto-fit, 
       minmax( 
         calc( 
-          var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-gap, var(--hds-layout-grid-column-gap, 0px)) ), 
+          var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)
+        ), 
         1fr 
       )
     );
@@ -26,8 +27,8 @@
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   gap: 
-    var(--hds-layout-grid-row-gap, var(--hds-layout-grid-gap, 0)) // rowGap
-    var(--hds-layout-grid-column-gap, var(--hds-layout-grid-gap, 0)); // columnGap
+    var(--hds-layout-grid-row-gap, 0)
+    var(--hds-layout-grid-column-gap, 0);
 }
 
 // inline
@@ -47,18 +48,45 @@
 
 // gap
 
-// We set the values of the gap custom properties overriding the default value of 0px
+// We set the values of the gap custom properties overriding the default value of 0
 
-// set row & column gap together
-.hds-layout-grid--gap-4 { --hds-layout-grid-gap: 4px;}
-.hds-layout-grid--gap-8 { --hds-layout-grid-gap: 8px; }
-.hds-layout-grid--gap-12 { --hds-layout-grid-gap: 12px; }
-.hds-layout-grid--gap-16 { --hds-layout-grid-gap: 16px; }
-.hds-layout-grid--gap-24 { --hds-layout-grid-gap: 24px; }
-.hds-layout-grid--gap-32 { --hds-layout-grid-gap: 32px; }
-.hds-layout-grid--gap-48 { --hds-layout-grid-gap: 48px; }
+// set row & column gap size together
+.hds-layout-grid--gap-4 {
+  --hds-layout-grid-row-gap: 4px;
+  --hds-layout-grid-column-gap: 4px;
+}
 
-// set just row gap
+.hds-layout-grid--gap-8 {
+  --hds-layout-grid-row-gap: 8px;
+  --hds-layout-grid-column-gap: 8px;
+}
+
+.hds-layout-grid--gap-12 {
+  --hds-layout-grid-row-gap: 12px;
+  --hds-layout-grid-column-gap: 12px;
+}
+
+.hds-layout-grid--gap-16 {
+  --hds-layout-grid-row-gap: 16px;
+  --hds-layout-grid-column-gap: 16px;
+}
+
+.hds-layout-grid--gap-24 {
+  --hds-layout-grid-row-gap: 24px;
+  --hds-layout-grid-column-gap: 24px;
+}
+
+.hds-layout-grid--gap-32 {
+  --hds-layout-grid-row-gap: 32px;
+  --hds-layout-grid-column-gap: 32px;
+}
+
+.hds-layout-grid--gap-48 {
+  --hds-layout-grid-row-gap: 48px;
+  --hds-layout-grid-column-gap: 48px;
+}
+
+// set just row gap size
 .hds-layout-grid--row-gap-4 { --hds-layout-grid-row-gap: 4px; }
 .hds-layout-grid--row-gap-8 { --hds-layout-grid-row-gap: 8px; }
 .hds-layout-grid--row-gap-12 { --hds-layout-grid-row-gap: 12px; }
@@ -67,7 +95,7 @@
 .hds-layout-grid--row-gap-32 { --hds-layout-grid-row-gap: 32px; }
 .hds-layout-grid--row-gap-48 { --hds-layout-grid-row-gap: 48px; }
 
-// set just column gap
+// set just column gap size
 .hds-layout-grid--column-gap-4 { --hds-layout-grid-column-gap: 4px; }
 .hds-layout-grid--column-gap-8 { --hds-layout-grid-column-gap: 8px; }
 .hds-layout-grid--column-gap-12 { --hds-layout-grid-column-gap: 12px; }
