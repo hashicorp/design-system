@@ -49,14 +49,11 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   private _id = guidFor(this);
 
   get depth(): number {
-    const { depth = 0 } = this.args;
-
-    return depth;
+    return this.args.depth ?? 0;
   }
 
   get rowIndex(): string {
-    const { rowIndex } = this.args;
-    return `${rowIndex}`;
+    return `${this.args.rowIndex}`;
   }
 
   get childrenDepth(): number {
