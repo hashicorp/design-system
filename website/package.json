@@ -58,6 +58,9 @@
     "broccoli-funnel": "^3.0.8",
     "broccoli-merge-trees": "^4.2.0",
     "broccoli-multifilter": "git://github.com/broccolijs/broccoli-multifilter#3ae609df0cfb1dae0da04ae041eb75c7115c9838",
+    "broccoli-persistent-filter": "^3.1.3",
+    "broccoli-plugin": "^4.0.7",
+    "broccoli-stew": "^3.0.0",
     "chalk": "^5.4.0",
     "concurrently": "^9.1.0",
     "cspell": "^8.17.1",
@@ -138,6 +141,7 @@
     "unist-util-remove": "^4.0.0",
     "unist-util-select": "^5.1.0",
     "unist-util-visit": "^5.0.0",
+    "walk-sync": "^3.0.0",
     "webpack": "^5.97.1",
     "yaml-front-matter": "^4.1.1"
   },
