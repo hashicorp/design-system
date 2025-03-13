@@ -39,9 +39,9 @@ export default class HdsAdvancedTableTableModel {
   }
 
   get isExpanded(): HdsAdvancedTableExpandState {
-    if (this.rows.every((row) => row.isExpanded === false)) {
+    if (this.rows.every((row) => row.isOpen === false)) {
       return false;
-    } else if (this.rows.every((row) => row.isExpanded === true)) {
+    } else if (this.rows.every((row) => row.isOpen === true)) {
       return true;
     }
 

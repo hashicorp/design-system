@@ -59,18 +59,15 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   }
 
   get shouldDisplayChildRows(): boolean {
-    if (
-      typeof this.args.record.isExpanded === 'boolean' &&
-      this.args.shouldDisplayChildRows !== false
-    ) {
-      return this.args.record.hasChildren && this.args.record.isExpanded;
+    if (this.args.shouldDisplayChildRows !== false) {
+      return this.args.record.hasChildren && this.args.record.isOpen;
     }
 
     return false;
   }
 
-  @action onClickToggle(newValue?: boolean | 'mixed') {
-    this.args.record.onClickToggle(newValue);
+  @action onClickToggle() {
+    this.args.record.onClickToggle();
 
     if (this.args.onClickToggle) {
       this.args.onClickToggle();
