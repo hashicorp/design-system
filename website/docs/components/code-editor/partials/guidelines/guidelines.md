@@ -56,7 +56,7 @@ The secondary actions section supports two optional buttons: the [Copy Button](/
 
 Custom primary actions can be added to the header. Primary actions include those necessary for the user to complete their work.
 
-![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
+![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
 
 Here is an example of a custom action to reveal secrets.
 
