@@ -18,7 +18,7 @@ The Stepper Nav supports both interactive (default) and non-interactive variants
 
 ### Interactive steps
 
-A user can navigate backwards within the Stepper Nav steps but cannot navigate forwards unless they have completed the current step. This creates consistency for step flow behavior and the order of operations.
+Users can navigate backwards within the Stepper Nav steps but cannot navigate forwards unless they have completed the current step. This creates consistency for step flow behavior and the order of operations.
 
 ![](/assets/components/stepper/nav/stepper-nav-interactive-steps.png)
 
@@ -80,7 +80,7 @@ At browser widths of 550px and below, the steps will stack vertically and not di
 
 ## Composition with other components
 
-Always pair the Stepper Nav with appropriate navigation [Button](/components/button) such as "Next" and "Previous". Buttons can be wrapped with a [Button Set](/components/button-set) to ensure consistent spacing between them.
+Always pair the Stepper Nav with appropriate navigation [Buttons](/components/button) such as "Next" and "Previous". Buttons can be wrapped with a [Button Set](/components/button-set) to ensure consistent spacing between them.
 
 If backwards navigation is allowed, use an interactive Stepper Nav, otherwise use the non-interactive variant.
 
