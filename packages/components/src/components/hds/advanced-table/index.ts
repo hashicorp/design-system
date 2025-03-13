@@ -33,7 +33,6 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';
-import { updateLastRowClass } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -295,8 +294,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       this._intersectionObserver.observe(stickyGridHeader);
     }
-
-    updateLastRowClass(element);
 
     return () => {
       if (this._intersectionObserver) {

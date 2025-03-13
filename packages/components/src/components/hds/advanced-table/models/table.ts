@@ -46,10 +46,6 @@ export default class HdsAdvancedTableTableModel {
     return this.rows.some((row) => row.hasChildren);
   }
 
-  get hasOpenRows(): boolean {
-    return this.rows.some((row) => row.isOpen);
-  }
-
   get allDescendantsAreOpen(): boolean {
     return this.rows.every((row) => row.isOpen && row.allDescendantsAreOpen);
   }
@@ -57,7 +53,7 @@ export default class HdsAdvancedTableTableModel {
   get expandState(): HdsAdvancedTableExpandState {
     if (this.allDescendantsAreOpen) {
       return true;
-    } else if (this.hasOpenRows) {
+    } else if (this.rows.some((row) => row.isOpen)) {
       return 'mixed';
     } else {
       return false;
