@@ -24,17 +24,15 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutGridItemSignat
     return this.args.tag ?? 'div';
   }
 
-  get colSpanStyle(): Record<string, string> {
-    const colSpanStyle: { [key: string]: string } = {};
+  get inlineStyles(): Record<string, unknown> {
+    const inlineStyles: {
+      '--hds-layout-grid-column-span'?: string;
+      '--hds-layout-grid-row-span'?: string;
+    } = {};
 
-    colSpanStyle['--hds-layout-grid-column-span'] = this.args.colSpan ?? '1';
-    return colSpanStyle;
-  }
+    inlineStyles['--hds-layout-grid-column-span'] = this.args.colSpan ?? '1';
+    inlineStyles['--hds-layout-grid-row-span'] = this.args.rowSpan ?? '1';
 
-  get rowSpanStyle(): Record<string, string> {
-    const rowSpanStyle: { [key: string]: string } = {};
-
-    rowSpanStyle['--hds-layout-grid-row-span'] = this.args.rowSpan ?? '1';
-    return rowSpanStyle;
+    return inlineStyles;
   }
 }
