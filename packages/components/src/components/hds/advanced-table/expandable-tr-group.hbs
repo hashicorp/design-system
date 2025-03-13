@@ -12,6 +12,7 @@
     parentId=@parentId
     rowIndex=this.rowIndex
     shouldDisplayChildRows=@shouldDisplayChildRows
+    onClickToggle=@onClickToggle
   )
 }}
 {{#if @record.hasChildren}}
@@ -23,6 +24,7 @@
       @parentId={{this._id}}
       @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
       @shouldDisplayChildRows={{this.shouldDisplayChildRows}}
+      @onClickToggle={{childRecord.onClickToggle}}
       as |T|
     >
       {{yield
@@ -34,6 +36,7 @@
           parentId=T.parentId
           id=T.id
           shouldDisplayChildRows=T.shouldDisplayChildRows
+          onClickToggle=T.onClickToggle
         )
       }}
     </Hds::AdvancedTable::ExpandableTrGroup>

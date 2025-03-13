@@ -4,7 +4,6 @@
  */
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 
 import type {
   HdsAdvancedTableExpandState,
@@ -19,6 +18,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
     parentId?: string;
     rowIndex: number | string;
     shouldDisplayChildRows?: boolean;
+    onClickToggle?: () => void;
   };
   Blocks: {
     default?: [
@@ -31,6 +31,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
         isExpanded?: HdsAdvancedTableExpandState;
         rowIndex?: string;
         shouldDisplayChildRows?: boolean;
+        onClickToggle?: () => void;
       },
     ];
   };
@@ -53,14 +54,10 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
   }
 
   get shouldDisplayChildRows(): boolean {
-    if (this.args.shouldDisplayChildRows !== false) {
-      return this.args.record.hasChildren && this.args.record.isOpen;
+    if (this.args.shouldDisplayChildRows === false) {
+      return false;
     }
 
-    return false;
-  }
-
-  @action onClickToggle() {
-    this.args.record.onClickToggle();
+    return this.args.record.hasChildren && this.args.record.isOpen;
   }
 }

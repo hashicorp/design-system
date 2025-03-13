@@ -45,7 +45,7 @@
             @tooltip={{column.tooltip}}
             @isVisuallyHidden={{column.isVisuallyHidden}}
             @isExpandable={{column.isExpandable}}
-            @onClickToggle={{this.onExpandAllClick}}
+            @onClickToggle={{this._tableModel.toggleAll}}
             @isExpanded={{this._tableModel.expandState}}
             @hasExpandAllButton={{this.hasNestedRows}}
           >
@@ -65,7 +65,12 @@
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria this._tableModel.rows) key=this.identityKey as |record index|}}
       {{#if this.hasNestedRows}}
-        <Hds::AdvancedTable::ExpandableTrGroup @record={{record}} @rowIndex={{index}} as |T|>
+        <Hds::AdvancedTable::ExpandableTrGroup
+          @record={{record}}
+          @rowIndex={{index}}
+          @onClickToggle={{record.onClickToggle}}
+          as |T|
+        >
           {{yield
             (hash
               Tr=(component
@@ -73,12 +78,13 @@
               )
               Th=(component
                 "hds/advanced-table/th"
-                scope="row"
+                depth=T.depth
                 isExpandable=T.isExpandable
+                isExpanded=T.isExpanded
                 newLabel=T.id
                 parentId=T.parentId
-                isExpanded=T.isExpanded
-                depth=T.depth
+                scope="row"
+                onClickToggle=T.onClickToggle
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data
