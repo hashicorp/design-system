@@ -66,6 +66,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasStickyHeader?: boolean;
+    hasStickyColumn?: boolean;
     childrenKey?: string;
   };
   Blocks: {
@@ -95,7 +96,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
-  private _element!: HTMLDivElement;
+  // private _element!: HTMLDivElement;
   private _tableModel!: HdsAdvancedTableTableModel;
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
@@ -120,6 +121,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       );
     }
   }
+  private _outerElement!: HTMLDivElement;
+  private _gridElement!: HTMLDivElement;
+  private _observer: IntersectionObserver | undefined = undefined;
+  @tracked scrollIndicatorHeight: number= 0
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -170,6 +175,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return childrenKey;
   }
+
+  get hasScrollIndicator(): boolean {
+    if (this.args.hasStickyColumn) {
+      return true
+    }
+
+    return false;
+  }
+
+  // get scrollIndicatorHeight(): string | undefined {
+  //   // console.log('hi')
+  //   // console.log(this.args.hasStickyColumn)
+  //   // console.log(this._element)
+  //   if (this.args.hasStickyColumn && this._element) {
+
+  //     console.log(this._element.parentElement)
+  //     console.log(this._element.parentElement?.offsetHeight)
+  //     return `${this._element.parentElement?.offsetHeight}px`
+  //   }
+  // }
 
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
@@ -278,12 +303,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  private _setUpWrapper = modifier((element: HTMLDivElement) => {
+    this._outerElement = element;
+    this.scrollIndicatorHeight =  element.clientHeight
+
+    return () => {
+        this.scrollIndicatorHeight = 0;
+    };
+  });
+
+
   private _setUpObservers = modifier((element: HTMLDivElement) => {
     const stickyGridHeader = element.querySelector(
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
 
-    this._element = element;
+    this._gridElement = element;
 
     if (stickyGridHeader !== null) {
       this._intersectionObserver = new IntersectionObserver(
