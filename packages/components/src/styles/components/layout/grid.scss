@@ -23,10 +23,11 @@
       )
     );
 
-  // gap: rowGap, columnGap
+  // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
+  // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   gap: 
-    var(--hds-layout-grid-row-gap, var(--hds-layout-grid-gap, 0)) 
-    var(--hds-layout-grid-column-gap, var(--hds-layout-grid-gap, 0));
+    var(--hds-layout-grid-row-gap, var(--hds-layout-grid-gap, 0)) // rowGap
+    var(--hds-layout-grid-column-gap, var(--hds-layout-grid-gap, 0)); // columnGap
 }
 
 // inline
@@ -45,6 +46,8 @@
 .hds-layout-grid--align-items-stretch { align-items: stretch; }
 
 // gap
+
+// We set the values of the gap custom properties overriding the default value of 0px
 
 // set row & column gap together
 .hds-layout-grid--gap-4 { --hds-layout-grid-gap: 4px;}
