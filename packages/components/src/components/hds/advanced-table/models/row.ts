@@ -1,6 +1,7 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import type { HdsAdvancedTableExpandState } from '../types';
 
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
@@ -15,6 +16,7 @@ export default class HdsAdvancedTableRow {
   [key: string]: unknown;
 
   @tracked isOpen: boolean = false;
+  @tracked isExpanded: HdsAdvancedTableExpandState = false;
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
@@ -35,6 +37,8 @@ export default class HdsAdvancedTableRow {
 
     const childModels = args[this.childrenKey];
 
+    this.isExpanded = this.isOpen;
+
     if (Array.isArray(childModels)) {
       this.children = childModels.map(
         (child) => new HdsAdvancedTableRow(child)
@@ -52,5 +56,14 @@ export default class HdsAdvancedTableRow {
   collapseAll() {
     this.isOpen = false;
     this.children.forEach((child) => child.collapseAll());
+  }
+
+  @action
+  onClickToggle(newValue?: HdsAdvancedTableExpandState) {
+    if (newValue) {
+      this.isExpanded = newValue;
+    } else {
+      this.isExpanded = !this.isExpanded;
+    }
   }
 }
