@@ -11,6 +11,7 @@ import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import { next } from '@ember/runloop';
+import HdsAdvancedTableTableModel from './models/table.ts';
 
 import {
   HdsAdvancedTableDensityValues,
@@ -99,6 +100,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _element!: HTMLDivElement;
+  private _tableModel!: HdsAdvancedTableTableModel;
+
+  constructor(owner: unknown, args: HdsAdvancedTableSignature['Args']) {
+    super(owner, args);
+
+    this._tableModel = new HdsAdvancedTableTableModel({
+      model: args.model,
+      childrenKey: args.childrenKey,
+    });
+  }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
