@@ -48,9 +48,9 @@
             @onClickToggle={{this.onExpandAllClick}}
             @isExpanded={{this._tableModel.isExpanded}}
             @hasExpandAllButton={{this.hasNestedRows}}
-            @didInsertExpandButton={{this.didInsertExpandAllButton}}
-            @willDestroyExpandButton={{this.willDestroyExpandAllButton}}
-          >{{column.label}}</Hds::AdvancedTable::Th>
+          >
+            {{column.label}}
+          </Hds::AdvancedTable::Th>
         {{/if}}
       {{/each}}
     </Hds::AdvancedTable::Tr>
