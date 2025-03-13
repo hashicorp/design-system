@@ -12,13 +12,13 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
 } from './types.ts';
 import type Owner from '@ember/owner';
+import type HdsAdvancedTableRow from './models/row.ts';
 export interface HdsAdvancedTableExpandableTrGroupSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     depth?: number;
-    record: Record<string, unknown>;
+    record: HdsAdvancedTableRow;
     parentId?: string;
-    childrenKey?: string;
     rowIndex: number | string;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
@@ -28,7 +28,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
   Blocks: {
     default?: [
       {
-        data: Record<string, unknown>;
+        data: HdsAdvancedTableRow;
         isExpandable: boolean;
         id?: string;
         parentId?: string;
@@ -63,23 +63,8 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
         : false;
   }
 
-  get childrenKey(): string {
-    const { childrenKey = 'children' } = this.args;
-
-    return childrenKey;
-  }
-
-  get children(): Array<Record<string, unknown>> | undefined {
-    const { record } = this.args;
-
-    if (record[this.childrenKey]) {
-      const children = record[this.childrenKey];
-
-      if (Array.isArray(children)) {
-        return children;
-      }
-    }
-    return undefined;
+  get children(): HdsAdvancedTableRow[] {
+    return this.args.record.children;
   }
 
   get hasChildren(): boolean {
