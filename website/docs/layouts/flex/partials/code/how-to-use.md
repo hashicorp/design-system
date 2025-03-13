@@ -8,23 +8,160 @@ A good and quick introduction to flexbox can be found in [**this MDN guide**](ht
 
 !!!
 
-TODO
+TODO add intro here about why this component in HDS
 
-### TODO
+### Basic usage [TODO]
 
-TODO
+Explain the most basic usage here
 
-## Examples
+- just flex
+- flex + item(s)
 
-Below some examples of common layouts.
+explain that the `Flex.Item` is not necessary per se
+
+add here text about not abusing it!
+
+### Tag
+
+To specify which HTML tag to use to render the flex container and/or item(s), use the `@tag` argument:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @tag="ul" as |LF|>
+  <li>{{! some content here }}</li>
+  <LF.Item @tag="li">
+    {{! some other content here }}
+  </HLF.Item>
+  <li>{{! more content here }}</li>
+</Hds::Layout::Flex>
+```
+
+!!! Insight
+
+While by default the component renders a `<div>`, we invite consumers to consider which semantic HTML tag is the correct one for the context in which the text is used to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
+### Direction
+
+To specify which in which [direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction) the flex items are laid out, use the `@direction` argument:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @direction="column" as |LF|>
+  {{! the flex items here }}
+</Hds::Layout::Flex>
+```
+
+_Note: we don't expose the `reverse` directions because they come with intrinsic accessibility limitations that we prefer our consumers to avoid._
+
+📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `direction` property can be used to implement specific layouts.
+
+### Justify / Align
+
+To specify how the flex items are spaced and aligned, use the `@justify` and `align` arguments:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @justify="align-items" @align="center">
+  {{! the flex items here }}
+</Hds::Layout::Flex>
+```
+
+These arguments correspond to the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) and [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) flexbox properties in CSS.
+
+_Note: we don't expose all the possible values for `justify-content`/`align-items`, only to the most commonly used ones. Refer to the [Component API](#component-api) section for details on which values are accepted._
+
+📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `justify-content`/`align-items` properties can be used to implement specific layouts.
+
+
+### Wrap
+
+To allow the flex items to wrap along multiple rows if needed, set `@wrap` to `true`:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @wrap={{true}}>
+  {{! multiple flex items here, some of which may appear on multiple rows }}
+</Hds::Layout::Flex>
+```
+
+📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `flex-wrap` property can be used to implement specific layouts.
+
+
+### Gap
+
+To control the spacing between flex items, use the `@gap` argument:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @gap="16">
+  {{! multiple flex items here, with a gap of 16px between them }}
+</Hds::Layout::Flex>
+```
+
+To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @wrap={{true}} @gap={{array "16" "48"}}>
+  {{!
+    multiple flex items appearing on multiple rows
+    with a vertical gap of 16px and an horizontal one of 48px
+  }}
+</Hds::Layout::Flex>
+```
+
+The first value in the array refers to the vertical gap between "rows" of items (`row-gap` in CSS), the second one to the horizontal spacing between "columns" of items (`column-gap` in CSS).
+
+!!! Warning
+
+**Important**
+
+The `@gap` argument accepts only **pre-defined values**, it can't be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
+
+The value(s) passed to the `@gap` argument **must be string(s)**, not numbers!
+
+!!!
+
+📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `gap` property can be used to implement specific layouts.
+
+
+### isInline
+
+To change the default display from `flex` to `inline-flex`, set `@isInline` to `true`:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex @isInline={{true}}>
+  {{! the flex items here }}
+</Hds::Layout::Flex>
+```
+
+### Basis/Grow/Shrink
+
+To control the relative sizing of the flex items, use the `@basis`, `@grow`, and `@shrink` arguments:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex as |LF|>
+  ...
+  <LF.Item @basis="200px" @grow={{1}} @shrink={{0}}>
+    {{! the flex item content here }}
+  </HLF.Item>
+  ...
+</Hds::Layout::Flex>
+```
+
+How these three properties impact on the (relative) size of a flex item is not trivial, we suggest to look at the introduction to flexbox guide linked at the top of this page.
+
+📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `flex-basis`/`flex-grow`/`flex-shrink` properties can be used to implement specific layouts.
+
+---
+
+## Flexbox layout "recipes"
+
+Below some examples of common generic layouts that can be achieved using CSS `flexbox`, and therefore the `Layout::Flex` component.
 
 ### Alignment
 
-TODO.
+Using `flexbox`/`Layout::Flex` is one of the simplest way to control the alignment of lists of items.
 
 #### Evenly spaced items
 
-Using a flexbox-based layout is one of the simplest way to evenly space a set of different items:
+This is an example of how to implement a layout where a set of items are evenly spaced:
 
 ```handlebars
 <Hds::Layout::Flex @justify="space-between" @gap="16" class="doc-flex-outlined-container">
@@ -41,7 +178,7 @@ In this case:
 
 #### Right aligned items
 
-Using a flexbox layout is possible to obtain a layout where one of the content blocks is flushed to the right side of the container, while all the others are flushed to the left:
+This is an example of how to obtain a layout where one of the items is flushed to the right side of the container, while all the others are flushed to the left:
 
 ```handlebars
 <Hds::Layout::Flex @gap="16" class="doc-flex-outlined-container">
@@ -72,7 +209,7 @@ In this case:
 
 #### Vertical centering
 
-This is one classic problem in CSS: how to center vertically two or more items? The more reliable solution is to use flexbox:
+For a long time, this has been one classic problem in CSS: how to vertically center two or more items? The more reliable solution is to use flexbox's alignment:
 
 ```handlebars
 <Hds::Layout::Flex @align="center" @gap="8">
@@ -88,7 +225,7 @@ In this case:
 
 #### Both horizontal and vertical centering
 
-For long time, this has also been another classic CSS problem: how to center horizontally and vertically some content, inside a larger container? Again, the solution is in using flexbox:
+This has also been another classic CSS problem: how to center _both_ horizontally and vertically some content, inside a larger container? Again, the solution relies in using flexbox's alignment:
 
 ```handlebars
 <Hds::Layout::Flex @justify="center" @align="center" class="doc-flex-fixed-height-container doc-flex-outlined-container">
@@ -118,7 +255,6 @@ By default, flex items use only the space necessary to fit their content. If the
 </Hds::Layout::Flex>
 ```
 
-
 If we want an item to to grow and occupy the available space, we have to use its `grow` property:
 
 ```handlebars
@@ -137,12 +273,12 @@ In this case:
 
 #### Prevent collapsing of content
 
-If one of the flex items has an intrinsic size larger than the flex container, it may squeeze the rest of the flex items:
+If one of the flex items has an intrinsic size larger than the flex container, it may squeeze the rest of the flex items (see the button element):
 
 ```handlebars
 <Hds::Layout::Flex @gap="16" class="doc-flex-outlined-container" as |LF|>
   <Doc::placeholder @width="100%" @height="auto" @background="#d2f4ff">Some content that wants to occupy all the available space</Doc::placeholder>
-  <Hds::Button @text="Main action" @icon="edit" />
+  <button type="button">A simple button</button>
 </Hds::Layout::Flex>
 ```
 
@@ -152,7 +288,7 @@ To avoid this, one has to tell the item not to shrink beyond its own size:
 <Hds::Layout::Flex @gap="16" class="doc-flex-outlined-container" as |LF|>
   <Doc::placeholder @width="100%" @height="auto" @background="#d2f4ff">Some content that wants to occupy all the available space</Doc::placeholder>
   <LF.Item @shrink={{false}}>
-    <Hds::Button @text="Main action" @icon="edit" />
+    <button type="button">A simple button</button>
   </LF.Item>
 </Hds::Layout::Flex>
 ```
@@ -168,7 +304,7 @@ If one of the flex items has an intrinsic height larger than the other flex item
 ```handlebars
 <Hds::Layout::Flex @gap="16" class="doc-flex-outlined-container" as |LF|>
   <Doc::placeholder @width="auto" @height="80px" @background="#d2f4ff">Some content that is taller than the sibling item</Doc::placeholder>
-  <Hds::Button class="doc-flex-margin-left-auto" @text="Main action" @icon="edit" />
+  <button type="button" class="doc-flex-margin-left-auto">A simple button</button>
 </Hds::Layout::Flex>
 ```
 
@@ -179,7 +315,7 @@ To avoid this, one has to choose a non-stretching alignment for the items:
 ```handlebars
 <Hds::Layout::Flex @align="start" @gap="16" class="doc-flex-outlined-container" as |LF|>
   <Doc::placeholder @width="auto" @height="80px" @background="#d2f4ff">Some content that is taller than the sibling item</Doc::placeholder>
-  <Hds::Button class="doc-flex-margin-left-auto" @text="Main action" @icon="edit" />
+  <button type="button" class="doc-flex-margin-left-auto">A simple button</button>
 </Hds::Layout::Flex>
 ```
 
@@ -233,9 +369,19 @@ Depending on the complexity of the design you need to implement, you may want to
 
 !!!
 
+---
+
 ## Common layout patterns
 
-Below some examples of common layouts.
+Below some more realistic examples of common layouts that can be achieved using the `Layout::Flex` component, in composition with other HDS components.
+
+!!! Warning
+
+**Important**
+
+The examples below are meant to show how one _could_ use the `Layout::Flex` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. Also, some of these patterns are already implemented directly in HDS components that are ready to use.
+
+!!!
 
 ### Media + Text/Content
 
