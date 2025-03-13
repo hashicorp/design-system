@@ -21,6 +21,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 // ADVANCED TABLE
 
+.hds-advanced-table__scroll-wrapper {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+}
+
 .hds-advanced-table {
   display: grid;
   align-items: center;
@@ -89,6 +96,19 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       }
     }
 
+    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable {
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+
+    .hds-advanced-table__th--is-sticky-column {
+      position: sticky;
+      top: 0;
+      left: 50px;
+      // box-shadow: 5px 0 5px 0 rgba(0,0,0,10%);
+    }
+
     // border radius: target first and last th elements in the row
 
     &:first-of-type {
@@ -106,6 +126,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   &.hds-advanced-table__thead--sticky {
     position: sticky;
     top: -1px;
+    z-index: 5;
     background-color: var(--token-color-surface-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
@@ -271,6 +292,21 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     }
   }
 
+  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+
+  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__td {
+    position: sticky;
+    top: 0;
+    left: 50px;
+    z-index: 3;
+    // box-shadow: 5px 0 5px 0 rgba(0,0,0,10%);
+  }
+
   // horizontal alignment
 
   .hds-advanced-table__th--align-center,
@@ -353,4 +389,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 .hds-advanced-table__checkbox {
   display: block;
   margin: 2px 0;
+}
+
+.hds-advanced-table__scroll-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 5px;
+  background: linear-gradient(to left, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
 }

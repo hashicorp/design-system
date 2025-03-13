@@ -143,6 +143,69 @@
     </Hds::AdvancedTable>
   </div>
 
+  <Shw::Text::H2>Sticky column</Shw::Text::H2>
+
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.model.userData}}
+      @columns={{array
+        (hash key="id" label="ID" width="auto")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @hasStickyColumn={{true}}
+      @isStriped={{true}}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
+  <Shw::Text::H2>Sticky header and sticky column</Shw::Text::H2>
+
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.model.userData}}
+      @columns={{array
+        (hash key="id" label="ID" width="auto")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @hasStickyHeader={{true}}
+      @hasStickyColumn={{true}}
+      @isStriped={{true}}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Td>{{B.data.id}}</B.Td>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
   <Shw::Divider />
 
   <Shw::Text::H2>Sorting</Shw::Text::H2>
