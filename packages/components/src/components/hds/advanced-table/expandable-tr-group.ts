@@ -46,22 +46,7 @@ export interface HdsAdvancedTableExpandableTrGroupSignature {
 }
 
 export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdvancedTableExpandableTrGroupSignature> {
-  @tracked private _isExpanded: HdsAdvancedTableExpandState = false;
-
   private _id = guidFor(this);
-
-  constructor(
-    owner: Owner,
-    args: HdsAdvancedTableExpandableTrGroupSignature['Args']
-  ) {
-    super(owner, args);
-
-    this._isExpanded =
-      this.args.record['isOpen'] &&
-      typeof this.args.record['isOpen'] === 'boolean'
-        ? this.args.record['isOpen']
-        : false;
-  }
 
   get depth(): number {
     const { depth = 0 } = this.args;
@@ -80,21 +65,17 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
 
   get shouldDisplayChildRows(): boolean {
     if (
-      typeof this._isExpanded === 'boolean' &&
+      typeof this.args.record.isExpanded === 'boolean' &&
       this.args.shouldDisplayChildRows !== false
     ) {
-      return this.args.record.hasChildren && this._isExpanded;
+      return this.args.record.hasChildren && this.args.record.isExpanded;
     }
 
     return false;
   }
 
   @action onClickToggle(newValue?: boolean | 'mixed') {
-    if (newValue) {
-      this._isExpanded = newValue;
-    } else {
-      this._isExpanded = !this._isExpanded;
-    }
+    this.args.record.onClickToggle(newValue);
 
     if (this.args.onClickToggle) {
       this.args.onClickToggle();
