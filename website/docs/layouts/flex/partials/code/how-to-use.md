@@ -297,6 +297,22 @@ A responsive implementation of this UI pattern is a bit more complex, and requir
 
 !!!
 
+Similarly, it's easy to implement a vertical stack of cards:
+
+```handlebars
+<Hds::Layout::Flex @direction="column" @gap="16" as |LF|>
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+    <Hds::Text::Body @tag="p" @size="200">This is some generic content inside a card</Hds::Text::Body>
+  </Hds::Card::Container>
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+    <Hds::Text::Body @tag="p" @size="200">This is some other generic content inside a card</Hds::Text::Body>
+  </Hds::Card::Container>
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} class="doc-flex-cards-item">
+    <Hds::Text::Body @tag="p" @size="200">This is also some generic content inside a card, but the text is longer and makes the card grow vertically</Hds::Text::Body>
+  </Hds::Card::Container>
+</Hds::Layout::Flex>
+```
+
 ### Empty state
 
 Using the horizontal/vertical alignment offered by flexbox it's easy to implement a standard empty state in a page (as consumer you will just have to take care of the height of the container in relation to the available vertical space in the page):
