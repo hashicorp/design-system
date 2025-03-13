@@ -35,7 +35,7 @@ A title and description provides additional contextual information for the Code 
 
 Provide an accessible name for the Code Editor so that users of assistive technology can understand its purpose.
 
-![A Code Editor embedded in a form following a set of radio buttons. It has the heading “Policy code (Sentinel)” immediately before.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+![A Code Editor embedded in a form following a set of radio buttons. It has the heading “Policy code (Sentinel)” immediately before.](/assets/components/code-editor/code-editor-do-external-accessible-name.png)
 
 !!!
 
