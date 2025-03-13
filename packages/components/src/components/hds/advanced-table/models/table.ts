@@ -26,6 +26,14 @@ function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
 export default class HdsAdvancedTableTableModel {
   rows: HdsAdvancedTableRow[] = [];
 
+  constructor(args: HdsAdvancedTableTableArgs) {
+    const { model, childrenKey } = args;
+
+    this.rows = model.map((row) => {
+      return new HdsAdvancedTableRow({ ...row, childrenKey });
+    });
+  }
+
   get flattenedVisibleRows(): HdsAdvancedTableRow[] {
     return getVisibleRows(this.rows);
   }
@@ -56,14 +64,6 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey } = args;
-
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
-  }
-
   @action
   openAll() {
     this.rows.forEach((row) => row.openAll());
@@ -72,5 +72,14 @@ export default class HdsAdvancedTableTableModel {
   @action
   collapseAll() {
     this.rows.forEach((row) => row.collapseAll());
+  }
+
+  @action
+  toggleAll() {
+    if (this.allDescendantsAreOpen) {
+      this.collapseAll();
+    } else {
+      this.openAll();
+    }
   }
 }

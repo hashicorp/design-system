@@ -10,7 +10,6 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { next } from '@ember/runloop';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import {
@@ -444,15 +443,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
-    }
-  }
-
-  @action
-  onExpandAllClick(): void {
-    if (this._tableModel.allDescendantsAreOpen) {
-      this._tableModel.collapseAll();
-    } else {
-      this._tableModel.openAll();
     }
   }
 }
