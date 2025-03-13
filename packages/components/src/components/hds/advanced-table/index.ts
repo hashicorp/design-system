@@ -102,10 +102,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   constructor(owner: unknown, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
+    const { model, childrenKey, columns } = args;
+
     this._tableModel = new HdsAdvancedTableTableModel({
-      model: args.model,
-      childrenKey: args.childrenKey,
+      model,
+      childrenKey,
     });
+
+    const sortableColumns = columns.filter((column) => column.isSortable);
+    const sortableColumnLabels = sortableColumns.map((column) => column.label);
+
+    if (this._tableModel.hasRowsWithChildren) {
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+    }
   }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -157,39 +169,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
-  get hasNestedRows(): boolean {
-    const { model, columns } = this.args;
-    let hasNestedRows = false;
-    let isSortable = false;
-    const sortableColumns: string[] = [];
-
-    // if the model is not an array, assume there are no nested rows
-    if (!Array.isArray(model)) return false;
-
-    for (const column of columns) {
-      if (column.isSortable) {
-        isSortable = true;
-        sortableColumns.push(column.label);
-      }
-    }
-
-    for (const obj of model) {
-      if (this.childrenKey in obj) {
-        hasNestedRows = true;
-        break;
-      }
-    }
-
-    if (hasNestedRows) {
-      assert(
-        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumns.toString()}`,
-        !isSortable
-      );
-    }
-
-    return hasNestedRows;
-  }
-
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
@@ -204,7 +183,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isSelectable(): boolean {
     const { isSelectable = false } = this.args;
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       assert(
         '@isSelectable must not be true if there are nested rows.',
         !isSelectable
@@ -218,7 +197,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isStriped(): boolean {
     const { isStriped = false } = this.args;
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       assert(
         '@isStriped must not be true if there are nested rows.',
         !isStriped
@@ -290,7 +269,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push(`hds-advanced-table--valign-${this.valign}`);
     }
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       classes.push(`hds-advanced-table--nested`);
     }
 

@@ -47,7 +47,7 @@
             @isExpandable={{column.isExpandable}}
             @onClickToggle={{this._tableModel.toggleAll}}
             @isExpanded={{this._tableModel.expandState}}
-            @hasExpandAllButton={{this.hasNestedRows}}
+            @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
           >
             {{column.label}}
           </Hds::AdvancedTable::Th>
@@ -64,7 +64,7 @@
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
     {{#each (sort-by this.getSortCriteria this._tableModel.rows) key=this.identityKey as |record index|}}
-      {{#if this.hasNestedRows}}
+      {{#if this._tableModel.hasRowsWithChildren}}
         <Hds::AdvancedTable::ExpandableTrGroup
           @record={{record}}
           @rowIndex={{index}}
