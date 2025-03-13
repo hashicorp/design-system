@@ -92,7 +92,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-  @tracked _expandAllButton?: HTMLButtonElement = undefined;
   @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
@@ -450,14 +449,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
-  @action didInsertExpandAllButton(button: HTMLButtonElement): void {
-    this._expandAllButton = button;
-  }
-
-  @action willDestroyExpandAllButton(): void {
-    this._expandAllButton = undefined;
-  }
-
   @action
   didInsertExpandButton(button: HTMLButtonElement): void {
     this._expandableRows.push(button);
@@ -466,13 +457,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   willDestroyExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.filter((btn) => button === btn);
+    // this._expandableRows.filter((btn) => button === btn);
     this.setExpandAllState();
   }
 
   @action
   setExpandAllState(): void {
-    if (this._expandAllButton && this._element) {
+    if (this._element) {
       // eslint-disable-next-line ember/no-runloop
       next(() => {
         const parentRowsCount = this._expandableRows.length;
@@ -494,7 +485,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   onExpandAllClick(): void {
-    if (this._expandAllButton && this._element) {
+    if (this._element) {
       const newState = this._expandAllButtonState === true ? false : true;
 
       this._expandableRows.forEach((button) => {
