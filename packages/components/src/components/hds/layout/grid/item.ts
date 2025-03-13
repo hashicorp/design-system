@@ -5,10 +5,7 @@
 
 import Component from '@glimmer/component';
 
-// A list of all existing tag names in the HTMLElementTagNameMap interface
-type AvailableTagNames = keyof HTMLElementTagNameMap;
-// A union of all types in the HTMLElementTagNameMap interface
-type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
+import type { AvailableTagNames, AvailableElements } from './types.ts';
 
 export interface HdsLayoutGridItemSignature {
   Args: {
@@ -39,11 +36,5 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutGridItemSignat
 
     rowSpanStyle['--hds-layout-grid-row-span'] = this.args.rowSpan ?? '1';
     return rowSpanStyle;
-  }
-
-  get classNames(): string {
-    const classes = ['hds-layout-grid-item'];
-
-    return classes.join(' ');
   }
 }

@@ -11,15 +11,15 @@ import type { HdsLayoutGridItemSignature } from '../grid/item.ts';
 
 import { HdsLayoutGridAlignValues, HdsLayoutGridGapValues } from './types.ts';
 
-import type { HdsLayoutGridAligns, HdsLayoutGridGaps } from './types.ts';
+import type {
+  HdsLayoutGridAligns,
+  HdsLayoutGridGaps,
+  AvailableTagNames,
+  AvailableElements,
+} from './types.ts';
 
 export const ALIGNS: string[] = Object.values(HdsLayoutGridAlignValues);
 export const GAPS: string[] = Object.values(HdsLayoutGridGapValues);
-
-// A list of all existing tag names in the HTMLElementTagNameMap interface
-type AvailableTagNames = keyof HTMLElementTagNameMap;
-// A union of all types in the HTMLElementTagNameMap interface
-type AvailableElements = HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
 
 export interface HdsLayoutGridSignature {
   Args: {
@@ -40,17 +40,6 @@ export interface HdsLayoutGridSignature {
 }
 
 export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
-  get columnMinWidthStyle(): Record<string, string> {
-    const columnMinWidthStyle: { [key: string]: string } = {};
-
-    // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as the default col min width
-    // https://drafts.csswg.org/css-values/#calc-type-checking
-    columnMinWidthStyle['--hds-layout-grid-column-min-width'] =
-      this.args.columnMinWidth ?? '0px';
-
-    return columnMinWidthStyle;
-  }
-
   get componentTag(): AvailableTagNames {
     return this.args.tag ?? 'div';
   }
@@ -91,6 +80,17 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     } else {
       return undefined;
     }
+  }
+
+  get columnMinWidthStyle(): Record<string, string> {
+    const columnMinWidthStyle: { [key: string]: string } = {};
+
+    // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as the default col min width
+    // https://drafts.csswg.org/css-values/#calc-type-checking
+    columnMinWidthStyle['--hds-layout-grid-column-min-width'] =
+      this.args.columnMinWidth ?? '0px';
+
+    return columnMinWidthStyle;
   }
 
   get classNames(): string {
