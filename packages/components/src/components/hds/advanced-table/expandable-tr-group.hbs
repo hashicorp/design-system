@@ -11,10 +11,7 @@
     isExpanded=@record.isOpen
     parentId=@parentId
     rowIndex=this.rowIndex
-    didInsertExpandButton=@didInsertExpandButton
-    willDestroyExpandButton=@willDestroyExpandButton
     shouldDisplayChildRows=@shouldDisplayChildRows
-    onClickToggle=this.onClickToggle
   )
 }}
 {{#if @record.hasChildren}}
@@ -25,9 +22,6 @@
       @align={{@align}}
       @parentId={{this._id}}
       @rowIndex="{{this.rowIndex}}.{{this.childrenDepth}}"
-      @onClickToggle={{@onClickToggle}}
-      @didInsertExpandButton={{@didInsertExpandButton}}
-      @willDestroyExpandButton={{@willDestroyExpandButton}}
       @shouldDisplayChildRows={{this.shouldDisplayChildRows}}
       as |T|
     >
@@ -39,10 +33,7 @@
           isExpanded=T.isExpanded
           parentId=T.parentId
           id=T.id
-          didInsertExpandButton=T.didInsertExpandButton
-          willDestroyExpandButton=T.willDestroyExpandButton
           shouldDisplayChildRows=T.shouldDisplayChildRows
-          onClickToggle=T.onClickToggle
         )
       }}
     </Hds::AdvancedTable::ExpandableTrGroup>
