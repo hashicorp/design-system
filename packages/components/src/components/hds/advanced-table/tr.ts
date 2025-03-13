@@ -37,6 +37,7 @@ export interface BaseHdsAdvancedTableTrSignature {
     willDestroy?: () => void;
     onClickSortBySelected?: HdsAdvancedTableThSelectableSignature['Args']['onClickSortBySelected'];
     displayRow?: boolean;
+    hasStickyColumn?: boolean;
   };
   Blocks: {
     default?: [];

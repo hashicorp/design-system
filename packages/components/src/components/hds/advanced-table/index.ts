@@ -66,6 +66,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasStickyHeader?: boolean;
+    hasStickyColumn?: boolean;
     childrenKey?: string;
   };
   Blocks: {
@@ -98,7 +99,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
-  private _element!: HTMLDivElement;
+  private _outerElement!: HTMLDivElement;
+  private _gridElement!: HTMLDivElement;
+  private _observer: IntersectionObserver | undefined = undefined;
+  @tracked scrollIndicatorHeight: number= 0
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -148,6 +152,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return childrenKey;
   }
+
+  get hasScrollIndicator(): boolean {
+    if (this.args.hasStickyColumn) {
+      return true
+    }
+
+    return false;
+  }
+
+  // get scrollIndicatorHeight(): string | undefined {
+  //   // console.log('hi')
+  //   // console.log(this.args.hasStickyColumn)
+  //   // console.log(this._element)
+  //   if (this.args.hasStickyColumn && this._element) {
+
+  //     console.log(this._element.parentElement)
+  //     console.log(this._element.parentElement?.offsetHeight)
+  //     return `${this._element.parentElement?.offsetHeight}px`
+  //   }
+  // }
 
   get hasNestedRows(): boolean {
     const { model, columns } = this.args;
@@ -289,12 +313,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  private _setUpWrapper = modifier((element: HTMLDivElement) => {
+    this._outerElement = element;
+    this.scrollIndicatorHeight =  element.clientHeight
+
+    return () => {
+        this.scrollIndicatorHeight = 0;
+    };
+  });
+
+
   private _setUpObservers = modifier((element: HTMLDivElement) => {
     const stickyGridHeader = element.querySelector(
       '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
     );
 
-    this._element = element;
+    this._gridElement = element;
     this.setExpandAllState();
 
     if (stickyGridHeader !== null) {
@@ -461,7 +495,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   @action
   setExpandAllState(): void {
-    if (this._expandAllButton && this._element) {
+    if (this._expandAllButton && this._gridElement) {
       // eslint-disable-next-line ember/no-runloop
       next(() => {
         const parentRowsCount = this._expandableRows.length;
@@ -476,14 +510,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         else expandAllState = 'mixed';
 
         this._expandAllButtonState = expandAllState;
-        updateLastRowClass(this._element);
+        updateLastRowClass(this._gridElement);
       });
     }
   }
 
   @action
   onExpandAllClick(): void {
-    if (this._expandAllButton && this._element) {
+    if (this._expandAllButton && this._gridElement) {
       const newState = this._expandAllButtonState === true ? false : true;
 
       this._expandableRows.forEach((button) => {
@@ -492,7 +526,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       });
 
       this._expandAllButtonState = newState;
-      updateLastRowClass(this._element);
+      updateLastRowClass(this._gridElement);
     }
   }
 }
