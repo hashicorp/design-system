@@ -41,7 +41,7 @@ Don't mix and match inclusion of descriptions.
 
 ## Progressive disclosure
 
-We recommend showing the contents of only the **in-progress** step while hiding the contents of other steps. This narrows the focus to only the current step and ensures steps are completed in order. However, this isn’t always feasible, and sometimes context from the previous step is needed for the user to complete the next step. Use your best judgment.
+We recommend showing the contents of the **in-progress** step while hiding the contents of other steps. This narrows the focus to the current step and ensures steps are completed in order. However, context from the previous step is sometimes needed for the user to complete the next step, so use your best judgment.
 
 !!! Do 
 
@@ -65,6 +65,6 @@ Set the status as `processing` to provide the user with immediate feedback when 
 
 ![A Stepper list with two steps. In the first step, the user is pressing a button and the step is in a processing state.](/assets/components/stepper/list/stepper-list-processing-status.png)
 
-If an error occurs, the error should be displayed within the step. The step status should revert to `progress`.
+If an error occurs, the error should be displayed within the step and the status should remain in `progress`.
 
 ![A Stepper list with two steps. The first step has an errored out form text input with a message explaining how to fix the error.](/assets/components/stepper/list/stepper-list-processing-status-errored.png)
