@@ -8,7 +8,7 @@
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
 <section data-test-percy>
 
-  {{!-- <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
+  <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
   <Shw::Text::H3>Keyboard interaction</Shw::Text::H3>
 
   <Shw::Text::Body>To navigate the AdvancedTable with a keyboard</Shw::Text::Body>
@@ -58,7 +58,7 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Nested rows</Shw::Text::H2> --}}
+  <Shw::Text::H2>Nested rows</Shw::Text::H2>
 
   <Shw::Text::H3>With default expanded rows</Shw::Text::H3>
   <Hds::AdvancedTable
@@ -84,7 +84,7 @@
     </:body>
   </Hds::AdvancedTable>
 
-  {{!-- <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
+  <Shw::Text::H3>With nested rows and custom children key</Shw::Text::H3>
 
   <Hds::AdvancedTable
     @model={{this.model.nestedDataCustom}}
@@ -1818,7 +1818,7 @@
         </Shw::Flex>
       </SG.Item>
     {{/each}}
-  </Shw::Grid> --}}
+  </Shw::Grid>
 
   <Shw::Grid @label="Expand all interactive states + Expand state" @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
