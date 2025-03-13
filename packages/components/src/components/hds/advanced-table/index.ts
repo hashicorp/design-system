@@ -92,7 +92,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
-  private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _element!: HTMLDivElement;
@@ -108,10 +107,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       childrenKey,
     });
 
-    const sortableColumns = columns.filter((column) => column.isSortable);
-    const sortableColumnLabels = sortableColumns.map((column) => column.label);
-
     if (this._tableModel.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
       assert(
         `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
         sortableColumns.length === 0
@@ -124,6 +125,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this._sortBy
     );
+
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
       currentColumn?.sortingFunction &&
