@@ -5,7 +5,7 @@
 {{yield
   (hash
     data=@record
-    isExpandable=this.hasChildren
+    isExpandable=@record.hasChildren
     id=this._id
     depth=this.depth
     isExpanded=this._isExpanded
@@ -17,8 +17,8 @@
     onClickToggle=this.onClickToggle
   )
 }}
-{{#if this.hasChildren}}
-  {{#each this.children as |childRecord|}}
+{{#if @record.hasChildren}}
+  {{#each @record.children as |childRecord|}}
     <Hds::AdvancedTable::ExpandableTrGroup
       @record={{childRecord}}
       @depth={{this.childrenDepth}}
