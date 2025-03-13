@@ -4,12 +4,12 @@
 }}
 
 {{#if (eq this.componentTag "div")}}
-  <div class={{this.classNames}} {{style this.columnMinWidthStyle}} ...attributes>
+  <div class={{this.classNames}} {{style this.inlineStyles}} ...attributes>
     {{yield (hash Item=(component "hds/layout/grid/item"))}}
   </div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class={{this.classNames}} {{style this.columnMinWidthStyle}} ...attributes>
+    <Tag class={{this.classNames}} {{style this.inlineStyles}} ...attributes>
       {{yield (hash Item=(component "hds/layout/grid/item"))}}
     </Tag>
   {{/let}}

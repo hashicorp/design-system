@@ -4,10 +4,10 @@
 }}
 
 {{#if (eq this.componentTag "div")}}
-  <div class="hds-layout-grid-item" {{style this.colSpanStyle this.rowSpanStyle}} ...attributes>{{yield}}</div>
+  <div class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>{{yield}}</div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class="hds-layout-grid-item" {{style this.colSpanStyle this.rowSpanStyle}} ...attributes>
+    <Tag class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>
       {{yield}}
     </Tag>
   {{/let}}
