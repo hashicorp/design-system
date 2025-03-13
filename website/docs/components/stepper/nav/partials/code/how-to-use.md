@@ -190,3 +190,49 @@ Steps content
 </Hds::Stepper::Nav>
 Steps content
 ```
+
+## Composition with other components
+
+The Stepper Nav should be paired with appropriate navigation [Buttons](/components/button). Buttons can be wrapped with a [Button Set](/components/button-set) to ensure consistent spacing between them.
+
+```handlebars
+<Hds::Stepper::Nav
+  @currentStep={{this.demoButtonsCurrentStep}}
+  @ariaLabel="Component composition"
+  @onStepChange={{this.demoButtonsOnStepChange}}
+  as |S|
+>
+  <S.Step>
+    <:title>Step 1</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 2</:title>
+  </S.Step>
+  <S.Step>
+    <:title>Step 3</:title>
+  </S.Step>
+  <S.Panel>
+    Content 1
+    <Hds::Button @text="Next" {{on "click" this.onNextClickDemo}} />
+  </S.Panel>
+  <S.Panel>
+    Content 2
+    <Hds::ButtonSet>
+      <Hds::Button
+        @text="Previous"
+        @color="secondary"
+        {{on "click" this.onPreviousClickDemo}}
+      />
+      <Hds::Button @text="Next" {{on "click" this.onNextClickDemo}} />
+    </Hds::ButtonSet>
+  </S.Panel>
+  <S.Panel>
+    Content 3
+    <Hds::Button
+      @text="Previous"
+      @color="secondary"
+      {{on "click" this.onPreviousClickDemo}}
+    />
+  </S.Panel>
+</Hds::Stepper::Nav>
+```
