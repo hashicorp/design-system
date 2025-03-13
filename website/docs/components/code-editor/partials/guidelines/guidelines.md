@@ -11,7 +11,7 @@
 
 ## Standalone
 
-The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. For example, a common use case of the Code Editor is in a “standalone” context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
+The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. A common use case of the Code Editor is in a “standalone” context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
 
 ![Code Editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
 
@@ -106,7 +106,7 @@ If you wish to create custom examples using the Code Editor, we publish all of t
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
 
 ## Linting
-The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line. To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line.
 
 !!! Info 
 This component is only available in Ember and is not supported in Figma.
