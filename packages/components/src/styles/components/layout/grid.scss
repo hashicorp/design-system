@@ -18,7 +18,7 @@
       auto-fit, 
       minmax( 
         calc( 
-          var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-gap, var(--hds-layout-grid-column-gap, 0px)) ), 
+          var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-gap, var(--hds-layout-grid-column-gap, 0px)) ), 
         1fr 
       )
     );
@@ -76,6 +76,6 @@
 // LAYOUT > GRID > ITEM
 
 .hds-layout-grid-item {
-  grid-row-start: span var(--hds-layout-grid-row-span);
-  grid-column-start: span var(--hds-layout-grid-column-span);
+  grid-row-start: span var(--hds-layout-grid-row-span, 1);
+  grid-column-start: span var(--hds-layout-grid-column-span, 1);
 }

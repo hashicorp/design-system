@@ -40,11 +40,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // COLUMN MIN WIDTH
 
-  test('it should render a default min-width of 0px if @columnMinWidth is not declared', async function (assert) {
+  // Note: A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
+  test('if the @columnMinWidth prop is not declared, --hds-layout-grid-column-min-width should be unset', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
-      .hasStyle({ '--hds-layout-grid-column-min-width': '0px' });
+      .doesNotHaveStyle('--hds-layout-grid-column-min-width');
   });
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {

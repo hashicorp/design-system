@@ -30,8 +30,12 @@ export default class HdsLayoutFlexItem extends Component<HdsLayoutGridItemSignat
       '--hds-layout-grid-row-span'?: string;
     } = {};
 
-    inlineStyles['--hds-layout-grid-column-span'] = this.args.colSpan ?? '1';
-    inlineStyles['--hds-layout-grid-row-span'] = this.args.rowSpan ?? '1';
+    if (this.args.colSpan) {
+      inlineStyles['--hds-layout-grid-column-span'] = this.args.colSpan;
+    }
+    if (this.args.rowSpan) {
+      inlineStyles['--hds-layout-grid-row-span'] = this.args.rowSpan;
+    }
 
     return inlineStyles;
   }
