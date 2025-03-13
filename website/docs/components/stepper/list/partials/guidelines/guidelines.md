@@ -4,7 +4,7 @@
 
 - In onboarding, account creation, or initial setups that are broken up into multiple steps.
 - To communicate what has and has not been completed in a multi-step flow.
-- For progress that does not require a user to remain on the current page to complete.
+- For progress that does not require the user to remain on the current page to complete.
 
 ### When not to use
 
