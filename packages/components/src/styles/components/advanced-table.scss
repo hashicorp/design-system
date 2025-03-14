@@ -105,8 +105,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     .hds-advanced-table__th--is-sticky-column {
       position: sticky;
       top: 0;
-      left: 50px;
-      // box-shadow: 5px 0 5px 0 rgba(0,0,0,10%);
+      left: 49px;
     }
 
     // border radius: target first and last th elements in the row
@@ -299,10 +298,10 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     z-index: 3;
   }
 
-  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__td {
+  .hds-advanced-table__th--is-sticky-column {
     position: sticky;
     top: 0;
-    left: 50px;
+    left: 49px;
     z-index: 3;
     // box-shadow: 5px 0 5px 0 rgba(0,0,0,10%);
   }

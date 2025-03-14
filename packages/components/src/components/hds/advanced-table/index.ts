@@ -123,8 +123,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
   private _outerElement!: HTMLDivElement;
   private _gridElement!: HTMLDivElement;
-  private _observer: IntersectionObserver | undefined = undefined;
-  @tracked scrollIndicatorHeight: number= 0
+  @tracked scrollIndicatorHeight= 0
+  @tracked scrollIndicatorLeftOffset = 0;
+  @tracked showScrollIndicatorLeft = false;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -184,6 +185,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return false;
   }
 
+<<<<<<< HEAD
   // get scrollIndicatorHeight(): string | undefined {
   //   // console.log('hi')
   //   // console.log(this.args.hasStickyColumn)
@@ -195,6 +197,40 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   //     return `${this._element.parentElement?.offsetHeight}px`
   //   }
   // }
+=======
+  get hasNestedRows(): boolean {
+    const { model, columns } = this.args;
+    let hasNestedRows = false;
+    let isSortable = false;
+    const sortableColumns: string[] = [];
+
+    // if the model is not an array, assume there are no nested rows
+    if (!Array.isArray(model)) return false;
+
+    for (const column of columns) {
+      if (column.isSortable) {
+        isSortable = true;
+        sortableColumns.push(column.label);
+      }
+    }
+
+    for (const obj of model) {
+      if (this.childrenKey in obj) {
+        hasNestedRows = true;
+        break;
+      }
+    }
+
+    if (hasNestedRows) {
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumns.toString()}`,
+        !isSortable
+      );
+    }
+
+    return hasNestedRows;
+  }
+>>>>>>> e10114e55 (wip)
 
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
@@ -303,9 +339,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpWrapper = modifier((element: HTMLDivElement) => {
+  private _setUpOuter = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
-    this.scrollIndicatorHeight =  element.clientHeight
+
+    const scrollWrapper = element.querySelector('.hds-advanced-table__scroll-wrapper') as HTMLElement;
+
+    const scrollbarHeight = scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
+
+    this.scrollIndicatorHeight =  element.clientHeight - scrollbarHeight;
 
     return () => {
         this.scrollIndicatorHeight = 0;
@@ -314,13 +355,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
 
   private _setUpObservers = modifier((element: HTMLDivElement) => {
-    const stickyGridHeader = element.querySelector(
-      '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
-    );
-
     this._gridElement = element;
 
-    if (stickyGridHeader !== null) {
+    const gridHeader = element.querySelector(
+      '.hds-advanced-table__thead'
+    );
+
+    const stickyColumnHeaders = gridHeader?.querySelectorAll('.hds-advanced-table__th--is-sticky-column')
+
+    let newLeftOffset = 0;
+
+    stickyColumnHeaders?.forEach((elem) => {
+      newLeftOffset += elem.clientWidth
+    })
+
+    this.scrollIndicatorLeftOffset = newLeftOffset - 1;
+
+    if (gridHeader?.classList.contains('hds-advanced-table__thead--sticky')) {
       this._intersectionObserver = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(
@@ -330,13 +381,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         { threshold: [1] }
       );
 
-      this._intersectionObserver.observe(stickyGridHeader);
+      this._intersectionObserver.observe(gridHeader);
     }
 
     return () => {
       if (this._intersectionObserver) {
         this._intersectionObserver.disconnect();
       }
+
+      this.scrollIndicatorLeftOffset = 0;
     };
   });
 

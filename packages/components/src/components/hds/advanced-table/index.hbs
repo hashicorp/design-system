@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div {{style position="relative" height="100%" width="100%"}} {{this._setUpWrapper}}>
+<div {{style position="relative" height="100%" width="100%"}} {{this._setUpOuter}}>
   <div class="hds-advanced-table__scroll-wrapper">
     <div
       class={{this.classNames}}
@@ -119,7 +119,7 @@
                   selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                   hasStickyColumn=@hasStickyColumn
                 )
-                Th=(component "hds/advanced-table/th" scope="row")
+                Th=(component "hds/advanced-table/th" scope="row" isStickyColumn=@hasStickyColumn)
                 Td=(component "hds/advanced-table/td" align=@align)
                 data=record
                 rowIndex=index
@@ -134,4 +134,10 @@
       <div class="hds-advanced-table__scroll-indicator" {{style height=(concat this.scrollIndicatorHeight "px")}} />
     {{/if}}
   </div>
+  {{#if (and @hasStickyColumn this.showScrollIndicatorLeft)}}
+    <div
+      class="hds-advanced-table__scroll-indicator"
+      {{style height=(concat this.scrollIndicatorHeight "px") left=(concat this.scrollIndicatorLeftOffset "px")}}
+    />
+  {{/if}}
 </div>
