@@ -108,18 +108,49 @@ To differentiate the vertical and horizontal spacing between items when they wra
 
 The first value in the array refers to the vertical gap between "rows" of items (`row-gap` in CSS), the second one to the horizontal spacing between "columns" of items (`column-gap` in CSS).
 
+The `@gap` argument accepts only **pre-defined values**, it can't be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
+
+If you need to provide custom spacing values, see below how you can use a special escape hatch for this.
+
 !!! Warning
 
 **Important**
 
-The `@gap` argument accepts only **pre-defined values**, it can't be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
-
-The value(s) passed to the `@gap` argument **must be string(s)**, not numbers!
+The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
 
 !!!
 
 📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `gap` property can be used to implement specific layouts.
 
+#### Non-standard gap values
+
+If you absolutely have to use non-standard spacing value(s) for the flex `gap`, you can use the internal `--hds-layout-flex-row-gap` and `--hds-layout-flex-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style):
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex class="doc-flex-demo-custom-flex-column-gap">
+  {{!
+    multiple flex items here, with a non-standard gap between them
+    by assigning a custom value for `--hds-layout-flex-column-gap`
+    declared in the `.doc-flex-demo-custom-flex-column-gap` local class
+  }}
+</Hds::Layout::Flex>
+```
+
+In this case we're overwriting only the "column" gap value via the custom CSS class.
+
+If the flex items are wrapping on multiple lines, you have to overwrite both the "row" and "column" gap values:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex
+  {{style --hds-layout-flex-row-gap="10px" --hds-layout-flex-column-gap="0.625rem"}}
+  @wrap={{true}}
+>
+  {{!
+    multiple flex items appearing on multiple rows
+    with a vertical gap of 10px and an horizontal one of 0.625rem
+  }}
+</Hds::Layout::Flex>
+```
 
 ### isInline
 
