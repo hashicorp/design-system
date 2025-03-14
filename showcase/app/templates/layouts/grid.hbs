@@ -1,0 +1,331 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Layout::Grid Component"}}
+
+<Shw::Text::H1>Layout::Grid</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Column min width</Shw::Text::H2>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="No min width columns (min-width defaults to 0px)">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="48">
+          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="250px min width columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="48" @columnMinWidth="250px">
+          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="33.33% min width columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="48" @columnMinWidth="33.33%">
+          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="40em min width columns">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @gap="48" @columnMinWidth="40em">
+          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Align</Shw::Text::H2>
+  <Shw::Text::Body>This is the
+    <code>align-items</code>
+    CSS property of
+    <code>css grid</code>.</Shw::Text::Body>
+
+  <Shw::Grid @columns={{@model.ALIGNS.length}} @gap="2rem" as |SG|>
+    {{#each @model.ALIGNS as |align|}}
+      <SG.Item @label={{(concat "align=" align)}}>
+        <Shw::Outliner {{style width="120px" height="120px"}}>
+          <Hds::Layout::Grid @align={{align}} {{style width="100%" height="100%"}}>
+            <Shw::Placeholder
+              @text="#A"
+              @width="auto"
+              @height="auto"
+              {{style min-width="24px" min-height="24px"}}
+              @background="#e4c5f3"
+            />
+            <Shw::Placeholder
+              @text="#B"
+              @width="auto"
+              @height="auto"
+              {{style min-width="24px" min-height="24px"}}
+              @background="#e5ffd2"
+            />
+            <Shw::Placeholder
+              @text="#C"
+              @width="auto"
+              @height="auto"
+              {{style min-width="24px" min-height="24px"}}
+              @background="#d2f4ff"
+            />
+          </Hds::Layout::Grid>
+        </Shw::Outliner>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Gap</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
+
+  <Shw::Grid @columns="4" @gap="2rem" as |SG|>
+    {{#each @model.GAPS as |gap|}}
+      <SG.Item @label="gap={{gap}}">
+        <Shw::Outliner>
+          <Hds::Layout::Grid @gap={{gap}} @columnMinWidth="50%">
+            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+          </Hds::Layout::Grid>
+        </Shw::Outliner>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Text::H4 @tag="h3">Double value (row/column)</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} @gap="2rem 4rem" as |SG|>
+    {{! we use only a subset of possible combinations, just for testing purposes }}
+    {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
+      {{#each gapsList as |gapsArray|}}
+        <SG.Item @label="gap=[{{gapsArray}}]">
+          <Shw::Outliner>
+            <Hds::Layout::Grid @gap={{gapsArray}} @columnMinWidth="50%">
+              <Shw::Placeholder @text="item #1" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #2" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #3" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #4" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #5" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #6" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #7" @width="auto" @height="24" />
+              <Shw::Placeholder @text="item #8" @width="auto" @height="24" />
+            </Hds::Layout::Grid>
+          </Shw::Outliner>
+        </SG.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Display</Shw::Text::H2>
+
+  <Shw::Grid @gap="2rem" @columns={{2}} as |SF|>
+    {{#let (array false true) as |booleans|}}
+      {{#each booleans as |isInline|}}
+        <SF.Item @label={{if isInline "inline-grid (isInline=true)" "grid (default)"}}>
+          <Hds::Text::Body @size="200" @tag="div">
+            Lorem
+            <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
+              <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Grid>
+            sit amet
+            <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
+              <Shw::Placeholder @text="#A" @height="24" @background="#e4c5f3" />
+              <Shw::Placeholder @text="#B" @height="24" @background="#e5ffd2" />
+              <Shw::Placeholder @text="#C" @height="24" @background="#d2f4ff" />
+              <Shw::Placeholder @text="#D" @height="24" @background="#fff8d2" />
+            </Hds::Layout::Grid>
+            elit.
+          </Hds::Text::Body>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Grid>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Grid::Item</Shw::Text::H2>
+
+  <Shw::Grid @columns={{1}} as |SG|>
+    <SG.Item @label="used directly or via yielded component">
+      <Shw::Outliner>
+        <Hds::Layout::Grid as |HLG|>
+          <Shw::Placeholder @text="item #1" @height="40" @background="#e4c5f3" />
+
+          <Hds::Layout::Grid::Item>
+            <Shw::Placeholder @text="item #2 within Grid::Item" @height="40" @background="#e5ffd2" />
+          </Hds::Layout::Grid::Item>
+
+          <Shw::Placeholder @text="item #3" @height="40" @background="#d2f4ff" />
+
+          <HLG.Item>
+            <Shw::Placeholder @text="item #4 within HLG.Item" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>colSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="1st item w/ colSpan=2">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="2">
+            <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="1st item w/ colSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="3">
+            <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="1st item w/ colSpan=4">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="4">
+            <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>rowSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="1st item w/ rowSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
+          <HLG.Item @rowSpan="3">
+            <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+
+    <SG.Item @label="2nd item w/ rowSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="50%" @gap="12" as |HLG|>
+          <HLG.Item>
+            <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item @rowSpan="3">
+            <Shw::Placeholder @text="#2" @height="100%" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>colSpan & rowSpan</Shw::Text::H3>
+
+  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+    <SG.Item @label="1st item w/ colSpan=2 & rowSpan=3">
+      <Shw::Outliner>
+        <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
+          <HLG.Item @colSpan="2" @rowSpan="3">
+            <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#5" @height="40" @background="#f3d9c5" />
+          </HLG.Item>
+          <HLG.Item>
+            <Shw::Placeholder @text="#6" @height="40" @background="#fee1ec" />
+          </HLG.Item>
+        </Hds::Layout::Grid>
+      </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+</section>
