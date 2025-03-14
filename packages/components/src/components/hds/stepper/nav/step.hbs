@@ -29,8 +29,8 @@
       </div>
       <div class="hds-stepper-nav__step-text">
         <Hds::Text::Body class="hds-stepper-nav__step-title" @tag={{this.titleTag}} @size="200" @weight="semibold">
-          <span class="sr-only">{{this.statusSrOnlyText}}</span>
           {{yield to="title"}}
+          <span class="sr-only">{{this.statusSrOnlyText}}</span>
         </Hds::Text::Body>
         <Hds::Text::Body
           class="hds-stepper-nav__step-description"
