@@ -1,5 +1,55 @@
 # @hashicorp/design-system-components
 
+## 4.18.0
+
+### Minor Changes
+
+`Time` - Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.
+
+`RichTooltip` - Increase spacing above the dotted text decoration underline to 2px from the default.
+
+<small class="doc-whats-new-changelog-metadata">[#2745](https://github.com/hashicorp/design-system/pull/2745)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Added an expand all button to `AdvancedTable`s with nested rows and changed the structure of the component so now nested rows are always in the DOM, even when they are not visible. To add the expand all button, add `isExpandable: true` to the desired column in the `@columns` argument.
+
+<small class="doc-whats-new-changelog-metadata">[#2688](https://github.com/hashicorp/design-system/pull/2688)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add language syntax highlighting suport for Markdown
+
+`CodeEditor` - Add language syntax highlighting suport for Markdown
+
+Dependencies - added @codemirror/lang-markdown
+
+<small class="doc-whats-new-changelog-metadata">[#2740](https://github.com/hashicorp/design-system/pull/2740)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Upgraded `prismjs` from `1.29.0` to `1.30.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2760](https://github.com/hashicorp/design-system/pull/2760) - Thanks [@dependabot](https://github.com/apps/dependabot) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `@embroider/util` dependency
+
+Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component` helper
+
+<small class="doc-whats-new-changelog-metadata">[#2728](https://github.com/hashicorp/design-system/pull/2728) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Always set the select checkbox column width to `min-content` so it does not grow when the `AdvancedTable` is narrower than the container
+
+<small class="doc-whats-new-changelog-metadata">[#2761](https://github.com/hashicorp/design-system/pull/2761)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.17.1
 
 [4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)
