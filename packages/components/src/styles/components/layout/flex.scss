@@ -9,6 +9,13 @@
 
 .hds-layout-flex {
   display: flex;
+
+  // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
+  // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
+  // These variables can be used by the consumers as escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
+  gap:
+    var(--hds-layout-flex-row-gap, 0)
+    var(--hds-layout-flex-column-gap, 0);
 }
 
 // inline
@@ -83,27 +90,60 @@
 
 // gap
 
-.hds-layout-flex--gap-4 { gap: 4px; }
-.hds-layout-flex--gap-8 { gap: 8px; }
-.hds-layout-flex--gap-12 { gap: 12px; }
-.hds-layout-flex--gap-16 { gap: 16px; }
-.hds-layout-flex--gap-24 { gap: 24px; }
-.hds-layout-flex--gap-32 { gap: 32px; }
-.hds-layout-flex--gap-48 { gap: 48px; }
-.hds-layout-flex--row-gap-4 { row-gap: 4px; }
-.hds-layout-flex--row-gap-8 { row-gap: 8px; }
-.hds-layout-flex--row-gap-12 { row-gap: 12px; }
-.hds-layout-flex--row-gap-16 { row-gap: 16px; }
-.hds-layout-flex--row-gap-24 { row-gap: 24px; }
-.hds-layout-flex--row-gap-32 { row-gap: 32px; }
-.hds-layout-flex--row-gap-48 { row-gap: 48px; }
-.hds-layout-flex--column-gap-4 { column-gap: 4px; }
-.hds-layout-flex--column-gap-8 { column-gap: 8px; }
-.hds-layout-flex--column-gap-12 { column-gap: 12px; }
-.hds-layout-flex--column-gap-16 { column-gap: 16px; }
-.hds-layout-flex--column-gap-24 { column-gap: 24px; }
-.hds-layout-flex--column-gap-32 { column-gap: 32px; }
-.hds-layout-flex--column-gap-48 { column-gap: 48px; }
+// set row & column gap size together
+.hds-layout-flex--gap-4 {
+  --hds-layout-flex-row-gap: 4px;
+  --hds-layout-flex-column-gap: 4px;
+}
+
+.hds-layout-flex--gap-8 {
+  --hds-layout-flex-row-gap: 8px;
+  --hds-layout-flex-column-gap: 8px;
+}
+
+.hds-layout-flex--gap-12 {
+  --hds-layout-flex-row-gap: 12px;
+  --hds-layout-flex-column-gap: 12px;
+}
+
+.hds-layout-flex--gap-16 {
+  --hds-layout-flex-row-gap: 16px;
+  --hds-layout-flex-column-gap: 16px;
+}
+
+.hds-layout-flex--gap-24 {
+  --hds-layout-flex-row-gap: 24px;
+  --hds-layout-flex-column-gap: 24px;
+}
+
+.hds-layout-flex--gap-32 {
+  --hds-layout-flex-row-gap: 32px;
+  --hds-layout-flex-column-gap: 32px;
+}
+
+.hds-layout-flex--gap-48 {
+  --hds-layout-flex-row-gap: 48px;
+  --hds-layout-flex-column-gap: 48px;
+}
+
+// set just row gap size
+.hds-layout-flex--row-gap-4 { --hds-layout-flex-row-gap: 4px; }
+.hds-layout-flex--row-gap-8 { --hds-layout-flex-row-gap: 8px; }
+.hds-layout-flex--row-gap-12 { --hds-layout-flex-row-gap: 12px; }
+.hds-layout-flex--row-gap-16 { --hds-layout-flex-row-gap: 16px; }
+.hds-layout-flex--row-gap-24 { --hds-layout-flex-row-gap: 24px; }
+.hds-layout-flex--row-gap-32 { --hds-layout-flex-row-gap: 32px; }
+.hds-layout-flex--row-gap-48 { --hds-layout-flex-row-gap: 48px; }
+
+// set just column gap size
+.hds-layout-flex--column-gap-4 { --hds-layout-flex-column-gap: 4px; }
+.hds-layout-flex--column-gap-8 { --hds-layout-flex-column-gap: 8px; }
+.hds-layout-flex--column-gap-12 { --hds-layout-flex-column-gap: 12px; }
+.hds-layout-flex--column-gap-16 { --hds-layout-flex-column-gap: 16px; }
+.hds-layout-flex--column-gap-24 { --hds-layout-flex-column-gap: 24px;  }
+.hds-layout-flex--column-gap-32 { --hds-layout-flex-column-gap: 32px; }
+.hds-layout-flex--column-gap-48 { --hds-layout-flex-column-gap: 48px; }
+
 
 // FLEX ITEM
 

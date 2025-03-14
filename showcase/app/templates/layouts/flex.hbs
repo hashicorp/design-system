@@ -170,6 +170,39 @@
     {{/let}}
   </Shw::Flex>
 
+  <br />
+  <br />
+
+  <Shw::Text::H4 @tag="h3">Custom values (overrides)</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item
+      @label="gap-column=20px (via classname)"
+      class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
+    >
+      <Hds::Layout::Flex class="shw-layout-flex-example-gap-override">
+        <Shw::Placeholder @text="#1" @height="24" />
+        <Shw::Placeholder @text="#2" @height="24" />
+        <Shw::Placeholder @text="#3" @height="24" />
+        <Shw::Placeholder @text="#4" @height="24" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item
+      @label="gap-column=1.25rem / gap-row=20px (via inline style)"
+      class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
+    >
+      <Hds::Layout::Flex
+        @wrap={{true}}
+        {{style --hds-layout-flex-row-gap="20px" --hds-layout-flex-column-gap="1.25rem"}}
+      >
+        <Shw::Placeholder @text="#1" @width="45%" @height="24" />
+        <Shw::Placeholder @text="#2" @width="45%" @height="24" />
+        <Shw::Placeholder @text="#3" @width="45%" @height="24" />
+        <Shw::Placeholder @text="#4" @width="45%" @height="24" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider @level={{2}} />
 
   <Shw::Text::H2>Display</Shw::Text::H2>

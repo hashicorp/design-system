@@ -38,4 +38,8 @@ body.layouts-flex {
     height: 50px;
     border-radius: 8px;
   }
+
+  .shw-layout-flex-example-gap-override {
+    --hds-layout-flex-column-gap: 20px;
+  }
 }
