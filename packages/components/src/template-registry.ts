@@ -710,7 +710,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Modal': typeof HdsModalComponent;
   'hds/modal': typeof HdsModalComponent;
 
-  'Hds::ModalBoty': typeof HdsModalBodyComponent;
+  'Hds::ModalBody': typeof HdsModalBodyComponent;
   'hds/modal/body': typeof HdsModalBodyComponent;
 
   'Hds::ModalFooter': typeof HdsModalFooterComponent;
