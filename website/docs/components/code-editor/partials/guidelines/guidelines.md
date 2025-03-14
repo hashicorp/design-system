@@ -109,16 +109,16 @@ For more details around syntax, visit the [specifications](/components/code-edit
 The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line.
 
 !!! Info 
-This component is only available in Ember and is not supported in Figma.
+Linting is only available in the Ember component and is not supported in Figma.
 !!!
 
-![](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
+![Code editor with linting errors. On hover of an icon indicating an error on a line, a tooltip displays details on the linting error.](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
 
-When linting is enabled, the CodeEditor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minimum height for the CodeEditor with linting is 160px. The linting alert dialog is always 80px in height.
+When linting is enabled, the Code Editor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minimum height for the Code Editor with linting is 160px. The linting alert dialog is always 80px in height.
 
-![](/assets/components/code-editor/codeeditor-linting-preview.png)
+![Code editor with linting errors. A red x icon is added to each line with errors, and the text of the line has a red underline.](/assets/components/code-editor/codeeditor-linting-preview.png)
 
-To view all alerts in the editor, users can open a dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+To view all alerts in the editor, open the alert dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
 
 ![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
 
