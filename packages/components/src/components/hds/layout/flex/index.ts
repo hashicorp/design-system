@@ -145,7 +145,8 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
         classes.push(`hds-layout-flex--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-flex--column-gap-${this.gap[1]}`);
       } else if (this.gap.length === 1) {
-        classes.push(`hds-layout-flex--gap-${this.gap[0]}`);
+        classes.push(`hds-layout-flex--row-gap-${this.gap[0]}`);
+        classes.push(`hds-layout-flex--column-gap-${this.gap[0]}`);
       }
     }
 

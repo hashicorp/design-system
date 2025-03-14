@@ -90,42 +90,6 @@
 
 // gap
 
-// set row & column gap size together
-.hds-layout-flex--gap-4 {
-  --hds-layout-flex-row-gap: 4px;
-  --hds-layout-flex-column-gap: 4px;
-}
-
-.hds-layout-flex--gap-8 {
-  --hds-layout-flex-row-gap: 8px;
-  --hds-layout-flex-column-gap: 8px;
-}
-
-.hds-layout-flex--gap-12 {
-  --hds-layout-flex-row-gap: 12px;
-  --hds-layout-flex-column-gap: 12px;
-}
-
-.hds-layout-flex--gap-16 {
-  --hds-layout-flex-row-gap: 16px;
-  --hds-layout-flex-column-gap: 16px;
-}
-
-.hds-layout-flex--gap-24 {
-  --hds-layout-flex-row-gap: 24px;
-  --hds-layout-flex-column-gap: 24px;
-}
-
-.hds-layout-flex--gap-32 {
-  --hds-layout-flex-row-gap: 32px;
-  --hds-layout-flex-column-gap: 32px;
-}
-
-.hds-layout-flex--gap-48 {
-  --hds-layout-flex-row-gap: 48px;
-  --hds-layout-flex-column-gap: 48px;
-}
-
 // set just row gap size
 .hds-layout-flex--row-gap-4 { --hds-layout-flex-row-gap: 4px; }
 .hds-layout-flex--row-gap-8 { --hds-layout-flex-row-gap: 8px; }
