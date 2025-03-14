@@ -1,0 +1,17 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<ol class="hds-stepper-list" aria-label={{@ariaLabel}} ...attributes>
+  {{yield
+    (hash
+      Step=(component
+        "hds/stepper/list/step"
+        titleTag=this.titleTag
+        stepIds=this._stepIds
+        didInsertNode=this.didInsertStep
+        willDestroyNode=this.willDestroyStep
+      )
+    )
+  }}
+</ol>

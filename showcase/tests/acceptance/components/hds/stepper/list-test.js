@@ -8,11 +8,11 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Component | hds/stepper', function (hooks) {
+module('Acceptance | Component | hds/stepper/list', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/hds/stepper page passes automated a11y checks', async function (assert) {
-    await visit('/components/stepper');
+  test('Components/hds/stepper/list page passes automated a11y checks', async function (assert) {
+    await visit('/components/stepper/list');
     await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');

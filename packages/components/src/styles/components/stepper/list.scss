@@ -1,0 +1,112 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// STEPPER > LIST
+//
+
+$hds-stepper-list-step-padding-bottom: 16px;
+
+.hds-stepper-list,
+.hds-stepper-list__step {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// SUB COMPONENT: STEPPER > LIST > STEP
+
+.hds-stepper-list__step {
+  display: grid;
+  grid-column-gap: 8px;
+  grid-template-columns: auto 1fr;
+
+  &:not(:last-of-type) {
+    padding-bottom: $hds-stepper-list-step-padding-bottom;
+
+    .hds-stepper-list__step-progress {
+      &::before,
+      &::after {
+        position: absolute;
+        top: 1px;
+        left: 11px;
+        width: 2px;
+        content: "";
+      }
+
+      &::before {
+        height: calc(100% + $hds-stepper-list-step-padding-bottom);
+        background: linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%), var(--token-color-palette-neutral-100);
+      }
+
+      &::after {
+        z-index: -1;
+        background-color: var(--token-color-palette-neutral-700);
+      }
+    }
+  }
+}
+
+.hds-stepper-list__step-progress {
+  position: relative;
+}
+
+.hds-stepper-list__step-text {
+  margin-top: 2px;
+}
+
+.hds-stepper-list__step-title {
+  color: var(--token-color-foreground-strong);
+}
+
+.hds-stepper-list__step-description {
+  margin-top: 4px;
+  color: var(--token-color-foreground-primary);
+}
+
+.hds-stepper-list__step-content {
+  margin-top: 8px;
+}
+
+// STATUSES
+
+// Complete & Active
+
+.hds-stepper-list__step--complete .hds-stepper-list__step-title,
+.hds-stepper-list__step--progress .hds-stepper-list__step-title,
+.hds-stepper-list__step--processing .hds-stepper-list__step-title {
+  color: var(--token-color-foreground-strong);
+}
+
+// Complete
+
+.hds-stepper-list__step {
+  &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    height: calc(100% + $hds-stepper-list-step-padding-bottom - 4px);
+  }
+
+  &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    top: -4px;
+    height: calc(100% + $hds-stepper-list-step-padding-bottom);
+  }
+
+  &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
+    position: absolute;
+    top: -4px;
+    left: 11px;
+    z-index: -1;
+    width: 2px;
+    height: 6px;
+    background-color: var(--token-color-palette-neutral-700);
+    content: "";
+  }
+
+  // Border radius for progress line if completed step is followed by a step that is not complete
+  &.hds-stepper-list__step--complete:has(+ :not(.hds-stepper-list__step--complete)) {
+    .hds-stepper-list__step-progress::after {
+      border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
+    }
+  }
+}
