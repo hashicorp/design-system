@@ -135,7 +135,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     await setupCodeEditor(
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" cspNonce="test-nonce"}} />`
     );
-    // cant use assert.dom to access elements in head
+    // can't use assert.dom to access elements in head
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
   });
 
