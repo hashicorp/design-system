@@ -131,7 +131,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
   }
 
-  &.hds-advanced-table__thead--sticky.hds-advanced-table__thead--is-pinned {
+  &.hds-advanced-table__thead--is-pinned {
     // need to add 1px to offset `top: -1px`
     border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
       $hds-advanced-table-border-color;
@@ -303,7 +303,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     top: 0;
     left: 49px;
     z-index: 3;
-    // box-shadow: 5px 0 5px 0 rgba(0,0,0,10%);
   }
 
   // horizontal alignment
@@ -396,5 +395,5 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   left: 0;
   z-index: 5;
   width: 5px;
-  background: linear-gradient(to left, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
+  background: linear-gradient(to right, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
 }
