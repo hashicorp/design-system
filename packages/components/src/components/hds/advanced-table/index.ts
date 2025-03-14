@@ -101,8 +101,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _outerElement!: HTMLDivElement;
   private _gridElement!: HTMLDivElement;
-  private _observer: IntersectionObserver | undefined = undefined;
-  @tracked scrollIndicatorHeight: number= 0
+  @tracked scrollIndicatorHeight= 0
+  @tracked scrollIndicatorLeftOffset = 0;
+  @tracked showScrollIndicatorLeft = false;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -160,18 +161,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return false;
   }
-
-  // get scrollIndicatorHeight(): string | undefined {
-  //   // console.log('hi')
-  //   // console.log(this.args.hasStickyColumn)
-  //   // console.log(this._element)
-  //   if (this.args.hasStickyColumn && this._element) {
-
-  //     console.log(this._element.parentElement)
-  //     console.log(this._element.parentElement?.offsetHeight)
-  //     return `${this._element.parentElement?.offsetHeight}px`
-  //   }
-  // }
 
   get hasNestedRows(): boolean {
     const { model, columns } = this.args;
@@ -313,9 +302,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpWrapper = modifier((element: HTMLDivElement) => {
+  private _setUpOuter = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
-    this.scrollIndicatorHeight =  element.clientHeight
+
+    const scrollWrapper = element.querySelector('.hds-advanced-table__scroll-wrapper') as HTMLElement;
+
+    const scrollbarHeight = scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
+
+    this.scrollIndicatorHeight =  element.clientHeight - scrollbarHeight;
 
     return () => {
         this.scrollIndicatorHeight = 0;
@@ -324,14 +318,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
 
   private _setUpObservers = modifier((element: HTMLDivElement) => {
-    const stickyGridHeader = element.querySelector(
-      '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
-    );
-
     this._gridElement = element;
     this.setExpandAllState();
 
-    if (stickyGridHeader !== null) {
+    const gridHeader = element.querySelector(
+      '.hds-advanced-table__thead'
+    );
+
+    const stickyColumnHeaders = gridHeader?.querySelectorAll('.hds-advanced-table__th--is-sticky-column')
+
+    let newLeftOffset = 0;
+
+    stickyColumnHeaders?.forEach((elem) => {
+      newLeftOffset += elem.clientWidth
+    })
+
+    this.scrollIndicatorLeftOffset = newLeftOffset - 1;
+
+    if (gridHeader?.classList.contains('hds-advanced-table__thead--sticky')) {
       this._intersectionObserver = new IntersectionObserver(
         ([element]) =>
           element?.target.classList.toggle(
@@ -341,7 +345,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         { threshold: [1] }
       );
 
-      this._intersectionObserver.observe(stickyGridHeader);
+      this._intersectionObserver.observe(gridHeader);
     }
 
     updateLastRowClass(element);
@@ -350,6 +354,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       if (this._intersectionObserver) {
         this._intersectionObserver.disconnect();
       }
+
+      this.scrollIndicatorLeftOffset = 0;
     };
   });
 
