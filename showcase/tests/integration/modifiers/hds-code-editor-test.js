@@ -130,6 +130,15 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       .doesNotHaveClass('cm-lineWrapping');
   });
 
+  // cspNonce
+  test('it should render the editor with a csp-nonce when provided', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" cspNonce="test-nonce"}} />`
+    );
+    // can't use assert.dom to access elements in head
+    assert.ok(document.querySelector('style[nonce="test-nonce"]'));
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if both ariaLabel and ariaLabelledBy are ommitted', async function (assert) {
