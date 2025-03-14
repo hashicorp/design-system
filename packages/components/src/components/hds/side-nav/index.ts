@@ -27,9 +27,9 @@ export interface HdsSideNavSignature {
      * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
      */
     ariaLabel?: string | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     onToggleMinimizedStatus?: (arg: boolean) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
