@@ -11,7 +11,7 @@
 
 ## Standalone
 
-The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. For example, a common use case of the Code Editor is in a “standalone” context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
+The `isStandalone` property increases the portability of the Code Editor to ensure that it can be used in different contexts. A common use case of the Code Editor is in a “standalone” context, which can be part of a form or multi-step process and is generally a part of the normal layout flow.
 
 ![Code Editor with rounded corners for enabled standalone property](/assets/components/code-editor/code-editor-rounded-standalone.png)
 
@@ -35,7 +35,7 @@ A title and description provides additional contextual information for the Code 
 
 Provide an accessible name for the Code Editor so that users of assistive technology can understand its purpose.
 
-![A Code Editor embedded in a form following a set of radio buttons. It has the heading “Policy code (Sentinel)” immediately before.](/assets/components/code-editor/code-editor-external-do-accessible-name.png)
+![A Code Editor embedded in a form following a set of radio buttons. It has the heading “Policy code (Sentinel)” immediately before.](/assets/components/code-editor/code-editor-do-external-accessible-name.png)
 
 !!!
 
@@ -56,7 +56,7 @@ The secondary actions section supports two optional buttons: the [Copy Button](/
 
 Custom primary actions can be added to the header. Primary actions include those necessary for the user to complete their work.
 
-![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-yielded-actions-placeholder.png)
+![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
 
 Here is an example of a custom action to reveal secrets.
 
@@ -104,3 +104,22 @@ In **Figma** we provide a handful of example languages intended as visual exampl
 
 If you wish to create custom examples using the Code Editor, we publish all of the relevant syntax highlighting variables in the [HDS Components v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67166-37020&t=gWdKy44MzTP4cTRo-1) library. However, due to the number of languages supported by the component, the color variables use a generic naming schema (e.g., cyan, red, purple) to remain as agnostic as possible when being applied to different languages.
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
+
+## Linting
+The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line.
+
+!!! Info 
+Linting is only available in the Ember component and is not supported in Figma.
+!!!
+
+![Code editor with linting errors. On hover of an icon indicating an error on a line, a tooltip displays details on the linting error.](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
+
+When linting is enabled, the Code Editor will have a minimum height set by default to avoid the alert dialog covering all the content within the editor when opened. The minimum height for the Code Editor with linting is 160px. The linting alert dialog is always 80px in height.
+
+![Code editor with linting errors. A red x icon is added to each line with errors, and the text of the line has a red underline.](/assets/components/code-editor/codeeditor-linting-preview.png)
+
+To view all alerts in the editor, open the alert dialog using Ctrl-Shift-m (Cmd-Shift-m on macOS).
+
+![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
+
+If you require linting for additional languages, [contact the Design Systems Team](/about/support).

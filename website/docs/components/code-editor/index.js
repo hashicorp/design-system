@@ -18,4 +18,10 @@ export default class Index extends Component {
 	})
 	return arr
 }`;
+
+  badJsonCode = `{
+  message: "Hello, world!",
+  : "success"
+  "data": null,
+}`;
 }

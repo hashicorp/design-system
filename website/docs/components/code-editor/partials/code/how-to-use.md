@@ -68,6 +68,18 @@ The `language` argument sets the syntax highlighting used. We support the follow
   @value={{this.goCode}}
 />
 ```
+### Linting
+
+Set `isLintingEnabled to `true` to enable linting within the editor. Linting is only available when `language` is set to `json`.
+
+```handlebars
+<Hds::CodeEditor
+  @ariaLabel="linting"
+  @isLintingEnabled={{true}}
+  @language="json"
+  @value={{this.badJsonCode}}
+/>
+```
 
 ### Copy button
 
