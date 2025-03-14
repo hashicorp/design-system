@@ -96,14 +96,14 @@
     &:focus,
     &:hover {
       background-color: var(--hds-code-editor-color-surface-primary);
-      
+
       .hds-button__icon {
         color: var(--hds-code-editor-color-foreground-primary);
       }
     }
 
     &:active {
-      background-color: var(--hds-code-editor-color-surface-interactive-active)
+      background-color: var(--hds-code-editor-color-surface-interactive-active);
     }
 
     .hds-button__icon {

@@ -7,7 +7,6 @@
 // FORM > TOGGLE
 //
 
-
 // "BASE" CONTROL
 
 .hds-form-toggle {
@@ -108,7 +107,9 @@
 
   :not(:checked) + & {
     --border-color: var(--token-form-control-base-border-color-default);
-    background-color: var(--token-form-toggle-base-surface-color-default); // this is specific for "toggle", is not like the other controls!
+    background-color: var(
+      --token-form-toggle-base-surface-color-default
+    ); // this is specific for "toggle", is not like the other controls!
   }
 
   :checked + & {

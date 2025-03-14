@@ -15,7 +15,7 @@ import type { HdsTabsPanelSignature } from './panel';
 import type { HdsTabsTabIds, HdsTabsPanelIds, HdsTabsSizes } from './types.ts';
 import type Owner from '@ember/owner';
 
-export const DEFAULT_SIZE: HdsTabsSizes = 'medium' as const;
+export const DEFAULT_SIZE: HdsTabsSizes = 'medium';
 export const SIZES: HdsTabsSizes[] = Object.values(HdsTabsSizeValues);
 export interface HdsTabsSignature {
   Args: {

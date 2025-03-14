@@ -253,7 +253,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       // noop
     } else {
       // if `this._isControlled` is `false`
-      this._currentPage = value as number;
+      this._currentPage = value;
     }
   }
 

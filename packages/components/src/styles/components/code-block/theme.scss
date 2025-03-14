@@ -100,65 +100,185 @@
   --hds-code-block-color-lang-markup-entity-not-named: var(--hds-code-block-color-green);
 }
 
-
 .hds-code-block {
   // Syntax highlighting ----
 
   // General tokens
-  .token { color: var(--hds-code-block-color-token); }
+  .token {
+    color: var(--hds-code-block-color-token);
+  }
 
-  .token.atrule { color: var(--hds-code-block-color-atrule); }
-  .token.attr-name { color: var(--hds-code-block-color-attr-name); }
-  .token.attr-value { color: var(--hds-code-block-color-attr-value); }
-  .token.boolean { color: var(--hds-code-block-color-boolean); }
-  .token.builtin { color: var(--hds-code-block-color-builtin); }
-  .token.char { color: var(--hds-code-block-color-char); }
-  .token.class-name { color: var(--hds-code-block-color-class-name); }
-  .token.comment { color: var(--hds-code-block-color-comment); }
-  .token.constant { color: var(--hds-code-block-color-constant); }
-  .token.deleted { color: var(--hds-code-block-color-deleted); }
-  .token.entity { color: var(--hds-code-block-color-entity); }
-  .token.function { color: var(--hds-code-block-color-function); }
-  .token.important { color: var(--hds-code-block-color-important); }
-  .token.keyword { color: var(--hds-code-block-color-keyword); }
-  .token.namespace { color: var(--hds-code-block-color-namespace); }
-  .token.number { color: var(--hds-code-block-color-number); }
-  .token.operator { color: var(--hds-code-block-color-operator); }
-  .token.punctuation { color: var(--hds-code-block-color-punctuation); }
-  .token.prolog { color: var(--hds-code-block-color-prolog); }
-  .token.property { color: var(--hds-code-block-color-property); }
-  .token.regex { color: var(--hds-code-block-color-regex); }
-  .token.script { color: var(--hds-code-block-color-script); }
-  .token.selector { color: var(--hds-code-block-color-selector); }
-  .token.string { color: var(--hds-code-block-color-string); }
-  .token.symbol { color: var(--hds-code-block-color-symbol); }
-  .token.tag { color: var(--hds-code-block-color-tag); }
-  .token.url { color: var(--hds-code-block-color-url); }
-  .token.variable { color: var(--hds-code-block-color-comment); }
+  .token.atrule {
+    color: var(--hds-code-block-color-atrule);
+  }
+
+  .token.attr-name {
+    color: var(--hds-code-block-color-attr-name);
+  }
+
+  .token.attr-value {
+    color: var(--hds-code-block-color-attr-value);
+  }
+
+  .token.boolean {
+    color: var(--hds-code-block-color-boolean);
+  }
+
+  .token.builtin {
+    color: var(--hds-code-block-color-builtin);
+  }
+
+  .token.char {
+    color: var(--hds-code-block-color-char);
+  }
+
+  .token.class-name {
+    color: var(--hds-code-block-color-class-name);
+  }
+
+  .token.comment {
+    color: var(--hds-code-block-color-comment);
+  }
+
+  .token.constant {
+    color: var(--hds-code-block-color-constant);
+  }
+
+  .token.deleted {
+    color: var(--hds-code-block-color-deleted);
+  }
+
+  .token.entity {
+    color: var(--hds-code-block-color-entity);
+  }
+
+  .token.function {
+    color: var(--hds-code-block-color-function);
+  }
+
+  .token.important {
+    color: var(--hds-code-block-color-important);
+  }
+
+  .token.keyword {
+    color: var(--hds-code-block-color-keyword);
+  }
+
+  .token.namespace {
+    color: var(--hds-code-block-color-namespace);
+  }
+
+  .token.number {
+    color: var(--hds-code-block-color-number);
+  }
+
+  .token.operator {
+    color: var(--hds-code-block-color-operator);
+  }
+
+  .token.punctuation {
+    color: var(--hds-code-block-color-punctuation);
+  }
+
+  .token.prolog {
+    color: var(--hds-code-block-color-prolog);
+  }
+
+  .token.property {
+    color: var(--hds-code-block-color-property);
+  }
+
+  .token.regex {
+    color: var(--hds-code-block-color-regex);
+  }
+
+  .token.script {
+    color: var(--hds-code-block-color-script);
+  }
+
+  .token.selector {
+    color: var(--hds-code-block-color-selector);
+  }
+
+  .token.string {
+    color: var(--hds-code-block-color-string);
+  }
+
+  .token.symbol {
+    color: var(--hds-code-block-color-symbol);
+  }
+
+  .token.tag {
+    color: var(--hds-code-block-color-tag);
+  }
+
+  .token.url {
+    color: var(--hds-code-block-color-url);
+  }
+
+  .token.variable {
+    color: var(--hds-code-block-color-comment);
+  }
 
   // Language-specific
   .language-css {
     color: var(--hds-code-block-color-lang-css);
 
-    .token { color: var(--hds-code-block-color-lang-css-token); }
-    .token.atrule { color: var(--hds-code-block-color-lang-css-atrule); }
-    .token.rule:not(.atrule) { color: var(--hds-code-block-color-lang-css-not-atrule); }
-    .token.entity { color: var(--hds-code-block-color-lang-css-entity); }
-    .token.function { color: var(--hds-code-block-color-lang-css-function); }
-    .token.property { color: var(--hds-code-block-color-lang-css-property); }
-    .token.punctuation { color: var(--hds-code-block-color-lang-css-punctuatione); }
-    .token.selector { color: var(--hds-code-block-color-lang-css-selector); }
-    .token.url { color: var(--hds-code-block-color-lang-css-url); }
+    .token {
+      color: var(--hds-code-block-color-lang-css-token);
+    }
+
+    .token.atrule {
+      color: var(--hds-code-block-color-lang-css-atrule);
+    }
+
+    .token.rule:not(.atrule) {
+      color: var(--hds-code-block-color-lang-css-not-atrule);
+    }
+
+    .token.entity {
+      color: var(--hds-code-block-color-lang-css-entity);
+    }
+
+    .token.function {
+      color: var(--hds-code-block-color-lang-css-function);
+    }
+
+    .token.property {
+      color: var(--hds-code-block-color-lang-css-property);
+    }
+
+    .token.punctuation {
+      color: var(--hds-code-block-color-lang-css-punctuatione);
+    }
+
+    .token.selector {
+      color: var(--hds-code-block-color-lang-css-selector);
+    }
+
+    .token.url {
+      color: var(--hds-code-block-color-lang-css-url);
+    }
   }
 
   .language-javascript {
-    .token.constant { color: var(--hds-code-block-color-lang-js-constant); }
+    .token.constant {
+      color: var(--hds-code-block-color-lang-js-constant);
+    }
   }
 
   .language-markup,
   .language-html {
-    .token.attr-value { color: var(--hds-code-block-color-lang-markup-attr-value); }
-    .token.entity.named-entity { color: var(--hds-code-block-color-lang-markup-entity-named); }
-    .token.entity:not(.named-entity) { color: var(--hds-code-block-color-lang-markup-entity-not-named); }
+    .token.attr-value {
+      color: var(--hds-code-block-color-lang-markup-attr-value);
+    }
+
+    .token.entity.named-entity {
+      color: var(--hds-code-block-color-lang-markup-entity-named);
+    }
+
+    .token.entity:not(.named-entity) {
+      color: var(--hds-code-block-color-lang-markup-entity-not-named);
+    }
   }
 }

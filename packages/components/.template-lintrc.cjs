@@ -14,5 +14,4 @@ module.exports = {
     'no-redundant-role': false,
     'no-builtin-form-components': false,
   },
-  ignore: ['blueprints/**'],
 };
