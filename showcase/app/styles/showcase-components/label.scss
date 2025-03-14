@@ -9,6 +9,7 @@
 
 .shw-label {
   @include shw-font-family("rubik");
+  min-height: 0.96rem; // needed to avoid vertical collapsing when the label is empty
   margin: 0 0 10px 0;
   color: #545454;
   font-size: 0.8rem;
