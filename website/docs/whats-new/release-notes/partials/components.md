@@ -12,6 +12,56 @@
   </a>
 </p>
 
+## 4.18.0
+
+**Minor changes**
+
+`Time` - Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.
+
+`RichTooltip` - Increase spacing above the dotted text decoration underline to 2px from the default.
+
+<small class="doc-whats-new-changelog-metadata">[#2745](https://github.com/hashicorp/design-system/pull/2745)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Added an expand all button to `AdvancedTable`s with nested rows and changed the structure of the component so now nested rows are always in the DOM, even when they are not visible. To add the expand all button, add `isExpandable: true` to the desired column in the `@columns` argument.
+
+<small class="doc-whats-new-changelog-metadata">[#2688](https://github.com/hashicorp/design-system/pull/2688)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add language syntax highlighting suport for Markdown
+
+`CodeEditor` - Add language syntax highlighting suport for Markdown
+
+Dependencies - added @codemirror/lang-markdown
+
+<small class="doc-whats-new-changelog-metadata">[#2740](https://github.com/hashicorp/design-system/pull/2740)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+Upgraded `prismjs` from `1.29.0` to `1.30.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2760](https://github.com/hashicorp/design-system/pull/2760) - Thanks [@dependabot](https://github.com/apps/dependabot) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `@embroider/util` dependency
+
+Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component` helper
+
+<small class="doc-whats-new-changelog-metadata">[#2728](https://github.com/hashicorp/design-system/pull/2728) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Always set the select checkbox column width to `min-content` so it does not grow when the `AdvancedTable` is narrower than the container
+
+<small class="doc-whats-new-changelog-metadata">[#2761](https://github.com/hashicorp/design-system/pull/2761)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.17.1
 
 [4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)
@@ -1245,177 +1295,6 @@ Fix missing TypeScript `declaration`
 <small class="doc-whats-new-changelog-metadata">[#2124](https://github.com/hashicorp/design-system/pull/2124)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.3.0
-
-[4.3.0 documentation](https://hds-website-4-3-0.vercel.app/)
-
-**Minor changes**
-
-Added `hds-register-event` modifier (for internal use)
-
-<small class="doc-whats-new-changelog-metadata">[#2017](https://github.com/hashicorp/design-system/pull/2017)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Published type declarations
-
-<small class="doc-whats-new-changelog-metadata">[#2004](https://github.com/hashicorp/design-system/pull/2004) - Thanks [@natmegs](https://github.com/natmegs) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tag` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2089](https://github.com/hashicorp/design-system/pull/2089)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`IconTile` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2033](https://github.com/hashicorp/design-system/pull/2033)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SuperSelect` - added components for single and multiple selection based on [PowerSelect](https://ember-power-select.com/)
-
-<small class="doc-whats-new-changelog-metadata">[#2022](https://github.com/hashicorp/design-system/pull/2022)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`BadgeCount` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2088](https://github.com/hashicorp/design-system/pull/2088)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`DisclosurePrimitive` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2025](https://github.com/hashicorp/design-system/pull/2025) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `hds-anchored-position` modifier (for internal use)
-
-<small class="doc-whats-new-changelog-metadata">[#2020](https://github.com/hashicorp/design-system/pull/2020)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppFooter` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2096](https://github.com/hashicorp/design-system/pull/2096)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Stepper::Step::Indicator` - Converted to TypeScript
-`Stepper::Task::Indicator` - Converted to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2115](https://github.com/hashicorp/design-system/pull/2115)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Badge` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#1991](https://github.com/hashicorp/design-system/pull/1991) - Thanks [@chris-hut](https://github.com/chris-hut) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Accordion` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2101](https://github.com/hashicorp/design-system/pull/2101)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown` - Added support for trailing icon in `ListItem::Interactive` subcomponent
-
-<small class="doc-whats-new-changelog-metadata">[#2042](https://github.com/hashicorp/design-system/pull/2042)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`PopoverPrimitive` - Added low-level (internal) headless component to provide anchoring, collision detection, and popover functionalities.
-
-`RichTooltip` - Added component to provide tooltips that can contain more complex and structured content.
-
-<small class="doc-whats-new-changelog-metadata">[#2069](https://github.com/hashicorp/design-system/pull/2069)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AppFrame` - converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2098](https://github.com/hashicorp/design-system/pull/2098)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Toast` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2023](https://github.com/hashicorp/design-system/pull/2023) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Reveal` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2097](https://github.com/hashicorp/design-system/pull/2097)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`ButtonSet` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2099](https://github.com/hashicorp/design-system/pull/2099)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Separator` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2114](https://github.com/hashicorp/design-system/pull/2114)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Alert::Description` - Fixed typo in `template-registry.ts` file declaration
-
-<small class="doc-whats-new-changelog-metadata">[#2090](https://github.com/hashicorp/design-system/pull/2090)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown::ListItem::Checkmark` - Fixed issue with leading icon spacing
-
-<small class="doc-whats-new-changelog-metadata">[#2084](https://github.com/hashicorp/design-system/pull/2084)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tooltip` - Fixed max-width applied to the "bubble" (it was `304px`, now is `280px` per design specs)
-
-<small class="doc-whats-new-changelog-metadata">[#2050](https://github.com/hashicorp/design-system/pull/2050)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Alert`, `Badge`, `BadgeCount`, `Button`, `Card::Container`, `DisclosurePrimitive`, `DismissButton`, `IconTile`, `Interactive`, `Link::Inline`, `Link::Standalone`, `Tag`, `Text` - Standardized class names and signatures
-
-<small class="doc-whats-new-changelog-metadata">[#2108](https://github.com/hashicorp/design-system/pull/2108)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`CodeBlock` - Re-mapped class-name variable to color-blue
-
-<small class="doc-whats-new-changelog-metadata">[#2027](https://github.com/hashicorp/design-system/pull/2027)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Fixed default export warnings by preventing `types.js` files from being reexported
-
-<small class="doc-whats-new-changelog-metadata">[#2030](https://github.com/hashicorp/design-system/pull/2030) - Thanks [@WenInCode](https://github.com/WenInCode) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Fixed issue with z-index of the active tab "indicator"
-
-<small class="doc-whats-new-changelog-metadata">[#2085](https://github.com/hashicorp/design-system/pull/2085)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.0.2
 
 
 ---
