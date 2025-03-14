@@ -122,4 +122,4 @@ To view all alerts in the editor, open the alert dialog using Ctrl-Shift-m (Cmd-
 
 ![Code Editor with linting errors. There is a dialog on top of the bottom half of the Code Editor with several alerts that can be dismissed. The dialog does not block the user from interacting with the Code Editor content.](/assets/components/code-editor/codeeditor-linting-preview-dialog.png)
 
-If you require linting for addition languages [contact the HDS team](/about/support).
+If you require linting for additional languages, [contact the Design Systems Team](/about/support).
