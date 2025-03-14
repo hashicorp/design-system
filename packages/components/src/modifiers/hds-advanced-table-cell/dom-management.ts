@@ -35,9 +35,7 @@ export const updateTabbableChildren = (
 };
 
 export const didInsertGridCell = (
-  cell:
-    | HdsAdvancedTableThSignature['Element']
-    | HdsAdvancedTableTdSignature['Element']
+  cell: HdsAdvancedTableThSignature['Element']
 ): void => {
   updateTabbableChildren(cell);
 
