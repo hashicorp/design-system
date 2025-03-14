@@ -55,14 +55,12 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
 
   private _setUpStepperNav = modifier((element: HTMLDivElement) => {
     // eslint-disable-next-line ember/no-runloop
-    schedule('afterRender', (): void => {
-      if (this.isInteractive) {
-        assert(
-          'If @isInteractive is true, the number of Steps must be equal to the number of Panels',
-          this._stepNodes.length === this._panelNodes.length
-        );
-      }
-    });
+    if (this.isInteractive) {
+      assert(
+        'If @isInteractive is true, the number of Steps must be equal to the number of Panels',
+        this._stepNodes.length === this._panelNodes.length
+      );
+    }
 
     this._element = element;
 
@@ -204,20 +202,10 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     increment: number
   ): number {
     let newStepIndex = (currentStepIndex + increment) % this._stepIds.length;
-    let isNewStepInteractive = this.isStepInteractive(
-      this._stepNodes[newStepIndex]!
-    );
-    while (!isNewStepInteractive) {
+    while (newStepIndex > this.currentStep) {
       newStepIndex = (newStepIndex + increment) % this._stepIds.length;
-      isNewStepInteractive = this.isStepInteractive(
-        this._stepNodes[newStepIndex]!
-      );
     }
     return newStepIndex;
-  }
-
-  private isStepInteractive(el: HTMLElement): boolean {
-    return !(el.getAttribute('aria-disabled') === 'true');
   }
 
   // Focus step for keyboard & mouse nav
