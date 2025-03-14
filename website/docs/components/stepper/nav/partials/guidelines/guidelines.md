@@ -60,7 +60,7 @@ Don't mix and match inclusion of descriptions.
 
 ### Number of steps
 
-We recommended the maximum number of steps be 4. If that isn’t possible, be mindful of how the content within the title and description will wrap on smaller screens.
+We recommend a maximum of 4 steps. If that isn’t possible, be mindful of how the content within the title and description will wrap on smaller screens.
 
 ## Spacing
 
