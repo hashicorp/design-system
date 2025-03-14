@@ -158,13 +158,13 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     const rightArrow = 'ArrowRight';
 
     if (event.key === rightArrow) {
-      const nextStepIndex = this.findNextInteracticeStepIndex(
+      const nextStepIndex = this.findNextInteractiveStepIndex(
         currentStepIndex,
         1
       );
       this.focusStep(nextStepIndex, event);
     } else if (event.key === leftArrow) {
-      const prevStepIndex = this.findNextInteracticeStepIndex(
+      const prevStepIndex = this.findNextInteractiveStepIndex(
         currentStepIndex,
         this._stepIds.length - 1
       );
@@ -199,7 +199,7 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
   }
 
   // Find the next interactive step to focus based on keyboard input
-  private findNextInteracticeStepIndex(
+  private findNextInteractiveStepIndex(
     currentStepIndex: number,
     increment: number
   ): number {
