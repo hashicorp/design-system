@@ -1,0 +1,34 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > GRID
+
+#show-content-layouts-grid {
+  .doc-grid-outline-children > * {
+    outline: 1px dotted;
+  }
+
+  .doc-grid-iphone-se-view {
+    position: relative;
+    max-width: 320px;
+    padding: 16px;
+    background: var(--token-color-palette-neutral-100);
+    border: 1px solid;
+    border-radius: 16px;
+    aspect-ratio: 9 / 16;
+
+    // home button
+    &::before {
+      position: absolute;
+      inset: auto 0 15px 0;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      background: var(--token-color-palette-neutral-200);
+      border-radius: 50%;
+      content: "";
+    }
+  }
+}
