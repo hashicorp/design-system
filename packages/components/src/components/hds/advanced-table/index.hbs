@@ -136,8 +136,14 @@
   </div>
   {{#if (and @hasStickyColumn this.showScrollIndicatorLeft)}}
     <div
-      class="hds-advanced-table__scroll-indicator"
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
       {{style height=(concat this.scrollIndicatorHeight "px") left=(concat this.scrollIndicatorLeftOffset "px")}}
+    />
+  {{/if}}
+  {{#if this.showScrollIndicatorRight}}
+    <div
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
+      {{style height=(concat this.scrollIndicatorHeight "px") right=(concat this.scrollIndicatorRightOffset "px")}}
     />
   {{/if}}
 </div>
