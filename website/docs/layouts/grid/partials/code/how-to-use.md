@@ -103,9 +103,9 @@ At the specified column min width, columns are forced to stack in this narrower 
 
 ### Align
 
-**TODO: This feature is confusing & needs more thought/experimentation**
-
 Align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
+
+Note: The `Grid` parent will need a height set for the affect to be visible.
 
 ```handlebars
 <div class="doc-grid-iphone-se-view">
@@ -135,7 +135,7 @@ Text after the inline grid.
 
 ### Grid::Item
 
-For more control over the resulting grid layout, use `Grid::Item` child components to wrap `Grid` content.
+The `Grid::Item` component can optionally be used to wrap `Grid` content if more control is needed over the grid layout.
 
 ### colSpan & rowSpan
 
@@ -159,4 +159,121 @@ Use the `colSpan` and `rowSpan` options of `Grid::Item` components to set the nu
     </LG.Item>
   </Hds::Layout::Grid>
 </div>
+```
+
+---
+
+## Common layout patterns
+
+Below are examples of common layout patterns that can be achieved using the `Layout::Grid` component in combination with other HDS components.
+
+!!! Warning
+
+**Important**
+
+The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. Also, some of these patterns are already implemented directly in HDS components that are ready to use.
+
+!!!
+
+### Card layouts
+
+Note: The following example makes use of nested `Grid` and `Flex` components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
+
+#### Basic layout
+
+**TODO: In HCP, mobile view shows only one column instead of 3, consider adding responsive layout feature to Grid**
+
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+      <Hds::Layout::Flex @align="center" @gap="8">
+        <Hds::IconTile @icon="cloud" @size="small" />
+        <Hds::Text::Display @tag="h2" @size="300">
+          Active resources
+        </Hds::Text::Display>
+      </Hds::Layout::Flex>
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="8">
+          <Hds::Badge
+            @text="5 active resources"
+            @color="success"
+            @icon="check-circle"
+            @size="medium"
+          />
+          <Hds::Text::Body @tag="p">
+            There are 5 active resources inside this project.
+          </Hds::Text::Body>
+      </Hds::Layout::Grid>
+      <Hds::Link::Standalone
+        @icon="arrow-right"
+        @iconPosition="trailing"
+        @text="View active resources"
+        @href="#"
+      />
+    </Hds::Layout::Grid>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">Card #2</Hds::Text::Display>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
+  </Hds::Card::Container>
+</Hds::Layout::Grid>
+```
+
+#### Fancy layout
+
+Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
+
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
+  <LG.Item @colSpan="2">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+        <div>
+          <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
+          <Hds::Text::Display @tag="h2" @size="300" @weight="bold">Better together</Hds::Text::Display>
+        </div>
+        <Hds::Text::Body @tag="p" @weight="semibold">
+          HCP Terraform now works together with HCP Vault Secrets.
+        </Hds::Text::Body>
+        <Hds::Text::Body @tag="p">
+          The combined solution enables your team to provision infrastructure with a scalable and least-privilege security approach for your secrets.
+        </Hds::Text::Body>
+      </Hds::Layout::Grid>
+    </Hds::Card::Container>
+  </LG.Item>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
+  </Hds::Card::Container>
+
+  <LG.Item @colSpan="2">
+    <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+        <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
+        <Hds::Layout::Grid @columnMinWidth="50%" @gap="24" @tag="ul" class="doc-grid-plain-list">
+          <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
+            <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Vault</Hds::Text::Body>
+            <Hds::Text::Body @tag="p">
+              Integrate HCP Vault into your environment faster.
+            </Hds::Text::Body>
+          </Hds::Layout::Grid>
+          <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
+            <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Consul</Hds::Text::Body>
+            <Hds::Text::Body @tag="p">
+              Manage your provisions and snapshot.
+            </Hds::Text::Body>
+          </Hds::Layout::Grid>
+        </Hds::Layout::Grid>
+      </Hds::Layout::Grid>
+    </Hds::Card::Container>
+  </LG.Item>
+</Hds::Layout::Grid>
 ```
