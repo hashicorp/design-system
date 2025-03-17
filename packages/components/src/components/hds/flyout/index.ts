@@ -128,6 +128,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the flyout dialog is not already open
@@ -141,6 +142,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
     if (this._element) {
       this._element.removeEventListener(
         'close',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
         this.registerOnCloseCallback,
         true
       );
@@ -163,6 +165,7 @@ export default class HdsFlyout extends Component<HdsFlyoutSignature> {
   }
 
   @action
+  // eslint-disable-next-line @typescript-eslint/require-await
   async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'

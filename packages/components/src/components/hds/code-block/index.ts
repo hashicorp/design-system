@@ -91,6 +91,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     );
 
     if (Prism?.plugins?.['NormalizeWhitespace']) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
       return Prism.plugins['NormalizeWhitespace'].normalize(code);
     }
 
@@ -153,6 +154,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         if (language && grammar) {
           this._prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
+          // eslint-disable-next-line @typescript-eslint/no-base-to-string
           this._prismCode = htmlSafe(Prism.util.encode(code).toString());
         }
 

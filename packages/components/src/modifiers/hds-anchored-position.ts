@@ -267,6 +267,7 @@ export default modifier<HdsAnchoredPositionSignature>(
     const cleanupFloatingUI = autoUpdate(
       _anchorElement,
       _floatingElement,
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       computeFloatingPosition
     );
 

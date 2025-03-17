@@ -27,6 +27,7 @@ export interface HdsTextSignature {
     tag?: HdsTextTags;
     weight?: HdsTextWeights;
     align?: HdsTextAligns;
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     color?: HdsTextColors | string | undefined;
     group: HdsTextGroups;
   };
