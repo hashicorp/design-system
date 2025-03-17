@@ -18,6 +18,7 @@ dropdowm
 duplicative
 flexbox
 flyouts
+Fortyeight
 frontmatter
 hcp’s
 heatmaps
@@ -52,8 +53,10 @@ subgrid
 sublist
 subnavigation
 subpages
+Thirtytwo
 toggletip
 topbar
+Twentyfour
 Venafi
 viewports
 wcag
