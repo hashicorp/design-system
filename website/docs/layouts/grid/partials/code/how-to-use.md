@@ -91,7 +91,7 @@ Narrow your browser window to see the responsive behavior.
 At the specified column min width, columns are forced to stack in this narrower view.
 
 ```handlebars
-<div class="doc-grid-iphone-se-view">
+<div class="doc-grid-mobile-view">
   <Hds::Layout::Grid @columnMinWidth="160px" @gap="16">
     <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
     <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
@@ -108,7 +108,7 @@ Align grid items to the "start", "end", "center" or "stretch" them within the gr
 Note: The `Grid` parent will need a height set for the affect to be visible.
 
 ```handlebars
-<div class="doc-grid-iphone-se-view">
+<div class="doc-grid-mobile-view">
   <Hds::Layout::Grid @columnMinWidth="50px" @gap="16" @align="center" {{style height="100%"}}>
     <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
     <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
@@ -141,11 +141,16 @@ The `Grid::Item` component can optionally be used to wrap `Grid` content if more
 
 Use the `colSpan` and `rowSpan` options of `Grid::Item` components to set the number of columns or rows an item should occupy.
 
-**TODO: Experiment with grid-template-rows="min-content", perhaps it should be added by default or an option should be added**
+Note: By default, if a height is set on the `Grid` parent, row heights will stretch proportionally to fill the Grid. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
 ```handlebars
 <div {{style height="400px" border="1px solid"}}>
-  <Hds::Layout::Grid @columnMinWidth="25%" @gap="12" {{style height="100%" grid-template-rows="min-content"}} as |LG|>
+  <Hds::Layout::Grid 
+    @columnMinWidth="25%" 
+    @gap="12"
+    {{style height="100%" grid-template-rows="min-content auto auto"}}
+    as |LG|
+  >
     <LG.Item @colSpan="4">
       <Doc::Placeholder @height="100%" @text="Item 1" @background="#e4e4e4" {{style padding="1em"}} />
     </LG.Item>
