@@ -403,8 +403,14 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 .hds-advanced-table__scroll-indicator {
   position: absolute;
   top: 0;
-  left: 0;
   z-index: 5;
   width: 5px;
+}
+
+.hds-advanced-table__scroll-indicator-left {
   background: linear-gradient(to right, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
+}
+
+.hds-advanced-table__scroll-indicator-right {
+  background: linear-gradient(to left, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
 }
