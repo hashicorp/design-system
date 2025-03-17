@@ -30,7 +30,7 @@ To specify which HTML tag to use to render the flex container and/or item(s), us
   <li>{{! some content here }}</li>
   <LF.Item @tag="li">
     {{! some other content here }}
-  </HLF.Item>
+  </LF.Item>
   <li>{{! more content here }}</li>
 </Hds::Layout::Flex>
 ```
