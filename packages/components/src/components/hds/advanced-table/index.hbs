@@ -146,4 +146,16 @@
       {{style height=(concat this.scrollIndicatorHeight "px") right=(concat this.scrollIndicatorRightOffset "px")}}
     />
   {{/if}}
+  {{#if (and this.showScrollIndicatorTop (not-eq @hasStickyHeader true))}}
+    <div
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
+      {{style width=(concat this.scrollIndicatorWidth "px")}}
+    />
+  {{/if}}
+  {{#if this.showScrollIndicatorBottom}}
+    <div
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+      {{style width=(concat this.scrollIndicatorWidth "px") bottom=(concat this.scrollIndicatorBottomOffset "px")}}
+    />
+  {{/if}}
 </div>

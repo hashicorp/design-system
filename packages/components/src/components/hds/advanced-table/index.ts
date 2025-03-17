@@ -129,6 +129,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorLeft = false;
   @tracked scrollIndicatorRightOffset = 0;
   @tracked showScrollIndicatorRight = false;
+  @tracked showScrollIndicatorTop = false;
+  @tracked showScrollIndicatorBottom = false;
+  @tracked scrollIndicatorWidth = 0;
+  @tracked scrollIndicatorBottomOffset = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -323,7 +327,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this.scrollIndicatorHeight =
       element.clientHeight - horizontalScrollBarHeight;
 
+    this.scrollIndicatorWidth = element.clientWidth - verticalScrollBarWidth;
+
     this.scrollIndicatorRightOffset = verticalScrollBarWidth;
+
+    this.scrollIndicatorBottomOffset = horizontalScrollBarHeight;
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -333,18 +341,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       );
 
       // left scroll indicator + sticky column header styles
-      if (this.args.hasStickyColumn) {
-        if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
+      if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
+        if (this.args.hasStickyColumn) {
           gridHeader?.classList.add(
             'hds-advanced-table__thead--column-is-pinned'
           );
-          this.showScrollIndicatorLeft = true;
-        } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
+        }
+        this.showScrollIndicatorLeft = true;
+      } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
+        if (this.args.hasStickyColumn) {
           gridHeader?.classList.remove(
             'hds-advanced-table__thead--column-is-pinned'
           );
-          this.showScrollIndicatorLeft = false;
         }
+        this.showScrollIndicatorLeft = false;
       }
 
       // right scroll indicator
@@ -360,12 +370,23 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       }
 
       // sticky header styles
-      if (this.args.hasStickyHeader) {
-        if (element.scrollTop > 0) {
+
+      const bottomEdge = element.scrollHeight - element.clientHeight;
+
+      if (element.scrollTop === bottomEdge) {
+        this.showScrollIndicatorBottom = false;
+      } else if (element.scrollTop > 0) {
+        if (this.args.hasStickyHeader) {
           gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
-        } else if (element.scrollTop === 0) {
+        }
+        this.showScrollIndicatorTop = true;
+      } else if (element.scrollTop === 0) {
+        if (this.args.hasStickyHeader) {
           gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned');
         }
+
+        this.showScrollIndicatorBottom = true;
+        this.showScrollIndicatorTop = false;
       }
     };
 
@@ -374,6 +395,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (element.clientWidth < element.scrollWidth) {
       this.showScrollIndicatorRight = true;
     }
+
+    // if (element.scrollHeight !== element.clientHeight) {
+    console.log(element);
+    console.log('element.clientHeight', element.parentElement?.clientHeight);
+    console.log('element.scrollHeight', element.scrollHeight);
+    console.log('-------------------');
+    // }
+
+    // eslint-disable-next-line ember/no-runloop
+    next(() => {
+      if (element.clientHeight < element.scrollHeight) {
+        this.showScrollIndicatorBottom = true;
+      }
+    });
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
