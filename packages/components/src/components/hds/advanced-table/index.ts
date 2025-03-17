@@ -327,18 +327,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // left scroll indicator
       if (this.args.hasStickyColumn) {
         if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
-          gridHeader?.classList.add('hds-advanced-table__thead--is-pinned')
+          gridHeader?.classList.add('hds-advanced-table__thead--column-is-pinned')
           this.showScrollIndicatorLeft = true
         } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
-          gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned')
+          gridHeader?.classList.remove('hds-advanced-table__thead--column-is-pinned')
           this.showScrollIndicatorLeft = false;
         }
       }
 
       if (this.args.hasStickyHeader) {
-        if (element.scrollTop > 0 && !this.showScrollIndicatorLeft) {
+        if (element.scrollTop > 0) {
           gridHeader?.classList.add('hds-advanced-table__thead--is-pinned')
-        } else if (element.scrollTop === 0 && this.showScrollIndicatorLeft) {
+        } else if (element.scrollTop === 0) {
           gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned')
         }
       }
