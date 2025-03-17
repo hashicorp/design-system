@@ -76,7 +76,7 @@ export default class HdsAdvancedTableExpandableTrGroup extends Component<HdsAdva
       const children = record[this.childrenKey];
 
       if (Array.isArray(children)) {
-        return children;
+        return children as Array<Record<string, unknown>>;
       }
     }
     return undefined;

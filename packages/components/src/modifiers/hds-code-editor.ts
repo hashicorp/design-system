@@ -175,13 +175,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     // if the editor does not exist, setup the editor
     else {
       // the intersection observer makes loading unreliable in tests
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (config.environment === 'test') {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         this._setupTask.perform(element, positional, named);
       } else {
         this.observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && this.editor === undefined) {
+                // eslint-disable-next-line @typescript-eslint/no-floating-promises
                 this._setupTask.perform(element, positional, named);
               }
             });
@@ -315,6 +318,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         import('@codemirror/language'),
       ]);
 
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       const languageExtension = await this._loadLanguageTask.perform(language);
 
       const handleUpdateExtension = EditorView.updateListener.of(

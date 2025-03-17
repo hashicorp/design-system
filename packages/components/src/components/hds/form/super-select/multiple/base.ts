@@ -47,6 +47,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   }
 
   get selectedCount(): string {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
     return this._powerSelectAPI?.selected?.length || '0';
   }
 
