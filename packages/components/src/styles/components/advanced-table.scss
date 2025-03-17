@@ -96,16 +96,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       }
     }
 
-    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable {
+    .hds-advanced-table__th--is-sticky-column {
       position: sticky;
-      top: 0;
       left: 0;
     }
 
-    .hds-advanced-table__th--is-sticky-column {
-      position: sticky;
-      top: 0;
-      left: 49px;
+    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
+      left: 50px;
     }
 
     // border radius: target first and last th elements in the row
@@ -125,7 +122,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   &.hds-advanced-table__thead--sticky {
     position: sticky;
     top: 0;
-    // top: -1px;
     z-index: 5;
     background-color: var(--token-color-surface-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
@@ -133,7 +129,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    // need to add 1px to offset `top: -1px`
     border-top: calc(#{$hds-advanced-table-border-width} / 2) solid
       $hds-advanced-table-border-color;
     border-bottom: 3px solid $hds-advanced-table-border-color;
@@ -311,18 +306,14 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     }
   }
 
-  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable {
+  .hds-advanced-table__th--is-sticky-column {
     position: sticky;
-    top: 0;
     left: 0;
     z-index: 3;
   }
 
-  .hds-advanced-table__th--is-sticky-column {
-    position: sticky;
-    top: 0;
-    left: 49px;
-    z-index: 3;
+  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
+    left: 50px;
   }
 
   // horizontal alignment

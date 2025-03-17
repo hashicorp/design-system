@@ -127,8 +127,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked scrollIndicatorHeight = 0;
   @tracked scrollIndicatorLeftOffset = 0;
   @tracked showScrollIndicatorLeft = false;
-  @tracked initalScrollValueY = 0;
-  @tracked initialScrollValueX = 0;
+  // @tracked initalScrollValueY = 0;
+  // @tracked initialScrollValueX = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -372,7 +372,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       newLeftOffset += elem.clientWidth;
     });
 
-    this.scrollIndicatorLeftOffset = newLeftOffset + 1;
+    this.scrollIndicatorLeftOffset = newLeftOffset + 2;
 
     // if ((this.args.hasStickyHeader || this.args.hasStickyColumn) && gridHeader) {
     //   this._intersectionObserver = new IntersectionObserver(
