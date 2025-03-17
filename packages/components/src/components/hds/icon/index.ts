@@ -17,6 +17,7 @@ export const AVAILABLE_COLORS: string[] = Object.values(HdsIconColorValues);
 export interface HdsIconSignature {
   Args: {
     name: IconName;
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     color?: HdsIconColors | string | undefined;
     size?: HdsIconSizes;
     stretched?: boolean;
