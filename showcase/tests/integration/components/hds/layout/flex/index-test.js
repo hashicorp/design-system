@@ -93,7 +93,8 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
 
   test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" />`);
-    assert.dom('#test-layout-flex')
+    assert
+      .dom('#test-layout-flex')
       .doesNotHaveClass(/hds-layout-flex--gap-/)
       .doesNotHaveClass(/hds-layout-flex--row-gap-/)
       .doesNotHaveClass(/hds-layout-flex--column-gap-/);
@@ -106,7 +107,8 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     await render(
       hbs`<Hds::Layout::Flex id="test-layout-flex" @gap={{array "4" "48"}} />`
     );
-    assert.dom('#test-layout-flex')
+    assert
+      .dom('#test-layout-flex')
       .hasClass('hds-layout-flex--row-gap-4')
       .hasClass('hds-layout-flex--column-gap-48');
   });
@@ -161,5 +163,4 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
       throw new Error(errorMessage);
     });
   });
-
 });
