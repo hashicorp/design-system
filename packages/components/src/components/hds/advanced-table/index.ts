@@ -124,12 +124,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _scrollHandler!: (event: Event) => void;
   private _outerElement!: HTMLDivElement;
   private _gridElement!: HTMLDivElement;
-  @tracked scrollIndicatorHeight= 0
+  @tracked scrollIndicatorHeight = 0;
   @tracked scrollIndicatorLeftOffset = 0;
   @tracked showScrollIndicatorLeft = false;
   @tracked initalScrollValueY = 0;
-  @tracked initialScrollValueX  = 0;
-
+  @tracked initialScrollValueX = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -183,7 +182,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   get hasScrollIndicator(): boolean {
     if (this.args.hasStickyColumn) {
-      return true
+      return true;
     }
 
     return false;
@@ -311,11 +310,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _setUpOuter = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
 
-    const scrollWrapper = element.querySelector('.hds-advanced-table__scroll-wrapper') as HTMLElement;
+    const scrollWrapper = element.querySelector(
+      '.hds-advanced-table__scroll-wrapper'
+    ) as HTMLElement;
 
-    const scrollbarHeight = scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
+    const scrollbarHeight =
+      scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
 
-    this.scrollIndicatorHeight =  element.clientHeight - scrollbarHeight;
+    this.scrollIndicatorHeight = element.clientHeight - scrollbarHeight;
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -327,47 +329,48 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // left scroll indicator
       if (this.args.hasStickyColumn) {
         if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
-          gridHeader?.classList.add('hds-advanced-table__thead--column-is-pinned')
-          this.showScrollIndicatorLeft = true
+          gridHeader?.classList.add(
+            'hds-advanced-table__thead--column-is-pinned'
+          );
+          this.showScrollIndicatorLeft = true;
         } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
-          gridHeader?.classList.remove('hds-advanced-table__thead--column-is-pinned')
+          gridHeader?.classList.remove(
+            'hds-advanced-table__thead--column-is-pinned'
+          );
           this.showScrollIndicatorLeft = false;
         }
       }
 
       if (this.args.hasStickyHeader) {
         if (element.scrollTop > 0) {
-          gridHeader?.classList.add('hds-advanced-table__thead--is-pinned')
+          gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
         } else if (element.scrollTop === 0) {
-          gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned')
+          gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned');
         }
       }
+    };
 
+    element.addEventListener('scroll', this._scrollHandler);
 
-    }
-
-    element.addEventListener('scroll', this._scrollHandler)
-
-    return ()=> {
+    return () => {
       element.removeEventListener('scroll', this._scrollHandler);
-    }
-  })
-
+    };
+  });
 
   private _setUpObservers = modifier((element: HTMLDivElement) => {
     this._gridElement = element;
 
-    const gridHeader = element.querySelector(
-      '.hds-advanced-table__thead'
-    );
+    const gridHeader = element.querySelector('.hds-advanced-table__thead');
 
-    const stickyColumnHeaders = gridHeader?.querySelectorAll('.hds-advanced-table__th--is-sticky-column')
+    const stickyColumnHeaders = gridHeader?.querySelectorAll(
+      '.hds-advanced-table__th--is-sticky-column'
+    );
 
     let newLeftOffset = 0;
 
     stickyColumnHeaders?.forEach((elem) => {
-      newLeftOffset += elem.clientWidth
-    })
+      newLeftOffset += elem.clientWidth;
+    });
 
     this.scrollIndicatorLeftOffset = newLeftOffset + 1;
 
