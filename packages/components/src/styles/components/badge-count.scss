@@ -28,29 +28,29 @@ $hds-badge-count-border-width: 1px;
 // these values later may come from the design tokens
 $hds-badge-count-size-props: (
   "small": (
+    // 13px = 0.8125rem
     "font-size": 0.8125rem,
-    // 13px
     "height": 1.25rem,
+    // 16px = 1.2308
     "line-height": 1.2308,
-    // 16px
     "padding-vertical": 0.125rem,
     "padding-horizontal": 0.5rem,
   ),
   "medium": (
+    // 13px = 0.8125rem
     "font-size": 0.8125rem,
-    // 13px
     "height": 1.5rem,
+    // 16px = 1.2308
     "line-height": 1.2308,
-    // 16px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.75rem,
   ),
   "large": (
+    // 16px = 1rem
     "font-size": 1rem,
-    // 16px
     "height": 2rem,
+    // 24px = 1.5
     "line-height": 1.5,
-    // 24px
     "padding-vertical": 0.25rem,
     "padding-horizontal": 0.875rem,
   ),

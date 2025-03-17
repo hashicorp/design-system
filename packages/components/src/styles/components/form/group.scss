@@ -7,16 +7,16 @@
 // FORM > GROUP
 //
 
+// notice: this is a <fieldset> element
 .hds-form-group {
-  // notice: this is a <fieldset> element
   display: block;
   margin: 0;
   padding: 0;
   border: none;
 }
 
+// notice: this is a <legend> element
 .hds-form-group__legend {
-  // notice: this is a <legend> element
   margin: 0 0 8px 0;
   padding: 0;
 }

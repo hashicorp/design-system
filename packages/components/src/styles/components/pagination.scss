@@ -155,8 +155,8 @@ $hds-pagination-layout-breakpoint: 1000px;
 
   // indicator underline
   // notice: in all these calculations we have to take in account that there's a 1px transparent border
+  // notice: we use the `::before` for the focus
   &::after {
-    // notice: we use the `::before` for the focus
     position: absolute;
     right: calc(var(--token-pagination-nav-indicator-spacing) - 1px);
     bottom: -1px;

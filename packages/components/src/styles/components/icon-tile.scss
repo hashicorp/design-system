@@ -60,42 +60,42 @@ $hds-icon-tile-border-width: 1px;
 // these values later may come from the design tokens
 $hds-icon-tile-size-props: (
   "small": (
+    // 28px = 1.75rem
     "size": 1.75rem,
-    // 28px
     "border-radius": 5px,
+    // 16px = 1rem
     "icon-size": 1rem,
-    // 16px
+    // 18px = 1.125rem
     "logo-size": 1.125rem,
-    // 18px
+    // 18px = 1.125rem
     "extra-size": 1.125rem,
-    // 18px
     "extra-border-radius": 4px,
     "extra-icon-size": 0.75rem,
   ),
   "medium": (
+    // 40px = 2.5rem
     "size": 2.5rem,
-    // 40px
     "border-radius": 6px,
+    // 24px = 1.5rem
     "icon-size": 1.5rem,
-    // 24px
+    // 28px = 1.75rem
     "logo-size": 1.75rem,
-    // 28px
+    // 20px = 1.25rem
     "extra-size": 1.25rem,
-    // 20px
     "extra-border-radius": 5px,
+    // 12px = .75rem
     "extra-icon-size": 0.75rem,
-    // 12px
   ),
   "large": (
+    // 48px = 3rem
     "size": 3rem,
-    // 48px
     "border-radius": 6px,
+    // 24px = 1.5rem
     "icon-size": 1.5rem,
-    // 24px
+    // 32px = 2rem
     "logo-size": 2rem,
-    // 32px
+    // 24px = 1.5rem
     "extra-size": 1.5rem,
-    // 24px
     "extra-border-radius": 5px,
     "extra-icon-size": 1rem,
   ),

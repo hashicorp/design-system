@@ -58,17 +58,18 @@
 
 // LIST (root elements)
 
-.hds-side-nav__list-wrapper, // <nav> element
+// <nav> element
+.hds-side-nav__list-wrapper,
+// <ul> element
 .hds-side-nav__list {
-  // <ul> element
   margin: 0;
   padding: 0;
 }
 
 // ITEM (generic container)
 
+// <li> element
 .hds-side-nav__list-item {
-  // <li> element
   list-style-type: none;
 
   & + & {
@@ -76,8 +77,8 @@
   }
 }
 
+// <a>/<button> element (via Hds::Interactive)
 .hds-side-nav__list-item-link {
-  // <a>/<button> element (via Hds::Interactive)
   display: flex;
   gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
   align-items: center;

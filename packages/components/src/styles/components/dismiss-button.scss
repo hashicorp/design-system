@@ -19,8 +19,8 @@
 
   &:hover,
   &.mock-hover {
+    // we re-use the pseudo-element created by the "focus-ring" mixin
     &::before {
-      // we re-use the pseudo-element created by the "focus-ring" mixin
       background-color: rgba(#dedfe3, 0.4);
     }
   }
