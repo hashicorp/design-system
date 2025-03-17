@@ -106,7 +106,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     }
 
     if (this.args.isStickyColumn) {
-      classes.push('hds-advanced-table__th--is-sticky-column')
+      classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
     return classes.join(' ');
