@@ -50,16 +50,16 @@ gap:
 
 #### [LG].Item
 
-The `Layout::Grid::Item` component, yielded as contextual component, to be used as child of the `grid` element to control its `colSpan/rowSpan` values (and other properties).
+The `Layout::Grid::Item` component, yielded as contextual component, to be used as child of the `grid` element to control its `colspan/rowspan` values (and other properties).
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="tag" @type="string" @default="div">
     HTML tag to be used to render the grid item element.
   </C.Property>
-  <C.Property @name="colSpan" @type="number">
+  <C.Property @name="colspan" @type="number">
     The number of columns an item should span.
   </C.Property>
-  <C.Property @name="rowSpan" @type="number">
+  <C.Property @name="rowspan" @type="number">
     The number of rows an item should span.
   </C.Property>
   <C.Property @name="yield">
