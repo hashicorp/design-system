@@ -10,14 +10,14 @@
 <section data-test-percy>
   <Shw::Text::H2>Column min width</Shw::Text::H2>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="No min width columns (min-width defaults to 0px)">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="48">
-          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
-          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
-          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
-          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
         </Hds::Layout::Grid>
       </Shw::Outliner>
     </SG.Item>
@@ -25,10 +25,10 @@
     <SG.Item @label="250px min width columns">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="48" @columnMinWidth="250px">
-          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
-          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
-          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
-          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
         </Hds::Layout::Grid>
       </Shw::Outliner>
     </SG.Item>
@@ -36,10 +36,10 @@
     <SG.Item @label="33.33% min width columns">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="48" @columnMinWidth="33.33%">
-          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
-          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
-          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
-          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
         </Hds::Layout::Grid>
       </Shw::Outliner>
     </SG.Item>
@@ -47,10 +47,10 @@
     <SG.Item @label="40em min width columns">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="48" @columnMinWidth="40em">
-          <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
-          <Shw::Placeholder @text="#2" @height="40" @background="#e5ffd2" />
-          <Shw::Placeholder @text="#3" @height="40" @background="#d2f4ff" />
-          <Shw::Placeholder @text="#4" @height="40" @background="#fff8d2" />
+          <Shw::Placeholder @text="#1" @height="40" />
+          <Shw::Placeholder @text="#2" @height="40" />
+          <Shw::Placeholder @text="#3" @height="40" />
+          <Shw::Placeholder @text="#4" @height="40" />
         </Hds::Layout::Grid>
       </Shw::Outliner>
     </SG.Item>
@@ -64,32 +64,14 @@
     CSS property of
     <code>css grid</code>.</Shw::Text::Body>
 
-  <Shw::Grid @columns={{@model.ALIGNS.length}} @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{@model.ALIGNS.length}} @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.ALIGNS as |align|}}
       <SG.Item @label={{(concat "align=" align)}}>
         <Shw::Outliner {{style width="120px" height="120px"}}>
           <Hds::Layout::Grid @align={{align}} {{style width="100%" height="100%"}}>
-            <Shw::Placeholder
-              @text="#A"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-              @background="#e4c5f3"
-            />
-            <Shw::Placeholder
-              @text="#B"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-              @background="#e5ffd2"
-            />
-            <Shw::Placeholder
-              @text="#C"
-              @width="auto"
-              @height="auto"
-              {{style min-width="24px" min-height="24px"}}
-              @background="#d2f4ff"
-            />
+            <Shw::Placeholder @text="#A" @width="auto" @height="auto" {{style min-width="24px" min-height="24px"}} />
+            <Shw::Placeholder @text="#B" @width="auto" @height="auto" {{style min-width="24px" min-height="24px"}} />
+            <Shw::Placeholder @text="#C" @width="auto" @height="auto" {{style min-width="24px" min-height="24px"}} />
           </Hds::Layout::Grid>
         </Shw::Outliner>
       </SG.Item>
@@ -102,15 +84,15 @@
 
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
-  <Shw::Grid @columns="4" @gap="2rem" as |SG|>
+  <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
       <SG.Item @label="gap={{gap}}">
         <Shw::Outliner>
           <Hds::Layout::Grid @gap={{gap}} @columnMinWidth="50%">
-            <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
-            <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
-            <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
-            <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+            <Shw::Placeholder @text="#1" @height="24" />
+            <Shw::Placeholder @text="#2" @height="24" />
+            <Shw::Placeholder @text="#3" @height="24" />
+            <Shw::Placeholder @text="#4" @height="24" />
           </Hds::Layout::Grid>
         </Shw::Outliner>
       </SG.Item>
@@ -119,7 +101,7 @@
 
   <Shw::Text::H4 @tag="h3">Double value (row/column)</Shw::Text::H4>
 
-  <Shw::Grid @columns={{2}} @gap="2rem 4rem" as |SG|>
+  <Shw::Grid @columns={{2}} @gap="2rem 4rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{! we use only a subset of possible combinations, just for testing purposes }}
     {{#let (array (array "4" "48") (array "8" "32") (array "12" "24") (array "16" "16")) as |gapsList|}}
       {{#each gapsList as |gapsArray|}}
@@ -145,24 +127,24 @@
 
   <Shw::Text::H2>Display</Shw::Text::H2>
 
-  <Shw::Grid @gap="2rem" @columns={{2}} as |SF|>
+  <Shw::Grid @gap="2rem" @columns={{2}} class="shw-layout-grid-example-tint-flex-items" as |SF|>
     {{#let (array false true) as |booleans|}}
       {{#each booleans as |isInline|}}
         <SF.Item @label={{if isInline "inline-grid (isInline=true)" "grid (default)"}}>
           <Hds::Text::Body @size="200" @tag="div">
             Lorem
             <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
-              <Shw::Placeholder @text="#1" @height="24" @background="#e4c5f3" />
-              <Shw::Placeholder @text="#2" @height="24" @background="#e5ffd2" />
-              <Shw::Placeholder @text="#3" @height="24" @background="#d2f4ff" />
-              <Shw::Placeholder @text="#4" @height="24" @background="#fff8d2" />
+              <Shw::Placeholder @text="#1" @height="24" />
+              <Shw::Placeholder @text="#2" @height="24" />
+              <Shw::Placeholder @text="#3" @height="24" />
+              <Shw::Placeholder @text="#4" @height="24" />
             </Hds::Layout::Grid>
             sit amet
             <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
-              <Shw::Placeholder @text="#A" @height="24" @background="#e4c5f3" />
-              <Shw::Placeholder @text="#B" @height="24" @background="#e5ffd2" />
-              <Shw::Placeholder @text="#C" @height="24" @background="#d2f4ff" />
-              <Shw::Placeholder @text="#D" @height="24" @background="#fff8d2" />
+              <Shw::Placeholder @text="#A" @height="24" />
+              <Shw::Placeholder @text="#B" @height="24" />
+              <Shw::Placeholder @text="#C" @height="24" />
+              <Shw::Placeholder @text="#D" @height="24" />
             </Hds::Layout::Grid>
             elit.
           </Hds::Text::Body>
@@ -326,6 +308,106 @@
           </HLG.Item>
         </Hds::Layout::Grid>
       </Shw::Outliner>
+    </SG.Item>
+  </Shw::Grid>
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Examples</Shw::Text::H2>
+
+  <Shw::Grid @columns="1" @gap="2rem" as |SG|>
+    <SG.Item @label="3 column layout Card layout">
+      <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+            <Hds::Layout::Flex @align="center" @gap="8">
+              <Hds::IconTile @icon="cloud" @size="small" />
+              <Hds::Text::Display @tag="h2" @size="300">
+                Active resources
+              </Hds::Text::Display>
+            </Hds::Layout::Flex>
+            <Hds::Layout::Grid @columnMinWidth="100%" @gap="8">
+              <Hds::Badge @text="5 active resources" @color="success" @icon="check-circle" @size="medium" />
+              <Hds::Text::Body @tag="p">
+                There are 5 active resources inside this project.
+              </Hds::Text::Body>
+            </Hds::Layout::Grid>
+            <Hds::Link::Standalone
+              @icon="arrow-right"
+              @iconPosition="trailing"
+              @text="View active resources"
+              @href="#"
+            />
+          </Hds::Layout::Grid>
+        </Hds::Card::Container>
+
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Text::Display @tag="h2" @size="300">Card #2</Hds::Text::Display>
+        </Hds::Card::Container>
+
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
+        </Hds::Card::Container>
+      </Hds::Layout::Grid>
+    </SG.Item>
+
+    <SG.Item @label="More complex layout using colSpan">
+      <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
+        <LG.Item @colSpan="2">
+          <Hds::Card::Container
+            @level="mid"
+            @hasBorder={{true}}
+            {{style padding="24px"}}
+            {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)"}}
+          >
+            <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+              <div>
+                <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
+                <Hds::Text::Display @tag="h2" @size="300" @weight="bold">Better together</Hds::Text::Display>
+              </div>
+              <Hds::Text::Body @tag="p" @weight="semibold">
+                HCP Terraform now works together with HCP Vault Secrets.
+              </Hds::Text::Body>
+              <Hds::Text::Body @tag="p">
+                The combined solution enables your team to provision infrastructure with a scalable and least-privilege
+                security approach for your secrets.
+              </Hds::Text::Body>
+            </Hds::Layout::Grid>
+          </Hds::Card::Container>
+        </LG.Item>
+
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
+        </Hds::Card::Container>
+
+        <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+          <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
+        </Hds::Card::Container>
+
+        <LG.Item @colSpan="2">
+          <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+            <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
+              <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
+              <Hds::Layout::Grid @columnMinWidth="50%" @gap="24" @tag="ul" class="shw-layouts-grid-plain-list">
+                <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
+                  <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Vault</Hds::Text::Body>
+                  <Hds::Text::Body @tag="p">
+                    Integrate HCP Vault into your environment faster.
+                  </Hds::Text::Body>
+                </Hds::Layout::Grid>
+                <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" @tag="li">
+                  <Hds::Text::Body @tag="p" @weight="semibold">Deploy HCP Consul</Hds::Text::Body>
+                  <Hds::Text::Body @tag="p">
+                    Manage your provisions and snapshot.
+                  </Hds::Text::Body>
+                </Hds::Layout::Grid>
+              </Hds::Layout::Grid>
+            </Hds::Layout::Grid>
+          </Hds::Card::Container>
+        </LG.Item>
+      </Hds::Layout::Grid>
     </SG.Item>
   </Shw::Grid>
 </section>
