@@ -135,7 +135,19 @@ Text after the inline grid.
 
 ### Grid::Item
 
-The `Grid::Item` component can optionally be used to wrap `Grid` content if more control is needed over the grid layout.
+Use the `Grid::Item` to wrap content to prevent it from stretching or if more control is needed over the grid layout.
+
+### Prevent content stretch
+
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
+  <Hds::Badge @text="Stretched badge" @color="critical" />
+
+  <LG.Item>
+    <Hds::Badge @text="Non-stretched badge" @color="success" />
+  </LG.Item>
+</Hds::Layout::Grid>
+```
 
 ### colspan & rowspan
 
@@ -196,13 +208,14 @@ Note: The following example makes use of nested `Grid` and `Flex` components to 
           Active resources
         </Hds::Text::Display>
       </Hds::Layout::Flex>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="8">
-          <Hds::Badge
-            @text="5 active resources"
-            @color="success"
-            @icon="check-circle"
-            @size="medium"
-          />
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" as |LG|>
+          <LG.Item>
+            <Hds::Badge
+              @text="5 active resources"
+              @color="success"
+              @icon="check-circle"
+            />
+          </LG.Item>
           <Hds::Text::Body @tag="p">
             There are 5 active resources inside this project.
           </Hds::Text::Body>
