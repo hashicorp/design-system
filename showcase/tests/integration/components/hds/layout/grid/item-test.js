@@ -27,7 +27,7 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render as yielded contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LF|><LF.Item id="test-layout-grid-item"><pre>test</pre></LF.Item></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item"><pre>test</pre></LG.Item></Hds::Layout::Grid>`
     );
     assert.dom('#test-layout-grid-item > pre').exists().hasText('test');
   });

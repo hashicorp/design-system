@@ -7,8 +7,6 @@
   <div class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>{{yield}}</div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>
-      {{yield}}
-    </Tag>
+    <Tag class="hds-layout-grid-item" {{style this.inlineStyles}} ...attributes>{{yield}}</Tag>
   {{/let}}
 {{/if}}

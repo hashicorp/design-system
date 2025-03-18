@@ -19,7 +19,7 @@ export interface HdsLayoutGridItemSignature {
   Element: AvailableElements;
 }
 
-export default class HdsLayoutFlexItem extends Component<HdsLayoutGridItemSignature> {
+export default class HdsLayoutGridItem extends Component<HdsLayoutGridItemSignature> {
   get componentTag(): AvailableTagNames {
     return this.args.tag ?? 'div';
   }
