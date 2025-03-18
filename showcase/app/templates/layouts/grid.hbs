@@ -243,10 +243,10 @@
   <Shw::Text::H3>rowspan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="1st item w/ rowspan=3">
+    <SG.Item @label="1st item w/ rowspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
-          <HLG.Item @rowspan={{3}}>
+          <HLG.Item @rowspan={{2}}>
             <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -328,12 +328,16 @@
                 Active resources
               </Hds::Text::Display>
             </Hds::Layout::Flex>
-            <Hds::Layout::Grid @columnMinWidth="100%" @gap="8">
-              <Hds::Badge @text="5 active resources" @color="success" @icon="check-circle" @size="medium" />
+            <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" as |LG|>
+              <LG.Item>
+                <Hds::Badge @text="5 active resources" @color="success" @icon="check-circle" @size="medium" />
+              </LG.Item>
+
               <Hds::Text::Body @tag="p">
                 There are 5 active resources inside this project.
               </Hds::Text::Body>
             </Hds::Layout::Grid>
+
             <Hds::Link::Standalone
               @icon="arrow-right"
               @iconPosition="trailing"
