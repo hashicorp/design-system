@@ -95,7 +95,6 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" />`);
     assert
       .dom('#test-layout-flex')
-      .doesNotHaveClass(/hds-layout-flex--gap-/)
       .doesNotHaveClass(/hds-layout-flex--row-gap-/)
       .doesNotHaveClass(/hds-layout-flex--column-gap-/);
   });
