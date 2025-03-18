@@ -12,6 +12,7 @@ import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableThSortOrderValues,
@@ -97,7 +98,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _element!: HTMLDivElement;
   private _tableModel!: HdsAdvancedTableTableModel;
 
-  constructor(owner: unknown, args: HdsAdvancedTableSignature['Args']) {
+  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
     const { model, childrenKey, columns } = args;
