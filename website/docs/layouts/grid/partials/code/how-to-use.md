@@ -153,7 +153,7 @@ Use the `Grid::Item` to wrap content to prevent it from stretching or if more co
 
 Use the `colspan` and `rowspan` options of `Grid::Item` components to set the number of columns or rows an item should occupy.
 
-Note: By default, if a height is set on the `Grid` parent, row heights will stretch proportionally to fill the Grid. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
+Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
 ```handlebars
 <div {{style height="400px" border="1px solid"}}>
@@ -164,7 +164,7 @@ Note: By default, if a height is set on the `Grid` parent, row heights will stre
     as |LG|
   >
     <LG.Item @colspan={{4}}>
-      <Doc::Placeholder @height="100%" @text="Item 1" @background="#e4e4e4" {{style padding="1em"}} />
+      <Doc::Placeholder @text="Item 1" @background="#e4e4e4" {{style padding="1em"}} />
     </LG.Item>
 
     <LG.Item @rowspan={{2}}>

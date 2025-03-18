@@ -2,25 +2,6 @@
 
 ### Layout::Grid
 
-<!-- 
-
-gap:
-    var(--hds-layout-flex-row-gap, 0)
-    var(--hds-layout-flex-column-gap, 0);
-
-    a single value or an array of two values of one of the following
-
-    export enum HdsLayoutFlexGapValues {
-  'Four' = '4',
-  'Eight' = '8',
-  'Twelve' = '12',
-  'Sixteen' = '16',
-  'Twentyfour' = '24',
-  'Thirtytwo' = '32',
-  'Fortyeight' = '48',
-}
- -->
-
 <Doc::ComponentApi as |C|>
   <C.Property @name="tag" @type="string" @default="div">
     HTML tag to be used to render the grid element.
