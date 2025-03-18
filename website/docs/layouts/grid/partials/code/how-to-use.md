@@ -12,7 +12,7 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 ### Basic usage
 
-The parent `Grid` component creates a layout of equal width “columns” by default. Other components and HTML elements can be passed in directly.
+The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
 
 ```handlebars
 <Hds::Layout::Grid class="doc-grid-outline-children">
@@ -22,6 +22,28 @@ The parent `Grid` component creates a layout of equal width “columns” by def
   <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
 </Hds::Layout::Grid>
 ```
+
+Every child of the **grid container** will be stretched to fit evenly within the underlying grid column tracks behaving as a **grid item** (for details on what this means, refer to the guide linked at the top of the page).
+
+In some cases, it may be necessary to wrap one or more content items within the optional `Layout::Grid::Item` component. i.e., to group content together within a column or row, prevent content from being stretched to fit the underlying grid column width, or to make use of `rowspan` and `colspan` options in order to create more complex layouts. (See below for more details and examples on these features.)
+
+### Preventing content stretch
+
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
+  <Hds::Badge @text="Stretched badge" @color="critical" />
+
+  <LG.Item>
+    <Hds::Badge @text="Non-stretched badge" @color="success" />
+  </LG.Item>
+</Hds::Layout::Grid>
+```
+
+!!! Info
+
+Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
+!!!
 
 ### Tag
 
@@ -185,7 +207,7 @@ Text before the inline grid.
 Text after the inline grid.
 ```
 
-### Grid::Item
+<!-- ### Grid::Item
 
 Use the `Grid::Item` to wrap content to prevent it from stretching or if more control is needed over the grid layout.
 
@@ -199,11 +221,11 @@ Use the `Grid::Item` to wrap content to prevent it from stretching or if more co
     <Hds::Badge @text="Non-stretched badge" @color="success" />
   </LG.Item>
 </Hds::Layout::Grid>
-```
+``` -->
 
-### colspan & rowspan
+### Colspan & rowspan
 
-Use the `colspan` and `rowspan` options of `Grid::Item` components to set the number of columns or rows an item should occupy.
+Use the `colspan` and `rowspan` options of the `Grid::Item` component to set the number of columns or rows an item should occupy.
 
 Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
