@@ -28,6 +28,9 @@
   <C.Property @name="wrap" @type="boolean" @default="false">
     If a `@wrap` parameter is provided, the flex items can wrap onto multiple lines when there is not enough space in the container to fit them all in a single line.
   </C.Property>
+  <C.Property @name="gap" @type="enum|[enum,enum]" @values={{array "4" "8" "12" "16" "24" "32" "48"}}>
+    Use the `@gap` argument to control the spacing between flex items. To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values , where the first value refers to the vertical gap between "rows" of items (`row-gap` in CSS), the second one to the horizontal spacing between "columns" of items (`column-gap` in CSS).
+  </C.Property>
   <C.Property @name="isInline" @type="boolean" @default="false">
     If an `@isInline` parameter is provided, then the element will be displayed as `inline-flex` (useful to achieve specific layouts). Otherwise, it will have a `flex` layout.
   </C.Property>
