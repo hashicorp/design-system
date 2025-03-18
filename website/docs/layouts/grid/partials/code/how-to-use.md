@@ -171,8 +171,12 @@ Note: By default, if a height is set on the `Grid` parent, grid row heights will
       <Doc::Placeholder @height="100%" @text="Item 2" @background="#e4e4e4" />
     </LG.Item>
 
-    <LG.Item @colspan={{3}} @rowspan={{2}}>
+    <LG.Item @colspan={{3}}>
       <Doc::Placeholder @height="100%" @text="Item 3" @background="#e4e4e4" />
+    </LG.Item>
+
+    <LG.Item @colspan={{3}}>
+      <Doc::Placeholder @height="100%" @text="Item 4" @background="#e4e4e4" />
     </LG.Item>
   </Hds::Layout::Grid>
 </div>
