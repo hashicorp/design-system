@@ -13,14 +13,14 @@
 
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
-  grid-template-columns: 
+  grid-template-columns:
     repeat(
-      auto-fit, 
-      minmax( 
-        calc( 
+      auto-fit,
+      minmax(
+        calc(
           var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)
-        ), 
-        1fr 
+        ),
+        1fr
       )
     );
 
@@ -42,8 +42,8 @@
 
 // align
 
-.hds-layout-grid--align-items-start { align-items: start;}
-.hds-layout-grid--align-items-center { align-items: center;}
+.hds-layout-grid--align-items-start { align-items: start; }
+.hds-layout-grid--align-items-center { align-items: center; }
 .hds-layout-grid--align-items-end { align-items: end; }
 .hds-layout-grid--align-items-stretch { align-items: stretch; }
 
@@ -65,7 +65,7 @@
 .hds-layout-grid--column-gap-8 { --hds-layout-grid-column-gap: 8px; }
 .hds-layout-grid--column-gap-12 { --hds-layout-grid-column-gap: 12px; }
 .hds-layout-grid--column-gap-16 { --hds-layout-grid-column-gap: 16px; }
-.hds-layout-grid--column-gap-24 { --hds-layout-grid-column-gap: 24px;  }
+.hds-layout-grid--column-gap-24 { --hds-layout-grid-column-gap: 24px; }
 .hds-layout-grid--column-gap-32 { --hds-layout-grid-column-gap: 32px; }
 .hds-layout-grid--column-gap-48 { --hds-layout-grid-column-gap: 48px; }
 
