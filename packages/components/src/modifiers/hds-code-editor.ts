@@ -364,9 +364,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       // add nonce to the editor view if it exists
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const nonce = cspNonce ?? getCSPNonceFromMeta();
 
       if (nonce !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         extensions = [...extensions, EditorView.cspNonce.of(nonce)];
       }
 
