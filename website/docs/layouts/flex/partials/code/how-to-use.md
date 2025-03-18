@@ -8,18 +8,39 @@ A good and quick introduction to flexbox can be found in [**this MDN guide**](ht
 
 !!!
 
-TODO add intro here about why this component in HDS
+The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to quickly build out flexbox-based layouts of components or elements without needing to write a lot of custom CSS code or understand all the intricacies of CSS flexbox styles.
 
-### Basic usage [TODO]
+### Basic usage
 
-Explain the most basic usage here
+The simplest way to implementat a flexbox layout is by using the `Layout::Flex` component to wrap some content:
 
-- just flex
-- flex + item(s)
+```handlebars{data-execute=false}
+<Hds::Layout::Flex>
+  <div>{{! some content here }}</div>
+  <div>{{! some other content here }}</div>
+  <div>{{! more content here }}</div>
+</Hds::Layout::Flex>
+```
 
-explain that the `Flex.Item` is not necessary per se
+In this way, every direct child element of the **flexbox container** will be treated, by the browser's layout engine, as a **flex item** (for details about what this means, refer to the guide linked at the top of this page).
 
-add here text about not abusing it!
+There are cases in which is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (eg. to apply the `@basis/@grow/@shrink` arguments, see below for details):
+
+```handlebars{data-execute=false}
+<Hds::Layout::Flex as |LF|>
+  <div>{{! some content here }}</div>
+  <LF.Item @grow={{false}}>
+    {{! some other content here }}
+  </LF.Item>
+  <div>{{! more content here }}</div>
+</Hds::Layout::Flex>
+```
+
+!!! Info
+
+Note: there is no strict need to use the `Layout::Flex::Item` subcomponent as a direct child of `Layout::Flex`; use it only when necessary to tweak flex styles of individual child item via the `@basis/@grow/@shrink` (to avoid rendering an extra Ember component).
+
+!!!
 
 ### Tag
 
