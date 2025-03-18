@@ -137,9 +137,9 @@ Text after the inline grid.
 
 The `Grid::Item` component can optionally be used to wrap `Grid` content if more control is needed over the grid layout.
 
-### colSpan & rowSpan
+### colspan & rowspan
 
-Use the `colSpan` and `rowSpan` options of `Grid::Item` components to set the number of columns or rows an item should occupy.
+Use the `colspan` and `rowspan` options of `Grid::Item` components to set the number of columns or rows an item should occupy.
 
 Note: By default, if a height is set on the `Grid` parent, row heights will stretch proportionally to fill the Grid. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
@@ -151,15 +151,15 @@ Note: By default, if a height is set on the `Grid` parent, row heights will stre
     {{style height="100%" grid-template-rows="min-content auto auto"}}
     as |LG|
   >
-    <LG.Item @colSpan="4">
+    <LG.Item @colspan={{4}}>
       <Doc::Placeholder @height="100%" @text="Item 1" @background="#e4e4e4" {{style padding="1em"}} />
     </LG.Item>
 
-    <LG.Item @rowSpan="2">
+    <LG.Item @rowspan={{2}}>
       <Doc::Placeholder @height="100%" @text="Item 2" @background="#e4e4e4" />
     </LG.Item>
 
-    <LG.Item @colSpan="3" @rowSpan="2">
+    <LG.Item @colspan={{3}} @rowspan={{2}}>
       <Doc::Placeholder @height="100%" @text="Item 3" @background="#e4e4e4" />
     </LG.Item>
   </Hds::Layout::Grid>
@@ -232,7 +232,7 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
-  <LG.Item @colSpan="2">
+  <LG.Item @colspan={{2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
       <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
         <div>
@@ -257,7 +257,7 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
     <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
   </Hds::Card::Container>
 
-  <LG.Item @colSpan="2">
+  <LG.Item @colspan={{2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
       <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
         <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>
