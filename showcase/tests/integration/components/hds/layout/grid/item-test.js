@@ -36,14 +36,14 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LF|><LF.Item id="test-layout-grid-item" /></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" /></Hds::Layout::Grid>`
     );
     assert.dom('#test-layout-grid-item').hasTagName('div');
   });
 
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LF|><LF.Item id="test-layout-grid-item" @tag="span" /></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" @tag="span" /></Hds::Layout::Grid>`
     );
     assert.dom('#test-layout-grid-item').hasTagName('span');
   });
@@ -51,16 +51,16 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
   // COL SPAN
 
   // Note: A fallback value of 1 is set in the CSS for the `--hds-layout-grid-column-span` custom property
-  test('if the @colSpan prop is not declared, --hds-layout-grid-column-span should be unset', async function (assert) {
+  test('if the @colspan prop is not declared, --hds-layout-grid-column-span should be unset', async function (assert) {
     await render(hbs`<Hds::Layout::Grid::Item id="test-layout-grid-item" />`);
     assert
       .dom('#test-layout-grid-item')
       .doesNotHaveStyle('--hds-layout-grid-column-span');
   });
 
-  test('it should render the correct column span if the @colSpan prop is declared', async function (assert) {
+  test('it should render the correct column span if the @colspan prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @colSpan="2" />`
+      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @colspan={{2}} />`
     );
     assert
       .dom('#test-layout-grid')
@@ -70,16 +70,16 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
   // ROW SPAN
 
   // Note: A fallback value of 1 is set in the CSS for the `--hds-layout-grid-row-span` custom property
-  test('if the @rowSpan prop is not declared, --hds-layout-grid-row-span should be unset', async function (assert) {
+  test('if the @rowspan prop is not declared, --hds-layout-grid-row-span should be unset', async function (assert) {
     await render(hbs`<Hds::Layout::Grid::Item id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
       .doesNotHaveStyle('--hds-layout-grid-row-span');
   });
 
-  test('it should render the correct row span if the @rowSpan prop is declared', async function (assert) {
+  test('it should render the correct row span if the @rowspan prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @rowSpan="2" />`
+      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @rowspan={{2}} />`
     );
     assert
       .dom('#test-layout-grid')

@@ -179,13 +179,13 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>colSpan</Shw::Text::H3>
+  <Shw::Text::H3>colspan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="1st item w/ colSpan=2">
+    <SG.Item @label="1st item w/ colspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
-          <HLG.Item @colSpan="2">
+          <HLG.Item @colspan={{2}}>
             <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -201,10 +201,10 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="1st item w/ colSpan=3">
+    <SG.Item @label="1st item w/ colspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
-          <HLG.Item @colSpan="3">
+          <HLG.Item @colspan={{3}}>
             <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -220,10 +220,10 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="1st item w/ colSpan=4">
+    <SG.Item @label="1st item w/ colspan=4">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
-          <HLG.Item @colSpan="4">
+          <HLG.Item @colspan={{4}}>
             <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -240,13 +240,13 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>rowSpan</Shw::Text::H3>
+  <Shw::Text::H3>rowspan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="1st item w/ rowSpan=3">
+    <SG.Item @label="1st item w/ rowspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
-          <HLG.Item @rowSpan="3">
+          <HLG.Item @rowspan={{3}}>
             <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -262,13 +262,13 @@
       </Shw::Outliner>
     </SG.Item>
 
-    <SG.Item @label="2nd item w/ rowSpan=3">
+    <SG.Item @label="2nd item w/ rowspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="50%" @gap="12" as |HLG|>
           <HLG.Item>
             <Shw::Placeholder @text="#1" @height="40" @background="#e4c5f3" />
           </HLG.Item>
-          <HLG.Item @rowSpan="3">
+          <HLG.Item @rowspan={{3}}>
             <Shw::Placeholder @text="#2" @height="100%" @background="#e5ffd2" />
           </HLG.Item>
           <HLG.Item>
@@ -282,13 +282,13 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Text::H3>colSpan & rowSpan</Shw::Text::H3>
+  <Shw::Text::H3>colspan & rowspan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
-    <SG.Item @label="1st item w/ colSpan=2 & rowSpan=3">
+    <SG.Item @label="1st item w/ colspan=2 & rowspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
-          <HLG.Item @colSpan="2" @rowSpan="3">
+          <HLG.Item @colspan={{2}} @rowspan={{3}}>
             <Shw::Placeholder @text="#1" @height="100%" @background="#e4c5f3" />
           </HLG.Item>
           <HLG.Item>
@@ -353,9 +353,9 @@
       </Hds::Layout::Grid>
     </SG.Item>
 
-    <SG.Item @label="More complex layout using colSpan">
+    <SG.Item @label="More complex layout using colspan">
       <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
-        <LG.Item @colSpan="2">
+        <LG.Item @colspan={{2}}>
           <Hds::Card::Container
             @level="mid"
             @hasBorder={{true}}
@@ -386,7 +386,7 @@
           <Hds::Text::Display @tag="h2" @size="300">content</Hds::Text::Display>
         </Hds::Card::Container>
 
-        <LG.Item @colSpan="2">
+        <LG.Item @colspan={{2}}>
           <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
             <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
               <Hds::Text::Display @tag="h2" @size="300">HCP Terraform Provider Resources</Hds::Text::Display>

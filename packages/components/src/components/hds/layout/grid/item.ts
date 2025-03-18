@@ -10,8 +10,8 @@ import type { AvailableTagNames, AvailableElements } from './types.ts';
 export interface HdsLayoutGridItemSignature {
   Args: {
     tag?: AvailableTagNames;
-    colSpan?: string;
-    rowSpan?: string;
+    colspan?: number;
+    rowspan?: number;
   };
   Blocks: {
     default: [];
@@ -30,11 +30,12 @@ export default class HdsLayoutGridItem extends Component<HdsLayoutGridItemSignat
       '--hds-layout-grid-row-span'?: string;
     } = {};
 
-    if (this.args.colSpan) {
-      inlineStyles['--hds-layout-grid-column-span'] = this.args.colSpan;
+    if (this.args.colspan) {
+      inlineStyles['--hds-layout-grid-column-span'] =
+        this.args.colspan.toString();
     }
-    if (this.args.rowSpan) {
-      inlineStyles['--hds-layout-grid-row-span'] = this.args.rowSpan;
+    if (this.args.rowspan) {
+      inlineStyles['--hds-layout-grid-row-span'] = this.args.rowspan.toString();
     }
 
     return inlineStyles;

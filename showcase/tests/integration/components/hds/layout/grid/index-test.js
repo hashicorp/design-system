@@ -106,9 +106,12 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .doesNotHaveClass(/hds-layout-grid--column-gap-/);
   });
 
-  test('it should render the correct CSS class if the @gap prop is declared as a single value', async function (assert) {
+  test('it should render the correct CSS classes if the @gap prop is declared as a single value', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" @gap="24" />`);
-    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--gap-24');
+    assert
+      .dom('#test-layout-grid')
+      .hasClass('hds-layout-grid--row-gap-24')
+      .hasClass('hds-layout-grid--column-gap-24');
   });
 
   test('it should render the correct CSS class if the @gap prop is declared as two values', async function (assert) {

@@ -108,7 +108,8 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[1]}`);
       } else if (this.gap.length === 1) {
-        classes.push(`hds-layout-grid--gap-${this.gap[0]}`);
+        classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
+        classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
       }
     }
 
