@@ -285,12 +285,9 @@
         </HLF.Item>
       </Hds::Layout::Flex>
     </SG.Item>
-    <SG.Item as |SGI|>
+    <SG.Item class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items" as |SGI|>
       <SGI.Label>with <code>keyword</code> values</SGI.Label>
-      <Hds::Layout::Flex
-        class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
-        as |HLF|
-      >
+      <Hds::Layout::Flex as |HLF|>
         <HLF.Item @basis="auto">
           <Shw::Placeholder @text="item #1 with basis=auto" @height="40" @background="transparent" />
         </HLF.Item>
