@@ -184,9 +184,7 @@ The examples below are meant to show how one _could_ use the `Layout::Grid` comp
 
 Note: The following example makes use of nested `Grid` and `Flex` components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
 
-#### Basic layout
-
-**TODO: In HCP, mobile view shows only one column instead of 3, consider adding responsive layout feature to Grid**
+#### Basic 3 column layout
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
@@ -228,7 +226,7 @@ Note: The following example makes use of nested `Grid` and `Flex` components to 
 </Hds::Layout::Grid>
 ```
 
-#### Fancy layout
+#### More complex layout
 
 Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 
