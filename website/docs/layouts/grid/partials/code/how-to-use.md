@@ -39,14 +39,66 @@ To specify the HTML tag used to render the grid container and/or item(s), use th
 
 ### Gap
 
-Specify either a single gap size or an array of 2 row and column gap size values to space apart items.
+To control the spacing between grid items, use the `@gap` argument:
 
-```handlebars
+```handlebars{data-execute=false}
 <Hds::Layout::Grid @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+  {{! multiple grid items here, with a gap of 16px between them }}
+</Hds::Layout::Grid>
+```
+
+To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Grid @wrap={{true}} @gap={{array "16" "48"}}>
+  {{!
+    multiple grid items appearing on multiple rows
+    with a vertical gap of 16px and an horizontal one of 48px
+  }}
+</Hds::Layout::Grid>
+```
+
+The first value in the array refers to the vertical gap between “rows” of items (`row-gap` in CSS), the second one to the horizontal spacing between “columns” of items (`column-gap` in CSS).
+
+The `@gap` argument accepts only **pre-defined values**, it can’t be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
+
+If you need to provide custom spacing values, see below how you can use a special escape hatch for this.
+
+!!! Warning
+
+**Important**
+
+The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
+
+!!!
+
+#### Non-standard gap values
+
+If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style):
+
+```handlebars{data-execute=false}
+<Hds::Layout::Grid class="doc-grid-demo-custom-grid-column-gap">
+  {{!
+    multiple grid items here, with a non-standard gap between them
+    by assigning a custom value for `--hds-layout-grid-column-gap`
+    declared in the `.doc-grid-demo-custom-grid-column-gap` local class
+  }}
+</Hds::Layout::Grid>
+```
+
+In this case we’re overwriting only the “column” gap value via the custom CSS class.
+
+If the grid items are wrapping on multiple lines, you have to overwrite both the “row” and “column” gap values:
+
+```handlebars{data-execute=false}
+<Hds::Layout::Grid
+  {{style --hds-layout-grid-row-gap="10px" --hds-layout-grid-column-gap="0.625rem"}}
+  @wrap={{true}}
+>
+  {{!
+    multiple grid items appearing on multiple rows
+    with a vertical gap of 10px and an horizontal one of 0.625rem
+  }}
 </Hds::Layout::Grid>
 ```
 
