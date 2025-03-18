@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-const LINT_PANEL_HEIGHT = '80px';
-
 import { EditorView } from '@codemirror/view';
 import {
   HDS_CODE_BLOCK_LINE_HIGHLIGHT,
@@ -77,10 +75,9 @@ const hdsDark = EditorView.theme(
       outline: `1px solid ${HDS_CODE_BLOCK_WHITE}`,
     },
 
-    // set a minimum height and extra padding on the editor content when linting is enabled
+    // set a minimum height on the editor content when linting is enabled
     '&.cm-lintingEnabled .cm-content': {
       minHeight: '160px',
-      paddingBottom: LINT_PANEL_HEIGHT,
     },
 
     // replace the underline svg
@@ -106,18 +103,9 @@ const hdsDark = EditorView.theme(
     },
 
     // linter diagnostics panel
-    '.cm-panels.cm-panels-bottom': {
-      position: 'absolute',
-    },
-    '.cm-panel.cm-panel-lint': {
-      position: 'absolute',
-      right: '0',
-      left: '0',
-      bottom: '0',
-    },
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: 'var(--token-color-palette-neutral-500)',
-      maxHeight: LINT_PANEL_HEIGHT,
+      maxHeight: '80px',
     },
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
