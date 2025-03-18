@@ -225,7 +225,7 @@ Use the `Grid::Item` to wrap content to prevent it from stretching or if more co
 
 ### Colspan & rowspan
 
-Use the `colspan` and `rowspan` options of the `Grid::Item` component to set the number of columns or rows an item should occupy.
+Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy.
 
 Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
