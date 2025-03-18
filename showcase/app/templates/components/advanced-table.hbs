@@ -1191,7 +1191,12 @@
         <div class="hds-advanced-table__thead">
           <div class="hds-advanced-table__tr">
             {{#each @model.STATES as |state|}}
-              <Hds::AdvancedTable::Th mock-state-value={{state}} mock-state-selector="button" @isExpandable={{true}}>
+              <Hds::AdvancedTable::Th
+                mock-state-value={{state}}
+                mock-state-selector="button"
+                @isExpandable={{true}}
+                @hasExpandAllButton={{true}}
+              >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
             {{/each}}
@@ -1209,6 +1214,7 @@
                 mock-state-selector="button"
                 @isExpandable={{true}}
                 @isExpanded={{true}}
+                @hasExpandAllButton={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1227,6 +1233,7 @@
                 mock-state-selector="button"
                 @isExpandable={{true}}
                 @isExpanded="mixed"
+                @hasExpandAllButton={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1248,6 +1255,7 @@
                 mock-state-value={{state}}
                 mock-state-selector="button"
                 @isExpandable={{true}}
+                @hasExpandAllButton={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1267,6 +1275,7 @@
                 mock-state-selector="button"
                 @isExpandable={{true}}
                 @isExpanded={{true}}
+                @hasExpandAllButton={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1286,6 +1295,7 @@
                 mock-state-selector="button"
                 @isExpandable={{true}}
                 @isExpanded="mixed"
+                @hasExpandAllButton={{true}}
               >
                 {{capitalize state}}
               </Hds::AdvancedTable::Th>
@@ -1804,6 +1814,24 @@
           </SF.Item>
           <SF.Item>
             <Hds::AdvancedTable::ThButtonExpand @isExpanded="mixed" mock-state-value={{state}} />
+          </SF.Item>
+        </Shw::Flex>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Grid @label="Expand all interactive states + Expand state" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <Shw::Flex @direction="row" as |SF|>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand mock-state-value={{state}} @isExpandAll={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand @isExpanded={{true}} mock-state-value={{state}} @isExpandAll={{true}} />
+          </SF.Item>
+          <SF.Item>
+            <Hds::AdvancedTable::ThButtonExpand @isExpanded="mixed" mock-state-value={{state}} @isExpandAll={{true}} />
           </SF.Item>
         </Shw::Flex>
       </SG.Item>
