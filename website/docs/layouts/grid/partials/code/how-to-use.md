@@ -177,7 +177,7 @@ At the specified column min width, columns are forced to stack in this narrower 
 
 ### Align
 
-Align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
+Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
 
 Note: The `Grid` parent will need a height set for the affect to be visible.
 
@@ -272,7 +272,7 @@ The examples below are meant to show how one _could_ use the `Layout::Grid` comp
 
 ### Card layouts
 
-Note: The following example makes use of nested `Grid` and `Flex` components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
+Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
 
 #### Basic 3 column layout
 
