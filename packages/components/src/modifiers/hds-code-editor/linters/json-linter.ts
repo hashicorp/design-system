@@ -77,6 +77,7 @@ export function renderErrorMessage(message: string): HTMLElement {
 
   const icon = document.createElement('div');
   icon.classList.add('cm-lint-marker-error');
+  icon.setAttribute('aria-hidden', 'true');
 
   const text = document.createElement('span');
   text.textContent = message;
