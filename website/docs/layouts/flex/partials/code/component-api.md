@@ -3,8 +3,8 @@
 ### Layout::Flex
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="tag" @type="string" @default="div">
-    HTML tag to be used to render the flexbox element.
+  <C.Property @name="tag" @type="HTMLElementTagName" @default="div">
+    A valid HTML tag name to be used to render the flexbox element.
   </C.Property>
   <C.Property @name="direction" @type="enum" @values={{array "row" "column"}} @default="row">
     The value of the CSS `flex-direction` property, which sets how the flex items (children) are placed in the flex container, defining the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) and the direction (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)).
