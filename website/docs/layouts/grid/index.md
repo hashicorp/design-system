@@ -7,6 +7,7 @@ links:
 previewImage: assets/illustrations/layouts/grid.jpg
 navigation:
   keywords: ['layout', 'grid', 'columns', 'rows', 'spacing']
+  label: "Flex"
 ---
 
 <section data-tab="Code">
