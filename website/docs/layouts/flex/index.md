@@ -7,6 +7,7 @@ links:
 previewImage: assets/illustrations/layouts/flex.jpg
 navigation:
   keywords: ['layout', 'flex', 'flexbox']
+  label: "Flex"
 ---
 
 <section data-tab="Code">
