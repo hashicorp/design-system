@@ -64,6 +64,9 @@
 // LAYOUT > GRID > ITEM
 
 .hds-layout-grid-item {
-  grid-row-start: span var(--hds-layout-grid-row-span, 1);
-  grid-column-start: span var(--hds-layout-grid-column-span, 1);
+  --hds-layout-grid-row-span: 1;
+  --hds-layout-grid-column-span: 1;
+  
+  grid-row-start: span var(--hds-layout-grid-row-span);
+  grid-column-start: span var(--hds-layout-grid-column-span);
 }
