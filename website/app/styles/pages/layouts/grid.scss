@@ -6,15 +6,11 @@
 // COMPONENTS > GRID
 
 #show-content-layouts-grid {
-  .doc-grid-outline-children > * {
-    outline: 1px dotted;
-  }
-
   .doc-grid-mobile-view {
     position: relative;
     max-width: 280px;
     padding: 16px 16px 65px;
-    background: var(--token-color-palette-neutral-100);
+    background: #fff;
     border: 1px solid;
     border-radius: 16px;
     aspect-ratio: 9 / 16;
