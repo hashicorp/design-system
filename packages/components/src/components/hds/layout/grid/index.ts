@@ -27,7 +27,6 @@ export interface HdsLayoutGridSignature {
     columnMinWidth?: string;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
-    isInline?: boolean;
   };
   Blocks: {
     default: [
@@ -111,11 +110,6 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
       }
-    }
-
-    // add a class based on the @isInline argument
-    if (this.args.isInline) {
-      classes.push('hds-layout-grid--is-inline');
     }
 
     return classes.join(' ');

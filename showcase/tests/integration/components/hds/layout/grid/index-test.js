@@ -71,26 +71,22 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     assert.dom('#test-layout-grid').hasTagName('section');
   });
 
-  // ALIGN / IS-INLINE
+  // ALIGN
 
-  test('it should render the element without specific classes if no @align/@isInline are declared', async function (assert) {
+  test('it should render the element without specific classes if @align is not declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
       .doesNotHaveClass(/hds-layout-grid--align-items-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass('.hds-layout-grid--is-inline');
   });
 
-  test('it should render the correct CSS classes if the @align/@isInline props are declared', async function (assert) {
+  test('it should render the correct CSS classes if @align props are declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @align="stretch" @wrap={{true}} @isInline={{true}} />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @align="stretch" @wrap={{true}} />`
     );
     assert
       .dom('#test-layout-grid')
       .hasClass('hds-layout-grid--align-items-stretch');
-    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--is-inline');
   });
 
   // GAP

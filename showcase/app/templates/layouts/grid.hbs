@@ -122,36 +122,6 @@
       {{/each}}
     {{/let}}
   </Shw::Grid>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H2>Display</Shw::Text::H2>
-
-  <Shw::Grid @gap="2rem" @columns={{2}} class="shw-layout-grid-example-tint-flex-items" as |SF|>
-    {{#let (array false true) as |booleans|}}
-      {{#each booleans as |isInline|}}
-        <SF.Item @label={{if isInline "inline-grid (isInline=true)" "grid (default)"}}>
-          <Hds::Text::Body @size="200" @tag="div">
-            Lorem
-            <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
-              <Shw::Placeholder @text="#1" @height="24" />
-              <Shw::Placeholder @text="#2" @height="24" />
-              <Shw::Placeholder @text="#3" @height="24" />
-              <Shw::Placeholder @text="#4" @height="24" />
-            </Hds::Layout::Grid>
-            sit amet
-            <Hds::Layout::Grid @isInline={{isInline}} @columnMinWidth="2em">
-              <Shw::Placeholder @text="#A" @height="24" />
-              <Shw::Placeholder @text="#B" @height="24" />
-              <Shw::Placeholder @text="#C" @height="24" />
-              <Shw::Placeholder @text="#D" @height="24" />
-            </Hds::Layout::Grid>
-            elit.
-          </Hds::Text::Body>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
-  </Shw::Grid>
 </section>
 
 <Shw::Divider />
@@ -178,6 +148,8 @@
       </Shw::Outliner>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level="2" />
 
   <Shw::Text::H3>colspan</Shw::Text::H3>
 
@@ -240,6 +212,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H3>rowspan</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
@@ -281,6 +255,8 @@
       </Shw::Outliner>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level="2" />
 
   <Shw::Text::H3>colspan & rowspan</Shw::Text::H3>
 

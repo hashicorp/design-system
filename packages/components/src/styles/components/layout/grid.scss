@@ -32,14 +32,6 @@
     var(--hds-layout-grid-column-gap, 0);
 }
 
-// inline
-
-.hds-layout-grid--is-inline {
-  display: inline-grid;
-  // prevents issue where grid columns don't line up in a row
-  max-width: 100%;
-}
-
 // align
 
 .hds-layout-grid--align-items-start { align-items: start; }
