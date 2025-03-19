@@ -83,7 +83,7 @@ To differentiate the vertical and horizontal spacing between items when they wra
 <Hds::Layout::Grid @wrap={{true}} @gap={{array "16" "48"}}>
   {{!
     multiple grid items appearing on multiple rows
-    with a vertical gap of 16px and an horizontal one of 48px
+    with a vertical gap of 16px and a horizontal one of 48px
   }}
 </Hds::Layout::Grid>
 ```
@@ -127,7 +127,7 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 >
   {{!
     multiple grid items appearing on multiple rows
-    with a vertical gap of 10px and an horizontal one of 0.625rem
+    with a vertical gap of 10px and a horizontal one of 0.625rem
   }}
 </Hds::Layout::Grid>
 ```
