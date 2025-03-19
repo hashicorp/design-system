@@ -245,7 +245,7 @@ The examples below are meant to show how one _could_ use the `Layout::Grid` comp
 
 Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex) components to achieve its layout. This may be overkill in actual practice but demonstrates the possibilities for achieving layouts with just these layout components alone.
 
-#### Basic 3 column layout
+#### Basic 3-column layout
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="32">
