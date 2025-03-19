@@ -3,8 +3,8 @@
 ### Layout::Grid
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="tag" @type="string" @default="div">
-    HTML tag to be used to render the grid element.
+  <C.Property @name="tag" @type="HTMLElementTagName" @default="div">
+    A valid HTML tag name to be used to render the grid element.
   </C.Property>
   <C.Property @name="columnMinWidth" @type="string" @default="0px">
     Set any valid CSS dimension as a minimum width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will begin to wrap to the next row as necessary to fit. The column gap size is subtracted from this minimum width.

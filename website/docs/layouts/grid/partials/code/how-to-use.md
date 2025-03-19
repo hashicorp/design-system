@@ -15,11 +15,11 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
 
 ```handlebars
-<Hds::Layout::Grid class="doc-grid-outline-children">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+<Hds::Layout::Grid>
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
 ```
 
@@ -27,7 +27,15 @@ Every child of the **grid container** will be stretched to fit evenly within the
 
 In some cases, it may be necessary to wrap one or more content items within the optional `Layout::Grid::Item` component. i.e., to group content together within a column or row, prevent content from being stretched to fit the underlying grid column width, or to make use of `rowspan` and `colspan` options in order to create more complex layouts. (See below for more details and examples on these features.)
 
+!!! Info
+
+Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
+!!!
+
 ### Preventing content stretch
+
+Wrap content in a `Grid::Item` to prevent it from stretching to fill the grid column.
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
@@ -38,12 +46,6 @@ In some cases, it may be necessary to wrap one or more content items within the 
   </LG.Item>
 </Hds::Layout::Grid>
 ```
-
-!!! Info
-
-Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
-
-!!!
 
 ### Tag
 
@@ -136,10 +138,10 @@ Column min-widths specified as a percentage value will maintain the same size ra
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
 ```
 
@@ -153,10 +155,10 @@ Narrow your browser window to see the responsive behavior.
 
 ```handlebars
 <Hds::Layout::Grid @columnMinWidth="160px" @gap="16">
-  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-  <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
 ```
 
@@ -167,10 +169,10 @@ At the specified column min width, columns are forced to stack in this narrower 
 ```handlebars
 <div class="doc-grid-mobile-view">
   <Hds::Layout::Grid @columnMinWidth="160px" @gap="16">
-    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+    <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+    <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
   </Hds::Layout::Grid>
 </div>
 ```
@@ -184,10 +186,10 @@ Note: The `Grid` parent will need a height set for the affect to be visible.
 ```handlebars
 <div class="doc-grid-mobile-view">
   <Hds::Layout::Grid @columnMinWidth="50px" @gap="16" @align="center" {{style height="100%"}}>
-    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 2" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 3" @background="#e4e4e4" />
-    <Doc::Placeholder @height="40px" @text="Item 4" @background="#e4e4e4" />
+    <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
   </Hds::Layout::Grid>
 </div>
 ```
@@ -207,19 +209,19 @@ Note: By default, if a height is set on the `Grid` parent, grid row heights will
     as |LG|
   >
     <LG.Item @colspan={{4}}>
-      <Doc::Placeholder @text="Item 1" @background="#e4e4e4" {{style padding="1em"}} />
+      <Doc::Placeholder @text="Item 1" @background="#e4c5f3" {{style padding="1em"}} />
     </LG.Item>
 
     <LG.Item @rowspan={{3}}>
-      <Doc::Placeholder @height="100%" @text="Item 2" @background="#e4e4e4" />
+      <Doc::Placeholder @height="100%" @text="Item 2" @background="#e5ffd2" />
     </LG.Item>
 
     <LG.Item @colspan={{3}}>
-      <Doc::Placeholder @height="100%" @text="Item 3" @background="#e4e4e4" />
+      <Doc::Placeholder @height="100%" @text="Item 3" @background="#d2f4ff" />
     </LG.Item>
 
     <LG.Item @colspan={{3}} @rowspan={{2}}>
-      <Doc::Placeholder @height="100%" @text="Item 4" @background="#e4e4e4" />
+      <Doc::Placeholder @height="100%" @text="Item 4" @background="#fff8d2" />
     </LG.Item>
   </Hds::Layout::Grid>
 </div>
