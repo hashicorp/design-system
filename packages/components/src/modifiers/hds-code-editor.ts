@@ -594,6 +594,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       this.editor = editor;
+      (element as HTMLElement & { editor: EditorViewType }).editor = editor;
 
       if (onBlur !== undefined) {
         this._setupEditorBlurHandler(element, onBlur);
