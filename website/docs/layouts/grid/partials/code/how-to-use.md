@@ -192,37 +192,6 @@ Note: The `Grid` parent will need a height set for the affect to be visible.
 </div>
 ```
 
-### isInline
-
-To change the default display from `grid` to `inline-grid`, set `@isInline` to `true`.
-
-```handlebars
-Text before the inline grid.
-<Hds::Layout::Grid  @isInline={{true}} @tag="span" @gap="8">
-  <Doc::Placeholder @height="1.2em" @text="Item 1" @background="#e4e4e4" />
-  <Doc::Placeholder @height="1.2em" @text="Item 2" @background="#e4e4e4" />
-  <Doc::Placeholder @height="1.2em" @text="Item 3" @background="#e4e4e4" />
-  <Doc::Placeholder @height="1.2sem" @text="Item 4" @background="#e4e4e4" />
-</Hds::Layout::Grid>
-Text after the inline grid.
-```
-
-<!-- ### Grid::Item
-
-Use the `Grid::Item` to wrap content to prevent it from stretching or if more control is needed over the grid layout.
-
-### Prevent content stretch
-
-```handlebars
-<Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
-  <Hds::Badge @text="Stretched badge" @color="critical" />
-
-  <LG.Item>
-    <Hds::Badge @text="Non-stretched badge" @color="success" />
-  </LG.Item>
-</Hds::Layout::Grid>
-``` -->
-
 ### Colspan & rowspan
 
 Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy.

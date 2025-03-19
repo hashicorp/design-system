@@ -19,9 +19,6 @@
   <C.Property @name="gap" @type="enum" @values={{array "4" "8" "12" "16" "32" "48"}}>
     The gap spacing between rows and columns of the grid. Specify as either a single value or array of two values for setting the row and column spacing separately.
   </C.Property>
-  <C.Property @name="isInline" @type="boolean" @default="false">
-    If an `@isInline` parameter is provided, then the element will be displayed as `inline-grid`. Otherwise, it will have a `grid` layout.
-  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>
