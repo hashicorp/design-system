@@ -43,9 +43,9 @@ export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/s
 export * from './components/hds/app-footer/types.ts';
 
 // AppHeader
-export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
-export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
-export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
+// export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
+// export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
+// export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
 
 // ApplicationState
 export { default as HdsApplicationState } from './components/hds/application-state/index.ts';

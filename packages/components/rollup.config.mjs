@@ -14,15 +14,22 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
+const exclude = ['components/hds/app-header', 'components/hds/app-side-nav'];
+
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
-  addon.publicEntrypoints([
-    '**/*.{js,ts}',
-    'index.js',
-    'template-registry.js',
-    'styles/@hashicorp/design-system-components.scss',
-  ]),
+  addon.publicEntrypoints(
+    [
+      '**/*.{js,ts}',
+      'index.js',
+      'template-registry.js',
+      'styles/@hashicorp/design-system-components.scss',
+    ],
+    {
+      exclude,
+    }
+  ),
 
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
@@ -36,10 +43,7 @@ const plugins = [
       'instance-initializers/**/*.js',
     ],
     {
-      exclude: [
-        'components/**/app-header/**/*.js',
-        'components/**/app-side-nav/**/*.js',
-      ],
+      exclude,
     }
   ),
 

@@ -40,6 +40,7 @@ export interface HdsCodeEditorSignature {
       ariaDescribedBy?: string;
       ariaLabel?: string;
       ariaLabelledBy?: string;
+      cspNonce?: string;
       hasLineWrapping?: boolean;
       isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
@@ -56,6 +57,27 @@ async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   const { StreamLanguage } = await import('@codemirror/language');
 
   return StreamLanguage.define(streamParser);
+}
+
+export function getCSPNonceFromMeta(): string | undefined {
+  const meta = document.querySelector(
+    'meta[http-equiv="Content-Security-Policy"]'
+  );
+
+  if (meta === null) {
+    return undefined;
+  }
+
+  const content = meta.getAttribute('content');
+
+  if (content === null) {
+    return undefined;
+  }
+
+  // searches for either "style-src" or "script-src" followed by anything until a token like 'nonce-<value>'
+  const match = content.match(/(?:style-src|script-src)[^;]*'nonce-([^']+)'/);
+
+  return match ? match[1] : undefined;
 }
 
 const LOADER_HEIGHT = '164px';
@@ -306,7 +328,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ language, hasLineWrapping, isLintingEnabled, onLint }) => {
+    async ({
+      cspNonce,
+      language,
+      hasLineWrapping,
+      isLintingEnabled,
+      onLint,
+    }) => {
       const [
         {
           keymap,
@@ -372,6 +400,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         extensions = [...extensions, ...languageExtensions];
       }
 
+      // add nonce to the editor view if it exists
+      const nonce = cspNonce ?? getCSPNonceFromMeta();
+
+      if (nonce !== undefined) {
+        extensions = [...extensions, EditorView.cspNonce.of(nonce)];
+      }
+
       // ensure we add lineNumber last in the stack to create the right gutter order for linting
       extensions = [...extensions, lineNumbers()];
 
@@ -384,24 +419,31 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     async (
       element: HTMLElement,
       {
-        onLint,
-        hasLineWrapping,
-        isLintingEnabled,
+        cspNonce,
         language,
         value,
+        hasLineWrapping,
+        isLintingEnabled,
+        onLint,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'language' | 'value' | 'hasLineWrapping' | 'isLintingEnabled' | 'onLint'
+        | 'cspNonce'
+        | 'language'
+        | 'value'
+        | 'hasLineWrapping'
+        | 'isLintingEnabled'
+        | 'onLint'
       >
     ) => {
       try {
         const { EditorState } = await import('@codemirror/state');
 
         const extensions = await this._buildExtensionsTask.perform({
-          onLint,
+          cspNonce,
+          language,
           hasLineWrapping: hasLineWrapping ?? false,
           isLintingEnabled,
-          language,
+          onLint,
         });
 
         const state = EditorState.create({
@@ -438,6 +480,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
+        cspNonce,
         hasLineWrapping,
         isLintingEnabled,
         language,
@@ -451,6 +494,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const editor = await this._createEditorTask.perform(element, {
         onLint,
+        cspNonce,
         hasLineWrapping,
         isLintingEnabled,
         language,

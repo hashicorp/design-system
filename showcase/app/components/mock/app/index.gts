@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
-import MockAppHeaderAppHeader from './header/app-header';
+// import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
@@ -17,7 +17,7 @@ import { HdsAppFrame } from '@hashicorp/design-system-components/components';
 // types
 import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/components/hds/app-frame/index';
-import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
+// import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
 import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
@@ -30,11 +30,11 @@ export interface MockAppSignature {
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
-    header?: [
-      {
-        AppHeader?: ComponentLike<MockAppHeaderAppHeaderSignature>;
-      },
-    ];
+    // header?: [
+    //   {
+    //     AppHeader?: ComponentLike<MockAppHeaderAppHeaderSignature>;
+    //   },
+    // ];
     sidebar?: [
       {
         SideNav?: ComponentLike<MockAppSidebarSideNavSignature>;
@@ -66,11 +66,11 @@ export default class MockApp extends Component<MockAppSignature> {
       as |Frame|
     >
       <Frame.Header>
-        {{#if (has-block "header")}}
+        {{!-- {{#if (has-block "header")}}
           {{yield (hash AppHeader=MockAppHeaderAppHeader) to="header"}}
         {{else}}
           <MockAppHeaderAppHeader />
-        {{/if}}
+        {{/if}} --}}
       </Frame.Header>
       <Frame.Sidebar>
         {{#if (has-block "sidebar")}}
