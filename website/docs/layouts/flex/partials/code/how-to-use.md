@@ -375,6 +375,17 @@ In this case:
 
 - the `@align="start"` applied to the flex container forces the flex items to vertically align at the start (top) along what is called the "cross axis"
 
+An alternative solution is to wrap the element that shouldn't stretch with a flex `Item`:
+
+```handlebars
+<Hds::Layout::Flex @direction="column" @gap="16" as |LF|>
+  <Hds::Badge @text="Stretched badge" @color="critical" />
+  <LF.Item>
+    <Hds::Badge @text="Non-stretched badge" @color="success" />
+  </LF.Item>
+</Hds::Layout::Flex>
+```
+
 ### Wrapping
 
 One of the useful functionalities of the flexbox layout model is that it allows the items to wrap along multiple rows when there is not enough space in the container to fit them all in a single line:
