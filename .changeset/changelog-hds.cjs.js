@@ -34,6 +34,7 @@ const SKIP_USERS = [
   // bots
   'apps/dependabot',
   'apps/hashicorp-copywrite',
+  'dependabot',
   'hashibot-hds',
 ]
 
