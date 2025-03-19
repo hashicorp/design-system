@@ -43,7 +43,6 @@
 
 // We set the values of the gap custom properties overriding the default value of 0
 
-// set the row gap size
 .hds-layout-grid--row-gap-4 { --hds-layout-grid-row-gap: 4px; }
 .hds-layout-grid--row-gap-8 { --hds-layout-grid-row-gap: 8px; }
 .hds-layout-grid--row-gap-12 { --hds-layout-grid-row-gap: 12px; }
@@ -52,7 +51,6 @@
 .hds-layout-grid--row-gap-32 { --hds-layout-grid-row-gap: 32px; }
 .hds-layout-grid--row-gap-48 { --hds-layout-grid-row-gap: 48px; }
 
-// set the column gap size
 .hds-layout-grid--column-gap-4 { --hds-layout-grid-column-gap: 4px; }
 .hds-layout-grid--column-gap-8 { --hds-layout-grid-column-gap: 8px; }
 .hds-layout-grid--column-gap-12 { --hds-layout-grid-column-gap: 12px; }
