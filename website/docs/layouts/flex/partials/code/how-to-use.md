@@ -287,7 +287,7 @@ This has also been another classic CSS problem: how to center _both_ horizontall
 
 In this case:
 
-- the `@justify="center"` and `@align="stretch"` applied to the flex container force the flex item to be centered both horizontally and vertically (_note: we have applied an outline and a fixed height to the flex container to demonstrate the behaviour_)
+- the `@justify="center"` and `@align="stretch"` applied to the flex container force the flex item to be centered both horizontally and vertically (_note: we have applied an outline and a fixed height to the flex container to demonstrate the behavior_)
 
 ### Sizing
 
@@ -360,7 +360,7 @@ If one of the flex items has an intrinsic height larger than the other flex item
 </Hds::Layout::Flex>
 ```
 
-This behaviour is due to the default behaviout of the flexbox layout model, and depends on the CSS `display` of those items.
+This behavior is due to the default behavior of the flexbox layout model, and depends on the CSS `display` of those items.
 
 To avoid this, one has to choose a non-stretching alignment for the items:
 

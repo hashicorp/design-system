@@ -65,7 +65,7 @@ The `Layout::Flex::Item` component, yielded as contextual component, to be used 
     <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-shrink` property. In all other cases, an inline `style` declaration is used, to accommodate all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="enableCollapseBelowContentSize" @type="boolean">
-    When this special argument is set to `true`, it applies `min-width: 0` to the element, allowing the flex item to shrink below its content's intrinsic minimum width (e.g., used with elliptized text)
+    When this special argument is set to `true`, it applies `min-width: 0` to the element, allowing the flex item to shrink below its content's intrinsic minimum width (e.g., used with text truncated with ellipses)
     <br/><br/>
     <em>Notice: this may have accessibility implications; be considerate in how this special argument is used and how this impacts the content of the flex item element.</em>
   </C.Property>
