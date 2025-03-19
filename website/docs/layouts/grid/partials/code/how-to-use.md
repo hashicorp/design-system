@@ -198,6 +198,8 @@ Note: The `Grid` parent will need a height set for the effect to be visible.
 
 Use the `colspan` and `rowspan` arguments of the `Grid::Item` component to set the number of columns or rows an item should occupy.
 
+The following example has an underlying 4-column grid specified by setting a `columnMinWidth` of “25%”. It uses `colspan` and `rowspan` to create a flexible layout roughly resembling a typical web page layout.
+
 Note: By default, if a height is set on the `Grid` parent, grid row heights will stretch proportionally to fill the `Grid`. To instead make a row conform to the minimum height of its content, you can pass an inline style as shown in the example.
 
 ```handlebars
@@ -205,7 +207,7 @@ Note: By default, if a height is set on the `Grid` parent, grid row heights will
   <Hds::Layout::Grid 
     @columnMinWidth="25%" 
     @gap="12"
-    {{style height="100%" grid-template-rows="min-content auto auto"}}
+    {{style height="100%" grid-template-rows="min-content"}}
     as |LG|
   >
     <LG.Item @colspan={{4}}>
