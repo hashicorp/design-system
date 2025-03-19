@@ -37,13 +37,13 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     if (this.isExpanded === true) {
       return this.args.isExpandAll
         ? HdsAdvancedTableThExpandIconValues.UnfoldClose
-        : HdsAdvancedTableThExpandIconValues.ChevronDown;
+        : HdsAdvancedTableThExpandIconValues.ChevronUp;
     } else if (this.isExpanded === 'mixed' && this.args.isExpandAll) {
       return HdsAdvancedTableThExpandIconValues.UnfoldOpen;
     } else {
       return this.args.isExpandAll
         ? HdsAdvancedTableThExpandIconValues.UnfoldOpen
-        : HdsAdvancedTableThExpandIconValues.ChevronRight;
+        : HdsAdvancedTableThExpandIconValues.ChevronDown;
     }
   }
 
