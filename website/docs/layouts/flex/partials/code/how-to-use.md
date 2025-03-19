@@ -24,7 +24,7 @@ The simplest way to implement a flexbox layout is by using the `Layout::Flex` co
 
 In this way, every direct child element of the **flexbox container** will be treated, by the browser's layout engine, as a **flex item** (for details about what this means, refer to the guide linked at the top of this page).
 
-There are cases in which is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (eg. to apply the `@basis/@grow/@shrink` arguments, see below for details):
+There are cases in which it is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (eg. to apply the `@basis/@grow/@shrink` arguments, see below for details):
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Flex as |LF|>
@@ -38,7 +38,7 @@ There are cases in which is necessary to wrap one or more child elements in a sp
 
 !!! Info
 
-Note: there is no strict need to use the `Layout::Flex::Item` subcomponent as a direct child of `Layout::Flex`; use it only when necessary to tweak flex styles of individual child item via the `@basis/@grow/@shrink` (to avoid rendering an extra Ember component).
+Note: there is no strict need to use the `Layout::Flex::Item` subcomponent as a direct child of `Layout::Flex`; use it only when necessary to tweak flex styles of an individual child item via the `@basis/@grow/@shrink` (to avoid rendering an extra Ember component).
 
 !!!
 
