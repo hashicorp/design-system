@@ -181,7 +181,7 @@ At the specified column min width, columns are forced to stack in this narrower 
 
 Use the `@align` argument to align grid items to the "start", "end", "center" or "stretch" them within the grid parent.
 
-Note: The `Grid` parent will need a height set for the affect to be visible.
+Note: The `Grid` parent will need a height set for the effect to be visible.
 
 ```handlebars
 <div class="doc-grid-mobile-view">
@@ -296,11 +296,12 @@ Wrap content with a `Grid::Item` as needed to achieve more complex layouts.
 <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="24" as |LG|>
   <LG.Item @colspan={{2}}>
     <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}} {{style background="radial-gradient(151.34% 168.34% at 0 0,#f6f9ff 0,#ebf2ff 100%)" }}>
-      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
-        <div>
+      <Hds::Layout::Grid @columnMinWidth="100%" @gap="16" as |LG|>
+        <LG.Item>
           <Hds::Badge @text="In Preview" @type="outlined" @color="highlight" />
-          <Hds::Text::Display @tag="h2" @size="300" @weight="bold">Better together</Hds::Text::Display>
-        </div>
+        </LG.Item>
+        <Hds::Text::Display @tag="h2" @size="300" @weight="bold">Better together</Hds::Text::Display>
+
         <Hds::Text::Body @tag="p" @weight="semibold">
           HCP Terraform now works together with HCP Vault Secrets.
         </Hds::Text::Body>
