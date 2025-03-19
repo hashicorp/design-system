@@ -4,7 +4,7 @@
 
 It's much easier to use this component if one is familiar with the CSS3 Flexible Box specifications.
 <br/>
-A good and quick introduction to flexbox can be found in [**this MDN guide**](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+A good and quick introduction to flexbox can be found in [this MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
 !!!
 
@@ -12,7 +12,7 @@ The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to
 
 ### Basic usage
 
-The simplest way to implementat a flexbox layout is by using the `Layout::Flex` component to wrap some content:
+The simplest way to implement a flexbox layout is by using the `Layout::Flex` component to wrap some content:
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Flex>
