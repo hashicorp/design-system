@@ -442,7 +442,7 @@ Below are some more realistic examples of common layouts that can be achieved us
 
 **Important**
 
-The examples below are meant to show how one _could_ use the `Layout::Flex` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. Also, some of these patterns may already implemented directly in HDS components that are ready to use.
+The examples below are meant to show how one _could_ use the `Layout::Flex` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code.
 
 !!!
 
@@ -478,7 +478,7 @@ This is a classic layout, where a "media" element (it could be an image, an icon
 
 ### Group of cards
 
-Using the automatic layout offered by flexbox, it's extremely easy to create a group of identically sized, evenly spaced cards:
+Using the automatic layout offered by flexbox, you can create a group of identically sized, evenly spaced cards:
 
 ```handlebars
 <Hds::Layout::Flex @align="stretch" @gap="48" as |LF|>
@@ -524,7 +524,7 @@ Similarly, it's easy to implement a vertical stack of cards:
 
 ### Empty state
 
-Using the horizontal/vertical alignment offered by flexbox it's easy to implement a standard empty state in a page (as consumer you will just have to take care of the height of the container in relation to the available vertical space in the page):
+Using the horizontal/vertical alignment offered by flexbox, it is also possible to implement a standard empty state in a page. As consumer you will just have to take care of the height of the container in relation to the available vertical space in the page.
 
 ```handlebars
 <Hds::Layout::Flex
