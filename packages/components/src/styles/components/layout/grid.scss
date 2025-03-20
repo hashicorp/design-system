@@ -27,7 +27,7 @@
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
-  gap: 
+  gap:
     var(--hds-layout-grid-row-gap, 0)
     var(--hds-layout-grid-column-gap, 0);
 }
@@ -64,7 +64,6 @@
 .hds-layout-grid-item {
   --hds-layout-grid-row-span: 1;
   --hds-layout-grid-column-span: 1;
-  
   grid-row-start: span var(--hds-layout-grid-row-span);
   grid-column-start: span var(--hds-layout-grid-column-span);
 }
