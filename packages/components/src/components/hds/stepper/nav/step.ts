@@ -9,17 +9,18 @@ import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
 import {
-  HdsStepperTitleTagValues,
   HdsStepperNavStatusesValues,
   HdsStepperNavStatusToIndicatorStatus,
   HdsStepperNavStatusToSrOnlyText,
+  HdsStepperTitleTagValues,
 } from '../types.ts';
+
 import type {
-  HdsStepperTitleTags,
-  HdsStepperNavStepIds,
   HdsStepperNavPanelIds,
-  HdsStepperStatuses,
   HdsStepperNavStatuses,
+  HdsStepperNavStepIds,
+  HdsStepperStatuses,
+  HdsStepperTitleTags,
 } from '../types.ts';
 
 export const MAPPING_STATUS_TO_INDICATOR_STATUS =
@@ -52,15 +53,15 @@ export default class HdsStepperNavStep extends Component<HdsStepperNavStepSignat
   private _setUpStep = modifier(
     (
       element: HTMLElement,
-      [insertCallbackFunction, destoryCallbackFunction]
+      [insertCallbackFunction, destroyCallbackFunction]
     ) => {
       if (typeof insertCallbackFunction === 'function') {
         insertCallbackFunction(element);
       }
 
       return () => {
-        if (typeof destoryCallbackFunction === 'function') {
-          destoryCallbackFunction(element);
+        if (typeof destroyCallbackFunction === 'function') {
+          destroyCallbackFunction(element);
         }
       };
     }

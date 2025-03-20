@@ -2,12 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div
-  class={{this.classNames}}
-  ...attributes
-  {{style --progress-bar-width=this.progressBarWidthStyle}}
-  {{this._setUpStepperNav}}
->
+<div class={{this.classNames}} ...attributes {{style this.inlineStyles}} {{this._setUpStepperNav}}>
   <ol class="hds-stepper-nav__list" aria-label={{@ariaLabel}} role={{if this.isInteractive "tablist"}}>
     {{#if @steps}}
       {{#each @steps as |step|}}

@@ -10,7 +10,8 @@ body.components-stepper-nav {
     margin-top: 12px;
   }
 
-  .shw-component-stepper-nav-mock-incomplete::after {
+  // Hides the progress bar from being shown as progress bar is from parent Stepper::Nav
+  .shw-component-stepper-nav-step-mock-incomplete::after {
     content: none;
   }
 }

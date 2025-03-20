@@ -91,6 +91,17 @@ export default class HdsStepperNav extends Component<HdsStepperNavSignature> {
     return this.args.titleTag ?? HdsStepperTitleTagValues.Div;
   }
 
+  get inlineStyles(): Record<string, unknown> {
+    const inlineStyles: {
+      '--hds-stepper-nav-progress-bar-width'?: string;
+    } = {};
+
+    inlineStyles['--hds-stepper-nav-progress-bar-width'] =
+      this.progressBarWidthStyle;
+
+    return inlineStyles;
+  }
+
   get progressBarWidthStyle(): string {
     let progressBarWidth = 0;
     let progressBarOffset = 0;

@@ -12,7 +12,13 @@
     />
   </div>
   <div class="hds-stepper-list__step-text">
-    <Hds::Text::Body class="hds-stepper-list__step-title" @tag={{this.titleTag}} @size="200" @weight="semibold">
+    <Hds::Text::Body
+      class="hds-stepper-list__step-title"
+      @tag={{this.titleTag}}
+      @size="200"
+      @weight="semibold"
+      @color="strong"
+    >
       {{yield to="title"}}
       <span class="sr-only">{{this.statusSrOnlyText}}</span>
     </Hds::Text::Body>
@@ -21,7 +27,7 @@
       @tag="div"
       @size="100"
       @weight="regular"
-      @color="regular"
+      @color="primary"
     >
       {{yield to="description"}}
     </Hds::Text::Body>

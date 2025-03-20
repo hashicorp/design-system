@@ -15,7 +15,7 @@ $progress-bar-animation-duration: .25s;
 
 .hds-stepper-nav {
   position: relative;
-  z-index: 0;
+  isolation: isolate;
 
   &::before,
   &::after {
@@ -33,7 +33,7 @@ $progress-bar-animation-duration: .25s;
   }
 
   &::after {
-    width: var(--progress-bar-width, 0);
+    width: var(--hds-stepper-nav-progress-bar-width, 0);
     background-color: var(--token-color-palette-neutral-700);
     border-radius: 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small) 0;
 
@@ -99,7 +99,7 @@ $progress-bar-animation-duration: .25s;
   color: var(--token-color-foreground-faint);
 }
 
-// STAUSES
+// STATUSES
 
 // Complete & Active
 
