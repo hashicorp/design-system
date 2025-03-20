@@ -142,9 +142,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   // DESCRIPTION
 
   test('it does not render the description when the description contextual component block is not used', async function (assert) {
-    await render(
-      hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`
-    );
+    await render(hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`);
     assert.dom('.hds-stepper-list__step-description').doesNotExist();
   });
 
@@ -163,9 +161,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
   // CONTENT
 
   test('it does not render the content when the content contextual component block is not used', async function (assert) {
-    await render(
-      hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`
-    );
+    await render(hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`);
     assert.dom('.hds-stepper-list__step-content').doesNotExist();
   });
 
