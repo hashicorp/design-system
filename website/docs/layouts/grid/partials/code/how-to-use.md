@@ -49,7 +49,7 @@ Wrap content in a `Grid::Item` to prevent it from stretching to fill the grid co
 
 ### Tag
 
-To specify the HTML tag used to render the grid container and/or item(s), use the `@tag` argument:
+To specify the HTML tag used to render the grid container and/or item(s), use the `@tag` argument.
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid @tag="ul" as |LG|>
@@ -69,7 +69,7 @@ While, by default, the component renders a `<div>`, we invite consumers to consi
 
 ### Gap
 
-To control the spacing between grid items, use the `@gap` argument:
+To control the spacing between grid items, use the `@gap` argument.
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid @gap="16">
@@ -77,7 +77,7 @@ To control the spacing between grid items, use the `@gap` argument:
 </Hds::Layout::Grid>
 ```
 
-To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument:
+To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument.
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid @wrap={{true}} @gap={{array "16" "48"}}>
@@ -104,7 +104,7 @@ The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**
 
 #### Non-standard gap values
 
-If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style):
+If you absolutely have to use non-standard spacing value(s) for the grid `gap`, you can use the internal `--hds-layout-grid-row-gap` and `--hds-layout-grid-column-gap` CSS variables and pass custom values to them (e.g., via a local CSS variable or an inline style).
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid class="doc-grid-demo-custom-grid-column-gap">
@@ -118,7 +118,7 @@ If you absolutely have to use non-standard spacing value(s) for the grid `gap`, 
 
 In this case we’re overwriting only the “column” gap value via the custom CSS class.
 
-If the grid items are wrapping on multiple lines, you have to overwrite both the “row” and “column” gap values:
+If the grid items are wrapping on multiple lines, you have to overwrite both the “row” and “column” gap values.
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid
