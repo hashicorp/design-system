@@ -456,16 +456,16 @@ This is a classic layout, where a "media" element (it could be an image, an icon
   <img class="doc-flex-media-avatar" src="/assets/images/avatar.png" alt="portrait of a cat wearing coat and tie" />
   <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
 </Hds::Layout::Flex>
+```
 
-<br/>
-
+```handlebars
 <Hds::Layout::Flex @align="center" @gap="8">
   <Hds::Icon @name="info" @size="24" />
   <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet</Hds::Text::Body>
 </Hds::Layout::Flex>
+```
 
-<br/>
-
+```handlebars
 <Hds::Layout::Flex @align="start" @gap="16">
   <Hds::IconTile @logo="boundary" />
   <Hds::Layout::Flex @direction="column" @gap="4">
