@@ -23,6 +23,10 @@ function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
   }, [] as HdsAdvancedTableRow[]);
 }
 
+function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
+  return rows.reduce((acc, row) => acc + 1 + getChildrenCount(row.children), 0);
+}
+
 export default class HdsAdvancedTableTableModel {
   rows: HdsAdvancedTableRow[] = [];
 
@@ -35,15 +39,7 @@ export default class HdsAdvancedTableTableModel {
   }
 
   get totalRowCount(): number {
-    function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
-      return rows.reduce((acc, row) => {
-        return acc + 1 + getChildrenCount(row.children);
-      }, 0);
-    }
-
-    return this.rows.reduce((acc, row) => {
-      return acc + 1 + getChildrenCount(row.children);
-    }, 0);
+    return getChildrenCount(this.rows);
   }
 
   get flattenedVisibleRows(): HdsAdvancedTableRow[] {
