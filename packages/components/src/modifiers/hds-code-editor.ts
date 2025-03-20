@@ -10,6 +10,7 @@ import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
+import { HdsCodeEditorLanguageValues } from './hds-code-editor/types.ts';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -154,7 +155,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
   blurHandler!: (event: FocusEvent) => void;
-  observer!: IntersectionObserver;
+  intersectionObserver!: IntersectionObserver;
+  mutationObserver!: MutationObserver;
 
   lineWrappingCompartment = new Compartment();
 
@@ -162,7 +164,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     super(owner, args);
 
     registerDestructor(this, () => {
-      this.observer?.disconnect();
+      this.intersectionObserver?.disconnect();
+      this.mutationObserver?.disconnect();
 
       if (this.onBlur !== undefined) {
         this.element.removeEventListener('blur', this.blurHandler);
@@ -191,7 +194,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (config.environment === 'test') {
         this._setupTask.perform(element, positional, named);
       } else {
-        this.observer = new IntersectionObserver(
+        this.intersectionObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && this.editor === undefined) {
@@ -204,7 +207,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           }
         );
 
-        this.observer.observe(element);
+        this.intersectionObserver.observe(element);
       }
     }
   }
@@ -465,6 +468,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   );
 
+  private _setupEditorMutationObserver() {
+    this.mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.removedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) {
+            return;
+          }
+
+          const removedNodeContainsLintPanel =
+            node.querySelector('.cm-panel-lint') !== null;
+
+          if (removedNodeContainsLintPanel) {
+            this.editor.focus();
+          }
+        });
+      });
+    });
+
+    this.mutationObserver.observe(this.element, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
   private _setupTask = task(
     { drop: true },
     async (
@@ -516,6 +543,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaLabel,
         ariaLabelledBy,
       });
+
+      if (
+        isLintingEnabled &&
+        language !== undefined &&
+        LANGUAGES[language]?.loadLinter !== undefined
+      ) {
+        this._setupEditorMutationObserver();
+      }
 
       onSetup?.(this.editor);
     }

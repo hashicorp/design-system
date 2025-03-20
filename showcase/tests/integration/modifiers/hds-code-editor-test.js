@@ -11,6 +11,7 @@ import {
   setupOnerror,
   focus,
   blur,
+  triggerKeyEvent,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
@@ -137,6 +138,33 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
     // can't use assert.dom to access elements in head
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
+  });
+
+  // the lint panel should open, close, and set focus correctly
+  test('it should return focus to the editor when the linting panel is closed', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div
+  id='code-editor-wrapper'
+  {{hds-code-editor ariaLabel='test' language='json' isLintingEnabled=true}}
+/>`
+    );
+
+    const editor = document.querySelector('.cm-content');
+
+    await triggerKeyEvent(editor, 'keydown', 'M', {
+      metaKey: true,
+      shiftKey: true,
+    });
+
+    // the lint panel should be open and in focus
+    assert
+      .dom(document.activeElement)
+      .hasAttribute('aria-label', 'Diagnostics');
+
+    await triggerKeyEvent(document.activeElement, 'keydown', 'Escape');
+
+    // focus is returned to the editor
+    assert.strictEqual(document.activeElement, editor);
   });
 
   // ASSERTIONS

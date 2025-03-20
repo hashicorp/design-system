@@ -71,7 +71,10 @@ export function determineErrorMessage({
 }
 
 // this renders the error message for both the tooltip and the drawer item
-export function renderErrorMessage(message: string): HTMLElement {
+export function renderErrorMessage(
+  message: string,
+  lineNumber: number
+): HTMLElement {
   const wrapper = document.createElement('div');
   wrapper.classList.add('cm-diagnosticText-inner');
 
@@ -80,7 +83,7 @@ export function renderErrorMessage(message: string): HTMLElement {
   icon.setAttribute('aria-hidden', 'true');
 
   const text = document.createElement('span');
-  text.textContent = message;
+  text.textContent = `Line ${lineNumber}: ${message}`;
 
   wrapper.append(icon, text);
 
@@ -128,7 +131,7 @@ export default async function jsonLinter(
           to: node.to,
           message,
           severity: 'error',
-          renderMessage: () => renderErrorMessage(message),
+          renderMessage: () => renderErrorMessage(message, lineNumber),
         });
 
         seenLines.add(lineNumber);
