@@ -689,7 +689,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   const selectAllCheckboxSelector =
     '#data-test-selectable-advanced-table .hds-advanced-table__thead .hds-advanced-table__th[role="columnheader"] .hds-advanced-table__checkbox';
   const rowCheckboxesSelector =
-    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__checkbox';
+    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th .hds-advanced-table__checkbox';
 
   // basic multi-select
 
