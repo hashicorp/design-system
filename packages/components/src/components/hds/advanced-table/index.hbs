@@ -9,7 +9,10 @@
       ...attributes
       role="grid"
       aria-describedby={{this._captionId}}
-      {{style grid-template-columns=this.gridTemplateColumns}}
+      {{style
+        grid-template-columns=this.gridTemplateColumns
+        --hds-advanced-table-sticky-column-offset=(concat this.stickyColumnOffset "px")
+      }}
       {{this._setUpObservers}}
     >
       {{! Caption }}
@@ -32,7 +35,7 @@
           @didInsert={{this.didInsertSelectAllCheckbox}}
           @willDestroy={{this.willDestroySelectAllCheckbox}}
           @selectionAriaLabelSuffix="all rows"
-          @hasStickyColumn={{@hasStickyColumn}}
+          @hasStickyColumn={{@hasStickyFirstColumn}}
         >
           {{#each @columns as |column index|}}
             {{#if column.isSortable}}
@@ -41,7 +44,7 @@
                 @onClickSort={{fn this.setSortBy column.key}}
                 @align={{column.align}}
                 @tooltip={{column.tooltip}}
-                @isStickyColumn={{if (and (eq index 0) @hasStickyColumn) true}}
+                @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::ThSort>
@@ -54,7 +57,7 @@
                 @onClickToggle={{this._tableModel.toggleAll}}
                 @isExpanded={{this._tableModel.expandState}}
                 @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
-                @isStickyColumn={{if (and (eq index 0) @hasStickyColumn) true}}
+                @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::Th>
@@ -117,9 +120,9 @@
                   didInsert=this.didInsertRowCheckbox
                   willDestroy=this.willDestroyRowCheckbox
                   selectionAriaLabelSuffix=@selectionAriaLabelSuffix
-                  hasStickyColumn=@hasStickyColumn
+                  hasStickyColumn=@hasStickyFirstColumn
                 )
-                Th=(component "hds/advanced-table/th" scope="row" isStickyColumn=@hasStickyColumn)
+                Th=(component "hds/advanced-table/th" scope="row" isStickyColumn=@hasStickyFirstColumn)
                 Td=(component "hds/advanced-table/td" align=@align)
                 data=record
                 rowIndex=index
@@ -130,11 +133,11 @@
         {{/each}}
       </div>
     </div>
-    {{#if @hasStickyColumn}}
+    {{#if @hasStickyFirstColumn}}
       <div class="hds-advanced-table__scroll-indicator" {{style height=(concat this.scrollIndicatorHeight "px")}} />
     {{/if}}
   </div>
-  {{#if (and @hasStickyColumn this.showScrollIndicatorLeft)}}
+  {{#if (and @hasStickyFirstColumn this.showScrollIndicatorLeft)}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
       {{style height=(concat this.scrollIndicatorHeight "px") left=(concat this.scrollIndicatorLeftOffset "px")}}

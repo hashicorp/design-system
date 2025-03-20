@@ -114,38 +114,38 @@
 
   <Shw::Text::H2>Horizontal scrolling indicators</Shw::Text::H2>
   <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
-   <Hds::AdvancedTable
-    @model={{this.model.music}}
-    @isStriped={{true}}
-    @columns={{array
-      (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
-      (hash key="album" label="Album" tooltip="More information." isSortable=true)
-      (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
-      (hash key="other" label="Additional Actions")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-        <B.Td>
-          <div class="shw-component-advanced-table-cell-content-div">
-            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
-            {{B.data.album}}
-          </div>
-        </B.Td>
-        <B.Td>
-          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
-        </B.Td>
-        <B.Td>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-          </Hds::ButtonSet>
-        </B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
+    <Hds::AdvancedTable
+      @model={{this.model.music}}
+      @isStriped={{true}}
+      @columns={{array
+        (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
+        (hash key="album" label="Album" tooltip="More information." isSortable=true)
+        (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
+        (hash key="other" label="Additional Actions")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+          <B.Td>
+            <div class="shw-component-advanced-table-cell-content-div">
+              <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+              {{B.data.album}}
+            </div>
+          </B.Td>
+          <B.Td>
+            <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+          </B.Td>
+          <B.Td>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+              <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+              <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+            </Hds::ButtonSet>
+          </B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
   </div>
 
   <Shw::Divider />
@@ -194,7 +194,7 @@
         (hash key="email" label="Email")
         (hash key="role" label="Role")
       }}
-      @hasStickyColumn={{true}}
+      @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
     >
       <:body as |B|>
@@ -223,7 +223,7 @@
         (hash key="email" label="Email")
         (hash key="role" label="Role")
       }}
-      @hasStickyColumn={{true}}
+      @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
     >
       <:body as |B|>
@@ -251,7 +251,7 @@
         (hash key="role" label="Role")
       }}
       @hasStickyHeader={{true}}
-      @hasStickyColumn={{true}}
+      @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
     >
       <:body as |B|>
