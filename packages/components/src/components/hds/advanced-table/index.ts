@@ -129,10 +129,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorLeft = false;
   @tracked scrollIndicatorRightOffset = 0;
   @tracked showScrollIndicatorRight = false;
-  @tracked showScrollIndicatorTop = false;
-  @tracked showScrollIndicatorBottom = false;
-  @tracked scrollIndicatorWidth = 0;
-  @tracked scrollIndicatorBottomOffset = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -311,6 +307,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  get scrollWrapperClassNames(): string {
+    const classes = ['hds-advanced-table__scroll-wrapper'];
+
+    if (!this.args.hasStickyColumn) {
+      classes.push('hds-advanced-table__scroll-wrapper--scroll-indicator')
+    }
+
+    return classes.join(' ')
+  }
+
   private _setUpOuter = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
 
@@ -327,11 +333,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this.scrollIndicatorHeight =
       element.clientHeight - horizontalScrollBarHeight;
 
-    this.scrollIndicatorWidth = element.clientWidth - verticalScrollBarWidth;
-
     this.scrollIndicatorRightOffset = verticalScrollBarWidth;
 
-    this.scrollIndicatorBottomOffset = horizontalScrollBarHeight;
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -374,19 +377,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       const bottomEdge = element.scrollHeight - element.clientHeight;
 
       if (element.scrollTop === bottomEdge) {
-        this.showScrollIndicatorBottom = false;
       } else if (element.scrollTop > 0) {
         if (this.args.hasStickyHeader) {
           gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
         }
-        this.showScrollIndicatorTop = true;
       } else if (element.scrollTop === 0) {
         if (this.args.hasStickyHeader) {
           gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned');
         }
-
-        this.showScrollIndicatorBottom = true;
-        this.showScrollIndicatorTop = false;
       }
     };
 
@@ -395,20 +393,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (element.clientWidth < element.scrollWidth) {
       this.showScrollIndicatorRight = true;
     }
-
-    // if (element.scrollHeight !== element.clientHeight) {
-    console.log(element);
-    console.log('element.clientHeight', element.parentElement?.clientHeight);
-    console.log('element.scrollHeight', element.scrollHeight);
-    console.log('-------------------');
-    // }
-
-    // eslint-disable-next-line ember/no-runloop
-    next(() => {
-      if (element.clientHeight < element.scrollHeight) {
-        this.showScrollIndicatorBottom = true;
-      }
-    });
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
