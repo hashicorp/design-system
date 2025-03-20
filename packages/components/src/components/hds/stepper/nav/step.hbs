@@ -32,9 +32,11 @@
           {{yield to="title"}}
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
         </Hds::Text::Body>
-        <Hds::Text::Body class="hds-stepper-nav__step-description" @tag="div" @size="100" @weight="regular">
-          {{yield to="description"}}
-        </Hds::Text::Body>
+        {{#if (has-block "description")}}
+          <Hds::Text::Body class="hds-stepper-nav__step-description" @tag="div" @size="100" @weight="regular">
+            {{yield to="description"}}
+          </Hds::Text::Body>
+        {{/if}}
       </div>
     </button>
   </li>
@@ -64,9 +66,11 @@
           {{yield to="title"}}
           <span class="sr-only">{{this.statusSrOnlyText}}</span>
         </Hds::Text::Body>
-        <Hds::Text::Body class="hds-stepper-nav__step-description" @tag="div" @size="100" @weight="regular">
-          {{yield to="description"}}
-        </Hds::Text::Body>
+        {{#if (has-block "description")}}
+          <Hds::Text::Body class="hds-stepper-nav__step-description" @tag="div" @size="100" @weight="regular">
+            {{yield to="description"}}
+          </Hds::Text::Body>
+        {{/if}}
       </div>
     </div>
   </li>

@@ -141,6 +141,13 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
 
   // DESCRIPTION
 
+  test('it does not render the description when the description contextual component block is not used', async function (assert) {
+    await render(
+      hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`
+    );
+    assert.dom('.hds-stepper-list__step-description').doesNotExist();
+  });
+
   test('it renders the description when the description contextual component block is used', async function (assert) {
     await render(
       hbs`
@@ -149,10 +156,18 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
+    assert.dom('.hds-stepper-list__step-description').exists();
     assert.dom('.hds-stepper-list__step-description').containsText('Test');
   });
 
   // CONTENT
+
+  test('it does not render the content when the content contextual component block is not used', async function (assert) {
+    await render(
+      hbs`<Hds::Stepper::List::Step></Hds::Stepper::List::Step>`
+    );
+    assert.dom('.hds-stepper-list__step-content').doesNotExist();
+  });
 
   test('it renders the content when the content contextual component block is used', async function (assert) {
     await render(
@@ -162,6 +177,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           </Hds::Stepper::List::Step>
         `
     );
+    assert.dom('.hds-stepper-list__step-content').exists();
     assert.dom('.hds-stepper-list__step-content').containsText('Test');
   });
 });
