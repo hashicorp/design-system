@@ -11,7 +11,7 @@ import { hbs } from 'ember-cli-htmlbars';
 // NOTICE
 // Because of how the `panel` subcomponent is built,
 // it's practically impossible to test in isolation, so in our tests
-// in this file it will be wrapped inside its parent comoponent.
+// in this file it will be wrapped inside its parent component.
 
 module('Integration | Component | hds/stepper/nav/panel', function (hooks) {
   setupRenderingTest(hooks);
