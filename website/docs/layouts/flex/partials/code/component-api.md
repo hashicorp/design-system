@@ -9,7 +9,7 @@
   <C.Property @name="direction" @type="enum" @values={{array "row" "column"}} @default="row">
     The value of the CSS `flex-direction` property, which sets how the flex items (children) are placed in the flex container, defining the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) and the direction (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)).
     <br/><br/>
-    <em>Notice: we don't expose the "reverse" directions because they come with intrinsic accessibility limitations that we prefer our consumers to avoid.</em>
+    <em>Note: we don't expose the "reverse" directions because they come with intrinsic accessibility limitations.</em>
   </C.Property>
   <C.Property @name="justify" @type="enum" @values={{array "start" "center" "end" "space-between" "space-around" "space-evenly"}}>
     The value of the CSS `justify-content` property, which defines how the space is distributed between and around content items along the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) of the flex container (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)).
@@ -52,22 +52,22 @@ The `Layout::Flex::Item` component, yielded as contextual component, to be used 
   <C.Property @name="basis" @type="string|0">
     The value (size) of the CSS `flex-basis` property, which sets the initial main size of the flex item (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-basis)).
     <br/><br/>
-    <em>Notice: when the value is set to `0`, a CSS class is used to apply the `flex-basis` property. In all other cases, an inline `style` declaration is used to accommodate all the possible values that this CSS property can have.</em>
+    <em>Note: when the value is set to `0`, a CSS class is used to apply the `flex-basis` property. In all other cases, an inline `style` declaration is used to accommodate all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="grow" @type="boolean|number|string">
     The value (size or keyword) of the CSS `flex-grow` property, which sets the flex grow factor of the flex item (for a technical explanation:  [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)).
     <br/><br/>
-    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-grow` property. In all other cases, an inline `style` declaration is used, to accommodate all the possible values that this CSS property can have.</em>
+    <em>Note: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-grow` property. In all other cases, an inline `style` declaration is used, to accommodate all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="shrink" @type="boolean|number|string">
     The value (size or keyword) of the CSS `flex-shrink` property, which sets sets the flex shrink factor of the flex item (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)).
     <br/><br/>
-    <em>Notice: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-shrink` property. In all other cases, an inline `style` declaration is used, to accommodate all the possible values that this CSS property can have.</em>
+    <em>Note: when the value is set to `true/false` or `0/1` a CSS class is used to apply the `flex-shrink` property. In all other cases, an inline `style` declaration is used, to accommodate all the possible values that this CSS property can have.</em>
   </C.Property>
   <C.Property @name="enableCollapseBelowContentSize" @type="boolean">
     When this special argument is set to `true`, it applies `min-width: 0` to the element, allowing the flex item to shrink below its content's intrinsic minimum width (e.g., used with text truncated with ellipses)
     <br/><br/>
-    <em>Notice: this may have accessibility implications; be considerate in how this special argument is used and how this impacts the content of the flex item element.</em>
+    <em>Note: this may have accessibility implications; be considerate in how this special argument is used and how this impacts the content of the flex item element.</em>
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.

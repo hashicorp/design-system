@@ -38,7 +38,7 @@ There are cases in which it is necessary to wrap one or more child elements in a
 
 !!! Info
 
-Note: there is no strict need to use the `Layout::Flex::Item` subcomponent as a direct child of `Layout::Flex`; use it only when necessary to tweak flex styles of an individual child item via the `@basis/@grow/@shrink` (to avoid rendering an extra Ember component).
+Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
 
 !!!
 
@@ -72,7 +72,7 @@ To specify in which [direction](https://developer.mozilla.org/en-US/docs/Web/CSS
 </Hds::Layout::Flex>
 ```
 
-_Note: we don't expose the `reverse` directions because they come with intrinsic accessibility limitations that we prefer our consumers to avoid._
+_Note: we don't expose the `reverse` directions because they come with intrinsic accessibility limitations by changing the visual order of elements on the page from the DOM order._
 
 📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `direction` property can be used to implement specific layouts.
 
@@ -88,7 +88,7 @@ To specify how the flex items are spaced and aligned, use the `@justify` and `al
 
 These arguments correspond to the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) and [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) flexbox properties in CSS.
 
-_Note: we don't expose all the possible values for `justify-content`/`align-items`, only the most commonly used ones. Refer to the [Component API](#component-api) section for details on which values are accepted._
+_Note: we only expose the most commonly used values for `justify-content`/`align-items`. Refer to the [Component API](#component-api) section for details on which values are accepted._
 
 📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `justify-content`/`align-items` properties can be used to implement specific layouts.
 
@@ -362,7 +362,7 @@ If one of the flex items has an intrinsic height larger than the other flex item
 
 This behavior is due to the default behavior of the flexbox layout model, and depends on the CSS `display` of those items.
 
-To avoid this, one has to choose a non-stretching alignment for the items:
+To avoid this, one can choose a non-stretching alignment for the items.
 
 ```handlebars
 <Hds::Layout::Flex @align="start" @gap="16" class="doc-flex-outlined-container" as |LF|>
