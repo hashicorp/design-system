@@ -12,10 +12,12 @@ export async function initialize(
   }
 ) {
   if (
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     config?.emberFlightIcons?.lazyEmbed &&
     // we use this flag to avoid loading the sprite multiple times
     appInstance.__flightIconsSpriteLoaded !== true
   ) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { default: svgSprite } = await import(
       // @ts-expect-error: missing types
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
@@ -23,11 +25,14 @@ export async function initialize(
 
     // in test environments we can inject the sprite directly into the ember testing container
     // to avoid issues with tools like Percy that only consider content inside that element
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     if (config.environment === 'test') {
       window.document
         ?.getElementById('ember-testing')
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         ?.insertAdjacentHTML('afterbegin', svgSprite);
     } else {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
     }
 

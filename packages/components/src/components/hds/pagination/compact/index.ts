@@ -165,6 +165,7 @@ export default class HdsPaginationCompact extends Component<HdsPaginationCompact
     const { pageSizes = DEFAULT_PAGE_SIZES } = this.args;
 
     assert(
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `pageSizes argument must be an array. Received: ${pageSizes}`,
       Array.isArray(pageSizes) === true && pageSizes.length > 0
     );

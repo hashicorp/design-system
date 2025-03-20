@@ -7,7 +7,6 @@
 // FORM > SELECT
 //
 
-
 // "BASE" CONTROL
 
 .hds-form-select {
@@ -18,13 +17,13 @@
   background-color: var(--token-form-control-base-surface-color-default);
   background-image: var(--token-form-select-background-image-data-url);
   background-repeat: no-repeat;
-  background-position: right var(--token-form-select-background-image-position-right-x) top var(--token-form-select-background-image-position-top-y); // we have to take into account the border
+  background-position: right var(--token-form-select-background-image-position-right-x) top
+    var(--token-form-select-background-image-position-top-y); // we have to take into account the border
   background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
   border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
   border-radius: var(--token-form-control-border-radius);
   box-shadow: var(--token-elevation-low-box-shadow);
   appearance: none;
-
 
   // STATUS
 

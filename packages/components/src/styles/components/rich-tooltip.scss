@@ -53,12 +53,7 @@
     --icon-color: var(--token-color-foreground-faint);
   }
 
-  @include hds-focus-ring-with-pseudo-element(
-    $top: -2px,
-    $right: -2px,
-    $bottom: -2px,
-    $left: -2px
-  );
+  @include hds-focus-ring-with-pseudo-element($top: -2px, $right: -2px, $bottom: -2px, $left: -2px);
 }
 
 // decorated text
@@ -233,7 +228,6 @@
       opacity: 0;
     }
   }
-
 
   @starting-style {
     &[popover].\:popover-open {

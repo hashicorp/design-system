@@ -27,9 +27,9 @@ export interface HdsSideNavSignature {
      * @deprecated The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button
      */
     ariaLabel?: string | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     onToggleMinimizedStatus?: (arg: boolean) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
     onDesktopViewportChange?: (arg: boolean) => void;
   };
   Blocks: {
@@ -98,7 +98,9 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
   }
 
   addEventListeners(): void {
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.addEventListener('keydown', this.escapePress, true);
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     this.desktopMQ.addEventListener('change', this.updateDesktopVariable, true);
     // if not instantiated as minimized via arguments
     if (!this.args.isMinimized) {
@@ -112,9 +114,11 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
   }
 
   removeEventListeners(): void {
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.removeEventListener('keydown', this.escapePress, true);
     this.desktopMQ.removeEventListener(
       'change',
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       this.updateDesktopVariable,
       true
     );
