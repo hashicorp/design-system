@@ -206,9 +206,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
   // DESCRIPTION
 
   test('it does not render the description when the description contextual component block is not used', async function (assert) {
-    await render(
-      hbs`<Hds::Stepper::Nav::Step></Hds::Stepper::Nav::Step>`
-    );
+    await render(hbs`<Hds::Stepper::Nav::Step></Hds::Stepper::Nav::Step>`);
     assert.dom('.hds-stepper-nav__step-description').doesNotExist();
   });
 
