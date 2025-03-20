@@ -32,15 +32,15 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
   private _setUpPanel = modifier(
     (
       element: HTMLElement,
-      [insertCallbackFunction, destoryCallbackFunction]
+      [insertCallbackFunction, destroyCallbackFunction]
     ) => {
       if (typeof insertCallbackFunction === 'function') {
         insertCallbackFunction(element);
       }
 
       return () => {
-        if (typeof destoryCallbackFunction === 'function') {
-          destoryCallbackFunction(element);
+        if (typeof destroyCallbackFunction === 'function') {
+          destroyCallbackFunction(element);
         }
       };
     }

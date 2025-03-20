@@ -10,13 +10,14 @@ import { modifier } from 'ember-modifier';
 
 import {
   HdsStepperStatusesValues,
+  HdsStepperStatusToSrOnlyText,
   HdsStepperTitleTagValues,
 } from '../types.ts';
-import {
-  type HdsStepperStatuses,
-  type HdsStepperTitleTags,
-  type HdsStepperListStepIds,
-  HdsStepperStatusToSrOnlyText,
+
+import type {
+  HdsStepperListStepIds,
+  HdsStepperStatuses,
+  HdsStepperTitleTags,
 } from '../types.ts';
 
 export const DEFAULT_STATUS = HdsStepperStatusesValues.Incomplete;
@@ -45,15 +46,15 @@ export default class HdsStepperListStep extends Component<HdsStepperListStepSign
   private _setUpStep = modifier(
     (
       element: HTMLElement,
-      [insertCallbackFunction, destoryCallbackFunction]
+      [insertCallbackFunction, destroyCallbackFunction]
     ) => {
       if (typeof insertCallbackFunction === 'function') {
         insertCallbackFunction(element);
       }
 
       return () => {
-        if (typeof destoryCallbackFunction === 'function') {
-          destoryCallbackFunction(element);
+        if (typeof destroyCallbackFunction === 'function') {
+          destroyCallbackFunction(element);
         }
       };
     }

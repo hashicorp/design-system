@@ -7,25 +7,29 @@
 // STEPPER > LIST
 //
 
-$hds-stepper-list-step-padding-bottom: 16px;
+$hds-stepper-list-gap-spacing: 16px;
+
+.hds-stepper-list {
+  display: flex;
+  flex-direction: column;
+  gap: $hds-stepper-list-gap-spacing;
+}
 
 .hds-stepper-list,
 .hds-stepper-list__step {
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style-type: none;
 }
 
 // SUB COMPONENT: STEPPER > LIST > STEP
 
 .hds-stepper-list__step {
   display: grid;
-  grid-column-gap: 8px;
   grid-template-columns: auto 1fr;
+  gap: 8px;
 
   &:not(:last-of-type) {
-    padding-bottom: $hds-stepper-list-step-padding-bottom;
-
     .hds-stepper-list__step-progress {
       &::before,
       &::after {
@@ -37,11 +41,13 @@ $hds-stepper-list-step-padding-bottom: 16px;
         content: "";
       }
 
+      // Progress Bar - background line
       &::before {
-        height: calc(100% + $hds-stepper-list-step-padding-bottom);
+        height: calc(100% + $hds-stepper-list-gap-spacing);
         background: linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%), var(--token-color-palette-neutral-100);
       }
 
+      // Progress bar - completed line
       &::after {
         background-color: var(--token-color-palette-neutral-700);
       }
@@ -51,20 +57,15 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
 .hds-stepper-list__step-progress {
   position: relative;
-  z-index: 0;
+  isolation: isolate;
 }
 
 .hds-stepper-list__step-text {
   margin-top: 2px;
 }
 
-.hds-stepper-list__step-title {
-  color: var(--token-color-foreground-strong);
-}
-
 .hds-stepper-list__step-description {
   margin-top: 4px;
-  color: var(--token-color-foreground-primary);
 }
 
 .hds-stepper-list__step-content {
@@ -73,24 +74,16 @@ $hds-stepper-list-step-padding-bottom: 16px;
 
 // STATUSES
 
-// Complete & Active
-
-.hds-stepper-list__step--complete .hds-stepper-list__step-title,
-.hds-stepper-list__step--progress .hds-stepper-list__step-title,
-.hds-stepper-list__step--processing .hds-stepper-list__step-title {
-  color: var(--token-color-foreground-strong);
-}
-
 // Complete
 
 .hds-stepper-list__step {
   &:not(:last-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
-    height: calc(100% + $hds-stepper-list-step-padding-bottom - 4px);
+    height: calc(100% + $hds-stepper-list-gap-spacing - 4px);
   }
 
   &:not(:last-of-type, :first-of-type).hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
     top: -4px;
-    height: calc(100% + $hds-stepper-list-step-padding-bottom);
+    height: calc(100% + $hds-stepper-list-gap-spacing);
   }
 
   &:not(:first-of-type):last-of-type.hds-stepper-list__step--complete .hds-stepper-list__step-progress::after {
@@ -104,7 +97,7 @@ $hds-stepper-list-step-padding-bottom: 16px;
     content: "";
   }
 
-  // Border radius for progress line if completed step is followed by a step that is not complete
+  // Border radius for progress bar line if completed step is followed by a step that is not complete
   &.hds-stepper-list__step--complete:has(+ :not(.hds-stepper-list__step--complete)) {
     .hds-stepper-list__step-progress::after {
       border-radius: 0 0 var(--token-border-radius-x-small) var(--token-border-radius-x-small);
