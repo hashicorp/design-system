@@ -61,6 +61,10 @@ $progress-bar-animation-duration: .25s;
   width: 100%;
 }
 
+.hds-stepper-nav__step-button {
+  border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
+}
+
 .hds-stepper-nav__step-content {
   position: relative;
   display: flex;
@@ -86,7 +90,6 @@ $progress-bar-animation-duration: .25s;
   flex-direction: column;
   align-items: center;
   padding: 16px 8px 12px 8px;
-  border-radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium);
 }
 
 .hds-stepper-nav__step-title {
@@ -117,16 +120,6 @@ $progress-bar-animation-duration: .25s;
 // Active
 
 .hds-stepper-nav__step--active {
-  .hds-stepper-nav__step-button {
-    @include hds-focus-ring-with-pseudo-element(
-      $top: -3px,
-      $right: -1px,
-      $bottom: -1px,
-      $left: -1px,
-      $radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
-    );
-  }
-
   .hds-stepper-indicator-step__svg-hexagon path,
   .hds-stepper-indicator-step__status,
   .hds-stepper-nav__step-title {
@@ -154,6 +147,15 @@ $progress-bar-animation-duration: .25s;
     text-underline-position: from-font;
   }
 
+  .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0 0 var(--token-border-radius-medium) var(--token-border-radius-medium)
+    );
+  }
 }
 
 // INTERACTIVE
@@ -171,9 +173,7 @@ $progress-bar-animation-duration: .25s;
 
     &:hover,
     &.mock-hover {
-      .hds-stepper-nav__step-text {
-        background-color: var(--token-color-surface-interactive-hover);
-      }
+      background-color: var(--token-color-surface-interactive-hover);
 
       .hds-stepper-nav__step-title {
         color: var(--token-color-foreground-action-hover);
@@ -182,9 +182,7 @@ $progress-bar-animation-duration: .25s;
 
     &:active,
     &.mock-active {
-      .hds-stepper-nav__step-text {
-        background-color: var(--token-color-surface-interactive-active);
-      }
+      background-color: var(--token-color-surface-interactive-active);
 
       .hds-stepper-nav__step-title {
         color: var(--token-color-foreground-action-active);
@@ -348,17 +346,38 @@ $progress-bar-animation-duration: .25s;
     flex-direction: column;
   }
 
-  .hds-stepper-nav__step:not(:last-of-type) {
-    margin-bottom: 16px;
+  .hds-stepper-nav__step-content {
+    padding: 8px;
+    border-radius: 0;
   }
 
   .hds-stepper-nav__step-progress {
-    top: -12px;
-    left: 8px;
+    position: static;
     justify-content: start;
   }
 
   .hds-stepper-nav__step-text {
     align-items: start;
+    margin-top: 4px;
+    padding: 0;
+  }
+
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--interactive .hds-stepper-nav__step-button,
+  .hds-stepper-nav--interactive .hds-stepper-nav__step--active .hds-stepper-nav__step-button {
+    @include hds-focus-ring-with-pseudo-element(
+      $top: -3px,
+      $right: -1px,
+      $bottom: -1px,
+      $left: -1px,
+      $radius: 0
+    );
+  }
+
+  .hds-stepper-nav__step--active {
+    .hds-stepper-indicator-step__svg-hexagon path,
+    .hds-stepper-indicator-step__status,
+    .hds-stepper-nav__step-title {
+      transition: none;
+    }
   }
 }
