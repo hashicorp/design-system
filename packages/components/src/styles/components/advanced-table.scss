@@ -27,6 +27,81 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   overflow: auto;
 }
 
+.hds-advanced-table__scroll-wrapper--scroll-indicator {
+  background:
+  linear-gradient(to right, transparent 30%, rgba(255,255,255,0%)),
+  linear-gradient(to right, rgba(255,255,255,0%), white 70%) 0 100%,
+  radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,20%), rgba(0,0,0,0%)),
+  radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,20%), rgba(0,0,0,0%)) 0 100%;
+background-color: #fff;
+background-repeat: no-repeat;
+background-position: 0 0, 100%, 0 0, 100%;
+background-size: 4em 100%, 4em 100%, 1.4em 100%, 1.4em 100%;
+background-attachment: local, local, scroll, scroll;
+  // background:
+  //   /* Shadow Cover TOP */
+  //   linear-gradient(
+  //     white 30%,
+  //     rgba(255, 255, 255, 0%)
+  //   ) center top,
+    
+  //   /* Shadow Cover BOTTOM */
+  //   linear-gradient(
+  //     rgba(255, 255, 255, 0%), 
+  //     white 70%
+  //   ) center bottom,
+    
+  //   /* Shadow TOP */
+  //   radial-gradient(
+  //     farthest-side at 50% 0,
+  //     rgba(0, 0, 0, 20%),
+  //     rgba(0, 0, 0, 0%)
+  //   ) center top,
+    
+  //   /* Shadow BOTTOM */
+  //   radial-gradient(
+  //     farthest-side at 50% 100%,
+  //     rgba(0, 0, 0, 20%),
+  //     rgba(0, 0, 0, 0%)
+  //   ) center bottom;
+  
+  // background-repeat: no-repeat;
+  // background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+  // background-attachment: local, local, scroll, scroll;
+  // background:
+  //   /* Shadow Cover LEFT */
+  //   linear-gradient(
+  //     #fff 100%,
+  //     rgba(255, 255, 255, 0%)
+  //     ) left,
+
+  //   /* Shadow Cover RIGHT */
+  //   linear-gradient(
+  //     rgba(255, 255, 255, 0%), 
+  //     #fff 0%
+  //     ) right,
+
+  //   /* Shadow LEFT */
+  //   radial-gradient(
+  //     farthest-side at 0 50%,
+  //     rgba(0, 0, 0, 20%),
+  //     rgba(0, 0, 0, 0%)
+  //   ) left,
+
+  //   /* Shadow RIGHT */
+  //   radial-gradient(
+  //     farthest-side at 100% 50%,
+  //     rgba(0, 0, 0, 20%),
+  //     rgba(0, 0, 0, 0%)
+  //   ) right;
+
+  // background-repeat: no-repeat;
+  // background-position: left center, right center, left center, right center;
+  // background-size: 24px 100%, 24px 100%, 24px 100%, 24px 100%;
+  // // background-size: 20% 200%, 20% 200%, 8% 400%, 8% 400%;
+  // background-attachment: local, local, scroll, scroll;
+}
+
 .hds-advanced-table {
   display: grid;
   align-items: center;
@@ -65,12 +140,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
       &:focus,
       &.mock-hover {
-        @include hds-focus-ring-with-pseudo-element(
-          $top: -1px,
-          $right: -1px,
-          $bottom: -1px,
-          $left: -1px
-        );
+        @include hds-focus-ring-basic()
+        // @include hds-focus-ring-with-pseudo-element(
+        //   $top: -1px,
+        //   $right: -1px,
+        //   $bottom: -1px,
+        //   $left: -1px
+        // );
       }
     }
 
@@ -101,8 +177,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
       left: 50px;
+      border-right: 3px solid $hds-advanced-table-border-color;
     }
-
     // border radius: target first and last th elements in the row
 
     &:first-of-type {
@@ -281,12 +357,13 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     background-color: var(--token-color-surface-primary);
 
     &:focus {
-      @include hds-focus-ring-with-pseudo-element(
-        $top: -1px,
-        $right: -1px,
-        $bottom: -1px,
-        $left: -1px
-      );
+      @include hds-focus-ring-basic()
+      // @include hds-focus-ring-with-pseudo-element(
+      //   $top: -1px,
+      //   $right: -1px,
+      //   $bottom: -1px,
+      //   $left: -1px
+      // );
     }
 
     // density
@@ -312,6 +389,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
     left: 50px;
+    border-right: 3px solid $hds-advanced-table-border-color;
   }
 
   // horizontal alignment
@@ -400,29 +478,16 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 .hds-advanced-table__scroll-indicator {
   position: absolute;
+  top: 0;
   // z-index: 5;
-  width: 5px;
+  width: 8px;
 }
 
 .hds-advanced-table__scroll-indicator-left {
-  top: 0;
-  background: linear-gradient(to right, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
+  // box-shadow: var(--token-elevation-mid-box-shadow)
+  background: linear-gradient(to left, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
 }
 
 .hds-advanced-table__scroll-indicator-right {
-  top: 0;
-  background: linear-gradient(to left, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
-}
-
-.hds-advanced-table__scroll-indicator-bottom {
-  left: 0;
-  height: 5px;
-  background: linear-gradient(to top, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
-}
-
-.hds-advanced-table__scroll-indicator-top {
-  top: 0;
-  left: 0;
-  height: 5px;
-  background: linear-gradient(to bottom, rgba(168, 168, 168, 40%), rgba(168, 168, 168, 0%));
+  background: linear-gradient(to right, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
 }
