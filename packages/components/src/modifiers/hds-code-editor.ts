@@ -10,7 +10,8 @@ import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
-import { HdsCodeEditorLanguageValues } from './hds-code-editor/types.ts';
+import { guidFor } from '@ember/object/internals';
+import { isEmpty } from '@ember/utils';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -255,15 +256,47 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _setupEditorAriaDescribedBy(
     editor: EditorViewType,
-    ariaDescribedBy?: string
+    {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    }: {
+      ariaDescribedBy?: string;
+      lintingDescriptionElement?: HTMLParagraphElement;
+    }
   ) {
-    if (ariaDescribedBy === undefined) {
+    if (
+      ariaDescribedBy === undefined &&
+      lintingDescriptionElement === undefined
+    ) {
       return;
+    }
+
+    const ariaDescribedByArray = [];
+
+    if (ariaDescribedBy !== undefined) {
+      ariaDescribedByArray.push(ariaDescribedBy);
+    }
+
+    if (lintingDescriptionElement !== undefined) {
+      ariaDescribedByArray.push(lintingDescriptionElement.id);
     }
 
     editor.dom
       .querySelector('[role="textbox"]')
-      ?.setAttribute('aria-describedby', ariaDescribedBy);
+      ?.setAttribute('aria-describedby', ariaDescribedByArray.join(' '));
+  }
+
+  private _createLintingDescriptionElement(): HTMLParagraphElement {
+    const element = document.createElement('p');
+
+    element.id = `lint-panel-instructions-${this.element.id}`;
+    element.classList.add('sr-only');
+    element.textContent =
+      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) to open the linting panel';
+
+    this.element.insertAdjacentElement('beforebegin', element);
+
+    return element;
   }
 
   private _setupEditorAriaAttributes(
@@ -272,13 +305,17 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ariaDescribedBy,
       ariaLabel,
       ariaLabelledBy,
+      lintingDescriptionElement,
     }: Pick<
       HdsCodeEditorSignature['Args']['Named'],
       'ariaDescribedBy' | 'ariaLabel' | 'ariaLabelledBy'
-    >
+    > & { lintingDescriptionElement?: HTMLParagraphElement }
   ) {
     this._setupEditorAriaLabel(editor, { ariaLabel, ariaLabelledBy });
-    this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
+    this._setupEditorAriaDescribedBy(editor, {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    });
   }
 
   private _loadLanguageExtensionsTask = task(
@@ -518,6 +555,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.onBlur = onBlur;
 
       this.element = element;
+      this.element.id = isEmpty(this.element.id)
+        ? guidFor(this)
+        : this.element.id;
 
       const editor = await this._createEditorTask.perform(element, {
         onLint,
@@ -538,19 +578,23 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         this._setupEditorBlurHandler(element, onBlur);
       }
 
-      this._setupEditorAriaAttributes(editor, {
-        ariaDescribedBy,
-        ariaLabel,
-        ariaLabelledBy,
-      });
+      let lintingDescriptionElement: HTMLParagraphElement | null = null;
 
       if (
         isLintingEnabled &&
         language !== undefined &&
         LANGUAGES[language]?.loadLinter !== undefined
       ) {
-        this._setupEditorMutationObserver();
+        // insert a new dom element above the editor
+        lintingDescriptionElement = this._createLintingDescriptionElement();
       }
+
+      this._setupEditorAriaAttributes(editor, {
+        ariaDescribedBy,
+        ariaLabel,
+        ariaLabelledBy,
+        lintingDescriptionElement: lintingDescriptionElement ?? undefined,
+      });
 
       onSetup?.(this.editor);
     }

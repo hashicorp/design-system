@@ -140,8 +140,24 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
   });
 
-  // the lint panel should open, close, and set focus correctly
-  test('it should return focus to the editor when the linting panel is closed', async function (assert) {
+  // isLintingEnabled
+  test('it should set an aria-description with instructions when isLintingEnabled is true', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json"}} />`
+    );
+
+    const editorDescribedBy = document
+      .querySelector('.cm-editor [role="textbox"]')
+      .getAttribute('aria-describedby');
+
+    assert
+      .dom(`#${editorDescribedBy}`)
+      .includesText(
+        'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) to open the linting panel',
+        'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel'
+      );
+  });
+  test('the lint panel should open, close, and set focus correctly', async function (assert) {
     await setupCodeEditor(
       hbs`<div
   id='code-editor-wrapper'
