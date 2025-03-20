@@ -24,7 +24,7 @@ export const IconTerraformColor24 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill="#7B42BC" fillRule="evenodd" clipRule="evenodd">
-                    <path d="M8.893 4.617l6.214 3.598v7.2l-6.214-3.6V4.617zM15.788 8.215v7.2l6.212-3.6V4.617l-6.212 3.598zM2 .6v7.197l6.212 3.6V4.199L2 .6zM8.893 19.8l6.212 3.6v-7.197l-6.212-3.6V19.8z" />
+                    <path d="M8.893 4.617l6.214 3.598v7.2l-6.214-3.6V4.618zM15.788 8.215v7.2l6.212-3.6V4.618l-6.212 3.597zM2 .6v7.197l6.212 3.6V4.199L2 .6zM8.893 19.8l6.212 3.6v-7.197l-6.212-3.6V19.8z" />
                 </g>
             </svg>
         );

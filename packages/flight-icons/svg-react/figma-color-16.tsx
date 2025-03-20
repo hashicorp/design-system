@@ -25,7 +25,7 @@ export const IconFigmaColor16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill="#1ABCFE"
-                    d="M8.55 8c0-1.289 1.019-2.333 2.275-2.333C12.082 5.667 13.1 6.71 13.1 8c0 1.289-1.018 2.333-2.275 2.333C9.57 10.333 8.55 9.29 8.55 8z"
+                    d="M8.55 8c0-1.289 1.019-2.333 2.275-2.333S13.1 6.71 13.1 8c0 1.289-1.019 2.333-2.275 2.333S8.55 9.29 8.55 8z"
                 />
                 <path
                     fill="#0ACF83"

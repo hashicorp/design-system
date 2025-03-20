@@ -31,7 +31,7 @@ export const IconBitbucketColor24 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="url(#bitbucket-color-24__paint0_linear_707_129)"
-                    d="M21.138 9.05h-6.005l-1.001 5.897H9.918L5.011 20.79a.871.871 0 00.56.21h13.085c.315 0 .583-.23.634-.54l1.848-11.41z"
+                    d="M21.138 9.05h-6.005l-1.001 5.897H9.918L5.011 20.79a.871.871 0 00.56.21h13.085c.315 0 .583-.23.633-.54l1.849-11.41z"
                 />
                 <defs>
                     <linearGradient

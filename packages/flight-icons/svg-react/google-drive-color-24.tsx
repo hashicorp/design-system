@@ -37,7 +37,7 @@ export const IconGoogleDriveColor24 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="#00832D"
-                    d="M12 8.77l3.15-5.493A2.003 2.003 0 0014.119 3H9.881c-.367 0-.722.104-1.031.277L12 8.769z"
+                    d="M12 8.77l3.15-5.493A2.003 2.003 0 0014.119 3H9.881a2.12 2.12 0 00-1.031.277L12 8.769z"
                 />
                 <path
                     fill="#2684FC"
