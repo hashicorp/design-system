@@ -127,8 +127,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked scrollIndicatorHeight = 0;
   @tracked scrollIndicatorLeftOffset = 0;
   @tracked showScrollIndicatorLeft = false;
-  @tracked scrollIndicatorRightOffset = 0;
-  @tracked showScrollIndicatorRight = false;
+  // @tracked scrollIndicatorRightOffset = 0;
+  // @tracked showScrollIndicatorRight = false;
   @tracked stickyColumnOffset: number = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -328,13 +328,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const horizontalScrollBarHeight =
       scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
 
-    const verticalScrollBarWidth =
-      scrollWrapper?.offsetWidth - scrollWrapper?.clientWidth;
+    // const verticalScrollBarWidth =
+    //   scrollWrapper?.offsetWidth - scrollWrapper?.clientWidth;
 
     this.scrollIndicatorHeight =
       element.clientHeight - horizontalScrollBarHeight;
 
-    this.scrollIndicatorRightOffset = verticalScrollBarWidth;
+    // this.scrollIndicatorRightOffset = verticalScrollBarWidth;
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -360,17 +360,17 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         this.showScrollIndicatorLeft = false;
       }
 
-      // right scroll indicator
-      const rightEdge = element.scrollWidth - element.clientWidth;
+      // // right scroll indicator
+      // const rightEdge = element.scrollWidth - element.clientWidth;
 
-      if (element.scrollLeft < rightEdge && !this.showScrollIndicatorRight) {
-        this.showScrollIndicatorRight = true;
-      } else if (
-        element.scrollLeft === rightEdge &&
-        this.showScrollIndicatorRight
-      ) {
-        this.showScrollIndicatorRight = false;
-      }
+      // if (element.scrollLeft < rightEdge && !this.showScrollIndicatorRight) {
+      //   this.showScrollIndicatorRight = true;
+      // } else if (
+      //   element.scrollLeft === rightEdge &&
+      //   this.showScrollIndicatorRight
+      // ) {
+      //   this.showScrollIndicatorRight = false;
+      // }
 
       // sticky header styles
 
@@ -387,9 +387,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     element.addEventListener('scroll', this._scrollHandler);
 
-    if (element.clientWidth < element.scrollWidth) {
-      this.showScrollIndicatorRight = true;
-    }
+    // if (element.clientWidth < element.scrollWidth) {
+    //   this.showScrollIndicatorRight = true;
+    // }
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
