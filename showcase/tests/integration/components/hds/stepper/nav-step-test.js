@@ -205,8 +205,16 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
 
   // DESCRIPTION
 
+  test('it does not render the description when the description contextual component block is not used', async function (assert) {
+    await render(
+      hbs`<Hds::Stepper::Nav::Step></Hds::Stepper::Nav::Step>`
+    );
+    assert.dom('.hds-stepper-nav__step-description').doesNotExist();
+  });
+
   test('it renders the description when the description contextual component block is used', async function (assert) {
     await this.createNavStep({ description: 'Test' });
+    assert.dom('.hds-stepper-nav__step-description').exists();
     assert.dom('.hds-stepper-nav__step-description').containsText('Test');
   });
 });
