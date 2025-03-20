@@ -66,7 +66,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasStickyHeader?: boolean;
-    hasStickyColumn?: boolean;
+    hasStickyFirstColumn?: boolean;
     childrenKey?: string;
   };
   Blocks: {
@@ -129,6 +129,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorLeft = false;
   @tracked scrollIndicatorRightOffset = 0;
   @tracked showScrollIndicatorRight = false;
+  @tracked stickyColumnOffset: number = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -181,7 +182,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get hasScrollIndicator(): boolean {
-    if (this.args.hasStickyColumn) {
+    if (this.args.hasStickyFirstColumn) {
       return true;
     }
 
@@ -310,11 +311,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get scrollWrapperClassNames(): string {
     const classes = ['hds-advanced-table__scroll-wrapper'];
 
-    if (!this.args.hasStickyColumn) {
-      classes.push('hds-advanced-table__scroll-wrapper--scroll-indicator')
+    if (!this.args.hasStickyFirstColumn) {
+      classes.push('hds-advanced-table__scroll-wrapper--scroll-indicator');
     }
 
-    return classes.join(' ')
+    return classes.join(' ');
   }
 
   private _setUpOuter = modifier((element: HTMLDivElement) => {
@@ -334,7 +335,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       element.clientHeight - horizontalScrollBarHeight;
 
     this.scrollIndicatorRightOffset = verticalScrollBarWidth;
-
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -345,14 +345,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       // left scroll indicator + sticky column header styles
       if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
-        if (this.args.hasStickyColumn) {
+        if (this.args.hasStickyFirstColumn) {
           gridHeader?.classList.add(
             'hds-advanced-table__thead--column-is-pinned'
           );
         }
         this.showScrollIndicatorLeft = true;
       } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
-        if (this.args.hasStickyColumn) {
+        if (this.args.hasStickyFirstColumn) {
           gridHeader?.classList.remove(
             'hds-advanced-table__thead--column-is-pinned'
           );
@@ -374,10 +374,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       // sticky header styles
 
-      const bottomEdge = element.scrollHeight - element.clientHeight;
-
-      if (element.scrollTop === bottomEdge) {
-      } else if (element.scrollTop > 0) {
+      if (element.scrollTop > 0) {
         if (this.args.hasStickyHeader) {
           gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
         }
@@ -402,19 +399,29 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _setUpObservers = modifier((element: HTMLDivElement) => {
     this._gridElement = element;
 
-    const gridHeader = element.querySelector('.hds-advanced-table__thead');
+    if (this.args.hasStickyFirstColumn) {
+      const gridHeader = element.querySelector('.hds-advanced-table__thead');
+      const stickyColumnHeaders = gridHeader?.querySelectorAll(
+        '.hds-advanced-table__th--is-sticky-column'
+      );
 
-    const stickyColumnHeaders = gridHeader?.querySelectorAll(
-      '.hds-advanced-table__th--is-sticky-column'
-    );
+      let newScrollOffset = 0;
+      let newStickyOffset = 0;
 
-    let newLeftOffset = 0;
+      stickyColumnHeaders?.forEach((elem) => {
+        // querySelectorAll returns Elements, which don't have offsetWidth
+        // need to use offsetWidth to account for the cell borders
+        const elemAsHTMLElement = elem as HTMLElement;
 
-    stickyColumnHeaders?.forEach((elem) => {
-      newLeftOffset += elem.clientWidth;
-    });
+        newScrollOffset += elemAsHTMLElement.offsetWidth;
+        if (elem.classList.contains('hds-advanced-table__th--is-selectable')) {
+          newStickyOffset = elemAsHTMLElement.offsetWidth;
+        }
+      });
 
-    this.scrollIndicatorLeftOffset = newLeftOffset + 2;
+      this.scrollIndicatorLeftOffset = newScrollOffset;
+      this.stickyColumnOffset = newStickyOffset;
+    }
 
     // if ((this.args.hasStickyHeader || this.args.hasStickyColumn) && gridHeader) {
     //   this._intersectionObserver = new IntersectionObserver(
@@ -433,6 +440,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return () => {
       this.scrollIndicatorLeftOffset = 0;
+      this.stickyColumnOffset = 0;
     };
   });
 

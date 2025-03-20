@@ -141,12 +141,6 @@ background-attachment: local, local, scroll, scroll;
       &:focus,
       &.mock-hover {
         @include hds-focus-ring-basic()
-        // @include hds-focus-ring-with-pseudo-element(
-        //   $top: -1px,
-        //   $right: -1px,
-        //   $bottom: -1px,
-        //   $left: -1px
-        // );
       }
     }
 
@@ -170,17 +164,37 @@ background-attachment: local, local, scroll, scroll;
       }
     }
 
+
+    // Sticky column
+    &.hds-advanced-table__thead--column-is-pinned {
+      .hds-advanced-table__tr {
+        &:first-of-type {
+          .hds-advanced-table__th:first-child {
+            border-top-left-radius: 0;
+          }
+  
+          .hds-advanced-table__th:last-child {
+            border-top-right-radius: 0;
+          }
+        }
+      }
+    }
+
     .hds-advanced-table__th--is-sticky-column {
       position: sticky;
       left: 0;
     }
 
-    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
-      left: 50px;
+    // Only apply the thick border to the last sticky column
+    .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
       border-right: 3px solid $hds-advanced-table-border-color;
     }
-    // border radius: target first and last th elements in the row
 
+    .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
+      // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
+      left: var(--hds-advanced-table-sticky-column-offset, 0);
+    }
+    // border radius: target first and last th elements in the row
     &:first-of-type {
       .hds-advanced-table__th:first-child {
         border-top-left-radius: $hds-advanced-table-inner-border-radius;
@@ -195,36 +209,18 @@ background-attachment: local, local, scroll, scroll;
   // sticky header
   &.hds-advanced-table__thead--sticky {
     position: sticky;
-    top: 0;
+    top: -1px;
     z-index: 5;
-    background-color: var(--token-color-surface-strong);
     // need to subtract width of cell top border for default state, otherwise border of header+cell is 3.5px
     border-bottom: calc(3px - #{$hds-advanced-table-border-width} / 2) solid $hds-advanced-table-border-color;
   }
 
   &.hds-advanced-table__thead--is-pinned {
-    border-top: calc(#{$hds-advanced-table-border-width} / 2) solid
-      $hds-advanced-table-border-color;
-    border-bottom: 3px solid $hds-advanced-table-border-color;
-
-    .hds-advanced-table__tr {
-      &:first-of-type {
-        .hds-advanced-table__th:first-child {
-          border-top-left-radius: 0;
-        }
-
-        .hds-advanced-table__th:last-child {
-          border-top-right-radius: 0;
-        }
-      }
-    }
-  }
-
-  &.hds-advanced-table__thead--column-is-pinned {
+    background-color: var(--token-color-surface-strong);
     // need to add 1px to offset `top: -1px`
-    // border-top: calc(#{$hds-advanced-table-border-width} / 2) solid
-    //   $hds-advanced-table-border-color;
-    // border-bottom: 3px solid $hds-advanced-table-border-color;
+    border-top: calc(#{$hds-advanced-table-border-width} / 2 + 1px) solid
+    $hds-advanced-table-border-color;
+    border-bottom: 3px solid $hds-advanced-table-border-color;
 
     .hds-advanced-table__tr {
       &:first-of-type {
@@ -358,12 +354,6 @@ background-attachment: local, local, scroll, scroll;
 
     &:focus {
       @include hds-focus-ring-basic()
-      // @include hds-focus-ring-with-pseudo-element(
-      //   $top: -1px,
-      //   $right: -1px,
-      //   $bottom: -1px,
-      //   $left: -1px
-      // );
     }
 
     // density
@@ -381,15 +371,22 @@ background-attachment: local, local, scroll, scroll;
     }
   }
 
+  // Sticky columns
   .hds-advanced-table__th--is-sticky-column {
     position: sticky;
     left: 0;
+    // has a lower z-index than the sticky header
     z-index: 3;
   }
 
-  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
-    left: 50px;
+// Only apply the thick border to the last sticky column
+  .hds-advanced-table__th--is-sticky-column:not(:has(+ .hds-advanced-table__th--is-sticky-column)) {
     border-right: 3px solid $hds-advanced-table-border-color;
+  }
+
+  .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column {
+          // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
+    left: var(--hds-advanced-table-sticky-column-offset, 0);
   }
 
   // horizontal alignment
@@ -479,12 +476,11 @@ background-attachment: local, local, scroll, scroll;
 .hds-advanced-table__scroll-indicator {
   position: absolute;
   top: 0;
-  // z-index: 5;
   width: 8px;
 }
 
 .hds-advanced-table__scroll-indicator-left {
-  // box-shadow: var(--token-elevation-mid-box-shadow)
+  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
   background: linear-gradient(to left, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
 }
 
