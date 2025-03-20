@@ -139,6 +139,30 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
   });
 
+  // extraKeys
+  test('setting extraKeys should add the provided keybindings to the editor', async function (assert) {
+    const saveSpy = sinon.spy(() => console.log('Save!'));
+
+    this.set('extraKeys', {
+      'Shift-Enter': saveSpy,
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" extraKeys=this.extraKeys}} />`
+    );
+
+    const event = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      code: 'Enter',
+      shiftKey: true,
+      bubbles: true,
+    });
+
+    document.querySelector('.cm-content').dispatchEvent(event);
+
+    assert.ok(saveSpy.calledOnce);
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if both ariaLabel and ariaLabelledBy are ommitted', async function (assert) {

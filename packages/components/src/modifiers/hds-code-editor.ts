@@ -24,6 +24,7 @@ import type {
 import type { Extension } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
+  KeyBinding,
   ViewUpdate,
 } from '@codemirror/view';
 import type Owner from '@ember/owner';
@@ -33,6 +34,10 @@ type HdsCodeEditorBlurHandler = (
   event: FocusEvent
 ) => void;
 
+interface HdsCodeEditorExtraKeys {
+  [key: string]: () => void;
+}
+
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
@@ -40,6 +45,7 @@ export interface HdsCodeEditorSignature {
       ariaLabel?: string;
       ariaLabelledBy?: string;
       cspNonce?: string;
+      extraKeys?: HdsCodeEditorExtraKeys;
       hasLineWrapping?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
@@ -298,7 +304,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ cspNonce, language, hasLineWrapping }) => {
+    async ({ cspNonce, extraKeys, language, hasLineWrapping }) => {
       const [
         {
           keymap,
@@ -355,6 +361,15 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         syntaxHighlighting(hdsDarkHighlightStyle),
       ];
 
+      if (extraKeys !== undefined) {
+        const customKeyMap = Object.entries(extraKeys).map(([key, value]) => ({
+          key: key,
+          run: value,
+        }));
+
+        extensions = [keymap.of(customKeyMap as KeyBinding[]), ...extensions];
+      }
+
       if (languageExtension !== undefined) {
         extensions = [languageExtension, ...extensions];
       }
@@ -377,11 +392,12 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       {
         cspNonce,
         language,
+        extraKeys,
         value,
         hasLineWrapping,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'cspNonce' | 'language' | 'value' | 'hasLineWrapping'
+        'cspNonce' | 'language' | 'extraKeys' | 'value' | 'hasLineWrapping'
       >
     ) => {
       try {
@@ -389,6 +405,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
         const extensions = await this._buildExtensionsTask.perform({
           cspNonce,
+          extraKeys,
           language,
           hasLineWrapping: hasLineWrapping ?? false,
         });
@@ -427,6 +444,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaLabel,
         ariaLabelledBy,
         cspNonce,
+        extraKeys,
         hasLineWrapping,
         language,
         value,
@@ -439,6 +457,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const editor = await this._createEditorTask.perform(element, {
         cspNonce,
+        extraKeys,
         language,
         value,
         hasLineWrapping,
