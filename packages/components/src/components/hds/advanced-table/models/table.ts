@@ -34,6 +34,18 @@ export default class HdsAdvancedTableTableModel {
     });
   }
 
+  get totalRowCount(): number {
+    function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
+      return rows.reduce((acc, row) => {
+        return acc + 1 + getChildrenCount(row.children);
+      }, 0);
+    }
+
+    return this.rows.reduce((acc, row) => {
+      return acc + 1 + getChildrenCount(row.children);
+    }, 0);
+  }
+
   get flattenedVisibleRows(): HdsAdvancedTableRow[] {
     return getVisibleRows(this.rows);
   }
@@ -46,12 +58,12 @@ export default class HdsAdvancedTableTableModel {
     return this.rows.some((row) => row.hasChildren);
   }
 
-  get allDescendantsAreOpen(): boolean {
-    return this.rows.every((row) => row.isOpen && row.allDescendantsAreOpen);
+  get allRowsAreOpen(): boolean {
+    return this.flattenedVisibleRows.length === this.totalRowCount;
   }
 
   get expandState(): HdsAdvancedTableExpandState {
-    if (this.allDescendantsAreOpen) {
+    if (this.allRowsAreOpen) {
       return true;
     } else if (this.rows.some((row) => row.isOpen)) {
       return 'mixed';
@@ -72,7 +84,7 @@ export default class HdsAdvancedTableTableModel {
 
   @action
   toggleAll() {
-    if (this.allDescendantsAreOpen) {
+    if (this.allRowsAreOpen) {
       this.collapseAll();
     } else {
       this.openAll();
