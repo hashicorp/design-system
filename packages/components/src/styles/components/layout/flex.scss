@@ -1,0 +1,138 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// LAYOUT > FLEX
+//
+
+.hds-layout-flex {
+  display: flex;
+
+  // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
+  // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
+  // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
+  gap:
+    var(--hds-layout-flex-row-gap, 0)
+    var(--hds-layout-flex-column-gap, 0);
+}
+
+// inline
+
+.hds-layout-flex--is-inline {
+  display: inline-flex;
+}
+
+// direction
+
+.hds-layout-flex--direction-row {
+  flex-direction: row;
+}
+
+.hds-layout-flex--direction-column {
+  flex-direction: column;
+}
+
+// wrap
+
+.hds-layout-flex--has-wrapping {
+  flex-wrap: wrap;
+}
+
+// justify
+
+.hds-layout-flex--justify-content-start {
+  justify-content: start;
+}
+
+.hds-layout-flex--justify-content-center {
+  justify-content: center;
+}
+
+.hds-layout-flex--justify-content-end {
+  justify-content: end;
+}
+
+.hds-layout-flex--justify-content-space-between {
+  justify-content: space-between;
+}
+
+.hds-layout-flex--justify-content-space-around {
+  justify-content: space-around;
+}
+
+.hds-layout-flex--justify-content-space-evenly {
+  justify-content: space-evenly;
+}
+
+.hds-layout-flex--justify-content-stretch {
+  justify-content: stretch;
+}
+
+// align
+
+.hds-layout-flex--align-items-start {
+  align-items: start;
+}
+
+.hds-layout-flex--align-items-center {
+  align-items: center;
+}
+
+.hds-layout-flex--align-items-end {
+  align-items: end;
+}
+
+.hds-layout-flex--align-items-stretch {
+  align-items: stretch;
+}
+
+// gap
+
+.hds-layout-flex--row-gap-4 { --hds-layout-flex-row-gap: 4px; }
+.hds-layout-flex--row-gap-8 { --hds-layout-flex-row-gap: 8px; }
+.hds-layout-flex--row-gap-12 { --hds-layout-flex-row-gap: 12px; }
+.hds-layout-flex--row-gap-16 { --hds-layout-flex-row-gap: 16px; }
+.hds-layout-flex--row-gap-24 { --hds-layout-flex-row-gap: 24px; }
+.hds-layout-flex--row-gap-32 { --hds-layout-flex-row-gap: 32px; }
+.hds-layout-flex--row-gap-48 { --hds-layout-flex-row-gap: 48px; }
+
+.hds-layout-flex--column-gap-4 { --hds-layout-flex-column-gap: 4px; }
+.hds-layout-flex--column-gap-8 { --hds-layout-flex-column-gap: 8px; }
+.hds-layout-flex--column-gap-12 { --hds-layout-flex-column-gap: 12px; }
+.hds-layout-flex--column-gap-16 { --hds-layout-flex-column-gap: 16px; }
+.hds-layout-flex--column-gap-24 { --hds-layout-flex-column-gap: 24px;  }
+.hds-layout-flex--column-gap-32 { --hds-layout-flex-column-gap: 32px; }
+.hds-layout-flex--column-gap-48 { --hds-layout-flex-column-gap: 48px; }
+
+
+// LAYOUT > FLEX > ITEM
+
+// note: these are just the most common values for `flex-[basis|grow|shrink]`
+// all other special cases are handled via inline styles
+
+.hds-layout-flex-item--basis-0 {
+  flex-basis: 0;
+}
+
+.hds-layout-flex-item--grow-0 {
+  flex-grow: 0;
+}
+
+.hds-layout-flex-item--grow-1 {
+  flex-grow: 1;
+}
+
+.hds-layout-flex-item--shrink-0 {
+  flex-shrink: 0;
+}
+
+.hds-layout-flex-item--shrink-1 {
+  flex-shrink: 1;
+}
+
+.hds-layout-flex-item--enable-collapse-below-content-size {
+  // this allows the element to shrink below its content's intrinsic minimum width (eg. used with elliptized text)
+  min-width: 0;
+}
