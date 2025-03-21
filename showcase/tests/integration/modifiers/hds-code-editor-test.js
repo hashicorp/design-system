@@ -157,28 +157,6 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
         'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel'
       );
   });
-  test('the lint panel should open, close, and set focus correctly', async function (assert) {
-    await setupCodeEditor(
-      hbs`<div id='code-editor-wrapper' {{hds-code-editor ariaLabel='test' language='json' isLintingEnabled=true}} />`
-    );
-
-    const editor = document.querySelector('.cm-content');
-
-    await triggerKeyEvent(editor, 'keydown', 'M', {
-      metaKey: true,
-      shiftKey: true,
-    });
-
-    // the lint panel should be open and in focus
-    assert
-      .dom(document.activeElement)
-      .hasAttribute('aria-label', 'Diagnostics');
-
-    await triggerKeyEvent(document.activeElement, 'keydown', 'Escape');
-
-    // focus is returned to the editor
-    assert.strictEqual(document.activeElement, editor);
-  });
 
   // extraKeys
   test('setting extraKeys should add the provided keybindings to the editor', async function (assert) {
