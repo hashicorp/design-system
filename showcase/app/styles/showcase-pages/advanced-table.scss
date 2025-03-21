@@ -35,7 +35,13 @@ body.components-advanced-table {
 
   .shw-component-advanced-table-fixed-height-wrapper {
     height: 400px;
-    overflow-y: scroll;
+    // overflow-y: scroll;
+  }
+
+  .shw-component-advanced-table-fixed-dimensions-wrapper {
+    width: 400px;
+    height: 400px;
+    // overflow-y: scroll;
   }
 
   .shw-component-advanced-table-with-pagination-demo-wrapper {
