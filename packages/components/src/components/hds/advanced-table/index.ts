@@ -296,17 +296,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  get scrollWrapperClassNames(): string {
-    const classes = ['hds-advanced-table__scroll-wrapper'];
-
-    if (!this.args.hasStickyFirstColumn) {
-      classes.push('hds-advanced-table__scroll-wrapper--scroll-indicator');
-    }
-
-    return classes.join(' ');
-  }
-
-  private _setUpOuter = modifier((element: HTMLDivElement) => {
+  private _setUpContainer = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
 
     const scrollWrapper = element.querySelector(
