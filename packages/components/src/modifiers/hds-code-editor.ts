@@ -608,6 +608,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ) {
         // insert a new dom element above the editor
         lintingDescriptionElement = this._createLintingDescriptionElement();
+
+        this._setupEditorMutationObserver();
       }
 
       this._setupEditorAriaAttributes(editor, {
