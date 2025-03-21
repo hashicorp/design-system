@@ -100,7 +100,7 @@ _Note: we don't expose the `reverse` directions because they come with intrinsic
 
 To control the spacing between flex items, use the `@gap` argument.
 
-Below is an example of multiple flex items with different relative sizes but an equal gap of 12px between them:
+Below is an example of multiple flex items with different relative sizes but an equal gap of 24px between them:
 
 ```handlebars
 <Hds::Layout::Flex @gap="24">
@@ -173,9 +173,9 @@ If the flex items are wrapping to multiple lines, you have to overwrite both the
 
 ### Alignment
 
-Using `flexbox` is one of the simplest ways to control how lists of items are aligned and spaced, and it's done via a set of `justify-*` and `align-*` properties.
+Using `flexbox` is one of the simplest ways to control how sets of items are aligned and spaced, and it's done via a set of `justify-*` and `align-*` properties.
 
-In the `Layout::Flex` component this is achieved use the `@justify` and `align` arguments.
+In the `Layout::Flex` component this is achieved using the `@justify` and `align` arguments.
 
 ```handlebars{data-execute=false}
 <Hds::Layout::Flex @justify="space-between" @align="center">
@@ -202,7 +202,7 @@ This is an example of how to implement a layout where a set of items are evenly 
 </Hds::Layout::Flex>
 ```
 
-In this case, the `@justify="space-between"` applied to the flex container forces the flex layout model to distribute the space evenly between the items; the space between the items remains the same, even if their size is different
+In this case, the `@justify="space-between"` applied to the flex container forces the flex layout model to distribute the space evenly between the items; the space between the items remains the same, even if their size is different.
 
 #### Right aligned items
 
@@ -216,7 +216,7 @@ This is an example of how to obtain a layout where one of the items is flushed t
 </Hds::Layout::Flex>
 ```
 
-In this case, by applying a `margin-left: auto` to the last flex item, the flexbox layout engine pushes it completely to the right (because implicitly it has `margin-right: 0`)
+In this case, by applying a `margin-left: auto` to the last flex item, the flexbox layout engine pushes it completely to the right (because implicitly it has `margin-right: 0`).
 
 The same technique can also be applied when there are multiple elements that need to be aligned to the right:
 
@@ -229,7 +229,7 @@ The same technique can also be applied when there are multiple elements that nee
 </Hds::Layout::Flex>
 ```
 
-In this case, the `margin-left: auto` is applied only to the first item that is flushed to the right; all the other items are automatically pushed to the right by the first flushed right item
+In this case, the `margin-left: auto` is applied only to the first item that is flushed to the right; all the other items are automatically pushed to the right by the first flushed right item.
 
 #### Vertical centering
 
@@ -243,7 +243,7 @@ A classic CSS problem: how to vertically center two or more items? A reliable so
 </Hds::Layout::Flex>
 ```
 
-In this case, the `@align="center"` applied to the flex container forces the flex items to vertically align their centers along the "cross axis"
+In this case, the `@align="center"` applied to the flex container forces the flex items to vertically align their centers along the "cross axis".
 
 #### Both horizontal and vertical centering
 
@@ -255,13 +255,13 @@ Another classic CSS problem: how to center content _both_ horizontally and verti
 </Hds::Layout::Flex>
 ```
 
-In this case, the `@justify="center"` and `@align="stretch"` arguments applied to the flex container force the flex item to be centered both horizontally and vertically
+In this case, the `@justify="center"` and `@align="stretch"` arguments applied to the flex container force the flex item to be centered both horizontally and vertically.
 
-_Note: we have applied an outline and a fixed height to the flex container to demonstrate the behavior_
+_Note: We have applied an outline and a fixed height to the flex container to demonstrate the behavior._
 
 ### Wrapping
 
-One useful function of the flexbox layout model is that it allows items to wrap along multiple rows when there is not enough space in the container to fit them all in a single line
+One useful function of the flexbox layout model is that it allows items to wrap along multiple rows when there is not enough space in the container to fit them all in a single line.
 
 To allow the flex items in the `Layout::Flex` to wrap along multiple rows if needed, set `@wrap` to `true`.
 
@@ -285,7 +285,7 @@ In this case the `@wrap=\{{true}}` applied to the flex container allows the flex
 
 ### Sizing
 
-In flexbox it's possible to control the relative sizing of flex items within a flex container using the `basis`, `grow`, and `shrink` properties.
+In flexbox, it's possible to control the relative sizing of flex items within a flex container using the `basis`, `grow`, and `shrink` properties.
 
 In the `Flex::Layout`, these properties translate to the `@basis`, `@grow`, and `@shrink` arguments.
 
@@ -299,7 +299,7 @@ In the `Flex::Layout`, these properties translate to the `@basis`, `@grow`, and 
 </Hds::Layout::Flex>
 ```
 
-How these three properties impact the (relative) size of a flex item is not trivial, we suggest consulting [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
+How these three properties impact the (relative) size of a flex item is not trivial. We suggest consulting [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
 #### Force items to use all the available space
 
@@ -331,7 +331,7 @@ In this case we have applied `@grow=\{{true}}` to the wrapping `Flex::Item`, for
 
 #### Prevent collapsing of content
 
-In the example below, you can see (look at the button element) how, if one of the flex items has an intrinsic size larger than the flex container, it may squeeze the rest of the flex items:
+In the example below, you can see how, if one of the flex items has an intrinsic size larger than the flex container, it may squeeze the rest of the flex items (specifically the button element in this case).
 
 ```handlebars
 <Hds::Layout::Flex @gap="16" class="doc-flex-outlined-container" as |LF|>
@@ -351,7 +351,7 @@ To avoid this, one has to tell the item not to shrink beyond its own size:
 </Hds::Layout::Flex>
 ```
 
-In this case we have used a wrapping `Flex::Item` and applied `@shrink=\{{false}}` to it, to prevent it from shrinking.
+In this case, we have used a wrapping `Flex::Item` and applied `@shrink=\{{false}}` to it, to prevent it from shrinking.
 
 #### Prevent stretching of content
 
@@ -375,9 +375,9 @@ To avoid this, one can choose a non-stretching alignment for the items.
 </Hds::Layout::Flex>
 ```
 
-In this case the `@align="start"` applied to the flex container forces the flex items to vertically align at the start (top) along what is called the "cross axis".
+In this case, the `@align="start"` applied to the flex container forces the flex items to vertically align at the start (top) along what is called the "cross axis".
 
-An alternative solution is to wrap the element that shouldn't stretch with a flex `Item`, like in this example:
+An alternative solution is to wrap the element that shouldn't stretch with a flex `Item` like in this example:
 
 ```handlebars
 <Hds::Layout::Flex @direction="column" @gap="16" as |LF|>
@@ -420,7 +420,7 @@ It's possible to nest flexbox containers to achieve more complex layouts.
 </Hds::Layout::Flex>
 ```
 
-In this case the outer container is a column-based flexbox layout, with three child items while the second item is a row-based flexbox layout, used to create two side-by-side content blocks. Of these two, the first has a fixed width, while the second fills the remaining area thanks to the `@grow=\{{true}}` attribute.
+In this case, the outer container is a column-based flexbox layout, with three child items, while the second item is a row-based flexbox layout, used to create two side-by-side content blocks. Of these two, the first has a fixed width, while the second fills the remaining area thanks to the `@grow=\{{true}}` attribute.
 
 !!! Insight
 
@@ -432,7 +432,7 @@ Depending on the complexity and type of design you need to implement, you may wa
 
 ## Common layout patterns
 
-Below are some examples of common layouts that can be achieved using the `Layout::Flex` component, in composition with other HDS components.
+Below are some examples of common layouts that can be achieved using the `Layout::Flex` component, in combination with other HDS components.
 
 !!! Warning
 
@@ -520,7 +520,7 @@ Similarly, it's easy to implement a vertical stack of cards:
 
 ### Empty state
 
-Using the horizontal/vertical alignment offered by flexbox, it is also possible to implement a standard empty state in a page. As consumer you will just have to take care of the height of the container in relation to the available vertical space in the page.
+Using the horizontal/vertical alignment offered by flexbox, it is also possible to implement a standard empty state in a page. As a consumer, you will just have to take care of the height of the container in relation to the available vertical space in the page.
 
 ```handlebars
 <Hds::Layout::Flex
