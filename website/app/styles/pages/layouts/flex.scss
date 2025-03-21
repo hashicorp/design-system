@@ -20,7 +20,7 @@
   }
 
   .doc-flex-fixed-height-container {
-    height: 400px;
+    height: 320px;
   }
 
   .doc-flex-outlined-container {
@@ -29,5 +29,15 @@
 
   .doc-flex-margin-left-auto {
     margin-left: auto;
+  }
+
+  .doc-flex-demo-plain-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .doc-flex-demo-custom-flex-column-gap {
+    --hds-layout-flex-column-gap: 13px;
   }
 }
