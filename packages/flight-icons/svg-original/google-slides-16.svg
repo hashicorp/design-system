@@ -1,6 +1,6 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="size=16">
-<g id="Vector">
+<g id="Path">
 <path d="M10.3438 7.31534H5.65625V10.0682H10.3438V7.31534Z" fill="#000001"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M3.9375 15.25H12.0625C12.5781 15.25 13 14.8128 13 14.2784V4.5625L9.56256 1H3.9375C3.42188 1 3 1.43722 3 1.97159V14.2784C3 14.8128 3.42188 15.25 3.9375 15.25ZM11.125 6.50568H4.875V10.8778H11.125V6.50568Z" fill="#000001"/>
 </g>

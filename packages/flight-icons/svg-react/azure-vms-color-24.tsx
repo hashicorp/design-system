@@ -56,7 +56,7 @@ export const IconAzureVmsColor24 = forwardRef<SVGSVGElement, IconProps>(
                         id="azure-vms-color-24__paint0_linear_2372_258"
                         x1={12}
                         x2={12}
-                        y1={16.333}
+                        y1={21.478}
                         y2={3}
                         gradientUnits="userSpaceOnUse"
                     >

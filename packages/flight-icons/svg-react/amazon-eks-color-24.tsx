@@ -25,7 +25,7 @@ export const IconAmazonEksColor24 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill="url(#amazon-eks-color-24__paint0_linear_879_136)"
-                    d="M9.866 8.473h.924v2.725l2.661-2.725h1.22l-2.92 3.002 3.105 3.465h-1.183l-2.883-3.233v3.233h-.924V8.473z"
+                    d="M9.866 8.473h.924v2.725l2.661-2.725h1.22l-2.92 3.002 3.104 3.465h-1.182l-2.883-3.233v3.233h-.924V8.473z"
                 />
                 <path
                     fill="url(#amazon-eks-color-24__paint1_linear_879_136)"
@@ -38,10 +38,10 @@ export const IconAmazonEksColor24 = forwardRef<SVGSVGElement, IconProps>(
                 <defs>
                     <linearGradient
                         id="amazon-eks-color-24__paint0_linear_879_136"
-                        x1={15.383}
-                        x2={12.246}
-                        y1={14.57}
-                        y2={7.514}
+                        x1={24.115}
+                        x2={14.237}
+                        y1={2.037}
+                        y2={27.63}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#426DDB" />
@@ -49,10 +49,10 @@ export const IconAmazonEksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="amazon-eks-color-24__paint1_linear_879_136"
-                        x1={22.99}
-                        x2={13.995}
-                        y1={15.694}
-                        y2={0.202}
+                        x1={24.115}
+                        x2={14.237}
+                        y1={2.037}
+                        y2={27.63}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#426DDB" />

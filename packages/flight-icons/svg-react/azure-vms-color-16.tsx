@@ -49,14 +49,14 @@ export const IconAzureVmsColor16 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="url(#azure-vms-color-16__paint1_linear_2372_267)"
-                    d="M10.808 14.157c-1.385-.218-1.44-1.214-1.44-2.824H6.624c0 1.61-.046 2.606-1.43 2.824a.778.778 0 00-.693.777h7a.777.777 0 00-.692-.777z"
+                    d="M10.808 14.157c-1.385-.218-1.44-1.214-1.44-2.824H6.624c0 1.61-.046 2.606-1.43 2.824a.778.778 0 00-.693.777h7a.778.778 0 00-.692-.777z"
                 />
                 <defs>
                     <linearGradient
                         id="azure-vms-color-16__paint0_linear_2372_267"
                         x1={8}
                         x2={8}
-                        y1={11.333}
+                        y1={14.934}
                         y2={2}
                         gradientUnits="userSpaceOnUse"
                     >

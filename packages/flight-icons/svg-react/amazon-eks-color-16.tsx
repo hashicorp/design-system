@@ -26,7 +26,7 @@ export const IconAmazonEksColor16 = forwardRef<SVGSVGElement, IconProps>(
                 <path
                     fill="url(#amazon-eks-color-16__paint0_linear_879_141)"
                     fillRule="evenodd"
-                    d="M6.381 10.148h.897V8.121l1.837 2.027h1.164L7.997 7.642l2.169-2.195H8.963L7.278 7.146V5.447h-.897v4.701z"
+                    d="M6.381 10.148h.897V8.121l1.837 2.027h1.164L7.997 7.642l2.168-2.195H8.963L7.278 7.146V5.447h-.897v4.701z"
                     clipRule="evenodd"
                 />
                 <path
@@ -40,10 +40,10 @@ export const IconAmazonEksColor16 = forwardRef<SVGSVGElement, IconProps>(
                 <defs>
                     <linearGradient
                         id="amazon-eks-color-16__paint0_linear_879_141"
-                        x1={10.691}
-                        x2={8.521}
-                        y1={9.879}
-                        y2={4.634}
+                        x1={16.481}
+                        x2={9.757}
+                        y1={1.137}
+                        y2={18.839}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#426DDB" />
@@ -51,10 +51,10 @@ export const IconAmazonEksColor16 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="amazon-eks-color-16__paint1_linear_879_141"
-                        x1={15.693}
-                        x2={9.546}
-                        y1={10.544}
-                        y2={-0.213}
+                        x1={16.481}
+                        x2={9.757}
+                        y1={1.137}
+                        y2={18.839}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#426DDB" />

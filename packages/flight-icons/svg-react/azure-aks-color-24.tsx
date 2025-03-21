@@ -73,19 +73,19 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                 />
                 <path
                     fill="url(#azure-aks-color-24__paint6_linear_2372_167)"
-                    d="M15.233 15.067l-3.177.588v4.334l3.177.678 3.19-1.278v-3.233l-3.19-1.09z"
+                    d="M15.233 15.067l-3.177.589v4.333l3.177.678 3.19-1.278v-3.233l-3.19-1.09z"
                 />
                 <path
                     fill="#341A6E"
-                    d="M12.056 15.655v4.334l3.21.678V15.11l-3.21.544zm1.355 4.012l-.9-.19v-3.333l.9-.155v3.678zm1.4.244l-1.033-.167v-3.81l1.033-.178v4.155z"
+                    d="M12.056 15.656v4.333l3.21.678V15.11l-3.21.545zm1.355 4.01l-.9-.188v-3.334l.9-.155v3.678zm1.4.245l-1.033-.167v-3.81l1.033-.178v4.155z"
                 />
                 <defs>
                     <linearGradient
                         id="azure-aks-color-24__paint0_linear_2372_167"
-                        x1={5.267}
-                        x2={11.633}
-                        y1={5.8}
-                        y2={5.8}
+                        x1={2}
+                        x2={22.089}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -93,10 +93,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint1_linear_2372_167"
-                        x1={12.145}
-                        x2={18.5}
-                        y1={5.856}
-                        y2={5.856}
+                        x1={2}
+                        x2={22.089}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -104,10 +104,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint2_linear_2372_167"
-                        x1={2.011}
-                        x2={8.367}
-                        y1={11.778}
-                        y2={11.778}
+                        x1={2}
+                        x2={22.054}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -115,10 +115,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint3_linear_2372_167"
-                        x1={8.867}
-                        x2={15.222}
-                        y1={11.733}
-                        y2={11.733}
+                        x1={2}
+                        x2={22.089}
+                        y1={11.816}
+                        y2={11.816}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -126,10 +126,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint4_linear_2372_167"
-                        x1={15.722}
+                        x1={2}
                         x2={22.089}
-                        y1={11.789}
-                        y2={11.789}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -137,10 +137,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint5_linear_2372_167"
-                        x1={5.189}
-                        x2={11.556}
-                        y1={17.822}
-                        y2={17.822}
+                        x1={2}
+                        x2={22.089}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />
@@ -148,10 +148,10 @@ export const IconAzureAksColor24 = forwardRef<SVGSVGElement, IconProps>(
                     </linearGradient>
                     <linearGradient
                         id="azure-aks-color-24__paint6_linear_2372_167"
-                        x1={12.056}
-                        x2={18.422}
-                        y1={17.867}
-                        y2={17.867}
+                        x1={2}
+                        x2={22.089}
+                        y1={11.833}
+                        y2={11.833}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop stopColor="#B77AF4" />

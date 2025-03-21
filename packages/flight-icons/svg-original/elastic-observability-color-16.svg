@@ -1,9 +1,9 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="size=16">
-<g id="Group">
-<path id="Shape" fill-rule="evenodd" clip-rule="evenodd" d="M5.375 15H4.16682C2.65961 15 1.4375 13.6282 1.4375 11.9364V7.5625H5.375V15Z" fill="#F04E98"/>
-<path id="Shape_2" fill-rule="evenodd" clip-rule="evenodd" d="M5.375 15H9.3125V4.5H5.375V15Z" fill="#343741"/>
-<path id="Shape_3" fill-rule="evenodd" clip-rule="evenodd" d="M14.5625 15H10.625V1L11.4883 1.0107C13.1913 1.03135 14.5625 2.63244 14.5625 4.59978V10.7633V15Z" fill="#0077CC"/>
+<g id="Path">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.375 15H4.16682C2.65961 15 1.4375 13.6282 1.4375 11.9364V7.5625H5.375V15Z" fill="#F04E98"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.375 15H9.3125V4.5H5.375V15Z" fill="#343741"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M14.5625 15H10.625V1L11.4883 1.0107C13.1913 1.03135 14.5625 2.63244 14.5625 4.59978V15Z" fill="#0077CC"/>
 </g>
 </g>
 </svg>
