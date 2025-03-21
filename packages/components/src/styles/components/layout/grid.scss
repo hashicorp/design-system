@@ -1,0 +1,69 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// LAYOUT > GRID
+//
+
+.hds-layout-grid {
+  display: grid;
+  // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
+
+  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
+  // https://drafts.csswg.org/css-values/#calc-type-checking
+  grid-template-columns:
+    repeat(
+      auto-fit,
+      minmax(
+        calc(
+          var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)
+        ),
+        1fr
+      )
+    );
+
+  // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
+  // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
+  // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
+  gap:
+    var(--hds-layout-grid-row-gap, 0)
+    var(--hds-layout-grid-column-gap, 0);
+}
+
+// align
+
+.hds-layout-grid--align-items-start { align-items: start; }
+.hds-layout-grid--align-items-center { align-items: center; }
+.hds-layout-grid--align-items-end { align-items: end; }
+.hds-layout-grid--align-items-stretch { align-items: stretch; }
+
+// gap
+
+// We set the values of the gap custom properties overriding the default value of 0
+
+.hds-layout-grid--row-gap-4 { --hds-layout-grid-row-gap: 4px; }
+.hds-layout-grid--row-gap-8 { --hds-layout-grid-row-gap: 8px; }
+.hds-layout-grid--row-gap-12 { --hds-layout-grid-row-gap: 12px; }
+.hds-layout-grid--row-gap-16 { --hds-layout-grid-row-gap: 16px; }
+.hds-layout-grid--row-gap-24 { --hds-layout-grid-row-gap: 24px; }
+.hds-layout-grid--row-gap-32 { --hds-layout-grid-row-gap: 32px; }
+.hds-layout-grid--row-gap-48 { --hds-layout-grid-row-gap: 48px; }
+
+.hds-layout-grid--column-gap-4 { --hds-layout-grid-column-gap: 4px; }
+.hds-layout-grid--column-gap-8 { --hds-layout-grid-column-gap: 8px; }
+.hds-layout-grid--column-gap-12 { --hds-layout-grid-column-gap: 12px; }
+.hds-layout-grid--column-gap-16 { --hds-layout-grid-column-gap: 16px; }
+.hds-layout-grid--column-gap-24 { --hds-layout-grid-column-gap: 24px; }
+.hds-layout-grid--column-gap-32 { --hds-layout-grid-column-gap: 32px; }
+.hds-layout-grid--column-gap-48 { --hds-layout-grid-column-gap: 48px; }
+
+// LAYOUT > GRID > ITEM
+
+.hds-layout-grid-item {
+  --hds-layout-grid-row-span: 1;
+  --hds-layout-grid-column-span: 1;
+  grid-row-start: span var(--hds-layout-grid-row-span);
+  grid-column-start: span var(--hds-layout-grid-column-span);
+}

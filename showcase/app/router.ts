@@ -86,6 +86,7 @@ Router.map(function () {
       });
     });
     this.route('flex');
+    this.route('grid');
   });
   this.route('utilities', function () {
     this.route('dialog-primitive');
