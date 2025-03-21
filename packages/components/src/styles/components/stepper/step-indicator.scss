@@ -61,9 +61,9 @@ $hds-stepper-indicator-step-size: 24px;
 // Non-interactive props that correspond with status
 $hds-stepper-indicator-step-non-interactive-props: (
   "incomplete": (
-    "text-color": var(--token-color-foreground-strong),
-    "fill-color": var(--token-color-surface-faint),
-    "stroke-color": var(--token-color-foreground-strong),
+    "text-color": var(--token-color-foreground-primary),
+    "fill-color": var(--token-color-surface-primary),
+    "stroke-color": var(--token-color-border-strong),
   ),
   "progress": (
     "text-color": var(--token-color-foreground-high-contrast),

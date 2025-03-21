@@ -1,0 +1,17 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// STEPPER::NAV
+
+body.components-stepper-nav {
+  .shw-component-stepper-nav-sample-form-btn {
+    margin-top: 12px;
+  }
+
+  // Hides the progress bar from being shown as progress bar is from parent Stepper::Nav
+  .shw-component-stepper-nav-step-mock-incomplete::after {
+    content: none;
+  }
+}

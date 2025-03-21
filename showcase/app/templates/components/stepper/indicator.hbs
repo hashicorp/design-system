@@ -3,13 +3,13 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "Stepper Indicator Component"}}
+{{page-title "Stepper Component"}}
 
-<Shw::Text::H1>Stepper Indicator</Shw::Text::H1>
+<Shw::Text::H1>Stepper</Shw::Text::H1>
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Status</Shw::Text::H2>
+  <Shw::Text::H2>Step::Indicator</Shw::Text::H2>
 
   <Shw::Text::H3>Default</Shw::Text::H3>
 
@@ -25,7 +25,7 @@
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.STEP_STATUSES as |status|}}
-      {{#each @model.STATES as |state|}}
+      {{#each @model.INDICATOR_STATES as |state|}}
         <SG.Item @label="{{capitalize status}}/{{state}}">
           <Hds::Stepper::Step::Indicator
             @status={{status}}
@@ -41,7 +41,7 @@
     {{/each}}
   </Shw::Grid>
 
-  <Shw::Text::H2>Task</Shw::Text::H2>
+  <Shw::Text::H2>Task::Indicator</Shw::Text::H2>
 
   <Shw::Text::H3>Default</Shw::Text::H3>
 
@@ -57,7 +57,7 @@
 
   <Shw::Grid @columns={{6}} as |SG|>
     {{#each @model.TASK_STATUSES as |status|}}
-      {{#each @model.STATES as |state|}}
+      {{#each @model.INDICATOR_STATES as |state|}}
         <SG.Item @label="{{capitalize status}}/{{state}}">
           <Hds::Stepper::Task::Indicator @status={{status}} @isInteractive={{true}} mock-state-value={{state}} />
         </SG.Item>
