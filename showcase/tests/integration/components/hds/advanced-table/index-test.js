@@ -1060,6 +1060,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     for (let i = 0; i < rowToggles.length; i++) {
       await click(rowToggles[i]);
+
       if (i < rowToggles.length - 1) {
         assert.dom(expandAllButton).hasAria('expanded', 'mixed');
       }

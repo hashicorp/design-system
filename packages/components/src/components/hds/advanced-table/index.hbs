@@ -11,10 +11,13 @@
   {{style grid-template-columns=this.gridTemplateColumns}}
   {{this._setUpObservers}}
 >
+  {{! Caption }}
   <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
     {{@caption}}
     {{this.sortedMessageText}}
   </div>
+
+  {{! Header }}
   <div class="hds-advanced-table__thead {{if @hasStickyHeader 'hds-advanced-table__thead--sticky'}}" role="rowgroup">
     <Hds::AdvancedTable::Tr
       @selectionScope="col"
@@ -42,50 +45,50 @@
             @tooltip={{column.tooltip}}
             @isVisuallyHidden={{column.isVisuallyHidden}}
             @isExpandable={{column.isExpandable}}
-            @onClickToggle={{this.onExpandAllClick}}
-            @isExpanded={{this._expandAllButtonState}}
-            @hasExpandAllButton={{this.hasNestedRows}}
-            @didInsertExpandButton={{this.didInsertExpandAllButton}}
-            @willDestroyExpandButton={{this.willDestroyExpandAllButton}}
-          >{{column.label}}</Hds::AdvancedTable::Th>
+            @onClickToggle={{this._tableModel.toggleAll}}
+            @isExpanded={{this._tableModel.expandState}}
+            @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+          >
+            {{column.label}}
+          </Hds::AdvancedTable::Th>
         {{/if}}
       {{/each}}
     </Hds::AdvancedTable::Tr>
   </div>
 
+  {{! Body }}
   <div class="hds-advanced-table__tbody" role="rowgroup">
     {{! ----------------------------------------------------------------------------------------
         IMPORTANT: we loop on the `model` array and for each record
         we yield the Tr/Td/Th elements _and_ the record itself as `data`
         this means the consumer will *have to* use the `data` key to access it in their template
       -------------------------------------------------------------------------------------------- }}
-    {{#each (sort-by this.getSortCriteria @model) key=this.identityKey as |record index|}}
-      {{#if this.hasNestedRows}}
+    {{#each (sort-by this.getSortCriteria this._tableModel.rows) key=this.identityKey as |record index|}}
+      {{#if this._tableModel.hasRowsWithChildren}}
         <Hds::AdvancedTable::ExpandableTrGroup
           @record={{record}}
-          @childrenKey={{this.childrenKey}}
           @rowIndex={{index}}
-          @didInsertExpandButton={{this.didInsertExpandButton}}
-          @willDestroyExpandButton={{this.willDestroyExpandButton}}
-          @onClickToggle={{this.setExpandAllState}}
+          @onClickToggle={{record.onClickToggle}}
           as |T|
         >
           {{yield
             (hash
               Tr=(component
-                "hds/advanced-table/tr" isParentRow=T.isExpandable depth=T.depth displayRow=T.shouldDisplayChildRows
+                "hds/advanced-table/tr"
+                isLastRow=(eq this._tableModel.lastVisibleRow.id T.data.id)
+                isParentRow=T.isExpandable
+                depth=T.depth
+                displayRow=T.shouldDisplayChildRows
               )
               Th=(component
                 "hds/advanced-table/th"
-                scope="row"
+                depth=T.depth
                 isExpandable=T.isExpandable
+                isExpanded=T.isExpanded
                 newLabel=T.id
                 parentId=T.parentId
+                scope="row"
                 onClickToggle=T.onClickToggle
-                isExpanded=T.isExpanded
-                depth=T.depth
-                didInsertExpandButton=T.didInsertExpandButton
-                willDestroyExpandButton=T.willDestroyExpandButton
               )
               Td=(component "hds/advanced-table/td" align=@align)
               data=T.data
@@ -101,6 +104,7 @@
             Tr=(component
               "hds/advanced-table/tr"
               selectionScope="row"
+              isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
               isSelectable=this.isSelectable
               onSelectionChange=this.onSelectionRowChange
               didInsert=this.didInsertRowCheckbox
