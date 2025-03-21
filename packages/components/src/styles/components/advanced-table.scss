@@ -475,6 +475,9 @@ background-attachment: local, local, scroll, scroll;
 
 .hds-advanced-table__scroll-indicator {
   position: absolute;
+}
+
+.hds-advanced-table__scroll-indicator-left, .hds-advanced-table__scroll-indicator-right {
   top: 0;
   width: 8px;
 }
@@ -485,5 +488,12 @@ background-attachment: local, local, scroll, scroll;
 }
 
 .hds-advanced-table__scroll-indicator-right {
+    // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
   background: linear-gradient(to right, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+}
+
+.hds-advanced-table__scroll-indicator-top {
+  height: 8px;
+  // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
+background: linear-gradient(to top, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
 }

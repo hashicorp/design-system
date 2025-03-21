@@ -92,11 +92,21 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  // private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _tableModel!: HdsAdvancedTableTableModel;
+  private _scrollHandler!: (event: Event) => void;
+  private _outerElement!: HTMLDivElement;
+  private _gridElement!: HTMLDivElement;
+  @tracked scrollIndicatorHeight = 0;
+  @tracked scrollIndicatorLeftOffset = 0;
+  @tracked showScrollIndicatorLeft = false;
+  @tracked scrollIndicatorRightOffset = 0;
+  @tracked showScrollIndicatorRight = false;
+  @tracked stickyColumnOffset: number = 0;
+  @tracked scrollIndicatorTopOffset = 0;
+  @tracked showScrollIndicatorTop = false;
+  @tracked scrollIndicatorWidth = 0;
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -120,16 +130,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       );
     }
   }
-  // private _intersectionObserver: IntersectionObserver | undefined = undefined;
-  private _scrollHandler!: (event: Event) => void;
-  private _outerElement!: HTMLDivElement;
-  private _gridElement!: HTMLDivElement;
-  @tracked scrollIndicatorHeight = 0;
-  @tracked scrollIndicatorLeftOffset = 0;
-  @tracked showScrollIndicatorLeft = false;
-  // @tracked scrollIndicatorRightOffset = 0;
-  // @tracked showScrollIndicatorRight = false;
-  @tracked stickyColumnOffset: number = 0;
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
@@ -188,18 +188,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return false;
   }
-
-  // get scrollIndicatorHeight(): string | undefined {
-  //   // console.log('hi')
-  //   // console.log(this.args.hasStickyColumn)
-  //   // console.log(this._element)
-  //   if (this.args.hasStickyColumn && this._element) {
-
-  //     console.log(this._element.parentElement)
-  //     console.log(this._element.parentElement?.offsetHeight)
-  //     return `${this._element.parentElement?.offsetHeight}px`
-  //   }
-  // }
 
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
@@ -328,13 +316,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const horizontalScrollBarHeight =
       scrollWrapper?.offsetHeight - scrollWrapper?.clientHeight;
 
-    // const verticalScrollBarWidth =
-    //   scrollWrapper?.offsetWidth - scrollWrapper?.clientWidth;
+    const verticalScrollBarWidth =
+      scrollWrapper?.offsetWidth - scrollWrapper?.clientWidth;
 
     this.scrollIndicatorHeight =
       element.clientHeight - horizontalScrollBarHeight;
 
-    // this.scrollIndicatorRightOffset = verticalScrollBarWidth;
+    this.scrollIndicatorRightOffset = verticalScrollBarWidth;
+
+    this.scrollIndicatorWidth = scrollWrapper?.clientWidth;
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -360,36 +350,37 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         this.showScrollIndicatorLeft = false;
       }
 
-      // // right scroll indicator
-      // const rightEdge = element.scrollWidth - element.clientWidth;
+      // right scroll indicator
+      const rightEdge = element.scrollWidth - element.clientWidth;
 
-      // if (element.scrollLeft < rightEdge && !this.showScrollIndicatorRight) {
-      //   this.showScrollIndicatorRight = true;
-      // } else if (
-      //   element.scrollLeft === rightEdge &&
-      //   this.showScrollIndicatorRight
-      // ) {
-      //   this.showScrollIndicatorRight = false;
-      // }
+      if (element.scrollLeft < rightEdge && !this.showScrollIndicatorRight) {
+        this.showScrollIndicatorRight = true;
+      } else if (
+        element.scrollLeft === rightEdge &&
+        this.showScrollIndicatorRight
+      ) {
+        this.showScrollIndicatorRight = false;
+      }
 
       // sticky header styles
-
       if (element.scrollTop > 0) {
         if (this.args.hasStickyHeader) {
           gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
+          this.showScrollIndicatorTop = true;
         }
       } else if (element.scrollTop === 0) {
         if (this.args.hasStickyHeader) {
           gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned');
+          this.showScrollIndicatorTop = false;
         }
       }
     };
 
     element.addEventListener('scroll', this._scrollHandler);
 
-    // if (element.clientWidth < element.scrollWidth) {
-    //   this.showScrollIndicatorRight = true;
-    // }
+    if (element.clientWidth < element.scrollWidth) {
+      this.showScrollIndicatorRight = true;
+    }
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
@@ -399,12 +390,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _setUpObservers = modifier((element: HTMLDivElement) => {
     this._gridElement = element;
 
-    if (this.args.hasStickyFirstColumn) {
-      const gridHeader = element.querySelector('.hds-advanced-table__thead');
-      const stickyColumnHeaders = gridHeader?.querySelectorAll(
-        '.hds-advanced-table__th--is-sticky-column'
-      );
+    const gridHeader = element.querySelector('.hds-advanced-table__thead');
+    const stickyColumnHeaders = gridHeader?.querySelectorAll(
+      '.hds-advanced-table__th--is-sticky-column'
+    );
 
+    if (this.args.hasStickyHeader) {
+      const gridHeaderAsHTMLElement = gridHeader as HTMLElement;
+      // querySelector returns Elements, which don't have offsetWidth
+      // need to use offsetWidth to account for the cell borders
+      this.scrollIndicatorTopOffset = gridHeaderAsHTMLElement.offsetHeight;
+    }
+
+    if (this.args.hasStickyFirstColumn) {
       let newScrollOffset = 0;
       let newStickyOffset = 0;
 
@@ -414,6 +412,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         const elemAsHTMLElement = elem as HTMLElement;
 
         newScrollOffset += elemAsHTMLElement.offsetWidth;
+        // only add extra left offset if there are 2 sticky columns
         if (elem.classList.contains('hds-advanced-table__th--is-selectable')) {
           newStickyOffset = elemAsHTMLElement.offsetWidth;
         }
@@ -423,24 +422,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this.stickyColumnOffset = newStickyOffset;
     }
 
-    // if ((this.args.hasStickyHeader || this.args.hasStickyColumn) && gridHeader) {
-    //   this._intersectionObserver = new IntersectionObserver(
-    //     ([element]) => {
-    //       console.log('hello')
-    //       element?.target.classList.toggle(
-    //         'hds-advanced-table__thead--is-pinned',
-    //         element.intersectionRatio < 1
-    //       )},
-    //     { threshold: [1] }
-    //   );
-
-    //   // this._intersectionObserver.observe(gridHeader);
-    // }
-    // updateLastRowClass(element);
-
     return () => {
       this.scrollIndicatorLeftOffset = 0;
       this.stickyColumnOffset = 0;
+      this.scrollIndicatorTopOffset = 0;
     };
   });
 

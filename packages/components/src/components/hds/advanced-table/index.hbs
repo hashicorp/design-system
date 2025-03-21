@@ -133,21 +133,29 @@
         {{/each}}
       </div>
     </div>
-    {{#if @hasStickyFirstColumn}}
-      <div class="hds-advanced-table__scroll-indicator" {{style height=(concat this.scrollIndicatorHeight "px")}} />
-    {{/if}}
   </div>
-  {{#if (and @hasStickyFirstColumn this.showScrollIndicatorLeft)}}
+  {{#if this.showScrollIndicatorLeft}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
       {{style height=(concat this.scrollIndicatorHeight "px") left=(concat this.scrollIndicatorLeftOffset "px")}}
     />
   {{/if}}
 
-  {{!-- {{#if (and @hasStickyColumn this.showScrollIndicatorRight)}}
+  {{#if this.showScrollIndicatorRight}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
       {{style height=(concat this.scrollIndicatorHeight "px") right=(concat this.scrollIndicatorRightOffset "px")}}
     />
-  {{/if}} --}}
+  {{/if}}
+
+  {{#if this.showScrollIndicatorTop}}
+    <div
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
+      {{style
+        top=(concat this.scrollIndicatorTopOffset "px")
+        left=(concat this.scrollIndicatorLeftOffset "px")
+        right="0px"
+      }}
+    />
+  {{/if}}
 </div>
