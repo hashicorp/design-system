@@ -74,8 +74,8 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
       .dom('#test-layout-flex')
       .doesNotHaveClass(/hds-layout-flex--justify-content-/)
       .doesNotHaveClass(/hds-layout-flex--align-items-/)
-      .doesNotHaveClass('.hds-layout-flex--has-wrapping')
-      .doesNotHaveClass('.hds-layout-flex--is-inline');
+      .doesNotHaveClass('hds-layout-flex--has-wrapping')
+      .doesNotHaveClass('hds-layout-flex--is-inline');
   });
   test('it should render the correct CSS classes if the @justify/@align/@wrap/@isInline props are declared', async function (assert) {
     await render(

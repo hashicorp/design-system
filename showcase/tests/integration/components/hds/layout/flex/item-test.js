@@ -163,7 +163,7 @@ module('Integration | Component | hds/layout/flex/item', function (hooks) {
     assert
       .dom('#test-layout-flex-item')
       .doesNotHaveClass(
-        '.hds-layout-flex-item--enable-collapse-below-content-size'
+        'hds-layout-flex-item--enable-collapse-below-content-size'
       );
   });
   test('it should render the correct CSS class if the @enableCollapseBelowContentSize prop is declared', async function (assert) {
