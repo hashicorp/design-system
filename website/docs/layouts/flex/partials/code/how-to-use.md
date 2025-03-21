@@ -22,7 +22,7 @@ The simplest way to implement a flexbox layout is by using the `Layout::Flex` co
 </Hds::Layout::Flex>
 ```
 
-In this way, every direct child element of the **flexbox container** will be treated, by the browser's layout engine, as a **flex item** (for details about what this means, refer to the guide linked at the top of this page).
+In this way, every direct child element of the **flexbox container** will be treated, by the browser's layout engine, as a **flex item** (for details about what this means, refer to [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)).
 
 There are cases in which it is necessary to wrap one or more child elements in a specific `Layout::Flex::Item` (eg. to apply the `@basis/@grow/@shrink` arguments, see below for details):
 
@@ -87,6 +87,8 @@ To specify how the flex items are spaced and aligned, use the `@justify` and `al
 ```
 
 These arguments correspond to the [`justify-content`](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content) and [`align-items`](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items) flexbox properties in CSS.
+
+When the `@direction` is set to `row`, the first controls the horizontal alignment and the second controls the vertical alignment. When the direction is set to `column`, the behavior is reversed.
 
 _Note: we only expose the most commonly used values for `justify-content`/`align-items`. Refer to the [Component API](#component-api) section for details on which values are accepted._
 
@@ -197,7 +199,7 @@ To control the relative sizing of the flex items, use the `@basis`, `@grow`, and
 </Hds::Layout::Flex>
 ```
 
-How these three properties impact the (relative) size of a flex item is not trivial, we suggest consulting the MDN flexbox guide linked at the top of this page.
+How these three properties impact the (relative) size of a flex item is not trivial, we suggest consulting [the MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
 
 📚 Refer to the ["Recipes"](#flexbox-layout-recipes) and [Patterns](#common-layout-patterns) sections below for practical examples of how the Flexbox `flex-basis`/`flex-grow`/`flex-shrink` properties can be used to implement specific layouts.
 
@@ -287,7 +289,9 @@ Another classic CSS problem: how to center content _both_ horizontally and verti
 
 In this case:
 
-- the `@justify="center"` and `@align="stretch"` arguments applied to the flex container force the flex item to be centered both horizontally and vertically (_note: we have applied an outline and a fixed height to the flex container to demonstrate the behavior_)
+- the `@justify="center"` and `@align="stretch"` arguments applied to the flex container force the flex item to be centered both horizontally and vertically
+
+_Note: we have applied an outline and a fixed height to the flex container to demonstrate the behavior_
 
 ### Sizing
 
