@@ -153,7 +153,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert
       .dom(`#${editorDescribedBy}`)
       .includesText(
-        'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) to open the linting panel',
+        'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel',
         'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel'
       );
   });
