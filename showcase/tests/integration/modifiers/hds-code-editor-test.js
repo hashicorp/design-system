@@ -83,6 +83,25 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.ok(inputSpy.calledOnceWith('Test string'));
   });
 
+  // onLint
+  test('it should call the onLint action when the code editor is linted', async function (assert) {
+    const lintSpy = sinon.spy(console.log('Lint!'));
+
+    this.setProperties({
+      editorView: null,
+      handleLint: lintSpy,
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`
+    );
+
+    // we know linting is complete when the error marker is rendered
+    await waitFor('.cm-lint-marker-error');
+
+    assert.ok(lintSpy.calledOnce);
+  });
+
   // ariaDescribedBy
   test('it should render the editor with an aria-describedby when provided', async function (assert) {
     await setupCodeEditor(
@@ -137,6 +156,24 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     );
     // can't use assert.dom to access elements in head
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
+  });
+
+  // isLintingEnabled
+  test('it should set an aria-description with instructions when isLintingEnabled is true', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json"}} />`
+    );
+
+    const editorDescribedBy = document
+      .querySelector('.cm-editor [role="textbox"]')
+      .getAttribute('aria-describedby');
+
+    assert
+      .dom(`#${editorDescribedBy}`)
+      .includesText(
+        'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel',
+        'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel'
+      );
   });
 
   // extraKeys
