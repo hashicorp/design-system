@@ -159,10 +159,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   });
   test('the lint panel should open, close, and set focus correctly', async function (assert) {
     await setupCodeEditor(
-      hbs`<div
-  id='code-editor-wrapper'
-  {{hds-code-editor ariaLabel='test' language='json' isLintingEnabled=true}}
-/>`
+      hbs`<div id='code-editor-wrapper' {{hds-code-editor ariaLabel='test' language='json' isLintingEnabled=true}} />`
     );
 
     const editor = document.querySelector('.cm-content');
@@ -181,6 +178,30 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
     // focus is returned to the editor
     assert.strictEqual(document.activeElement, editor);
+  });
+
+  // extraKeys
+  test('setting extraKeys should add the provided keybindings to the editor', async function (assert) {
+    const saveSpy = sinon.spy(() => console.log('Save!'));
+
+    this.set('extraKeys', {
+      'Shift-Enter': saveSpy,
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" extraKeys=this.extraKeys}} />`
+    );
+
+    const event = new KeyboardEvent('keydown', {
+      key: 'Enter',
+      code: 'Enter',
+      shiftKey: true,
+      bubbles: true,
+    });
+
+    document.querySelector('.cm-content').dispatchEvent(event);
+
+    assert.ok(saveSpy.calledOnce);
   });
 
   // ASSERTIONS
