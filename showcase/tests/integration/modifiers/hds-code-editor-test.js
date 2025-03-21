@@ -11,6 +11,7 @@ import {
   setupOnerror,
   focus,
   blur,
+  settled,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
@@ -81,6 +82,25 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     });
 
     assert.ok(inputSpy.calledOnceWith('Test string'));
+  });
+
+  // onLint
+  test('it should call the onLint action when the code editor is linted', async function (assert) {
+    const lintSpy = sinon.spy(console.log('Lint!'));
+
+    this.setProperties({
+      editorView: null,
+      handleLint: lintSpy,
+    });
+
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`
+    );
+
+    // we know linting is complete when the error marker is rendered
+    await waitFor('.cm-lint-marker-error');
+
+    assert.ok(lintSpy.calledOnce);
   });
 
   // ariaDescribedBy
