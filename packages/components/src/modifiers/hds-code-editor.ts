@@ -298,7 +298,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     element.id = `lint-panel-instructions-${this.element.id}`;
     element.classList.add('sr-only');
     element.textContent =
-      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) to open the linting panel';
+      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel';
 
     this.element.insertAdjacentElement('beforebegin', element);
 

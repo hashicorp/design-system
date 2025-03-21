@@ -105,7 +105,7 @@ const hdsDark = EditorView.theme(
     // linter diagnostics panel
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: 'var(--token-color-palette-neutral-500)',
-      maxHeight: '80px',
+      maxHeight: '85px',
     },
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
