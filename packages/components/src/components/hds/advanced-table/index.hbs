@@ -21,9 +21,10 @@
       </div>
 
       {{! Header }}
-      <div
-        class="hds-advanced-table__thead {{if @hasStickyHeader 'hds-advanced-table__thead--sticky'}}"
-        role="rowgroup"
+      <Hds::AdvancedTable::Thead
+        @hasStickyHeader={{@hasStickyHeader}}
+        @isStickyHeaderPinned={{this.isStickyHeaderPinned}}
+        @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
         <Hds::AdvancedTable::Tr
           @selectionScope="col"
@@ -63,7 +64,7 @@
             {{/if}}
           {{/each}}
         </Hds::AdvancedTable::Tr>
-      </div>
+      </Hds::AdvancedTable::Thead>
 
       {{! Body }}
       <div class="hds-advanced-table__tbody" role="rowgroup">
@@ -147,7 +148,7 @@
     />
   {{/if}}
 
-  {{#if this.showScrollIndicatorTop}}
+  {{#if this.isStickyHeaderPinned}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
       {{style top=(concat this.scrollIndicatorTopOffset "px") width=(concat this.scrollIndicatorWidth "px")}}
