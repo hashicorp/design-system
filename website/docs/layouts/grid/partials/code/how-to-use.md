@@ -67,24 +67,29 @@ While, by default, the component renders a `<div>`, we invite consumers to consi
 
 !!!
 
-### Gap
+### Spacing
 
 To control the spacing between grid items, use the `@gap` argument.
 
-```handlebars{data-execute=false}
-<Hds::Layout::Grid @gap="16">
-  {{! multiple grid items here, with a gap of 16px between them }}
+Pass a single value to set equal spacing between columns & rows.
+
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="50%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
 ```
 
 To differentiate the vertical and horizontal spacing between items when they wrap on multiple rows, provide an array of two values to the `@gap` argument.
 
-```handlebars{data-execute=false}
-<Hds::Layout::Grid @wrap={{true}} @gap={{array "16" "48"}}>
-  {{!
-    multiple grid items appearing on multiple rows
-    with a vertical gap of 16px and a horizontal one of 48px
-  }}
+```handlebars
+<Hds::Layout::Grid @columnMinWidth="50%" @gap={{array "16" "48"}}>
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
 </Hds::Layout::Grid>
 ```
 
@@ -123,7 +128,6 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid
   {{style --hds-layout-grid-row-gap="10px" --hds-layout-grid-column-gap="0.625rem"}}
-  @wrap={{true}}
 >
   {{!
     multiple grid items appearing on multiple rows
