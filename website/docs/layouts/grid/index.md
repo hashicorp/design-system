@@ -1,7 +1,7 @@
 ---
 title: Layout::Grid
-description: A component used to implement layouts based on CSS grid
-caption: A layout-only component for the organization of content based on the CSS grid model
+description: A component used to implement layouts based on CSS grid.
+caption: A layout-only component for the organization of content based on the CSS grid model.
 links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/grid
 previewImage: assets/illustrations/layouts/grid.jpg
