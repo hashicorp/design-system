@@ -999,42 +999,6 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Large AdvancedTable with overflowing container</Shw::Text::H3>
-
-  <Shw::Text::H4>Container with overflow = 'auto' + Columns width (in
-    <code>px</code>)</Shw::Text::H4>
-
-  <div class="shw-component-advanced-table-scrollable-wrapper">
-    <Hds::AdvancedTable
-      @model={{this.model.manyColumns}}
-      @columns={{array
-        (hash key="first_name" label="First Name" isSortable=true width="200px")
-        (hash key="last_name" label="Last Name" isSortable=true width="200px")
-        (hash key="age" label="Age" isSortable=true align="right")
-        (hash key="email" label="Email" isSortable=true)
-        (hash key="phone" label="Phone" isSortable=true)
-        (hash key="bio" label="Biography" width="350px")
-        (hash key="education" label="Education Degree" isSortable=true)
-        (hash key="occupation" label="Occupation" isSortable=true)
-      }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Td>{{B.data.first_name}}</B.Td>
-          <B.Td>{{B.data.last_name}}</B.Td>
-          <B.Td @align="right">{{B.data.age}}</B.Td>
-          <B.Td>{{B.data.email}}</B.Td>
-          <B.Td>{{B.data.phone}}</B.Td>
-          <B.Td>{{B.data.bio}}</B.Td>
-          <B.Td>{{B.data.education}}</B.Td>
-          <B.Td>{{B.data.occupation}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
-
-  <Shw::Divider @level={{2}} />
-
   <Shw::Text::H3>Wide container with a narrow AdvancedTable</Shw::Text::H3>
 
   <div class="shw-component-advanced-table-narrow-wrapper">
