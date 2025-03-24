@@ -17,9 +17,9 @@ export enum HdsLayoutGridGapValues {
   'Eight' = '8',
   'Twelve' = '12',
   'Sixteen' = '16',
-  'Twentyfour' = '24',
-  'Thirtytwo' = '32',
-  'Fortyeight' = '48',
+  'TwentyFour' = '24',
+  'ThirtyTwo' = '32',
+  'FortyEight' = '48',
 }
 
 export type HdsLayoutGridGaps = `${HdsLayoutGridGapValues}`;
