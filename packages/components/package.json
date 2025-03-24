@@ -144,6 +144,7 @@
       "./components/hds/advanced-table/th-selectable.js": "./dist/_app_/components/hds/advanced-table/th-selectable.js",
       "./components/hds/advanced-table/th-sort.js": "./dist/_app_/components/hds/advanced-table/th-sort.js",
       "./components/hds/advanced-table/th.js": "./dist/_app_/components/hds/advanced-table/th.js",
+      "./components/hds/advanced-table/thead.js": "./dist/_app_/components/hds/advanced-table/thead.js",
       "./components/hds/advanced-table/tr.js": "./dist/_app_/components/hds/advanced-table/tr.js",
       "./components/hds/alert/description.js": "./dist/_app_/components/hds/alert/description.js",
       "./components/hds/alert/index.js": "./dist/_app_/components/hds/alert/index.js",

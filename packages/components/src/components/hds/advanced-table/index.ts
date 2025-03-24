@@ -105,8 +105,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorRight = false;
   @tracked stickyColumnOffset: number = 0;
   @tracked scrollIndicatorTopOffset = 0;
-  @tracked showScrollIndicatorTop = false;
+  @tracked isStickyHeaderPinned = false;
   @tracked scrollIndicatorWidth = 0;
+  @tracked isStickyColumnPinned = false;
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -319,23 +320,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
-      const gridHeader = this._gridElement.querySelector(
-        '.hds-advanced-table__thead'
-      );
-
       // left scroll indicator + sticky column header styles
       if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
         if (this.args.hasStickyFirstColumn) {
-          gridHeader?.classList.add(
-            'hds-advanced-table__thead--column-is-pinned'
-          );
+          this.isStickyColumnPinned = true;
         }
         this.showScrollIndicatorLeft = true;
       } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
         if (this.args.hasStickyFirstColumn) {
-          gridHeader?.classList.remove(
-            'hds-advanced-table__thead--column-is-pinned'
-          );
+          this.isStickyColumnPinned = false;
         }
         this.showScrollIndicatorLeft = false;
       }
@@ -353,15 +346,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       }
 
       // sticky header styles
-      if (element.scrollTop > 0) {
-        if (this.args.hasStickyHeader) {
-          gridHeader?.classList.add('hds-advanced-table__thead--is-pinned');
-          this.showScrollIndicatorTop = true;
-        }
-      } else if (element.scrollTop === 0) {
-        if (this.args.hasStickyHeader) {
-          gridHeader?.classList.remove('hds-advanced-table__thead--is-pinned');
-          this.showScrollIndicatorTop = false;
+      if (this.args.hasStickyHeader) {
+        if (element.scrollTop > 0) {
+          this.isStickyHeaderPinned = true;
+        } else {
+          this.isStickyHeaderPinned = true;
         }
       }
     };
