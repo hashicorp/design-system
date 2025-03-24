@@ -123,6 +123,32 @@ module('Integration | Component | hds/code-editor/index', function (hooks) {
       .doesNotHaveClass('hds-code-editor--is-standalone');
   });
 
+  // @isLintingEnabled
+  test('it should render the component with the correct aria-describedby combination when the `@isLintingEnabled` argument is true and a description is set', async function (assert) {
+    await setupCodeEditor(
+      hbs`<Hds::CodeEditor
+  @ariaLabel='code editor'
+  @language='json'
+  @isLintingEnabled={{true}}
+  as |CE|
+><CE.Description id="test-description">Test Description</CE.Description></Hds::CodeEditor>`
+    );
+
+    const editorContentElement = document.querySelector(
+      '.hds-code-editor__editor .cm-editor [role="textbox"]'
+    );
+    const ariaDescribedBy =
+      editorContentElement.getAttribute('aria-describedby');
+    const ariaDescribedByArray = ariaDescribedBy.split(' ');
+
+    assert.ok(ariaDescribedByArray.includes('test-description'));
+    assert.ok(
+      ariaDescribedByArray.some((id) =>
+        id.startsWith('lint-panel-instructions')
+      )
+    );
+  });
+
   // @hasFullScreenButton
   test('it should render a toggle fullscreen button when the `@hasFullScreenButton` argument is true', async function (assert) {
     await setupCodeEditor(
