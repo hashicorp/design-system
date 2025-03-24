@@ -253,7 +253,7 @@ Below are examples of common layout patterns that can be achieved using the `Lay
 
 **Important**
 
-The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. Also, some of these patterns may already be implemented directly in HDS components that are ready to use.
+The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. 
 
 !!!
 
