@@ -114,9 +114,13 @@ If you absolutely have to use non-standard spacing value(s) for the grid `gap`, 
 ```handlebars{data-execute=false}
 <Hds::Layout::Grid class="doc-grid-demo-custom-grid-column-gap">
   {{!
+    // example of CSS code associated with the demo class:
+    .doc-flex-demo-custom-flex-column-gap {
+      --hds-layout-flex-column-gap: 13px;
+    }
+  }}
+  {{!
     multiple grid items here, with a non-standard gap between them
-    by assigning a custom value for `--hds-layout-grid-column-gap`
-    declared in the `.doc-grid-demo-custom-grid-column-gap` local class
   }}
 </Hds::Layout::Grid>
 ```
