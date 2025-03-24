@@ -297,6 +297,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
+  get theadClassNames(): string {
+    const classes = ['hds-advanced-table__thead'];
+
+    if (this.args.hasStickyHeader) {
+      classes.push('hds-advanced-table__thead--sticky');
+    }
+
+    if (this.isStickyHeaderPinned) {
+      classes.push('hds-advanced-table__thead--is-pinned');
+    }
+
+    if (this.isStickyColumnPinned) {
+      classes.push('hds-advanced-table__thead--column-is-pinned');
+    }
+
+    return classes.join(' ');
+  }
+
   private _setUpContainer = modifier((element: HTMLDivElement) => {
     this._outerElement = element;
 

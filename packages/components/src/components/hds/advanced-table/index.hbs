@@ -21,11 +21,7 @@
       </div>
 
       {{! Header }}
-      <Hds::AdvancedTable::Thead
-        @hasStickyHeader={{@hasStickyHeader}}
-        @isStickyHeaderPinned={{this.isStickyHeaderPinned}}
-        @isStickyColumnPinned={{this.isStickyColumnPinned}}
-      >
+      <div class={{this.theadClassNames}} role="rowgroup">
         <Hds::AdvancedTable::Tr
           @selectionScope="col"
           @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
@@ -64,7 +60,7 @@
             {{/if}}
           {{/each}}
         </Hds::AdvancedTable::Tr>
-      </Hds::AdvancedTable::Thead>
+      </div>
 
       {{! Body }}
       <div class="hds-advanced-table__tbody" role="rowgroup">
