@@ -2,11 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-advanced-table__container" {{this._setUpContainer}}>
+<div class="hds-advanced-table__container" {{this._setUpContainer}} ...attributes>
   <div class="hds-advanced-table__scroll-wrapper" {{this._setUpScrollWrapper}}>
     <div
       class={{this.classNames}}
-      ...attributes
       role="grid"
       aria-describedby={{this._captionId}}
       {{style
