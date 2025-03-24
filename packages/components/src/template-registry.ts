@@ -16,7 +16,6 @@ import type HdsAdvancedTableThButtonTooltipComponent from './components/hds/adva
 import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
-import type HdsAdvancedTableThead from './components/hds/advanced-table/thead.ts';
 import type HdsAdvancedTableExpandableTrGroupComponent from './components/hds/advanced-table/expandable-tr-group.ts';
 import type HdsAlertComponent from './components/hds/alert';
 import type HdsAlertDescriptionComponent from './components/hds/alert/description';
@@ -265,8 +264,6 @@ export default interface HdsComponentsRegistry {
   'hds/advanced-table/th-selectable': typeof HdsAdvancedTableThSelectableComponent;
   'Hds::AdvancedTable::ExpandableTrGroup': typeof HdsAdvancedTableExpandableTrGroupComponent;
   'hds/advanced-table/expandable-tr-group': typeof HdsAdvancedTableExpandableTrGroupComponent;
-  'Hds::AdvancedTable::Thead': typeof HdsAdvancedTableThead;
-  'hds/advanced-table/thead': typeof HdsAdvancedTableThead;
 
   // Alert
   'Hds::Alert': typeof HdsAlertComponent;
