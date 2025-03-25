@@ -10,6 +10,8 @@ import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
+import { guidFor } from '@ember/object/internals';
+import { isEmpty } from '@ember/utils';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -27,6 +29,7 @@ import type {
   KeyBinding,
   ViewUpdate,
 } from '@codemirror/view';
+import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
 type HdsCodeEditorBlurHandler = (
@@ -47,10 +50,12 @@ export interface HdsCodeEditorSignature {
       cspNonce?: string;
       extraKeys?: HdsCodeEditorExtraKeys;
       hasLineWrapping?: boolean;
+      isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
       onInput?: (newVal: string) => void;
       onBlur?: HdsCodeEditorBlurHandler;
+      onLint?: (diagnostics: DiagnosticType[]) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -87,7 +92,12 @@ const LOADER_HEIGHT = '164px';
 
 const LANGUAGES: Record<
   HdsCodeEditorLanguages,
-  { load: () => Promise<Extension | StreamLanguageType<unknown>> }
+  {
+    load: () => Promise<Extension | StreamLanguageType<unknown>>;
+    loadLinter?: (
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint']
+    ) => Promise<Extension>;
+  }
 > = {
   rego: {
     load: async () => {
@@ -127,6 +137,11 @@ const LANGUAGES: Record<
   },
   json: {
     load: async () => (await import('@codemirror/lang-json')).json(),
+    loadLinter: async (onLint) => {
+      const linter = await import('./hds-code-editor/linters/json-linter.ts');
+
+      return linter.default(onLint);
+    },
   },
   markdown: {
     load: async () => (await import('@codemirror/lang-markdown')).markdown(),
@@ -147,7 +162,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
   blurHandler!: (event: FocusEvent) => void;
-  observer!: IntersectionObserver;
+  intersectionObserver!: IntersectionObserver;
+  mutationObserver!: MutationObserver;
 
   lineWrappingCompartment = new Compartment();
 
@@ -155,7 +171,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     super(owner, args);
 
     registerDestructor(this, () => {
-      this.observer?.disconnect();
+      this.intersectionObserver?.disconnect();
+      this.mutationObserver?.disconnect();
 
       if (this.onBlur !== undefined) {
         this.element.removeEventListener('blur', this.blurHandler);
@@ -184,7 +201,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (config.environment === 'test') {
         this._setupTask.perform(element, positional, named);
       } else {
-        this.observer = new IntersectionObserver(
+        this.intersectionObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && this.editor === undefined) {
@@ -197,7 +214,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           }
         );
 
-        this.observer.observe(element);
+        this.intersectionObserver.observe(element);
       }
     }
   }
@@ -245,15 +262,47 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _setupEditorAriaDescribedBy(
     editor: EditorViewType,
-    ariaDescribedBy?: string
+    {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    }: {
+      ariaDescribedBy?: string;
+      lintingDescriptionElement?: HTMLParagraphElement;
+    }
   ) {
-    if (ariaDescribedBy === undefined) {
+    if (
+      ariaDescribedBy === undefined &&
+      lintingDescriptionElement === undefined
+    ) {
       return;
+    }
+
+    const ariaDescribedByArray = [];
+
+    if (ariaDescribedBy !== undefined) {
+      ariaDescribedByArray.push(ariaDescribedBy);
+    }
+
+    if (lintingDescriptionElement !== undefined) {
+      ariaDescribedByArray.push(lintingDescriptionElement.id);
     }
 
     editor.dom
       .querySelector('[role="textbox"]')
-      ?.setAttribute('aria-describedby', ariaDescribedBy);
+      ?.setAttribute('aria-describedby', ariaDescribedByArray.join(' '));
+  }
+
+  private _createLintingDescriptionElement(): HTMLParagraphElement {
+    const element = document.createElement('p');
+
+    element.id = `lint-panel-instructions-${this.element.id}`;
+    element.classList.add('sr-only');
+    element.textContent =
+      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel';
+
+    this.element.insertAdjacentElement('beforebegin', element);
+
+    return element;
   }
 
   private _setupEditorAriaAttributes(
@@ -262,18 +311,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ariaDescribedBy,
       ariaLabel,
       ariaLabelledBy,
+      lintingDescriptionElement,
     }: Pick<
       HdsCodeEditorSignature['Args']['Named'],
       'ariaDescribedBy' | 'ariaLabel' | 'ariaLabelledBy'
-    >
+    > & { lintingDescriptionElement?: HTMLParagraphElement }
   ) {
     this._setupEditorAriaLabel(editor, { ariaLabel, ariaLabelledBy });
-    this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
+    this._setupEditorAriaDescribedBy(editor, {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    });
   }
 
-  private _loadLanguageTask = task(
+  private _loadLanguageExtensionsTask = task(
     { drop: true },
-    async (language?: HdsCodeEditorLanguages) => {
+    async ({
+      language,
+      isLintingEnabled,
+      onLint,
+    }: {
+      language?: HdsCodeEditorLanguages;
+      isLintingEnabled?: boolean;
+      onLint?: HdsCodeEditorSignature['Args']['Named']['onLint'];
+    }) => {
       if (language === undefined) {
         return;
       }
@@ -288,7 +349,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           validLanguageKeys.includes(language)
         );
 
-        return LANGUAGES[language].load();
+        let extensionPromises = [LANGUAGES[language].load()];
+
+        if (isLintingEnabled && LANGUAGES[language].loadLinter) {
+          extensionPromises = [
+            ...extensionPromises,
+            LANGUAGES[language].loadLinter(onLint),
+          ];
+        }
+
+        return Promise.all(extensionPromises);
       } catch (error) {
         warn(
           `\`hds-code-editor\` modifier - Failed to dynamically import the CodeMirror language module for '${language}'. Error: ${JSON.stringify(
@@ -304,7 +374,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ cspNonce, extraKeys, language, hasLineWrapping }) => {
+    async ({
+      cspNonce,
+      extraKeys,
+      language,
+      hasLineWrapping,
+      isLintingEnabled,
+      onLint,
+    }) => {
       const [
         {
           keymap,
@@ -321,7 +398,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         import('@codemirror/language'),
       ]);
 
-      const languageExtension = await this._loadLanguageTask.perform(language);
+      const languageExtensions = await this._loadLanguageExtensionsTask.perform(
+        {
+          language,
+          isLintingEnabled,
+          onLint,
+        }
+      );
 
       const handleUpdateExtension = EditorView.updateListener.of(
         (update: ViewUpdate) => {
@@ -352,7 +435,6 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         highlightActiveLineGutter(),
         highlightSpecialChars(),
         history(),
-        lineNumbers(),
         keymap.of([...defaultKeymap, ...historyKeymap]),
         // custom extensions
         handleUpdateExtension,
@@ -370,8 +452,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         extensions = [keymap.of(customKeyMap as KeyBinding[]), ...extensions];
       }
 
-      if (languageExtension !== undefined) {
-        extensions = [languageExtension, ...extensions];
+      if (languageExtensions !== undefined) {
+        extensions = [...extensions, ...languageExtensions];
       }
 
       // add nonce to the editor view if it exists
@@ -380,6 +462,9 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (nonce !== undefined) {
         extensions = [...extensions, EditorView.cspNonce.of(nonce)];
       }
+
+      // ensure we add lineNumber last in the stack to create the right gutter order for linting
+      extensions = [...extensions, lineNumbers()];
 
       return extensions;
     }
@@ -395,9 +480,17 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         extraKeys,
         value,
         hasLineWrapping,
+        isLintingEnabled,
+        onLint,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'cspNonce' | 'language' | 'extraKeys' | 'value' | 'hasLineWrapping'
+        | 'cspNonce'
+        | 'language'
+        | 'extraKeys'
+        | 'value'
+        | 'hasLineWrapping'
+        | 'isLintingEnabled'
+        | 'onLint'
       >
     ) => {
       try {
@@ -408,6 +501,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           extraKeys,
           language,
           hasLineWrapping: hasLineWrapping ?? false,
+          isLintingEnabled,
+          onLint,
         });
 
         const state = EditorState.create({
@@ -429,6 +524,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   );
 
+  private _setupEditorMutationObserver() {
+    this.mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.removedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) {
+            return;
+          }
+
+          const removedNodeContainsLintPanel =
+            node.querySelector('.cm-panel-lint') !== null;
+
+          if (removedNodeContainsLintPanel) {
+            this.editor.focus();
+          }
+        });
+      });
+    });
+
+    this.mutationObserver.observe(this.element, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
   private _setupTask = task(
     { drop: true },
     async (
@@ -439,6 +558,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       const {
         onBlur,
         onInput,
+        onLint,
         onSetup,
         ariaDescribedBy,
         ariaLabel,
@@ -446,6 +566,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         cspNonce,
         extraKeys,
         hasLineWrapping,
+        isLintingEnabled,
         language,
         value,
       } = named;
@@ -454,13 +575,18 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.onBlur = onBlur;
 
       this.element = element;
+      this.element.id = isEmpty(this.element.id)
+        ? guidFor(this)
+        : this.element.id;
 
       const editor = await this._createEditorTask.perform(element, {
+        onLint,
         cspNonce,
+        hasLineWrapping,
+        isLintingEnabled,
         extraKeys,
         language,
         value,
-        hasLineWrapping,
       });
 
       if (editor === undefined) {
@@ -473,10 +599,24 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         this._setupEditorBlurHandler(element, onBlur);
       }
 
+      let lintingDescriptionElement: HTMLParagraphElement | null = null;
+
+      if (
+        isLintingEnabled &&
+        language !== undefined &&
+        LANGUAGES[language]?.loadLinter !== undefined
+      ) {
+        // insert a new dom element above the editor
+        lintingDescriptionElement = this._createLintingDescriptionElement();
+
+        this._setupEditorMutationObserver();
+      }
+
       this._setupEditorAriaAttributes(editor, {
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
+        lintingDescriptionElement: lintingDescriptionElement ?? undefined,
       });
 
       onSetup?.(this.editor);
