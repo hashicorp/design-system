@@ -5,12 +5,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
-// import { get } from '@ember/helper';
+import { get } from '@ember/helper';
 
 // HDS components
 import {
   HdsAdvancedTable,
-  // HdsLinkInline,
+  HdsLinkInline,
   // HdsButton,
   // HdsBadge,
   HdsBadgeColorValues,
@@ -209,15 +209,16 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
         @isSelectable={{true}}
         @isStriped={{true}}
         @onSelectionChange={{this.onSelectionChange}}
+        @hasStickyFirstColumn={{true}}
       >
         <:body as |B|>
-          <B.Tr
-            @selectionKey="foo"
-            {{!-- @selectionKey={{get B.data }} --}}
-            {{!-- @selectionAriaLabelSuffix="row #{{B.data.id}}" --}}
-          >
+          {{! @glint-expect-error }}
+          <B.Tr @selectionKey={{get B.data "name"}}>
             <B.Th>
-              {{!-- {{(get B.data "name")}} --}}
+              <HdsLinkInline @href="www.google.com">
+                {{! @glint-expect-error }}
+                {{get B.data "name"}}
+              </HdsLinkInline>
             </B.Th>
             <B.Td />
             <B.Td />
