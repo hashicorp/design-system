@@ -144,7 +144,7 @@ import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLayoutFlexComponent from './components/hds/layout/flex';
 import type HdsLayoutFlexItemComponent from './components/hds/layout/flex/item';
 import type HdsLayoutGridComponent from './components/hds/layout/grid';
-import type HdsLayoutGridItemComponent from './components/hds/layout/flex/item';
+import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
