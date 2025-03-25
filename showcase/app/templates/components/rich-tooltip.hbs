@@ -103,7 +103,7 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Inherited">
-      {{#let (array "14px" "16px" "18px") as |sizes|}}
+      {{#let (array "18px" "20px" "22px") as |sizes|}}
         {{#each sizes as |size|}}
           <div {{style font-size=size line-height="1.4"}}>
             <Hds::RichTooltip as |RT|>
@@ -715,7 +715,7 @@
       <Hds::Text::Body @size="200" @tag="p">
         Lorem ipsum dolor
         <Hds::RichTooltip as |RT|>
-          <RT.Toggle @isInline={{true}} @icon="info" />
+          <RT.Toggle @isInline={{true}} @icon="info" aria-label="Inline icon" />
           <RT.Bubble>
             <Shw::Placeholder @text="generic content" @height="30" />
           </RT.Bubble>
