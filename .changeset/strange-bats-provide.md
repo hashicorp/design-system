@@ -2,4 +2,4 @@
 "@hashicorp/flight-icons": minor
 ---
 
-Added Duo and Ping idendity service icons
+`duo` and `ping-identity` service icons added.
