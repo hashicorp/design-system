@@ -98,16 +98,17 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _scrollHandler!: (event: Event) => void;
   private _outerElement!: HTMLDivElement;
   private _gridElement!: HTMLDivElement;
+
+  @tracked isStickyColumnPinned = false;
+  @tracked isStickyHeaderPinned = false;
   @tracked scrollIndicatorHeight = 0;
   @tracked scrollIndicatorLeftOffset = 0;
-  @tracked showScrollIndicatorLeft = false;
   @tracked scrollIndicatorRightOffset = 0;
+  @tracked scrollIndicatorTopOffset = 0;
+  @tracked scrollIndicatorWidth = 0;
+  @tracked showScrollIndicatorLeft = false;
   @tracked showScrollIndicatorRight = false;
   @tracked stickyColumnOffset: number = 0;
-  @tracked scrollIndicatorTopOffset = 0;
-  @tracked isStickyHeaderPinned = false;
-  @tracked scrollIndicatorWidth = 0;
-  @tracked isStickyColumnPinned = false;
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -338,49 +339,57 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
-      // left scroll indicator + sticky column header styles
-      if (element.scrollLeft > 0 && !this.showScrollIndicatorLeft) {
+      // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
+      const SCROLL_BUFFER = 6;
+
+      // left scroll indicator and sticky column styles
+      if (element.scrollLeft > SCROLL_BUFFER && !this.showScrollIndicatorLeft) {
         if (this.args.hasStickyFirstColumn) {
           this.isStickyColumnPinned = true;
         }
         this.showScrollIndicatorLeft = true;
       } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
-        if (this.args.hasStickyFirstColumn) {
-          this.isStickyColumnPinned = false;
-        }
+        this.isStickyColumnPinned = false;
         this.showScrollIndicatorLeft = false;
       }
 
-      // right scroll indicator
-      const rightEdge = element.scrollWidth - element.clientWidth;
+      // the right edge is how far the user can scroll, which is the full width of the table - the visible section of the table (also subtract the buffer)
+      const rightEdge =
+        element.scrollWidth - element.clientWidth - SCROLL_BUFFER;
 
+      // right scroll indicator
       if (element.scrollLeft < rightEdge && !this.showScrollIndicatorRight) {
         this.showScrollIndicatorRight = true;
       } else if (
-        element.scrollLeft === rightEdge &&
+        element.scrollLeft >= rightEdge &&
         this.showScrollIndicatorRight
       ) {
         this.showScrollIndicatorRight = false;
       }
 
-      // sticky header styles
+      // sticky header
       if (this.args.hasStickyHeader) {
         if (element.scrollTop > 0) {
           this.isStickyHeaderPinned = true;
         } else {
-          this.isStickyHeaderPinned = true;
+          this.isStickyHeaderPinned = false;
         }
       }
     };
 
     element.addEventListener('scroll', this._scrollHandler);
 
+    // on render check if should show right scroll indicator
     if (element.clientWidth < element.scrollWidth) {
       this.showScrollIndicatorRight = true;
     }
 
     return () => {
       element.removeEventListener('scroll', this._scrollHandler);
+      this.showScrollIndicatorRight = false;
+      this.isStickyHeaderPinned = false;
+      this.isStickyColumnPinned = false;
+      this.showScrollIndicatorLeft = false;
     };
   });
 
