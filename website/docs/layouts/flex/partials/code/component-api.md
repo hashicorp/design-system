@@ -14,14 +14,14 @@
   <C.Property @name="justify" @type="enum" @values={{array "start" "center" "end" "space-between" "space-around" "space-evenly"}}>
     The value of the CSS `justify-content` property, which defines how the space is distributed between and around content items along the [main axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis) of the flex container (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)).
     <br/><br/>
-    <em>Notice: we expose only a subset of the values allowed for this property, covering only the most common use cases.</em>
+    <em>Note: we expose only a subset of the values allowed for this property, covering only the most common use cases.</em>
     <br/><br/>
     <em>Tip: when the `@direction` is `row` this argument controls the horizontal alignment; when it's `column` it controls the vertical alignment.</em>
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "start" "center" "end" "stretch"}}>
     The value of the CSS `align-items` property, which controls the alignment of the flex items on the [cross axis](https://developer.mozilla.org/en-US/docs/Glossary/Cross_Axis) (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)).
     <br/><br/>
-    <em>Notice: we expose only a subset of the values allowed for this property, covering only the most common use cases.</em>
+    <em>Note: we expose only a subset of the values allowed for this property, covering only the most common use cases.</em>
     <br/><br/>
     <em>Tip: when the `@direction` is `row` this argument controls the vertical alignment; when it's `column` it controls the horizontal alignment.</em>
   </C.Property>
