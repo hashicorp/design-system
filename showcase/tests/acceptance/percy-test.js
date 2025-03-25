@@ -191,6 +191,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/layouts/flex');
     await percySnapshot('Flex');
 
+    await visit('/layouts/grid');
+    await percySnapshot('Grid');
+
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');
 
