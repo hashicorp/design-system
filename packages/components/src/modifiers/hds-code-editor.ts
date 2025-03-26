@@ -10,6 +10,8 @@ import { task } from 'ember-concurrency';
 import config from 'ember-get-config';
 import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
+import { guidFor } from '@ember/object/internals';
+import { isEmpty } from '@ember/utils';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
@@ -24,6 +26,7 @@ import type {
 import type { Extension } from '@codemirror/state';
 import type {
   EditorView as EditorViewType,
+  KeyBinding,
   ViewUpdate,
 } from '@codemirror/view';
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
@@ -34,12 +37,18 @@ type HdsCodeEditorBlurHandler = (
   event: FocusEvent
 ) => void;
 
+interface HdsCodeEditorExtraKeys {
+  [key: string]: () => void;
+}
+
 export interface HdsCodeEditorSignature {
   Args: {
     Named: {
       ariaDescribedBy?: string;
       ariaLabel?: string;
       ariaLabelledBy?: string;
+      cspNonce?: string;
+      extraKeys?: HdsCodeEditorExtraKeys;
       hasLineWrapping?: boolean;
       isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
@@ -56,6 +65,27 @@ async function defineStreamLanguage(streamParser: StreamParserType<unknown>) {
   const { StreamLanguage } = await import('@codemirror/language');
 
   return StreamLanguage.define(streamParser);
+}
+
+export function getCSPNonceFromMeta(): string | undefined {
+  const meta = document.querySelector(
+    'meta[http-equiv="Content-Security-Policy"]'
+  );
+
+  if (meta === null) {
+    return undefined;
+  }
+
+  const content = meta.getAttribute('content');
+
+  if (content === null) {
+    return undefined;
+  }
+
+  // searches for either "style-src" or "script-src" followed by anything until a token like 'nonce-<value>'
+  const match = content.match(/(?:style-src|script-src)[^;]*'nonce-([^']+)'/);
+
+  return match ? match[1] : undefined;
 }
 
 const LOADER_HEIGHT = '164px';
@@ -132,7 +162,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
 
   blurHandler!: (event: FocusEvent) => void;
-  observer!: IntersectionObserver;
+  intersectionObserver!: IntersectionObserver;
+  mutationObserver!: MutationObserver;
 
   lineWrappingCompartment = new Compartment();
 
@@ -140,7 +171,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     super(owner, args);
 
     registerDestructor(this, () => {
-      this.observer?.disconnect();
+      this.intersectionObserver?.disconnect();
+      this.mutationObserver?.disconnect();
 
       if (this.onBlur !== undefined) {
         this.element.removeEventListener('blur', this.blurHandler);
@@ -169,7 +201,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       if (config.environment === 'test') {
         this._setupTask.perform(element, positional, named);
       } else {
-        this.observer = new IntersectionObserver(
+        this.intersectionObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && this.editor === undefined) {
@@ -182,7 +214,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           }
         );
 
-        this.observer.observe(element);
+        this.intersectionObserver.observe(element);
       }
     }
   }
@@ -230,15 +262,47 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _setupEditorAriaDescribedBy(
     editor: EditorViewType,
-    ariaDescribedBy?: string
+    {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    }: {
+      ariaDescribedBy?: string;
+      lintingDescriptionElement?: HTMLParagraphElement;
+    }
   ) {
-    if (ariaDescribedBy === undefined) {
+    if (
+      ariaDescribedBy === undefined &&
+      lintingDescriptionElement === undefined
+    ) {
       return;
+    }
+
+    const ariaDescribedByArray = [];
+
+    if (ariaDescribedBy !== undefined) {
+      ariaDescribedByArray.push(ariaDescribedBy);
+    }
+
+    if (lintingDescriptionElement !== undefined) {
+      ariaDescribedByArray.push(lintingDescriptionElement.id);
     }
 
     editor.dom
       .querySelector('[role="textbox"]')
-      ?.setAttribute('aria-describedby', ariaDescribedBy);
+      ?.setAttribute('aria-describedby', ariaDescribedByArray.join(' '));
+  }
+
+  private _createLintingDescriptionElement(): HTMLParagraphElement {
+    const element = document.createElement('p');
+
+    element.id = `lint-panel-instructions-${this.element.id}`;
+    element.classList.add('sr-only');
+    element.textContent =
+      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel';
+
+    this.element.insertAdjacentElement('beforebegin', element);
+
+    return element;
   }
 
   private _setupEditorAriaAttributes(
@@ -247,13 +311,17 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ariaDescribedBy,
       ariaLabel,
       ariaLabelledBy,
+      lintingDescriptionElement,
     }: Pick<
       HdsCodeEditorSignature['Args']['Named'],
       'ariaDescribedBy' | 'ariaLabel' | 'ariaLabelledBy'
-    >
+    > & { lintingDescriptionElement?: HTMLParagraphElement }
   ) {
     this._setupEditorAriaLabel(editor, { ariaLabel, ariaLabelledBy });
-    this._setupEditorAriaDescribedBy(editor, ariaDescribedBy);
+    this._setupEditorAriaDescribedBy(editor, {
+      ariaDescribedBy,
+      lintingDescriptionElement,
+    });
   }
 
   private _loadLanguageExtensionsTask = task(
@@ -306,7 +374,14 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
   private _buildExtensionsTask = task(
     { drop: true },
-    async ({ language, hasLineWrapping, isLintingEnabled, onLint }) => {
+    async ({
+      cspNonce,
+      extraKeys,
+      language,
+      hasLineWrapping,
+      isLintingEnabled,
+      onLint,
+    }) => {
       const [
         {
           keymap,
@@ -368,8 +443,24 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         syntaxHighlighting(hdsDarkHighlightStyle),
       ];
 
+      if (extraKeys !== undefined) {
+        const customKeyMap = Object.entries(extraKeys).map(([key, value]) => ({
+          key: key,
+          run: value,
+        }));
+
+        extensions = [keymap.of(customKeyMap as KeyBinding[]), ...extensions];
+      }
+
       if (languageExtensions !== undefined) {
         extensions = [...extensions, ...languageExtensions];
+      }
+
+      // add nonce to the editor view if it exists
+      const nonce = cspNonce ?? getCSPNonceFromMeta();
+
+      if (nonce !== undefined) {
+        extensions = [...extensions, EditorView.cspNonce.of(nonce)];
       }
 
       // ensure we add lineNumber last in the stack to create the right gutter order for linting
@@ -384,24 +475,34 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     async (
       element: HTMLElement,
       {
-        onLint,
+        cspNonce,
+        language,
+        extraKeys,
+        value,
         hasLineWrapping,
         isLintingEnabled,
-        language,
-        value,
+        onLint,
       }: Pick<
         HdsCodeEditorSignature['Args']['Named'],
-        'language' | 'value' | 'hasLineWrapping' | 'isLintingEnabled' | 'onLint'
+        | 'cspNonce'
+        | 'language'
+        | 'extraKeys'
+        | 'value'
+        | 'hasLineWrapping'
+        | 'isLintingEnabled'
+        | 'onLint'
       >
     ) => {
       try {
         const { EditorState } = await import('@codemirror/state');
 
         const extensions = await this._buildExtensionsTask.perform({
-          onLint,
+          cspNonce,
+          extraKeys,
+          language,
           hasLineWrapping: hasLineWrapping ?? false,
           isLintingEnabled,
-          language,
+          onLint,
         });
 
         const state = EditorState.create({
@@ -423,6 +524,30 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     }
   );
 
+  private _setupEditorMutationObserver() {
+    this.mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.removedNodes.forEach((node) => {
+          if (!(node instanceof HTMLElement)) {
+            return;
+          }
+
+          const removedNodeContainsLintPanel =
+            node.querySelector('.cm-panel-lint') !== null;
+
+          if (removedNodeContainsLintPanel) {
+            this.editor.focus();
+          }
+        });
+      });
+    });
+
+    this.mutationObserver.observe(this.element, {
+      childList: true,
+      subtree: true,
+    });
+  }
+
   private _setupTask = task(
     { drop: true },
     async (
@@ -438,6 +563,8 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
+        cspNonce,
+        extraKeys,
         hasLineWrapping,
         isLintingEnabled,
         language,
@@ -448,11 +575,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       this.onBlur = onBlur;
 
       this.element = element;
+      this.element.id = isEmpty(this.element.id)
+        ? guidFor(this)
+        : this.element.id;
 
       const editor = await this._createEditorTask.perform(element, {
         onLint,
+        cspNonce,
         hasLineWrapping,
         isLintingEnabled,
+        extraKeys,
         language,
         value,
       });
@@ -467,10 +599,24 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
         this._setupEditorBlurHandler(element, onBlur);
       }
 
+      let lintingDescriptionElement: HTMLParagraphElement | null = null;
+
+      if (
+        isLintingEnabled &&
+        language !== undefined &&
+        LANGUAGES[language]?.loadLinter !== undefined
+      ) {
+        // insert a new dom element above the editor
+        lintingDescriptionElement = this._createLintingDescriptionElement();
+
+        this._setupEditorMutationObserver();
+      }
+
       this._setupEditorAriaAttributes(editor, {
         ariaDescribedBy,
         ariaLabel,
         ariaLabelledBy,
+        lintingDescriptionElement: lintingDescriptionElement ?? undefined,
       });
 
       onSetup?.(this.editor);

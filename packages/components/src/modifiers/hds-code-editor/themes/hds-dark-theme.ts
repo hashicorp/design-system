@@ -99,22 +99,13 @@ const hdsDark = EditorView.theme(
       width: '24px',
       height: '24px',
       padding: '6px',
-      content: `url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><g id="x-diamond-fill"><path id="Path" fill-rule="evenodd" clip-rule="evenodd" d="M9.56912 0.752289C8.69045 -0.126408 7.26581 -0.126415 6.38713 0.752272L0.730298 6.40911C-0.148388 7.28779 -0.148379 8.71243 0.730316 9.5911L6.38715 15.2478C7.26583 16.1265 8.69044 16.1265 9.56911 15.2478L15.2258 9.59109C16.1045 8.71241 16.1045 7.2878 15.2258 6.40912L9.56912 0.752289ZM5.21967 5.21955C5.51256 4.92665 5.98744 4.92665 6.28033 5.21955L8 6.93922L9.71967 5.21955C10.0126 4.92665 10.4874 4.92665 10.7803 5.21955C11.0732 5.51244 11.0732 5.98731 10.7803 6.28021L9.06066 7.99988L10.7803 9.71955C11.0732 10.0124 11.0732 10.4873 10.7803 10.7802C10.4874 11.0731 10.0126 11.0731 9.71967 10.7802L8 9.06054L6.28033 10.7802C5.98744 11.0731 5.51256 11.0731 5.21967 10.7802C4.92678 10.4873 4.92678 10.0124 5.21967 9.71955L6.93934 7.99988L5.21967 6.28021C4.92678 5.98731 4.92678 5.51244 5.21967 5.21955Z" fill="${encodeURIComponent(HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL)}"/></g></svg>');`,
+      content: `url('data:image/svg+xml,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.56912 0.752289C8.69045 -0.126408 7.26581 -0.126415 6.38713 0.752272L0.730298 6.40911C-0.148388 7.28779 -0.148379 8.71243 0.730316 9.5911L6.38715 15.2478C7.26583 16.1265 8.69044 16.1265 9.56911 15.2478L15.2258 9.59109C16.1045 8.71241 16.1045 7.2878 15.2258 6.40912L9.56912 0.752289ZM5.21967 5.21955C5.51256 4.92665 5.98744 4.92665 6.28033 5.21955L8 6.93922L9.71967 5.21955C10.0126 4.92665 10.4874 4.92665 10.7803 5.21955C11.0732 5.51244 11.0732 5.98731 10.7803 6.28021L9.06066 7.99988L10.7803 9.71955C11.0732 10.0124 11.0732 10.4873 10.7803 10.7802C10.4874 11.0731 10.0126 11.0731 9.71967 10.7802L8 9.06054L6.28033 10.7802C5.98744 11.0731 5.51256 11.0731 5.21967 10.7802C4.92678 10.4873 4.92678 10.0124 5.21967 9.71955L6.93934 7.99988L5.21967 6.28021C4.92678 5.98731 4.92678 5.51244 5.21967 5.21955Z" fill="${encodeURIComponent(HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL)}"/></svg>');`,
     },
 
     // linter diagnostics panel
-    '.cm-panels.cm-panels-bottom': {
-      position: 'absolute',
-    },
-    '.cm-panel.cm-panel-lint': {
-      position: 'absolute',
-      right: '0',
-      left: '0',
-      bottom: '0',
-    },
     '.cm-panel.cm-panel-lint ul': {
       backgroundColor: 'var(--token-color-palette-neutral-500)',
-      maxHeight: '80px',
+      maxHeight: '85px',
     },
     [`${PANEL_DIAGNOSTIC_ITEM_SELECTOR}`]: {
       backgroundColor: HDS_CODE_EDITOR_COLOR_SURFACE_PRIMARY,
@@ -157,7 +148,7 @@ const hdsDark = EditorView.theme(
     // linter diagnostics panel close button
     [`${CLOSE_BUTTON_SELECTOR}`]: {
       alignItems: 'center',
-      borderRadius: '5px',
+      borderRadius: 'var(--token-border-radius-small)',
       color: 'var(--token-color-palette-neutral-300)',
       cursor: 'pointer',
       display: 'flex',
@@ -185,7 +176,7 @@ const hdsDark = EditorView.theme(
     // tooltips
     '.cm-tooltip': {
       backgroundColor: 'var(--token-color-palette-neutral-600)',
-      borderRadius: '5px',
+      borderRadius: 'var(--token-border-radius-small)',
       color: 'var(--token-color-foreground-high-contrast)',
       fontFamily: 'var(--token-typography-body-100-font-family)',
       fontSize: '13px',

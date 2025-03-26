@@ -154,8 +154,14 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/side-nav');
     await percySnapshot('SideNav');
 
-    await visit('/components/stepper');
-    await percySnapshot('Stepper');
+    await visit('/components/stepper/indicator');
+    await percySnapshot('Stepper Indicator');
+
+    await visit('/components/stepper/list');
+    await percySnapshot('Stepper List');
+
+    await visit('/components/stepper/nav');
+    await percySnapshot('Stepper Nav');
 
     await visit('/components/table');
     await percySnapshot('Table');
@@ -181,6 +187,12 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/layouts/app-frame');
     await percySnapshot('AppFrame');
+
+    await visit('/layouts/flex');
+    await percySnapshot('Flex');
+
+    await visit('/layouts/grid');
+    await percySnapshot('Grid');
 
     await visit('/overrides/power-select');
     await percySnapshot('PowerSelect');

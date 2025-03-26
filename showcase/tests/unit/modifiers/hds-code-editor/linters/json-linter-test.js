@@ -66,8 +66,9 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
   });
 
   test('renderErrorMessage creates correct HTML structure', function (assert) {
+    const lineNumber = 123;
     const message = 'Syntax Error';
-    const element = renderErrorMessage(message);
+    const element = renderErrorMessage(message, lineNumber);
 
     assert.ok(
       element.classList.contains('cm-diagnosticText-inner'),
@@ -80,7 +81,7 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
     );
     assert.strictEqual(
       element.children[1].textContent,
-      message,
+      `Line ${lineNumber}: ${message}`,
       'Has correct text content'
     );
   });

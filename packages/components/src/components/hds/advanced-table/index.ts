@@ -10,8 +10,9 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import { next } from '@ember/runloop';
+import HdsAdvancedTableTableModel from './models/table.ts';
 
+import type Owner from '@ember/owner';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableThSortOrderValues,
@@ -33,7 +34,6 @@ import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 import type { HdsAdvancedTableTdSignature } from './td.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableTrSignature } from './tr.ts';
-import { updateLastRowClass } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -91,20 +91,42 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-  @tracked _expandAllButton?: HTMLButtonElement = undefined;
-  @tracked private _expandAllButtonState?: boolean | 'mixed' = undefined;
 
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
-  private _expandableRows: HTMLButtonElement[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _intersectionObserver: IntersectionObserver | undefined = undefined;
   private _element!: HTMLDivElement;
+  private _tableModel!: HdsAdvancedTableTableModel;
+
+  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+    super(owner, args);
+
+    const { model, childrenKey, columns } = args;
+
+    this._tableModel = new HdsAdvancedTableTableModel({
+      model,
+      childrenKey,
+    });
+
+    if (this._tableModel.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+    }
+  }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
     // get the current column
     const currentColumn = this.args?.columns?.find(
       (column) => column.key === this._sortBy
     );
+
     if (
       // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
       currentColumn?.sortingFunction &&
@@ -149,39 +171,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return childrenKey;
   }
 
-  get hasNestedRows(): boolean {
-    const { model, columns } = this.args;
-    let hasNestedRows = false;
-    let isSortable = false;
-    const sortableColumns: string[] = [];
-
-    // if the model is not an array, assume there are no nested rows
-    if (!Array.isArray(model)) return false;
-
-    for (const column of columns) {
-      if (column.isSortable) {
-        isSortable = true;
-        sortableColumns.push(column.label);
-      }
-    }
-
-    for (const obj of model) {
-      if (this.childrenKey in obj) {
-        hasNestedRows = true;
-        break;
-      }
-    }
-
-    if (hasNestedRows) {
-      assert(
-        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumns.toString()}`,
-        !isSortable
-      );
-    }
-
-    return hasNestedRows;
-  }
-
   get sortedMessageText(): string {
     if (this.args.sortedMessageText) {
       return this.args.sortedMessageText;
@@ -196,7 +185,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isSelectable(): boolean {
     const { isSelectable = false } = this.args;
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       assert(
         '@isSelectable must not be true if there are nested rows.',
         !isSelectable
@@ -210,7 +199,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get isStriped(): boolean {
     const { isStriped = false } = this.args;
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       assert(
         '@isStriped must not be true if there are nested rows.',
         !isStriped
@@ -282,7 +271,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push(`hds-advanced-table--valign-${this.valign}`);
     }
 
-    if (this.hasNestedRows) {
+    if (this._tableModel.hasRowsWithChildren) {
       classes.push(`hds-advanced-table--nested`);
     }
 
@@ -295,7 +284,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     );
 
     this._element = element;
-    this.setExpandAllState();
 
     if (stickyGridHeader !== null) {
       this._intersectionObserver = new IntersectionObserver(
@@ -309,8 +297,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       this._intersectionObserver.observe(stickyGridHeader);
     }
-
-    updateLastRowClass(element);
 
     return () => {
       if (this._intersectionObserver) {
@@ -436,63 +422,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._selectAllCheckbox.indeterminate =
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
-    }
-  }
-
-  @action didInsertExpandAllButton(button: HTMLButtonElement): void {
-    this._expandAllButton = button;
-  }
-
-  @action willDestroyExpandAllButton(): void {
-    this._expandAllButton = undefined;
-  }
-
-  @action
-  didInsertExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.push(button);
-    this.setExpandAllState();
-  }
-
-  @action
-  willDestroyExpandButton(button: HTMLButtonElement): void {
-    this._expandableRows.filter((btn) => button === btn);
-    this.setExpandAllState();
-  }
-
-  @action
-  setExpandAllState(): void {
-    if (this._expandAllButton && this._element) {
-      // eslint-disable-next-line ember/no-runloop
-      next(() => {
-        const parentRowsCount = this._expandableRows.length;
-        const expandedRowsCount = this._expandableRows.filter(
-          (button) => button.getAttribute('aria-expanded') === 'true'
-        ).length;
-
-        let expandAllState: HdsAdvancedTableExpandState;
-
-        if (parentRowsCount === expandedRowsCount) expandAllState = true;
-        else if (expandedRowsCount === 0) expandAllState = false;
-        else expandAllState = 'mixed';
-
-        this._expandAllButtonState = expandAllState;
-        updateLastRowClass(this._element);
-      });
-    }
-  }
-
-  @action
-  onExpandAllClick(): void {
-    if (this._expandAllButton && this._element) {
-      const newState = this._expandAllButtonState === true ? false : true;
-
-      this._expandableRows.forEach((button) => {
-        button.setAttribute('aria-expanded', `${newState}`);
-        button.dispatchEvent(new Event('toggle', { bubbles: false }));
-      });
-
-      this._expandAllButtonState = newState;
-      updateLastRowClass(this._element);
     }
   }
 }

@@ -43,9 +43,9 @@ export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/s
 export * from './components/hds/app-footer/types.ts';
 
 // AppHeader
-export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
-export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
-export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
+// export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
+// export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
+// export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
 
 // ApplicationState
 export { default as HdsApplicationState } from './components/hds/application-state/index.ts';
@@ -257,6 +257,11 @@ export { default as HdsSideNavPortalTarget } from './components/hds/side-nav/por
 export { default as HdsSideNavToggleButton } from './components/hds/side-nav/toggle-button.ts';
 
 // Stepper
+export { default as HdsStepperList } from './components/hds/stepper/list/index.ts';
+export { default as HdsStepperListStep } from './components/hds/stepper/list/step.ts';
+export { default as HdsStepperNav } from './components/hds/stepper/nav/index.ts';
+export { default as HdsStepperNavPanel } from './components/hds/stepper/nav/panel.ts';
+export { default as HdsStepperNavStep } from './components/hds/stepper/nav/step.ts';
 export { default as HdsStepperStepIndicator } from './components/hds/stepper/step/indicator.ts';
 export { default as HdsStepperTaskIndicator } from './components/hds/stepper/task/indicator.ts';
 export * from './components/hds/stepper/types.ts';
