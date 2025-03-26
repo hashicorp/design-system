@@ -51,6 +51,7 @@
 @use "pages/components/table" as components-table;
 @use "pages/components/tabs" as components-tabs;
 @use "pages/layouts/app-frame" as layouts-app-frame;
+@use "pages/layouts/grid" as layouts-grid;
 @use "pages/layouts/flex" as layouts-flex;
 @use "pages/whats-new/changelog" as whats-new-changelog;
 @use "pages/patterns/table-multi-select" as patterns-table-multi-select;
