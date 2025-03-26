@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-breadcrumb__item hds-breadcrumb__item--is-truncation" ...attributes>
-  <Hds::PopoverPrimitive @enableClickEvents={{true}} as |PP|>
+  <Hds::PopoverPrimitive @anchoredPositionOptions={{this.anchoredPositionOptions}} @enableClickEvents={{true}} as |PP|>
     <div {{PP.setupPrimitiveContainer}}>
       <button
         type="button"
@@ -14,10 +14,7 @@
       >
         <Hds::Icon @name="more-horizontal" @size="16" />
       </button>
-      <div
-        class="hds-breadcrumb__truncation-content"
-        {{PP.setupPrimitivePopover anchoredPositionOptions=(hash placement="bottom-start" offsetOptions=4)}}
-      >
+      <div class="hds-breadcrumb__truncation-content" {{PP.setupPrimitivePopover}}>
         <ol class="hds-breadcrumb__sublist">
           {{yield}}
         </ol>

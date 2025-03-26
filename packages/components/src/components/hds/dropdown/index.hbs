@@ -2,7 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::PopoverPrimitive @isOpen={{@isOpen}} @onClose={{@onClose}} @enableClickEvents={{true}} as |PP|>
+<Hds::PopoverPrimitive
+  @anchoredPositionOptions={{this.anchoredPositionOptions}}
+  @isOpen={{@isOpen}}
+  @onClose={{@onClose}}
+  @enableClickEvents={{true}}
+  as |PP|
+>
   <div class={{this.classNames}} ...attributes {{PP.setupPrimitiveContainer}}>
     {{yield
       (hash
@@ -16,7 +22,7 @@
       tabindex="-1"
       class={{this.classNamesContent}}
       {{style width=@width max-height=@height}}
-      {{PP.setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
+      {{PP.setupPrimitivePopover}}
     >
       {{#if (or PP.isOpen @preserveContentInDom)}}
         {{yield (hash Header=(component "hds/dropdown/header"))}}

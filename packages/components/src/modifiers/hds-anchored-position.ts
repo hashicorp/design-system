@@ -155,7 +155,9 @@ export const getFloatingUIOptions = (
 };
 
 export interface HdsAnchoredPositionSignature {
-  Element: HTMLElement;
+  Element: HTMLElement & {
+    cleanupFloatingUI?: () => void;
+  };
   Args: {
     Positional: [HTMLElement | SVGElement];
     Named: FloatingUIOptions & { arrowSelector?: string };
@@ -168,6 +170,7 @@ export interface HdsAnchoredPositionSignature {
 
 export default modifier<HdsAnchoredPositionSignature>(
   (element, positional, named = {}) => {
+    element.cleanupFloatingUI?.();
     // the element that "floats" next to the "anchor" (whose position is calculated in relation to the anchor)
     // notice: this is the element the Ember modifier is attached to
     const _floatingElement = element;
@@ -269,6 +272,8 @@ export default modifier<HdsAnchoredPositionSignature>(
       _floatingElement,
       computeFloatingPosition
     );
+
+    element.cleanupFloatingUI = cleanupFloatingUI;
 
     // this (teardown) function is run when the element is removed from the DOM
     return (): void => {

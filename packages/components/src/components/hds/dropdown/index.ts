@@ -71,12 +71,6 @@ export interface HdsDropdownSignature {
 }
 
 export default class HdsDropdown extends Component<HdsDropdownSignature> {
-  /**
-   * @param listPosition
-   * @type {string}
-   * @default bottom-right
-   * @description Determines the position of the "list"
-   */
   get listPosition(): HdsDropdownPositions {
     const { listPosition = DEFAULT_POSITION } = this.args;
 
@@ -98,12 +92,13 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return this.args.matchToggleWidth ?? false;
   }
 
-  get anchoredPositionOptions(): {
-    placement: FloatingUIOptions['placement'];
-    offsetOptions: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
-    matchToggleWidth: FloatingUIOptions['matchToggleWidth'];
-  } {
+  get anchoredPositionOptions(): Pick<
+    FloatingUIOptions,
+    | 'placement'
+    | 'offsetOptions'
+    | 'enableCollisionDetection'
+    | 'matchToggleWidth'
+  > {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
     return {
@@ -114,11 +109,6 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     };
   }
 
-  /**
-   * Get the class names to apply to the element
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the root element
-   */
   get classNames(): string {
     const classes = ['hds-dropdown'];
 
@@ -130,11 +120,6 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return classes.join(' ');
   }
 
-  /**
-   * Get the class names to apply to the content
-   * @method classNamesContent
-   * @return {string} The "class" attribute to apply to the disclosed content
-   */
   get classNamesContent(): string {
     const classes = ['hds-dropdown__content'];
 
