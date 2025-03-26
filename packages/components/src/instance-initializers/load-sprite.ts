@@ -52,8 +52,8 @@ export async function initialize(
  * @returns The parent app instance
  */
 function getRootAppInstance(
-  instance: AppInstanceWithSpriteFlag | EngineInstance
-): AppInstanceWithSpriteFlag {
+  instance: AppInstanceWithSpriteFlag | EngineInstanceWithSpriteFlag
+): AppInstanceWithSpriteFlag | EngineInstanceWithSpriteFlag {
   if (instance instanceof ApplicationInstance) {
     return instance as AppInstanceWithSpriteFlag;
   }
@@ -71,7 +71,7 @@ function getRootAppInstance(
     current = (current as any)[ENGINE_PARENT];
   }
 
-  return current as AppInstanceWithSpriteFlag;
+  return current;
 }
 
 export default {
