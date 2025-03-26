@@ -87,7 +87,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
       &:focus,
       &.mock-focus {
-        @include hds-focus-ring-basic();
+        @include hds-focus-ring-with-pseudo-element($radius: inherit, $position: sticky);
+        position: sticky;
         z-index: 1;
         isolation: isolate;
       }
@@ -194,6 +195,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 }
 
 .hds-advanced-table__th-button {
+  position: sticky;
   display: flex;
   flex: none;
   align-items: center;
@@ -216,7 +218,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     cursor: pointer;
   }
 
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
+  @include hds-focus-ring-with-pseudo-element($radius: inherit, $position: sticky);
 
   &:active,
   &.mock-active {
@@ -302,7 +304,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     background-color: var(--token-color-surface-primary);
 
     &:focus, &.mock-focus{
-      @include hds-focus-ring-basic();
+      @include hds-focus-ring-with-pseudo-element($radius: inherit, $position: sticky);
       z-index: 1;
       isolation: isolate;
     }
