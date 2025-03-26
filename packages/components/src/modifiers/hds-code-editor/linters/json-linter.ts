@@ -1,5 +1,3 @@
-import RSVP from 'rsvp';
-
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
@@ -100,7 +98,7 @@ export default async function jsonLinter(
     { EditorView, keymap },
     { syntaxTree },
     { linter, lintGutter, lintKeymap },
-  ] = await RSVP.all([
+  ] = await Promise.all([
     import('@codemirror/view'),
     import('@codemirror/language'),
     import('@codemirror/lint'),
