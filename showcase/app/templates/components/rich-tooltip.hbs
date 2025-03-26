@@ -150,9 +150,15 @@
     {{#each @model.PLACEMENTS as |place|}}
       <SG.Item class="shw-component-rich-tooltip-placement-grid__item--{{place}}">
         <div class="shw-component-rich-tooltip-placement-grid__target">
-          <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+          <Hds::RichTooltip
+            @isOpen={{true}}
+            @enableClickEvents={{true}}
+            @bubblePlacement={{place}}
+            @enableCollisionDetection={{false}}
+            as |RT|
+          >
             <RT.Toggle @icon="info" @size="large" aria-label="more info" />
-            <RT.Bubble @placement={{place}} @enableCollisionDetection={{false}}>
+            <RT.Bubble>
               <Shw::Placeholder @text={{place}} @height="30" @width="80" />
             </RT.Bubble>
           </Hds::RichTooltip>
@@ -167,25 +173,37 @@
 
   <Shw::Flex @gap="5rem" {{style margin-bottom="10rem"}} as |SF|>
     <SF.Item @label="Offset: 12 (default)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           <Shw::Placeholder @text="generic content" @height="30" />
         </RT.Bubble>
       </Hds::RichTooltip>
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 30, crossAxis: 0 }">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @offset={{hash mainAxis=30 crossAxis=0}}
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @offset={{hash mainAxis=30 crossAxis=0}} @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           <Shw::Placeholder @text="generic content" @height="30" />
         </RT.Bubble>
       </Hds::RichTooltip>
     </SF.Item>
     <SF.Item @label="Offset: { mainAxis: 12, crossAxis: 80 }">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @offset={{hash mainAxis=12 crossAxis=80}}
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @offset={{hash mainAxis=12 crossAxis=80}} @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           <Shw::Placeholder @text="generic content" @height="30" />
         </RT.Bubble>
       </Hds::RichTooltip>
@@ -228,9 +246,15 @@
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="6rem"}} as |SG|>
     <SG.Item @label="Default (width=fit-content/max-width=280px)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @bubblePlacement="bottom-start"
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @placement="bottom-start" @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           <Shw::Placeholder
             @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             {{style padding="12px 16px"}}
@@ -239,9 +263,15 @@
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Custom fixed width (width=450px)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @bubblePlacement="bottom-start"
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @width="450px" @placement="bottom-start" @enableCollisionDetection={{false}}>
+        <RT.Bubble @width="450px">
           <Shw::Placeholder
             @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             {{style padding="12px 16px"}}
@@ -257,9 +287,15 @@
 
   <Shw::Grid @columns={{2}} {{style padding-bottom="10rem"}} as |SG|>
     <SG.Item @label="Default (height=fit-content/max-height=none)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @bubblePlacement="bottom-start"
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @placement="bottom-start" @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           <Shw::Placeholder
             @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             {{style padding="12px 16px"}}
@@ -268,9 +304,15 @@
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Custom fixed height (height=150px)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip
+        @isOpen={{true}}
+        @enableClickEvents={{true}}
+        @bubblePlacement="bottom-start"
+        @enableCollisionDetection={{false}}
+        as |RT|
+      >
         <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-        <RT.Bubble @height="150px" @placement="bottom-start" @enableCollisionDetection={{false}}>
+        <RT.Bubble @height="150px">
           <Shw::Placeholder
             @text="Lorem ipsum dolor sit amet consectetur adipisicing elit."
             {{style padding="12px 16px"}}
@@ -292,9 +334,14 @@
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
           <Shw::Autoscrollable @verticalShift={{30}}>
             <div class="shw-component-rich-tooltip-collision-detection-wrapper">
-              <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+              <Hds::RichTooltip
+                @isOpen={{true}}
+                @enableClickEvents={{true}}
+                @enableCollisionDetection={{detection}}
+                as |RT|
+              >
                 <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-                <RT.Bubble @enableCollisionDetection={{detection}}>
+                <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
               </Hds::RichTooltip>
@@ -310,9 +357,14 @@
         <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
           <Shw::Autoscrollable @verticalShift={{30}}>
             <div class="shw-component-rich-tooltip-collision-detection-wrapper">
-              <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+              <Hds::RichTooltip
+                @isOpen={{true}}
+                @enableClickEvents={{true}}
+                @enableCollisionDetection={{detection}}
+                as |RT|
+              >
                 <RT.Toggle @text="Lorem ipsum" @icon="info" @size="medium" />
-                <RT.Bubble @enableCollisionDetection={{detection}}>
+                <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
               </Hds::RichTooltip>
@@ -337,9 +389,9 @@
         {{style width="fit-content"}}
       >
         Lorem
-        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
           <RT.Toggle @text="ipsum" @isInline={{true}} @icon="info" @size="medium" />
-          <RT.Bubble @enableCollisionDetection={{false}}>
+          <RT.Bubble>
             Generic text content
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -351,23 +403,24 @@
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
         @isOpen={{true}}
         @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
         as |RT|
       >
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Applied to the toggle (text+icon with size)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
         <RT.Toggle
           @text="Lorem ipsum dolor"
           @icon="info"
           @size="medium"
           class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
         />
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
@@ -381,9 +434,9 @@
         {{style width="fit-content"}}
       >
         Lorem
-        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
           <RT.Toggle @isInline={{true}}>ipsum</RT.Toggle>
-          <RT.Bubble @enableCollisionDetection={{false}}>
+          <RT.Bubble>
             Generic text content
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -395,20 +448,21 @@
         class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning"
         @isOpen={{true}}
         @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
         as |RT|
       >
         <RT.Toggle>Lorem ipsum dolor</RT.Toggle>
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Applied to the toggle (generic)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
         <RT.Toggle class="hds-typography-display-400 hds-foreground-warning-on-surface hds-surface-warning">
           Lorem ipsum dolor
         </RT.Toggle>
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
@@ -421,9 +475,9 @@
     <SG.Item @label="Applied to the parent (text+icon with size)">
       <div class="shw-component-rich-tooltip-font-style" {{style width="fit-content"}}>
         Lorem
-        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+        <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
           <RT.Toggle @text="ipsum" @isInline={{true}} @icon="info" @size="medium" />
-          <RT.Bubble @enableCollisionDetection={{false}}>
+          <RT.Bubble>
             Generic text content
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -435,16 +489,17 @@
         class="shw-component-rich-tooltip-font-style"
         @isOpen={{true}}
         @enableClickEvents={{true}}
+        @enableCollisionDetection={{false}}
         as |RT|
       >
         <RT.Toggle @text="Lorem ipsum dolor" @isInline={{true}} @icon="info" @size="medium" />
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
     </SG.Item>
     <SG.Item @label="Applied to the toggle (text+icon with size)">
-      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @isOpen={{true}} @enableClickEvents={{true}} @enableCollisionDetection={{false}} as |RT|>
         <RT.Toggle
           @text="Lorem ipsum dolor"
           @isInline={{true}}
@@ -452,7 +507,7 @@
           @size="medium"
           class="shw-component-rich-tooltip-font-style"
         />
-        <RT.Bubble @enableCollisionDetection={{false}}>
+        <RT.Bubble>
           Generic text content
         </RT.Bubble>
       </Hds::RichTooltip>
@@ -464,9 +519,9 @@
   <Shw::Flex @gap="2rem" {{style margin-bottom="9rem"}} as |SF|>
     <SF.Item @label="Parent has `white-space: nowrap`">
       <div {{style whiteSpace="nowrap"}}>
-        <Hds::RichTooltip @isOpen={{true}} as |RT|>
+        <Hds::RichTooltip @isOpen={{true}} @enableCollisionDetection={{false}} as |RT|>
           <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
-          <RT.Bubble @width="200px" @enableCollisionDetection={{false}}>
+          <RT.Bubble @width="200px">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </RT.Bubble>
         </Hds::RichTooltip>
@@ -482,9 +537,9 @@
         <SG.Item @label="text-align = {{alignment}}" {{style text-align=alignment}}>
           <Shw::Outliner>
             Lorem
-            <Hds::RichTooltip @isOpen={{true}} as |RT|>
+            <Hds::RichTooltip @isOpen={{true}} @enableCollisionDetection={{false}} as |RT|>
               <RT.Toggle @text="ipsum dolor" @isInline={{true}} @icon="info" />
-              <RT.Bubble @width="200px" @enableCollisionDetection={{false}}>
+              <RT.Bubble @width="200px">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </RT.Bubble>
             </Hds::RichTooltip>
@@ -794,9 +849,9 @@
           <F.Label>
             <div class="shw-component-rich-tooltip-demo-form-field-label-wrapper">
               This is the label text
-              <Hds::RichTooltip as |RT|>
+              <Hds::RichTooltip @bubblePlacement="right" as |RT|>
                 <RT.Toggle @icon="info" aria-label="more info" />
-                <RT.Bubble @placement="right">
+                <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
               </Hds::RichTooltip>
@@ -807,9 +862,9 @@
         <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @width="250px" as |F|>
           <F.Label>This is the label text</F.Label>
           <F.HelperText>Lorem ipsum dolor sit amet
-            <Hds::RichTooltip as |RT|>
+            <Hds::RichTooltip @bubblePlacement="right" as |RT|>
               <RT.Toggle @text="consectetur adipisicing" @isInline={{true}} />
-              <RT.Bubble @placement="right">
+              <RT.Bubble>
                 <Shw::Placeholder @text="generic content" @height="30" />
               </RT.Bubble>
             </Hds::RichTooltip>
@@ -828,9 +883,9 @@
           <M.Body>
             <Hds::Text::Body @size="200" @tag="p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
               perferendis culpa expedita assumenda at
-              <Hds::RichTooltip as |RT|>
+              <Hds::RichTooltip @bubblePlacement="top" as |RT|>
                 <RT.Toggle @text="nisi minus unde fuga" @isInline={{true}} @icon="info" />
-                <RT.Bubble @placement="top">
+                <RT.Bubble>
                   <Shw::Placeholder @text="generic content" @height="30" />
                 </RT.Bubble>
               </Hds::RichTooltip>
@@ -982,9 +1037,9 @@
     <SG.Item @label="Button + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Button @text="Lorem ipsum" @icon="wand" {{on "click" this.onClickButton}} />
-        <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
+        <Hds::RichTooltip @enableClickEvents={{true}} @bubblePlacement="top-start" as |RT|>
           <RT.Toggle @icon="info" aria-label="more info" />
-          <RT.Bubble @placement="top-start">
+          <RT.Bubble>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
@@ -995,9 +1050,9 @@
     <SG.Item @label="Link + InfoText">
       <div class="shw-component-rich-tooltip-demo-action-plus-info">
         <Hds::Link::Standalone @icon="external-link" @iconPosition="leading" @text="Acme Corp" @href="#" />
-        <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
+        <Hds::RichTooltip @enableClickEvents={{true}} @bubblePlacement="top-start" as |RT|>
           <RT.Toggle @icon="info" aria-label="more info" />
-          <RT.Bubble @placement="top-start">
+          <RT.Bubble>
             <Hds::Text::Body @size="200" @tag="p" {{style margin-bottom="12px"}}>Lorem ipsum dolor sit amet consectetur
               adipisicing elit.</Hds::Text::Body>
             <Hds::Button @text="Got it" @size="small" {{on "click" RT.close}} />
@@ -1011,9 +1066,9 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="With complex popover content">
-      <Hds::RichTooltip @enableClickEvents={{true}} as |RT|>
+      <Hds::RichTooltip @enableClickEvents={{true}} @bubblePlacement="top" as |RT|>
         <RT.Toggle @text="Lorem ipsum dolor" @icon="info" @size="medium" />
-        <RT.Bubble @placement="top">
+        <RT.Bubble>
           <div class="shw-component-rich-tooltip-content-interactive">
             <button type="button" {{on "click" RT.close}} title="Button that closes the popover on click">x</button>
             <ul>
