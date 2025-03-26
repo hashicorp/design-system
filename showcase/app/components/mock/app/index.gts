@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
 // import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
@@ -82,7 +83,7 @@ export default class MockApp extends Component<MockAppSignature> {
           <MockAppSidebarSideNav />
         {{/if}}
       </Frame.Sidebar>
-      <Frame.Main>
+      <Frame.Main {{style overflow="auto"}}>
         <div class="mock-app-layout-main-content-wrapper">
           {{yield
             (hash
