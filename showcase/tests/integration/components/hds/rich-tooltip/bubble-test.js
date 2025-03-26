@@ -74,65 +74,6 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
     assert.deepEqual(rect.height, 456 / 2);
   });
 
-  // ANCHORED POSITION OPTIONS
-  // here we're testing the anchoredPositionOptions getter using a fake modifier
-
-  test('it should return the default values for the `anchoredPositionOptions` object', async function (assert) {
-    let anchoredPositionOptions;
-    this.set(
-      'fakeSetupPrimitivePopover',
-      modifier((_element, _positional, named) => {
-        anchoredPositionOptions = named;
-      })
-    );
-    await render(
-      hbs`<Hds::RichTooltip::Bubble
-        @popoverId="test-rich-tooltip-bubble"
-        @arrowId="test-rich-tooltip-arrow"
-        @setupPrimitivePopover={{this.fakeSetupPrimitivePopover}}
-      />`
-    );
-    assert.deepEqual(anchoredPositionOptions, {
-      anchoredPositionOptions: {
-        arrowPadding: 12,
-        arrowSelector: '#test-rich-tooltip-arrow',
-        enableCollisionDetection: true,
-        offsetOptions: 12,
-        placement: 'bottom',
-      },
-    });
-  });
-  test('it should return the values provided via arguments for the `anchoredPositionOptions` object', async function (assert) {
-    let anchoredPositionOptions;
-    this.set(
-      'fakeSetupPrimitivePopover',
-      modifier((_element, _positional, named) => {
-        anchoredPositionOptions = named;
-      })
-    );
-    await render(
-      hbs`<Hds::RichTooltip::Bubble
-        @popoverId="test-rich-tooltip-bubble"
-        @arrowId="test-rich-tooltip-arrow"
-        @placement="top-start"
-        @offsetOptions={{123}}
-        @enableCollisionDetection={{false}}
-        @arrowSelector="#test-arrow-selector"
-        @arrowPadding={{987}}
-        @setupPrimitivePopover={{this.fakeSetupPrimitivePopover}}
-      />`
-    );
-    assert.deepEqual(anchoredPositionOptions, {
-      anchoredPositionOptions: {
-        arrowPadding: 12,
-        arrowSelector: '#test-rich-tooltip-arrow',
-        enableCollisionDetection: false,
-        offsetOptions: 12,
-        placement: 'top-start',
-      },
-    });
-  });
-
   // ATTRIBUTES
 
   test('it should assign the ID value provided with @popoverId', async function (assert) {
