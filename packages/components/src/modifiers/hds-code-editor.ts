@@ -32,6 +32,8 @@ import type {
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type Owner from '@ember/owner';
 
+type HTMLElementWithEditor = HTMLElement & { editor: EditorViewType };
+
 type HdsCodeEditorBlurHandler = (
   editor: EditorViewType,
   event: FocusEvent
@@ -156,7 +158,7 @@ const LANGUAGES: Record<
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
   editor!: EditorViewType;
-  element!: HTMLElement;
+  element!: HTMLElementWithEditor;
 
   onBlur: HdsCodeEditorSignature['Args']['Named']['onBlur'];
   onInput: HdsCodeEditorSignature['Args']['Named']['onInput'];
@@ -181,7 +183,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   modify(
-    element: HTMLElement,
+    element: HTMLElementWithEditor,
     positional: PositionalArgs<HdsCodeEditorSignature>,
     named: NamedArgs<HdsCodeEditorSignature>
   ): void {
@@ -220,7 +222,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   }
 
   private _setupEditorBlurHandler(
-    element: HTMLElement,
+    element: HTMLElementWithEditor,
     onBlur: HdsCodeEditorBlurHandler
   ) {
     const inputElement = element.querySelector('.cm-content');
@@ -473,7 +475,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   private _createEditorTask = task(
     { drop: true },
     async (
-      element: HTMLElement,
+      element: HTMLElementWithEditor,
       {
         cspNonce,
         language,
@@ -551,7 +553,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
   private _setupTask = task(
     { drop: true },
     async (
-      element: HTMLElement,
+      element: HTMLElementWithEditor,
       _positional: PositionalArgs<HdsCodeEditorSignature>,
       named: NamedArgs<HdsCodeEditorSignature>
     ) => {
@@ -594,7 +596,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       this.editor = editor;
-      (element as HTMLElement & { editor: EditorViewType }).editor = editor;
+      element.editor = editor;
 
       if (onBlur !== undefined) {
         this._setupEditorBlurHandler(element, onBlur);
