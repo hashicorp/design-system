@@ -4,17 +4,27 @@
  */
 
 import config from 'ember-get-config';
-import type ApplicationInstance from '@ember/application/instance';
+import ApplicationInstance from '@ember/application/instance';
+import EngineInstance from '@ember/engine/instance';
+
+type AppInstanceWithSpriteFlag = ApplicationInstance & {
+  __flightIconsSpriteLoaded?: boolean;
+};
+
+type EngineInstanceWithSpriteFlag = EngineInstance & {
+  __flightIconsSpriteLoaded?: boolean;
+};
 
 export async function initialize(
-  appInstance: ApplicationInstance & {
-    __flightIconsSpriteLoaded?: boolean;
-  }
+  instance: AppInstanceWithSpriteFlag | EngineInstanceWithSpriteFlag
 ) {
+  const parentApp = getRootAppInstance(instance);
+
   if (
     config?.emberFlightIcons?.lazyEmbed &&
     // we use this flag to avoid loading the sprite multiple times
-    appInstance.__flightIconsSpriteLoaded !== true
+    parentApp.__flightIconsSpriteLoaded !== true &&
+    instance.__flightIconsSpriteLoaded !== true
   ) {
     const { default: svgSprite } = await import(
       // @ts-expect-error: missing types
@@ -32,8 +42,36 @@ export async function initialize(
     }
 
     // set the flag to avoid loading the sprite multiple times
-    appInstance.__flightIconsSpriteLoaded = true;
+    parentApp.__flightIconsSpriteLoaded = true;
   }
+}
+
+/**
+ * Searches up the hierarchy to get the parent app instance from an engine
+ * @param instance The instance passed to initialize, either an app or engine
+ * @returns The parent app instance
+ */
+function getRootAppInstance(
+  instance: AppInstanceWithSpriteFlag | EngineInstanceWithSpriteFlag
+): AppInstanceWithSpriteFlag | EngineInstanceWithSpriteFlag {
+  if (instance instanceof ApplicationInstance) {
+    return instance as AppInstanceWithSpriteFlag;
+  }
+
+  let current = instance;
+
+  const symbols = Object.getOwnPropertySymbols(current);
+  const ENGINE_PARENT = symbols.find(
+    (s) => s.toString() === 'Symbol(ENGINE_PARENT)'
+  );
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  while (ENGINE_PARENT && (current as any)[ENGINE_PARENT]) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    current = (current as any)[ENGINE_PARENT];
+  }
+
+  return current;
 }
 
 export default {
