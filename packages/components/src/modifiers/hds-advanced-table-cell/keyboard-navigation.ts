@@ -53,7 +53,6 @@ export const handleGridCellKeyPress = (
         enableFocusTrap();
       }
     } else if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-      event.preventDefault();
       const nextElement =
         key === 'ArrowRight'
           ? target.nextElementSibling
@@ -63,7 +62,6 @@ export const handleGridCellKeyPress = (
         changeActiveCell(target, nextElement);
       }
     } else if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
-      event.preventDefault();
       const currentRow = target.parentElement;
 
       if (currentRow instanceof HTMLElement) {
@@ -80,7 +78,6 @@ export const handleGridCellKeyPress = (
         }
       }
     } else if (event.key === 'Home' || event.key === 'End') {
-      event.preventDefault();
       if (event.ctrlKey) {
         const table = target.parentElement?.closest('[role="grid"]');
         const allVisibleRows = table?.querySelectorAll(
@@ -119,7 +116,6 @@ export const handleGridCellKeyPress = (
         }
       }
     } else if (event.key === 'PageUp' || event.key === 'PageDown') {
-      event.preventDefault();
       const currentRow = target.parentElement;
 
       if (currentRow instanceof HTMLElement) {
