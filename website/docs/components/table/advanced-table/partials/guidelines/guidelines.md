@@ -191,12 +191,12 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 ### Expanded state
 
 ![](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
-<Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
+<Doc::ImageCaption @text="Once all rows are expanded, the Collapse All button is displayed."/>
 
 ### Mixed state 
 
 ![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
-<Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
+<Doc::ImageCaption @text="If some rows are expanded and others are collapsed, the Expand All button will persist until all rows are expanded."/>
 
 ### Striping 
 
