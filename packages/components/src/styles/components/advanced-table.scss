@@ -87,7 +87,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
       &:focus,
       &.mock-focus {
-        @include hds-focus-ring-basic();
+        @include hds-focus-ring-with-pseudo-element(
+         $position: sticky);
         z-index: 1;
         isolation: isolate;
       }
@@ -302,7 +303,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     background-color: var(--token-color-surface-primary);
 
     &:focus, &.mock-focus{
-      @include hds-focus-ring-basic();
+      @include hds-focus-ring-with-pseudo-element($position: sticky);
       z-index: 1;
       isolation: isolate;
     }
