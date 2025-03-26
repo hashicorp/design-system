@@ -17,22 +17,34 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::MaskedInput::Base />
+      <Hds::Form::MaskedInput::Base aria-label="Default" />
     </SF.Item>
     <SF.Item @label="With placeholder">
-      <Hds::Form::MaskedInput::Base placeholder="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base placeholder="Lorem ipsum dolor" aria-label="Placeholder" />
     </SF.Item>
     <SF.Item @label="With value (masked)">
-      <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" aria-label="Value (maksed)" />
     </SF.Item>
     <SF.Item @label="With value (in clear)">
-      <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base
+        @isContentMasked={{false}}
+        @value="Lorem ipsum dolor"
+        aria-label="Value (in clear)"
+      />
     </SF.Item>
     <SF.Item @label="With multiline value (inline `\n`)">
-      <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value={{this.multilineText1}} />
+      <Hds::Form::MaskedInput::Base
+        @isContentMasked={{false}}
+        @value={{this.multilineText1}}
+        aria-label="Multiline value (inline)"
+      />
     </SF.Item>
     <SF.Item @label="With multiline value (template literal)">
-      <Hds::Form::MaskedInput::Base @isContentMasked={{false}} @value={{this.multilineText2}} />
+      <Hds::Form::MaskedInput::Base
+        @isContentMasked={{false}}
+        @value={{this.multilineText2}}
+        aria-label="Multiline value (template)"
+      />
     </SF.Item>
   </Shw::Flex>
 
@@ -40,27 +52,51 @@
 
   <Shw::Flex as |SF|>
     <SF.Item @label="Default">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} />
+      <Hds::Form::MaskedInput::Base @isMultiline={{true}} aria-label="Multiline default" />
     </SF.Item>
     <SF.Item @label="With placeholder">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} placeholder="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        placeholder="Lorem ipsum dolor"
+        aria-label="Multiline placeholder"
+      />
     </SF.Item>
     <SF.Item @label="With value (masked)">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @value="Lorem ipsum dolor"
+        aria-label="Mutlitline value (maksed)"
+      />
     </SF.Item>
     <SF.Item @label="With value (in clear)">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @isContentMasked={{false}}
+        @value="Lorem ipsum dolor"
+        aria-label="Multiline value (in clear)"
+      />
     </SF.Item>
     <SF.Item @label="With multiline value (inline `\n`)">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value={{this.multilineText1}} />
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @isContentMasked={{false}}
+        @value={{this.multilineText1}}
+        aria-label="Mutltiline value (inline)"
+      />
     </SF.Item>
     <SF.Item @label="With multiline value (template literal)">
-      <Hds::Form::MaskedInput::Base @isMultiline={{true}} @isContentMasked={{false}} @value={{this.multilineText2}} />
+      <Hds::Form::MaskedInput::Base
+        @isMultiline={{true}}
+        @isContentMasked={{false}}
+        @value={{this.multilineText2}}
+        aria-label="Mutlitline value (template)"
+      />
     </SF.Item>
     <SF.Item @label="With long wrapping text (masked)">
       <Hds::Form::MaskedInput::Base
         @isMultiline={{true}}
         @value="Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat sed felis dictum taciti arcu senectus! Nulla mauris sollicitudin venenatis et leo; tortor facilisi penatibus. Tempor efficitur suspendisse sollicitudin netus sollicitudin sagittis euismod accumsan habitasse. Fusce nibh malesuada neque elementum venenatis risus platea montes. Risus vivamus maecenas hendrerit eu in ante potenti odio. Ex tellus cubilia fringilla condimentum velit; euismod dui. Ultricies lobortis senectus dis ut purus."
+        aria-label="Multiline long wrapping text (maksed)"
       />
     </SF.Item>
     <SF.Item @label="With long wrapping text (in clear)">
@@ -68,6 +104,7 @@
         @isMultiline={{true}}
         @isContentMasked={{false}}
         @value="Lorem ipsum odor amet, consectetuer adipiscing elit. Feugiat sed felis dictum taciti arcu senectus! Nulla mauris sollicitudin venenatis et leo; tortor facilisi penatibus. Tempor efficitur suspendisse sollicitudin netus sollicitudin sagittis euismod accumsan habitasse. Fusce nibh malesuada neque elementum venenatis risus platea montes. Risus vivamus maecenas hendrerit eu in ante potenti odio. Ex tellus cubilia fringilla condimentum velit; euismod dui. Ultricies lobortis senectus dis ut purus."
+        aria-label="Multiline long wrapping text (in clear)"
       />
     </SF.Item>
   </Shw::Flex>
@@ -94,6 +131,7 @@
                   readonly={{if (eq variant "readonly") "readonly"}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
+                  aria-label="{{variant}} - {{state}}"
                 />
               </SF.Item>
             </Shw::Flex>
@@ -122,6 +160,7 @@
                   @isMultiline={{true}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
+                  aria-label="Mutliline {{variant}} - {{state}}"
                 />
               </SF.Item>
             </Shw::Flex>
@@ -154,6 +193,7 @@
                   @hasCopyButton={{true}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
+                  aria-label="Copy button {{variant}} - {{state}}"
                 />
               </SF.Item>
             </Shw::Flex>
@@ -183,6 +223,7 @@
                   @hasCopyButton={{true}}
                   @value="Lorem ipsum dolor"
                   @isInvalid={{if (eq variant "invalid") true}}
+                  aria-label="Copy button multiline {{variant}} - {{state}}"
                 />
               </SF.Item>
             </Shw::Flex>
@@ -208,7 +249,11 @@
           <F.Label>Content masking: {{if this.isContentMasked "Enabled" "Disabled"}}</F.Label>
         </Hds::Form::Checkbox::Field>
       </div>
-      <Hds::Form::MaskedInput::Base @isContentMasked={{this.isContentMasked}} @value="Lorem ipsum dolor" />
+      <Hds::Form::MaskedInput::Base
+        @isContentMasked={{this.isContentMasked}}
+        @value="Lorem ipsum dolor"
+        aria-label="Externally controlled"
+      />
     </SF.Item>
   </Shw::Flex>
 

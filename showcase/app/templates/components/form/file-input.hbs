@@ -18,7 +18,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
     <Shw::Flex @gap="2rem" as |SF|>
       <SF.Item>
-        <Hds::Form::FileInput::Base />
+        <Hds::Form::FileInput::Base aria-label="Base" />
       </SF.Item>
     </Shw::Flex>
 
@@ -27,11 +27,11 @@
     <Shw::Flex @gap="2rem" as |SF|>
       {{#each @model.STATES as |state|}}
         <SF.Item @label={{state}}>
-          <Hds::Form::FileInput::Base mock-state-value={{state}} />
+          <Hds::Form::FileInput::Base mock-state-value={{state}} aria-label={{state}} />
         </SF.Item>
       {{/each}}
       <SF.Item @label="disabled">
-        <Hds::Form::FileInput::Base mock-state-value="disabled" disabled />
+        <Hds::Form::FileInput::Base mock-state-value="disabled" disabled aria-label="disabled" />
       </SF.Item>
     </Shw::Flex>
 
