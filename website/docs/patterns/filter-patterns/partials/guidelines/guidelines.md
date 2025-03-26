@@ -6,10 +6,10 @@ A filtering pattern consists of a number of Helios components that work together
 
 A data set is a broad term for an array of items, objects, or related information presented as separate but related records. A data set is commonly represented via a [Table](/components/table/table) or [Advanced Table](/components/table/advanced-table) but may be expressed in other formats depending on the type of information.
 
-![Data set represented by a table](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
+![Data set implemented using HDS Table component](/assets/patterns/filter-patterns/example-data-set-tabular-data.png =1048x*)
 <Doc::ImageCaption @text="Data set represented by a table"/>
 
-![Data set represented by a grid](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
+![Data set implemented using a grid of multiple HDS Card components ](/assets/patterns/filter-patterns/example-data-set-non-tabular-data.png =878x*)
 <Doc::ImageCaption @text="Data set represented by a grid"/>
 
 ### Filters
@@ -24,12 +24,12 @@ Organizing filters in a **filter bar** is a common positioning method and consis
 
 ![Filters represented by a filter bar](/assets/patterns/filter-patterns/filter-bar-segmented-group.png =724x*)
 
-![Example of a horizontal filter bar paired with a data set expressed as a table.](/assets/patterns/filter-patterns/layout-filter-bar.png =559x*)
+![Horizontal filter bar with parameters and values that is placed above a data set expressed as a table](/assets/patterns/filter-patterns/layout-filter-bar.png =559x*)
 <Doc::ImageCaption @text="Example of a horizontal filter bar paired with a data set expressed as a table."/>
 
 Depending on the filter type and how they are related, multiple [Segmented Groups](/components/segmented-group) can be used to group similar filters together. For example; a [Search Input](/components/form/text-input#search) grouped with a [Dropdown](/components/dropdown) to limit the filter parameters that are included in the search.
 
-![An example limiting the returned search results to a specific parameter](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x*)
+![In the filter bar, a dropdown menu filters results to a checked parameters](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x*)
 <Doc::ImageCaption @text="An example limiting the returned search results to a specific parameter"/>
 
 #### Sidebar
@@ -71,10 +71,10 @@ Depending on the fetching method and complexity of the data set, global filter f
 - Manually refreshing the data set.
 - Triggering a [Flyout](/components/flyout) with more complex filters.
 
-![Multiple global filter functions](/assets/patterns/filter-patterns/global-filter-functions.png =874x*)
+![Filter bar with primary filters aligned to the left and multiple global filters aligned to the right](/assets/patterns/filter-patterns/global-filter-functions.png =874x*)
 <Doc::ImageCaption @text="Multiple global filter functions"/>
 
-![Single global function](/assets/patterns/filter-patterns/global-filter-functions-single.png =874x*)
+![Filter bar with primary filters aligned to the left and one global filter aligned to the right](/assets/patterns/filter-patterns/global-filter-functions-single.png =874x*)
 <Doc::ImageCaption @text="Single global function"/>
 
 In the case a multiple filter functions, use the [Segmented Group](/components/segmented-group). If only a single function is necessary, use the secondary [Button](/components/button#secondary).
@@ -126,12 +126,12 @@ Batch filtering supports the user making multiple selections across different pa
 
 Communicate that values corresponding with a filter parameter have been applied within the [Dropdown](/components/dropdown) by adding a `BadgeCount` within the filter.
 
-![Communicating that two values within a parameter have been applied in the Dropdown](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x*)
+![Filter bar with multiple filters selected from one parameter shows badges for each selected filter below](/assets/patterns/filter-patterns/filter-bar-dropdown-count.png =661x*)
 <Doc::ImageCaption @text="Communicating that two values within a parameter have been applied in the Dropdown"/>
 
 This, when combined with the applied filters provides a detailed snapshot of what specific filter values are applied to the data set and the relevant parameters that they correspond with.
 
-![Communicating that multiple filter parameters have been applied](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x*)
+![Filter bar with multiple filters selected from multiple parameter shows badges for each selected filter below](/assets/patterns/filter-patterns/filter-bar-dropdown-count-multiple.png =728x*)
 <Doc::ImageCaption @text="Communicating that multiple filter parameters have been applied"/>
 
 ## Empty state
