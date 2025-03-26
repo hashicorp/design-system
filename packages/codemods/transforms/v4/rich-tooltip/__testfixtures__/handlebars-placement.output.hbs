@@ -1,0 +1,11 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::RichTooltip @bubblePlacement={{this.placement}} @enableCollisionDetection={{false}} @offset={{2}} as |RT|>
+  <RT.Toggle @text="Toggle" />
+  <RT.Bubble>
+    Content...
+  </RT.Bubble>
+</Hds::RichTooltip>
