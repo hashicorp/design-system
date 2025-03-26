@@ -180,22 +180,22 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 ![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/expandable-rows-expand-all.png)
 <Doc::ImageCaption @text="Expand All if any rows are collapsed."/>
 
-![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
+![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
 <Doc::ImageCaption @text="Collapse All if all rows are expanded."/>
 
 ### Collapsed state
 
-![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/expandable-rows-expand-state.png)
+![](/assets/components/table/advanced-table/expandable-rows-expand-state.png)
 <Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
 
 ### Expanded state
 
-![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
+![](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
 <Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
 
 ### Mixed state 
 
-![Advanced Table with default height parent rows and short density nested rows.](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
+![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
 <Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
 
 ### Striping 
