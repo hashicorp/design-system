@@ -23,7 +23,7 @@ module('Acceptance | Component | hds/pagination', function (hooks) {
     await a11yAudit(axeOptions);
 
     assert.ok(true, 'a11y automation audit passed');
-  })
+  });
 
   test('interacting with the demo of a "numbered" pagination with routing', async function (assert) {
     await visit('/components/pagination');
