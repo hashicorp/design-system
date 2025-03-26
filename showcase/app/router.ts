@@ -62,7 +62,11 @@ Router.map(function () {
     this.route('segmented-group');
     this.route('separator');
     this.route('side-nav');
-    this.route('stepper');
+    this.route('stepper', function () {
+      this.route('indicator');
+      this.route('list');
+      this.route('nav');
+    });
     this.route('table');
     this.route('tag');
     this.route('text');

@@ -144,7 +144,7 @@ import type HdsInteractiveComponent from './components/hds/interactive';
 import type HdsLayoutFlexComponent from './components/hds/layout/flex';
 import type HdsLayoutFlexItemComponent from './components/hds/layout/flex/item';
 import type HdsLayoutGridComponent from './components/hds/layout/grid';
-import type HdsLayoutGridItemComponent from './components/hds/layout/flex/item';
+import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
@@ -186,6 +186,11 @@ import type HdsSideNavListBackLinkComponent from './components/hds/side-nav/list
 import type HdsSideNavListItemComponent from './components/hds/side-nav/list/item';
 import type HdsSideNavListLinkComponent from './components/hds/side-nav/list/link';
 import type HdsSideNavListTitleComponent from './components/hds/side-nav/list/title';
+import type HdsStepperListComponent from './components/hds/stepper/list';
+import type HdsStepperListStepComponent from './components/hds/stepper/list/step';
+import type HdsStepperNavComponent from './components/hds/stepper/nav';
+import type HdsStepperNavPanelComponent from './components/hds/stepper/nav/panel';
+import type HdsStepperNavStepComponent from './components/hds/stepper/nav/step';
 import type HdsStepperStepIndicatorComponent from './components/hds/stepper/step/indicator';
 import type HdsStepperTaskIndicatorComponent from './components/hds/stepper/task/indicator';
 import type HdsTableComponent from './components/hds/table';
@@ -862,6 +867,21 @@ export default interface HdsComponentsRegistry {
   HdsSideNavListTitle: typeof HdsSideNavListTitleComponent;
 
   // Stepper
+  'Hds::Stepper::List': typeof HdsStepperListComponent;
+  'hds/stepper/list': typeof HdsStepperListComponent;
+
+  'Hds::Stepper::List::Step': typeof HdsStepperListStepComponent;
+  'hds/stepper/list/step': typeof HdsStepperListStepComponent;
+
+  'Hds::Stepper::Nav': typeof HdsStepperNavComponent;
+  'hds/stepper/nav': typeof HdsStepperNavComponent;
+
+  'Hds::Stepper::Nav::Panel': typeof HdsStepperNavPanelComponent;
+  'hds/stepper/nav/panel': typeof HdsStepperNavPanelComponent;
+
+  'Hds::Stepper::Nav::Step': typeof HdsStepperNavStepComponent;
+  'hds/stepper/nav/step': typeof HdsStepperNavStepComponent;
+
   'Hds::Stepper::Step::Indicator': typeof HdsStepperStepIndicatorComponent;
   'hds/stepper/step/indicator': typeof HdsStepperStepIndicatorComponent;
 
