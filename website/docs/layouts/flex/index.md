@@ -6,7 +6,7 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/flex
 previewImage: assets/illustrations/layouts/flex.jpg
 navigation:
-  keywords: ['layout', 'flex', 'flexbox']
+  keywords: ['layout', 'flex', 'flexbox', 'spacing', 'grid']
   label: "Flex"
 ---
 

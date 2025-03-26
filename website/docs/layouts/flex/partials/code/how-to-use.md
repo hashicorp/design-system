@@ -424,7 +424,7 @@ In this case, the outer container is a column-based flexbox layout, with three c
 
 !!! Insight
 
-Depending on the complexity and type of design you need to implement, you may want to consider using a CSS `grid` layout, instead of a `flex` layout.
+Depending on the complexity and type of design you need to implement, you may want to consider using a [CSS `grid` layout](/layouts/grid), instead of a `flex` layout.
 
 !!!
 

@@ -6,7 +6,7 @@ links:
   github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/grid
 previewImage: assets/illustrations/layouts/grid.jpg
 navigation:
-  keywords: ['layout', 'grid', 'columns', 'rows', 'spacing']
+  keywords: ['layout', 'grid', 'columns', 'rows', 'spacing', 'flex']
   label: "Grid"
 ---
 
