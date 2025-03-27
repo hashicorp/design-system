@@ -8,12 +8,14 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Component | hds/form/primitives', function (hooks) {
+module('Acceptance | components/app-header', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('components/form/primitives page passes automated a11y checks', async function (assert) {
-    await visit('/components/form/base-elements');
+  test('Components/app-header page passes automated a11y checks', async function (assert) {
+    await visit('/components/app-header');
+
     await a11yAudit();
+
     assert.ok(true, 'a11y automation audit passed');
   });
 });

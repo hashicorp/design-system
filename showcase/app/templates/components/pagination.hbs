@@ -227,14 +227,11 @@
   <Shw::Flex as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Generic (default)</SFI.Label>
-      <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
+      <Hds::Pagination::Nav::Number @page="1" />
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>Current (with <code>@isSelected=&lcub;&lcub;true&rcub;&rcub;</code>)</SFI.Label>
-      <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
-          @page="1"
-          @isSelected={{true}}
-        /></ul>
+      <Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -247,31 +244,22 @@
         <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
           <Shw::Flex as |SF|>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="1" /></ul>
+              <Hds::Pagination::Nav::Number @page="1" />
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="12" /></ul>
+              <Hds::Pagination::Nav::Number @page="12" />
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number @page="123" /></ul>
+              <Hds::Pagination::Nav::Number @page="123" />
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
-                  @page="1"
-                  @isSelected={{true}}
-                /></ul>
+              <Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} />
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
-                  @page="12"
-                  @isSelected={{true}}
-                /></ul>
+              <Hds::Pagination::Nav::Number @page="12" @isSelected={{true}} />
             </SF.Item>
             <SF.Item>
-              <ul class="shw-component-pagination-ul-wrapper"><Hds::Pagination::Nav::Number
-                  @page="123"
-                  @isSelected={{true}}
-                /></ul>
+              <Hds::Pagination::Nav::Number @page="123" @isSelected={{true}} />
             </SF.Item>
           </Shw::Flex>
         </SF.Item>

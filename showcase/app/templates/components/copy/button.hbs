@@ -63,13 +63,17 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="With MaskedInput::Base">
       <div class="shw-component-copy-button-composition-masked-input-base">
-        <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
+        <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" aria-label="With MaskedInput::Base" />
         <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
       </div>
     </SF.Item>
     <SF.Item @label="With MaskedInput::Base (multiline)">
       <div class="shw-component-copy-button-composition-masked-input-base">
-        <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+        <Hds::Form::MaskedInput::Base
+          @isMultiline={{true}}
+          @value="Lorem ipsum dolor"
+          aria-label="With MaskedInput::Base"
+        />
         <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
       </div>
     </SF.Item>
@@ -82,7 +86,7 @@
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Control>
           <div class="shw-component-copy-button-composition-masked-input-base">
-            <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" />
+            <Hds::Form::MaskedInput::Base @value="Lorem ipsum dolor" aria-label="With MaskedInput::Base" />
             <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
           </div>
         </F.Control>
@@ -94,7 +98,11 @@
         <F.HelperText>This is the helper text</F.HelperText>
         <F.Control>
           <div class="shw-component-copy-button-composition-masked-input-base">
-            <Hds::Form::MaskedInput::Base @isMultiline={{true}} @value="Lorem ipsum dolor" />
+            <Hds::Form::MaskedInput::Base
+              @isMultiline={{true}}
+              @value="Lorem ipsum dolor"
+              aria-label="With MaskedInput::Base"
+            />
             <Hds::Copy::Button @isIconOnly={{true}} @text="Copy" @textToCopy="Lorem ipsum dolor" />
           </div>
         </F.Control>
@@ -222,6 +230,7 @@
 multiline text
 that should be copied"
           @name="test-textarea"
+          aria-label="With Textarea::Base"
           id="test-textarea"
         />
         <Hds::Copy::Button @isIconOnly={{true}} @text="Copy the textarea value" @targetToCopy="#test-textarea" />
@@ -235,6 +244,7 @@ that should be copied"
 multiline text
 that should be copied"
           @name="test-textarea-readonly"
+          aria-label="readonly"
           id="test-textarea-readonly"
         />
         <Hds::Copy::Button
@@ -252,6 +262,7 @@ that should be copied"
 multiline text
 that should be copied"
           @name="test-textarea-disabled"
+          aria-label="Textarea disabled"
           id="test-textarea-disabled"
         />
         <Hds::Copy::Button
@@ -263,7 +274,7 @@ that should be copied"
     </SG.Item>
     <SG.Item @label="Select component">
       <div class="shw-component-copy-button-flex-container">
-        <Hds::Form::Select::Base @name="test-select" id="test-select" as |C|>
+        <Hds::Form::Select::Base @name="test-select" id="test-select" aria-label="Select" as |C|>
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option selected>Sit amet</option>
@@ -275,7 +286,13 @@ that should be copied"
     </SG.Item>
     <SG.Item @label="Select component (disabled)">
       <div class="shw-component-copy-button-flex-container">
-        <Hds::Form::Select::Base disabled @name="test-select-disabled" id="test-select-disabled" as |C|>
+        <Hds::Form::Select::Base
+          disabled
+          @name="test-select-disabled"
+          aria-label="Select disabled"
+          id="test-select-disabled"
+          as |C|
+        >
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option>Sit amet</option>
@@ -463,6 +480,7 @@ that should be copied"
   <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Text input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-text" class="sr-only">Text input</label>
         <input type="text" name="test-generic-input-text" id="test-generic-input-text" value="Lorem ipsum dolor" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -473,6 +491,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Password input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-password" class="sr-only">Password input</label>
         <input
           type="password"
           name="test-generic-input-password"
@@ -488,6 +507,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Number input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-number" class="sr-only">Number input</label>
         <input type="number" name="test-generic-input-number" id="test-generic-input-number" value="123456" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -498,6 +518,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="URL input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-url" class="sr-only">URL input</label>
         <input type="url" name="test-generic-input-url" id="test-generic-input-url" value="https://www.hello.com" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -508,6 +529,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Email input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-email" class="sr-only">Email input</label>
         <input type="email" name="test-generic-input-email" id="test-generic-input-email" value="info@hello.com" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -518,6 +540,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Date input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-date" class="sr-only">Date input</label>
         <input type="date" name="test-generic-input-date" id="test-generic-input-date" value="2018-07-22" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -528,6 +551,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Time input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-time" class="sr-only">Time input</label>
         <input type="time" name="test-generic-input-time" id="test-generic-input-time" value="23:59" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -538,6 +562,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Range input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-range" class="sr-only">Range input</label>
         <input type="range" name="test-generic-input-range" id="test-generic-input-range" min="0" max="10" value="6" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -548,6 +573,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Color input">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-input-color" class="sr-only">Color input</label>
         <input type="color" name="test-generic-input-color" id="test-generic-input-color" value="#e66465" />
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -560,6 +586,7 @@ that should be copied"
   <Shw::Flex @gap="2rem" as |SF|>
     <SF.Item @label="Textarea">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-textarea" class="sr-only">Textarea</label>
         <textarea name="test-generic-textarea" id="test-generic-textarea" rows="3">Lorem ipsum dolor</textarea>
         <Hds::Copy::Button
           @isIconOnly={{true}}
@@ -570,6 +597,7 @@ that should be copied"
     </SF.Item>
     <SF.Item @label="Select">
       <div class="shw-component-copy-button-flex-container">
+        <label for="test-generic-select" class="sr-only">Select</label>
         <select name="test-generic-select" id="test-generic-select">
           <option>Lorem ipsum dolor</option>
           <option>Sit amet</option>

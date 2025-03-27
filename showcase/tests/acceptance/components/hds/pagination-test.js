@@ -6,9 +6,24 @@
 import { module, test } from 'qunit';
 import { click, select, visit, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from '../../../helpers';
+import { a11yAudit } from 'ember-a11y-testing/test-support';
 
 module('Acceptance | Component | hds/pagination', function (hooks) {
   setupApplicationTest(hooks);
+
+  test('Components/pagination page passes automated a11y checks', async function (assert) {
+    let axeOptions = {
+      rules: {
+        'landmark-unique': {
+          enabled: false,
+        },
+      },
+    };
+    await visit('/components/pagination');
+    await a11yAudit(axeOptions);
+
+    assert.ok(true, 'a11y automation audit passed');
+  });
 
   test('interacting with the demo of a "numbered" pagination with routing', async function (assert) {
     await visit('/components/pagination');
