@@ -70,7 +70,7 @@ The `language` argument sets the syntax highlighting used. We support the follow
 ```
 ### Linting
 
-Set `isLintingEnabled to `true` to enable linting within the editor. Linting is only available when `language` is set to `json`.
+Set `isLintingEnabled` to `true` to enable linting within the editor. Linting is only available when `language` is set to `json`.
 
 ```handlebars
 <Hds::CodeEditor
