@@ -86,7 +86,7 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
       classes.push('hds-advanced-table__th--is-sticky-column');
     }
 
-    if (this.args.isStickyColumnPinned) {
+    if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
