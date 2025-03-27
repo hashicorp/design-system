@@ -1,8 +1,10 @@
 ## Conformance rating
 
-<Doc::Badge @type="success">Conformant</Doc::Badge>
+<Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-When used as recommended, there should not be any WCAG conformance issues with this component.
+When used without linting enabled, there should not be any WCAG conformance issues with this component.
+
+When linting is enabled, inline error indicator icons are not focusable. However, the errors are also displayed in a toggleable drawer beneath the code editor, providing an accessible alternative.
 
 ## Applicable WCAG Success Criteria
 
