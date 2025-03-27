@@ -187,7 +187,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @columns={{this.columns}}
 />`
     );
-    assert.dom('#data-test-advanced-table').hasClass('hds-advanced-table');
+    assert
+      .dom('#data-test-advanced-table [role="grid"]')
+      .hasClass('hds-advanced-table');
   });
 
   test('it should render with a CSS class appropriate for the @density value', async function (assert) {
@@ -203,7 +205,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--density-short');
   });
 
@@ -218,7 +220,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 />`
     );
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--density-medium');
   });
 
@@ -236,7 +238,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-middle');
   });
 
@@ -254,7 +256,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-baseline');
   });
 
@@ -268,7 +270,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 />`
     );
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-top');
   });
 
@@ -341,6 +343,32 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__thead')
       .hasClass('hds-advanced-table__thead--sticky');
+  });
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyFirstColumn={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.artist}}</B.Th>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`
+    );
+
+    const stickyColumnCellsSelector =
+      '.hds-advanced-table__th--is-sticky-column';
+
+    assert.dom(stickyColumnCellsSelector).exists({ count: 4 });
   });
 
   test('it should render a table based on the data model passed', async function (assert) {
@@ -689,7 +717,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   const selectAllCheckboxSelector =
     '#data-test-selectable-advanced-table .hds-advanced-table__thead .hds-advanced-table__th[role="columnheader"] .hds-advanced-table__checkbox';
   const rowCheckboxesSelector =
-    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__checkbox';
+    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th .hds-advanced-table__checkbox';
 
   // basic multi-select
 
