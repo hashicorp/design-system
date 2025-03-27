@@ -30,6 +30,12 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert
       .dom('#code-editor-wrapper .cm-editor')
       .exists('code editor is rendered');
+
+    assert.strictEqual(
+      document.getElementById('code-editor-wrapper').editor.constructor.name,
+      'EditorView',
+      'it attaches an EditorView instance to the element'
+    );
   });
 
   // value
