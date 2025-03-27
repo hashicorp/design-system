@@ -91,6 +91,8 @@
                     isParentRow=T.isExpandable
                     depth=T.depth
                     displayRow=T.shouldDisplayChildRows
+                    hasStickyColumn=@hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
                   )
                   Th=(component
                     "hds/advanced-table/th"
@@ -101,6 +103,8 @@
                     parentId=T.parentId
                     scope="row"
                     onClickToggle=T.onClickToggle
+                    isStickyColumn=@hasStickyFirstColumn
+                    isStickyColumnPinned=this.isStickyColumnPinned
                   )
                   Td=(component "hds/advanced-table/td" align=@align)
                   data=T.data
