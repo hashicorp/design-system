@@ -27,31 +27,37 @@ const SAMPLE_COLUMNS = [
     isSortable: true,
     label: 'Name',
     key: 'name',
+    width: 'max-content',
   },
   {
     label: 'Project name',
     key: 'project-name',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Current run ID',
     key: 'current-run-id',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Run status',
     key: 'run-status',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Current run applied',
     key: 'current-run-applied',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'VCS repo',
     key: 'vcs-repo',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Module count',
@@ -62,6 +68,7 @@ const SAMPLE_COLUMNS = [
     label: 'Modules',
     key: 'modules',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Provider count',
@@ -72,6 +79,7 @@ const SAMPLE_COLUMNS = [
     label: 'Providers',
     key: 'providers',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Terraform version',
@@ -87,11 +95,13 @@ const SAMPLE_COLUMNS = [
     label: 'Created',
     key: 'created',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Updated',
     key: 'updated',
     isSortable: true,
+    width: 'max-content',
   },
 ];
 
