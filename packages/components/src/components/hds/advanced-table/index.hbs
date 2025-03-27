@@ -2,13 +2,10 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-advanced-table__container" {{this._setUpContainer}} ...attributes>
+<div class="hds-advanced-table__container" ...attributes>
   <div
     class="hds-advanced-table__scroll-wrapper"
-    {{style
-      scrollPaddingLeft=(concat this.scrollIndicatorLeftOffset "px")
-      scrollPaddingTop=(concat this.scrollIndicatorTopOffset "px")
-    }}
+    {{style scrollPaddingLeft=this.scrollIndicatorDimensions.left scrollPaddingTop=this.scrollIndicatorDimensions.top}}
     {{this._setUpScrollWrapper}}
   >
     <div
@@ -17,9 +14,8 @@
       aria-describedby={{this._captionId}}
       {{style
         grid-template-columns=this.gridTemplateColumns
-        --hds-advanced-table-sticky-column-offset=(concat this.stickyColumnOffset "px")
+        --hds-advanced-table-sticky-column-offset=this.stickyColumnOffset
       }}
-      {{this._setUpObservers}}
     >
       {{! Caption }}
       <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
@@ -28,7 +24,7 @@
       </div>
 
       {{! Header }}
-      <div class={{this.theadClassNames}} role="rowgroup">
+      <div class={{this.theadClassNames}} role="rowgroup" {{this._setUpThead}}>
         <Hds::AdvancedTable::Tr
           @selectionScope="col"
           @onClickSortBySelected={{if @selectableColumnKey (fn this.setSortBy @selectableColumnKey)}}
@@ -39,6 +35,7 @@
           @willDestroy={{this.willDestroySelectAllCheckbox}}
           @selectionAriaLabelSuffix="all rows"
           @hasStickyColumn={{@hasStickyFirstColumn}}
+          @isStickyColumnPinned={{this.isStickyColumnPinned}}
         >
           {{#each @columns as |column index|}}
             {{#if column.isSortable}}
@@ -48,6 +45,7 @@
                 @align={{column.align}}
                 @tooltip={{column.tooltip}}
                 @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+                @isStickyColumnPinned={{this.isStickyColumnPinned}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::ThSort>
@@ -61,6 +59,7 @@
                 @isExpanded={{this._tableModel.expandState}}
                 @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
                 @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
+                @isStickyColumnPinned={{this.isStickyColumnPinned}}
               >
                 {{column.label}}
               </Hds::AdvancedTable::Th>
@@ -124,8 +123,14 @@
                   willDestroy=this.willDestroyRowCheckbox
                   selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                   hasStickyColumn=@hasStickyFirstColumn
+                  isStickyColumnPinned=this.isStickyColumnPinned
                 )
-                Th=(component "hds/advanced-table/th" scope="row" isStickyColumn=@hasStickyFirstColumn)
+                Th=(component
+                  "hds/advanced-table/th"
+                  scope="row"
+                  isStickyColumn=@hasStickyFirstColumn
+                  isStickyColumnPinned=this.isStickyColumnPinned
+                )
                 Td=(component "hds/advanced-table/td" align=@align)
                 data=record
                 rowIndex=index
@@ -140,21 +145,28 @@
   {{#if this.showScrollIndicatorLeft}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"
-      {{style height=(concat this.scrollIndicatorHeight "px") left=(concat this.scrollIndicatorLeftOffset "px")}}
+      {{style height=this.scrollIndicatorDimensions.height left=this.scrollIndicatorDimensions.left}}
     />
   {{/if}}
 
   {{#if this.showScrollIndicatorRight}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-right"
-      {{style height=(concat this.scrollIndicatorHeight "px") right=(concat this.scrollIndicatorRightOffset "px")}}
+      {{style height=this.scrollIndicatorDimensions.height right=this.scrollIndicatorDimensions.right}}
     />
   {{/if}}
 
-  {{#if this.isStickyHeaderPinned}}
+  {{#if this.showScrollIndicatorTop}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-top"
-      {{style top=(concat this.scrollIndicatorTopOffset "px") width=(concat this.scrollIndicatorWidth "px")}}
+      {{style top=this.scrollIndicatorDimensions.top width=this.scrollIndicatorDimensions.width}}
+    />
+  {{/if}}
+
+  {{#if this.showScrollIndicatorBottom}}
+    <div
+      class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-bottom"
+      {{style bottom=this.scrollIndicatorDimensions.bottom width=this.scrollIndicatorDimensions.width}}
     />
   {{/if}}
 </div>
