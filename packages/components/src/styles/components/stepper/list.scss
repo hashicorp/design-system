@@ -44,7 +44,9 @@ $hds-stepper-list-gap-spacing: 16px;
       // Progress Bar - background line
       &::before {
         height: calc(100% + $hds-stepper-list-gap-spacing);
-        background: linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%), var(--token-color-palette-neutral-100);
+        background:
+          linear-gradient(0deg, var(--token-color-palette-alpha-200) 0%, var(--token-color-palette-alpha-200) 100%),
+          var(--token-color-palette-neutral-100);
       }
 
       // Progress bar - completed line
