@@ -433,6 +433,22 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     element.addEventListener('scroll', this._scrollHandler);
 
+    const updateMeasurements = () => {
+      this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
+        element,
+        this._theadElement,
+        hasStickyHeader,
+        hasStickyFirstColumn
+      );
+
+      if (hasStickyFirstColumn) {
+        this.stickyColumnOffset = getStickyColumnLeftOffset(
+          this._theadElement,
+          isSelectable
+        );
+      }
+    };
+
     const {
       hasStickyHeader = false,
       hasStickyFirstColumn = false,
@@ -441,37 +457,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
-        this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
-          element,
-          this._theadElement,
-          hasStickyHeader,
-          hasStickyFirstColumn
-        );
-
-        if (hasStickyFirstColumn) {
-          this.stickyColumnOffset = getStickyColumnLeftOffset(
-            this._theadElement,
-            isSelectable
-          );
-        }
+        updateMeasurements();
       });
     });
 
     this._resizeObserver.observe(element);
 
-    this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
-      element,
-      this._theadElement,
-      hasStickyHeader,
-      hasStickyFirstColumn
-    );
-
-    if (hasStickyFirstColumn) {
-      this.stickyColumnOffset = getStickyColumnLeftOffset(
-        this._theadElement,
-        isSelectable
-      );
-    }
+    updateMeasurements();
 
     // on render check if should show right scroll indicator
     if (element.clientWidth < element.scrollWidth) {
