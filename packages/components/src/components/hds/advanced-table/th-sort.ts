@@ -36,6 +36,8 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
+    isStickyColumn?: boolean;
+    isStickyColumnPinned?: boolean;
   };
   Blocks: {
     default?: [];
@@ -78,6 +80,14 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-advanced-table__th--align-${this.align}`);
+    }
+
+    if (this.args.isStickyColumn) {
+      classes.push('hds-advanced-table__th--is-sticky-column');
+    }
+
+    if (this.args.isStickyColumnPinned) {
+      classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
     return classes.join(' ');
