@@ -4,7 +4,7 @@
 
 When used without linting enabled, there should not be any WCAG conformance issues with this component.
 
-When linting is enabled, inline error indicator icons are not focusable. However, the errors are also displayed in a toggleable drawer beneath the code editor, providing an accessible alternative.
+When linting is enabled, the inline error indicator icons are not focusable. However, the errors are also displayed in a drawer beneath the code editor as an accessible alternative. The drawer is opened by pressing `cmd/ctrl + shift + m` while focused in the editor.
 
 ## Applicable WCAG Success Criteria
 
