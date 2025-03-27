@@ -41,6 +41,8 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
     hasExpandAllButton?: boolean;
+    isStickyColumn?: boolean;
+    isStickyColumnPinned?: boolean;
   };
   Blocks: {
     default?: [];
@@ -102,6 +104,14 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-advanced-table__th--align-${this.align}`);
+    }
+
+    if (this.args.isStickyColumn) {
+      classes.push('hds-advanced-table__th--is-sticky-column');
+    }
+
+    if (this.args.isStickyColumnPinned) {
+      classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
     return classes.join(' ');
