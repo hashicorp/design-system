@@ -29,7 +29,7 @@ Organizing filters in a **filter bar** is a common positioning method and consis
 
 Depending on the filter type and how they are related, multiple [Segmented Groups](/components/segmented-group) can be used to group similar filters together. For example; a [Search Input](/components/form/text-input#search) grouped with a [Dropdown](/components/dropdown) to limit the filter parameters that are included in the search.
 
-![In the filter bar, a dropdown menu filters results to a checked parameters](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x*)
+![In the filter bar, a dropdown menu filters results to the checked parameters](/assets/patterns/filter-patterns/filter-bar-similar-filters.png =718x*)
 <Doc::ImageCaption @text="An example limiting the returned search results to a specific parameter"/>
 
 #### Sidebar
