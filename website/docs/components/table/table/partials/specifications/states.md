@@ -1,6 +1,7 @@
 ## States
 
-### Header columns
-Only sortable header columns have state variants. Non-sortable header columns are not interactive and therefore do not have interactive states.
+### Sort button
 
-![Header column state example](/assets/components/table/table-header-states.png)
+Header column icon buttons, e.g., tooltip and sorting, have interactive states.
+
+![Table cells anatomy](/assets/components/table/table-sort-button-sorted-states.png)
