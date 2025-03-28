@@ -5,10 +5,12 @@
 
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
+import style from 'ember-style-modifier';
 // import MockAppHeaderAppHeader from './header/app-header';
 import MockAppSidebarSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
+import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
 import MockAppFooterAppFooter from './footer/app-footer';
 
 // HDS components
@@ -21,6 +23,7 @@ import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/c
 import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
+import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
 import type { MockAppFooterAppFooterSignature } from './footer/app-footer';
 
 export interface MockAppSignature {
@@ -44,6 +47,7 @@ export interface MockAppSignature {
       {
         PageHeader?: ComponentLike<MockAppMainPageHeaderSignature>;
         GenericTextContent?: ComponentLike<MockAppMainGenericTextContentSignature>;
+        GenericAdvancedTable?: ComponentLike<MockAppMainGenericAdvancedTableSignature>;
       },
     ];
     footer?: [
@@ -79,12 +83,13 @@ export default class MockApp extends Component<MockAppSignature> {
           <MockAppSidebarSideNav />
         {{/if}}
       </Frame.Sidebar>
-      <Frame.Main>
+      <Frame.Main {{style overflow="auto"}}>
         <div class="mock-app-layout-main-content-wrapper">
           {{yield
             (hash
               PageHeader=MockAppMainPageHeader
               GenericTextContent=MockAppMainGenericTextContent
+              GenericAdvancedTable=MockAppMainGenericAdvancedTable
             )
             to="main"
           }}
