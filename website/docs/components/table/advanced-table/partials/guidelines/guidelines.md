@@ -178,7 +178,7 @@ The Expand/Collapse All button allows users to expand or collapse all rows, incl
 The Advanced Table supports any combination of expanded or collapsed rows on load. The button reflects the initial state.
 
 ![Expand all button with an expand icon.](/assets/components/table/advanced-table/expandable-rows-expand-all.png)
-<Doc::ImageCaption @text="Expand All if any rows are collapsed."/>
+<Doc::ImageCaption @text="The “Expand All” button displays if any rows are currently collapsed" />
 
 ![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
 <Doc::ImageCaption @text="“Collapse All” button displays if any rows are currently uncollapsed." />
