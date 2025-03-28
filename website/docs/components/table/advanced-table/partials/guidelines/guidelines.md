@@ -144,6 +144,7 @@ Sticky headers keep column labels visible while scrolling, aiding navigation in 
 
 ![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
 
+
 ### Expandable rows
 
 Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
@@ -167,6 +168,35 @@ Avoid using different density settings for parent and child rows.
 
 !!!
 
+### Expand/Collapse All Button
+The Expand/Collapse All button allows users to expand or collapse all rows, including nested rows. It provides quick access to more content but may impact readability when content is long or detailed.
+
+#### Interactions
+
+##### Default state
+
+The Advanced Table supports any combination of expanded or collapsed rows on load. The button reflects the initial state.
+
+![Expand all button with an expand icon.](/assets/components/table/advanced-table/expandable-rows-expand-all.png)
+<Doc::ImageCaption @text="The “Expand All” button displays if any rows are currently collapsed" />
+
+![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
+<Doc::ImageCaption @text="“Collapse All” button displays if all rows are expanded." />
+
+##### Collapsed state
+
+![](/assets/components/table/advanced-table/expandable-rows-expand-state.png)
+<Doc::ImageCaption @text="Clicking “Expand All” expands all rows, including nested rows."/>
+
+##### Expanded state
+
+![](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
+<Doc::ImageCaption @text="Once all rows are expanded, the “Collapse All” button is displayed."/>
+
+##### Mixed state 
+
+![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
+<Doc::ImageCaption @text="If some rows are expanded and others are collapsed, the “Expand All” button will persist until all rows are expanded."/>
 
 ### Striping 
 
