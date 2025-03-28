@@ -63,6 +63,7 @@ const SAMPLE_COLUMNS = [
     label: 'Module count',
     key: 'module-count',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Modules',
@@ -74,6 +75,7 @@ const SAMPLE_COLUMNS = [
     label: 'Provider count',
     key: 'provider-count',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Providers',
@@ -85,11 +87,13 @@ const SAMPLE_COLUMNS = [
     label: 'Terraform version',
     key: 'terraform-version',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'State terraform version',
     key: 'state-terraform-version',
     isSortable: true,
+    width: 'max-content',
   },
   {
     label: 'Created',
