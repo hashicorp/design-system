@@ -124,7 +124,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
     .hds-advanced-table__th--is-sticky-column {
       // has a higher z-index than the sticky header content
-    z-index: 7;
+      z-index: 7;
 
       &:first-of-type {
         position: sticky;
@@ -134,7 +134,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     .hds-advanced-table__th--is-sticky-column-pinned {
       &:first-of-type {
         left: -1px;
-      border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
+        border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
       $hds-advanced-table-border-color;
       }
     }
@@ -319,7 +319,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     text-align: left;
     background-color: var(--token-color-surface-primary);
 
-    &:focus, &.mock-focus{
+    &:focus, &.mock-focus {
       // the box shadow is 3px wide, so offsetting by 3px so the focus ring doesn't go outside the cell
       @include hds-focus-ring-with-pseudo-element(
         $top: 3px,
@@ -361,7 +361,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__th--is-sticky-column-pinned {
     &:first-of-type {
       left: -1px;
-    border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
+      border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid
     $hds-advanced-table-border-color;
     }
   }
