@@ -58,7 +58,8 @@ const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
   hasStickyHeader: boolean,
-  hasStickyFirstColumn: boolean
+  hasStickyFirstColumn: boolean,
+  hasRowsWithChildren: boolean
 ) => {
   const horizontalScrollBarHeight =
     scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
@@ -79,8 +80,9 @@ const getScrollIndicatorDimensions = (
       leftOffset += elAsHTMLElement.offsetWidth;
     });
 
-    if (stickyColumnHeaders.length > 1) {
-      // offsets the left: -1px position
+    // offsets the left: -1px position if there are multiple sticky columns
+    // and adds -1px offset if there are nested rows
+    if (stickyColumnHeaders.length > 1 || hasRowsWithChildren) {
       leftOffset -= 1;
     }
   }
@@ -438,7 +440,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         element,
         this._theadElement,
         hasStickyHeader,
-        hasStickyFirstColumn
+        hasStickyFirstColumn,
+        this._tableModel.hasRowsWithChildren
       );
 
       if (hasStickyFirstColumn) {
