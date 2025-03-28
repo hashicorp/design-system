@@ -4,18 +4,9 @@
  */
 
 import config from 'ember-get-config';
-import type ApplicationInstance from '@ember/application/instance';
 
-export async function initialize(
-  appInstance: ApplicationInstance & {
-    __flightIconsSpriteLoaded?: boolean;
-  }
-) {
-  if (
-    config?.emberFlightIcons?.lazyEmbed &&
-    // we use this flag to avoid loading the sprite multiple times
-    appInstance.__flightIconsSpriteLoaded !== true
-  ) {
+export async function initialize() {
+  if (config?.emberFlightIcons?.lazyEmbed) {
     const { default: svgSprite } = await import(
       // @ts-expect-error: missing types
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
@@ -24,15 +15,18 @@ export async function initialize(
     // in test environments we can inject the sprite directly into the ember testing container
     // to avoid issues with tools like Percy that only consider content inside that element
     if (config.environment === 'test') {
-      window.document
-        ?.getElementById('ember-testing')
-        ?.insertAdjacentHTML('afterbegin', svgSprite);
-    } else {
-      window.document?.body?.insertAdjacentHTML('beforeend', svgSprite);
-    }
+      const container = window.document?.getElementById('ember-testing');
 
-    // set the flag to avoid loading the sprite multiple times
-    appInstance.__flightIconsSpriteLoaded = true;
+      if (container && !container.querySelector('.flight-sprite-container')) {
+        container.insertAdjacentHTML('afterbegin', svgSprite);
+      }
+    } else {
+      const container = window.document?.body;
+
+      if (container && !container.querySelector('.flight-sprite-container')) {
+        container.insertAdjacentHTML('beforeend', svgSprite);
+      }
+    }
   }
 }
 
