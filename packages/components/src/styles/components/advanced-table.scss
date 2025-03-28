@@ -147,7 +147,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
       position: sticky;
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
-      left: calc(var(--hds-advanced-table-sticky-column-offset, 0) - 1px);
+      left: var(--hds-advanced-table-sticky-column-offset, 0);
     }
 
     // border radius: target first and last th elements in the row
@@ -374,7 +374,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
     position: sticky;
     // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
-    left: calc(var(--hds-advanced-table-sticky-column-offset, 0) - 1px);
+    left: var(--hds-advanced-table-sticky-column-offset, 0);
   }
 
 
