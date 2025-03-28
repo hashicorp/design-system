@@ -192,10 +192,12 @@ export default modifier<HdsClipboardModifierSignature>(
     };
 
     // add the "onClick" event listener to the element
+    // eslint-disable-next-line @typescript-eslint/no-misused-promises
     element.addEventListener('click', onClick);
 
     // this (teardown) function is run when the element is removed
     return (): void => {
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       element.removeEventListener('click', onClick);
     };
   }

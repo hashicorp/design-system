@@ -253,7 +253,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
       // noop
     } else {
       // if `this._isControlled` is `false`
-      this._currentPage = value as number;
+      this._currentPage = value;
     }
   }
 
@@ -278,6 +278,7 @@ export default class HdsPaginationNumbered extends Component<HdsPaginationNumber
 
     assert(
       // TODO: Add test for this
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       `pageSizes argument must be an array with at least one item. Received: ${pageSizes}`,
       Array.isArray(pageSizes) === true && pageSizes.length > 0
     );

@@ -85,18 +85,22 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         // @ts-expect-error: known issue with type of invocation
         registerEvent(this._containerElement, [
           'mouseenter',
+          // eslint-disable-next-line @typescript-eslint/unbound-method
           this.onMouseEnter,
         ]);
         // @ts-expect-error: known issue with type of invocation
         registerEvent(this._containerElement, [
           'mouseleave',
+          // eslint-disable-next-line @typescript-eslint/unbound-method
           this.onMouseLeave,
         ]);
         // @ts-expect-error: known issue with type of invocation
+        // eslint-disable-next-line @typescript-eslint/unbound-method
         registerEvent(this._containerElement, ['focusin', this.onFocusIn]);
       }
       // we always want the focusOut event
       // @ts-expect-error: known issue with type of invocation
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       registerEvent(this._containerElement, ['focusout', this.onFocusOut]);
     }
   );
@@ -155,9 +159,11 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       // @ts-expect-error: known issue with type of invocation
       registerEvent(this._popoverElement, [
         'beforetoggle',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
         this.onBeforeTogglePopover,
       ]);
       // @ts-expect-error: known issue with type of invocation
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values

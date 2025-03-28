@@ -48,9 +48,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   addEventListeners(): void {
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.addEventListener('keydown', this.escapePress, true);
     this._desktopMQ.addEventListener(
       'change',
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       this.updateDesktopVariable,
       true
     );
@@ -66,9 +68,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   removeEventListeners(): void {
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     document.removeEventListener('keydown', this.escapePress, true);
     this._desktopMQ.removeEventListener(
       'change',
+      // eslint-disable-next-line @typescript-eslint/unbound-method
       this.updateDesktopVariable,
       true
     );

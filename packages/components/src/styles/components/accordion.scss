@@ -88,7 +88,8 @@
   --hds-accordion-item-focus-ring-offset: 3px;
   border-bottom: 1px solid var(--token-color-border-primary);
 
-  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static) > .hds-disclosure-primitive__toggle {
+  &.hds-accordion-item--does-not-contain-interactive:not(.hds-accordion-item--is-static)
+    > .hds-disclosure-primitive__toggle {
     &:hover,
     &.mock-hover {
       .hds-accordion-item__toggle {
@@ -112,13 +113,16 @@
   display: flex;
   gap: var(--hds-accordion-item-gap);
   align-items: center;
-  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
+  padding: var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding)
+    var(--hds-accordion-item-toggle-padding) var(--hds-accordion-item-toggle-padding-left);
 }
 
 .hds-accordion-item__button {
   padding: 0;
 
-  &:hover { cursor: pointer; }
+  &:hover {
+    cursor: pointer;
+  }
 
   .hds-icon {
     @media (prefers-reduced-motion: no-preference) {
@@ -134,7 +138,12 @@
 
 // entire toggle area is interactive
 .hds-accordion-item__button--parent-does-not-contain-interactive {
-  @include hds-focus-ring-with-pseudo-element($top: var(--hds-accordion-item-focus-ring-offset), $right: var(--hds-accordion-item-focus-ring-offset), $bottom: var(--hds-accordion-item-focus-ring-offset), $left: var(--hds-accordion-item-focus-ring-offset));
+  @include hds-focus-ring-with-pseudo-element(
+    $top: var(--hds-accordion-item-focus-ring-offset),
+    $right: var(--hds-accordion-item-focus-ring-offset),
+    $bottom: var(--hds-accordion-item-focus-ring-offset),
+    $left: var(--hds-accordion-item-focus-ring-offset)
+  );
 
   position: static;
   display: flex;
@@ -180,7 +189,8 @@
 
 .hds-accordion-item__content {
   .hds-accordion-item & {
-    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right) var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
+    padding: var(--hds-accordion-item-content-padding-top) var(--hds-accordion-item-content-padding-right)
+      var(--hds-accordion-item-content-padding-bottom) var(--hds-accordion-item-content-padding-left);
   }
 }
 

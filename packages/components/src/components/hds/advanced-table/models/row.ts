@@ -42,6 +42,7 @@ export default class HdsAdvancedTableRow {
 
     if (Array.isArray(childModels)) {
       this.children = childModels.map(
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         (child) => new HdsAdvancedTableRow(child)
       );
     }

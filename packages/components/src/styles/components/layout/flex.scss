@@ -13,9 +13,7 @@
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
-  gap:
-    var(--hds-layout-flex-row-gap, 0)
-    var(--hds-layout-flex-column-gap, 0);
+  gap: var(--hds-layout-flex-row-gap, 0) var(--hds-layout-flex-column-gap, 0);
 }
 
 // inline
@@ -90,22 +88,61 @@
 
 // gap
 
-.hds-layout-flex--row-gap-4 { --hds-layout-flex-row-gap: 4px; }
-.hds-layout-flex--row-gap-8 { --hds-layout-flex-row-gap: 8px; }
-.hds-layout-flex--row-gap-12 { --hds-layout-flex-row-gap: 12px; }
-.hds-layout-flex--row-gap-16 { --hds-layout-flex-row-gap: 16px; }
-.hds-layout-flex--row-gap-24 { --hds-layout-flex-row-gap: 24px; }
-.hds-layout-flex--row-gap-32 { --hds-layout-flex-row-gap: 32px; }
-.hds-layout-flex--row-gap-48 { --hds-layout-flex-row-gap: 48px; }
+.hds-layout-flex--row-gap-4 {
+  --hds-layout-flex-row-gap: 4px;
+}
 
-.hds-layout-flex--column-gap-4 { --hds-layout-flex-column-gap: 4px; }
-.hds-layout-flex--column-gap-8 { --hds-layout-flex-column-gap: 8px; }
-.hds-layout-flex--column-gap-12 { --hds-layout-flex-column-gap: 12px; }
-.hds-layout-flex--column-gap-16 { --hds-layout-flex-column-gap: 16px; }
-.hds-layout-flex--column-gap-24 { --hds-layout-flex-column-gap: 24px;  }
-.hds-layout-flex--column-gap-32 { --hds-layout-flex-column-gap: 32px; }
-.hds-layout-flex--column-gap-48 { --hds-layout-flex-column-gap: 48px; }
+.hds-layout-flex--row-gap-8 {
+  --hds-layout-flex-row-gap: 8px;
+}
 
+.hds-layout-flex--row-gap-12 {
+  --hds-layout-flex-row-gap: 12px;
+}
+
+.hds-layout-flex--row-gap-16 {
+  --hds-layout-flex-row-gap: 16px;
+}
+
+.hds-layout-flex--row-gap-24 {
+  --hds-layout-flex-row-gap: 24px;
+}
+
+.hds-layout-flex--row-gap-32 {
+  --hds-layout-flex-row-gap: 32px;
+}
+
+.hds-layout-flex--row-gap-48 {
+  --hds-layout-flex-row-gap: 48px;
+}
+
+.hds-layout-flex--column-gap-4 {
+  --hds-layout-flex-column-gap: 4px;
+}
+
+.hds-layout-flex--column-gap-8 {
+  --hds-layout-flex-column-gap: 8px;
+}
+
+.hds-layout-flex--column-gap-12 {
+  --hds-layout-flex-column-gap: 12px;
+}
+
+.hds-layout-flex--column-gap-16 {
+  --hds-layout-flex-column-gap: 16px;
+}
+
+.hds-layout-flex--column-gap-24 {
+  --hds-layout-flex-column-gap: 24px;
+}
+
+.hds-layout-flex--column-gap-32 {
+  --hds-layout-flex-column-gap: 32px;
+}
+
+.hds-layout-flex--column-gap-48 {
+  --hds-layout-flex-column-gap: 48px;
+}
 
 // LAYOUT > FLEX > ITEM
 

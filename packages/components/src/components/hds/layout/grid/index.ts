@@ -68,6 +68,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       assert(
         `@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: ${GAPS.join(
           ', '
+          // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         )}; received: ${gap}`,
         (!Array.isArray(gap) && GAPS.includes(gap)) ||
           (Array.isArray(gap) &&

@@ -64,6 +64,7 @@ export interface HdsTextDisplaySignature {
     tag?: HdsTextTags;
     weight?: HdsTextDisplayWeight;
     align?: HdsTextAligns;
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     color?: string | HdsTextColors;
   };
   Element:

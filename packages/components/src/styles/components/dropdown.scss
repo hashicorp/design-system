@@ -80,7 +80,9 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: calc(#{$hds-dropdown-toggle-border-radius} - 2px); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
+  border-radius: calc(
+    #{$hds-dropdown-toggle-border-radius} - 2px
+  ); // $hds-dropdown-toggle-border-radius - (1px padding + 1px border) (= 3px)
 
   img {
     width: 100%;
@@ -465,9 +467,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
     --current-color-active: var(--token-color-foreground-action-active);
 
     &::after {
-      --current-focus-ring-box-shadow: var(
-        --token-focus-ring-action-box-shadow
-      );
+      --current-focus-ring-box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
 }
@@ -484,9 +484,7 @@ $hds-dropdown-toggle-border-radius: $hds-button-border-radius;
 
     &::after {
       --current-background-color: var(--token-color-surface-critical);
-      --current-focus-ring-box-shadow: var(
-        --token-focus-ring-critical-box-shadow
-      );
+      --current-focus-ring-box-shadow: var(--token-focus-ring-critical-box-shadow);
     }
   }
 }

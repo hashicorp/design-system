@@ -145,7 +145,8 @@
 
   &.hds-alert--type-inline {
     background-color: var(--token-color-surface-faint);
-    border-color: var(--token-color-border-strong); // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
+    // notice: in the "neutral" color the "inline" has a slightly darker border color compared to the others to increase contrast (eg. could be used on a light gray background)
+    border-color: var(--token-color-border-strong);
   }
 
   // different color by design
