@@ -171,9 +171,9 @@ Avoid using different density settings for parent and child rows.
 ### Expand/Collapse All Button
 The Expand/Collapse All button allows users to expand or collapse all rows, including nested rows. It provides quick access to more content but may impact readability when content is long or detailed.
 
-### Interactions
+#### Interactions
 
-#### Default state
+##### Default state
 
 The Advanced Table supports any combination of expanded or collapsed rows on load. The button reflects the initial state.
 
@@ -181,19 +181,19 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 <Doc::ImageCaption @text="Expand All if any rows are collapsed."/>
 
 ![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
-<Doc::ImageCaption @text="Collapse All if all rows are expanded."/>
+<Doc::ImageCaption @text="“Collapse All” button displays if any rows are currently uncollapsed." />
 
-### Collapsed state
+##### Collapsed state
 
 ![](/assets/components/table/advanced-table/expandable-rows-expand-state.png)
-<Doc::ImageCaption @text="Clicking Expand All expands all rows, including nested rows."/>
+<Doc::ImageCaption @text="Clicking “Expand All” expands all rows, including nested rows."/>
 
-### Expanded state
+##### Expanded state
 
 ![](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
 <Doc::ImageCaption @text="Once all rows are expanded, the Collapse All button is displayed."/>
 
-### Mixed state 
+##### Mixed state 
 
 ![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
 <Doc::ImageCaption @text="If some rows are expanded and others are collapsed, the Expand All button will persist until all rows are expanded."/>
