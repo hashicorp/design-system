@@ -1,9 +1,9 @@
 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="size=16">
-<g id="Group">
-<path id="Vector" d="M12.0625 15H3.9375C3.42188 15 3 14.5705 3 14.0455V1.95455C3 1.42955 3.42188 1 3.9375 1H9.5625L13 4.5V14.0455C13 14.5705 12.5781 15 12.0625 15Z" fill="#FBBC04"/>
-<path id="Vector_2" d="M9.5625 1L13 4.5H9.5625V1Z" fill="#F29900"/>
-<path id="Vector_3" fill-rule="evenodd" clip-rule="evenodd" d="M11.125 6.40918H4.875V10.7046H11.125V6.40918ZM10.3438 7.20463H5.65625V9.90918H10.3438V7.20463Z" fill="white"/>
+<g id="Path">
+<path d="M12.0625 15H3.9375C3.42188 15 3 14.5705 3 14.0455V1.95455C3 1.42955 3.42188 1 3.9375 1H9.5625L13 4.5V14.0455C13 14.5705 12.5781 15 12.0625 15Z" fill="#FBBC04"/>
+<path d="M9.5625 1L13 4.5H9.5625V1Z" fill="#F29900"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M11.125 6.40918H4.875V10.7046H11.125V6.40918ZM10.3438 7.20463H5.65625V9.90918H10.3438V7.20463Z" fill="white"/>
 </g>
 </g>
 </svg>

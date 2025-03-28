@@ -25,7 +25,7 @@ export const IconJiraColor16 = forwardRef<SVGSVGElement, IconProps>(
                 {title ? <title id={titleId}>{title}</title> : null}
                 <path
                     fill="#2684FF"
-                    d="M15.323 7.558L8.633.663 7.989 0 2.971 5.171.677 7.536c-.236.243-.236.64 0 .906l4.589 4.73L7.989 16l5.018-5.171.086-.089 2.23-2.298a.64.64 0 000-.884zM7.99 10.365L5.695 8l2.294-2.365L10.284 8l-2.295 2.365z"
+                    d="M15.323 7.558L7.99 0 .677 7.536c-.236.243-.236.64 0 .906l4.589 4.73L7.989 16l7.334-7.558a.64.64 0 000-.884zM7.99 10.365L5.695 8l2.294-2.365L10.284 8l-2.295 2.365z"
                 />
                 <path
                     fill="url(#jira-color-16__paint0_linear_4403_94)"
@@ -38,10 +38,10 @@ export const IconJiraColor16 = forwardRef<SVGSVGElement, IconProps>(
                 <defs>
                     <linearGradient
                         id="jira-color-16__paint0_linear_4403_94"
-                        x1={7.58}
-                        x2={4.279}
-                        y1={3.24}
-                        y2={6.443}
+                        x1={14.282}
+                        x2={8.076}
+                        y1={6.453}
+                        y2={15.39}
                         gradientUnits="userSpaceOnUse"
                     >
                         <stop offset={0.176} stopColor="#0052CC" />

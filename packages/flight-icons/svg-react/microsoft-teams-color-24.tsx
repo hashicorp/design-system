@@ -71,17 +71,19 @@ export const IconMicrosoftTeamsColor24 = forwardRef<SVGSVGElement, IconProps>(
                     d="M12.233 7.874v.895A2.998 2.998 0 0110.14 7.05h1.242c.469.002.849.37.85.824z"
                     opacity={0.2}
                 />
-                <path
-                    fill="url(#microsoft-teams-color-24__paint0_linear_2372_478)"
-                    d="M2.853 7.05h8.527c.47 0 .852.37.852.825v8.25c0 .456-.381.825-.852.825H2.853c-.471 0-.853-.37-.853-.825v-8.25c0-.456.382-.825.853-.825z"
-                />
-                <path
-                    fill="#fff"
-                    d="M9.36 10.19H7.655v4.491H6.57V10.19H4.873v-.871H9.36v.871z"
-                />
+                <g>
+                    <path
+                        fill="url(#microsoft-teams-color-24__paint0_linear_7503_67)"
+                        d="M2.853 7.05h8.527c.47 0 .852.37.852.825v8.25c0 .456-.381.825-.852.825H2.853c-.471 0-.853-.37-.853-.825v-8.25c0-.456.382-.825.853-.825z"
+                    />
+                    <path
+                        fill="#fff"
+                        d="M9.36 10.19H7.655v4.491H6.57v-4.49H4.873v-.872H9.36v.871z"
+                    />
+                </g>
                 <defs>
                     <linearGradient
-                        id="microsoft-teams-color-24__paint0_linear_2372_478"
+                        id="microsoft-teams-color-24__paint0_linear_7503_67"
                         x1={3.778}
                         x2={10.13}
                         y1={6.406}
