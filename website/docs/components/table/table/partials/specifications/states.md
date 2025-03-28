@@ -2,6 +2,6 @@
 
 ### Sort button
 
-Header column icon buttons (ex: tooltip, sorting) have interactive state variants, which include: default, hover, active and focus.
+Header column icon buttons, e.g., tooltip and sorting, have interactive states.
 
 ![Table cells anatomy](/assets/components/table/table-sort-button-sorted-states.png)
