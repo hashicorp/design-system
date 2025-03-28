@@ -31,3 +31,10 @@ export enum HdsCardOverflowValues {
 export type HdsCardOverflow =
   | HdsCardOverflowValues.Hidden
   | HdsCardOverflowValues.Visible;
+
+export enum HdsCardTagValues {
+  Div = 'div',
+  Li = 'li',
+}
+
+export type HdsCardTag = `${HdsCardTagValues}`;
