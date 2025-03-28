@@ -181,7 +181,7 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 <Doc::ImageCaption @text="The “Expand All” button displays if any rows are currently collapsed" />
 
 ![Expand all button with a collapse icon.](/assets/components/table/advanced-table/expandable-rows-collapse-all.png)
-<Doc::ImageCaption @text="“Collapse All” button displays if any rows are currently uncollapsed." />
+<Doc::ImageCaption @text="“Collapse All” button displays if all rows are expanded." />
 
 ##### Collapsed state
 
