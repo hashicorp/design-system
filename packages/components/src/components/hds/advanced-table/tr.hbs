@@ -6,6 +6,7 @@
 <div class={{this.classNames}} role="row" ...attributes>
   {{#if @isSelectable}}
     <Hds::AdvancedTable::ThSelectable
+      role={{if (eq @selectionScope "row") "gridcell" "columnheader"}}
       @isSelected={{@isSelected}}
       @selectionScope={{@selectionScope}}
       @selectionKey={{this.selectionKey}}
@@ -15,6 +16,8 @@
       @willDestroy={{@willDestroy}}
       @onClickSortBySelected={{@onClickSortBySelected}}
       @onSelectionChange={{@onSelectionChange}}
+      @isStickyColumn={{@hasStickyColumn}}
+      @isStickyColumnPinned={{@isStickyColumnPinned}}
     />
   {{/if}}
 
