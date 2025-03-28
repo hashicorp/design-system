@@ -65,8 +65,8 @@
     @model={{this.model.nestedData}}
     @columns={{array
       (hash key="name" label="Name" isExpandable=true)
-      (hash key="status" label="Status" width="auto")
       (hash key="description" label="Description")
+      (hash key="status" label="Status" width="auto")
     }}
   >
     <:body as |B|>
@@ -75,10 +75,10 @@
           {{B.data.name}}
         </B.Th>
         <B.Td>
-          {{B.data.status}}
+          {{B.data.description}}
         </B.Td>
         <B.Td>
-          {{B.data.description}}
+          {{B.data.status}}
         </B.Td>
       </B.Tr>
     </:body>
@@ -91,8 +91,8 @@
     @childrenKey="data"
     @columns={{array
       (hash key="name" label="Name" isExpandable=true)
-      (hash key="status" label="Status" width="auto")
       (hash key="description" label="Description")
+      (hash key="status" label="Status" width="auto")
     }}
   >
     <:body as |B|>
@@ -101,14 +101,52 @@
           {{B.data.name}}
         </B.Th>
         <B.Td>
-          {{B.data.status}}
+          {{B.data.description}}
         </B.Td>
         <B.Td>
-          {{B.data.description}}
+          {{B.data.status}}
         </B.Td>
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Horizontal scrolling indicators</Shw::Text::H2>
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @model={{this.model.music}}
+      @isStriped={{true}}
+      @columns={{array
+        (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
+        (hash key="album" label="Album" tooltip="More information." isSortable=true)
+        (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
+        (hash key="other" label="Additional Actions")
+      }}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+          <B.Td>
+            <div class="shw-component-advanced-table-cell-content-div">
+              <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+              {{B.data.album}}
+            </div>
+          </B.Td>
+          <B.Td>
+            <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+          </B.Td>
+          <B.Td>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+              <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+              <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+            </Hds::ButtonSet>
+          </B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
 
   <Shw::Divider />
 
@@ -138,6 +176,123 @@
           <B.Td>{{B.data.name}}</B.Td>
           <B.Td>{{B.data.email}}</B.Td>
           <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
+  <Shw::Text::H2>Sticky column</Shw::Text::H2>
+
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.model.userData}}
+      @columns={{array
+        (hash key="id" label="ID" width="auto")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @hasStickyFirstColumn={{true}}
+      @isStriped={{true}}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Th>{{B.data.id}}</B.Th>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
+  <Shw::Text::H3>Sticky column not selectable</Shw::Text::H3>
+
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @model={{this.model.userData}}
+      @columns={{array
+        (hash key="id" label="ID" width="auto")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @hasStickyFirstColumn={{true}}
+      @isStriped={{true}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th>{{B.data.id}}</B.Th>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
+  <Shw::Text::H2>Sticky header and sticky column</Shw::Text::H2>
+
+  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+    <Hds::AdvancedTable
+      @isSelectable={{true}}
+      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+      @model={{this.model.userData}}
+      @columns={{array
+        (hash key="id" label="ID" width="auto")
+        (hash key="name" label="Name")
+        (hash key="email" label="Email")
+        (hash key="role" label="Role")
+      }}
+      @hasStickyHeader={{true}}
+      @hasStickyFirstColumn={{true}}
+      @isStriped={{true}}
+    >
+      <:body as |B|>
+        <B.Tr
+          @selectionKey={{B.data.id}}
+          @isSelected={{B.data.isSelected}}
+          @selectionAriaLabelSuffix="row #{{B.data.id}}"
+        >
+          <B.Th>{{B.data.id}}</B.Th>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.email}}</B.Td>
+          <B.Td>{{B.data.role}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>
+  </div>
+
+  <Shw::Text::H2>Sticky column and nested rows</Shw::Text::H2>
+
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
+    <Hds::AdvancedTable
+      @model={{this.model.nestedDataCustom}}
+      @childrenKey="data"
+      @columns={{array
+        (hash key="name" label="Name" isExpandable=true width="250px")
+        (hash key="description" label="Description" width="200px")
+        (hash key="status" label="Status" width="auto")
+      }}
+      @hasStickyFirstColumn={{true}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th>
+            {{B.data.name}}
+          </B.Th>
+          <B.Td>
+            {{B.data.description}}
+          </B.Td>
+          <B.Td>
+            {{B.data.status}}
+          </B.Td>
         </B.Tr>
       </:body>
     </Hds::AdvancedTable>
@@ -870,42 +1025,6 @@
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>Large AdvancedTable with overflowing container</Shw::Text::H3>
-
-  <Shw::Text::H4>Container with overflow = 'auto' + Columns width (in
-    <code>px</code>)</Shw::Text::H4>
-
-  <div class="shw-component-advanced-table-scrollable-wrapper">
-    <Hds::AdvancedTable
-      @model={{this.model.manyColumns}}
-      @columns={{array
-        (hash key="first_name" label="First Name" isSortable=true width="200px")
-        (hash key="last_name" label="Last Name" isSortable=true width="200px")
-        (hash key="age" label="Age" isSortable=true align="right")
-        (hash key="email" label="Email" isSortable=true)
-        (hash key="phone" label="Phone" isSortable=true)
-        (hash key="bio" label="Biography" width="350px")
-        (hash key="education" label="Education Degree" isSortable=true)
-        (hash key="occupation" label="Occupation" isSortable=true)
-      }}
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Td>{{B.data.first_name}}</B.Td>
-          <B.Td>{{B.data.last_name}}</B.Td>
-          <B.Td @align="right">{{B.data.age}}</B.Td>
-          <B.Td>{{B.data.email}}</B.Td>
-          <B.Td>{{B.data.phone}}</B.Td>
-          <B.Td>{{B.data.bio}}</B.Td>
-          <B.Td>{{B.data.education}}</B.Td>
-          <B.Td>{{B.data.occupation}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
 
   <Shw::Divider @level={{2}} />
 

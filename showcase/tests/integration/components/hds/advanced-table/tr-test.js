@@ -87,7 +87,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       .dom(
         '#data-test-advanced-table-tr > .hds-advanced-table__th--is-selectable'
       )
-      .hasAttribute('role', 'rowheader');
+      .hasAttribute('role', 'gridcell');
   });
 
   test('it should invoke the `onSelectionChange` callback when the checkbox is selected', async function (assert) {

@@ -38,6 +38,8 @@ export interface HdsAdvancedTableThSelectableSignature {
     selectionScope?: HdsAdvancedTableScope;
     sortBySelectedOrder?: HdsAdvancedTableThSortOrder;
     willDestroy?: (selectionKey?: string) => void;
+    isStickyColumn?: boolean;
+    isStickyColumnPinned?: boolean;
   };
   Element: HdsAdvancedTableThSignature['Element'];
 }
