@@ -1,5 +1,16 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+### April 2nd, 2025
+
+`Stepper List` and `Stepper Nav` - Components added.
+
+`Advanced Table` - Multiple enhancements including:
+
+- Added support for expanding and collapsing all rows.
+- Added support for a sticky column in the [Template] components.
+
+`Code Block` and `Code Editor` - Updated the focus ring to ensure adequate color contrast with surface colors.
+
 ### March 5th, 2025
 
 `CodeEditor` - Added support for Javascript and Rego languages.
