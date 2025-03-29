@@ -4,21 +4,12 @@
  */
 
 import Component from '@glimmer/component';
-import { assert } from '@ember/debug';
 
 import type { ModifierLike } from '@glint/template';
 import type { SetupPrimitivePopoverModifier } from '../popover-primitive';
-import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
-import {
-  DEFAULT_PLACEMENT,
-  PLACEMENTS,
-} from '../../../modifiers/hds-anchored-position.ts';
 
 export interface HdsRichTooltipBubbleSignature {
   Args: {
-    placement?: FloatingUIOptions['placement'];
-    offset?: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
     width?: string;
     height?: string;
     isOpen?: boolean;
@@ -33,28 +24,6 @@ export interface HdsRichTooltipBubbleSignature {
 }
 
 export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubbleSignature> {
-  /**
-   * @param placement
-   * @type {string}
-   * @description Determines the position of the "popover"
-   */
-  get placement(): FloatingUIOptions['placement'] {
-    const { placement = DEFAULT_PLACEMENT } = this.args;
-
-    assert(
-      `@placement for "Hds::RichTooltip::Bubble" must be one of the following: ${PLACEMENTS.join(
-        ', '
-      )}; received: ${placement}`,
-      PLACEMENTS.includes(placement)
-    );
-
-    return placement;
-  }
-
-  get enableCollisionDetection(): FloatingUIOptions['enableCollisionDetection'] {
-    return this.args.enableCollisionDetection ?? true;
-  }
-
   get sizingStyles(): Record<string, string> {
     const sizingStyles: {
       width?: string;
@@ -74,23 +43,5 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     }
 
     return sizingStyles;
-  }
-
-  get anchoredPositionOptions(): {
-    placement: FloatingUIOptions['placement'];
-    offsetOptions: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
-    arrowSelector: string;
-    arrowPadding: FloatingUIOptions['arrowPadding'];
-  } {
-    // custom options specific for the `RichTooltip` component
-    // for details see the `hds-anchored-position` modifier
-    return {
-      placement: this.placement,
-      offsetOptions: this.args.offset ?? 12,
-      enableCollisionDetection: this.args.enableCollisionDetection ?? true,
-      arrowSelector: `#${this.args.arrowId}`,
-      arrowPadding: 12,
-    };
   }
 }

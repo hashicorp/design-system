@@ -5,6 +5,8 @@
 
 import Component from '@glimmer/component';
 
+import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position';
+
 export interface HdsBreadcrumbTruncationSignature {
   Args: {
     ariaLabel?: string;
@@ -24,4 +26,9 @@ export default class HdsBreadcrumbTruncation extends Component<HdsBreadcrumbTrun
   get ariaLabel(): string {
     return this.args.ariaLabel ?? 'show more';
   }
+
+  anchoredPositionOptions: FloatingUIOptions = {
+    placement: 'bottom-start',
+    offsetOptions: 4,
+  };
 }

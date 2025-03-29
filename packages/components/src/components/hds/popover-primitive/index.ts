@@ -20,6 +20,7 @@ import type Owner from '@ember/owner';
 
 export interface HdsPopoverPrimitiveSignature {
   Args: {
+    anchoredPositionOptions: FloatingUIOptions;
     isOpen?: boolean;
     enableSoftEvents?: boolean;
     enableClickEvents?: boolean;
@@ -49,13 +50,15 @@ interface SetupPrimitiveContainerModifier {
 
 export interface SetupPrimitiveToggleModifier {
   Element: HTMLButtonElement;
+  Args: {
+    Positional: [];
+  };
 }
 
 export interface SetupPrimitivePopoverModifier {
   Element: HTMLElement;
   Args: {
     Positional: [];
-    Named: { anchoredPositionOptions: FloatingUIOptions };
   };
 }
 
@@ -74,6 +77,57 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
   constructor(owner: Owner, args: HdsPopoverPrimitiveSignature['Args']) {
     super(owner, args);
     this._isOpen = this.args.isOpen ?? false;
+  }
+
+  // We need to create a popoverId in order to connect the popover and the toggle with aria-controls
+  // and an id is needed to implement `onclick` event listeners
+  private _ensurePopoverId(popoverElement: HTMLElement): string {
+    let popoverId;
+
+    if (popoverElement.id) {
+      popoverId = popoverElement.id;
+    } else {
+      popoverId = guidFor(this);
+
+      popoverElement.id = popoverId;
+    }
+
+    return popoverId;
+  }
+
+  private _associateToggleWithPopover() {
+    if (this._toggleElement && this._popoverElement) {
+      const popoverId = this._ensurePopoverId(this._popoverElement);
+
+      this._toggleElement.setAttribute('aria-controls', popoverId);
+
+      if (this.enableClickEvents) {
+        this._toggleElement.setAttribute('popovertarget', popoverId);
+      }
+    }
+  }
+
+  private _setupAnchoredPosition(): void {
+    // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
+    const anchoredPositionOptions: FloatingUIOptions = {
+      ...this.args.anchoredPositionOptions,
+    };
+
+    // Apply the `hds-anchored-position` modifier to the "popover" element
+    // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running.
+    // Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
+    // This modifiers uses the Floating UI library to provide:
+    // - positioning of the "popover" in relation to the "toggle"
+    // - collision detection (optional)
+    // eslint-disable-next-line ember/no-runloop
+    next((): void => {
+      // @ts-expect-error: known issue with type of invocation
+      anchoredPositionModifier(
+        this._popoverElement, // element the modifier is attached to
+        [this._toggleElement], // positional arguments
+        anchoredPositionOptions // named arguments
+      );
+    });
   }
 
   setupPrimitiveContainer = modifier<SetupPrimitiveContainerModifier>(
@@ -109,79 +163,40 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
         `The toggle element of "Hds::PopoverPrimitive" must be a <button>; element received: <${element.tagName.toLowerCase()}>`,
         element instanceof HTMLButtonElement
       );
+
+      if (this._toggleElement && this._popoverElement) {
+        this._associateToggleWithPopover();
+        this._setupAnchoredPosition();
+      }
     }
   );
 
-  setupPrimitivePopover = modifier(
-    (
-      element: HTMLElement,
-      _positional,
-      named: { anchoredPositionOptions: FloatingUIOptions }
-    ): void => {
-      this._popoverElement = element;
+  setupPrimitivePopover = modifier((element: HTMLElement): void => {
+    this._popoverElement = element;
 
-      // We need to create a popoverId in order to connect the popover and the toggle with aria-controls
-      // and an id is needed to implement `onclick` event listeners
-      if (this._toggleElement) {
-        let popoverId;
-        if (this._popoverElement.id) {
-          popoverId = this._popoverElement.id;
-        } else {
-          // we need a DOM id for the `aria-controls` and `popovertarget` attributes
-          popoverId = guidFor(this);
-          this._popoverElement.id = popoverId;
-        }
-        this._toggleElement.setAttribute('aria-controls', popoverId);
+    this._associateToggleWithPopover();
 
-        // for the click events we don't use `onclick` event listeners, but we rely on the `popovertarget` attribute
-        // provided by the Popover API which does all the magic for us without needing JS code
-        // (important: to work it needs to be applied to a button)
-        if (this.enableClickEvents) {
-          this._toggleElement.setAttribute('popovertarget', popoverId);
-        }
-      }
-
-      // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
-      // we need to use the "manual" state to support the case of multiple "menus" opened at the same time
-      // IMPORTANT! if a "popover" is set to "open" with a "manual" state, then it can't be closed via `esc` and `click outside`
-      if (this.args.isOpen) {
-        this._popoverElement.popover = 'manual';
-        this._popoverElement.showPopover();
-      } else {
-        this._popoverElement.popover = 'auto';
-      }
-
-      // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
-      // @ts-expect-error: known issue with type of invocation
-      registerEvent(this._popoverElement, [
-        'beforetoggle',
-        this.onBeforeTogglePopover,
-      ]);
-      // @ts-expect-error: known issue with type of invocation
-      registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
-
-      // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
-      const anchoredPositionOptions: FloatingUIOptions = {
-        ...named.anchoredPositionOptions,
-      };
-
-      // Apply the `hds-anchored-position` modifier to the "popover" element
-      // (notice: this function runs the first time when the element the modifier was applied to is inserted into the DOM, and it autotracks while running.
-      // Any tracked values that it accesses will be tracked, including the arguments it receives, and if any of them changes, the function will run again)
-      // This modifiers uses the Floating UI library to provide:
-      // - positioning of the "popover" in relation to the "toggle"
-      // - collision detection (optional)
-      // eslint-disable-next-line ember/no-runloop
-      next((): void => {
-        // @ts-expect-error: known issue with type of invocation
-        anchoredPositionModifier(
-          this._popoverElement, // element the modifier is attached to
-          [this._toggleElement], // positional arguments
-          anchoredPositionOptions // named arguments
-        );
-      });
+    // this should be an extremely edge case, but in the case the popover needs to be initially forced to be open
+    // we need to use the "manual" state to support the case of multiple "menus" opened at the same time
+    // IMPORTANT! if a "popover" is set to "open" with a "manual" state, then it can't be closed via `esc` and `click outside`
+    if (this.args.isOpen) {
+      this._popoverElement.popover = 'manual';
+      this._popoverElement.showPopover();
+    } else {
+      this._popoverElement.popover = 'auto';
     }
-  );
+
+    // Register "onBeforeToggle" + "onToggle" callback functions to be called when a native 'toggle' event is dispatched
+    // @ts-expect-error: known issue with type of invocation
+    registerEvent(this._popoverElement, [
+      'beforetoggle',
+      this.onBeforeTogglePopover,
+    ]);
+    // @ts-expect-error: known issue with type of invocation
+    registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
+
+    this._setupAnchoredPosition();
+  });
 
   @action
   showPopover(): void {

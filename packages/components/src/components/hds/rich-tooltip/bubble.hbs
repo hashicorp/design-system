@@ -10,7 +10,7 @@
   role="tooltip"
   aria-hidden={{(unless @isOpen true)}}
   {{style this.sizingStyles}}
-  {{@setupPrimitivePopover anchoredPositionOptions=this.anchoredPositionOptions}}
+  {{@setupPrimitivePopover}}
 >
   <div class="hds-rich-tooltip__bubble-arrow" id={{@arrowId}} />
   {{#if @isOpen}}
