@@ -1,6 +1,6 @@
 ## Sticky headers and columns
 
-The Advanced Table supports setting both the header and the first column as sticky or “pinned” to either the top or left of the container respectively. This can aid in navigation and traversal through large data sets while persisting important indentifying values (e.g., names, IDs, etc).
+The Advanced Table supports setting both the header and the first column as sticky or “pinned” to either the top or left of the container respectively. This can aid in navigation and traversal through large data sets while persisting important identifying values (e.g., names, IDs, etc).
 
 There are a few caveats to consider when implementing either of these features:
 
@@ -16,6 +16,6 @@ At this time only the first column in an Advanced Table can be set as sticky. If
 
 ## Overflow
 
-The Advanced Table supports overflow on both the X and Y axis (horizontally and vertically). For example, when the cummulative width of the columns in the Advanced Table is greater than the width of the viewport or the container the table is in, a subtle shadow is introduced indicating the direction the overflow occurs. When paired with a sticky header or column, the “edge” at which the overflow occurs visually.
+The Advanced Table supports overflow on both the X and Y axis (horizontally and vertically). For example, when the cumulative width of the columns in the Advanced Table is greater than the width of the viewport or the container the table is in, a subtle shadow is introduced indicating the direction the overflow occurs. When paired with a sticky header or column, the “edge” at which the overflow occurs visually.
 
 ![An Advanced Table showcasing the visual language and subtle shadow that indicates overflow on the horizontal axis](/assets/components/table/advanced-table/advanced-table-horizontal-overflow.png)
