@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
 import type { Diagnostic as DiagnosticType } from '@codemirror/lint';
 import type { HdsCodeEditorSignature } from '../../hds-code-editor';
 import type { Extension, Text } from '@codemirror/state';
