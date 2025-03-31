@@ -106,8 +106,8 @@ const getStickyColumnLeftOffset = (
     '.hds-advanced-table__th--is-selectable'
   ) as HTMLElement;
 
-  // otherwise, the left offset is the width of the select checkbox column
-  return `${selectableCell?.offsetWidth}px`;
+  // otherwise, the left offset is the width of the select checkbox column + 0.5px for the border
+  return `${selectableCell?.offsetWidth + 0.5}px`;
 };
 
 export interface HdsAdvancedTableSignature {
@@ -328,16 +328,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get gridTemplateColumns(): string {
     const { isSelectable, columns } = this.args;
 
+    const DEFAULT_COLUMN_WIDTH = '1fr';
+
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
     if (!this.columnWidths) {
       // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, 1fr)`;
+      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
     } else {
       // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
       for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
+        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
       }
     }
 
@@ -375,10 +377,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     if (this.isStickyHeaderPinned) {
       classes.push('hds-advanced-table__thead--is-pinned');
-    }
-
-    if (this.isStickyColumnPinned) {
-      classes.push('hds-advanced-table__thead--column-is-pinned');
     }
 
     return classes.join(' ');
