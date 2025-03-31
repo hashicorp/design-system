@@ -10,8 +10,10 @@ import {
   settled,
   resetOnerror,
   setupOnerror,
+  click,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 module('Integration | Component | hds/code-block/index', function (hooks) {
   setupRenderingTest(hooks);
@@ -153,6 +155,23 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     `);
 
     assert.dom('.hds-code-block__copy-button').exists().hasAria('label', 'Foo');
+  });
+
+  test('it calls the onCopy action when the Copy button is clicked', async function (assert) {
+    sinon.stub(window.navigator.clipboard, 'writeText').resolves();
+
+    const copySpy = sinon.spy();
+
+    this.set('onCopy', copySpy);
+
+    await render(hbs`
+      <Hds::CodeBlock @value="test" @hasCopyButton={{true}} @onCopy={{this.onCopy}} />
+    `);
+
+    await click('.hds-code-block__copy-button');
+    assert.ok(copySpy.calledOnce, 'onCopy action was called');
+
+    sinon.restore();
   });
 
   // hasLineNumbers
