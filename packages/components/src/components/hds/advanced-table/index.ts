@@ -58,8 +58,7 @@ const getScrollIndicatorDimensions = (
   scrollWrapper: HTMLDivElement,
   theadElement: HTMLDivElement,
   hasStickyHeader: boolean,
-  hasStickyFirstColumn: boolean,
-  hasRowsWithChildren: boolean
+  hasStickyFirstColumn: boolean
 ) => {
   const horizontalScrollBarHeight =
     scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
@@ -81,8 +80,7 @@ const getScrollIndicatorDimensions = (
     });
 
     // offsets the left: -1px position if there are multiple sticky columns
-    // and adds -1px offset if there are nested rows
-    if (stickyColumnHeaders.length > 1 || hasRowsWithChildren) {
+    if (stickyColumnHeaders.length > 1) {
       leftOffset -= 1;
     }
   }
@@ -178,7 +176,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns } = args;
+    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
@@ -194,6 +192,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       assert(
         `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
         sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
       );
     }
   }
@@ -440,8 +443,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         element,
         this._theadElement,
         hasStickyHeader,
-        hasStickyFirstColumn,
-        this._tableModel.hasRowsWithChildren
+        hasStickyFirstColumn
       );
 
       if (hasStickyFirstColumn) {

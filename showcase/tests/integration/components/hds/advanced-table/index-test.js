@@ -480,6 +480,34 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
   });
 
+  test('it throws an assertion if it has `@hasStickyFirstColumn` and has nested rows', async function (assert) {
+    const errorMessage =
+      'Cannot have a sticky first column if there are nested rows.';
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @hasStickyFirstColumn={{true}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th>{{B.data.name}}</B.Th>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   // with an empty caption if no caption is provided
 
   test('it should render a sortable table  and table is unsorted', async function (assert) {

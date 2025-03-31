@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, focus, click } from '@ember/test-helpers';
+import { render, focus, click, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | hds/advanced-table/th', function (hooks) {
@@ -165,6 +165,49 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     assert.dom('#data-test-advanced-table-th').hasStyle({
       gridRow: 'span 3',
       gridColumn: 'span 5',
+    });
+  });
+
+  test('it should throw an assertion if it is a sticky cell with rowspan', async function (assert) {
+    const errorMessage =
+      'Cannot have custom rowspan or colspan if there are nested rows.';
+    assert.expect(1);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-test-advanced-table-th'
+  @rowspan={{3}}
+  @isStickyColumn={{true}}
+/>`
+    );
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if it is a sticky cell with colspan', async function (assert) {
+    const errorMessage =
+      'Cannot have custom rowspan or colspan if there are nested rows.';
+
+    assert.expect(1);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    await render(
+      hbs`<Hds::AdvancedTable::Th
+  id='data-test-advanced-table-th'
+  @colspan={{3}}
+  @isStickyColumn={{true}}
+/>`
+    );
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
     });
   });
 

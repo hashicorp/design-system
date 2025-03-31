@@ -269,35 +269,6 @@
     </Hds::AdvancedTable>
   </div>
 
-  <Shw::Text::H2>Sticky column and nested rows</Shw::Text::H2>
-
-  <div class="shw-component-advanced-table-fixed-width-wrapper">
-    <Hds::AdvancedTable
-      @model={{this.model.nestedDataCustom}}
-      @childrenKey="data"
-      @columns={{array
-        (hash key="name" label="Name" isExpandable=true width="250px")
-        (hash key="description" label="Description" width="200px")
-        (hash key="status" label="Status" width="auto")
-      }}
-      @hasStickyFirstColumn={{true}}
-    >
-      <:body as |B|>
-        <B.Tr>
-          <B.Th>
-            {{B.data.name}}
-          </B.Th>
-          <B.Td>
-            {{B.data.description}}
-          </B.Td>
-          <B.Td>
-            {{B.data.status}}
-          </B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
-
   <Shw::Divider />
 
   <Shw::Text::H2>Sorting</Shw::Text::H2>

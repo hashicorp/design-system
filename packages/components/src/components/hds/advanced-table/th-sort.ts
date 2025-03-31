@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import type Owner from '@ember/owner';
 
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
@@ -49,6 +50,19 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   private _labelId = guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
+
+  constructor(owner: Owner, args: HdsAdvancedTableThSortSignature['Args']) {
+    super(owner, args);
+
+    const { rowspan, colspan, isStickyColumn } = args;
+
+    if (isStickyColumn) {
+      assert(
+        'Cannot have custom rowspan or colspan if there are nested rows.',
+        rowspan === undefined || colspan === undefined
+      );
+    }
+  }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels {
     switch (this.args.sortOrder) {

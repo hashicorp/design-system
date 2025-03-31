@@ -10,6 +10,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
+import type Owner from '@ember/owner';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -54,6 +55,19 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
+
+  constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
+    super(owner, args);
+
+    const { rowspan, colspan, isStickyColumn } = args;
+
+    if (isStickyColumn) {
+      assert(
+        'Cannot have custom rowspan or colspan if there are nested rows.',
+        rowspan === undefined || colspan === undefined
+      );
+    }
+  }
 
   get scope(): HdsAdvancedTableScope {
     const { scope = 'col' } = this.args;
