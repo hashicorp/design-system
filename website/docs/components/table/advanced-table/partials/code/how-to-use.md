@@ -415,6 +415,8 @@ There may be cases when it’s necessary to show an Advanced Table with a large 
 
 The component adds the sticky styles to the `[B].Th` component in each row. If there is not a `[B].Th`, the styles will not work correctly.
 
+Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
+
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
 <div class="doc-advanced-table-scrollable-wrapper">
