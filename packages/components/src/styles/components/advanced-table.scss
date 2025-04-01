@@ -66,7 +66,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 .hds-advanced-table__tbody {
   border-top: none;
-  // border-radius: inherit;
   border-bottom-right-radius: inherit;
   border-bottom-left-radius: inherit;
 }
@@ -90,7 +89,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       color: var(--token-color-foreground-strong);
       text-align: left;
       background-color: var(--token-color-surface-strong);
-      
 
       &:focus,
       &.mock-focus {
@@ -101,7 +99,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
           $bottom: 3px,
           $left: 3px,
           $radius: inherit,
-          $position: sticky);
+          $position: sticky
+        );
         z-index: 1;
         isolation: isolate;
       }
