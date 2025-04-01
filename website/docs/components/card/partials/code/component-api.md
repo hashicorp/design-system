@@ -21,6 +21,9 @@
   <C.Property @name="overflow" @type="enum" @values={{array "visible" "hidden" }} @default="visible">
     Controls the "overflow" property for the component.
   </C.Property>
+  <C.Property @name="tag" @type="enum" @values={{array "div" "li"}} @default="div">
+    The HTML tag that wraps the `Card` content.
+  </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
   </C.Property>

@@ -18,6 +18,28 @@ To style the Cards, you can add an external element that wraps the Card, with a 
 
 Alternatively, you could use the Card Containers in a CSS `flex` or `grid` container.
 
+### HTML tag
+
+To specify which HTML tag to use to render the component, use the `@tag` argument. The default tag is a `div` but you can optionally render the Card as an `li` to be used within a list.
+
+Note: If you choose to use the `Card` as a list item, you are responsible for the related styling.
+
+```handlebars
+<ul class="doc-card-list-demo">
+  <Hds::Card::Container @tag="li" @hasBorder={{true}} class="doc-card-list-demo__item">
+    Card item 1
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @tag="li" @hasBorder={{true}} class="doc-card-list-demo__item">
+    Card item 2
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @tag="li" @hasBorder={{true}} class="doc-card-list-demo__item">
+    Card item 3
+  </Hds::Card::Container>
+</ul>
+```
+
 ### Interactive states
 
 At the moment, we do not recommend using the Card component as an interactive element, although we may add this feature in the future. Despite this, some products have implemented designs that provide visual feedback to the user interacting with a Card by changing the elevation style (on `:hover` or `:active`).
