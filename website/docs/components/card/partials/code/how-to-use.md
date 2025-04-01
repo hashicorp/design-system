@@ -22,7 +22,7 @@ Alternatively, you could use the Card Containers in a CSS `flex` or `grid` conta
 
 To specify which HTML tag to use to render the component, use the `@tag` argument. The default tag is a `div` but you can optionally render the Card as an `li` to be used within a list.
 
-Note: If you choose to use the `Card` as a list item, you are responsible for the related styling.
+Note: If you choose to use the `Card` as a list item, you must wrap it either in a `ul` or `ol` tag for the markup to be valid. Also note that you are responsible for the related styling for the list and list items.
 
 ```handlebars
 <ul class="doc-card-list-demo">
