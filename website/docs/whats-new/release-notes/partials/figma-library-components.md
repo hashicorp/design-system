@@ -12,6 +12,17 @@
 </p>
 
 
+#### April 2nd, 2025
+
+`Stepper List` and `Stepper Nav` - Components added.
+
+`Advanced Table` - Multiple enhancements including:
+
+- Added support for expanding and collapsing all rows.
+- Added support for a sticky column in the [Template] components.
+
+`Code Block` and `Code Editor` - Improved the color contrast in the focus ring.
+
 #### March 5th, 2025
 
 `CodeEditor` - Added support for Javascript and Rego languages.
