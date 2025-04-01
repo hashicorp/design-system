@@ -11,6 +11,7 @@ export interface HdsCodeBlockCopyButtonSignature {
   Args: {
     targetToCopy?: HdsCopyButtonSignature['Args']['targetToCopy'];
     text?: HdsCopyButtonSignature['Args']['text'];
+    onCopy?: HdsCopyButtonSignature['Args']['onSuccess'];
   };
   Blocks: {
     default: [];

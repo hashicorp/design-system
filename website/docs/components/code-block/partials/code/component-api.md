@@ -41,6 +41,9 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="maxHeight" @type="string" @default="auto">
     Accepts any valid CSS unit. If the `CodeBlock` content exceeds the maximum height a vertical scrollbar is enabled. This value applies to the code content only and does not include the header element (title and/or description).
   </C.Property>
+  <C.Property @name="onCopy" @type="function">
+    Callback function invoked (if provided) when the "copy" action succeeds.
+  </C.Property>
 </Doc::ComponentApi>
 
 ### Contextual components

@@ -54,6 +54,7 @@ export interface HdsCodeBlockSignature {
     maxHeight?: string;
     value: string;
     copyButtonText?: HdsCopyButtonSignature['Args']['text'];
+    onCopy?: HdsCopyButtonSignature['Args']['onSuccess'];
   };
   Blocks: {
     default: [
