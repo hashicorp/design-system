@@ -14,7 +14,12 @@ export const handleGridCellKeyPress = (
   const changeActiveCell = (oldCell: HTMLElement, newCell: HTMLElement) => {
     oldCell.setAttribute('tabindex', '-1');
     newCell.setAttribute('tabindex', '0');
-    newCell.focus();
+    newCell.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center',
+    });
+    newCell.focus({ preventScroll: true });
   };
 
   const findNewRow = (
