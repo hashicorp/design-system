@@ -13,6 +13,7 @@ import type { IconName } from '@hashicorp/flight-icons/svg';
 import type Owner from '@ember/owner';
 
 export const AVAILABLE_COLORS: string[] = Object.values(HdsIconColorValues);
+export const AVAILABLE_NAMES = iconNames;
 
 export interface HdsIconSignature {
   Args: {

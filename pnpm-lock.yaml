@@ -884,8 +884,8 @@ importers:
         specifier: workspace:*
         version: link:../packages/tokens
       '@hashicorp/flight-icons':
-        specifier: ^3.9.0
-        version: 3.9.0
+        specifier: workspace:*
+        version: link:../packages/flight-icons
       algoliasearch:
         specifier: ^4.24.0
         version: 4.24.0
