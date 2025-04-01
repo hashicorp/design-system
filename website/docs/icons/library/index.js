@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { restartableTask, timeout } from 'ember-concurrency';
 import { inject as service } from '@ember/service';
+import { AVAILABLE_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
 
@@ -17,8 +18,9 @@ export default class Index extends Component {
   @service eventTracking;
   @service router;
 
-  allIcons = catalog.assets.map(
-    ({ iconName, fileName, size, description, category }) => {
+  allIcons = catalog.assets
+    .filter(({ iconName }) => AVAILABLE_NAMES.includes(iconName))
+    .map(({ iconName, fileName, size, description, category }) => {
       category = category.toLowerCase(); // category names in json begin with uppercase letter
 
       return {
@@ -29,8 +31,7 @@ export default class Index extends Component {
         category: `${category}`,
         searchable: `${iconName}, ${description}, ${category}`,
       };
-    }
-  );
+    });
 
   get searchQuery() {
     return this.router.currentRoute.queryParams['searchQuery'];
