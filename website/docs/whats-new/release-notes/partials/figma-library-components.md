@@ -12,7 +12,7 @@
 </p>
 
 
-#### April 2nd, 2025
+### April 2nd, 2025
 
 `Stepper List` and `Stepper Nav` - Components added.
 
@@ -23,7 +23,7 @@
 
 `Code Block` and `Code Editor` - Improved the color contrast in the focus ring.
 
-#### March 5th, 2025
+### March 5th, 2025
 
 `CodeEditor` - Added support for Javascript and Rego languages.
 
@@ -133,14 +133,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 `Button` - Updated icon only button variants to be square to match the ToggleIcon.
 
 `Dropdown / ToggleIcon` - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.
-
-### September 15th, 2023
-
-`IconTile` and `IconTile-Logo` - Added a new product variant for Vault Secrets.
-
-### August 17th, 2023
-
-`SideNav` - Changed the icon from `User` to `Help` in the first dropdown at the top of the `SideNav`.
 
 
 ---
