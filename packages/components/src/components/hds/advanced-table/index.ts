@@ -10,9 +10,9 @@ import { tracked } from '@glimmer/tracking';
 import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
-import HdsAdvancedTableTableModel from './models/table.ts';
-
 import type Owner from '@ember/owner';
+
+import HdsAdvancedTableTableModel from './models/table.ts';
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableThSortOrderValues,
@@ -45,6 +45,71 @@ export const VALIGNMENTS: HdsAdvancedTableVerticalAlignment[] = Object.values(
 );
 export const DEFAULT_VALIGN = HdsAdvancedTableVerticalAlignmentValues.Top;
 
+const DEFAULT_SCROLL_DIMENSIONS = {
+  bottom: '0px',
+  height: '0px',
+  left: '0px',
+  right: '0px',
+  top: '0px',
+  width: '0px',
+};
+
+const getScrollIndicatorDimensions = (
+  scrollWrapper: HTMLDivElement,
+  theadElement: HTMLDivElement,
+  hasStickyHeader: boolean,
+  hasStickyFirstColumn: boolean
+) => {
+  const horizontalScrollBarHeight =
+    scrollWrapper.offsetHeight - scrollWrapper.clientHeight;
+  const verticalScrollBarWidth =
+    scrollWrapper.offsetWidth - scrollWrapper.clientWidth;
+
+  let leftOffset = 0;
+
+  if (hasStickyFirstColumn) {
+    const stickyColumnHeaders = theadElement.querySelectorAll(
+      '.hds-advanced-table__th--is-sticky-column'
+    );
+
+    stickyColumnHeaders?.forEach((el) => {
+      // querySelectorAll returns Elements, which don't have offsetWidth
+      // need to use offsetWidth to account for the cell borders
+      const elAsHTMLElement = el as HTMLElement;
+      leftOffset += elAsHTMLElement.offsetWidth;
+    });
+
+    // offsets the left: -1px position if there are multiple sticky columns
+    if (stickyColumnHeaders.length > 1) {
+      leftOffset -= 1;
+    }
+  }
+
+  return {
+    bottom: `${horizontalScrollBarHeight}px`,
+    height: `${scrollWrapper.clientHeight - horizontalScrollBarHeight}px`,
+    left: `${leftOffset}px`,
+    right: `${verticalScrollBarWidth}px`,
+    top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
+    width: `${scrollWrapper.clientWidth - verticalScrollBarWidth}px`,
+  };
+};
+
+const getStickyColumnLeftOffset = (
+  theadElement: HTMLDivElement,
+  hasRowSelection: boolean
+) => {
+  // if there is no select checkbox column, the sticky column is all the way to the left
+  if (!hasRowSelection) return '0px';
+
+  const selectableCell = theadElement.querySelector(
+    '.hds-advanced-table__th--is-selectable'
+  ) as HTMLElement;
+
+  // otherwise, the left offset is the width of the select checkbox column + 0.5px for the border
+  return `${selectableCell?.offsetWidth + 0.5}px`;
+};
+
 export interface HdsAdvancedTableSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
@@ -66,6 +131,7 @@ export interface HdsAdvancedTableSignature {
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
     hasStickyHeader?: boolean;
+    hasStickyFirstColumn?: boolean;
     childrenKey?: string;
   };
   Blocks: {
@@ -91,17 +157,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  private _intersectionObserver: IntersectionObserver | undefined = undefined;
-  private _element!: HTMLDivElement;
   private _tableModel!: HdsAdvancedTableTableModel;
+  private _scrollHandler!: (event: Event) => void;
+  private _resizeObserver!: ResizeObserver;
+  private _theadElement!: HTMLDivElement;
+
+  @tracked scrollIndicatorDimensions = DEFAULT_SCROLL_DIMENSIONS;
+  @tracked isStickyColumnPinned = false;
+  @tracked isStickyHeaderPinned = false;
+  @tracked showScrollIndicatorLeft = false;
+  @tracked showScrollIndicatorRight = false;
+  @tracked showScrollIndicatorTop = false;
+  @tracked showScrollIndicatorBottom = false;
+  @tracked stickyColumnOffset = '0px';
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns } = args;
+    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
@@ -117,6 +192,11 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       assert(
         `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
         sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
       );
     }
   }
@@ -169,6 +249,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const { childrenKey = 'children' } = this.args;
 
     return childrenKey;
+  }
+
+  get hasScrollIndicator(): boolean {
+    if (this.args.hasStickyFirstColumn) {
+      return true;
+    }
+
+    return false;
   }
 
   get sortedMessageText(): string {
@@ -240,16 +328,18 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get gridTemplateColumns(): string {
     const { isSelectable, columns } = this.args;
 
+    const DEFAULT_COLUMN_WIDTH = '1fr';
+
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
     if (!this.columnWidths) {
       // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, 1fr)`;
+      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
     } else {
       // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
       for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : '1fr'}`;
+        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
       }
     }
 
@@ -278,31 +368,124 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _setUpObservers = modifier((element: HTMLDivElement) => {
-    const stickyGridHeader = element.querySelector(
-      '.hds-advanced-table__thead.hds-advanced-table__thead--sticky'
-    );
+  get theadClassNames(): string {
+    const classes = ['hds-advanced-table__thead'];
 
-    this._element = element;
+    if (this.args.hasStickyHeader) {
+      classes.push('hds-advanced-table__thead--sticky');
+    }
 
-    if (stickyGridHeader !== null) {
-      this._intersectionObserver = new IntersectionObserver(
-        ([element]) =>
-          element?.target.classList.toggle(
-            'hds-advanced-table__thead--is-pinned',
-            element.intersectionRatio < 1
-          ),
-        { threshold: [1] }
+    if (this.isStickyHeaderPinned) {
+      classes.push('hds-advanced-table__thead--is-pinned');
+    }
+
+    return classes.join(' ');
+  }
+
+  private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
+    this._scrollHandler = () => {
+      // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
+      const SCROLL_BUFFER = 6;
+
+      // left scroll indicator and sticky column styles
+      if (element.scrollLeft > SCROLL_BUFFER && !this.showScrollIndicatorLeft) {
+        if (this.args.hasStickyFirstColumn) {
+          this.isStickyColumnPinned = true;
+        }
+        this.showScrollIndicatorLeft = true;
+      } else if (element.scrollLeft === 0 && this.showScrollIndicatorLeft) {
+        this.isStickyColumnPinned = false;
+        this.showScrollIndicatorLeft = false;
+      }
+
+      // the right edge is how far the user can scroll, which is the full width of the table - the visible section of the table (also subtract the buffer)
+      const rightEdge =
+        element.scrollWidth - element.clientWidth - SCROLL_BUFFER;
+
+      // right scroll indicator
+      if (element.scrollLeft < rightEdge) {
+        this.showScrollIndicatorRight = true;
+      } else {
+        this.showScrollIndicatorRight = false;
+      }
+
+      // sticky header
+      if (element.scrollTop > 0) {
+        if (this.args.hasStickyHeader) {
+          this.isStickyHeaderPinned = true;
+        }
+        this.showScrollIndicatorTop = true;
+      } else {
+        if (this.args.hasStickyHeader) {
+          this.isStickyHeaderPinned = false;
+        }
+        this.showScrollIndicatorTop = false;
+      }
+
+      // the bottom edge is how far the user can scroll, which is the full height of the table - the visible section of the table (also subtract the buffer)
+      const bottomEdge =
+        element.scrollHeight - element.clientHeight - SCROLL_BUFFER;
+
+      // bottom scroll indicator
+      if (element.scrollTop < bottomEdge) {
+        this.showScrollIndicatorBottom = true;
+      } else {
+        this.showScrollIndicatorBottom = false;
+      }
+    };
+
+    element.addEventListener('scroll', this._scrollHandler);
+
+    const updateMeasurements = () => {
+      this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
+        element,
+        this._theadElement,
+        hasStickyHeader,
+        hasStickyFirstColumn
       );
 
-      this._intersectionObserver.observe(stickyGridHeader);
+      if (hasStickyFirstColumn) {
+        this.stickyColumnOffset = getStickyColumnLeftOffset(
+          this._theadElement,
+          isSelectable
+        );
+      }
+    };
+
+    const {
+      hasStickyHeader = false,
+      hasStickyFirstColumn = false,
+      isSelectable = false,
+    } = this.args;
+
+    this._resizeObserver = new ResizeObserver((entries) => {
+      entries.forEach(() => {
+        updateMeasurements();
+      });
+    });
+
+    this._resizeObserver.observe(element);
+
+    updateMeasurements();
+
+    // on render check if should show right scroll indicator
+    if (element.clientWidth < element.scrollWidth) {
+      this.showScrollIndicatorRight = true;
+    }
+
+    // on render check if should show bottom scroll indicator
+    if (element.clientHeight < element.scrollHeight) {
+      this.showScrollIndicatorBottom = true;
     }
 
     return () => {
-      if (this._intersectionObserver) {
-        this._intersectionObserver.disconnect();
-      }
+      element.removeEventListener('scroll', this._scrollHandler);
+      this._resizeObserver.disconnect();
     };
+  });
+
+  private _setUpThead = modifier((element: HTMLDivElement) => {
+    this._theadElement = element;
   });
 
   @action

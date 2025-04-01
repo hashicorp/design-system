@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import type Owner from '@ember/owner';
 
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
@@ -36,6 +37,8 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
+    isStickyColumn?: boolean;
+    isStickyColumnPinned?: boolean;
   };
   Blocks: {
     default?: [];
@@ -47,6 +50,19 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   private _labelId = guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
+
+  constructor(owner: Owner, args: HdsAdvancedTableThSortSignature['Args']) {
+    super(owner, args);
+
+    const { rowspan, colspan, isStickyColumn } = args;
+
+    if (isStickyColumn) {
+      assert(
+        'Cannot have custom rowspan or colspan if there are nested rows.',
+        rowspan === undefined || colspan === undefined
+      );
+    }
+  }
 
   get ariaSort(): HdsAdvancedTableThSortOrderLabels {
     switch (this.args.sortOrder) {
@@ -78,6 +94,14 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     // add a class based on the @align argument
     if (this.align) {
       classes.push(`hds-advanced-table__th--align-${this.align}`);
+    }
+
+    if (this.args.isStickyColumn) {
+      classes.push('hds-advanced-table__th--is-sticky-column');
+    }
+
+    if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
+      classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
     return classes.join(' ');

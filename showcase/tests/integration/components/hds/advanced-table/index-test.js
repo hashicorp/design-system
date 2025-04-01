@@ -149,11 +149,12 @@ const hbsSelectableAdvancedTable = hbs`<Hds::AdvancedTable
   @isSelectable={{true}}
   @model={{this.model}}
   @columns={{this.columns}}
+  @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
   id='data-test-selectable-advanced-table'
 >
   <:body as |B|>
     <B.Tr @selectionKey={{B.data.id}}>
-      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Th>{{B.data.artist}}</B.Th>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
@@ -187,7 +188,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @columns={{this.columns}}
 />`
     );
-    assert.dom('#data-test-advanced-table').hasClass('hds-advanced-table');
+    assert
+      .dom('#data-test-advanced-table [role="grid"]')
+      .hasClass('hds-advanced-table');
   });
 
   test('it should render with a CSS class appropriate for the @density value', async function (assert) {
@@ -203,7 +206,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--density-short');
   });
 
@@ -218,7 +221,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 />`
     );
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--density-medium');
   });
 
@@ -236,7 +239,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-middle');
   });
 
@@ -254,7 +257,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     );
 
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-baseline');
   });
 
@@ -268,7 +271,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 />`
     );
     assert
-      .dom('#data-test-advanced-table')
+      .dom('#data-test-advanced-table [role="grid"]')
       .hasClass('hds-advanced-table--valign-top');
   });
 
@@ -341,6 +344,57 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__thead')
       .hasClass('hds-advanced-table__thead--sticky');
+  });
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyFirstColumn={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.artist}}</B.Th>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`
+    );
+
+    assert
+      .dom(
+        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column'
+      )
+      .exists({ count: 1 });
+
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)'
+      )
+      .exists({ count: 3 });
+  });
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
+    setSelectableTableData(this);
+    this.set('hasStickyFirstColumn', true);
+    await render(hbsSelectableAdvancedTable);
+
+    assert
+      .dom(
+        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column'
+      )
+      .exists({ count: 4 });
+
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)'
+      )
+      .exists({ count: 4 });
   });
 
   test('it should render a table based on the data model passed', async function (assert) {
@@ -442,6 +496,34 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       <:body as |B|>
         <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
           <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it throws an assertion if it has `@hasStickyFirstColumn` and has nested rows', async function (assert) {
+    const errorMessage =
+      'Cannot have a sticky first column if there are nested rows.';
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @hasStickyFirstColumn={{true}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+    >
+      <:body as |B|>
+        <B.Tr>
+          <B.Th>{{B.data.name}}</B.Th>
           <B.Td>{{B.data.age}}</B.Td>
         </B.Tr>
       </:body>
@@ -689,7 +771,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   const selectAllCheckboxSelector =
     '#data-test-selectable-advanced-table .hds-advanced-table__thead .hds-advanced-table__th[role="columnheader"] .hds-advanced-table__checkbox';
   const rowCheckboxesSelector =
-    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th[role="rowheader"] .hds-advanced-table__checkbox';
+    '#data-test-selectable-advanced-table .hds-advanced-table__tbody .hds-advanced-table__th .hds-advanced-table__checkbox';
 
   // basic multi-select
 
