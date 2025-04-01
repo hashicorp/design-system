@@ -85,6 +85,7 @@ export const handleGridCellKeyPress = (
         }
       }
     } else if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
       if (event.ctrlKey) {
         const table = target.parentElement?.closest('[role="grid"]');
         const allVisibleRows = table?.querySelectorAll(
@@ -123,6 +124,7 @@ export const handleGridCellKeyPress = (
         }
       }
     } else if (event.key === 'PageUp' || event.key === 'PageDown') {
+      event.preventDefault();
       const currentRow = target.parentElement;
 
       if (currentRow instanceof HTMLElement) {
