@@ -52,7 +52,7 @@
     "@glimmer/tracking": "^1.1.2",
     "@hashicorp/design-system-components": "workspace:*",
     "@hashicorp/design-system-tokens": "workspace:*",
-    "@hashicorp/flight-icons": "^3.9.0",
+    "@hashicorp/flight-icons": "workspace:*",
     "algoliasearch": "^4.24.0",
     "broccoli-asset-rev": "^3.0.0",
     "broccoli-funnel": "^3.0.8",
