@@ -366,10 +366,17 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 </Hds::AdvancedTable>`
     );
 
-    const stickyColumnCellsSelector =
-      '.hds-advanced-table__th--is-sticky-column';
+    assert
+      .dom(
+        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column'
+      )
+      .exists({ count: 1 });
 
-    assert.dom(stickyColumnCellsSelector).exists({ count: 4 });
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)'
+      )
+      .exists({ count: 3 });
   });
 
   test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
@@ -377,10 +384,17 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     this.set('hasStickyFirstColumn', true);
     await render(hbsSelectableAdvancedTable);
 
-    const stickyColumnCellsSelector =
-      '.hds-advanced-table__th--is-sticky-column';
+    assert
+      .dom(
+        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column'
+      )
+      .exists({ count: 4 });
 
-    assert.dom(stickyColumnCellsSelector).exists({ count: 8 });
+    assert
+      .dom(
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)'
+      )
+      .exists({ count: 4 });
   });
 
   test('it should render a table based on the data model passed', async function (assert) {
