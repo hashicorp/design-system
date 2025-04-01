@@ -126,11 +126,11 @@ importers:
         specifier: ^1.6.12
         version: 1.6.13
       '@hashicorp/design-system-tokens':
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: workspace:^2.3.0
+        version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: ^3.9.0
-        version: 3.9.0
+        specifier: workspace:^3.9.0
+        version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1
         version: 1.2.1
@@ -2793,12 +2793,6 @@ packages:
 
   '@handlebars/parser@2.0.0':
     resolution: {integrity: sha512-EP9uEDZv/L5Qh9IWuMUGJRfwhXJ4h1dqKTT4/3+tY0eu7sPis7xh23j61SYUnNF4vqCQvvUXpDo9Bh/+q1zASA==}
-
-  '@hashicorp/design-system-tokens@2.3.0':
-    resolution: {integrity: sha512-T2XhcgUeiGkNqvPu73yittDghEccUpIZc7Fh/g4PG7KEvJwbXItFWTRWoHSGR8T6r6LpOP5E6CC4hSVwGRugRg==}
-
-  '@hashicorp/flight-icons@3.9.0':
-    resolution: {integrity: sha512-Vh2cLD0LI5JQ3WKmwGMa45f4nbG6HJUZMWUKTF0XmFnEpI9bSpkFvvp9CK8oANMJNSNikDmsQHWg8Hlusi3Bjg==}
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -13933,10 +13927,6 @@ snapshots:
   '@handlebars/parser@1.1.0': {}
 
   '@handlebars/parser@2.0.0': {}
-
-  '@hashicorp/design-system-tokens@2.3.0': {}
-
-  '@hashicorp/flight-icons@3.9.0': {}
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
