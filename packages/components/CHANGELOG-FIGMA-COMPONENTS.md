@@ -9,7 +9,7 @@
 - Added support for expanding and collapsing all rows.
 - Added support for a sticky column in the [Template] components.
 
-`Code Block` and `Code Editor` - Updated the focus ring to ensure adequate color contrast with surface colors.
+`Code Block` and `Code Editor` - Improved the color contrast in the focus ring.
 
 ### March 5th, 2025
 
