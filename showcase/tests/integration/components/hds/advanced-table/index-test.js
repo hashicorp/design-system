@@ -149,11 +149,12 @@ const hbsSelectableAdvancedTable = hbs`<Hds::AdvancedTable
   @isSelectable={{true}}
   @model={{this.model}}
   @columns={{this.columns}}
+  @hasStickyFirstColumn={{this.hasStickyFirstColumn}}
   id='data-test-selectable-advanced-table'
 >
   <:body as |B|>
     <B.Tr @selectionKey={{B.data.id}}>
-      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Th>{{B.data.artist}}</B.Th>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
@@ -370,6 +371,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.dom(stickyColumnCellsSelector).exists({ count: 4 });
   });
+
+  test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
+    setSelectableTableData(this);
+    this.set('hasStickyFirstColumn', true)
+    await render(hbsSelectableAdvancedTable);
+
+    const stickyColumnCellsSelector =
+      '.hds-advanced-table__th--is-sticky-column';
+
+    assert.dom(stickyColumnCellsSelector).exists({ count: 8 });
+  });
+
 
   test('it should render a table based on the data model passed', async function (assert) {
     this.set('model', [
