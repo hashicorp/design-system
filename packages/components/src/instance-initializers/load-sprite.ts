@@ -8,7 +8,6 @@ import config from 'ember-get-config';
 export async function initialize() {
   if (config?.emberFlightIcons?.lazyEmbed) {
     const { default: svgSprite } = await import(
-      // @ts-expect-error: missing types
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
 
