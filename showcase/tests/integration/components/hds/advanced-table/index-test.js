@@ -374,7 +374,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
   test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument when also selectable', async function (assert) {
     setSelectableTableData(this);
-    this.set('hasStickyFirstColumn', true)
+    this.set('hasStickyFirstColumn', true);
     await render(hbsSelectableAdvancedTable);
 
     const stickyColumnCellsSelector =
@@ -382,7 +382,6 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.dom(stickyColumnCellsSelector).exists({ count: 8 });
   });
-
 
   test('it should render a table based on the data model passed', async function (assert) {
     this.set('model', [
