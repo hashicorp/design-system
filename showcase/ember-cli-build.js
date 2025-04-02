@@ -43,6 +43,9 @@ module.exports = function (defaults) {
       {
         package: 'qunit',
       },
+      {
+        package: '@hashicorp/flight-icons',
+      },
     ],
   });
 };
