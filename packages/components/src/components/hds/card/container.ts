@@ -5,20 +5,25 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+
 import {
   HdsCardBackgroundValues,
   HdsCardLevelValues,
   HdsCardOverflowValues,
+  HdsCardTagValues,
 } from './types.ts';
+
 import type {
   HdsCardBackground,
   HdsCardLevel,
   HdsCardOverflow,
+  HdsCardTag,
 } from './types.ts';
 
 export const DEFAULT_LEVEL = HdsCardLevelValues.Base;
 export const DEFAULT_BACKGROUND = HdsCardBackgroundValues.NeutralPrimary;
 export const DEFAULT_OVERFLOW = HdsCardOverflowValues.Visible;
+export const DEFAULT_TAG = HdsCardTagValues.Div;
 export const AVAILABLE_LEVELS: string[] = Object.values(HdsCardLevelValues);
 export const AVAILABLE_BACKGROUNDS: string[] = Object.values(
   HdsCardBackgroundValues
@@ -26,6 +31,7 @@ export const AVAILABLE_BACKGROUNDS: string[] = Object.values(
 export const AVAILABLE_OVERFLOWS: string[] = Object.values(
   HdsCardOverflowValues
 );
+export const AVAILABLE_TAGS: string[] = Object.values(HdsCardTagValues);
 
 export interface HdsCardContainerSignature {
   Args: {
@@ -35,22 +41,16 @@ export interface HdsCardContainerSignature {
     background?: HdsCardBackground;
     hasBorder?: boolean;
     overflow?: HdsCardOverflow;
+    tag?: HdsCardTag;
   };
   Blocks: {
     default: [];
   };
-  Element: HTMLDivElement;
+  Element: HTMLElement;
 }
 
 export default class HdsCardContainer extends Component<HdsCardContainerSignature> {
-  /**
-   * Sets the "elevation" level for the component
-   * Accepted values: base, mid, high
-   *
-   * @param level
-   * @type {HdsCardLevel}
-   * @default 'base'
-   */
+  // Sets the "elevation" level for the component
   get level(): HdsCardLevel {
     const { level = DEFAULT_LEVEL } = this.args;
 
@@ -64,13 +64,7 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     return level;
   }
 
-  /**
-   * Sets the "elevation" level for the component on ":hover" state
-   * Accepted values: base, mid, high
-   *
-   * @param levelHover
-   * @type {HdsCardLevel}
-   */
+  // Sets the "elevation" level for the component on ":hover" state
   get levelHover(): HdsCardLevel | undefined {
     const { levelHover } = this.args;
 
@@ -86,13 +80,7 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     return levelHover;
   }
 
-  /**
-   * Sets the "elevation" level for the component on ":active" state
-   * Accepted values: base, mid, high
-   *
-   * @param levelActive
-   * @type {HdsCardLevel}
-   */
+  // Sets the "elevation" level for the component on ":active" state
   get levelActive(): HdsCardLevel | undefined {
     const { levelActive } = this.args;
 
@@ -108,14 +96,7 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     return levelActive;
   }
 
-  /**
-   * Sets the background for the component
-   * Accepted values: neutral-primary, neutral-secondary
-   *
-   * @param background
-   * @type {HdsCardBackground}
-   * @default 'base'
-   */
+  // Sets the background for the component
   get background(): HdsCardBackground {
     const { background = DEFAULT_BACKGROUND } = this.args;
 
@@ -129,14 +110,7 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     return background;
   }
 
-  /**
-   * Sets the level for the card
-   * Accepted values: visible, hidden
-   *
-   * @param overflow
-   * @type {HdsCardOverflow}
-   * @default 'visible'
-   */
+  // Sets the level for the card
   get overflow(): HdsCardOverflow {
     const { overflow = DEFAULT_OVERFLOW } = this.args;
 
@@ -150,11 +124,18 @@ export default class HdsCardContainer extends Component<HdsCardContainerSignatur
     return overflow;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method Card#classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
+  get componentTag(): HdsCardTag {
+    const { tag = DEFAULT_TAG } = this.args;
+
+    assert(
+      `@tag for "Hds::Card::Container" must be one of the following: ${AVAILABLE_TAGS.join(', ')}; received: ${tag}`,
+      AVAILABLE_TAGS.includes(tag)
+    );
+
+    return tag;
+  }
+
+  // Get the class names to apply to the component.
   get classNames(): string {
     const classes = ['hds-card__container'];
 

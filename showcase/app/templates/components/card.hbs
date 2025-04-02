@@ -56,6 +56,7 @@
       {{/each}}
     </Shw::Grid>
   </div>
+
   <Shw::Text::H2>Background</Shw::Text::H2>
 
   <div class="shw-component-card-wrapper">
@@ -71,6 +72,7 @@
   </div>
 
   <Shw::Text::H2>Overflow</Shw::Text::H2>
+
   <div class="shw-component-card-wrapper">
     <Shw::Grid @columns={{2}} @gap="2rem" {{style width="fit-content"}} as |SG|>
       <SG.Item>
@@ -88,6 +90,26 @@
             <div class="shw-component-card-overflow__content-absolute"></div>
           </div>
         </Hds::Card::Container>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Text::H2>Tag</Shw::Text::H2>
+
+  <div class="shw-component-card-wrapper">
+    <Shw::Grid @columns={{2}} @gap="2rem" {{style width="fit-content"}} as |SG|>
+      <SG.Item @label="Card using default div tag">
+        <Hds::Card::Container @level="mid" @hasBorder={{true}}>
+          <Shw::Placeholder @text="div" @width="200" @height="200" @background="transparent" />
+        </Hds::Card::Container>
+      </SG.Item>
+
+      <SG.Item @label="Card using list item tag">
+        <ul class="shw-component-card-list">
+          <Hds::Card::Container @level="mid" @hasBorder={{true}} @tag="li">
+            <Shw::Placeholder @text="li" @width="200" @height="200" @background="transparent" />
+          </Hds::Card::Container>
+        </ul>
       </SG.Item>
     </Shw::Grid>
   </div>

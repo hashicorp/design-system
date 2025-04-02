@@ -79,6 +79,26 @@ module('Integration | Component | hds/card/container', function (hooks) {
       .hasClass('hds-card__container--overflow-hidden');
   });
 
+  // TAG
+
+  test(`it should render a div if no @tag prop is declared and it should not have a role`, async function (assert) {
+    await render(hbs`<Hds::Card::Container id="test-card-container" />`);
+    assert
+      .dom('#test-card-container')
+      .hasTagName('div')
+      .doesNotHaveAttribute('role');
+  });
+
+  test(`it should render an li if specified in the @tag prop and it should have the correct role`, async function (assert) {
+    await render(
+      hbs`<Hds::Card::Container id="test-card-container" @tag="li" />`
+    );
+    assert
+      .dom('#test-card-container')
+      .hasTagName('li')
+      .hasAttribute('role', 'listitem');
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @level is provided', async function (assert) {
@@ -113,6 +133,20 @@ module('Integration | Component | hds/card/container', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Card::Container @levelActive="foo" />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  // If a tag other than div or li is passed, it should throw an assertion
+  test('it should throw an assertion if an incorrect value for @tag is provided', async function (assert) {
+    const errorMessage =
+      '@tag for "Hds::Card::Container" must be one of the following: div, li; received: section';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::Card::Container @tag="section" />`);
     assert.throws(function () {
       throw new Error(errorMessage);
     });
