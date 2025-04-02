@@ -21,6 +21,7 @@
   </Shw::Text::Body>
 
   <Shw::Text::H2>Basic AdvancedTable</Shw::Text::H2>
+
   <Shw::Text::H3>Keyboard interaction</Shw::Text::H3>
 
   <Shw::Text::Body>To navigate the AdvancedTable with a keyboard</Shw::Text::Body>
@@ -811,6 +812,31 @@
         </B.Td>
         <B.Td>{{B.data.email}}</B.Td>
         <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4>With ember-data models</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.emberDataMusicModels}}
+    @columns={{array
+      (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
+      (hash key="album" label="Album" tooltip="More information." isSortable=true)
+      (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
+    }}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row">
+          <Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline>
+        </B.Th>
+        <B.Td>
+          {{B.data.album}}
+        </B.Td>
+        <B.Td>
+          {{B.data.year}}
+        </B.Td>
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>

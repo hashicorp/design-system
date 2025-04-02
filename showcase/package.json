@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.26.0",
     "@codemirror/state": "^6.5.0",
+    "@ember-data/model": "^5.3.12",
     "@ember/optional-features": "^2.2.0",
     "@ember/render-modifiers": "^2.1.0",
     "@ember/string": "^3.1.1",
@@ -123,5 +124,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "ember-data": "^5.3.12"
   }
 }

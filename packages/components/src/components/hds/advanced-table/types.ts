@@ -4,6 +4,7 @@
  */
 
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
+import type Model from '@ember-data/model';
 
 export enum HdsAdvancedTableDensityValues {
   Default = 'default',
@@ -110,4 +111,6 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
   }[];
 }
 
-export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+export type HdsAdvancedTableModelItem = Model | Record<string, unknown>;
+
+export type HdsAdvancedTableModel = HdsAdvancedTableModelItem[];

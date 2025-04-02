@@ -39,7 +39,7 @@ export default class ComponentsAdvancedTableRoute extends Route {
 }
 ```
 
-For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code.
+For documentation purposes, we’re imitating fetching data from an API and working with that as data model. Depending on your context and needs, you may want to manipulate and adapt the structure of your data to better suit your needs in the template code. The data model should consist of an array of objects or ember-data [Model](https://api.emberjs.com/ember-data/release/classes/Model) instances.
 
 You can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided:
 

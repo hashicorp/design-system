@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
+import { action, set } from '@ember/object';
 import { deepTracked } from 'ember-deep-tracked';
 import { get } from '@ember/helper';
 
@@ -474,7 +474,7 @@ const updateModelWithSelectAllState = (
   selectAllState: boolean
 ) => {
   modelData.forEach((modelRow) => {
-    modelRow['isSelected'] = selectAllState;
+    set(modelRow, 'isSelected', selectAllState);
   });
 };
 
@@ -489,7 +489,7 @@ const updateModelWithSelectableRowsStates = (
     // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
     const rowFromModel = modelDataMap.get(row.selectionKey);
     if (rowFromModel) {
-      rowFromModel['isSelected'] = row.isSelected;
+      set(rowFromModel, 'isSelected', row.isSelected);
     }
   });
 };
