@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`AdvancedTable` - `@model` now supports ember-data `Model` instances.
+`AdvancedTable` - Added support for ember-data model instances to the `@model` argument.

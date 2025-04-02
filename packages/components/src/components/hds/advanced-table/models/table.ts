@@ -11,7 +11,6 @@ import type Model from '@ember-data/model';
 import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
-  HdsAdvancedTableModelItem,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
