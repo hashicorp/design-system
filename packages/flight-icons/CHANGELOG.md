@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.10.0
+
+### Minor Changes
+
+`duo` and `ping-identity` service icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2782](https://github.com/hashicorp/design-system/pull/2782)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.9.0
 
 ### Minor Changes

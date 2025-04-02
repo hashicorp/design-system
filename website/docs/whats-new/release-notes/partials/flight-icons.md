@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.10.0
+
+**Minor changes**
+
+`duo` and `ping-identity` service icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2782](https://github.com/hashicorp/design-system/pull/2782)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.9.0
 
 **Minor changes**
@@ -239,14 +249,6 @@ Added `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog`
 Added new `clipboard-x` icon
 
 <small class="doc-whats-new-changelog-metadata">[#1532](https://github.com/hashicorp/design-system/pull/1532)</small>
-
-## 2.16.0
-
-**Minor changes**
-
-Added `elastic-observability` and `new-relic` icons
-
-<small class="doc-whats-new-changelog-metadata">[#1515](https://github.com/hashicorp/design-system/pull/1515)</small>
 
 
 ---
