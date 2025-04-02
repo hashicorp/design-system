@@ -138,13 +138,6 @@ Don’t center header labels or cell content within a table.
 - The label should clearly indicate what type of content is contained within the cell (string, number, status, etc).
 - Labels should use sentence-case capitalization, not all-caps.
 
-#### Sticky headers
-
-Sticky headers keep column labels visible while scrolling, aiding navigation in large data sets or nested rows.
-
-![](/assets/components/table/advanced-table/advanced-table-sticky-header.png)  
-
-
 ### Expandable rows
 
 Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
