@@ -1,5 +1,9 @@
 # [HDS Foundations UI Kit v2.0](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?m=auto&node-id=2916-4&t=vnWfSubCHQU6J1U3-1)
 
+## April 2nd, 2025
+
+`Typography` - Added font weight variables to each type style.
+
 ## December 20th, 2024
 
 - Deprecated HDS Foundations UI Kit v1.0. It will no longer receive updates or support.

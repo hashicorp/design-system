@@ -1,0 +1,22 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// COMPONENTS > CARD
+
+#show-content-components-card {
+  .doc-card-list-demo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .doc-card-list-demo__item {
+    margin: 0; // styles are being inherited from doc-markdown list styles
+    padding: 24px;
+  }
+}

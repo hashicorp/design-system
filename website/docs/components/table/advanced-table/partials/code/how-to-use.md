@@ -385,7 +385,7 @@ We recommend using functionalities like [pagination](/components/pagination), [s
 For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `hasStickyHeader` argument can be used to make the column headers persist as the user scrolls.
 
 ```handlebars
-<!-- this is an element with "overflow: auto" and "max-height: 500px" -->
+<!-- this is an element with "height: 500px" -->
 <div class="doc-advanced-table-vertical-scrollable-wrapper">
   <Hds::AdvancedTable
     @model={{this.demoDataWithLargeNumberOfRows}}
@@ -411,12 +411,17 @@ For situations where the default number of rows visible may be high, it can be d
 
 #### Horizontal scrolling
 
-There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. In this case the consumer can place the Advanced Table inside a container with `overflow: auto`.
+There may be cases when it’s necessary to show an Advanced Table with a large number of columns and allow the user to scroll horizontally. The `@hasStickyFirstColumn` argument can be used to help users identify each row by persisting the first column as they scroll.
+
+The component adds the sticky styles to the `[B].Th` component in each row. If there is not a `[B].Th`, the styles will not work correctly.
+
+Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
 
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
 <div class="doc-advanced-table-scrollable-wrapper">
   <Hds::AdvancedTable
+    @hasStickyFirstColumn={{true}}
     @model={{this.demoDataWithLargeNumberOfColumns}}
     @columns={{array
       (hash key="first_name" label="First Name" isSortable=true)
@@ -431,7 +436,7 @@ There may be cases when it’s necessary to show an Advanced Table with a large 
   >
     <:body as |B|>
       <B.Tr>
-        <B.Td>{{B.data.first_name}}</B.Td>
+        <B.Th>{{B.data.first_name}}</B.Th>
         <B.Td>{{B.data.last_name}}</B.Td>
         <B.Td>{{B.data.age}}</B.Td>
         <B.Td>{{B.data.email}}</B.Td>
