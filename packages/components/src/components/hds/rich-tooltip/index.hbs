@@ -4,13 +4,15 @@
 }}
 {{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember becomes visible in the underlined text (being an inline element) - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
 <Hds::PopoverPrimitive
+  @anchoredPositionOptions={{this.anchoredPositionOptions}}
   @isOpen={{@isOpen}}
   @onOpen={{@onOpen}}
   @onClose={{@onClose}}
   @enableSoftEvents={{this.enableSoftEvents}}
   @enableClickEvents={{this.enableClickEvents}}
   as |PP|
-><div class="hds-rich-tooltip" ...attributes {{PP.setupPrimitiveContainer}}>
+>
+  <div class="hds-rich-tooltip" ...attributes {{PP.setupPrimitiveContainer}}>
     {{~yield
       (hash
         Toggle=(component
@@ -30,4 +32,5 @@
         close=PP.hidePopover
       )
     ~}}
-  </div></Hds::PopoverPrimitive>
+  </div>
+</Hds::PopoverPrimitive>
