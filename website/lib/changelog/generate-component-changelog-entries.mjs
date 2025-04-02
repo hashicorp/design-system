@@ -195,14 +195,20 @@ const componentPaths = getComponentPaths('./docs/components');
 const copyComponentPaths = getComponentPaths('./docs/components/copy');
 const formComponentPaths = getComponentPaths('./docs/components/form');
 const linkComponentPaths = getComponentPaths('./docs/components/link');
+const stepperComponentPaths = getComponentPaths('./docs/components/stepper');
 const tableComponentPaths = getComponentPaths('./docs/components/table');
+const layoutComponentPaths = getComponentPaths('./docs/layouts');
+const overrideComponentPaths = getComponentPaths('./docs/overrides');
 const utilityComponentPaths = getComponentPaths('./docs/utilities');
 const allComponentsPath = {
   ...componentPaths,
   ...copyComponentPaths,
   ...formComponentPaths,
   ...linkComponentPaths,
+  ...stepperComponentPaths,
   ...tableComponentPaths,
+  ...layoutComponentPaths,
+  ...overrideComponentPaths,
   ...utilityComponentPaths,
 };
 
