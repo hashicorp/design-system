@@ -5,10 +5,13 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
+import { isEmberDataModel } from '../utils.ts';
 
+import type Model from '@ember-data/model';
 import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
+  HdsAdvancedTableModelItem,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
@@ -39,7 +42,25 @@ export default class HdsAdvancedTableTableModel {
     const { model, childrenKey } = args;
 
     this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
+      let rowData = row;
+
+      if (isEmberDataModel(row)) {
+        const attrs: Record<string, unknown> = {};
+        const modelClass = row.constructor as typeof Model;
+
+        modelClass.eachAttribute((key: string) => {
+          attrs[key] = (row as Model).get(key);
+        });
+
+        attrs['id'] = row.id;
+
+        rowData = attrs;
+      }
+
+      return new HdsAdvancedTableRow({
+        ...rowData,
+        childrenKey,
+      });
     });
   }
 

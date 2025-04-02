@@ -5,6 +5,7 @@
 
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
@@ -37,6 +38,8 @@ const updateModelWithSelectableRowsStates = (
 };
 
 export default class ComponentsTableController extends Controller {
+  @service store;
+
   @tracked customSortOrder = 'asc';
   @deepTracked multiSelectSelectableData = [...this.model.selectableData];
   @tracked multiSelectFilterRows__demo1 = 'all';
@@ -59,6 +62,16 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
+
+  get emberDataMusicModels() {
+    return this.model.music.map((record) =>
+      this.store.createRecord('music', {
+        artist: record.artist,
+        album: record.album,
+        year: record.year,
+      })
+    );
+  }
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {

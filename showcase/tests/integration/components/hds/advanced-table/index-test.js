@@ -397,7 +397,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .exists({ count: 4 });
   });
 
-  test('it should render a table based on the data model passed', async function (assert) {
+  test('it should render a table based on the JS object data model passed (js object data)', async function (assert) {
     this.set('model', [
       { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
       { key: 'album', name: 'Test 2', description: 'Test 2 description' },
@@ -436,6 +436,53 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         '#data-advanced-test-table .hds-advanced-table__tr:last-of-type .hds-advanced-table__td:last-of-type'
       )
       .hasText('Test 3 description');
+  });
+
+  test('it should render a table based on the ember-data model instance array passed as model', async function (assert) {
+    const store = this.owner.lookup('service:store');
+
+    const modelData = [
+      { artist: 'James Taylor', album: 'Sweet Baby James', year: '1970' },
+      { artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
+      { artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
+    ];
+
+    this.set(
+      'model',
+      modelData.map((obj) => store.createRecord('music', obj))
+    );
+
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{array
+    (hash key='artist' label='components.table.headers.artist')
+    (hash key='album' label='components.table.headers.album')
+    (hash key='year' label='components.table.headers.year')
+  }}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+
+    modelData.forEach((item, index) => {
+      const rowSelector = `#data-advanced-test-table .hds-advanced-table__tr:nth-child(${index + 1})`;
+
+      assert
+        .dom(`${rowSelector} .hds-advanced-table__td:nth-of-type(1)`)
+        .hasText(item.artist);
+      assert
+        .dom(`${rowSelector} .hds-advanced-table__td:nth-of-type(2)`)
+        .hasText(item.album);
+      assert
+        .dom(`${rowSelector} .hds-advanced-table__td:nth-of-type(3)`)
+        .hasText(item.year);
+    });
   });
 
   // OPTIONS
