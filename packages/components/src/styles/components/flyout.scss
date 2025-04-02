@@ -26,7 +26,9 @@ $hds-flyout-max-width: calc(100vw - var(--hds-app-sidenav-width-minimized) / 2);
   max-height: 100vh;
   background: var(--token-color-surface-primary);
   border: none;
-  box-shadow: 0 2px 3px 0 #3b3d4540, 0 12px 24px 0 #3b3d4559; // TODO: convert to token
+  box-shadow:
+    0 2px 3px 0 #3b3d4540,
+    0 12px 24px 0 #3b3d4559; // TODO: convert to token
 
   // the `<dialog>` element uses a special "open" attribute to determine its visibility status
   &:not([open]) {

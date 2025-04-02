@@ -136,6 +136,7 @@ export default class HdsAppSideNavPortalTarget extends Component<HdsAppSideNavPo
       }
     );
 
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     anim.finished.then((): void => {
       // uncomment this if we need/want to scroll the element to the top
       // targetElement.scrollIntoView(true);

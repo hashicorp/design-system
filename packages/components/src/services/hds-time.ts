@@ -230,6 +230,7 @@ export default class TimeService extends Service {
     this.#listeners.add(id);
     // @ts-expect-error - TS2339: Property 'perform' does not exist on type '() => TaskGenerator<string | undefined>'
     // note: we could potentially use taskFor via `ember-concurrency-ts` to avoid this exception
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     this.start.perform();
     return (): void => {
       this.unregister(id);

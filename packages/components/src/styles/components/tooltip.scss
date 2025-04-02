@@ -14,7 +14,7 @@
     $top: var(--token-tooltip-focus-offset),
     $right: var(--token-tooltip-focus-offset),
     $bottom: var(--token-tooltip-focus-offset),
-    $left: var(--token-tooltip-focus-offset),
+    $left: var(--token-tooltip-focus-offset)
   );
 }
 
@@ -44,7 +44,6 @@
 :where(.hds-tooltip-button--is-block) {
   display: flex;
 }
-
 
 // Tippy.js styling
 // https://atomiks.github.io/tippyjs/
@@ -90,7 +89,7 @@
     text-align: initial;
     fill: var(--token-tooltip-color-surface-primary);
 
-    &, 
+    &,
     & > svg {
       position: absolute;
     }

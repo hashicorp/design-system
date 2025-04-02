@@ -35,11 +35,13 @@ export default class HdsStepperNavPanel extends Component<HdsStepperNavPanelSign
       [insertCallbackFunction, destroyCallbackFunction]
     ) => {
       if (typeof insertCallbackFunction === 'function') {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         insertCallbackFunction(element);
       }
 
       return () => {
         if (typeof destroyCallbackFunction === 'function') {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-call
           destroyCallbackFunction(element);
         }
       };

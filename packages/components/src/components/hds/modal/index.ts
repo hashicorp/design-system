@@ -144,6 +144,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
+    // eslint-disable-next-line @typescript-eslint/unbound-method
     this._element.addEventListener('close', this.registerOnCloseCallback, true);
 
     // If the modal dialog is not already open
@@ -157,6 +158,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     if (this._element) {
       this._element.removeEventListener(
         'close',
+        // eslint-disable-next-line @typescript-eslint/unbound-method
         this.registerOnCloseCallback,
         true
       );
@@ -179,6 +181,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
   }
 
   @action
+  // eslint-disable-next-line @typescript-eslint/require-await
   async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'

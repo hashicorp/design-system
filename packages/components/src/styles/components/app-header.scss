@@ -86,7 +86,6 @@
       }
     }
 
-
     // Force the width of global actions to 100% in mobile/tablet view
     .hds-app-header__global-actions {
       &,
@@ -99,7 +98,7 @@
 
   // CONTENT
 
-  .hds-app-header__global-actions, 
+  .hds-app-header__global-actions,
   .hds-app-header__utility-actions {
     display: flex;
     gap: inherit;
@@ -164,7 +163,7 @@
   &.mock-disabled:hover {
     @include hds-interactive-dark-theme-state-disabled();
   }
-  
+
   // Set SVG logo size:
   svg {
     width: var(--token-app-header-logo-size);

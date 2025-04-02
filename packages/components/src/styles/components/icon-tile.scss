@@ -9,11 +9,22 @@
 
 @use "sass:map";
 
-$hds-icon-tile-sizes: ( "small", "medium", "large" );
-$hds-icon-tile-types: ( "object","resource","logo" );
-$hds-icon-tile-colors-products: ( "boundary", "consul", "hcp", "nomad", "packer", "terraform", "vagrant", "vault", "vault-secrets", "vault-radar", "waypoint" );
+$hds-icon-tile-sizes: ("small", "medium", "large");
+$hds-icon-tile-types: ("object", "resource", "logo");
+$hds-icon-tile-colors-products: (
+  "boundary",
+  "consul",
+  "hcp",
+  "nomad",
+  "packer",
+  "terraform",
+  "vagrant",
+  "vault",
+  "vault-secrets",
+  "vault-radar",
+  "waypoint"
+);
 $hds-icon-tile-border-width: 1px;
-
 
 .hds-icon-tile {
   position: relative;
@@ -49,32 +60,45 @@ $hds-icon-tile-border-width: 1px;
 // these values later may come from the design tokens
 $hds-icon-tile-size-props: (
   "small": (
-    "size": 1.75rem, // 28px
+    // 28px = 1.75rem
+    "size": 1.75rem,
     "border-radius": 5px,
-    "icon-size": 1rem, // 16px
-    "logo-size": 1.125rem, // 18px
-    "extra-size": 1.125rem, // 18px
+    // 16px = 1rem
+    "icon-size": 1rem,
+    // 18px = 1.125rem
+    "logo-size": 1.125rem,
+    // 18px = 1.125rem
+    "extra-size": 1.125rem,
     "extra-border-radius": 4px,
     "extra-icon-size": 0.75rem,
   ),
   "medium": (
-    "size": 2.5rem, // 40px
+    // 40px = 2.5rem
+    "size": 2.5rem,
     "border-radius": 6px,
-    "icon-size": 1.5rem, // 24px
-    "logo-size": 1.75rem, // 28px
-    "extra-size": 1.25rem, // 20px
+    // 24px = 1.5rem
+    "icon-size": 1.5rem,
+    // 28px = 1.75rem
+    "logo-size": 1.75rem,
+    // 20px = 1.25rem
+    "extra-size": 1.25rem,
     "extra-border-radius": 5px,
-    "extra-icon-size": .75rem, // 12px
+    // 12px = .75rem
+    "extra-icon-size": 0.75rem,
   ),
   "large": (
-    "size": 3rem, // 48px
+    // 48px = 3rem
+    "size": 3rem,
     "border-radius": 6px,
-    "icon-size": 1.5rem, // 24px
-    "logo-size": 2rem, // 32px
-    "extra-size": 1.5rem, // 24px
+    // 24px = 1.5rem
+    "icon-size": 1.5rem,
+    // 32px = 2rem
+    "logo-size": 2rem,
+    // 24px = 1.5rem
+    "extra-size": 1.5rem,
     "extra-border-radius": 5px,
     "extra-icon-size": 1rem,
-  )
+  ),
 );
 
 @each $size in $hds-icon-tile-sizes {
@@ -105,7 +129,6 @@ $hds-icon-tile-size-props: (
     }
   }
 }
-
 
 // LOGO - COLOR
 
@@ -138,4 +161,3 @@ $hds-icon-tile-size-props: (
     }
   }
 }
-

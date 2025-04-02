@@ -7,11 +7,10 @@
 // TABS
 //
 
-$hds-tabs-sizes: ( "medium", "large" );
+$hds-tabs-sizes: ("medium", "large");
 
 @use "sass:map";
 @use "../mixins/focus-ring" as *;
-
 
 // Sub-components:
 .hds-tabs__tablist-wrapper {
@@ -72,7 +71,7 @@ $hds-tabs-sizes: ( "medium", "large" );
     $top: var(--token-tabs-tab-focus-inset),
     $right: var(--token-tabs-tab-focus-inset),
     $bottom: var(--token-tabs-tab-focus-inset),
-    $left: var(--token-tabs-tab-focus-inset),
+    $left: var(--token-tabs-tab-focus-inset)
   );
   position: static;
   display: flex;
@@ -121,7 +120,6 @@ $hds-tabs-sizes: ( "medium", "large" );
   display: none;
 }
 
-
 // Variants:
 
 // Size
@@ -131,13 +129,13 @@ $hds-tabs-size-props: (
   "medium": (
     "tab-height": var(--token-tabs-tab-height-medium),
     "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-medium),
-    "tab-font-size": var(--token-typography-body-200-font-size)
+    "tab-font-size": var(--token-typography-body-200-font-size),
   ),
   "large": (
     "tab-height": var(--token-tabs-tab-height-large),
     "tab-padding-horizontal": var(--token-tabs-tab-padding-horizontal-large),
-    "tab-font-size": var(--token-typography-body-300-font-size)
-  )
+    "tab-font-size": var(--token-typography-body-300-font-size),
+  ),
 );
 
 @each $size in $hds-tabs-sizes {
@@ -146,7 +144,7 @@ $hds-tabs-size-props: (
       height: map.get($hds-tabs-size-props, $size, "tab-height");
       padding: var(--token-tabs-tab-padding-vertical) map.get($hds-tabs-size-props, $size, "tab-padding-horizontal");
     }
-  
+
     .hds-tabs__tab-button {
       font-size: map.get($hds-tabs-size-props, $size, "tab-font-size");
     }

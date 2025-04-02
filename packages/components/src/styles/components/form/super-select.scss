@@ -17,7 +17,6 @@ $hds-super-select-item-height: 36px;
 }
 
 .hds-form-super-select .ember-basic-dropdown {
-
   // TRIGGER
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
@@ -35,7 +34,9 @@ $hds-super-select-item-height: 36px;
     background-image: var(--token-form-select-background-image-data-url);
     background-repeat: no-repeat;
     // placing the selection indicator to middle-right, in contrast with the Select component where it's top-right
-    background-position: right var(--token-form-select-background-image-position-right-x) center, top var(--token-form-select-background-image-position-top-y) left 20px;
+    background-position:
+      right var(--token-form-select-background-image-position-right-x) center,
+      top var(--token-form-select-background-image-position-top-y) left 20px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
     border: var(--token-form-control-border-width) solid var(--token-form-control-base-border-color-default);
     border-radius: var(--token-form-control-border-radius);
@@ -72,7 +73,7 @@ $hds-super-select-item-height: 36px;
       margin-left: 0;
     }
 
-    .ember-power-select-placeholder {  
+    .ember-power-select-placeholder {
       color: var(--token-form-control-base-foreground-placeholder-color);
       font-size: var(--token-typography-body-200-font-size);
       font-family: var(--token-typography-body-200-font-family);
@@ -178,7 +179,7 @@ $hds-super-select-item-height: 36px;
     &:active,
     &.mock-active {
       // left border
-      &::after{
+      &::after {
         background-color: var(--token-color-foreground-action-active);
       }
     }
@@ -355,16 +356,14 @@ $hds-super-select-item-height: 36px;
 
 // SINGLE
 .hds-form-super-select-single .ember-basic-dropdown {
-
   // Options Item
   .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
     background-repeat: no-repeat;
     background-position: 15px 10px;
     background-size: var(--token-form-select-background-image-size) var(--token-form-select-background-image-size);
-    
+
     // checked
     &[aria-selected="true"]:not([aria-disabled="true"]) {
-
       // checkmark icon:
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.78 4.28a.75.75 0 00-1.06-1.06l-7.97 7.97-3.47-3.47a.75.75 0 00-1.06 1.06l4 4a.75.75 0 001.06 0l8.5-8.5z' fill='%231060ff'/%3E%3C/svg%3E");
 
@@ -399,7 +398,6 @@ $hds-super-select-item-height: 36px;
 
 // MULTIPLE SELECT
 .hds-form-super-select-multiple .ember-basic-dropdown {
-
   // Options Item
   .ember-power-select-option:not(.ember-power-select-option--no-matches-message) {
     position: relative;
@@ -524,6 +522,6 @@ $hds-super-select-item-height: 36px;
 // (fixes bug with ember-power-select)
 .hds-form-super-select--dropdown-content-auto-width {
   .ember-power-select-dropdown.ember-basic-dropdown-content {
-      width: auto;
+    width: auto;
   }
 }

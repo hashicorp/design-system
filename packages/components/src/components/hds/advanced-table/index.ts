@@ -221,6 +221,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   get columnWidths(): string[] | undefined {
     const { columns } = this.args;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const widths: string[] = new Array(columns.length);
     let hasCustomColumnWidth = false;
 

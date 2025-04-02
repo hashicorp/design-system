@@ -7,8 +7,8 @@
 // CARD COMPONENT > CONTAINER
 //
 
-$hds-card-container-style: ( "surface", "elevation" );
-$hds-card-container-levels: ( "base", "mid", "high" );
+$hds-card-container-style: ("surface", "elevation");
+$hds-card-container-levels: ("base", "mid", "high");
 $hds-card-container-border-radius: var(--token-border-radius-medium);
 
 .hds-card__container {
@@ -53,7 +53,6 @@ $hds-card-container-border-radius: var(--token-border-radius-medium);
 .hds-card__container--background-neutral-secondary {
   background-color: var(--token-color-surface-faint);
 }
-
 
 // OVERFLOW
 

@@ -10,7 +10,6 @@
 $hds-dialog-primitive-horizontal-padding: 24px;
 $hds-dialog-primitive-vertical-padding: 16px;
 
-
 // WRAPPER CONTAINER (<dialog>)
 
 // The special declaration below is used to override the `<dialog>` predefined styles
@@ -34,7 +33,6 @@ $hds-dialog-primitive-vertical-padding: 16px;
   border: none;
 }
 
-
 // Note: this wraps both .hds-dialog-primitive__header & .hds-dialog-primitive__description
 .hds-dialog-primitive__wrapper-header {
   flex: none;
@@ -44,7 +42,7 @@ $hds-dialog-primitive-vertical-padding: 16px;
   border-top-right-radius: inherit;
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
-  &:not(:has( > *)) {
+  &:not(:has(> *)) {
     display: none;
   }
 }
@@ -65,11 +63,10 @@ $hds-dialog-primitive-vertical-padding: 16px;
   border-bottom-left-radius: inherit;
 
   // because of the way in which Ember generates whitespace, we need to use this complicated selector to hide the container when it's "empty" (no children)
-  &:not(:has( > *)) {
+  &:not(:has(> *)) {
     display: none;
   }
 }
-
 
 // HEADER
 
@@ -102,7 +99,6 @@ $hds-dialog-primitive-vertical-padding: 16px;
   align-self: flex-start;
 }
 
-
 // DESCRIPTION
 // (currently used only in Flyout, not in Modal)
 
@@ -110,13 +106,11 @@ $hds-dialog-primitive-vertical-padding: 16px;
   padding: 0 $hds-dialog-primitive-horizontal-padding $hds-dialog-primitive-vertical-padding;
 }
 
-
 // BODY
 
 .hds-dialog-primitive__body {
   padding: $hds-dialog-primitive-horizontal-padding;
 }
-
 
 // FOOTER
 

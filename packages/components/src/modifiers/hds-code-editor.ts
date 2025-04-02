@@ -200,13 +200,16 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
     // if the editor does not exist, setup the editor
     else {
       // the intersection observer makes loading unreliable in tests
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       if (config.environment === 'test') {
+        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         this._setupTask.perform(element, positional, named);
       } else {
         this.intersectionObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting && this.editor === undefined) {
+                // eslint-disable-next-line @typescript-eslint/no-floating-promises
                 this._setupTask.perform(element, positional, named);
               }
             });
@@ -402,8 +405,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
       const languageExtensions = await this._loadLanguageExtensionsTask.perform(
         {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           language,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           isLintingEnabled,
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           onLint,
         }
       );
@@ -446,6 +452,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       ];
 
       if (extraKeys !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         const customKeyMap = Object.entries(extraKeys).map(([key, value]) => ({
           key: key,
           run: value,
@@ -459,9 +466,11 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
       }
 
       // add nonce to the editor view if it exists
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const nonce = cspNonce ?? getCSPNonceFromMeta();
 
       if (nonce !== undefined) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         extensions = [...extensions, EditorView.cspNonce.of(nonce)];
       }
 

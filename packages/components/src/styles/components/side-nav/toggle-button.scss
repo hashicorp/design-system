@@ -7,7 +7,6 @@
 // SIDE-NAV > TOGGLE BUTTON
 //
 
-
 .hds-side-nav__toggle-button {
   position: absolute;
   top: 22px; // visually align with :header content
@@ -29,10 +28,8 @@
   transform: translateX(var(--hds-app-sidenav-width-expanded));
   cursor: pointer;
   transition:
-    transform var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing),
-    width var(--hds-app-sidenav-animation-duration)
-    var(--hds-app-sidenav-animation-easing);
+    transform var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing),
+    width var(--hds-app-sidenav-animation-duration) var(--hds-app-sidenav-animation-easing);
 
   &::before {
     position: absolute;
@@ -58,7 +55,8 @@
     border-top: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
     border-left: var(--token-side-nav-wrapper-border-width) solid var(--token-side-nav-wrapper-border-color);
     border-top-left-radius: var(--token-side-nav-toggle-button-border-radius);
-    box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-primary);
+    box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0
+      var(--token-side-nav-color-surface-primary);
     content: "";
   }
 
@@ -68,11 +66,13 @@
     background-color: var(--token-side-nav-color-surface-interactive-hover);
 
     &::before {
-      box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0
+        var(--token-side-nav-color-surface-interactive-hover);
     }
 
     &::after {
-      box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-hover);
+      box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0
+        var(--token-side-nav-color-surface-interactive-hover);
     }
   }
 
@@ -81,11 +81,13 @@
     background-color: var(--token-side-nav-color-surface-interactive-active);
 
     &::before {
-      box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0 var(--token-side-nav-color-surface-interactive-active);
+      box-shadow: 0 var(--token-side-nav-toggle-button-border-radius) 0
+        var(--token-side-nav-color-surface-interactive-active);
     }
 
     &::after {
-      box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0 var(--token-side-nav-color-surface-interactive-active);
+      box-shadow: 0 calc(var(--token-side-nav-toggle-button-border-radius) * -1) 0
+        var(--token-side-nav-color-surface-interactive-active);
     }
   }
 
@@ -104,7 +106,7 @@
     transform: translateX(var(--hds-app-sidenav-width-minimized));
   }
 
-   // adjust the toggle button position to match the vertical padding when :header is empty
+  // adjust the toggle button position to match the vertical padding when :header is empty
   .hds-side-nav:has(.hds-side-nav__wrapper-header:empty) & {
     top: var(--token-side-nav-wrapper-padding-vertical);
   }

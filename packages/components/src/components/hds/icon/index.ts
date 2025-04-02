@@ -18,6 +18,7 @@ export const AVAILABLE_NAMES = iconNames;
 export interface HdsIconSignature {
   Args: {
     name: IconName;
+    // eslint-disable-next-line @typescript-eslint/no-redundant-type-constituents
     color?: HdsIconColors | string | undefined;
     size?: HdsIconSizes;
     stretched?: boolean;
