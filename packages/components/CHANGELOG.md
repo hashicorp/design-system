@@ -1,6 +1,8 @@
 # @hashicorp/design-system-components
 
-## 4.18.0
+## 4.18.1
+
+[4.18.1 documentation](https://hds-website-4-18-1.vercel.app/)
 
 ### Minor Changes
 
