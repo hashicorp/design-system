@@ -2,11 +2,11 @@
 
 Add `@extraKeys` argument which supports custom keybinding
 
-Add `cspNonce` argument and automatice nonce detection
+Add `cspNonce` argument and automate nonce detection
 
 Added `@isLintingEnabled` and `@onLint` arguments that are passed to the `hds-code-editor` modifier
 
-Add language syntax highlighting suport for Markdown
+Add language syntax highlighting support for Markdown
 
 Attached `EditorView` instance to the editor element (`.hds-code-editor__editor`)
 

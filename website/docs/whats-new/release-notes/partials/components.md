@@ -48,9 +48,9 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`hds-code-editor` modifier - Add `cspNonce` argument and automatice nonce detection
+`hds-code-editor` modifier - Add `cspNonce` argument and automate nonce detection
 
-`CodeEditor` - Add `cspNonce` argument and automatice nonce detection
+`CodeEditor` - Add `cspNonce` argument and automate nonce detection
 
 <small class="doc-whats-new-changelog-metadata">[#2755](https://github.com/hashicorp/design-system/pull/2755)</small>
 
@@ -90,9 +90,9 @@ Dependencies - Added `@codemirror/lint`
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`hds-code-editor` modifier - Add language syntax highlighting suport for Markdown
+`hds-code-editor` modifier - Add language syntax highlighting support for Markdown
 
-`CodeEditor` - Add language syntax highlighting suport for Markdown
+`CodeEditor` - Add language syntax highlighting support for Markdown
 
 Dependencies - added @codemirror/lang-markdown
 
