@@ -1,3 +1,15 @@
+## 4.18.1
+
+Add `@extraKeys` argument which supports custom keybinding
+
+Add `cspNonce` argument and automatice nonce detection
+
+Added `@isLintingEnabled` and `@onLint` arguments that are passed to the `hds-code-editor` modifier
+
+Add language syntax highlighting suport for Markdown
+
+Attached `EditorView` instance to the editor element (`.hds-code-editor__editor`)
+
 ## 4.17.1
 
 Added `@copyButtonText` argument to customize the `aria-label` of the Copy Button. The default label is still "Copy".

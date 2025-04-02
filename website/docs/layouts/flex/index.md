@@ -8,6 +8,8 @@ previewImage: assets/illustrations/layouts/flex.jpg
 navigation:
   keywords: ['layout', 'flex', 'flexbox', 'spacing', 'grid']
   label: "Flex"
+status:
+  added: 4.18.1
 ---
 
 <section data-tab="Code">

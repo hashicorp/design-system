@@ -1,3 +1,7 @@
+## 4.18.1
+
+Added `onCopy` argument which accepts a callback function that will be invoked when the "copy" action succeeds.
+
 ## 4.17.1
 
 Added `@copyButtonText` argument to `CodeBlock` and `@text` argument to the `CodeBlock::CopyButton` subcomponent to customize the `aria-label` of the Copy Button. The default label is still "Copy".

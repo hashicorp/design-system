@@ -1,3 +1,7 @@
+## 4.18.1
+
+Conditionally set `aria-labelledby` attribute for toggle button based on if `@ariaLabel` argument is provided.
+
 ## 4.14.0
 
 Made accessibility-related improvements including:

@@ -1,3 +1,7 @@
+## 4.18.1
+
+Increase spacing above the dotted text decoration underline to 2px from the default.
+
 ## 4.17.1
 
 Fixed Safari bug causing the dotted underline style not to display

@@ -8,6 +8,8 @@ previewImage: assets/illustrations/layouts/grid.jpg
 navigation:
   keywords: ['layout', 'grid', 'columns', 'rows', 'spacing', 'flex']
   label: "Grid"
+status:
+  added: 4.18.1
 ---
 
 <section data-tab="Code">
