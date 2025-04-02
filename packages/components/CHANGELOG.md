@@ -1,5 +1,163 @@
 # @hashicorp/design-system-components
 
+## 4.18.1
+
+[4.18.1 documentation](https://hds-website-4-18-1.vercel.app/)
+
+### Minor Changes
+
+`Time` - Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.
+
+`RichTooltip` - Increase spacing above the dotted text decoration underline to 2px from the default.
+
+<small class="doc-whats-new-changelog-metadata">[#2745](https://github.com/hashicorp/design-system/pull/2745)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add `extraKeys` argument which supports custom keybinding
+
+`CodeEditor` - Add `@extraKeys` argument which supports custom keybinding
+
+<small class="doc-whats-new-changelog-metadata">[#2776](https://github.com/hashicorp/design-system/pull/2776)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Stepper::List` - Added `Stepper::List` component and related sub-components
+
+`Stepper::Navigation` - Added `Stepper::Navigation` component and related sub-components
+
+<small class="doc-whats-new-changelog-metadata">[#2714](https://github.com/hashicorp/design-system/pull/2714)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Layout::Flex` - Added `Flex` and `Flex::Item` components
+
+<small class="doc-whats-new-changelog-metadata">[#2751](https://github.com/hashicorp/design-system/pull/2751)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add `cspNonce` argument and automate nonce detection
+
+`CodeEditor` - Add `cspNonce` argument and automate nonce detection
+
+<small class="doc-whats-new-changelog-metadata">[#2755](https://github.com/hashicorp/design-system/pull/2755)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Added `@hasStickyFirstColumn` argument and shadows to indicate to users that it is possible to scroll.
+
+<small class="doc-whats-new-changelog-metadata">[#2770](https://github.com/hashicorp/design-system/pull/2770)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Added `isLintingEnabled` and `onLint` named arguments. Linting is supported for the JSON language.
+
+`CodeEditor` - Added `@isLintingEnabled` and `@onLint` arguments that are passed to the `hds-code-editor` modifier
+
+Dependencies - Added `@codemirror/lint`
+
+<small class="doc-whats-new-changelog-metadata">[#2715](https://github.com/hashicorp/design-system/pull/2715)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added `onCopy` argument which accepts a callback function that will be invoked when the "copy" action succeeds.
+
+<small class="doc-whats-new-changelog-metadata">[#2803](https://github.com/hashicorp/design-system/pull/2803)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Layout::Grid` - Added `Grid` and `Grid::Item` components
+
+<small class="doc-whats-new-changelog-metadata">[#2756](https://github.com/hashicorp/design-system/pull/2756)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Added an expand all button to `AdvancedTable`s with nested rows and changed the structure of the component so now nested rows are always in the DOM, even when they are not visible. To add the expand all button, add `isExpandable: true` to the desired column in the `@columns` argument.
+
+<small class="doc-whats-new-changelog-metadata">[#2688](https://github.com/hashicorp/design-system/pull/2688)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` modifier - Add language syntax highlighting support for Markdown
+
+`CodeEditor` - Add language syntax highlighting support for Markdown
+
+Dependencies - added @codemirror/lang-markdown
+
+<small class="doc-whats-new-changelog-metadata">[#2740](https://github.com/hashicorp/design-system/pull/2740)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Card` - Add `tag` argument to choose between using a `div` tag (the default) or an `li` tag
+
+<small class="doc-whats-new-changelog-metadata">[#2787](https://github.com/hashicorp/design-system/pull/2787)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Fixed multiple loading of flight icons in engines
+
+<small class="doc-whats-new-changelog-metadata">[#2799](https://github.com/hashicorp/design-system/pull/2799) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Conditionally set `aria-labelledby` attribute for toggle button based on if `@ariaLabel` argument is provided.
+
+<small class="doc-whats-new-changelog-metadata">[#2788](https://github.com/hashicorp/design-system/pull/2788)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Refactored component to use a more declarative style
+
+<small class="doc-whats-new-changelog-metadata">[#2768](https://github.com/hashicorp/design-system/pull/2768)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded `prismjs` from `1.29.0` to `1.30.0`
+
+<small class="doc-whats-new-changelog-metadata">[#2760](https://github.com/hashicorp/design-system/pull/2760)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `@embroider/util` dependency
+
+Updated `MaskedInput`, `TextInput`, and `Textarea` to use `ensure-safe-component` helper
+
+<small class="doc-whats-new-changelog-metadata">[#2728](https://github.com/hashicorp/design-system/pull/2728) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Always set the select checkbox column width to `min-content` so it does not grow when the `AdvancedTable` is narrower than the container
+
+<small class="doc-whats-new-changelog-metadata">[#2761](https://github.com/hashicorp/design-system/pull/2761)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Updated the icons used in `th-button-expand` component to match designs.
+
+<small class="doc-whats-new-changelog-metadata">[#2777](https://github.com/hashicorp/design-system/pull/2777)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` - Attached `EditorView` instance to the modified element on instantiation
+
+`CodeEditor` - Attached `EditorView` instance to the editor element (`.hds-code-editor__editor`)
+
+<small class="doc-whats-new-changelog-metadata">[#2779](https://github.com/hashicorp/design-system/pull/2779)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Textarea` - Fix issue with bottom margin on charcount so that a top margin is instead added to the error message, if one exists, following it
+
+<small class="doc-whats-new-changelog-metadata">[#2783](https://github.com/hashicorp/design-system/pull/2783)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.10.0
+
 ## 4.17.1
 
 [4.17.1 documentation](https://hds-website-4-17-1.vercel.app/)

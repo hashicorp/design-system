@@ -2,6 +2,8 @@ affordance
 Automations
 Autoscaler
 borderless
+charcount
+Charcount
 codemod
 codemods
 commodo

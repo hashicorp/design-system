@@ -22,6 +22,8 @@ navigation:
     - tracker
     - list
     - indicator
+status:
+  added: 4.18.1
 ---
 
 <section data-tab="Guidelines">
@@ -40,4 +42,8 @@ navigation:
 
 <section data-tab="Accessibility">
   @include "partials/accessibility/accessibility.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
 </section>

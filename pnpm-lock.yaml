@@ -129,7 +129,7 @@ importers:
         specifier: workspace:^2.3.0
         version: link:../tokens
       '@hashicorp/flight-icons':
-        specifier: workspace:^3.9.0
+        specifier: workspace:^3.10.0
         version: link:../flight-icons
       '@lezer/highlight':
         specifier: ^1.2.1

@@ -8,9 +8,15 @@ previewImage: assets/illustrations/layouts/grid.jpg
 navigation:
   keywords: ['layout', 'grid', 'columns', 'rows', 'spacing', 'flex']
   label: "Grid"
+status:
+  added: 4.18.1
 ---
 
 <section data-tab="Code">
   @include "partials/code/how-to-use.md"
   @include "partials/code/component-api.md"
+</section>
+
+<section data-tab="Version history">
+  @include "partials/version-history/version-history.md"
 </section>
