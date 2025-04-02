@@ -81,16 +81,22 @@ module('Integration | Component | hds/card/container', function (hooks) {
 
   // TAG
 
-  test(`it should render a div if no @tag prop is declared`, async function (assert) {
+  test(`it should render a div if no @tag prop is declared and it should not have a role`, async function (assert) {
     await render(hbs`<Hds::Card::Container id="test-card-container" />`);
-    assert.dom('#test-card-container').hasTagName('div');
+    assert
+      .dom('#test-card-container')
+      .hasTagName('div')
+      .doesNotHaveAttribute('role');
   });
 
-  test(`it should render an li vs. a div if specified in the @tag prop`, async function (assert) {
+  test(`it should render an li if specified in the @tag prop and it should have the correct role`, async function (assert) {
     await render(
       hbs`<Hds::Card::Container id="test-card-container" @tag="li" />`
     );
-    assert.dom('#test-card-container').hasTagName('li');
+    assert
+      .dom('#test-card-container')
+      .hasTagName('li')
+      .hasAttribute('role', 'listitem');
   });
 
   // ASSERTIONS

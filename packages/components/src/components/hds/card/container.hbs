@@ -10,6 +10,6 @@
   <div class={{this.classNames}} ...attributes>{{yield}}</div>
 {{else}}
   {{#let (element this.componentTag) as |Tag|}}
-    <Tag class={{this.classNames}} ...attributes>{{yield}}</Tag>
+    <Tag class={{this.classNames}} role={{if (eq this.componentTag "li") "listitem"}} ...attributes>{{yield}}</Tag>
   {{/let}}
 {{/if}}
