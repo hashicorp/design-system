@@ -8,7 +8,6 @@ import config from 'ember-get-config';
 export async function initialize() {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (config?.emberFlightIcons?.lazyEmbed) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const { default: svgSprite } = await import(
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
@@ -20,14 +19,12 @@ export async function initialize() {
       const container = window.document?.getElementById('ember-testing');
 
       if (container && !container.querySelector('.flight-sprite-container')) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         container.insertAdjacentHTML('afterbegin', svgSprite);
       }
     } else {
       const container = window.document?.body;
 
       if (container && !container.querySelector('.flight-sprite-container')) {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         container.insertAdjacentHTML('beforeend', svgSprite);
       }
     }
