@@ -56,6 +56,7 @@ export const getStickyColumnLeftOffset = (
   return `${selectableCell?.offsetWidth + 0.5}px`;
 };
 
+// we use duck typing to check if the item is an Ember Data model
 export const isEmberDataModel = (
   item: HdsAdvancedTableModelItem
 ): item is import('@ember-data/model').default => {
