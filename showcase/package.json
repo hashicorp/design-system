@@ -94,6 +94,7 @@
     "ember-style-modifier": "^4.4.0",
     "ember-template-imports": "^4.3.0",
     "ember-template-lint": "^7.0.2",
+    "ember-template-lint-plugin-prettier": "^5.0.0",
     "ember-truth-helpers": "^4.0.3",
     "ember-try": "^3.0.0",
     "ember-unique-id-helper-polyfill": "^1.2.2",
