@@ -173,6 +173,7 @@ export { default as HdsFormSuperSelectMultipleField } from './components/hds/for
 export { default as HdsFormSuperSelectAfterOptions } from './components/hds/form/super-select/after-options.ts';
 export { default as HdsFormSuperSelectOptionGroup } from './components/hds/form/super-select/option-group.ts';
 export { default as HdsFormSuperSelectPlaceholder } from './components/hds/form/super-select/placeholder.ts';
+export {default as HdsFormSuperSelectMultipleTrigger} from './components/hds/form/super-select/trigger.ts'
 export * from './components/hds/form/super-select/types.ts';
 
 // Form > Textarea

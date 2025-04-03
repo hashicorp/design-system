@@ -20,12 +20,13 @@ $hds-super-select-item-height: 36px;
   // TRIGGER
   .ember-basic-dropdown-trigger,
   .ember-power-select-trigger {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
     max-width: 100%;
     min-height: $hds-super-select-item-height;
     padding-top: 4px;
-    padding-right: calc(var(--token-form-control-padding) + 24px); // extra space for the icon
+    padding-right: calc(var(--token-form-control-padding) + 21px); // extra space for the icon
     padding-bottom: 4px;
     padding-left: 11px;
     color: var(--token-form-control-base-foreground-value-color);
@@ -93,6 +94,20 @@ $hds-super-select-item-height: 36px;
       .ember-power-select-selected-item {
         opacity: inherit;
       }
+    }
+
+    &::after {
+      display: var(--hds-form-super-select-selected-text-display);
+      flex-shrink: 0;
+      align-items: center;
+      align-self: stretch;
+      padding-left: 8px;
+      color: var(--token-color-foreground-faint);
+      font-size: var(--token-typography-body-100-font-size);
+      font-family: var(--token-typography-body-100-font-family);
+      line-height: var(--token-typography-body-100-line-height);
+      border-left: 1px solid var(--token-color-border-strong);
+      content: var(--hds-form-super-select-selected-text);
     }
   }
 
@@ -278,14 +293,17 @@ $hds-super-select-item-height: 36px;
   .ember-power-select-multiple-options {
     display: flex;
     flex-grow: 1;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 4px;
     min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     list-style: none;
   }
 
   // Tag item
   .ember-power-select-multiple-option {
+    flex-shrink: 0;
     float: none;
     min-width: 0;
     margin: 0;

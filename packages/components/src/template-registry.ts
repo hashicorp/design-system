@@ -130,6 +130,7 @@ import type HdsFormSuperSelectSingleBaseComponent from './components/hds/form/su
 import type HdsFormSuperSelectSingleFieldComponent from './components/hds/form/super-select/single/field';
 import type HdsFormSuperSelectMultipleBaseComponent from './components/hds/form/super-select/multiple/base';
 import type HdsFormSuperSelectMultipleFieldComponent from './components/hds/form/super-select/multiple/field';
+import type HdsFormSuperSelectMultipleTriggerComponent from './components/hds/form/super-select/trigger.ts'
 import type HdsFormTextInputBaseComponent from './components/hds/form/text-input/base';
 import type HdsFormTextInputFieldComponent from './components/hds/form/text-input/field';
 import type HdsFormTextareaBaseComponent from './components/hds/form/textarea/base';
@@ -662,6 +663,9 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::SuperSelect::Multiple::Field': typeof HdsFormSuperSelectMultipleFieldComponent;
   'hds/form/super-select/multiple/field': typeof HdsFormSuperSelectMultipleFieldComponent;
+
+  'Hds::Form::SuperSelect::Trigger': typeof HdsFormSuperSelectMultipleTriggerComponent;
+  'hds/form/super-select/trigger': typeof HdsFormSuperSelectMultipleTriggerComponent;
 
   // Form TextInput
   'Hds::Form::TextInput::Base': typeof HdsFormTextInputBaseComponent;

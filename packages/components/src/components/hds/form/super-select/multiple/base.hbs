@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 {{! Important: if an argument is added in base.hbs, it must also be added/processed in the Base component used in field.hbs }}
-<div class={{this.classNames}} {{style this.dropdownMaxWidthStyle}}>
+<div class={{this.classNames}} {{style this.styles}}>
   <PowerSelectMultiple
     @afterOptionsComponent={{if
       this.showAfterOptions
@@ -67,6 +67,11 @@
     @tabindex={{@tabindex}}
     @triggerClass={{@triggerClass}}
     @triggerComponent={{@triggerComponent}}
+    {{!-- @triggerComponent={{if
+      @selectedItemComponent
+      undefined
+      (component "hds/form/super-select/trigger" selected=this._powerSelectAPI.selected)
+    }} --}}
     @triggerId={{@triggerId}}
     @triggerRole={{@triggerRole}}
     @typeAheadOptionMatcher={{@typeAheadOptionMatcher}}

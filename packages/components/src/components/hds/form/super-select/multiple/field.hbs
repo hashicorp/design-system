@@ -4,7 +4,7 @@
 }}
 <Hds::Form::Field
   @layout="vertical"
-  @extraAriaDescribedBy={{@extraAriaDescribedBy}}
+  @extraAriaDescribedBy={{this.extraAriaDescribedBy}}
   @isRequired={{@isRequired}}
   @isOptional={{@isOptional}}
   @id={{@id}}
@@ -13,6 +13,7 @@
   {{! Notice: the order of the elements is not relevant here, because is controlled at "Hds::Form::Field" component level }}
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
+    <div class="sr-only" id={{this._instructionsId}}>To view the complete list of selected items, open the combobox.</div>
     {{! Important: if an argument is added in base.hbs, it must also be added/processed here }}
     <Hds::Form::SuperSelect::Multiple::Base
       @afterOptionsComponent={{@afterOptionsComponent}}

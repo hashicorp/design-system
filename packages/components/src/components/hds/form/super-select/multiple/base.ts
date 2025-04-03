@@ -117,47 +117,34 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     this._showOnlySelected = false;
   }
 
-  /**
-   * Determine if `@afterOptionsComponent` gets displayed
-   * @param showAfterOptions
-   * @type {boolean}
-   * @default true
-   */
   get showAfterOptions(): boolean {
     return this.args.showAfterOptions ?? true;
   }
 
   // NOTE: The searchPlaceholder doesn't currently work for the multiple select
-  /**
-   * Get the search placeholder text
-   * @param searchPlaceholder
-   * @type {string}
-   * @default 'Search'
-   */
   get searchPlaceholder(): string {
     return this.args.searchPlaceholder ?? 'Search';
   }
 
-  /**
-   * Get the maxWidth to apply to the dropdown
-   * @param dropdownMaxWidth
-   * @type {string}
-   * @default 'none'
-   */
-  get dropdownMaxWidthStyle(): Record<string, string> {
-    const maxWidthStyle: { [key: string]: string } = {};
+  get styles(): Record<string,string> {
+    const styles: { [key: string]: string } = {};
+
     if (this.args.dropdownMaxWidth) {
-      maxWidthStyle['--hds-form-super-select-dropdown-max-width'] =
+      styles['--hds-form-super-select-dropdown-max-width'] =
         this.args.dropdownMaxWidth;
     }
-    return maxWidthStyle;
+
+    if (this.selectedCount === '0') {
+      styles['--hds-form-super-select-selected-text-display'] = 'none';
+    } else {
+      styles['--hds-form-super-select-selected-text-display'] = 'flex';
+    }
+
+    styles['--hds-form-super-select-selected-text'] = `'${this.selectedCount} selected'`
+
+    return styles;
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
   get classNames(): string {
     const classes = ['hds-form-super-select', 'hds-form-super-select-multiple'];
 

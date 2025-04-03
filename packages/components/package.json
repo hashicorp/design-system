@@ -243,6 +243,7 @@
       "./components/hds/form/super-select/placeholder.js": "./dist/_app_/components/hds/form/super-select/placeholder.js",
       "./components/hds/form/super-select/single/base.js": "./dist/_app_/components/hds/form/super-select/single/base.js",
       "./components/hds/form/super-select/single/field.js": "./dist/_app_/components/hds/form/super-select/single/field.js",
+      "./components/hds/form/super-select/trigger.js": "./dist/_app_/components/hds/form/super-select/trigger.js",
       "./components/hds/form/text-input/base.js": "./dist/_app_/components/hds/form/text-input/base.js",
       "./components/hds/form/text-input/field.js": "./dist/_app_/components/hds/form/text-input/field.js",
       "./components/hds/form/textarea/base.js": "./dist/_app_/components/hds/form/textarea/base.js",
