@@ -32,6 +32,14 @@ const getComponentPaths = (baseDir) => {
             components[`copy-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/link')) {
             components[`link-${folder.name}`] = componentPath;
+          } else if (baseDir.endsWith('/stepper')) {
+            // The components/stepper/indicator page contains both the Stepper::Step::Indicator and Stepper::Task::Indicator
+            if (folder.name === 'indicator') {
+              components[`stepper-step-${folder.name}`] = componentPath;
+              components[`stepper-task-${folder.name}`] = componentPath;
+            } else {
+              components[`stepper-${folder.name}`] = componentPath;
+            }
           } else {
             components[folder.name] = componentPath;
           }
