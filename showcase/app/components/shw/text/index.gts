@@ -59,9 +59,9 @@ export default class ShwText extends Component<ShwTextSignature> {
     if (tag) {
       assert(
         `@tag for "Shw::Text" must be one of the following: ${AVAILABLE_TAGS.join(
-          ', '
+          ', ',
         )}; received: ${tag}`,
-        AVAILABLE_TAGS.includes(tag)
+        AVAILABLE_TAGS.includes(tag),
       );
     }
 
@@ -82,7 +82,7 @@ export default class ShwText extends Component<ShwTextSignature> {
 
     assert(
       `You need to provide a @variant arguments to "Shw::Text"`,
-      variant !== undefined
+      variant !== undefined,
     );
 
     return variant;
@@ -101,9 +101,9 @@ export default class ShwText extends Component<ShwTextSignature> {
     if (align) {
       assert(
         `@align for "Shw::Text" must be one of the following: ${AVAILABLE_ALIGNS.join(
-          ', '
+          ', ',
         )}; received: ${align}`,
-        AVAILABLE_ALIGNS.includes(align)
+        AVAILABLE_ALIGNS.includes(align),
       );
     }
 

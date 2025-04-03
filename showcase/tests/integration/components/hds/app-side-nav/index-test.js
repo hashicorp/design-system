@@ -35,7 +35,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       mockMedia.dispatchEvent(
         new MediaQueryListEvent('change', {
           matches: isDesktop,
-        })
+        }),
       );
       await settled();
     };
@@ -48,7 +48,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   skip('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav id="test-app-side-nav" @hasA11yRefocus={{false}} />`
+      hbs`<Hds::AppSideNav id="test-app-side-nav" @hasA11yRefocus={{false}} />`,
     );
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav');
   });
@@ -80,7 +80,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   skip('it is not "responsive" if `isResponsive` is false', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav id="test-app-side-nav" @isResponsive={{false}} />`
+      hbs`<Hds::AppSideNav id="test-app-side-nav" @isResponsive={{false}} />`,
     );
     assert
       .dom('#test-app-side-nav')
@@ -169,7 +169,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
   skip('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav" />`
+      hbs`<Hds::AppSideNav @isCollapsible={{true}} id="test-app-side-nav" />`,
     );
     assert
       .dom('#test-app-side-nav')
@@ -239,7 +239,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[1],
       [false],
-      'resizing to mobile triggers a false event'
+      'resizing to mobile triggers a false event',
     );
 
     assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
@@ -267,7 +267,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[1],
       [false],
-      'resizing to mobile triggers a false event'
+      'resizing to mobile triggers a false event',
     );
     assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
 
@@ -275,7 +275,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[2],
       [true],
-      'resizing to desktop triggers a true event'
+      'resizing to desktop triggers a true event',
     );
     assert
       .dom('.hds-app-side-nav-hide-when-minimized')
@@ -288,7 +288,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     let toggled = false;
     this.set('onToggleMinimizedStatus', () => (toggled = true));
     await render(
-      hbs`<Hds::AppSideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
+      hbs`<Hds::AppSideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`,
     );
     await click('.hds-app-side-nav__toggle-button');
     assert.ok(toggled);

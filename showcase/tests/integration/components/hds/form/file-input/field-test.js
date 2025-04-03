@@ -35,7 +35,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::FileInput::Field>`
+        </Hds::Form::FileInput::Field>`,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -56,7 +56,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::FileInput::Field>`
+        </Hds::Form::FileInput::Field>`,
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control input');
@@ -69,7 +69,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__error')
@@ -83,7 +83,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::FileInput::Field>`
+        </Hds::Form::FileInput::Field>`,
     );
 
     this.set('showErrors', true);
@@ -100,7 +100,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__error')
@@ -113,7 +113,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::FileInput::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::FileInput::Field>`
+          </Hds::Form::FileInput::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -124,7 +124,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::FileInput::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::FileInput::Field>`
+          </Hds::Form::FileInput::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -134,7 +134,7 @@ module('Integration | Component | hds/form/file-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::FileInput::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::FileInput::Field>`
+          </Hds::Form::FileInput::Field>`,
     );
     assert.dom('input').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();

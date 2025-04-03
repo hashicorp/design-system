@@ -30,14 +30,14 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet');
   });
 
   test('it should render the component with an aria-label that includes the correct copy text', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="this aria label" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="this aria label" />`,
     );
     assert.dom('#test-copy-snippet').hasAria('label', 'copy this aria label');
   });
@@ -46,7 +46,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the correct default component variation: primary color, idle status', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet');
     assert
@@ -57,7 +57,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should render the secondary color if defined', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="secondary" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="secondary" />`,
     );
     assert
       .dom('#test-copy-snippet')
@@ -66,14 +66,14 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should support truncation if @isTruncated is set to true', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isTruncated={{true}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isTruncated={{true}} />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--is-truncated');
   });
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--width-full');
   });
@@ -82,7 +82,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
@@ -94,7 +94,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
 
   test('it should update the status back to idle after success', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
@@ -111,10 +111,10 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       .stub(window.navigator.clipboard, 'writeText')
       .throws(
         'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method'
+        'this is a fake error message provided to the sinon.stub().throws() method',
       );
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     assert.dom('#test-copy-snippet').hasClass('hds-copy-snippet--status-idle');
     await click('button#test-copy-snippet');
@@ -134,7 +134,7 @@ module('Integration | Component | hds/copy/snippet/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="tertiary" />`
+      hbs`<Hds::Copy::Snippet id="test-copy-snippet" @textToCopy="someSecretThingGoesHere" @color="tertiary" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

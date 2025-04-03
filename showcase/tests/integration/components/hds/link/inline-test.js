@@ -16,7 +16,7 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`,
     );
     assert.dom('#test-link').hasClass('hds-link-inline');
   });
@@ -25,14 +25,14 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the icon in the trailing position by default', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" @icon="film" id="test-link">watch video</Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" @icon="film" id="test-link">watch video</Hds::Link::Inline>`,
     );
     assert.dom('#test-link .hds-link-inline__icon').exists();
     assert.dom('#test-link ').hasClass('hds-link-inline--icon-trailing');
   });
   test('it should render the icon in the leading position if @iconPosition is set to leading', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" @icon="film" @iconPosition="leading" id="test-link">watch video</Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" @icon="film" @iconPosition="leading" id="test-link">watch video</Hds::Link::Inline>`,
     );
     assert.dom('#test-link ').hasClass('hds-link-inline--icon-leading');
   });
@@ -41,13 +41,13 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should render the primary color as the default if no @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" id="test-link">watch video</Hds::Link::Inline>`,
     );
     assert.dom('#test-link').hasClass('hds-link-inline--color-primary');
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" @color="secondary" id="test-link">watch video</Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" @color="secondary" id="test-link">watch video</Hds::Link::Inline>`,
     );
     assert.dom('#test-link').hasClass('hds-link-inline--color-secondary');
   });
@@ -56,7 +56,7 @@ module('Integration | Component | hds/link/inline', function (hooks) {
 
   test('it should yield the children of the <a> element', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" id="test-link"><span>test</span></Hds::Link::Inline>`
+      hbs`<Hds::Link::Inline @href="/" id="test-link"><span>test</span></Hds::Link::Inline>`,
     );
     assert.dom('#test-link > span').exists();
     assert.dom('#test-link > span').hasText('test');
@@ -71,14 +71,14 @@ module('Integration | Component | hds/link/inline', function (hooks) {
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel" />`
+      hbs`<Hds::Link::Inline @href="/" id="test-link" target="test-target" rel="test-rel" />`,
     );
     assert.dom('#test-link').hasAttribute('target', 'test-target');
     assert.dom('#test-link').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
-      hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link" />`
+      hbs`<Hds::Link::Inline @href="/" @isHrefExternal={{false}} id="test-link" />`,
     );
     assert.dom('#test-link').doesNotHaveAttribute('target');
     assert.dom('#test-link').doesNotHaveAttribute('rel');
@@ -106,7 +106,7 @@ module('Integration | Component | hds/link/inline', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Link::Inline @icon="film" @text="watch video" @href="/" @color="foo" />`
+      hbs`<Hds::Link::Inline @icon="film" @text="watch video" @href="/" @color="foo" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

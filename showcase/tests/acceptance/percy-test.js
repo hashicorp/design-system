@@ -13,7 +13,6 @@ module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
 
   if (config.emberTryScenario) {
-     
     console.log('Not running percy in ember-try');
     return;
   }

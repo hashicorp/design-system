@@ -12,7 +12,7 @@ function replaceMockStates() {
     let targets;
     if (element.attributes['mock-state-selector']) {
       targets = element.querySelectorAll(
-        element.attributes['mock-state-selector'].value
+        element.attributes['mock-state-selector'].value,
       );
     } else {
       targets = [element];

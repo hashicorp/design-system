@@ -30,7 +30,7 @@ module('Integration | Component | hds/app-footer/link', function (hooks) {
           <Hds::AppFooter::Link @href="https://cloud.hashicorp.com" id="test-link">
             Custom link
           </Hds::AppFooter::Link>
-        </ul>`
+        </ul>`,
     );
     assert
       .dom('#test-link')
