@@ -72,7 +72,7 @@ export type HdsAdvancedTableSelectableRow = {
   selectionKey: string;
 };
 
-export type HdsAdvancedTableExpandState = boolean | 'mixed';
+export type HdsAdvancedTableExpandState = boolean;
 
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;

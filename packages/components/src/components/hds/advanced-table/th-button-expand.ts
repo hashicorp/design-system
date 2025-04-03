@@ -16,7 +16,7 @@ export interface HdsAdvancedTableThButtonExpandSignature {
   Args: {
     labelId?: string;
     isExpanded?: HdsAdvancedTableExpandState;
-    onToggle?: (newValue?: HdsAdvancedTableExpandState) => void;
+    onToggle?: () => void;
     isExpandAll?: boolean;
   };
   Element: HTMLButtonElement;
@@ -37,8 +37,6 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
       return this.args.isExpandAll
         ? HdsAdvancedTableThExpandIconValues.UnfoldClose
         : HdsAdvancedTableThExpandIconValues.ChevronUp;
-    } else if (this.isExpanded === 'mixed' && this.args.isExpandAll) {
-      return HdsAdvancedTableThExpandIconValues.UnfoldOpen;
     } else {
       return this.args.isExpandAll
         ? HdsAdvancedTableThExpandIconValues.UnfoldOpen
@@ -59,10 +57,6 @@ export default class HdsAdvancedTableThButtonExpand extends Component<HdsAdvance
     // add a class based on the isExpanded state
     if (this.args.isExpanded === true) {
       classes.push(`hds-advanced-table__th-button--is-expanded`);
-    }
-
-    if (this.args.isExpanded === 'mixed') {
-      classes.push(`hds-advanced-table__th-button--is-mixed`);
     }
 
     return classes.join(' ');

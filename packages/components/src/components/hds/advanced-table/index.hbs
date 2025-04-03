@@ -7,6 +7,13 @@
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
   ...attributes
 >
+  {{! Caption }}
+  <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
+    {{@caption}}
+    {{this.sortedMessageText}}
+  </div>
+
+  {{! Grid }}
   <div
     class={{this.classNames}}
     role="grid"
@@ -17,12 +24,6 @@
     }}
     {{this._setUpScrollWrapper}}
   >
-    {{! Caption }}
-    <div id={{this._captionId}} class="sr-only hds-advanced-table__caption" aria-live="polite">
-      {{@caption}}
-      {{this.sortedMessageText}}
-    </div>
-
     {{! Header }}
     <div class={{this.theadClassNames}} role="rowgroup" {{this._setUpThead}}>
       <Hds::AdvancedTable::Tr
