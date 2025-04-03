@@ -505,6 +505,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
+    // eslint-disable-next-line prefer-rest-params
     console.log(...arguments);
 
     if (selectionKey === 'all' && this.demoModel) {
