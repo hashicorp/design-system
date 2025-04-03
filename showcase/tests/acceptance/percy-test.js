@@ -13,7 +13,7 @@ module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
 
   if (config.emberTryScenario) {
-    // eslint-disable-next-line no-console
+     
     console.log('Not running percy in ember-try');
     return;
   }

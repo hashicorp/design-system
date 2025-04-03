@@ -407,7 +407,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   // INDICATOR
 
-  // eslint-disable-next-line qunit/require-expect
+   
   test('tab indicator should respond to tab clicks', async function (assert) {
     await this.createTabs();
     let tablistStyle = find('.hds-tabs__tablist').style;
@@ -417,7 +417,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
-  // eslint-disable-next-line qunit/require-expect
+   
   test('tab indicator should respond to content size changes', async function (assert) {
     this.set('count', 5);
     await render(hbs`
@@ -435,7 +435,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 112]); // --indicator-left-pos: 0px; --indicator-width: 112px;
   });
 
-  // eslint-disable-next-line qunit/require-expect
+   
   test('tab indicator should not move when focus is shifted to another tab', async function (assert) {
     const leftArrowKey = 37;
     const spaceKey = 32;
