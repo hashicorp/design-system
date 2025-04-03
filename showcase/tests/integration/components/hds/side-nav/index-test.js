@@ -35,7 +35,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
       mockMedia.dispatchEvent(
         new MediaQueryListEvent('change', {
           matches: isDesktop,
-        })
+        }),
       );
       await settled();
     };
@@ -48,7 +48,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav id="test-side-nav" @hasA11yRefocus={{false}} />`
+      hbs`<Hds::SideNav id="test-side-nav" @hasA11yRefocus={{false}} />`,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav');
   });
@@ -122,7 +122,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it is not "responsive" if `isResponsive` is false', async function (assert) {
     await render(
-      hbs`<Hds::SideNav id="test-side-nav" @isResponsive={{false}} />`
+      hbs`<Hds::SideNav id="test-side-nav" @isResponsive={{false}} />`,
     );
     assert
       .dom('#test-side-nav')
@@ -213,7 +213,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('if the @ariaLabel argument is not provided the default aria-labelledby value is set on the toggle button', async function (assert) {
     await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`
+      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`,
     );
     assert
       .dom('.hds-side-nav__toggle-button')
@@ -223,7 +223,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('if the @ariaLabel argument is provided the label value is set on the toggle button', async function (assert) {
     await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" @ariaLabel="Test"/>`
+      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" @ariaLabel="Test"/>`,
     );
     assert
       .dom('.hds-side-nav__toggle-button')
@@ -235,7 +235,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
 
   test('it responds to different events to toggle between "non-minimized" (by default) and "mimimized" states', async function (assert) {
     await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`
+      hbs`<Hds::SideNav @isCollapsible={{true}} id="test-side-nav" />`,
     );
     assert.dom('#test-side-nav').hasClass('hds-side-nav--is-not-minimized');
 
@@ -327,7 +327,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[1],
       [false],
-      'resizing to mobile triggers a false event'
+      'resizing to mobile triggers a false event',
     );
 
     assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
@@ -363,7 +363,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[1],
       [false],
-      'resizing to mobile triggers a false event'
+      'resizing to mobile triggers a false event',
     );
     assert.dom('.hds-side-nav-hide-when-minimized').hasAttribute('inert');
 
@@ -371,7 +371,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     assert.deepEqual(
       calls[2],
       [true],
-      'resizing to desktop triggers a true event'
+      'resizing to desktop triggers a true event',
     );
     assert
       .dom('.hds-side-nav-hide-when-minimized')
@@ -384,7 +384,7 @@ module('Integration | Component | hds/side-nav/index', function (hooks) {
     let toggled = false;
     this.set('onToggleMinimizedStatus', () => (toggled = true));
     await render(
-      hbs`<Hds::SideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
+      hbs`<Hds::SideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`,
     );
     await click('.hds-side-nav__toggle-button');
     assert.ok(toggled);

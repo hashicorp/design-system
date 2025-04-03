@@ -59,13 +59,12 @@
   src: url("/assets/fonts/Rubik-Italic-VF.ttf") format("woff2");
 }
 
-
 // ===========================================================
 
 // MIXINS
 
-$show-font-family-sans: -apple-system, blinkmacsystemfont, "Segoe UI", roboto,
-  sans-serif;
+$show-font-family-sans:
+  -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
 $show-font-family-mono: ui-monospace, menlo, consolas, monospace;
 
 @mixin shw-font-family($family) {
@@ -127,7 +126,6 @@ $show-font-family-mono: ui-monospace, menlo, consolas, monospace;
   line-height: 1.4;
 }
 
-
 // ===========================================================
 
 // TYPOGRAPHIC CLASSES
@@ -170,7 +168,9 @@ $show-font-family-mono: ui-monospace, menlo, consolas, monospace;
   }
 }
 
-.shw-text-body code { font-size: 0.85em; } // more visually balanced
+.shw-text-body code {
+  font-size: 0.85em;
+} // more visually balanced
 
 // ALIGNMENT
 

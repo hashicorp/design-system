@@ -75,7 +75,6 @@ module(
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       await selectChoose('#test-super-select-multiple', 'Option 1');
       await selectChoose('#test-super-select-multiple', 'Option 2');
-
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
 
       // click 'Show selected'

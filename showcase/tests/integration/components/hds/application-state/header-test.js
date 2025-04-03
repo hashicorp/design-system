@@ -15,7 +15,7 @@ module(
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" />`,
       );
 
       assert
@@ -25,7 +25,7 @@ module(
 
     test('it should render an icon if @icon is defined', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`,
       );
 
       assert.dom('.hds-icon').exists();
@@ -33,7 +33,7 @@ module(
 
     test('it should render an error code if @errorCode is defined', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" @icon="help" @errorCode="404" />`,
       );
 
       assert.dom('.hds-application-state__error-code').exists();
@@ -41,7 +41,7 @@ module(
 
     test('it should render the title with a `div` tag if no `@titleTag` is provided', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" id="test-application-state-header" />`,
       );
 
       assert.dom('.hds-application-state__title').hasTagName('div');
@@ -49,10 +49,10 @@ module(
 
     test('it should render the title with the tag set for `@titleTag`', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Header @title="An error has occurred" @titleTag="h1" id="test-application-state-header" />`
+        hbs`<Hds::ApplicationState::Header @title="An error has occurred" @titleTag="h1" id="test-application-state-header" />`,
       );
 
       assert.dom('.hds-application-state__title').hasTagName('h1');
     });
-  }
+  },
 );

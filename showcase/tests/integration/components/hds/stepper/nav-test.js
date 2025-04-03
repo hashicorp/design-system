@@ -210,7 +210,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     await triggerKeyEvent(
       '[data-test="step-2"] .hds-stepper-nav__step-button',
       'keyup',
-      rightArrowKey
+      rightArrowKey,
     );
     // test that the navigated to step is now focused:
     assert
@@ -221,7 +221,7 @@ module('Integration | Component | hds/stepper/nav', function (hooks) {
     await triggerKeyEvent(
       '[data-test="step-1"] .hds-stepper-nav__step-button',
       'keyup',
-      leftArrowKey
+      leftArrowKey,
     );
     // test that the navigated to step is now focused:
     assert

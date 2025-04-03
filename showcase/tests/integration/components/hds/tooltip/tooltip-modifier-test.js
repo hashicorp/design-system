@@ -13,7 +13,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it attaches a tooltip to the element it is invoked on', async function (assert) {
     await render(
-      hbs`<a href="#" {{hds-tooltip "More info."}}  id="test-tooltip-modifier">Info</a>`
+      hbs`<a href="#" {{hds-tooltip "More info."}}  id="test-tooltip-modifier">Info</a>`,
     );
     // activate the tooltip:
     await focus('#test-tooltip-modifier');
@@ -28,13 +28,13 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
       this.element
         .querySelector('#test-tooltip-modifier')
         .getAttribute('aria-describedby'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id'),
     );
     assert.strictEqual(
       this.element
         .querySelector('#test-tooltip-modifier')
         .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-tooltip-container').getAttribute('id')
+      this.element.querySelector('.hds-tooltip-container').getAttribute('id'),
     );
   });
 });

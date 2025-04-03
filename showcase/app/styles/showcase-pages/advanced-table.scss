@@ -10,7 +10,14 @@
 body.components-advanced-table {
   .shw-component-advanced-table-instruction-list {
     font-size: 1rem;
-    font-family: gilmer-web, Gilmer, -apple-system, blinkmacsystemfont, "Segoe UI", roboto, sans-serif;
+    font-family:
+      gilmer-web,
+      Gilmer,
+      -apple-system,
+      blinkmacsystemfont,
+      "Segoe UI",
+      roboto,
+      sans-serif;
     line-height: 1.4;
   }
 
@@ -18,16 +25,16 @@ body.components-advanced-table {
     width: fit-content;
   }
 
-    // align table cell content for icon plus text in cell
-    .shw-component-advanced-table-cell-content-div {
-      display: flex;
-      align-items: center;
-  
-      .hds-icon {
-        flex: none;
-        margin-right: 5px;
-      }
+  // align table cell content for icon plus text in cell
+  .shw-component-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+
+    .hds-icon {
+      flex: none;
+      margin-right: 5px;
     }
+  }
 
   .shw-component-advanced-table-fixed-height-wrapper {
     height: 400px;
@@ -76,5 +83,4 @@ body.components-advanced-table {
     display: inline-block;
     animation: shw-component-table-user-bounce 1s infinite ease-in-out;
   }
-
 }

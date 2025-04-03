@@ -5,7 +5,7 @@
 
 // APP-FOOTER
 
-@use 'sass:color';
+@use "sass:color";
 
 body.components-app-footer {
   .shw-component-app-footer-layout-highlight {
@@ -20,16 +20,24 @@ body.components-app-footer {
     .shw-component-app-footer-tablet-view,
     .shw-component-app-footer-mobile-large-view,
     .shw-component-app-footer-mobile-small-view {
-      .hds-app-footer__list-item { background: color.adjust(#006ae7, $lightness: 30%, $space: hsl); }
-      .hds-app-footer__legal-links { background: color.adjust(#006ae7, $lightness: 45%, $space: hsl); }
+      .hds-app-footer__list-item {
+        background: color.adjust(#006ae7, $lightness: 30%, $space: hsl);
+      }
+      .hds-app-footer__legal-links {
+        background: color.adjust(#006ae7, $lightness: 45%, $space: hsl);
+      }
       // using !important to override inline style:
-      .shw-app-footer-extra { background: #ff7575 !important; }
+      .shw-app-footer-extra {
+        background: #ff7575 !important;
+      }
 
       .hds-app-footer__copyright {
         color: #fff;
         background: #000;
 
-        .hds-icon { fill: currentColor; }
+        .hds-icon {
+          fill: currentColor;
+        }
       }
     }
   }
