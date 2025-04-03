@@ -20,14 +20,14 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid::Item id="test-layout-grid-item"><pre>test</pre></Hds::Layout::Grid::Item>`
+      hbs`<Hds::Layout::Grid::Item id="test-layout-grid-item"><pre>test</pre></Hds::Layout::Grid::Item>`,
     );
     assert.dom('#test-layout-grid-item > pre').exists().hasText('test');
   });
 
   test('it should render as yielded contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item"><pre>test</pre></LG.Item></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item"><pre>test</pre></LG.Item></Hds::Layout::Grid>`,
     );
     assert.dom('#test-layout-grid-item > pre').exists().hasText('test');
   });
@@ -36,14 +36,14 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" /></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" /></Hds::Layout::Grid>`,
     );
     assert.dom('#test-layout-grid-item').hasTagName('div');
   });
 
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" @tag="span" /></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid as |LG|><LG.Item id="test-layout-grid-item" @tag="span" /></Hds::Layout::Grid>`,
     );
     assert.dom('#test-layout-grid-item').hasTagName('span');
   });
@@ -60,7 +60,7 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render the correct column span if the @colspan prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @colspan={{2}} />`
+      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @colspan={{2}} />`,
     );
     assert
       .dom('#test-layout-grid')
@@ -79,7 +79,7 @@ module('Integration | Component | hds/layout/grid/item', function (hooks) {
 
   test('it should render the correct row span if the @rowspan prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @rowspan={{2}} />`
+      hbs`<Hds::Layout::Grid::Item id="test-layout-grid" @rowspan={{2}} />`,
     );
     assert
       .dom('#test-layout-grid')

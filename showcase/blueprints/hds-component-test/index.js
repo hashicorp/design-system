@@ -55,18 +55,18 @@ const updateDummyAppCSS = (options) => {
   const oldLinesArray = source.split(/\r?\n/);
   const firstComponentImportIndex =
     oldLinesArray.findIndex((line) =>
-      line.match(/^\/\/ START COMPONENT PAGES IMPORTS/)
+      line.match(/^\/\/ START COMPONENT PAGES IMPORTS/),
     ) + 1;
   const lastComponentImportIndex =
     oldLinesArray.findIndex((line) =>
-      line.match(/^\/\/ END COMPONENT PAGES IMPORTS/)
+      line.match(/^\/\/ END COMPONENT PAGES IMPORTS/),
     ) - 1;
   const importLinesArray = oldLinesArray.slice(
     firstComponentImportIndex,
-    lastComponentImportIndex + 1
+    lastComponentImportIndex + 1,
   );
   importLinesArray.push(
-    `@use "./showcase-pages/${getDummyCSSFileName(name)}" as showcase-${getKebabizedModuleName(name)};`
+    `@use "./showcase-pages/${getDummyCSSFileName(name)}" as showcase-${getKebabizedModuleName(name)};`,
   );
   const newImportLinesArray = importLinesArray
     .filter((line, index, self) => self.indexOf(line) === index)
@@ -74,7 +74,7 @@ const updateDummyAppCSS = (options) => {
   const newLinesArray = [].concat(
     oldLinesArray.slice(0, firstComponentImportIndex),
     newImportLinesArray,
-    oldLinesArray.slice(lastComponentImportIndex + 1)
+    oldLinesArray.slice(lastComponentImportIndex + 1),
   );
   fs.writeFileSync(cssFilePath, newLinesArray.join('\n'));
 };
@@ -87,7 +87,7 @@ const updateDummyAppIndexHBS = (options) => {
   newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
   newListItemHTML += '<li>\n';
   newListItemHTML += `  <LinkTo @route="components.${getRoutedModuleName(
-    name
+    name,
   )}">\n`;
   newListItemHTML += `    ${getColumnizedModuleName(name)}\n`;
   newListItemHTML += '  </LinkTo>\n';
@@ -100,14 +100,14 @@ const updatePercyTest = (options) => {
   const percyTestFilePath = `${options.project.root}/tests/acceptance/percy-test.js`;
 
   let newSnapshot = `    await visit('/components/${getKebabizedModuleName(
-    name
+    name,
   )}');\n`;
   newSnapshot += `    await percySnapshot('${stringUtil.classify(name)}');\n`;
 
   let source = fs.readFileSync(percyTestFilePath, 'utf-8');
   source = source.replace(
     '    // DO NOT REMOVE – PERCY SNAPSHOTS END',
-    `    // MOVE THIS BLOCK IN THE RIGHT POSITION\n${newSnapshot}\n    // DO NOT REMOVE – PERCY SNAPSHOTS END`
+    `    // MOVE THIS BLOCK IN THE RIGHT POSITION\n${newSnapshot}\n    // DO NOT REMOVE – PERCY SNAPSHOTS END`,
   );
   fs.writeFileSync(percyTestFilePath, source);
 };

@@ -15,7 +15,7 @@ module('Integration | Component | hds/side-nav/list/item', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Item id="test-side-nav-list-item" />`
+      hbs`<Hds::SideNav::List::Item id="test-side-nav-list-item" />`,
     );
     assert.dom('#test-side-nav-list-item').hasClass('hds-side-nav__list-item');
   });

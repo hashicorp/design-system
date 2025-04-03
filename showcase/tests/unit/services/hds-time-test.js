@@ -38,7 +38,7 @@ module('Unit | Service | time', function (hooks) {
     this.service = this.owner.lookup('service:hdsTime');
     this.selectTimeRelativeUnitSpy = sinon.spy(
       this.service,
-      'selectTimeRelativeUnit'
+      'selectTimeRelativeUnit',
     );
   });
 
@@ -65,31 +65,31 @@ module('Unit | Service | time', function (hooks) {
       assert.strictEqual(
         format.options,
         DEFAULT_DISPLAY_MAPPING[item.type],
-        `returns options`
+        `returns options`,
       );
       assert.strictEqual(
         format.difference.absValueInMs,
         difference.absValueInMs,
-        `returns difference value in ms: ${difference.absValueInMs}`
+        `returns difference value in ms: ${difference.absValueInMs}`,
       );
       assert.strictEqual(
         format.difference.valueInMs,
         difference.valueInMs,
-        `returns difference abs value in ms: ${difference.valueInMs}`
+        `returns difference abs value in ms: ${difference.valueInMs}`,
       );
       assert.ok(
         this.selectTimeRelativeUnitSpy.calledWith(difference),
-        'selects relative unit via fn'
+        'selects relative unit via fn',
       );
       assert.strictEqual(
         format.relative.value,
         item.relative.value,
-        `returns relative value: ${item.relative.value}`
+        `returns relative value: ${item.relative.value}`,
       );
       assert.strictEqual(
         format.relative.unit,
         item.relative.unit,
-        `returns relative unit: ${item.relative.unit}`
+        `returns relative unit: ${item.relative.unit}`,
       );
     });
   }
@@ -103,12 +103,12 @@ module('Unit | Service | time', function (hooks) {
     assert.strictEqual(
       relativeUnit.value,
       Math.trunc(value),
-      `truncates value sent in`
+      `truncates value sent in`,
     );
     assert.strictEqual(
       relativeUnit.unit,
       unit,
-      `passes along unit without a change`
+      `passes along unit without a change`,
     );
   });
 
@@ -117,36 +117,36 @@ module('Unit | Service | time', function (hooks) {
     assert.strictEqual(
       this.service.listeners.size,
       0,
-      'there no listeners right away'
+      'there no listeners right away',
     );
     assert.notOk(
       this.service.listeners.has(id),
-      'the registered id does not exist yet'
+      'the registered id does not exist yet',
     );
     let unregister = this.service.register(id);
     assert.ok(this.service.listeners.has(id), 'the registered id exists');
     assert.strictEqual(
       this.service.listeners.size,
       1,
-      'register adds the listener'
+      'register adds the listener',
     );
     unregister();
     assert.strictEqual(
       this.service.listeners.size,
       0,
-      'a returned unregister curried function deletes the listener'
+      'a returned unregister curried function deletes the listener',
     );
     this.service.register(id);
     assert.strictEqual(
       this.service.listeners.size,
       1,
-      'register adds the listener again'
+      'register adds the listener again',
     );
     this.service.unregister(id);
     assert.strictEqual(
       this.service.listeners.size,
       0,
-      'a direct unregister with an id deletes the listener'
+      'a direct unregister with an id deletes the listener',
     );
   });
 });

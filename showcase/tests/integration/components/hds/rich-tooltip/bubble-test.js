@@ -18,7 +18,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" />`
+      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" />`,
     );
     assert
       .dom('#test-rich-tooltip-bubble')
@@ -56,7 +56,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
     assert.dom('.hds-rich-tooltip__bubble-inner-content').exists();
     assert
       .dom(
-        '.hds-rich-tooltip__bubble-inner-content > #test-rich-tooltip-bubble-content'
+        '.hds-rich-tooltip__bubble-inner-content > #test-rich-tooltip-bubble-content',
       )
       .exists();
   });
@@ -83,14 +83,14 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
       'fakeSetupPrimitivePopover',
       modifier((_element, _positional, named) => {
         anchoredPositionOptions = named;
-      })
+      }),
     );
     await render(
       hbs`<Hds::RichTooltip::Bubble
         @popoverId="test-rich-tooltip-bubble"
         @arrowId="test-rich-tooltip-arrow"
         @setupPrimitivePopover={{this.fakeSetupPrimitivePopover}}
-      />`
+      />`,
     );
     assert.deepEqual(anchoredPositionOptions, {
       anchoredPositionOptions: {
@@ -108,7 +108,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
       'fakeSetupPrimitivePopover',
       modifier((_element, _positional, named) => {
         anchoredPositionOptions = named;
-      })
+      }),
     );
     await render(
       hbs`<Hds::RichTooltip::Bubble
@@ -120,7 +120,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
         @arrowSelector="#test-arrow-selector"
         @arrowPadding={{987}}
         @setupPrimitivePopover={{this.fakeSetupPrimitivePopover}}
-      />`
+      />`,
     );
     assert.deepEqual(anchoredPositionOptions, {
       anchoredPositionOptions: {
@@ -137,7 +137,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
 
   test('it should assign the ID value provided with @popoverId', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" />`
+      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" />`,
     );
     assert
       .dom('.hds-rich-tooltip__bubble')
@@ -145,7 +145,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
   });
   test('it should not override the ID value provided with @popoverId with an attribute', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" id="the-other-id" />`
+      hbs`<Hds::RichTooltip::Bubble @popoverId="test-rich-tooltip-bubble" id="the-other-id" />`,
     );
     assert
       .dom('.hds-rich-tooltip__bubble')
@@ -153,14 +153,14 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
   });
   test('it should have a set of attributes based on the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Bubble @popoverId="popoverId" @isOpen={{true}} />`
+      hbs`<Hds::RichTooltip::Bubble @popoverId="popoverId" @isOpen={{true}} />`,
     );
     assert.dom('.hds-rich-tooltip__bubble').hasAttribute('id', 'popoverId');
     assert.dom('.hds-rich-tooltip__bubble').hasAttribute('tabindex', '-1');
     assert.dom('.hds-rich-tooltip__bubble').hasAttribute('role', 'tooltip');
     assert.dom('.hds-rich-tooltip__bubble').doesNotHaveAria('hidden');
     await render(
-      hbs`<Hds::RichTooltip::Bubble id="test-rich-tooltip-bubble" />`
+      hbs`<Hds::RichTooltip::Bubble id="test-rich-tooltip-bubble" />`,
     );
     assert.dom('.hds-rich-tooltip__bubble').hasAria('hidden', '');
   });
@@ -172,7 +172,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
     // this is used only to trigger the `anchoredPositionOptions` getter
     this.set(
       'fakeSetupPrimitivePopover',
-      modifier(() => {})
+      modifier(() => {}),
     );
     const errorMessage =
       '@placement for "Hds::RichTooltip::Bubble" must be one of the following: top, top-start, top-end, right, right-start, right-end, bottom, bottom-start, bottom-end, left, left-start, left-end; received: foo';
@@ -184,7 +184,7 @@ module('Integration | Component | hds/rich-tooltip/bubble', function (hooks) {
       hbs`<Hds::RichTooltip::Bubble
         @placement="foo"
         @setupPrimitivePopover={{this.fakeSetupPrimitivePopover}}
-      />`
+      />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

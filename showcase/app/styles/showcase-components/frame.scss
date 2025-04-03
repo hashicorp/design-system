@@ -3,7 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-
 $shw-frame-navigation-bar-height: 48px;
 
 .shw-frame {
@@ -47,7 +46,8 @@ $shw-frame-navigation-bar-height: 48px;
   }
 }
 
-.shw-frame__browser-viewport { // the actual `<iframe>` HTML element
+.shw-frame__browser-viewport {
+  // the actual `<iframe>` HTML element
   display: block;
   width: 100%;
   height: calc(100% - #{$shw-frame-navigation-bar-height});

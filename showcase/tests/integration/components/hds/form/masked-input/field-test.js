@@ -47,7 +47,7 @@ module(
 
     test('it should render the input with a fixed height if a @height value is passed and `@isMultiline` is true', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @isMultiline={{true}} @height="248px" />`
+        hbs`<Hds::Form::MaskedInput::Field @isMultiline={{true}} @height="248px" />`,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -70,7 +70,7 @@ module(
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::MaskedInput::Field>`
+        </Hds::Form::MaskedInput::Field>`,
       );
       assert.dom('.hds-form-field__label').exists();
       assert.dom('.hds-form-field__helper-text').exists();
@@ -92,11 +92,11 @@ module(
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::MaskedInput::Field>`
+        </Hds::Form::MaskedInput::Field>`,
       );
       // the control ID is dynamically generated
       let control = this.element.querySelector(
-        '.hds-form-field__control input'
+        '.hds-form-field__control input',
       );
       let controlId = control.id;
       assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -107,7 +107,7 @@ module(
         .dom('.hds-form-field__control input')
         .hasAttribute(
           'aria-describedby',
-          `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+          `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
         );
       assert
         .dom('.hds-form-field__character-count')
@@ -125,14 +125,14 @@ module(
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::MaskedInput::Field>`
+        </Hds::Form::MaskedInput::Field>`,
       );
 
       this.set('showErrors', true);
       await settled();
       // the control ID is dynamically generated
       let control = this.element.querySelector(
-        '.hds-form-field__control input'
+        '.hds-form-field__control input',
       );
       let controlId = control.id;
       assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -143,7 +143,7 @@ module(
         .dom('.hds-form-field__control input')
         .hasAttribute(
           'aria-describedby',
-          `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+          `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
         );
       assert
         .dom('.hds-form-field__character-count')
@@ -159,7 +159,7 @@ module(
       await render(
         hbs`<Hds::Form::MaskedInput::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::MaskedInput::Field>`
+          </Hds::Form::MaskedInput::Field>`,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('Required');
@@ -169,7 +169,7 @@ module(
       await render(
         hbs`<Hds::Form::MaskedInput::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::MaskedInput::Field>`
+          </Hds::Form::MaskedInput::Field>`,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -178,7 +178,7 @@ module(
       await render(
         hbs`<Hds::Form::MaskedInput::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::MaskedInput::Field>`
+          </Hds::Form::MaskedInput::Field>`,
       );
       assert.dom('input').hasAttribute('required');
       assert.dom('label .hds-form-indicator').doesNotExist();
@@ -188,7 +188,7 @@ module(
 
     test('it automatically provides the ID relations between the elements', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -197,7 +197,7 @@ module(
 
     test('it updates the button label on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -210,7 +210,7 @@ module(
 
     test('it renders a custom toggle button label', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaLabel="Show my masked content" />`
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaLabel="Show my masked content" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -219,7 +219,7 @@ module(
 
     test('it informs the user about visibility change on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" />`,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -233,11 +233,11 @@ module(
 
     test('it renders a custom message on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaMessageText="My input content is visible" />`
+        hbs`<Hds::Form::MaskedInput::Field @id="test-form-masked-input" @visibilityToggleAriaMessageText="My input content is visible" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
         .hasText('My input content is visible');
     });
-  }
+  },
 );
