@@ -13,7 +13,6 @@ module('Acceptance | components/advanced-table', function (hooks) {
 
   test('Components/advanced-table page passes automated a11y checks', async function (assert) {
     await visit('/components/advanced-table');
-
     await a11yAudit();
 
     assert.ok(true, 'a11y automation audit passed');
