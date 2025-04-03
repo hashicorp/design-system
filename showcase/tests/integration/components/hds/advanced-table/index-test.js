@@ -1106,7 +1106,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
       )
       .exists({ count: 2 });
-    assert.dom(expandAllButton).hasAria('expanded', 'mixed');
+    assert.dom(expandAllButton).hasAria('expanded', 'false');
 
     await click(expandAllButton);
 
@@ -1144,7 +1144,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await click(rowToggles[i]);
 
       if (i < rowToggles.length - 1) {
-        assert.dom(expandAllButton).hasAria('expanded', 'mixed');
+        assert.dom(expandAllButton).hasAria('expanded', 'false');
       }
     }
 
