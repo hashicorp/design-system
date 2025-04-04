@@ -2,7 +2,7 @@
 title: Voice and tone
 caption: How we speak to our users and what we say.
 description: How we speak to our users and what we say.
-previewImage: assets/illustrations/content/writing-guidelines.jpg
+previewImage: assets/illustrations/content/voice-and-tone.jpg
 ---
 
 **The HashiCorp voice** reflects our personality and is **what** we say to our users. Our voice stays consistent across all of our content.
