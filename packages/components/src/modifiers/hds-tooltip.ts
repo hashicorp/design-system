@@ -99,11 +99,11 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     assert('Tooltip must have an element', element);
 
     if (!this._didSetup) {
-      this.#setup(element, positional, named);
+      void this.#setup(element, positional, named);
       this._didSetup = true;
     }
 
-    this.#update(element, positional, named);
+    void this.#update(element, positional, named);
   }
 
   async #setup(
