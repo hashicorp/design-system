@@ -15,7 +15,7 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Stepper::List @ariaLabel="Label" id="test-stepper-list" />`
+      hbs`<Hds::Stepper::List @ariaLabel="Label" id="test-stepper-list" />`,
     );
     assert.dom('#test-stepper-list').hasClass('hds-stepper-list');
   });
@@ -30,7 +30,7 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
               <:title>Test</:title>
             </S.Step>
           </Hds::Stepper::List>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('div');
   });
@@ -43,7 +43,7 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
               <:title>Test</:title>
             </S.Step>
           </Hds::Stepper::List>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('h2');
   });
@@ -52,7 +52,7 @@ module('Integration | Component | hds/stepper/list', function (hooks) {
 
   test('it sets the aria-label of the ol to the value provided to the @ariaLabel argument', async function (assert) {
     await render(
-      hbs`<Hds::Stepper::List id="test-stepper-list" @ariaLabel="test"/>`
+      hbs`<Hds::Stepper::List id="test-stepper-list" @ariaLabel="test"/>`,
     );
     assert.dom('.hds-stepper-list').hasAttribute('aria-label', 'test');
   });

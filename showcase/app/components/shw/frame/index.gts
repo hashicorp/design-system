@@ -35,7 +35,7 @@ export default class ShwFrameComponent extends Component<ShwFrameSignature> {
     if (!src.match(/$\//)) {
       assert(
         `@src for "Shw::Frame" must be an absolute path (starting with '/') - Provided: ${src}`,
-        true
+        true,
       );
     }
 
@@ -51,7 +51,7 @@ export default class ShwFrameComponent extends Component<ShwFrameSignature> {
     // we accept only px or percentage
     assert(
       `@width for "Shw::Frame" must be a number or a percentage - Provided: ${width}`,
-      width.match(/^[\d]+%?$/)
+      width.match(/^[\d]+%?$/),
     );
 
     return width.match(/^[\d]+$/) ? `${width}px` : width;
@@ -66,7 +66,7 @@ export default class ShwFrameComponent extends Component<ShwFrameSignature> {
     // we accept only px
     assert(
       `@height for "Shw::Frame" must be a number - Provided: ${height}`,
-      height.match(/^[\d]+?$/)
+      height.match(/^[\d]+?$/),
     );
 
     return `${height}px`;

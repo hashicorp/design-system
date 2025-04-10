@@ -17,7 +17,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" />`
+      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group" />`,
     );
     assert
       .dom('#test-radio-card-group')
@@ -28,7 +28,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the `@layout` argument provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group-layout" @layout="vertical" />`
+      hbs`<Hds::Form::RadioCard::Group id="test-radio-card-group-layout" @layout="vertical" />`,
     );
     assert
       .dom('#test-radio-card-group-layout')
@@ -45,7 +45,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
             <G.RadioCard/>
             <G.RadioCard/>
             <G.Error>This is the group error</G.Error>
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
     assert.dom('.hds-form-radio-card').exists();
     assert.dom('.hds-form-group__legend').exists();
@@ -75,11 +75,11 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
             <G.RadioCard/>
             <G.RadioCard/>
             <G.Error>This is the group error</G.Error>
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text'
+      '.hds-form-group__helper-text',
     );
     let groupHelperTextId = groupHelperText.id;
     let groupError = this.element.querySelector('.hds-form-group__error');
@@ -99,7 +99,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
             {{#if this.showErrors}}
               <G.Error>This is the group error</G.Error>
             {{/if}}
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
 
     this.set('showErrors', true);
@@ -107,7 +107,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
 
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text'
+      '.hds-form-group__helper-text',
     );
     let groupHelperTextId = groupHelperText.id;
     let groupError = this.element.querySelector('.hds-form-group__error');
@@ -127,7 +127,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
             <G.RadioCard @maxWidth="50%" data-test="first-control"/>
             <G.RadioCard @maxWidth="50%" data-test="second-control"/>
             <G.Error>This is the group error</G.Error>
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
     assert.dom('[data-test="first-control"]').hasAttribute('name', 'test-name');
     assert
@@ -148,7 +148,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       hbs`<Hds::Form::RadioCard::Group @isRequired={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.RadioCard/>
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('Required');
@@ -158,7 +158,7 @@ module('Integration | Component | hds/form/radio-card/group', function (hooks) {
       hbs`<Hds::Form::RadioCard::Group @isOptional={{true}} as |G|>
             <G.Legend>This is the legend</G.Legend>
             <G.RadioCard/>
-          </Hds::Form::RadioCard::Group>`
+          </Hds::Form::RadioCard::Group>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');

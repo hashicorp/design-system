@@ -32,7 +32,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`
+      hbs`<Hds::Form::RadioCard @checked="checked" @disabled="disabled" />`,
     );
     assert.dom('label').hasClass('hds-form-radio-card--checked');
     assert.dom('label').hasClass('hds-form-radio-card--disabled');
@@ -60,7 +60,7 @@ module('Integration | Component | hds/form/radio-card/index', function (hooks) {
             <R.Badge @text="badge"/>
             <R.Description>This is the description</R.Description>
             <R.Generic><div class="custom">This is the custom content</div></R.Generic>
-          </Hds::Form::RadioCard>`
+          </Hds::Form::RadioCard>`,
     );
     assert.dom('.hds-icon-hexagon').exists();
     assert.dom('.hds-form-radio-card__label').exists();

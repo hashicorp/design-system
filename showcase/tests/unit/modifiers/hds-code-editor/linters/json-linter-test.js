@@ -19,17 +19,17 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
     assert.strictEqual(
       findNextToken(doc, 0, 1),
       '{',
-      'Finds the next token correctly'
+      'Finds the next token correctly',
     );
     assert.strictEqual(
       findNextToken(doc, 2, 1),
       '{',
-      'Skips whitespace and finds next token'
+      'Skips whitespace and finds next token',
     );
     assert.strictEqual(
       findNextToken(doc, 3, 1),
       '',
-      'Returns empty string when out of bounds'
+      'Returns empty string when out of bounds',
     );
   });
 
@@ -41,7 +41,7 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
         errorToken: '',
       }),
       HdsCodeEditorJsonLintingError.KeyExpected,
-      'Detects missing key error'
+      'Detects missing key error',
     );
 
     assert.strictEqual(
@@ -51,7 +51,7 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
         errorToken: '',
       }),
       HdsCodeEditorJsonLintingError.MissingComma,
-      'Detects missing comma error'
+      'Detects missing comma error',
     );
 
     assert.strictEqual(
@@ -61,7 +61,7 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
         errorToken: '',
       }),
       HdsCodeEditorJsonLintingError.TrailingComma,
-      'Detects trailing comma error'
+      'Detects trailing comma error',
     );
   });
 
@@ -72,17 +72,17 @@ module('Unit | Modifier | hds-code-editor/linters/json-linter', function () {
 
     assert.ok(
       element.classList.contains('cm-diagnosticText-inner'),
-      'Has correct wrapper class'
+      'Has correct wrapper class',
     );
     assert.strictEqual(element.children.length, 2, 'Has two children');
     assert.ok(
       element.children[0].classList.contains('cm-lint-marker-error'),
-      'Has error icon'
+      'Has error icon',
     );
     assert.strictEqual(
       element.children[1].textContent,
       `Line ${lineNumber}: ${message}`,
-      'Has correct text content'
+      'Has correct text content',
     );
   });
 });

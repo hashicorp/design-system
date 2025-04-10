@@ -26,7 +26,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step>
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -43,7 +43,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step @status="complete">
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -60,7 +60,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step @status="progress">
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -77,7 +77,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step @status="processing">
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert
       .dom('.hds-stepper-list__step')
@@ -96,7 +96,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step>
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('div');
   });
@@ -107,7 +107,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step @titleTag="h2">
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-title').hasTagName('h2');
   });
@@ -121,7 +121,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List as |S|>
             <S.Step />
           </Hds::Stepper::List>
-        `
+        `,
     );
     assert.dom('.hds-stepper-indicator-step__text').hasText('1');
   });
@@ -134,7 +134,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step>
             <:title>Test</:title>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-title').containsText('Test');
   });
@@ -152,7 +152,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step>
             <:description>Test</:description>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-description').exists();
     assert.dom('.hds-stepper-list__step-description').containsText('Test');
@@ -171,7 +171,7 @@ module('Integration | Component | hds/stepper/list/step', function (hooks) {
           <Hds::Stepper::List::Step>
             <:content>Test</:content>
           </Hds::Stepper::List::Step>
-        `
+        `,
     );
     assert.dom('.hds-stepper-list__step-content').exists();
     assert.dom('.hds-stepper-list__step-content').containsText('Test');
