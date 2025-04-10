@@ -106,10 +106,10 @@ export default class ShowRoute extends Route {
           }
         });
 
-        // check if there are special needs for the page layout
-        const hasCover = frontmatter?.layout?.cover ?? true;
         // TODO! probably we should also check if we have TOC data for the sidecar
-        const hasSidecar = frontmatter?.layout?.sidecar ?? true;
+        const layout = frontmatter.layout || {}; // fallback to an empty object if layout is undefined
+        const hasCover = layout.cover ?? true;
+        const hasSidecar = layout.sidecar ?? true;
         const showContentId = `show-content-${res.data.id
           .replace(/\/index$/, '')
           .replaceAll('/', '-')}`;
