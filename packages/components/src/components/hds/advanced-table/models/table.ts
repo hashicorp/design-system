@@ -66,8 +66,6 @@ export default class HdsAdvancedTableTableModel {
   get expandState(): HdsAdvancedTableExpandState {
     if (this.allRowsAreOpen) {
       return true;
-    } else if (this.rows.some((row) => row.isOpen)) {
-      return 'mixed';
     } else {
       return false;
     }
