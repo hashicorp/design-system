@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, skip, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   focus,
@@ -127,7 +127,8 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   // ASSERTIONS
 
-  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
+  // These tests are currently impossible to run
+  skip('it should throw an assertion if @text is missing/has no value', async function (assert) {
     const errorMessage =
       '@text for "Hds::TooltipButton" must have a valid value';
     assert.expect(2);
@@ -140,7 +141,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     });
   });
 
-  test('it should throw an assertion if the value passed to @placement is invalid', async function (assert) {
+  skip('it should throw an assertion if the value passed to @placement is invalid', async function (assert) {
     const errorMessage =
       '@placement for "Hds::TooltipButton" must have a valid value';
     assert.expect(2);

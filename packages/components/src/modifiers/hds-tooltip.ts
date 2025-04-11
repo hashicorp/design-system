@@ -99,28 +99,32 @@ export default class HdsTooltipModifier extends Modifier<HdsTooltipModifierSigna
     assert('Tooltip must have an element', element);
 
     if (!this._didSetup) {
-      this.#setup(element, positional, named);
+      void this.#setup(element, positional, named);
       this._didSetup = true;
     }
 
-    this.#update(element, positional, named);
+    void this.#update(element, positional, named);
   }
 
-  #setup(
+  async #setup(
     element: HdsTooltipModifierSignature['Element'],
     positional: HdsTooltipModifierSignature['Args']['Positional'],
     named: HdsTooltipModifierSignature['Args']['Named']
-  ): void {
+  ): Promise<void> {
+    // This is a workaround to ensure we never autotrack
+    await Promise.resolve();
     this.#createPopoverContainer(element);
     const tooltipProps = this.#getTooltipProps(element, positional, named);
     this._tooltip = tippy(element, tooltipProps);
   }
 
-  #update(
+  async #update(
     element: HdsTooltipModifierSignature['Element'],
     positional: HdsTooltipModifierSignature['Args']['Positional'],
     named: HdsTooltipModifierSignature['Args']['Named']
-  ): void {
+  ): Promise<void> {
+    // This is a workaround to ensure we never autotrack
+    await Promise.resolve();
     const tooltipProps = this.#getTooltipProps(element, positional, named);
     this._tooltip?.setProps(tooltipProps);
   }
