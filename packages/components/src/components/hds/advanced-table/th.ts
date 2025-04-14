@@ -44,6 +44,8 @@ export interface HdsAdvancedTableThSignature {
     hasExpandAllButton?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    columnKey?: string;
+    onInsert?: (args: { element: HTMLDivElement; columnKey?: string }) => void;
   };
   Blocks: {
     default?: [];
@@ -147,6 +149,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
+    this.args.onInsert?.({ element, columnKey: this.args.columnKey });
   }
 
   private _manageExpandButton = modifier((button: HTMLButtonElement) => {

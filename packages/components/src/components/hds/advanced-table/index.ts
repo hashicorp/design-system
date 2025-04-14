@@ -115,6 +115,7 @@ export interface HdsAdvancedTableSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
     columns: HdsAdvancedTableColumn[];
+    columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
     isSelectable?: boolean;
@@ -140,6 +141,7 @@ export interface HdsAdvancedTableSignature {
         Td?: ComponentLike<HdsAdvancedTableTdSignature>;
         Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
         Th?: ComponentLike<HdsAdvancedTableThSignature>;
+        columns: HdsAdvancedTableColumn[];
         data?: Record<string, unknown>;
         rowIndex?: number | string;
         isOpen?: HdsAdvancedTableExpandState;
@@ -159,7 +161,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
-  private _tableModel!: HdsAdvancedTableTableModel;
   private _scrollHandler!: (event: Event) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
@@ -173,17 +174,15 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
 
-  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
-    super(owner, args);
-
-    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
-
-    this._tableModel = new HdsAdvancedTableTableModel({
+  get _tableModel(): HdsAdvancedTableTableModel {
+    const { model, childrenKey, columns, columnOrder, hasStickyFirstColumn } = this.args;
+    const tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
+      columnOrder,
     });
 
-    if (this._tableModel.hasRowsWithChildren) {
+    if (tableModel.hasRowsWithChildren) {
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
         (column) => column.label
@@ -199,6 +198,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         !hasStickyFirstColumn
       );
     }
+
+    return tableModel;
   }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -607,5 +608,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         selectedRowsCount > 0 && selectedRowsCount < selectableRowsCount;
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
     }
+  }
+
+  @action
+  registerCell({ element, columnKey }: { element: HTMLElement; columnKey?: string }) {
+    // console.log({ element });
   }
 }
