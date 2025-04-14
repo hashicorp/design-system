@@ -1,3 +1,7 @@
+## 4.18.2
+
+Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
+
 ## 4.18.1
 
 Added `@hasStickyFirstColumn` argument and shadows to indicate to users that it is possible to scroll.

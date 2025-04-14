@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.18.2
+
+**Patch changes**
+
+`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
+
+<small class="doc-whats-new-changelog-metadata">[#2811](https://github.com/hashicorp/design-system/pull/2811)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.18.1
 
 [4.18.1 documentation](https://hds-website-4-18-1.vercel.app/)
