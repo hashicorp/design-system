@@ -7,10 +7,16 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+interface HdsAdvancedTableCell {
+  columnKey: string;
+  value: unknown;
+}
+
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
   id?: string;
   childrenKey?: string;
+  columnOrder?: string[];
 }
 
 export default class HdsAdvancedTableRow {
@@ -20,6 +26,15 @@ export default class HdsAdvancedTableRow {
   [key: string]: unknown;
 
   @tracked isOpen: boolean = false;
+  @tracked cells: HdsAdvancedTableCell[] = [];
+  @tracked columnOrder: string[] = [];
+
+  get orderedCells() {
+    return this.columnOrder.map((key) => {
+      const cell = this.cells.find((cell) => cell.columnKey === key);
+      return cell ? { ...cell } : null;
+    });
+  }
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
@@ -33,6 +48,14 @@ export default class HdsAdvancedTableRow {
   }
 
   constructor(args: HdsAdvancedTableRowArgs) {
+    this.cells = Object.entries(args).map(([key, value]) => {
+      return {
+        columnKey: key,
+        value,
+      };
+    });
+    this.columnOrder = args.columnOrder ?? this.cells.map((cell) => cell.columnKey);
+
     // set row data
     Object.assign(this, args);
 

@@ -92,6 +92,7 @@
                   isParentRow=T.isExpandable
                   depth=T.depth
                   displayRow=T.shouldDisplayChildRows
+                  data=T.data
                 )
                 Th=(component
                   "hds/advanced-table/th"
@@ -102,9 +103,11 @@
                   parentId=T.parentId
                   scope="row"
                   onClickToggle=T.onClickToggle
+                  onInsert=this.registerCell
                 )
-                Td=(component "hds/advanced-table/td" align=@align)
+                Td=(component "hds/advanced-table/td" align=@align onInsert=this.registerCell)
                 data=T.data
+                columns=@columns
                 isOpen=T.isExpanded
                 rowIndex=T.rowIndex
               )
@@ -125,15 +128,18 @@
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                 hasStickyColumn=@hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
+                data=record
               )
               Th=(component
                 "hds/advanced-table/th"
                 scope="row"
                 isStickyColumn=@hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
+                onInsert=this.registerCell
               )
-              Td=(component "hds/advanced-table/td" align=@align)
+              Td=(component "hds/advanced-table/td" align=@align onInsert=this.registerCell)
               data=record
+              columns=@columns
               rowIndex=index
             )
             to="body"
