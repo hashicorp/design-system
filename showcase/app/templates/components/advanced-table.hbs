@@ -36,6 +36,52 @@
     <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
   </ul>
 
+  <button type="button" {{on "click" this.shuffleColumnOrder}}>Shuffle columns</button>
+
+  <Hds::AdvancedTable
+    @columnOrder={{this.columnOrder}}
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
+      (hash key="album" label="Album" tooltip="More information." isSortable=true)
+      (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
+      (hash key="other" label="Additional Actions")
+    }}
+  >
+    <:body as |B|>
+      <B.Tr as |R|>
+        {{#each R.orderedCells as |cell|}}
+          {{#if (eq cell.columnKey "artist")}}
+            <B.Th @columnKey="artist" @scope="row">
+              <Hds::Link::Inline @href="#showcase">
+                {{B.data.artist}}
+              </Hds::Link::Inline>
+            </B.Th>
+          {{else if (eq cell.columnKey "album")}}
+            <B.Td @columnKey="album">
+              <div class="shw-component-advanced-table-cell-content-div">
+                <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+                {{B.data.album}}
+              </div>
+            </B.Td>
+          {{else if (eq cell.columnKey "year")}}
+            <B.Td @columnKey="year">
+              <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+            </B.Td>
+          {{/if}}
+        {{/each}}
+
+        <B.Td @columnKey="other">
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
   <Hds::AdvancedTable
     @model={{this.model.music}}
     @columns={{array
@@ -47,17 +93,21 @@
   >
     <:body as |B|>
       <B.Tr>
-        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-        <B.Td>
+        <B.Th @columnKey="artist" @scope="row">
+          <Hds::Link::Inline @href="#showcase">
+            {{B.data.artist}}
+          </Hds::Link::Inline>
+        </B.Th>
+        <B.Td @columnKey="album">
           <div class="shw-component-advanced-table-cell-content-div">
             <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
             {{B.data.album}}
           </div>
         </B.Td>
-        <B.Td>
+        <B.Td @columnKey="year">
           <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
         </B.Td>
-        <B.Td>
+        <B.Td @columnKey="other">
           <Hds::ButtonSet>
             <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
             <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
