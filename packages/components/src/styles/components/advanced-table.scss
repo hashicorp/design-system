@@ -130,17 +130,15 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     // sticky column
 
     .hds-advanced-table__th--is-sticky-column {
+      position: sticky;
       // has a higher z-index than the sticky header content
       z-index: 7;
-
-      &:first-of-type {
-        position: sticky;
-      }
     }
 
     .hds-advanced-table__th--is-sticky-column-pinned {
       &:first-of-type {
         left: -1px;
+        // add extra left border to offset -1px and the 0.5px border from the table container being gone
         border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
       }
     }
@@ -152,9 +150,9 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
     .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
       + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
-      position: sticky;
       // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
       left: var(--hds-advanced-table-sticky-column-offset, 0);
+      border-left-width: $hds-advanced-table-border-width;
     }
 
     // border radius: target first and last th elements in the row
@@ -347,17 +345,15 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   // Sticky columns
   .hds-advanced-table__th--is-sticky-column {
+    position: sticky;
     // has a lower z-index than the sticky header
     z-index: 3;
-
-    &:first-of-type {
-      position: sticky;
-    }
   }
 
   .hds-advanced-table__th--is-sticky-column-pinned {
     &:first-of-type {
       left: -1px;
+      // add extra left border to offset -1px and the 0.5px border from the table container being gone
       border-left: calc(#{$hds-advanced-table-border-width} + 1px) solid $hds-advanced-table-border-color;
     }
   }
@@ -369,9 +365,9 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
   .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-selectable
     + .hds-advanced-table__th--is-sticky-column.hds-advanced-table__th--is-sticky-column-pinned {
-    position: sticky;
     // If there is a select column the variable gets set to the width of the select column via inline styles on the grid
     left: var(--hds-advanced-table-sticky-column-offset, 0);
+    border-left-width: $hds-advanced-table-border-width;
   }
 
   // horizontal alignment
