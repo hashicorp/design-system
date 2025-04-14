@@ -7,6 +7,8 @@
 // SIDE-NAV - VARS
 //
 
+@use "../../mixins/interactive-dark-theme" as *;
+
 // LOCAL VARIABLES
 // we use `hds-app` as prefix to distinguish them from the normal tokens
 // notice: they may be overwritten at consumer-level side if needed by re-defining the variables in a container element
@@ -25,11 +27,9 @@
   // toggle-button
   --hds-app-sidenav-toggle-button-width: 24px;
   // focus ring
-  --hds-app-sidenav-color-focus-action-internal: #bcc7fd;
-  --hds-app-sidenav-color-focus-action-external: #0d69f2;
-  --hds-app-sidenav-focus-ring-action-box-shadow:
-    inset 0 0 0 1px var(--hds-app-sidenav-color-focus-action-internal),
-    0 0 0 3px var(--hds-app-sidenav-color-focus-action-external);
+  --hds-app-sidenav-color-focus-action-internal: #{$hds-interactive-dark-theme-color-focus-action-internal};
+  --hds-app-sidenav-color-focus-action-external: #{$hds-interactive-dark-theme-color-focus-action-external};
+  --hds-app-sidenav-focus-ring-action-box-shadow: #{$hds-interactive-dark-theme-focus-ring-action-box-shadow};
 }
 
 // reduced motion
