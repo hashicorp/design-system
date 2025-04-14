@@ -68,21 +68,21 @@
             <B.Td @columnKey="year">
               <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
             </B.Td>
+          {{else if (eq cell.columnKey "other")}}
+            <B.Td @columnKey="other">
+              <Hds::ButtonSet>
+                <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+                <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+                <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+              </Hds::ButtonSet>
+            </B.Td>
           {{/if}}
         {{/each}}
-
-        <B.Td @columnKey="other">
-          <Hds::ButtonSet>
-            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
-            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
-            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
-          </Hds::ButtonSet>
-        </B.Td>
       </B.Tr>
     </:body>
   </Hds::AdvancedTable>
 
-  <Hds::AdvancedTable
+  {{!-- <Hds::AdvancedTable
     @model={{this.model.music}}
     @columns={{array
       (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
@@ -1977,6 +1977,6 @@
         </Shw::Flex>
       </SG.Item>
     {{/each}}
-  </Shw::Grid>
+  </Shw::Grid> --}}
 
 </section>

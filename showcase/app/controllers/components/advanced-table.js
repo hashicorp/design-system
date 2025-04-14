@@ -68,7 +68,7 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
-  @tracked columnOrder = ['artist', 'album', 'year'];
+  @tracked columnOrder = ['artist', 'album', 'year', 'other'];
 
   @action shuffleColumnOrder() {
     this.columnOrder = shuffleArray(this.columnOrder);
