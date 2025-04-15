@@ -36,18 +36,12 @@
     <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
   </ul>
 
-  <button type="button" {{on "click" this.shuffleColumnOrder}}>Shuffle columns</button>
+  <Hds::Layout::Flex>
+    <button type="button" {{on "click" this.shuffleColumnOrder}}>Shuffle columns</button>
+    <button type="button" {{on "click" this.resizeColumnWidth}}>Resize columns</button>
+  </Hds::Layout::Flex>
 
-  <Hds::AdvancedTable
-    @columnOrder={{this.columnOrder}}
-    @model={{this.model.music}}
-    @columns={{array
-      (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
-      (hash key="album" label="Album" tooltip="More information." isSortable=true)
-      (hash key="year" label="Release Year" tooltip="More information." isSortable=true)
-      (hash key="other" label="Additional Actions")
-    }}
-  >
+  <Hds::AdvancedTable @columnOrder={{this.columnOrder}} @model={{this.model.music}} @columns={{this.spikeColumns}}>
     <:body as |B|>
       <B.Tr as |R|>
         {{#each R.orderedCells as |cell|}}

@@ -70,8 +70,42 @@ export default class ComponentsTableController extends Controller {
   @tracked focusableElementsVisible = false;
   @tracked columnOrder = ['artist', 'album', 'year', 'other'];
 
+  @tracked spikeColumns = [
+    {
+      key: 'artist',
+      label: 'Artist',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    {
+      key: 'album',
+      label: 'Album',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    {
+      key: 'year',
+      label: 'Release Year',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    { key: 'other', label: 'Additional Actions' },
+  ];
+
   @action shuffleColumnOrder() {
     this.columnOrder = shuffleArray(this.columnOrder);
+  }
+  @action resizeColumnWidth() {
+    this.spikeColumns = this.spikeColumns.map((column) => {
+      if (column.width !== undefined) {
+        column.width = `${Math.floor(Math.random() * 200) + 120}px`;
+      }
+
+      return column;
+    });
   }
 
   get clustersWithExtraData() {
