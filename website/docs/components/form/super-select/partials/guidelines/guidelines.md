@@ -43,7 +43,7 @@ Placeholder text can be added to the trigger to provide the user additional cont
 
 When one or more values are selected, the trigger is populated with the selected value(s). One or more values can be pre-selected before user interaction, as needed. It is important to note that the selected values in the trigger are displayed in the order chosen by the user. 
 
-In the SuperSelect Multiple component, a selected counter is visible only when one or more selections have been made.
+In the SuperSelect Multiple component, a count of the number of selected items displays when one or more selections have been made.
 
 ![Showing preselected options in both a single and multiple variant. This helps show something has been preselected previously and the user can update their options](/assets/components/form/super-select/super-select-trigger-filled.png)
 
