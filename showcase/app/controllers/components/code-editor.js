@@ -164,6 +164,12 @@ SELECT 'Enjoy coding!';`,
   }
 
   @action
+  setBadJsonCode(value) {
+    console.log('Bad JSON code:', value);
+    this.badJsonCode = value;
+  }
+
+  @action
   handleLint(diagnostics) {
     console.log('Lint diagnostics:', diagnostics);
   }
