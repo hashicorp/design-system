@@ -91,7 +91,7 @@ const getScrollIndicatorDimensions = (
     left: `${leftOffset}px`,
     right: `${verticalScrollBarWidth}px`,
     top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
-    width: `${scrollWrapper.offsetHeight - verticalScrollBarWidth}px`,
+    width: `${scrollWrapper.offsetWidth - verticalScrollBarWidth}px`,
   };
 };
 
