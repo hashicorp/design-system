@@ -109,10 +109,10 @@ export default async function jsonLinter(
     import('@codemirror/lint'),
   ]);
 
-  const jsonLinter = linter((view) => {
+  const jsonLinter = linter((editor) => {
     const diagnostics: DiagnosticType[] = [];
-    const doc = view.state.doc;
-    const tree = syntaxTree(view.state);
+    const doc = editor.state.doc;
+    const tree = syntaxTree(editor.state);
     const seenLines = new Set();
 
     tree.cursor().iterate((node) => {
@@ -141,7 +141,7 @@ export default async function jsonLinter(
       }
     });
 
-    onLint?.(diagnostics);
+    onLint?.(diagnostics, editor.state.doc.toString(), editor);
 
     return diagnostics;
   });
