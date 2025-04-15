@@ -8,12 +8,14 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 import type {
+  HdsAdvancedTableColumn,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
+  columns: HdsAdvancedTableColumn[];
   childrenKey?: string;
   columnOrder?: string[];
 }
@@ -35,17 +37,42 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
+  @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked columnOrder: string[] = [];
 
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey, columnOrder } = args;
+    const { model, childrenKey, columns, columnOrder } = args;
 
-    this.columnOrder = columnOrder ?? [];
+    this.columns = columns;
+    this.columnOrder = columnOrder ?? this.columns.map((column) => {
+      // todo: make this work without column keys correctly
+      return column.key ?? '';
+    });
 
     this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey, columnOrder: this.columnOrder });
+      return new HdsAdvancedTableRow({
+        ...row,
+        childrenKey,
+        columns,
+        columnOrder: this.columnOrder
+      });
+    });
+  }
+
+  get orderedColumns(): HdsAdvancedTableColumn[] {
+    return this.columnOrder.map((key) => {
+      const column = this.columns.find((column) => column.key === key);
+      
+      return column ?? {
+        key,
+        label: '',
+        isSortable: false,
+        isVisuallyHidden: false,
+        align: 'left',
+        width: 'auto',
+      };
     });
   }
 

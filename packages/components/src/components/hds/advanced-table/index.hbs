@@ -38,7 +38,7 @@
         @hasStickyColumn={{@hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each @columns as |column index|}}
+        {{#each this._tableModel.orderedColumns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
@@ -115,10 +115,8 @@
             }}
           </Hds::AdvancedTable::ExpandableTrGroup>
         {{else}}
-          {{yield
-            (hash
-              Tr=(component
-                "hds/advanced-table/tr"
+          {{! @glint-ignore: Temporarily ignore deep type instantiation error }}
+          {{yield (hash Tr=(component "hds/advanced-table/tr"
                 selectionScope="row"
                 isLastRow=(eq this._tableModel.lastVisibleRow.id record.id)
                 isSelectable=this.isSelectable
