@@ -56,10 +56,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   }
 
   get resultCountMessage(): string {
-    return (
-      this.args.resultCountMessage ||
-      `${this.optionsCount} total`
-    );
+    return this.args.resultCountMessage || `${this.optionsCount} total`;
   }
 
   @action calculatePosition(
@@ -126,7 +123,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     return this.args.searchPlaceholder ?? 'Search';
   }
 
-  get styles(): Record<string,string> {
+  get styles(): Record<string, string> {
     const styles: { [key: string]: string } = {};
 
     if (this.args.dropdownMaxWidth) {
@@ -140,7 +137,8 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
       styles['--hds-form-super-select-selected-text-display'] = 'flex';
     }
 
-    styles['--hds-form-super-select-selected-text'] = `'${this.selectedCount} selected'`
+    styles['--hds-form-super-select-selected-text'] =
+      `'${this.selectedCount} selected'`;
 
     return styles;
   }
