@@ -5,7 +5,6 @@
 
 import Component from '@glimmer/component';
 import { ID_PREFIX } from '../../label/index.ts';
-import { guidFor } from '@ember/object/internals';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsFormErrorSignature } from '../../error/index.ts';
@@ -35,19 +34,7 @@ export interface HdsFormSuperSelectMultipleFieldSignature {
 }
 
 export default class HdsFormSuperSelectMultipleField extends Component<HdsFormSuperSelectMultipleFieldSignature> {
-  private _instructionsId = 'instructions-' + guidFor(this);
-
   get idPrefix(): string {
     return ID_PREFIX;
-  }
-
-  get extraAriaDescribedBy(): string {
-    const describedByIds = [this._instructionsId]
-
-    if (this.args.extraAriaDescribedBy) {
-      describedByIds.push(this.args.extraAriaDescribedBy)
-    }
-
-    return describedByIds.join(' ');
   }
 }
