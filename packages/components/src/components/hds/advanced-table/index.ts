@@ -179,6 +179,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
+      columns,
       columnOrder,
     });
 
