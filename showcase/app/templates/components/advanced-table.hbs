@@ -48,13 +48,13 @@
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
-        <B.Td @columnKey="album">
+        <B.Td>
           <div class="shw-component-advanced-table-cell-content-div">
             <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
             {{B.data.album}}
           </div>
         </B.Td>
-        <B.Td @columnKey="year">
+        <B.Td>
           <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
         </B.Td>
         <B.Td>
