@@ -9,15 +9,6 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
 
-function shuffleArray(array) {
-  const shuffled = array.slice(); // make a copy to avoid mutating the original
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // swap
-  }
-  return shuffled;
-}
-
 // we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
   'failing',
@@ -68,11 +59,6 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
-  @tracked columnOrder = ['artist', 'album', 'year'];
-
-  @action shuffleColumnOrder() {
-    this.columnOrder = shuffleArray(this.columnOrder);
-  }
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {
