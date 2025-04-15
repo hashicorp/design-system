@@ -58,7 +58,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   get resultCountMessage(): string {
     return (
       this.args.resultCountMessage ||
-      `${this.selectedCount} selected of ${this.optionsCount} total`
+      `${this.optionsCount} total`
     );
   }
 
