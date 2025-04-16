@@ -38,6 +38,9 @@ importers:
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
+      prettier-plugin-ember-template-tag:
+        specifier: ^2.0.5
+        version: 2.0.5(prettier@3.5.3)
 
   packages/codemods:
     dependencies:

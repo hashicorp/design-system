@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.25.9",
+    "prettier-plugin-ember-template-tag": "^2.0.5",
     "@changesets/cli": "^2.27.11",
     "@changesets/get-github-info": "^0.6.0",
     "@glint/core": "^1.5.2",
