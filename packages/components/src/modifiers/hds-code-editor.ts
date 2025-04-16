@@ -57,7 +57,11 @@ export interface HdsCodeEditorSignature {
       value?: string;
       onInput?: (newValue: string, editor: EditorViewType) => void;
       onBlur?: HdsCodeEditorBlurHandler;
-      onLint?: (diagnostics: DiagnosticType[], newValue: string, editor: EditorViewType) => void;
+      onLint?: (
+        diagnostics: DiagnosticType[],
+        newValue: string,
+        editor: EditorViewType
+      ) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
