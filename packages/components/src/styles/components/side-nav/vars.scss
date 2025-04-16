@@ -27,6 +27,7 @@
   // toggle-button
   --hds-app-sidenav-toggle-button-width: 24px;
   // focus ring
+  // TODO: Remove focus tokens once global tokens for dark themes are implemented
   --hds-app-sidenav-color-focus-action-internal: #{$hds-interactive-dark-theme-color-focus-action-internal};
   --hds-app-sidenav-color-focus-action-external: #{$hds-interactive-dark-theme-color-focus-action-external};
   --hds-app-sidenav-focus-ring-action-box-shadow: #{$hds-interactive-dark-theme-focus-ring-action-box-shadow};

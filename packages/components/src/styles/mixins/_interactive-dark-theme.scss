@@ -6,6 +6,7 @@
 @use "../mixins/focus-ring" as *;
 @use "../mixins/button" as *;
 
+// TODO: Remove focus tokens once global tokens for dark themes are implemented
 $hds-interactive-dark-theme-color-focus-action-internal: #bcc7fd;
 $hds-interactive-dark-theme-color-focus-action-external: #0d69f2;
 $hds-interactive-dark-theme-focus-ring-action-box-shadow:
