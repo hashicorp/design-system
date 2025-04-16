@@ -22,18 +22,6 @@
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
-
-<small class="doc-whats-new-changelog-metadata">[#2818](https://github.com/hashicorp/design-system/pull/2818)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
-
-<small class="doc-whats-new-changelog-metadata">[#2820](https://github.com/hashicorp/design-system/pull/2820)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
 `AdvancedTable` - Fixed styling issues with the sticky column and scroll indicators.
 
 <small class="doc-whats-new-changelog-metadata">[#2821](https://github.com/hashicorp/design-system/pull/2821)</small>
