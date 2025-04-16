@@ -86,7 +86,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       },
     });
 
-    assert.ok(inputSpy.calledOnceWith('Test string'));
+    assert.ok(inputSpy.calledOnceWith('Test string', this.editorView));
   });
 
   // onLint
@@ -99,13 +99,18 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     });
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`
     );
 
     // we know linting is complete when the error marker is rendered
     await waitFor('.cm-lint-marker-error');
 
-    assert.ok(lintSpy.calledOnce);
+    const [diagnostics, value, editor] = lintSpy.firstCall.args;
+
+    assert.strictEqual(diagnostics.length, 1);
+    assert.strictEqual(diagnostics[0].message, 'Invalid syntax');
+    assert.strictEqual(value, this.editorView.state.doc.toString());
+    assert.deepEqual(editor, this.editorView);
   });
 
   // ariaDescribedBy

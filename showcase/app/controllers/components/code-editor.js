@@ -164,7 +164,10 @@ SELECT 'Enjoy coding!';`,
   }
 
   @action
-  handleLint(diagnostics) {
-    console.log('Lint diagnostics:', diagnostics);
+  handleLint(diagnostics, value) {
+    console.log({
+      'Lint diagnostics': diagnostics,
+      'Lint value': value,
+    });
   }
 }

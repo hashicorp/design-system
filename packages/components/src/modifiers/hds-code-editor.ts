@@ -55,9 +55,13 @@ export interface HdsCodeEditorSignature {
       isLintingEnabled?: boolean;
       language?: HdsCodeEditorLanguages;
       value?: string;
-      onInput?: (newVal: string) => void;
+      onInput?: (newValue: string, editor: EditorViewType) => void;
       onBlur?: HdsCodeEditorBlurHandler;
-      onLint?: (diagnostics: DiagnosticType[]) => void;
+      onLint?: (
+        diagnostics: DiagnosticType[],
+        newValue: string,
+        editor: EditorViewType
+      ) => void;
       onSetup?: (editor: EditorViewType) => unknown;
     };
   };
@@ -428,7 +432,7 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
           if (!update.docChanged || this.onInput === undefined) {
             return;
           }
-          this.onInput(update.state.doc.toString());
+          this.onInput(update.state.doc.toString(), update.view);
         }
       );
 
