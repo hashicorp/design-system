@@ -609,9 +609,4 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this._isSelectAllCheckboxSelected = this._selectAllCheckbox.checked;
     }
   }
-
-  @action
-  registerCell({ element, columnKey }: { element: HTMLElement; columnKey?: string }) {
-    // console.log({ element });
-  }
 }

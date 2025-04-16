@@ -103,9 +103,8 @@
                   parentId=T.parentId
                   scope="row"
                   onClickToggle=T.onClickToggle
-                  onInsert=this.registerCell
                 )
-                Td=(component "hds/advanced-table/td" align=@align onInsert=this.registerCell)
+                Td=(component "hds/advanced-table/td" align=@align)
                 data=T.data
                 columns=@columns
                 isOpen=T.isExpanded
@@ -133,9 +132,8 @@
                 scope="row"
                 isStickyColumn=@hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
-                onInsert=this.registerCell
               )
-              Td=(component "hds/advanced-table/td" align=@align onInsert=this.registerCell)
+              Td=(component "hds/advanced-table/td" align=@align)
               data=record
               columns=@columns
               rowIndex=index
