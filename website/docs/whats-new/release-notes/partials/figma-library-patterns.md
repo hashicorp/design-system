@@ -16,6 +16,7 @@
 
 Released HDS Patterns UI Kit v2.0.
 
+
 ---
 
 _[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-PATTERNS.md)_

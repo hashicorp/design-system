@@ -1,5 +1,41 @@
 # @hashicorp/design-system-components
 
+## 4.18.2
+
+### Patch Changes
+
+`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
+
+<small class="doc-whats-new-changelog-metadata">[#2811](https://github.com/hashicorp/design-system/pull/2811)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
+
+<small class="doc-whats-new-changelog-metadata">[#2818](https://github.com/hashicorp/design-system/pull/2818)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
+
+<small class="doc-whats-new-changelog-metadata">[#2820](https://github.com/hashicorp/design-system/pull/2820)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Fixed styling issues with the sticky column and scroll indicators.
+
+<small class="doc-whats-new-changelog-metadata">[#2821](https://github.com/hashicorp/design-system/pull/2821)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`hds-code-editor` - Added the value and `EditorView` instance as arguments for the `onLint` callback. Added the `EditorView` instance as an argument to the `onInput` callback.
+
+`CodeEditor` - Added the value and `EditorView` instance as arguments for the `onLint` callback. Added the `EditorView` instance as an argument to the `onInput` callback.
+
+<small class="doc-whats-new-changelog-metadata">[#2825](https://github.com/hashicorp/design-system/pull/2825)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.18.1
 
 [4.18.1 documentation](https://hds-website-4-18-1.vercel.app/)

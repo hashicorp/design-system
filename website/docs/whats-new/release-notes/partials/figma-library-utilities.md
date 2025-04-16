@@ -24,6 +24,7 @@ Released [HDS Wireframes UI Kit](https://www.figma.com/design/w0ukydeAsbv6sJirLx
 
 Released [HDS A11y Helper Annotations Kit](https://www.figma.com/design/EEfM1jjqLfUv59eYLopn5x/HDS-A11Y-Helper-UI-Kit?m=auto)
 
+
 ---
 
 _[Read the full changelog](https://github.com/hashicorp/design-system/blob/main/packages/components/CHANGELOG-FIGMA-UTILITIES.md)_
