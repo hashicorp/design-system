@@ -141,7 +141,7 @@ export default async function jsonLinter(
       }
     });
 
-    onLint?.(diagnostics, editor.state.doc.toString(), editor);
+    onLint?.(diagnostics, doc.toString(), editor);
 
     return diagnostics;
   });
