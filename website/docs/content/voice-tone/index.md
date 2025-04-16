@@ -5,14 +5,16 @@ description: How we speak to our users and what we say.
 previewImage: assets/illustrations/content/voice-and-tone.jpg
 layout:
   sidecar: false
+navigation:
+  order: 100
 ---
 
 **The HashiCorp voice** reflects our personality and is **what** we say to our users. Our voice stays consistent across all of our content.
 
 **Our tone** is how we speak and say things to our users. Tone sets the mood of your writing and can change depending on the type of content you’re creating.
 
-<Doc::Layout @spacing="12px">
-    <div class="doc-do-dont doc-do-dont--type-do" style="width: calc(50% - 6px)">
+<div class="doc-do-dont-row">
+    <div class="doc-do-dont doc-do-dont--type-do">
         <div class="doc-do-dont__badge">Do</div>
         <div class="doc-do-dont__content">
             <ul>
@@ -24,7 +26,7 @@ layout:
             </ul>
         </div>
     </div>
-    <div class="doc-do-dont doc-do-dont--type-dont" style="width: calc(50% - 6px)">
+    <div class="doc-do-dont doc-do-dont--type-dont">
         <div class="doc-do-dont__badge">Don't</div>
         <div class="doc-do-dont__content">
             <ul>
@@ -36,4 +38,4 @@ layout:
             </ul>
         </div>
     </div>
-</Doc::Layout>
+</div>
