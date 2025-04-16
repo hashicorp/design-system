@@ -35,7 +35,6 @@ $hds-code-block-code-padding: 16px;
     word-spacing: normal;
     tab-size: 4;
     hyphens: none;
-    scrollbar-width: thin;
 
     @media print {
       text-shadow: none;
@@ -47,6 +46,7 @@ $hds-code-block-code-padding: 16px;
 
 // isStandalone
 .hds-code-block--is-standalone {
+  overflow: hidden; // hide corners of scrollbar that poke out
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -125,6 +125,20 @@ $hds-code-block-code-padding: 16px;
   border-radius: inherit;
 }
 
+.hds-code-block__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px $hds-code-block-code-padding;
+  border-top: 1px solid var(--hds-code-block-color-border-primary);
+}
+
+.hds-code-block__height-toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // Code
 .hds-code-block__code {
   @include hds-focus-ring-basic();
@@ -132,6 +146,8 @@ $hds-code-block-code-padding: 16px;
   margin: 0;
   padding: $hds-code-block-code-padding;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
   font-size: 0.8125rem;
   font-family: var(--token-typography-code-200-font-family);
   border-radius: inherit;

@@ -231,7 +231,7 @@ console.log(`I am ${codeLang} code`);"
 
   <Shw::Text::H3>Height limit</Shw::Text::H3>
 
-  <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
     <SG.Item @label="maxHeight='105px'" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
@@ -289,6 +289,11 @@ function assertObjectsEqual (actual, expected, testName) {
         <CB.Title>Title</CB.Title>
         <CB.Description>Description</CB.Description>
       </Hds::CodeBlock>
+      {{! template-lint-enable no-whitespace-for-layout }}
+    </SG.Item>
+    <SG.Item @label="maxHeight='105px' with short content that does not overflow" @forceMinWidth={{true}}>
+      {{! template-lint-disable no-whitespace-for-layout }}
+      <Hds::CodeBlock @language="javascript" @maxHeight="105px" @value="convertObjectToArray(obj);" />
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
   </Shw::Grid>
