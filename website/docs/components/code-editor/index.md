@@ -29,7 +29,7 @@ navigation:
     - highlight
     - block
 status:
-  updated: 4.18.1
+  updated: 4.18.2
 ---
 
 <section data-tab="Guidelines">

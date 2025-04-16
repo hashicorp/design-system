@@ -1,3 +1,7 @@
+## 4.18.2
+
+Added the value and `EditorView` instance as arguments for the `onLint` callback. Added the `EditorView` instance as an argument to the `onInput` callback.
+
 ## 4.18.1
 
 Add `@extraKeys` argument which supports custom keybinding
