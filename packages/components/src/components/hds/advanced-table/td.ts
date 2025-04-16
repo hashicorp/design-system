@@ -25,7 +25,6 @@ export interface HdsAdvancedTableTdSignature {
     rowspan?: number;
     columnKey?: string;
     colspan?: number;
-    onInsert: (args: { element: HdsAdvancedTableTdElement; columnKey?: string }) => void;
   };
   Blocks: {
     default?: [];
@@ -90,6 +89,5 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
-    this.args.onInsert?.({ element, columnKey: this.args.columnKey });
   }
 }
