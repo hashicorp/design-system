@@ -71,6 +71,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @tracked private _prismCode: SafeString = htmlSafe('');
   @tracked private _isExpanded: boolean = false;
   @tracked private _codeContentHeight: number = 0;
+  @tracked private _codeContainerHeight: number = 0;
 
   // Generates a unique ID for the code content
   private _preCodeId = 'pre-code-' + guidFor(this);
@@ -96,10 +97,10 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     return this._isExpanded ? 'none' : this.args.maxHeight;
   }
 
-  // Shows footer if maxHeight is set and its value is less than the height of the pre tag content
+  // Shows footer if maxHeight is set and the pre tag content height is greater than the pre tag height
   get showFooter(): boolean {
     if (this.args.maxHeight) {
-      return this._codeContentHeight > parseInt(this.args.maxHeight, 10);
+      return this._codeContentHeight > this._codeContainerHeight;
     }
     return false;
   }
@@ -151,9 +152,13 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           element,
         });
 
-        // Get the height of the preCodeElement
-        const preCodeElement = document.getElementById(this._preCodeId);
-        this._codeContentHeight = preCodeElement?.scrollHeight ?? 0;
+        // Get the actual height & the content height of the preCodeElement
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          const preCodeElement = document.getElementById(this._preCodeId);
+          this._codeContentHeight = preCodeElement?.scrollHeight ?? 0;
+          this._codeContainerHeight = preCodeElement?.clientHeight ?? 0;
+        });
 
         // Force prism-line-highlight plugin initialization
         // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
