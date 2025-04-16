@@ -233,6 +233,63 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       .hasAttribute('style', 'max-height: 100px;');
   });
 
+  test('it displays a "Show more" button if the height of the code content is greater than the maxHeight', async function (assert) {
+    // Note: We set a very small maxHeight to ensure the code block is scrollable
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @maxHeight="5px" />
+    `);
+    assert
+      .dom('.hds-code-block__height-toggle-button')
+      .exists()
+      .hasText('Show more');
+  });
+
+  test('it does not display a height toggle button if the height of the code content is less than the maxHeight', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @maxHeight="100px" />
+    `);
+    assert.dom('.hds-code-block__height-toggle-button').doesNotExist();
+  });
+
+  test('it expands to show all content and displays a "Show less" button when "Show more" is clicked', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @maxHeight="5px" />
+    `);
+
+    await click('.hds-code-block__height-toggle-button');
+
+    assert
+      .dom('.hds-code-block__code')
+      .hasAttribute('style', 'max-height: none;');
+    assert
+      .dom('.hds-code-block__height-toggle-button')
+      .exists()
+      .hasText('Show less');
+  });
+
+  test('it collapses to show less content and displays a "Show more" button when "Show less" is clicked', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @maxHeight="5px" />
+    `);
+
+    await click('.hds-code-block__height-toggle-button');
+
+    assert
+      .dom('.hds-code-block__height-toggle-button')
+      .exists()
+      .hasText('Show less');
+
+    await click('.hds-code-block__height-toggle-button');
+
+    assert
+      .dom('.hds-code-block__code')
+      .hasAttribute('style', 'max-height: 5px;');
+    assert
+      .dom('.hds-code-block__height-toggle-button')
+      .exists()
+      .hasText('Show more');
+  });
+
   // ASSERTION
 
   test('it should throw an assertion if no value for @code is provided', async function (assert) {

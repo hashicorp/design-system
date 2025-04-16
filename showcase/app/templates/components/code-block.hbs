@@ -292,9 +292,7 @@ function assertObjectsEqual (actual, expected, testName) {
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
     <SG.Item @label="maxHeight='105px' with short content that does not overflow" @forceMinWidth={{true}}>
-      {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock @language="javascript" @maxHeight="105px" @value="convertObjectToArray(obj);" />
-      {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
   </Shw::Grid>
 
