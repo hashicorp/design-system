@@ -14,6 +14,8 @@
 
 ## 4.18.2
 
+[4.18.2 documentation](https://hds-website-4-18-2.vercel.app/)
+
 **Patch changes**
 
 `AdvancedTable` - Improved accessibility by removing usage of `aria-expanded="mixed"` and moving the caption outside of the element with `role="grid"`.
