@@ -87,11 +87,11 @@ const getScrollIndicatorDimensions = (
 
   return {
     bottom: `${horizontalScrollBarHeight}px`,
-    height: `${scrollWrapper.clientHeight - horizontalScrollBarHeight}px`,
+    height: `${scrollWrapper.offsetHeight - horizontalScrollBarHeight}px`,
     left: `${leftOffset}px`,
     right: `${verticalScrollBarWidth}px`,
     top: hasStickyHeader ? `${theadElement.offsetHeight}px` : '0px',
-    width: `${scrollWrapper.clientWidth - verticalScrollBarWidth}px`,
+    width: `${scrollWrapper.offsetWidth - verticalScrollBarWidth}px`,
   };
 };
 
@@ -106,8 +106,7 @@ const getStickyColumnLeftOffset = (
     '.hds-advanced-table__th--is-selectable'
   ) as HTMLElement;
 
-  // otherwise, the left offset is the width of the select checkbox column + 0.5px for the border
-  return `${selectableCell?.offsetWidth + 0.5}px`;
+  return `${selectableCell?.offsetWidth}px`;
 };
 
 export interface HdsAdvancedTableSignature {
