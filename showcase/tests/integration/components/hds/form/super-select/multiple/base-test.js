@@ -58,7 +58,7 @@ module(
         .dom(
           '.hds-form-super-select__after-options .hds-form-super-select__result-count'
         )
-        .hasText('0 selected of 3 total');
+        .hasText('3 total');
       assert
         .dom('.hds-form-super-select__after-options .hds-button')
         .hasText('Show selected');
@@ -75,11 +75,7 @@ module(
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       await selectChoose('#test-super-select-multiple', 'Option 1');
       await selectChoose('#test-super-select-multiple', 'Option 2');
-      assert
-        .dom(
-          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
-        )
-        .hasText('2 selected of 3 total');
+
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
 
       // click 'Show selected'
@@ -103,11 +99,6 @@ module(
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       await selectChoose('#test-super-select-multiple', 'Option 1');
       await selectChoose('#test-super-select-multiple', 'Option 2');
-      assert
-        .dom(
-          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
-        )
-        .hasText('2 selected of 3 total');
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
       assert.dom('.hds-form-super-select__no-options-selected').doesNotExist();
 
@@ -118,11 +109,6 @@ module(
       assert
         .dom('.ember-power-select-option[aria-selected="true"]')
         .doesNotExist();
-      assert
-        .dom(
-          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
-        )
-        .hasText('0 selected of 3 total');
 
       // click 'Show selected'
       await click(
@@ -217,7 +203,7 @@ module(
         .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
-          '--hds-form-super-select-dropdown-max-width: 40em;'
+          "--hds-form-super-select-dropdown-max-width: 40em; --hds-form-super-select-selected-text-display: none; --hds-form-super-select-selected-text: '0 selected';"
         );
     });
 
