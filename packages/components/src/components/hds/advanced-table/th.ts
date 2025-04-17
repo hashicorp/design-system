@@ -44,6 +44,7 @@ export interface HdsAdvancedTableThSignature {
     hasExpandAllButton?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    columnKey?: string;
   };
   Blocks: {
     default?: [];

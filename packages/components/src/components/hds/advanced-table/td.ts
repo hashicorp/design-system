@@ -18,16 +18,18 @@ export const ALIGNMENTS: string[] = Object.values(
 );
 export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
+type HdsAdvancedTableTdElement = HTMLDivElement;
 export interface HdsAdvancedTableTdSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     rowspan?: number;
+    columnKey?: string;
     colspan?: number;
   };
   Blocks: {
     default?: [];
   };
-  Element: HTMLDivElement;
+  Element: HdsAdvancedTableTdElement;
 }
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;

@@ -9,6 +9,15 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { later } from '@ember/runloop';
 
+function shuffleArray(array) {
+  const shuffled = array.slice(); // make a copy to avoid mutating the original
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]; // swap
+  }
+  return shuffled;
+}
+
 // we use an array to declare the custom sorting order for the clusters' status
 const customSortingCriteriaArray = [
   'failing',
@@ -59,6 +68,45 @@ export default class ComponentsTableController extends Controller {
   @tracked multiSelectUsersCurrentPageSize_demo3 = 4;
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
+  @tracked columnOrder = ['artist', 'album', 'year', 'other'];
+
+  @tracked spikeColumns = [
+    {
+      key: 'artist',
+      label: 'Artist',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    {
+      key: 'album',
+      label: 'Album',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    {
+      key: 'year',
+      label: 'Release Year',
+      tooltip: 'More information.',
+      isSortable: true,
+      width: '200px',
+    },
+    { key: 'other', label: 'Additional Actions' },
+  ];
+
+  @action shuffleColumnOrder() {
+    this.columnOrder = shuffleArray(this.columnOrder);
+  }
+  @action resizeColumnWidth() {
+    this.spikeColumns = this.spikeColumns.map((column) => {
+      if (column.width !== undefined) {
+        column.width = `${Math.floor(Math.random() * 200) + 120}px`;
+      }
+
+      return column;
+    });
+  }
 
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {
