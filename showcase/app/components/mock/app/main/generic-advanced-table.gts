@@ -519,7 +519,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   }
 
   <template>
-    <div class="mock-app-main-generic-advanced-table">
+    <div class="mock-app-main-generic-advanced-table-wrapper">
       <HdsAdvancedTable
         @columns={{this.demoColumns}}
         @model={{this.demoModel}}
