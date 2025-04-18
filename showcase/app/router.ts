@@ -68,6 +68,7 @@ Router.map(function () {
       this.route('nav');
     });
     this.route('table');
+    this.route('table-multi-select-bug');
     this.route('tag');
     this.route('text');
     this.route('time');
