@@ -151,11 +151,14 @@ $hds-code-block-code-padding: 16px;
       position: sticky; // prevent gradient from scrolling together with content
       bottom: 0;
       display: block;
-      height: 52px; // matches height of height toggle button plus additional padding
+      height: 50px;
       background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
       content: "";
       pointer-events: none;
     }
+
+    // reduce the amount of space at the bottom of the code block when user scrolls to the bottom
+    code { padding-bottom: 0; }
   }
 }
 
