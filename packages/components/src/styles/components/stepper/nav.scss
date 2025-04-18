@@ -104,6 +104,12 @@ $progress-bar-animation-duration: 0.25s;
   color: var(--token-color-foreground-faint);
 }
 
+// STEPPER > NAV > PANEL
+
+.hds-stepper-nav__panel {
+  margin-top: 24px;
+}
+
 // STATUSES
 
 // Complete & Active
