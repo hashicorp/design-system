@@ -132,6 +132,10 @@ $hds-code-block-code-bottom-gradient-height: 50px;
 }
 
 .hds-code-block__overlay-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,13 +143,6 @@ $hds-code-block-code-bottom-gradient-height: 50px;
 }
 
 .hds-code-block--has-overflow {
-  .hds-code-block__overlay-footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
   .hds-code-block__code {
     // gradient to add contrast for button & indicate overflow
     &::after {
@@ -163,7 +160,9 @@ $hds-code-block-code-bottom-gradient-height: 50px;
       padding-bottom: 0;
     }
   }
+}
 
+.hds-code-block--has-overlay-footer {
   // make border extend to bottom of the code block
   &.hds-code-block.line-numbers .line-numbers-rows {
     padding-bottom: $hds-code-block-code-bottom-gradient-height;
