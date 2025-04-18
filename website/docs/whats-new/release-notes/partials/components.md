@@ -12,6 +12,26 @@
   </a>
 </p>
 
+## 4.19.0
+
+**Minor changes**
+
+`CodeBlock` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+`CodeEditor` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+`SideNav` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+<small class="doc-whats-new-changelog-metadata">[#2819](https://github.com/hashicorp/design-system/pull/2819)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::SuperSelect::Multiple` - Updated the design to improve the experience when many items are selected.
+
+<small class="doc-whats-new-changelog-metadata">[#2824](https://github.com/hashicorp/design-system/pull/2824)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.18.2
 
 [4.18.2 documentation](https://hds-website-4-18-2.vercel.app/)
@@ -1371,14 +1391,6 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@5.1.0
-
-## 4.4.1
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.0.3
 
 
 ---
