@@ -97,7 +97,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     return this._isExpanded ? 'none' : this.args.maxHeight;
   }
 
-  // Shows footer if maxHeight is set and the pre tag content height is greater than the pre tag height
+  // Shows overlay footer if maxHeight is set and the pre tag content height is greater than the pre tag height
   get showFooter(): boolean {
     if (this.args.maxHeight) {
       return this._codeContentHeight > this._codeContainerHeight;
@@ -199,6 +199,11 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
     if (this.hasLineNumbers) {
       classes.push('line-numbers');
+    }
+
+    // Add a class if if the overlay footer is shown but the height is not expanded
+    if (this.showFooter && !this._isExpanded) {
+      classes.push('hds-code-block--has-overflow');
     }
 
     return classes.join(' ');
