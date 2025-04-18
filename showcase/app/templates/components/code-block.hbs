@@ -260,11 +260,12 @@ function assertObjectsEqual (actual, expected, testName) {
       {{! template-lint-enable no-whitespace-for-layout }}
     </SG.Item>
 
-    <SG.Item @label="maxHeight='130px', title and description" @forceMinWidth={{true}}>
+    <SG.Item @label="maxHeight='130px', title, description, and copy button" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="javascript"
         @maxHeight="130px"
+        @hasCopyButton={{true}}
         @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array

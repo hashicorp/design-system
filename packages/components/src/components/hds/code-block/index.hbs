@@ -33,9 +33,23 @@
   {{#if this.showFooter}}
     <div class="hds-code-block__overlay-footer">
       {{#if this._isExpanded}}
-        <Hds::Button @text="Show less" @color="secondary" @icon="chevron-up" @size="small" {{on "click" this.toggleExpanded}} />
+        <Hds::Button
+          class="hds-code-block__height-toggle-button"
+          @text="Show less"
+          @color="secondary"
+          @icon="chevron-up"
+          @size="small"
+          {{on "click" this.toggleExpanded}}
+        />
       {{else}}
-        <Hds::Button @text="Show more" @color="secondary" @icon="chevron-down" @size="small" {{on "click" this.toggleExpanded}} />
+        <Hds::Button
+          class="hds-code-block__height-toggle-button"
+          @text="Show more"
+          @color="secondary"
+          @icon="chevron-down"
+          @size="small"
+          {{on "click" this.toggleExpanded}}
+        />
       {{/if}}
     </div>
   {{/if}}
