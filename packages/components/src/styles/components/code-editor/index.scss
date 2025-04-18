@@ -96,6 +96,11 @@
     &:focus,
     &:hover {
       background-color: var(--hds-code-editor-color-surface-primary);
+      border-color: var(--hds-code-editor-color-focus-action-internal);
+
+      &::before {
+        border-color: var(--hds-code-editor-color-focus-action-external);
+      }
 
       .hds-button__icon {
         color: var(--hds-code-editor-color-foreground-primary);

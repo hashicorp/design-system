@@ -14,6 +14,8 @@ import {
   HDS_CODE_EDITOR_COLOR_SURFACE_INTERACTIVE_ACTIVE,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_CRITICAL,
   HDS_CODE_EDITOR_COLOR_FOREGROUND_FAINT,
+  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL,
+  HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL,
 } from '../palettes/hds-dark-palette.ts';
 
 const CLOSE_BUTTON_SELECTOR = '.cm-panel.cm-panel-lint button[name="close"]';
@@ -125,8 +127,8 @@ const hdsDark = EditorView.theme(
     '.cm-panel.cm-panel-lint ul:focus li.cm-diagnostic[aria-selected]': {
       background: 'none',
       backgroundColor: 'var(--token-color-palette-neutral-700)',
-      border: `4px solid var(--token-color-focus-critical-external)`,
-      boxShadow: `inset 0 0 0 1px var(--token-color-focus-critical-internal)`,
+      border: `4px solid ${HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_EXTERNAL}`,
+      boxShadow: `inset 0 0 0 1px ${HDS_CODE_EDITOR_COLOR_FOCUS_ACTION_INTERNAL}`,
       color: 'var(--token-color-foreground-high-contrast)',
     },
     '.cm-panels-bottom .cm-panel.cm-panel-lint': {

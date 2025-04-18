@@ -167,6 +167,11 @@ $hds-code-block-code-padding: 16px;
   &.mock-focus,
   &:focus-visible {
     background-color: var(--hds-code-block-color-surface-faint);
+    border-color: var(--hds-code-block-color-focus-action-internal);
+
+    &::before {
+      border-color: var(--hds-code-block-color-focus-action-external);
+    }
   }
 
   &.hds-copy-button--status-success {

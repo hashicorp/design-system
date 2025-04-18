@@ -17,4 +17,7 @@
   --hds-code-editor-color-surface-faint: #15181e;
   --hds-code-editor-color-surface-primary: #0d0e12;
   --hds-code-editor-color-surface-interactive-active: #2b303c;
+  // TODO: Remove focus tokens once global tokens for dark themes are implemented
+  --hds-code-editor-color-focus-action-internal: #9bc7fd;
+  --hds-code-editor-color-focus-action-external: #0d69f2;
 }

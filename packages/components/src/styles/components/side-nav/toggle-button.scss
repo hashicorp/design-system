@@ -93,8 +93,8 @@
 
   &:focus-visible,
   &.mock-focus {
-    border-color: var(--token-color-focus-action-internal);
-    outline: 3px solid var(--token-color-focus-action-external);
+    border-color: var(--hds-app-sidenav-color-focus-action-internal);
+    outline: 3px solid var(--hds-app-sidenav-color-focus-action-external);
 
     &::before,
     &::after {

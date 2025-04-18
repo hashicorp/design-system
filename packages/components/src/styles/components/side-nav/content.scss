@@ -79,6 +79,8 @@
 
 // <a>/<button> element (via Hds::Interactive)
 .hds-side-nav__list-item-link {
+  // Override token used in focus ring mixin
+  --token-focus-ring-action-box-shadow: var(--hds-app-sidenav-focus-ring-action-box-shadow);
   display: flex;
   gap: var(--token-side-nav-body-list-item-content-spacing-horizontal);
   align-items: center;
