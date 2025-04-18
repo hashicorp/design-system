@@ -159,7 +159,9 @@ $hds-code-block-code-bottom-gradient-height: 50px;
     }
 
     // reduce the amount of space at the bottom of the code block when user scrolls to the bottom
-    code { padding-bottom: 0; }
+    code {
+      padding-bottom: 0;
+    }
   }
 
   // make border extend to bottom of the code block
