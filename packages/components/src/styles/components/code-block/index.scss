@@ -15,6 +15,7 @@
 // DIMENSIONS
 $hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px
 $hds-code-block-code-padding: 16px;
+$hds-code-block-code-bottom-gradient-height: 50px;
 
 // CODE-BLOCK PARENT/WRAPPER
 
@@ -151,7 +152,7 @@ $hds-code-block-code-padding: 16px;
       position: sticky; // prevent gradient from scrolling together with content
       bottom: 0;
       display: block;
-      height: 50px;
+      height: $hds-code-block-code-bottom-gradient-height;
       background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
       content: "";
       pointer-events: none;
@@ -159,6 +160,11 @@ $hds-code-block-code-padding: 16px;
 
     // reduce the amount of space at the bottom of the code block when user scrolls to the bottom
     code { padding-bottom: 0; }
+  }
+
+  // make border extend to bottom of the code block
+  &.hds-code-block.line-numbers .line-numbers-rows {
+    padding-bottom: $hds-code-block-code-bottom-gradient-height;
   }
 }
 
