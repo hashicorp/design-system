@@ -39,6 +39,7 @@ recertification
 recertify
 rgba
 roadmap
+salesy
 Segoe
 SideNav
 signup
