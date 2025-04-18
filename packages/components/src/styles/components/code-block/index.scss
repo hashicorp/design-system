@@ -170,12 +170,6 @@ $hds-code-block-code-bottom-gradient-height: 50px;
   }
 }
 
-.hds-code-block__height-toggle-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 // Code
 .hds-code-block__code {
   @include hds-focus-ring-basic();
@@ -194,11 +188,9 @@ $hds-code-block-code-bottom-gradient-height: 50px;
   }
 }
 
-// CopyButton
+// General dark button styles
+.hds-code-block__height-toggle-button,
 .hds-code-block__copy-button {
-  position: absolute;
-  top: 11px; // 12px -1px accounting for border
-  right: 12px; // 12px -1px accounting for border
   // Overriding default colors
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
@@ -206,18 +198,21 @@ $hds-code-block-code-bottom-gradient-height: 50px;
 
   &:hover,
   &.mock-hover {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-primary);
     border-color: var(--hds-code-block-color-border-strong);
   }
 
   &:active,
   &.mock-active {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-interactive-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-faint);
     border-color: var(--hds-code-block-color-focus-action-internal);
 
@@ -225,6 +220,17 @@ $hds-code-block-code-bottom-gradient-height: 50px;
       border-color: var(--hds-code-block-color-focus-action-external);
     }
   }
+
+  .hds-icon {
+    color: var(--hds-code-block-color-foreground-primary);
+  }
+}
+
+// CopyButton
+.hds-code-block__copy-button {
+  position: absolute;
+  top: 11px; // 12px -1px accounting for border
+  right: 12px; // 12px -1px accounting for border
 
   &.hds-copy-button--status-success {
     .hds-icon {
@@ -236,10 +242,6 @@ $hds-code-block-code-bottom-gradient-height: 50px;
     .hds-icon {
       color: var(--hds-code-block-color-foreground-critical);
     }
-  }
-
-  .hds-icon {
-    color: var(--hds-code-block-color-foreground-primary);
   }
 }
 
