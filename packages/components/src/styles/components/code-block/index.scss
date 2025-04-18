@@ -140,6 +140,12 @@ $hds-code-block-code-bottom-gradient-height: 50px;
   align-items: center;
   justify-content: center;
   padding: 12px $hds-code-block-code-padding;
+  pointer-events: none; // fix issue with scrolling when hovering over the footer
+
+  // re-enable pointer events for the button (or any content inside the footer)
+  > * {
+    pointer-events: auto;
+  }
 }
 
 .hds-code-block--has-overflow {
@@ -160,9 +166,7 @@ $hds-code-block-code-bottom-gradient-height: 50px;
       padding-bottom: 0;
     }
   }
-}
 
-.hds-code-block--has-overlay-footer {
   // make border extend to bottom of the code block
   &.hds-code-block.line-numbers .line-numbers-rows {
     padding-bottom: $hds-code-block-code-bottom-gradient-height;
