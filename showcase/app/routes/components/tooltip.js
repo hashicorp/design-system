@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/tooltip-button';
+import { PLACEMENTS } from '@hashicorp/design-system-components/components/hds/tooltip-button/index';
 
 export default class ComponentsTooltipRoute extends Route {
   model() {
