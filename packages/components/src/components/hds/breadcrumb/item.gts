@@ -7,14 +7,14 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 import { LinkTo } from '@ember/routing';
-// @ts-expect-error: no types
-import LinkToExternal from 'ember-engines/components/link-to-external-component.js';
+import { dependencySatisfies, importSync } from '@embroider/macros';
 import HdsIcon from '../icon/index.gts';
 import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
 
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon';
+import type Owner from '@ember/owner';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -34,6 +34,26 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
+  linkToComponent = LinkTo;
+
+  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
+    super(owner, args);
+
+    if (this.args.isRouteExternal) {
+      if (dependencySatisfies('ember-engines', '*')) {
+        // @ts-expect-error: shape is unknown
+        this.linkToComponent = importSync(
+          'ember-engines/components/link-to-external-component.js'
+        ).default as LinkTo;
+      } else {
+        assert(
+          `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
+          false
+        );
+      }
+    }
+  }
+
   /**
    * @param maxWidth
    * @type {string}
@@ -79,6 +99,16 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     return classes.join(' ');
   }
 
+  get isRouteExternal(): boolean {
+    const { isRouteExternal } = this.args;
+
+    if (isRouteExternal && dependencySatisfies('ember-engines', '*')) {
+      return isRouteExternal;
+    } else {
+      return false;
+    }
+  }
+
   <template>
     <li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
       {{#if @current}}
@@ -91,39 +121,21 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
           <span class="hds-breadcrumb__text">{{@text}}</span>
         </div>
       {{else}}
-        {{#if @isRouteExternal}}
-          <LinkToExternal
-            class="hds-breadcrumb__link"
-            @current-when={{@current-when}}
-            @models={{hdsLinkToModels @model @models}}
-            @query={{hdsLinkToQuery @query}}
-            @replace={{@replace}}
-            @route={{@route}}
-          >
-            {{#if @icon}}
-              <div class="hds-breadcrumb__icon">
-                <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-              </div>
-            {{/if}}
-            <span class="hds-breadcrumb__text">{{@text}}</span>
-          </LinkToExternal>
-        {{else}}
-          <LinkTo
-            class="hds-breadcrumb__link"
-            @current-when={{@current-when}}
-            @models={{hdsLinkToModels @model @models}}
-            @query={{hdsLinkToQuery @query}}
-            @replace={{@replace}}
-            @route={{@route}}
-          >
-            {{#if @icon}}
-              <div class="hds-breadcrumb__icon">
-                <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
-              </div>
-            {{/if}}
-            <span class="hds-breadcrumb__text">{{@text}}</span>
-          </LinkTo>
-        {{/if}}
+        <this.linkToComponent
+          class="hds-breadcrumb__link"
+          @current-when={{@current-when}}
+          @models={{hdsLinkToModels @model @models}}
+          @query={{hdsLinkToQuery @query}}
+          @replace={{@replace}}
+          @route={{@route}}
+        >
+          {{#if @icon}}
+            <div class="hds-breadcrumb__icon">
+              <HdsIcon @name={{@icon}} @size="16" @stretched={{true}} />
+            </div>
+          {{/if}}
+          <span class="hds-breadcrumb__text">{{@text}}</span>
+        </this.linkToComponent>
       {{/if}}
     </li>
   </template>
