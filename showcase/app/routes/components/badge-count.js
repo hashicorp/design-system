@@ -9,7 +9,7 @@ import {
   SIZES as BADGE_COUNT_SIZES,
   TYPES as BADGE_COUNT_TYPES,
   COLORS as BADGE_COUNT_COLORS,
-} from '@hashicorp/design-system-components/components/hds/badge-count';
+} from '@hashicorp/design-system-components/components/hds/badge-count/index';
 
 export default class ComponentsBadgeCountRoute extends Route {
   model() {

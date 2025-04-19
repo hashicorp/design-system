@@ -4,7 +4,7 @@
  */
 
 import Route from '@ember/routing/route';
-import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table';
+import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table/index';
 
 const STATES = ['default', 'hover', 'active', 'focus'];
 

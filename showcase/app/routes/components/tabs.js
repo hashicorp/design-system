@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { SIZES } from '@hashicorp/design-system-components/components/hds/tabs';
+import { SIZES } from '@hashicorp/design-system-components/components/hds/tabs/index';
 
 export default class ComponentsTabsRoute extends Route {
   model() {

@@ -8,7 +8,7 @@ import Route from '@ember/routing/route';
 import {
   ALIGNS,
   GAPS,
-} from '@hashicorp/design-system-components/components/hds/layout/grid';
+} from '@hashicorp/design-system-components/components/hds/layout/grid/index';
 
 export default class LayoutsGridRoute extends Route {
   model() {
