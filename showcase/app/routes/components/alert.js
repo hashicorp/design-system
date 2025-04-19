@@ -8,7 +8,7 @@ import Route from '@ember/routing/route';
 import {
   TYPES,
   COLORS,
-} from '@hashicorp/design-system-components/components/hds/alert';
+} from '@hashicorp/design-system-components/components/hds/alert/index';
 
 export default class ComponentsAlertRoute extends Route {
   model() {
