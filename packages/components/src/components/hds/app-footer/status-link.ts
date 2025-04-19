@@ -8,7 +8,7 @@ import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
 import type { SafeString } from '@ember/template';
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import { HdsAppFooterStatusLinkStatusValues } from './types.ts';
 import type { HdsAppFooterStatusTypes } from './types.ts';
 import type { HdsAppFooterLinkSignature } from './link.ts';

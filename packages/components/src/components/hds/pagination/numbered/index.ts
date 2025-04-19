@@ -14,7 +14,7 @@ import type {
   HdsPaginationElliptizedPageArray,
   HdsPaginationElliptizedPageArrayItem,
 } from '../types';
-import type { HdsInteractiveSignature } from '../../interactive/index.ts';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 import type Owner from '@ember/owner';
 interface ElliptizeProps {
   pages: number[];
