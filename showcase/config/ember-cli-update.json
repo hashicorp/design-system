@@ -14,7 +14,8 @@
             "--no-welcome",
             "--pnpm",
             "--ci-provider=github",
-            "--typescript"
+            "--typescript",
+            "--no-ember-data"
           ]
         }
       ]

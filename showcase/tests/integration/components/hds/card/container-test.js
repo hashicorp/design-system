@@ -30,7 +30,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should have the correct level class based on the @level prop', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`
+      hbs`<Hds::Card::Container id="test-card-container" @level="mid" />`,
     );
     assert
       .dom('#test-card-container')
@@ -38,7 +38,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should have a "surface" elavation the @hasBorder prop is true', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @hasBorder={{true}} />`
+      hbs`<Hds::Card::Container id="test-card-container" @hasBorder={{true}} />`,
     );
     assert
       .dom('#test-card-container')
@@ -55,7 +55,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should have the correct background class based on the @background prop', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @background="neutral-secondary" />`
+      hbs`<Hds::Card::Container id="test-card-container" @background="neutral-secondary" />`,
     );
     assert
       .dom('#test-card-container')
@@ -72,7 +72,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
   });
   test('it should have the overflow hidden if the @overflow prop is declared as "hidden"', async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @overflow="hidden" />`
+      hbs`<Hds::Card::Container id="test-card-container" @overflow="hidden" />`,
     );
     assert
       .dom('#test-card-container')
@@ -91,7 +91,7 @@ module('Integration | Component | hds/card/container', function (hooks) {
 
   test(`it should render an li if specified in the @tag prop and it should have the correct role`, async function (assert) {
     await render(
-      hbs`<Hds::Card::Container id="test-card-container" @tag="li" />`
+      hbs`<Hds::Card::Container id="test-card-container" @tag="li" />`,
     );
     assert
       .dom('#test-card-container')

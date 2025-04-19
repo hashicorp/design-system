@@ -15,7 +15,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`
+        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`,
       );
       assert.dom('#test-legal-links').hasClass('hds-app-footer__legal-links');
     });
@@ -24,7 +24,7 @@ module(
 
     test('it contains the default links with default href values', async function (assert) {
       await render(
-        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`
+        hbs`<ul><Hds::AppFooter::LegalLinks id="test-legal-links" /></ul>`,
       );
       assert
         .dom('#test-legal-links li:nth-child(1) a')
@@ -82,5 +82,5 @@ module(
         .hasText('Accessibility')
         .hasAttribute('href', 'https://www.a11y.com');
     });
-  }
+  },
 );

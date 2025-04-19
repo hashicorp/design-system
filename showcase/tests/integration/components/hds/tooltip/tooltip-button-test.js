@@ -20,7 +20,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button');
   });
@@ -29,7 +29,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it renders plain text content passed into the tooltip', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-content').hasText('More info.');
@@ -43,7 +43,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
           @text="<em>em</em> <strong>strong</strong>"
           id="test-tooltip-button"
         >info</Hds::TooltipButton>
-      `
+      `,
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-content em').exists().hasText('em');
@@ -56,7 +56,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
     const escapeKey = 27;
 
     await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
 
     // Test that tooltip does not display by default:
@@ -75,7 +75,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('the tooltip has a role of "tooltip"', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-box').hasAttribute('role', 'tooltip');
@@ -83,7 +83,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('the button has an aria-describedby and aria-controls attribute with a value matching the tooltip container', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="Hello" data-test-tooltip-button>info</Hds::TooltipButton>`,
     );
     await focus('[data-test-tooltip-button]');
     const tooltipContainerId = this.element
@@ -101,7 +101,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it should render the component with the passed in @placement', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="Hello" @placement="right" id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="Hello" @placement="right" id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     await focus('#test-tooltip-button');
     assert.dom('.tippy-box').hasAttribute('data-placement', 'right');
@@ -111,7 +111,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it should render the component with isInline as true by default', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     assert
       .dom('#test-tooltip-button')
@@ -120,7 +120,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
 
   test('it should render the component with the correct class if isInline is set to false', async function (assert) {
     await render(
-      hbs`<Hds::TooltipButton @text="More info." @isInline={{false}} id="test-tooltip-button">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." @isInline={{false}} id="test-tooltip-button">info</Hds::TooltipButton>`,
     );
     assert.dom('#test-tooltip-button').hasClass('hds-tooltip-button--is-block');
   });
@@ -148,7 +148,7 @@ module('Integration | Component | hds/tooltip/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::TooltipButton @text="More info." @placement="invalid">info</Hds::TooltipButton>`
+      hbs`<Hds::TooltipButton @text="More info." @placement="invalid">info</Hds::TooltipButton>`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

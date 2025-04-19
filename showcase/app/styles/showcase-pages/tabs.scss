@@ -8,7 +8,6 @@
 @use "../typography" as *;
 
 body.components-tabs {
-
   // we add extra spacing to increase visual separation between the different use cases and examples
   .hds-tabs {
     margin-bottom: 36px;
@@ -42,6 +41,8 @@ body.components-tabs {
   .shw-component-tabs-selector-example {
     position: relative;
 
-    .hds-tabs__tab-indicator {width: 100%;}
+    .hds-tabs__tab-indicator {
+      width: 100%;
+    }
   }
 }
