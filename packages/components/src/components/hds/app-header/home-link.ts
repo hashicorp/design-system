@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 
 import type { HdsIconSignature } from '../icon';
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
 export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {

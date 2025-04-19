@@ -76,7 +76,7 @@ export * from './components/hds/badge-count/types.ts';
 
 // Breadcrumb
 export { default as HdsBreadcrumb } from './components/hds/breadcrumb/index.ts';
-export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.ts';
+export { default as HdsBreadcrumbItem } from './components/hds/breadcrumb/item.gts';
 export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/truncation.ts';
 
 // Button
@@ -223,7 +223,7 @@ export { default as HdsFormToggleField } from './components/hds/form/toggle/fiel
 export { default as HdsFormToggleGroup } from './components/hds/form/toggle/group.ts';
 
 // Icon
-export { default as HdsIcon } from './components/hds/icon/index.ts';
+export { default as HdsIcon } from './components/hds/icon/index.gts';
 export * from './components/hds/icon/types.ts';
 
 // IconTile
@@ -388,7 +388,7 @@ export { default as HdsDisclosurePrimitive } from './components/hds/disclosure-p
 export { default as HdsDismissButton } from './components/hds/dismiss-button/index.ts';
 
 // Interactive
-export { default as HdsInteractive } from './components/hds/interactive/index.ts';
+export { default as HdsInteractive } from './components/hds/interactive/index.gts';
 
 // MenuPrimitive
 export { default as HdsMenuPrimitive } from './components/hds/menu-primitive/index.ts';

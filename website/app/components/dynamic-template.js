@@ -1,5 +1,5 @@
-import { setComponentTemplate } from '@ember/component';
 import { getOwner } from '@ember/application';
+import { setComponentTemplate } from '@ember/component';
 import { compileTemplate } from '@ember/template-compilation';
 import { importSync } from '@embroider/macros';
 import Component from '@glimmer/component';

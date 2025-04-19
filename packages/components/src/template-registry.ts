@@ -159,7 +159,7 @@ import type HdsFormVisibilityToggleComponent from './components/hds/form/visibil
 
 import type HdsIconComponent from './components/hds/icon';
 import type HdsIconTileComponent from './components/hds/icon-tile';
-import type HdsInteractiveComponent from './components/hds/interactive';
+import type HdsInteractiveComponent from './components/hds/interactive/index.gts';
 import type HdsLayoutFlexComponent from './components/hds/layout/flex';
 import type HdsLayoutFlexItemComponent from './components/hds/layout/flex/item';
 import type HdsLayoutGridComponent from './components/hds/layout/grid';

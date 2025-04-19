@@ -13,7 +13,7 @@ import type {
   HdsPaginationRoutingProps,
   HdsPaginationDirections,
 } from '../types';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 import type Owner from '@ember/owner';
 
 type HdsInteractiveQuery = HdsInteractiveSignature['Args']['query'];

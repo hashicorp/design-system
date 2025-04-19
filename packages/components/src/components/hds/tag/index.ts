@@ -13,7 +13,7 @@ import { HdsTagColorValues } from './types.ts';
 import type { HdsTagColors } from './types.ts';
 import { HdsTagTooltipPlacementValues } from './types.ts';
 import type { HdsTagTooltipPlacements } from './types.ts';
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
 export const COLORS: HdsTagColors[] = Object.values(HdsTagColorValues);
 export const DEFAULT_COLOR = HdsTagColorValues.Primary;

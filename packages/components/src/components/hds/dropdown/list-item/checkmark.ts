@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import type { HdsIconSignature } from '../../icon';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 
 export interface HdsDropdownListItemCheckmarkSignature {
   Args: HdsInteractiveSignature['Args'] & {
