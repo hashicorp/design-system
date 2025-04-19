@@ -63,7 +63,6 @@
     "ember-cli-sass": "^11.0.1",
     "ember-concurrency": "^4.0.2",
     "ember-element-helper": "^0.8.6",
-    "ember-engines": "^0.12.0",
     "ember-focus-trap": "^1.1.1",
     "ember-get-config": "^2.1.1",
     "ember-modifier": "^4.2.0",
@@ -120,7 +119,13 @@
     "typescript": "^5.8.2"
   },
   "peerDependencies": {
-    "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0"
+    "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0",
+    "ember-engines": ">= 0.11.0"
+  },
+  "peerDependenciesMeta": {
+    "ember-engines": {
+      "optional": true
+    }
   },
   "ember": {
     "edition": "octane"
