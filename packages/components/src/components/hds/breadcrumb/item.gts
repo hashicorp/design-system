@@ -103,6 +103,16 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
     return classes.join(' ');
   }
 
+  get isRouteExternal(): boolean {
+    const { isRouteExternal } = this.args;
+
+    if (isRouteExternal && dependencySatisfies('ember-engines', '*')) {
+      return isRouteExternal;
+    } else {
+      return false;
+    }
+  }
+
   <template>
     <li class="hds-breadcrumb__item" style={{this.itemStyle}} ...attributes>
       {{#if @current}}
