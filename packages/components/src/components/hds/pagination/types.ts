@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { HdsInteractiveSignature } from '../interactive';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 
 export enum HdsPaginationDirectionValues {
   Next = 'next',

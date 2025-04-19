@@ -5,7 +5,7 @@
 
 import TemplateOnlyComponent from '@ember/component/template-only';
 
-import type { HdsInteractiveSignature } from '../../interactive/';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 
 export interface HdsSideNavListBackLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {

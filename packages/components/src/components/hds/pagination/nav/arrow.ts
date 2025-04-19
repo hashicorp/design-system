@@ -12,7 +12,7 @@ import {
 } from '../types.ts';
 
 import type { HdsIconSignature } from '../../icon/index.ts';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 import type {
   HdsPaginationDirections,
   HdsPaginationDirectionAriaLabels,

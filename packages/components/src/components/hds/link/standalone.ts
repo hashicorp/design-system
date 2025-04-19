@@ -11,7 +11,7 @@ import {
   HdsLinkStandaloneSizeValues,
 } from './types.ts';
 
-import type { HdsInteractiveSignature } from '../interactive/';
+import type { HdsInteractiveSignature } from '../interactive/index.gts';
 import type {
   HdsLinkColors,
   HdsLinkIconPositions,
