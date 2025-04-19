@@ -127,6 +127,11 @@
       "optional": true
     }
   },
+  "peerDependenciesMeta": {
+    "ember-engines": {
+      "optional": true
+    }
+  },
   "ember": {
     "edition": "octane"
   },
