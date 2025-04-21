@@ -5,7 +5,7 @@
 
 import { tabbable } from 'tabbable';
 
-import type { HdsAdvancedTableThSignature } from '../../components/hds/advanced-table/th.ts';
+import type { HdsAdvancedTableThSignature } from '../../components/hds/advanced-table/th.gts';
 
 export const onFocusTrapDeactivate = (cell: HTMLDivElement) => {
   const cellTabbableChildren = tabbable(cell);
