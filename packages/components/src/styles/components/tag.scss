@@ -46,6 +46,7 @@ $hds-tag-border-radius: 50px;
   max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
   padding: 3px 10px 5px 10px;
   border-radius: inherit;
+  font: inherit;
 }
 
 .hds-tag__text-container {
