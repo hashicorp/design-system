@@ -7,7 +7,11 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 import { LinkTo } from '@ember/routing';
-import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
+import {
+  dependencySatisfies,
+  importSync,
+  macroCondition,
+} from '@embroider/macros';
 import HdsIcon from '../icon/index.gts';
 import hdsLinkToModels from '../../../helpers/hds-link-to-models.ts';
 import hdsLinkToQuery from '../../../helpers/hds-link-to-query.ts';
