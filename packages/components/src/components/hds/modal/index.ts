@@ -195,8 +195,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
       this._element.addEventListener('close', listener);
     }
 
-    console.log('close', this._element)
-
     // Make modal dialog invisible using the native `close` method
     this._element.close();
 
