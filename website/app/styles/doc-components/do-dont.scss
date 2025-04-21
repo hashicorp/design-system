@@ -8,6 +8,17 @@
 @use "../breakpoints" as breakpoint;
 @use "../typography/mixins" as *;
 
+.doc-do-dont-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 12px;
+
+  & .doc-do-dont {
+    flex-grow: 1;
+  }
+}
+
 .doc-do-dont {
   display: flex;
   flex-direction: column;
