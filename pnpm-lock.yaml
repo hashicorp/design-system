@@ -6,7 +6,7 @@ settings:
   injectWorkspacePackages: true
 
 overrides:
-  ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.9
+  ember-composable-helpers: npm:@nullvoxpopuli/ember-composable-helpers@^5.2.10
 
 patchedDependencies:
   '@embroider/core':
@@ -139,8 +139,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       '@nullvoxpopuli/ember-composable-helpers':
-        specifier: ^5.2.9
-        version: 5.2.9(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))
+        specifier: ^5.2.10
+        version: 5.2.10(@babel/core@7.26.10)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))
       clipboard-polyfill:
         specifier: ^4.1.1
         version: 4.1.1
@@ -3170,8 +3170,8 @@ packages:
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
 
-  '@nullvoxpopuli/ember-composable-helpers@5.2.9':
-    resolution: {integrity: sha512-24UWp2HGWz3+j3DOQjBpf2c2S+1vCGNTM18D4nVDoXKw4MBgMtms0FF3k566+S+l+K74InwAKWCDaHquT6AHXA==}
+  '@nullvoxpopuli/ember-composable-helpers@5.2.10':
+    resolution: {integrity: sha512-60lzfYZ3Gn5f5NX7KKh01vOUeMYCgNFMxVwRBtxcyotCmBob3eoW6JL1hO3zStv79k/n/vijdr1o/G1N3+l8Fg==}
 
   '@parcel/watcher-android-arm64@2.5.0':
     resolution: {integrity: sha512-qlX4eS28bUcQCdribHkg/herLe+0A9RyYC+mm2PXpncit8z5b3nSqGVzMNR3CmtAOgRutiZ02eIJJgP/b1iEFQ==}
@@ -15451,7 +15451,7 @@ snapshots:
       '@hashicorp/design-system-tokens': file:packages/tokens
       '@hashicorp/flight-icons': file:packages/flight-icons
       '@lezer/highlight': 1.2.1
-      '@nullvoxpopuli/ember-composable-helpers': 5.2.9(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))
+      '@nullvoxpopuli/ember-composable-helpers': 5.2.10(@babel/core@7.26.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))
       clipboard-polyfill: 4.1.1
       codemirror-lang-hcl: 0.0.0-beta.2
       decorator-transforms: 2.3.0(@babel/core@7.26.0)
@@ -15845,19 +15845,23 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.18.0
 
-  '@nullvoxpopuli/ember-composable-helpers@5.2.9(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))':
+  '@nullvoxpopuli/ember-composable-helpers@5.2.10(@babel/core@7.26.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))':
     dependencies:
       '@embroider/addon-shim': 1.9.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.0)
       ember-functions-as-helper-polyfill: 2.1.2(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))
     transitivePeerDependencies:
+      - '@babel/core'
       - ember-source
       - supports-color
 
-  '@nullvoxpopuli/ember-composable-helpers@5.2.9(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))':
+  '@nullvoxpopuli/ember-composable-helpers@5.2.10(@babel/core@7.26.10)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))':
     dependencies:
       '@embroider/addon-shim': 1.9.0
+      decorator-transforms: 2.3.0(@babel/core@7.26.10)
       ember-functions-as-helper-polyfill: 2.1.2(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))
     transitivePeerDependencies:
+      - '@babel/core'
       - ember-source
       - supports-color
 
