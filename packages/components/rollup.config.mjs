@@ -14,7 +14,7 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-const exclude = ['components/hds/app-header', 'components/hds/app-side-nav'];
+const exclude = [];
 
 const plugins = [
   // These are the modules that users should be able to import from your
