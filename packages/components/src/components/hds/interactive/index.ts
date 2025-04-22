@@ -5,6 +5,15 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
+import { LinkTo } from '@ember/routing';
+import {
+  dependencySatisfies,
+  importSync,
+  macroCondition,
+} from '@embroider/macros';
+
+import type Owner from '@ember/owner';
 
 export interface HdsInteractiveSignature {
   Args: {
@@ -27,6 +36,26 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
+  linkToComponent = LinkTo;
+
+  constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
+    super(owner, args);
+
+    if (this.args.isRouteExternal) {
+      if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
+        // @ts-expect-error: shape is unknown
+        this.linkToComponent = importSync(
+          'ember-engines/components/link-to-external-component.js'
+        ).default as LinkTo;
+      } else {
+        assert(
+          `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
+          false
+        );
+      }
+    }
+  }
+
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *
