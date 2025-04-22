@@ -2,15 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Text::Body
-  class={{this.classNames}}
-  @tag="span"
-  @size="100"
-  @weight="medium"
-  @color="primary"
-  {{this._setUpObserver}}
-  ...attributes
->
+<span class={{this.classNames}} {{this._setUpObserver}} ...attributes>
   {{#if this.onDismiss}}
     <button class="hds-tag__dismiss" type="button" aria-label={{this.ariaLabel}} {{on "click" this.onDismiss}}>
       <Hds::Icon class="hds-tag__dismiss-icon" @name="x" @size="16" />
@@ -30,9 +22,9 @@
         @isHrefExternal={{@isHrefExternal}}
         {{hds-tooltip this.text options=(hash placement=this.tooltipPlacement)}}
       >
-        <div class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" class="hds-tag__text-container">
           {{this.text}}
-        </div>
+        </Hds::Text::Body>
       </Hds::Interactive>
     {{else}}
       <Hds::Interactive
@@ -46,24 +38,24 @@
         @href={{@href}}
         @isHrefExternal={{@isHrefExternal}}
       >
-        <div class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" class="hds-tag__text-container">
           {{this.text}}
-        </div>
+        </Hds::Text::Body>
       </Hds::Interactive>
     {{/if}}
   {{else}}
     {{#if this._isTextOverflow}}
       <Hds::TooltipButton class="hds-tag__text" @text={{this.text}} @placement={{this.tooltipPlacement}}>
-        <div class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" @color="primary" class="hds-tag__text-container">
           {{this.text}}
-        </div>
+        </Hds::Text::Body>
       </Hds::TooltipButton>
     {{else}}
       <span class="hds-tag__text">
-        <div class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" @color="primary" class="hds-tag__text-container">
           {{this.text}}
-        </div>
+        </Hds::Text::Body>
       </span>
     {{/if}}
   {{/if}}
-</Hds::Text::Body>
+</span>

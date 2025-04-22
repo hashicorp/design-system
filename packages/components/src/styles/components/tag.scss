@@ -17,7 +17,6 @@ $hds-tag-border-radius: 50px;
   align-items: stretch;
   width: fit-content;
   max-width: 100%;
-  line-height: 1rem; // 16px - override `body-100`
   vertical-align: middle;
   background-color: var(--token-color-surface-interactive);
   border: 1px solid var(--token-color-border-strong);
@@ -45,17 +44,13 @@ $hds-tag-border-radius: 50px;
   flex: 1 0 0;
   max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
   padding: 3px 10px 5px 10px;
-  font: inherit;
   border-radius: inherit;
-}
-
-.hds-tag__text {
-  color: var(--token-color-foreground-primary);
 }
 
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
+  line-height: 1rem; // 16px - override `body-100`
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
