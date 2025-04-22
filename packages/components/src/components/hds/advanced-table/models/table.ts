@@ -3,19 +3,20 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import HdsAdvancedTableColumn from './column.ts';
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 import type {
-  HdsAdvancedTableColumn,
+  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
-  columns: HdsAdvancedTableColumn[];
+  columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
   columnOrder?: string[];
 }
@@ -45,7 +46,7 @@ export default class HdsAdvancedTableTableModel {
   constructor(args: HdsAdvancedTableTableArgs) {
     const { model, childrenKey, columns, columnOrder } = args;
 
-    this.columns = columns;
+    this.columns = columns.map((column) => new HdsAdvancedTableColumn(column));
     this.columnOrder = columnOrder ?? this.columns.map((column) => {
       // todo: make this work without column keys correctly
       return column.key ?? '';
@@ -64,15 +65,12 @@ export default class HdsAdvancedTableTableModel {
   get orderedColumns(): HdsAdvancedTableColumn[] {
     return this.columnOrder.map((key) => {
       const column = this.columns.find((column) => column.key === key);
-      
-      return column ?? {
-        key,
-        label: '',
-        isSortable: false,
-        isVisuallyHidden: false,
-        align: 'left',
-        width: 'auto',
-      };
+
+      if (!column) {
+        throw new Error(`Column with key ${key} not found`);
+      }
+
+      return column;
     });
   }
 

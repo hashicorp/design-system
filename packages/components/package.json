@@ -134,6 +134,7 @@
       "./components/hds/accordion/item/index.js": "./dist/_app_/components/hds/accordion/item/index.js",
       "./components/hds/advanced-table/expandable-tr-group.js": "./dist/_app_/components/hds/advanced-table/expandable-tr-group.js",
       "./components/hds/advanced-table/index.js": "./dist/_app_/components/hds/advanced-table/index.js",
+      "./components/hds/advanced-table/models/column.js": "./dist/_app_/components/hds/advanced-table/models/column.js",
       "./components/hds/advanced-table/models/row.js": "./dist/_app_/components/hds/advanced-table/models/row.js",
       "./components/hds/advanced-table/models/table.js": "./dist/_app_/components/hds/advanced-table/models/table.js",
       "./components/hds/advanced-table/td.js": "./dist/_app_/components/hds/advanced-table/td.js",
