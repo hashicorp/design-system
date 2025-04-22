@@ -9,7 +9,7 @@ import { assert, deprecate } from '@ember/debug';
 import { HdsDropdownListItemInteractiveColorValues } from './types.ts';
 
 import type { HdsIconSignature } from '../../icon';
-import type { HdsInteractiveSignature } from '../../interactive';
+import type { HdsInteractiveSignature } from '../../interactive/index.gts';
 import type { HdsDropdownListItemInteractiveColors } from './types.ts';
 import type { ComponentLike } from '@glint/template';
 import type { HdsBadgeSignature } from '../../badge/index.ts';

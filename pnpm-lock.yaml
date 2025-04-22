@@ -2943,7 +2943,11 @@ packages:
     resolution: {directory: packages/components, type: directory}
     engines: {node: '>= 18'}
     peerDependencies:
+      ember-engines: '*'
       ember-source: ^3.28.0 || ^4.0.0 || ^5.3.0
+    peerDependenciesMeta:
+      ember-engines:
+        optional: true
 
   '@hashicorp/design-system-tokens@file:packages/tokens':
     resolution: {directory: packages/tokens, type: directory}
