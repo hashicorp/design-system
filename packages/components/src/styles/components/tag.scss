@@ -49,6 +49,10 @@ $hds-tag-border-radius: 50px;
   border-radius: inherit;
 }
 
+.hds-tag__text {
+  color: var(--token-color-foreground-primary);
+}
+
 .hds-tag__text-container {
   display: -webkit-box;
   overflow: hidden;
