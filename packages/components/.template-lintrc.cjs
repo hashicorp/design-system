@@ -12,7 +12,6 @@ module.exports = {
     'no-unnecessary-curly-parens': false,
     'no-unnecessary-curly-strings': false,
     'no-redundant-role': false,
-    'no-builtin-form-components': false,
   },
   overrides: [
     // temporary fix until the prettier plugin works with `.gts/gjs` files
