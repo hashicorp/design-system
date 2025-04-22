@@ -14,8 +14,6 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-const exclude = [];
-
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
@@ -26,9 +24,6 @@ const plugins = [
       'template-registry.js',
       'styles/@hashicorp/design-system-components.scss',
     ],
-    {
-      exclude,
-    }
   ),
 
   // These are the modules that should get reexported into the traditional
@@ -42,9 +37,6 @@ const plugins = [
       'services/**/!(*types).js',
       'instance-initializers/**/*.js',
     ],
-    {
-      exclude,
-    }
   ),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
