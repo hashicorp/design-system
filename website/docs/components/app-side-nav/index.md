@@ -16,7 +16,6 @@ related:
   - components/app-header
 previewImage: assets/illustrations/components/app-side-nav.jpg
 navigation:
-  hidden: true
   keywords:
     - navigation
     - side navigation
