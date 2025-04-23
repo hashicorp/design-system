@@ -67,7 +67,7 @@
     "ember-get-config": "^2.1.1",
     "ember-modifier": "^4.2.0",
     "ember-power-select": "^8.6.2",
-    "ember-stargate": "^0.4.3",
+    "ember-stargate": "^0.5.0",
     "ember-style-modifier": "^4.4.0",
     "ember-truth-helpers": "^4.0.3",
     "luxon": "^2.3.2 || ^3.4.2",
@@ -116,7 +116,8 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
     "typescript-eslint": "^8.29.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "webpack": "^5.97.1"
   },
   "peerDependencies": {
     "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0"
