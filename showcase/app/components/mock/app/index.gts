@@ -32,7 +32,7 @@ export interface MockAppSignature {
   Args: {
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
-    hasOldSidebar?: HdsAppFrameSignature['Args']['hasOldSidebar'];
+    hasOldSidebar?: boolean;
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
