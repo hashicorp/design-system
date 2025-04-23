@@ -353,13 +353,11 @@
   </Shw::Grid> --}}
 </section>
 
-{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't snapshots them in Percy }}
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't have snapshots them in Percy }}
 <section>
-  {{!-- <Shw::Divider @level={{2}} /> --}}
 
   <Shw::Text::H3>Framed</Shw::Text::H3>
 
-  {{! NOTE: AppHeader & AppSideNav components are not published so examples are commented out for now
   <Shw::Frame
     @id="demo-full-app-frame-with-app-header-and-app-side-nav"
     @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav"
@@ -373,19 +371,18 @@
     @height="780"
     @label="Full AppFrame with AppHeader & old SideNav"
   />
-  }}
 
   <Shw::Frame
     @id="demo-full-app-frame-with-side-nav"
     @src="/layouts/app-frame/frameless/demo-full-app-frame-with-side-nav"
     @height="780"
-    @label="Full AppFrame with SideNav but without AppHeader"
+    @label="Full AppFrame with old SideNav but without AppHeader"
   />
 
   <Shw::Frame
     @id="demo-full-app-frame-with-advanced-table"
     @src="/layouts/app-frame/frameless/demo-full-app-frame-with-advanced-table"
     @height="780"
-    @label="Full AppFrame with SideNav and AdvancedTable but without AppHeader"
+    @label="Full AppFrame with AdvancedTable"
   />
 </section>

@@ -5,14 +5,7 @@
 
 {{page-title "AppFrame Component - Frameless"}}
 
-{{! NOTE: AppHeader component is not published so we use a placeholder here }}
-
-{{!-- <Mock::App>
-  <:header>
-    {{! TODO add AppHeader to the `Mock::App` component and then instantiate it here }}
-    {{! <H.AppHeader @orgPickerLabel="WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" /> }}
-    <Shw::Placeholder @height="60px" @text="placeholder for the `AppHeader` component" @background="#e5ffd2" />
-  </:header>
+<Mock::App @hasOldSidebar={{true}}>
   <:main as |M|>
     <M.PageHeader @showActionButton={{true}} />
     <M.GenericTextContent />
@@ -20,4 +13,4 @@
     <M.GenericTextContent />
     <M.GenericTextContent />
   </:main>
-</Mock::App> --}}
+</Mock::App>
