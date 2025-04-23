@@ -150,22 +150,22 @@
 
   <Shw::Flex @label="Applied to parent" as |SF|>
     <SF.Item>
-      <div class="shw-component-tag-font-style">
+      <div class="shw-component-tag-inheritance-font-style">
         <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
       </div>
     </SF.Item>
     <SF.Item>
-      <div class="shw-component-tag-font-style">
+      <div class="shw-component-tag-inheritance-font-style">
         <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
       </div>
     </SF.Item>
     <SF.Item>
-      <div class="shw-component-tag-font-style">
+      <div class="shw-component-tag-inheritance-font-style">
         <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
       </div>
     </SF.Item>
     <SF.Item>
-      <div class="shw-component-tag-font-style">
+      <div class="shw-component-tag-inheritance-font-style">
         <Hds::Tag
           @text="This is a very long text that should go on multiple lines"
           @onDismiss={{this.noop}}
@@ -177,21 +177,25 @@
 
   <Shw::Flex @label="Applied to the tag" as |SF|>
     <SF.Item>
-      <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} class="shw-component-tag-font-style" />
+      <Hds::Tag
+        @text="My text tag"
+        @onDismiss={{this.noop}}
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
+      />
     </SF.Item>
     <SF.Item>
       <Hds::Tag
         @text="My link tag"
         @onDismiss={{this.noop}}
         @route="components.tag"
-        class="shw-component-tag-font-style"
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
       />
     </SF.Item>
     <SF.Item>
       <Hds::Tag
         @text="This is a very long text that should go on multiple lines"
         @onDismiss={{this.noop}}
-        class="shw-component-tag-font-style"
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
       />
     </SF.Item>
     <SF.Item>
@@ -199,7 +203,7 @@
         @text="This is a very long text that should go on multiple lines"
         @onDismiss={{this.noop}}
         @route="components.tag"
-        class="shw-component-tag-font-style"
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
       />
     </SF.Item>
   </Shw::Flex>

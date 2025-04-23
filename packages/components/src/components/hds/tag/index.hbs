@@ -46,13 +46,13 @@
   {{else}}
     {{#if this._isTextOverflow}}
       <Hds::TooltipButton class="hds-tag__text" @text={{this.text}} @placement={{this.tooltipPlacement}}>
-        <Hds::Text::Body @tag="span" @size="100" @weight="medium" @color="primary" class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" class="hds-tag__text-container">
           {{this.text}}
         </Hds::Text::Body>
       </Hds::TooltipButton>
     {{else}}
       <span class="hds-tag__text">
-        <Hds::Text::Body @tag="span" @size="100" @weight="medium" @color="primary" class="hds-tag__text-container">
+        <Hds::Text::Body @tag="span" @size="100" @weight="medium" class="hds-tag__text-container">
           {{this.text}}
         </Hds::Text::Body>
       </span>

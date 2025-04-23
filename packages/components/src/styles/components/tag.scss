@@ -36,7 +36,17 @@ $hds-tag-border-radius: 50px;
 .hds-tag__dismiss-icon {
   width: 12px;
   height: 12px;
+}
+
+.hds-tag__dismiss-icon,
+.hds-tag__text {
   color: var(--token-color-foreground-primary);
+}
+
+.hds-tag__dismiss,
+.hds-tag__text,
+.hds-tag__link {
+  background-color: var(--token-color-surface-interactive);
 }
 
 .hds-tag__text,
@@ -44,6 +54,7 @@ $hds-tag-border-radius: 50px;
   flex: 1 0 0;
   max-width: 166px; // account for excess horizontal padding of text in non-dismissible variant
   padding: 3px 10px 5px 10px;
+  background-color: var(--token-color-surface-interactive);
   border-radius: inherit;
 }
 
@@ -69,7 +80,6 @@ $hds-tag-border-radius: 50px;
 
 .hds-tag__dismiss,
 .hds-tag__link {
-  background-color: var(--token-color-surface-interactive);
   cursor: pointer;
 
   &:hover,
