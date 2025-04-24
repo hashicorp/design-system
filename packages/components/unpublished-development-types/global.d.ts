@@ -26,7 +26,6 @@ declare module '@glint/environment-ember-loose/registry' {
       EmbroiderUtilRegistry /*, other addon registries */ {
     // local entries
     LinkToExternal: typeof LinkTo;
-    // we have to use `ember-stargate` version `0.4.3` because version `0.5.0` causes a break in the tests for `ember-lts-3.28`
     Portal: typeof Portal;
     PortalTarget: typeof PortalTarget;
     'sort-by': HelperLike<{
