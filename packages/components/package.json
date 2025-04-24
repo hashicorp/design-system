@@ -338,6 +338,7 @@
       "./helpers/hds-format-relative.js": "./dist/_app_/helpers/hds-format-relative.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
       "./helpers/hds-link-to-query.js": "./dist/_app_/helpers/hds-link-to-query.js",
+      "./helpers/hds-resolve-link-to-component.js": "./dist/_app_/helpers/hds-resolve-link-to-component.js",
       "./instance-initializers/load-sprite.js": "./dist/_app_/instance-initializers/load-sprite.js",
       "./modifiers/hds-advanced-table-cell.js": "./dist/_app_/modifiers/hds-advanced-table-cell.js",
       "./modifiers/hds-advanced-table-cell/dom-management.js": "./dist/_app_/modifiers/hds-advanced-table-cell/dom-management.js",
