@@ -27,6 +27,7 @@ $hds-tag-border-radius: 50px;
   flex: 0 0 auto;
   margin: 0; // reset default button margin
   padding: 6px 4px 6px 8px;
+  background-color: var(--token-color-surface-interactive);
   border: none; // reset default button border
   border-radius: inherit;
   border-top-right-radius: 0;
@@ -41,12 +42,6 @@ $hds-tag-border-radius: 50px;
 .hds-tag__dismiss-icon,
 .hds-tag__text {
   color: var(--token-color-foreground-primary);
-}
-
-.hds-tag__dismiss,
-.hds-tag__text,
-.hds-tag__link {
-  background-color: var(--token-color-surface-interactive);
 }
 
 .hds-tag__text,
