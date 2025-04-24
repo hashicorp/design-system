@@ -7,6 +7,7 @@ export default class HdsAdvancedTableColumn {
   
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
+  @tracked isResizable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -15,10 +16,13 @@ export default class HdsAdvancedTableColumn {
   @tracked width?: string = undefined;
 
   constructor(args: HdsAdvancedTableColumn) {
-    this.align = args.align ?? 'left';
-    this.isVisuallyHidden = args.isVisuallyHidden ?? false;
     this.label = args.label;
+    
+    this.align = args.align ?? 'left';
+    this.isExpandable = args.isExpandable ?? false;
+    this.isResizable = args.isResizable ?? false;
     this.isSortable = args.isSortable ?? false;
+    this.isVisuallyHidden = args.isVisuallyHidden ?? false;
     this.key = args.key;
     this.sortingFunction = args.sortingFunction;
     this.tooltip = args.tooltip;

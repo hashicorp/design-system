@@ -84,6 +84,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     display: contents;
 
     .hds-advanced-table__th {
+      position: relative;
       align-content: center;
       height: 100%;
       padding: $hds-advanced-table-cell-padding-medium;
@@ -104,6 +105,29 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         );
         z-index: 1;
         isolation: isolate;
+      }
+
+      .hds-advanced-table__th-resize-handle {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 16px;
+        transform: translateX(50%);
+        cursor: col-resize;
+
+        &::after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 1;
+          width: 1px;
+          background-color: red;
+          transform: translateX(-7.5px);
+          content: "";
+        }
       }
     }
 

@@ -117,6 +117,7 @@ export interface HdsAdvancedTableSignature {
     columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
+    isResizable?: boolean;
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
@@ -163,6 +164,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _scrollHandler!: (event: Event) => void;
   private _resizeObserver!: ResizeObserver;
   private _theadElement!: HTMLDivElement;
+  private _tableModel: HdsAdvancedTableTableModel;
 
   @tracked scrollIndicatorDimensions = DEFAULT_SCROLL_DIMENSIONS;
   @tracked isStickyColumnPinned = false;
@@ -173,33 +175,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
 
-  get _tableModel(): HdsAdvancedTableTableModel {
-    const { model, childrenKey, columns, columnOrder, hasStickyFirstColumn } = this.args;
-    const tableModel = new HdsAdvancedTableTableModel({
+  constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
+    super(owner, args);
+
+    const { model, childrenKey, columns, columnOrder, hasStickyFirstColumn, isSelectable } = this.args;
+
+    this._tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
       columns,
       columnOrder,
+      hasStickyFirstColumn,
+      isSelectable,
     });
-
-    if (tableModel.hasRowsWithChildren) {
-      const sortableColumns = columns.filter((column) => column.isSortable);
-      const sortableColumnLabels = sortableColumns.map(
-        (column) => column.label
-      );
-
-      assert(
-        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
-        sortableColumns.length === 0
-      );
-
-      assert(
-        'Cannot have a sticky first column if there are nested rows.',
-        !hasStickyFirstColumn
-      );
-    }
-
-    return tableModel;
   }
 
   get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
@@ -218,24 +206,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this._sortBy}:${this._sortOrder}`;
     }
-  }
-
-  get columnWidths(): string[] | undefined {
-    const { columns } = this.args;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const widths: string[] = new Array(columns.length);
-    let hasCustomColumnWidth = false;
-
-    for (let i = 0; i < columns.length; i++) {
-      const column = columns[i];
-
-      if (column?.['width']) {
-        widths[i] = column.width;
-        if (!hasCustomColumnWidth) hasCustomColumnWidth = true;
-      }
-    }
-
-    return hasCustomColumnWidth ? widths : undefined;
   }
 
   get identityKey(): string | undefined {
@@ -328,21 +298,24 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const { isSelectable, columns } = this.args;
+    const { isSelectable } = this.args;
+    const { orderedColumns } = this._tableModel;
 
     const DEFAULT_COLUMN_WIDTH = '1fr';
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    if (!this.columnWidths) {
-      // if there are no custom column widths, each column is the same width and they take up the available space
-      style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
-    } else {
+    const hasCustomColumnWidths = orderedColumns.some(column => column.width !== undefined);
+
+    if (hasCustomColumnWidths) {
       // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
+      for (let i = 0; i < orderedColumns.length; i++) {
+        style += ` ${orderedColumns[i]?.width ??  DEFAULT_COLUMN_WIDTH}`;
       }
+    } else {
+      // if there are no custom column widths, each column is the same width and they take up the available space
+      style += `repeat(${orderedColumns.length}, ${DEFAULT_COLUMN_WIDTH})`;
     }
 
     return style;

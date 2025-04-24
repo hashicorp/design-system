@@ -7,6 +7,7 @@ import HdsAdvancedTableColumn from './column.ts';
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { assert } from '@ember/debug';
 
 import type {
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
@@ -17,8 +18,10 @@ import type {
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
   columns: HdsAdvancedTableColumnType[];
+  isSelectable?: boolean;
   childrenKey?: string;
   columnOrder?: string[];
+  hasStickyFirstColumn?: boolean;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -41,10 +44,13 @@ export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked columnOrder: string[] = [];
 
+  isSelectable: boolean = false;
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey, columns, columnOrder } = args;
+    const { model, childrenKey, isSelectable, columns, columnOrder, hasStickyFirstColumn } = args;
+
+    this.isSelectable = isSelectable ?? false;
 
     this.columns = columns.map((column) => new HdsAdvancedTableColumn(column));
     this.columnOrder = columnOrder ?? this.columns.map((column) => {
@@ -60,6 +66,23 @@ export default class HdsAdvancedTableTableModel {
         columnOrder: this.columnOrder
       });
     });
+
+    if (this.hasRowsWithChildren) {
+      const sortableColumns = columns.filter((column) => column.isSortable);
+      const sortableColumnLabels = sortableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        `Cannot have sortable columns if there are nested rows. Sortable columns are ${sortableColumnLabels.toString()}`,
+        sortableColumns.length === 0
+      );
+
+      assert(
+        'Cannot have a sticky first column if there are nested rows.',
+        !hasStickyFirstColumn
+      );
+    }
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {

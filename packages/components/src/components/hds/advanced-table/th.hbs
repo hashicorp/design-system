@@ -23,6 +23,7 @@
   }}
   ...attributes
 >
+  {{@column.width}}
   {{#if @isVisuallyHidden}}
     <span class="sr-only">{{yield}}</span>
   {{else}}
@@ -54,5 +55,9 @@
         <span class="hds-typography-body-200 hds-font-weight-semibold" id={{this._labelId}}>{{yield}}</span>
       </div>
     {{/if}}
+  {{/if}}
+
+  {{#if @column.isResizable}}
+    <Hds::AdvancedTable::ThResizeHandle @column={{@column}} />
   {{/if}}
 </div>

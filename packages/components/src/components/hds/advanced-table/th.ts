@@ -11,6 +11,7 @@ import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
+import HdsAdvancedTableColumn from './models/column.ts';
 
 import type {
   HdsAdvancedTableHorizontalAlignment,
@@ -27,6 +28,7 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
+    column?: HdsAdvancedTableColumn
     align?: HdsAdvancedTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
     scope?: HdsAdvancedTableScope;
