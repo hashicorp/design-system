@@ -184,7 +184,7 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.10))(@glint/template@1.5.2)(rsvp@4.8.5))
       luxon:
-        specifier: ^2.3.2 || ^3.4.2
+        specifier: ^3.4.2
         version: 3.5.0
       prismjs:
         specifier: ^1.30.0
