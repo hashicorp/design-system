@@ -6,14 +6,9 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
-import { LinkTo } from '@ember/routing';
-import {
-  dependencySatisfies,
-  importSync,
-  macroCondition,
-} from '@embroider/macros';
 
-import type Owner from '@ember/owner';
+import { hdsResolveLinkToComponent } from '../../../helpers/hds-resolve-link-to-component.ts';
+
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';
 
@@ -35,25 +30,8 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  linkToComponent = LinkTo;
+  linkToComponent = hdsResolveLinkToComponent(this.args.isRouteExternal);
 
-  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
-    super(owner, args);
-
-    if (this.args.isRouteExternal) {
-      if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
-        // @ts-expect-error: shape is unknown
-        this.linkToComponent = importSync(
-          'ember-engines/components/link-to-external-component.js'
-        ).default as LinkTo;
-      } else {
-        assert(
-          `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
-          false
-        );
-      }
-    }
-  }
   /**
    * @param maxWidth
    * @type {string}
