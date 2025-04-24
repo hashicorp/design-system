@@ -8,7 +8,6 @@
 
 Unpublished all local variables for component-level tokens.
 
-
 ## April 2nd, 2025
 
 `StepperList` and `StepperNav` - Components added.
