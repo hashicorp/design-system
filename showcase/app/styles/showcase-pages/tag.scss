@@ -14,3 +14,16 @@ body.components-tag {
     }
   }
 }
+
+// we need to leave this out of the main selector to keep the specificity low
+
+.shw-component-tag-inheritance-font-style {
+  color: #911ced;
+  font-weight: 900;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.shw-component-tag-inheritance-background-color {
+  background-color: #a737ff;
+}

@@ -65,7 +65,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H2>Colors</Shw::Text::H2>
+  <Shw::Text::H2>Link Colors</Shw::Text::H2>
 
   {{#each @model.COLORS as |color|}}
     <Shw::Text::H3>{{capitalize color}}</Shw::Text::H3>
@@ -143,5 +143,69 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Inheritance</Shw::Text::H2>
+
+  <Shw::Flex @label="Applied to parent" as |SF|>
+    <SF.Item>
+      <div class="shw-component-tag-inheritance-font-style">
+        <Hds::Tag @text="My text tag" @onDismiss={{this.noop}} />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <div class="shw-component-tag-inheritance-font-style">
+        <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <div class="shw-component-tag-inheritance-font-style">
+        <Hds::Tag @text="This is a very long text that should go on multiple lines" @onDismiss={{this.noop}} />
+      </div>
+    </SF.Item>
+    <SF.Item>
+      <div class="shw-component-tag-inheritance-font-style">
+        <Hds::Tag
+          @text="This is a very long text that should go on multiple lines"
+          @onDismiss={{this.noop}}
+          @route="components.tag"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex @label="Applied to the tag" as |SF|>
+    <SF.Item>
+      <Hds::Tag
+        @text="My text tag"
+        @onDismiss={{this.noop}}
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
+      />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag
+        @text="My link tag"
+        @onDismiss={{this.noop}}
+        @route="components.tag"
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
+      />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag
+        @text="This is a very long text that should go on multiple lines"
+        @onDismiss={{this.noop}}
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
+      />
+    </SF.Item>
+    <SF.Item>
+      <Hds::Tag
+        @text="This is a very long text that should go on multiple lines"
+        @onDismiss={{this.noop}}
+        @route="components.tag"
+        class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
+      />
+    </SF.Item>
+  </Shw::Flex>
 
 </section>
