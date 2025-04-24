@@ -12,6 +12,14 @@
 </p>
 
 
+### April 24th, 2025
+
+`Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives`
+
+- Removed interactive component variants
+
+Unpublished local styles for `navigation`, `side-nav`, `app-footer`, and `app-side-nav`.
+
 ### April 2nd, 2025
 
 `StepperList` and `StepperNav` - Components added.
@@ -127,12 +135,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### November 3rd, 2023
 
 `Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
-
-### October 23rd, 2023
-
-`Button` - Updated icon only button variants to be square to match the ToggleIcon.
-
-`Dropdown / ToggleIcon` - Fixed the small variant so that it’s the correct size (28px height) to match the other small Buttons and ToggleButton.
 
 
 ---
