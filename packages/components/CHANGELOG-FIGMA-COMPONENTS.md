@@ -2,11 +2,12 @@
 
 ## April 24th, 2025
 
-`Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives`
+`Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives` - Removed interactive component variants
 
-- Removed interactive component variants
+`AdvancedTable` - Restored a missing row variant, added multi-selection to the sticky column [Template]
 
 Unpublished all local variables for component-level tokens.
+
 
 ## April 2nd, 2025
 
