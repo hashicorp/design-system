@@ -65,7 +65,8 @@
     "prettier": "^3.4.2",
     "rollup": "^4.28.1",
     "rollup-plugin-copy": "^3.5.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1"
   },
   "ember": {
     "edition": "octane"
