@@ -18,7 +18,7 @@
 
 - Removed interactive component variants
 
-Unpublished local styles for `navigation`, `side-nav`, `app-footer`, and `app-side-nav`.
+Unpublished all local variables for component-level tokens.
 
 ### April 2nd, 2025
 
