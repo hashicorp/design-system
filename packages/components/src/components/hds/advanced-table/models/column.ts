@@ -7,6 +7,7 @@ export default class HdsAdvancedTableColumn {
   
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
+  @tracked isReorderable?: boolean = false;
   @tracked isResizable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
@@ -20,6 +21,7 @@ export default class HdsAdvancedTableColumn {
     
     this.align = args.align ?? 'left';
     this.isExpandable = args.isExpandable ?? false;
+    this.isReorderable = args.isReorderable ?? false;
     this.isResizable = args.isResizable ?? false;
     this.isSortable = args.isSortable ?? false;
     this.isVisuallyHidden = args.isVisuallyHidden ?? false;

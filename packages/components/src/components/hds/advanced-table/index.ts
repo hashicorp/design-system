@@ -134,6 +134,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
+    onReorder?: (columnOrder: string[]) => void;
   };
   Blocks: {
     body?: [
@@ -178,7 +179,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns, columnOrder, hasStickyFirstColumn, isSelectable } = this.args;
+    const { model, childrenKey, columns, columnOrder, hasStickyFirstColumn, isSelectable, onReorder } = this.args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
@@ -187,6 +188,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       columnOrder,
       hasStickyFirstColumn,
       isSelectable,
+      onReorder,
     });
   }
 

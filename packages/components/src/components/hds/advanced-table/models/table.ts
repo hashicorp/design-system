@@ -11,6 +11,7 @@ import { assert } from '@ember/debug';
 
 import type {
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
+  HdsAdvancedTableCell,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
 } from '../types';
@@ -22,6 +23,7 @@ interface HdsAdvancedTableTableArgs {
   childrenKey?: string;
   columnOrder?: string[];
   hasStickyFirstColumn?: boolean;
+  onReorder?: (columnOrder: string[]) => void;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -43,12 +45,15 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked columnOrder: string[] = [];
+  @tracked reorderDraggedColumn: HdsAdvancedTableColumn | null = null;
 
   isSelectable: boolean = false;
   rows: HdsAdvancedTableRow[] = [];
 
+  onReorder: HdsAdvancedTableTableArgs['onReorder'] | null = null; 
+
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey, isSelectable, columns, columnOrder, hasStickyFirstColumn } = args;
+    const { model, childrenKey, isSelectable, columns, columnOrder, hasStickyFirstColumn, onReorder } = args;
 
     this.isSelectable = isSelectable ?? false;
 
@@ -67,6 +72,8 @@ export default class HdsAdvancedTableTableModel {
       });
     });
 
+    this.onReorder = onReorder ?? null;
+
     if (this.hasRowsWithChildren) {
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
@@ -83,6 +90,20 @@ export default class HdsAdvancedTableTableModel {
         !hasStickyFirstColumn
       );
     }
+  }
+
+  get reorderDraggedColumnCells(): HdsAdvancedTableCell[] {
+    if (this.reorderDraggedColumn === null) {
+      return [];
+    }
+
+    const { key } = this.reorderDraggedColumn;
+
+    return this.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === key);
+
+      return cell!;
+    });
   }
 
   get orderedColumns(): HdsAdvancedTableColumn[] {
@@ -141,6 +162,33 @@ export default class HdsAdvancedTableTableModel {
       this.collapseAll();
     } else {
       this.openAll();
+    }
+  }
+
+  @action
+  reorderColumn(targetColumn: HdsAdvancedTableColumn) {
+    const sourceColumn = this.reorderDraggedColumn;
+    
+    if (sourceColumn == null || sourceColumn === targetColumn) {
+      return;
+    }
+
+    const oldIndex = this.orderedColumns.indexOf(sourceColumn);
+    const newIndex = this.orderedColumns.indexOf(targetColumn);
+
+    if (oldIndex !== -1 && newIndex !== -1) {
+      const updated = [...this.columnOrder];
+      
+      updated.splice(oldIndex, 1); // Remove from old
+      updated.splice(newIndex, 0, sourceColumn.key as string); // Insert at new
+      
+      this.columnOrder = updated;
+      
+      for (const row of this.rows) {
+        row.updateColumnOrder(updated);
+      }
+      
+      this.onReorder?.(updated);
     }
   }
 }

@@ -6,12 +6,8 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import type { HdsAdvancedTableColumn } from '../types';
 
-interface HdsAdvancedTableCell {
-  columnKey: string;
-  value: unknown;
-}
+import type { HdsAdvancedTableColumn, HdsAdvancedTableCell } from '../types';
 
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
@@ -80,6 +76,15 @@ export default class HdsAdvancedTableRow {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         (child) => new HdsAdvancedTableRow(child)
       );
+    }
+  }
+
+  @action
+  updateColumnOrder(columnOrder: string[]) {
+    this.columnOrder = columnOrder;
+
+    for (const child of this.children) {
+      child.updateColumnOrder(columnOrder);
     }
   }
 

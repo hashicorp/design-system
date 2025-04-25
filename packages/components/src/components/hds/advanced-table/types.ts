@@ -111,3 +111,7 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 }
 
 export type HdsAdvancedTableModel = Record<string, unknown>[];
+export interface HdsAdvancedTableCell {
+  columnKey: string;
+  value: unknown;
+}

@@ -62,6 +62,8 @@
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
+              @onReorderDrop={{this._tableModel.reorderColumn}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>

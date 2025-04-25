@@ -74,6 +74,7 @@ export default class ComponentsTableController extends Controller {
     {
       key: 'artist',
       label: 'Artist',
+      isReorderable: true,
       isResizable: true,
       tooltip: 'More information.',
       width: '200px',
@@ -81,6 +82,7 @@ export default class ComponentsTableController extends Controller {
     {
       key: 'album',
       label: 'Album',
+      isReorderable: true,
       isResizable: true,
       tooltip: 'More information.',
       width: '200px',
@@ -88,6 +90,7 @@ export default class ComponentsTableController extends Controller {
     {
       key: 'year',
       label: 'Release Year',
+      isReorderable: true,
       isResizable: true,
       tooltip: 'More information.',
       width: '200px',

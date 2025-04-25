@@ -28,7 +28,7 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
-    column?: HdsAdvancedTableColumn
+    column: HdsAdvancedTableColumn
     align?: HdsAdvancedTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
     scope?: HdsAdvancedTableScope;
@@ -47,6 +47,8 @@ export interface HdsAdvancedTableThSignature {
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     columnKey?: string;
+    onReorderDragStart: (column: HdsAdvancedTableColumn) => void;
+    onReorderDrop: (column: HdsAdvancedTableColumn) => void;
   };
   Blocks: {
     default?: [];
@@ -132,6 +134,27 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  handleDragStart(event: DragEvent): void {
+    const { column } = this.args;
+
+    event.dataTransfer?.setData('text/plain', column.key ?? '');
+
+    this.args.onReorderDragStart(column);
+  }
+
+  @action
+  handleDragOver(event: DragEvent): void {
+    event.preventDefault();
+  }
+
+  @action
+  handleDrop(event: DragEvent): void {
+    event.preventDefault();
+
+    this.args.onReorderDrop(this.args.column);
   }
 
   @action onFocusTrapDeactivate(): void {

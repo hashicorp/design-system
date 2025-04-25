@@ -41,7 +41,14 @@
     <button type="button" {{on "click" this.resizeColumnWidth}}>Resize columns</button>
   </Hds::Layout::Flex>
 
-  <Hds::AdvancedTable @columnOrder={{this.columnOrder}} @model={{this.model.music}} @columns={{this.spikeColumns}}>
+  {{this.columnOrder}}
+
+  <Hds::AdvancedTable
+    @columnOrder={{this.columnOrder}}
+    @model={{this.model.music}}
+    @columns={{this.spikeColumns}}
+    @onReorder={{fn (mut this.columnOrder)}}
+  >
     <:body as |B|>
       <B.Tr as |R|>
         {{#each R.orderedCells as |cell|}}

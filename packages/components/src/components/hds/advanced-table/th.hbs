@@ -8,6 +8,7 @@
   aria-rowspan={{@rowspan}}
   aria-colspan={{@colspan}}
   aria-describedby={{@parentId}}
+  draggable={{@column.isReorderable}}
   {{style grid-row=this.rowspan grid-column=this.colspan padding-left=this.paddingLeft}}
   {{hds-advanced-table-cell
     handleEnableFocusTrap=this.enableFocusTrap
@@ -21,6 +22,9 @@
       onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus clickOutsideDeactivates=true
     )
   }}
+  {{on "dragstart" this.handleDragStart}}
+  {{on "dragover" this.handleDragOver}}
+  {{on "drop" this.handleDrop}}
   ...attributes
 >
   {{@column.width}}
