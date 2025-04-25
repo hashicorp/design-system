@@ -28,6 +28,7 @@ import MockAppSidebarSideNav from '../app/components/mock/app/sidebar/app-side-n
 import MockAppMainPageHeader from '../app/components/mock/app/main/page-header';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
+import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualizaton';
 
 export default interface ShowcaseTemplateRegistry {
   // SHW COMPONENTS
@@ -80,4 +81,6 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
+  'Mock::Demo::BreakpointsVisualization': typeof MockDemoBreakpointsVisualization;
+  'mock/demo/breakpoints-visualizaton': typeof MockDemoBreakpointsVisualization;
 }

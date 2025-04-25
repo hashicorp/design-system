@@ -16,6 +16,12 @@ Router.map(function () {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
+    this.route('breakpoints', function () {
+      this.route('frameless', function () {
+        this.route('demo-viewport-breakpoints-visualization');
+        this.route('demo-viewport-breakpoints-visualization-with-ui-shell');
+      });
+    });
   });
   this.route('components', function () {
     this.route('accordion');
