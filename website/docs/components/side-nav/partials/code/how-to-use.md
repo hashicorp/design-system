@@ -1,10 +1,3 @@
-
-!!! Warning
-
-The `Hds::SideNav` component is now deprecated. Use the `Hds::AppSideNav` component instead.
-
-!!!
-
 This section provides in-depth instructions on how consumers can use the **full-featured `Hds::SideNav`** component to build a "standard" sidebar navigation with responsive behavior, animations/transitions, support for portals, etc.
 
 It also provides generic guidance on how to use the **layout-only `Hds::SideNav::Base`** component to build a customized sidebar navigation (if that would be necessary).
@@ -28,19 +21,31 @@ The `Hds::SideNav` component provides a set of advanced features out of the box:
 
 The Side Nav component provides a top-level layout for the sidebar navigation.
 
-It exposes three "slots" (named blocks) where the consumers can yield the navigation content, and add business logic to control this content:  `<:header>`, `<:body>` and `<:footer>`.
+It exposes three "slots" (named blocks) where the consumers can yield the navigation content, and add business logic to control this content: `<:header>`, `<:body>` and `<:footer>`.
 
 ```handlebars
-<div class="doc-sidenav-demo">
+<div class='doc-sidenav-demo'>
   <Hds::SideNav>
     <:header>
-      <Doc::Placeholder @height="72px" @text="&lt;:header /&gt;" @background="#e4e4e4" />
+      <Doc::Placeholder
+        @height='72px'
+        @text='&lt;:header /&gt;'
+        @background='#e4e4e4'
+      />
     </:header>
     <:body>
-      <Doc::Placeholder @height="500px" @text="&lt;:body /&gt;" @background="#e4e4e4" />
+      <Doc::Placeholder
+        @height='500px'
+        @text='&lt;:body /&gt;'
+        @background='#e4e4e4'
+      />
     </:body>
     <:footer>
-      <Doc::Placeholder @height="36px" @text="&lt;:footer /&gt;" @background="#e4e4e4" />
+      <Doc::Placeholder
+        @height='36px'
+        @text='&lt;:footer /&gt;'
+        @background='#e4e4e4'
+      />
     </:footer>
   </Hds::SideNav>
 </div>
@@ -58,15 +63,25 @@ Typically the `Hds::SideNav::Header` sub-component should be added here. It prov
 - the `<:actions>` block should contain optional top-level actions (eg. global search, user menu, help menu, etc.)
 
 ```handlebars
-<div class="doc-sidenav-demo--short">
+<div class='doc-sidenav-demo--short'>
   <Hds::SideNav>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Doc::Placeholder @width="100%" @height="100%" @text="logo" @background="#e4e4e4" />
+          <Doc::Placeholder
+            @width='100%'
+            @height='100%'
+            @text='logo'
+            @background='#e4e4e4'
+          />
         </:logo>
         <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
+          <Doc::Placeholder
+            @width='150px'
+            @height='36px'
+            @text='actions'
+            @background='#e4e4e4'
+          />
         </:actions>
       </Hds::SideNav::Header>
     </:header>
@@ -82,15 +97,24 @@ To add a logo to the "header" of the Side Nav use the `<Hds::SideNav::Header::Ho
 It requires a value for the `@icon` and `@ariaLabel` arguments:
 
 ```handlebars
-<div class="doc-sidenav-demo--short">
+<div class='doc-sidenav-demo--short'>
   <Hds::SideNav>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::SideNav::Header::HomeLink
+            @icon='hashicorp'
+            @ariaLabel='HashiCorp home menu'
+            @href='#'
+          />
         </:logo>
         <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
+          <Doc::Placeholder
+            @width='150px'
+            @height='36px'
+            @text='actions'
+            @background='#e4e4e4'
+          />
         </:actions>
       </Hds::SideNav::Header>
     </:header>
@@ -102,25 +126,30 @@ It requires a value for the `@icon` and `@ariaLabel` arguments:
 It also accepts optional arguments, for example it’s possible to provide a custom color for the icon if needed:
 
 ```handlebars
-<div class="doc-sidenav-demo--short">
+<div class='doc-sidenav-demo--short'>
   <Hds::SideNav>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
           <Hds::SideNav::Header::HomeLink
-            @icon="boundary"
+            @icon='boundary'
             {{! you can provide a custom color for the icon }}
-            @color="var(--token-color-boundary-brand)"
-            @ariaLabel="Boundary home menu"
-            @href="#"
+            @color='var(--token-color-boundary-brand)'
+            @ariaLabel='Boundary home menu'
+            @href='#'
           />
         </:logo>
         <:actions>
-          <Doc::Placeholder @width="150px" @height="36px" @text="actions" @background="#e4e4e4" />
+          <Doc::Placeholder
+            @width='150px'
+            @height='36px'
+            @text='actions'
+            @background='#e4e4e4'
+          />
         </:actions>
       </Hds::SideNav::Header>
     </:header>
-    {{!-- ... --}}
+    {{! ... }}
   </Hds::SideNav>
 </div>
 ```
@@ -136,31 +165,35 @@ This block is intended to contain top-level actionable elements like dropdowns a
 Here is an example of some possible actions:
 
 ```handlebars
-<div class="doc-sidenav-demo--short">
+<div class='doc-sidenav-demo--short'>
   <Hds::SideNav>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::SideNav::Header::HomeLink
+            @icon='hashicorp'
+            @ariaLabel='HashiCorp home menu'
+            @href='#'
+          />
         </:logo>
         <:actions>
-          <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" />
+          <Hds::Button @icon='search' @isIconOnly={{true}} @text='Search' />
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="settings menu" />
-            <dd.Title @text="Help & Support" />
-            <dd.Interactive @href="#">Documentation</dd.Interactive>
-            <dd.Interactive @href="#">Tutorials</dd.Interactive>
-            <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-            <dd.Interactive @href="#">Changelog</dd.Interactive>
+            <dd.ToggleIcon @icon='help' @text='settings menu' />
+            <dd.Title @text='Help & Support' />
+            <dd.Interactive @href='#'>Documentation</dd.Interactive>
+            <dd.Interactive @href='#'>Tutorials</dd.Interactive>
+            <dd.Interactive @href='#'>Terraform Provider</dd.Interactive>
+            <dd.Interactive @href='#'>Changelog</dd.Interactive>
             <dd.Separator />
-            <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-            <dd.Interactive @href="#">Give feedback</dd.Interactive>
+            <dd.Interactive @href='#'>Create support ticket</dd.Interactive>
+            <dd.Interactive @href='#'>Give feedback</dd.Interactive>
           </Hds::Dropdown>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#">Account Settings</dd.Interactive>
+            <dd.ToggleIcon @icon='user' @text='user menu' />
+            <dd.Title @text='Signed In' />
+            <dd.Description @text='email@domain.com' />
+            <dd.Interactive @href='#'>Account Settings</dd.Interactive>
           </Hds::Dropdown>
         </:actions>
       </Hds::SideNav::Header>
@@ -201,24 +234,46 @@ The `SideNav::List` component (and its sub-components) are the fundamental build
 Below is an example (with simplified code for better readability) of how these elements could be used to build different specific navigation items:
 
 ```handlebars
-<div class="doc-sidenav-demo--short">
+<div class='doc-sidenav-demo--short'>
   <Hds::SideNav>
     {{! ... }}
     <:body>
       <Hds::SideNav::List as |SNL|>
-        <SNL.BackLink @text="A “back” link" @href="#" />
+        <SNL.BackLink @text='A “back” link' @href='#' />
         <SNL.Title>A section title</SNL.Title>
-        <SNL.Link @text="A link with just text" @href="#" />
-        <SNL.Link @text="A link with an icon" @icon="network" @href="#" />
-        <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
-        <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
-        <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
-        <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
-        <SNL.Link @icon="hexagon" @href="#">
-          <Doc::Placeholder @height="20px" @text="With generic yielded content" @background="#e4e4e4" />
+        <SNL.Link @text='A link with just text' @href='#' />
+        <SNL.Link @text='A link with an icon' @icon='network' @href='#' />
+        <SNL.Link @text='With a “count”' @icon='users' @count='12' @href='#' />
+        <SNL.Link
+          @text='With a “badge” '
+          @icon='credit-card'
+          @badge='Beta'
+          @href='#'
+        />
+        <SNL.Link
+          @text='With “sub items” indicator'
+          @icon='settings'
+          @hasSubItems={{true}}
+        />
+        <SNL.Link
+          @href='#'
+          @isHrefExternal='true'
+          @icon='guide'
+          @text='As an “external” link'
+        />
+        <SNL.Link @icon='hexagon' @href='#'>
+          <Doc::Placeholder
+            @height='20px'
+            @text='With generic yielded content'
+            @background='#e4e4e4'
+          />
         </SNL.Link>
         <SNL.Item>
-          <Doc::Placeholder @height="20px" @text="Generic yielded content" @background="#e4e4e4" />
+          <Doc::Placeholder
+            @height='20px'
+            @text='Generic yielded content'
+            @background='#e4e4e4'
+          />
         </SNL.Item>
       </Hds::SideNav::List>
     </:body>
@@ -270,83 +325,109 @@ For more details about how to use these sub-components refer to the ["Component 
 Below is an example (inspired by the Cloud UI navigation) of how the two kinds of portals are declared in code:
 
 ```handlebars
-{{!--
+{{!
 for demo purposes we set `@isResponsive` and `@hasA11yRefocus` to `false`
 but in your app they will probably need to be set to `true` (or omitted to rely on defaults)
---}}
-<div class="doc-sidenav-demo--cloud-ui">
+}}
+<div class='doc-sidenav-demo--cloud-ui'>
   <Hds::SideNav @isResponsive={{false}} @hasA11yRefocus={{false}}>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+          <Hds::SideNav::Header::HomeLink
+            @icon='hashicorp'
+            @ariaLabel='HashiCorp'
+            @href='#'
+          />
         </:logo>
         <:actions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-            <dd.Title @text="Help & Support" />
-            <dd.Interactive @href="#">Documentation</dd.Interactive>
-            <dd.Interactive @href="#">Tutorials</dd.Interactive>
-            <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
-            <dd.Interactive @href="#">Changelog</dd.Interactive>
+            <dd.ToggleIcon @icon='help' @text='help menu' />
+            <dd.Title @text='Help & Support' />
+            <dd.Interactive @href='#'>Documentation</dd.Interactive>
+            <dd.Interactive @href='#'>Tutorials</dd.Interactive>
+            <dd.Interactive @href='#'>Terraform Provider</dd.Interactive>
+            <dd.Interactive @href='#'>Changelog</dd.Interactive>
             <dd.Separator />
-            <dd.Interactive @href="#">Create support ticket</dd.Interactive>
-            <dd.Interactive @href="#">Give feedback</dd.Interactive>
+            <dd.Interactive @href='#'>Create support ticket</dd.Interactive>
+            <dd.Interactive @href='#'>Give feedback</dd.Interactive>
           </Hds::Dropdown>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-            <dd.Title @text="Signed In" />
-            <dd.Description @text="email@domain.com" />
-            <dd.Interactive @href="#">Account Settings</dd.Interactive>
+            <dd.ToggleIcon @icon='user' @text='user menu' />
+            <dd.Title @text='Signed In' />
+            <dd.Description @text='email@domain.com' />
+            <dd.Interactive @href='#'>Account Settings</dd.Interactive>
           </Hds::Dropdown>
         </:actions>
       </Hds::SideNav::Header>
     </:header>
     <:body>
-      {{!--
+      {{!
       this portal "target" needs to be added in the position where you want
       the content declared in the "portal(s)" to be injected
       (typically the `:body` of the `Hds::SideNav`)
-      --}}
+      }}
       <Hds::SideNav::Portal::Target />
     </:body>
     <:footer>
-      <Doc::Placeholder @height="36px" @text="Org/Project Select (“context switcher”)" @background="#e4e4e4" />
+      <Doc::Placeholder
+        @height='36px'
+        @text='Org/Project Select (“context switcher”)'
+        @background='#e4e4e4'
+      />
     </:footer>
   </Hds::SideNav>
 </div>
 
-{{!--
+{{!
 this "portal" can be declared in any part of the application, and its content
 will be injected automatically in the "target" portal declared above;
 if multiple portals are declared, multiple "panels" will be rendered
 based on the nesting of the page route within the application’s global routing
---}}
-<Hds::SideNav::Portal @ariaLabel="Primary" as |Nav|>
-  <Nav.Link @icon="dashboard" @text="Dashboard" @isActive={{true}} />
+}}
+<Hds::SideNav::Portal @ariaLabel='Primary' as |Nav|>
+  <Nav.Link @icon='dashboard' @text='Dashboard' @isActive={{true}} />
   <Nav.Title>Services</Nav.Title>
-  <Nav.Link @text="Boundary" @icon="boundary" @href="#" />
-  <Nav.Link @text="Consul" @icon="consul" @href="#" />
-  <Nav.Link @text="Packer" @icon="packer" @href="#" />
-  <Nav.Link @text="Vault" @icon="vault" @href="#" />
-  <Nav.Link @text="Vault Secrets" @icon="vault-secrets-square" @href="#" />
-  <Nav.Link @text="Terraform" @icon="terraform" @href="#" />
-  <Nav.Link @text="Vagrant" @icon="vagrant" @badge="Alpha" @href="#" />
-  <Nav.Link @text="Waypoint" @icon="waypoint" @badge="Alpha" @hasSubItems={{true}} />
+  <Nav.Link @text='Boundary' @icon='boundary' @href='#' />
+  <Nav.Link @text='Consul' @icon='consul' @href='#' />
+  <Nav.Link @text='Packer' @icon='packer' @href='#' />
+  <Nav.Link @text='Vault' @icon='vault' @href='#' />
+  <Nav.Link @text='Vault Secrets' @icon='vault-secrets-square' @href='#' />
+  <Nav.Link @text='Terraform' @icon='terraform' @href='#' />
+  <Nav.Link @text='Vagrant' @icon='vagrant' @badge='Alpha' @href='#' />
+  <Nav.Link
+    @text='Waypoint'
+    @icon='waypoint'
+    @badge='Alpha'
+    @hasSubItems={{true}}
+  />
   <Nav.Title>Default Org</Nav.Title>
-  <Nav.Link @text="HashiCorp Virtual Networks" @icon="network" @href="#" />
-  <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-  <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+  <Nav.Link @text='HashiCorp Virtual Networks' @icon='network' @href='#' />
+  <Nav.Link
+    @text='Access control (IAM)'
+    @icon='users'
+    @href='#'
+    @hasSubItems={{true}}
+  />
+  <Nav.Link
+    @text='Billing'
+    @icon='credit-card'
+    @href='#'
+    @hasSubItems={{true}}
+  />
+  <Nav.Link @text='Settings' @icon='settings' @href='#' @hasSubItems={{true}} />
+  <Nav.Link
+    @href='#'
+    @isHrefExternal='true'
+    @icon='guide'
+    @text='Documentation'
+  />
 </Hds::SideNav::Portal>
-
 ```
 
 _Notice: given the complexity of the component and its usage, is not possible to exactly replicate its production-ready implementation in code; refer to other codebases (e.g., [Cloud UI](https://github.com/search?q=repo%3Ahashicorp%2Fcloud-ui+%3CHds%3A%3ASideNav%3A%3APortal&type=code)) to have a more in-depth view of how the "portals" should be used to build a complex app navigation._
 
-
-Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Portal` adds its content to the navigation as a distinct "panel", pushing the previous one out of the viewport through an  animation (the injection of panels and the corresponding sliding animation is entirely controlled via JavaScript). The whole set of panels is automatically faded in/out on Side Nav minimization (see [Responsiveness](#responsiveness) below).
+Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Portal` adds its content to the navigation as a distinct "panel", pushing the previous one out of the viewport through an animation (the injection of panels and the corresponding sliding animation is entirely controlled via JavaScript). The whole set of panels is automatically faded in/out on Side Nav minimization (see [Responsiveness](#responsiveness) below).
 
 !!! Info
 
@@ -355,7 +436,6 @@ Since the `SideNav::PortalTarget` supports multiple portals, each `SideNav::Port
 When the Side Nav is used in conjunction with portals, the nesting of navigation/subnavigation levels has to match one-to-one the hierarchy of the routing, otherwise it will not work as one would expect.
 
 !!!
-
 
 #### Footer (`<:footer>`)
 
@@ -416,11 +496,11 @@ When the Side Nav is paired with the [`Hds::AppHeader`](/components/app-header) 
 As mentioned previously, the full-fledged `Hds::SideNav` component is "responsive" by default:
 
 - when the **viewport is `desktop`** the sidebar navigation is static and has a fixed width
-    - the width at which the viewport is considered "desktop" is controlled by a dedicated CSS variable `--hds-app-desktop-breakpoint`; if needed it can be overwritten (at `:root` level) to define a custom "desktop" breakpoint
+  - the width at which the viewport is considered "desktop" is controlled by a dedicated CSS variable `--hds-app-desktop-breakpoint`; if needed it can be overwritten (at `:root` level) to define a custom "desktop" breakpoint
 - when the **viewport is `mobile`** the sidebar navigation is responsive and the user can minimize or maximize its width via a toggle button (the component will take care automatically of the transitions between these two states)
-    - in this case the Side Nav occupies only a minimum width in terms of page layout, even when expanded (it partially covers the main content)
-    - a toggle button is added to the Side Nav, used to expand/minimize its width
-    - an overlay is automatically added to the main content area so that the user can't interact with it while the Side Nav is opened (if the user clicks on the overlay, the Side Nav closes and returns to its minimized state; the same happens if the user presses the `esc` key)
+  - in this case the Side Nav occupies only a minimum width in terms of page layout, even when expanded (it partially covers the main content)
+  - a toggle button is added to the Side Nav, used to expand/minimize its width
+  - an overlay is automatically added to the main content area so that the user can't interact with it while the Side Nav is opened (if the user clicks on the overlay, the Side Nav closes and returns to its minimized state; the same happens if the user presses the `esc` key)
 
 This "responsive" behavior can be programmatically turned off passing a value `false` to the argument `@isResponsive` in the `Hds::SideNav` component.
 
@@ -503,30 +583,34 @@ The component exposes a set of "slots" (named blocks) where the content can be p
 Here is an example of how the component could be used:
 
 ```handlebars
-<div class="doc-sidenav-demo">
+<div class='doc-sidenav-demo'>
   <Hds::SideNav::Base>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::SideNav::Header::HomeLink
+            @icon='hashicorp'
+            @ariaLabel='HashiCorp home menu'
+            @href='#'
+          />
         </:logo>
       </Hds::SideNav::Header>
     </:header>
     <:body>
       <Hds::SideNav::List as |S|>
         <S.Title>Companies</S.Title>
-        <S.Link @text="Apple" @icon="apple" @href="#" />
-        <S.Link @text="Google" @icon="google" @href="#" />
-        <S.Link @text="Microsoft" @icon="microsoft" @href="#" />
+        <S.Link @text='Apple' @icon='apple' @href='#' />
+        <S.Link @text='Google' @icon='google' @href='#' />
+        <S.Link @text='Microsoft' @icon='microsoft' @href='#' />
         <S.Title>Software</S.Title>
-        <S.Link @text="GitHub" @icon="github" @href="#" />
-        <S.Link @text="Loom" @icon="loom" @href="#" />
-        <S.Link @text="Slack" @icon="slack" @href="#" />
+        <S.Link @text='GitHub' @icon='github' @href='#' />
+        <S.Link @text='Loom' @icon='loom' @href='#' />
+        <S.Link @text='Slack' @icon='slack' @href='#' />
         <S.Title>Socials</S.Title>
-        <S.Link @text="Facebook" @icon="facebook" @href="#" />
-        <S.Link @text="LinkedIn" @icon="linkedin" @href="#" />
-        <S.Link @text="Twitch" @icon="twitch" @href="#" @badge="New" />
-        <S.Link @text="YouTube" @icon="youtube" @href="#" />
+        <S.Link @text='Facebook' @icon='facebook' @href='#' />
+        <S.Link @text='LinkedIn' @icon='linkedin' @href='#' />
+        <S.Link @text='Twitch' @icon='twitch' @href='#' @badge='New' />
+        <S.Link @text='YouTube' @icon='youtube' @href='#' />
       </Hds::SideNav::List>
     </:body>
   </Hds::SideNav::Base>
@@ -541,7 +625,6 @@ For details about these slots see the ["Component API"](/components/side-nav?tab
 
 In theory one could also use portals to inject the content, but this somehow defeats the purpose of the `Hds::SideNav::Base` component: its simplicity of use. So if you find yourself in need to use portals, consider adopting the full-featured variant of the Side Nav component instead.
 
-
 ### Responsiveness
 
 This base component is **not** responsive: this means its width is fixed, at any viewport size.
@@ -555,22 +638,26 @@ It's possible though to tweak that fixed width by overwriting the CSS custom pro
   }
 }}
 
-<div class="doc-sidenav-demo--custom-width">
+<div class='doc-sidenav-demo--custom-width'>
   <Hds::SideNav::Base>
     <:header>
       <Hds::SideNav::Header>
         <:logo>
-          <Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::SideNav::Header::HomeLink
+            @icon='hashicorp'
+            @ariaLabel='HashiCorp home menu'
+            @href='#'
+          />
         </:logo>
       </Hds::SideNav::Header>
     </:header>
     <:body>
       <Hds::SideNav::List as |S|>
         <S.Title>Category</S.Title>
-        <S.Link @text="Link #1" @icon="circle" @href="#" />
-        <S.Link @text="Link #2" @icon="triangle" @href="#" />
-        <S.Link @text="Link #3" @icon="square" @href="#" />
-        <S.Link @text="Link #4" @icon="hexagon" @href="#" />
+        <S.Link @text='Link #1' @icon='circle' @href='#' />
+        <S.Link @text='Link #2' @icon='triangle' @href='#' />
+        <S.Link @text='Link #3' @icon='square' @href='#' />
+        <S.Link @text='Link #4' @icon='hexagon' @href='#' />
       </Hds::SideNav::List>
     </:body>
   </Hds::SideNav::Base>
@@ -580,4 +667,3 @@ It's possible though to tweak that fixed width by overwriting the CSS custom pro
 ### Accessibility
 
 Since this component is layout-only, there are no built-in accessibility features: you have to take care of making sure your custom Side Nav implementation is conformant to the WCAG requirements.
-
