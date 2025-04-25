@@ -42,6 +42,11 @@ export { default as HdsAppFooterLink } from './components/hds/app-footer/link.ts
 export { default as HdsAppFooterStatusLink } from './components/hds/app-footer/status-link.ts';
 export * from './components/hds/app-footer/types.ts';
 
+// AppHeader
+export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
+export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
+export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
+
 // AppSideNav
 export { default as HdsAppSideNav } from './components/hds/app-side-nav/index.ts';
 export { default as HdsAppSideNavToggleButton } from './components/hds/app-side-nav/toggle-button.ts';
@@ -52,11 +57,6 @@ export { default as HdsAppSideNavListItem } from './components/hds/app-side-nav/
 export { default as HdsAppSideNavListBackLink } from './components/hds/app-side-nav/list/back-link.ts';
 export { default as HdsAppSideNavListTitle } from './components/hds/app-side-nav/list/title.ts';
 export { default as HdsAppSideNavListLink } from './components/hds/app-side-nav/list/link.ts';
-
-// AppHeader
-export { default as HdsAppHeader } from './components/hds/app-header/index.ts';
-export { default as HdsAppHeaderHomeLink } from './components/hds/app-header/home-link.ts';
-export { default as HdsAppHeaderMenuButton } from './components/hds/app-header/menu-button.ts';
 
 // ApplicationState
 export { default as HdsApplicationState } from './components/hds/application-state/index.ts';
