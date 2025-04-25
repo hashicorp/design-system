@@ -1,0 +1,86 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "sass:list";
+@use "sass:map";
+// from @hashicorp/design-system-components package
+// @use "mixins/breakpoints" as *;
+// TODO! remove once fixed the Sass compilation issue (hack to start testing)
+@use "../../../temp-hds-breakpoints" as *;
+@use "colors" as *;
+
+.mock-demo-breakpoints-visualization {
+  position: relative;
+}
+
+// COLORS
+
+@mixin mock-demo-breakpoint-color($name) {
+  & {
+    color: #fff;
+    text-shadow: none;
+    background-color: map.get($mock-demo-breakpoints-colors, $name);
+  }
+}
+
+@each $name, $color in $mock-demo-breakpoints-colors {
+  .mock-demo-breakpoints-color--#{$name} {
+    @include mock-demo-breakpoint-color($name);
+  }
+}
+
+// WIDTH
+
+@mixin mock-demo-breakpoint-width($name) {
+  & {
+    max-width: map.get($hds-breakpoints, $name);
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-width--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+  }
+}
+
+// MIXIN CLASSES
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-mixin__breakpoint-above--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+
+    @include hds-breakpoint-above($name) {
+      @include mock-demo-breakpoint-color($name);
+    }
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-mixin__breakpoint-below--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+
+    @include hds-breakpoint-below($name) {
+      @include mock-demo-breakpoint-color($name);
+    }
+  }
+}
+
+@each $lower, $size in $hds-breakpoints {
+  @each $upper, $size in $hds-breakpoints {
+    .shw-grid__item:has(.mock-demo-breakpoints-mixin__breakpoint-between--lower-#{$lower}-upper-#{$upper}) {
+      $keys: map.keys($mock-demo-breakpoints-colors);
+      $lower-index: list.index($keys, $lower);
+      $upper-index: list.index($keys, $upper);
+      grid-column: $lower-index / span #{$upper-index - $lower-index};
+    }
+    .mock-demo-breakpoints-mixin__breakpoint-between--lower-#{$lower}-upper-#{$upper} {
+      @include hds-breakpoint-between($lower, $upper) {
+        color: #fff;
+        text-shadow: none;
+        background: linear-gradient(to right, map.get($mock-demo-breakpoints-colors, $lower), map.get($mock-demo-breakpoints-colors, $upper));
+      }
+    }
+  }
+}
