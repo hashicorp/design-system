@@ -271,9 +271,10 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('it should call `onToggleMinimizedStatus` function if provided', async function (assert) {
     let toggled = false;
     this.set('onToggleMinimizedStatus', () => (toggled = true));
-    await render(
-      hbs`<Hds::AppSideNav @isCollapsible={{true}} @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}} />`
-    );
+    await render(hbs`<Hds::AppSideNav
+  @isCollapsible={{true}}
+  @onToggleMinimizedStatus={{this.onToggleMinimizedStatus}}
+/>`);
     await click('.hds-app-side-nav__toggle-button');
     assert.ok(toggled);
   });

@@ -15,7 +15,7 @@ import {
 import type { HdsAppSideNavSignature } from '@hashicorp/design-system-components/components/hds/app-side-nav/index';
 import type Owner from '@ember/owner';
 
-export interface MockAppSidebarSideNavSignature {
+export interface MockAppSidebarAppSideNavSignature {
   Args: {
     isResponsive?: HdsAppSideNavSignature['Args']['isResponsive'];
     isCollapsible?: HdsAppSideNavSignature['Args']['isCollapsible'];
@@ -25,13 +25,13 @@ export interface MockAppSidebarSideNavSignature {
   Element: HdsAppSideNavSignature['Element'];
 }
 
-export default class MockAppSidebarSideNav extends Component<MockAppSidebarSideNavSignature> {
+export default class MockAppSidebarAppSideNav extends Component<MockAppSidebarAppSideNavSignature> {
   isResponsive;
   isCollapsible;
   showHeader;
   showFooter;
 
-  constructor(owner: Owner, args: MockAppSidebarSideNavSignature['Args']) {
+  constructor(owner: Owner, args: MockAppSidebarAppSideNavSignature['Args']) {
     super(owner, args);
     this.isResponsive = this.args.isResponsive ?? true;
     this.isCollapsible = this.args.isCollapsible ?? true;

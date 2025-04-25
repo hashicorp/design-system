@@ -19,7 +19,7 @@ import {
 import type { HdsSideNavSignature } from '@hashicorp/design-system-components/components/hds/side-nav/index';
 import type Owner from '@ember/owner';
 
-export interface MockSidebarSideNavSignature {
+export interface MockAppSidebarOldSideNavSignature {
   Args: {
     isResponsive?: HdsSideNavSignature['Args']['isResponsive'];
     hasA11yRefocus?: HdsSideNavSignature['Args']['hasA11yRefocus'];
@@ -30,14 +30,14 @@ export interface MockSidebarSideNavSignature {
   Element: HdsSideNavSignature['Element'];
 }
 
-export default class MockSidebarSideNav extends Component<MockSidebarSideNavSignature> {
+export default class MockAppSidebarOldSideNav extends Component<MockAppSidebarOldSideNavSignature> {
   isResponsive;
   hasA11yRefocus;
   isCollapsible;
   showHeader;
   showFooter;
 
-  constructor(owner: Owner, args: MockSidebarSideNavSignature['Args']) {
+  constructor(owner: Owner, args: MockAppSidebarOldSideNavSignature['Args']) {
     super(owner, args);
     this.isResponsive = this.args.isResponsive ?? true;
     this.hasA11yRefocus = this.args.hasA11yRefocus ?? true;
