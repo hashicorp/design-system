@@ -17,25 +17,60 @@ $hds-breakpoints: (
   max: 1584px,
 ) !default;
 
-/// Provide a map and index, and get back the relevant key value
-/// @access public
-/// @param {Map} $map - Map
-/// @param {Integer} $index - Key chain
-/// @return {String} Desired value
-/// @group @carbon/layout
+// =========================================
+// CUSTOM MIXINS
+// =========================================
+
+@mixin media-small {
+  @media (max-width: map-get($hds-breakpoints, "small")) {
+    @content;
+  }
+}
+
+@mixin media-medium {
+  @media (max-width: map-get($hds-breakpoints, "medium")) {
+    @content;
+  }
+}
+
+@mixin media-large {
+  @media (max-width: map-get($hds-breakpoints, "large")) {
+    @content;
+  }
+}
+
+@mixin media($breakpoint) {
+  @media (max-width: map-get($hds-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+// @mixin respond-to($breakpoint-map) {
+//   @each $name, $size in $breakpoint-map {
+//     @media (max-width: $size) {
+//       .#{$name} {
+//         @content;
+//       }
+//     }
+//   }
+// }
+
+// // Usage:
+// @include respond-to($breakpoints) {
+//   color: red; // Generates .small, .medium, .large styles
+// }
+
+// =========================================
+
+
+// provide a map and index, and get back the relevant key value
 @function -key-by-index($map, $index) {
   $keys: map.keys($map);
 
   @return list.nth($keys, $index);
 }
 
-/// Get the value of the next breakpoint, or null for the last breakpoint
-/// @param {String} $name - The name of the breakpoint
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name of the breakpoint and the value is the values for the breakpoint
-/// @param {List} $breakpoint-names [map-keys($breakpoints)] - A list of names from the `$breakpoints` map
-/// @return {String}
-/// @access public
-/// @group @carbon/layout
+// get the value of the next breakpoint, or null for the last breakpoint
 @function breakpoint-next(
   $name,
   $breakpoints: $hds-breakpoints,
@@ -50,13 +85,7 @@ $hds-breakpoints: (
   @return null;
 }
 
-/// Get the value of the previous breakpoint, or null for the first breakpoint
-/// @param {String} $name - The name of the breakpoint
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name of the breakpoint and the value is the values for the breakpoint
-/// @param {List} $breakpoint-names [map-keys($breakpoints)] - A list of names from the `$breakpoints` map
-/// @return {String}
-/// @access public
-/// @group @carbon/layout
+// get the value of the previous breakpoint, or null for the first breakpoint
 @function breakpoint-prev(
   $name,
   $breakpoints: $hds-breakpoints,
@@ -71,42 +100,24 @@ $hds-breakpoints: (
   @return null;
 }
 
-/// Check to see if the given breakpoint name
-/// @param {String} $name - The name of the breakpoint
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name of the breakpoint and the value is the values for the breakpoint
-/// @return {Bool}
-/// @access public
-/// @group @carbon/layout
+// check to see if the given breakpoint name is the smallest
 @function is-smallest-breakpoint($name, $breakpoints: $hds-breakpoints) {
   @return list.index(map.keys($breakpoints), $name) == 1;
 }
 
-/// Returns the largest breakpoint name
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @return {String}
-/// @access public
-/// @group @carbon/layout
+// returns the largest breakpoint name
 @function largest-breakpoint-name($breakpoints: $hds-breakpoints) {
   $total-breakpoints: list.length($breakpoints);
 
   @return -key-by-index($breakpoints, $total-breakpoints);
 }
 
-/// Get the infix for a given breakpoint in a list of breakpoints. Useful for generating the size part in a selector, for example: `.prefix--col-sm-2`.
-/// @param {String} $name - The name of the breakpoint
-/// @return {String}
-/// @access public
-/// @group @carbon/layout
+/// get the infix for a given breakpoint in a list of breakpoints. Useful for generating the size part in a selector, for example: `.prefix--col-sm-2`.
 @function breakpoint-infix($name) {
   @return "-#{$name}";
 }
 
-/// Generate a media query from the width of the given breakpoint to infinity
-/// @param {String | Number} $name
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @content
-/// @access public
-/// @group @carbon/layout
+/// generate a media query from the width of the given breakpoint to infinity
 @mixin breakpoint-up($name, $breakpoints: $hds-breakpoints) {
   @if meta.type-of($name) == "number" {
     @media (min-width: $name) {
@@ -128,12 +139,7 @@ $hds-breakpoints: (
   }
 }
 
-/// Generate a media query for the maximum width of the given styles
-/// @param {String | Number} $name
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @content
-/// @access public
-/// @group @carbon/layout
+// generate a media query for the maximum width of the given styles
 @mixin breakpoint-down($name, $breakpoints: $hds-breakpoints) {
   @if meta.type-of($name) == "number" {
     @media (max-width: $name) {
@@ -156,13 +162,7 @@ $hds-breakpoints: (
   }
 }
 
-/// Generate a media query for the range between the lower and upper breakpoints
-/// @param {String | Number} $lower
-/// @param {String | Number} $upper
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @content
-/// @access public
-/// @group @carbon/layout
+// generate a media query for the range between the lower and upper breakpoints
 @mixin breakpoint-between($lower, $upper, $breakpoints: $hds-breakpoints) {
   $is-number-lower: meta.type-of($lower) == "number";
   $is-number-upper: meta.type-of($upper) == "number";
@@ -189,23 +189,14 @@ $hds-breakpoints: (
   }
 }
 
-/// Generate media query for the largest breakpoint
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @content
-/// @access public
-/// @group @carbon/layout
+// generate media query for the largest breakpoint
 @mixin largest-breakpoint($breakpoints: $hds-breakpoints) {
   @include breakpoint(largest-breakpoint-name()) {
     @content;
   }
 }
 
-/// Generate a media query for a given breakpoint
-/// @param {String | Number} $name
-/// @param {Map} $breakpoints [$hds-breakpoints] - A map of breakpoints where the key is the name
-/// @content
-/// @access public
-/// @group @carbon/layout
+// generate a media query for a given breakpoint
 @mixin breakpoint($name, $breakpoints: $hds-breakpoints) {
   @include breakpoint-up($name, $breakpoints) {
     @content;

@@ -19,6 +19,22 @@
 
 // show/hide depending on the viewport
 
+
+// @mixin respond-to($breakpoint-map) {
+//   @each $name, $size in $breakpoint-map {
+//     @media (max-width: $size) {
+//       .#{$name} {
+//         @content;
+//       }
+//     }
+//   }
+// }
+
+// // Usage:
+// @include respond-to($breakpoints) {
+//   color: red; // Generates .small, .medium, .large styles
+// }
+
 .mock-demo-breakpoints-visible--only-at-sm,
 .mock-demo-breakpoints-visible--only-at-md,
 .mock-demo-breakpoints-visible--only-at-lg,
