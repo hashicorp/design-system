@@ -32,25 +32,14 @@
   </div>
   {{#if this.showFooter}}
     <div class="hds-code-block__overlay-footer">
-      {{#if this._isExpanded}}
-        <Hds::Button
-          class="hds-code-block__height-toggle-button"
-          @text="Show less"
-          @color="secondary"
-          @icon="chevron-up"
-          @size="small"
-          {{on "click" this.toggleExpanded}}
-        />
-      {{else}}
-        <Hds::Button
-          class="hds-code-block__height-toggle-button"
-          @text="Show more"
-          @color="secondary"
-          @icon="chevron-down"
-          @size="small"
-          {{on "click" this.toggleExpanded}}
-        />
-      {{/if}}
+      <Hds::Button
+        class="hds-code-block__height-toggle-button"
+        @text={{if this._isExpanded "Show less" "Show more"}}
+        @color="secondary"
+        @icon={{if this._isExpanded "chevron-up" "chevron-down"}}
+        @size="small"
+        {{on "click" this.toggleExpanded}}
+      />
     </div>
   {{/if}}
 </div>
