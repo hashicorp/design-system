@@ -14,38 +14,26 @@ const addon = new Addon({
   destDir: 'dist',
 });
 
-const exclude = ['components/hds/app-header', 'components/hds/app-side-nav'];
-
 const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
-  addon.publicEntrypoints(
-    [
-      '**/*.{js,ts}',
-      'index.js',
-      'template-registry.js',
-      'styles/@hashicorp/design-system-components.scss',
-    ],
-    {
-      exclude,
-    }
-  ),
+  addon.publicEntrypoints([
+    '**/*.{js,ts}',
+    'index.js',
+    'template-registry.js',
+    'styles/@hashicorp/design-system-components.scss',
+  ]),
 
   // These are the modules that should get reexported into the traditional
   // "app" tree. Things in here should also be in publicEntrypoints above, but
   // not everything in publicEntrypoints necessarily needs to go here.
-  addon.appReexports(
-    [
-      'components/**/!(*types).js',
-      'helpers/**/*.js',
-      'modifiers/**/*.js',
-      'services/**/!(*types).js',
-      'instance-initializers/**/*.js',
-    ],
-    {
-      exclude,
-    }
-  ),
+  addon.appReexports([
+    'components/**/!(*types).js',
+    'helpers/**/*.js',
+    'modifiers/**/*.js',
+    'services/**/!(*types).js',
+    'instance-initializers/**/*.js',
+  ]),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
   // `dependencies` and `peerDependencies` as well as standard Ember-provided
