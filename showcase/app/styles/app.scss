@@ -6,12 +6,15 @@
 @use "@hashicorp/design-system-components";
 @use "@hashicorp/design-system-power-select-overrides";
 
+// TEMP we will move this file under the `packages/components/` folder
+@use "./temp-hds-breakpoints";
+
+
 // global declarations
 
 @use "./tokens";
 @use "./layout";
 @use "./typography";
-@use "./breakpoints";
 @use "./globals";
 
 // local components
@@ -25,6 +28,7 @@
 @use "./showcase-components/outliner";
 @use "./showcase-components/placeholder";
 @use "./mock-components/app";
+@use "./mock-components/demo/breakpoints-visualization";
 
 
 // Notice: this list can be automatically edited by the Ember blueprint, please don't remove the start/end comments
