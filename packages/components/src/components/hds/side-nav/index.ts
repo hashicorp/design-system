@@ -79,6 +79,21 @@ export default class HdsSideNav extends Component<HdsSideNavSignature> {
       this.removeEventListeners();
     });
 
+    deprecate(
+      'The `Hds::SideNav` component is now deprecated and will be removed in the next major version of `@hashicorp/design-system-components`. Use `Hds::AppSideNav` instead.',
+      false,
+      {
+        id: 'hds.components.sidenav',
+        until: '5.0.0',
+        url: 'https://helios.hashicorp.design/components/side-nav?tab=version%20history#4140',
+        for: '@hashicorp/design-system-components',
+        since: {
+          available: '4.19.0',
+          enabled: '5.0.0',
+        },
+      }
+    );
+
     if (args.ariaLabel !== undefined) {
       deprecate(
         'The `@ariaLabel` argument for "Hds::SideNav" has been deprecated. It is replaced by aria-labelledby and aria-expanded on the toggle button',

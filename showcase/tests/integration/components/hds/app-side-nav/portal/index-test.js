@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, waitUntil } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
@@ -13,9 +13,9 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | hds/app-side-nav/portal', function (hooks) {
   setupRenderingTest(hooks);
 
-  skip('it should render the component with a CSS class that matches the component name', async function (assert) {
+  test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::AppSideNav::Portal::Target id="test-app-side-nav-portal-target" />`
+      hbs`<Hds::AppSideNav::Portal::Target id='test-app-side-nav-portal-target' />`
     );
     assert
       .dom('#test-app-side-nav-portal-target')
@@ -24,36 +24,41 @@ module('Integration | Component | hds/app-side-nav/portal', function (hooks) {
 
   // CONTENT
 
-  skip('it renders the content provided via portal', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav::Portal::Target />
-      <Hds::AppSideNav::Portal>
-        <div id="test-app-side-nav-content-portaled" />
-      </Hds::AppSideNav::Portal>
-    `);
+  test('it renders the content provided via portal', async function (assert) {
+    await render(hbs`<Hds::AppSideNav::Portal::Target />
+<Hds::AppSideNav::Portal>
+  <div id='test-app-side-nav-content-portaled' />
+</Hds::AppSideNav::Portal>`);
     assert.dom('#test-app-side-nav-content-portaled').exists();
   });
 
-  skip('we can use custom a custom name for the target portal', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav::Portal::Target @targetName="test-app-side-nav-portal-target" />
-      <Hds::AppSideNav::Portal @targetName="test-app-side-nav-portal-target">
-        <div id="test-app-side-nav-content-portaled" />
-      </Hds::AppSideNav::Portal>
-    `);
+  test('we can use custom a custom name for the target portal', async function (assert) {
+    await render(hbs`<Hds::AppSideNav::Portal::Target
+  @targetName='test-app-side-nav-portal-target'
+/>
+<Hds::AppSideNav::Portal @targetName='test-app-side-nav-portal-target'>
+  <div id='test-app-side-nav-content-portaled' />
+</Hds::AppSideNav::Portal>`);
     assert.dom('#test-app-side-nav-content-portaled').exists();
   });
 
-  skip('it renders the panel items provided via portal, in the right DOM location', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav::Portal::Target id="test-app-side-nav-content" />
-      <Hds::AppSideNav::Portal as |Nav|>
-        <Nav.BackLink @text="Back-link" @href="#" id="test-app-side-nav-list-backlink" />
-        <Nav.Title id="test-app-side-nav-list-title">Title</Nav.Title>
-        <Nav.Item id="test-app-side-nav-list-item">Item</Nav.Item>
-        <Nav.Link @icon="hexagon" @text="Link" @href="#" id="test-app-side-nav-list-link" />
-      </Hds::AppSideNav::Portal>
-    `);
+  test('it renders the panel items provided via portal, in the right DOM location', async function (assert) {
+    await render(hbs`<Hds::AppSideNav::Portal::Target id='test-app-side-nav-content' />
+<Hds::AppSideNav::Portal as |Nav|>
+  <Nav.BackLink
+    @text='Back-link'
+    @href='#'
+    id='test-app-side-nav-list-backlink'
+  />
+  <Nav.Title id='test-app-side-nav-list-title'>Title</Nav.Title>
+  <Nav.Item id='test-app-side-nav-list-item'>Item</Nav.Item>
+  <Nav.Link
+    @icon='hexagon'
+    @text='Link'
+    @href='#'
+    id='test-app-side-nav-list-link'
+  />
+</Hds::AppSideNav::Portal>`);
     assert
       .dom(
         '#test-app-side-nav-content .hds-app-side-nav__content-panels .hds-app-side-nav__content-panel'
@@ -79,13 +84,11 @@ module('Integration | Component | hds/app-side-nav/portal', function (hooks) {
 
   // A11Y
 
-  skip('it should render with the correct aria-label attribute passed down to the "list" parent', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav::Portal::Target />
-      <Hds::AppSideNav::Portal @ariaLabel="test">
-        <div/>
-      </Hds::AppSideNav::Portal>
-    `);
+  test('it should render with the correct aria-label attribute passed down to the "list" parent', async function (assert) {
+    await render(hbs`<Hds::AppSideNav::Portal::Target />
+<Hds::AppSideNav::Portal @ariaLabel='test'>
+  <div />
+</Hds::AppSideNav::Portal>`);
     assert
       .dom('.hds-app-side-nav__list-wrapper')
       .hasAttribute('aria-label', 'test');
@@ -93,19 +96,17 @@ module('Integration | Component | hds/app-side-nav/portal', function (hooks) {
 
   // DOM MANIPULATION
 
-  skip('it marks inactive subnavs', async function (assert) {
-    await render(hbs`
-      <Hds::AppSideNav::Portal::Target />
-      <Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
-        <Nav.Link @text="Some link content" @href="#" />
-      </Hds::AppSideNav::Portal>
-      <Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
-        <Nav.Link @text="Some other link content" @href="#" />
-      </Hds::AppSideNav::Portal>
-      <Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
-        <Nav.Link @text="The last link content" @href="#" />
-      </Hds::AppSideNav::Portal>
-    `);
+  test('it marks inactive subnavs', async function (assert) {
+    await render(hbs`<Hds::AppSideNav::Portal::Target />
+<Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
+  <Nav.Link @text='Some link content' @href='#' />
+</Hds::AppSideNav::Portal>
+<Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
+  <Nav.Link @text='Some other link content' @href='#' />
+</Hds::AppSideNav::Portal>
+<Hds::AppSideNav::Portal data-test-app-side-nav-panel as |Nav|>
+  <Nav.Link @text='The last link content' @href='#' />
+</Hds::AppSideNav::Portal>`);
 
     assert.dom('[data-test-app-side-nav-panel]').exists({ count: 3 });
     assert
@@ -119,7 +120,7 @@ module('Integration | Component | hds/app-side-nav/portal', function (hooks) {
       .hasStyle({ visibility: 'visible' });
   });
 
-  skip('it sets transform on the container', async function (assert) {
+  test('it sets transform on the container', async function (assert) {
     await render(hbs`
       <Hds::AppSideNav::Portal::Target id="test-app-side-nav-content" />
       <Hds::AppSideNav::Portal as |Nav|>
