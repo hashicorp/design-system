@@ -34,9 +34,9 @@
     <div class="hds-code-block__overlay-footer">
       <Hds::Button
         class="hds-code-block__height-toggle-button"
-        @text={{if this._isExpanded "Show less" "Show more"}}
+        @text={{if this._isExpanded "Show less code" "Show more code"}}
         @color="secondary"
-        @icon={{if this._isExpanded "chevron-up" "chevron-down"}}
+        @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
         @size="small"
         {{on "click" this.toggleExpanded}}
       />

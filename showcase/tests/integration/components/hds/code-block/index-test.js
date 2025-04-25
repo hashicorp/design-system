@@ -241,7 +241,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert
       .dom('.hds-code-block__height-toggle-button')
       .exists()
-      .hasText('Show more');
+      .hasText('Show more code');
   });
 
   test('it does not display a height toggle button if the height of the code content is less than the maxHeight', async function (assert) {
@@ -265,7 +265,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert
       .dom('.hds-code-block__height-toggle-button')
       .exists()
-      .hasText('Show less');
+      .hasText('Show less code');
   });
 
   test('it collapses to show less content and displays a "Show more" button when "Show less" is clicked', async function (assert) {
@@ -278,7 +278,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert
       .dom('.hds-code-block__height-toggle-button')
       .exists()
-      .hasText('Show less');
+      .hasText('Show less code');
 
     await click('.hds-code-block__height-toggle-button');
 
@@ -288,7 +288,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
     assert
       .dom('.hds-code-block__height-toggle-button')
       .exists()
-      .hasText('Show more');
+      .hasText('Show more code');
   });
 
   // ASSERTION
