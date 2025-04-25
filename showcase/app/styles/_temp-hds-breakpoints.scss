@@ -1,0 +1,98 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// BREAKPOINTS
+//
+
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
+
+// breakpoints
+
+$hds-breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1088px,
+  xl: 1440px,
+  xxl: 1920px,
+) !default;
+$hds-breakpoints-names: map.keys($hds-breakpoints);
+
+
+// functions
+
+@function hds-get-breakpoint-next($name) {
+  $n: list.index($hds-breakpoints-names, $name);
+
+  @if $n != null and $n < list.length($hds-breakpoints-names) {
+    @return list.nth($hds-breakpoints-names, $n + 1);
+  }
+
+  @return null;
+}
+
+@function hds-get-breakpoint-prev($name) {
+  $n: list.index($hds-breakpoints-names, $name);
+
+  @if $n != null and $n > 1 {
+    @return list.nth($hds-breakpoints-names, $n - 1);
+  }
+
+  @return null;
+}
+
+// mixins
+
+@mixin hds-breakpoint-above($name) {
+  @if map.has-key($hds-breakpoints, $name) {
+    $width: map.get($hds-breakpoints, $name);
+
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @error 'Unable to find a breakpoint with name `#{$name}`. Expected one of: (#{$hds-breakpoints-names})';
+  }
+}
+
+@mixin hds-breakpoint-below($name) {
+  @if map.has-key($hds-breakpoints, $name) {
+    // We borrow this logic from bootstrap for specifying the value of the
+    // max-width. The maximum width is calculated by finding the breakpoint and
+    // subtracting .02 from its value. This value is used instead of .01 to
+    // avoid rounding issues in Safari
+    // https://github.com/twbs/bootstrap/blob/c5b1919deaf5393fcca9e9b9d7ce9c338160d99d/scss/mixins/_breakpoints.scss#L34-L46
+    $width: map.get($hds-breakpoints, $name) - 0.02;
+
+    @media (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @error 'Unable to find a breakpoint with name `#{$name}`. Expected one of: (#{$hds-breakpoints})';
+  }
+}
+
+@mixin hds-breakpoint-between($lower, $upper) {
+  $min: map.get($hds-breakpoints, $lower);
+  $max: map.get($hds-breakpoints, $upper);
+
+  @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null and $max == null {
+    @include hds-breakpoint-above($lower) {
+      @content;
+    }
+  } @else if $min == null and $max != null {
+    @include hds-breakpoint-below($upper) {
+      @content;
+    }
+  } @else {
+    @error 'Unable to find a breakpoint to satisfy: (#{$lower},#{$upper}). Expected both to be one of (#{$hds-breakpoints-names}).';
+  }
+}
