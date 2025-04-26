@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import { hdsResolveLinkToComponent } from '../../../helpers/hds-resolve-link-to-component.ts';
+import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
 
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';

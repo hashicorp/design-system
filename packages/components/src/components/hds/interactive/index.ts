@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-import { hdsResolveLinkToComponent } from '../../../helpers/hds-resolve-link-to-component.ts';
+import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
 
 export interface HdsInteractiveSignature {
   Args: {
