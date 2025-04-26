@@ -7,10 +7,10 @@ import {
 } from '@embroider/macros';
 
 /**
- * Resolves the correct component to use for the `LinkTo` helper.
+ * Resolves the correct component to use for the `LinkTo`.
  *
  * @param isRouteExternal - If true, will return the `LinkToExternal` component. If `ember-engines` is not installed, an assertion will be thrown.
- * @returns The correct component to use for the `LinkTo` helper.
+ * @returns The correct component to use for the `LinkTo`.
  */
 export function hdsResolveLinkToComponent(
   isRouteExternal?: boolean
