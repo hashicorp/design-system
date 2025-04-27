@@ -9,6 +9,8 @@ import { assert } from '@ember/debug';
 
 import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
 
+import type Owner from '@ember/owner';
+import type { LinkTo } from '@ember/routing';
 import type { SafeString } from '@ember/template';
 import type { HdsIconSignature } from '../icon/index';
 
@@ -30,7 +32,13 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  linkToComponent = hdsResolveLinkToComponent(this.args.isRouteExternal);
+  linkToComponent: LinkTo;
+
+  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
+    super(owner, args);
+
+    this.linkToComponent = hdsResolveLinkToComponent(args.isRouteExternal);
+  }
 
   /**
    * @param maxWidth
