@@ -1,0 +1,82 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "sass:map";
+@use "../../../temp-hds-breakpoints" as *;
+
+// RULER
+
+$mock-demo-breakpoints-ruler-bar-height: 4px;
+$mock-demo-breakpoints-ruler-mark-width: 2px;
+$mock-demo-breakpoints-ruler-marks-colors: (
+  sm: #f44336,
+  md: #ff9800,
+  lg: #ffc107,
+  xlg: #4caf50,
+  max: #03a9f4,
+  ultra: #ba68c8, // #ab47bc
+);
+
+.mock-demo-breakpoints-ruler {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  height: 36px;
+  border-top: $mock-demo-breakpoints-ruler-bar-height solid map.get($mock-demo-breakpoints-ruler-marks-colors, 'ultra');
+  isolation: isolate;
+  // pointer-events: none;
+}
+
+.mock-demo-breakpoints-ruler__mark {
+  position: absolute;
+  top: -$mock-demo-breakpoints-ruler-bar-height;
+  width: 2px;
+  height: ($mock-demo-breakpoints-ruler-bar-height + 8px);
+  color: var(--color);
+  border-left: $mock-demo-breakpoints-ruler-mark-width solid currentColor;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: $mock-demo-breakpoints-ruler-mark-width;
+    width: 100px;
+    height: $mock-demo-breakpoints-ruler-bar-height;
+    background-color: currentColor;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 12px;
+    left: calc($mock-demo-breakpoints-ruler-mark-width / 2);
+    width: 100px;
+    height: 16px;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-ruler__mark--#{$name} {
+    left: $size;
+    color: map.get($mock-demo-breakpoints-ruler-marks-colors, $name);
+
+    &::before {
+      $prev: breakpoint-prev($name);
+
+      @if $prev {
+        width: calc(#{$size} - #{map.get($hds-breakpoints, $prev)} - $mock-demo-breakpoints-ruler-mark-width); // account for mark's width
+      } @else {
+        width: $size;
+      }
+    }
+
+    &::after {
+      content: "#{$name} (#{$size})";
+    }
+  }
+}

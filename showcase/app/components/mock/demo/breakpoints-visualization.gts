@@ -4,20 +4,19 @@
  */
 
 import ShwLabel from '../../shw/label';
+import ShwTextH2 from '../../shw/text/h2';
+import MockDemoBreakpointsRuler from './breakpoints-ruler';
+
+import { hdsBreakpointsList } from './hds-breakpoints';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface MockDemoBreakpointsVisualizationSignature {}
 
 <template>
-  <div class="mock-demo-breakpoints-visualization">
-    <ShwLabel class="mock-demo-breakpoints-visualization__viewport-label">Current viewport:
-      <span class="mock-demo-breakpoints-visible--only-at-sm"><strong>sm </strong>(breakpoint: 320px)</span>
-      <span class="mock-demo-breakpoints-visible--only-at-md"><strong>md </strong>(breakpoint: 672px)</span>
-      <span class="mock-demo-breakpoints-visible--only-at-lg"><strong>lg </strong>(breakpoint: 1056px)</span>
-      <span class="mock-demo-breakpoints-visible--only-at-xlg"><strong>xlg</strong> (breakpoint: 1312px)</span>
-      <span class="mock-demo-breakpoints-visible--only-at-max"><strong>max</strong> (breakpoint: 1584px)</span>
-      <span class="mock-demo-breakpoints-visible--only-at-BOH"><strong>TBD</strong> (breakpoint: 1584px)</span>
-    </ShwLabel>
-    <pre>DEMO</pre>
+  <div class="mock-demo-breakpoints-visualization" ...attributes>
+    <ShwTextH2>IBM MIXINS</ShwTextH2>
+    {{#each hdsBreakpointsList as |breakpoint|}}
+      <pre class="mock-demo-breakpoints-mixin__hide-at--{{breakpoint}}">This should be hidden at this breakpoint: {{breakpoint}}</pre>
+    {{/each}}
   </div>
 </template>

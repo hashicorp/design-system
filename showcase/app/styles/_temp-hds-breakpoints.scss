@@ -9,6 +9,14 @@
 @use "sass:map";
 @use "sass:meta";
 
+// ###########################
+//
+// CONFIG
+// https://github.com/carbon-design-system/carbon/blob/main/packages/grid/scss/_config.scss#L39-L65
+//
+// ###########################
+
+
 $hds-breakpoints: (
   sm: 320px,
   md: 672px,
@@ -17,51 +25,12 @@ $hds-breakpoints: (
   max: 1584px,
 ) !default;
 
-// =========================================
-// CUSTOM MIXINS
-// =========================================
-
-@mixin media-small {
-  @media (max-width: map-get($hds-breakpoints, "small")) {
-    @content;
-  }
-}
-
-@mixin media-medium {
-  @media (max-width: map-get($hds-breakpoints, "medium")) {
-    @content;
-  }
-}
-
-@mixin media-large {
-  @media (max-width: map-get($hds-breakpoints, "large")) {
-    @content;
-  }
-}
-
-@mixin media($breakpoint) {
-  @media (max-width: map-get($hds-breakpoints, $breakpoint)) {
-    @content;
-  }
-}
-
-// @mixin respond-to($breakpoint-map) {
-//   @each $name, $size in $breakpoint-map {
-//     @media (max-width: $size) {
-//       .#{$name} {
-//         @content;
-//       }
-//     }
-//   }
-// }
-
-// // Usage:
-// @include respond-to($breakpoints) {
-//   color: red; // Generates .small, .medium, .large styles
-// }
-
-// =========================================
-
+// ###########################
+//
+// BREAKPOINTS
+// https://github.com/carbon-design-system/carbon/blob/main/packages/grid/scss/_breakpoint.scss
+//
+// ###########################
 
 // provide a map and index, and get back the relevant key value
 @function -key-by-index($map, $index) {
@@ -100,32 +69,31 @@ $hds-breakpoints: (
   @return null;
 }
 
-// check to see if the given breakpoint name is the smallest
+// check to see if the given breakpoint is the smallest available
 @function is-smallest-breakpoint($name, $breakpoints: $hds-breakpoints) {
   @return list.index(map.keys($breakpoints), $name) == 1;
 }
 
-// returns the largest breakpoint name
-@function largest-breakpoint-name($breakpoints: $hds-breakpoints) {
-  $total-breakpoints: list.length($breakpoints);
+// // returns the largest breakpoint name
+// @function largest-breakpoint-name($breakpoints: $hds-breakpoints) {
+//   $total-breakpoints: list.length($breakpoints);
 
-  @return -key-by-index($breakpoints, $total-breakpoints);
-}
+//   @return -key-by-index($breakpoints, $total-breakpoints);
+// }
 
-/// get the infix for a given breakpoint in a list of breakpoints. Useful for generating the size part in a selector, for example: `.prefix--col-sm-2`.
-@function breakpoint-infix($name) {
-  @return "-#{$name}";
-}
+// // get the infix for a given breakpoint in a list of breakpoints. Useful for generating the size part in a selector, for example: `.prefix--col-sm-2`.
+// @function breakpoint-infix($name) {
+//   @return "-#{$name}";
+// }
 
-/// generate a media query from the width of the given breakpoint to infinity
+// generate a media query from the width of the given breakpoint to infinity
 @mixin breakpoint-up($name, $breakpoints: $hds-breakpoints) {
   @if meta.type-of($name) == "number" {
     @media (min-width: $name) {
       @content;
     }
   } @else if map.has-key($breakpoints, $name) {
-    $breakpoint: map.get($breakpoints, $name);
-    $width: map.get($breakpoint, width);
+    $width: map.get($breakpoints, $name);
 
     @if is-smallest-breakpoint($name, $breakpoints) {
       @content;
@@ -139,7 +107,7 @@ $hds-breakpoints: (
   }
 }
 
-// generate a media query for the maximum width of the given styles
+// generate a media query that applies below the maximum width of the given breakpoint
 @mixin breakpoint-down($name, $breakpoints: $hds-breakpoints) {
   @if meta.type-of($name) == "number" {
     @media (max-width: $name) {
@@ -151,8 +119,7 @@ $hds-breakpoints: (
     // subtracting .02 from its value. This value is used instead of .01 to
     // avoid rounding issues in Safari
     // https://github.com/twbs/bootstrap/blob/c5b1919deaf5393fcca9e9b9d7ce9c338160d99d/scss/mixins/_breakpoints.scss#L34-L46
-    $breakpoint: map.get($breakpoints, $name);
-    $width: map.get($breakpoint, width) - 0.02;
+    $width: map.get($breakpoints, $name) - 0.02;
 
     @media (max-width: $width) {
       @content;
@@ -170,10 +137,7 @@ $hds-breakpoints: (
   $max: if($is-number-upper, $upper, map.get($breakpoints, $upper));
 
   @if $min and $max {
-    $min-width: if(not $is-number-lower and $min, map.get($min, width), $min);
-    $max-width: if(not $is-number-upper and $max, map.get($max, width), $max);
-
-    @media (min-width: $min-width) and (max-width: $max-width) {
+    @media (min-width: $min) and (max-width: $max) {
       @content;
     }
   } @else if $min != null and $max == null {
@@ -189,16 +153,75 @@ $hds-breakpoints: (
   }
 }
 
-// generate media query for the largest breakpoint
-@mixin largest-breakpoint($breakpoints: $hds-breakpoints) {
-  @include breakpoint(largest-breakpoint-name()) {
-    @content;
+// // generate media query for the largest breakpoint
+// @mixin largest-breakpoint($breakpoints: $hds-breakpoints) {
+//   @include breakpoint(largest-breakpoint-name()) {
+//     @content;
+//   }
+// }
+
+// // generate a media query for a given breakpoint (alias of `breakpoint-up`)
+// @mixin breakpoint($name, $breakpoints: $hds-breakpoints) {
+//   @include breakpoint-up($name, $breakpoints) {
+//     @content;
+//   }
+// }
+
+
+// ###########################
+//
+// UTILITIES
+// https://github.com/carbon-design-system/carbon/blob/main/packages/styles/scss/utilities/_hide-at-breakpoint.scss
+//
+// ###########################
+
+@mixin hds-hide-at-sm {
+  @include breakpoint-between('sm', 'md') {
+    display: none;
   }
 }
 
-// generate a media query for a given breakpoint
-@mixin breakpoint($name, $breakpoints: $hds-breakpoints) {
-  @include breakpoint-up($name, $breakpoints) {
-    @content;
+@mixin hds-hide-at-md {
+  @include breakpoint-between('md', 'lg') {
+    display: none;
   }
 }
+
+@mixin hds-hide-at-lg {
+  @include breakpoint-between('lg', 'xlg') {
+    display: none;
+  }
+}
+
+@mixin hds-hide-at-xlg {
+  @include breakpoint-between('xlg', 'max') {
+    display: none;
+  }
+}
+
+@mixin hds-hide-at-max {
+  @include breakpoint-up('max') {
+    display: none;
+  }
+}
+
+// =========================================
+// CUSTOM MIXINS
+// =========================================
+
+// @mixin respond-to($breakpoint-map) {
+//   @each $name, $size in $breakpoint-map {
+//     @media (max-width: $size) {
+//       .#{$name} {
+//         @content;
+//       }
+//     }
+//   }
+// }
+
+// // Usage:
+// @include respond-to($breakpoints) {
+//   color: red; // Generates .small, .medium, .large styles
+// }
+
+// =========================================
