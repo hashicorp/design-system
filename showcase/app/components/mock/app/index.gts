@@ -6,8 +6,9 @@
 import Component from '@glimmer/component';
 import { hash } from '@ember/helper';
 import style from 'ember-style-modifier';
-// import MockAppHeaderAppHeader from './header/app-header';
-import MockAppSidebarSideNav from './sidebar/side-nav';
+import MockAppHeaderAppHeader from './header/app-header';
+import MockAppSidebarAppSideNav from './sidebar/app-side-nav';
+import MockAppSidebarOldSideNav from './sidebar/side-nav';
 import MockAppMainPageHeader from './main/page-header';
 import MockAppMainGenericTextContent from './main/generic-text-content';
 import MockAppMainGenericAdvancedTable from './main/generic-advanced-table';
@@ -19,8 +20,9 @@ import { HdsAppFrame } from '@hashicorp/design-system-components/components';
 // types
 import type { ComponentLike } from '@glint/template';
 import type { HdsAppFrameSignature } from '@hashicorp/design-system-components/components/hds/app-frame/index';
-// import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
-import type { MockAppSidebarSideNavSignature } from './sidebar/side-nav';
+import type { MockAppHeaderAppHeaderSignature } from './header/app-header';
+import type { MockAppSidebarAppSideNavSignature } from './sidebar/app-side-nav';
+import type { MockAppSidebarOldSideNavSignature } from './sidebar/side-nav';
 import type { MockAppMainPageHeaderSignature } from './main/page-header';
 import type { MockAppMainGenericTextContentSignature } from './main/generic-text-content';
 import type { MockAppMainGenericAdvancedTableSignature } from './main/generic-advanced-table';
@@ -30,17 +32,20 @@ export interface MockAppSignature {
   Args: {
     hasHeader?: HdsAppFrameSignature['Args']['hasHeader'];
     hasSidebar?: HdsAppFrameSignature['Args']['hasSidebar'];
+    hasOldSidebar?: boolean;
     hasFooter?: HdsAppFrameSignature['Args']['hasFooter'];
   };
   Blocks: {
-    // header?: [
-    //   {
-    //     AppHeader?: ComponentLike<MockAppHeaderAppHeaderSignature>;
-    //   },
-    // ];
+    header?: [
+      {
+        AppHeader?: ComponentLike<MockAppHeaderAppHeaderSignature>;
+      },
+    ];
     sidebar?: [
       {
-        SideNav?: ComponentLike<MockAppSidebarSideNavSignature>;
+        SideNav?:
+          | ComponentLike<MockAppSidebarAppSideNavSignature>
+          | ComponentLike<MockAppSidebarOldSideNavSignature>;
       },
     ];
     main?: [
@@ -70,17 +75,21 @@ export default class MockApp extends Component<MockAppSignature> {
       as |Frame|
     >
       <Frame.Header>
-        {{!-- {{#if (has-block "header")}}
+        {{#if (has-block "header")}}
           {{yield (hash AppHeader=MockAppHeaderAppHeader) to="header"}}
         {{else}}
           <MockAppHeaderAppHeader />
-        {{/if}} --}}
+        {{/if}}
       </Frame.Header>
       <Frame.Sidebar>
         {{#if (has-block "sidebar")}}
-          {{yield (hash SideNav=MockAppSidebarSideNav) to="sidebar"}}
+          {{yield (hash SideNav=MockAppSidebarAppSideNav) to="sidebar"}}
         {{else}}
-          <MockAppSidebarSideNav />
+          {{#if @hasOldSidebar}}
+            <MockAppSidebarOldSideNav />
+          {{else}}
+            <MockAppSidebarAppSideNav />
+          {{/if}}
         {{/if}}
       </Frame.Sidebar>
       <Frame.Main {{style overflow="auto"}}>
