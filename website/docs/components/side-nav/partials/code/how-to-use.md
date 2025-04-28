@@ -1,6 +1,6 @@
 !!! Warning
 
-The `Hds::SideNav` component is now deprecated. Use the `Hds::AppSideNav` component instead.
+The `Hds::SideNav` component is now deprecated. Use the [`Hds::AppSideNav`]((/components/app-side-nav) component instead.
 
 !!!
 
