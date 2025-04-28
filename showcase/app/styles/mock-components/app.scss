@@ -18,6 +18,9 @@
   margin-bottom: 12px;
 }
 
-.mock-app-main-generic-advanced-table {
+.mock-app-main-generic-advanced-table-wrapper {
+  // TODO remove after https://hashicorp.atlassian.net/browse/HDS-4751 is done 
+  display: grid;
   height: 600px;
+  overflow: auto;
 }
