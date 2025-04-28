@@ -8,7 +8,7 @@ import {
   SIZES,
   SUCCESS_ICON,
   ERROR_ICON,
-} from '@hashicorp/design-system-components/components/hds/copy/button';
+} from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
 export default class ComponentsCopyButtonRoute extends Route {
   model() {

@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 import {
   SUCCESS_ICON,
   ERROR_ICON,
-} from '@hashicorp/design-system-components/components/hds/copy/button';
+} from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
 export default class ComponentsCodeBlockRoute extends Route {
   model() {

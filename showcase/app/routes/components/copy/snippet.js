@@ -8,7 +8,7 @@ import {
   COLORS,
   SUCCESS_ICON,
   ERROR_ICON,
-} from '@hashicorp/design-system-components/components/hds/copy/snippet';
+} from '@hashicorp/design-system-components/components/hds/copy/snippet/index';
 
 export default class ComponentsCopySnippetRoute extends Route {
   model() {
