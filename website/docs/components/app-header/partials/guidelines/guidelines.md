@@ -8,7 +8,7 @@
 
 ### When not to use
 
-- To navigate within subpages of an organization or project, use the [Side Nav](/components/side-nav) instead.
+- To navigate within subpages of an organization or project, use the [App Side Nav](/components/app-side-nav) instead.
 
 ## Navigation hierarchy
 
@@ -16,7 +16,7 @@ The App Header provides consistent navigation between global application areas, 
 
 In the hierarchy of navigational elements, the App Header sits at the top and is followed by:
 
-- The [Side Nav](/components/side-nav), which focuses on contextual pages and subpages within a project or organization.
+- The [App Side Nav](/components/app-side-nav), which focuses on contextual pages and subpages within a project or organization.
 - The [App Footer](/components/app-footer), which focuses on non-essential metadata and general links.
 
 ![Example of the hierarchy of navigation elements](/assets/components/app-header/app-header-hierarchy.png)
