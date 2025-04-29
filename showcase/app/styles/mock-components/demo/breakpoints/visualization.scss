@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+@use "sass:list";
 @use "sass:map";
 @use "../../../temp-hds-breakpoints" as *;
 @use "config" as *;
@@ -16,6 +17,7 @@
 @mixin mock-demo-breakpoint-color($name) {
   & {
     color: #fff;
+    text-shadow: none;
     background-color: map.get($mock-demo-breakpoints-colors, $name);
   }
 }
@@ -64,9 +66,16 @@
 
 @each $lower, $size in $hds-breakpoints {
   @each $upper, $size in $hds-breakpoints {
+    .shw-grid__item:has(.mock-demo-breakpoints-mixin__breakpoint-between--lower-#{$lower}-upper-#{$upper}) {
+      $keys: map.keys($mock-demo-breakpoints-colors);
+      $lower-index: list.index($keys, $lower);
+      $upper-index: list.index($keys, $upper);
+      grid-column: $lower-index / span #{$upper-index - $lower-index};
+    }
     .mock-demo-breakpoints-mixin__breakpoint-between--lower-#{$lower}-upper-#{$upper} {
       @include breakpoint-between($lower, $upper) {
-        // @include mock-demo-breakpoint-color($lower);
+        color: #fff;
+        text-shadow: none;
         background: linear-gradient(to right, map.get($mock-demo-breakpoints-colors, $lower), map.get($mock-demo-breakpoints-colors, $upper));
       }
     }
