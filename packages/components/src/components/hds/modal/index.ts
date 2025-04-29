@@ -68,20 +68,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
   constructor(owner: Owner, args: HdsModalSignature['Args']) {
     super(owner, args);
 
-    this._clickHandler = (event: MouseEvent) => {
-      // check if the click is outside the modal and the modal is open
-      if (!this._element.contains(event.target as Node) && this._isOpen) {
-        if (!this.isDismissDisabled) {
-          void this.onDismiss();
-        }
-      }
-    };
-
-    document.addEventListener('click', this._clickHandler, {
-      capture: true,
-      passive: false,
-    });
-
     registerDestructor(this, (): void => {
       document.removeEventListener('click', this._clickHandler);
     });
@@ -199,6 +185,20 @@ export default class HdsModal extends Component<HdsModalSignature> {
     if (!this._element.open) {
       this.open();
     }
+
+    this._clickHandler = (event: MouseEvent) => {
+      // check if the click is outside the modal and the modal is open
+      if (!this._element.contains(event.target as Node) && this._isOpen) {
+        if (!this.isDismissDisabled) {
+          void this.onDismiss();
+        }
+      }
+    };
+
+    document.addEventListener('click', this._clickHandler, {
+      capture: true,
+      passive: false,
+    });
   }
 
   @action
