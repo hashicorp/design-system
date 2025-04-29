@@ -9,8 +9,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
+import { registerDestructor } from '@ember/destroyable';
 
 import type { WithBoundArgs } from '@glint/template';
+import type Owner from '@ember/owner';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
@@ -61,6 +63,29 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
+  private _clickHandler!: (event: MouseEvent) => void;
+
+  constructor(owner: Owner, args: HdsModalSignature['Args']) {
+    super(owner, args);
+
+    this._clickHandler = (event: MouseEvent) => {
+      // check if the click is outside the modal and the modal is open
+      if (!this._element.contains(event.target as Node) && this._isOpen) {
+        if (!this.isDismissDisabled) {
+          void this.onDismiss();
+        }
+      }
+    };
+
+    document.addEventListener('click', this._clickHandler, {
+      capture: true,
+      passive: false,
+    });
+
+    registerDestructor(this, (): void => {
+      document.removeEventListener('click', this._clickHandler);
+    });
+  }
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
