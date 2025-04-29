@@ -154,28 +154,28 @@ export default class HdsModal extends Component<HdsModalSignature> {
     } else {
       this._isOpen = false;
 
-    // Reset page `overflow` property
-    if (this._body) {
-      this._body.style.removeProperty('overflow');
-      if (this._bodyInitialOverflowValue === '') {
-        if (this._body.style.length === 0) {
-          this._body.removeAttribute('style');
+      // Reset page `overflow` property
+      if (this._body) {
+        this._body.style.removeProperty('overflow');
+        if (this._bodyInitialOverflowValue === '') {
+          if (this._body.style.length === 0) {
+            this._body.removeAttribute('style');
+          }
+        } else {
+          this._body.style.setProperty(
+            'overflow',
+            this._bodyInitialOverflowValue
+          );
         }
-      } else {
-        this._body.style.setProperty(
-          'overflow',
-          this._bodyInitialOverflowValue
-        );
       }
-    }
 
-    // Return focus to a specific element (if provided)
-    if (this.args.returnFocusTo) {
-      const initiator = document.getElementById(this.args.returnFocusTo);
-      if (initiator) {
-        initiator.focus();
+      // Return focus to a specific element (if provided)
+      if (this.args.returnFocusTo) {
+        const initiator = document.getElementById(this.args.returnFocusTo);
+        if (initiator) {
+          initiator.focus();
+        }
       }
-    }
     }
   }
 
