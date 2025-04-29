@@ -16,7 +16,6 @@
 //
 // ###########################
 
-
 $hds-breakpoints: (
   sm: 320px,
   md: 672px,
@@ -25,6 +24,7 @@ $hds-breakpoints: (
   max: 1584px,
 ) !default;
 
+
 // ###########################
 //
 // BREAKPOINTS
@@ -32,12 +32,12 @@ $hds-breakpoints: (
 //
 // ###########################
 
-// provide a map and index, and get back the relevant key value
-@function -key-by-index($map, $index) {
-  $keys: map.keys($map);
+// // provide a map and index, and get back the relevant key value
+// @function -key-by-index($map, $index) {
+//   $keys: map.keys($map);
 
-  @return list.nth($keys, $index);
-}
+//   @return list.nth($keys, $index);
+// }
 
 // get the value of the next breakpoint, or null for the last breakpoint
 @function breakpoint-next(
@@ -160,12 +160,12 @@ $hds-breakpoints: (
 //   }
 // }
 
-// // generate a media query for a given breakpoint (alias of `breakpoint-up`)
-// @mixin breakpoint($name, $breakpoints: $hds-breakpoints) {
-//   @include breakpoint-up($name, $breakpoints) {
-//     @content;
-//   }
-// }
+// generate a media query for a given breakpoint (alias of `breakpoint-up`)
+@mixin breakpoint($name, $breakpoints: $hds-breakpoints) {
+  @include breakpoint-up($name, $breakpoints) {
+    @content;
+  }
+}
 
 
 // ###########################
@@ -207,21 +207,4 @@ $hds-breakpoints: (
 
 // =========================================
 // CUSTOM MIXINS
-// =========================================
-
-// @mixin respond-to($breakpoint-map) {
-//   @each $name, $size in $breakpoint-map {
-//     @media (max-width: $size) {
-//       .#{$name} {
-//         @content;
-//       }
-//     }
-//   }
-// }
-
-// // Usage:
-// @include respond-to($breakpoints) {
-//   color: red; // Generates .small, .medium, .large styles
-// }
-
 // =========================================

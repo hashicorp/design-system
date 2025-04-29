@@ -1,0 +1,102 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "sass:map";
+@use "../../../temp-hds-breakpoints" as *;
+@use "config" as *;
+
+.mock-demo-breakpoints-visualization {
+  position: relative;
+}
+
+// COLORS
+
+@mixin mock-demo-breakpoint-color($name) {
+  & {
+    color: #fff;
+    background-color: map.get($mock-demo-breakpoints-colors, $name);
+  }
+}
+
+@each $name, $color in $mock-demo-breakpoints-colors {
+  .mock-demo-breakpoints-color--#{$name} {
+    @include mock-demo-breakpoint-color($name);
+  }
+}
+
+// WIDTH
+
+@mixin mock-demo-breakpoint-width($name) {
+  & {
+    max-width: map.get($hds-breakpoints, $name);
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-width--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+  }
+}
+
+// MIXIN CLASSES
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-mixin__breakpoint-up--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+
+    @include breakpoint-up($name) {
+      @include mock-demo-breakpoint-color($name);
+    }
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-mixin__breakpoint-down--#{$name} {
+    @include mock-demo-breakpoint-width($name);
+
+    @include breakpoint-down($name) {
+      @include mock-demo-breakpoint-color($name);
+    }
+  }
+}
+
+@each $lower, $size in $hds-breakpoints {
+  @each $upper, $size in $hds-breakpoints {
+    .mock-demo-breakpoints-mixin__breakpoint-between--lower-#{$lower}-upper-#{$upper} {
+      @include breakpoint-between($lower, $upper) {
+        // @include mock-demo-breakpoint-color($lower);
+        background: linear-gradient(to right, map.get($mock-demo-breakpoints-colors, $lower), map.get($mock-demo-breakpoints-colors, $upper));
+      }
+    }
+  }
+}
+
+// hide-at
+
+.mock-demo-breakpoints-mixin__hide-at--sm {
+  @include hds-hide-at-sm();
+  @include mock-demo-breakpoint-color('sm');
+}
+
+.mock-demo-breakpoints-mixin__hide-at--md {
+  @include hds-hide-at-md();
+  @include mock-demo-breakpoint-color('md');
+}
+
+.mock-demo-breakpoints-mixin__hide-at--lg {
+  @include hds-hide-at-lg();
+  @include mock-demo-breakpoint-color('lg');
+}
+
+.mock-demo-breakpoints-mixin__hide-at--xlg {
+  @include hds-hide-at-xlg();
+  @include mock-demo-breakpoint-color('xlg');
+}
+
+.mock-demo-breakpoints-mixin__hide-at--max {
+  @include hds-hide-at-max();
+  @include mock-demo-breakpoint-color('max');
+}
+

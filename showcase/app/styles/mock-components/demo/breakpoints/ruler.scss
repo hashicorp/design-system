@@ -5,6 +5,7 @@
 
 @use "sass:map";
 @use "../../../temp-hds-breakpoints" as *;
+@use "config" as *;
 
 // RULER
 
@@ -16,7 +17,6 @@ $mock-demo-breakpoints-ruler-marks-colors: (
   lg: #ffc107,
   xlg: #4caf50,
   max: #03a9f4,
-  ultra: #ba68c8, // #ab47bc
 );
 
 .mock-demo-breakpoints-ruler {
@@ -26,24 +26,22 @@ $mock-demo-breakpoints-ruler-marks-colors: (
   left: 0;
   z-index: 99999;
   height: 36px;
-  border-top: $mock-demo-breakpoints-ruler-bar-height solid map.get($mock-demo-breakpoints-ruler-marks-colors, 'ultra');
+  border-top: $mock-demo-breakpoints-ruler-bar-height solid #9e9e9e;
   isolation: isolate;
-  // pointer-events: none;
+  pointer-events: none;
 }
 
 .mock-demo-breakpoints-ruler__mark {
   position: absolute;
   top: -$mock-demo-breakpoints-ruler-bar-height;
-  width: 2px;
+  width: $mock-demo-breakpoints-ruler-mark-width;
   height: ($mock-demo-breakpoints-ruler-bar-height + 8px);
-  color: var(--color);
-  border-left: $mock-demo-breakpoints-ruler-mark-width solid currentColor;
+  background-color: currentColor;
 
   &::before {
     position: absolute;
     top: 0;
-    right: $mock-demo-breakpoints-ruler-mark-width;
-    width: 100px;
+    left: 0;
     height: $mock-demo-breakpoints-ruler-bar-height;
     background-color: currentColor;
     content: "";
@@ -66,12 +64,12 @@ $mock-demo-breakpoints-ruler-marks-colors: (
     color: map.get($mock-demo-breakpoints-ruler-marks-colors, $name);
 
     &::before {
-      $prev: breakpoint-prev($name);
+      $next: breakpoint-next($name);
 
-      @if $prev {
-        width: calc(#{$size} - #{map.get($hds-breakpoints, $prev)} - $mock-demo-breakpoints-ruler-mark-width); // account for mark's width
+      @if $next {
+        width: calc(#{map.get($hds-breakpoints, $next)} - #{$size}  - 1px); // small visual separator
       } @else {
-        width: $size;
+        width: 3000px;
       }
     }
 

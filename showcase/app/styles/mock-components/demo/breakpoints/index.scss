@@ -3,5 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
- @use "breakpoints-ruler";
- @use "breakpoints-visualization";
+@use "config";
+@use "ruler";
+@use "visualization";
