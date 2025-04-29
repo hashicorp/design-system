@@ -13,6 +13,7 @@ related:
   - components/breadcrumb
   - components/tabs
   - layouts/app-frame
+  - components/app-side-nav
 previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false

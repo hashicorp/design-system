@@ -13,7 +13,7 @@ Use Tabs to break up content that is related to each other and is on the same hi
 
 ### When not to use
 
-- For navigation, consider [SideNav](/components/side-nav), [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
+- For navigation, consider [AppSideNav](/components/app-side-nav), [Standalone Links](/components/link/standalone), or [Breadcrumb](/components/breadcrumb).
 - As a stepper or progress bar for multi-step workflows, consider a stepper, using the [Stepper Indicator](/components/stepper).
 - To see multiple content areas at the same time or to fully collapse the content area, use [Accordion](/components/accordion).
 

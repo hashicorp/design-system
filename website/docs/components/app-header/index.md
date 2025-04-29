@@ -10,7 +10,7 @@ links:
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-header
 related:
-  - components/side-nav
+  - components/app-side-nav
   - components/app-footer
   - layouts/app-frame
 previewImage: assets/illustrations/components/app-header.jpg
