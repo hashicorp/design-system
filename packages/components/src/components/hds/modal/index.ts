@@ -154,7 +154,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     } else {
       this._isOpen = false;
 
-          // Reset page `overflow` property
+    // Reset page `overflow` property
     if (this._body) {
       this._body.style.removeProperty('overflow');
       if (this._bodyInitialOverflowValue === '') {
