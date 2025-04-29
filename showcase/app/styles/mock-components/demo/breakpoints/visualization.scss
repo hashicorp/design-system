@@ -6,7 +6,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "../../../temp-hds-breakpoints" as *;
-@use "config" as *;
+@use "colors" as *;
 
 .mock-demo-breakpoints-visualization {
   position: relative;
