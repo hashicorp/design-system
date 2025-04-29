@@ -1,0 +1,30 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "../../../temp-hds-breakpoints" as *;
+
+.mock-demo-breakpoints-page-padding {
+  padding: 9px 6px;
+
+  @include breakpoint-between('sm', 'md') {
+    padding: 15px 12px;
+  }
+
+  @include breakpoint-between('md', 'lg') {
+    padding: 24px 24px;
+  }
+
+  @include breakpoint-between('lg', 'xlg') {
+    padding: 42px 48px;
+  }
+
+  @include breakpoint-between('xlg', 'max') {
+    padding: 72px 96px;
+  }
+
+  @include breakpoint-up('max') {
+    padding: 96px 128px;
+  }
+}

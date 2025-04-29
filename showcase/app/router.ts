@@ -20,6 +20,7 @@ Router.map(function () {
       this.route('frameless', function () {
         this.route('demo-viewport-breakpoints-visualization');
         this.route('demo-viewport-breakpoints-visualization-with-ui-shell');
+        this.route('demo-viewport-breakpoints-page-padding');
       });
     });
   });
