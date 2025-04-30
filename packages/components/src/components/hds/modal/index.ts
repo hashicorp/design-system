@@ -233,7 +233,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
   async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
-    // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
     if (this._element.open) {
       const token = waiter.beginAsync();
       const listener = () => {
