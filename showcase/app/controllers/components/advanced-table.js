@@ -364,17 +364,29 @@ export default class ComponentsTableController extends Controller {
       key: 'artist',
       label: 'Artist',
       tooltip: 'More information.',
+<<<<<<< HEAD
+=======
+      isResizable: true,
+>>>>>>> 2fe3eb86f (column resizing works)
     },
     {
       key: 'album',
       label: 'Album',
       tooltip: 'More information.',
+<<<<<<< HEAD
       width: '350px',
+=======
+      isResizable: true,
+>>>>>>> 2fe3eb86f (column resizing works)
     },
     {
       key: 'year',
       label: 'Release Year',
       tooltip: 'More information.',
+<<<<<<< HEAD
+=======
+      isResizable: true,
+>>>>>>> 2fe3eb86f (column resizing works)
     },
     {
       key: 'other',
@@ -382,6 +394,7 @@ export default class ComponentsTableController extends Controller {
     },
   ];
 
+<<<<<<< HEAD
   columnResizeColumnsWithSorting = this.columnResizeColumns.map(
     (column, index) => {
       return {
@@ -396,6 +409,8 @@ export default class ComponentsTableController extends Controller {
     setPxWidth: this.noop,
   };
 
+=======
+>>>>>>> 2fe3eb86f (column resizing works)
   @action
   noop() {
     // no-op
