@@ -358,6 +358,32 @@ export default class ComponentsTableController extends Controller {
     this.focusableElementsVisible = !this.focusableElementsVisible;
   }
 
+  // COLUMN RESIZING DEMO
+  columnResizeColumns = [
+    {
+      key: 'artist',
+      label: 'Artist',
+      tooltip: 'More information.',
+      isResizable: true,
+    },
+    {
+      key: 'album',
+      label: 'Album',
+      tooltip: 'More information.',
+      isResizable: true,
+    },
+    {
+      key: 'year',
+      label: 'Release Year',
+      tooltip: 'More information.',
+      isResizable: true,
+    },
+    {
+      key: 'other',
+      label: 'Additional Actions',
+    },
+  ];
+
   @action
   noop() {
     // no-op

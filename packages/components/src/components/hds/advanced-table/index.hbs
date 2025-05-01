@@ -40,11 +40,11 @@
         @hasStickyColumn={{@hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each @columns as |column index|}}
+        {{#each this._tableModel.columns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
-              @onClickSort={{fn this.setSortBy column.key}}
+              @onClickSort={{if column.key (fn this.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
@@ -55,6 +55,7 @@
           {{else}}
             <Hds::AdvancedTable::Th
               @align={{column.align}}
+              @column={{column}}
               @tooltip={{column.tooltip}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @isExpandable={{column.isExpandable}}
