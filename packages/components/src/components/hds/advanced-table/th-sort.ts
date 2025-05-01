@@ -23,6 +23,7 @@ import type {
 } from './types.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import type { HdsAdvancedTableThSignature } from './th.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -31,6 +32,7 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSortSignature {
   Args: {
+    column?: HdsAdvancedTableThSignature['Args']['column'];
     align?: HdsAdvancedTableHorizontalAlignment;
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
