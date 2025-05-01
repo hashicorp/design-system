@@ -7,8 +7,11 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+import type { HdsAdvancedTableColumn, HdsAdvancedTableCell } from '../types';
+
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
+  columns: HdsAdvancedTableColumn[];
   id?: string;
   childrenKey?: string;
 }
@@ -20,6 +23,7 @@ export default class HdsAdvancedTableRow {
   [key: string]: unknown;
 
   @tracked isOpen: boolean = false;
+  @tracked cells: HdsAdvancedTableCell[] = [];
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
@@ -33,6 +37,17 @@ export default class HdsAdvancedTableRow {
   }
 
   constructor(args: HdsAdvancedTableRowArgs) {
+    const { columns } = args;
+
+    this.cells = columns.map((column) => {
+      const cell = args[column.key ?? ''];
+
+      return {
+        columnKey: column.key,
+        value: cell,
+      };
+    });
+
     // set row data
     Object.assign(this, args);
 
