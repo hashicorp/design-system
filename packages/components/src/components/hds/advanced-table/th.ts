@@ -10,15 +10,16 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import { modifier } from 'ember-modifier';
-import type Owner from '@ember/owner';
+import HdsAdvancedTableColumn from './models/column.ts';
+import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 
+import type Owner from '@ember/owner';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
-import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -27,6 +28,7 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
+    column?: HdsAdvancedTableColumn;
     align?: HdsAdvancedTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
     scope?: HdsAdvancedTableScope;
