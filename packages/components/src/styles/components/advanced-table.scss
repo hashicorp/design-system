@@ -156,6 +156,29 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       }
     }
 
+    .hds-advanced-table__th-resize-handle {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      width: 16px;
+      transform: translateX(50%);
+      cursor: col-resize;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 1px;
+        background-color: red;
+        transform: translateX(-7.5px);
+        content: "";
+      }
+    }
+
     // horizontal alignment
 
     .hds-advanced-table__th--align-center,
