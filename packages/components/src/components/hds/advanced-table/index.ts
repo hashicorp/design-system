@@ -183,6 +183,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
+      columns,
     });
 
     if (this._tableModel.hasRowsWithChildren) {
@@ -219,24 +220,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this._sortBy}:${this._sortOrder}`;
     }
-  }
-
-  get columnWidths(): string[] | undefined {
-    const { columns } = this.args;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const widths: string[] = new Array(columns.length);
-    let hasCustomColumnWidth = false;
-
-    for (let i = 0; i < columns.length; i++) {
-      const column = columns[i];
-
-      if (column?.['width']) {
-        widths[i] = column.width;
-        if (!hasCustomColumnWidth) hasCustomColumnWidth = true;
-      }
-    }
-
-    return hasCustomColumnWidth ? widths : undefined;
   }
 
   get identityKey(): string | undefined {
@@ -339,21 +322,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const { isSelectable, columns } = this.args;
+    const { isSelectable } = this.args;
+    const { columns } = this._tableModel;
 
     const DEFAULT_COLUMN_WIDTH = '1fr';
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    if (!this.columnWidths) {
+    const hasCustomColumnWidths = columns.some(
+      (column) => column.width !== undefined
+    );
+
+    if (hasCustomColumnWidths) {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+      for (let i = 0; i < columns.length; i++) {
+        style += ` ${columns[i]?.width ?? DEFAULT_COLUMN_WIDTH}`;
+      }
+    } else {
       // if there are no custom column widths, each column is the same width and they take up the available space
       style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
-    } else {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
-      }
     }
 
     return style;
