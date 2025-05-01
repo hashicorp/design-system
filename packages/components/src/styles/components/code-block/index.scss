@@ -15,7 +15,7 @@
 // DIMENSIONS
 $hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px
 $hds-code-block-code-padding: 16px;
-$hds-code-block-code-bottom-gradient-height: 50px;
+$hds-code-block-code-bottom-gradient-height: 48px;
 
 // CODE-BLOCK PARENT/WRAPPER
 
@@ -139,7 +139,7 @@ $hds-code-block-code-bottom-gradient-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 $hds-code-block-code-padding 12px $hds-code-block-code-padding;
+  padding: 0 $hds-code-block-code-padding 10px $hds-code-block-code-padding;
   pointer-events: none; // fix issue with scrolling when hovering over the footer
 
   // re-enable pointer events for the button (or any content inside the footer)
