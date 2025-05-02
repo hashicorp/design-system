@@ -341,6 +341,7 @@
       "./components/hds/toast/index.js": "./dist/_app_/components/hds/toast/index.js",
       "./components/hds/tooltip-button/index.js": "./dist/_app_/components/hds/tooltip-button/index.js",
       "./components/hds/yield/index.js": "./dist/_app_/components/hds/yield/index.js",
+      "./foundations/breakpoints.js": "./dist/_app_/foundations/breakpoints.js",
       "./helpers/hds-format-date.js": "./dist/_app_/helpers/hds-format-date.js",
       "./helpers/hds-format-relative.js": "./dist/_app_/helpers/hds-format-relative.js",
       "./helpers/hds-link-to-models.js": "./dist/_app_/helpers/hds-link-to-models.js",
