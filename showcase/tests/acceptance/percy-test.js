@@ -28,6 +28,12 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/foundations/focus-ring');
     await percySnapshot('FocusRing');
 
+    // for the breakpoints we use a frameless page
+    await visit(
+      '/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization'
+    );
+    await percySnapshot('Breakpoints');
+
     await visit('/components/accordion');
     await percySnapshot('Accordion');
 
