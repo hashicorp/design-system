@@ -14,6 +14,8 @@ export default class HdsAdvancedTableColumn {
   @tracked isVisuallyHidden?: boolean = false;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
+  @tracked minWidth?: string = undefined;
+  @tracked maxWidth?: string = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
@@ -26,6 +28,8 @@ export default class HdsAdvancedTableColumn {
     this.isVisuallyHidden = args.isVisuallyHidden;
     this.tooltip = args.tooltip;
     this.width = args.width;
+    this.minWidth = args.minWidth;
+    this.maxWidth = args.maxWidth;
 
     this.sortingFunction = args.sortingFunction;
   }
