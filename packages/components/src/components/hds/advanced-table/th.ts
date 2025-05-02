@@ -28,6 +28,7 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
+    tableHeight?: number;
     column?: HdsAdvancedTableColumn;
     align?: HdsAdvancedTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
