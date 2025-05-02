@@ -6,8 +6,13 @@
 import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
+
+import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
+
+import type Owner from '@ember/owner';
+import type { LinkTo } from '@ember/routing';
 import type { SafeString } from '@ember/template';
-import type { HdsIconSignature } from '../icon';
+import type { HdsIconSignature } from '../icon/index';
 
 export interface HdsBreadcrumbItemSignature {
   Args: {
@@ -27,6 +32,14 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
+  linkToComponent: LinkTo;
+
+  constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
+    super(owner, args);
+
+    this.linkToComponent = hdsResolveLinkToComponent(args.isRouteExternal);
+  }
+
   /**
    * @param maxWidth
    * @type {string}
