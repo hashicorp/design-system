@@ -5,6 +5,7 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
 
 import HdsAdvancedTableColumn from './column.ts';
 
