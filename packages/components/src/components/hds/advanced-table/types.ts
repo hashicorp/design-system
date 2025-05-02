@@ -82,6 +82,8 @@ interface BaseHdsAdvancedTableColumn {
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
   tooltip?: string;
   width?: string;
+  minWidth?: string;
+  maxWidth?: string;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
