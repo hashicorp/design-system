@@ -9,9 +9,12 @@ import { action } from '@ember/object';
 
 import type HdsAdvancedTableColumn from './models/column';
 
+const TABLE_BORDER_WIDTH = 1;
+
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    tableHeight?: number;
   };
   Blocks: {
     default?: [];
@@ -62,5 +65,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.removeEventListener('pointerup', this._stopResize.bind(this));
 
     this.resizing = null;
+  }
+
+  get height(): string | undefined {
+    const { tableHeight } = this.args;
+
+    if (tableHeight === undefined) {
+      return;
+    }
+
+    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
   }
 }
