@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-<<<<<<< HEAD
 import { modifier } from 'ember-modifier';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
@@ -49,21 +48,14 @@ function calculateEffectiveDelta(
 
   return effectiveDelta;
 }
-=======
-
-import type HdsAdvancedTableColumn from './models/column';
->>>>>>> 2fe3eb86f (column resizing works)
 
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-<<<<<<< HEAD
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
-=======
->>>>>>> 2fe3eb86f (column resizing works)
   };
   Blocks: {
     default?: [];
@@ -72,7 +64,6 @@ export interface HdsAdvancedTableThResizeHandleSignature {
 }
 
 export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvancedTableThResizeHandleSignature> {
-<<<<<<< HEAD
   @tracked resizing: {
     startX: number;
     startColumnPxWidth: number;
@@ -169,28 +160,11 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       block: 'nearest',
       inline: 'nearest',
     });
-=======
-  @tracked resizing: { startX: number; startW: number } | null = null;
-
-  private _resize(event: PointerEvent): void {
-    const { column } = this.args ?? {};
-
-    if (this.resizing === null || column === undefined) {
-      return;
-    }
-
-    const { startX, startW } = this.resizing;
-
-    const newW = Math.max(startW + (event.clientX - startX), 50);
-
-    column.width = `${newW}px`;
->>>>>>> 2fe3eb86f (column resizing works)
   }
 
   @action
   startResize(event: PointerEvent): void {
     event.preventDefault();
-<<<<<<< HEAD
     event.stopPropagation();
 
     const { column, nextColumn } = this.args;
@@ -284,30 +258,3 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._nextColumnDelta = 0;
   }
 }
-=======
-
-    const target = event.target as HTMLDivElement;
-    const parent = target.parentElement as HTMLDivElement;
-    const parentWidth = parent.clientWidth;
-
-    const { column } = this.args ?? {};
-
-    column.width = column.width ?? `${parentWidth}px`;
-
-    // width is in px like `100px`
-    const numericalWidth = parseInt(column.width, 10);
-
-    this.resizing = { startX: event.clientX, startW: numericalWidth };
-
-    window.addEventListener('pointermove', this._resize.bind(this));
-    window.addEventListener('pointerup', this._stopResize.bind(this));
-  }
-
-  private _stopResize() {
-    window.removeEventListener('pointermove', this._resize.bind(this));
-    window.removeEventListener('pointerup', this._stopResize.bind(this));
-
-    this.resizing = null;
-  }
-}
->>>>>>> 2fe3eb86f (column resizing works)
