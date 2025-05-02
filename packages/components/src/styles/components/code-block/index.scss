@@ -15,7 +15,7 @@
 // DIMENSIONS
 $hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px
 $hds-code-block-code-padding: 16px;
-$hds-code-block-code-bottom-gradient-height: 48px;
+$hds-code-block-code-footer-height: 48px;
 
 // CODE-BLOCK PARENT/WRAPPER
 
@@ -40,11 +40,6 @@ $hds-code-block-code-bottom-gradient-height: 48px;
     @media print {
       text-shadow: none;
     }
-  }
-
-  code {
-    display: block;
-    padding: $hds-code-block-code-padding;
   }
 }
 
@@ -139,7 +134,8 @@ $hds-code-block-code-bottom-gradient-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 $hds-code-block-code-padding 10px $hds-code-block-code-padding;
+  padding: 10px $hds-code-block-code-padding 10px $hds-code-block-code-padding;
+  background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
   pointer-events: none; // fix issue with scrolling when hovering over the footer
 
   // re-enable pointer events for the button (or any content inside the footer)
@@ -148,36 +144,14 @@ $hds-code-block-code-bottom-gradient-height: 48px;
   }
 }
 
-.hds-code-block--has-overlay-footer {
+.hds-code-block--has-overlay-footer-expanded {
   .hds-code-block__code {
-    // gradient element
-    &::after {
-      position: sticky; // prevent gradient from scrolling together with content
-      bottom: 0;
-      display: block;
-      height: $hds-code-block-code-bottom-gradient-height;
-      content: "";
-      pointer-events: none;
-    }
+    // account for the footer at the bottom of the code block
+    padding-bottom: $hds-code-block-code-footer-height;
   }
 
-  // reduce the amount of space at the bottom of the code block
-  code {
-    padding-bottom: 0;
-  }
-}
-
-.hds-code-block--has-overflow {
-  .hds-code-block__code {
-    // gradient to add contrast for button & indicate overflow
-    &::after {
-      background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
-    }
-  }
-
-  // make border extend to bottom of the code block
-  &.hds-code-block.line-numbers .line-numbers-rows {
-    padding-bottom: $hds-code-block-code-bottom-gradient-height;
+  .hds-code-block__overlay-footer {
+    background: none;
   }
 }
 
@@ -186,6 +160,7 @@ $hds-code-block-code-bottom-gradient-height: 48px;
   @include hds-focus-ring-basic();
   display: block;
   margin: 0;
+  padding: $hds-code-block-code-padding;
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
@@ -265,12 +240,12 @@ $hds-code-block-code-bottom-gradient-height: 48px;
     .hds-code-block__code {
       position: relative;
       // reserve space for line numbers
-      padding-left: $hds-code-block-line-numbers-width;
+      padding-left: calc(#{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
     }
 
     .hds-code-block__overlay-footer {
       // match horizontal padding of the code block
-      padding-left: calc(#{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
+      margin-left: $hds-code-block-line-numbers-width;
     }
 
     .line-numbers-rows {

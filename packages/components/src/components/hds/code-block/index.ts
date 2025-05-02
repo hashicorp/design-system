@@ -201,14 +201,9 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
       classes.push('line-numbers');
     }
 
-    // Add a class if the overlay footer is shown
-    if (this.showFooter) {
-      classes.push('hds-code-block--has-overlay-footer');
-    }
-
-    // Add a class if if the overlay footer is shown but the height is not expanded
-    if (this.showFooter && !this._isExpanded) {
-      classes.push('hds-code-block--has-overflow');
+    // Add a class if if the overlay footer is shown and the height is expanded
+    if (this.showFooter && this._isExpanded) {
+      classes.push('hds-code-block--has-overlay-footer-expanded');
     }
 
     return classes.join(' ');
