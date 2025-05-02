@@ -64,6 +64,7 @@
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @tableHeight={{this.tableHeight}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
