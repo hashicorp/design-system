@@ -1,6 +1,6 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
 <li class="hds-dropdown-list-item hds-dropdown-list-item--variant-radio">
   <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>
@@ -10,8 +10,12 @@
         <Hds::Icon @name={{@icon}} />
       </div>
     {{/if}}
-    <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
-
+    <Hds::Text::Body
+      class="hds-dropdown-list-item__text-content"
+      @tag="span"
+      @size="200"
+      @weight="medium"
+    >{{yield}}</Hds::Text::Body>
     {{#if @count}}
       <Hds::Text::Body
         class="hds-dropdown-list-item__count"
