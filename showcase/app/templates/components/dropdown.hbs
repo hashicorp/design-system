@@ -9,20 +9,6 @@ SPDX-License-Identifier: MPL-2.0
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Font weight text</Shw::Text::H2>
-
-  <Shw::Grid @columns={{1}} as |SG|>
-    <SG.Item @label="Multiple list item types">
-      <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" as |D|>
-        <D.ToggleButton @color="secondary" @text="Menu" />
-        <D.Checkmark @selected={{true}}>Checkmark</D.Checkmark>
-        <D.Interactive @href="#">Interactive</D.Interactive>
-        <D.Radio name="status" @selected={{true}} @count="4">Radio</D.Radio>
-        <D.Checkbox @count="3">Checkbox</D.Checkbox>
-      </Hds::Dropdown>
-    </SG.Item>
-  </Shw::Grid>
-
   <Shw::Text::H2>Position</Shw::Text::H2>
 
   <Shw::Grid @columns={{2}} as |SG|>
