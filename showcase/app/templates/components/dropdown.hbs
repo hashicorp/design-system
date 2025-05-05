@@ -13,15 +13,15 @@
 
   <Shw::Grid @columns={{2}} as |SG|>
     {{#each @model.POSITIONS as |position|}}
-    <SG.Item @label={{capitalize position}}>
-      <Shw::Outliner {{style padding="6em 12em" }}>
-        <Hds::Dropdown @isOpen={{true}} @listPosition={{position}} as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">Create</D.Interactive>
-          <D.Interactive @href="#">Edit</D.Interactive>
-        </Hds::Dropdown>
-      </Shw::Outliner>
-    </SG.Item>
+      <SG.Item @label={{capitalize position}}>
+        <Shw::Outliner {{style padding="6em 12em"}}>
+          <Hds::Dropdown @isOpen={{true}} @listPosition={{position}} as |D|>
+            <D.ToggleButton @color="secondary" @text="Menu" />
+            <D.Interactive @href="#">Create</D.Interactive>
+            <D.Interactive @href="#">Edit</D.Interactive>
+          </Hds::Dropdown>
+        </Shw::Outliner>
+      </SG.Item>
     {{/each}}
   </Shw::Grid>
 
@@ -31,64 +31,76 @@
 
   <Shw::Grid @columns={{4}} @gap="2rem" as |SG|>
     {{#let (array false true) as |options|}}
-    {{#each options as |option|}}
-    <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
-      <SGI.Label><code>ToggleButton</code> auto</SGI.Label>
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
-      <SGI.Label><code>ToggleButton</code> 100%</SGI.Label>
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
-          <D.ToggleButton {{style width="100%" }} @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
-      <SGI.Label><code>ToggleButton</code> auto + <code>@width="200px"</code></SGI.Label>
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @width="200px" @matchToggleWidth={{option}} as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
-      <SGI.Label><code>ToggleButton</code> auto + <code>@width="100%"</code></SGI.Label>
-      <div class="shw-component-dropdown-fixed-height-container">
-        <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @width="100%" @matchToggleWidth={{option}} as |D|>
-          <D.ToggleButton @color="secondary" @text="Menu" />
-          <D.Interactive @href="#">
-            Lorem ipsum dolor sit amet
-          </D.Interactive>
-          <D.Interactive @href="#">
-            Consectetur adipisicing elit
-          </D.Interactive>
-        </Hds::Dropdown>
-      </div>
-    </SG.Item>
-    {{/each}}
+      {{#each options as |option|}}
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto</SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> 100%</SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown @isOpen={{true}} @listPosition="bottom-left" @matchToggleWidth={{option}} as |D|>
+              <D.ToggleButton {{style width="100%"}} @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto + <code>@width="200px"</code></SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown
+              @isOpen={{true}}
+              @listPosition="bottom-left"
+              @width="200px"
+              @matchToggleWidth={{option}}
+              as |D|
+            >
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+        <SG.Item @label="matchToggleWidth={{option}}" as |SGI|>
+          <SGI.Label><code>ToggleButton</code> auto + <code>@width="100%"</code></SGI.Label>
+          <div class="shw-component-dropdown-fixed-height-container">
+            <Hds::Dropdown
+              @isOpen={{true}}
+              @listPosition="bottom-left"
+              @width="100%"
+              @matchToggleWidth={{option}}
+              as |D|
+            >
+              <D.ToggleButton @color="secondary" @text="Menu" />
+              <D.Interactive @href="#">
+                Lorem ipsum dolor sit amet
+              </D.Interactive>
+              <D.Interactive @href="#">
+                Consectetur adipisicing elit
+              </D.Interactive>
+            </Hds::Dropdown>
+          </div>
+        </SG.Item>
+      {{/each}}
     {{/let}}
   </Shw::Grid>
 
@@ -133,19 +145,19 @@
 
   <Shw::Grid @columns={{3}} @gap="2rem" as |SF|>
     {{#let (array false true) as |detections|}}
-    {{#each detections as |detection|}}
-    <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
-      <Shw::Autoscrollable @verticalShift={{30}}>
-        <div class="shw-component-dropdown-collision-detection-wrapper">
-          <Hds::Dropdown @isOpen={{true}} @enableCollisionDetection={{detection}} as |D|>
-            <D.ToggleButton @color="secondary" @text="Menu" />
-            <D.Interactive @href="#">Create</D.Interactive>
-            <D.Interactive @href="#">Edit</D.Interactive>
-          </Hds::Dropdown>
-        </div>
-      </Shw::Autoscrollable>
-    </SF.Item>
-    {{/each}}
+      {{#each detections as |detection|}}
+        <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+          <Shw::Autoscrollable @verticalShift={{30}}>
+            <div class="shw-component-dropdown-collision-detection-wrapper">
+              <Hds::Dropdown @isOpen={{true}} @enableCollisionDetection={{detection}} as |D|>
+                <D.ToggleButton @color="secondary" @text="Menu" />
+                <D.Interactive @href="#">Create</D.Interactive>
+                <D.Interactive @href="#">Edit</D.Interactive>
+              </Hds::Dropdown>
+            </div>
+          </Shw::Autoscrollable>
+        </SF.Item>
+      {{/each}}
     {{/let}}
     <SF.Item />
   </Shw::Grid>
@@ -162,7 +174,7 @@
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" />
     </SF.Item>
     <SF.Item @label="Primary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" />
       </Shw::Outliner>
     </SF.Item>
@@ -176,7 +188,7 @@
       <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" />
     </SF.Item>
     <SF.Item @label="Secondary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" />
       </Shw::Outliner>
     </SF.Item>
@@ -192,7 +204,7 @@
       <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem ipsum" />
     </SF.Item>
     <SF.Item @label="Primary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
       </Shw::Outliner>
     </SF.Item>
@@ -205,7 +217,7 @@
       <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @text="Lorem ipsum" />
     </SF.Item>
     <SF.Item @label="Secondary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @color="secondary" @icon="hexagon" @isFullWidth={{true}} @text="Lorem ipsum" />
       </Shw::Outliner>
     </SF.Item>
@@ -221,7 +233,7 @@
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="12" />
     </SF.Item>
     <SF.Item @label="Primary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
       </Shw::Outliner>
     </SF.Item>
@@ -234,7 +246,7 @@
       <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @count="12" />
     </SF.Item>
     <SF.Item @label="Secondary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" @count="12" />
       </Shw::Outliner>
     </SF.Item>
@@ -250,21 +262,33 @@
       <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
     </SF.Item>
     <SF.Item @label="Primary full width">
-      <Shw::Outliner {{style width="300px" }}>
+      <Shw::Outliner {{style width="300px"}}>
         <Hds::Dropdown::Toggle::Button @isFullWidth={{true}} @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
   <Shw::Flex as |SF|>
     <SF.Item @label="Secondary small">
-      <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" @size="small" />
+      <Hds::Dropdown::Toggle::Button
+        @color="secondary"
+        @text="Lorem ipsum"
+        @badge="Badge"
+        @badgeIcon="hexagon"
+        @size="small"
+      />
     </SF.Item>
     <SF.Item @label="Secondary medium">
       <Hds::Dropdown::Toggle::Button @color="secondary" @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
     </SF.Item>
     <SF.Item @label="Secondary full width">
-      <Shw::Outliner {{style width="300px" }}>
-        <Hds::Dropdown::Toggle::Button @color="secondary" @isFullWidth={{true}} @text="Lorem ipsum" @badge="Badge" @badgeIcon="hexagon" />
+      <Shw::Outliner {{style width="300px"}}>
+        <Hds::Dropdown::Toggle::Button
+          @color="secondary"
+          @isFullWidth={{true}}
+          @text="Lorem ipsum"
+          @badge="Badge"
+          @badgeIcon="hexagon"
+        />
       </Shw::Outliner>
     </SF.Item>
   </Shw::Flex>
@@ -312,87 +336,109 @@
     {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
 
     {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item>
-      <span class="shw-label">{{capitalize state}}</span>
-    </SG.Item>
+      <SG.Item>
+        <span class="shw-label">{{capitalize state}}</span>
+      </SG.Item>
     {{/each}}
     <SG.Item>
       <span class="shw-label">Open</span>
     </SG.Item>
 
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-    {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="{{capitalize color}}">
-      {{#if (eq state "disabled")}}
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
-      {{else}}
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
-      {{/if}}
-    </SG.Item>
-    {{/each}}
-    <SG.Item @label="{{capitalize color}}">
-      <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
-    </SG.Item>
-    {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="With icon">
-      {{#if (eq state "disabled")}}
-      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
-      {{else}}
-      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
-      {{/if}}
-    </SG.Item>
-    {{/each}}
-    <SG.Item @label="With icon">
-      <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
-    </SG.Item>
-    {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="With count">
-      {{#if (eq state "disabled")}}
-      <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
-      {{else}}
-      <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
-      {{/if}}
-    </SG.Item>
-    {{/each}}
-    <SG.Item @label="With count">
-      <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
-    </SG.Item>
-    {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="With badge">
-      {{#if (eq state "disabled")}}
-      <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
-      {{else}}
-      <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
-      {{/if}}
-    </SG.Item>
-    {{/each}}
-    <SG.Item @label="With badge">
-      <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
-    </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="{{capitalize color}}">
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="{{capitalize color}}">
+        <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With icon">
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With icon">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With count">
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With count">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </SG.Item>
+      {{#each @model.TOGGLE_STATES as |state|}}
+        <SG.Item @label="With badge">
+          {{#if (eq state "disabled")}}
+            <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
+          {{else}}
+            <Hds::Dropdown::Toggle::Button
+              @badge="Sit"
+              @badgeIcon="hexagon"
+              @text="Lorem"
+              @color={{color}}
+              mock-state-value={{state}}
+            />
+          {{/if}}
+        </SG.Item>
+      {{/each}}
+      <SG.Item @label="With badge">
+        <Hds::Dropdown::Toggle::Button
+          @badge="Sit"
+          @badgeIcon="hexagon"
+          @text="Lorem"
+          @isOpen={{true}}
+          @color={{color}}
+        />
+      </SG.Item>
     {{/each}}
 
     {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="Icon">
-      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @text="overflow menu" @hasChevron={{false}} mock-state-value={{state}} />
-    </SG.Item>
+      <SG.Item @label="Icon">
+        <Hds::Dropdown::Toggle::Icon
+          @icon="more-horizontal"
+          @text="overflow menu"
+          @hasChevron={{false}}
+          mock-state-value={{state}}
+        />
+      </SG.Item>
     {{/each}}
     <SG.Item @label="Icon">
-      <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @text="overflow menu" @hasChevron={{false}} @isOpen={{true}} />
+      <Hds::Dropdown::Toggle::Icon
+        @icon="more-horizontal"
+        @text="overflow menu"
+        @hasChevron={{false}}
+        @isOpen={{true}}
+      />
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="Icon+chevron">
-      <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
-    </SG.Item>
+      <SG.Item @label="Icon+chevron">
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
+      </SG.Item>
     {{/each}}
     <SG.Item @label="Icon+chevron">
       <Hds::Dropdown::Toggle::Icon @icon="user" @text="open" @isOpen={{true}} />
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-    <SG.Item @label="Avatar+chevron">
-      <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
-    </SG.Item>
+      <SG.Item @label="Avatar+chevron">
+        <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
+      </SG.Item>
     {{/each}}
     <SG.Item @label="Avatar+chevron">
       <Hds::Dropdown::Toggle::Icon @text="open" @isOpen={{true}} @imageSrc="/assets/images/avatar.png" />
@@ -419,10 +465,17 @@
     <SF.Item @label="Default (max width)">
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Title @text="A longer title that could span multiple lines if the characters surpass a certain length" />
-          <Hds::Dropdown::ListItem::Description @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default." />
+          <Hds::Dropdown::ListItem::Title
+            @text="A longer title that could span multiple lines if the characters surpass a certain length"
+          />
+          <Hds::Dropdown::ListItem::Description
+            @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
+          />
           <Hds::Dropdown::ListItem::Separator />
-          <Hds::Dropdown::ListItem::Interactive @route="index" @text="A longer item that could span multiple lines if the characters surpass a certain length" />
+          <Hds::Dropdown::ListItem::Interactive
+            @route="index"
+            @text="A longer item that could span multiple lines if the characters surpass a certain length"
+          />
         </ul>
       </div>
     </SF.Item>
@@ -430,10 +483,17 @@
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::Title @text="A longer title that could span multiple lines if the characters surpass a certain length" />
-          <Hds::Dropdown::ListItem::Description @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default." />
+          <Hds::Dropdown::ListItem::Title
+            @text="A longer title that could span multiple lines if the characters surpass a certain length"
+          />
+          <Hds::Dropdown::ListItem::Description
+            @text="A longer description that could span on multiple lines if the number of characters require more width than the dropdown provides by default."
+          />
           <Hds::Dropdown::ListItem::Separator />
-          <Hds::Dropdown::ListItem::Interactive @route="index" @text="A longer item that could span multiple lines if the characters surpass a certain length" />
+          <Hds::Dropdown::ListItem::Interactive
+            @route="index"
+            @text="A longer item that could span multiple lines if the characters surpass a certain length"
+          />
         </ul>
       </div>
       {{! template-lint-enable no-inline-styles }}
@@ -614,63 +674,80 @@
   <Shw::Text::H4>States (in each color)</Shw::Text::H4>
 
   {{#each @model.ITEM_INTERACTIVE_COLORS as |color|}}
-  <Shw::Flex @direction="column" as |SF|>
-    <SF.Item @label={{capitalize color}}>
-      <Shw::Flex as |SF|>
-        <SF.Item>
-          <div class="hds-dropdown__content">
-            <ul class="hds-dropdown__list">
-              {{#each @model.ITEM_STATES as |state|}}
-              <Hds::Dropdown::ListItem::Interactive @color={{color}} mock-state-value={{state}}>
-                {{state}}
-              </Hds::Dropdown::ListItem::Interactive>
-              {{/each}}
-              <Hds::Dropdown::ListItem::Separator />
-              <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}}>
-                Loading
-              </Hds::Dropdown::ListItem::Interactive>
-              <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}} as |I|>
-                Loading
-                <I.Badge @text="With Badge" />
-              </Hds::Dropdown::ListItem::Interactive>
-            </ul>
-          </div>
-        </SF.Item>
-        <SF.Item>
-          <div class="hds-dropdown__content">
-            <ul class="hds-dropdown__list">
-              {{#each @model.ITEM_STATES as |state|}}
-              <Hds::Dropdown::ListItem::Interactive @icon={{if (eq color "critical" ) "trash" "settings" }} @color={{color}} mock-state-value={{state}}>
-                {{state}}
-                with icon
-              </Hds::Dropdown::ListItem::Interactive>
-              {{/each}}
-              <Hds::Dropdown::ListItem::Separator />
-              <Hds::Dropdown::ListItem::Interactive @icon={{if (eq color "critical" ) "trash" "settings" }} @color={{color}} @isLoading={{true}}>
-                loading with icon
-              </Hds::Dropdown::ListItem::Interactive>
-              <Hds::Dropdown::ListItem::Interactive @icon={{if (eq color "critical" ) "trash" "settings" }} @color={{color}} @isLoading={{true}} as |I|>
-                Loading
-                <I.Badge @text="With Badge" />
-              </Hds::Dropdown::ListItem::Interactive>
-            </ul>
-          </div>
-        </SF.Item>
-        <SF.Item>
-          <div class="hds-dropdown__content">
-            <ul class="hds-dropdown__list">
-              {{#each @model.ITEM_STATES as |state|}}
-              <Hds::Dropdown::ListItem::Interactive @icon={{if (eq color "critical" ) "trash" "settings" }} @color={{color}} mock-state-value={{state}}>
-                {{state}}
-                with a longer text string that may wrap since max-width is defined on the container
-              </Hds::Dropdown::ListItem::Interactive>
-              {{/each}}
-            </ul>
-          </div>
-        </SF.Item>
-      </Shw::Flex>
-    </SF.Item>
-  </Shw::Flex>
+    <Shw::Flex @direction="column" as |SF|>
+      <SF.Item @label={{capitalize color}}>
+        <Shw::Flex as |SF|>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive @color={{color}} mock-state-value={{state}}>
+                    {{state}}
+                  </Hds::Dropdown::ListItem::Interactive>
+                {{/each}}
+                <Hds::Dropdown::ListItem::Separator />
+                <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}}>
+                  Loading
+                </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive @color={{color}} @isLoading={{true}} as |I|>
+                  Loading
+                  <I.Badge @text="With Badge" />
+                </Hds::Dropdown::ListItem::Interactive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive
+                    @icon={{if (eq color "critical") "trash" "settings"}}
+                    @color={{color}}
+                    mock-state-value={{state}}
+                  >
+                    {{state}}
+                    with icon
+                  </Hds::Dropdown::ListItem::Interactive>
+                {{/each}}
+                <Hds::Dropdown::ListItem::Separator />
+                <Hds::Dropdown::ListItem::Interactive
+                  @icon={{if (eq color "critical") "trash" "settings"}}
+                  @color={{color}}
+                  @isLoading={{true}}
+                >
+                  loading with icon
+                </Hds::Dropdown::ListItem::Interactive>
+                <Hds::Dropdown::ListItem::Interactive
+                  @icon={{if (eq color "critical") "trash" "settings"}}
+                  @color={{color}}
+                  @isLoading={{true}}
+                  as |I|
+                >
+                  Loading
+                  <I.Badge @text="With Badge" />
+                </Hds::Dropdown::ListItem::Interactive>
+              </ul>
+            </div>
+          </SF.Item>
+          <SF.Item>
+            <div class="hds-dropdown__content">
+              <ul class="hds-dropdown__list">
+                {{#each @model.ITEM_STATES as |state|}}
+                  <Hds::Dropdown::ListItem::Interactive
+                    @icon={{if (eq color "critical") "trash" "settings"}}
+                    @color={{color}}
+                    mock-state-value={{state}}
+                  >
+                    {{state}}
+                    with a longer text string that may wrap since max-width is defined on the container
+                  </Hds::Dropdown::ListItem::Interactive>
+                {{/each}}
+              </ul>
+            </div>
+          </SF.Item>
+        </Shw::Flex>
+      </SF.Item>
+    </Shw::Flex>
   {{/each}}
 
   <Shw::Divider @level={{2}} />
@@ -719,7 +796,11 @@
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Lorem ipsum dolor" @text="91ee1e8ef65b337f0e70d793f456c71d" @isTruncated={{false}} />
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+            @isTruncated={{false}}
+          />
         </ul>
       </div>
       {{! template-lint-enable no-inline-styles }}
@@ -741,7 +822,10 @@
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Lorem ipsum dolor" @text="91ee1e8ef65b337f0e70d793f456c71d" />
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+          />
         </ul>
       </div>
       {{! template-lint-enable no-inline-styles }}
@@ -750,7 +834,11 @@
       {{! template-lint-disable no-inline-styles }}
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
-          <Hds::Dropdown::ListItem::CopyItem @copyItemTitle="Lorem ipsum dolor" @text="91ee1e8ef65b337f0e70d793f456c71d" @isTruncated={{false}} />
+          <Hds::Dropdown::ListItem::CopyItem
+            @copyItemTitle="Lorem ipsum dolor"
+            @text="91ee1e8ef65b337f0e70d793f456c71d"
+            @isTruncated={{false}}
+          />
         </ul>
       </div>
       {{! template-lint-enable no-inline-styles }}
@@ -766,7 +854,11 @@
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r" mock-state-value={{state}} mock-state-selector="button" />
+            <Hds::Dropdown::ListItem::CopyItem
+              @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
           {{/each}}
         </ul>
       </div>
@@ -778,7 +870,12 @@
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r" @copyItemTitle="Lorem ipsumy dolor" mock-state-value={{state}} mock-state-selector="button" />
+            <Hds::Dropdown::ListItem::CopyItem
+              @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
+              @copyItemTitle="Lorem ipsumy dolor"
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
           {{/each}}
         </ul>
       </div>
@@ -790,7 +887,13 @@
       <div class="hds-dropdown__content" style="width: 250px">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::CopyItem @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r" @copyItemTitle="Lorem ipsumy dolor" @isTruncated={{false}} mock-state-value={{state}} mock-state-selector="button" />
+            <Hds::Dropdown::ListItem::CopyItem
+              @text="{{state}}: fbrct1ed-fgr35h-tyng89-wed4r"
+              @copyItemTitle="Lorem ipsumy dolor"
+              @isTruncated={{false}}
+              mock-state-value={{state}}
+              mock-state-selector="button"
+            />
           {{/each}}
         </ul>
       </div>
@@ -807,9 +910,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Default">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" disabled>
             disabled
@@ -821,9 +924,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Selected">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkmark mock-state-value="disabled" @selected={{true}} disabled>
             disabled
@@ -835,9 +938,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Icon">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" disabled>
             disabled
@@ -849,9 +952,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Icon, selected">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}} @selected={{true}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkmark @icon="hexagon" mock-state-value="disabled" @selected={{true}} disabled>
             disabled
@@ -863,9 +966,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Count">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -874,9 +977,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Count, selected">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -885,9 +988,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
-            <Shw::Placeholder @text="custom content" @width="128" @height="20" />
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" />
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -896,9 +999,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Custom content, selected">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
-            <Shw::Placeholder @text="custom content" @width="128" @height="20" />
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="128" @height="20" />
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -907,10 +1010,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Badge in content">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
-            {{state}}
-            <Hds::Badge @icon="org" @text="Private" @size="small" />
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -919,10 +1022,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Badge in content, selected">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
-            {{state}}
-            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @selected={{true}}>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -931,11 +1034,16 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list" role="listbox" aria-label="Large content">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkmark mock-state-value={{state}} @icon="hexagon" @selected={{true}} @count="12">
-            {{state}}
-            with a longer text string that may wrap since max-width is defined on the container
-            <Hds::Badge @text="badge" @size="small" />
-          </Hds::Dropdown::ListItem::Checkmark>
+            <Hds::Dropdown::ListItem::Checkmark
+              mock-state-value={{state}}
+              @icon="hexagon"
+              @selected={{true}}
+              @count="12"
+            >
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Checkmark>
           {{/each}}
         </ul>
       </div>
@@ -962,9 +1070,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled>
             disabled
@@ -976,9 +1084,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" disabled checked>
             disabled
@@ -990,9 +1098,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon">
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled>
             disabled
@@ -1004,9 +1112,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon" checked>
-            {{state}}
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @icon="hexagon" checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
           <Hds::Dropdown::ListItem::Checkbox mock-state-value="disabled" @icon="hexagon" disabled checked>
             disabled
@@ -1018,7 +1126,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12">{{state}}</Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox
+              mock-state-value={{state}}
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1027,7 +1138,11 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @count="12">{{state}}</Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox
+              mock-state-value={{state}}
+              checked
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1036,9 +1151,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12">
-            <Shw::Placeholder @text="custom content" @width="122" @height="20" />
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1047,9 +1162,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @count="12">
-            <Shw::Placeholder @text="custom content" @width="122" @height="20" />
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1058,10 +1173,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
-            {{state}}
-            <Hds::Badge @icon="org" @text="Private" @size="small" />
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1070,10 +1185,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
-            {{state}}
-            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} checked>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1082,11 +1197,11 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12" @icon="hexagon">
-            {{state}}
-            with a longer text string that may wrap since max-width is defined on the container
-            <Hds::Badge @text="badge" @size="small" />
-          </Hds::Dropdown::ListItem::Checkbox>
+            <Hds::Dropdown::ListItem::Checkbox mock-state-value={{state}} @count="12" @icon="hexagon">
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Checkbox>
           {{/each}}
         </ul>
       </div>
@@ -1113,9 +1228,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
-            {{state}}
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
           <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" disabled>
             disabled
@@ -1127,9 +1242,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
-            {{state}}
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
           <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" checked disabled>
             disabled
@@ -1141,9 +1256,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @icon="hexagon">
-            {{state}}
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
           <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" disabled>
             disabled
@@ -1155,9 +1270,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @icon="hexagon">
-            {{state}}
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @icon="hexagon">
+              {{state}}
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
           <Hds::Dropdown::ListItem::Radio mock-state-value="disabled" @icon="hexagon" checked disabled>
             disabled
@@ -1169,7 +1284,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12">{{state}}</Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio
+              mock-state-value={{state}}
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1178,7 +1296,11 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @count="12">{{state}}</Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio
+              mock-state-value={{state}}
+              checked
+              @count="12"
+            >{{state}}</Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1187,9 +1309,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12">
-            <Shw::Placeholder @text="custom content" @width="122" @height="20" />
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1198,9 +1320,9 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @count="12">
-            <Shw::Placeholder @text="custom content" @width="122" @height="20" />
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked @count="12">
+              <Shw::Placeholder @text="custom content" @width="122" @height="20" />
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1209,10 +1331,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
-            {{state}}
-            <Hds::Badge @icon="org" @text="Private" @size="small" />
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}}>
+              {{state}}
+              <Hds::Badge @icon="org" @text="Private" @size="small" />
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1221,10 +1343,10 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
-            {{state}}
-            <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} checked>
+              {{state}}
+              <Hds::Badge @icon="globe" @text="Public" @size="small" @color="highlight" />
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
@@ -1233,11 +1355,11 @@
       <div class="hds-dropdown__content">
         <ul class="hds-dropdown__list">
           {{#each @model.ITEM_STATES as |state|}}
-          <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12" @icon="hexagon">
-            {{state}}
-            with a longer text string that may wrap since max-width is defined on the container
-            <Hds::Badge @text="badge" @size="small" />
-          </Hds::Dropdown::ListItem::Radio>
+            <Hds::Dropdown::ListItem::Radio mock-state-value={{state}} @count="12" @icon="hexagon">
+              {{state}}
+              with a longer text string that may wrap since max-width is defined on the container
+              <Hds::Badge @text="badge" @size="small" />
+            </Hds::Dropdown::ListItem::Radio>
           {{/each}}
         </ul>
       </div>
