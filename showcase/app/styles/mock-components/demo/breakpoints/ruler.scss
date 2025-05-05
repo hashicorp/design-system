@@ -5,9 +5,7 @@
 
 @use "sass:map";
 // from @hashicorp/design-system-components package
-// @use "mixins/breakpoints" as *;
-// TODO! remove once fixed the Sass compilation issue (hack to start testing)
-@use "../../../temp-hds-breakpoints" as *;
+@use "mixins/breakpoints" as *;
 @use "colors" as *;
 
 // RULER
