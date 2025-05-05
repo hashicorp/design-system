@@ -26,7 +26,7 @@ module('Integration | Component | hds/text/body', function (hooks) {
 
   test('it renders correctly the provided arguments', async function (assert) {
     await render(
-      hbs`<Hds::Text::Body @size="100" @tag="mark" @weight="semibold" @align="right" @color="success" id="test-text">This is the text</Hds::Text::Body>`
+      hbs`<Hds::Text::Body @size="100" @tag="mark" @weight="semibold" @align="right" @color="success" id="test-text">This is the text</Hds::Text::Body>`,
     );
     assert.dom('#test-text').hasText('This is the text');
     assert.dom('#test-text').hasClass('hds-typography-body-100');

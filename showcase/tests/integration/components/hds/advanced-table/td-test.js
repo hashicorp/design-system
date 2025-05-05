@@ -13,7 +13,7 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it renders with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' />`
+      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' />`,
     );
     assert
       .dom('#data-test-advanced-table-td')
@@ -22,14 +22,14 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should render with the appropriate role', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' @align='right' />`
+      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' @align='right' />`,
     );
     assert.dom('#data-test-advanced-table-td').hasAttribute('role', 'gridcell');
   });
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' @align='right' />`
+      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' @align='right' />`,
     );
     assert
       .dom('#data-test-advanced-table-td')
@@ -38,7 +38,7 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should render with the appropriate span information by default', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' />`
+      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' />`,
     );
 
     assert.dom('#data-test-advanced-table-td').hasNoAttribute('aria-rowspan');
@@ -55,7 +55,7 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
   id='data-test-advanced-table-td'
   @rowspan={{3}}
   @colspan={{5}}
-/>`
+/>`,
     );
 
     assert
@@ -74,7 +74,7 @@ module('Integration | Component | hds/advanced-table/td', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' lang='es' />`
+      hbs`<Hds::AdvancedTable::Td id='data-test-advanced-table-td' lang='es' />`,
     );
     assert.dom('#data-test-advanced-table-td').hasAttribute('lang', 'es');
   });

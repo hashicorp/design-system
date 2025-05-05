@@ -3,10 +3,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import 'ember-source/types';
-export {};
-
 import '@glint/environment-ember-loose';
+import '@glint/environment-ember-template-imports';
 
 import type EmberStyleModifierRegistry from 'ember-style-modifier/template-registry';
 import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';

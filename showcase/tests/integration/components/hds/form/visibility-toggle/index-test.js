@@ -15,7 +15,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`
+        hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`,
       );
       assert
         .dom('#test-visibility-toggle')
@@ -24,7 +24,7 @@ module(
 
     test('it should render the default icon, `aria-label` and `sr-live` message', async function (assert) {
       await render(
-        hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`
+        hbs`<Hds::Form::VisibilityToggle id="test-visibility-toggle" />`,
       );
       assert
         .dom('#test-visibility-toggle .hds-icon')
@@ -33,14 +33,14 @@ module(
 
     test('it should render correct icon when `@isVisible` is `true`', async function (assert) {
       await render(
-        hbs`<Hds::Form::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`
+        hbs`<Hds::Form::VisibilityToggle @isVisible={{true}} id="test-visibility-toggle" />`,
       );
       assert.dom('#test-visibility-toggle .hds-icon').hasClass('hds-icon-eye');
     });
 
     test('it should render `aria-label` and `sr-live` message', async function (assert) {
       await render(
-        hbs`<Hds::Form::VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is visible" id="test-visibility-toggle" />`
+        hbs`<Hds::Form::VisibilityToggle @ariaLabel="Hide masked content" @ariaMessageText="Input content is visible" id="test-visibility-toggle" />`,
       );
       assert
         .dom('#test-visibility-toggle')
@@ -49,5 +49,5 @@ module(
         .dom('#test-visibility-toggle .sr-only')
         .hasText('Input content is visible');
     });
-  }
+  },
 );

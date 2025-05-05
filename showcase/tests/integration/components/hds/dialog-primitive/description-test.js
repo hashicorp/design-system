@@ -23,7 +23,7 @@ module(
         <Hds::DialogPrimitive::Description id="test-description">
           Description
         </Hds::DialogPrimitive::Description>
-      `
+      `,
       );
       assert
         .dom('#test-description')
@@ -38,9 +38,9 @@ module(
         <Hds::DialogPrimitive::Description>
           Description
         </Hds::DialogPrimitive::Description>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__description').hasText('Description');
     });
-  }
+  },
 );

@@ -13,7 +13,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' />`
+      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' />`,
     );
 
     assert
@@ -23,7 +23,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
 
   test('it should render with the appropriate role', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' />`
+      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' />`,
     );
     assert.dom('#data-test-advanced-table-tr').hasAttribute('role', 'row');
   });
@@ -33,7 +33,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   test('it should render the yielded content', async function (assert) {
     await render(
       hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr'><td
-  ></td></Hds::AdvancedTable::Tr>`
+  ></td></Hds::AdvancedTable::Tr>`,
     );
     assert.dom('#data-test-advanced-table-tr > td').exists();
   });
@@ -48,7 +48,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       hbs`<Hds::AdvancedTable::Tr
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
-/>`
+/>`,
     );
     assert.dom(checkboxSelector).exists();
   });
@@ -59,7 +59,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
   @isSelected={{true}}
-/>`
+/>`,
     );
     assert.dom(checkboxSelector).isChecked();
   });
@@ -70,7 +70,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
   @selectionAriaLabelSuffix='row 123'
-/>`
+/>`,
     );
     assert.dom(checkboxSelector).hasAria('label', 'Select row 123');
   });
@@ -81,11 +81,11 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
   @selectionScope='row'
-/>`
+/>`,
     );
     assert
       .dom(
-        '#data-test-advanced-table-tr > .hds-advanced-table__th--is-selectable'
+        '#data-test-advanced-table-tr > .hds-advanced-table__th--is-selectable',
       )
       .hasAttribute('role', 'gridcell');
   });
@@ -94,7 +94,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
     let key;
     this.set(
       'onSelectionChange',
-      (_checkbox, selectionKey) => (key = selectionKey)
+      (_checkbox, selectionKey) => (key = selectionKey),
     );
     await render(
       hbs`<Hds::AdvancedTable::Tr
@@ -103,7 +103,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   @selectionScope='row'
   @selectionKey='row123'
   @onSelectionChange={{this.onSelectionChange}}
-/>`
+/>`,
     );
     await click(checkboxSelector);
     assert.strictEqual(key, 'row123');
@@ -117,7 +117,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
   @onClickSortBySelected={{this.noop}}
-/>`
+/>`,
     );
 
     assert
@@ -130,7 +130,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       hbs`<Hds::AdvancedTable::Tr
   id='data-test-advanced-table-tr'
   @isSelectable={{true}}
-/>`
+/>`,
     );
 
     assert
@@ -142,7 +142,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' lang='es' />`
+      hbs`<Hds::AdvancedTable::Tr id='data-test-advanced-table-tr' lang='es' />`,
     );
     assert.dom('#data-test-advanced-table-tr').hasAttribute('lang', 'es');
   });
@@ -157,7 +157,7 @@ module('Integration | Component | hds/advanced-table/tr', function (hooks) {
       assert.strictEqual(error.message, errorMessage);
     });
     await render(
-      hbs`<Hds::AdvancedTable::Tr @isSelectable={{true}} @selectionScope='row' />`
+      hbs`<Hds::AdvancedTable::Tr @isSelectable={{true}} @selectionScope='row' />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
