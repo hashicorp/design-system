@@ -48,7 +48,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should render the password input without visibility toggle when `hasVisibilityToggle` is false', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Field @type="password" @hasVisibilityToggle={{false}} />`
+      hbs`<Hds::Form::TextInput::Field @type="password" @hasVisibilityToggle={{false}} />`,
     );
     assert.dom('input').hasAttribute('type', 'password');
     assert.dom('.hds-form-visibility-toggle').doesNotExist();
@@ -72,7 +72,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
 
   test('it should render the correct CSS class if the @isLoading prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Field @type="search" @isLoading={{true}} />`
+      hbs`<Hds::Form::TextInput::Field @type="search" @isLoading={{true}} />`,
     );
     assert.dom('input').hasClass('hds-form-text-input--is-loading');
   });
@@ -100,7 +100,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::TextInput::Field>`
+        </Hds::Form::TextInput::Field>`,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -122,7 +122,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::TextInput::Field>`
+        </Hds::Form::TextInput::Field>`,
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control input');
@@ -135,7 +135,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__character-count')
@@ -157,7 +157,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::TextInput::Field>`
+        </Hds::Form::TextInput::Field>`,
     );
 
     this.set('showErrors', true);
@@ -174,7 +174,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__character-count')
@@ -193,7 +193,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::TextInput::Field>`
+          </Hds::Form::TextInput::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -203,7 +203,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::TextInput::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::TextInput::Field>`
+          </Hds::Form::TextInput::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -212,7 +212,7 @@ module('Integration | Component | hds/form/text-input/field', function (hooks) {
     await render(
       hbs`<Hds::Form::TextInput::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::TextInput::Field>`
+          </Hds::Form::TextInput::Field>`,
     );
     assert.dom('input').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();

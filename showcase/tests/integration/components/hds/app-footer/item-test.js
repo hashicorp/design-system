@@ -20,7 +20,7 @@ module('Integration | Component | hds/app-footer/item', function (hooks) {
 
   test('it renders text content yielded within the Item', async function (assert) {
     await render(
-      hbs`<ul><Hds::AppFooter::Item id="test-item">Custom item</Hds::AppFooter::Item></ul>`
+      hbs`<ul><Hds::AppFooter::Item id="test-item">Custom item</Hds::AppFooter::Item></ul>`,
     );
     assert.dom('#test-item').hasText('Custom item');
   });

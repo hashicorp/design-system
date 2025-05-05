@@ -89,7 +89,7 @@ module(
       await render(
         hbs`
         <Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{10}} id="test-pagination-size-selector" @onChange={{this.onChange}} />
-        `
+        `,
       );
       await select('#test-pagination-size-selector select', '30'); // notice: '30' needs to be a string to work
       assert.strictEqual(size, 30); // notice: it's converted to an integer by the callback function
@@ -117,11 +117,11 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{1234}} />`
+        hbs`<Hds::Pagination::SizeSelector @pageSizes={{array 10 30 50}} @selectedSize={{1234}} />`,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

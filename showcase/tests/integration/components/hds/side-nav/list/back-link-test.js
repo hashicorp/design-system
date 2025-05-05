@@ -17,7 +17,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink id="test-side-nav-list-item-link-back-link" />`
+        hbs`<Hds::SideNav::List::BackLink id="test-side-nav-list-item-link-back-link" />`,
       );
       assert
         .dom('#test-side-nav-list-item-link-back-link')
@@ -28,7 +28,7 @@ module(
 
     test('it renders the passed in args', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`
+        hbs`<Hds::SideNav::List::BackLink @text="Back to parent page" @href="#" />`,
       );
       assert.dom('.hds-icon-chevron-left').exists();
       assert
@@ -47,7 +47,7 @@ module(
 
     test('it should render a <a> link if @href is passed', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink @href="https://www.hashicorp.com/" />`
+        hbs`<Hds::SideNav::List::BackLink @href="https://www.hashicorp.com/" />`,
       );
       assert
         .dom('.hds-side-nav__list-item-link--back-link')
@@ -57,12 +57,12 @@ module(
 
     test('it should render a <a> link if @route is passed', async function (assert) {
       await render(
-        hbs`<Hds::SideNav::List::BackLink @route="utilities.interactive" />`
+        hbs`<Hds::SideNav::List::BackLink @route="utilities.interactive" />`,
       );
       assert
         .dom('.hds-side-nav__list-item-link--back-link')
         .hasTagName('a')
         .hasAttribute('href', '/utilities/interactive');
     });
-  }
+  },
 );

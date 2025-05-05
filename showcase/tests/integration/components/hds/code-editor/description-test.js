@@ -18,7 +18,7 @@ module(
       this.set('noop', () => {});
 
       await render(
-        hbs`<Hds::CodeEditor::Description @editorId="test" @onInsert={{this.noop}} />`
+        hbs`<Hds::CodeEditor::Description @editorId="test" @onInsert={{this.noop}} />`,
       );
 
       assert.dom('.hds-code-editor__description').exists();
@@ -30,10 +30,10 @@ module(
       this.set('onInsert', onInsert);
 
       await render(
-        hbs`<Hds::CodeEditor::Description @editorId="test" @onInsert={{this.onInsert}}>Test description</Hds::CodeEditor::Description>`
+        hbs`<Hds::CodeEditor::Description @editorId="test" @onInsert={{this.onInsert}}>Test description</Hds::CodeEditor::Description>`,
       );
 
       assert.true(onInsert.calledOnce);
     });
-  }
+  },
 );

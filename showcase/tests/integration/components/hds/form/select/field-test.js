@@ -24,7 +24,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
 
   test('it should render the options passed via contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Field id="test-form-select" as |F|><F.Options><option value="abc123">This is the option</option></F.Options></Hds::Form::Select::Field>`
+      hbs`<Hds::Form::Select::Field id="test-form-select" as |F|><F.Options><option value="abc123">This is the option</option></F.Options></Hds::Form::Select::Field>`,
     );
     assert.dom('select option').exists();
     assert.dom('select option').hasText('This is the option');
@@ -60,7 +60,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Select::Field>`
+        </Hds::Form::Select::Field>`,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -79,7 +79,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Select::Field>`
+        </Hds::Form::Select::Field>`,
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control select');
@@ -92,7 +92,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .dom('.hds-form-field__control select')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__error')
@@ -106,7 +106,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::Select::Field>`
+        </Hds::Form::Select::Field>`,
     );
 
     this.set('showErrors', true);
@@ -122,7 +122,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
       .dom('.hds-form-field__control select')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__error')
@@ -135,7 +135,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Select::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Select::Field>`
+          </Hds::Form::Select::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -145,7 +145,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Select::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Select::Field>`
+          </Hds::Form::Select::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -154,7 +154,7 @@ module('Integration | Component | hds/form/select/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Select::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Select::Field>`
+          </Hds::Form::Select::Field>`,
     );
     assert.dom('select').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();

@@ -17,7 +17,7 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-home-link" />`
+      hbs`<Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" id="test-home-link" />`,
     );
     assert.dom('#test-home-link').hasClass('hds-side-nav__home-link');
   });
@@ -26,7 +26,7 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" @href="https://www.hashicorp.com/" id="test-home-link" />`
+      hbs`<Hds::SideNav::Header::HomeLink @icon="hashicorp" @ariaLabel="Hashicorp" @href="https://www.hashicorp.com/" id="test-home-link" />`,
     );
     assert.dom('.hds-icon-hashicorp').exists();
     assert
@@ -37,7 +37,7 @@ module('Integration | Component | hds/side-nav/home-link', function (hooks) {
 
   test('it renders the logo with a custom passed in color', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::HomeLink @icon="boundary" @ariaLabel="Boundary" @color="var(--token-color-boundary-brand)" @href="#" />`
+      hbs`<Hds::SideNav::Header::HomeLink @icon="boundary" @ariaLabel="Boundary" @color="var(--token-color-boundary-brand)" @href="#" />`,
     );
     assert
       .dom('.hds-icon-boundary')
