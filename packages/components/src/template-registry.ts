@@ -121,6 +121,7 @@ import type HdsFormRadioCardComponent from './components/hds/form/radio-card';
 import type HdsFormRadioCardDescriptionComponent from './components/hds/form/radio-card/description';
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
+import type HdsFormRangeSliderBaseComponent from './components/hds/form/range-slider/base';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
 import type HdsFormSuperSelectAfterOptionsComponent from './components/hds/form/super-select/after-options';
@@ -633,6 +634,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::RadioCard::Label': typeof HdsFormRadioCardLabelComponent;
   'hds/form/radio-card/label': typeof HdsFormRadioCardLabelComponent;
+
+  // Form RangeSlider
+  'Hds::Form::RangeSlider::Base': typeof HdsFormRangeSliderBaseComponent;
+  'hds/form/range-slider/base': typeof HdsFormRangeSliderBaseComponent;
 
   // Form Select
   'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;
