@@ -6,9 +6,9 @@ SPDX-License-Identifier: MPL-2.0
   <label class="hds-dropdown-list-item__label hds-typography-body-200" for={{this.id}}>
     <Hds::Form::Radio::Base class="hds-dropdown-list-item__control" id={{this.id}} @value={{@value}} ...attributes />
     {{#if @icon}}
-    <div class="hds-dropdown-list-item__icon">
-      <Hds::Icon @name={{@icon}} />
-    </div>
+      <div class="hds-dropdown-list-item__icon">
+        <Hds::Icon @name={{@icon}} />
+      </div>
     {{/if}}
     <Hds::Text::Body
       @tag="span"
