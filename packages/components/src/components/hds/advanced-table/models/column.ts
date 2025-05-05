@@ -3,6 +3,14 @@ import { tracked } from '@glimmer/tracking';
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
 
+function getNumericalWidth(width: string | undefined): number {
+  if (width === undefined) {
+    return 0;
+  }
+
+  // width is a css string
+  return parseInt(width, 10);
+}
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
@@ -13,11 +21,23 @@ export default class HdsAdvancedTableColumn {
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked tooltip?: string = undefined;
-  @tracked width?: string = undefined;
-  @tracked minWidth?: string = undefined;
-  @tracked maxWidth?: string = undefined;
+  @tracked width?: string = undefined; // css width like `100px`
+  @tracked minWidth?: string = undefined; // css width like `100px`
+  @tracked maxWidth?: string = undefined; // css width like `100px`
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
+
+  get numericalWidth(): number {
+    return getNumericalWidth(this.width);
+  }
+
+  get numericalMinWidth(): number {
+    return getNumericalWidth(this.minWidth);
+  }
+
+  get numericalMaxWidth(): number {
+    return getNumericalWidth(this.maxWidth);
+  }
 
   constructor(args: HdsAdvancedTableColumnType) {
     this.label = args.label;

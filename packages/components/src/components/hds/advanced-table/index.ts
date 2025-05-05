@@ -337,7 +337,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (hasCustomColumnWidths) {
       // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
       for (let i = 0; i < columns.length; i++) {
-        style += ` ${columns[i]?.width ?? DEFAULT_COLUMN_WIDTH}`;
+        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
       }
     } else {
       // if there are no custom column widths, each column is the same width and they take up the available space

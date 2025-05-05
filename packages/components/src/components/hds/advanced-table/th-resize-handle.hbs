@@ -3,9 +3,9 @@
   draggable="false"
   role="separator"
   aria-orientation="vertical"
-  aria-valuenow={{@column.width}}
-  aria-valuemin={{@column.minWidth}}
-  aria-valuemax={{@column.maxWidth}}
+  aria-valuenow={{@column.numericalWidth}}
+  aria-valuemin={{@column.numericalMinWidth}}
+  aria-valuemax={{@column.numericalMaxWidth}}
   tabindex="0"
   aria-label="Resize {{@column.label}} column"
   {{on "pointerdown" this.startResize}}
