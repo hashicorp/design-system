@@ -22000,7 +22000,7 @@ snapshots:
 
   eslint-plugin-n@17.18.0(eslint@9.26.0):
     dependencies:
-      '@eslint-community/eslint-utils': 4.5.1(eslint@9.26.0)
+      '@eslint-community/eslint-utils': 4.7.0(eslint@9.26.0)
       enhanced-resolve: 5.18.0
       eslint: 9.26.0
       eslint-plugin-es-x: 7.8.0(eslint@9.26.0)
