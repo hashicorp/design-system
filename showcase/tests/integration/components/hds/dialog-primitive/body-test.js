@@ -21,7 +21,7 @@ module('Integration | Component | hds/dialog-primitive/body', function (hooks) {
         <Hds::DialogPrimitive::Body id="test-body">
           Body
         </Hds::DialogPrimitive::Body>
-      `
+      `,
     );
     assert.dom('#test-body').hasClass('hds-dialog-primitive__body');
   });
@@ -34,7 +34,7 @@ module('Integration | Component | hds/dialog-primitive/body', function (hooks) {
         <Hds::DialogPrimitive::Body id="test-body">
             Body
         </Hds::DialogPrimitive::Body>
-      `
+      `,
     );
     assert.dom('.hds-dialog-primitive__body').hasText('Body');
   });

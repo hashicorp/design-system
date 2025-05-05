@@ -15,7 +15,7 @@ module('Integration | Component | hds/side-nav/portal', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Portal::Target id="test-side-nav-portal-target" />`
+      hbs`<Hds::SideNav::Portal::Target id="test-side-nav-portal-target" />`,
     );
     assert
       .dom('#test-side-nav-portal-target')
@@ -56,7 +56,7 @@ module('Integration | Component | hds/side-nav/portal', function (hooks) {
     `);
     assert
       .dom(
-        '#test-side-nav-content .hds-side-nav__content-panels .hds-side-nav__content-panel'
+        '#test-side-nav-content .hds-side-nav__content-panels .hds-side-nav__content-panel',
       )
       .exists();
     assert

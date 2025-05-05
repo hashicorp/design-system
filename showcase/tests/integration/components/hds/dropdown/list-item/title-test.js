@@ -19,7 +19,7 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Title @text="title" id="test-list-item-title" />`
+        hbs`<Hds::Dropdown::ListItem::Title @text="title" id="test-list-item-title" />`,
       );
       assert.dom('#test-list-item-title').hasTagName('li');
       assert.dom('#test-list-item-title').hasClass('hds-dropdown-list-item');
@@ -42,5 +42,5 @@ module(
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

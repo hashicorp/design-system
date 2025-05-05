@@ -78,7 +78,9 @@ body.components-copy-button {
       margin: 0;
       font-size: 1rem;
 
-      code { font-size: inherit; }
+      code {
+        font-size: inherit;
+      }
     }
 
     .shw-component-copy-button-code-block {

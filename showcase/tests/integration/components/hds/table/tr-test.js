@@ -20,7 +20,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr"><td></td></Hds::Table::Tr>`
+      hbs`<Hds::Table::Tr id="data-test-table-tr"><td></td></Hds::Table::Tr>`,
     );
     assert.dom('#data-test-table-tr > td').exists();
   });
@@ -32,28 +32,28 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   test('it should render a checkbox if `@isSelectable` is `true`', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`,
     );
     assert.dom(checkboxSelector).exists();
   });
 
   test('the checkbox should be checked if `@isSelected` is `true`', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @isSelected={{true}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @isSelected={{true}} />`,
     );
     assert.dom(checkboxSelector).isChecked();
   });
 
   test('the checkbox contains the `@selectionAriaLabelSuffix` suffix', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionAriaLabelSuffix="row 123" />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionAriaLabelSuffix="row 123" />`,
     );
     assert.dom(checkboxSelector).hasAria('label', 'Select row 123');
   });
 
   test('the `th` element has the correct `scope` attribute value provided via `@selectionScope`', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="test-selectionscope" />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="test-selectionscope" />`,
     );
     assert
       .dom('#data-test-table-tr > .hds-table__th--is-selectable')
@@ -64,10 +64,10 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     let key;
     this.set(
       'onSelectionChange',
-      (_checkbox, selectionKey) => (key = selectionKey)
+      (_checkbox, selectionKey) => (key = selectionKey),
     );
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="row" @selectionKey="row123" @onSelectionChange={{this.onSelectionChange}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @selectionScope="row" @selectionKey="row123" @onSelectionChange={{this.onSelectionChange}} />`,
     );
     await click(checkboxSelector);
     assert.strictEqual(key, 'row123');
@@ -77,7 +77,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
     this.set('noop', () => {});
 
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @onClickSortBySelected={{this.noop}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} @onClickSortBySelected={{this.noop}} />`,
     );
 
     assert.dom(checkboxSelector + ' ~ .hds-table__th-button--sort').exists();
@@ -85,7 +85,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
 
   test('it should not render a sort button in the checkbox cell if `@isSelectable` is `true`, and `@onClickSortBySelected` is undefined', async function (assert) {
     await render(
-      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`
+      hbs`<Hds::Table::Tr id="data-test-table-tr" @isSelectable={{true}} />`,
     );
 
     assert
@@ -110,7 +110,7 @@ module('Integration | Component | hds/table/tr', function (hooks) {
       assert.strictEqual(error.message, errorMessage);
     });
     await render(
-      hbs`<Hds::Table::Tr @isSelectable={{true}} @selectionScope="row" />`
+      hbs`<Hds::Table::Tr @isSelectable={{true}} @selectionScope="row" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

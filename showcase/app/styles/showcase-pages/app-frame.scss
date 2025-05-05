@@ -9,9 +9,7 @@
   $tx: 0;
   $ty: ($stack - 1) * 5px;
   $tz: ($stack * 20px);
-  transform:
-    rotateY(30deg)
-    translate3d($tx, $ty, $tz) !important;
+  transform: rotateY(30deg) translate3d($tx, $ty, $tz) !important;
 }
 
 body.layouts-app-frame {
@@ -30,9 +28,9 @@ body.layouts-app-frame {
       // For simulating minimize behavior
       &.hds-side-nav--is-minimized,
       &.hds-app-side-nav--is-minimized {
-        .hds-side-nav__wrapper, 
-        .hds-app-side-nav__wrapper  { 
-          overflow: hidden; 
+        .hds-side-nav__wrapper,
+        .hds-app-side-nav__wrapper {
+          overflow: hidden;
         }
 
         .hds-side-nav__wrapper-body,
@@ -42,8 +40,8 @@ body.layouts-app-frame {
         }
 
         .hds-side-nav__wrapper-footer,
-        .hds-app-side-nav__wrapper-footer { 
-          opacity: 0; 
+        .hds-app-side-nav__wrapper-footer {
+          opacity: 0;
         }
       }
     }
@@ -150,10 +148,11 @@ body.layouts-app-frame {
   .shw-layout-app-frame-full-width-elem {
     width: 100%;
 
-    .hds-dropdown-toggle-button {width: 100%;}
+    .hds-dropdown-toggle-button {
+      width: 100%;
+    }
   }
 }
-
 
 // Frameles demo pages
 .layouts-app-frame-frameless {
@@ -166,9 +165,9 @@ body.layouts-app-frame {
     // For simulating minimize behavior
     &.hds-side-nav--is-minimized,
     &.hds-app-side-nav--is-minimized {
-      .hds-side-nav__wrapper, 
-      .hds-app-side-nav__wrapper { 
-        overflow: hidden; 
+      .hds-side-nav__wrapper,
+      .hds-app-side-nav__wrapper {
+        overflow: hidden;
       }
 
       .hds-side-nav__wrapper-body,
@@ -178,8 +177,8 @@ body.layouts-app-frame {
       }
 
       .hds-side-nav__wrapper-footer,
-      .hds-app-side-nav__wrapper-footer { 
-        opacity: 0; 
+      .hds-app-side-nav__wrapper-footer {
+        opacity: 0;
       }
     }
   }

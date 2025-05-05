@@ -21,7 +21,7 @@ module(
       await render(
         hbs`
         <Hds::DialogPrimitive::Header id="test-header">Title</Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       assert.dom('#test-header').hasClass('hds-dialog-primitive__header');
     });
@@ -34,7 +34,7 @@ module(
         <Hds::DialogPrimitive::Header>
           Title
         </Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__title').exists();
       assert.dom('.hds-dialog-primitive__title').hasText('Title');
@@ -48,7 +48,7 @@ module(
         <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline">
           Title
         </Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__title').exists();
       assert.dom('.hds-dialog-primitive__title').hasText('Tagline Title');
@@ -83,7 +83,7 @@ module(
         <Hds::DialogPrimitive::Header @icon="info" @tagline="Tagline" @contextualClassPrefix="abc">
           Title
         </Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__header.abc__header').exists();
       assert.dom('.hds-dialog-primitive__icon.abc__icon').exists();
@@ -100,7 +100,7 @@ module(
         <Hds::DialogPrimitive::Header>
           Title
         </Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       assert.dom('button.hds-dialog-primitive__dismiss').exists();
     });
@@ -115,10 +115,10 @@ module(
         <Hds::DialogPrimitive::Header @onDismiss={{this.onDismiss}}>
           Title
         </Hds::DialogPrimitive::Header>
-      `
+      `,
       );
       await click('button.hds-dialog-primitive__dismiss');
       assert.ok(dismissed);
     });
-  }
+  },
 );
