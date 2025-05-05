@@ -29,7 +29,7 @@ module('Integration | Component | hds/segmented-group/index', function (hooks) {
             <SG.Select id="segmented-select"/>
             <SG.TextInput id="segmented-input" />
             <SG.Generic><span id="segmented-generic"></span></SG.Generic>
-          </Hds::SegmentedGroup>`
+          </Hds::SegmentedGroup>`,
     );
     assert.dom('#segmented-button').hasClass('hds-button');
     assert.dom('#segmented-dropdown').hasClass('hds-dropdown');

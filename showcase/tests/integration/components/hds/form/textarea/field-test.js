@@ -65,7 +65,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Textarea::Field>`
+        </Hds::Form::Textarea::Field>`,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -87,11 +87,11 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
           <F.HelperText>This is the helper text</F.HelperText>
           <F.CharacterCount @maxLength={{10}}/>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Textarea::Field>`
+        </Hds::Form::Textarea::Field>`,
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector(
-      '.hds-form-field__control textarea'
+      '.hds-form-field__control textarea',
     );
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -102,7 +102,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
       .dom('.hds-form-field__control textarea')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__character-count')
@@ -121,7 +121,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::Textarea::Field>`
+        </Hds::Form::Textarea::Field>`,
     );
 
     this.set('showErrors', true);
@@ -129,7 +129,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
 
     // the control ID is dynamically generated
     let control = this.element.querySelector(
-      '.hds-form-field__control textarea'
+      '.hds-form-field__control textarea',
     );
     let controlId = control.id;
     assert.dom('.hds-form-field__label').hasAttribute('for', controlId);
@@ -140,7 +140,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
       .dom('.hds-form-field__control textarea')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} character-count-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__character-count')
@@ -156,7 +156,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Textarea::Field @isRequired={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Textarea::Field>`
+          </Hds::Form::Textarea::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('Required');
@@ -166,7 +166,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Textarea::Field>`
+          </Hds::Form::Textarea::Field>`,
     );
     assert.dom('label .hds-form-indicator').exists();
     assert.dom('label .hds-form-indicator').hasText('(Optional)');
@@ -175,7 +175,7 @@ module('Integration | Component | hds/form/textarea/field', function (hooks) {
     await render(
       hbs`<Hds::Form::Textarea::Field required as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::Textarea::Field>`
+          </Hds::Form::Textarea::Field>`,
     );
     assert.dom('textarea').hasAttribute('required');
     assert.dom('label .hds-form-indicator').doesNotExist();

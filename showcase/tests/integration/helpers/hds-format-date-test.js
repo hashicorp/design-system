@@ -27,8 +27,8 @@ module(
 
       assert.strictEqual(
         result,
-        new Intl.DateTimeFormat(navigator.language, options).format(date)
+        new Intl.DateTimeFormat(navigator.language, options).format(date),
       );
     });
-  }
+  },
 );

@@ -15,7 +15,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     await render(
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
 
     assert
@@ -29,11 +29,11 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     await render(
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-content > span'
+        '#data-advanced-test-table-th .hds-advanced-table__th-content > span',
       )
       .hasText('Artist');
   });
@@ -43,11 +43,11 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
   @tooltip='More info.'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-content > span'
+        '#data-advanced-test-table-th .hds-advanced-table__th-content > span',
       )
       .hasText('Artist');
   });
@@ -58,7 +58,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     await render(
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
 
     assert.dom('.hds-advanced-table__th-button--expand').doesNotExist();
@@ -69,11 +69,11 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
   @isExpandable={{true}}
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand',
       )
       .hasText('Toggle')
       .hasAria('expanded', 'false');
@@ -85,11 +85,11 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   id='data-advanced-test-table-th'
   @isExpandable={{true}}
   @isExpanded={{true}}
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--expand',
       )
       .hasText('Toggle')
       .hasAria('expanded', 'true');
@@ -106,11 +106,11 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   id='data-advanced-test-table-th'
   @isExpandable={{true}}
 @onClickToggle={{this.onClickToggle}}
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
 
     await click(
-      '#data-advanced-test-table-th .hds-advanced-table__th-button--expand'
+      '#data-advanced-test-table-th .hds-advanced-table__th-button--expand',
     );
 
     assert.ok(isClicked);
@@ -123,7 +123,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
   @align='right'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom('#data-advanced-test-table-th')
@@ -134,7 +134,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
 
   test('it should render with the appropriate span information by default', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Th id='data-test-advanced-table-th' />`
+      hbs`<Hds::AdvancedTable::Th id='data-test-advanced-table-th' />`,
     );
 
     assert.dom('#data-test-advanced-table-th').hasNoAttribute('aria-rowspan');
@@ -151,7 +151,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   id='data-test-advanced-table-th'
   @rowspan={{3}}
   @colspan={{5}}
-/>`
+/>`,
     );
 
     assert
@@ -181,7 +181,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   id='data-test-advanced-table-th'
   @rowspan={{3}}
   @isStickyColumn={{true}}
-/>`
+/>`,
     );
 
     assert.throws(function () {
@@ -203,7 +203,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
   id='data-test-advanced-table-th'
   @colspan={{3}}
   @isStickyColumn={{true}}
-/>`
+/>`,
     );
 
     assert.throws(function () {
@@ -216,7 +216,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
   lang='es'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert.dom('#data-advanced-test-table-th').hasAttribute('lang', 'es');
   });
@@ -225,7 +225,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     await render(
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
     assert
       .dom('#data-advanced-test-table-th')
@@ -250,7 +250,7 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     as |B|
   ><B.Tr><B.Th
         id='data-advanced-test-table-th'
-      >Artist</B.Th></B.Tr></:body></Hds::AdvancedTable>`
+      >Artist</B.Th></B.Tr></:body></Hds::AdvancedTable>`,
     );
     assert
       .dom('#data-advanced-test-table-th')
@@ -263,12 +263,12 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     await render(
       hbs`<Hds::AdvancedTable::Th
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
 
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip'
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip',
       )
       .doesNotExist();
   });
@@ -277,34 +277,34 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
       hbs`<Hds::AdvancedTable::Th
   @tooltip='More info.'
   id='data-advanced-test-table-th'
->Artist</Hds::AdvancedTable::Th>`
+>Artist</Hds::AdvancedTable::Th>`,
     );
 
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip'
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip',
       )
       .exists();
     // activate the tooltip:
     await focus(
-      '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip'
+      '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip',
     );
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
   });
   test('it renders the `aria-labelledby` attribute for the tooltip button with the correct IDs', async function (assert) {
     await render(
-      hbs`<Hds::AdvancedTable::Th id="data-advanced-test-table-th" @tooltip="More info.">Artist</Hds::AdvancedTable::Th>`
+      hbs`<Hds::AdvancedTable::Th id="data-advanced-test-table-th" @tooltip="More info.">Artist</Hds::AdvancedTable::Th>`,
     );
     let prefixLabel = this.element.querySelector(
-      '#data-advanced-test-table-th .hds-advanced-table__th-button-aria-label-hidden-segment'
+      '#data-advanced-test-table-th .hds-advanced-table__th-button-aria-label-hidden-segment',
     );
     let buttonLabel = this.element.querySelector(
-      '#data-advanced-test-table-th .hds-advanced-table__th-content > span'
+      '#data-advanced-test-table-th .hds-advanced-table__th-content > span',
     );
     assert
       .dom(
-        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip'
+        '#data-advanced-test-table-th .hds-advanced-table__th-button--tooltip',
       )
       .hasAria('labelledby', `${prefixLabel.id} ${buttonLabel.id}`);
   });

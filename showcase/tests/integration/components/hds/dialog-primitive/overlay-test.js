@@ -21,5 +21,5 @@ module(
       await render(hbs`<Hds::DialogPrimitive::Overlay />`);
       assert.dom('.hds-dialog-primitive__overlay').exists();
     });
-  }
+  },
 );

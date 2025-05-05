@@ -24,7 +24,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="toggle text" id="test-toggle-icon" />`,
     );
     assert.dom('#test-toggle-icon').hasClass('hds-dropdown-toggle-icon');
   });
@@ -33,7 +33,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('if an @icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="settings" @text="settings menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="settings" @text="settings menu" id="test-toggle-icon" />`,
     );
     assert.dom('.hds-icon.hds-icon-settings').exists();
   });
@@ -42,7 +42,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('if an @imageSrc is declared and exists the image should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`,
     );
     assert.dom('img').exists();
   });
@@ -50,7 +50,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   skip('if an @imageSrc is declared but does not exist, the flight icon should render in the component', async function (assert) {
     this.set('imageSrc', '/assets/images/avatar.png');
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc={{this.imageSrc}} id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc={{this.imageSrc}} id="test-toggle-icon" />`,
     );
     // we load the image dynamically to cover this usecase and also to prevent this test from intermittently failing for no obvious reason
     this.set('imageSrc', '/assets/images/avatar-broken.png');
@@ -63,13 +63,13 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('it should render the chevron "down" by default', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`,
     );
     assert.dom('.hds-icon.hds-icon-chevron-down').exists();
   });
   test('toggle-icon renders no chevron when hasChevron is set to false', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" @hasChevron={{false}} />`,
     );
     assert.dom('.hds-icon.hds-icon-chevron-down').doesNotExist();
   });
@@ -78,7 +78,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('it should render the medium size as the default if no size is declared', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`,
     );
     assert
       .dom('#test-toggle-icon')
@@ -86,7 +86,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="small" id="test-toggle-icon" />`,
     );
     assert
       .dom('#test-toggle-icon')
@@ -97,19 +97,19 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
 
   test('it should render with the correct aria attribute declared using the @text prop', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" id="test-toggle-icon" />`,
     );
     assert.dom('#test-toggle-icon').hasAria('label', 'user menu');
   });
   test('it should render the user "avatar" image with the correct role', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @imageSrc="/assets/images/avatar.png" id="test-toggle-icon" />`,
     );
     assert.dom('#test-toggle-icon img').hasAttribute('role', 'presentation');
   });
   test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @isOpen={{true}} id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @isOpen={{true}} id="test-toggle-icon" />`,
     );
     assert.dom('#test-toggle-icon').hasAttribute('aria-expanded', 'true');
   });
@@ -123,7 +123,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" id="test-toggle-icon" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" id="test-toggle-icon" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -149,7 +149,7 @@ module('Integration | Component | hds/dropdown/toggle/icon', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="foo" />`
+      hbs`<Hds::Dropdown::Toggle::Icon @icon="user" @text="user menu" @size="foo" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

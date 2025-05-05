@@ -17,7 +17,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button');
   });
@@ -26,13 +26,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should render the medium size if no size is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button--size-medium');
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @size="small" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @size="small" id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button--size-small');
   });
@@ -41,13 +41,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should render the primary color as the default if no color is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button--color-primary');
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @color="critical" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @color="critical" id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button--color-critical');
   });
@@ -56,13 +56,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should not have visible icon if @icon is not declared', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`,
     );
     assert.dom('.hds-button__icon').doesNotExist();
   });
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`,
     );
     assert
       .dom(this.element.querySelector('.hds-icon.hds-icon-clipboard-copy'))
@@ -70,19 +70,19 @@ module('Integration | Component | hds/button/index', function (hooks) {
   });
   test('if an icon is declared the icon should be in leading position by default', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" id="test-button" />`,
     );
     assert.dom('.hds-button__icon').matchesSelector(':first-child');
   });
   test('if an icon is declared the icon should be in trailing position if @iconPosition is set to trailing', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" id="test-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" @icon="clipboard-copy" @iconPosition="trailing" id="test-button" />`,
     );
     assert.dom('.hds-button__icon').matchesSelector(':last-child');
   });
   test('it should ignore isIconOnly if icon is not defined', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @isIconOnly={{true}} id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" @isIconOnly={{true}} id="test-button" />`,
     );
     assert
       .dom('#test-button')
@@ -103,7 +103,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it renders a button with the defined text', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`
+      hbs`<Hds::Button @text="Copy to clipboard" id="test-toggle-button" />`,
     );
     assert.dom('#test-toggle-button').hasText('Copy to clipboard');
   });
@@ -112,13 +112,13 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should have aria-label on the button element if isIconOnly is set to true', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`,
     );
     assert.dom('#test-button').hasAria('label', 'copy to clipboard');
   });
   test('it should have "button" type by default', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" id="test-button" />`,
     );
     assert.dom('#test-button').hasAttribute('type', 'button');
   });
@@ -127,19 +127,19 @@ module('Integration | Component | hds/button/index', function (hooks) {
 
   test('it should not have visible text if isIconOnly is true', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" @icon="clipboard-copy" @isIconOnly={{true}} id="test-button" />`,
     );
     assert.dom('.hds-button__text').doesNotExist();
   });
   test('it should disable to the button if the `disabled` attribute is passed', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" disabled id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" disabled id="test-button" />`,
     );
     assert.dom('#test-button').isDisabled();
   });
   test('it should have the correct CSS class to support full-width button size if @isFullWidth prop is true', async function (assert) {
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} id="test-button" />`
+      hbs`<Hds::Button @text="copy to clipboard" @isFullWidth={{true}} id="test-button" />`,
     );
     assert.dom('#test-button').hasClass('hds-button--width-full');
   });
@@ -189,7 +189,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Button @icon="clipboard-copy" @text="copy to clipboard" @iconPosition="after" />`
+      hbs`<Hds::Button @icon="clipboard-copy" @text="copy to clipboard" @iconPosition="after" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -203,7 +203,7 @@ module('Integration | Component | hds/button/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Button @text="copy to clipboard" @color="tertiary" />`
+      hbs`<Hds::Button @text="copy to clipboard" @color="tertiary" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

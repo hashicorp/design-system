@@ -19,7 +19,7 @@ module(
     });
     test('it should render with a CSS class provided via the @contextualClass argument', async function (assert) {
       await render(
-        hbs`<Hds::Form::HelperText @contextualClass="my-class" id="test-form-helper-text" />`
+        hbs`<Hds::Form::HelperText @contextualClass="my-class" id="test-form-helper-text" />`,
       );
       assert.dom('#test-form-helper-text').hasClass('my-class');
     });
@@ -28,13 +28,13 @@ module(
 
     test('it renders a helper text with the defined text', async function (assert) {
       await render(
-        hbs`<Hds::Form::HelperText id="test-form-helper-text">This is the helper text</Hds::Form::HelperText>`
+        hbs`<Hds::Form::HelperText id="test-form-helper-text">This is the helper text</Hds::Form::HelperText>`,
       );
       assert.dom('#test-form-helper-text').hasText('This is the helper text');
     });
     test('it renders a helper text with the yielded content', async function (assert) {
       await render(
-        hbs`<Hds::Form::HelperText id="test-form-helper-text"><pre>This is an HTML element inside the helper text</pre></Hds::Form::HelperText>`
+        hbs`<Hds::Form::HelperText id="test-form-helper-text"><pre>This is an HTML element inside the helper text</pre></Hds::Form::HelperText>`,
       );
       assert.dom('#test-form-helper-text > pre').exists();
       assert
@@ -46,9 +46,9 @@ module(
 
     test('it renders a helper text with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
       await render(
-        hbs`<Hds::Form::HelperText @controlId="my-control-id">This is the helper text</Hds::Form::HelperText>`
+        hbs`<Hds::Form::HelperText @controlId="my-control-id">This is the helper text</Hds::Form::HelperText>`,
       );
       assert.dom('#helper-text-my-control-id').exists();
     });
-  }
+  },
 );

@@ -43,7 +43,7 @@ module('Integration | Component | hds/tag/index', function (hooks) {
   test('it should render a customized label for the dismiss button if custom @ariaLabel text is defined', async function (assert) {
     this.set('NOOP', () => {});
     await render(
-      hbs`<Hds::Tag @text="My tag" @onDismiss={{this.NOOP}} @ariaLabel="Please dismiss" />`
+      hbs`<Hds::Tag @text="My tag" @onDismiss={{this.NOOP}} @ariaLabel="Please dismiss" />`,
     );
     assert.dom('button.hds-tag__dismiss').exists();
     assert
@@ -55,14 +55,14 @@ module('Integration | Component | hds/tag/index', function (hooks) {
 
   test('it should render the primary color as the default if no @color prop is declared when the text is a link', async function (assert) {
     await render(
-      hbs`<Hds::Tag @text="My text tag" @href="/" id="test-link-tag"/>`
+      hbs`<Hds::Tag @text="My text tag" @href="/" id="test-link-tag"/>`,
     );
     assert.dom('#test-link-tag').hasClass('hds-tag--color-primary');
   });
 
   test('it should render the correct CSS color class if the @color prop is declared when the text is a link', async function (assert) {
     await render(
-      hbs`<Hds::Tag @text="My text tag" @href="/" @color="secondary" id="test-link-tag"/>`
+      hbs`<Hds::Tag @text="My text tag" @href="/" @color="secondary" id="test-link-tag"/>`,
     );
     assert.dom('#test-link-tag').hasClass('hds-tag--color-secondary');
   });

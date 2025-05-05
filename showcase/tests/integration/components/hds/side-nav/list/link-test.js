@@ -15,7 +15,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link id="test-side-nav-list-item-link" />`
+      hbs`<Hds::SideNav::List::Link id="test-side-nav-list-item-link" />`,
     );
     assert
       .dom('#test-side-nav-list-item-link')
@@ -26,7 +26,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} @isHrefExternal={{true}} />`
+      hbs`<Hds::SideNav::List::Link @icon="boundary" @text="Boundary" @count="3" @badge="Alpha" @hasSubItems={{true}} @isHrefExternal={{true}} />`,
     );
     assert.dom('.hds-icon-boundary').exists();
     assert.dom('.hds-side-nav__list-item-text').hasText('Boundary');
@@ -38,7 +38,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it renders the link as "active" if @isActive is true', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @isActive={{true}} id="test-side-nav-link" />`
+      hbs`<Hds::SideNav::List::Link @isActive={{true}} id="test-side-nav-link" />`,
     );
     assert.dom('#test-side-nav-link').hasClass('active');
   });
@@ -61,7 +61,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @href="https://www.hashicorp.com/" />`
+      hbs`<Hds::SideNav::List::Link @href="https://www.hashicorp.com/" />`,
     );
     assert
       .dom('.hds-side-nav__list-item-link')
@@ -71,7 +71,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @route="utilities.interactive" />`
+      hbs`<Hds::SideNav::List::Link @route="utilities.interactive" />`,
     );
     assert
       .dom('.hds-side-nav__list-item-link')

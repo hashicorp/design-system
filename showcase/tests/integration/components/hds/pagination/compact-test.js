@@ -30,7 +30,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       .includesText('Previous');
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label',
       )
       .exists();
     assert
@@ -38,7 +38,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       .includesText('Next');
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label',
       )
       .exists();
   });
@@ -126,7 +126,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
     await render(
       hbs`
         <Hds::Pagination::Compact @onPageChange={{this.onPageChange}} />
-        `
+        `,
     );
     await click('.hds-pagination-nav__arrow--direction-prev');
     assert.strictEqual(direction, 'prev');
@@ -139,7 +139,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
     this.set('myQueryFunction', (page) => ({ page }));
     await render(
-      hbs`<Hds::Pagination::Compact @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Compact @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`,
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
@@ -159,7 +159,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Compact @queryFunction="foo" @model="test" />`
+      hbs`<Hds::Pagination::Compact @queryFunction="foo" @model="test" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -175,7 +175,7 @@ module('Integration | Component | hds/pagination/compact', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Compact @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Compact @queryFunction={{this.myQueryFunction}} />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

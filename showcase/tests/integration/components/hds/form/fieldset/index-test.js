@@ -24,7 +24,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
 
   test('it should render the correct CSS layout class depending on the @layout prop', async function (assert) {
     await render(
-      hbs`<Hds::Form::Fieldset @layout="vertical" id="test-form-fieldset" />`
+      hbs`<Hds::Form::Fieldset @layout="vertical" id="test-form-fieldset" />`,
     );
     assert
       .dom('#test-form-fieldset')
@@ -40,7 +40,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
           <F.HelperText>This is the group helper text</F.HelperText>
           <F.Control><pre class="hds-form-group__control-field">This is a mock control field</pre></F.Control>
           <F.Error>This is the group error</F.Error>
-        </Hds::Form::Fieldset>`
+        </Hds::Form::Fieldset>`,
     );
     assert.dom('#test-form-fieldset .hds-form-group__legend').exists();
     assert.dom('.hds-form-group__legend').hasText('This is the legend');
@@ -62,7 +62,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
           <F.HelperText>This is the group helper text</F.HelperText>
           <F.Control><pre class="hds-form-group__control" id={{F.id}} aria-describedby={{F.ariaDescribedBy}}>This is a mock control</pre></F.Control>
           <F.Error>This is the group error</F.Error>
-        </Hds::Form::Fieldset>`
+        </Hds::Form::Fieldset>`,
     );
     // the fieldset ID is dynamically generated
     let fieldset = this.element.querySelector('fieldset');
@@ -81,7 +81,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     await render(
       hbs`<Hds::Form::Fieldset @isRequired={{true}} as |F|>
           <F.Legend>This is the legend</F.Legend>
-        </Hds::Form::Fieldset>`
+        </Hds::Form::Fieldset>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('Required');
@@ -90,7 +90,7 @@ module('Integration | Component | hds/form/fieldset/index', function (hooks) {
     await render(
       hbs`<Hds::Form::Fieldset @isOptional={{true}} as |F|>
           <F.Legend>This is the legend</F.Legend>
-        </Hds::Form::Fieldset>`
+        </Hds::Form::Fieldset>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');

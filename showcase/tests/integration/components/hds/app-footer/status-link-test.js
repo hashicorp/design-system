@@ -15,7 +15,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<ul><Hds::AppFooter::StatusLink @status="operational" id="test-status-link" /></ul>`
+        hbs`<ul><Hds::AppFooter::StatusLink @status="operational" id="test-status-link" /></ul>`,
       );
       assert.dom('#test-status-link').hasClass('hds-app-footer__status-link');
     });
@@ -118,5 +118,5 @@ module(
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

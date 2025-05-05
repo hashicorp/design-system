@@ -25,7 +25,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('#test-modal').hasClass('hds-modal');
   });
@@ -34,7 +34,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the default vaules if no arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('#test-modal').hasClass('hds-modal--size-medium');
     assert.dom('#test-modal').hasClass('hds-modal--color-neutral');
@@ -42,7 +42,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   test('it should render the component with CSS classes that reflect the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('#test-modal').hasClass('hds-modal--size-small');
     assert.dom('#test-modal').hasClass('hds-modal--color-warning');
@@ -52,7 +52,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   test('it should render the component with an overlay element', async function (assert) {
     await render(
-      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @size="small" @color="warning" id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('.hds-modal__overlay').isVisible();
   });
@@ -65,7 +65,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Header>Title</M.Header>
             <M.Body>Body</M.Body>
             <M.Footer>Footer</M.Footer>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('.hds-modal').exists();
     assert.dom('.hds-modal__header').exists();
@@ -82,7 +82,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Header>Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('.hds-modal__title').exists();
     assert.dom('.hds-modal__title').hasText('Title');
@@ -93,7 +93,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('.hds-modal__title').exists();
     assert.dom('.hds-modal__title').hasText('Tagline Title');
@@ -106,7 +106,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Header @icon="info" @tagline="Tagline">Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('.hds-modal__title').hasTagName('h1');
   });
@@ -115,13 +115,13 @@ module('Integration | Component | hds/modal/index', function (hooks) {
 
   test('it should always render the "dismiss" button', async function (assert) {
     await render(
-      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('button.hds-modal__dismiss').exists();
   });
   test('it should close the modal when the "dismiss" button is pressed', async function (assert) {
     await render(
-      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.dom('#test-modal').isVisible();
     await click('button.hds-modal__dismiss');
@@ -133,7 +133,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Footer as |F|>
               <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
             </M.Footer>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('#test-modal').isVisible();
     await click('#cancel-button');
@@ -147,7 +147,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Footer as |F|>
               <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
             </M.Footer>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     // top right dismiss button
     await click('button.hds-modal__dismiss');
@@ -177,7 +177,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
             <M.Footer as |F|>
               <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
             </M.Footer>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
 
     await click('.hds-modal__overlay');
@@ -196,7 +196,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Header>Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     // the IDs are dynamically generated
     let titleElement = this.element.querySelector('.hds-modal__title');
@@ -210,7 +210,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal" as |M|>
             <M.Header>Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('button.hds-modal__dismiss').isFocused();
   });
@@ -223,7 +223,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
               <M.Header>Title</M.Header>
             </Hds::Modal>
           {{/if}}
-          `
+          `,
     );
     await click('#test-button');
     assert.true(this.showModal);
@@ -243,7 +243,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
               <M.Header>Title</M.Header>
             </Hds::Modal>
           {{/if}}
-          `
+          `,
     );
     await click('#test-toggle');
     await click('#test-interactive');
@@ -263,7 +263,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
               <M.Header>Title</M.Header>
             </Hds::Modal>
           {{/if}}
-          `
+          `,
     );
     await click('#test-toggle');
     await click('#test-interactive');
@@ -280,7 +280,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal-onopen-callback" @onOpen={{this.onOpen}} as |M|>
             <M.Header>Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     assert.dom('#test-modal-onopen-callback').isVisible();
     await settled();
@@ -293,7 +293,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await render(
       hbs`<Hds::Modal id="test-modal-onclose-callback" @onClose={{this.onClose}} as |M|>
             <M.Header>Title</M.Header>
-          </Hds::Modal>`
+          </Hds::Modal>`,
     );
     await click('#test-modal-onclose-callback button.hds-modal__dismiss');
     assert.dom('#test-modal-onclose-callback').isNotVisible();
@@ -311,7 +311,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Modal @size="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @size="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -325,7 +325,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Modal @color="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`
+      hbs`<Hds::Modal @color="foo" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

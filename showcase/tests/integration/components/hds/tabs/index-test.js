@@ -26,7 +26,7 @@ import { hbs } from 'ember-cli-htmlbars';
 function assertCssVarsCloseTo(assert, string, values) {
   // we need to use this regex because the widths of the tabs in local env and in CI are different (browser rendering)
   const match = string.match(
-    /^--indicator-left-pos: (\d+)px; --indicator-width: (\d+)px;$/
+    /^--indicator-left-pos: (\d+)px; --indicator-width: (\d+)px;$/,
   );
   if (match) {
     const indicatorLeftPos = parseInt(match[1]);
@@ -54,16 +54,16 @@ function assertCssVarsCloseTo(assert, string, values) {
     }
     assert.ok(
       isIndicatorLeftPosWithinTolerance,
-      `comparing expected \`--indicator-left-pos\` value \`${expectedIndicatorLeftPos}\` with actual value \`${indicatorLeftPos}\``
+      `comparing expected \`--indicator-left-pos\` value \`${expectedIndicatorLeftPos}\` with actual value \`${indicatorLeftPos}\``,
     );
     assert.ok(
       isIndicatorWidthWithinTolerance,
-      `comparing expected \`--indicator-width\` value \`${expectedIndicatorWidth}\` with actual value \`${indicatorWidth}\``
+      `comparing expected \`--indicator-width\` value \`${expectedIndicatorWidth}\` with actual value \`${indicatorWidth}\``,
     );
   } else {
     assert.ok(
       false,
-      `testing \`${string}\` against \`/^--indicator-left-pos: (\\d+)px; --indicator-width: (\\d+)px;$/\` regex failed because there was no match`
+      `testing \`${string}\` against \`/^--indicator-left-pos: (\\d+)px; --indicator-width: (\\d+)px;$/\` regex failed because there was no match`,
     );
   }
 }
@@ -249,7 +249,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
       'keyup',
-      spaceKey
+      spaceKey,
     );
     // check that the focused tab is now selected
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
@@ -257,7 +257,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
       'keyup',
-      rightArrowKey
+      rightArrowKey,
     );
     // test that the navigated to tab is now focused:
     assert.dom('[data-test="tab-1"] .hds-tabs__tab-button').isFocused();
@@ -266,7 +266,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-1"] .hds-tabs__tab-button',
       'keyup',
-      leftArrowKey
+      leftArrowKey,
     );
     // test that the navigated to tab is now focused:
     assert.dom('[data-test="tab-2"] .hds-tabs__tab-button').isFocused();
@@ -282,7 +282,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
       'keyup',
-      enterKey
+      enterKey,
     );
     // test that the tab and panel have been activated:
     assert.dom('[data-test="tab-2"]').hasClass('hds-tabs__tab--is-selected');
@@ -297,7 +297,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-1"] .hds-tabs__tab-button',
       'keyup',
-      spaceKey
+      spaceKey,
     );
     // test that the tab and panel have been activated:
     assert.dom('[data-test="tab-1"]').hasClass('hds-tabs__tab--is-selected');
@@ -321,7 +321,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasAttribute('aria-controls', panelId);
     assert.dom('[data-test="panel-1"]').hasAttribute('role', 'tabpanel');
     const tabId = find(
-      '[data-test="tab-1"] .hds-tabs__tab-button'
+      '[data-test="tab-1"] .hds-tabs__tab-button',
     ).getAttribute('id');
     assert.dom('[data-test="panel-1"]').hasAttribute('aria-labelledby', tabId);
   });
@@ -407,7 +407,6 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
 
   // INDICATOR
 
-  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should respond to tab clicks', async function (assert) {
     await this.createTabs();
     let tablistStyle = find('.hds-tabs__tablist').style;
@@ -417,7 +416,6 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
   });
 
-  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should respond to content size changes', async function (assert) {
     this.set('count', 5);
     await render(hbs`
@@ -435,7 +433,6 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     assertCssVarsCloseTo(assert, tablistStyle['cssText'], [0, 112]); // --indicator-left-pos: 0px; --indicator-width: 112px;
   });
 
-  // eslint-disable-next-line qunit/require-expect
   test('tab indicator should not move when focus is shifted to another tab', async function (assert) {
     const leftArrowKey = 37;
     const spaceKey = 32;
@@ -451,7 +448,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
       'keyup',
-      spaceKey
+      spaceKey,
     );
     // test that the indicator has changed position
     assertCssVarsCloseTo(assert, tablistStyle['cssText'], [51, 51]); // --indicator-left-pos: 51px; --indicator-width: 51px;
@@ -459,7 +456,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
     await triggerKeyEvent(
       '[data-test="tab-2"] .hds-tabs__tab-button',
       'keyup',
-      leftArrowKey
+      leftArrowKey,
     );
     // test that the navigated to tab is now focused:
     assert.dom('[data-test="tab-1"] .hds-tabs__tab-button').isFocused();
@@ -510,7 +507,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom(
-        '[data-test="panel-2"] [data-test="tab-2__subtab-2"] .hds-tabs__tab-button'
+        '[data-test="panel-2"] [data-test="tab-2__subtab-2"] .hds-tabs__tab-button',
       )
       .hasAttribute('aria-selected', 'true');
     assert
@@ -524,7 +521,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom(
-        '[data-test="panel-1"] [data-test="tab-1__subtab-1"] .hds-tabs__tab-button'
+        '[data-test="panel-1"] [data-test="tab-1__subtab-1"] .hds-tabs__tab-button',
       )
       .hasAttribute('aria-selected', 'true');
     assert
@@ -569,7 +566,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom(
-        '[data-test="panel-2"] [data-test="tab-2__subtab-2"] .hds-tabs__tab-button'
+        '[data-test="panel-2"] [data-test="tab-2__subtab-2"] .hds-tabs__tab-button',
       )
       .hasAttribute('aria-selected', 'true');
     assert
@@ -583,7 +580,7 @@ module('Integration | Component | hds/tabs/index', function (hooks) {
       .hasClass('hds-tabs__tab--is-selected');
     assert
       .dom(
-        '[data-test="panel-1"] [data-test="tab-1__subtab-1"] .hds-tabs__tab-button'
+        '[data-test="panel-1"] [data-test="tab-1__subtab-1"] .hds-tabs__tab-button',
       )
       .hasAttribute('aria-selected', 'true');
     assert

@@ -19,7 +19,7 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
     });
 
     await render(
-      hbs`<button id="test-button" {{hds-register-event 'click' this.eventHandler}}>Test</button>`
+      hbs`<button id="test-button" {{hds-register-event 'click' this.eventHandler}}>Test</button>`,
     );
 
     await click('button');
@@ -32,12 +32,12 @@ module('Integration | Modifier | hds-register-event', function (hooks) {
       assert.strictEqual(
         event.eventPhase,
         Event.CAPTURING_PHASE,
-        'event was captured'
+        'event was captured',
       );
     });
 
     await render(
-      hbs`<button id="test-button" {{hds-register-event 'click' this.eventHandler useCapture=true}}><span>Test</span></button>`
+      hbs`<button id="test-button" {{hds-register-event 'click' this.eventHandler useCapture=true}}><span>Test</span></button>`,
     );
 
     await triggerEvent('span', 'click', { bubbles: true });

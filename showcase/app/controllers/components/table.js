@@ -25,10 +25,10 @@ const updateModelWithSelectAllState = (modelData, selectAllState) => {
 
 const updateModelWithSelectableRowsStates = (
   modelData,
-  selectableRowsStates
+  selectableRowsStates,
 ) => {
   const modelDataMap = new Map(
-    modelData.map((modelRow) => [modelRow.id, modelRow])
+    modelData.map((modelRow) => [modelRow.id, modelRow]),
   );
   selectableRowsStates.forEach((row) => {
     // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
@@ -85,7 +85,7 @@ export default class ComponentsTableController extends Controller {
       return {
         ...record,
         'status-sort-order': customSortingCriteriaArray.indexOf(
-          record['status']
+          record['status'],
         ),
       };
     });
@@ -168,7 +168,7 @@ export default class ComponentsTableController extends Controller {
   @action
   extraOnSortCallback_demo3() {
     console.log(
-      `extraOnSortCallback called with customSortBy='${this.customSortBy_demo3}' and customSortOrder='${this.customSortOrder_demo3}'`
+      `extraOnSortCallback called with customSortBy='${this.customSortBy_demo3}' and customSortOrder='${this.customSortOrder_demo3}'`,
     );
   }
 
@@ -220,7 +220,7 @@ export default class ComponentsTableController extends Controller {
       });
     } else {
       const recordToUpdate = this.multiSelectSelectableData__demo5.find(
-        (modelRow) => modelRow.id === selectionKey
+        (modelRow) => modelRow.id === selectionKey,
       );
 
       if (recordToUpdate) {
@@ -265,7 +265,7 @@ export default class ComponentsTableController extends Controller {
       });
     } else {
       const recordToUpdate = this.multiSelectSelectableData__demo6.find(
-        (modelRow) => modelRow.id === selectionKey
+        (modelRow) => modelRow.id === selectionKey,
       );
 
       if (recordToUpdate) {
@@ -295,7 +295,7 @@ export default class ComponentsTableController extends Controller {
     } else {
       const remainder = this.multiSelectFilterRows__demo1 === 'even' ? 0 : 1;
       return this.multiSelectModelData__demo1.filter(
-        (item) => item.id % 2 === remainder
+        (item) => item.id % 2 === remainder,
       );
     }
   }
@@ -325,12 +325,12 @@ export default class ComponentsTableController extends Controller {
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo1) {
       updateModelWithSelectAllState(
         this.multiSelectModelData__demo1,
-        selectionCheckboxElement.checked
+        selectionCheckboxElement.checked,
       );
     } else {
       updateModelWithSelectableRowsStates(
         this.multiSelectModelData__demo1,
-        selectableRowsStates
+        selectableRowsStates,
       );
     }
   }
@@ -405,12 +405,12 @@ export default class ComponentsTableController extends Controller {
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo2) {
       updateModelWithSelectAllState(
         this.multiSelectModelData__demo2,
-        selectionCheckboxElement.checked
+        selectionCheckboxElement.checked,
       );
     } else {
       updateModelWithSelectableRowsStates(
         this.multiSelectModelData__demo2,
-        selectableRowsStates
+        selectableRowsStates,
       );
     }
   }
@@ -464,12 +464,12 @@ export default class ComponentsTableController extends Controller {
     if (selectionKey === 'all' && this.multiSelectToggleScope__demo3) {
       updateModelWithSelectAllState(
         this.multiSelectModelData__demo3,
-        selectionCheckboxElement.checked
+        selectionCheckboxElement.checked,
       );
     } else {
       selectableRowsStates.forEach((row) => {
         const recordToUpdate = this.multiSelectModelData__demo3.find(
-          (modelRow) => modelRow.id === row.selectionKey
+          (modelRow) => modelRow.id === row.selectionKey,
         );
         if (recordToUpdate) {
           recordToUpdate.isSelected = row.isSelected;
@@ -481,7 +481,7 @@ export default class ComponentsTableController extends Controller {
   @action
   multiSelectDeleteSelectedUsers_demo3() {
     const newData = this.multiSelectModelData__demo3.filter(
-      (user) => !user.isSelected
+      (user) => !user.isSelected,
     );
     this.multiSelectModelData__demo3 = [...newData];
   }

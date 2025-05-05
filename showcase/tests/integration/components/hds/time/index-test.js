@@ -80,7 +80,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(this.defaultDate).toLocaleString(
       navigator.language,
-      options.displayFormat
+      options.displayFormat,
     );
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
@@ -94,7 +94,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(
-      '05 September 2018 14:07:32'
+      '05 September 2018 14:07:32',
     ).toLocaleString(navigator.language, options.displayFormat);
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
@@ -114,7 +114,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(this.friendlyLocalDate).toLocaleString(
       navigator.language,
-      options.displayFormat
+      options.displayFormat,
     );
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
@@ -128,7 +128,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
     `);
     let options = DEFAULT_DISPLAY_MAPPING[HdsDisplayKeyValues.FriendlyLocal];
     let expectedDateString = new Date(
-      '05 September 2018 14:07:32'
+      '05 September 2018 14:07:32',
     ).toLocaleString(navigator.language, options.displayFormat);
     assert.dom('.hds-time').hasText(expectedDateString);
     // test tooltip content
@@ -194,7 +194,7 @@ module('Integration | Component | hds/time/index', function (hooks) {
   test('it should render the correct string for a date that is five minutes from now', async function (assert) {
     this.set(
       'fiveMinutesFromNow',
-      new Date(service.now + MINUTE_IN_MS * (5 + 1))
+      new Date(service.now + MINUTE_IN_MS * (5 + 1)),
     );
 
     await render(hbs`

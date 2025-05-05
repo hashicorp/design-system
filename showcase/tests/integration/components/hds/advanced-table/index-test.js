@@ -186,7 +186,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   id='data-test-advanced-table'
   @model={{this.model}}
   @columns={{this.columns}}
-/>`
+/>`,
     );
     assert
       .dom('#data-test-advanced-table [role="grid"]')
@@ -202,7 +202,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @model={{this.model}}
   @columns={{this.columns}}
   @density='short'
-/>`
+/>`,
     );
 
     assert
@@ -218,7 +218,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   id='data-test-advanced-table'
   @model={{this.model}}
   @columns={{this.columns}}
-/>`
+/>`,
     );
     assert
       .dom('#data-test-advanced-table [role="grid"]')
@@ -235,7 +235,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @model={{this.model}}
   @columns={{this.columns}}
   @valign={{this.valign}}
-/>`
+/>`,
     );
 
     assert
@@ -253,7 +253,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @model={{this.model}}
   @columns={{this.columns}}
   @valign={{this.valign}}
-/>`
+/>`,
     );
 
     assert
@@ -268,7 +268,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   id='data-test-advanced-table'
   @model={{this.model}}
   @columns={{this.columns}}
-/>`
+/>`,
     );
     assert
       .dom('#data-test-advanced-table [role="grid"]')
@@ -314,7 +314,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   @model={{this.model}}
   @columns={{this.columns}}
   aria-label='data test table'
-/>`
+/>`,
     );
     assert
       .dom('#data-test-advanced-table')
@@ -338,7 +338,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable></div>`
+</Hds::AdvancedTable></div>`,
     );
 
     assert
@@ -363,18 +363,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable>`
+</Hds::AdvancedTable>`,
     );
 
     assert
       .dom(
-        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column'
+        '.hds-advanced-table__th--sort.hds-advanced-table__th--is-sticky-column',
       )
       .exists({ count: 1 });
 
     assert
       .dom(
-        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)'
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--sort)',
       )
       .exists({ count: 3 });
   });
@@ -386,13 +386,13 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column'
+        '.hds-advanced-table__th--is-selectable.hds-advanced-table__th--is-sticky-column',
       )
       .exists({ count: 4 });
 
     assert
       .dom(
-        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)'
+        '.hds-advanced-table__th.hds-advanced-table__th--is-sticky-column:not(.hds-advanced-table__th--is-selectable)',
       )
       .exists({ count: 4 });
   });
@@ -428,12 +428,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)'
+        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
       )
       .hasText('Test 1');
     assert
       .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:last-of-type .hds-advanced-table__td:last-of-type'
+        '#data-advanced-test-table .hds-advanced-table__tr:last-of-type .hds-advanced-table__td:last-of-type',
       )
       .hasText('Test 3 description');
   });
@@ -450,7 +450,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasClass('hds-advanced-table__th--sort');
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__th:first-of-type .hds-advanced-table__th-content > span'
+        '#data-test-advanced-table .hds-advanced-table__th:first-of-type .hds-advanced-table__th-content > span',
       )
       .hasText('Artist');
   });
@@ -464,12 +464,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__thead .hds-advanced-table__th:first-of-type .hds-advanced-table__th-button--tooltip'
+        '#data-test-advanced-table .hds-advanced-table__thead .hds-advanced-table__th:first-of-type .hds-advanced-table__th-button--tooltip',
       )
       .exists();
     // activate the tooltip:
     await focus(
-      '#data-test-advanced-table .hds-advanced-table__thead .hds-advanced-table__th:first-of-type .hds-advanced-table__th-button--tooltip'
+      '#data-test-advanced-table .hds-advanced-table__thead .hds-advanced-table__th:first-of-type .hds-advanced-table__th-button--tooltip',
     );
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
@@ -564,7 +564,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Nick Drake');
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
@@ -574,7 +574,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Sorted by artist ascending');
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
@@ -593,7 +593,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Melanie');
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
@@ -652,11 +652,11 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Melanie');
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(2) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(2) button',
     );
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__td:nth-of-type(2)'
+        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__td:nth-of-type(2)',
       )
       .hasText('Candles in the Rain');
   });
@@ -666,19 +666,19 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await render(hbsSortableAdvancedTable);
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1)'
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1)',
       )
       .hasAria('sort', 'descending');
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1)'
+        '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1)',
       )
       .hasAria('sort', 'ascending');
   });
@@ -693,12 +693,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await render(hbsSortableAdvancedTable);
 
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'desc');
     await click(
-      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button'
+      '#data-test-advanced-table .hds-advanced-table__th--sort:nth-of-type(1) button',
     );
     assert.strictEqual(sortBy, 'artist');
     assert.strictEqual(sortOrder, 'asc');
@@ -721,7 +721,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
     this.set('onSelectionChange', ({ selectionKey }) => {
       const recordToUpdate = this.model.find(
-        (modelRow) => modelRow.id === selectionKey
+        (modelRow) => modelRow.id === selectionKey,
       );
       if (recordToUpdate) {
         recordToUpdate.isSelected = !recordToUpdate.isSelected;
@@ -749,20 +749,20 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td'
+        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td',
       )
       .hasText('Jim');
 
     await click(sortBySelectedSelector);
     assert
       .dom(
-        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td'
+        '#data-test-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr:nth-of-type(3) .hds-advanced-table__td',
       )
       .hasText('Sally');
 
     assert.ok(
       sortSpy.calledWith(this.selectableColumnKey, 'asc'),
-      'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column'
+      'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column',
     );
   });
 
@@ -852,7 +852,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     let keys;
     this.set(
       'onSelectionChange',
-      ({ selectedRowsKeys }) => (keys = selectedRowsKeys)
+      ({ selectedRowsKeys }) => (keys = selectedRowsKeys),
     );
     setSelectableTableData(this);
     await render(hbs`
@@ -950,7 +950,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert.dom(expandRowButtonSelector).exists({ count: 3 });
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr',
       )
       .exists({ count: 6 });
   });
@@ -963,7 +963,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .exists({ count: 4 });
 
@@ -971,7 +971,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .exists({ count: 2 });
 
@@ -979,7 +979,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .exists({ count: 1 });
   });
@@ -1037,7 +1037,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert.dom(expandRowButtonSelector).exists({ count: 3 });
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr',
       )
       .exists({ count: 6 });
   });
@@ -1092,18 +1092,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await render(hbsNestedAdvancedTable);
 
     const expandAllButton = document.querySelector(
-      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand',
     );
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+        '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand',
       )
       .exists({ count: 1 });
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .exists({ count: 2 });
     assert.dom(expandAllButton).hasAria('expanded', 'false');
@@ -1112,7 +1112,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .doesNotExist();
     assert.dom(expandAllButton).hasAria('expanded', 'true');
@@ -1121,7 +1121,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden'
+        '#data-test-nested-advanced-table .hds-advanced-table__tbody .hds-advanced-table__tr.hds-advanced-table__tr--hidden',
       )
       .exists({ count: 4 });
     assert.dom(expandAllButton).hasAria('expanded', 'false');
@@ -1132,10 +1132,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await render(hbsNestedAdvancedTable);
 
     const rowToggles = Array.from(
-      this.element.querySelectorAll(expandRowButtonSelector)
+      this.element.querySelectorAll(expandRowButtonSelector),
     );
     const expandAllButton = document.querySelector(
-      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand'
+      '#data-test-nested-advanced-table .hds-advanced-table__thead .hds-advanced-table__th .hds-advanced-table__th-button--expand',
     );
 
     assert.dom(expandAllButton).hasAria('expanded', 'false');

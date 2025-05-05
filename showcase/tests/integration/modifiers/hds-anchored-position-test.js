@@ -153,7 +153,7 @@ module(
         padding: 1234,
       });
     });
-  }
+  },
 );
 
 // ================================================================
@@ -230,7 +230,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
       [this.anchorElement], // positional arguments
-      this.floatingOptions // named arguments
+      this.floatingOptions, // named arguments
     );
     // we need to wait for the Floating UI computation to complete (it's incremental)
     await wait();
@@ -243,7 +243,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     assert.deepEqual(arrowStyle.left, '95px');
     assert.deepEqual(
       this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
-      'bottom'
+      'bottom',
     );
   });
 
@@ -268,7 +268,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     await anchoredElementModifier(
       this.floatingElement, // element the modifier is attached to
       [this.anchorElement], // positional arguments
-      this.floatingOptions // named arguments
+      this.floatingOptions, // named arguments
     );
     // we need to wait for the Floating UI computation to complete (it's incremental)
     await wait();
@@ -281,7 +281,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     assert.deepEqual(arrowStyle.left, '45px');
     assert.deepEqual(
       this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
-      'bottom-start'
+      'bottom-start',
     );
   });
 
@@ -305,7 +305,7 @@ module('Integration | Modifier | hds-anchored-position', function (hooks) {
     assert.deepEqual(arrowStyle.left, '45px');
     assert.deepEqual(
       this.arrowElement.getAttribute('data-hds-anchored-arrow-placement'),
-      'bottom-start'
+      'bottom-start',
     );
   });
 });

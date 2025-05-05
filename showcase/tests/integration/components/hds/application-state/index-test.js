@@ -72,7 +72,7 @@ module(
               <A.Header @title="ApplicationState Title" />
               <A.Body>ApplicationState Body</A.Body>
               <A.Footer>ApplicationState Footer</A.Footer>
-            </Hds::ApplicationState>`
+            </Hds::ApplicationState>`,
       );
       assert
         .dom('.hds-application-state__media')
@@ -117,5 +117,5 @@ module(
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

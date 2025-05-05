@@ -131,7 +131,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       this.element
         .querySelector('.hds-app-header__menu-button')
         .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-app-header__actions').getAttribute('id')
+      this.element.querySelector('.hds-app-header__actions').getAttribute('id'),
     );
   });
 

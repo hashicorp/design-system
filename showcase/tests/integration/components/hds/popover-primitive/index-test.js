@@ -71,7 +71,7 @@ module(
       // extra test to check that the the content goes on the top layer
       assert.strictEqual(
         document.querySelectorAll('[popover]:popover-open').length,
-        1
+        1,
       );
       // unfocus the toggle to hide the popover
       await blur('#test-popover-primitive-toggle');
@@ -96,7 +96,7 @@ module(
       // extra test to check that the the content goes on the top layer
       assert.strictEqual(
         document.querySelectorAll('[popover]:popover-open').length,
-        1
+        1,
       );
       // click again the toggle to hide the content
       await click('#test-popover-primitive-toggle');
@@ -273,5 +273,5 @@ module(
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

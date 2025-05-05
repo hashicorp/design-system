@@ -15,7 +15,7 @@ module(
 
     test('it should render the component with a specific CSS class', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`,
       );
       assert
         .dom('#test-form-masked-input')
@@ -26,7 +26,7 @@ module(
 
     test('it should render the text masked by default', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -36,7 +36,7 @@ module(
 
     test('it should render readable text when `isContentMasked` is false', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isContentMasked={{false}} />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" @isContentMasked={{false}} />`,
       );
       assert
         .dom('.hds-form-masked-input__control')
@@ -46,7 +46,7 @@ module(
 
     test('it should toggle the masking when button is pressed', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -59,7 +59,7 @@ module(
 
     test('it automatically provides the ID relations between the elements', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -68,7 +68,7 @@ module(
 
     test('it updates the button label on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`,
       );
       assert
         .dom('.hds-form-visibility-toggle')
@@ -81,7 +81,7 @@ module(
 
     test('it informs the user about visibility change on toggle', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" />`,
       );
       await click('.hds-form-visibility-toggle');
       assert
@@ -97,16 +97,16 @@ module(
 
     test('it should render an `<input>` element by default', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base id="test-form-masked-input" />`,
       );
       assert.dom('input#test-form-masked-input').exists();
     });
 
     test('it should render a `<textarea>` element when `@isMultiline` is true', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base @isMultiline={{true}} id="test-form-masked-input" />`
+        hbs`<Hds::Form::MaskedInput::Base @isMultiline={{true}} id="test-form-masked-input" />`,
       );
       assert.dom('textarea#test-form-masked-input').exists();
     });
-  }
+  },
 );

@@ -42,7 +42,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Checkbox::Field>`
+        </Hds::Form::Checkbox::Field>`,
     );
     assert.dom('.hds-form-field__label').exists();
     assert.dom('.hds-form-field__helper-text').exists();
@@ -62,7 +62,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::Checkbox::Field>`
+        </Hds::Form::Checkbox::Field>`,
     );
     // the control ID is dynamically generated
     let control = this.element.querySelector('.hds-form-field__control input');
@@ -75,7 +75,7 @@ module('Integration | Component | hds/form/checkbox/field', function (hooks) {
       .dom('.hds-form-field__control input')
       .hasAttribute(
         'aria-describedby',
-        `helper-text-${controlId} error-${controlId} extra`
+        `helper-text-${controlId} error-${controlId} extra`,
       );
     assert
       .dom('.hds-form-field__error')

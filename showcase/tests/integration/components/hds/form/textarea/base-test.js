@@ -20,7 +20,7 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should render the input with the value provided via @value argument', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base @value="abc123" id="test-form-textarea" />`
+      hbs`<Hds::Form::Textarea::Base @value="abc123" id="test-form-textarea" />`,
     );
     assert.dom('#test-form-textarea').hasValue('abc123');
   });
@@ -40,7 +40,7 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should render the correct CSS class if the @isInvalid prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" @isInvalid={{true}} />`
+      hbs`<Hds::Form::Textarea::Base id="test-form-textarea" @isInvalid={{true}} />`,
     );
     assert.dom('#test-form-textarea').hasClass('hds-form-textarea--is-invalid');
   });

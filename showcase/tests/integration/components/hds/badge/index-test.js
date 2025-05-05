@@ -24,7 +24,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   });
   test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="text renders" id="test-badge" @color="highlight" />`
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @color="highlight" />`,
     );
     assert.dom('#test-badge').hasClass('hds-badge--color-highlight');
   });
@@ -37,7 +37,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="text renders" id="test-badge" @size="small" />`
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @size="small" />`,
     );
     assert.dom('#test-badge').hasClass('hds-badge--size-small');
   });
@@ -50,7 +50,7 @@ module('Integration | Component | hds/badge/index', function (hooks) {
   });
   test('it should render the correct CSS type class if @type prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="text renders" id="test-badge" @type="inverted" />`
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @type="inverted" />`,
     );
     assert.dom('#test-badge').hasClass('hds-badge--type-inverted');
   });
@@ -59,17 +59,17 @@ module('Integration | Component | hds/badge/index', function (hooks) {
 
   test('if an icon is declared the flight icon should render in the component', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="text renders" id="test-badge" @icon="activity" />`
+      hbs`<Hds::Badge @text="text renders" id="test-badge" @icon="activity" />`,
     );
     assert.dom('.hds-icon-activity').exists();
   });
   test('if isIconOnly is set to true, visible text is hidden but text is still available to assistive technology', async function (assert) {
     await render(
-      hbs`<Hds::Badge @text="meaningful text for icon only badge" @isIconOnly={{true}} id="test-badge" @icon="activity" />`
+      hbs`<Hds::Badge @text="meaningful text for icon only badge" @isIconOnly={{true}} id="test-badge" @icon="activity" />`,
     );
     assert.deepEqual(
       this.element.querySelector('.sr-only').textContent.trim(),
-      'meaningful text for icon only badge'
+      'meaningful text for icon only badge',
     );
   });
 });

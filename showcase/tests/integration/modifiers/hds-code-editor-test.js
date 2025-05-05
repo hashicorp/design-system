@@ -25,7 +25,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
   test('it converts the element it is applied to into a CodeMirror editor', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}} />`,
     );
     assert
       .dom('#code-editor-wrapper .cm-editor')
@@ -34,7 +34,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     assert.strictEqual(
       document.getElementById('code-editor-wrapper').editor.constructor.name,
       'EditorView',
-      'it attaches an EditorView instance to the element'
+      'it attaches an EditorView instance to the element',
     );
   });
 
@@ -43,7 +43,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     const val = 'Test Code';
     this.set('val', val);
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value=this.val}} />`,
     );
     assert.dom('#code-editor-wrapper .cm-editor').includesText(val);
   });
@@ -55,7 +55,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     this.set('handleBlur', blurSpy);
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onBlur=this.handleBlur}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onBlur=this.handleBlur}} />`,
     );
 
     await focus('.cm-content');
@@ -76,7 +76,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     });
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" onInput=this.handleInput onSetup=this.handleSetup}} />`,
     );
 
     this.editorView.dispatch({
@@ -99,7 +99,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     });
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" value="test" isLintingEnabled=true language="json" onLint=this.handleLint onSetup=(fn (mut this.editorView)) }} />`,
     );
 
     // we know linting is complete when the error marker is rendered
@@ -116,7 +116,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // ariaDescribedBy
   test('it should render the editor with an aria-describedby when provided', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" ariaDescribedBy="test-description"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" ariaDescribedBy="test-description"}} />`,
     );
     assert
       .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
@@ -126,7 +126,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // ariaLabel
   test('it should render the editor with an aria-label when provided', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="Test Code Editor"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="Test Code Editor"}} />`,
     );
     assert
       .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
@@ -136,7 +136,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // ariaLabelledBy
   test('it should render the editor with an aria-labelledby when provided', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabelledBy="test-label"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabelledBy="test-label"}} />`,
     );
     assert
       .dom('#code-editor-wrapper .cm-editor [role="textbox"]')
@@ -148,7 +148,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     this.set('hasLineWrapping', true);
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" hasLineWrapping=this.hasLineWrapping}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" hasLineWrapping=this.hasLineWrapping}} />`,
     );
     assert
       .dom('#code-editor-wrapper .cm-editor .cm-content')
@@ -163,7 +163,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // cspNonce
   test('it should render the editor with a csp-nonce when provided', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" cspNonce="test-nonce"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" cspNonce="test-nonce"}} />`,
     );
     // can't use assert.dom to access elements in head
     assert.ok(document.querySelector('style[nonce="test-nonce"]'));
@@ -172,7 +172,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
   // isLintingEnabled
   test('it should set an aria-description with instructions when isLintingEnabled is true', async function (assert) {
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json"}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" isLintingEnabled=true language="json"}} />`,
     );
 
     const editorDescribedBy = document
@@ -183,7 +183,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       .dom(`#${editorDescribedBy}`)
       .includesText(
         'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel',
-        'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel'
+        'a paragraph tag has been inserted above the editor with instructions on how to open the linting panel',
       );
   });
 
@@ -196,7 +196,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
     });
 
     await setupCodeEditor(
-      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" extraKeys=this.extraKeys}} />`
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test" extraKeys=this.extraKeys}} />`,
     );
 
     const event = new KeyboardEvent('keydown', {

@@ -15,7 +15,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
     await render(
       hbs`<Hds::PageHeader id="test-page-header" as |PH|>
             <PH.Title>Page title</PH.Title>
-          </Hds::PageHeader>`
+          </Hds::PageHeader>`,
     );
     assert.dom('#test-page-header').hasClass('hds-page-header');
   });
@@ -36,7 +36,7 @@ module('Integration | Component | hds/page-header/index', function (hooks) {
             <PH.Subtitle>Subtitle</PH.Subtitle>
             <PH.Description>Description</PH.Description>
             <PH.Generic><p class="custom">Generic</p></PH.Generic>
-          </Hds::PageHeader>`
+          </Hds::PageHeader>`,
     );
     assert.dom('.hds-page-header').exists();
     assert.dom('.hds-page-header__title').exists();

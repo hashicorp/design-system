@@ -18,7 +18,7 @@ module(
 
       assert.strictEqual(
         result,
-        new Intl.RelativeTimeFormat(navigator.language).format(value, 'day')
+        new Intl.RelativeTimeFormat(navigator.language).format(value, 'day'),
       );
     });
 
@@ -29,8 +29,8 @@ module(
 
       assert.strictEqual(
         result,
-        new Intl.RelativeTimeFormat(navigator.language).format(value, unit)
+        new Intl.RelativeTimeFormat(navigator.language).format(value, unit),
       );
     });
-  }
+  },
 );
