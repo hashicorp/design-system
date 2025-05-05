@@ -36,7 +36,7 @@ module('Integration | Component | hds-icon', function (hooks) {
   });
   test('it sets the width/height to 100% when the "stretched" option is set to true', async function (assert) {
     await render(
-      hbs`<Hds::Icon @name="activity" @size="24" @stretched={{true}} />`
+      hbs`<Hds::Icon @name="activity" @size="24" @stretched={{true}} />`,
     );
     assert
       .dom('svg.hds-icon.hds-icon-activity')
@@ -69,7 +69,7 @@ module('Integration | Component | hds-icon', function (hooks) {
   });
   test('it should render the correct style if the @color prop is declared as custom CSS property color', async function (assert) {
     await render(
-      hbs`<Hds::Icon @name="alert-circle" @color="var(--doc-color-feedback-critical-100)" />`
+      hbs`<Hds::Icon @name="alert-circle" @color="var(--doc-color-feedback-critical-100)" />`,
     );
     assert
       .dom(`svg.hds-icon`)
@@ -81,7 +81,7 @@ module('Integration | Component | hds-icon', function (hooks) {
   });
   test('the fill color should be able to be inherited from parent', async function (assert) {
     await render(
-      hbs`<div style="color:blue;"><Hds::Icon @name="alert-circle" /></div>`
+      hbs`<div style="color:blue;"><Hds::Icon @name="alert-circle" /></div>`,
     );
     assert.dom(`svg.hds-icon`).hasStyle({
       fill: 'rgb(0, 0, 255)',

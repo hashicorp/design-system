@@ -13,7 +13,7 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
 
   test('it renders the breadcrumb truncation with an appropriate CSS class', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`,
     );
     assert
       .dom('#test-breadcrumb-truncation')
@@ -24,14 +24,14 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
 
   test('it should render a toggle button', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`,
     );
     assert.dom('#test-breadcrumb-truncation button').exists();
   });
 
   test('the toggle button should have an aria-label', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`,
     );
     assert.dom('#test-breadcrumb-truncation button').hasAttribute('aria-label');
   });
@@ -40,7 +40,7 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
 
   test('it should not render the content', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`,
     );
     assert
       .dom('#test-breadcrumb-truncation .hds-breadcrumb__truncation-content')
@@ -48,7 +48,7 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
   });
   test('it should yield (and render) the content', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation"><a id="test-breadcrumb-truncation-link" href="#">test</a></Hds::Breadcrumb::Truncation>`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation"><a id="test-breadcrumb-truncation-link" href="#">test</a></Hds::Breadcrumb::Truncation>`,
     );
     await click('#test-breadcrumb-truncation button');
     assert.dom('.hds-breadcrumb__truncation-content').exists();
@@ -60,7 +60,7 @@ module('Integration | Component | hds/breadcrumb/truncation', function (hooks) {
 
   test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`
+      hbs`<Hds::Breadcrumb::Truncation id="test-breadcrumb-truncation" />`,
     );
     assert
       .dom('#test-breadcrumb-truncation button')

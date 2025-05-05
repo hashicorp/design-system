@@ -13,7 +13,6 @@ module('Acceptance | Percy test', function (hooks) {
   setupApplicationTest(hooks);
 
   if (config.emberTryScenario) {
-    // eslint-disable-next-line no-console
     console.log('Not running percy in ember-try');
     return;
   }
@@ -30,7 +29,7 @@ module('Acceptance | Percy test', function (hooks) {
 
     // for the breakpoints we use a frameless page
     await visit(
-      '/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization'
+      '/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization',
     );
     await percySnapshot('Breakpoints');
 

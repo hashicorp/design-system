@@ -19,5 +19,5 @@ module(
     `);
       assert.dom('#test-nav-ellipsis').hasClass('hds-pagination-nav__ellipsis');
     });
-  }
+  },
 );

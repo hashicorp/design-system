@@ -12,7 +12,7 @@
   {
     "id": 11,
     "service": {
-      "text":"Cell Content with colspan='2'",
+      "text": "Cell Content with colspan='2'",
       "colspan": 2
     },
     "email": "Cell content"
@@ -20,7 +20,7 @@
   {
     "id": 12,
     "service": {
-      "text":"Cell Content with colspan='3'",
+      "text": "Cell Content with colspan='3'",
       "colspan": 3
     }
   },

@@ -18,7 +18,7 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
 
   test('it should render the correct CSS color class if the @itemsCanWrap prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb @itemsCanWrap={{true}} id="test-breadcrumb" />`
+      hbs`<Hds::Breadcrumb @itemsCanWrap={{true}} id="test-breadcrumb" />`,
     );
     assert.dom('#test-breadcrumb').hasClass('hds-breadcrumb--items-can-wrap');
   });
@@ -27,7 +27,7 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
     let inserted = false;
     this.set('didInsert', () => (inserted = true));
     await render(
-      hbs`<Hds::Breadcrumb id="test-breadcrumb" @didInsert={{this.didInsert}} />`
+      hbs`<Hds::Breadcrumb id="test-breadcrumb" @didInsert={{this.didInsert}} />`,
     );
     assert.ok(inserted);
   });
@@ -42,7 +42,7 @@ module('Integration | Component | hds/breadcrumb/index', function (hooks) {
   });
   test('it should support a custom aria-label attribute', async function (assert) {
     await render(
-      hbs`<Hds::Breadcrumb id="test-breadcrumb" aria-label="my aria label" />`
+      hbs`<Hds::Breadcrumb id="test-breadcrumb" aria-label="my aria label" />`,
     );
     assert.dom('#test-breadcrumb').hasAria('label', 'my aria label');
     assert.dom('#test-breadcrumb > ol').exists();

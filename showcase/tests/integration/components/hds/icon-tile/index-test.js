@@ -46,7 +46,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   });
   test('it should render the correct CSS color class if the @color prop is declared and is an icon', async function (assert) {
     await render(
-      hbs`<Hds::IconTile @icon="dashboard" @color="boundary" id="test-icon-tile" />`
+      hbs`<Hds::IconTile @icon="dashboard" @color="boundary" id="test-icon-tile" />`,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-boundary');
   });
@@ -56,7 +56,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   });
   test('it should render the product color even if the @color prop is declared and is a logo', async function (assert) {
     await render(
-      hbs`<Hds::IconTile @logo="boundary" @color="waypoint" id="test-icon-tile" />`
+      hbs`<Hds::IconTile @logo="boundary" @color="waypoint" id="test-icon-tile" />`,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--color-boundary');
   });
@@ -69,7 +69,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
   });
   test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::IconTile @icon="dashboard" id="test-icon-tile" @size="small" />`
+      hbs`<Hds::IconTile @icon="dashboard" id="test-icon-tile" @size="small" />`,
     );
     assert.dom('div#test-icon-tile').hasClass('hds-icon-tile--size-small');
   });
@@ -78,7 +78,7 @@ module('Integration | Component | hds/icon-tile/index', function (hooks) {
 
   test('it should render the secondary icon if the @iconSecondary prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::IconTile @icon="dashboard" @iconSecondary="plus" id="test-icon-tile" />`
+      hbs`<Hds::IconTile @icon="dashboard" @iconSecondary="plus" id="test-icon-tile" />`,
     );
     assert.dom('div#test-icon-tile .hds-icon-tile__extra').exists();
     assert.dom('div#test-icon-tile .hds-icon-tile__extra-icon').exists();

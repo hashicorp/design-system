@@ -17,7 +17,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List id='test-app-side-nav-list-wrapper' />`
+        hbs`<Hds::AppSideNav::List id='test-app-side-nav-list-wrapper' />`,
       );
       assert
         .dom('#test-app-side-nav-list-wrapper')
@@ -44,5 +44,5 @@ module(
       await render(hbs`<Hds::AppSideNav::List />`);
       assert.dom('.hds-app-side-nav__list').hasAttribute('role', 'list');
     });
-  }
+  },
 );

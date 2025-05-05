@@ -22,7 +22,7 @@ module('Integration | Component | hds/button-set/index', function (hooks) {
         <Hds::ButtonSet id="test-button-set">
           <Hds::Button @text="test button" />
         </Hds::ButtonSet>
-      `
+      `,
     );
     assert.dom('#test-button-set .hds-button').exists();
   });

@@ -66,7 +66,7 @@ module(
     });
     test('it should throw an assertion if the argument provided is a list of DOM nodes', async function (assert) {
       await render(
-        hbs`<pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre>`
+        hbs`<pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre>`,
       );
       const arg = await findAll('.test-target');
       assert.throws(function () {
@@ -75,14 +75,14 @@ module(
     });
     test('it should throw an assertion if the argument provided is not a string/node', async function (assert) {
       await render(
-        hbs`<pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre>`
+        hbs`<pre class="test-target">Test 1</pre><pre class="test-target">Test 2</pre>`,
       );
       const arg = {};
       assert.throws(function () {
         getTargetElement(arg);
       });
     });
-  }
+  },
 );
 
 module(
@@ -106,15 +106,15 @@ module(
         this.set('type', type);
         this.set('value', value);
         await render(
-          hbs`<input id="test-target" type={{this.type}} value={{this.value}} />`
+          hbs`<input id="test-target" type={{this.type}} value={{this.value}} />`,
         );
         this.target = find('#test-target');
         assert.equal(
           this.value,
           getTextToCopyFromTargetElement(this.target),
-          `input type="${type}"`
+          `input type="${type}"`,
         );
-      }
+      },
     );
 
     test('returns the value of a <textarea> passed as `target` argument', async function (assert) {
@@ -136,7 +136,7 @@ module(
       this.target = find('#test-target');
       assert.deepEqual(
         this.option1,
-        getTextToCopyFromTargetElement(this.target)
+        getTextToCopyFromTargetElement(this.target),
       );
     });
 
@@ -152,12 +152,12 @@ module(
       this.target = find('#test-target');
       assert.deepEqual(
         this.option2,
-        getTextToCopyFromTargetElement(this.target)
+        getTextToCopyFromTargetElement(this.target),
       );
       await fillIn(this.target, this.option3);
       assert.deepEqual(
         this.option3,
-        getTextToCopyFromTargetElement(this.target)
+        getTextToCopyFromTargetElement(this.target),
       );
     });
 
@@ -169,7 +169,7 @@ module(
       this.target = find('#test-target');
       assert.deepEqual(
         getTextToCopyFromTargetElement(this.target),
-        `Lorem Ipsum dolor\n\nSit Amet\n\nSome\nCode`
+        `Lorem Ipsum dolor\n\nSit Amet\n\nSome\nCode`,
       );
     });
 
@@ -181,7 +181,7 @@ module(
       this.target = find('#test-target');
       assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ');
     });
-  }
+  },
 );
 
 module(
@@ -209,12 +209,12 @@ module(
         .stub(window.navigator.clipboard, 'writeText')
         .throws(
           'Sinon throws (syntethic error)',
-          'this is a fake error message provided to the sinon.stub().throws() method'
+          'this is a fake error message provided to the sinon.stub().throws() method',
         );
       const success = await writeTextToClipboard('test');
       assert.false(success);
     });
-  }
+  },
 );
 
 module(
@@ -227,7 +227,7 @@ module(
         await copyToClipboard();
       });
     });
-  }
+  },
 );
 
 module('Integration | Modifier | hds-clipboard', function (hooks) {
@@ -256,7 +256,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         text="Hello world!"
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -268,7 +268,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         text=""
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -281,7 +281,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         text=1234
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -293,7 +293,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         text=0
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -307,7 +307,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         target="#test-target"
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -332,7 +332,7 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
         text="Hello world!"
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.true(this.success);
@@ -344,14 +344,14 @@ module('Integration | Modifier | hds-clipboard', function (hooks) {
       .stub(window.navigator.clipboard, 'writeText')
       .throws(
         'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method'
+        'this is a fake error message provided to the sinon.stub().throws() method',
       );
     await render(
       hbs`<button id="test-button" {{hds-clipboard
         text="Hello world!"
         onSuccess=this.onSuccess
         onError=this.onError
-      }}>Test</button>`
+      }}>Test</button>`,
     );
     await click('button#test-button');
     assert.false(this.success);

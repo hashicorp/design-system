@@ -18,7 +18,7 @@ module(
       this.set('noop', () => {});
 
       await render(
-        hbs`<Hds::CodeEditor::FullScreenButton @isFullScreen={{false}} @onToggleFullScreen={{this.noop}} />`
+        hbs`<Hds::CodeEditor::FullScreenButton @isFullScreen={{false}} @onToggleFullScreen={{this.noop}} />`,
       );
 
       assert.dom('.hds-code-editor__full-screen-button').exists();
@@ -32,7 +32,7 @@ module(
       });
 
       await render(
-        hbs`<Hds::CodeEditor::FullScreenButton @isFullScreen={{this.isFullScreen}} @onToggleFullScreen={{this.noop}} />`
+        hbs`<Hds::CodeEditor::FullScreenButton @isFullScreen={{this.isFullScreen}} @onToggleFullScreen={{this.noop}} />`,
       );
       assert
         .dom('.hds-code-editor__full-screen-button')
@@ -65,12 +65,12 @@ module(
       this.set('onToggleFullScreen', onToggleFullScreen);
 
       await render(
-        hbs`<Hds::CodeEditor::FullScreenButton id="test-button" @isFullScreen={{false}} @onToggleFullScreen={{this.onToggleFullScreen}} />`
+        hbs`<Hds::CodeEditor::FullScreenButton id="test-button" @isFullScreen={{false}} @onToggleFullScreen={{this.onToggleFullScreen}} />`,
       );
 
       await click('#test-button');
 
       assert.ok(onToggleFullScreen.calledOnce);
     });
-  }
+  },
 );
