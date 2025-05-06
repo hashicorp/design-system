@@ -257,6 +257,10 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
       <Hds::CodeBlock @value="console.log('Hello world');" @maxHeight="1em" />
     `);
 
+    assert
+      .dom('.hds-code-block')
+      .hasClass('hds-code-block--has-overlay-footer');
+
     await click('.hds-code-block__height-toggle-button');
 
     assert

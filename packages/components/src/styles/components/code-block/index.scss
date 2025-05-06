@@ -135,7 +135,6 @@ $hds-code-block-code-footer-height: 48px;
   align-items: center;
   justify-content: center;
   padding: 10px $hds-code-block-code-padding 10px $hds-code-block-code-padding;
-  background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
   pointer-events: none; // fix issue with scrolling when hovering over the footer
 
   // re-enable pointer events for the button (or any content inside the footer)
@@ -144,10 +143,29 @@ $hds-code-block-code-footer-height: 48px;
   }
 }
 
+.hds-code-block--has-overlay-footer {
+  .hds-code-block__code::after {
+    // gradient element
+    position: sticky; // prevent gradient from scrolling together with content
+    bottom: -$hds-code-block-code-padding;
+    display: block;
+    width: calc(100% + #{$hds-code-block-code-padding * 2});
+    height: $hds-code-block-code-footer-height;
+    background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
+    transform: translateX(-$hds-code-block-code-padding);
+    content: "";
+    pointer-events: none;
+  }
+}
+
 .hds-code-block--has-overlay-footer-expanded {
   .hds-code-block__code {
     // account for the footer at the bottom of the code block
     padding-bottom: $hds-code-block-code-footer-height;
+
+    &::after {
+      content: none;
+    }
   }
 
   .hds-code-block__overlay-footer {
@@ -158,6 +176,7 @@ $hds-code-block-code-footer-height: 48px;
 // Code
 .hds-code-block__code {
   @include hds-focus-ring-basic();
+  position: relative;
   display: block;
   margin: 0;
   padding: $hds-code-block-code-padding;
