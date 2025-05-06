@@ -10,14 +10,18 @@
         <Hds::Icon @name={{@icon}} />
       </div>
     {{/if}}
-    <span class="hds-dropdown-list-item__text-content">{{yield}}</span>
-
+    <Hds::Text::Body
+      @tag="span"
+      @size="200"
+      @weight="medium"
+      class="hds-dropdown-list-item__text-content"
+    >{{yield}}</Hds::Text::Body>
     {{#if @count}}
       <Hds::Text::Body
-        class="hds-dropdown-list-item__count"
         @tag="span"
         @size="100"
         @weight="medium"
+        class="hds-dropdown-list-item__count"
       >{{@count}}</Hds::Text::Body>
     {{/if}}
   </label>
