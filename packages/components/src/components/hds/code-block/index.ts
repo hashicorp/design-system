@@ -81,6 +81,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
   // If a code block is hidden from view, and made visible after load, the Prism code needs to be re-run
   private _setUpObserver = modifier((element: HTMLElement) => {
+    this._preCodeElement = element.querySelector('pre') as HTMLPreElement;
     const codeBlock = element.querySelector('code') as HTMLElement;
     this._observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -97,7 +98,6 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   });
 
   private _setUpCodeBlockCode = modifier((element: HTMLElement) => {
-    this._preCodeElement = element.querySelector('pre') as HTMLPreElement;
     this.setPrismCode(element);
     return () => {};
   });
@@ -187,7 +187,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           // we need to re-trigger the line numbers generation as late as possible to account for any line wrapping styles that are applied
           if (this.args.hasLineWrapping && Prism?.plugins?.['lineNumbers']) {
             // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-            Prism.plugins['lineNumbers'].highlight(this._preCodeElement);
+            Prism.plugins['lineNumbers'].resize(this._preCodeElement);
           }
 
           // Force prism-line-highlight plugin initialization
