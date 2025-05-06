@@ -6,16 +6,15 @@ description: >-
 caption: Used as a global and utility navigation within an application.
 links:
   figma: >-
-    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67337-16625&t=w8xQlWxzH7bwXLe2-1
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=67337-16625&t=UPVdPTgYF1VjiD7R-1
   github: >-
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/app-header
 related:
-  - components/side-nav
+  - components/app-side-nav
   - components/app-footer
   - layouts/app-frame
 previewImage: assets/illustrations/components/app-header.jpg
 navigation:
-  hidden: true
   keywords:
     - navigation
     - header

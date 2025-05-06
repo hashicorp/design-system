@@ -13,6 +13,7 @@ related:
   - components/breadcrumb
   - components/tabs
   - layouts/app-frame
+  - components/app-side-nav
 previewImage: assets/illustrations/components/side-nav.jpg
 navigation:
   hidden: false
@@ -22,7 +23,7 @@ navigation:
     - sidenav
     - sidebar
 status:
-  updated: 4.18.1
+  deprecated: 4.19.0
 ---
 
 <section data-tab="Guidelines">
