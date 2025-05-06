@@ -1,0 +1,1 @@
+Standardized breakpoints for different device widths.
