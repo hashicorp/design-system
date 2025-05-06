@@ -69,22 +69,6 @@ Line numbers are displayed by default and can make longer blocks of code and sni
 In the Figma component, the code examples have the appropriate number of lines by default but must be manually hidden or shown to match the length of custom snippets.
 !!!
 
-## Height toggle button
-
-Use the height toggle button to let users expand and collapse longer code snippets.
-
-When `maxHeight` is set and the code content is taller than that value, a **Show more code** button appears at the bottom of the Code Block.
-
-![Expanded Code Block with all lines visible and a 'Show less code' button displayed at the bottom](/assets/components/code-block/code-block-expanded.png)
-
-- Clicking this button removes the height limit, allowing the full code snippet to be displayed. 
-
-![Collapsed Code Block showing limited lines and a 'Show more code' button at the bottom.](/assets/components/code-block/code-block-collapsed.png)
-
-- Clicking it again collapses the Code Block back to its original height.
-
-The button is placed inside a footer element that only appears when `maxHeight` is set and the content overflows. This keeps the layout clean when the toggle isn’t needed.
-
 ## Line highlighting
 
 Use line highlighting to target and call attention to specific lines or multiple lines within a block of code.
