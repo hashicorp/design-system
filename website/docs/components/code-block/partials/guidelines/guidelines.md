@@ -75,11 +75,11 @@ Use the height toggle button to let users expand and collapse longer code snippe
 
 When `maxHeight` is set and the code content is taller than that value, a **Show more code** button appears at the bottom of the Code Block.
 
-![Expanded Code Block with all lines visible and a 'Show less code' button displayed at the bottom](/assets/components/code-block/code-block-expanded.png)
+![Collapsed Code Block showing limited lines and a 'Show more code' button at the bottom.](/assets/components/code-block/code-block-collapsed.png)
 
 - Clicking this button removes the height limit, allowing the full code snippet to be displayed. 
 
-![Collapsed Code Block showing limited lines and a 'Show more code' button at the bottom.](/assets/components/code-block/code-block-collapsed.png)
+![Expanded Code Block with all lines visible and a 'Show less code' button displayed at the bottom](/assets/components/code-block/code-block-expanded.png)
 
 - Clicking it again collapses the Code Block back to its original height.
 
