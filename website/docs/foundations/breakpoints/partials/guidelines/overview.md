@@ -1,1 +1,1 @@
-Standardized breakpoints for different device widths.
+Different defined widths that help standardize responsive experiences across the HashiCorp product suite.
