@@ -59,6 +59,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
 
+  @tracked isResizeSliderVisible = false;
+
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
 
@@ -132,6 +134,15 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  resizeColumn(size: number): void {
+    const { column } = this.args;
+
+    if (column) {
+      column.numericalWidth = size;
+    }
   }
 
   @action onFocusTrapDeactivate(): void {
