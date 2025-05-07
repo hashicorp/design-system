@@ -23,23 +23,11 @@
   }
 }
 
-@each $name, $color in $mock-demo-breakpoints-colors {
-  .mock-demo-breakpoints-color--#{$name} {
-    @include mock-demo-breakpoint-color($name);
-  }
-}
-
 // WIDTH
 
 @mixin mock-demo-breakpoint-width($name) {
   & {
     max-width: map.get($hds-breakpoints, $name);
-  }
-}
-
-@each $name, $size in $hds-breakpoints {
-  .mock-demo-breakpoints-width--#{$name} {
-    @include mock-demo-breakpoint-width($name);
   }
 }
 
