@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import gt from 'ember-truth-helpers/helpers/gt';
 
-import { hdsBreakpointsNames } from '@hashicorp/design-system-components/foundations/breakpoints';
+import { hdsBreakpointsNames } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 import ShwFlex from '../../shw/flex';
 import ShwGrid from '../../shw/grid';
