@@ -118,10 +118,10 @@ importers:
         specifier: ^3.1.0
         version: 3.1.0
       '@embroider/addon-shim':
-        specifier: ^1.9.0
+        specifier: ~1.9.0
         version: 1.9.0
       '@embroider/macros':
-        specifier: ^1.16.12
+        specifier: ~1.16.12
         version: 1.16.12(@glint/template@1.5.2)
       '@embroider/util':
         specifier: ^1.13.2
@@ -864,8 +864,8 @@ importers:
         specifier: ^4.0.4
         version: 4.0.4(@babel/core@7.26.0)(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))
       '@embroider/macros':
-        specifier: ^1.16.10
-        version: 1.16.10(@glint/template@1.5.2)
+        specifier: ~1.16.12
+        version: 1.16.12(@glint/template@1.5.2)
       '@embroider/util':
         specifier: ^1.13.2
         version: 1.13.2(@glint/environment-ember-loose@1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.26.0)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))))(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.26.0))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.97.1))
@@ -2949,7 +2949,11 @@ packages:
     resolution: {directory: packages/components, type: directory}
     engines: {node: '>= 18'}
     peerDependencies:
+      ember-engines: '>= 0.11.0'
       ember-source: ^3.28.0 || ^4.0.0 || ^5.3.0
+    peerDependenciesMeta:
+      ember-engines:
+        optional: true
 
   '@hashicorp/design-system-tokens@file:packages/tokens':
     resolution: {directory: packages/tokens, type: directory}
