@@ -12,6 +12,12 @@
 </p>
 
 
+### May 7th, 2025
+
+`AppHeader` and `AppSideNav` - Components added
+
+`AdvancedTable` Templates - Multi-select column added
+
 ### April 24th, 2025
 
 `Button`, `StandaloneLink`, `Breadcrumb`, `Table Primitives` - Removed interactive component variants
@@ -129,10 +135,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### November 6th, 2023
 
 `CodeBlock` - Added new component.
-
-### November 3rd, 2023
-
-`Breadcrumb` - Updated the number of `breadcrumb / _items` to the component.
 
 
 ---
