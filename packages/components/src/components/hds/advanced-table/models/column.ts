@@ -1,4 +1,5 @@
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
@@ -28,6 +29,8 @@ export default class HdsAdvancedTableColumn {
   @tracked maxWidth?: string = undefined; // css width like `100px`
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
+
+  private _originalWidth?: string = undefined;
 
   get isResizable(): boolean | undefined {
     if (!this._isResizable) {
@@ -64,9 +67,17 @@ export default class HdsAdvancedTableColumn {
     this.tooltip = args.tooltip;
 
     this.width = args.width;
+    this._originalWidth = args.width;
     this.minWidth = args.minWidth ?? `100px`; // default min width
     this.maxWidth = args.maxWidth ?? `500px`; // default max width
 
     this.sortingFunction = args.sortingFunction;
+  }
+
+  @action
+  restoreWidth(): void {
+    if (this._originalWidth !== undefined) {
+      this.width = this._originalWidth;
+    }
   }
 }
