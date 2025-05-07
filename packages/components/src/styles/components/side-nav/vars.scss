@@ -7,7 +7,9 @@
 // SIDE-NAV - VARS
 //
 
+@use "sass:map";
 @use "../../mixins/interactive-dark-theme" as *;
+@use "../../mixins/breakpoints" as *;
 
 // LOCAL VARIABLES
 // we use `hds-app` as prefix to distinguish them from the normal tokens
@@ -15,7 +17,7 @@
 
 :root {
   // breakpoint
-  --hds-app-desktop-breakpoint: 1088px; // this is used only to read its value via JS and set the `hds-side-nav--is-desktop` class
+  --hds-app-desktop-breakpoint: #{map.get($hds-breakpoints, "lg")}; // this is used only to read its value via JS and set the `hds-side-nav--is-desktop` class
   // widths
   --hds-app-sidenav-width-minimized: 48px;
   --hds-app-sidenav-width-expanded: 280px;
