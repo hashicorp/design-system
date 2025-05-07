@@ -2,7 +2,7 @@
 
 Breakpoints are the foundational blocks to responsive design. They are defined as the viewport widths/heights where page layouts adjust for varied screen size experiences. While both horizontal and vertical breakpoints can be used in responsive design, the standardization of these values will only be focused on horizontal experiences. 
 
-These values arethen used to create utilities and components to help standardize the re-adjusting of UI at different defined screen sizes.
+These values are then used to create utilities and components to help standardize the re-adjusting of UI at different defined screen sizes.
 
 ### The ranges
 
@@ -20,7 +20,7 @@ When a breakpoint name is mentioned, it isn't referencing the exact starting pix
 
 ### Working with custom values
 
-The ranges provided are to create a cohesive *starting* experience. Although, in some rare circumstances a custom value may be needed to accomodate for specific use-cases that these values do not cover. For example: a product has learned that users with 2500px viewports started using a specific product, and require a nuanced approach in displaying the UI at that screen size. In cases like this, a value may be added on top of the established values to provide additional nuance to the experience.
+The ranges provided are to create a cohesive *starting* experience. Although, in some rare circumstances a custom value may be needed to accomodate for specific use-cases that these values do not cover. For example: a team has learned that users with 2500px viewports started using a specific product, and require a nuanced approach in displaying the UI at that screen size. In cases like this, a value may be added on top of the established values to provide additional nuance to that experience.
 
 !!! info
 
@@ -29,4 +29,10 @@ If a custom value already exists that is relatively close to an established rang
 !!!
 
 
-## Designing with these in mind
+## Designing with purpose
+
+Not all designs require redesigning at each of these breakpoints. Only when designs are considered complicated and/or constrained by UI placement should a designer take the time to show how they change as the viewport decreases in size. 
+
+An example of this would be that a table-centered experience may not require additional UI adjustment at the lg, xl, and xxl breakpoints. The expectated beahvior for the table is to maintain its full width regardless of the breakpoint value, and that a design isn't required to elaborate this standard behavior.
+
+![Wireframed table shown expanding in size.](/assets/foundations/breakpoints/breakpoints-table-example.png)
