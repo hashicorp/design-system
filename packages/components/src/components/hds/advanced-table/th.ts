@@ -137,6 +137,11 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   @action
+  closeResizeSlider(): void {
+    this.isResizeSliderVisible = false;
+  }
+
+  @action
   resizeColumn(size: number): void {
     const { column } = this.args;
 
