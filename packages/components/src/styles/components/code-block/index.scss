@@ -148,12 +148,12 @@ $hds-code-block-code-footer-height: 48px;
     // gradient element
     position: sticky; // prevent gradient from scrolling together with content
     bottom: -$hds-code-block-code-padding;
-    left: -$hds-code-block-code-padding;
+    left: 0;
     display: block;
-    width: calc($hds-code-block-code-padding + 100%);
     height: $hds-code-block-code-footer-height;
     margin-bottom: -$hds-code-block-code-padding;
     background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
+    transform: scaleX(1.3); // make gradient cover entire width of code block as container scrolls horizontally
     content: "";
     pointer-events: none;
   }
@@ -297,10 +297,11 @@ $hds-code-block-code-footer-height: 48px;
       }
     }
 
+    // Ensures the line numbers are always on top of the footer gradient
     &.hds-code-block--has-overlay-footer {
-      .hds-code-block__code::after {
-        left: calc(-#{$hds-code-block-line-numbers-width} - #{$hds-code-block-code-padding});
-        width: calc(100% + #{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
+      .line-numbers-rows {
+        z-index: 1;
+        isolation: isolate;
       }
     }
   }
