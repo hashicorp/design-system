@@ -9,6 +9,7 @@
 
 @use "sass:map";
 @use "../../mixins/focus-ring" as *;
+@use "../../mixins/breakpoints" as *;
 @use "./step-indicator.scss" as *;
 
 $progress-bar-animation-duration: 0.25s;
@@ -288,7 +289,7 @@ $progress-bar-animation-duration: 0.25s;
 
 // MOBILE
 
-@media screen and (width <= 550px) {
+@include hds-breakpoint-below("sm") {
   .hds-stepper-nav {
     &::before,
     &::after {
