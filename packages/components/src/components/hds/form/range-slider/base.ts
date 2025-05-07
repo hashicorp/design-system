@@ -1,15 +1,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
 interface AccessibleRangeSliderArgs {
   min?: number;
   max?: number;
   step?: number;
-  value?: number;
-  onChange?: (
-    values: { value: number } | { startValue: number; endValue: number }
-  ) => void;
+  value: number;
+  onChange?: (value: number) => void;
 }
 
 interface AccessibleRangeSliderSignature {
@@ -18,14 +15,6 @@ interface AccessibleRangeSliderSignature {
 }
 
 export default class AccessibleRangeSlider extends Component<AccessibleRangeSliderSignature> {
-  @tracked _value: number;
-
-  constructor(owner: unknown, args: AccessibleRangeSliderArgs) {
-    super(owner, args);
-
-    this._value = args.value ?? 0;
-  }
-
   get min(): number {
     return this.args.min ?? 0;
   }
@@ -35,12 +24,15 @@ export default class AccessibleRangeSlider extends Component<AccessibleRangeSlid
   get step(): number {
     return this.args.step ?? 1;
   }
+  get value(): number {
+    return this.args.value ?? this.min;
+  }
 
   get classNames(): string {
     return 'hds-form-range-slider';
   }
   get inlineStyles(): Record<string, string> {
-    const percent = ((this._value - this.min) / (this.max - this.min)) * 100;
+    const percent = ((this.value - this.min) / (this.max - this.min)) * 100;
 
     return {
       '--progress': `${percent}%`,
@@ -59,7 +51,6 @@ export default class AccessibleRangeSlider extends Component<AccessibleRangeSlid
     const target = event.target as HTMLInputElement;
     const value = Number(target.value);
 
-    this._value = value;
-    this.args.onChange?.({ value });
+    this.args.onChange?.(value);
   }
 }
