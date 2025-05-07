@@ -34,7 +34,7 @@ export default class HdsAdvancedTableThMenu extends Component<HdsAdvancedTableTh
     const { column } = this.args ?? {};
 
     if (column) {
-      column.width = undefined;
+      column.restoreWidth();
     }
 
     callback?.();
