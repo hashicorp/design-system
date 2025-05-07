@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { hdsBreakpointsNames } from '@hashicorp/design-system-components/foundations/breakpoints';
+import { hdsBreakpointsNames } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 import ShwLabel from '../../shw/label';
 
