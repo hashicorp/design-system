@@ -26,7 +26,7 @@ This changelog corresponds with the v4.19 release.
 
 `SuperSelect::Multiple` - Multiple design improvements including:
 
-- Displaying a selected number showing in the trigger when not empty.
+- Displaying a selected number in the trigger when not empty.
 - Correcting truncation of tags to maintain the trigger height.
 
 `Select`, `TextInput`, `TextArea`, and `MaskedInput` - Fixed the overflow to not extend beyond the container or wrap, which mirrors the overflow behavior in the browser.
