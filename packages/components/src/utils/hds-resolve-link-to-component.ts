@@ -24,7 +24,7 @@ export function hdsResolveLinkToComponent(
     if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
       // @ts-expect-error: shape is unknown
       return importSync(
-        'ember-engines/components/link-to-external-component.js'
+        'ember-engines/components/link-to-external-component'
       ).default as LinkTo;
     } else {
       assert(
