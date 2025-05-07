@@ -12,13 +12,6 @@
 
 $mock-demo-breakpoints-ruler-bar-height: 4px;
 $mock-demo-breakpoints-ruler-mark-width: 2px;
-$mock-demo-breakpoints-ruler-marks-colors: (
-  sm: #f44336,
-  md: #ff9800,
-  lg: #ffc107,
-  xl: #4caf50,
-  xxl: #03a9f4,
-);
 
 .mock-demo-breakpoints-ruler {
   position: fixed;
@@ -62,7 +55,7 @@ $mock-demo-breakpoints-ruler-marks-colors: (
 @each $name, $size in $hds-breakpoints {
   .mock-demo-breakpoints-ruler__mark--#{$name} {
     left: $size;
-    color: map.get($mock-demo-breakpoints-ruler-marks-colors, $name);
+    color: map.get($mock-demo-breakpoints-colors, $name);
 
     &::before {
       $next: hds-get-breakpoint-next($name);
