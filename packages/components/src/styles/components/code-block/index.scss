@@ -149,10 +149,9 @@ $hds-code-block-code-footer-height: 48px;
     position: sticky; // prevent gradient from scrolling together with content
     bottom: -$hds-code-block-code-padding;
     display: block;
-    width: calc(100% + #{$hds-code-block-code-padding * 2});
     height: $hds-code-block-code-footer-height;
+    margin-bottom: -$hds-code-block-code-padding;
     background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
-    transform: translateX(-$hds-code-block-code-padding);
     content: "";
     pointer-events: none;
   }
@@ -179,7 +178,7 @@ $hds-code-block-code-footer-height: 48px;
   position: relative;
   display: block;
   margin: 0;
-  padding: $hds-code-block-code-padding;
+  padding: $hds-code-block-code-padding 0 $hds-code-block-code-padding $hds-code-block-code-padding;
   overflow: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
