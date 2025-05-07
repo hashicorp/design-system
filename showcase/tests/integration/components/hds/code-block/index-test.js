@@ -265,7 +265,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
 
     assert
       .dom('.hds-code-block')
-      .hasClass('hds-code-block--has-overlay-footer-expanded');
+      .hasClass('hds-code-block--is-expanded');
     assert
       .dom('.hds-code-block__code')
       .hasAttribute('style', 'max-height: none;');

@@ -158,7 +158,7 @@ $hds-code-block-code-footer-height: 48px;
   }
 }
 
-.hds-code-block--has-overlay-footer-expanded {
+.hds-code-block--is-expanded {
   .hds-code-block__code {
     // account for the footer at the bottom of the code block
     padding-bottom: $hds-code-block-code-footer-height;
