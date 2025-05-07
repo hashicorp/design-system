@@ -65,8 +65,12 @@
 
   {{#if this.isResizeSliderVisible}}
     <div class="hds-advanced-table__th-resize-slider">
-      {{@column.numericalWidth}}
+      <Hds::Form::Label @controlId="{{this._labelId}}-resize-slider">
+        {{@column.label}}
+        column width
+      </Hds::Form::Label>
       <Hds::Form::RangeSlider::Base
+        id="{{this._labelId}}-resize-slider"
         @min={{@column.numericalMinWidth}}
         @max={{@column.numericalMaxWidth}}
         @value={{@column.numericalWidth}}
