@@ -14,9 +14,28 @@
 
 ### May 7th, 2025
 
-`AppHeader` and `AppSideNav` - Components added
+This changelog corresponds with the v4.19 release.
 
-`AdvancedTable` Templates - Multi-select column added
+`AppHeader` and `AppSideNav` - Components added.
+
+`AdvancedTable` Templates - Multi-select column added.
+
+`CodeBlock` - Added properties for hasHeightToggleButton and isExpanded.
+
+`CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
+
+`SuperSelect::Multiple` - Multiple design improvements including:
+
+- Displaying a selected number showing in the trigger when not empty.
+- Correcting truncation of tags to maintain the trigger height.
+
+`Select`, `TextInput`, `TextArea`, and `MaskedInput` - Fixed the overflow to not extend beyond the container or wrap, which mirrors the overflow behavior in the browser.
+
+`RadioCard` - Fixed a bug in the border setting.
+
+`Dropdown` - Radio and Checkbox list items updated to match font weight.
+
+`SideNav` - **Deprecated** the legacy component. Use the `AppHeader` and `AppSideNav` instead.
 
 ### April 24th, 2025
 
