@@ -30,6 +30,9 @@ export default class HdsAdvancedTableColumn {
   get numericalWidth(): number {
     return getNumericalWidth(this.width);
   }
+  set numericalWidth(value: number) {
+    this.width = `${value}px`;
+  }
 
   get numericalMinWidth(): number {
     return getNumericalWidth(this.minWidth);
@@ -47,9 +50,10 @@ export default class HdsAdvancedTableColumn {
     this.isSortable = args.isSortable;
     this.isVisuallyHidden = args.isVisuallyHidden;
     this.tooltip = args.tooltip;
+
     this.width = args.width;
-    this.minWidth = args.minWidth;
-    this.maxWidth = args.maxWidth;
+    this.minWidth = args.minWidth ?? `100px`; // default min width
+    this.maxWidth = args.maxWidth ?? `500px`; // default max width
 
     this.sortingFunction = args.sortingFunction;
   }

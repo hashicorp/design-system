@@ -133,6 +133,20 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       }
     }
 
+    .hds-advanced-table__th-resize-slider {
+      position: absolute;
+      right: 16px;
+      bottom: -8px;
+      left: 0;
+      z-index: 2;
+      width: 280px;
+      padding: 16px;
+      background-color: var(--token-color-surface-primary);
+      border: 1px solid var(--token-color-foreground-primary);
+      border-radius: var(--token-border-radius-medium);
+      transform: translateY(100%);
+    }
+
     // horizontal alignment
 
     .hds-advanced-table__th--align-center,

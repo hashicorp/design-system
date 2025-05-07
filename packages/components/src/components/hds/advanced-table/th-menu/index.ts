@@ -11,6 +11,7 @@ import { action } from '@ember/object';
 export interface HdsAdvancedTableThMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    onStartResize: () => void;
   };
   Blocks: {
     default?: [];
@@ -22,11 +23,20 @@ export default class HdsAdvancedTableThMenu extends Component<HdsAdvancedTableTh
   @tracked isResizing = false;
 
   @action
-  resetColumnWidth(): void {
+  enableResizing(callback: (() => void) | undefined): void {
+    this.args.onStartResize();
+
+    callback?.();
+  }
+
+  @action
+  resetColumnWidth(callback: (() => void) | undefined): void {
     const { column } = this.args ?? {};
 
     if (column) {
       column.width = undefined;
     }
+
+    callback?.();
   }
 }

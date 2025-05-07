@@ -1,17 +1,13 @@
 <div ...attributes>
   <Hds::Dropdown as |D|>
-    <D.ToggleIcon @text="column menu" @icon="menu" @size="small" />
+    <D.ToggleIcon @text="column menu" @icon="menu" @hasChevron={{false}} @size="small" />
     {{#if @column.isResizable}}
-      <D.Interactive @icon="maximize" {{on "click" (fn (mut this.isResizing) true)}}>
+      <D.Interactive @icon="maximize" {{on "click" (fn this.enableResizing D.close)}}>
         Resize column
       </D.Interactive>
-      <D.Interactive @icon="reload" {{on "click" this.resetColumnWidth}}>
+      <D.Interactive @icon="reload" {{on "click" (fn this.resetColumnWidth D.close)}}>
         Reset column width
       </D.Interactive>
     {{/if}}
-  </Hds::Dropdown> 
-
-  {{#if this.isResizing}}
-    Resizing
-  {{/if}}
+  </Hds::Dropdown>
 </div>
