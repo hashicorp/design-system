@@ -28,7 +28,6 @@ const plugins = [
   // "app" tree. Things in here should also be in publicEntrypoints above, but
   // not everything in publicEntrypoints necessarily needs to go here.
   addon.appReexports([
-    'foundations/**/!(*types).js',
     'components/**/!(*types).js',
     'helpers/**/*.js',
     'modifiers/**/*.js',
