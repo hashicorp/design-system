@@ -148,7 +148,9 @@ $hds-code-block-code-footer-height: 48px;
     // gradient element
     position: sticky; // prevent gradient from scrolling together with content
     bottom: -$hds-code-block-code-padding;
+    left: -$hds-code-block-code-padding;
     display: block;
+    width: calc($hds-code-block-code-padding + 100%);
     height: $hds-code-block-code-footer-height;
     margin-bottom: -$hds-code-block-code-padding;
     background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
@@ -189,6 +191,11 @@ $hds-code-block-code-footer-height: 48px;
   ::selection {
     color: var(--hds-code-block-color-foreground-selection);
     background-color: var(--hds-code-block-color-surface-selection);
+  }
+
+  code {
+    display: inline-block;
+    padding-right: $hds-code-block-code-padding;
   }
 }
 
@@ -287,6 +294,13 @@ $hds-code-block-code-footer-height: 48px;
           text-align: right;
           content: counter(linenumber);
         }
+      }
+    }
+
+    &.hds-code-block--has-overlay-footer {
+      .hds-code-block__code::after {
+        left: calc(-#{$hds-code-block-line-numbers-width} - #{$hds-code-block-code-padding});
+        width: calc(100% + #{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
       }
     }
   }
