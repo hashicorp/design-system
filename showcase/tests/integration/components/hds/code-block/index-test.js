@@ -263,9 +263,7 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
 
     await click('.hds-code-block__height-toggle-button');
 
-    assert
-      .dom('.hds-code-block')
-      .hasClass('hds-code-block--is-expanded');
+    assert.dom('.hds-code-block').hasClass('hds-code-block--is-expanded');
     assert
       .dom('.hds-code-block__code')
       .hasAttribute('style', 'max-height: none;');
