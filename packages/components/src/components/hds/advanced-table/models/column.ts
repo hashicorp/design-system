@@ -2,6 +2,7 @@ import { tracked } from '@glimmer/tracking';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
+import { assert } from '@ember/debug';
 
 function getNumericalWidth(width: string | undefined): number {
   if (width === undefined) {
@@ -13,11 +14,12 @@ function getNumericalWidth(width: string | undefined): number {
 }
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
+  @tracked _isResizable: boolean = false;
+
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked key?: string = undefined;
   @tracked isExpandable?: boolean = false;
   @tracked isReorderable?: boolean = false;
-  @tracked isResizable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked tooltip?: string = undefined;
@@ -26,6 +28,16 @@ export default class HdsAdvancedTableColumn {
   @tracked maxWidth?: string = undefined; // css width like `100px`
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
+
+  get isResizable(): boolean | undefined {
+    if (!this._isResizable) {
+      return false;
+    }
+
+    assert('width must be set to use isResizable', this.width !== undefined);
+
+    return this._isResizable;
+  }
 
   get numericalWidth(): number {
     return getNumericalWidth(this.width);
@@ -46,7 +58,7 @@ export default class HdsAdvancedTableColumn {
     this.label = args.label;
     this.align = args.align;
     this.key = args.key;
-    this.isResizable = args.isResizable;
+    this._isResizable = args.isResizable ?? false;
     this.isSortable = args.isSortable;
     this.isVisuallyHidden = args.isVisuallyHidden;
     this.tooltip = args.tooltip;
