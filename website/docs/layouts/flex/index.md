@@ -1,15 +1,21 @@
 ---
-title: Layout::Flex
+title: 'Layout::Flex'
 description: A component used to implement layouts based on CSS flex.
-caption: A layout-only component for the organization of content based on the CSS Flexbox model.
+caption: >-
+  A layout-only component for the organization of content based on the CSS
+  Flexbox model.
 links:
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/flex
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/layout/flex
 previewImage: assets/illustrations/layouts/flex.jpg
 navigation:
-  keywords: ['layout', 'flex', 'flexbox', 'spacing', 'grid']
-  label: "Flex"
-status:
-  added: 4.18.1
+  keywords:
+    - layout
+    - flex
+    - flexbox
+    - spacing
+    - grid
+  label: Flex
 ---
 
 <section data-tab="Code">

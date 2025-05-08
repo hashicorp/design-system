@@ -1,3 +1,7 @@
+## 4.19.0
+
+Updated Radio and Checkbox list items font weight to match other
+
 ## 4.16.0
 
 Implemented `aria-controls` in `Dropdown::Toggle::Button` for a11y improvements with toggled content from `PopoverPrimitive`

@@ -1,3 +1,7 @@
+## 4.19.0
+
+Updated structure to prevent inheritance overrides for font styles
+
 ## 4.17.1
 
 Truncated any text that is longer than about 20 characters, and added a tooltip with the full text when truncation occurs

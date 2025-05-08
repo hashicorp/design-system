@@ -1,3 +1,9 @@
+## 4.19.0
+
+Fixed issue where conditionally disabling ability to dismiss the `Modal` breaks click outside to dismiss.
+
+Fixed issue with focus trap when modal is displayed inline.
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation

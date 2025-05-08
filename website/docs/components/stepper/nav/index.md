@@ -1,9 +1,9 @@
 ---
 title: Stepper Nav
 description: >-
-  Navigates users through a sequential flow allowing them to visually track progress.
-caption: >-
-  Navigates users through a sequential progress flow.
+  Navigates users through a sequential flow allowing them to visually track
+  progress.
+caption: Navigates users through a sequential progress flow.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72931-2356&t=ezD7qfSafYAlTSGy-1
@@ -22,8 +22,6 @@ navigation:
     - tracker
     - list
     - indicator
-status:
-  added: 4.18.1
 ---
 
 <section data-tab="Guidelines">

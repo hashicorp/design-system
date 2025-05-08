@@ -25,7 +25,7 @@ navigation:
     - syntax
     - highlight
 status:
-  updated: 4.18.1
+  updated: 4.19.0
 ---
 
 <section data-tab="Guidelines">
