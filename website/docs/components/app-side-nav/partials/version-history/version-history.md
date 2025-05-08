@@ -1,6 +1,6 @@
 ## 4.19.0
 
-Formally published the `AppSideNav` component. To be used in conjunction with the `AppFrame` and the `Sidenav` components.
+Formally published the `AppSideNav` component. To be used in conjunction with the `AppFrame` and the `AppHeader` components.
 
 ## 4.15.0
 
