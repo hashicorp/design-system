@@ -1,3 +1,7 @@
+## 4.19.0
+
+Updated the design to improve the experience when many items are selected.
+
 ## 4.16.0
 
 ### Updated
