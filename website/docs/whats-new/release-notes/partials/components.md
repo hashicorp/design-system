@@ -12,6 +12,84 @@
   </a>
 </p>
 
+## 4.19.0
+
+**Minor changes**
+
+[4.19.0 documentation](https://hds-website-4-19-0.vercel.app/)
+
+Use luxon 3.x
+
+<small class="doc-whats-new-changelog-metadata">[#2839](https://github.com/hashicorp/design-system/pull/2839) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+`CodeEditor` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+`SideNav` - Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
+<small class="doc-whats-new-changelog-metadata">[#2819](https://github.com/hashicorp/design-system/pull/2819)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Update ember-stargate to 0.5.0
+
+<small class="doc-whats-new-changelog-metadata">[#2840](https://github.com/hashicorp/design-system/pull/2840) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SideNav` - Deprecated the `SideNav` component. Use the `AppSideNav` component in combination with the `AppHeader` component as a replacement.
+
+<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppHeader` - Formally published the `AppHeader` component.
+
+<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppSideNav` - Formally published the `AppSideNav` component.
+
+<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`SuperSelect` - Updated the design to improve the experience when many items are selected.
+
+<small class="doc-whats-new-changelog-metadata">[#2824](https://github.com/hashicorp/design-system/pull/2824)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`Tag` - Updated structure to prevent inheritance overrides for font styles
+
+<small class="doc-whats-new-changelog-metadata">[#2835](https://github.com/hashicorp/design-system/pull/2835)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal` - Fixed issue where conditionally disabling ability to dismiss the `Modal` breaks click outside to dismiss.
+
+<small class="doc-whats-new-changelog-metadata">[#2846](https://github.com/hashicorp/design-system/pull/2846)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Dropdown` - Updated Radio and Checkbox list items font weight to match other list items.
+
+<small class="doc-whats-new-changelog-metadata">[#2854](https://github.com/hashicorp/design-system/pull/2854)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal` - Fixed issue with focus trap when modal is displayed inline.
+
+<small class="doc-whats-new-changelog-metadata">[#2834](https://github.com/hashicorp/design-system/pull/2834)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.18.2
 
 [4.18.2 documentation](https://hds-website-4-18-2.vercel.app/)
@@ -1371,14 +1449,6 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@5.1.0
-
-## 4.4.1
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.0.3
 
 
 ---

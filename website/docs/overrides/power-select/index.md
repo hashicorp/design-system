@@ -4,7 +4,10 @@ description: Style overrides for the ember-power-select addon.
 caption: Style overrides for the ember-power-select addon.
 previewImage: assets/illustrations/overrides/power-select.jpg
 navigation:
-  keywords: ['select', 'dropdown', 'menu']
+  keywords:
+    - select
+    - dropdown
+    - menu
 status:
   deprecated: 4.3.0
 ---

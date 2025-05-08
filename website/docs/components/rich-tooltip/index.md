@@ -20,8 +20,6 @@ navigation:
     - popover
     - popup
     - modal
-status:
-  updated: 4.18.1
 ---
 
 <section data-tab="Guidelines">

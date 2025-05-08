@@ -1,9 +1,7 @@
 ---
 title: Segmented Group
-description: >-
-  Combines one or more input fields and actions.
-caption: >-
-  Combines one or more input fields and actions.
+description: Combines one or more input fields and actions.
+caption: Combines one or more input fields and actions.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67406-110590&t=w8xQlWxzH7bwXLe2-1

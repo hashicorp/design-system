@@ -3,12 +3,21 @@ title: Standalone Link
 description: A link used in isolation and not as a part of surrounding body text.
 caption: A link used in isolation and not as a part of surrounding body text.
 links:
-  figma: https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-84416&t=w8xQlWxzH7bwXLe2-1
-  github: https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/link
-related: ['components/link/inline','components/button']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67421-84416&t=w8xQlWxzH7bwXLe2-1
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/link
+related:
+  - components/link/inline
+  - components/button
 previewImage: assets/illustrations/components/link/standalone.jpg
 navigation:
-  keywords: ['hyperlink', 'anchor', 'external link', 'text link', 'cta']
+  keywords:
+    - hyperlink
+    - anchor
+    - external link
+    - text link
+    - cta
 ---
 
 <section data-tab="Guidelines">

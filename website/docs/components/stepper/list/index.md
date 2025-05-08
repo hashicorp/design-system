@@ -1,9 +1,7 @@
 ---
 title: Stepper List
-description: >-
-  Lists sequential steps for a user to complete.
-caption: >-
-  Lists sequential steps for a user to complete.
+description: Lists sequential steps for a user to complete.
+caption: Lists sequential steps for a user to complete.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=75145-47407&t=ezD7qfSafYAlTSGy-1
@@ -23,8 +21,6 @@ navigation:
     - tracker
     - nav
     - indicator
-status:
-  added: 4.18.1
 ---
 
 <section data-tab="Guidelines">

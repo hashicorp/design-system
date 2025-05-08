@@ -1,3 +1,9 @@
+## 4.19.0
+
+Deprecated the `SideNav` component. Use the `AppSideNav` component in combination with the `AppHeader` component as a replacement.
+
+Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
 ## 4.18.1
 
 Conditionally set `aria-labelledby` attribute for toggle button based on if `@ariaLabel` argument is provided.

@@ -1,3 +1,7 @@
+## 4.19.0
+
+Updated focus ring colors in interactive elements to fix a11y color contrast issues
+
 ## 4.18.1
 
 Added `onCopy` argument which accepts a callback function that will be invoked when the "copy" action succeeds.
