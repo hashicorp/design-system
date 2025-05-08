@@ -4,6 +4,8 @@
 
 ### Minor Changes
 
+[4.19.0 documentation](https://hds-website-4-19-0.vercel.app/)
+
 Use luxon 3.x
 
 <small class="doc-whats-new-changelog-metadata">[#2839](https://github.com/hashicorp/design-system/pull/2839) - Thanks [@RobbieTheWagner](https://github.com/RobbieTheWagner) for the contribution! 🙏</small>
