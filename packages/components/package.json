@@ -120,13 +120,7 @@
     "webpack": "^5.97.1"
   },
   "peerDependencies": {
-    "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0",
-    "ember-engines": ">= 0.11.0"
-  },
-  "peerDependenciesMeta": {
-    "ember-engines": {
-      "optional": true
-    }
+    "ember-source": "^3.28.0 || ^4.0.0 || ^5.3.0"
   },
   "ember": {
     "edition": "octane"
