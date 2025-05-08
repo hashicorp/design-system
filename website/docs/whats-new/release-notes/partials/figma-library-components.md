@@ -18,7 +18,7 @@ This changelog corresponds with the [4.19](/whats-new/release-notes#4190) releas
 
 `AppHeader` and `AppSideNav` - Components added.
 
-`AdvancedTable` Templates - Multi-select column added.
+`AdvancedTable` [Template] - Multi-select column added.
 
 `CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
 
