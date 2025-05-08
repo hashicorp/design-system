@@ -2,7 +2,7 @@
 title: Breakpoints
 caption: Standardized breakpoints for different device widths.
 description: Standardized breakpoints for different device widths.
-previewImage: assets/illustrations/foundations/focus-ring.jpg
+previewImage: assets/illustrations/foundations/breakpoints.jpg
 ---
 
 <section data-tab="Guidelines">
