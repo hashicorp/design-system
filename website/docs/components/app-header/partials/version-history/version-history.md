@@ -1,6 +1,6 @@
 ## 4.19.0
 
-Formally published the `AppHeader` component. To be used in conjunction with the `AppFrame` and the `Sidenav` components.
+Formally published the `AppHeader` component. To be used in conjunction with the `AppFrame` and the `AppSideNav` components.
 
 ## 4.15.0
 
