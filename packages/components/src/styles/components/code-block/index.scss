@@ -320,7 +320,7 @@ $hds-code-block-code-footer-height: 48px;
     left: 0;
     display: block;
     height: $hds-code-block-code-footer-height;
-    margin: 0 0 -$hds-code-block-code-padding -1000px;
+    margin: 0 0 -#{$hds-code-block-code-padding} -1000px;
     background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
     content: "";
     pointer-events: none;
