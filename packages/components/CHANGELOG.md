@@ -34,6 +34,18 @@ Update ember-stargate to 0.5.0
 
 <div class="doc-whats-new-changelog-separator"></div>
 
+`AppHeader` - Formally published the `AppHeader` component.
+
+<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppSideNav` - Formally published the `AppSideNav` component.
+
+<small class="doc-whats-new-changelog-metadata">[#2837](https://github.com/hashicorp/design-system/pull/2837)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 `SuperSelect` - Updated the design to improve the experience when many items are selected.
 
 <small class="doc-whats-new-changelog-metadata">[#2824](https://github.com/hashicorp/design-system/pull/2824)</small>

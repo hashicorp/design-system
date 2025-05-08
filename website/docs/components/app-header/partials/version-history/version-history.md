@@ -1,3 +1,7 @@
+## 4.19.0
+
+Formally published the `AppHeader` component. To be used in conjunction with the `AppFrame` and the `Sidenav` components.
+
 ## 4.15.0
 
 Aligned private class properties to follow a standardized notation
@@ -18,7 +22,7 @@ Fixed issue with mobile menu to prevent tabbing to hidden content and hiding it 
 
 ## 4.8.0
 
-Added the `AppHeader` component and its sub-components, to be used in conjunction with the `AppFrame` and the `Sidenav` components.
+Added the `AppHeader` component and its sub-components, but did not publish them for public use.
 
 Also added the following design tokens:
 
