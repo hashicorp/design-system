@@ -20,8 +20,6 @@ This changelog corresponds with the v4.19 release.
 
 `AdvancedTable` Templates - Multi-select column added.
 
-`CodeBlock` - Added properties for hasHeightToggleButton and isExpanded.
-
 `CodeBlock`, `CodeEditor`, `SideNav` - Updated styling for the focus ring.
 
 `SuperSelect::Multiple` - Multiple design improvements including:
