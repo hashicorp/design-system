@@ -54,8 +54,7 @@ Update ember-stargate to 0.5.0
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Dropdown` - Updated Radio and Checkbox list items font weight to match other
-list items.
+`Dropdown` - Updated Radio and Checkbox list items font weight to match other list items.
 
 <small class="doc-whats-new-changelog-metadata">[#2854](https://github.com/hashicorp/design-system/pull/2854)</small>
 

@@ -1,6 +1,6 @@
 ## 4.19.0
 
-Updated Radio and Checkbox list items font weight to match other
+Updated Radio and Checkbox list items font weight to match other list items.
 
 ## 4.16.0
 
