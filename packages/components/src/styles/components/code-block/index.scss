@@ -126,59 +126,11 @@ $hds-code-block-code-footer-height: 48px;
   border-radius: inherit;
 }
 
-.hds-code-block__overlay-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px $hds-code-block-code-padding 10px $hds-code-block-code-padding;
-  pointer-events: none; // fix issue with scrolling when hovering over the footer
-
-  // re-enable pointer events for the button (or any content inside the footer)
-  > * {
-    pointer-events: auto;
-  }
-}
-
-.hds-code-block--has-overlay-footer {
-  .hds-code-block__code::after {
-    // gradient element
-    position: sticky; // prevent gradient from scrolling together with content
-    bottom: -$hds-code-block-code-padding;
-    left: 0;
-    display: block;
-    height: $hds-code-block-code-footer-height;
-    margin-bottom: -$hds-code-block-code-padding;
-    background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
-    transform: scaleX(1.3); // make gradient cover entire width of code block as container scrolls horizontally
-    content: "";
-    pointer-events: none;
-  }
-}
-
-.hds-code-block--is-expanded {
-  .hds-code-block__code {
-    // account for the footer at the bottom of the code block
-    padding-bottom: $hds-code-block-code-footer-height;
-
-    &::after {
-      content: none;
-    }
-  }
-
-  .hds-code-block__overlay-footer {
-    background: none;
-  }
-}
-
 // Code
 .hds-code-block__code {
   @include hds-focus-ring-basic();
   position: relative;
-  display: block;
+  display: grid;
   margin: 0;
   padding: $hds-code-block-code-padding 0 $hds-code-block-code-padding $hds-code-block-code-padding;
   overflow: auto;
@@ -256,6 +208,7 @@ $hds-code-block-code-footer-height: 48px;
   }
 }
 
+// Prism.js plugins
 .hds-code-block {
   // LineNumbers plugin styles ---------------
   // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
@@ -338,5 +291,62 @@ $hds-code-block-code-footer-height: 48px;
 
   .token.italic {
     font-style: italic;
+  }
+}
+
+// Footer
+.hds-code-block__overlay-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px $hds-code-block-code-padding 10px $hds-code-block-code-padding;
+  pointer-events: none; // fix issue with scrolling when hovering over the footer
+
+  // re-enable pointer events for the button (or any content inside the footer)
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.hds-code-block--has-overlay-footer {
+  .hds-code-block__code::after {
+    // gradient element
+    position: sticky; // prevent gradient from scrolling together with content
+    bottom: -$hds-code-block-code-padding;
+    left: 0;
+    display: block;
+    height: $hds-code-block-code-footer-height;
+    margin: 0 0 -$hds-code-block-code-padding -1000px;
+    background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .line-numbers .line-numbers-rows {
+    padding-bottom: $hds-code-block-code-footer-height;
+  }
+
+  .line-numbers-rows {
+    z-index: 1;
+    isolation: isolate;
+  }
+}
+
+.hds-code-block--is-expanded {
+  .hds-code-block__code {
+    // account for the footer at the bottom of the code block
+    padding-bottom: $hds-code-block-code-footer-height;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .hds-code-block__overlay-footer {
+    background: none;
   }
 }
