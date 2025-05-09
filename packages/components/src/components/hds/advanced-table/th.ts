@@ -59,7 +59,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
 
-  @tracked isResizeSliderVisible = false;
+  @tracked isResizeSliderVisible: boolean = false;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -139,15 +139,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action
   closeResizeSlider(): void {
     this.isResizeSliderVisible = false;
-  }
-
-  @action
-  resizeColumn(size: number): void {
-    const { column } = this.args;
-
-    if (column) {
-      column.numericalWidth = size;
-    }
   }
 
   @action onFocusTrapDeactivate(): void {

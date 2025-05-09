@@ -26,7 +26,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   @tracked resizing: { startX: number; startW: number } | null = null;
 
   private _resize(event: PointerEvent): void {
-    const { column } = this.args ?? {};
+    const { column } = this.args;
 
     if (this.resizing === null || column === undefined) {
       return;
@@ -34,27 +34,21 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const { startX, startW } = this.resizing;
 
-    const newW = Math.max(startW + (event.clientX - startX), 50);
+    const deltaX = event.clientX - startX;
+    const newW = startW + deltaX;
 
-    column.width = `${newW}px`;
+    console.log('newW', newW);
+
+    column.setNumericalWidth(newW);
   }
 
   @action
   startResize(event: PointerEvent): void {
     event.preventDefault();
 
-    const target = event.target as HTMLDivElement;
-    const parent = target.parentElement as HTMLDivElement;
-    const parentWidth = parent.clientWidth;
+    const { column } = this.args;
 
-    const { column } = this.args ?? {};
-
-    column.width = column.width ?? `${parentWidth}px`;
-
-    // width is in px like `100px`
-    const numericalWidth = parseInt(column.width, 10);
-
-    this.resizing = { startX: event.clientX, startW: numericalWidth };
+    this.resizing = { startX: event.clientX, startW: column.numericalWidth };
 
     window.addEventListener('pointermove', this._resize.bind(this));
     window.addEventListener('pointerup', this._stopResize.bind(this));
