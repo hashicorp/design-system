@@ -20,14 +20,6 @@ function getCssUnit(cssString?: string): CssSizeUnit | undefined {
   }
 }
 
-function getNumericalWidth(width?: CssSize, defaultWidth?: number): number {
-  if (width === undefined) {
-    return defaultWidth ?? 0;
-  }
-
-  // width is a css string
-  return parseInt(width, 10);
-}
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked _isResizable: boolean = false;
@@ -47,6 +39,8 @@ export default class HdsAdvancedTableColumn {
 
   private _originalWidth?: CssSize = undefined;
   private _cssWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
+  private _cssMinWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
+  private _cssMaxWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
 
   table: HdsAdvancedTableTableModel;
 
@@ -60,22 +54,10 @@ export default class HdsAdvancedTableColumn {
     return this._isResizable;
   }
 
-  get pixelWidth(): number | undefined {
-    const numericalWidth = getNumericalWidth(this.width);
-
-    if (this._cssWidthUnit === CssSizeUnitValues.Px) {
-      return numericalWidth;
-    }
-
-    if (this._cssWidthUnit === CssSizeUnitValues.Percent) {
-      return 0;
-    }
+  get pixelWidth(): number {
+    return this._getPixelWidth(this.width) ?? 0;
   }
-
-  get numericalWidth(): number {
-    return getNumericalWidth(this.width);
-  }
-  set numericalWidth(value: number) {
+  set pixelWidth(value: number) {
     if (this._cssWidthUnit === CssSizeUnitValues.Px) {
       this.width = `${value}${CssSizeUnitValues.Px}`;
 
@@ -97,12 +79,12 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
-  get numericalMinWidth(): number {
-    return getNumericalWidth(this.minWidth);
+  get pixelMinWidth(): number {
+    return this._getPixelWidth(this.minWidth) ?? 0;
   }
 
-  get numericalMaxWidth(): number {
-    return getNumericalWidth(this.maxWidth);
+  get pixelMaxWidth(): number {
+    return this._getPixelWidth(this.maxWidth) ?? 0;
   }
 
   constructor(
@@ -120,31 +102,53 @@ export default class HdsAdvancedTableColumn {
 
     this.sortingFunction = args.sortingFunction;
 
-    this.setWidthValues(args);
+    this._setWidthValues(args);
   }
 
-  setWidthValues({
+  private _getPixelWidth(width?: CssSize): number | undefined {
+    if (width === undefined) {
+      return;
+    }
+
+    const cssUnit = getCssUnit(width);
+    const numericalWidth = parseInt(width, 10);
+
+    if (cssUnit === CssSizeUnitValues.Px) {
+      return numericalWidth;
+    }
+
+    if (cssUnit === CssSizeUnitValues.Percent) {
+      const tableWidth = this.table.pixelWidth;
+
+      return (numericalWidth / 100) * tableWidth;
+    }
+  }
+
+  private _setWidthValues({
     width,
     minWidth,
     maxWidth,
   }: HdsAdvancedTableColumnType): void {
+    if (width === undefined) {
+      return;
+    }
+
     this.width = width;
-    // set default minWidth and maxWidth if width is set
-    this.minWidth = (minWidth ?? this.width !== undefined) ? '50px' : undefined;
-    this.maxWidth =
-      (maxWidth ?? this.width !== undefined) ? '800px' : undefined;
 
     // capture the width at the time of instantiation so it can be restored
     this._originalWidth = width;
+
+    this.minWidth = minWidth ?? '50px';
+    this.maxWidth = maxWidth ?? '800px';
 
     this._cssWidthUnit = getCssUnit(this.width);
   }
 
   @action
-  setNumericalWidth(newNumericalWidth: number): void {
-    this.numericalWidth = Math.min(
-      Math.max(newNumericalWidth, this.numericalMinWidth),
-      this.numericalMaxWidth
+  setPixelWidth(newPixelWidth: number): void {
+    this.pixelWidth = Math.min(
+      Math.max(newPixelWidth, this.pixelMinWidth),
+      this.pixelMaxWidth
     );
   }
 
