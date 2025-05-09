@@ -22,6 +22,7 @@ export interface HdsAdvancedTableTdSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     rowspan?: number;
+    columnKey?: string;
     colspan?: number;
   };
   Blocks: {

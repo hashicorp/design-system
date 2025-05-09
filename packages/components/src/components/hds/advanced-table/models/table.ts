@@ -6,13 +6,18 @@
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 
+import HdsAdvancedTableColumn from './column.ts';
+
 import type {
+  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
 } from '../types';
+import { tracked } from '@glimmer/tracking';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
+  columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
 }
 
@@ -33,14 +38,17 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
+  @tracked columns: HdsAdvancedTableColumn[] = [];
+
+  @tracked pixelWidth: number = 0;
+
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey } = args;
+    const { model, columns, childrenKey } = args;
 
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
+    this._setupColumns({ columns });
+    this._setupRows({ model, columns, childrenKey });
   }
 
   get totalRowCount(): number {
@@ -69,6 +77,24 @@ export default class HdsAdvancedTableTableModel {
     } else {
       return false;
     }
+  }
+
+  private _setupColumns({
+    columns,
+  }: Pick<HdsAdvancedTableTableArgs, 'columns'>) {
+    this.columns = columns.map((column) => {
+      return new HdsAdvancedTableColumn({ ...column, table: this });
+    });
+  }
+
+  private _setupRows({
+    model,
+    columns,
+    childrenKey,
+  }: Pick<HdsAdvancedTableTableArgs, 'model' | 'columns' | 'childrenKey'>) {
+    this.rows = model.map((row) => {
+      return new HdsAdvancedTableRow({ ...row, childrenKey, columns });
+    });
   }
 
   @action

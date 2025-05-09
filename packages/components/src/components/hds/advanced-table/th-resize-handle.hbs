@@ -1,0 +1,14 @@
+<div
+  class="hds-advanced-table__th-resize-handle"
+  draggable="false"
+  role="separator"
+  aria-orientation="vertical"
+  aria-valuenow={{@column.pixelWidth}}
+  aria-valuemin={{@column.pixelMinWidth}}
+  aria-valuemax={{@column.pixelMaxWidth}}
+  tabindex="0"
+  aria-label="Resize {{@column.label}} column"
+  {{on "pointerdown" this.startResize}}
+  {{style height=this.height}}
+  ...attributes
+/>
