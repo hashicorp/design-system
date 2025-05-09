@@ -12,9 +12,9 @@ import type { ArgsFor, PositionalArgs } from 'ember-modifier';
 
 export interface HdsOnClickOutsideSignature {
   Args: {
-    Positional: [() => unknown];
+    Positional: [() => void];
   };
-  Element: HTMLDivElement;
+  Element: HTMLElement;
 }
 
 export default class HdsOnClickOutsideModifier extends Modifier<HdsOnClickOutsideSignature> {
@@ -31,7 +31,7 @@ export default class HdsOnClickOutsideModifier extends Modifier<HdsOnClickOutsid
   }
 
   modify(
-    element: HTMLDivElement,
+    element: HTMLElement,
     positional: PositionalArgs<HdsOnClickOutsideSignature>
   ): void {
     const [callback] = positional;
