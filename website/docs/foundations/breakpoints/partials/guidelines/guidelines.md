@@ -1,12 +1,12 @@
 ## Breakpoints
 
-Breakpoints are the foundational blocks to responsive design. They are defined as the viewport widths/heights where page layouts adjust for varied screen size experiences. While both horizontal and vertical breakpoints can be used in responsive design, the standardization of these values will only be focused on the widths. 
+Breakpoints are the foundational building blocks for responsive design and define the viewport widths where the page layout adjusts and/or changes for varied screen sizes and devices.
 
-These values are then used to create utilities and components to help standardize the re-adjusting of UI at different standardized screen sizes.
+These values are then used to create utilities and helper components to standardize changes of the UI at different viewport sizes.
 
 ### The ranges
 
-There are five defined breakpoints and they are: `sm`, `md`, `lg`, `xl`, and `xxl`.
+Helios defines five breakpoints: `sm`, `md`, `lg`, `xl`, and `xxl`.
 
 | Name   | Value        | Application                   |
 | ------ | ------------ | ----------------------------- |
@@ -16,27 +16,27 @@ There are five defined breakpoints and they are: `sm`, `md`, `lg`, `xl`, and `xx
 | xl     | 1440px       | 1440 → 1919                   |
 | xxl    | 1920px       | 1920 and up                   |
 
-When a breakpoint name is mentioned, it isn't only referencing the exact starting pixel value, instead, it is for the range of its application. This helps simplify language around what these ranges mean when designing. Implemention of these breakpoints has more flexibility and can be explored further in the Code tab.
+The breakpoint name refers to a range of pixel values, not just the starting value. For example, the `sm` breakpoint refers to widths between 480px and 767px. This helps simplify the language around what these ranges mean when designing, and increases the flexibility in implementation.
 
 ### Working with custom values
 
-The ranges provided are to create a cohesive *starting* experience. Although, in some rare circumstances a custom value may be needed to accomodate for specific use-cases that these values do not cover. For example: a team has learned that users with 2500px viewports started using a specific product, and require a nuanced approach in displaying the UI at that screen size. In cases like this, a value may be added on top of the established values to provide additional nuance to that experience.
+The provided breakpoints serve as a cohesive _starting_ point for design. However, custom values may be necessary for specific use cases that these breakpoints do not cover. For example, if a team discovers that users with 2500px viewports are using a product, a nuanced approach to the UI at that screen size may be required. In such cases, an additional value can be added to enhance the user experience.
 
 !!! info
 
-If a custom value already exists that is relatively close to an established range, it is recommended that it be migrated to the nearest standard breakpoint. This way, experiences become consistent and predictable for the user as they work within (and across) the HashiCorp product suite.
+If a custom value already exists that is relatively close to an established breakpoint, it is recommended that it be migrated to the nearest standard breakpoint. This creates a consistent and predictable experience for the user as they work within (and across) the HashiCorp product suite.
 
 !!!
 
 
 ## Designing with purpose
 
-Not all designs require redesigning at each of these breakpoints. Only when designs are considered complicated and/or constrained by UI placement should a designer take the time to show how they change as the viewport decreases in size. 
+Not all designs require redesigning at each breakpoint. Only when designs are considered complicated and/or constrained by UI elements should a designer take the time to show how they change as the viewport changes in size. 
 
-An example of this would be that a table-centered experience may not require additional UI adjustment at the `lg`, `xl`, and `xxl` breakpoints. The expectated beahvior for the table is to maintain its full width regardless of the breakpoint value, and that a design isn't required to elaborate this standard behavior.
+For example, a UI featuring a table layout may not require changes for each breakpoint because the expected behavior is for the table to maintain its full width regardless of the breakpoint value. A design isn't necessary to elaborate this standard behavior.
 
 ![Wireframed table shown expanding in size.](/assets/foundations/breakpoints/breakpoints-table-example.png)
 
-An example of a UI changing over varied screen sizes would be a landing page where cards are aligned and styled in an asymetric manner. As the screen size decreases, the cards not only shift, but the content within them does as well. This would be considered a complicated UI that requires more naunced designing at all breakpoints. In a scenario like this, designers would be expected to elaborate how this experience is adjusted in the `sm`, `md` and `lg` (if not more) screens.
+Redesigning across multiple breakpoints is often necessary for complex UIs, such as a landing page with cards arranged in a grid. As the viewport size decreases, both the position and content of the cards change, requiring nuanced designs across breakpoints. In such scenarios, designers should specify how the layout adjusts at the `sm`, `md`, and `lg` views.
 
 ![Three varied screen sizes of large, medium and small. In large, there are four rows of cards, the first with one, the second with two, the third with three and the fourth with four. In medium, the first and third rows have one card while the second and fourth have two. The small, there is only one card in each row.](/assets/foundations/breakpoints/breakpoints-card-designs-shfting.png)

@@ -1,1 +1,0 @@
-Different defined widths that help standardize responsive experiences across the HashiCorp product suite.
