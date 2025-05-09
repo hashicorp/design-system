@@ -519,95 +519,93 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
   }
 
   <template>
-    <div class="mock-app-main-generic-advanced-table-wrapper">
-      <HdsAdvancedTable
-        @columns={{this.demoColumns}}
-        @model={{this.demoModel}}
-        @hasStickyHeader={{true}}
-        @isSelectable={{true}}
-        @isStriped={{true}}
-        @onSelectionChange={{this.onSelectionChange}}
-        @hasStickyFirstColumn={{true}}
-      >
-        <:body as |B|>
-          {{! @glint-expect-error }}
-          <B.Tr @selectionKey={{get B.data "name"}}>
-            <B.Th>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "name"}}
-              </HdsLinkInline>
-            </B.Th>
-            <B.Td>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "project-name"}}
-              </HdsLinkInline>
-            </B.Td>
-            <B.Td>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "current-run-id"}}
-              </HdsLinkInline>
-            </B.Td>
-            <B.Td>
-              <HdsBadge
-                @type="outlined"
-                {{! @glint-expect-error }}
-                @text={{get B.data "run-status"}}
-                {{! @glint-expect-error }}
-                @color={{get B.data "run-status-color"}}
-              />
-            </B.Td>
-            <B.Td>
+    <HdsAdvancedTable
+      @columns={{this.demoColumns}}
+      @model={{this.demoModel}}
+      @maxHeight="600px"
+      @isSelectable={{true}}
+      @isStriped={{true}}
+      @onSelectionChange={{this.onSelectionChange}}
+      @hasStickyFirstColumn={{true}}
+    >
+      <:body as |B|>
+        {{! @glint-expect-error }}
+        <B.Tr @selectionKey={{get B.data "name"}}>
+          <B.Th>
+            <HdsLinkInline @href="www.google.com">
               {{! @glint-expect-error }}
-              {{get B.data "current-run-applied"}}
-            </B.Td>
-            <B.Td>
+              {{get B.data "name"}}
+            </HdsLinkInline>
+          </B.Th>
+          <B.Td>
+            <HdsLinkInline @href="www.google.com">
               {{! @glint-expect-error }}
-              {{get B.data "vcs-repo"}}
-            </B.Td>
-            <B.Td>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "module-count"}}
-              </HdsLinkInline>
-            </B.Td>
-            <B.Td>
+              {{get B.data "project-name"}}
+            </HdsLinkInline>
+          </B.Td>
+          <B.Td>
+            <HdsLinkInline @href="www.google.com">
               {{! @glint-expect-error }}
-              {{get B.data "modules"}}
-            </B.Td>
-            <B.Td>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "provider-count"}}
-              </HdsLinkInline>
-            </B.Td>
-            <B.Td>
+              {{get B.data "current-run-id"}}
+            </HdsLinkInline>
+          </B.Td>
+          <B.Td>
+            <HdsBadge
+              @type="outlined"
               {{! @glint-expect-error }}
-              {{get B.data "providers"}}
-            </B.Td>
-            <B.Td>
+              @text={{get B.data "run-status"}}
               {{! @glint-expect-error }}
-              {{get B.data "terraform-version"}}
-            </B.Td>
-            <B.Td>
-              <HdsLinkInline @href="www.google.com">
-                {{! @glint-expect-error }}
-                {{get B.data "state-terraform-version"}}
-              </HdsLinkInline>
-            </B.Td>
-            <B.Td>
+              @color={{get B.data "run-status-color"}}
+            />
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "current-run-applied"}}
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "vcs-repo"}}
+          </B.Td>
+          <B.Td>
+            <HdsLinkInline @href="www.google.com">
               {{! @glint-expect-error }}
-              {{get B.data "created"}}
-            </B.Td>
-            <B.Td>
+              {{get B.data "module-count"}}
+            </HdsLinkInline>
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "modules"}}
+          </B.Td>
+          <B.Td>
+            <HdsLinkInline @href="www.google.com">
               {{! @glint-expect-error }}
-              {{get B.data "updated"}}
-            </B.Td>
-          </B.Tr>
-        </:body>
-      </HdsAdvancedTable>
-    </div>
+              {{get B.data "provider-count"}}
+            </HdsLinkInline>
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "providers"}}
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "terraform-version"}}
+          </B.Td>
+          <B.Td>
+            <HdsLinkInline @href="www.google.com">
+              {{! @glint-expect-error }}
+              {{get B.data "state-terraform-version"}}
+            </HdsLinkInline>
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "created"}}
+          </B.Td>
+          <B.Td>
+            {{! @glint-expect-error }}
+            {{get B.data "updated"}}
+          </B.Td>
+        </B.Tr>
+      </:body>
+    </HdsAdvancedTable>
   </template>
 }
