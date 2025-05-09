@@ -18,19 +18,21 @@ Helios defines five breakpoints: `sm`, `md`, `lg`, `xl`, and `xxl`.
 
 The breakpoint name refers to a range of pixel values, not just the starting value. For example, the `sm` breakpoint refers to widths between 480px and 767px. This helps simplify the language around what these ranges mean when designing and increases the flexibility in implementation.
 
-### Working with custom values
+_Note: the range 0-479px is intentionally left without a name: from a design perspective, we don't expect designers to produce mockups for such small screen sizes; from a development perspective, in a mobile-first approach that range can be covered using default styles (overwritten via media queries for subsequent ranges)._
 
-The provided breakpoints serve as a cohesive _starting_ point for design. However, custom values may be necessary for specific use cases that these breakpoints do not cover. For example, if a team discovers that users with 2500px viewports are using a product, a nuanced approach to the UI at that screen size may be required. In such cases, an additional value can be added to enhance the user experience.
+### Custom values
 
-!!! info
+The provided breakpoints serve as a cohesive _starting_ point for design, which is why templates have been provided in our [Patterns library](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&node-id=71-11371&t=OvSfKLEJhHntQQZA-1) for this purpose. However, custom values may be necessary for specific use cases that these breakpoints do not cover. For example, if a team discovers that users with 2500px viewports are using a product, a nuanced approach to the UI at that screen size may be required. In such cases, an additional value can be added to enhance the user experience.
 
-If a custom value already exists that is relatively close to an established breakpoint, it is recommended that it be migrated to the nearest standard breakpoint. This creates a consistent and predictable experience for the user as they work within (and across) the HashiCorp product suite.
+!!! insight
+
+If a custom value already exists that is relatively close to an established breakpoint, we recommend migrating it to the nearest standard breakpoint. This creates a consistent and predictable experience for the user as they work within (and across) the HashiCorp product suite.
 
 !!!
 
 ## Designing with purpose
 
-Not all designs require redesigning at each breakpoint. Only when designs are considered complicated and/or constrained by UI elements should a designer take the time to show how they change as the viewport changes in size. 
+Not all designs require redesigning at each breakpoint. Only when designs are considered complicated and/or constrained by UI elements should a designer take the time to show how they change as the viewport changes in size.
 
 For example, a UI featuring a table layout may not require changes for each breakpoint because the expected behavior is for the table to maintain its full width regardless of the breakpoint value. A design isn't necessary to elaborate this standard behavior.
 
@@ -39,3 +41,7 @@ For example, a UI featuring a table layout may not require changes for each brea
 Redesigning across multiple breakpoints is often necessary for complex UIs, such as a landing page with cards arranged in a grid. As the viewport size decreases, both the position and content of the cards change, requiring nuanced designs across breakpoints. In such scenarios, designers should specify how the layout adjusts at the `sm`, `md`, and `lg` views.
 
 ![Diagram depicting "large", "medium", and "small" screen sizes displaying a varying number of columns in rows of content blocks.](/assets/foundations/breakpoints/breakpoints-card-designs-shfting.png)
+
+### Responsiveness in Helios
+
+Helios has responsive behavior built into some components in the system to allow for reducing screen sizes. These components include, but are not limited to, [SideNav](/components/side-nav) (lg), [Stepper Nav](/components/stepper/nav) (md) and [Pagination](/components/stepper/pagination) (lg). Knowing these details helps designers incorporate these behaviors seemlessly into their designs and creates cohesion between the system and product experiences.
