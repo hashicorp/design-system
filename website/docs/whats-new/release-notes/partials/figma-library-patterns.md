@@ -12,6 +12,12 @@
 </p>
 
 
+### May 9th, 2025
+
+This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.
+
+`Application Template` - Updated to use the Enterprise Navigation components; `AppHeader` and `AppSideNav`.
+
 ### December 20th, 2024
 
 Released HDS Patterns UI Kit v2.0.
