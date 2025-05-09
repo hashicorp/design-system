@@ -327,4 +327,21 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Text::H3>Special cases</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item as |SFI|>
+      <SFI.Label>With <code>true/false</code> as boolean values</SFI.Label>
+      <Hds::Form::Radio::Group @name="control-booleans" as |G|>
+        {{#let (array true false) as |bools|}}
+          {{#each bools as |bool|}}
+            <G.RadioField @id={{bool}} @value={{bool}} as |F|>
+              <F.Label>{{bool}}</F.Label>
+            </G.RadioField>
+          {{/each}}
+        {{/let}}
+      </Hds::Form::Radio::Group>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>

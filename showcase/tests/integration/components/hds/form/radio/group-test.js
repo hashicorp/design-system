@@ -141,6 +141,31 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       );
   });
 
+  test('it automatically provides all the ID relations between the elements when dynamically rendered using boolean values', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Radio::Group as |G|>
+            <G.RadioField @value={{true}} @id={{true}} as |F|>
+              <F.Label>This is the label for the 'true' value</F.Label>
+            </G.RadioField>
+            <G.RadioField @value={{false}} @id={{false}} as |F|>
+              <F.Label>This is the label for the 'false' value</F.Label>
+            </G.RadioField>
+          </Hds::Form::Radio::Group>`
+    );
+
+    const inputs = this.element.querySelectorAll('input[type="radio"]');
+    const labels = this.element.querySelectorAll('label');
+
+    // the `true` value should be used for the `id` (input) and `for` (label) attributes
+    assert.dom(inputs[0]).hasAttribute('id', 'true');
+    assert.dom(labels[0]).hasAttribute('for', 'true');
+
+    // the `false` value should not be used, but the `id` (input) attribute should be generated and the `for` (label) attribute should match it
+    const generatedId = inputs[1].id;
+    assert.true(generatedId.startsWith('ember'));
+    assert.dom(labels[1]).hasAttribute('for', generatedId);
+  });
+
   // NAME
 
   test('it renders the defined name on all controls within a group', async function (assert) {
