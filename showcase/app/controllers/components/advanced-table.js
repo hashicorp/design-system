@@ -364,7 +364,7 @@ export default class ComponentsTableController extends Controller {
       key: 'artist',
       label: 'Artist',
       tooltip: 'More information.',
-      width: '200px',
+      width: '20%',
       isResizable: true,
     },
     {
