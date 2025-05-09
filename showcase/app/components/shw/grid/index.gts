@@ -18,7 +18,7 @@ import type { ShwGridItemSignature } from './item';
 
 interface ShwGridSignature {
   Args: {
-    columns: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+    columns: number;
     forceMinWidth?: boolean;
     gap?: string;
     grow?: boolean;
@@ -40,6 +40,10 @@ export default class ShwGrid extends Component<ShwGridSignature> {
     const { columns } = this.args;
 
     assert('@columns for "Shw::Grid" must be defined', columns !== undefined);
+    assert(
+      '@columns for "Shw::Grid" must be a positive integer greater than zero',
+      columns > 0
+    );
 
     return columns;
   }
@@ -47,20 +51,12 @@ export default class ShwGrid extends Component<ShwGridSignature> {
   get itemsStyle(): SafeString | undefined {
     const styles = [];
     styles.push(`gap: ${this.args.gap ? this.args.gap : '1rem'}`);
+    styles.push(`--shw-grid-columns: ${this.columns}`);
     return styles.length > 0 ? htmlSafe(styles.join('; ')) : undefined;
   }
 
-  get classNames(): string {
-    const classes = ['shw-grid'];
-
-    // add a class based on the @columns argument
-    classes.push(`shw-grid--cols-${this.columns}`);
-
-    return classes.join(' ');
-  }
-
   <template>
-    <div class={{this.classNames}}>
+    <div class="shw-grid">
       {{#if @label}}
         <ShwLabel>{{@label}}</ShwLabel>
       {{/if}}

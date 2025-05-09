@@ -1,0 +1,57 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Breakpoints"}}
+
+<Shw::Text::H1>Breakpoints</Shw::Text::H1>
+
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't have snapshots them in Percy }}
+<section>
+
+  <Shw::Text::H3>Demo</Shw::Text::H3>
+
+  <Shw::Frame
+    @id="demo-viewport-breakpoints-visualization"
+    @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization"
+    @height="780"
+    @label="Breakpoints visualization"
+  />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Frame
+    @id="demo-viewport-breakpoints-visualization-with-ui-shell"
+    @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-visualization-with-ui-shell"
+    @height="780"
+    @label="Breakpoints visualization (with UI shell)"
+  />
+
+  <Shw::Divider />
+
+  <Shw::Frame
+    @id="demo-viewport-breakpoints-page-padding-sm"
+    @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
+    @width="400"
+    @height="120"
+    @label="Page padding / 'sm' breakpoint"
+  />
+
+  <Shw::Frame
+    @id="demo-viewport-breakpoints-page-padding-md"
+    @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
+    @width="800"
+    @height="120"
+    @label="Page padding / 'md' breakpoint"
+  />
+
+  <Shw::Frame
+    @id="demo-viewport-breakpoints-page-padding-lg"
+    @src="/foundations/breakpoints/frameless/demo-viewport-breakpoints-page-padding"
+    @width="1200"
+    @height="120"
+    @label="Page padding / 'lg' breakpoint"
+  />
+
+</section>

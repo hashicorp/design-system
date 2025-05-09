@@ -1,0 +1,31 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// from @hashicorp/design-system-components package
+@use "mixins/breakpoints" as *;
+
+.mock-demo-breakpoints-page-padding {
+  padding: 9px 6px;
+
+  @include hds-breakpoint-between('sm', 'md') {
+    padding: 15px 12px;
+  }
+
+  @include hds-breakpoint-between('md', 'lg') {
+    padding: 24px 24px;
+  }
+
+  @include hds-breakpoint-between('lg', 'xl') {
+    padding: 42px 48px;
+  }
+
+  @include hds-breakpoint-between('xl', 'xxl') {
+    padding: 72px 96px;
+  }
+
+  @include hds-breakpoint-above('xxl') {
+    padding: 96px 128px;
+  }
+}

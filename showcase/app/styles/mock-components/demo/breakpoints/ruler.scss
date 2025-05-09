@@ -1,0 +1,74 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+@use "sass:map";
+// from @hashicorp/design-system-components package
+@use "mixins/breakpoints" as *;
+@use "colors" as *;
+
+// RULER
+
+$mock-demo-breakpoints-ruler-bar-height: 4px;
+$mock-demo-breakpoints-ruler-mark-width: 2px;
+
+.mock-demo-breakpoints-ruler {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  height: 36px;
+  border-top: $mock-demo-breakpoints-ruler-bar-height solid #9e9e9e;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.mock-demo-breakpoints-ruler__mark {
+  position: absolute;
+  top: -$mock-demo-breakpoints-ruler-bar-height;
+  width: $mock-demo-breakpoints-ruler-mark-width;
+  height: ($mock-demo-breakpoints-ruler-bar-height + 8px);
+  background-color: currentColor;
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $mock-demo-breakpoints-ruler-bar-height;
+    background-color: currentColor;
+    content: "";
+  }
+
+  &::after {
+    position: absolute;
+    top: 12px;
+    left: calc($mock-demo-breakpoints-ruler-mark-width / 2);
+    width: 100px;
+    height: 16px;
+    text-align: center;
+    transform: translateX(-50%);
+  }
+}
+
+@each $name, $size in $hds-breakpoints {
+  .mock-demo-breakpoints-ruler__mark--#{$name} {
+    left: $size;
+    color: map.get($mock-demo-breakpoints-colors, $name);
+
+    &::before {
+      $next: hds-get-breakpoint-next($name);
+
+      @if $next {
+        width: calc(#{map.get($hds-breakpoints, $next)} - #{$size}  - 1px); // small visual separator
+      } @else {
+        width: 3000px;
+      }
+    }
+
+    &::after {
+      content: "#{$name} (#{$size})";
+    }
+  }
+}
