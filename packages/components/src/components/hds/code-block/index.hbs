@@ -12,7 +12,7 @@
     {{! content within pre tag is whitespace-sensitive; do not add new lines! }}
     <pre
       class="hds-code-block__code"
-      {{style maxHeight=@maxHeight}}
+      {{style maxHeight=this.maxHeight}}
       data-line={{@highlightLines}}
       data-start={{@lineNumberStart}}
       id={{this._preCodeId}}
@@ -30,4 +30,16 @@
       />
     {{/if}}
   </div>
+  {{#if this.showFooter}}
+    <div class="hds-code-block__overlay-footer">
+      <Hds::Button
+        class="hds-code-block__height-toggle-button"
+        @text={{if this._isExpanded "Show less code" "Show more code"}}
+        @color="secondary"
+        @icon={{if this._isExpanded "unfold-close" "unfold-open"}}
+        @size="small"
+        {{on "click" this.toggleExpanded}}
+      />
+    </div>
+  {{/if}}
 </div>
