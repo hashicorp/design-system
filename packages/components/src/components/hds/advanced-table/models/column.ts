@@ -22,38 +22,25 @@ function getCssUnit(cssString?: string): CssSizeUnit | undefined {
 
 export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
-  @tracked _isResizable: boolean = false;
-
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
-  @tracked key?: string = undefined;
   @tracked isExpandable?: boolean = false;
   @tracked isReorderable?: boolean = false;
+  @tracked isResizable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
-  @tracked tooltip?: string = undefined;
-  @tracked width?: CssSize = undefined;
+  @tracked key?: string = undefined;
   @tracked minWidth?: CssSize = undefined;
   @tracked maxWidth?: CssSize = undefined;
+  @tracked tooltip?: string = undefined;
+  @tracked width?: CssSize = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
-  private _originalWidth?: CssSize = undefined;
   private _cssWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
-  private _cssMinWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
-  private _cssMaxWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
+  private _originalWidth?: CssSize = undefined;
+  private _table: HdsAdvancedTableTableModel;
 
-  table: HdsAdvancedTableTableModel;
-
-  get isResizable(): boolean | undefined {
-    if (!this._isResizable) {
-      return false;
-    }
-
-    assert('width must be set to use isResizable', this.width !== undefined);
-
-    return this._isResizable;
-  }
-
+  // setting the pixelWidth property will set the width property in the correct unit
   get pixelWidth(): number {
     return this._getPixelWidth(this.width) ?? 0;
   }
@@ -65,7 +52,7 @@ export default class HdsAdvancedTableColumn {
     }
 
     if (this._cssWidthUnit === CssSizeUnitValues.Percent) {
-      const tableWidth = this.table.pixelWidth;
+      const tableWidth = this._table.pixelWidth;
 
       if (tableWidth === 0) {
         return;
@@ -90,19 +77,19 @@ export default class HdsAdvancedTableColumn {
   constructor(
     args: HdsAdvancedTableColumnType & { table: HdsAdvancedTableTableModel }
   ) {
-    this.table = args.table;
+    // set reference to parent table model
+    this._table = args.table;
 
+    // set column properties
     this.label = args.label;
     this.align = args.align;
-    this.key = args.key;
-    this._isResizable = args.isResizable ?? false;
     this.isSortable = args.isSortable;
     this.isVisuallyHidden = args.isVisuallyHidden;
+    this.key = args.key;
     this.tooltip = args.tooltip;
-
-    this.sortingFunction = args.sortingFunction;
-
+    this._setResizableValues(args);
     this._setWidthValues(args);
+    this.sortingFunction = args.sortingFunction;
   }
 
   private _getPixelWidth(width?: CssSize): number | undefined {
@@ -118,9 +105,19 @@ export default class HdsAdvancedTableColumn {
     }
 
     if (cssUnit === CssSizeUnitValues.Percent) {
-      const tableWidth = this.table.pixelWidth;
+      const tableWidth = this._table.pixelWidth;
 
       return (numericalWidth / 100) * tableWidth;
+    }
+  }
+
+  private _setResizableValues({
+    isResizable,
+  }: HdsAdvancedTableColumnType): void {
+    this.isResizable = isResizable ?? false;
+
+    if (this.isResizable) {
+      assert('width must be set to use isResizable', this.width !== undefined);
     }
   }
 
