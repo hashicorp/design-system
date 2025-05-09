@@ -1,8 +1,6 @@
 ## Breakpoints
 
-Breakpoints define specific viewport widths where the layout adjusts to support responsive experiences across screen sizes and devices.
-
-These values are then used to create utilities and helper components to standardize changes of the UI at different viewport sizes.
+Breakpoints define specific viewport widths where the layout adjusts to support responsive experiences across screen sizes and devices. These values are then used to create utilities and helper components to standardize changes of the UI at different viewport sizes.
 
 ### The ranges
 
