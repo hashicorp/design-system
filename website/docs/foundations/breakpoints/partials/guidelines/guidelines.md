@@ -42,4 +42,7 @@ Redesigning across multiple breakpoints is often necessary for complex UIs, such
 
 ### Responsiveness in Helios
 
-Responsive behavior is already built into some Helios components. These components include, but are not limited to, [SideNav](/components/side-nav) (lg), [Stepper Nav](/components/stepper/nav) (md) and [Pagination](/components/stepper/pagination) (lg).
+Responsive behavior is already built into some Helios components. These components include, but are not limited to:
+* [SideNav](/components/side-nav) (width collapses below lg breakpoint)
+* [Stepper Nav](/components/stepper/nav) (layout shifts below sm breakpoint)
+* [Pagination](/components/stepper/pagination) (layout stacks below lg breakpoint)
