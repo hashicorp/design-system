@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 4.19.1
+
+**Patch changes**
+
+`Form::Label` - Forced the `for` HTML attribute to be converted to a string
+
+<small class="doc-whats-new-changelog-metadata">[#2863](https://github.com/hashicorp/design-system/pull/2863)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.19.0
 
 **Minor changes**
@@ -1390,65 +1400,6 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 <small class="doc-whats-new-changelog-metadata">[#2177](https://github.com/hashicorp/design-system/pull/2177) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.5.0
-
-**🚨 Caution: This version has been deprecated 🚨**
-
-[4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
-
-**Minor changes**
-
-`SideNav` - Adds option to exclude query params from route transition/focus management
-
-<small class="doc-whats-new-changelog-metadata">[#2158](https://github.com/hashicorp/design-system/pull/2158)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2168](https://github.com/hashicorp/design-system/pull/2168)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`ApplicationState` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2155](https://github.com/hashicorp/design-system/pull/2155)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`PageHeader` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2160](https://github.com/hashicorp/design-system/pull/2160)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2102](https://github.com/hashicorp/design-system/pull/2102)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Alert` - Fixed typo in `HdsAlertTypes`
-
-<small class="doc-whats-new-changelog-metadata">[#2154](https://github.com/hashicorp/design-system/pull/2154)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown::Toggle::Icon` - Fixed inconsistencies with `Button` including:
-
-- Added missing text color
-- Reduced icon sizes
-
-<small class="doc-whats-new-changelog-metadata">[#2178](https://github.com/hashicorp/design-system/pull/2178)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.1.0
 
 
 ---
