@@ -34,7 +34,7 @@ Not all designs require redesigning at each breakpoint. Only when designs are co
 
 For example, a UI featuring a table layout may not require changes for each breakpoint because the expected behavior is for the table to maintain its full width regardless of the breakpoint value. A design isn't necessary to elaborate this standard behavior.
 
-![Wireframed table shown expanding in size.](/assets/foundations/breakpoints/breakpoints-table-example.png)
+![Wireframe table shown expanding in size.](/assets/foundations/breakpoints/breakpoints-table-example.png)
 
 Redesigning across multiple breakpoints is often necessary for complex UIs, such as a landing page with cards arranged in a grid. As the viewport size decreases, both the position and content of the cards change, requiring nuanced designs across breakpoints. In such scenarios, designers should specify how the layout adjusts at the `sm`, `md`, and `lg` views.
 
