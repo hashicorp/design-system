@@ -174,7 +174,7 @@
         (hash key="email" label="Email")
         (hash key="role" label="Role")
       }}
-      @hasStickyHeader={{true}}
+      @maxHeight="400px"
       @isStriped={{true}}
     >
       <:body as |B|>
@@ -250,7 +250,7 @@
 
   <Shw::Text::H2>Sticky header and sticky column</Shw::Text::H2>
 
-  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
@@ -261,7 +261,7 @@
         (hash key="email" label="Email")
         (hash key="role" label="Role")
       }}
-      @hasStickyHeader={{true}}
+      @maxHeight="400px"
       @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
     >
