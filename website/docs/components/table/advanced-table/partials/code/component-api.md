@@ -92,8 +92,11 @@ The Advanced Table component itself is where most of the options will be applied
     Determines if even-numbered rows will have a different background color from odd-numbered rows.<br><br>
     **Important**: Advanced Table does **not** support setting `isStriped` to true when there are nested rows.
   </C.Property>
+  <C.Property @name="maxHeight" @type="string">
+    Sets the maximum height of the Advanced Table. If the `@maxHeight` is set, there will automatically be a sticky header. To turn off the sticky header and still have a max height, set `@hasStickyHeader` to false.
+  </C.Property>
   <C.Property @name="hasStickyHeader" @type="boolean" @default="false">
-    Determines if the Advanced Table has a sticky header.
+    Determines if the Advanced Table has a sticky header. If set to `true`, must be used with the `@maxHeight` argument.
   </C.Property>
   <C.Property @name="hasStickyFirstColumn" @type="boolean" @default="false">
     Determines if the Advanced Table has a sticky first column.
