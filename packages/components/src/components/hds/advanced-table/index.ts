@@ -132,6 +132,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
+    maxHeight?: string;
   };
   Blocks: {
     body?: [
@@ -311,6 +312,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return density;
   }
 
+  get hasStickyHeader(): boolean {
+    if (this.args.maxHeight && this.args.hasStickyHeader !== false) {
+      return true;
+    } else if (this.args.hasStickyHeader && !this.args.maxHeight) {
+      assert(
+        'Must set @maxHeight to use @hasStickyHeader.',
+        false
+      );
+    }
+
+    return false
+  }
+
   get valign(): HdsAdvancedTableVerticalAlignment {
     const { valign = DEFAULT_VALIGN } = this.args;
 
@@ -371,7 +385,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   get theadClassNames(): string {
     const classes = ['hds-advanced-table__thead'];
 
-    if (this.args.hasStickyHeader) {
+    if (this.hasStickyHeader) {
       classes.push('hds-advanced-table__thead--sticky');
     }
 
@@ -411,12 +425,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
       // sticky header
       if (element.scrollTop > 0) {
-        if (this.args.hasStickyHeader) {
+        if (this.hasStickyHeader) {
           this.isStickyHeaderPinned = true;
         }
         this.showScrollIndicatorTop = true;
       } else {
-        if (this.args.hasStickyHeader) {
+        if (this.hasStickyHeader) {
           this.isStickyHeaderPinned = false;
         }
         this.showScrollIndicatorTop = false;
@@ -440,7 +454,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
-        hasStickyHeader,
+        this.hasStickyHeader,
         hasStickyFirstColumn
       );
 
@@ -453,7 +467,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     };
 
     const {
-      hasStickyHeader = false,
       hasStickyFirstColumn = false,
       isSelectable = false,
     } = this.args;

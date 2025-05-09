@@ -25,6 +25,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 .hds-advanced-table__container {
   position: relative;
+  display: grid;
+  align-items: start;
   width: 100%;
   height: 100%;
   // add overflow hidden and border radius so scroll shadows appear rounded in the corners
