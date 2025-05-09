@@ -316,13 +316,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (this.args.maxHeight && this.args.hasStickyHeader !== false) {
       return true;
     } else if (this.args.hasStickyHeader && !this.args.maxHeight) {
-      assert(
-        'Must set @maxHeight to use @hasStickyHeader.',
-        false
-      );
+      assert('Must set @maxHeight to use @hasStickyHeader.', false);
     }
 
-    return false
+    return false;
   }
 
   get valign(): HdsAdvancedTableVerticalAlignment {
@@ -466,10 +463,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       }
     };
 
-    const {
-      hasStickyFirstColumn = false,
-      isSelectable = false,
-    } = this.args;
+    const { hasStickyFirstColumn = false, isSelectable = false } = this.args;
 
     this._resizeObserver = new ResizeObserver((entries) => {
       entries.forEach(() => {
