@@ -1,0 +1,28 @@
+<form
+  class="hds-advanced-table__th-resize-slider"
+  {{on "submit" this.handleSubmit}}
+  {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
+  {{focus-trap
+    focusTrapOptions=(hash initialFocus=(concat "#" @labelId "-resize-slider") onDeactivate=this.handleCancel)
+  }}
+  {{hds-on-click-outside this.handleCancel}}
+  ...attributes
+>
+  <Hds::Form::Label @controlId="{{@labelId}}-resize-slider">
+    {{@column.label}}
+    column width
+  </Hds::Form::Label>
+
+  <Hds::Form::RangeSlider::Base
+    id="{{@labelId}}-resize-slider"
+    @min={{@column.numericalMinWidth}}
+    @max={{@column.numericalMaxWidth}}
+    @value={{@column.numericalWidth}}
+    @onChange={{this.resizeColumn}}
+  />
+
+  <Hds::Layout::Flex @align="center" @gap="8">
+    <Hds::Button type="submit" @text="Save" @size="small" />
+    <Hds::Button type="button" @text="Cancel" @size="small" @color="secondary" {{on "click" this.handleCancel}} />
+  </Hds::Layout::Flex>
+</form>
