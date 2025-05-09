@@ -15,9 +15,9 @@
 
   <Hds::Form::RangeSlider::Base
     id="{{@labelId}}-resize-slider"
-    @min={{@column.numericalMinWidth}}
-    @max={{@column.numericalMaxWidth}}
-    @value={{@column.numericalWidth}}
+    @min={{@column.pixelMinWidth}}
+    @max={{@column.pixelMaxWidth}}
+    @value={{@column.pixelWidth}}
     @onChange={{this.resizeColumn}}
   />
 

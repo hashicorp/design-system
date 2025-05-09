@@ -22,7 +22,7 @@ export interface HdsAdvancedTableThResizeFormSignature {
 }
 
 export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedTableThResizeFormSignature> {
-  originalColumnNumericalWidth: number;
+  originalColumnPixelWidth: number;
 
   constructor(
     owner: Owner,
@@ -32,14 +32,14 @@ export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedT
 
     const { column } = this.args;
 
-    this.originalColumnNumericalWidth = column.numericalWidth;
+    this.originalColumnPixelWidth = column.pixelWidth;
   }
 
   @action
   resizeColumn(width: number): void {
     const { column } = this.args;
 
-    column.setNumericalWidth(width);
+    column.setPixelWidth(width);
   }
 
   @action
@@ -53,7 +53,7 @@ export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedT
   handleCancel(): void {
     const { column } = this.args;
 
-    column.setNumericalWidth(this.originalColumnNumericalWidth);
+    column.setPixelWidth(this.originalColumnPixelWidth);
 
     this.args.onClose();
   }

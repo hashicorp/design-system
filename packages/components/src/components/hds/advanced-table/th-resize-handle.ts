@@ -37,7 +37,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const deltaX = event.clientX - startX;
     const newW = startW + deltaX;
 
-    column.setNumericalWidth(newW);
+    column.setPixelWidth(newW);
   }
 
   @action
@@ -46,7 +46,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const { column } = this.args;
 
-    this.resizing = { startX: event.clientX, startW: column.numericalWidth };
+    this.resizing = { startX: event.clientX, startW: column.pixelWidth };
 
     window.addEventListener('pointermove', this._resize.bind(this));
     window.addEventListener('pointerup', this._stopResize.bind(this));
