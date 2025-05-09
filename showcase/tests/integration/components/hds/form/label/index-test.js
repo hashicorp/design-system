@@ -66,6 +66,16 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
     assert.dom('#test-form-label').hasAttribute('for', 'my-control-id');
   });
 
+  test('it renders a label with the "for" attribute even if the @controlId argument is a boolean', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Label @controlId={{true}} id="test-form-label-true">True</Hds::Form::Label>
+        <Hds::Form::Label @controlId={{false}} id="test-form-label-false">False</Hds::Form::Label>
+      `
+    );
+    assert.dom('#test-form-label-true').hasAttribute('for', 'true');
+    assert.dom('#test-form-label-false').hasAttribute('for', 'false');
+  });
+
   // ID
 
   test('it renders a label with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
