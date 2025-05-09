@@ -1,5 +1,15 @@
 # @hashicorp/design-system-components
 
+## 4.19.1
+
+### Patch Changes
+
+`Form::Label` - Forced the `for` HTML attribute to be converted to a string
+
+<small class="doc-whats-new-changelog-metadata">[#2863](https://github.com/hashicorp/design-system/pull/2863)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.19.0
 
 ### Minor Changes
