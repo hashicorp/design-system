@@ -48,6 +48,8 @@ export default class HdsAdvancedTableColumn {
   private _originalWidth?: CssSize = undefined;
   private _cssWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
 
+  table: HdsAdvancedTableTableModel;
+
   get isResizable(): boolean | undefined {
     if (!this._isResizable) {
       return false;
@@ -76,12 +78,21 @@ export default class HdsAdvancedTableColumn {
   set numericalWidth(value: number) {
     if (this._cssWidthUnit === CssSizeUnitValues.Px) {
       this.width = `${value}${CssSizeUnitValues.Px}`;
-      console.log({ width: this.width });
+
       return;
     }
+
     if (this._cssWidthUnit === CssSizeUnitValues.Percent) {
-      // TODO: actually calculate the width based on the table width
-      this.width = `${value}${CssSizeUnitValues.Percent}`;
+      const tableWidth = this.table.pixelWidth;
+
+      if (tableWidth === 0) {
+        return;
+      }
+
+      const percentage = (value / tableWidth) * 100;
+
+      this.width = `${percentage}${CssSizeUnitValues.Percent}`;
+
       return;
     }
   }
@@ -97,6 +108,8 @@ export default class HdsAdvancedTableColumn {
   constructor(
     args: HdsAdvancedTableColumnType & { table: HdsAdvancedTableTableModel }
   ) {
+    this.table = args.table;
+
     this.label = args.label;
     this.align = args.align;
     this.key = args.key;
