@@ -40,7 +40,6 @@ export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
 
   @tracked pixelWidth: number = 0;
-  @tracked pixelHeight: number = 0;
 
   rows: HdsAdvancedTableRow[] = [];
 

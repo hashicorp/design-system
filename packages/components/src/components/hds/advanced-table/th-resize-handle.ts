@@ -37,8 +37,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const deltaX = event.clientX - startX;
     const newW = startW + deltaX;
 
-    console.log('newW', newW);
-
     column.setNumericalWidth(newW);
   }
 
