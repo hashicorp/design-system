@@ -17,7 +17,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link id='test-app-side-nav-list-item-link' />`
+        hbs`<Hds::AppSideNav::List::Link id='test-app-side-nav-list-item-link' />`,
       );
       assert
         .dom('#test-app-side-nav-list-item-link')
@@ -35,7 +35,7 @@ module(
   @badge='Alpha'
   @hasSubItems={{true}}
   @isHrefExternal={{true}}
-/>`
+/>`,
       );
       assert.dom('.hds-icon-boundary').exists();
       assert.dom('.hds-app-side-nav__list-item-text').hasText('Boundary');
@@ -47,7 +47,7 @@ module(
 
     test('it renders the link as "active" if @isActive is true', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link @isActive={{true}} id='test-app-side-nav-link' />`
+        hbs`<Hds::AppSideNav::List::Link @isActive={{true}} id='test-app-side-nav-link' />`,
       );
       assert
         .dom('#test-app-side-nav-link')
@@ -71,7 +71,7 @@ module(
 
     test('it should render a <a> link if @href is passed', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link @href='https://www.hashicorp.com/' />`
+        hbs`<Hds::AppSideNav::List::Link @href='https://www.hashicorp.com/' />`,
       );
       assert
         .dom('.hds-app-side-nav__list-item-link')
@@ -81,12 +81,12 @@ module(
 
     test('it should render a <a> link if @route is passed', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link @route='utilities.interactive' />`
+        hbs`<Hds::AppSideNav::List::Link @route='utilities.interactive' />`,
       );
       assert
         .dom('.hds-app-side-nav__list-item-link')
         .hasTagName('a')
         .hasAttribute('href', '/utilities/interactive');
     });
-  }
+  },
 );

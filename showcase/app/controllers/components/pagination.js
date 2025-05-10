@@ -18,7 +18,7 @@ const getCursorParts = (cursor, records) => {
   const direction = tokenParts[0];
   const cursorID = parseInt(tokenParts[1]);
   const cursorIndex = records.findIndex(
-    (element) => element.id === parseInt(cursorID)
+    (element) => element.id === parseInt(cursorID),
   );
   return { direction, cursorID, cursorIndex };
 };
@@ -120,7 +120,7 @@ export default class PaginationController extends Controller {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.demoCurrentCursor,
       this.demoCurrentPageSize,
-      this.model.records
+      this.model.records,
     );
     return {
       newPrevCursor,
@@ -214,7 +214,7 @@ export default class PaginationController extends Controller {
     let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.currentCursor_demo3,
       this.currentPageSize_demo3,
-      this.model.records
+      this.model.records,
     );
     return {
       newPrevCursor,
@@ -247,7 +247,7 @@ export default class PaginationController extends Controller {
   get paginatedData_demo3() {
     const { direction, cursorIndex } = getCursorParts(
       this.currentCursor_demo3,
-      this.model.records
+      this.model.records,
     );
 
     let start;
@@ -276,7 +276,7 @@ export default class PaginationController extends Controller {
     return getNewPrevNextCursors(
       cursor,
       this.currentPageSize_demo4,
-      this.model.records
+      this.model.records,
     );
   }
 
@@ -325,7 +325,7 @@ export default class PaginationController extends Controller {
 
     const { direction, cursorIndex } = getCursorParts(
       token,
-      this.model.records
+      this.model.records,
     );
 
     let start;
@@ -370,7 +370,7 @@ export default class PaginationController extends Controller {
   genericHandlePageSizeChange() {
     console.log(
       'genericHandlePageSizeChange invoked with arguments',
-      ...arguments
+      ...arguments,
     );
   }
 }

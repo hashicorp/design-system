@@ -39,5 +39,5 @@ module(
         .hasClass('hds-link-standalone')
         .hasText('Go back');
     });
-  }
+  },
 );

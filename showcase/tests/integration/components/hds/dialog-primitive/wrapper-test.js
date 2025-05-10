@@ -25,7 +25,7 @@ module(
           <:body>Body</:body>
           <:footer>Footer</:footer>
         </Hds::DialogPrimitive::Wrapper>
-      `
+      `,
       );
       assert
         .dom('#test-dialog-primitive')
@@ -49,7 +49,7 @@ module(
             <Hds::DialogPrimitive::Footer>Footer</Hds::DialogPrimitive::Footer>
           </:footer>
         </Hds::DialogPrimitive::Wrapper>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__wrapper-header').exists();
       assert.dom('.hds-dialog-primitive__wrapper-body').exists();
@@ -62,5 +62,5 @@ module(
       assert.dom('.hds-dialog-primitive__body').exists().hasText('Body');
       assert.dom('.hds-dialog-primitive__footer').exists().hasText('Footer');
     });
-  }
+  },
 );

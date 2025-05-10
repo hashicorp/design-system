@@ -471,7 +471,7 @@ const SAMPLE_MODEL = [
 
 const updateModelWithSelectAllState = (
   modelData: HdsAdvancedTableSignature['Args']['model'],
-  selectAllState: boolean
+  selectAllState: boolean,
 ) => {
   modelData.forEach((modelRow) => {
     modelRow['isSelected'] = selectAllState;
@@ -480,10 +480,10 @@ const updateModelWithSelectAllState = (
 
 const updateModelWithSelectableRowsStates = (
   modelData: HdsAdvancedTableSignature['Args']['model'],
-  selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates']
+  selectableRowsStates: HdsAdvancedTableOnSelectionChangeSignature['selectableRowsStates'],
 ) => {
   const modelDataMap = new Map(
-    modelData.map((modelRow) => [modelRow['id'], modelRow])
+    modelData.map((modelRow) => [modelRow['id'], modelRow]),
   );
   selectableRowsStates.forEach((row) => {
     // safe to assume that there is always a record for the "selectionKey" since it's coming from the model (the selectable "rows" are a subset of the model dataset)
@@ -505,6 +505,7 @@ export default class MockAppMainGenericAdvancedTable extends Component<MockAppMa
     selectionCheckboxElement,
     selectableRowsStates,
   }: HdsAdvancedTableOnSelectionChangeSignature) {
+    // eslint-disable-next-line prefer-rest-params
     console.log(...arguments);
 
     if (selectionKey === 'all' && this.demoModel) {

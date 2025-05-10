@@ -17,7 +17,7 @@ module('Integration | Component | hds/form/checkbox/base', function (hooks) {
   });
   test('it should convert the `indeterminate` attribute into a property', async function (assert) {
     await render(
-      hbs`<Hds::Form::Checkbox::Base id="test-form-checkbox" indeterminate={{true}} />`
+      hbs`<Hds::Form::Checkbox::Base id="test-form-checkbox" indeterminate={{true}} />`,
     );
     assert.dom('#test-form-checkbox').doesNotHaveAttribute('indeterminate');
     assert.dom('#test-form-checkbox').hasProperty('indeterminate', true);
