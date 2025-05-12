@@ -1,23 +1,21 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
-import { CssSizeUnitValues } from '../types.ts';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
-import type { CssSize, CssSizeUnit } from '../types';
-import type HdsAdvancedTableTableModel from './table.ts';
+import type { PixelSize } from '../types';
 
-function getCssUnit(cssString?: string): CssSizeUnit | undefined {
-  if (cssString === undefined) {
-    return undefined;
+function isPxSize(value?: string): boolean {
+  if (value === undefined) {
+    return false;
   }
 
-  const match = cssString.match(/([a-zA-Z%]+)/);
+  return /^-?\d+(\.\d+)?px$/.test(value);
+}
 
-  if (match) {
-    return match[0] as CssSizeUnit;
-  }
+function pxToNumber(pxString: string): number {
+  return parseFloat(pxString.slice(0, -2));
 }
 
 export default class HdsAdvancedTableColumn {
@@ -29,57 +27,37 @@ export default class HdsAdvancedTableColumn {
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
-  @tracked minWidth?: CssSize = undefined;
-  @tracked maxWidth?: CssSize = undefined;
+  @tracked minWidth?: PixelSize = undefined;
+  @tracked maxWidth?: PixelSize = undefined;
   @tracked tooltip?: string = undefined;
-  @tracked width?: CssSize = undefined;
+  @tracked width?: string = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
-  private _cssWidthUnit?: CssSizeUnit = CssSizeUnitValues.Px;
-  private _originalWidth?: CssSize = undefined;
-  private _table: HdsAdvancedTableTableModel;
+  private _originalWidth?: string = undefined;
 
-  // setting the pixelWidth property will set the width property in the correct unit
-  get pixelWidth(): number {
-    return this._getPixelWidth(this.width) ?? 0;
-  }
-  set pixelWidth(value: number) {
-    if (this._cssWidthUnit === CssSizeUnitValues.Px) {
-      this.width = `${value}${CssSizeUnitValues.Px}`;
-
-      return;
+  get pxWidth(): number | undefined {
+    if (isPxSize(this.width)) {
+      return pxToNumber(this.width!);
     }
+  }
+  set pxWidth(value: number) {
+    this.width = `${value}px`;
+  }
 
-    if (this._cssWidthUnit === CssSizeUnitValues.Percent) {
-      const tableWidth = this._table.pixelWidth;
-
-      if (tableWidth === 0) {
-        return;
-      }
-
-      const percentage = (value / tableWidth) * 100;
-
-      this.width = `${percentage}${CssSizeUnitValues.Percent}`;
-
-      return;
+  get pxMinWidth(): number | undefined {
+    if (isPxSize(this.minWidth)) {
+      return pxToNumber(this.minWidth!);
     }
   }
 
-  get pixelMinWidth(): number {
-    return this._getPixelWidth(this.minWidth) ?? 0;
+  get pxMaxWidth(): number | undefined {
+    if (isPxSize(this.maxWidth)) {
+      return pxToNumber(this.maxWidth!);
+    }
   }
 
-  get pixelMaxWidth(): number {
-    return this._getPixelWidth(this.maxWidth) ?? 0;
-  }
-
-  constructor(
-    args: HdsAdvancedTableColumnType & { table: HdsAdvancedTableTableModel }
-  ) {
-    // set reference to parent table model
-    this._table = args.table;
-
+  constructor(args: HdsAdvancedTableColumnType) {
     // set column properties
     this.label = args.label;
     this.align = args.align;
@@ -87,38 +65,9 @@ export default class HdsAdvancedTableColumn {
     this.isVisuallyHidden = args.isVisuallyHidden;
     this.key = args.key;
     this.tooltip = args.tooltip;
-    this._setResizableValues(args);
     this._setWidthValues(args);
+    this._setResizableValues(args);
     this.sortingFunction = args.sortingFunction;
-  }
-
-  private _getPixelWidth(width?: CssSize): number | undefined {
-    if (width === undefined) {
-      return;
-    }
-
-    const cssUnit = getCssUnit(width);
-    const numericalWidth = parseInt(width, 10);
-
-    if (cssUnit === CssSizeUnitValues.Px) {
-      return numericalWidth;
-    }
-
-    if (cssUnit === CssSizeUnitValues.Percent) {
-      const tableWidth = this._table.pixelWidth;
-
-      return (numericalWidth / 100) * tableWidth;
-    }
-  }
-
-  private _setResizableValues({
-    isResizable,
-  }: HdsAdvancedTableColumnType): void {
-    this.isResizable = isResizable ?? false;
-
-    if (this.isResizable) {
-      assert('width must be set to use isResizable', this.width !== undefined);
-    }
   }
 
   private _setWidthValues({
@@ -135,26 +84,37 @@ export default class HdsAdvancedTableColumn {
     // capture the width at the time of instantiation so it can be restored
     this._originalWidth = width;
 
+    // TODO: discuss sensible defaults for minWidth and maxWidth
     this.minWidth = minWidth ?? '50px';
     this.maxWidth = maxWidth ?? '800px';
+  }
 
-    this._cssWidthUnit = getCssUnit(this.width);
+  private _setResizableValues({
+    isResizable,
+  }: HdsAdvancedTableColumnType): void {
+    if (isResizable) {
+      assert(
+        'width must be set a px value to use isResizable',
+        isPxSize(this.width)
+      );
+    }
+
+    this.isResizable = isResizable ?? false;
   }
 
   @action
-  setPixelWidth(newPixelWidth: number): void {
-    this.pixelWidth = Math.min(
-      Math.max(newPixelWidth, this.pixelMinWidth),
-      this.pixelMaxWidth
-    );
+  setPxWidth(newPxWidth: number): void {
+    const pxMinWidth = this.pxMinWidth ?? 1;
+    const minLimitedPxWidth = Math.max(newPxWidth, pxMinWidth);
+
+    this.pxWidth =
+      this.pxMaxWidth !== undefined
+        ? Math.min(minLimitedPxWidth, this.pxMaxWidth)
+        : minLimitedPxWidth;
   }
 
   @action
   restoreWidth(): void {
-    if (this._originalWidth === undefined) {
-      return;
-    }
-
     this.width = this._originalWidth;
   }
 }

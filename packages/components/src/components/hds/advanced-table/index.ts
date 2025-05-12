@@ -443,7 +443,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     const updateMeasurements = () => {
       this.tableHeight = element.clientHeight;
-      this._tableModel.pixelWidth = element.clientWidth;
 
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,

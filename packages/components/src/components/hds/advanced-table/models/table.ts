@@ -39,8 +39,6 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
 
-  @tracked pixelWidth: number = 0;
-
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
@@ -81,9 +79,7 @@ export default class HdsAdvancedTableTableModel {
   private _setupColumns({
     columns,
   }: Pick<HdsAdvancedTableTableArgs, 'columns'>) {
-    this.columns = columns.map((column) => {
-      return new HdsAdvancedTableColumn({ ...column, table: this });
-    });
+    this.columns = columns.map((column) => new HdsAdvancedTableColumn(column));
   }
 
   private _setupRows({
