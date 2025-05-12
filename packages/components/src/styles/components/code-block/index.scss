@@ -250,14 +250,6 @@ $hds-code-block-code-footer-height: 48px;
         }
       }
     }
-
-    // Ensures the line numbers are always on top of the footer gradient
-    &.hds-code-block--has-overlay-footer {
-      .line-numbers-rows {
-        z-index: 1;
-        isolation: isolate;
-      }
-    }
   }
 
   // Highlighted Lines
@@ -313,6 +305,9 @@ $hds-code-block-code-footer-height: 48px;
   }
 }
 
+// Usage of sticky positioning, negative margins, and z-index are required to prevent styling issues
+// when horizontal scrolling is present.
+// https://hashicorp.slack.com/archives/C025N5V4PFZ/p1746659338984369
 .hds-code-block--has-overlay-footer {
   .hds-code-block__code::after {
     // gradient element
@@ -321,7 +316,7 @@ $hds-code-block-code-footer-height: 48px;
     left: 0;
     display: block;
     height: $hds-code-block-code-footer-height;
-    margin: 0 0 -#{$hds-code-block-code-padding} -1000px;
+    margin: 0 0 -#{$hds-code-block-code-padding} -1000px; // cover line highlights when line numbers are enabled
     background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
     content: "";
     pointer-events: none;
@@ -331,6 +326,7 @@ $hds-code-block-code-footer-height: 48px;
     padding-bottom: $hds-code-block-code-footer-height;
   }
 
+  // place line numbers on top of footer gradient
   .line-numbers-rows {
     z-index: 1;
     isolation: isolate;
