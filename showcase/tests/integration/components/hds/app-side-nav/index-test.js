@@ -11,6 +11,7 @@ import {
   resetOnerror,
   settled,
   triggerKeyEvent,
+  tab,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
@@ -123,13 +124,19 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
 <Hds::AppSideNav id='test-app-side-nav' />`);
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
+    assert.dom('body', document).doesNotHaveStyle('overflow');
 
     await click('.hds-app-side-nav__toggle-button');
     assert
       .dom('#test-app-side-nav')
       .hasClass('hds-app-side-nav--is-not-minimized');
+    assert.dom('body', document).hasStyle({
+      overflow: 'hidden',
+    });
+
     await click('.hds-app-side-nav__toggle-button');
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
+    assert.dom('body', document).doesNotHaveStyle('overflow');
   });
 
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
@@ -186,6 +193,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       .dom('.hds-app-side-nav-hide-when-minimized')
       .doesNotHaveAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
+    assert.dom('body', document).doesNotHaveStyle('overflow');
 
     await click('.hds-app-side-nav__toggle-button');
 
@@ -198,6 +206,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       .hasClass('hds-icon-chevrons-right');
     assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
+    assert.dom('body', document).doesNotHaveStyle('overflow');
   });
 
   test('when the viewport changes from desktop to mobile, it automatically collapses and becomes inert', async function (assert) {
@@ -264,6 +273,62 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav-hide-when-minimized')
       .doesNotHaveAttribute('inert');
+    assert.dom('body', document).doesNotHaveStyle('overflow');
+  });
+
+  test('when collapsed and the viewport changes from mobile to desktop and is expanded, scrolling is enabled', async function (assert) {
+    this.mockMedia();
+
+    let calls = [];
+    this.setProperties({
+      onDesktopViewportChange: (...args) => calls.push(args),
+    });
+
+    await render(hbs`<Hds::AppSideNav
+  @isCollapsible={{true}}
+  @onDesktopViewportChange={{this.onDesktopViewportChange}}
+>
+  <span id='test-app-side-nav-body' />
+  <span class='hds-app-side-nav-hide-when-minimized' />
+</Hds::AppSideNav>`);
+
+    assert.dom('body', document).hasStyle({
+      overflow: 'hidden',
+    });
+
+    await this.changeBrowserSize(false);
+    assert.deepEqual(
+      calls[1],
+      [false],
+      'resizing to mobile triggers a false event'
+    );
+
+    await this.changeBrowserSize(true);
+    assert.deepEqual(
+      calls[2],
+      [true],
+      'resizing to desktop triggers a true event'
+    );
+
+    assert.dom('body', document).doesNotHaveStyle('overflow');
+  });
+
+  test('when collapsed, the content in the AppSideNav is not focusable', async function (assert) {
+    await render(hbs`<Hds::AppSideNav
+    id='test-app-side-nav'
+  @isCollapsible={{true}}
+  @onDesktopViewportChange={{this.onDesktopViewportChange}}
+>
+  <span id='test-app-side-nav-body' />
+  <span class='hds-app-side-nav-hide-when-minimized' />
+</Hds::AppSideNav><button id='button-2'>Click</button>`);
+
+    await click('.hds-app-side-nav__toggle-button');
+    assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
+    assert.dom('.hds-app-side-nav__toggle-button').isFocused();
+
+    await tab();
+    assert.dom('#button-2').isFocused();
   });
 
   // CALLBACKS
