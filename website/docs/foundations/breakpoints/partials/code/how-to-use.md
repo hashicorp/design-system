@@ -56,7 +56,7 @@ Here is an example of how the mixins could be used in a mobile-first responsive 
 
 The same layout could be achieved using a desktop-first approach in a similar way:
 
-```scss{data-execute=false}
+```scss
 // from @hashicorp/design-system-components package
 @use "mixins/breakpoints" as *;
 
@@ -84,7 +84,7 @@ Of course, these are oversimplified examples. In your implementation, you will h
 
 For special use cases, we also provide a Sass map–`$hds-breakpoints`–which is a lower level helper than the mixins. Here's an example of how this map could be used:
 
-```scss{data-execute=false}
+```scss
 // explicit import of `map` module (required by Sass)
 @use "sass:map";
 // from @hashicorp/design-system-components package
