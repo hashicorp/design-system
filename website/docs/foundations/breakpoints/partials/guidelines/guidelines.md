@@ -40,9 +40,9 @@ Redesigning across multiple breakpoints is often necessary for complex UIs, such
 
 ![Diagram depicting "large", "medium", and "small" screen sizes displaying a varying number of columns in rows of content blocks.](/assets/foundations/breakpoints/breakpoints-card-designs-shfting.png)
 
-### Responsiveness in Helios
+## Responsiveness in Helios
 
 Responsive behavior is already built into some Helios components. These components include, but are not limited to:
-* [SideNav](/components/side-nav) (width collapses below lg breakpoint)
+* [App Side Nav](/components/app-side-nav) (width collapses below lg breakpoint)
 * [Stepper Nav](/components/stepper/nav) (layout shifts below sm breakpoint)
-* [Pagination](/components/stepper/pagination) (layout stacks below lg breakpoint)
+* [Pagination](/components/pagination) (layout stacks below lg breakpoint)
