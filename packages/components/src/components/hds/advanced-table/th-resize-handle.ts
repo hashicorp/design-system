@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
 import type HdsAdvancedTableColumn from './models/column';
 
@@ -14,6 +15,7 @@ const TABLE_BORDER_WIDTH = 1;
 export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    nextColumn?: HdsAdvancedTableColumn;
     tableHeight?: number;
   };
   Blocks: {
@@ -37,7 +39,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     const deltaX = event.clientX - startX;
     const newW = startW + deltaX;
 
-    column.setPixelWidth(newW);
+    column.setPxWidth(newW);
   }
 
   @action
@@ -46,7 +48,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const { column } = this.args;
 
-    this.resizing = { startX: event.clientX, startW: column.pixelWidth };
+    assert(
+      'HdsAdvancedTableThResizeForm: column width must be set',
+      column.pxWidth !== undefined
+    );
+
+    this.resizing = { startX: event.clientX, startW: column.pxWidth };
 
     window.addEventListener('pointermove', this._resize.bind(this));
     window.addEventListener('pointerup', this._stopResize.bind(this));

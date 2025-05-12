@@ -13,6 +13,8 @@ export enum CssSizeUnitValues {
 export type CssSizeUnit = `${CssSizeUnitValues}`;
 export type CssSize = `${number}${CssSizeUnit}`;
 
+export type PixelSize = `${number}${CssSizeUnitValues.Px}`;
+
 export enum HdsAdvancedTableDensityValues {
   Default = 'default',
   Medium = 'medium',
@@ -90,8 +92,8 @@ interface BaseHdsAdvancedTableColumn {
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
   tooltip?: string;
   width?: CssSize;
-  minWidth?: CssSize;
-  maxWidth?: CssSize;
+  minWidth?: PixelSize;
+  maxWidth?: PixelSize;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
