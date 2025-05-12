@@ -175,10 +175,12 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       onToggleMinimizedStatus(this._isMinimized);
     }
 
-    if (this._isMinimized) {
-      this.unlockBodyScroll();
-    } else {
-      this.lockBodyScroll();
+    if (!this._isDesktop) {
+      if (this._isMinimized) {
+        this.unlockBodyScroll();
+      } else {
+        this.lockBodyScroll();
+      }
     }
   }
 
@@ -214,6 +216,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     this._isMinimized = !this._isDesktop;
 
     this.synchronizeInert();
+
+    if (this._isDesktop) {
+      // make sure scrolling is enabled if the user resizes the window from mobile to desktop
+      this.unlockBodyScroll();
+    }
 
     const { onDesktopViewportChange } = this.args;
 
