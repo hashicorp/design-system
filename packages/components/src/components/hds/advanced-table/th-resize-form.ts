@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { assert } from '@ember/debug';
 
 import type HdsAdvancedTableColumn from './models/column';
 import type Owner from '@ember/owner';
@@ -22,7 +23,7 @@ export interface HdsAdvancedTableThResizeFormSignature {
 }
 
 export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedTableThResizeFormSignature> {
-  originalColumnPixelWidth: number;
+  originalColumnPxWidth: number;
 
   constructor(
     owner: Owner,
@@ -32,14 +33,19 @@ export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedT
 
     const { column } = this.args;
 
-    this.originalColumnPixelWidth = column.pixelWidth;
+    assert(
+      'HdsAdvancedTableThResizeForm: column width must be set',
+      column.pxWidth !== undefined
+    );
+
+    this.originalColumnPxWidth = column.pxWidth;
   }
 
   @action
   resizeColumn(width: number): void {
     const { column } = this.args;
 
-    column.setPixelWidth(width);
+    column.setPxWidth(width);
   }
 
   @action
@@ -53,7 +59,7 @@ export default class HdsAdvancedTableThResizeForm extends Component<HdsAdvancedT
   handleCancel(): void {
     const { column } = this.args;
 
-    column.setPixelWidth(this.originalColumnPixelWidth);
+    column.setPxWidth(this.originalColumnPxWidth);
 
     this.args.onClose();
   }
