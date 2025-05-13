@@ -10,6 +10,8 @@ import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 
+import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+
 export interface HdsAppHeaderSignature {
   Args: {
     breakpoint?: string;
@@ -39,17 +41,8 @@ export default class HdsAppHeader extends Component<HdsAppHeaderSignature> {
   // Generates a unique ID for the Menu Content
   private _menuContentId = 'hds-menu-content-' + guidFor(this);
 
-  private _breakpoint = parseInt(
-    getComputedStyle(document.documentElement).getPropertyValue(
-      '--hds-app-desktop-breakpoint'
-    )
-  );
-
-  private _desktopMQVal =
-    this.args.breakpoint ??
-    getComputedStyle(document.documentElement).getPropertyValue(
-      '--hds-app-desktop-breakpoint'
-    );
+  // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
+  private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['lg'].px;
 
   constructor(owner: Owner, args: Record<string, never>) {
     super(owner, args);
