@@ -57,12 +57,14 @@
       {{/if}}
     {{/if}}
 
-    {{#if (and @column.isResizable (not @isLastColumn))}}
-      <Hds::AdvancedTable::ThResizeHandle
-        @column={{@column}}
-        @nextColumn={{@nextColumn}}
-        @tableHeight={{@tableHeight}}
-      />
+    {{#if @column}}
+      {{#if (and @column.isResizable (not @isLastColumn))}}
+        <Hds::AdvancedTable::ThResizeHandle
+          @column={{@column}}
+          @nextColumn={{@nextColumn}}
+          @tableHeight={{@tableHeight}}
+        />
+      {{/if}}
     {{/if}}
   </Hds::Layout::Flex>
 </div>

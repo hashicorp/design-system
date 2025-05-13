@@ -5,6 +5,7 @@ import { Portal, PortalTarget } from 'ember-stargate';
 
 import type HdsComponentsRegistry from '../src/template-registry';
 import type EmberElementHelperRegistry from 'ember-element-helper/template-registry';
+import type EmberMathHelpersRegistry from 'ember-math-helpers/template-registry';
 import type EmberStargateRegistry from 'ember-stargate/template-registry';
 import type EmberStyleModifierRegistry from 'ember-style-modifier/template-registry';
 import type EmberTruthRegistry from 'ember-truth-helpers/template-registry';
@@ -18,6 +19,7 @@ declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
     extends HdsComponentsRegistry,
       EmberElementHelperRegistry,
+      EmberMathHelpersRegistry,
       EmberStargateRegistry,
       EmberStyleModifierRegistry,
       EmberTruthRegistry,
