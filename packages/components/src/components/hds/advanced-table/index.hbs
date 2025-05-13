@@ -56,6 +56,7 @@
             <Hds::AdvancedTable::Th
               @align={{column.align}}
               @column={{column}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tooltip={{column.tooltip}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
               @isExpandable={{column.isExpandable}}
