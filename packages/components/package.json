@@ -97,6 +97,7 @@
     "concurrently": "^9.1.2",
     "ember-basic-dropdown": "^8.4.0",
     "ember-source": "^5.12.0",
+    "ember-math-helpers": "^5.0.0",
     "ember-template-lint": "^7.0.2",
     "ember-template-lint-plugin-prettier": "^5.0.0",
     "eslint": "^9.23.0",
