@@ -15,6 +15,7 @@
 // DIMENSIONS
 $hds-code-block-line-numbers-width: 49px; // 3em ≈ 49px
 $hds-code-block-code-padding: 16px;
+$hds-code-block-code-footer-height: 48px;
 
 // CODE-BLOCK PARENT/WRAPPER
 
@@ -35,7 +36,6 @@ $hds-code-block-code-padding: 16px;
     word-spacing: normal;
     tab-size: 4;
     hyphens: none;
-    scrollbar-width: thin;
 
     @media print {
       text-shadow: none;
@@ -47,6 +47,7 @@ $hds-code-block-code-padding: 16px;
 
 // isStandalone
 .hds-code-block--is-standalone {
+  overflow: hidden; // hide corners of scrollbar that poke out
   border-radius: var(--token-border-radius-medium);
 }
 
@@ -54,6 +55,7 @@ $hds-code-block-code-padding: 16px;
 .hds-code-block--has-line-wrapping {
   .hds-code-block__code,
   .hds-code-block__code code {
+    display: block;
     white-space: pre-wrap;
     overflow-wrap: break-word;
   }
@@ -128,10 +130,13 @@ $hds-code-block-code-padding: 16px;
 // Code
 .hds-code-block__code {
   @include hds-focus-ring-basic();
-  display: block;
+  position: relative;
+  display: grid;
   margin: 0;
-  padding: $hds-code-block-code-padding;
+  padding: $hds-code-block-code-padding 0 $hds-code-block-code-padding $hds-code-block-code-padding;
   overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--token-color-palette-neutral-400) var(--token-color-palette-neutral-500);
   font-size: 0.8125rem;
   font-family: var(--token-typography-code-200-font-family);
   border-radius: inherit;
@@ -140,13 +145,16 @@ $hds-code-block-code-padding: 16px;
     color: var(--hds-code-block-color-foreground-selection);
     background-color: var(--hds-code-block-color-surface-selection);
   }
+
+  code {
+    display: inline-block;
+    padding-right: $hds-code-block-code-padding;
+  }
 }
 
-// CopyButton
+// General dark button styles
+.hds-code-block__height-toggle-button,
 .hds-code-block__copy-button {
-  position: absolute;
-  top: 11px; // 12px -1px accounting for border
-  right: 12px; // 12px -1px accounting for border
   // Overriding default colors
   color: var(--hds-code-block-color-foreground-primary);
   background-color: var(--hds-code-block-color-surface-faint);
@@ -154,18 +162,21 @@ $hds-code-block-code-padding: 16px;
 
   &:hover,
   &.mock-hover {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-primary);
     border-color: var(--hds-code-block-color-border-strong);
   }
 
   &:active,
   &.mock-active {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-interactive-active);
   }
 
   &:focus,
   &.mock-focus,
   &:focus-visible {
+    color: var(--hds-code-block-color-foreground-primary);
     background-color: var(--hds-code-block-color-surface-faint);
     border-color: var(--hds-code-block-color-focus-action-internal);
 
@@ -173,6 +184,17 @@ $hds-code-block-code-padding: 16px;
       border-color: var(--hds-code-block-color-focus-action-external);
     }
   }
+
+  .hds-icon {
+    color: var(--hds-code-block-color-foreground-primary);
+  }
+}
+
+// CopyButton
+.hds-code-block__copy-button {
+  position: absolute;
+  top: 11px; // 12px -1px accounting for border
+  right: 12px;
 
   &.hds-copy-button--status-success {
     .hds-icon {
@@ -185,12 +207,9 @@ $hds-code-block-code-padding: 16px;
       color: var(--hds-code-block-color-foreground-critical);
     }
   }
-
-  .hds-icon {
-    color: var(--hds-code-block-color-foreground-primary);
-  }
 }
 
+// Prism.js plugins
 .hds-code-block {
   // LineNumbers plugin styles ---------------
   // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
@@ -201,6 +220,11 @@ $hds-code-block-code-padding: 16px;
       position: relative;
       // reserve space for line numbers
       padding-left: calc(#{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
+    }
+
+    .hds-code-block__overlay-footer {
+      // match horizontal padding of the code block
+      margin-left: $hds-code-block-line-numbers-width;
     }
 
     .line-numbers-rows {
@@ -260,5 +284,66 @@ $hds-code-block-code-padding: 16px;
 
   .token.italic {
     font-style: italic;
+  }
+}
+
+// Footer
+.hds-code-block__overlay-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px $hds-code-block-code-padding 10px $hds-code-block-code-padding;
+  pointer-events: none; // fix issue with scrolling when hovering over the footer
+
+  // re-enable pointer events for the button (or any content inside the footer)
+  > * {
+    pointer-events: auto;
+  }
+}
+
+// Usage of sticky positioning, negative margins, and z-index are required to prevent styling issues
+// when horizontal scrolling is present.
+// https://hashicorp.slack.com/archives/C025N5V4PFZ/p1746659338984369
+.hds-code-block--has-overlay-footer {
+  .hds-code-block__code::after {
+    // gradient element
+    position: sticky; // prevent gradient from scrolling together with content
+    bottom: -$hds-code-block-code-padding;
+    left: 0;
+    display: block;
+    height: $hds-code-block-code-footer-height;
+    margin: 0 0 -#{$hds-code-block-code-padding} -1000px; // cover line highlights when line numbers are enabled
+    background: linear-gradient(360deg, #0d0e12 37.07%, rgba(13, 14, 18, 25%) 100%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .line-numbers .line-numbers-rows {
+    padding-bottom: $hds-code-block-code-footer-height;
+  }
+
+  // place line numbers on top of footer gradient
+  .line-numbers-rows {
+    z-index: 1;
+    isolation: isolate;
+  }
+}
+
+.hds-code-block--is-expanded {
+  .hds-code-block__code {
+    // account for the footer at the bottom of the code block
+    padding-bottom: $hds-code-block-code-footer-height;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  .hds-code-block__overlay-footer {
+    background: none;
   }
 }

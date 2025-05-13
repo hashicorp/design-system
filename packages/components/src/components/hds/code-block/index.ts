@@ -69,19 +69,14 @@ export interface HdsCodeBlockSignature {
 
 export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @tracked private _prismCode: SafeString = htmlSafe('');
+  @tracked private _isExpanded: boolean = false;
+  @tracked private _codeContentHeight: number = 0;
+  @tracked private _codeContainerHeight: number = 0;
 
-  /**
-   * Generates a unique ID for the code content
-   *
-   * @param _preCodeId
-   */
+  // Generates a unique ID for the code content
   private _preCodeId = 'pre-code-' + guidFor(this);
 
-  /**
-   * @param code
-   * @type {string}
-   * @description code text content for the CodeBlock
-   */
+  // code text content for the CodeBlock
   get code(): string {
     const code = this.args.value;
 
@@ -98,42 +93,34 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     return code;
   }
 
-  /**
-   * @param language
-   * @type {string}
-   * @default undefined
-   * @description name of coding language used within CodeBlock for syntax highlighting
-   */
+  get maxHeight(): string | undefined {
+    return this._isExpanded ? 'none' : this.args.maxHeight;
+  }
+
+  // Shows overlay footer if maxHeight is set and the pre tag content height is greater than the pre tag height
+  get showFooter(): boolean {
+    if (this.args.maxHeight) {
+      return this._codeContentHeight > this._codeContainerHeight;
+    }
+    return false;
+  }
+
+  // Name of coding language used within CodeBlock for syntax highlighting
   get language(): HdsCodeBlockLanguages | undefined {
     return this.args.language ?? undefined;
   }
 
-  /**
-   * @param hasLineNumbers
-   * @type {boolean}
-   * @default true
-   * @description Displays line numbers if true
-   */
+  // Displays line numbers if true
   get hasLineNumbers(): boolean {
     return this.args.hasLineNumbers ?? true;
   }
 
-  /**
-   * @param isStandalone
-   * @type {boolean}
-   * @default true
-   * @description Make CodeBlock container corners appear rounded
-   */
+  // Make CodeBlock container corners appear rounded (the standalone variation)
   get isStandalone(): boolean {
     return this.args.isStandalone ?? true;
   }
 
-  /**
-   * @param hasLineWrapping
-   * @type {boolean}
-   * @default false
-   * @description Make text content wrap on multiple lines
-   */
+  // Make text content wrap to multiple lines
   get hasLineWrapping(): boolean {
     return this.args.hasLineWrapping ?? false;
   }
@@ -150,7 +137,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
     if (code) {
       // eslint-disable-next-line ember/no-runloop
-      next(() => {
+      next((): void => {
         if (language && grammar) {
           this._prismCode = htmlSafe(Prism.highlight(code, grammar, language));
         } else {
@@ -165,12 +152,20 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           element,
         });
 
+        // Get the actual height & the content height of the preCodeElement
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          const preCodeElement = document.getElementById(this._preCodeId);
+          this._codeContentHeight = preCodeElement?.scrollHeight ?? 0;
+          this._codeContainerHeight = preCodeElement?.clientHeight ?? 0;
+        });
+
         // Force prism-line-highlight plugin initialization
         // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
         if (this.args.highlightLines) {
           // we need to delay re-evaluating the context for prism-line-highlight for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
           // eslint-disable-next-line ember/no-runloop
-          schedule('afterRender', () => {
+          schedule('afterRender', (): void => {
             // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
             if (window) window.dispatchEvent(new Event('resize'));
           });
@@ -179,11 +174,11 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     }
   }
 
-  /**
-   * Get the class names to apply to the component.
-   * @method classNames
-   * @return {string} The "class" attribute to apply to the component.
-   */
+  @action
+  toggleExpanded(): void {
+    this._isExpanded = !this._isExpanded;
+  }
+
   get classNames(): string {
     // Currently there is only one theme so the class name is hard-coded.
     // In the future, additional themes such as a "light" theme could be added.
@@ -204,6 +199,14 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     // Note: Prism.js is using the specific class name "line-numbers" to determine implementation of line numbers in the UI
     if (this.hasLineNumbers) {
       classes.push('line-numbers');
+    }
+
+    if (this.showFooter) {
+      classes.push('hds-code-block--has-overlay-footer');
+    }
+
+    if (this._isExpanded) {
+      classes.push('hds-code-block--is-expanded');
     }
 
     return classes.join(' ');
