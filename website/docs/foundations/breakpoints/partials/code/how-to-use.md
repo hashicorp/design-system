@@ -1,6 +1,6 @@
 ## How to use the breakpoints
 
-In [responsive design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) it's common practice to define specific media queries in CSS that can be used to control not only the layout of the entire page and its parts, but also other aspects of a UI like typography and spacing, the rendering of decorative elements, the resolution of media assets, and much more. These media queries are built using CSS `@media` declarations in combination with a set of standard breakpoints.
+In [responsive design](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design) it's common practice to define specific media queries in CSS that can be used to control not only the layout of the entire page and its parts, but also other aspects of a UI like typography, spacing, the rendering of decorative elements, the resolution of media assets, and much more. These media queries are built using CSS `@media` declarations in combination with a set of standard breakpoints.
 
 Our design system defines [breakpoint values](/foundations/breakpoints#the-ranges) based on browser viewport widths. The intervals between these breakpoints create distinct ranges, which can be used with the [Sass](/foundations/breakpoints?tab=code#sass) and [JavaScript](/foundations/breakpoints?tab=code#javascript) helpers to implement responsive designs for our applications.
 
@@ -78,7 +78,7 @@ The same layout could be achieved using a desktop-first approach in a similar wa
 }
 ```
 
-Of course, these are oversimplified examples. In your implementation, you will have to choose which of the provided mixins are better suited to obtain the desired responsive layout, depending on the design specifications, the context of where the layout lives in the page, and how it relates with the other UI elements.
+Of course, these are oversimplified examples. In your implementation, you will have to choose which of the provided mixins are better suited to achieve the desired responsive layout, which depends on the design specifications, the context of where the layout lives in the page, and how it relates with the other UI elements.
 
 #### Key/Value Map
 
@@ -99,19 +99,19 @@ For special use cases, we also provide a Sass map–`$hds-breakpoints`–which i
 
 ### JavaScript
 
-We provide also helpers in case you need to access the breakpoints names/values in JavaScript code.
+We also provide helpers in case you need to access the breakpoints names/values in JavaScript code.
 
-You have access to the list of breakpoints' names using the `hdsBreakpointsNames` array:
+You have access to the list of breakpoint names using the `hdsBreakpointsNames` array:
 
 ```javascript{data-execute=false}
 import { hdsBreakpointsNames } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 hdsBreakpointsNames.forEach(name => {
-  // do something with the breakpoints' names
+  // do something with the breakpoint names
 });
 ```
 
-You have also access to the list their names and values using the `hdsBreakpointsValues` map:
+You also have access to the list of breakpoint names and values using the `hdsBreakpointsValues` map:
 
 ```javascript{data-execute=false}
 import { hdsBreakpointsValues } from '@hashicorp/design-system-components/utils/hds-breakpoints';
