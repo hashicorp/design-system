@@ -57,9 +57,15 @@
       {{/if}}
     {{/if}}
 
+    {{@column.width}}
+
     {{#if @column.isResizable}}
       <Hds::AdvancedTable::ThMenu @column={{@column}} @onStartResize={{fn (mut this.isResizeSliderVisible) true}} />
-      <Hds::AdvancedTable::ThResizeHandle @column={{@column}} @tableHeight={{@tableHeight}} />
+      <Hds::AdvancedTable::ThResizeHandle
+        @column={{@column}}
+        @nextColumn={{@nextColumn}}
+        @tableHeight={{@tableHeight}}
+      />
     {{/if}}
   </Hds::Layout::Flex>
 
