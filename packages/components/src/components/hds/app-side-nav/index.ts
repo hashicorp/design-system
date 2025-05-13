@@ -188,7 +188,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   @action
   didInsert(element: HTMLElement): void {
     this._containersToHide = element.querySelectorAll(
-      '.hds-app-side-nav-hide-when-minimized'
+      '.hds-app-side-nav--hide-when-minimized'
     );
     this._body = document.body;
     // Store the initial `overflow` value of `<body>` so we can reset to it

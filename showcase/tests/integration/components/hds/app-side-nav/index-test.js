@@ -156,7 +156,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px'>
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav>`);
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
     await click('.hds-app-side-nav__toggle-button');
@@ -166,7 +166,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
 
     await triggerKeyEvent('#test-app-side-nav', 'keydown', 'Escape');
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
-    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('.hds-app-side-nav--hide-when-minimized').hasAttribute('inert');
   });
 
   // COLLAPSIBLE
@@ -191,7 +191,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   test('the "non-minimized" and "minimized" states have impact on its internal properties', async function (assert) {
     await render(hbs`<Hds::AppSideNav @isCollapsible={{true}} id='test-app-side-nav'>
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav>`);
     assert
       .dom('#test-app-side-nav')
@@ -203,7 +203,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-left');
     assert
-      .dom('.hds-app-side-nav-hide-when-minimized')
+      .dom('.hds-app-side-nav--hide-when-minimized')
       .doesNotHaveAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
     assert.dom('body', document).doesNotHaveStyle('overflow');
@@ -217,7 +217,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert
       .dom('.hds-app-side-nav__toggle-button .hds-icon')
       .hasClass('hds-icon-chevrons-right');
-    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('.hds-app-side-nav--hide-when-minimized').hasAttribute('inert');
     assert.dom('#test-app-side-nav-body').doesNotHaveAttribute('inert');
     assert.dom('body', document).doesNotHaveStyle('overflow');
   });
@@ -235,7 +235,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav>`);
 
     assert.strictEqual(calls.length, 1, 'called with initial viewport');
@@ -247,7 +247,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       'resizing to mobile triggers a false event'
     );
 
-    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('.hds-app-side-nav--hide-when-minimized').hasAttribute('inert');
   });
 
   test('when collapsed and the viewport changes from mobile to desktop, it automatically expands and is no longer inert', async function (assert) {
@@ -263,11 +263,11 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav>`);
 
     await click('.hds-app-side-nav__toggle-button');
-    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('.hds-app-side-nav--hide-when-minimized').hasAttribute('inert');
 
     await this.changeBrowserSize(false);
     assert.deepEqual(
@@ -275,7 +275,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       [false],
       'resizing to mobile triggers a false event'
     );
-    assert.dom('.hds-app-side-nav-hide-when-minimized').hasAttribute('inert');
+    assert.dom('.hds-app-side-nav--hide-when-minimized').hasAttribute('inert');
 
     await this.changeBrowserSize(true);
     assert.deepEqual(
@@ -284,7 +284,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
       'resizing to desktop triggers a true event'
     );
     assert
-      .dom('.hds-app-side-nav-hide-when-minimized')
+      .dom('.hds-app-side-nav--hide-when-minimized')
       .doesNotHaveAttribute('inert');
     assert.dom('body', document).doesNotHaveStyle('overflow');
   });
@@ -302,7 +302,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav>`);
     await this.changeBrowserSize(false);
     assert.deepEqual(
@@ -334,7 +334,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <span id='test-app-side-nav-body' />
-  <span class='hds-app-side-nav-hide-when-minimized' />
+  <span class='hds-app-side-nav--hide-when-minimized' />
 </Hds::AppSideNav><button id='button-2'>Click</button>`);
 
     await click('.hds-app-side-nav__toggle-button');
