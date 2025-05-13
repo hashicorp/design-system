@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`AppSideNav` - fixed bug where scrolling was blocked when the `AppSideNav` was expanded on desktop views. Also fixed bug where able to focus links that are visually hidden.
+`AppSideNav` - Fixed bug where scrolling was blocked when the `AppSideNav` was expanded on desktop views. Also fixed bug which allowed user to focus links that were visually hidden.
