@@ -50,7 +50,7 @@ $hds-breakpoints-names: map.keys($hds-breakpoints);
   @if map.has-key($hds-breakpoints, $name) {
     $width: map.get($hds-breakpoints, $name);
 
-    @media (min-width: $width) {
+    @media screen and (min-width: $width) {
       @content;
     }
   } @else {
@@ -67,7 +67,7 @@ $hds-breakpoints-names: map.keys($hds-breakpoints);
     // https://github.com/twbs/bootstrap/blob/c5b1919deaf5393fcca9e9b9d7ce9c338160d99d/scss/mixins/_breakpoints.scss#L34-L46
     $width: map.get($hds-breakpoints, $name) - 0.02;
 
-    @media (max-width: $width) {
+    @media screen and (max-width: $width) {
       @content;
     }
   } @else {
@@ -80,7 +80,7 @@ $hds-breakpoints-names: map.keys($hds-breakpoints);
   $max: map.get($hds-breakpoints, $upper);
 
   @if $min and $max {
-    @media (min-width: $min) and (max-width: $max) {
+    @media screen and (min-width: $min) and (max-width: $max) {
       @content;
     }
   } @else if $min != null and $max == null {
