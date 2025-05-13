@@ -3,12 +3,14 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { hdsBreakpointsNames } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 import ShwLabel from '../../shw/label';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface MockDemoBreakpointsRulerSignature {}
+
+const hdsBreakpointsNames = Object.keys(hdsBreakpoints);
 
 <template>
   <div class="mock-demo-breakpoints-ruler">
