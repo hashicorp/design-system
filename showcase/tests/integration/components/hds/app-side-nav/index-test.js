@@ -291,17 +291,18 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   <span id='test-app-side-nav-body' />
   <span class='hds-app-side-nav-hide-when-minimized' />
 </Hds::AppSideNav>`);
-
-    assert.dom('body', document).hasStyle({
-      overflow: 'hidden',
-    });
-
     await this.changeBrowserSize(false);
     assert.deepEqual(
       calls[1],
       [false],
       'resizing to mobile triggers a false event'
     );
+
+    await click('.hds-app-side-nav__toggle-button');
+
+    assert.dom('body', document).hasStyle({
+      overflow: 'hidden',
+    });
 
     await this.changeBrowserSize(true);
     assert.deepEqual(
