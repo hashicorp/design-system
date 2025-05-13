@@ -11,6 +11,7 @@ import { assert } from '@ember/debug';
 import type HdsAdvancedTableColumn from './models/column';
 
 const TABLE_BORDER_WIDTH = 1;
+const KEYBOARD_RESIZE_STEP = 10;
 
 function calculateEffectiveDelta(
   deltaX: number,
@@ -79,6 +80,16 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this.boundStopResize = this._stopResize.bind(this);
   }
 
+  get height(): string | undefined {
+    const { tableHeight } = this.args;
+
+    if (tableHeight === undefined) {
+      return;
+    }
+
+    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
+  }
+
   get classNames(): string {
     const classes = ['hds-advanced-table-th-resize-handle'];
 
@@ -87,6 +98,43 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  handleKeydown(event: KeyboardEvent): void {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    const { column, nextColumn } = this.args;
+
+    assert(
+      'HdsAdvancedTableThResizeHandle: column pxWidth must be a number to resize with keyboard.',
+      typeof column.pxWidth === 'number'
+    );
+
+    const currentColumnPxWidth = column.pxWidth;
+    const currentNextColumnPxWidth = nextColumn?.pxWidth;
+
+    let deltaX = 0;
+    if (event.key === 'ArrowLeft') {
+      deltaX = -KEYBOARD_RESIZE_STEP;
+    } else if (event.key === 'ArrowRight') {
+      deltaX = KEYBOARD_RESIZE_STEP;
+    }
+
+    if (deltaX === 0) return;
+
+    this._applyResizeDelta(
+      deltaX,
+      column,
+      currentColumnPxWidth, // Current width before keyboard step
+      nextColumn,
+      currentNextColumnPxWidth // Current next col width before keyboard step
+    );
   }
 
   @action
@@ -111,6 +159,39 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.addEventListener('pointerup', this.boundStopResize);
   }
 
+  private _applyResizeDelta(
+    deltaX: number,
+    column: HdsAdvancedTableColumn,
+    startColumnPxWidth: number,
+    nextColumn?: HdsAdvancedTableColumn,
+    startNextColumnPxWidth?: number
+  ): void {
+    const canResizeNeighbor =
+      nextColumn !== undefined &&
+      nextColumn.isResizable &&
+      startNextColumnPxWidth !== undefined;
+
+    if (canResizeNeighbor) {
+      const effectiveDelta = calculateEffectiveDelta(
+        deltaX,
+        column,
+        startColumnPxWidth,
+        nextColumn,
+        startNextColumnPxWidth
+      );
+
+      column.setPxWidth(startColumnPxWidth + effectiveDelta);
+
+      // the actual new column width may differ from the intended width due to min/max constraints.
+      const actualNewColumnWidth = column.pxWidth ?? startColumnPxWidth;
+      const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
+
+      nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
+    } else {
+      column.setPxWidth(startColumnPxWidth + deltaX);
+    }
+  }
+
   private _resize(event: PointerEvent): void {
     if (this.resizing === null) {
       return;
@@ -123,29 +204,13 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       this.resizing;
     const deltaX = event.clientX - startX;
 
-    const canResizeNeighbor =
-      nextColumn !== undefined &&
-      nextColumn.isResizable &&
-      startNextColumnPxWidth !== undefined;
-
-    if (canResizeNeighbor) {
-      const effectiveDelta = calculateEffectiveDelta(
-        deltaX,
-        column,
-        startColumnPxWidth,
-        nextColumn, // Known to be valid and resizable here
-        startNextColumnPxWidth // Known to be a number here
-      );
-
-      column.setPxWidth(startColumnPxWidth + effectiveDelta);
-
-      const actualNewColumnWidth = column.pxWidth ?? startColumnPxWidth;
-      const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
-
-      nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
-    } else {
-      column.setPxWidth(startColumnPxWidth + deltaX);
-    }
+    this._applyResizeDelta(
+      deltaX,
+      column,
+      startColumnPxWidth, // Width at the start of the drag
+      nextColumn,
+      startNextColumnPxWidth // Width of next col at the start of the drag
+    );
   }
 
   private _stopResize(): void {
@@ -153,15 +218,5 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.removeEventListener('pointerup', this.boundStopResize);
 
     this.resizing = null;
-  }
-
-  get height(): string | undefined {
-    const { tableHeight } = this.args;
-
-    if (tableHeight === undefined) {
-      return;
-    }
-
-    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
   }
 }
