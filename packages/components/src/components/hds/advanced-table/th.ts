@@ -30,6 +30,7 @@ export interface HdsAdvancedTableThSignature {
   Args: {
     tableHeight?: number;
     column?: HdsAdvancedTableColumn;
+    nextColumn?: HdsAdvancedTableColumn;
     align?: HdsAdvancedTableHorizontalAlignment;
     isVisuallyHidden?: boolean;
     scope?: HdsAdvancedTableScope;
