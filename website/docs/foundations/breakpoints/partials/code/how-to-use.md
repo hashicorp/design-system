@@ -101,29 +101,19 @@ For special use cases, we also provide a Sass map–`$hds-breakpoints`–which i
 
 We also provide helpers in case you need to access the breakpoints names/values in JavaScript code.
 
-You have access to the list of breakpoint names using the `hdsBreakpointsNames` array:
+You have access to the list of breakpoint names and values using the `hdsBreakpoints` map:
 
 ```javascript{data-execute=false}
-import { hdsBreakpointsNames } from '@hashicorp/design-system-components/utils/hds-breakpoints';
-
-hdsBreakpointsNames.forEach(name => {
-  // do something with the breakpoint names
-});
-```
-
-You also have access to the list of breakpoint names and values using the `hdsBreakpointsValues` map:
-
-```javascript{data-execute=false}
-import { hdsBreakpointsValues } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
 // do something with a specific breakpoint value
-const myBreakpoint = hdsBreakpointsValues['xl'].value; // numeric (eg. 1440)
-const myBreakpoint = hdsBreakpointsValues['lg'].px;    // size in px (eg. 1088px)
-const myBreakpoint = hdsBreakpointsValues['sm'].rem;   // size in rem (eg. 30rem)
+const myBreakpoint1 = hdsBreakpoints['xl'].value; // numeric (eg. 1440)
+const myBreakpoint2 = hdsBreakpoints['lg'].px;    // size in px (eg. 1088px)
+const myBreakpoint3 = hdsBreakpoints['sm'].rem;   // size in rem (eg. 30rem)
 
 // loop over all the breakpoints
-Object.entries(hdsBreakpointsValues).forEach(([name, sizes]) => {
+Object.entries(hdsBreakpoints).forEach(([name, sizes]) => {
   // do something with a specific breakpoint value in px
-  const breakpointSizePx = sizes.px;
+  const myBreakpointSizePx = sizes.px;
 });
 ```
