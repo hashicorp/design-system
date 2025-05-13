@@ -88,40 +88,54 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   // MOBILE
 
   test('it is "mobile" on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' />`);
+    await render(
+      hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px' />`
+    );
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-mobile');
   });
 
   test('it is minimized/collapsed on narrow viewports by default', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' />`);
+    await render(
+      hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px' />`
+    );
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
   });
 
   test('it is not minimized/collapsed on narrow viewports if `isResponsive` is false', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' @isResponsive={{false}} />`);
+    await render(
+      hbs`<Hds::AppSideNav
+  id='test-app-side-nav'
+  @isResponsive={{false}}
+  @breakpoint='10000px'
+/>`
+    );
     assert
       .dom('#test-app-side-nav')
       .hasClass('hds-app-side-nav--is-not-minimized');
   });
 
   test('it shows a toggle button on narrow viewports by default', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' />`);
+    await render(
+      hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px' />`
+    );
     assert.dom('.hds-app-side-nav__toggle-button').exists();
   });
 
   test('it does not show a toggle button on narrow viewports if `isResponsive` is false', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' @isResponsive={{false}} />`);
+    await render(
+      hbs`<Hds::AppSideNav
+  id='test-app-side-nav'
+  @isResponsive={{false}}
+  @breakpoint='10000px'
+/>`
+    );
     assert.dom('.hds-app-side-nav__toggle-button').doesNotExist();
   });
 
   test('it expands/collapses when the toggle button is pressed on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav' />`);
+    await render(
+      hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px' />`
+    );
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
 
     await click('.hds-app-side-nav__toggle-button');
@@ -133,8 +147,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   });
 
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10088px}</style>
-<Hds::AppSideNav id='test-app-side-nav'>
+    await render(hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px'>
   <span id='test-app-side-nav-body' />
   <span class='hds-app-side-nav-hide-when-minimized' />
 </Hds::AppSideNav>`);

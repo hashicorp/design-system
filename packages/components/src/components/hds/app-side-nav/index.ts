@@ -9,11 +9,14 @@ import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 
+import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+
 export interface HdsAppSideNavSignature {
   Args: {
     isResponsive?: boolean;
     isCollapsible?: boolean;
     isMinimized?: boolean;
+    breakpoint?: string;
     onToggleMinimizedStatus?: (arg: boolean) => void;
     onDesktopViewportChange?: (arg: boolean) => void;
   };
@@ -33,9 +36,8 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   private _desktopMQ: MediaQueryList;
   private _containersToHide!: NodeListOf<Element>;
 
-  private _desktopMQVal = getComputedStyle(
-    document.documentElement
-  ).getPropertyValue('--hds-app-desktop-breakpoint');
+  // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
+  private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['lg'].px;
 
   constructor(owner: Owner, args: HdsAppSideNavSignature['Args']) {
     super(owner, args);
