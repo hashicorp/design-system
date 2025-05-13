@@ -206,14 +206,12 @@ The App Side Nav component **automatically**:
 
 Any other content in the App Side Nav needs to be **explicitly handled** by the consumers (in this way they have full control of the content they add, and they can customize the transition as they want/need).
 
-One possible way to do it is to use the **`hds-app-side-nav-hide-when-minimized` class**. This is a special class that can be applied to a DOM element so that it **automatically** fades in/out when the App Side Nav changes its “minimization” state.
+One possible way to do it is to use the **`hds-app-side-nav--hide-when-minimized` class**. This is a special class that can be applied to a DOM element so that it **automatically** fades in/out when the App Side Nav changes its “minimization” state.
 
 More specifically:
 
 - `minimized → maximized` transition: the content appears with a fade-in effect, when the width animation is already completed (the width is maximized)
 - `maximized → minimized` transition: the content disappears at once with no transition, before the width animation starts
-
-Another option is to use the **`isMinimized` parameter**, which is useful in those cases where the content is so custom/specialized that it can’t just be faded in/out but needs to have a different kind of transition (eg. remain visible but change layout or respond to the width of the container). This value is passed down by the `<:header/body/footer>` named blocks as parameters, and can be used to build custom logic on the consumers’ side.
 
 #### Advanced customization
 
