@@ -1,10 +1,8 @@
-## Breakpoints
+Breakpoints are viewport widths where layouts adjust to support responsive experiences on varied screen sizes and devices. These values are used to create utilities and helper components that standardize changes in UI at these widths.
 
-Breakpoints define specific viewport widths where the layout adjusts to support responsive experiences across screen sizes and devices. These values are then used to create utilities and helper components to standardize changes of the UI at different viewport sizes.
+## The ranges
 
-### The ranges
-
-Helios defines five breakpoints: `sm`, `md`, `lg`, `xl`, and `xxl`.
+There are five HDS breakpoint values: `sm`, `md`, `lg`, `xl`, and `xxl`.
 
 | Name   | Value        | Application                   |
 | ------ | ------------ | ----------------------------- |
@@ -16,11 +14,11 @@ Helios defines five breakpoints: `sm`, `md`, `lg`, `xl`, and `xxl`.
 
 The breakpoint name refers to a range of pixel values, not just the starting value. For example, the `sm` breakpoint refers to widths between 480px and 767px. This helps simplify the language around what these ranges mean when designing and increases the flexibility in implementation.
 
-_Note: the range 0-479px is intentionally left without a name: from a design perspective, we don't expect designers to produce mockups for such small screen sizes; from a development perspective, in a mobile-first approach that range can be covered using default styles (overwritten via media queries for subsequent ranges)._
+_Note: the range 0-479px is intentionally left without a name. We don't anticipate designers needing to produce mockups for screen sizes below this width and from the audits conducted, Cloud UI has set a standard of 480px for the most narrow design. From a development perspective, in a mobile-first approach the range below 480px can be covered using default styles (overwritten via media queries for subsequent ranges)._
 
 ### Custom values
 
-The provided breakpoints serve as a cohesive _starting_ point for design, which is why templates have been provided in our [Patterns library](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&node-id=71-11371&t=OvSfKLEJhHntQQZA-1) for this purpose. However, custom values may be necessary for specific use cases that these breakpoints do not cover. For example, if a team discovers that users with 2500px viewports are using a product, a nuanced approach to the UI at that screen size may be required. In such cases, an additional value can be added to enhance the user experience.
+The provided breakpoints serve as a cohesive _starting_ point for design, which is why templates have been provided in our [Patterns library](https://www.figma.com/design/5Pv32j4QiOOD8lkFTD1dxC/HDS-Patterns-v2.0?m=auto&node-id=71-11371&t=OvSfKLEJhHntQQZA-1) for this purpose. However, custom values may be necessary for specific use cases that these breakpoints do not cover. For example, if a team discovers that users with 2500px viewports are using a product, a nuanced approach to the UI at that screen size may be required. In such cases, a custom width value may be used to enhance the user experience.
 
 !!! insight
 
@@ -34,7 +32,7 @@ Not all designs require redesigning at each breakpoint. Only when designs are co
 
 For example, a UI featuring a table layout may not require changes for each breakpoint because the expected behavior is for the table to maintain its full width regardless of the breakpoint value. A design isn't necessary to elaborate this standard behavior.
 
-![Wireframe table shown expanding in size.](/assets/foundations/breakpoints/breakpoints-table-example.png)
+![](/assets/foundations/breakpoints/breakpoints-table-example.png)
 
 Redesigning across multiple breakpoints is often necessary for complex UIs, such as a landing page with cards arranged in a grid. As the viewport size decreases, both the position and content of the cards change, requiring nuanced designs across breakpoints. In such scenarios, designers should specify how the layout adjusts at the `sm`, `md`, and `lg` views.
 
