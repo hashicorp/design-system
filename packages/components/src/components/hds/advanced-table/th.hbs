@@ -57,10 +57,7 @@
       {{/if}}
     {{/if}}
 
-    {{@column.width}}
-
-    {{#if @column.isResizable}}
-      <Hds::AdvancedTable::ThMenu @column={{@column}} @onStartResize={{fn (mut this.isResizeSliderVisible) true}} />
+    {{#if (and @column.isResizable (not @isLastColumn))}}
       <Hds::AdvancedTable::ThResizeHandle
         @column={{@column}}
         @nextColumn={{@nextColumn}}
@@ -68,14 +65,4 @@
       />
     {{/if}}
   </Hds::Layout::Flex>
-
-  {{#if this.isResizeSliderVisible}}
-    {{#if @column.width}}
-      <Hds::AdvancedTable::ThResizeForm
-        @labelId={{this._labelId}}
-        @column={{@column}}
-        @onClose={{this.closeResizeSlider}}
-      />
-    {{/if}}
-  {{/if}}
 </div>

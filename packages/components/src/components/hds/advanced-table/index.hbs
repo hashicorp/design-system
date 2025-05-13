@@ -57,6 +57,7 @@
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @isExpanded={{this._tableModel.expandState}}
+              @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
