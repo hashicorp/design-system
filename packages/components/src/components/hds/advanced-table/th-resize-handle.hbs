@@ -9,6 +9,7 @@
   tabindex="0"
   aria-label="Resize {{@column.label}} column"
   {{on "pointerdown" this.startResize}}
+  {{on "keydown" this.handleKeydown}}
   {{style height=this.height}}
   ...attributes
 />
