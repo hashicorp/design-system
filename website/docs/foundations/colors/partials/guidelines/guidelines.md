@@ -1,10 +1,17 @@
-## Color styles and tokens
+## Color tokens
 
 Color-naming syntax and usage can vary depending on context and tooling. Naming conventions within our system allow us to implement standards in our libraries.
 
-Figma uses "styles" and "variables" as methods for organizing reusable color values. Both of these value types can be applied to fills, borders, and other properties that accept color assignments.
-- Styles are individual value assignments that are categorized and stored in the right sidebar of Figma's UI.
+### Defining tokens in Figma
+
+Figma uses "styles" and "variables" as methods for organizing reusable color values. Both of these value types can be applied properties that accept color assignments.
+
+#### Styles
+- Styles are individual values that are categorized and stored in the right sidebar of Figma's UI.
 - Styles directly reference a HEX value but cannot reference each other (known as aliasing). 
+- HDS no longer uses styles in Figma in favor of Variables
+
+#### Variables
 - Variables are values assigned to a name via the Variables panel in the right sidebar of Figma's UI under the "open variables" button. 
 - Variables can reference one another as aliases, meaning that a HEX value (`#3B3D45`) can be named in a Core Palette (`Palette/Neutral/Neutral 600`) and that Core Palette value can also be assigned to a Semantic use or multiple semantic uses as needed (`Foreground/Primary`).
 - Variable structure in Figma closely follows the way reusable color values are structured in code, which we refer to as “Tokens.” 
