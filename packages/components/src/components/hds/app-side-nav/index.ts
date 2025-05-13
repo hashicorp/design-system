@@ -161,6 +161,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     if (event.key === 'Escape' && !this._isMinimized && !this._isDesktop) {
       this._isMinimized = true;
       this.synchronizeInert();
+      this.unlockBodyScroll();
     }
   }
 
