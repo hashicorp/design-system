@@ -33,6 +33,7 @@ export interface HdsAdvancedTableThSignature {
     depth?: number;
     hasExpandAllButton?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
+    isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
     newLabel?: string;
@@ -55,8 +56,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
   private _element!: HTMLDivElement;
   @tracked private _shouldTrapFocus = false;
-
-  @tracked isResizeSliderVisible: boolean = false;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -131,11 +130,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     }
 
     return classes.join(' ');
-  }
-
-  @action
-  closeResizeSlider(): void {
-    this.isResizeSliderVisible = false;
   }
 
   @action onFocusTrapDeactivate(): void {
