@@ -16,6 +16,7 @@ $hds-advanced-table-inner-border-radius: calc(
   #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
 );
 $hds-advanced-table-border-color: var(--token-color-border-primary);
+$hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
@@ -111,13 +112,14 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     }
 
     .hds-advanced-table__th-resize-handle {
-      position: absolute;
+      @include hds-focus-ring-with-pseudo-element($position: absolute);
+
       top: 0;
       right: 0;
       bottom: 0;
       z-index: 2;
       width: 16px;
-      transform: translateX(50%);
+      transform: translateX(8.5px);
       cursor: col-resize;
 
       &::after {
@@ -127,24 +129,28 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         bottom: 0;
         z-index: 2;
         width: 1px;
-        background-color: red;
+        background-color: $hds-advanced-table-border-color;
         transform: translateX(-7.5px);
         content: "";
       }
-    }
 
-    .hds-advanced-table__th-resize-slider {
-      position: absolute;
-      right: 16px;
-      bottom: -8px;
-      left: 0;
-      z-index: 2;
-      width: 280px;
-      padding: 16px;
-      background-color: var(--token-color-surface-primary);
-      border: 1px solid var(--token-color-foreground-primary);
-      border-radius: var(--token-border-radius-medium);
-      transform: translateY(100%);
+      &:focus::after,
+      &.mock-focus,
+      &:hover::after,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        width: 3px;
+        transform: translateX(-6.5px);
+      }
+
+      &:hover::after {
+        background-color: $hds-advanced-table-border-resize-handle-hover-color;
+      }
+
+      &:focus::after,
+      &.mock-focus,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        background-color: var(--token-color-palette-blue-300);
+      }
     }
 
     // horizontal alignment
