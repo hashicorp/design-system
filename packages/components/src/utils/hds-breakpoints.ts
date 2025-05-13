@@ -1,4 +1,4 @@
-// todo: understand if we can generate this list reading the correspondin Sass file
+// todo: understand if we can generate this list reading the corresponding Sass file
 // see: https://sergiocarracedo.es/2020/07/17/sharing-variables-between-scss-and-typescript/
 
 export const hdsBreakpoints = {

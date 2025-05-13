@@ -7,9 +7,6 @@ import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-br
 
 import ShwLabel from '../../shw/label';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-export interface MockDemoBreakpointsRulerSignature {}
-
 const hdsBreakpointsNames = Object.keys(hdsBreakpoints);
 
 <template>
