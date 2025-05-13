@@ -78,7 +78,7 @@ The same layout could be achieved using a desktop-first approach in a similar wa
 }
 ```
 
-Of course, these are oversimplified examples. In your implementation, you will have to choose which of the provided mixins are better suited to achieve the desired responsive layout, which depends on the design specifications, the context of where the layout lives in the page, and how it relates with the other UI elements.
+Of course, these are oversimplified examples. In your implementation, you will have to choose which mixin is best suited to achieve the desired responsive layout. This will  depend on the design specifications, the context of the layout within the page, and how it relates with other UI elements.
 
 #### Key/Value Map
 
