@@ -28,26 +28,22 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
-    tableHeight?: number;
     column?: HdsAdvancedTableColumn;
-    nextColumn?: HdsAdvancedTableColumn;
-    align?: HdsAdvancedTableHorizontalAlignment;
-    isVisuallyHidden?: boolean;
-    scope?: HdsAdvancedTableScope;
-    tooltip?: string;
-    rowspan?: number;
     colspan?: number;
-    newLabel?: string;
-    isExpandable?: boolean;
-    parentId?: string;
-    onClickToggle?: () => void;
-    isExpanded?: HdsAdvancedTableExpandState;
     depth?: number;
-    didInsertExpandButton?: (button: HTMLButtonElement) => void;
-    willDestroyExpandButton?: (button: HTMLButtonElement) => void;
     hasExpandAllButton?: boolean;
+    isExpanded?: HdsAdvancedTableExpandState;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    newLabel?: string;
+    nextColumn?: HdsAdvancedTableColumn;
+    parentId?: string;
+    rowspan?: number;
+    scope?: HdsAdvancedTableScope;
+    tableHeight?: number;
+    didInsertExpandButton?: (button: HTMLButtonElement) => void;
+    onClickToggle?: () => void;
+    willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
     default?: [];
@@ -86,7 +82,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
-    const { align = DEFAULT_ALIGN } = this.args;
+    const { align = DEFAULT_ALIGN } = this.args.column ?? {};
 
     assert(
       `@align for "Hds::Table::Th" must be one of the following: ${ALIGNMENTS.join(
