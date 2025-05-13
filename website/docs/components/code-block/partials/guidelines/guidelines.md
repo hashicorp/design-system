@@ -71,7 +71,7 @@ In the Figma component, the code examples have the appropriate number of lines b
 
 ## Height toggle button
 
-When displaying longer code snippets, it can be helpful to let users expand and collapse the content. Setting a `maxHeight` on the Code Block limits how much is shown by default. If the content exceeds this height, a **Show more code** button appears at the bottom of the block, allowing users to expand it. Interacting with the button again collapses it to it's original height.
+When displaying longer code snippets, it can be helpful to let users expand and collapse the content. Setting a `maxHeight` on the Code Block limits how much is shown by default. If the content exceeds this height, a **Show more code** button automatically appears at the bottom of the block, allowing users to expand it. Clicking the button again collapses the block back to its original height.
 
 In Figma, this is enabled by setting `hasToggleHeightButton` to true. The button is placed inside a footer element that only appears when the content overflows, keeping the layout clean when the toggle isn’t needed.
 
