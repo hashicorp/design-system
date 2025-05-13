@@ -146,8 +146,6 @@
       "./components/hds/advanced-table/th-button-expand.js": "./dist/_app_/components/hds/advanced-table/th-button-expand.js",
       "./components/hds/advanced-table/th-button-sort.js": "./dist/_app_/components/hds/advanced-table/th-button-sort.js",
       "./components/hds/advanced-table/th-button-tooltip.js": "./dist/_app_/components/hds/advanced-table/th-button-tooltip.js",
-      "./components/hds/advanced-table/th-menu/index.js": "./dist/_app_/components/hds/advanced-table/th-menu/index.js",
-      "./components/hds/advanced-table/th-resize-form.js": "./dist/_app_/components/hds/advanced-table/th-resize-form.js",
       "./components/hds/advanced-table/th-resize-handle.js": "./dist/_app_/components/hds/advanced-table/th-resize-handle.js",
       "./components/hds/advanced-table/th-selectable.js": "./dist/_app_/components/hds/advanced-table/th-selectable.js",
       "./components/hds/advanced-table/th-sort.js": "./dist/_app_/components/hds/advanced-table/th-sort.js",
