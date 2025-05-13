@@ -157,13 +157,14 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
     }
 
     .hds-advanced-table__th-resize-handle {
-      position: absolute;
+      @include hds-focus-ring-with-pseudo-element($position: absolute);
+
       top: 0;
       right: 0;
       bottom: 0;
       z-index: 2;
       width: 16px;
-      transform: translateX(50%);
+      transform: translateX(8.5px);
       cursor: col-resize;
 
       &::after {
@@ -173,7 +174,7 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
         bottom: 0;
         z-index: 2;
         width: 1px;
-        background-color: red;
+        background-color: $hds-advanced-table-border-color;
         transform: translateX(-7.5px);
         content: "";
       }
