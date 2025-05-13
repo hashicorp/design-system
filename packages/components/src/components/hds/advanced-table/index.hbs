@@ -54,18 +54,14 @@
             </Hds::AdvancedTable::ThSort>
           {{else}}
             <Hds::AdvancedTable::Th
-              @align={{column.align}}
               @column={{column}}
-              @nextColumn={{get this._tableModel.columns (add index 1)}}
-              @tooltip={{column.tooltip}}
-              @isVisuallyHidden={{column.isVisuallyHidden}}
-              @isExpandable={{column.isExpandable}}
-              @onClickToggle={{this._tableModel.toggleAll}}
-              @isExpanded={{this._tableModel.expandState}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @isExpanded={{this._tableModel.expandState}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this.tableHeight}}
+              @onClickToggle={{this._tableModel.toggleAll}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
