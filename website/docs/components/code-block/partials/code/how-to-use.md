@@ -149,7 +149,7 @@ loadInitializers(App, config.modulePrefix);"
 
 ### Limit height
 
-Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. If the content height exceeds the set max height, vertical scrolling is enabled to scroll vertically to view the overflowing content. A toggle button is rendered as well, which can be used to expand the height and show the Code Block content in its entirety.
+Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. If the content height exceeds the set max height, vertical scrolling is enabled view the overflowing content and a toggle button is displayed to expand the height and show the Code Block content in its entirety.
 
 ```handlebars
 <Hds::CodeBlock
