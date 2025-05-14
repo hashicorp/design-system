@@ -12,6 +12,8 @@
   ...attributes
   aria-current={{if @isSelected "page" null}}
 >
-  <Hds::Text::Body @tag="span" @size="100" @weight="medium"><span class="sr-only">page
-    </span>{{this.page}}</Hds::Text::Body>
+  <Hds::Text::Body @tag="span" @size="100" @weight="medium">
+    <span class="sr-only">{{t "hds.components.pagination.nav.number.screen_reader_label"}}</span>
+    {{this.page}}
+  </Hds::Text::Body>
 </Hds::Interactive>
