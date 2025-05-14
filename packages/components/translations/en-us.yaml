@@ -1,6 +1,4 @@
 hds:
-  global:
-    hashicorp: "HashiCorp"
   components:
     global:
       loading: "Loading"
@@ -10,6 +8,8 @@ hds:
       toggle: "Toggle"
       tooltip_prefix: "More information for"
     app_footer:
+      copyright:
+        copyright_text: "&copy; {year} HashiCorp"
       legal_links:
         support: "Support"
         terms: "Terms"
@@ -30,7 +30,7 @@ hds:
           no_options_selected: "No options selected"
     pagination:
       info:
-        range_of_total: "{{start}}&mdash;{{end}} of {{total}}"
+        range_of_total: "{start}&mdash;{end} of {total}"
       nav:
         number:
           screen_reader_label: "page"
