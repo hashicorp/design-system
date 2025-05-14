@@ -85,7 +85,6 @@
     "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^7.1.4",
     "@glimmer/component": "^1.1.2",
-    "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.5.2",
     "@glint/environment-ember-loose": "^1.5.2",
     "@glint/environment-ember-template-imports": "^1.5.2",
