@@ -396,6 +396,7 @@ For situations where the default number of rows visible may be high, it can be d
       (hash key="role" label="Role" isSortable=true)
     }}
     @hasStickyHeader={{true}}
+    @maxHeight="500px"
   >
     <:body as |B|>
       <B.Tr>
