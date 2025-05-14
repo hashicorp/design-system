@@ -607,6 +607,9 @@ importers:
       ember-deep-tracked:
         specifier: ^2.0.1
         version: 2.0.1(@glint/template@1.5.2)
+      ember-intl:
+        specifier: ^7.1.8
+        version: 7.1.8(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-load-initializers:
         specifier: ^3.0.1
         version: 3.0.1(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
