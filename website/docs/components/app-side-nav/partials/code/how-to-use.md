@@ -201,7 +201,7 @@ Each one of these states has CSS class names associated, and they’re used by t
 
 The App Side Nav component **automatically**:
 
-- fades in/out the the content in the navigation
+- fades in/out the content in the navigation
 - swaps the toggle button icon from “menu” to “close” and moves it from one position to another
 
 More specifically, the animation is:
