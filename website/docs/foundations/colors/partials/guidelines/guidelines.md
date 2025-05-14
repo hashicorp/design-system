@@ -2,15 +2,15 @@
 
 Color-naming syntax and usage can vary depending on context and tooling. Naming conventions within our system allow us to implement standards in our libraries.
 
-In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are connected to Semantic Variables. This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
+In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables. This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
 
-Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`in the same way that Figma variables alias one another. 
+Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette colors are directly referenced in Semantic Palette values in the same way that Figma variables alias one another. 
 
 ![Diagram of token color inheritance with the levels (from left to right): hex code, core palette token, semantic token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
 ## What are semantic colors?
 
-The Semantic Palette embeds meaning into color names, which makes it easier to select proper color values and maintain consistent use across applications.
+The Semantic Palette embeds meaning into color names, making it easier to select correct consistent values across applications.
 
 Semantic colors should be used for the purpose in their name. These colors are designed to meet accessibility standards when used in combination with one another. 
 - Foreground colors are intended to be used with surface or page colors.
@@ -26,9 +26,7 @@ Some examples of semantic color combinations with their respective contrast rati
 
 ### How are semantic names created
 
-In semantic token naming, the **element** and the **role** are defined to make color decisions easier and more consistent.
-
-HDS organizes semantic tokens into **element** categories with **roles** appended.
+In semantic token naming, the **element** and the **role** are defined to make color decisions easier and more consistent. HDS organizes semantic tokens into **element** categories with **roles** appended.
 
 ![Columns showing how the token name is broken down into a prefix, element, and role](/assets/foundations/color/colors-semantic-token-naming.png)
 
