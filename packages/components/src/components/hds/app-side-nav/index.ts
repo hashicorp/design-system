@@ -34,7 +34,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
   private _desktopMQ: MediaQueryList;
-  private _containersToHide!: NodeListOf<Element>;
+  private _navWrapperBody!: HTMLElement;
 
   // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
   private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['lg'].px;
@@ -123,13 +123,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   synchronizeInert(): void {
-    this._containersToHide?.forEach((element): void => {
-      if (this._isMinimized) {
-        element.setAttribute('inert', '');
-      } else {
-        element.removeAttribute('inert');
-      }
-    });
+    if (this._isMinimized) {
+      this._navWrapperBody?.setAttribute('inert', '');
+    } else {
+      this._navWrapperBody?.removeAttribute('inert');
+    }
   }
 
   lockBodyScroll(): void {
@@ -186,14 +184,16 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   @action
-  didInsert(element: HTMLElement): void {
-    this._containersToHide = element.querySelectorAll(
-      '.hds-app-side-nav--hide-when-minimized'
-    );
+  didInsert(): void {
     this._body = document.body;
     // Store the initial `overflow` value of `<body>` so we can reset to it
     this._bodyInitialOverflowValue =
       this._body.style.getPropertyValue('overflow');
+  }
+
+  @action
+  didInsertNavWrapperBody(element: HTMLElement): void {
+    this._navWrapperBody = element;
   }
 
   @action

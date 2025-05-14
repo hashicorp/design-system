@@ -201,17 +201,15 @@ Each one of these states has CSS class names associated, and they’re used by t
 
 The App Side Nav component **automatically**:
 
-- fades in/out the “actions” block in the header and the content injected in the body via “portals”.
+- fades in/out the the content in the navigation
 - swaps the toggle button icon from “menu” to “close” and moves it from one position to another
 
-Any other content in the App Side Nav needs to be **explicitly handled** by the consumers (in this way they have full control of the content they add, and they can customize the transition as they want/need).
-
-One possible way to do it is to use the **`hds-app-side-nav--hide-when-minimized` class**. This is a special class that can be applied to a DOM element so that it **automatically** fades in/out when the App Side Nav changes its “minimization” state.
-
-More specifically:
+More specifically, the animation is:
 
 - `minimized → maximized` transition: the content appears with a fade-in effect, when the width animation is already completed (the width is maximized)
 - `maximized → minimized` transition: the content disappears at once with no transition, before the width animation starts
+
+Any other content in the App Side Nav needs to be **explicitly handled** by the consumers (in this way they have full control of the content they add, and they can customize the transition as they want/need).
 
 #### Advanced customization
 

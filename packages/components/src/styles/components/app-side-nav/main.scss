@@ -102,12 +102,7 @@
   overflow-y: auto;
 }
 
-// "HIDE-WHEN-MINIMIZED" SPECIAL CLASS
-// this is a special class that is used to control which elements of the sidenav need to be:
-// - hidden (immediately) when the sidenav is "minimized"
-// - shown (transitioning their opacity) when the sidenav is "expanded"
-
-.hds-app-side-nav--hide-when-minimized {
+.hds-app-side-nav__wrapper-body {
   .hds-app-side-nav--is-minimized & {
     visibility: hidden !important; // we need `!important` here to override the inline style applied to the single panels
     opacity: 0;

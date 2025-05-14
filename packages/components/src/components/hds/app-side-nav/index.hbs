@@ -27,7 +27,7 @@
       />
     {{/if}}
 
-    <div class="hds-app-side-nav__wrapper-body hds-app-side-nav--hide-when-minimized">
+    <div class="hds-app-side-nav__wrapper-body" {{did-insert this.didInsertNavWrapperBody}}>
       {{~yield~}}
     </div>
   </div>
