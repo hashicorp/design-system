@@ -5,16 +5,6 @@
 
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
 
-export enum CssSizeUnitValues {
-  Px = 'px',
-  Percent = '%',
-}
-
-export type CssSizeUnit = `${CssSizeUnitValues}`;
-export type CssSize = `${number}${CssSizeUnit}`;
-
-export type PixelSize = `${number}${CssSizeUnitValues.Px}`;
-
 export enum HdsAdvancedTableDensityValues {
   Default = 'default',
   Medium = 'medium',
@@ -91,9 +81,9 @@ interface BaseHdsAdvancedTableColumn {
   label: string;
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
   tooltip?: string;
-  width?: CssSize;
-  minWidth?: PixelSize;
-  maxWidth?: PixelSize;
+  width?: string;
+  minWidth?: `${number}px`;
+  maxWidth?: `${number}px`;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
