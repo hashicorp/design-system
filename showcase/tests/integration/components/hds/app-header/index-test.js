@@ -52,27 +52,28 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   // Note: We set a high breakpoint to force the component to render as "mobile"
 
   test('it is "mobile" on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader id='test-app-header' />`);
+    await render(
+      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`
+    );
     assert.dom('#test-app-header').hasClass('hds-app-header--is-mobile');
   });
 
   test('it shows a menu button on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader />`);
+    await render(hbs`
+<Hds::AppHeader @breakpoint='10000px' />`);
     assert.dom('.hds-app-header__menu-button').exists();
   });
 
   // Mobile menu functionality
   test(`the actions do not display by default on narrow viewports`, async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader id='test-app-header' />`);
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`);
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
   });
 
   test(`the actions show/hide when the menu button is pressed on narrow viewports`, async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader id='test-app-header' />`);
+    await render(hbs`
+<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`);
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
     await click('.hds-app-header__menu-button');
@@ -95,8 +96,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   // A11Y
 
   test(`it displays the correct value for aria-expanded when actions are displayed vs hidden`, async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader />`);
+    await render(hbs`<Hds::AppHeader @breakpoint='10000px' />`);
     await click('.hds-app-header__menu-button');
     assert
       .dom('.hds-app-header__menu-button')
@@ -109,8 +109,9 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   });
 
   test('the actions menu collapses when the ESC key is pressed on narrow viewports', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader id='test-app-header' />`);
+    await render(
+      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`
+    );
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
     await click('.hds-app-header__menu-button');
@@ -121,8 +122,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
   });
 
   test('the menu button has an aria-controls attribute with a value matching the menu id', async function (assert) {
-    await render(hbs`<style>:root {--hds-app-desktop-breakpoint: 10000px}</style>
-<Hds::AppHeader />`);
+    await render(hbs`<Hds::AppHeader @breakpoint='10000px' />`);
     await click('.hds-app-header__menu-button');
     assert.dom('.hds-app-header__menu-button').hasAttribute('aria-controls');
     assert.dom('.hds-app-header__actions').hasAttribute('id');

@@ -8,11 +8,7 @@
 //
 
 @use "../mixins/focus-ring" as *;
-
-// custom breakpoint for the pagination, swapping between horizontal and stacked layout
-// notice: the value is based on where the component layout potentially breaks down
-
-$hds-pagination-layout-breakpoint: 1000px;
+@use "../mixins/breakpoints" as *;
 
 // * Pagination Parent (wrapper) component
 // -------------------------------------------------------------------
@@ -25,7 +21,7 @@ $hds-pagination-layout-breakpoint: 1000px;
   align-items: center;
   margin: 0 auto;
 
-  @media screen and (max-width: $hds-pagination-layout-breakpoint) {
+  @include hds-breakpoint-below("lg") {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -37,7 +33,7 @@ $hds-pagination-layout-breakpoint: 1000px;
     justify-self: flex-start;
     margin-right: var(--token-pagination-child-spacing-horizontal);
 
-    @media screen and (max-width: $hds-pagination-layout-breakpoint) {
+    @include hds-breakpoint-below("lg") {
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-left: var(--token-pagination-child-spacing-horizontal);
     }
@@ -46,7 +42,7 @@ $hds-pagination-layout-breakpoint: 1000px;
   .hds-pagination-nav {
     grid-area: nav;
 
-    @media screen and (max-width: $hds-pagination-layout-breakpoint) {
+    @include hds-breakpoint-below("lg") {
       justify-content: center;
       order: -1;
       // Force nav to occupy a full row so other components will wrap:
@@ -59,7 +55,7 @@ $hds-pagination-layout-breakpoint: 1000px;
     justify-self: flex-end;
     margin-left: var(--token-pagination-child-spacing-horizontal);
 
-    @media screen and (max-width: $hds-pagination-layout-breakpoint) {
+    @include hds-breakpoint-below("lg") {
       margin-top: var(--token-pagination-child-spacing-vertical);
       margin-right: var(--token-pagination-child-spacing-horizontal);
     }
