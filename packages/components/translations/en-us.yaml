@@ -1,0 +1,36 @@
+hds:
+  global:
+    hashicorp: "HashiCorp"
+  components:
+    global:
+      loading: "Loading"
+      optional: "Optional"
+      selection_state: "Selection state"
+      sort_by: "Sort by"
+      toggle: "Toggle"
+      tooltip_prefix: "More information for"
+    app_footer:
+      legal_links:
+        support: "Support"
+        terms: "Terms"
+        privacy: "Privacy"
+        security: "Security"
+        accessibility: "Accessibility"
+    app_side_nav:
+      heading: "Application local navigation"
+    application_state:
+      header:
+        error: "ERROR"
+    side_nav:
+      base:
+        heading: "Application local navigation"
+    form:
+      super_select:
+        after_options:
+          no_options_selected: "No options selected"
+    pagination:
+      info:
+        range_of_total: "{{start}}&mdash;{{end}} of {{total}}"
+      nav:
+        number:
+          screen_reader_label: "page"
