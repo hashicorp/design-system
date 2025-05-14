@@ -32,6 +32,8 @@ HDS organizes semantic tokens into **element** categories with **roles** appende
 
 ![Columns showing how the token name is broken down into a prefix, element, and role](/assets/foundations/color/colors-semantic-token-naming.png)
 
+Examples of **element** naming include:
+
 - **Foreground** - For text, link, status, and icon elements
 - **Border** - For borders (or strokes) on components, containers, or dividers
 - **Surface** - For the background (or surface) of a component or container
