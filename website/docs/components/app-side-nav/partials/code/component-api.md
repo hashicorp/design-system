@@ -21,6 +21,9 @@ This is the full-fledged component (responsive and animated).
   <C.Property @name="isMinimized" @type="boolean" @default="false">
     Controls if the App Side Nav is rendered collapsed or expanded when initialized. This allows an application to preserve the collapsed/expanded state across sessions. After the initial render, this argument is altered based on user interactions (collapse/expand the App Side Nav or resize the window) and it is not a suitable way of controlling the App Side Nav state from outside after render (it’s an internal state).
   </C.Property>
+  <C.Property @name="breakpoint" @type="string" @default="1088px">
+    Set a custom breakpoint to control the page width at which the UI switches from displaying the mobile/small view vs. the desktop/large view.
+  </C.Property>
   <C.Property @name="onToggleMinimizedStatus" @type="function">
     Callback function invoked when the `AppSideNav` is collapsed or expanded. The function receives a boolean argument stating if the `AppSideNav` is minimized or not.
   </C.Property>

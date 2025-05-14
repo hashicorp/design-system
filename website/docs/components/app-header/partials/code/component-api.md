@@ -13,7 +13,7 @@
     A named block where the utility actions will be rendered. Typically, `Dropdown` or `Button` components should be added here, such as a help menu, user menu, or search button.
   </C.Property>
   <C.Property @name="breakpoint" @type="string" @default="1088px">
-    Set a custom breakpoint to control the page width at which the UI switches from displaying the mobile/small view vs. the desktop/view.
+    Set a custom breakpoint to control the page width at which the UI switches from displaying the mobile/small view vs. the desktop/large view.
   </C.Property>
   <C.Property @name="hasA11yRefocus" @type="boolean" @default="true">
     Controls whether a "navigator narrator" and a "skip link" are added to the navigation (provided by the [`ember-a11y-refocus` Ember addon](https://github.com/ember-a11y/ember-a11y-refocus)). It can be programmatically turned off by passing `false`. Warning: if it is set to false, then it will fail Bypass Blocks, [Success Criteria 2.4.1](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html). Since this component appears on every page, the application will not be considered conformant.

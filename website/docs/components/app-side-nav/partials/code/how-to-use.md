@@ -118,7 +118,7 @@ Below is an example (inspired by the Cloud UI navigation) of how the two kinds o
 
 ```handlebars
 {{!--
-for demo purposes we set `@isResponsive` to `false` but in your app it will probably need to be set to `true` 
+for demo purposes we set `@isResponsive` to `false` but in your app it will probably need to be set to `true`
 (or omitted to rely on defaults)
 --}}
 <div class="doc-app-sidenav-demo--cloud-ui">
@@ -175,7 +175,7 @@ When the App Side Nav is used in conjunction with portals, the nesting of naviga
 As mentioned above, the full-fledged `Hds::AppSideNav` component is “responsive” by default:
 
 - when the **viewport is `desktop`**, the sidebar navigation is static and has a fixed width
-    - the width at which the viewport is considered “desktop” is controlled by a dedicated CSS variable `--hds-app-desktop-breakpoint`; if needed it can be overwritten (at `:root` level) to define a custom “desktop” breakpoint
+    - the width at which the viewport is considered “desktop” can be overwritten using the `@breakpoint` argument
 - when the **viewport is `mobile`**, the sidebar navigation is responsive and the user can minimize or maximize its width via a toggle button (the component will take care automatically of the transitions between these two states)
     - in this case the App Side Nav occupies only a minimum width in terms of page layout, even when expanded (it partially covers the main content)
     - a toggle button is added to the App Side Nav, used to expand/minimize its width
