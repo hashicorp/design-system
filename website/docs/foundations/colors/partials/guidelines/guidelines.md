@@ -28,7 +28,9 @@ Some examples of semantic color combinations with their respective contrast rati
 
 In semantic token naming, the **element** and the **role** are defined to make color decisions easier and more consistent.
 
-HDS organizes semantic tokens into **element** categories with **roles** appended: 
+HDS organizes semantic tokens into **element** categories with **roles** appended.
+
+![Columns showing how the token name is broken down into a prefix, element, and role](/assets/foundations/color/colors-semantic-token-naming.png)
 
 - **Foreground** - For text, link, status, and icon elements
 - **Border** - For borders (or strokes) on components, containers, or dividers
