@@ -77,15 +77,15 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   // Generates a unique ID for the code content
   private _preCodeId = 'pre-code-' + guidFor(this);
   private _preCodeElement!: HTMLPreElement;
-  private _observer!: IntersectionObserver;
+  private _observer!: ResizeObserver;
 
   // If a code block is hidden from view, and made visible after load, the Prism code needs to be re-run
   private _setUpObserver = modifier((element: HTMLElement) => {
     this._preCodeElement = element.querySelector('pre') as HTMLPreElement;
     const codeBlock = element.querySelector('code') as HTMLElement;
-    this._observer = new IntersectionObserver((entries) => {
+    this._observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.contentBoxSize) {
           this.setPrismCode(codeBlock);
         }
       });
