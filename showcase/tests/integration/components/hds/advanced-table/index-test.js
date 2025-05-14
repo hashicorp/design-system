@@ -325,11 +325,12 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setSortableTableData(this);
 
     await render(
-      hbs`<div id='short-advanced-table-wrapper' style="height: 75px; overflow-y: scroll;"><Hds::AdvancedTable
+      hbs`<Hds::AdvancedTable
   id='data-test-advanced-table'
   @model={{this.model}}
   @columns={{this.columns}}
   @hasStickyHeader={{true}}
+  @maxHeight='75px'
 >
 <:body as |B|>
     <B.Tr>
@@ -338,12 +339,71 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       <B.Td>{{B.data.year}}</B.Td>
     </B.Tr>
   </:body>
-</Hds::AdvancedTable></div>`
+</Hds::AdvancedTable>`
     );
 
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__thead')
       .hasClass('hds-advanced-table__thead--sticky');
+  });
+
+  test('it should render the appropriate CSS and add a sticky header when set @maxHeight', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @maxHeight='75px'
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__thead')
+      .hasClass('hds-advanced-table__thead--sticky');
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table')
+      .hasStyle({ maxHeight: '75px' });
+  });
+
+  test('it should render the appropriate CSS when set @maxHeight and @hasStickyHeader is set to false', async function (assert) {
+    setSortableTableData(this);
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyHeader={{false}}
+  @maxHeight='75px'
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`
+    );
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table__thead')
+      .doesNotHaveClass('hds-advanced-table__thead--sticky');
+
+    assert
+      .dom('#data-test-advanced-table .hds-advanced-table')
+      .hasStyle({ maxHeight: '75px' });
   });
 
   test('it should render with a CSS class appropriate for the @hasStickyFirstColumn argument', async function (assert) {
@@ -528,6 +588,38 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         </B.Tr>
       </:body>
     </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it throws an assertion if it has `@hasStickyHeader` and does not have @maxHeight', async function (assert) {
+    const errorMessage = 'Must set @maxHeight to use @hasStickyHeader.';
+
+    setSortableTableData(this);
+
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    await render(
+      hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasStickyHeader={{true}}
+>
+<:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`
+    );
 
     assert.throws(function () {
       throw new Error(errorMessage);

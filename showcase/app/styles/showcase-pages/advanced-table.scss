@@ -22,24 +22,15 @@ body.components-advanced-table {
     .shw-component-advanced-table-cell-content-div {
       display: flex;
       align-items: center;
-  
+
       .hds-icon {
         flex: none;
         margin-right: 5px;
       }
     }
 
-  .shw-component-advanced-table-fixed-height-wrapper {
-    height: 400px;
-  }
-
   .shw-component-advanced-table-fixed-width-wrapper {
     width: 400px;
-  }
-
-  .shw-component-advanced-table-fixed-dimensions-wrapper {
-    width: 400px;
-    height: 400px;
   }
 
   .shw-component-advanced-table-with-pagination-demo-wrapper {

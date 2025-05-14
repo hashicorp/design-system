@@ -124,10 +124,12 @@
   <Shw::Divider />
 
   <Shw::Text::H2>Horizontal scrolling indicators</Shw::Text::H2>
-  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
       @model={{this.model.music}}
       @isStriped={{true}}
+      @maxHeight="400px"
+      @hasStickyHeader={{false}}
       @columns={{array
         (hash key="artist" label="Artist" tooltip="More information." isSortable=true)
         (hash key="album" label="Album" tooltip="More information." isSortable=true)
@@ -163,47 +165,47 @@
 
   <Shw::Text::H2>Sticky header</Shw::Text::H2>
 
-  <div class="shw-component-advanced-table-fixed-height-wrapper">
-    <Hds::AdvancedTable
-      @isSelectable={{true}}
-      @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
-      @model={{this.model.userData}}
-      @columns={{array
-        (hash key="id" label="ID" width="auto")
-        (hash key="name" label="Name")
-        (hash key="email" label="Email")
-        (hash key="role" label="Role")
-      }}
-      @hasStickyHeader={{true}}
-      @isStriped={{true}}
-    >
-      <:body as |B|>
-        <B.Tr
-          @selectionKey={{B.data.id}}
-          @isSelected={{B.data.isSelected}}
-          @selectionAriaLabelSuffix="row #{{B.data.id}}"
-        >
-          <B.Td>{{B.data.id}}</B.Td>
-          <B.Td>{{B.data.name}}</B.Td>
-          <B.Td>{{B.data.email}}</B.Td>
-          <B.Td>{{B.data.role}}</B.Td>
-        </B.Tr>
-      </:body>
-    </Hds::AdvancedTable>
-  </div>
+  <Hds::AdvancedTable
+    @isSelectable={{true}}
+    @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
+    @model={{this.model.userData}}
+    @columns={{array
+      (hash key="id" label="ID" width="auto")
+      (hash key="name" label="Name")
+      (hash key="email" label="Email")
+      (hash key="role" label="Role")
+    }}
+    @maxHeight="400px"
+    @isStriped={{true}}
+  >
+    <:body as |B|>
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row #{{B.data.id}}"
+      >
+        <B.Td>{{B.data.id}}</B.Td>
+        <B.Td>{{B.data.name}}</B.Td>
+        <B.Td>{{B.data.email}}</B.Td>
+        <B.Td>{{B.data.role}}</B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
 
   <Shw::Text::H2>Sticky column</Shw::Text::H2>
 
-  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
       @model={{this.model.userData}}
+      @maxHeight="400px"
+      @hasStickyHeader={{false}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
-        (hash key="name" label="Name")
-        (hash key="email" label="Email")
-        (hash key="role" label="Role")
+        (hash key="name" label="Name" width="max-content")
+        (hash key="email" label="Email" width="max-content")
+        (hash key="role" label="Role" width="max-content")
       }}
       @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
@@ -225,17 +227,19 @@
 
   <Shw::Text::H3>Sticky column not selectable</Shw::Text::H3>
 
-  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
       @model={{this.model.userData}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
-        (hash key="name" label="Name")
-        (hash key="email" label="Email")
-        (hash key="role" label="Role")
+        (hash key="name" label="Name" width="max-content")
+        (hash key="email" label="Email" width="max-content")
+        (hash key="role" label="Role" width="max-content")
       }}
       @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
+      @maxHeight="400px"
+      @hasStickyHeader={{false}}
     >
       <:body as |B|>
         <B.Tr>
@@ -250,18 +254,18 @@
 
   <Shw::Text::H2>Sticky header and sticky column</Shw::Text::H2>
 
-  <div class="shw-component-advanced-table-fixed-dimensions-wrapper">
+  <div class="shw-component-advanced-table-fixed-width-wrapper">
     <Hds::AdvancedTable
       @isSelectable={{true}}
       @onSelectionChange={{this.onMultiSelectUsersSelectionChange__demo3}}
       @model={{this.model.userData}}
       @columns={{array
         (hash key="id" label="ID" width="auto")
-        (hash key="name" label="Name")
-        (hash key="email" label="Email")
-        (hash key="role" label="Role")
+        (hash key="name" label="Name" width="max-content")
+        (hash key="email" label="Email" width="max-content")
+        (hash key="role" label="Role" width="max-content")
       }}
-      @hasStickyHeader={{true}}
+      @maxHeight="400px"
       @hasStickyFirstColumn={{true}}
       @isStriped={{true}}
     >
