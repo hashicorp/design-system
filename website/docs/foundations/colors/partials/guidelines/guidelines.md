@@ -6,7 +6,7 @@ In Figma, we use Variables to define and organize color values. Variables allow 
 
 Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette colors like `--token-color-palette-neutral-600` are directly referenced in `--token-color-foreground-primary`in the same way that Figma variables alias one another. 
 
-![Pyramid diagram of token color inheritance with the levels (from bottom to top): hex code, global token, alias token, component token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
+![Diagram of token color inheritance with the levels (from left to right): hex code, core palette token, semantic token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
 ## What are semantic colors?
 
