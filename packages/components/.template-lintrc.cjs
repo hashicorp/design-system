@@ -13,5 +13,6 @@ module.exports = {
     'no-unnecessary-curly-strings': false,
     'no-redundant-role': false,
     'no-builtin-form-components': false,
+    'no-bare-strings': true,
   },
 };
