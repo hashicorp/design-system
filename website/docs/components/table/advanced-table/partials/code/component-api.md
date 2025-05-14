@@ -95,8 +95,8 @@ The Advanced Table component itself is where most of the options will be applied
   <C.Property @name="maxHeight" @type="string">
     Sets the maximum height of the Advanced Table. If the `@maxHeight` is set, there will automatically be a sticky header. To turn off the sticky header and still have a max height, set `@hasStickyHeader` to false.
   </C.Property>
-  <C.Property @name="hasStickyHeader" @type="boolean" @default="false">
-    Determines if the Advanced Table has a sticky header. If set to `true`, must be used with the `@maxHeight` argument.
+  <C.Property @name="hasStickyHeader" @type="boolean">
+    Determines if the Advanced Table has a sticky header. If set to `true`, must be used with the `@maxHeight` argument. If `@maxHeight` is set and `@hasStickyHeader` is `false`, there will not be a sticky header.
   </C.Property>
   <C.Property @name="hasStickyFirstColumn" @type="boolean" @default="false">
     Determines if the Advanced Table has a sticky first column.
