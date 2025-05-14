@@ -367,7 +367,6 @@
       "./modifiers/hds-code-editor/palettes/hds-dark-palette.js": "./dist/_app_/modifiers/hds-code-editor/palettes/hds-dark-palette.js",
       "./modifiers/hds-code-editor/themes/hds-dark-theme.js": "./dist/_app_/modifiers/hds-code-editor/themes/hds-dark-theme.js",
       "./modifiers/hds-code-editor/types.js": "./dist/_app_/modifiers/hds-code-editor/types.js",
-      "./modifiers/hds-on-click-outside.js": "./dist/_app_/modifiers/hds-on-click-outside.js",
       "./modifiers/hds-register-event.js": "./dist/_app_/modifiers/hds-register-event.js",
       "./modifiers/hds-tooltip.js": "./dist/_app_/modifiers/hds-tooltip.js",
       "./services/hds-time.js": "./dist/_app_/services/hds-time.js"
