@@ -92,7 +92,7 @@ export default class HdsTime extends Component<HdsTimeSignature> {
 
     if (dateIsValid(date)) {
       const isoUtcString = this.hdsTime.toIsoUtcString(date);
-      
+
       if (isoUtcString) return isoUtcString;
     }
 
