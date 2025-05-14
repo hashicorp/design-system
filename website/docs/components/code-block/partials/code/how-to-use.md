@@ -149,12 +149,12 @@ loadInitializers(App, config.modulePrefix);"
 
 ### Limit height
 
-Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. Vertical scrolling is enabled as part of this feature allowing users to scroll vertically to view the overflowing content.
+Code content uses `auto` height by default but you can opt to set a `maxHeight` value to save space. If the content height exceeds the set max height, vertical scrolling is enabled to view the overflowing content and a toggle button is displayed to expand the height and show the Code Block content in its entirety.
 
 ```handlebars
 <Hds::CodeBlock
   @language="javascript"
-  @maxHeight="105px"
+  @maxHeight="130px"
   @value="import Application from `@ember/application`;
 import Resolver from `ember-resolver`;
 import loadInitializers from `ember-load-initializers`;
