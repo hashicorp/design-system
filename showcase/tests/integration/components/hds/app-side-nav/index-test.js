@@ -324,7 +324,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <span id='test-app-side-nav-body' />
-</Hds::AppSideNav><button id='button-2'>Click</button>`);
+</Hds::AppSideNav><button id='button-outside'>Click</button>`);
 
     await click('.hds-app-side-nav__toggle-button');
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
