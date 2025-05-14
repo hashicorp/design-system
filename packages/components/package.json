@@ -65,6 +65,7 @@
     "ember-element-helper": "^0.8.6",
     "ember-focus-trap": "^1.1.1",
     "ember-get-config": "^2.1.1",
+    "ember-intl": "^7.1.8",
     "ember-modifier": "^4.2.0",
     "ember-power-select": "^8.6.2",
     "ember-stargate": "^0.5.0",
@@ -78,12 +79,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
-    "@babel/plugin-transform-typescript": "^7.27.0",
     "@babel/eslint-parser": "^7.27.0",
+    "@babel/plugin-transform-typescript": "^7.27.0",
     "@babel/runtime": "^7.27.0",
-    "@eslint/js": "^9.23.0",
     "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^7.1.4",
+    "@eslint/js": "^9.23.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.5.2",
@@ -115,8 +116,8 @@
     "stylelint": "^16.17.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
-    "typescript-eslint": "^8.29.0",
     "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0",
     "webpack": "^5.97.1"
   },
   "peerDependencies": {
@@ -385,7 +386,8 @@
   "files": [
     "addon-main.cjs",
     "declarations",
-    "dist"
+    "dist",
+    "translations"
   ],
   "engines": {
     "node": ">= 18"
