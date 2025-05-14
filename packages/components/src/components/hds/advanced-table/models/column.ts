@@ -4,7 +4,6 @@ import { assert } from '@ember/debug';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
-import type { PixelSize } from '../types';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -27,8 +26,8 @@ export default class HdsAdvancedTableColumn {
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
-  @tracked minWidth?: PixelSize = undefined;
-  @tracked maxWidth?: PixelSize = undefined;
+  @tracked minWidth?: `${number}px` = undefined;
+  @tracked maxWidth?: `${number}px` = undefined;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
 
