@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
+import { modifier } from 'ember-modifier';
 
 import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
@@ -34,7 +35,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
   private _desktopMQ: MediaQueryList;
-  private _containersToHide!: NodeListOf<Element>;
+  private _navWrapperBody!: HTMLElement;
 
   // we use the `lg` breakpoint for `desktop` viewports, but consumers can override its value
   private _desktopMQVal = this.args.breakpoint ?? hdsBreakpoints['lg'].px;
@@ -48,6 +49,17 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       this.removeEventListeners();
     });
   }
+
+  private _setUpBodyElement = modifier(() => {
+    this._body = document.body;
+    // Store the initial `overflow` value of `<body>` so we can reset to it
+    this._bodyInitialOverflowValue =
+      this._body.style.getPropertyValue('overflow');
+  });
+
+  private _setUpNavWrapperBody = modifier((element: HTMLElement) => {
+    this._navWrapperBody = element;
+  });
 
   addEventListeners(): void {
     // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -123,13 +135,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
   }
 
   synchronizeInert(): void {
-    this._containersToHide?.forEach((element): void => {
-      if (this._isMinimized) {
-        element.setAttribute('inert', '');
-      } else {
-        element.removeAttribute('inert');
-      }
-    });
+    if (this._isMinimized) {
+      this._navWrapperBody?.setAttribute('inert', '');
+    } else {
+      this._navWrapperBody?.removeAttribute('inert');
+    }
   }
 
   lockBodyScroll(): void {
@@ -161,6 +171,7 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     if (event.key === 'Escape' && !this._isMinimized && !this._isDesktop) {
       this._isMinimized = true;
       this.synchronizeInert();
+      this.unlockBodyScroll();
     }
   }
 
@@ -175,22 +186,13 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       onToggleMinimizedStatus(this._isMinimized);
     }
 
-    if (this._isMinimized) {
-      this.unlockBodyScroll();
-    } else {
-      this.lockBodyScroll();
+    if (!this._isDesktop) {
+      if (this._isMinimized) {
+        this.unlockBodyScroll();
+      } else {
+        this.lockBodyScroll();
+      }
     }
-  }
-
-  @action
-  didInsert(element: HTMLElement): void {
-    this._containersToHide = element.querySelectorAll(
-      '.hds-app-side-nav-hide-when-minimized'
-    );
-    this._body = document.body;
-    // Store the initial `overflow` value of `<body>` so we can reset to it
-    this._bodyInitialOverflowValue =
-      this._body.style.getPropertyValue('overflow');
   }
 
   @action
@@ -214,6 +216,11 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
     this._isMinimized = !this._isDesktop;
 
     this.synchronizeInert();
+
+    if (this._isDesktop) {
+      // make sure scrolling is enabled if the user resizes the window from mobile to desktop
+      this.unlockBodyScroll();
+    }
 
     const { onDesktopViewportChange } = this.args;
 
