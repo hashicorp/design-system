@@ -30,7 +30,7 @@ hds:
           no_options_selected: "No options selected"
     pagination:
       info:
-        range_of_total: "{start}&mdash;{end} of {total}"
+        range_of_total: "{start}&ndash;{end} of {total}"
       nav:
         number:
           screen_reader_label: "page"
