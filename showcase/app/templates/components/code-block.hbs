@@ -721,5 +721,15 @@ func main() {
         </Hds::Modal>
       {{/if}}
     </SF.Item>
+    <SF.Item @label="Dynamic updates">
+      <Hds::CodeBlock @language="go" @highlightLines="2, 4" @maxHeight="180px" @value={{this.value_demo1}} />
+      <Hds::Button
+        type="button"
+        @text="Update"
+        @isInline={{true}}
+        class="shw-component-code-block-demo-btn"
+        {{on "click" this.onUpdateClickDemo1}}
+      />
+    </SF.Item>
   </Shw::Flex>
 </section>

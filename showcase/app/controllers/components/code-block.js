@@ -31,6 +31,25 @@ export default class CodeBlockController extends Controller {
   @tracked isModalActive = false;
   @tracked declaration = 'let';
   @tracked input = '';
+  @tracked value_demo1 = this.value_start_demo1;
+
+  value_start_demo1 = `package main
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fm.Println(res)
+}`;
+
+  value_new_demo1 = `package main
+import 'fmt'
+func main() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fm.Println(res)
+}
+func main2() {
+  res = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+  fm.Println(res)
+}`;
 
   constructor() {
     super(...arguments);
@@ -75,5 +94,14 @@ export default class CodeBlockController extends Controller {
   @action
   deactivateModal() {
     this.isModalActive = false;
+  }
+
+  @action
+  onUpdateClickDemo1() {
+    if (this.value_demo1 === this.value_start_demo1) {
+      this.value_demo1 = this.value_new_demo1;
+    } else {
+      this.value_demo1 = this.value_start_demo1;
+    }
   }
 }
