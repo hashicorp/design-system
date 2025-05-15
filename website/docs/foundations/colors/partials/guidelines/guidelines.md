@@ -82,7 +82,7 @@ Examples of surface colors include:
 
 - `Surface/Strong` for the neutral Badge
 - `Surface/Primary` for component containers
-- `Surface/Faint` for the secondary Button.
+- `Surface/Faint` for the secondary Button
 - `Surface/{Status color}` for Alert backgrounds.
 
 ![Sample surface colors being applied to a badge, card, button, and alert with the surface color token labelled.](/assets/foundations/color/colors-surface-examples.png)
