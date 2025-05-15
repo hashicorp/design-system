@@ -154,9 +154,8 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   });
 
   test('it collapses when the ESC key is pressed on narrow viewports', async function (assert) {
-    await render(hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px'>
-  <span id='test-app-side-nav-body' />
-</Hds::AppSideNav>`);
+    await render(hbs`<Hds::AppSideNav id='test-app-side-nav' @breakpoint='10000px'
+/>`);
     assert.dom('#test-app-side-nav').hasClass('hds-app-side-nav--is-minimized');
     await click('.hds-app-side-nav__toggle-button');
     assert
@@ -228,9 +227,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`<Hds::AppSideNav
   @isCollapsible={{true}}
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
->
-  <span id='test-app-side-nav-body' />
-</Hds::AppSideNav>`);
+/>`);
 
     assert.strictEqual(calls.length, 1, 'called with initial viewport');
 
@@ -255,9 +252,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`<Hds::AppSideNav
   @isCollapsible={{true}}
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
->
-  <span id='test-app-side-nav-body' />
-</Hds::AppSideNav>`);
+/>`);
 
     await click('.hds-app-side-nav__toggle-button');
     assert.dom('.hds-app-side-nav__wrapper-body').hasAttribute('inert');
@@ -291,9 +286,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`<Hds::AppSideNav
   @isCollapsible={{true}}
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
->
-  <span id='test-app-side-nav-body' />
-</Hds::AppSideNav>`);
+/>`);
     await this.changeBrowserSize(false);
     assert.deepEqual(
       calls[1],
@@ -323,7 +316,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
   @isCollapsible={{true}}
   @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
-  <span id='test-app-side-nav-body' />
+  <button id='button-inside'>Click</button>
 </Hds::AppSideNav><button id='button-outside'>Click</button>`);
 
     await click('.hds-app-side-nav__toggle-button');
@@ -331,7 +324,7 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     assert.dom('.hds-app-side-nav__toggle-button').isFocused();
 
     await tab();
-    assert.dom('#button-2').isFocused();
+    assert.dom('#button-outside').isFocused();
   });
 
   // CALLBACKS
