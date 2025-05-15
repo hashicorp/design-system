@@ -60,7 +60,7 @@ Status foreground colors contextualize responses from user actions or indicate s
 
 - [Alerts](/components/alert#color)
 - [Toasts](/components/toast#color)
-- [Badges](/components/badge#color).
+- [Badges](/components/badge#color)
 
 ![Sample positive, warning, and error status badges with their associated foreground color tokens labelled.](/assets/foundations/color/colors-status-examples.png)
 
