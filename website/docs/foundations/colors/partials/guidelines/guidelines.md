@@ -80,7 +80,7 @@ Surface colors are intended to be used for the background (or surface) of a comp
 
 Examples of surface colors include:
 
-- `Surface/Strong` for the neutral Badge.
+- `Surface/Strong` for the neutral Badge
 - `Surface/Primary` for component containers.
 - `Surface/Faint` for the secondary Button.
 - `Surface/{Status color}` for Alert backgrounds.
