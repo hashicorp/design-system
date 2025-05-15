@@ -8,7 +8,6 @@
     {{~#if this.hasTooltip~}}
       <Hds::TooltipButton
         class="hds-time-wrapper"
-        {{! @glint-expect-error: FIXME: pnpm migration }}
         @text={{if
           display.options.tooltipFormat
           (hds-format-date this.date display.options.tooltipFormat)

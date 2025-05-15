@@ -87,14 +87,16 @@ export default class HdsTime extends Component<HdsTimeSignature> {
     return this.args.hasTooltip ?? true;
   }
 
-  get isoUtcString(): string | undefined {
+  get isoUtcString(): string {
     const date = this.date;
 
     if (dateIsValid(date)) {
-      return this.hdsTime.toIsoUtcString(date);
+      const isoUtcString = this.hdsTime.toIsoUtcString(date);
+
+      if (isoUtcString) return isoUtcString;
     }
 
-    return undefined;
+    return '';
   }
 
   get rangeIsoUtcString(): string {
