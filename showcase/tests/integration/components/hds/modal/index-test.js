@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test, skip } from 'qunit';
+import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   click,
@@ -231,8 +231,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-button').isFocused();
   });
 
-  // not sure how to reach the `body` element, it says "body is not a valid root element"
-  skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
+  test('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
     await render(
       hbs`<Hds::Dropdown as |D|>
             <D.ToggleButton id="test-toggle" @text="open modal" />
@@ -249,7 +248,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await click('#test-interactive');
     assert.true(this.showModal);
     await click('button.hds-modal__dismiss');
-    assert.dom('body', 'body').isFocused();
+    assert.dom('body', document).isFocused();
   });
 
   test('it returns focus to a specific element if provided via`@returnFocusTo`', async function (assert) {
