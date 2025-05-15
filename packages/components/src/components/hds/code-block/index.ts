@@ -44,6 +44,9 @@ export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
 
 export interface HdsCodeBlockSignature {
   Args: {
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
+    ariaDescribedBy?: string;
     hasCopyButton?: boolean;
     hasLineNumbers?: boolean;
     hasLineWrapping?: boolean;
@@ -72,9 +75,23 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @tracked private _isExpanded: boolean = false;
   @tracked private _codeContentHeight: number = 0;
   @tracked private _codeContainerHeight: number = 0;
+  @tracked private _titleId: string | undefined;
+  @tracked private _descriptionId: string | undefined;
 
   // Generates a unique ID for the code content
   private _preCodeId = 'pre-code-' + guidFor(this);
+
+  get ariaLabelledBy(): string | undefined {
+    if (this.args.ariaLabel !== undefined) {
+      return;
+    }
+
+    return this.args.ariaLabelledBy ?? this._titleId;
+  }
+
+  get ariaDescribedBy(): string | undefined {
+    return this.args.ariaDescribedBy ?? this._descriptionId;
+  }
 
   // code text content for the CodeBlock
   get code(): string {
@@ -127,6 +144,18 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
   get copyButtonText(): HdsCopyButtonSignature['Args']['text'] {
     return this.args.copyButtonText ? this.args.copyButtonText : 'Copy';
+  }
+
+  @action
+  registerTitleElement(element: HdsCodeBlockTitleSignature['Element']): void {
+    this._titleId = element.id;
+  }
+
+  @action
+  registerDescriptionElement(
+    element: HdsCodeBlockDescriptionSignature['Element']
+  ): void {
+    this._descriptionId = element.id;
   }
 
   @action

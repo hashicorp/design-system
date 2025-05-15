@@ -3,17 +3,33 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import templateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
+import { modifier } from 'ember-modifier';
 import type { HdsTextBodySignature } from '../text/body';
 
+type HdsCodeBlockDescriptionElement = HdsTextBodySignature['Element'];
 export interface HdsCodeBlockDescriptionSignature {
+  Args: {
+    didInsertNode: (element: HdsCodeBlockDescriptionElement) => void;
+  };
   Blocks: {
     default: [];
   };
-  Element: HdsTextBodySignature['Element'];
+  Element: HdsCodeBlockDescriptionElement;
 }
 
-const HdsCodeBlockDescription =
-  templateOnlyComponent<HdsCodeBlockDescriptionSignature>();
+export default class HdsCodeBlockDescription extends Component<HdsCodeBlockDescriptionSignature> {
+  private _id = 'description-' + guidFor(this);
 
-export default HdsCodeBlockDescription;
+  private _setUpDescription = modifier(
+    (
+      element: HTMLElement,
+      [insertCallbackFunction]: [(element: HTMLElement) => void]
+    ) => {
+      if (typeof insertCallbackFunction === 'function') {
+        insertCallbackFunction(element);
+      }
+    }
+  );
+}
