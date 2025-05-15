@@ -51,7 +51,7 @@ Some common examples of semantic foreground colors include:
 
 - `Foreground/Strong` for headings and secondary links
 - `Foreground/Primary` for body text 
-- `Foreground/Faint` for less prominent text and UI elements.
+- `Foreground/Faint` for less prominent text and UI elements
 - `Foreground/Action` for primary calls to action such as links
 
 ![Samples of text with their color tokens labelled](/assets/foundations/color/colors-foreground-examples.png)
