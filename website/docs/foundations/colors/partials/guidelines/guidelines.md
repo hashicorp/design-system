@@ -10,9 +10,7 @@ Tokens in code are generated from platform-agnostic files, in our case JSON, and
 
 ## What are semantic colors?
 
-The Semantic Palette embeds meaning into color names, making it easier to select correct consistent values across applications.
-
-Semantic colors should be used for the purpose in their name. These colors are designed to meet accessibility standards when used in combination with one another. 
+The Semantic Palette embeds meaning into color names, making it easier to select correct consistent values across applications. These colors are designed to meet accessibility standards when used in combination with one another. 
 - Foreground colors are intended to be used with surface or page colors.
 - Status color values have "surface," "on-surface," and "high-contrast" options to meet accessibility standards when used together. 
 
@@ -24,7 +22,7 @@ Some examples of semantic color combinations with their respective contrast rati
 
 ![A Card component with the color contrast ratios for each of the color combinations labelled](/assets/foundations/color/colors-semantic-tokens-accessibility-examples.png)
 
-### How are semantic names created
+### How are semantic names created?
 
 In semantic token naming, the **element** and the **role** are defined to make color decisions easier and more consistent. HDS organizes semantic tokens into **element** categories with **roles** appended.
 
