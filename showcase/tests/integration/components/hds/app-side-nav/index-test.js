@@ -314,7 +314,6 @@ module('Integration | Component | hds/app-side-nav/index', function (hooks) {
     await render(hbs`<Hds::AppSideNav
     id='test-app-side-nav'
   @isCollapsible={{true}}
-  @onDesktopViewportChange={{this.onDesktopViewportChange}}
 >
   <button id='button-inside'>Click</button>
 </Hds::AppSideNav><button id='button-outside'>Click</button>`);
