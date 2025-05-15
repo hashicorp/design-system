@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<div class={{this.classNames}} ...attributes {{this._setUpObserver}}>
+<div class={{this.classNames}} ...attributes {{this._setUpCodeObserver}}>
   <div class="hds-code-block__header">
     {{~yield (hash Title=(component "hds/code-block/title"))~}}
     {{~yield (hash Description=(component "hds/code-block/description"))~}}

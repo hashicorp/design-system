@@ -80,7 +80,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   private _observer!: ResizeObserver;
 
   // If a code block is hidden from view, and made visible after load, the Prism code needs to be re-run
-  private _setUpObserver = modifier((element: HTMLElement) => {
+  private _setUpCodeObserver = modifier((element: HTMLElement) => {
     this._preCodeElement = element.querySelector(
       '.hds-code-block__code'
     ) as HTMLPreElement;
