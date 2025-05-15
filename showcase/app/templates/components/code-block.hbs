@@ -12,11 +12,12 @@
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="one line">
-      <Hds::CodeBlock @language="javascript" @value="console.log('I am JavaScript code');" />
+      <Hds::CodeBlock @language="javascript" @ariaLabel="one line" @value="console.log('I am JavaScript code');" />
     </SG.Item>
     <SG.Item @label="multi-line">
       <Hds::CodeBlock
         @language="javascript"
+        @ariaLabel="multi-line"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />
@@ -29,6 +30,7 @@ console.log(`I am ${codeLang} code`);"
     <SG.Item @label="new lines in Handlebars" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
+        @ariaLabel="new lines in Handlebars"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />
@@ -38,7 +40,11 @@ console.log(`I am ${codeLang} code`);"
         <code>\n</code>
         escape sequence in JavaScript
       </SGI.Label>
-      <Hds::CodeBlock @language="javascript" @value={{this.textWithNewline}} />
+      <Hds::CodeBlock
+        @language="javascript"
+        @ariaLabel="new lines with escape sequence in JavaScript"
+        @value={{this.textWithNewline}}
+      />
     </SG.Item>
     <SG.Item @forceMinWidth={{true}} as |SGI|>
       <SGI.Label><code>\n</code>
@@ -46,6 +52,7 @@ console.log(`I am ${codeLang} code`);"
       </SGI.Label>
       <Hds::CodeBlock
         @language="javascript"
+        @ariaLabel="\n in Handlebars (not interpreted as newline)"
         @value="let codeLang='JavaScript';\nconsole.log(`I am ${codeLang} code`);"
       />
     </SG.Item>
@@ -57,6 +64,7 @@ console.log(`I am ${codeLang} code`);"
         @language="javascript"
         @maxHeight="105px"
         @lineNumberStart={{5}}
+        @ariaLabel="Line numbering start changed to 5"
         @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
@@ -92,7 +100,12 @@ function assertObjectsEqual (actual, expected, testName) {
       </Hds::CodeBlock>
     </SG.Item>
     <SG.Item @label="description">
-      <Hds::CodeBlock @value="console.log('I am JavaScript code');" @language="javascript" as |CB|>
+      <Hds::CodeBlock
+        @value="console.log('I am JavaScript code');"
+        @language="javascript"
+        @ariaLabel="description"
+        as |CB|
+      >
         <CB.Description>Description</CB.Description>
       </Hds::CodeBlock>
     </SG.Item>
@@ -156,6 +169,7 @@ function assertObjectsEqual (actual, expected, testName) {
       <Hds::CodeBlock
         @isStandalone={{false}}
         @language="javascript"
+        @ariaLabel="isStandalone=false"
         @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
       />
@@ -181,6 +195,7 @@ console.log(`I am ${codeLang} code`);"
     <SG.Item @label="hasLineWrapping=false (default)" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="javascript"
+        @ariaLabel="hasLineWrapping=false (default)"
         @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
 console.log(codeLand);"
       />
@@ -189,12 +204,14 @@ console.log(codeLand);"
       <Hds::CodeBlock
         @language="javascript"
         @hasLineWrapping={{true}}
+        @ariaLabel="hasLineWrapping=true"
         @value="let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';"
       />
     </SG.Item>
     <SG.Item @label="hasLineWrapping=true with long string" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @hasLineWrapping={{true}}
+        @ariaLabel="hasLineWrapping=true with long string"
         @value="hcp-domain-verification=6ea52e476fc6232d974c31453dcd884a68df6cf374892a50a897c87d11125b67"
       />
     </SG.Item>
@@ -209,6 +226,7 @@ console.log(codeLand);"
       <Hds::CodeBlock
         @language="javascript"
         @hasLineNumbers={{false}}
+        @ariaLabel="hasLineNumbers=false"
         @value="let codeLang='JavaScript';
     console.log(`I am ${codeLang} code`);"
       />
@@ -237,6 +255,7 @@ console.log(`I am ${codeLang} code`);"
       <Hds::CodeBlock
         @language="javascript"
         @maxHeight="130px"
+        @ariaLabel="maxHeight='130px'"
         @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
@@ -305,6 +324,7 @@ function assertObjectsEqual (actual, expected, testName) {
         @hashasLineNumbers={{true}}
         @hasLineWrapping={{true}}
         @highlightLines="2"
+        @ariaLabel="maxHeight='130px', hasLineWrapping=true, highlight line 2"
         @value="function convertObjectToArray (obj) {
   let codeLang='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam';
   let arr = Object
@@ -335,6 +355,7 @@ function assertObjectsEqual (actual, expected, testName) {
         @language="javascript"
         @maxHeight="130px"
         @hasLineNumbers={{false}}
+        @ariaLabel="maxHeight='130px, hasLineNumbers=false"
         @value="function convertObjectToArray (obj) {
   let arr = Object
     .keys(obj) // return object's keys as an array
@@ -359,7 +380,12 @@ function assertObjectsEqual (actual, expected, testName) {
     </SG.Item>
 
     <SG.Item @label="maxHeight='130px' with short content that does not overflow" @forceMinWidth={{true}}>
-      <Hds::CodeBlock @language="javascript" @maxHeight="130px" @value="convertObjectToArray(obj);" />
+      <Hds::CodeBlock
+        @language="javascript"
+        @maxHeight="130px"
+        @ariaLabel="maxHeight='130px' with short content that does not overflow"
+        @value="convertObjectToArray(obj);"
+      />
     </SG.Item>
   </Shw::Grid>
 
@@ -369,7 +395,12 @@ function assertObjectsEqual (actual, expected, testName) {
 
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="hasCopyButton=true" @forceMinWidth={{true}}>
-      <Hds::CodeBlock @language="shell-session" @hasCopyButton={{true}} @value="$ brew tap hashicorp/tap" />
+      <Hds::CodeBlock
+        @language="shell-session"
+        @hasCopyButton={{true}}
+        @ariaLabel="hasCopyButton=true"
+        @value="$ brew tap hashicorp/tap"
+      />
     </SG.Item>
     <SG.Item @label="hasCopyButton=true, maxHeight='130px', title and description" @forceMinWidth={{true}}>
       {{! template-lint-disable no-whitespace-for-layout }}
@@ -416,6 +447,7 @@ function assertObjectsEqual (actual, expected, testName) {
         @language="javascript"
         @hasLineNumbers={{false}}
         @highlightLines="2, 4"
+        @ariaLabel="Highlight lines 2 & 4, hasLineNumbers=false"
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -435,6 +467,7 @@ loadInitializers(App, config.modulePrefix);"
       <Hds::CodeBlock
         @language="javascript"
         @highlightLines="6-10"
+        @ariaLabel="Highlight lines 6-10"
         @value="import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
@@ -458,6 +491,7 @@ loadInitializers(App, config.modulePrefix);"
   <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
     <SG.Item @label="no language (default)" @forceMinWidth={{true}}>
       <Hds::CodeBlock
+        @ariaLabel="no language (default)"
         @value="ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAklOUpkDHrfHY17SbrmTIpNLTGK9Tjom/BWDSU
 GPl+nafzlHDTYW7hdI4yZ5ew18JH4JW9jbhUFrviQzM7xlELEVf4h9lFX5QVkbPppSwg0cda3
 Pbv7kOdJ/MTyBlWXFCR+HAo3FXRitBqxiX1nKhXpHAZsMciLq8V6RjsNAQwdsdMFvSlVK/7XA
@@ -468,12 +502,17 @@ NrRFi9wrf+M7Q=="
     </SG.Item>
 
     <SG.Item @label="bash" @forceMinWidth={{true}}>
-      <Hds::CodeBlock @language="bash" @value="aws ec2 --region us-west-1 accept-vpc-peering-connection" />
+      <Hds::CodeBlock
+        @language="bash"
+        @ariaLabel="bash"
+        @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
+      />
     </SG.Item>
 
     <SG.Item @label="Go" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="go"
+        @ariaLabel="Go"
         @value="package main
 import 'fmt'
 func main() {
@@ -486,6 +525,7 @@ func main() {
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="hcl"
+        @ariaLabel="HashiCorp Configuration Language"
         @value='variable "hvn_id" {
   description = "The ID of the HCP HVN."
   type        = string
@@ -499,6 +539,7 @@ func main() {
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="json"
+        @ariaLabel="JSON"
         @value='{
   "result": [
     {
@@ -523,6 +564,7 @@ func main() {
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="log"
+        @ariaLabel="log"
         @value='web_1            | USE_L10N =3D True
 web_1            | USE_THOUSAND_SEPARATOR =3D False
 web_1            | USE_TZ =3D True
@@ -564,12 +606,13 @@ web_1            | [13/Jun/2019 02:54:33] "GET /api/v1/rides/ HTTP/1.1" 500 9049
     </SG.Item>
 
     <SG.Item @label="Shell" @forceMinWidth={{true}}>
-      <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
+      <Hds::CodeBlock @language="shell-session" @ariaLabel="Shell" @value="$ brew tap hashicorp/tap" />
     </SG.Item>
 
     <SG.Item @label="YAML" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="yaml"
+        @ariaLabel="YAML"
         @value="---
 result:
 - expressions:
@@ -585,6 +628,7 @@ result:
     <SG.Item @label="Ruby" @forceMinWidth={{true}}>
       <Hds::CodeBlock
         @language="ruby"
+        @ariaLabel="Ruby"
         @value='Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/noble64"
 end'
@@ -595,6 +639,7 @@ end'
       {{! template-lint-disable no-whitespace-for-layout }}
       <Hds::CodeBlock
         @language="foo"
+        @ariaLabel="Invalid language (foo)"
         @value='variable "hvn_id" {
   description = "The ID of the HCP HVN."
   type        = string
@@ -650,6 +695,7 @@ end'
           <Hds::CodeBlock
             @language="javascript"
             @highlightLines="2"
+            @ariaLabel="JavaScript within tabs"
             @value="let codeLang='JavaScript';
 console.log(`I am ${codeLang} code`);"
           />
@@ -660,6 +706,7 @@ console.log(`I am ${codeLang} code`);"
             @highlightLines="2, 4"
             @hasLineWrapping={{true}}
             @maxHeight="130px"
+            @ariaLabel="Go within tabs"
             @value="package main
 import 'fmt'
 func main() {
@@ -669,7 +716,7 @@ func main() {
           />
         </T.Panel>
         <T.Panel>
-          <Hds::CodeBlock @language="shell-session" @value="$ brew tap hashicorp/tap" />
+          <Hds::CodeBlock @language="shell-session" @ariaLabel="Shell within tabs" @value="$ brew tap hashicorp/tap" />
         </T.Panel>
       </Hds::Tabs>
 
@@ -682,6 +729,7 @@ func main() {
             @hasCopyButton={{true}}
             @language="go"
             @highlightLines="2, 4"
+            @ariaLabel="Within a dropdown"
             @value="package main
 import 'fmt'
 func main() {
@@ -705,6 +753,7 @@ func main() {
               @hasCopyButton={{true}}
               @language="go"
               @highlightLines="2, 4"
+              @ariaLabel="Within a modal"
               @value="package main
 import 'fmt'
 func main() {
