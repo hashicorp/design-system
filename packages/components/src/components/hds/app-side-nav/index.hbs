@@ -10,7 +10,7 @@
   {{on "transitionend" (fn this.setTransition "end")}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
   {{focus-trap isActive=this.shouldTrapFocus}}
-  {{did-insert this.didInsert}}
+  {{this._setUpBodyElement}}
 >
   <h2 class="sr-only" id="hds-app-side-nav-header">Application local navigation</h2>
 
@@ -27,7 +27,7 @@
       />
     {{/if}}
 
-    <div class="hds-app-side-nav__wrapper-body" {{did-insert this.didInsertNavWrapperBody}}>
+    <div class="hds-app-side-nav__wrapper-body" {{this._setUpNavWrapperBody}}>
       {{~yield~}}
     </div>
   </div>

@@ -8,6 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
+import { modifier } from 'ember-modifier';
 
 import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
 
@@ -48,6 +49,17 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
       this.removeEventListeners();
     });
   }
+
+  private _setUpBodyElement = modifier(() => {
+    this._body = document.body;
+    // Store the initial `overflow` value of `<body>` so we can reset to it
+    this._bodyInitialOverflowValue =
+      this._body.style.getPropertyValue('overflow');
+  });
+
+  private _setUpNavWrapperBody = modifier((element: HTMLElement) => {
+    this._navWrapperBody = element;
+  });
 
   addEventListeners(): void {
     // eslint-disable-next-line @typescript-eslint/unbound-method
@@ -181,19 +193,6 @@ export default class HdsAppSideNav extends Component<HdsAppSideNavSignature> {
         this.lockBodyScroll();
       }
     }
-  }
-
-  @action
-  didInsert(): void {
-    this._body = document.body;
-    // Store the initial `overflow` value of `<body>` so we can reset to it
-    this._bodyInitialOverflowValue =
-      this._body.style.getPropertyValue('overflow');
-  }
-
-  @action
-  didInsertNavWrapperBody(element: HTMLElement): void {
-    this._navWrapperBody = element;
   }
 
   @action
