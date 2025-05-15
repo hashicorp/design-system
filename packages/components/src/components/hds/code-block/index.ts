@@ -211,6 +211,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
           element.removeChild(lineNumbers);
         }
 
+        if (this.args.highlightLines) {
+          this._prismCode = this._addHighlightSrOnlyText(
+            this._prismCode.toString()
+          );
+        }
+
         // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
         // See https://github.com/PrismJS/prism/issues/1234
         Prism.hooks.run('complete', {
@@ -253,6 +259,47 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @action
   toggleExpanded(): void {
     this._isExpanded = !this._isExpanded;
+  }
+
+  private _addHighlightSrOnlyText(code: string): SafeString {
+    const NEW_LINE_EXP = /\n(?!$)/g;
+    const lines = code.split(NEW_LINE_EXP);
+    const numLines = lines.length;
+    const lineOffset = this.args.lineNumberStart
+      ? this.args.lineNumberStart
+      : 0;
+
+    const highlightStart = '<span class="sr-only">highlight start</span>';
+    const highlightEnd = '<span class="sr-only">highlight end</span>';
+
+    const ranges = this.args.highlightLines
+      ?.replace(/\s+/g, '')
+      .split(',')
+      .filter(Boolean);
+
+    if (ranges && ranges.length > 0) {
+      const highlightedLines = [] as { start: number; end: number }[];
+
+      ranges.forEach((currentRange) => {
+        const range = currentRange.split('-');
+        const start = +range[0]! - lineOffset;
+        let end = +range[1]! || start - lineOffset;
+        end = Math.min(numLines, end);
+        highlightedLines.push({
+          start: start,
+          end: end,
+        });
+      });
+
+      highlightedLines.forEach((line) => {
+        lines[line.start - 1] = highlightStart + lines[line.start - 1];
+        lines[line.end - 1] = lines[line.end - 1] + highlightEnd;
+      });
+
+      return htmlSafe(lines.join('\n'));
+    } else {
+      return htmlSafe(code);
+    }
   }
 
   get classNames(): string {

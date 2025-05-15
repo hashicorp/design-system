@@ -482,6 +482,26 @@ export default class App extends Application {
 loadInitializers(App, config.modulePrefix);"
       />
     </SG.Item>
+    <SG.Item @label="Highlight lines 7-11, lineNumberStart 2" @forceMinWidth={{true}}>
+      <Hds::CodeBlock
+        @language="javascript"
+        @highlightLines="7-11"
+        @lineNumberStart={{2}}
+        @ariaLabel="Highlight lines 7-11, lineNumberStart 2"
+        @value="import Application from '@ember/application';
+import Resolver from 'ember-resolver';
+import loadInitializers from 'ember-load-initializers';
+import config from 'dummy/config/environment';
+
+export default class App extends Application {
+  modulePrefix = config.modulePrefix;
+  podModulePrefix = config.podModulePrefix;
+  Resolver = Resolver;
+}
+
+loadInitializers(App, config.modulePrefix);"
+      />
+    </SG.Item>
   </Shw::Grid>
 
   <Shw::Divider @level="2" />
