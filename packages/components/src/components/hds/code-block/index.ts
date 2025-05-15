@@ -81,12 +81,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
   // If a code block is hidden from view, and made visible after load, the Prism code needs to be re-run
   private _setUpObserver = modifier((element: HTMLElement) => {
-    this._preCodeElement = element.querySelector('pre') as HTMLPreElement;
-    const codeBlock = element.querySelector('code') as HTMLElement;
+    this._preCodeElement = element.querySelector('.hds-code-block__code') as HTMLPreElement;
     this._observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.contentBoxSize) {
-          this.setPrismCode(codeBlock);
+          this._updateCodeHeights();
+          this._updatePrismPlugins();
         }
       });
     });
@@ -180,25 +180,33 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
 
         // eslint-disable-next-line ember/no-runloop
         schedule('afterRender', (): void => {
-          // Get the actual height & the content height of the preCodeElement
-          this._codeContentHeight = this._preCodeElement?.scrollHeight ?? 0;
-          this._codeContainerHeight = this._preCodeElement?.clientHeight ?? 0;
-
-          // we need to re-trigger the line numbers generation as late as possible to account for any line wrapping styles that are applied
-          if (this.args.hasLineWrapping && Prism?.plugins?.['lineNumbers']) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
-            Prism.plugins['lineNumbers'].resize(this._preCodeElement);
-          }
-
-          // Force prism-line-highlight plugin initialization
-          // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
-          if (this.args.highlightLines) {
-            // we need to delay re-evaluating the context for prism-line-highlight for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
-            // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
-            if (window) window.dispatchEvent(new Event('resize'));
-          }
+          this._updateCodeHeights();
+          // we need to delay re-evaluating the context for prism plugins for as much as possible, and `afterRender` is the 'latest' we can use in the component lifecycle
+          this._updatePrismPlugins();
         });
       });
+    }
+  }
+
+  private _updateCodeHeights(): void {
+    if (!this._isExpanded) {
+      // Get the actual height & the content height of the preCodeElement
+      this._codeContentHeight = this._preCodeElement?.scrollHeight ?? 0;
+      this._codeContainerHeight = this._preCodeElement?.clientHeight ?? 0;
+    }
+  }
+
+  private _updatePrismPlugins(): void {
+    if (this.hasLineNumbers && Prism?.plugins?.['lineNumbers']) {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+      Prism.plugins['lineNumbers'].resize(this._preCodeElement);
+    }
+
+    // Force prism-line-highlight plugin initialization
+    // Context: https://github.com/hashicorp/design-system/pull/1749#discussion_r1374288785
+    if (this.args.highlightLines) {
+      // we piggy-back on the plugin's `resize` event listener to trigger a new call of the `highlightLines` function: https://github.com/PrismJS/prism/blob/master/plugins/line-highlight/prism-line-highlight.js#L337
+      if (window) window.dispatchEvent(new Event('resize'));
     }
   }
 
