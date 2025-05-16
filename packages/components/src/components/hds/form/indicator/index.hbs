@@ -8,5 +8,11 @@
   </Hds::Text::Body>
 {{/if}}
 {{#if @isRequired}}
-  &nbsp;<Hds::Badge aria-hidden="true" class={{this.classNames}} @size="small" @color="neutral" @text="Required" />
+  &nbsp;<Hds::Badge
+    aria-hidden="true"
+    class={{this.classNames}}
+    @size="small"
+    @color="neutral"
+    @text={{t "hds.components.shared.required"}}
+  />
 {{/if}}
