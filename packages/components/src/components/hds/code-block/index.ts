@@ -100,7 +100,9 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   });
 
   private _setUpCodeBlockCode = modifier((element: HTMLElement) => {
-    this._isExpanded = false; // reset expanded state on updates
+    if (this.showFooter) {
+      this._isExpanded = false; // reset expanded state on updates
+    }
     this.setPrismCode(element);
     return () => {};
   });
@@ -175,10 +177,10 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         }
 
         // Existing line numbers must be removed in order to be updated correctly
-        if (element.querySelector('.line-numbers-rows')) {
-          const lineNumbers = element.querySelector(
-            '.line-numbers-rows'
-          ) as HTMLElement;
+        const lineNumbers = element.querySelector(
+          '.line-numbers-rows'
+        ) as HTMLElement;
+        if (lineNumbers) {
           element.removeChild(lineNumbers);
         }
 
