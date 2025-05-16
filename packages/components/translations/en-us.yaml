@@ -41,6 +41,7 @@ hds:
           show_selected: "Show selected"
     pagination:
       info:
+        range: "{start}&ndash;{end}"
         range_of_total: "{start}&ndash;{end} of {total}"
       nav:
         number:
