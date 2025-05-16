@@ -4,7 +4,7 @@
  */
 
 import { module, test, skip } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render, click, focus, blur, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
