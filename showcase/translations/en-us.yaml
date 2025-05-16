@@ -1,0 +1,6 @@
+# We will want to split this file into multiple files in the future
+
+showcase:
+  components:
+    accordion:
+      component_name: "Accordion"

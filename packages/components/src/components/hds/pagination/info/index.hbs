@@ -3,9 +3,15 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Text::Body class="hds-pagination-info" @tag="div" @size="100" @weight="medium" ...attributes>
-  {{@itemsRangeStart}}–{{@itemsRangeEnd}}
   {{#if this.showTotalItems}}
-    of
-    {{@totalItems}}
+    {{t
+      "hds.components.pagination.info.range_of_total"
+      start=@itemsRangeStart
+      end=@itemsRangeEnd
+      total=@totalItems
+      htmlSafe=true
+    }}
+  {{else}}
+    {{t "hds.components.pagination.info.range" start=@itemsRangeStart end=@itemsRangeEnd htmlSafe=true}}
   {{/if}}
 </Hds::Text::Body>

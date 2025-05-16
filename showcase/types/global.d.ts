@@ -14,6 +14,7 @@ import type HdsComponentsRegistry from '@hashicorp/design-system-components/temp
 import type PageTitle from 'ember-page-title/template-registry';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
+import type EmberIntlRegistry from 'ember-intl/template-registry';
 import type ShowcaseTemplateRegistry from './template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
@@ -23,5 +24,6 @@ declare module '@glint/environment-ember-loose/registry' {
       HdsComponentsRegistry,
       PageTitle,
       RenderModifiersRegistry,
+      EmberIntlRegistry,
       ShowcaseTemplateRegistry {}
 }
