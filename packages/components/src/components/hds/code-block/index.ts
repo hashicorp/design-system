@@ -100,9 +100,7 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   });
 
   private _setUpCodeBlockCode = modifier((element: HTMLElement) => {
-    if (this.showFooter) {
-      this._isExpanded = false; // reset expanded state on updates
-    }
+    this._isExpanded = false; // reset expanded state on updates
     this.setPrismCode(element);
     return () => {};
   });
