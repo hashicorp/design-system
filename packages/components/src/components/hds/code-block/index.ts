@@ -44,6 +44,9 @@ export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
 
 export interface HdsCodeBlockSignature {
   Args: {
+    ariaLabel?: string;
+    ariaLabelledBy?: string;
+    ariaDescribedBy?: string;
     hasCopyButton?: boolean;
     hasLineNumbers?: boolean;
     hasLineWrapping?: boolean;
@@ -72,9 +75,23 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @tracked private _isExpanded: boolean = false;
   @tracked private _codeContentHeight: number = 0;
   @tracked private _codeContainerHeight: number = 0;
+  @tracked private _titleId: string | undefined;
+  @tracked private _descriptionId: string | undefined;
 
   // Generates a unique ID for the code content
   private _preCodeId = 'pre-code-' + guidFor(this);
+
+  get ariaLabelledBy(): string | undefined {
+    if (this.args.ariaLabel !== undefined) {
+      return;
+    }
+
+    return this.args.ariaLabelledBy ?? this._titleId;
+  }
+
+  get ariaDescribedBy(): string | undefined {
+    return this.args.ariaDescribedBy ?? this._descriptionId;
+  }
 
   // code text content for the CodeBlock
   get code(): string {
@@ -130,6 +147,18 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   }
 
   @action
+  registerTitleElement(element: HdsCodeBlockTitleSignature['Element']): void {
+    this._titleId = element.id;
+  }
+
+  @action
+  registerDescriptionElement(
+    element: HdsCodeBlockDescriptionSignature['Element']
+  ): void {
+    this._descriptionId = element.id;
+  }
+
+  @action
   setPrismCode(element: HTMLElement): void {
     const code = this.code;
     const language = this.language;
@@ -143,6 +172,12 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
         } else {
           // eslint-disable-next-line @typescript-eslint/no-base-to-string
           this._prismCode = htmlSafe(Prism.util.encode(code).toString());
+        }
+
+        if (this.args.highlightLines) {
+          this._prismCode = this._addHighlightSrOnlyText(
+            this._prismCode.toString()
+          );
         }
 
         // Force prism-line-numbers plugin initialization, required for Prism.highlight usage
@@ -177,6 +212,47 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   @action
   toggleExpanded(): void {
     this._isExpanded = !this._isExpanded;
+  }
+
+  private _addHighlightSrOnlyText(code: string): SafeString {
+    const NEW_LINE_EXP = /\n(?!$)/g;
+    const lines = code.split(NEW_LINE_EXP);
+    const numLines = lines.length;
+    const lineOffset = this.args.lineNumberStart
+      ? this.args.lineNumberStart
+      : 0;
+
+    const highlightStart = '<span class="sr-only">highlight start</span>';
+    const highlightEnd = '<span class="sr-only">highlight end</span>';
+
+    const ranges = this.args.highlightLines
+      ?.replace(/\s+/g, '')
+      .split(',')
+      .filter(Boolean);
+
+    if (ranges && ranges.length > 0) {
+      const highlightedLines = [] as { start: number; end: number }[];
+
+      ranges.forEach((currentRange) => {
+        const range = currentRange.split('-');
+        const start = +range[0]! - lineOffset;
+        let end = +range[1]! || start - lineOffset;
+        end = Math.min(numLines, end);
+        highlightedLines.push({
+          start: start,
+          end: end,
+        });
+      });
+
+      highlightedLines.forEach((line) => {
+        lines[line.start - 1] = highlightStart + lines[line.start - 1];
+        lines[line.end - 1] = lines[line.end - 1] + highlightEnd;
+      });
+
+      return htmlSafe(lines.join('\n'));
+    } else {
+      return htmlSafe(code);
+    }
   }
 
   get classNames(): string {
