@@ -659,6 +659,7 @@ console.log(`I am ${codeLang} code`);"
             @language="go"
             @highlightLines="2, 4"
             @hasLineWrapping={{true}}
+            @maxHeight="130px"
             @value="package main
 import 'fmt'
 func main() {
@@ -719,6 +720,16 @@ func main() {
           </M.Footer>
         </Hds::Modal>
       {{/if}}
+    </SF.Item>
+    <SF.Item @label="Dynamic updates">
+      <Hds::CodeBlock @language="go" @highlightLines="2, 4" @maxHeight="180px" @value={{this.value_demo1}} />
+      <Hds::Button
+        type="button"
+        @text="Update"
+        @isInline={{true}}
+        {{style marginTop="12px"}}
+        {{on "click" this.onUpdateClickDemo1}}
+      />
     </SF.Item>
   </Shw::Flex>
 </section>

@@ -147,6 +147,7 @@ $hds-code-block-code-footer-height: 48px;
   }
 
   code {
+    position: relative;
     display: inline-block;
     padding-right: $hds-code-block-code-padding;
   }
@@ -220,6 +221,13 @@ $hds-code-block-code-footer-height: 48px;
       position: relative;
       // reserve space for line numbers
       padding-left: calc(#{$hds-code-block-line-numbers-width} + #{$hds-code-block-code-padding});
+
+      // When line numbers are enabled, line highlighing is calculated based on the pre element instead of the code element
+      // To ensure the offset is correct, we need to set the position of the code element to static
+      // Source: https://github.com/PrismJS/prism/blob/v2/src/plugins/line-highlight/prism-line-highlight.ts#L92
+      code {
+        position: static;
+      }
     }
 
     .hds-code-block__overlay-footer {
@@ -250,15 +258,17 @@ $hds-code-block-code-footer-height: 48px;
         }
       }
     }
+
+    .line-highlight {
+      left: 0;
+    }
   }
 
   // Highlighted Lines
   .line-highlight {
     position: absolute;
     right: 0;
-    left: 0;
-    // Note: position seems off by a few px although not sure why
-    margin-top: -3px;
+    left: -$hds-code-block-code-padding;
     background-color: var(--hds-code-block-color-line-highlight);
     border: solid var(--hds-code-block-color-line-highlight-border);
     border-width: 1px 0 1px 4px;
