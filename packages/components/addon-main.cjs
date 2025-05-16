@@ -9,7 +9,11 @@ const flightIconSprite = require('@hashicorp/flight-icons/svg-sprite/svg-sprite-
 module.exports = {
   ...addonV1Shim(__dirname),
   contentFor(type, config) {
-    if (!config.__flightIconsSpriteLoaded && type === 'body-footer') {
+    if (
+      !config.emberFlightIcons?.lazyEmbed &&
+      !config.__flightIconsSpriteLoaded &&
+      type === 'body-footer'
+    ) {
       config.__flightIconsSpriteLoaded = true;
 
       return flightIconSprite;
