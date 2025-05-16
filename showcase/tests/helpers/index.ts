@@ -19,8 +19,6 @@ import { setupIntlRenderingTest } from './setup-intl-rendering-test';
 function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupApplicationTest(hooks, options);
 
-  setupIntlRenderingTest(hooks, 'en-us');
-
   // Additional setup for application tests can be done here.
   //
   // For example, if you need an authenticated session for each
@@ -39,6 +37,8 @@ function setupApplicationTest(hooks: NestedHooks, options?: SetupTestOptions) {
 
 function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupRenderingTest(hooks, options);
+
+  setupIntlRenderingTest(hooks, 'en-us');
 
   // Additional setup for rendering tests can be done here.
 }
