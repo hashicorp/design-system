@@ -1,7 +1,10 @@
 'use strict';
 
 module.exports = {
-  plugins: ['ember-template-lint-plugin-prettier'],
+  plugins: [
+    'ember-template-lint-plugin-prettier',
+    './src/ember-template-lint-plugin-local',
+  ],
   extends: ['recommended', 'ember-template-lint-plugin-prettier:recommended'],
   rules: {
     'no-html-comments': false,
@@ -14,5 +17,6 @@ module.exports = {
     'no-redundant-role': false,
     'no-builtin-form-components': false,
     'no-bare-strings': true,
+    'no-bare-strings-in-attributes': true,
   },
 };
