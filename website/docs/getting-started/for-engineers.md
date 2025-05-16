@@ -103,48 +103,6 @@ and then use the component in your code like this:
 
 For details about how this component should be used and its API, see [the component documentation page](/components/icon).
 
-#### Using the `@hashicorp/ember-flight-icons` addon <Doc::Badge @type="warning" @size="large">Deprecated</Doc::Badge>
-
-!!! Warning
-
-This approach is now deprecated. Use the `Hds::Icon` instead.
-
-!!!
-
-The `ember-flight-icons` package is an Ember addon that provides a standalone `FlightIcon` component that can be used to render an icon as an `<svg>` HTML element.
-
-Since it's an independent package, you have to install it first:
-
-```bash
-pnpm add @hashicorp/ember-flight-icons
-```
-
-and then use the component in your code like this:
-
-```handlebars{data-execute=false}
-<FlightIcon @name="info" />
-```
-
-The [API of the component](/components/icon?tab=code#component-api) is the same as the `Hds::Icon` one.
-
-#### Deferred loading
-
-In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
-
-```js
-module.exports = function(environment) {
-  const ENV = {
-    // your other config
-    ...
-    emberFlightIcons: {
-      lazyEmbed: true,
-    },
-  };
-}
-```
-
-For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
-
 #### Ember test selectors
 
 Both the `Hds::Icon` and the `FlightIcon` components expose a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
