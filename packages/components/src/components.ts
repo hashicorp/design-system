@@ -330,6 +330,14 @@ export { default as HdsAppFrameMain } from './components/hds/app-frame/parts/mai
 export { default as HdsAppFrameModals } from './components/hds/app-frame/parts/modals.ts';
 export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/sidebar.ts';
 
+// Layout > Flex
+export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
+export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.ts';
+
+// Layout > Grid
+export { default as HdsLayoutGrid } from './components/hds/layout/grid/index.ts';
+export { default as HdsLayoutGridItem } from './components/hds/layout/grid/item.ts';
+
 // -----------------------------------------------------------
 // ### UTILITIES
 // -----------------------------------------------------------
