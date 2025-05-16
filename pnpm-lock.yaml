@@ -323,115 +323,6 @@ importers:
         specifier: ^5.97.1
         version: 5.99.8
 
-  packages/ember-flight-icons:
-    dependencies:
-      '@embroider/addon-shim':
-        specifier: ^1.9.0
-        version: 1.9.0
-      '@hashicorp/flight-icons':
-        specifier: workspace:*
-        version: link:../flight-icons
-      decorator-transforms:
-        specifier: ^2.3.0
-        version: 2.3.0(@babel/core@7.27.1)
-      ember-get-config:
-        specifier: ^2.1.1
-        version: 2.1.1(@glint/template@1.5.2)
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.27.1
-        version: 7.27.1
-      '@babel/plugin-transform-typescript':
-        specifier: ^7.27.1
-        version: 7.27.1(@babel/core@7.27.1)
-      '@babel/runtime':
-        specifier: ^7.27.1
-        version: 7.27.1
-      '@embroider/addon-dev':
-        specifier: ^7.1.1
-        version: 7.1.4(@glint/template@1.5.2)(rollup@4.39.0)
-      '@glimmer/component':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.27.1)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
-      '@glint/core':
-        specifier: ^1.5.2
-        version: 1.5.2(typescript@5.8.3)
-      '@glint/environment-ember-loose':
-        specifier: ^1.5.2
-        version: 1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)))
-      '@glint/environment-ember-template-imports':
-        specifier: ^1.5.2
-        version: 1.5.2(@glint/environment-ember-loose@1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8))))(@glint/template@1.5.2)
-      '@glint/template':
-        specifier: ^1.5.2
-        version: 1.5.2
-      '@rollup/plugin-babel':
-        specifier: ^6.0.4
-        version: 6.0.4(@babel/core@7.27.1)(@types/babel__core@7.20.5)(rollup@4.39.0)
-      '@tsconfig/ember':
-        specifier: ^3.0.8
-        version: 3.0.10
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.18.1
-        version: 8.32.1(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
-      '@typescript-eslint/parser':
-        specifier: ^8.18.1
-        version: 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-      babel-plugin-ember-template-compilation:
-        specifier: ^2.3.0
-        version: 2.4.1
-      concurrently:
-        specifier: ^9.1.0
-        version: 9.1.2
-      ember-source:
-        specifier: ^5.12.0
-        version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
-      ember-template-lint:
-        specifier: ^6.0.0
-        version: 6.1.0
-      ember-template-lint-plugin-prettier:
-        specifier: ^5.0.0
-        version: 5.0.0(ember-template-lint@6.1.0)(prettier@3.5.3)
-      eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.1)
-      eslint-plugin-ember:
-        specifier: ^12.3.3
-        version: 12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      eslint-plugin-import:
-        specifier: ^2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      eslint-plugin-n:
-        specifier: ^17.15.0
-        version: 17.18.0(eslint@8.57.1)
-      eslint-plugin-prettier:
-        specifier: ^5.2.1
-        version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.3)
-      eslint-plugin-qunit:
-        specifier: ^8.1.2
-        version: 8.1.2(eslint@8.57.1)
-      prettier:
-        specifier: ^3.4.2
-        version: 3.5.3
-      rollup:
-        specifier: ^4.28.1
-        version: 4.39.0
-      rollup-plugin-copy:
-        specifier: ^3.5.0
-        version: 3.5.0
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-      webpack:
-        specifier: ^5.97.1
-        version: 5.99.8
-
   packages/flight-icons:
     devDependencies:
       '@figma-export/cli':
@@ -19756,6 +19647,7 @@ snapshots:
       eslint-utils: 2.1.0
       regexpp: 3.2.0
 
+<<<<<<< HEAD
   eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1):
     dependencies:
       '@rtsao/scc': 1.1.0
@@ -19786,6 +19678,9 @@ snapshots:
       - supports-color
 
   eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0):
+=======
+  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.29.0(eslint@9.23.0)(typescript@5.8.2))(eslint@9.23.0):
+>>>>>>> 764a242fb (chore: lint)
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.8
