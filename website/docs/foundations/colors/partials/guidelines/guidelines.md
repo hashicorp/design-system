@@ -1,6 +1,6 @@
 ## Color tokens
 
-Color-naming syntax and usage can vary depending on context and tooling. Naming conventions within our system allow us to implement standards in our libraries.
+Color-naming syntax and usage can vary depending on context and tooling. Semantic naming conventions within our system allow us to implement consistent standards in our libraries.
 
 In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables. This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
 
