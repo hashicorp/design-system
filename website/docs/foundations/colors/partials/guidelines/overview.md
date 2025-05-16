@@ -1,1 +1,1 @@
-When choosing what colors to use, we recommend starting with semantic colors as their usage is clearly defined and common color pairings are accessible out of the box.
+When choosing color values in design, we recommend starting with semantic color tokens — values with clearly defined intent — and relying on color pairings in Helios that are accessible out of the box.
