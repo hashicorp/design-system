@@ -7,8 +7,11 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
+import type { HdsAdvancedTableColumn } from '../types';
+
 interface HdsAdvancedTableRowArgs {
   [key: string]: unknown;
+  columns: HdsAdvancedTableColumn[];
   id?: string;
   childrenKey?: string;
 }

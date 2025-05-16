@@ -39,11 +39,11 @@
         @hasStickyColumn={{@hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each @columns as |column index|}}
+        {{#each this._tableModel.columns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
-              @onClickSort={{fn this.setSortBy column.key}}
+              @onClickSort={{if column.key (fn this.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
@@ -53,15 +53,15 @@
             </Hds::AdvancedTable::ThSort>
           {{else}}
             <Hds::AdvancedTable::Th
-              @align={{column.align}}
-              @tooltip={{column.tooltip}}
-              @isVisuallyHidden={{column.isVisuallyHidden}}
-              @isExpandable={{column.isExpandable}}
-              @onClickToggle={{this._tableModel.toggleAll}}
-              @isExpanded={{this._tableModel.expandState}}
+              @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @isExpanded={{this._tableModel.expandState}}
+              @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
+              @tableHeight={{this.tableHeight}}
+              @onClickToggle={{this._tableModel.toggleAll}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
@@ -143,6 +143,7 @@
       {{/each}}
     </div>
   </div>
+
   {{#if this.showScrollIndicatorLeft}}
     <div
       class="hds-advanced-table__scroll-indicator hds-advanced-table__scroll-indicator-left"

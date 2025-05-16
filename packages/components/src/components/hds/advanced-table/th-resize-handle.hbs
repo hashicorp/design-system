@@ -1,0 +1,15 @@
+<div
+  class="hds-advanced-table__th-resize-handle {{if this.resizing 'hds-advanced-table__th-resize-handle--resizing'}}"
+  draggable="false"
+  role="separator"
+  aria-orientation="vertical"
+  aria-valuenow={{@column.pxWidth}}
+  aria-valuemin={{@column.pxMinWidth}}
+  aria-valuemax={{@column.pxMaxWidth}}
+  tabindex="0"
+  aria-label="Resize {{@column.label}} column"
+  {{on "pointerdown" this.startResize}}
+  {{on "keydown" this.handleKeydown}}
+  {{style height=this.height}}
+  ...attributes
+/>
