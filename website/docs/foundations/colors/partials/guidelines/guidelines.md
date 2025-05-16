@@ -2,9 +2,9 @@
 
 Color-naming syntax and usage can vary depending on context and tooling. Semantic naming conventions within our system allow us to implement consistent standards in our libraries.
 
-In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables. This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
+In Figma, we use Variables to define and organize color values. Variables allow us to create palettes that reference (or alias) each other. Our Core Palette is a collection of HEX values and their color ramps (`neutral-50`, `neutral-100`,...`neutral-700`). These values are then connected to Semantic Variables (`foreground-primary`, `surface-faint`, `border-critical`). This alias connection allows us to designate multiple token uses for individual HEX values that lead back to the same Core Palette token.
 
-Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette colors are directly referenced in Semantic Palette values in the same way that Figma variables alias one another. 
+Tokens in code are generated from platform-agnostic files, in our case JSON, and create atomic colors regardless of what platform or framework is used. Core Palette values are directly referenced in Semantic Palette values in the same way that Figma variables alias one another. 
 
 ![Diagram of token color inheritance with the levels (from left to right): hex code, core palette token, semantic token](/assets/foundations/color/colors-what-are-semantic-tokens.png)
 
@@ -12,7 +12,7 @@ Tokens in code are generated from platform-agnostic files, in our case JSON, and
 
 The Semantic Palette embeds meaning into color names, making it easier to select correct consistent values across applications. These colors are designed to meet accessibility standards when used in combination with one another. 
 - Foreground colors are intended to be used with surface or page colors.
-- Status color values have "surface," "on-surface," and "high-contrast" options to meet accessibility standards when used together. 
+- Status color values consist of "surface," "on-surface," and "high-contrast" options to meet accessibility standards when used together. 
 
 Some examples of semantic color combinations with their respective contrast ratios are:
 - `Foreground/Strong` on `Surface/Primary` nets a ratio of 19.54:1
@@ -45,13 +45,13 @@ Examples of **role** in naming include:
 
 ### Foreground
 
-Foreground colors are used for decorative and informational elements such as text, links, and icons.
+Foreground colors are used for informational and decorative elements such as text, links, and icons.
 
 Some common examples of semantic foreground colors include:
 
 - `Foreground/Strong` for headings and secondary links
 - `Foreground/Primary` for body text 
-- `Foreground/Faint` for less prominent text and UI elements.
+- `Foreground/Faint` for less prominent text and UI elements
 - `Foreground/Action` for primary calls to action such as links
 
 ![Samples of text with their color tokens labelled](/assets/foundations/color/colors-foreground-examples.png)
@@ -60,7 +60,7 @@ Status foreground colors contextualize responses from user actions or indicate s
 
 - [Alerts](/components/alert#color)
 - [Toasts](/components/toast#color)
-- [Badges](/components/badge#color).
+- [Badges](/components/badge#color)
 
 ![Sample positive, warning, and error status badges with their associated foreground color tokens labelled.](/assets/foundations/color/colors-status-examples.png)
 
@@ -80,10 +80,10 @@ Surface colors are intended to be used for the background (or surface) of a comp
 
 Examples of surface colors include:
 
-- `Surface/Strong` for the neutral Badge.
-- `Surface/Primary` for component containers.
-- `Surface/Faint` for the secondary Button.
-- `Surface/{Status color}` for Alert backgrounds.
+- `Surface/Strong` for the neutral Badge
+- `Surface/Primary` for component containers
+- `Surface/Faint` for the secondary Button
+- `Surface/{Status color}` for Alert backgrounds
 
 ![Sample surface colors being applied to a badge, card, button, and alert with the surface color token labelled.](/assets/foundations/color/colors-surface-examples.png)
 
