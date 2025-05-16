@@ -12,7 +12,7 @@
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "updateInternalDependents": "always"
   },
-  "ignore": ["@hashicorp/ember-flight-icons", "showcase", "website"],
+  "ignore": ["showcase", "website"],
   "snapshot": {
     "useCalculatedVersion": true
   }

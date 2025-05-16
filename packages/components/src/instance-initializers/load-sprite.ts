@@ -6,6 +6,7 @@
 import config from 'ember-get-config';
 
 export async function initialize() {
+  // SHOULD THIS BE REMOVED? OR SHOULD WE LOOK FOR A DIFF CONFIG KEY?
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   if (config?.emberFlightIcons?.lazyEmbed) {
     const { default: svgSprite } = await import(
