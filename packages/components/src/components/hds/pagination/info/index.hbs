@@ -9,10 +9,9 @@
       start=@itemsRangeStart
       end=@itemsRangeEnd
       total=@totalItems
-      showTotalItems=this.showTotalItems
       htmlSafe=true
     }}
   {{else}}
-    {{@itemsRangeStart}}&ldash;{{@itemsRangeEnd}}
+    {{t "hds.components.pagination.info.range" start=@itemsRangeStart end=@itemsRangeEnd htmlSafe=true}}
   {{/if}}
 </Hds::Text::Body>
