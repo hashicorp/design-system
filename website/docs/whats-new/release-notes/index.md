@@ -17,6 +17,10 @@ navigation:
   @include "partials/flight-icons.md"
 </section>
 
+<section data-tab="Ember Flight Icons">
+  @include "partials/ember-flight-icons.md"
+</section>
+
 <section data-tab="Figma Libraries">
   @include "partials/figma-library-components.md"
   <div class="doc-whats-new-changelog-figma-libraries-divider" />
