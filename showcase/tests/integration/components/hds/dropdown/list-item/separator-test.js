@@ -15,7 +15,7 @@ module(
 
     test('it should render the "list-item/separator" as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Separator @text="separator" id="test-list-item-separator" />`
+        hbs`<Hds::Dropdown::ListItem::Separator @text="separator" id="test-list-item-separator" />`,
       );
       assert.dom('#test-list-item-separator').hasTagName('li');
       assert
@@ -30,17 +30,17 @@ module(
 
     test('it should render the "list-item/separator" with role of separator', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Separator id="test-list-item-separator" />`
+        hbs`<Hds::Dropdown::ListItem::Separator id="test-list-item-separator" />`,
       );
       assert.dom('#test-list-item-separator').hasAttribute('role', 'separator');
     });
     test('it should render the "list-item/separator" with the aria-hidden attribute', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::Separator id="test-list-item-separator" />`
+        hbs`<Hds::Dropdown::ListItem::Separator id="test-list-item-separator" />`,
       );
       assert
         .dom('#test-list-item-separator')
         .hasAttribute('aria-hidden', 'true');
     });
-  }
+  },
 );

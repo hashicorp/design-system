@@ -21,7 +21,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
   @icon='hashicorp'
   @ariaLabel='HashiCorp'
   id='test-home-link'
-/>`
+/>`,
     );
     assert.dom('#test-home-link').hasClass('hds-app-header__home-link');
   });
@@ -35,7 +35,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
   @ariaLabel='HashiCorp'
   @href='https://www.hashicorp.com/'
   id='test-home-link'
-/>`
+/>`,
     );
     assert.dom('.hds-icon-hashicorp').exists();
     assert
@@ -51,7 +51,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
   @ariaLabel='Boundary'
   @color='var(--token-color-boundary-brand)'
   @href='#'
-/>`
+/>`,
     );
     assert
       .dom('.hds-icon-boundary')

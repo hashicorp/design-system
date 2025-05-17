@@ -17,7 +17,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-icon-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-icon-button" />`,
     );
     assert
       .dom('#test-side-nav-icon-button')
@@ -28,7 +28,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it renders the passed in args', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`,
     );
     assert.dom('.hds-icon-search').exists();
   });
@@ -37,14 +37,14 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should render a <button> if no @href or @route is passed (default)', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" id="test-side-nav-button" />`,
     );
     assert.dom('#test-side-nav-button').hasTagName('button');
   });
 
   test('it should render a <a> link if @href is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @href="https://www.hashicorp.com/" id="test-side-nav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @href="https://www.hashicorp.com/" id="test-side-nav-button" />`,
     );
     assert
       .dom('#test-side-nav-button')
@@ -54,7 +54,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @route="utilities.interactive" id="test-side-nav-button" />`
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @route="utilities.interactive" id="test-side-nav-button" />`,
     );
     assert
       .dom('#test-side-nav-button')

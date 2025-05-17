@@ -15,7 +15,7 @@ module(
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Media id="test-application-state-media" />`
+        hbs`<Hds::ApplicationState::Media id="test-application-state-media" />`,
       );
 
       assert
@@ -27,10 +27,10 @@ module(
       await render(
         hbs`<Hds::ApplicationState::Media id="test-application-state-media">
         <pre>test</pre>
-      </Hds::ApplicationState::Media>`
+      </Hds::ApplicationState::Media>`,
       );
       assert.dom('#test-application-state-media > pre').exists();
       assert.dom('#test-application-state-media > pre').hasText('test');
     });
-  }
+  },
 );

@@ -23,7 +23,7 @@ module(
         <Hds::DialogPrimitive::Footer id="test-footer">
           Footer
         </Hds::DialogPrimitive::Footer>
-      `
+      `,
       );
       assert.dom('#test-footer').hasClass('hds-dialog-primitive__footer');
     });
@@ -36,7 +36,7 @@ module(
         <Hds::DialogPrimitive::Footer>
           <Hds::Button type="submit" @text="Primary" />
         </Hds::DialogPrimitive::Footer>
-      `
+      `,
       );
       assert.dom('.hds-dialog-primitive__footer .hds-button').exists();
     });
@@ -51,10 +51,10 @@ module(
         <Hds::DialogPrimitive::Footer @onDismiss={{this.onDismiss}} as |F|>
           <Hds::Button type="submit" @text="Primary" {{on "click" F.close}} />
         </Hds::DialogPrimitive::Footer>
-      `
+      `,
       );
       await click('.hds-dialog-primitive__footer .hds-button');
       assert.ok(dismissed);
     });
-  }
+  },
 );

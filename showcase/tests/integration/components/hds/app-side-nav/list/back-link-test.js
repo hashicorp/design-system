@@ -19,7 +19,7 @@ module(
       await render(
         hbs`<Hds::AppSideNav::List::BackLink
   id='test-app-side-nav-list-item-link-back-link'
-/>`
+/>`,
       );
       assert
         .dom('#test-app-side-nav-list-item-link-back-link')
@@ -30,7 +30,7 @@ module(
 
     test('it renders the passed in args', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::BackLink @text='Back to parent page' @href='#' />`
+        hbs`<Hds::AppSideNav::List::BackLink @text='Back to parent page' @href='#' />`,
       );
       assert.dom('.hds-icon-chevron-left').exists();
       assert
@@ -49,7 +49,7 @@ module(
 
     test('it should render a <a> link if @href is passed', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::BackLink @href='https://www.hashicorp.com/' />`
+        hbs`<Hds::AppSideNav::List::BackLink @href='https://www.hashicorp.com/' />`,
       );
       assert
         .dom('.hds-app-side-nav__list-item-link--back-link')
@@ -59,12 +59,12 @@ module(
 
     test('it should render a <a> link if @route is passed', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::BackLink @route='utilities.interactive' />`
+        hbs`<Hds::AppSideNav::List::BackLink @route='utilities.interactive' />`,
       );
       assert
         .dom('.hds-app-side-nav__list-item-link--back-link')
         .hasTagName('a')
         .hasAttribute('href', '/utilities/interactive');
     });
-  }
+  },
 );

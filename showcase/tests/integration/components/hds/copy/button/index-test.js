@@ -31,7 +31,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
   });
@@ -40,7 +40,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should allow to copy a `string` provided as `@text` argument', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     await click('button#test-copy-button');
     assert.true(this.success);
@@ -50,7 +50,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should allow to target an element using a `string` selector for the `@target` argument', async function (assert) {
     await render(
-      hbs`<p id="test-copy-button-target">Hello world!</p><Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @targetToCopy="#test-copy-button-target" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<p id="test-copy-button-target">Hello world!</p><Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @targetToCopy="#test-copy-button-target" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     await click('button#test-copy-button');
     assert.true(this.success);
@@ -60,7 +60,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should render the correct default component variation: secondary color, medium size, idle status', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button');
     assert.dom('#test-copy-button').hasClass('hds-button--size-medium');
@@ -70,7 +70,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should only render an icon and also render an aria-label if isIconOnly is set to true', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button @text="Copy" @isIconOnly={{true}} @textToCopy="someSecretThingGoesHere" id="test-copy-button" />`
+      hbs`<Hds::Copy::Button @text="Copy" @isIconOnly={{true}} @textToCopy="someSecretThingGoesHere" id="test-copy-button" />`,
     );
     assert.dom('#test-copy-button').doesNotIncludeText('Copy');
     assert.dom('#test-copy-button').hasAria('label', 'Copy');
@@ -78,7 +78,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should render the small size if @size small is defined', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @size="small" />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @size="small" />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-button--size-small');
   });
@@ -86,7 +86,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   test('it always renders the text value, not the text to copy', async function (assert) {
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
-      @textToCopy="someSecretThingGoesHere" />`
+      @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-button').hasText('Copy your secret key');
     assert
@@ -96,7 +96,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should have the correct CSS class to support full-width size if @isFullWidth prop is true', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="copy" @textToCopy="someSecretThingGoesHere" @isFullWidth={{true}} />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-button--width-full');
   });
@@ -105,7 +105,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
 
   test('it should update the status to success if the copy operation was successful', async function (assert) {
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
@@ -116,7 +116,7 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
   test('it should update the status back to idle after success', async function (assert) {
     await render(
       hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key"
-      @textToCopy="someSecretThingGoesHere" />`
+      @textToCopy="someSecretThingGoesHere" />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');
@@ -131,10 +131,10 @@ module('Integration | Component | hds/copy/button/index', function (hooks) {
       .stub(window.navigator.clipboard, 'writeText')
       .throws(
         'Sinon throws (syntethic error)',
-        'this is a fake error message provided to the sinon.stub().throws() method'
+        'this is a fake error message provided to the sinon.stub().throws() method',
       );
     await render(
-      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`
+      hbs`<Hds::Copy::Button id="test-copy-button" @text="Copy your secret key" @textToCopy="someSecretThingGoesHere" @onSuccess={{this.onSuccess}} @onError={{this.onError}} />`,
     );
     assert.dom('#test-copy-button').hasClass('hds-copy-button--status-idle');
     await click('button#test-copy-button');

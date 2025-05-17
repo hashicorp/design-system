@@ -42,7 +42,7 @@ export default class ShwGrid extends Component<ShwGridSignature> {
     assert('@columns for "Shw::Grid" must be defined', columns !== undefined);
     assert(
       '@columns for "Shw::Grid" must be a positive integer greater than zero',
-      columns > 0
+      columns > 0,
     );
 
     return columns;

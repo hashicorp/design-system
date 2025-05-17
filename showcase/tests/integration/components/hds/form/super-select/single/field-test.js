@@ -21,7 +21,7 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} />`,
       );
       assert.dom('.hds-form-field__control .hds-form-super-select').exists();
     });
@@ -31,7 +31,7 @@ module(
     test('it should render the correct CSS class if @isInvalid is true', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} @isInvalid={{true}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} @isInvalid={{true}} />`,
       );
       assert
         .dom('.hds-form-field__control .hds-form-super-select')
@@ -43,7 +43,7 @@ module(
     test('it should render the trigger with a custom id', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Field @id="my-super-select" @onChange={{this.NOOP}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Field @id="my-super-select" @onChange={{this.NOOP}} />`,
       );
       assert
         .dom('.ember-basic-dropdown-trigger')
@@ -59,7 +59,7 @@ module(
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::SuperSelect::Single::Field>`
+        </Hds::Form::SuperSelect::Single::Field>`,
       );
       assert.dom('.hds-form-field__label').exists();
       assert.dom('.hds-form-field__helper-text').exists();
@@ -69,7 +69,7 @@ module(
     test('it does not render the yielded contextual components if not provided', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} />`
+        hbs`<Hds::Form::SuperSelect::Single::Field @onChange={{this.NOOP}} />`,
       );
       assert.dom('.hds-form-field__label').doesNotExist();
       assert.dom('.hds-form-field__helper-text').doesNotExist();
@@ -82,7 +82,7 @@ module(
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
-        </Hds::Form::SuperSelect::Single::Field>`
+        </Hds::Form::SuperSelect::Single::Field>`,
       );
       let control = this.element.querySelector('.ember-basic-dropdown-trigger');
       let controlId = control.id;
@@ -99,7 +99,7 @@ module(
         .dom('.ember-basic-dropdown-trigger')
         .hasAttribute(
           'aria-describedby',
-          `helper-text-${controlId} error-${controlId} extra`
+          `helper-text-${controlId} error-${controlId} extra`,
         );
       assert
         .dom('.hds-form-field__error')
@@ -115,7 +115,7 @@ module(
           {{#if this.showErrors}}
             <F.Error>This is the error</F.Error>
           {{/if}}
-        </Hds::Form::SuperSelect::Single::Field>`
+        </Hds::Form::SuperSelect::Single::Field>`,
       );
 
       this.set('showErrors', true);
@@ -135,7 +135,7 @@ module(
         .dom('.ember-basic-dropdown-trigger')
         .hasAttribute(
           'aria-describedby',
-          `helper-text-${controlId} error-${controlId} extra`
+          `helper-text-${controlId} error-${controlId} extra`,
         );
       assert
         .dom('.hds-form-field__error')
@@ -149,7 +149,7 @@ module(
       await render(
         hbs`<Hds::Form::SuperSelect::Single::Field @isRequired={{true}} @onChange={{this.NOOP}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::SuperSelect::Single::Field>`
+          </Hds::Form::SuperSelect::Single::Field>`,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('Required');
@@ -159,10 +159,10 @@ module(
       await render(
         hbs`<Hds::Form::SuperSelect::Single::Field @isOptional={{true}} @onChange={{this.NOOP}} as |F|>
             <F.Label>This is the label</F.Label>
-          </Hds::Form::SuperSelect::Single::Field>`
+          </Hds::Form::SuperSelect::Single::Field>`,
       );
       assert.dom('label .hds-form-indicator').exists();
       assert.dom('label .hds-form-indicator').hasText('(Optional)');
     });
-  }
+  },
 );

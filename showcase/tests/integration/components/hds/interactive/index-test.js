@@ -31,7 +31,7 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   });
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @route="utilities.interactive" id="test-interactive" />`
+      hbs`<Hds::Interactive @route="utilities.interactive" id="test-interactive" />`,
     );
     assert.dom('#test-interactive').hasTagName('a');
     assert
@@ -48,14 +48,14 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
   });
   test('it should render a <a> link with custom "target" and "rel" attributes if they are passed as attributes', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @href="#" id="test-interactive" target="test-target" rel="test-rel" />`
+      hbs`<Hds::Interactive @href="#" id="test-interactive" target="test-target" rel="test-rel" />`,
     );
     assert.dom('#test-interactive').hasAttribute('target', 'test-target');
     assert.dom('#test-interactive').hasAttribute('rel', 'test-rel');
   });
   test('it should render a <a> link withhout "target" and "rel" attributes if @isHrefExternal is false', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @href="#" @isHrefExternal={{false}} id="test-interactive" />`
+      hbs`<Hds::Interactive @href="#" @isHrefExternal={{false}} id="test-interactive" />`,
     );
     assert.dom('#test-interactive').doesNotHaveAttribute('target');
     assert.dom('#test-interactive').doesNotHaveAttribute('rel');
@@ -65,21 +65,21 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
 
   test('it should yield the children of the <button> element', async function (assert) {
     await render(
-      hbs`<Hds::Interactive id="test-interactive"><pre>test</pre></Hds::Interactive>`
+      hbs`<Hds::Interactive id="test-interactive"><pre>test</pre></Hds::Interactive>`,
     );
     assert.dom('button#test-interactive > pre').exists();
     assert.dom('button#test-interactive > pre').hasText('test');
   });
   test('it should yield the children of the <a> element', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @href="#" id="test-interactive"><pre>test</pre></Hds::Interactive>`
+      hbs`<Hds::Interactive @href="#" id="test-interactive"><pre>test</pre></Hds::Interactive>`,
     );
     assert.dom('a#test-interactive > pre').exists();
     assert.dom('a#test-interactive > pre').hasText('test');
   });
   test('it should yield the children of the <LinkTo> element', async function (assert) {
     await render(
-      hbs`<Hds::Interactive @route="index" id="test-interactive"><pre>test</pre></Hds::Interactive>`
+      hbs`<Hds::Interactive @route="index" id="test-interactive"><pre>test</pre></Hds::Interactive>`,
     );
     assert.dom('a#test-interactive > pre').exists();
     assert.dom('a#test-interactive > pre').hasText('test');
@@ -99,7 +99,7 @@ module('Integration | Component | hds/interactive/index', function (hooks) {
     let clicked = false;
     this.set('clickHandler', () => (clicked = true));
     await render(
-      hbs`<div {{on "click" this.clickHandler}}><Hds::Interactive @href="javascript:;" id="test-interactive"/></div>`
+      hbs`<div {{on "click" this.clickHandler}}><Hds::Interactive @href="javascript:;" id="test-interactive"/></div>`,
     );
     await triggerKeyEvent('#test-interactive', 'keyup', ' ');
     assert.ok(clicked);
