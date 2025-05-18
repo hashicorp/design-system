@@ -12,12 +12,12 @@
     "version-packages": "pnpm changeset version && pnpm install --lockfile-only && pnpm -F website generate-changelog-markdown-files"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-decorators": "^7.25.9",
-    "prettier-plugin-ember-template-tag": "^2.0.5",
+    "@babel/plugin-proposal-decorators": "^7.27.1",
     "@changesets/cli": "^2.27.11",
     "@changesets/get-github-info": "^0.6.0",
     "@glint/core": "^1.5.2",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "prettier-plugin-ember-template-tag": "^2.0.5"
   },
   "packageManager": "pnpm@10.4.1+sha512.c753b6c3ad7afa13af388fa6d808035a008e30ea9993f58c6663e2bc5ff21679aa834db094987129aa4d488b86df57f7b634981b2f827cdcacc698cc0cfb88af",
   "engines": {
