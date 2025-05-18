@@ -18,9 +18,8 @@ export function hdsResolveLinkToComponent(
   if (isRouteExternal) {
     if (macroCondition(dependencySatisfies('ember-engines', '*'))) {
       // @ts-expect-error: shape is unknown
-      return importSync(
-        'ember-engines/components/link-to-external-component.js'
-      ).default as LinkTo;
+      return importSync('ember-engines/components/link-to-external-component')
+        .default as LinkTo;
     } else {
       assert(
         `@isRouteExternal is only available when using the "ember-engines" addon. Please install it to use this feature.`,
