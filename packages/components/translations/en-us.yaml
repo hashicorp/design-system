@@ -1,48 +1,44 @@
 hds:
   components:
     shared:
-      loading: "Loading"
-      menu: "Menu"
-      optional: "Optional"
-      required: "Required"
-      selection_state: "Selection state"
-      sort_by: "Sort by"
-      toggle: "Toggle"
-      tooltip_prefix: "More information for"
-    advanced_table:
-      th_button_expand:
-        aria_description: "Toggle the visibility of the related rows."
-    app_footer:
+      loading: Loading
+      menu: Menu
+      optional: Optional
+      required: Required
+      sort-by: Sort by
+      toggle: Toggle
+      tooltip-prefix: More information for
+    advanced-table:
+      th-button-expand:
+        aria-description: Toggle the visibility of the related rows.
+    app-footer:
       copyright:
-        copyright_text: "&copy; {year} HashiCorp"
-      legal_links:
-        support: "Support"
-        terms: "Terms"
-        privacy: "Privacy"
-        security: "Security"
-        accessibility: "Accessibility"
-    app_side_nav:
-      heading: "Application local navigation"
-    application_state:
+        copyright-text: "&copy; {year} HashiCorp"
+      legal-links:
+        support: Support
+        terms: Terms
+        privacy: Privacy
+        security: Security
+        accessibility: Accessibility
+    app-side-nav:
+      heading: Application local navigation
+    application-state:
       header:
-        error: "ERROR"
-    code_editor:
-      full_screen_button:
-        text: "Toggle full screen view"
-    side_nav:
-      base:
-        heading: "Application local navigation"
+        error: ERROR
+    code-editor:
+      full-screen-button:
+        text: Toggle full screen view
     form:
-      super_select:
-        after_options:
-          clear_selected: "Clear selected"
-          no_options_selected: "No options selected"
-          show_all: "Show all"
-          show_selected: "Show selected"
+      super-select:
+        after-options:
+          clear-selected: Clear selected
+          no-options-selected: No options selected
+          show-all: Show all
+          show-selected: Show selected
     pagination:
       info:
         range: "{start}&ndash;{end}"
-        range_of_total: "{start}&ndash;{end} of {total}"
+        range-of-total: "{start}&ndash;{end} of {total}"
       nav:
         number:
-          screen_reader_label: "page"
+          screen-reader-label: page
