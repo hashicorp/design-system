@@ -2,4 +2,5 @@
 "@hashicorp/design-system-components": patch
 ---
 
-fix imort paths for `hds-breakpoints`
+`AppHeader` - Fixed import path for `hds-breakpoints`
+`AppSideNav` - Fixed import path for `hds-breakpoints`
