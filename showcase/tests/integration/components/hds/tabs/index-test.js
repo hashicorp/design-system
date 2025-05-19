@@ -9,7 +9,7 @@ import {
   skip,
   // only
 } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   click,
   focus,
