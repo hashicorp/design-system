@@ -4,6 +4,7 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
@@ -32,12 +33,18 @@ export interface HdsBreadcrumbItemSignature {
 }
 
 export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignature> {
-  linkToComponent: LinkTo;
+  @tracked linkToComponent: LinkTo | null = null;
 
   constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
     super(owner, args);
 
-    this.linkToComponent = hdsResolveLinkToComponent(args.isRouteExternal);
+    void this.setupComponent();
+  }
+
+  async setupComponent() {
+    this.linkToComponent = await hdsResolveLinkToComponent(
+      this.args.isRouteExternal
+    );
   }
 
   /**
