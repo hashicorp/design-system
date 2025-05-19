@@ -10,7 +10,7 @@ import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
-import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 
 export interface HdsAppSideNavSignature {
   Args: {
