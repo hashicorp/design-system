@@ -10,7 +10,7 @@ hds:
       tooltip-prefix: More information for
     advanced-table:
       th-button-expand:
-        aria-description: Toggle the visibility of the related rows.
+        aria-description: Toggle the visibility of the related rows
     app-footer:
       copyright:
         copyright-text: "&copy; {year} HashiCorp"
@@ -41,4 +41,4 @@ hds:
         range-of-total: "{start}&ndash;{end} of {total}"
       nav:
         number:
-          screen-reader-label: page
+          screen-reader-label: Page
