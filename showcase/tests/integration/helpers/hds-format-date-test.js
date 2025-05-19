@@ -4,7 +4,7 @@
  */
 
 import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { setupRenderingTest } from 'showcase/tests/helpers';
 import { hdsFormatDate } from '@hashicorp/design-system-components/helpers/hds-format-date';
 
 module(
