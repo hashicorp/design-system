@@ -10,7 +10,7 @@ import { tracked } from '@glimmer/tracking';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 
-import { hdsBreakpoints } from '@hashicorp/design-system-components/utils/hds-breakpoints';
+import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 
 export interface HdsAppHeaderSignature {
   Args: {
