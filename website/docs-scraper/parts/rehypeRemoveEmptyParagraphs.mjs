@@ -12,7 +12,7 @@ export const rehypeRemoveEmptyParagraphs = () => (tree) => {
       (!node.children ||
         node.children.length === 0 ||
         node.children.every(
-          (child) => child.type === 'text' && child.value.trim() === ''
+          (child) => child.type === 'text' && child.value.trim() === '',
         ))
     ) {
       // see: https://unifiedjs.com/learn/recipe/remove-node/

@@ -26,7 +26,7 @@ export async function extractHeadings(tree) {
           level: node.depth,
           hierarchy: node.hierarchy,
         });
-      }
+      },
     );
   };
 

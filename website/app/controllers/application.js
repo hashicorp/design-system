@@ -64,7 +64,7 @@ export default class ApplicationController extends Controller {
           document.getElementById(id)?.scrollIntoView();
         }
       },
-      1
+      1,
     );
   }
 

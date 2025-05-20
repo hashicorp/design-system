@@ -9,6 +9,6 @@ export const transformHdsTags = (markdownContent) =>
   markdownContent
     .replace(
       /<Hds::([^\s>]+)/gim,
-      (_match, p1) => `<div hds-${p1.replace(/::/g, '_')}`
+      (_match, p1) => `<div hds-${p1.replace(/::/g, '_')}`,
     )
     .replace(/<\/Hds::[^\s>]+>/gim, '</div>');

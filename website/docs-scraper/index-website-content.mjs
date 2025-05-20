@@ -4,7 +4,6 @@
  */
 
 /* eslint-env node */
- 
 
 // ===================================================
 
@@ -46,23 +45,23 @@ dotenv.config();
   try {
     console.log(
       chalk.cyan(
-        '\n==============================\nWebsite content indexing started...\n==============================\n'
-      )
+        '\n==============================\nWebsite content indexing started...\n==============================\n',
+      ),
     );
 
     await indexWebsiteContent();
 
     console.log(
       chalk.cyan(
-        '\n==============================\nWebsite content indexing completed\n==============================\n'
-      )
+        '\n==============================\nWebsite content indexing completed\n==============================\n',
+      ),
     );
   } catch (err) {
     console.error(err);
     // useful to debug Algolia API errors
     if (err.name === 'ApiError') {
       console.log(
-        chalk.red(`Algolia - ERROR: ${err.transporterStackTrace[0].request}`)
+        chalk.red(`Algolia - ERROR: ${err.transporterStackTrace[0].request}`),
       );
     }
     process.exit(1);
@@ -78,7 +77,7 @@ async function indexWebsiteContent() {
   // see: https://www.algolia.com/doc/api-client/getting-started/install/javascript/?client=javascript
   const algoliaClient = algoliasearch(
     ALGOLIA_APPLICATION_ID,
-    ALGOLIA_API_KEY_ADMIN
+    ALGOLIA_API_KEY_ADMIN,
   );
   // DEBUG - this returns informations about the methods available
   // console.log(algoliaClient);
@@ -100,15 +99,15 @@ async function indexWebsiteContent() {
     if (searchResults.nbHits > 0) {
       console.error(
         chalk.red(
-          `\nAlgolia - ERROR: - ${searchResults.nbHits} records are still available after resetting the index  ${ALGOLIA_INDEX_ID}"\n`
-        )
+          `\nAlgolia - ERROR: - ${searchResults.nbHits} records are still available after resetting the index  ${ALGOLIA_INDEX_ID}"\n`,
+        ),
       );
     }
   } else {
     console.log(
       chalk.magenta(
-        `\n[DEV-MODE] Algolia - Skipped resetting index ${ALGOLIA_INDEX_ID}"\n`
-      )
+        `\n[DEV-MODE] Algolia - Skipped resetting index ${ALGOLIA_INDEX_ID}"\n`,
+      ),
     );
   }
 
@@ -117,7 +116,7 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   console.log(
-    chalk.white('\n\n==========\nProcessing markdown content:\n==========\n')
+    chalk.white('\n\n==========\nProcessing markdown content:\n==========\n'),
   );
 
   const markdownRecords = [];
@@ -193,7 +192,7 @@ async function indexWebsiteContent() {
 
     // check if the content is split in "sections"
     const matchAllResults = pageContent.matchAll(
-      /<section data-tab="(.*?)">([\s|\S|.]*?)<\/section>/g
+      /<section data-tab="(.*?)">([\s|\S|.]*?)<\/section>/g,
     );
 
     // notice: `matchAll` returns an iterable, not an array
@@ -212,7 +211,7 @@ async function indexWebsiteContent() {
         const currBaseRecord = _.merge({}, algoliaBaseRecord, {
           // for simplicity we want to store absolute paths
           searchResultURL: `/${pageURL}?tab=${encodeURIComponent(
-            tabName.toLowerCase()
+            tabName.toLowerCase(),
           )}`,
           pageTab: tabName,
         });
@@ -312,7 +311,7 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   console.log(
-    chalk.white('\n\n==========\nProcessing Flight icons:\n==========\n')
+    chalk.white('\n\n==========\nProcessing Flight icons:\n==========\n'),
   );
 
   let iconsRecords = [];
@@ -351,7 +350,7 @@ async function indexWebsiteContent() {
   // --------------------------------
 
   console.log(
-    chalk.white('\n\n==========\nProcessing Algolia records:\n==========\n')
+    chalk.white('\n\n==========\nProcessing Algolia records:\n==========\n'),
   );
 
   // we batch the records "add" operation for better efficiency
@@ -379,7 +378,7 @@ async function indexWebsiteContent() {
   algoliaRecordsDistinct.reverse();
 
   console.log(
-    `Ready to add ${algoliaRecordsDistinct.length} distinct records to Algolia index (out of ${algoliaRecords.length} collected)`
+    `Ready to add ${algoliaRecordsDistinct.length} distinct records to Algolia index (out of ${algoliaRecords.length} collected)`,
   );
 
   // DEBUG - leave for debugging
@@ -399,20 +398,19 @@ async function indexWebsiteContent() {
       };
     });
 
-    const { taskID, objectIDs } = await algoliaClient.multipleBatch(
-      algoliaRequests
-    );
+    const { taskID, objectIDs } =
+      await algoliaClient.multipleBatch(algoliaRequests);
 
     console.log(
       chalk.green(
-        `\n\nAlgolia - Sent ${algoliaRequests.length} API requests → Added "${objectIDs.length}" records to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`
-      )
+        `\n\nAlgolia - Sent ${algoliaRequests.length} API requests → Added "${objectIDs.length}" records to index ${ALGOLIA_INDEX_ID} with task "${taskID[ALGOLIA_INDEX_ID]}"\n`,
+      ),
     );
   } else {
     console.log(
       chalk.magenta(
-        `\n\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`
-      )
+        `\n\n[DEV-MODE] Algolia - Skipped adding objects to index ${ALGOLIA_INDEX_ID}"\n`,
+      ),
     );
   }
 }

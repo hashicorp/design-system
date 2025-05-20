@@ -210,7 +210,7 @@ export default class DocAlgoliaSearchComponent extends Component {
             </div>
             ${htmlPanelFooter({ html })}
           `,
-          root
+          root,
         );
       },
       renderNoResults({ render, html, state }, root) {
@@ -221,7 +221,7 @@ export default class DocAlgoliaSearchComponent extends Component {
             </div>
             ${htmlPanelFooter({ html })}
           `,
-          root
+          root,
         );
       },
       navigator: {
@@ -233,7 +233,7 @@ export default class DocAlgoliaSearchComponent extends Component {
     });
 
     const alternativeTriggers = document.querySelectorAll(
-      'button[data-doc-algolia-search-autocomplete-secondary-trigger]'
+      'button[data-doc-algolia-search-autocomplete-secondary-trigger]',
     );
     if (alternativeTriggers) {
       alternativeTriggers.forEach((alternativeTrigger) => {
@@ -256,7 +256,7 @@ export default class DocAlgoliaSearchComponent extends Component {
       (event) => {
         const parentItemLink = event.target.closest('.aa-ItemLinkWrapper');
         const parentSourceFooterLink = event.target.closest(
-          '.aa-SourceFooterLink'
+          '.aa-SourceFooterLink',
         );
         if (parentItemLink) {
           event.preventDefault();
@@ -271,7 +271,7 @@ export default class DocAlgoliaSearchComponent extends Component {
           autocompleteInstance.setQuery('');
         }
       },
-      true
+      true,
     );
   }
 }

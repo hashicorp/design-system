@@ -62,7 +62,7 @@ class MarkdownProcessIncludes extends Multifilter {
           (_match, capture1) => {
             includedFiles.push(path.join(fullParentFolder, capture1));
             return getFileContent(fullParentFolder, capture1);
-          }
+          },
         );
       } else {
         newMarkdownFileContent = markdownFileContent;
@@ -72,7 +72,7 @@ class MarkdownProcessIncludes extends Multifilter {
         if (fs.existsSync(fullOutputPath)) {
           console.error(
             'Error: destination file (`fullOutputPath`) already exists',
-            fullOutputPath
+            fullOutputPath,
           );
         } else {
           // IMPORTANT: we have to make sure the parent folders of the file exist, before writing!
@@ -82,7 +82,7 @@ class MarkdownProcessIncludes extends Multifilter {
       } else {
         console.error(
           'Error: destination folder (`outputFolder`) does not exist',
-          outputFolder
+          outputFolder,
         );
       }
 

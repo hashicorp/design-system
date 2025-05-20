@@ -24,7 +24,7 @@ export async function extractParagraphs(tree) {
           content: cleanupContent(content),
           hierarchy: node.hierarchy,
         });
-      }
+      },
     );
   };
 

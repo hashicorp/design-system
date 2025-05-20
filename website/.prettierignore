@@ -11,3 +11,7 @@
 /pnpm-lock.yaml
 ember-cli-update.json
 *.html
+*.scss
+
+// temporary ignore
+/docs/

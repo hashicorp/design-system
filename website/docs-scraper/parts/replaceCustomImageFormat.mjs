@@ -9,5 +9,5 @@ export const replaceCustomImageFormat = (markdownContent) =>
   // eg. ![Hello cats!](http://placekitten.com/g/300/200/ =770x*)
   markdownContent.replace(
     /!\[([^\]]*?)][ \t]*()\([ \t]?<?([\S]+?(?:\([\S]*?\)[\S]*?)?)>?(?: =([*\d]+[A-Za-z%]{0,4})x([*\d]+[A-Za-z%]{0,4}))?[ \t]*(?:(["'])([^"]*?)\6)?[ \t]?\)/gim,
-    (_match, p1, p2, p3) => `![${p1}!](${p3})`
+    (_match, p1, p2, p3) => `![${p1}!](${p3})`,
   );

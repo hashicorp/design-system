@@ -26,9 +26,9 @@ export default class DocBadgeComponent extends Component {
     super(...arguments);
     assert(
       `@type for "Doc::Badge" must be one of the following: ${TYPES.join(
-        ', '
+        ', ',
       )}; received: ${this.args.type}`,
-      TYPES.includes(this.args.type)
+      TYPES.includes(this.args.type),
     );
   }
 

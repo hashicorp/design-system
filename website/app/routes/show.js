@@ -52,19 +52,19 @@ export default class ShowRoute extends Route {
           // handle 401 response
           console.log(
             `fetch "${config.rootURL}docs/${path}.json" → isUnauthorizedResponse (401)`,
-            res
+            res,
           );
         } else if (isNotFoundResponse(res)) {
           // handle 404 response
           console.log(
             `fetch "${config.rootURL}docs/${path}.json" → isNotFoundResponse (404)`,
-            res
+            res,
           );
         } else if (isServerErrorResponse(res)) {
           // handle 5xx response
           console.log(
             `fetch "${config.rootURL}docs/${path}.json" → isServerErrorResponse (5xx)`,
-            res
+            res,
           );
         }
       })
@@ -73,12 +73,12 @@ export default class ShowRoute extends Route {
           // handle aborted network error
           console.log(
             `fetch "${config.rootURL}docs/${path}.json" → isAbortError`,
-            error
+            error,
           );
         } else {
           console.log(
             `fetch "${config.rootURL}docs/${path}.json" → error`,
-            error
+            error,
           );
         }
       })
@@ -120,7 +120,7 @@ export default class ShowRoute extends Route {
         if (frontmatter.related) {
           frontmatter.related.map((relatedComponent) => {
             const relatedComponentData = toc.flat.find(
-              (item) => item.pageURL === relatedComponent
+              (item) => item.pageURL === relatedComponent,
             );
             if (relatedComponentData) {
               relatedComponents.push({
@@ -129,7 +129,7 @@ export default class ShowRoute extends Route {
               });
             } else {
               console.error(
-                `The related component '${relatedComponent}' doesn't have a valid path in the frontmatter block of this page.`
+                `The related component '${relatedComponent}' doesn't have a valid path in the frontmatter block of this page.`,
               );
             }
           });

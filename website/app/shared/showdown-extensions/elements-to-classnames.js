@@ -54,7 +54,7 @@ export const elementsToClassNames = Object.keys(mapElementsToClassNames).map(
         if (rest.includes('class="')) {
           attrs = rest.replace(
             'class="',
-            `class="${mapElementsToClassNames[element]} `
+            `class="${mapElementsToClassNames[element]} `,
           );
         } else {
           attrs = `class="${mapElementsToClassNames[element]}" ${rest}`;
@@ -63,5 +63,5 @@ export const elementsToClassNames = Object.keys(mapElementsToClassNames).map(
 
       return `<${element} ${attrs}>`;
     },
-  })
+  }),
 );

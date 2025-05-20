@@ -9,5 +9,5 @@ import algoliasearch from 'algoliasearch/lite';
 
 export const algoliaSearchClient = algoliasearch(
   ENV.APP.ALGOLIA_APPLICATION_ID,
-  ENV.APP.ALGOLIA_API_KEY_SEARCH
+  ENV.APP.ALGOLIA_API_KEY_SEARCH,
 );

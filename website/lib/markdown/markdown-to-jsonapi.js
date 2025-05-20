@@ -34,7 +34,7 @@ class MarkdownToJsonApi extends PersistentFilter {
     const serializerOptions = {
       attributes: _.union(
         this.serializerAttributes.content,
-        this.serializerAttributes.frontmatter
+        this.serializerAttributes.frontmatter,
       ),
       keyForAttribute: 'camelCase',
     };
@@ -63,7 +63,7 @@ class MarkdownToJsonApi extends PersistentFilter {
     // NOTICE: this serializer uses the "attributes" defined in the serializerOptions
     // to filter the keys that are added to the `data.attributes`
     const serializedData = JSON.stringify(
-      this.serializer.serialize(mergedData)
+      this.serializer.serialize(mergedData),
     );
 
     return serializedData;

@@ -13,7 +13,7 @@ export const rehypeSanitizeTextNodes = () => (tree) => {
       // revert the <Hds::*> tags inlined in the text to their original format (see: transformHdsTags)
       .replace(
         /<div hds-([^>]+?)>/gim,
-        (_match, p1) => `<Hds::${p1.replace('_', '::')}>`
+        (_match, p1) => `<Hds::${p1.replace('_', '::')}>`,
       );
   });
 };

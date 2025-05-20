@@ -5,9 +5,9 @@ import showdown from 'showdown';
 
 const uniqueId = () => {
   return ([3e7] + -1e3 + -4e3 + -2e3 + -1e11).replace(/[0-3]/g, (a) =>
-    ((a * 4) ^ ((Math.random() * 16) >> (a & 2))).toString(16)
+    ((a * 4) ^ ((Math.random() * 16) >> (a & 2))).toString(16),
   );
-}
+};
 
 export function initialize(/* application */) {
   // Overriding `unhashHTMLSpans` subparser to overcome the 10 levels of nesting limit
@@ -18,7 +18,7 @@ export function initialize(/* application */) {
       'unhashHTMLSpans.before',
       text,
       options,
-      globals
+      globals,
     );
 
     for (var i = 0; i < globals.gHtmlSpans.length; ++i) {
@@ -42,7 +42,7 @@ export function initialize(/* application */) {
       'unhashHTMLSpans.after',
       text,
       options,
-      globals
+      globals,
     );
     return text;
   });
@@ -50,23 +50,29 @@ export function initialize(/* application */) {
   showdown.subParser('githubCodeBlocks', function (text, options, globals) {
     'use strict';
 
-      // early exit if option is not enabled
-      if (!options.ghCodeBlocks) {
-        return text;
-      }
+    // early exit if option is not enabled
+    if (!options.ghCodeBlocks) {
+      return text;
+    }
 
-      text = globals.converter._dispatch('githubCodeBlocks.before', text, options, globals);
+    text = globals.converter._dispatch(
+      'githubCodeBlocks.before',
+      text,
+      options,
+      globals,
+    );
 
-      text += '¨0';
+    text += '¨0';
 
-      text = text.replace(/(?:^|\n)(?: {0,3})(```+|~~~+)(?: *)([^\s`~]*)\n([\s\S]*?)\n(?: {0,3})\1/g, function (wholeMatch, delim, languageBlock, inputCodeblock) {
-
-        var end = (options.omitExtraWLInCodeBlocks) ? '' : '\n';
+    text = text.replace(
+      /(?:^|\n)(?: {0,3})(```+|~~~+)(?: *)([^\s`~]*)\n([\s\S]*?)\n(?: {0,3})\1/g,
+      function (wholeMatch, delim, languageBlock, inputCodeblock) {
+        var end = options.omitExtraWLInCodeBlocks ? '' : '\n';
 
         let codeblock = inputCodeblock;
 
         // We encode the codeblock so we can safely pass multi-line code and ember syntax to the `Doc::CopyButton` component
-        let codeblockEncoded =  encodeURI(inputCodeblock);
+        let codeblockEncoded = encodeURI(inputCodeblock);
 
         // First parse the github code block
         // codeblock = showdown.subParser('encodeCode')(codeblock, options, globals);
@@ -79,7 +85,7 @@ export function initialize(/* application */) {
         let attributeString = '';
         let encodedCodeBlock = '';
 
-        if(match && match[1]) {
+        if (match && match[1]) {
           language = match[1];
           // languageString = ' class="' + match[1] + ' language-' + match[1] + '"';
         }
@@ -88,7 +94,7 @@ export function initialize(/* application */) {
           attributeString = match[3];
         }
 
-        if(!language) {
+        if (!language) {
           // set the default to shell
           language = 'shell';
         }
@@ -97,48 +103,68 @@ export function initialize(/* application */) {
         encodedCodeBlock = Prism.util.encode(codeblock) + end;
 
         // escape { and } for the code sample
-        encodedCodeBlock = encodedCodeBlock.replace(/{/g, '&#123;').replace(/}/g, '&#125;')
+        encodedCodeBlock = encodedCodeBlock
+          .replace(/{/g, '&#123;')
+          .replace(/}/g, '&#125;');
 
         let blockUniqueId = uniqueId();
         let preBlock = `<pre id="pre-block-${blockUniqueId}" class="doc-code-block__code-snippet language-${language}" tabindex="0"><code ${language ? `class="${language} language-${language}"` : ''}>${encodedCodeBlock}</code></pre>`;
 
         let autoExecuteLanguages = ['html', 'handlebars', 'hbs'];
 
-        let selfExecutingBlock = "";
-        selfExecutingBlock += '<div class="doc-code-block doc-code-block--self-executing">';
+        let selfExecutingBlock = '';
+        selfExecutingBlock +=
+          '<div class="doc-code-block doc-code-block--self-executing">';
         selfExecutingBlock += `  <div class="doc-code-block__code-rendered">`;
         selfExecutingBlock += `    ${inputCodeblock}`;
         selfExecutingBlock += '  </div>';
-        selfExecutingBlock += '  <div class="doc-code-block__code-snippet-wrapper">';
+        selfExecutingBlock +=
+          '  <div class="doc-code-block__code-snippet-wrapper">';
         selfExecutingBlock += `    <Doc::CopyButton @id='${blockUniqueId}' @type="solid" @textToCopy='${codeblockEncoded}' @encoded={{true}} aria-labelledby="copy-label-${blockUniqueId} pre-block-${blockUniqueId}"/>`;
         selfExecutingBlock += `    ${preBlock}`;
         selfExecutingBlock += '  </div>';
         selfExecutingBlock += '</div>';
 
-        if(attributeString.includes('data-execute=false')) {
+        if (attributeString.includes('data-execute=false')) {
           codeblock = preBlock;
         } else if (attributeString.includes('data-execute=true')) {
           codeblock = selfExecutingBlock;
         } else if (autoExecuteLanguages.includes(language)) {
-          codeblock = selfExecutingBlock
+          codeblock = selfExecutingBlock;
         } else {
           codeblock = preBlock;
         }
 
-
-
-        codeblock = showdown.subParser('hashBlock')(codeblock, options, globals);
+        codeblock = showdown.subParser('hashBlock')(
+          codeblock,
+          options,
+          globals,
+        );
 
         // Since GHCodeblocks can be false positives, we need to
         // store the primitive text and the parsed text in a global var,
         // and then return a token
-        return '\n\n¨G' + (globals.ghCodeBlocks.push({text: wholeMatch, codeblock: codeblock}) - 1) + 'G\n\n';
-      });
+        return (
+          '\n\n¨G' +
+          (globals.ghCodeBlocks.push({
+            text: wholeMatch,
+            codeblock: codeblock,
+          }) -
+            1) +
+          'G\n\n'
+        );
+      },
+    );
 
-      // attacklab: strip sentinel
-      text = text.replace(/¨0/, '');
+    // attacklab: strip sentinel
+    text = text.replace(/¨0/, '');
 
-      return globals.converter._dispatch('githubCodeBlocks.after', text, options, globals);
+    return globals.converter._dispatch(
+      'githubCodeBlocks.after',
+      text,
+      options,
+      globals,
+    );
   });
 }
 

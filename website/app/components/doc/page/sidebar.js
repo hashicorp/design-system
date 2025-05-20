@@ -58,7 +58,7 @@ const getSidebarStructuredTree = (subTree, filterQuery, currentURL) => {
           const keywordsMatch =
             item.pageAttributes.navigation.keywords &&
             item.pageAttributes.navigation.keywords.some((k) =>
-              k.toLowerCase().includes(fq)
+              k.toLowerCase().includes(fq),
             );
           if (labelMatch || titleMatch || keywordsMatch) {
             sidebarStructuredTree[key] = item;
@@ -140,7 +140,7 @@ export default class DocPageSidebarComponent extends Component {
         const sidebarSubTree = getSidebarStructuredTree(
           sectionTocTree,
           this.filterQuery,
-          currentRoute.params.path
+          currentRoute.params.path,
         );
 
         // this check avoids that we show in the sidebar empty "containers" (eg. when filtered)
