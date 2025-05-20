@@ -34,11 +34,15 @@ module(
         <:toggle>
           <button type="button" id="test-disclosure-primitive-button" />
         </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
       </Hds::DisclosurePrimitive>
     `);
       assert.dom('.hds-disclosure-primitive__toggle').exists();
       assert.dom('button#test-disclosure-primitive-button').exists();
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
     test('it should render the "content" when the "toggle" is clicked', async function (assert) {
       await render(hbs`
@@ -52,7 +56,6 @@ module(
       </Hds::DisclosurePrimitive>
     `);
       await click('button#test-disclosure-primitive-button');
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
     });
 
@@ -70,11 +73,9 @@ module(
         </:content>
       </Hds::DisclosurePrimitive>
     `);
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
 
       this.set('isOpen', false);
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
 
@@ -90,11 +91,9 @@ module(
       </Hds::DisclosurePrimitive>
     `);
       await click('button#test-toggle-button');
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
 
       this.set('isOpen', false);
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
 
@@ -109,11 +108,9 @@ module(
         </:content>
       </Hds::DisclosurePrimitive>
     `);
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
 
       this.set('isOpen', true);
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
     });
 
@@ -129,11 +126,9 @@ module(
         </:content>
       </Hds::DisclosurePrimitive>
     `);
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
 
       await click('button#test-toggle-button');
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
 
@@ -149,12 +144,26 @@ module(
         </:content>
       </Hds::DisclosurePrimitive>
     `);
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
 
       await click('button#test-toggle-button');
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('a#test-disclosure-primitive-link').exists();
+    });
+
+    // contentId
+
+    test('it should set the contentId on the content block', async function (assert) {
+      await render(hbs`
+      <Hds::DisclosurePrimitive>
+        <:toggle>
+          <button type="button" id="test-disclosure-primitive-button" />
+        </:toggle>
+        <:content>
+          <a id="test-disclosure-primitive-link" href="#">test</a>
+        </:content>
+      </Hds::DisclosurePrimitive>
+    `);
+      assert.dom('.hds-disclosure-primitive__content').hasAttribute('id');
     });
 
     // CLOSE DISCLOSED CONTENT ON CLICK
@@ -171,10 +180,8 @@ module(
       </Hds::DisclosurePrimitive>
     `);
       await click('button#test-toggle-button');
-      assert.dom('.hds-disclosure-primitive__content').exists();
       assert.dom('button#test-content-button').exists();
       await click('button#test-content-button');
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
       assert.dom('button#test-content-button').doesNotExist();
     });
 
@@ -196,11 +203,11 @@ module(
       // toggle to open
       await click('button#test-toggle-button');
       assert.true(opened);
-      assert.dom('.hds-disclosure-primitive__content').exists();
+      assert.dom('a#test-disclosure-primitive-link').exists();
       // toggle to close
       await click('button#test-toggle-button');
       assert.false(opened);
-      assert.dom('.hds-disclosure-primitive__content').doesNotExist();
+      assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
   },
 );
