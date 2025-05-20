@@ -79,7 +79,7 @@ module('Integration | Component | hds/reveal/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element
         .querySelector('.hds-disclosure-primitive__content')
-        .getAttribute('id')
+        .getAttribute('id'),
     );
   });
 

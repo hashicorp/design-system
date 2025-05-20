@@ -208,7 +208,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element
         .querySelector('.hds-disclosure-primitive__content')
-        .getAttribute('id')
+        .getAttribute('id'),
     );
   });
 
