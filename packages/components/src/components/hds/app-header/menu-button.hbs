@@ -5,7 +5,7 @@
 
 <Hds::Button
   class="hds-app-header__menu-button"
-  @text={{t "hds.components.shared.menu"}}
+  @text={{hds-t "hds.components.shared.menu" default="Menu"}}
   @icon={{this.icon}}
   @iconPosition="trailing"
   {{on "click" this.onClick}}

@@ -6,6 +6,6 @@
 <div class="hds-app-footer__copyright" ...attributes>
   <Hds::Icon @name="hashicorp" />
   <Hds::Text::Body @tag="span" @size="100">
-    {{t "hds.components.app-footer.copyright.copyright-text" htmlSafe=true year=this.year}}
+    {{hds-t "hds.components.app-footer.copyright.copyright-text" default=(concat "© " this.year " HashiCorp")}}
   </Hds::Text::Body>
 </div>
