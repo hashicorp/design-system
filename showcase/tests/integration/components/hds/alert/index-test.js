@@ -61,19 +61,19 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render the title when the "title" contextual component is provided', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Title>This is the title</A.Title></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Title>This is the title</A.Title></Hds::Alert>`,
     );
     assert.dom(this.element).hasText('This is the title');
   });
   test('it should render the description when the "description" contextual component is provided', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Description>This is the description</A.Description></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Description>This is the description</A.Description></Hds::Alert>`,
     );
     assert.dom(this.element).hasText('This is the description');
   });
   test('it should render rich HTML when the "description" contextual component contains HTML tags', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" as |A|><A.Description>Hello <strong>strong</strong> and <em>em</em> and <code>code</code> and <a href='#'>link</a></A.Description></Hds::Alert>`,
     );
     assert.dom('.hds-alert__description strong').exists().hasText('strong');
     assert.dom('.hds-alert__description em').exists().hasText('em');
@@ -99,7 +99,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render an Hds::Button component yielded to the "actions" container', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-button" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" id="test-alert-button"/></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-button" id="test-alert" as |A|><A.Button @text="I am a button" @size="small" @color="secondary" id="test-alert-button"/></Hds::Alert>`,
     );
     assert
       .dom('#test-alert .hds-alert__actions button')
@@ -111,7 +111,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
   });
   test('it should render an Hds::Link::Standalone component yielded to the "actions" container', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-link" id="test-alert" as |A|><A.LinkStandalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" id="test-alert-link" /></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" aria-labelledby="test-alert-link" id="test-alert" as |A|><A.LinkStandalone @icon="plus" @text="I am a link" @href="#" @size="small" @color="secondary" id="test-alert-link" /></Hds::Alert>`,
     );
     assert
       .dom('#test-alert .hds-alert__actions a')
@@ -126,7 +126,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render any content passed to the "generic" contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`
+      hbs`<Hds::Alert @type="inline" id="test-alert" as |A|><A.Generic><pre>test</pre></A.Generic></Hds::Alert>`,
     );
     assert.dom('#test-alert .hds-alert__content pre').exists().hasText('test');
   });
@@ -149,7 +149,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render the component with role="alert" and aria-live="polite" for the "success" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @color="success" id="test-alert" />`
+      hbs`<Hds::Alert @type="inline" @color="success" id="test-alert" />`,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alert');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -157,7 +157,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render the component with role="alert" and aria-live="polite" for the "warning" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @color="warning" id="test-alert" />`
+      hbs`<Hds::Alert @type="inline" @color="warning" id="test-alert" />`,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alert');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -165,7 +165,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should render the component with role="alert" and aria-live="polite" for the "critical" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @color="critical" id="test-alert" />`
+      hbs`<Hds::Alert @type="inline" @color="critical" id="test-alert" />`,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alert');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -175,7 +175,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should not render the component with role="alert" and aria-live="polite" for the "neutral" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @color="neutral" id="test-alert" />`
+      hbs`<Hds::Alert @type="inline" @color="neutral" id="test-alert" />`,
     );
     assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
     assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
@@ -183,7 +183,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
 
   test('it should not render the component with role="alert" and aria-live="polite" for the "highlight" color', async function (assert) {
     await render(
-      hbs`<Hds::Alert @type="inline" @color="highlight" id="test-alert" />`
+      hbs`<Hds::Alert @type="inline" @color="highlight" id="test-alert" />`,
     );
     assert.dom('#test-alert').doesNotHaveAttribute('role', 'alert');
     assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
@@ -197,7 +197,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" id="test-alert" as |A|>
           <A.Title>This is the title</A.Title>
         </Hds::Alert>
-      `
+      `,
     );
     let title = this.element.querySelector('#test-alert .hds-alert__title');
     assert.dom('#test-alert').hasAttribute('aria-labelledby', title.id);
@@ -209,10 +209,10 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" id="test-alert" as |A|>
           <A.Description>This is the title</A.Description>
         </Hds::Alert>
-      `
+      `,
     );
     let description = this.element.querySelector(
-      '#test-alert .hds-alert__description'
+      '#test-alert .hds-alert__description',
     );
     assert.dom('#test-alert').hasAttribute('aria-labelledby', description.id);
   });
@@ -227,7 +227,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" @color="success" id="test-alert" as |A|>
           <A.Button @text="I am a button" @size="small" />
         </Hds::Alert>
-      `
+      `,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -239,7 +239,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" @color="warning" id="test-alert" as |A|>
           <A.Button @text="I am a button" @size="small" />
         </Hds::Alert>
-      `
+      `,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -251,7 +251,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" @color="critical" id="test-alert" as |A|>
           <A.Button @text="I am a button" @size="small" />
         </Hds::Alert>
-      `
+      `,
     );
     assert.dom('#test-alert').hasAttribute('role', 'alertdialog');
     assert.dom('#test-alert').hasAttribute('aria-live', 'polite');
@@ -265,7 +265,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" @color="neutral" id="test-alert" as |A|>
           <A.Button @text="I am a button" @size="small" />
         </Hds::Alert>
-      `
+      `,
     );
     assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
     assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');
@@ -277,7 +277,7 @@ module('Integration | Component | hds/alert/index', function (hooks) {
         <Hds::Alert @type="inline" @color="highlight" id="test-alert" as |A|>
           <A.Button @text="I am a button" @size="small" />
         </Hds::Alert>
-      `
+      `,
     );
     assert.dom('#test-alert').doesNotHaveAttribute('role', 'alertdialog');
     assert.dom('#test-alert').doesNotHaveAttribute('aria-live', 'polite');

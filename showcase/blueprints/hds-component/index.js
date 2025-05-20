@@ -43,15 +43,15 @@ const updateHDSComponentsCSS = (options) => {
   const oldLinesArray = source.split(/\r?\n/);
   const firstComponentImportIndex =
     oldLinesArray.findIndex((line) =>
-      line.match(/^\/\/ START COMPONENTS CSS FILES IMPORTS/)
+      line.match(/^\/\/ START COMPONENTS CSS FILES IMPORTS/),
     ) + 1;
   const lastComponentImportIndex =
     oldLinesArray.findIndex((line) =>
-      line.match(/^\/\/ END COMPONENT CSS FILES IMPORTS/)
+      line.match(/^\/\/ END COMPONENT CSS FILES IMPORTS/),
     ) - 1;
   const importLinesArray = oldLinesArray.slice(
     firstComponentImportIndex,
-    lastComponentImportIndex + 1
+    lastComponentImportIndex + 1,
   );
   importLinesArray.push(`@use "../components/${name}";`);
   const newImportLinesArray = importLinesArray
@@ -60,7 +60,7 @@ const updateHDSComponentsCSS = (options) => {
   const newLinesArray = [].concat(
     oldLinesArray.slice(0, firstComponentImportIndex),
     newImportLinesArray,
-    oldLinesArray.slice(lastComponentImportIndex + 1)
+    oldLinesArray.slice(lastComponentImportIndex + 1),
   );
   fs.writeFileSync(cssFilePath, newLinesArray.join('\n'));
 };
@@ -68,11 +68,11 @@ const updateHDSComponentsCSS = (options) => {
 const moveHDSComponentToPackage = (options) => {
   fs.copy(
     `${options.project.root}/src/components/hds/${options.entity.name}`,
-    `${options.project.root}/../packages/components/src/components/hds/${options.entity.name}`
+    `${options.project.root}/../packages/components/src/components/hds/${options.entity.name}`,
   );
   fs.copy(
     `${options.project.root}/src/styles/components/${options.entity.name}.scss`,
-    `${options.project.root}/../packages/components/src/styles/components/${options.entity.name}.scss`
+    `${options.project.root}/../packages/components/src/styles/components/${options.entity.name}.scss`,
   );
   fs.remove(`${options.project.root}/src`);
 };

@@ -59,7 +59,7 @@ module('Integration | Component | hds/pagination/nav/number', function (hooks) {
     await render(
       hbs`
           <Hds::Pagination::Nav::Number @page={{3}} id="test-pagination-number" @onClick={{this.onClick}} />
-        `
+        `,
     );
     await click('#test-pagination-number');
     assert.strictEqual(pageNumber, 3);

@@ -33,7 +33,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
               <F.Error>This is the control error</F.Error>
             </G.RadioField>
             <G.Error>This is the group error</G.Error>
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
     assert.dom('.hds-form-group__legend').exists();
     assert.dom('.hds-form-group__legend').hasText('This is the legend');
@@ -46,7 +46,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       .exists();
     assert
       .dom(
-        '.hds-form-group__control-fields-wrapper .hds-form-field__helper-text'
+        '.hds-form-group__control-fields-wrapper .hds-form-field__helper-text',
       )
       .exists();
     assert
@@ -79,17 +79,17 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
               <F.Error>This is the control error</F.Error>
             </G.RadioField>
             <G.Error>This is the group error</G.Error>
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text'
+      '.hds-form-group__helper-text',
     );
     let groupHelperTextId = groupHelperText.id;
     let groupError = this.element.querySelector('.hds-form-group__error');
     let groupErrorId = groupError.id;
     let fieldHelperText = this.element.querySelector(
-      '.hds-form-field__helper-text'
+      '.hds-form-field__helper-text',
     );
     let fieldHelperTextId = fieldHelperText.id;
     let fieldError = this.element.querySelector('.hds-form-field__error');
@@ -98,7 +98,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       .dom('input')
       .hasAttribute(
         'aria-describedby',
-        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`
+        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`,
       );
   });
 
@@ -115,20 +115,20 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             {{#if this.showErrors}}
               <G.Error>This is the group error</G.Error>
             {{/if}}
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
 
     this.set('showErrors', true);
     await settled();
     // the IDs are dynamically generated
     let groupHelperText = this.element.querySelector(
-      '.hds-form-group__helper-text'
+      '.hds-form-group__helper-text',
     );
     let groupHelperTextId = groupHelperText.id;
     let groupError = this.element.querySelector('.hds-form-group__error');
     let groupErrorId = groupError.id;
     let fieldHelperText = this.element.querySelector(
-      '.hds-form-field__helper-text'
+      '.hds-form-field__helper-text',
     );
     let fieldHelperTextId = fieldHelperText.id;
     let fieldError = this.element.querySelector('.hds-form-field__error');
@@ -137,7 +137,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
       .dom('input')
       .hasAttribute(
         'aria-describedby',
-        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`
+        `${fieldHelperTextId} ${fieldErrorId} ${groupHelperTextId} ${groupErrorId}`,
       );
   });
 
@@ -150,7 +150,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             <G.RadioField @value={{false}} @id={{false}} as |F|>
               <F.Label>This is the label for the 'false' value</F.Label>
             </G.RadioField>
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
 
     const inputs = this.element.querySelectorAll('input[type="radio"]');
@@ -178,7 +178,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             <G.RadioField data-test="second-control" as |F|>
               <F.Label>DC1</F.Label>
             </G.RadioField>
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
     assert
       .dom('[data-test="first-control"]')
@@ -197,7 +197,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
             </G.RadioField>
-        </Hds::Form::Radio::Group>`
+        </Hds::Form::Radio::Group>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('Required');
@@ -210,7 +210,7 @@ module('Integration | Component | hds/form/radio/group', function (hooks) {
             <G.RadioField checked="checked" @value="abc123" as |F|>
               <F.Label>This is the control label</F.Label>
             </G.RadioField>
-          </Hds::Form::Radio::Group>`
+          </Hds::Form::Radio::Group>`,
     );
     assert.dom('legend .hds-form-indicator').exists();
     assert.dom('legend .hds-form-indicator').hasText('(Optional)');

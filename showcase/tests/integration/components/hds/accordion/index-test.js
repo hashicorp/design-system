@@ -80,7 +80,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion id="test-accordion" as |A|>
           <A.Item>Item</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert.dom('#test-accordion').hasClass('hds-accordion--size-medium');
     assert
@@ -94,7 +94,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion id="test-accordion" @size="large" as |A|>
           <A.Item>Item</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert.dom('#test-accordion').hasClass('hds-accordion--size-large');
     assert
@@ -109,7 +109,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
           <A.Item id="test-accordion-item1">Item 1</A.Item>
           <A.Item id="test-accordion-item2" @size="small">Item 2</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert
       .dom('#test-accordion-item1')
@@ -127,7 +127,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion id="test-accordion" as |A|>
           <A.Item>Item</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert.dom('#test-accordion').hasClass('hds-accordion--type-card');
     assert
@@ -141,7 +141,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         <Hds::Accordion id="test-accordion" @type="flush" as |A|>
           <A.Item>Item</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert.dom('#test-accordion').hasClass('hds-accordion--type-flush');
     assert
@@ -156,7 +156,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
           <A.Item id="test-accordion-item1">Item 1</A.Item>
           <A.Item id="test-accordion-item2" @type="card">Item 2</A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert
       .dom('#test-accordion-item1')
@@ -177,7 +177,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert
       .dom('.hds-accordion-item__button')
@@ -197,7 +197,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     await click('.hds-accordion-item__button');
     assert.dom('.hds-accordion-item__button').hasAttribute('aria-controls');
@@ -209,7 +209,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         .getAttribute('aria-controls'),
       this.element
         .querySelector('.hds-accordion-item__content')
-        .getAttribute('id')
+        .getAttribute('id'),
     );
   });
 
@@ -222,7 +222,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
 
     assert.dom('.hds-accordion-item__button').hasAttribute('aria-labelledby');
@@ -237,7 +237,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
         .getAttribute('id'),
       this.element
         .querySelector('.hds-accordion-item__button')
-        .getAttribute('aria-labelledby')
+        .getAttribute('aria-labelledby'),
     );
   });
 
@@ -250,7 +250,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
 
     assert
@@ -275,7 +275,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     // Test content is displayed
     assert
@@ -301,7 +301,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert
       .dom('#test-contains-interactive--false')
@@ -321,7 +321,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Additional content</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     assert.dom('.hds-accordion-item--is-static').exists();
     assert
@@ -343,7 +343,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
             <:content>Content two</:content>
           </A.Item>
         </Hds::Accordion>
-      `
+      `,
     );
     // first item open at rendering
     assert
@@ -399,7 +399,7 @@ module('Integration | Component | hds/accordion/index', function (hooks) {
     let state = 'close';
     this.set(
       'onClickToggle',
-      () => (state = state === 'open' ? (state = 'close') : (state = 'open'))
+      () => (state = state === 'open' ? (state = 'close') : (state = 'open')),
     );
     await render(hbs`
       <Hds::Accordion::Item @forceState={{this.state}} @onClickToggle={{this.onClickToggle}}>

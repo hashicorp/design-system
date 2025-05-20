@@ -21,7 +21,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`,
       );
       assert.dom('#test-toggle-button').hasClass('hds-dropdown-toggle-button');
     });
@@ -30,7 +30,7 @@ module(
 
     test('it should render the text passed as @text prop', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="toggle text" id="test-toggle-button" />`,
       );
       assert.dom('#test-toggle-button').hasText('toggle text');
     });
@@ -39,7 +39,7 @@ module(
 
     test('it should render the chevron "down" by default', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`,
       );
       assert.dom('.hds-icon.hds-icon-chevron-down').exists();
     });
@@ -48,7 +48,7 @@ module(
 
     test('it should render an icon if @icon is defined', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @icon="hexagon" />`,
       );
       assert.dom('.hds-icon.hds-icon-hexagon').exists();
     });
@@ -57,7 +57,7 @@ module(
 
     test('it should render a badge if @badge is defined', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
@@ -66,7 +66,7 @@ module(
     });
     test('it should render a badge with icon if @badge and @badgeIcon is defined', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" @badgeIcon="hexagon" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @badge="badge" @badgeIcon="hexagon" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__badge')
@@ -80,7 +80,7 @@ module(
 
     test('it should render a badge count if @count is defined', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="3" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @count="3" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button .hds-dropdown-toggle-button__count')
@@ -91,7 +91,7 @@ module(
 
     test('it should render the primary color as the default if no color is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button')
@@ -99,7 +99,7 @@ module(
     });
     test('it should render the correct CSS color class if the @color prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="secondary" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="secondary" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button')
@@ -110,7 +110,7 @@ module(
 
     test('it should render the medium size as the default if no size is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button')
@@ -118,7 +118,7 @@ module(
     });
     test('it should render the correct CSS size class if the @size prop is declared', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="small" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="small" id="test-toggle-button" />`,
       );
       assert
         .dom('#test-toggle-button')
@@ -129,7 +129,7 @@ module(
 
     test('it should render with the correct aria-expanded attribute on the toggle element', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @isOpen={{true}} id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @isOpen={{true}} id="test-toggle-button" />`,
       );
       assert.dom('#test-toggle-button').hasAttribute('aria-expanded', 'true');
     });
@@ -143,7 +143,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button id="test-toggle-button" />`,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
@@ -157,7 +157,7 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="foo" id="test-toggle-button" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @color="foo" id="test-toggle-button" />`,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
@@ -171,11 +171,11 @@ module(
         assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
       });
       await render(
-        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="foo" />`
+        hbs`<Hds::Dropdown::Toggle::Button @text="text toggle" @size="foo" />`,
       );
       assert.throws(function () {
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

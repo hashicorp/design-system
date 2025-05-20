@@ -16,7 +16,7 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
     this.set('noop', () => {});
 
     await render(
-      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.noop}} />`
+      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.noop}} />`,
     );
 
     assert.dom('.hds-code-editor__title').exists();
@@ -26,7 +26,7 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
     this.set('noop', () => {});
 
     await render(
-      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.noop}}>Test Title</Hds::CodeEditor::Title>`
+      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.noop}}>Test Title</Hds::CodeEditor::Title>`,
     );
 
     assert
@@ -40,7 +40,7 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
     this.set('noop', () => {});
 
     await render(
-      hbs`<Hds::CodeEditor::Title @editorId="test" @tag="h1" @onInsert={{this.noop}}>Test Title</Hds::CodeEditor::Title>`
+      hbs`<Hds::CodeEditor::Title @editorId="test" @tag="h1" @onInsert={{this.noop}}>Test Title</Hds::CodeEditor::Title>`,
     );
 
     assert.dom('.hds-code-editor__title').hasTagName('h1');
@@ -52,7 +52,7 @@ module('Integration | Component | hds/code-editor/title', function (hooks) {
     this.set('onInsert', onInsert);
 
     await render(
-      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.onInsert}}>Test Title</Hds::CodeEditor::Title>`
+      hbs`<Hds::CodeEditor::Title @editorId="test" @onInsert={{this.onInsert}}>Test Title</Hds::CodeEditor::Title>`,
     );
 
     assert.true(onInsert.calledOnce);

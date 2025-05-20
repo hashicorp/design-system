@@ -139,7 +139,7 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     await render(hbsSortableAdvancedTable);
 
     const gridCells = document.querySelectorAll(
-      '.hds-advanced-table__td, .hds-advanced-table__th'
+      '.hds-advanced-table__td, .hds-advanced-table__th',
     );
 
     assert.dom(gridCells[0]).hasAttribute('tabindex', '0');
@@ -147,12 +147,12 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     // should only be one focusable cell
     assert
       .dom(
-        '.hds-advanced-table__td[tabindex="0"], .hds-advanced-table__th[tabindex="0"]'
+        '.hds-advanced-table__td[tabindex="0"], .hds-advanced-table__th[tabindex="0"]',
       )
       .exists({ count: 1 });
     assert
       .dom(
-        '.hds-advanced-table__td[tabindex="-1"], .hds-advanced-table__th[tabindex="-1"]'
+        '.hds-advanced-table__td[tabindex="-1"], .hds-advanced-table__th[tabindex="-1"]',
       )
       .exists({ count: gridCells.length - 1 });
   });
@@ -165,7 +165,7 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     const focusableElements = focusable(grid).filter(
       (element) =>
         !element.classList.contains('hds-advanced-table__th') &&
-        !element.classList.contains('hds-advanced-table__td')
+        !element.classList.contains('hds-advanced-table__td'),
     );
 
     assert
@@ -178,7 +178,7 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     await render(hbsSortableAdvancedTable);
 
     const gridCells = document.querySelectorAll(
-      '.hds-advanced-table__td, .hds-advanced-table__th'
+      '.hds-advanced-table__td, .hds-advanced-table__th',
     );
 
     await tab();
@@ -192,7 +192,7 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     await render(hbsSortableAdvancedTable);
 
     const gridCells = document.querySelectorAll(
-      '.hds-advanced-table__td, .hds-advanced-table__th'
+      '.hds-advanced-table__td, .hds-advanced-table__th',
     );
 
     await focus(gridCells[0]);
@@ -222,7 +222,7 @@ module('Integration | Modifier | hds-advanced-table-cell', function (hooks) {
     await render(hbsNestedAdvancedTable);
 
     const gridCells = document.querySelectorAll(
-      '.hds-advanced-table__td, .hds-advanced-table__th'
+      '.hds-advanced-table__td, .hds-advanced-table__th',
     );
 
     await focus(gridCells[0]);

@@ -24,13 +24,13 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex"><pre>test</pre></Hds::Layout::Flex>`
+      hbs`<Hds::Layout::Flex id="test-layout-flex"><pre>test</pre></Hds::Layout::Flex>`,
     );
     assert.dom('#test-layout-flex > pre').exists().hasText('test');
   });
   test('it should render the `Item` yielded contextual component', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex" as |LF|><LF.Item><pre>test</pre></LF.Item></Hds::Layout::Flex>`
+      hbs`<Hds::Layout::Flex id="test-layout-flex" as |LF|><LF.Item><pre>test</pre></LF.Item></Hds::Layout::Flex>`,
     );
     assert
       .dom('#test-layout-flex > .hds-layout-flex-item > pre')
@@ -46,7 +46,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex" @tag="section" />`
+      hbs`<Hds::Layout::Flex id="test-layout-flex" @tag="section" />`,
     );
     assert.dom('#test-layout-flex').hasTagName('section');
   });
@@ -59,7 +59,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render the correct CSS class if the @direction prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex" @direction="column" />`
+      hbs`<Hds::Layout::Flex id="test-layout-flex" @direction="column" />`,
     );
     assert
       .dom('#test-layout-flex')
@@ -79,7 +79,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render the correct CSS classes if the @justify/@align/@wrap/@isInline props are declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex" @justify="space-between" @align="stretch" @wrap={{true}} @isInline={{true}} />`
+      hbs`<Hds::Layout::Flex id="test-layout-flex" @justify="space-between" @align="stretch" @wrap={{true}} @isInline={{true}} />`,
     );
     assert
       .dom('#test-layout-flex')
@@ -107,7 +107,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should render the correct CSS class if the @gap prop is declared as a couple of values', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Flex id="test-layout-flex" @gap={{array "4" "48"}} />`
+      hbs`<Hds::Layout::Flex id="test-layout-flex" @gap={{array "4" "48"}} />`,
     );
     assert
       .dom('#test-layout-flex')

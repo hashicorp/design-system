@@ -95,7 +95,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
         <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}} @isNavInteractive={{true}}>
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Nav::Step>`
+        </Hds::Stepper::Nav::Step>`,
     );
     assert
       .dom('.hds-stepper-nav__step')
@@ -148,7 +148,7 @@ module('Integration | Component | hds/stepper/nav/step', function (hooks) {
         <Hds::Stepper::Nav::Step @stepNumber={{1}} @currentStep={{2}} @isNavInteractive={{false}}>
           <:title>Title</:title>
           <:description>Description</:description>
-        </Hds::Stepper::Nav::Step>`
+        </Hds::Stepper::Nav::Step>`,
     );
     assert
       .dom('.hds-stepper-nav__step')
