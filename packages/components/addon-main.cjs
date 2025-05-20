@@ -10,6 +10,7 @@ module.exports = {
   ...addonV1Shim(__dirname),
   contentFor(type, config) {
     if (
+      !config.flightIconSpriteLazyEmbed &&
       !config.emberFlightIcons?.lazyEmbed &&
       !config.__flightIconsSpriteLoaded &&
       type === 'body-footer'
