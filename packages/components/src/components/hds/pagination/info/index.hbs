@@ -12,6 +12,11 @@
       htmlSafe=true
     }}
   {{else}}
-    {{t "hds.components.pagination.info.range" start=@itemsRangeStart end=@itemsRangeEnd htmlSafe=true}}
+    {{hds-t
+      "hds.components.pagination.info.range"
+      default=(concat @itemsRangeStart "-" @itemsRangeEnd)
+      start=@itemsRangeStart
+      end=@itemsRangeEnd
+    }}
   {{/if}}
 </Hds::Text::Body>

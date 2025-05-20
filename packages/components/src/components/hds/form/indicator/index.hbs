@@ -4,7 +4,7 @@
 }}
 {{#if @isOptional}}
   <Hds::Text::Body class={{this.classNames}} tag="span" @size="100" @weight="regular">
-    ({{t "hds.components.shared.optional"}})
+    ({{hds-t "hds.components.shared.optional" default="Optional"}})
   </Hds::Text::Body>
 {{/if}}
 {{#if @isRequired}}
@@ -13,6 +13,6 @@
     class={{this.classNames}}
     @size="small"
     @color="neutral"
-    @text={{t "hds.components.shared.required"}}
+    @text={{hds-t "hds.components.shared.required" default="Required"}}
   />
 {{/if}}
