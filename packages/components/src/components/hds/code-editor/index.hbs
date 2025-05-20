@@ -71,7 +71,7 @@
   {{#unless this._isSetupComplete}}
     <div class="hds-code-editor__loader" aria-live="polite" role="status">
       <Hds::Icon @name="loading" @size="24" />
-      <span class="sr-only">{{t "hds.components.shared.loading"}}</span>
+      <span class="sr-only">{{hds-t "hds.components.shared.loading" default="Loading"}}</span>
     </div>
   {{/unless}}
 </div>
