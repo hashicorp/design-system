@@ -4,7 +4,7 @@
 }}
 {{#if @showNoSelectedMessage}}
   <Hds::Text::Body @tag="div" @size="200" class="hds-form-super-select__no-options-selected hds-foreground-strong">
-    {{hds-t "hds.components.form.super-select.after-options.no-options-selected" default="No options selected"}}
+    {{hds-t "components.form.super-select.after-options.no-options-selected" default="No options selected"}}
   </Hds::Text::Body>
 {{/if}}
 <div class="hds-form-super-select__after-options">
@@ -16,14 +16,14 @@
     {{#if (or @showAll @showSelected @clearSelected)}}
       {{#if @showOnlySelected}}
         <Hds::Button
-          @text={{hds-t "hds.components.form.super-select.after-options.show-all" default="Show all"}}
+          @text={{hds-t "components.form.super-select.after-options.show-all" default="Show all"}}
           @size="small"
           @color="secondary"
           {{on "click" @showAll}}
         />
       {{else}}
         <Hds::Button
-          @text={{hds-t "hds.components.form.super-select.after-options.show-selected" default="Show selected"}}
+          @text={{hds-t "components.form.super-select.after-options.show-selected" default="Show selected"}}
           @size="small"
           @color="secondary"
           {{on "click" @showSelected}}
@@ -31,7 +31,7 @@
       {{/if}}
       {{#if (not-eq @selectedCount "0")}}
         <Hds::Button
-          @text={{hds-t "hds.components.form.super-select.after-options.clear-selected" default="Clear selected"}}
+          @text={{hds-t "components.form.super-select.after-options.clear-selected" default="Clear selected"}}
           @size="small"
           @color="secondary"
           {{on "click" @clearSelected}}

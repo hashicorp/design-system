@@ -47,6 +47,8 @@ export default class HdsTHelper extends Helper<HdsTHelperSignature> {
       }
     }
 
+    console.log('oh no');
+
     return defaultString;
   }
 }
