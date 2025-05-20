@@ -5,7 +5,7 @@
 <Hds::Text::Body class="hds-pagination-info" @tag="div" @size="100" @weight="medium" ...attributes>
   {{#if this.showTotalItems}}
     {{t
-      "hds.components.pagination.info.range-of-total"
+      "components.pagination.info.range-of-total"
       start=@itemsRangeStart
       end=@itemsRangeEnd
       total=@totalItems
@@ -13,7 +13,7 @@
     }}
   {{else}}
     {{hds-t
-      "hds.components.pagination.info.range"
+      "components.pagination.info.range"
       default=(concat @itemsRangeStart "-" @itemsRangeEnd)
       start=@itemsRangeStart
       end=@itemsRangeEnd
