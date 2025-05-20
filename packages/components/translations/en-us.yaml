@@ -13,7 +13,7 @@ hds:
         aria-description: Toggle the visibility of the related rows
     app-footer:
       copyright:
-        copyright-text: "&copy; {year} HashiCorp"
+        copyright-text: "© {year} HashiCorp"
       legal-links:
         support: Support
         terms: Terms
@@ -37,8 +37,8 @@ hds:
           show-selected: Show selected
     pagination:
       info:
-        range: "{start}&ndash;{end}"
-        range-of-total: "{start}&ndash;{end} of {total}"
+        range: "{start}-{end}"
+        range-of-total: "{start}-{end} of {total}"
       nav:
         number:
           screen-reader-label: Page
