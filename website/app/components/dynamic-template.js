@@ -46,7 +46,7 @@ export default class DynamicTemplate extends Component {
         let module;
         try {
           module = importSync(`/docs/${this.args.componentId}.js`);
-        } catch (err) {
+        } catch {
           // backing class doesn't exist so just ignore the error
         }
 

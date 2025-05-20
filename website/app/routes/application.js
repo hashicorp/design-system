@@ -1,9 +1,8 @@
-/* eslint-disable ember/no-classic-classes, prettier/prettier */
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
 import config from 'ember-get-config';
 
-export default Route.extend({
+export default class ApplicationRoute extends Route {
   model() {
     // TODO add fetch error handling similar to `website/app/routes/show.js`
     // potentially we may even want to abstract it away in a shared "util" file/method
@@ -15,5 +14,5 @@ export default Route.extend({
         // we group the TOC under a specific "key", instead of spreading the content all over the model
         return { toc: res };
       });
-  },
-});
+  }
+}

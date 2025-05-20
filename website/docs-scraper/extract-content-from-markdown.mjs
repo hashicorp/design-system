@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import fs from 'fs-extra';
-
 // unist/remark/mdast
 import { unified } from 'unified';
 import remarkGfm from 'remark-gfm';

@@ -13,5 +13,5 @@ ember-cli-update.json
 *.html
 *.scss
 
-// temporary ignore
+# temporary ignore
 /docs/

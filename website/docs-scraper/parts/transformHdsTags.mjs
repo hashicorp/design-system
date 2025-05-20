@@ -3,8 +3,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import _ from 'lodash';
-
 export const transformHdsTags = (markdownContent) =>
   markdownContent
     .replace(

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* global Prism */
 
 import showdown from 'showdown';
