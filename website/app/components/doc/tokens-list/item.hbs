@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{! Add role="listitem" because the class sets display: contents; }}
+{{! role="listitem" is needed here because the class sets `display: contents` and some browsers and assistive technologies will ignore the implied role }}
 <li class="doc-tokens-list__item" role="listitem">
   <div class="doc-tokens-list__preview">
     <Doc::TokenPreview @token={{this.token}} />

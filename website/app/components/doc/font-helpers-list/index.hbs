@@ -5,7 +5,7 @@
 
 <ul class="doc-font-helpers-list" role="list">
   {{#each @items as |item|}}
-    {{! Add role="listitem" because the class sets display: contents; }}
+    {{! role="listitem" is needed here because the class sets `display: contents` and some browsers and assistive technologies will ignore the implied role }}
     <li class="doc-font-helpers-list__item" role="listitem">
       <div class="doc-font-helpers-list__preview {{item.previewClass}}">{{item.previewText}}</div>
       <div class="doc-font-helpers-list__content">
