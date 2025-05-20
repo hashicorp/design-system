@@ -78,7 +78,7 @@ module('Integration | Component | hds/pagination/nav/arrow', function (hooks) {
     await render(
       hbs`
           <Hds::Pagination::Nav::Arrow @direction="prev" @onClick={{this.onClick}} />
-        `
+        `,
     );
     await click('.hds-pagination-nav__control');
     assert.strictEqual(direction, 'prev');

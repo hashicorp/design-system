@@ -144,7 +144,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      hbs`<Hds::Table id="data-test-table" aria-label="data test table" />`
+      hbs`<Hds::Table id="data-test-table" aria-label="data test table" />`,
     );
     assert
       .dom('#data-test-table')
@@ -273,12 +273,12 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert
       .dom(
-        '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip'
+        '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip',
       )
       .exists();
     // activate the tooltip:
     await focus(
-      '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip'
+      '#data-test-table thead th:first-of-type .hds-table__th-button--tooltip',
     );
     // test that the tooltip exists and has the passed in content:
     assert.dom('.tippy-content').hasText('More info.');
@@ -431,7 +431,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     });
     this.set('onSelectionChange', ({ selectionKey }) => {
       const recordToUpdate = this.model.find(
-        (modelRow) => modelRow.id === selectionKey
+        (modelRow) => modelRow.id === selectionKey,
       );
       if (recordToUpdate) {
         recordToUpdate.isSelected = !recordToUpdate.isSelected;
@@ -475,7 +475,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     assert.ok(
       sortSpy.calledWith(this.selectableColumnKey, 'asc'),
-      'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column'
+      'it invokes the `onSort` callback with the `selectableColumnKey` when a sort is performed on the selectable column',
     );
   });
 
@@ -567,7 +567,7 @@ module('Integration | Component | hds/table/index', function (hooks) {
     let keys;
     this.set(
       'onSelectionChange',
-      ({ selectedRowsKeys }) => (keys = selectedRowsKeys)
+      ({ selectedRowsKeys }) => (keys = selectedRowsKeys),
     );
     await render(hbs`
       <Hds::Table @isSelectable={{true}} @onSelectionChange={{this.onSelectionChange}} id="data-test-selectable-table">

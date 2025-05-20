@@ -17,7 +17,7 @@ module('Integration | Component | hds/text/display', function (hooks) {
 
   test('it should render with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Text::Display @size="500" @tag="h1" id="test-text" />`
+      hbs`<Hds::Text::Display @size="500" @tag="h1" id="test-text" />`,
     );
     assert.dom('#test-text').hasClass('hds-text');
     assert.dom('#test-text').hasClass('hds-typography-display-500');
@@ -28,7 +28,7 @@ module('Integration | Component | hds/text/display', function (hooks) {
 
   test('it renders correctly the provided arguments', async function (assert) {
     await render(
-      hbs`<Hds::Text::Display @size="400" @tag="h3" @weight="bold" @align="right" @color="success" id="test-text">This is the text</Hds::Text::Display>`
+      hbs`<Hds::Text::Display @size="400" @tag="h3" @weight="bold" @align="right" @color="success" id="test-text">This is the text</Hds::Text::Display>`,
     );
     assert.dom('#test-text').hasText('This is the text');
     assert.dom('#test-text').hasClass('hds-typography-display-400');

@@ -36,9 +36,9 @@
     "ember-get-config": "^2.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.0",
-    "@babel/plugin-transform-typescript": "^7.26.3",
-    "@babel/runtime": "^7.26.10",
+    "@babel/core": "^7.27.1",
+    "@babel/plugin-transform-typescript": "^7.27.1",
+    "@babel/runtime": "^7.27.1",
     "@embroider/addon-dev": "^7.1.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",

@@ -24,7 +24,7 @@ module(
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} id="test-super-select-multiple" />`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} id="test-super-select-multiple" />`,
       );
       assert
         .dom('.hds-form-super-select-multiple #test-super-select-multiple')
@@ -39,7 +39,7 @@ module(
         hbs`
           <Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>
             {{option}}
-          </Hds::Form::SuperSelect::Multiple::Base>`
+          </Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.ember-power-select-options').exists();
@@ -51,12 +51,12 @@ module(
     test('it should render the after options block by default', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert
         .dom(
-          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
+          '.hds-form-super-select__after-options .hds-form-super-select__result-count',
         )
         .hasText('3 total');
       assert
@@ -70,23 +70,22 @@ module(
     test('it should update the options view when "Show selected"/"Show all" is toggled', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{fn (mut this.OPTION)}} @selected={{this.OPTION}} @options={{this.OPTIONS}} id="test-super-select-multiple" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{fn (mut this.OPTION)}} @selected={{this.OPTION}} @options={{this.OPTIONS}} id="test-super-select-multiple" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       await selectChoose('#test-super-select-multiple', 'Option 1');
       await selectChoose('#test-super-select-multiple', 'Option 2');
-
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
 
       // click 'Show selected'
       await click(
-        '.hds-form-super-select__after-options .hds-button:first-child'
+        '.hds-form-super-select__after-options .hds-button:first-child',
       );
       assert.dom('.ember-power-select-option').isVisible({ count: 2 });
 
       // click 'Show all'
       await click(
-        '.hds-form-super-select__after-options .hds-button:first-child'
+        '.hds-form-super-select__after-options .hds-button:first-child',
       );
       assert.dom('.ember-power-select-option').isVisible({ count: 3 });
     });
@@ -94,7 +93,7 @@ module(
     test('it should clear any existing selection when "Clear selected" is activated', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{fn (mut this.OPTION)}} @selected={{this.OPTION}} @options={{this.OPTIONS}} id="test-super-select-multiple" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{fn (mut this.OPTION)}} @selected={{this.OPTION}} @options={{this.OPTIONS}} id="test-super-select-multiple" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       await selectChoose('#test-super-select-multiple', 'Option 1');
@@ -104,7 +103,7 @@ module(
 
       // click 'Clear selected'
       await click(
-        '.hds-form-super-select__after-options .hds-button:nth-child(2)'
+        '.hds-form-super-select__after-options .hds-button:nth-child(2)',
       );
       assert
         .dom('.ember-power-select-option[aria-selected="true"]')
@@ -112,7 +111,7 @@ module(
 
       // click 'Show selected'
       await click(
-        '.hds-form-super-select__after-options .hds-button:first-child'
+        '.hds-form-super-select__after-options .hds-button:first-child',
       );
       assert
         .dom('.hds-form-super-select__no-options-selected')
@@ -122,7 +121,7 @@ module(
     test('it should not render the after options block when showAfterOptions is set to false', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{false}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @showAfterOptions={{false}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -131,7 +130,7 @@ module(
     test('it should render custom content in the after options block when `@afterOptionsContent` exists', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @afterOptionsContent="Custom content" @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @afterOptionsContent="Custom content" @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__result-count').doesNotExist();
@@ -143,7 +142,7 @@ module(
     test('it should not render the after options block when `@showAfterOptions` is false', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @showAfterOptions={{false}} @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @showAfterOptions={{false}} @onChange={{this.NOOP}} @options={{this.OPTIONS}} as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert.dom('.hds-form-super-select__after-options').doesNotExist();
@@ -152,12 +151,12 @@ module(
     test('it should render the default after options block with custom result count message when `@resultCountMessage` exists', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @resultCountMessage="custom result count message" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @options={{this.OPTIONS}} @resultCountMessage="custom result count message" as |option|>{{option}}</Hds::Form::SuperSelect::Multiple::Base>`,
       );
       await click('.hds-form-super-select .ember-basic-dropdown-trigger');
       assert
         .dom(
-          '.hds-form-super-select__after-options .hds-form-super-select__result-count'
+          '.hds-form-super-select__after-options .hds-form-super-select__result-count',
         )
         .hasText('custom result count message');
       assert
@@ -173,7 +172,7 @@ module(
     test('`@matchTriggerWidth` should be true by default', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} />`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} />`,
       );
       assert
         .dom('.hds-form-super-select')
@@ -183,7 +182,7 @@ module(
     test('it should render the correct CSS class when `@matchTriggerWidth` is false', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} />`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @matchTriggerWidth={{false}} />`,
       );
       assert
         .dom('.hds-form-super-select')
@@ -195,7 +194,7 @@ module(
     test('it should set the correct CSS property value when `@dropdownMaxWidth` is set', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @dropdownMaxWidth="40em" />`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @dropdownMaxWidth="40em" />`,
       );
 
       assert
@@ -203,7 +202,7 @@ module(
         .hasClass('hds-form-super-select--dropdown-content-auto-width')
         .hasAttribute(
           'style',
-          "--hds-form-super-select-dropdown-max-width: 40em; --hds-form-super-select-selected-text-display: none; --hds-form-super-select-selected-text: '0 selected';"
+          "--hds-form-super-select-dropdown-max-width: 40em; --hds-form-super-select-selected-text-display: none; --hds-form-super-select-selected-text: '0 selected';",
         );
     });
 
@@ -212,11 +211,11 @@ module(
     test('it should render the correct CSS class when `@isInvalid` is true', async function (assert) {
       setOptionsData(this);
       await render(
-        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @isInvalid={{true}} />`
+        hbs`<Hds::Form::SuperSelect::Multiple::Base @onChange={{this.NOOP}} @isInvalid={{true}} />`,
       );
       assert
         .dom('.hds-form-super-select')
         .hasClass('hds-form-super-select--is-invalid');
     });
-  }
+  },
 );

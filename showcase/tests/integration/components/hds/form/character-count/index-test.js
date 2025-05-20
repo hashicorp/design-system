@@ -19,7 +19,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Form::CharacterCount id="test-form-character-count" />`
+        hbs`<Hds::Form::CharacterCount id="test-form-character-count" />`,
       );
       assert
         .dom('#test-form-character-count')
@@ -27,7 +27,7 @@ module(
     });
     test('it should render with a CSS class provided via the @contextualClass argument', async function (assert) {
       await render(
-        hbs`<Hds::Form::CharacterCount @contextualClass="my-class" id="test-form-character-count" />`
+        hbs`<Hds::Form::CharacterCount @contextualClass="my-class" id="test-form-character-count" />`,
       );
       assert.dom('#test-form-character-count').hasClass('my-class');
     });
@@ -36,7 +36,7 @@ module(
 
     test('it renders a character count with the correct "id" attribute if the @controlId argument is provided', async function (assert) {
       await render(
-        hbs`<Hds::Form::CharacterCount @controlId="my-control-id"/>`
+        hbs`<Hds::Form::CharacterCount @controlId="my-control-id"/>`,
       );
       assert.dom('#character-count-my-control-id').exists();
     });
@@ -47,7 +47,7 @@ module(
       await render(
         hbs`
           <input id="input-1" value={{this.value}} {{on "input" this.update}} />
-          <Hds::Form::CharacterCount @value={{this.value}} @controlId="input-1" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @value={{this.value}} @controlId="input-1" id="test-form-character-count"/>`,
       );
       assert.dom('#test-form-character-count').hasText('0 characters entered');
 
@@ -58,7 +58,7 @@ module(
       await render(
         hbs`
           <input id="input-max-length" value={{this.value}} {{on "input" this.update}} />
-          <Hds::Form::CharacterCount @value={{this.value}} @maxLength={{25}} @controlId="input-max-length" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @value={{this.value}} @maxLength={{25}} @controlId="input-max-length" id="test-form-character-count"/>`,
       );
       assert.dom('#test-form-character-count').hasText('25 characters allowed');
 
@@ -89,7 +89,7 @@ module(
       await render(
         hbs`
           <input id="input-min-length" value={{this.value}} {{on "input" this.update}} />
-          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @controlId="input-min-length" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @controlId="input-min-length" id="test-form-character-count"/>`,
       );
       assert.dom('#test-form-character-count').hasText('3 characters required');
 
@@ -110,7 +110,7 @@ module(
       await render(
         hbs`
           <input id="input-minmax-length" value={{this.value}} {{on "input" this.update}} />
-          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @maxLength={{25}} @controlId="input-minmax-length" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @value={{this.value}} @minLength={{3}} @maxLength={{25}} @controlId="input-minmax-length" id="test-form-character-count"/>`,
       );
       assert.dom('#test-form-character-count').hasText('3 characters required');
 
@@ -140,12 +140,12 @@ module(
           remaining {{CC.remaining}} 
           shortfall {{CC.shortfall}} 
           currentLength {{CC.currentLength}}
-        </Hds::Form::CharacterCount>`
+        </Hds::Form::CharacterCount>`,
       );
       assert
         .dom('#test-form-character-count')
         .hasText(
-          'maxLength 40 minLength 20 remaining 21 shortfall 1 currentLength 19'
+          'maxLength 40 minLength 20 remaining 21 shortfall 1 currentLength 19',
         );
     });
 
@@ -156,11 +156,11 @@ module(
       await render(
         hbs`
           <input type="hidden" value={{this.value}} id="input-3"/>
-          <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-3" id="test-form-character-count"/>`
+          <Hds::Form::CharacterCount @maxLength={{40}} @controlId="input-3" id="test-form-character-count"/>`,
       );
       assert
         .dom('#test-form-character-count')
         .hasAttribute('aria-live', 'polite');
     });
-  }
+  },
 );

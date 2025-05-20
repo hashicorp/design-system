@@ -19,7 +19,7 @@ module(
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::DisclosurePrimitive id="test-disclosure-primitive" />`
+        hbs`<Hds::DisclosurePrimitive id="test-disclosure-primitive" />`,
       );
       assert
         .dom('div#test-disclosure-primitive')
@@ -209,5 +209,5 @@ module(
       assert.false(opened);
       assert.dom('a#test-disclosure-primitive-link').doesNotExist();
     });
-  }
+  },
 );

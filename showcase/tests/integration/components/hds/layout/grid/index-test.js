@@ -20,7 +20,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the yielded content', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid"><pre>test</pre></Hds::Layout::Grid>`
+      hbs`<Hds::Layout::Grid id="test-layout-grid"><pre>test</pre></Hds::Layout::Grid>`,
     );
     assert.dom('#test-layout-grid > pre').exists().hasText('test');
   });
@@ -30,7 +30,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       hbs`
         <Hds::Layout::Grid id="test-layout-grid" as |LG|>
           <LG.Item><pre>test</pre></LG.Item>
-        </Hds::Layout::Grid>`
+        </Hds::Layout::Grid>`,
     );
     assert
       .dom('#test-layout-grid > .hds-layout-grid-item > pre')
@@ -50,7 +50,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" />`,
     );
     assert
       .dom('#test-layout-grid')
@@ -66,7 +66,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render with the correct @tag declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @tag="section" />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @tag="section" />`,
     );
     assert.dom('#test-layout-grid').hasTagName('section');
   });
@@ -82,7 +82,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS classes if @align props are declared', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @align="stretch" @wrap={{true}} />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @align="stretch" @wrap={{true}} />`,
     );
     assert
       .dom('#test-layout-grid')
@@ -112,7 +112,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should render the correct CSS class if the @gap prop is declared as two values', async function (assert) {
     await render(
-      hbs`<Hds::Layout::Grid id="test-layout-grid" @gap={{array "4" "48"}} />`
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @gap={{array "4" "48"}} />`,
     );
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-4');
     assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-48');

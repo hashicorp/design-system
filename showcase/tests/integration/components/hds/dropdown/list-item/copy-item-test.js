@@ -19,7 +19,7 @@ module(
 
     test('it should render the component as a <li> element with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::Dropdown::ListItem::CopyItem @text="copy-item" id="test-list-item-copy-item" />`
+        hbs`<Hds::Dropdown::ListItem::CopyItem @text="copy-item" id="test-list-item-copy-item" />`,
       );
       assert.dom('#test-list-item-copy-item').hasTagName('li');
       assert
@@ -44,5 +44,5 @@ module(
         throw new Error(errorMessage);
       });
     });
-  }
+  },
 );

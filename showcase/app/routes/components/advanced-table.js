@@ -19,15 +19,15 @@ export default class ComponentsAdvancedTableRoute extends Route {
     const responseUserData = await fetch('/api/mock-users.json');
     const responseClusters = await fetch('/api/mock-clusters-with-status.json');
     const responseSelectableData = await fetch(
-      '/api/mock-selectable-data.json'
+      '/api/mock-selectable-data.json',
     );
     let responseManyColumns = await fetch('/api/mock-many-columns.json');
     const responseSpanningManual = await fetch(
-      '/api/mock-spanning-cells-manual.json'
+      '/api/mock-spanning-cells-manual.json',
     );
     const responseNested = await fetch('/api/mock-nested-rows.json');
     const responseNestedCustom = await fetch(
-      '/api/mock-nested-rows-custom.json'
+      '/api/mock-nested-rows-custom.json',
     );
 
     const { data: music } = await responseMusic.json();

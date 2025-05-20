@@ -76,7 +76,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
 
   test('it renders the passed in currentPageSize value', async function (assert) {
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @currentPageSize={{40}} @pageSizes={{array 20 40 60}} />`,
     );
 
     assert.dom('.hds-pagination .hds-pagination-info').hasText('1–40 of 100');
@@ -94,7 +94,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .exists();
     assert
       .dom(
-        '.hds-pagination .hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination .hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .hasText('page 10');
     assert
@@ -132,12 +132,12 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     `);
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label',
       )
       .doesNotExist();
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label',
       )
       .doesNotExist();
   });
@@ -148,12 +148,12 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     `);
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-prev .hds-pagination-nav__arrow-label',
       )
       .exists();
     assert
       .dom(
-        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label'
+        '.hds-pagination-nav__arrow--direction-next .hds-pagination-nav__arrow-label',
       )
       .exists();
   });
@@ -198,7 +198,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       .hasText('...');
     assert
       .dom(
-        '.hds-pagination-nav .hds-pagination-nav__page-item:not(:nth-child(5))'
+        '.hds-pagination-nav .hds-pagination-nav__page-item:not(:nth-child(5))',
       )
       .doesNotIncludeText('...');
   });
@@ -211,7 +211,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-nav__page-item:nth-child(6)').hasText('...');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:not(:nth-child(2)):not(:nth-child(6))'
+        '.hds-pagination-nav__page-item:not(:nth-child(2)):not(:nth-child(6))',
       )
       .doesNotIncludeText('...');
   });
@@ -235,7 +235,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     // Test that the first page is selected:
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .hasClass('hds-pagination-nav__number--is-selected');
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isDisabled();
@@ -248,7 +248,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     // Test that the last page is selected:
     assert
       .dom(
-        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .hasClass('hds-pagination-nav__number--is-selected');
     assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
@@ -261,23 +261,23 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isNotDisabled();
     // Activate the first page:
     await click(
-      '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+      '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
     );
     // Test that the first page is selected:
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .hasClass('hds-pagination-nav__number--is-selected');
     assert.dom('.hds-pagination-nav__arrow--direction-prev').isDisabled();
     // Activate the last page:
     await click(
-      '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+      '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
     );
     // Test that the last page is selected:
     assert
       .dom(
-        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .hasClass('hds-pagination-nav__number--is-selected');
     assert.dom('.hds-pagination-nav__arrow--direction-next').isDisabled();
@@ -291,17 +291,17 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     `);
     assert
       .dom(
-        '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
       )
       .doesNotHaveClass('hds-pagination-nav__number--is-selected');
 
     // click page 3 control:
     await click(
-      '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control'
+      '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
     );
     assert
       .dom(
-        '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
       )
       .hasClass('hds-pagination-nav__number--is-selected');
   });
@@ -315,22 +315,22 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-info').hasText('1–10 of 100');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .includesText('1');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .doesNotIncludeText('0');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .includesText('10');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .doesNotIncludeText('00');
 
@@ -341,17 +341,17 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     assert.dom('.hds-pagination-info').hasText('1–30 of 100');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .includesText('1');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:first-child .hds-pagination-nav__control',
       )
       .doesNotIncludeText('0');
     assert
       .dom(
-        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control'
+        '.hds-pagination-nav__page-item:last-child .hds-pagination-nav__control',
       )
       .includesText('4');
   });
@@ -367,10 +367,10 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     await render(
       hbs`
         <Hds::Pagination::Numbered @totalItems={{100}} @onPageChange={{this.onPageChange}} />
-        `
+        `,
     );
     await click(
-      '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control'
+      '.hds-pagination-nav__page-item:nth-child(3) .hds-pagination-nav__control',
     );
     assert.strictEqual(pageNumber, 3);
     assert.strictEqual(pageSize, 10);
@@ -382,7 +382,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
     await render(
       hbs`
         <Hds::Pagination::Numbered @totalItems={{100}} @onPageSizeChange={{this.onPageSizeChange}} />
-        `
+        `,
     );
     await select('.hds-pagination-size-selector select', '30'); // notice: '30' needs to be a string to work
     assert.strictEqual(size, 30); // notice: it's converted to an integer by the callback function
@@ -393,19 +393,19 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
     this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`,
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
       .hasAttribute('href', '/components/pagination?page=1&pageSize=10');
     assert
       .dom(
-        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(1) a'
+        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(1) a',
       )
       .hasAttribute('href', '/components/pagination?page=1&pageSize=10');
     assert
       .dom(
-        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(3) a'
+        '.hds-pagination-nav__page-list .hds-pagination-nav__page-item:nth-child(3) a',
       )
       .hasAttribute('href', '/components/pagination?page=3&pageSize=10');
     assert
@@ -423,7 +423,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction="foo" @model="test" />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction="foo" @model="test" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -438,7 +438,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} @model="test" />`
+      hbs`<Hds::Pagination::Numbered @totalItems={{100}} @queryFunction={{this.myQueryFunction}} @model="test" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);
@@ -477,7 +477,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::Pagination::Numbered @queryFunction={{this.myQueryFunction}} />`
+      hbs`<Hds::Pagination::Numbered @queryFunction={{this.myQueryFunction}} />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

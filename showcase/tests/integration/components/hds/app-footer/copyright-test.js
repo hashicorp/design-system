@@ -27,7 +27,7 @@ module('Integration | Component | hds/app-footer/copyright', function (hooks) {
 
   test('it renders the copyright with the passed in year value', async function (assert) {
     await render(
-      hbs`<Hds::AppFooter::Copyright id="test-copyright" @year="1984" />`
+      hbs`<Hds::AppFooter::Copyright id="test-copyright" @year="1984" />`,
     );
     assert.dom('#test-copyright').includesText('1984');
   });

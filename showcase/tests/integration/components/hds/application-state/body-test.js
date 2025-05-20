@@ -15,7 +15,7 @@ module(
 
     test('it should render with a CSS class that matches the component name', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Body id="test-application-state-body" />`
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body" />`,
       );
 
       assert
@@ -27,7 +27,7 @@ module(
       await render(
         hbs`<Hds::ApplicationState::Body id="test-application-state-body">
         <pre>test</pre>
-      </Hds::ApplicationState::Body>`
+      </Hds::ApplicationState::Body>`,
       );
       assert.dom('#test-application-state-body > pre').exists();
       assert.dom('#test-application-state-body > pre').hasText('test');
@@ -35,7 +35,7 @@ module(
 
     test('it should render the text if defined', async function (assert) {
       await render(
-        hbs`<Hds::ApplicationState::Body id="test-application-state-body" @text="I am the only thing that should exist"/>`
+        hbs`<Hds::ApplicationState::Body id="test-application-state-body" @text="I am the only thing that should exist"/>`,
       );
       assert.dom('#test-application-state-body').exists();
       assert
@@ -47,12 +47,12 @@ module(
       await render(
         hbs`<Hds::ApplicationState::Body id="test-application-state-body" @text="I should not exist">
         <pre>test should only exist</pre>
-      </Hds::ApplicationState::Body>`
+      </Hds::ApplicationState::Body>`,
       );
       assert.dom('#test-application-state-body > pre').exists();
       assert
         .dom('#test-application-state-body > pre')
         .hasText('test should only exist');
     });
-  }
+  },
 );

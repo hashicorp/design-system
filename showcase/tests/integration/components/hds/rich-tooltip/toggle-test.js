@@ -17,7 +17,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Toggle id="test-rich-tooltip-toggle" />`
+      hbs`<Hds::RichTooltip::Toggle id="test-rich-tooltip-toggle" />`,
     );
     assert
       .dom('#test-rich-tooltip-toggle')
@@ -45,7 +45,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
   });
   test('it should render the icon in the trailing position if @iconPosition is set to trailing', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Toggle @icon="info" @iconPosition="trailing" />`
+      hbs`<Hds::RichTooltip::Toggle @icon="info" @iconPosition="trailing" />`,
     );
     assert.dom('.hds-rich-tooltip__toggle-icon:last-child').exists();
     assert.dom('.hds-rich-tooltip__toggle-text').doesNotExist();
@@ -75,7 +75,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
   });
   test('it should render the element as inline if `@isInline` is `true`', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Toggle @isInline={{true}} @icon="info" />`
+      hbs`<Hds::RichTooltip::Toggle @isInline={{true}} @icon="info" />`,
     );
     assert.dom('.hds-rich-tooltip__toggle--is-inline').exists();
     assert
@@ -108,7 +108,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
 
   test('it should have a set of attributes based on the arguments provided', async function (assert) {
     await render(
-      hbs`<Hds::RichTooltip::Toggle @popoverId="popoverId" @isOpen={{true}} />`
+      hbs`<Hds::RichTooltip::Toggle @popoverId="popoverId" @isOpen={{true}} />`,
     );
     assert.dom('.hds-rich-tooltip__toggle').hasAttribute('type', 'button');
     assert.dom('.hds-rich-tooltip__toggle').hasAria('describedby', 'popoverId');
@@ -125,7 +125,7 @@ module('Integration | Component | hds/rich-tooltip/toggle', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(
-      hbs`<Hds::RichTooltip::Toggle @icon="info" @iconPosition="foo" />`
+      hbs`<Hds::RichTooltip::Toggle @icon="info" @iconPosition="foo" />`,
     );
     assert.throws(function () {
       throw new Error(errorMessage);

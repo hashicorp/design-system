@@ -53,7 +53,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   test('it is "mobile" on narrow viewports', async function (assert) {
     await render(
-      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`
+      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`,
     );
     assert.dom('#test-app-header').hasClass('hds-app-header--is-mobile');
   });
@@ -110,7 +110,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
 
   test('the actions menu collapses when the ESC key is pressed on narrow viewports', async function (assert) {
     await render(
-      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`
+      hbs`<Hds::AppHeader id='test-app-header' @breakpoint='10000px' />`,
     );
     assert.dom('#test-app-header').hasClass('hds-app-header--menu-is-closed');
 
@@ -131,7 +131,7 @@ module('Integration | Component | hds/app-header/index', function (hooks) {
       this.element
         .querySelector('.hds-app-header__menu-button')
         .getAttribute('aria-controls'),
-      this.element.querySelector('.hds-app-header__actions').getAttribute('id')
+      this.element.querySelector('.hds-app-header__actions').getAttribute('id'),
     );
   });
 

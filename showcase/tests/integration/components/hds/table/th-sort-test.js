@@ -12,7 +12,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   setupRenderingTest(hooks);
   test('it renders with a CSS class that matches the component name', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('#data-test-table-th-sort').hasClass('hds-table__th--sort');
@@ -23,7 +23,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it renders text content yielded within the cell', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
     assert
       .dom('#data-test-table-th-sort .hds-table__th-content > span')
@@ -34,7 +34,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it should render with the appropriate `@align` CSS class', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @align="right">Year</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @align="right">Year</Hds::Table::ThSort>`,
     );
     assert
       .dom('#data-test-table-th-sort')
@@ -45,7 +45,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it should add inline styles if `@width` is declared', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @width="10%" />`,
     );
     assert
       .dom('#data-test-table-th-sort')
@@ -56,7 +56,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if @sortOrder is not defined, the swap-vertical icon should be displayed', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortBy='artist'>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortBy='artist'>Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('[data-test-icon="swap-vertical"]').exists();
@@ -64,13 +64,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if sorted, and `@sortOrder` is set, the correct icon should be displayed', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortOrder='asc'>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortOrder='asc'>Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('[data-test-icon="arrow-up"]').exists();
 
     await render(
-      hbs`<Hds::Table::ThSort @sortOrder='desc'>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortOrder='desc'>Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('[data-test-icon="arrow-down"]').exists();
@@ -80,7 +80,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('it should support splattributes', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th" lang="es">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th" lang="es">Artist</Hds::Table::ThSort>`,
     );
     assert.dom('#data-test-table-th').hasAttribute('lang', 'es');
   });
@@ -92,7 +92,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
   test('the default `scope` attribute can not be overwritten', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort scope="row">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort scope="row">Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('.hds-table__th--sort').hasAttribute('scope', 'col');
@@ -100,14 +100,14 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if unsorted, the aria-sort attribute value should be set to none', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortBy='artist' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortBy='artist' id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
 
     assert.dom('#data-test-table-th-sort').hasAttribute('aria-sort', 'none');
   });
   test('if sorted, the aria-sort attribute value should reflect the direction', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @sortBy='artist' @sortOrder="desc" id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @sortBy='artist' @sortOrder="desc" id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
 
     assert
@@ -116,22 +116,22 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
   test('it renders the `aria-labelledby` attribute for the sort button with the correct IDs', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @sortBy='artist' @sortOrder="desc">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @sortBy='artist' @sortOrder="desc">Artist</Hds::Table::ThSort>`,
     );
     const prefixLabel = this.element.querySelector(
-      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(1)'
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(1)',
     );
     const buttonLabel = this.element.querySelector(
-      '#data-test-table-th-sort .hds-table__th-content > span'
+      '#data-test-table-th-sort .hds-table__th-content > span',
     );
     const suffixLabel = this.element.querySelector(
-      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(2)'
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment:nth-of-type(2)',
     );
     assert
       .dom('#data-test-table-th-sort .hds-table__th-button--sort')
       .hasAria(
         'labelledby',
-        `${prefixLabel.id} ${buttonLabel.id} ${suffixLabel.id}`
+        `${prefixLabel.id} ${buttonLabel.id} ${suffixLabel.id}`,
       );
     assert.dom(suffixLabel).hasText('ascending');
   });
@@ -142,7 +142,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
     let isClicked = false;
     this.set('onClickSort', () => (isClicked = true));
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @onClickSort={{this.onClickSort}}>Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @onClickSort={{this.onClickSort}}>Artist</Hds::Table::ThSort>`,
     );
     await click('#data-test-table-th-sort .hds-table__th-button--sort');
     assert.ok(isClicked);
@@ -152,7 +152,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
 
   test('if @tooltip is undefined a tooltip button toggle should not be present', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
 
     assert
@@ -161,7 +161,7 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
   test('if @tooltip is defined a tooltip should be added to the table cell header', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort @tooltip="More info." id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort @tooltip="More info." id="data-test-table-th-sort">Artist</Hds::Table::ThSort>`,
     );
 
     assert
@@ -174,13 +174,13 @@ module('Integration | Component | hds/table/th-sort', function (hooks) {
   });
   test('it renders the `aria-labelledby` attribute for the tooltip button with the correct IDs', async function (assert) {
     await render(
-      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info.">Artist</Hds::Table::ThSort>`
+      hbs`<Hds::Table::ThSort id="data-test-table-th-sort" @tooltip="More info.">Artist</Hds::Table::ThSort>`,
     );
     let prefixLabel = this.element.querySelector(
-      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment'
+      '#data-test-table-th-sort .hds-table__th-button-aria-label-hidden-segment',
     );
     let buttonLabel = this.element.querySelector(
-      '#data-test-table-th-sort .hds-table__th-content > span'
+      '#data-test-table-th-sort .hds-table__th-content > span',
     );
     assert
       .dom('#data-test-table-th-sort .hds-table__th-button--tooltip')

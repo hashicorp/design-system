@@ -8,6 +8,7 @@
 /coverage/
 !.*
 .*/
-
-# ember-try
-/.node_modules.ember-try/
+/pnpm-lock.yaml
+ember-cli-update.json
+*.html
+*.scss

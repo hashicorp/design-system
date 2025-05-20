@@ -77,13 +77,13 @@
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/plugin-transform-typescript": "^7.27.0",
-    "@babel/eslint-parser": "^7.27.0",
-    "@babel/runtime": "^7.27.0",
-    "@eslint/js": "^9.23.0",
+    "@babel/core": "^7.27.1",
+    "@babel/eslint-parser": "^7.27.1",
+    "@babel/plugin-transform-typescript": "^7.27.1",
+    "@babel/runtime": "^7.27.1",
     "@ember/test-helpers": "^4.0.4",
     "@embroider/addon-dev": "^7.1.4",
+    "@eslint/js": "^9.23.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.5.2",
@@ -115,8 +115,8 @@
     "stylelint": "^16.17.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^14.0.0",
-    "typescript-eslint": "^8.29.0",
     "typescript": "^5.8.2",
+    "typescript-eslint": "^8.29.0",
     "webpack": "^5.97.1"
   },
   "peerDependencies": {
