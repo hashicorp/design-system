@@ -391,10 +391,10 @@ importers:
         version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
       ember-template-lint:
         specifier: ^6.0.0
-        version: 6.0.0
+        version: 6.1.0
       ember-template-lint-plugin-prettier:
         specifier: ^5.0.0
-        version: 5.0.0(ember-template-lint@6.0.0)(prettier@3.5.3)
+        version: 5.0.0(ember-template-lint@6.1.0)(prettier@3.5.3)
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -850,7 +850,7 @@ importers:
         version: 7.27.1
       '@babel/eslint-parser':
         specifier: ^7.27.1
-        version: 7.27.1(@babel/core@7.27.1)(eslint@8.57.1)
+        version: 7.27.1(@babel/core@7.27.1)(eslint@9.27.0)
       '@babel/plugin-proposal-decorators':
         specifier: ^7.27.1
         version: 7.27.1(@babel/core@7.27.1)
@@ -872,6 +872,9 @@ importers:
       '@embroider/util':
         specifier: ^1.13.2
         version: 1.13.2(@glint/environment-ember-loose@1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8))))(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8))
+      '@eslint/js':
+        specifier: ^9.27.0
+        version: 9.27.0
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.27.1)
@@ -915,7 +918,7 @@ importers:
         specifier: ^5.4.0
         version: 5.4.1
       concurrently:
-        specifier: ^9.1.0
+        specifier: ^9.1.2
         version: 9.1.2
       cspell:
         specifier: ^8.17.1
@@ -1025,12 +1028,12 @@ importers:
       ember-source:
         specifier: ~5.12.0
         version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
+      ember-template-imports:
+        specifier: ^4.3.0
+        version: 4.3.0
       ember-template-lint:
-        specifier: ^6.0.0
-        version: 6.0.0
-      ember-template-lint-plugin-prettier:
-        specifier: ^5.0.0
-        version: 5.0.0(ember-template-lint@6.0.0)(prettier@3.5.3)
+        specifier: ^7.7.0
+        version: 7.7.0(@babel/core@7.27.1)
       ember-test-selectors:
         specifier: ^7.0.0
         version: 7.0.0
@@ -1038,26 +1041,26 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8))
       eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
+        specifier: ^9.27.0
+        version: 9.27.0
       eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.1)
+        specifier: ^10.1.5
+        version: 10.1.5(eslint@9.27.0)
       eslint-plugin-ember:
-        specifier: ^12.3.3
-        version: 12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      eslint-plugin-node:
-        specifier: ^11.1.0
-        version: 11.1.0(eslint@8.57.1)
-      eslint-plugin-prettier:
-        specifier: ^5.2.1
-        version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.3)
+        specifier: ^12.5.0
+        version: 12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0)
+      eslint-plugin-n:
+        specifier: ^17.18.0
+        version: 17.18.0(eslint@9.27.0)
       eslint-plugin-qunit:
         specifier: ^8.1.2
-        version: 8.1.2(eslint@8.57.1)
+        version: 8.1.2(eslint@9.27.0)
       fs-extra:
         specifier: ^11.2.0
         version: 11.2.0
+      globals:
+        specifier: ^16.1.0
+        version: 16.1.0
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -1092,8 +1095,11 @@ importers:
         specifier: git://github.com/shipshapecode/prember-sitemap-generator#c95f47042d86c4fa7b8b631f271da090672e13df
         version: https://codeload.github.com/shipshapecode/prember-sitemap-generator/tar.gz/c95f47042d86c4fa7b8b631f271da090672e13df
       prettier:
-        specifier: ^3.4.2
+        specifier: ^3.5.3
         version: 3.5.3
+      prettier-plugin-ember-template-tag:
+        specifier: ^2.0.5
+        version: 2.0.5(prettier@3.5.3)
       qunit:
         specifier: ^2.23.1
         version: 2.23.1
@@ -6390,9 +6396,9 @@ packages:
       ember-template-lint: '>= 4.0.0'
       prettier: '>= 3.0.0'
 
-  ember-template-lint@6.0.0:
-    resolution: {integrity: sha512-TWWt/qCd4KoQ50T3We5nCoKcsrAT8Ip79Kmm9eyWjjyL+LAbRFu0z+GxcmW7MR+QCNW/1LQs3kwEdtIcaHEGiA==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+  ember-template-lint@6.1.0:
+    resolution: {integrity: sha512-UyzLPcyneG3mnbBfewyYIlV7fy6JKHQVAJy5a9+URdJKkZKN+3vQkQzIIlsz6dP/GpoXVB+datns5HlfMfliSA==}
+    engines: {node: ^18.18.0 || >= 20.9.0}
     hasBin: true
 
   ember-template-lint@7.7.0:
@@ -7392,8 +7398,8 @@ packages:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
 
-  globals@15.14.0:
-    resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
+  globals@15.15.0:
+    resolution: {integrity: sha512-7ACyT3wmyp3I61S4fG682L0VA2RGD9otkqGJIwNUMF1SWUombIIk+af1unuDYgMm082aHYwD+mzJvv9Iu8dsgg==}
     engines: {node: '>=18'}
 
   globals@16.1.0:
@@ -19275,10 +19281,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@6.0.0)(prettier@3.5.3):
+  ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@6.1.0)(prettier@3.5.3):
     dependencies:
       '@prettier/sync': 0.2.1(prettier@3.5.3)
-      ember-template-lint: 6.0.0
+      ember-template-lint: 6.1.0
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
 
@@ -19289,7 +19295,7 @@ snapshots:
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
 
-  ember-template-lint@6.0.0:
+  ember-template-lint@6.1.0:
     dependencies:
       '@lint-todo/utils': 13.1.1
       aria-query: 5.3.2
@@ -19815,7 +19821,7 @@ snapshots:
       eslint: 8.57.1
       eslint-plugin-es-x: 7.8.0(eslint@8.57.1)
       get-tsconfig: 4.8.1
-      globals: 15.14.0
+      globals: 15.15.0
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.6.3
@@ -19827,7 +19833,7 @@ snapshots:
       eslint: 9.27.0
       eslint-plugin-es-x: 7.8.0(eslint@9.27.0)
       get-tsconfig: 4.8.1
-      globals: 15.14.0
+      globals: 15.15.0
       ignore: 5.3.2
       minimatch: 9.0.5
       semver: 7.6.3
@@ -20843,7 +20849,7 @@ snapshots:
 
   globals@14.0.0: {}
 
-  globals@15.14.0: {}
+  globals@15.15.0: {}
 
   globals@16.1.0: {}
 
