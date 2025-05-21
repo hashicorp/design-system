@@ -528,7 +528,7 @@ importers:
         version: 1.5.2
       '@hashicorp/design-system-components':
         specifier: workspace:*
-        version: file:packages/components(108c920f805f6a5cf312f9e8209dd928)
+        version: file:packages/components(eaa98f0a47aaa9691c2f21a3dccc8c83)
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
@@ -783,7 +783,7 @@ importers:
         version: 1.1.2
       '@hashicorp/design-system-components':
         specifier: workspace:*
-        version: file:packages/components(108c920f805f6a5cf312f9e8209dd928)
+        version: file:packages/components(eaa98f0a47aaa9691c2f21a3dccc8c83)
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
@@ -2780,8 +2780,11 @@ packages:
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: '>= 0.11.0'
+      ember-intl: ^6.5.3
     peerDependenciesMeta:
       ember-engines:
+        optional: true
+      ember-intl:
         optional: true
 
   '@hashicorp/design-system-tokens@file:packages/tokens':
@@ -14113,7 +14116,7 @@ snapshots:
 
   '@handlebars/parser@2.0.0': {}
 
-  '@hashicorp/design-system-components@file:packages/components(108c920f805f6a5cf312f9e8209dd928)':
+  '@hashicorp/design-system-components@file:packages/components(eaa98f0a47aaa9691c2f21a3dccc8c83)':
     dependencies:
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
@@ -14147,7 +14150,6 @@ snapshots:
       ember-element-helper: 0.8.8
       ember-focus-trap: 1.1.1(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       ember-get-config: 2.1.1(@glint/template@1.5.2)
-      ember-intl: 7.1.8(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-modifier: 4.2.2(@babel/core@7.27.1)
       ember-power-select: 8.7.3(af6ebca4be8f7e33b318dfd941d56fd0)
       ember-stargate: 0.5.0(@babel/core@7.27.1)(@ember/test-waiters@3.1.0)(@glimmer/tracking@1.1.2)(@glint/template@1.5.2)(ember-concurrency@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2))(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
@@ -14158,6 +14160,8 @@ snapshots:
       sass: 1.89.0
       tabbable: 6.2.0
       tippy.js: 6.3.7
+    optionalDependencies:
+      ember-intl: 7.1.8(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'
@@ -14168,8 +14172,6 @@ snapshots:
       - ember-basic-dropdown
       - ember-source
       - supports-color
-      - typescript
-      - webpack
 
   '@hashicorp/design-system-tokens@file:packages/tokens': {}
 
