@@ -1,20 +1,20 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
+  Copyright (c) HashiCorp, Inc.`
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Text::Body class="hds-pagination-info" @tag="div" @size="100" @weight="medium" ...attributes>
   {{#if this.showTotalItems}}
-    {{t
+    {{hds-t
       "components.pagination.info.range-of-total"
+      default=(concat @itemsRangeStart "–" @itemsRangeEnd " of " @totalItems)
       start=@itemsRangeStart
       end=@itemsRangeEnd
       total=@totalItems
-      htmlSafe=true
     }}
   {{else}}
     {{hds-t
       "components.pagination.info.range"
-      default=(concat @itemsRangeStart "-" @itemsRangeEnd)
+      default=(concat @itemsRangeStart "–" @itemsRangeEnd)
       start=@itemsRangeStart
       end=@itemsRangeEnd
     }}
