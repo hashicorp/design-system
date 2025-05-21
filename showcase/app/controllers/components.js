@@ -35,6 +35,9 @@ export default class ComponentsController extends Controller {
   routeDidChange() {
     // eslint-disable-next-line ember/no-runloop
     scheduleOnce('afterRender', this, replaceMockStates);
+    // later(() => {
+    //   replaceMockStates();
+    // });
   }
 
   willDestroy() {

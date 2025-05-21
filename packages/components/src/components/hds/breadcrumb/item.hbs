@@ -13,8 +13,8 @@
       <span class="hds-breadcrumb__text">{{@text}}</span>
     </div>
   {{else}}
-    {{#if @isRouteExternal}}
-      <LinkToExternal
+    {{#if this.linkToComponent}}
+      <this.linkToComponent
         class="hds-breadcrumb__link"
         @current-when={{@current-when}}
         @models={{hds-link-to-models @model @models}}
@@ -28,23 +28,7 @@
           </div>
         {{/if}}
         <span class="hds-breadcrumb__text">{{@text}}</span>
-      </LinkToExternal>
-    {{else}}
-      <LinkTo
-        class="hds-breadcrumb__link"
-        @current-when={{@current-when}}
-        @models={{hds-link-to-models @model @models}}
-        @query={{hds-link-to-query @query}}
-        @replace={{@replace}}
-        @route={{@route}}
-      >
-        {{#if @icon}}
-          <div class="hds-breadcrumb__icon">
-            <Hds::Icon @name={{@icon}} @size="16" @stretched={{true}} />
-          </div>
-        {{/if}}
-        <span class="hds-breadcrumb__text">{{@text}}</span>
-      </LinkTo>
+      </this.linkToComponent>
     {{/if}}
   {{/if}}
 </li>
