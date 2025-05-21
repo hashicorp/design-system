@@ -96,6 +96,7 @@
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
     "ember-basic-dropdown": "^8.4.0",
+    "ember-getowner-polyfill": "^3.0.2",
     "ember-intl": "^6.5.3",
     "ember-source": "^5.12.0",
     "ember-template-lint": "^7.0.2",
@@ -120,7 +121,8 @@
     "webpack": "^5.97.1"
   },
   "peerDependencies": {
-    "ember-engines": ">= 0.11.0"
+    "ember-engines": ">= 0.11.0",
+    "ember-intl": "^6.5.3"
   },
   "peerDependenciesMeta": {
     "ember-engines": {
