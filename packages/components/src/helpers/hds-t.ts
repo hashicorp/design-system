@@ -4,7 +4,7 @@
  */
 
 import Helper from '@ember/component/helper';
-import { getOwner } from '@ember/owner';
+import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 import { isPresent } from '@ember/utils';
 
