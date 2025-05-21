@@ -4,7 +4,7 @@
  */
 
 import Helper from '@ember/component/helper';
-import { inject as service } from '@ember/service';
+import { getOwner } from '@ember/owner';
 import { assert } from '@ember/debug';
 import { isPresent } from '@ember/utils';
 
@@ -24,7 +24,18 @@ interface HdsTHelperSignature {
 }
 
 export default class HdsTHelper extends Helper<HdsTHelperSignature> {
-  @service intl?: IntlService;
+  get intl(): IntlService | undefined {
+    const owner = getOwner(this);
+
+    if (
+      typeof owner?.factoryFor === 'function' &&
+      owner.factoryFor('service:intl')
+    ) {
+      return owner.lookup('service:intl');
+    }
+
+    return undefined;
+  }
 
   compute(
     positional: HdsTHelperSignature['Args']['Positional'],
@@ -46,8 +57,6 @@ export default class HdsTHelper extends Helper<HdsTHelperSignature> {
         return this.intl.t(key, options);
       }
     }
-
-    console.log('oh no');
 
     return defaultString;
   }
