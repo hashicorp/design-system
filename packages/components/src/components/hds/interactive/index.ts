@@ -6,6 +6,12 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
+
+import type Owner from '@ember/owner';
+import type { LinkTo } from '@ember/routing';
+import { tracked } from '@glimmer/tracking';
+
 export interface HdsInteractiveSignature {
   Args: {
     href?: string;
@@ -27,6 +33,19 @@ export interface HdsInteractiveSignature {
 }
 
 export default class HdsInteractive extends Component<HdsInteractiveSignature> {
+  @tracked linkToComponent: LinkTo | null = null;
+
+  constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
+    super(owner, args);
+
+    void this.setupComponent();
+  }
+
+  async setupComponent() {
+    this.linkToComponent = await hdsResolveLinkToComponent(
+      this.args.isRouteExternal
+    );
+  }
   /**
    * Determines if a @href value is "external" (it adds target="_blank" rel="noopener noreferrer")
    *
