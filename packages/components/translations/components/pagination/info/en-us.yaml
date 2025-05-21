@@ -1,2 +1,2 @@
-range: "{start}-{end}"
-range-of-total: "{start}-{end} of {total}"
+range: "{start}–{end}"
+range-of-total: "{start}–{end} of {total}"
