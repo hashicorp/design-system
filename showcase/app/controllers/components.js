@@ -5,7 +5,7 @@
 
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { scheduleOnce } from '@ember/runloop';
+import { later } from '@ember/runloop';
 
 function replaceMockStates() {
   document.querySelectorAll('[mock-state-value]').forEach((element) => {
@@ -34,7 +34,9 @@ export default class ComponentsController extends Controller {
 
   routeDidChange() {
     // eslint-disable-next-line ember/no-runloop
-    scheduleOnce('afterRender', this, replaceMockStates);
+    later(() => {
+      replaceMockStates();
+    });
   }
 
   willDestroy() {

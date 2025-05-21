@@ -13,7 +13,7 @@
       <span class="hds-breadcrumb__text">{{@text}}</span>
     </div>
   {{else}}
-    {{~#if this.linkToComponent~}}
+    {{#if this.linkToComponent}}
       <this.linkToComponent
         class="hds-breadcrumb__link"
         @current-when={{@current-when}}
@@ -29,6 +29,6 @@
         {{/if}}
         <span class="hds-breadcrumb__text">{{@text}}</span>
       </this.linkToComponent>
-    {{~/if~}}
+    {{/if}}
   {{/if}}
 </li>
