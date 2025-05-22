@@ -4,8 +4,8 @@
  */
 
 import Helper from '@ember/component/helper';
-import { getOwner } from '@ember/application';
-import { assert } from '@ember/debug';
+import { getOwner } from '@ember/owner';
+import { isBlank } from '@ember/utils';
 import { isPresent } from '@ember/utils';
 
 import type { IntlService } from 'ember-intl';
@@ -42,12 +42,11 @@ export default class HdsTHelper extends Helper<HdsTHelperSignature> {
     named: HdsTHelperSignature['Args']['Named']
   ): HdsTHelperSignature['Return'] {
     const key = positional[0];
-
-    const isValidKey = typeof key === 'string' && key.trim() !== '';
-
-    assert('Translation key must be a non-empty string.', isValidKey);
-
     const { default: defaultString, ...options } = named;
+
+    if (typeof key !== 'string' || isBlank(key)) {
+      return defaultString;
+    }
 
     // try to use ember-intl if available and a translation key exists
     if (this.intl !== undefined) {
