@@ -158,7 +158,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-  @tracked tableHeight = 0;
+  @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _tableModel!: HdsAdvancedTableTableModel;
@@ -442,7 +442,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
-      this.tableHeight = element.clientHeight;
+      this._tableHeight = element.clientHeight;
 
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
