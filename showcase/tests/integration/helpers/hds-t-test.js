@@ -22,7 +22,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', undefined);
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert.dom().hasText(defaultString, 'returns default for undefined key');
@@ -32,7 +32,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', null);
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert.dom().hasText(defaultString, 'returns default for null key');
@@ -42,7 +42,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', '');
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert
@@ -54,7 +54,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', '   ');
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert.dom().hasText(defaultString, 'returns default for whitespace key');
@@ -64,7 +64,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', 123);
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert.dom().hasText(defaultString, 'returns default for non-string key');
@@ -76,7 +76,7 @@ module('Integration | Helper | hds-t', function (hooks) {
       this.set('translationKey', 'some.valid.key');
 
       await render(
-        hbs`{{hds-t this.translationKey default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey default=this.defaultString}}`,
       );
 
       assert.dom().hasText(defaultString, 'returns default for valid key');
@@ -89,14 +89,14 @@ module('Integration | Helper | hds-t', function (hooks) {
       });
 
       await render(
-        hbs`{{hds-t this.translationKey name=this.nameParam default=this.defaultString}}`
+        hbs`{{hds-t this.translationKey name=this.nameParam default=this.defaultString}}`,
       );
 
       assert
         .dom()
         .hasText(
           defaultString,
-          'returns default for valid key, ignoring options'
+          'returns default for valid key, ignoring options',
         );
     });
   });
@@ -111,7 +111,7 @@ module('Integration | Helper | hds-t', function (hooks) {
 
         assert.notOk(
           this.intl.exists(testKey),
-          `intl.exists('${testKey}') is false`
+          `intl.exists('${testKey}') is false`,
         );
 
         await render(hbs`{{hds-t this.key default=this.defaultString}}`);
@@ -145,7 +145,7 @@ module('Integration | Helper | hds-t', function (hooks) {
         });
 
         await render(
-          hbs`{{hds-t this.key name=this.nameParam age=this.ageParam default=this.defaultString}}`
+          hbs`{{hds-t this.key name=this.nameParam age=this.ageParam default=this.defaultString}}`,
         );
 
         assert.dom().hasText('Goodbye Tester, aged 30!');
@@ -158,7 +158,7 @@ module('Integration | Helper | hds-t', function (hooks) {
 
         assert.notOk(
           this.intl.exists(testKey),
-          `intl.exists('${testKey}') is false`
+          `intl.exists('${testKey}') is false`,
         );
 
         await render(hbs`{{hds-t this.key default=this.defaultString}}`);
@@ -167,6 +167,6 @@ module('Integration | Helper | hds-t', function (hooks) {
           .dom()
           .hasText(defaultString, 'returns default for untranslated key');
       });
-    }
+    },
   );
 });
