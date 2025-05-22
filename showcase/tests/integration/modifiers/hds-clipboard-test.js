@@ -181,6 +181,15 @@ module(
       this.target = find('#test-target');
       assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ');
     });
+
+    test('returns the innerText of DOM element passed as `target` argument without including sr only text', async function (assert) {
+      await render(hbs`<p id="test-target">
+        <span>Lorem ipsum</span>
+        <span class="sr-only">Text not to copy</span>
+      </p>`);
+      this.target = find('#test-target');
+      assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ipsum');
+    });
   },
 );
 
