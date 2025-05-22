@@ -129,14 +129,16 @@ The [API of the component](/components/icon?tab=code#component-api) is the same 
 
 #### Deferred loading
 
-In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
+In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `lazyEmbed` flag to `true` in the `emberFlightIcons` object in your app's `config/environment.js` file:
 
 ```js
 module.exports = function(environment) {
   const ENV = {
     // your other config
     ...
-    flightIconSpriteLazyEmbed: true,
+    emberFlightIcons: {
+      lazyEmbed: true,
+    },
   };
 }
 ```
