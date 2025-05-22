@@ -10,7 +10,7 @@ export async function initialize() {
   const legacyLazyEmbed = config?.emberFlightIcons?.lazyEmbed;
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  if (config?.flightIconSpriteLazyEmbed || legacyLazyEmbed) {
+  if (config?.flightIconsSpriteLazyEmbed || legacyLazyEmbed) {
     const { default: svgSprite } = await import(
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
