@@ -14,6 +14,5 @@ module.exports = {
     'no-redundant-role': false,
     'no-builtin-form-components': false,
     'no-bare-strings': true,
-    'no-bare-strings-in-attributes': true,
   },
 };
