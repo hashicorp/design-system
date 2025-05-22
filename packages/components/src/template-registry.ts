@@ -98,6 +98,7 @@ import type HdsFlyoutDescriptionComponent from './components/hds/flyout/descript
 import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
 import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
 import type HdsFlyoutComponent from './components/hds/flyout';
+import type HdsForm from './components/hds/form';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
 import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
@@ -550,6 +551,8 @@ export default interface HdsComponentsRegistry {
   'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
 
   // FORM
+  'Hds::Form': typeof HdsForm;
+  'hds/form': typeof HdsForm;
 
   // Form CharacterCount
   'Hds::Form::CharacterCount': typeof HdsFormCharacterCountComponent;

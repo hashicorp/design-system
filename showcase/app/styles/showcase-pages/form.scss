@@ -1,0 +1,28 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM LAYOUT
+
+body.components-form {
+  .shw-component-form-layout-highlight {
+    .hds-form {
+      outline: 1px dashed #78909c;
+
+      > .hds-form__header,
+      > .hds-form__section,
+      > .hds-button-set {
+        outline: 1px dashed #78909c;
+      }
+
+      > .hds-form__section {
+        background: #d2f4ff;
+      }
+    }
+  }
+
+  .shw-form-button-wrapper-margin {
+    margin: 24px 0;
+  }
+}

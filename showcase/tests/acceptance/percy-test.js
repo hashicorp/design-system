@@ -91,6 +91,9 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/flyout');
     await percySnapshot('Flyout');
 
+    await visit('/components/form');
+    await percySnapshot('Form');
+
     await visit('/components/form/base-elements');
     await click('button#dummy-toggle-highlight');
     await percySnapshot('Form - Base elements');
