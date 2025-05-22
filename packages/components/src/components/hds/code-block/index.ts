@@ -261,6 +261,8 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
     this._isExpanded = !this._isExpanded;
   }
 
+  // Logic for determining where line highlighting starts and ends taken from Prism.js plugin source code
+  // Context: https://github.com/PrismJS/prism/blob/19f8de66b0f3a79aedbbf096081a4060fc0e80af/src/plugins/line-highlight/prism-line-highlight.ts#L82
   private _addHighlightSrOnlyText(code: string): SafeString {
     const NEW_LINE_EXP = /\n(?!$)/g;
     const lines = code.split(NEW_LINE_EXP);
