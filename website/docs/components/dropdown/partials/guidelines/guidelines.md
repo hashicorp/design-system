@@ -74,11 +74,6 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 
 ToggleIcons come in two sizes: **small** and **medium**.
 
-!!! Info
-
-While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
-!!!
-
 <Doc::Layout @spacing="24px">
   <Hds::Dropdown as |D|>
     <D.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
@@ -269,12 +264,12 @@ Users may not understand why something is taking additional time to load. If pos
 
 #### Generic
 
-The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
-
 !!! Warning
 
 Be careful not to misuse or overuse the Generic ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
 !!!
+
+The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
 
 ![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png =449x*)
 
