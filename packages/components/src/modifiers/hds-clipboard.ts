@@ -88,7 +88,7 @@ export const getTextToCopyFromTargetElement = (
       textToCopy = targetElement.value;
     } else {
       // Hide any screen reader only text from the innerText calculation
-      let srOnlyTexts = targetElement.querySelectorAll('.sr-only');
+      const srOnlyTexts = targetElement.querySelectorAll('.sr-only');
       srOnlyTexts.forEach((el: Element) => {
         el.setAttribute('style', 'display: none;');
       });
