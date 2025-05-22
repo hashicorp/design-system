@@ -6,4 +6,5 @@
 // replace {{! ... }} handlebars comments
 
 export const removeHandlebarsComments = (markdownContent) =>
+  // eslint-disable-next-line no-useless-escape
   markdownContent.replace(/\{\{![^\}]+?\}\}/gim, '');

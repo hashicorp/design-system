@@ -7,7 +7,7 @@ import { visit } from 'unist-util-visit';
 
 export const debugLogNodes = () => (tree) => {
   console.log('==========================================================');
-  visit(tree, (node, _index, parent) => {
+  visit(tree, (node) => {
     // if (node.type === 'text') {
     // if (node.type !== 'root') {
     // if (node.type === 'text' && parent.type === 'paragraph') {

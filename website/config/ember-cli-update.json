@@ -10,9 +10,7 @@
           "outputRepo": "https://github.com/ember-cli/ember-new-output",
           "codemodsSource": "ember-app-codemods-manifest@1",
           "isBaseBlueprint": true,
-          "options": [
-            "--ci-provider=github"
-          ]
+          "options": ["--pnpm", "--no-welcome", "--no-ember-data"]
         }
       ]
     }

@@ -41,23 +41,23 @@ module.exports = {
       {
         srcDir: 'dist',
         destDir: 'ember',
-      }
+      },
     );
     return new MergeTrees([vendor, templateCompilerTree].filter(Boolean));
   },
 
   treeForPublic: function () {
     let processedDocsMardownFilesTree = new MarkdownProcessIncludeDirectives(
-      'docs'
+      'docs',
     );
     let processedDocsJsonFilesTree = new MarkdownToJson(
       processedDocsMardownFilesTree,
-      'docs'
+      'docs',
     );
 
     let processedTocFiles = new TableOfContents(
       processedDocsJsonFilesTree,
-      'docs'
+      'docs',
     );
 
     return new MergeTrees([processedDocsJsonFilesTree, processedTocFiles]);

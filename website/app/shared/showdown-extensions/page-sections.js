@@ -15,7 +15,7 @@ export const pageSections = function () {
       // https://regex101.com/r/ZMRcG9/1
       const langRegex = new RegExp(
         /^<section data-tab="([^>]*)">((.|\n)*?)<\/section>$/,
-        'gm'
+        'gm',
       );
       text = text.replace(langRegex, function (_match, tab, content) {
         // we use the ASP tag as passthrough "tag" because is simply ignored by the `hashHTMLBlocks` function in Showdown
@@ -36,7 +36,7 @@ export const pageSections = function () {
           // TODO understand if this is enough or we need something more solid
           const id = tab.toLowerCase().replace(' ', '-');
           return `<section id="${id}" data-tab="${tab}">\n`;
-        }
+        },
       );
       text = text.replace(/\n?<%asp end="page-section" %>/g, '</section>');
       // console.log('outputExtension2 text', '\n', text, '\n\n');

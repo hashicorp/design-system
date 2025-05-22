@@ -16,7 +16,7 @@ export default class FoundationsController extends Controller {
         .filter(
           (page) =>
             page.pageParents[0] === section &&
-            !page.pageAttributes?.navigation?.hidden
+            !page.pageAttributes?.navigation?.hidden,
         )
         .map((page) => {
           return {

@@ -22,7 +22,7 @@ export async function extractTables(tree) {
       (node) => {
         const cells = selectAll(
           'element[tagName=th], element[tagName=td]',
-          node
+          node,
         );
         const content = cells
           .map((cell) => stringifyChildNodes(cell))
@@ -31,7 +31,7 @@ export async function extractTables(tree) {
           content: cleanupContent(content),
           hierarchy: node.hierarchy,
         });
-      }
+      },
     );
   };
 

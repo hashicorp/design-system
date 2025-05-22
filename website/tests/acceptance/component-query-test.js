@@ -23,7 +23,7 @@ module('Acceptance | Component Tabs', function (hooks) {
     // Sidebar should show this component as the active "link"
 
     const activeLink = document.getElementsByClassName(
-      'doc-table-of-contents__link active'
+      'doc-table-of-contents__link active',
     );
 
     assert.ok(activeLink[0].textContent.includes('Alert'));

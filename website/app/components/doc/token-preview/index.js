@@ -34,7 +34,7 @@ export default class DocTokenPreviewComponent extends Component {
     }
     return isBackgroundImage
       ? htmlSafe(
-          `background-image: ${this.token.value}; background-color: ${backgroundColor}`
+          `background-image: ${this.token.value}; background-color: ${backgroundColor}`,
         )
       : undefined;
   }

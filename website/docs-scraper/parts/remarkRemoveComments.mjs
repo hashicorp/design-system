@@ -9,6 +9,6 @@ export const remarkRemoveComments = () => (tree) => {
   // inspired by: https://github.com/modernweb-dev/rocket/blob/754705423fc6c3f062f5818f9c979bf5988ad102/packages/mdjs-core/src/mdjsParse.js#L46
   remove(
     tree,
-    (node) => node.type === 'html' && node.value.match(/<!--([\s\S]*?)-->/g)
+    (node) => node.type === 'html' && node.value.match(/<!--([\s\S]*?)-->/g),
   );
 };

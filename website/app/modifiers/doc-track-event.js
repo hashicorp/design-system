@@ -22,7 +22,7 @@ export default class DocTrackEvent extends Modifier {
 
     assert(
       `@eventName for "doc-track-event" must be a string; received: ${eventName}`,
-      typeof eventName === 'string'
+      typeof eventName === 'string',
     );
 
     const handleTriggerEvent = () => {

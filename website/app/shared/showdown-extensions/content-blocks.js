@@ -30,7 +30,7 @@ export const contentBlocks = function () {
       // https://regex101.com/r/DebuYI/1
       const outputRegex = new RegExp(
         /<\?php start="content-block" type="(.*?)" \?>\n?/,
-        'g'
+        'g',
       );
       text = text.replace(outputRegex, function (_match, type) {
         if (type === 'do' || type === 'dont') {
@@ -47,7 +47,7 @@ export const contentBlocks = function () {
           } else {
             return '</Doc::Banner>';
           }
-        }
+        },
       );
       // console.log('outputExtension2 text', '\n', text, '\n\n');
       return text;

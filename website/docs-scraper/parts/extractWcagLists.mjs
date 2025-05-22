@@ -28,7 +28,7 @@ export async function extractWcagLists(tree) {
           : [];
         if (criteriaList.length > 0) {
           const validCriteria = criteriaList.filter((criterion) =>
-            Object.keys(WCAG_CRITERIA).includes(criterion)
+            Object.keys(WCAG_CRITERIA).includes(criterion),
           );
           if (validCriteria.length > 0) {
             wcagLists.push({
@@ -37,13 +37,13 @@ export async function extractWcagLists(tree) {
                   'number',
                   'title',
                   'description',
-                ])
+                ]),
               ),
               hierarchy: node.hierarchy,
             });
           }
         }
-      }
+      },
     );
   };
 

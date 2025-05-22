@@ -890,7 +890,7 @@ const CRITERIA = [
 export default class DocWcagListIndexComponent extends Component {
   get filteredCriteria() {
     return CRITERIA.filter((criterion) =>
-      this.args.criteriaList.includes(criterion.number)
+      this.args.criteriaList.includes(criterion.number),
     );
   }
 

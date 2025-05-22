@@ -163,7 +163,7 @@ export default class ShowController extends Controller {
 
     // check if the content is split in sections (and we need tabs) or is all together
     const documentSections = document.querySelectorAll(
-      `.doc-page-content section[data-tab]`
+      `.doc-page-content section[data-tab]`,
     );
 
     if (documentSections.length > 0) {
@@ -211,7 +211,7 @@ export default class ShowController extends Controller {
 
   applyCodeHighlighting() {
     const codeBlocks = document.querySelectorAll(
-      '.doc-code-block__code-snippet'
+      '.doc-code-block__code-snippet',
     );
     if (
       codeBlocks.length > 0 &&

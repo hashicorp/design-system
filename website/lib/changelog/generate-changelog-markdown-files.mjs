@@ -4,7 +4,6 @@
  */
 
 /* eslint-env node */
-/* eslint-disable no-console */
 
 import fs from 'fs';
 
@@ -117,7 +116,7 @@ const increaseHeadingsLevelByOne = (sourceText) => {
 const replaceMajorMinorPatchHeadings = (sourceText) => {
   return sourceText.replace(
     /^### (Major|Minor|Patch) Changes/gm,
-    '**$1 changes**'
+    '**$1 changes**',
   );
 };
 
@@ -149,7 +148,7 @@ code_changelogs.forEach((changelog) => {
     fs.writeFileSync(
       `./docs/whats-new/release-notes/partials/${changelog.id}.md`,
       content,
-      'utf8'
+      'utf8',
     );
   } catch (err) {
     console.error(err);
@@ -166,7 +165,7 @@ figma_changelogs.forEach((changelog) => {
     let changelogModified = changelogSource;
     changelogModified = replacePageTitleWithFigmaNameAndLink(
       changelogModified,
-      newTitle
+      newTitle,
     );
     changelogModified = keepOnlySubsetOfEntries(changelogModified, /^## /, 10);
     // changelogModified = replaceDateHeadings(changelogModified);
@@ -176,7 +175,7 @@ figma_changelogs.forEach((changelog) => {
     fs.writeFileSync(
       `./docs/whats-new/release-notes/partials/${changelog.id}.md`,
       content,
-      'utf8'
+      'utf8',
     );
   } catch (err) {
     console.error(err);

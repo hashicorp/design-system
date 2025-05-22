@@ -100,7 +100,7 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
     } else {
       fs.mkdirSync(
         `${allComponentsPath[componentName]}/partials/version-history`,
-        { recursive: true }
+        { recursive: true },
       );
     }
 
@@ -143,7 +143,7 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
       // Stringify the updated content
       const updatedContent = matter.stringify(
         parsedFrontMatter.content,
-        parsedFrontMatter.data
+        parsedFrontMatter.data,
       );
 
       // Write the updated content back to the index markdown file
@@ -178,7 +178,7 @@ const cleanComponentFrontMatter = (components, version) => {
       // Stringify the updated content
       const updatedContent = matter.stringify(
         parsedFrontMatter.content,
-        parsedFrontMatter.data
+        parsedFrontMatter.data,
       );
 
       // Write the updated content back to the index markdown file
@@ -195,7 +195,7 @@ const isNotPatchVersion = (version) => {
 
 // Extract current version
 const version = readVersionFromPackageJson(
-  '../packages/components/package.json'
+  '../packages/components/package.json',
 );
 
 // Determine component paths
@@ -222,7 +222,7 @@ const allComponentsPath = {
 
 // Read the main changelog entry for components
 const changelogContent = readChangelogContent(
-  './docs/whats-new/release-notes/partials/components.md'
+  './docs/whats-new/release-notes/partials/components.md',
 );
 // Extract the changelog for current version
 const currentVersionContent = extractVersion(changelogContent, version);
@@ -230,7 +230,7 @@ const currentVersionContent = extractVersion(changelogContent, version);
 // Extracts changelog entries for each components
 const componentChangelogEntries = extractComponentChangelogEntries(
   allComponentsPath,
-  currentVersionContent
+  currentVersionContent,
 );
 
 // Add changelog entries for each updated component

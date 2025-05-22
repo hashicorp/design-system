@@ -19,6 +19,6 @@ export const rehypeRemoveAllHdsElements = () => (tree) => {
       // see: https://unifiedjs.com/learn/recipe/remove-node/
       parent.children.splice(index, 1);
       return [SKIP, index];
-    }
+    },
   );
 };

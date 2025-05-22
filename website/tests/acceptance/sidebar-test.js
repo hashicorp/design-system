@@ -31,7 +31,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
     await visit('/components');
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]',
       )
       .exists({ count: 0 });
     assert
@@ -40,7 +40,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
     await fillIn('.doc-page-sidebar__filter input[type="search"]', 'ChEcKbOx');
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/checkbox"]',
       )
       .exists();
     assert
@@ -97,7 +97,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
 
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]',
       )
       .exists({ count: 0 });
 
@@ -107,7 +107,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
       .hasAttribute('aria-expanded', 'true');
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]',
       )
       .exists();
 
@@ -117,7 +117,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
       .hasAttribute('aria-expanded', 'false');
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/copy/button"]',
       )
       .exists({ count: 0 });
   });
@@ -138,7 +138,7 @@ module('Acceptance | Sidebar filter', function (hooks) {
       .exists({ count: 1 });
     assert
       .dom(
-        '.doc-page-sidebar__table-of-contents a[href="/components/form/radio-card"]'
+        '.doc-page-sidebar__table-of-contents a[href="/components/form/radio-card"]',
       )
       .exists();
   });

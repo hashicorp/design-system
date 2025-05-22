@@ -45,7 +45,7 @@ export async function extractComponentApis(tree) {
             lvl6: null,
           },
         });
-      }
+      },
     );
   };
 

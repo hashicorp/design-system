@@ -29,7 +29,7 @@ export default class DocLayoutIndexComponent extends Component {
 
     assert(
       '@direction for "Doc::Layout" must have a valid value',
-      DIRECTIONS.includes(direction)
+      DIRECTIONS.includes(direction),
     );
 
     return direction;
@@ -46,9 +46,9 @@ export default class DocLayoutIndexComponent extends Component {
 
     assert(
       `@spacing for "Doc::Layout" must include a number and one of the following CSS units: ${CSS_UNITS.join(
-        ', '
+        ', ',
       )}; received: "${spacing}"`,
-      spacing === undefined || spacing.match(cssUnitRegEx)
+      spacing === undefined || spacing.match(cssUnitRegEx),
     );
 
     if (spacing !== undefined) {
@@ -70,7 +70,7 @@ export default class DocLayoutIndexComponent extends Component {
 
     assert(
       '@align for "Doc::Layout" must have a valid value',
-      ALIGNMENTS.includes(align)
+      ALIGNMENTS.includes(align),
     );
 
     return align;

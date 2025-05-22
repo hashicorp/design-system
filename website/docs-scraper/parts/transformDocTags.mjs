@@ -9,6 +9,6 @@ export const transformDocTags = (markdownContent) =>
   markdownContent
     .replace(
       /<Doc::([^\s>]+)/gim,
-      (_match, p1) => `<div doc-${_.kebabCase(p1)}`
+      (_match, p1) => `<div doc-${_.kebabCase(p1)}`,
     )
     .replace(/<\/Doc::[^\s>]+>/gim, '</div>');
