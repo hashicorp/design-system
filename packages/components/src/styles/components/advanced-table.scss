@@ -119,7 +119,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       bottom: 0;
       z-index: 2;
       width: 24px;
-      transform: translateX(12.5px);
+      transform: translateX(50%);
       cursor: col-resize;
 
       &::after {
@@ -130,7 +130,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         z-index: 2;
         width: 1px;
         background-color: $hds-advanced-table-border-color;
-        transform: translateX(-11.5px);
+        transform: translateX(-11.5px); // (width of the handle (24px) - width of the visual handle (1px)) / 2 == 11.5px
         content: "";
       }
 
@@ -139,7 +139,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       &:hover::after,
       &.hds-advanced-table__th-resize-handle--resizing::after {
         width: 3px;
-        transform: translateX(-10.5px);
+        transform: translateX(-10.5px); // (width of the handle (24px) - width of the visual handle (3px)) / 2 == 10.5px
       }
 
       &:hover::after {
