@@ -188,7 +188,10 @@ module(
         <span class="sr-only">Text not to copy</span>
       </p>`);
       this.target = find('#test-target');
-      assert.deepEqual(getTextToCopyFromTargetElement(this.target), 'Lorem ipsum');
+      assert.deepEqual(
+        getTextToCopyFromTargetElement(this.target),
+        'Lorem ipsum',
+      );
     });
   },
 );
