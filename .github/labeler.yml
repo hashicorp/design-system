@@ -6,10 +6,6 @@ packages/components:
   - changed-files:
     - any-glob-to-any-file:
       - packages/components/**/*
-packages/ember-flight-icons:
-  - changed-files:
-    - any-glob-to-any-file:
-      - packages/ember-flight-icons/**/*
 packages/flight-icons:
   - changed-files:
     - any-glob-to-any-file:

@@ -320,115 +320,6 @@ importers:
         specifier: ^5.97.1
         version: 5.99.8
 
-  packages/ember-flight-icons:
-    dependencies:
-      '@embroider/addon-shim':
-        specifier: ^1.9.0
-        version: 1.9.0
-      '@hashicorp/flight-icons':
-        specifier: workspace:*
-        version: link:../flight-icons
-      decorator-transforms:
-        specifier: ^2.3.0
-        version: 2.3.0(@babel/core@7.27.1)
-      ember-get-config:
-        specifier: ^2.1.1
-        version: 2.1.1(@glint/template@1.5.2)
-    devDependencies:
-      '@babel/core':
-        specifier: ^7.27.1
-        version: 7.27.1
-      '@babel/plugin-transform-typescript':
-        specifier: ^7.27.1
-        version: 7.27.1(@babel/core@7.27.1)
-      '@babel/runtime':
-        specifier: ^7.27.1
-        version: 7.27.1
-      '@embroider/addon-dev':
-        specifier: ^7.1.1
-        version: 7.1.4(@glint/template@1.5.2)(rollup@4.39.0)
-      '@glimmer/component':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.27.1)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
-      '@glint/core':
-        specifier: ^1.5.2
-        version: 1.5.2(typescript@5.8.3)
-      '@glint/environment-ember-loose':
-        specifier: ^1.5.2
-        version: 1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)))
-      '@glint/environment-ember-template-imports':
-        specifier: ^1.5.2
-        version: 1.5.2(@glint/environment-ember-loose@1.5.2(patch_hash=d8f52aa753a983edc93b91e5564e4bb736c9bdeb66a6fa65d7d406ec20174b9c)(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8))))(@glint/template@1.5.2)
-      '@glint/template':
-        specifier: ^1.5.2
-        version: 1.5.2
-      '@rollup/plugin-babel':
-        specifier: ^6.0.4
-        version: 6.0.4(@babel/core@7.27.1)(@types/babel__core@7.20.5)(rollup@4.39.0)
-      '@tsconfig/ember':
-        specifier: ^3.0.8
-        version: 3.0.10
-      '@typescript-eslint/eslint-plugin':
-        specifier: ^8.18.1
-        version: 8.32.1(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
-      '@typescript-eslint/parser':
-        specifier: ^8.18.1
-        version: 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-      babel-plugin-ember-template-compilation:
-        specifier: ^2.3.0
-        version: 2.4.1
-      concurrently:
-        specifier: ^9.1.0
-        version: 9.1.2
-      ember-source:
-        specifier: ^5.12.0
-        version: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
-      ember-template-lint:
-        specifier: ^6.0.0
-        version: 6.1.0
-      ember-template-lint-plugin-prettier:
-        specifier: ^5.0.0
-        version: 5.0.0(ember-template-lint@6.1.0)(prettier@3.5.3)
-      eslint:
-        specifier: ^8.57.1
-        version: 8.57.1
-      eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@8.57.1)
-      eslint-plugin-ember:
-        specifier: ^12.3.3
-        version: 12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      eslint-plugin-import:
-        specifier: ^2.31.0
-        version: 2.31.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      eslint-plugin-n:
-        specifier: ^17.15.0
-        version: 17.18.0(eslint@8.57.1)
-      eslint-plugin-prettier:
-        specifier: ^5.2.1
-        version: 5.2.1(@types/eslint@9.6.1)(eslint-config-prettier@9.1.0(eslint@8.57.1))(eslint@8.57.1)(prettier@3.5.3)
-      eslint-plugin-qunit:
-        specifier: ^8.1.2
-        version: 8.1.2(eslint@8.57.1)
-      prettier:
-        specifier: ^3.4.2
-        version: 3.5.3
-      rollup:
-        specifier: ^4.28.1
-        version: 4.39.0
-      rollup-plugin-copy:
-        specifier: ^3.5.0
-        version: 3.5.0
-      typescript:
-        specifier: ^5.7.2
-        version: 5.8.3
-      webpack:
-        specifier: ^5.97.1
-        version: 5.99.8
-
   packages/flight-icons:
     devDependencies:
       '@figma-export/cli':
@@ -4298,10 +4189,6 @@ packages:
   babel-helpers@6.24.1:
     resolution: {integrity: sha512-n7pFrqQm44TCYvrCDb0MqabAF+JUBq+ijBvNMUxpkLjJaAu32faIexewMumrH5KLLJ1HDyT0PTEqRyAe/GwwuQ==}
 
-  babel-import-util@0.2.0:
-    resolution: {integrity: sha512-CtWYYHU/MgK88rxMrLfkD356dApswtR/kWZ/c6JifG1m10e7tBBrs/366dFzWMAoqYmG5/JSh+94tUSpIwh+ag==}
-    engines: {node: '>= 12.*'}
-
   babel-import-util@2.1.1:
     resolution: {integrity: sha512-3qBQWRjzP9NreSH/YrOEU1Lj5F60+pWSLP0kIdCWxjFHH7pX2YPHIxQ67el4gnMNfYoDxSDGcT0zpVlZ+gVtQA==}
     engines: {node: '>= 12.*'}
@@ -6378,10 +6265,6 @@ packages:
       '@ember/string': ^3.1.1 || ^4.0.0
       ember-source: ^3.28.0 || ^4.0.0 || >=5.0.0
 
-  ember-template-imports@3.4.2:
-    resolution: {integrity: sha512-OS8TUVG2kQYYwP3netunLVfeijPoOKIs1SvPQRTNOQX4Pu8xGGBEZmrv0U1YTnQn12Eg+p6w/0UdGbUnITjyzw==}
-    engines: {node: 12.* || >= 14}
-
   ember-template-imports@4.3.0:
     resolution: {integrity: sha512-jZ5D6KLKU8up/AynZltmKh4lkXBPgTGSPgomprI/55XvIVqn42UNUpEz7ra/mO3QiGODDZOUesbggPe49i38sQ==}
     engines: {node: 16.* || >= 18}
@@ -6392,11 +6275,6 @@ packages:
     peerDependencies:
       ember-template-lint: '>= 4.0.0'
       prettier: '>= 3.0.0'
-
-  ember-template-lint@6.1.0:
-    resolution: {integrity: sha512-UyzLPcyneG3mnbBfewyYIlV7fy6JKHQVAJy5a9+URdJKkZKN+3vQkQzIIlsz6dP/GpoXVB+datns5HlfMfliSA==}
-    engines: {node: ^18.18.0 || >= 20.9.0}
-    hasBin: true
 
   ember-template-lint@7.7.0:
     resolution: {integrity: sha512-KVQNeCdZHglpMm0YY4itu18xzw+IYeLLceWlL9tplCNcsQLSDYynyOvkzuQQH+y4JYN7aFnlxlxSGPyCOpBLZg==}
@@ -9924,7 +9802,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.13.0:
@@ -11551,9 +11428,6 @@ packages:
     resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
 
-  validate-peer-dependencies@1.2.0:
-    resolution: {integrity: sha512-nd2HUpKc6RWblPZQ2GDuI65sxJ2n/UqZwSBVtj64xlWjMx0m7ZB2m9b2JS3v1f+n9VWH/dd1CMhkHfP6pIdckA==}
-
   validate-peer-dependencies@2.2.0:
     resolution: {integrity: sha512-8X1OWlERjiUY6P6tdeU9E0EwO8RA3bahoOVG7ulOZT5MqgNDUO/BQoVjYiHPcNe+v8glsboZRIw9iToMAA2zAA==}
     engines: {node: '>= 12'}
@@ -12090,14 +11964,6 @@ snapshots:
       semver: 6.3.1
     transitivePeerDependencies:
       - supports-color
-
-  '@babel/eslint-parser@7.27.1(@babel/core@7.27.1)(eslint@8.57.1)':
-    dependencies:
-      '@babel/core': 7.27.1
-      '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
-      eslint: 8.57.1
-      eslint-visitor-keys: 2.1.0
-      semver: 6.3.1
 
   '@babel/eslint-parser@7.27.1(@babel/core@7.27.1)(eslint@9.27.0)':
     dependencies:
@@ -16010,8 +15876,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-import-util@0.2.0: {}
-
   babel-import-util@2.1.1: {}
 
   babel-import-util@3.0.0: {}
@@ -18907,21 +18771,6 @@ snapshots:
       - '@glint/template'
       - supports-color
 
-  ember-eslint-parser@0.5.9(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1):
-    dependencies:
-      '@babel/core': 7.27.1
-      '@babel/eslint-parser': 7.27.1(@babel/core@7.27.1)(eslint@8.57.1)
-      '@glimmer/syntax': 0.92.3
-      content-tag: 2.0.3
-      eslint-scope: 7.2.2
-      html-tags: 3.3.1
-      mathml-tag-names: 2.1.3
-      svg-tags: 1.0.0
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-    transitivePeerDependencies:
-      - eslint
-
   ember-eslint-parser@0.5.9(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0):
     dependencies:
       '@babel/core': 7.27.1
@@ -19256,20 +19105,6 @@ snapshots:
       - '@babel/core'
       - supports-color
 
-  ember-template-imports@3.4.2:
-    dependencies:
-      babel-import-util: 0.2.0
-      broccoli-stew: 3.0.0
-      ember-cli-babel-plugin-helpers: 1.1.1
-      ember-cli-version-checker: 5.1.2
-      line-column: 1.0.2
-      magic-string: 0.25.9
-      parse-static-imports: 1.1.0
-      string.prototype.matchall: 4.0.12
-      validate-peer-dependencies: 1.2.0
-    transitivePeerDependencies:
-      - supports-color
-
   ember-template-imports@4.3.0:
     dependencies:
       broccoli-stew: 3.0.0
@@ -19278,42 +19113,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@6.1.0)(prettier@3.5.3):
-    dependencies:
-      '@prettier/sync': 0.2.1(prettier@3.5.3)
-      ember-template-lint: 6.1.0
-      prettier: 3.5.3
-      prettier-linter-helpers: 1.0.0
-
   ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@7.7.0(@babel/core@7.27.1))(prettier@3.5.3):
     dependencies:
       '@prettier/sync': 0.2.1(prettier@3.5.3)
       ember-template-lint: 7.7.0(@babel/core@7.27.1)
       prettier: 3.5.3
       prettier-linter-helpers: 1.0.0
-
-  ember-template-lint@6.1.0:
-    dependencies:
-      '@lint-todo/utils': 13.1.1
-      aria-query: 5.3.2
-      chalk: 5.4.1
-      ci-info: 4.1.0
-      date-fns: 3.6.0
-      ember-template-imports: 3.4.2
-      ember-template-recast: 6.1.5
-      eslint-formatter-kakoune: 1.0.0
-      find-up: 7.0.0
-      fuse.js: 7.0.0
-      get-stdin: 9.0.0
-      globby: 14.0.2
-      is-glob: 4.0.3
-      language-tags: 1.0.9
-      micromatch: 4.0.8
-      resolve: 1.22.10
-      v8-compile-cache: 2.4.0
-      yargs: 17.7.2
-    transitivePeerDependencies:
-      - supports-color
 
   ember-template-lint@7.7.0(@babel/core@7.27.1):
     dependencies:
@@ -19649,11 +19454,6 @@ snapshots:
     optionalDependencies:
       source-map: 0.6.1
 
-  eslint-compat-utils@0.5.1(eslint@8.57.1):
-    dependencies:
-      eslint: 8.57.1
-      semver: 7.6.3
-
   eslint-compat-utils@0.5.1(eslint@9.27.0):
     dependencies:
       eslint: 9.27.0
@@ -19677,16 +19477,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-module-utils@2.12.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1):
-    dependencies:
-      debug: 3.2.7
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-      eslint: 8.57.1
-      eslint-import-resolver-node: 0.3.9
-    transitivePeerDependencies:
-      - supports-color
-
   eslint-module-utils@2.12.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.27.0):
     dependencies:
       debug: 3.2.7
@@ -19696,24 +19486,6 @@ snapshots:
       eslint-import-resolver-node: 0.3.9
     transitivePeerDependencies:
       - supports-color
-
-  eslint-plugin-ember@12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1):
-    dependencies:
-      '@ember-data/rfc395-data': 0.0.4
-      css-tree: 3.1.0
-      ember-eslint-parser: 0.5.9(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)
-      ember-rfc176-data: 0.3.18
-      eslint: 8.57.1
-      eslint-utils: 3.0.0(eslint@8.57.1)
-      estraverse: 5.3.0
-      lodash.camelcase: 4.3.0
-      lodash.kebabcase: 4.1.1
-      requireindex: 1.2.0
-      snake-case: 3.0.4
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-    transitivePeerDependencies:
-      - '@babel/core'
 
   eslint-plugin-ember@12.5.0(@babel/core@7.27.1)(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0):
     dependencies:
@@ -19733,13 +19505,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
 
-  eslint-plugin-es-x@7.8.0(eslint@8.57.1):
-    dependencies:
-      '@eslint-community/eslint-utils': 4.7.0(eslint@8.57.1)
-      '@eslint-community/regexpp': 4.12.1
-      eslint: 8.57.1
-      eslint-compat-utils: 0.5.1(eslint@8.57.1)
-
   eslint-plugin-es-x@7.8.0(eslint@9.27.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.7.0(eslint@9.27.0)
@@ -19752,35 +19517,6 @@ snapshots:
       eslint: 8.57.1
       eslint-utils: 2.1.0
       regexpp: 3.2.0
-
-  eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1):
-    dependencies:
-      '@rtsao/scc': 1.1.0
-      array-includes: 3.1.8
-      array.prototype.findlastindex: 1.2.5
-      array.prototype.flat: 1.3.3
-      array.prototype.flatmap: 1.3.3
-      debug: 3.2.7
-      doctrine: 2.1.0
-      eslint: 8.57.1
-      eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.12.0(@typescript-eslint/parser@8.32.1(eslint@8.57.1)(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@8.57.1)
-      hasown: 2.0.2
-      is-core-module: 2.16.1
-      is-glob: 4.0.3
-      minimatch: 3.1.2
-      object.fromentries: 2.0.8
-      object.groupby: 1.0.3
-      object.values: 1.2.1
-      semver: 6.3.1
-      string.prototype.trimend: 1.0.9
-      tsconfig-paths: 3.15.0
-    optionalDependencies:
-      '@typescript-eslint/parser': 8.32.1(eslint@8.57.1)(typescript@5.8.3)
-    transitivePeerDependencies:
-      - eslint-import-resolver-typescript
-      - eslint-import-resolver-webpack
-      - supports-color
 
   eslint-plugin-import@2.31.0(@typescript-eslint/parser@8.32.1(eslint@9.27.0)(typescript@5.8.3))(eslint@9.27.0):
     dependencies:
@@ -19810,18 +19546,6 @@ snapshots:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
-
-  eslint-plugin-n@17.18.0(eslint@8.57.1):
-    dependencies:
-      '@eslint-community/eslint-utils': 4.7.0(eslint@8.57.1)
-      enhanced-resolve: 5.18.0
-      eslint: 8.57.1
-      eslint-plugin-es-x: 7.8.0(eslint@8.57.1)
-      get-tsconfig: 4.8.1
-      globals: 15.15.0
-      ignore: 5.3.2
-      minimatch: 9.0.5
-      semver: 7.6.3
 
   eslint-plugin-n@17.18.0(eslint@9.27.0):
     dependencies:
@@ -19855,13 +19579,6 @@ snapshots:
       '@types/eslint': 9.6.1
       eslint-config-prettier: 9.1.0(eslint@8.57.1)
 
-  eslint-plugin-qunit@8.1.2(eslint@8.57.1):
-    dependencies:
-      eslint-utils: 3.0.0(eslint@8.57.1)
-      requireindex: 1.2.0
-    transitivePeerDependencies:
-      - eslint
-
   eslint-plugin-qunit@8.1.2(eslint@9.27.0):
     dependencies:
       eslint-utils: 3.0.0(eslint@9.27.0)
@@ -19887,11 +19604,6 @@ snapshots:
   eslint-utils@2.1.0:
     dependencies:
       eslint-visitor-keys: 1.3.0
-
-  eslint-utils@3.0.0(eslint@8.57.1):
-    dependencies:
-      eslint: 8.57.1
-      eslint-visitor-keys: 2.1.0
 
   eslint-utils@3.0.0(eslint@9.27.0):
     dependencies:
@@ -25988,11 +25700,6 @@ snapshots:
       spdx-expression-parse: 3.0.1
 
   validate-npm-package-name@5.0.1: {}
-
-  validate-peer-dependencies@1.2.0:
-    dependencies:
-      resolve-package-path: 3.1.0
-      semver: 7.6.3
 
   validate-peer-dependencies@2.2.0:
     dependencies:

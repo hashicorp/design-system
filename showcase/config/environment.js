@@ -19,9 +19,7 @@ module.exports = function (environment) {
       },
     },
     // enabled here to aid in testing this feature within our component library
-    emberFlightIcons: {
-      lazyEmbed: true,
-    },
+    flightIconsSpriteLazyEmbed: true,
 
     APP: {
       // Here you can pass flags/options to your application instance
