@@ -8,7 +8,7 @@ import { tracked } from '@glimmer/tracking';
 import { htmlSafe } from '@ember/template';
 import { assert } from '@ember/debug';
 
-import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
+import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
 
 import type Owner from '@ember/owner';
 import type { LinkTo } from '@ember/routing';
@@ -40,12 +40,12 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
 
     // we want to avoid resolving the component if it's not needed
     if (args.isRouteExternal) {
-      void this.setupComponent();
+      void this.resolveLinkToExternal();
     }
   }
 
-  async setupComponent() {
-    this.linkToExternal = await hdsResolveLinkToComponent(
+  async resolveLinkToExternal() {
+    this.linkToExternal = await hdsResolveLinkToExternal(
       this.args.isRouteExternal
     );
   }

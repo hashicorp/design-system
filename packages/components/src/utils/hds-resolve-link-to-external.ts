@@ -7,7 +7,7 @@ import { assert } from '@ember/debug';
  * @param isRouteExternal - If true, will return the `LinkToExternal` component. If `ember-engines` is not installed, an assertion will be thrown.
  * @returns A promise resolving to the correct component to use for the `LinkTo`.
  */
-export async function hdsResolveLinkToComponent(
+export async function hdsResolveLinkToExternal(
   isRouteExternal?: boolean
 ): Promise<typeof LinkTo> {
   if (isRouteExternal) {

@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import { hdsResolveLinkToComponent } from '../../../utils/hds-resolve-link-to-component.ts';
+import { hdsResolveLinkToExternal } from '../../../utils/hds-resolve-link-to-external.ts';
 
 import type Owner from '@ember/owner';
 import type { LinkTo } from '@ember/routing';
@@ -45,7 +45,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
   }
 
   async resolveLinkToExternal() {
-    this.linkToExternal = await hdsResolveLinkToComponent(
+    this.linkToExternal = await hdsResolveLinkToExternal(
       this.args.isRouteExternal
     );
   }
