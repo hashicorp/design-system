@@ -154,14 +154,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
           );
         }
       }
-
-      // Return focus to a specific element (if provided)
-      if (this.args.returnFocusTo) {
-        const initiator = document.getElementById(this.args.returnFocusTo);
-        if (initiator) {
-          initiator.focus();
-        }
-      }
     }
   }
 
@@ -244,5 +236,13 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
     // Make modal dialog invisible using the native `close` method
     this._element.close();
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
+      }
+    }
   }
 }
