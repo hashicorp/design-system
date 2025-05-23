@@ -69,7 +69,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     super(owner, args);
 
     registerDestructor(this, (): void => {
-      document.removeEventListener('click', this._clickHandler);
+      document.removeEventListener('mousedown', this._clickHandler);
     });
   }
 
@@ -195,10 +195,18 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     };
 
-    document.addEventListener('pointerdown', this._clickHandler, {
+    // document.addEventListener('pointerdown', this._clickHandler, {
+    //   capture: true,
+    //   passive: false,
+    // });
+    document.addEventListener('mousedown', this._clickHandler, {
       capture: true,
       passive: false,
     });
+    // document.addEventListener('touchstart', this._clickHandler, {
+    //   capture: true,
+    //   passive: false,
+    // });
   }
 
   @action
