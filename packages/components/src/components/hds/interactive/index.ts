@@ -44,7 +44,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
     }
   }
 
-  async setupComponent() {
+  async resolveLinkToExternal() {
     this.linkToExternal = await hdsResolveLinkToComponent(
       this.args.isRouteExternal
     );
