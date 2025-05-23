@@ -16,6 +16,7 @@ $hds-advanced-table-inner-border-radius: calc(
   #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
 );
 $hds-advanced-table-border-color: var(--token-color-border-primary);
+$hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
@@ -86,6 +87,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     display: contents;
 
     .hds-advanced-table__th {
+      position: relative;
       align-content: center;
       height: 100%;
       padding: $hds-advanced-table-cell-padding-medium;
@@ -106,6 +108,48 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         );
         z-index: 1;
         isolation: isolate;
+      }
+    }
+
+    .hds-advanced-table__th-resize-handle {
+      @include hds-focus-ring-with-pseudo-element($position: absolute);
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 24px;
+      transform: translateX(50%);
+      cursor: col-resize;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 1px;
+        background-color: $hds-advanced-table-border-color;
+        transform: translateX(-11.5px); // (width of the handle (24px) - width of the visual handle (1px)) / 2 == 11.5px
+        content: "";
+      }
+
+      &:focus::after,
+      &.mock-focus,
+      &:hover::after,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        width: 3px;
+        transform: translateX(-10.5px); // (width of the handle (24px) - width of the visual handle (3px)) / 2 == 10.5px
+      }
+
+      &:hover::after {
+        background-color: $hds-advanced-table-border-resize-handle-hover-color;
+      }
+
+      &:focus::after,
+      &.mock-focus,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        background-color: var(--token-color-palette-blue-300);
       }
     }
 

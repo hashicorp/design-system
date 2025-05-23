@@ -76,11 +76,14 @@ export type HdsAdvancedTableExpandState = boolean;
 
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
+  isResizable?: boolean;
   isVisuallyHidden?: boolean;
   label: string;
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
   tooltip?: string;
   width?: string;
+  minWidth?: `${number}px`;
+  maxWidth?: `${number}px`;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
