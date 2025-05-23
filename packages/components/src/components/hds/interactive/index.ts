@@ -40,7 +40,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
 
     // we want to avoid resolving the component if it's not needed
     if (args.isRouteExternal) {
-      void this.setupComponent();
+      void this.resolveLinkToExternal();
     }
   }
 
