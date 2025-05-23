@@ -38,7 +38,7 @@ export default class HdsBreadcrumbItem extends Component<HdsBreadcrumbItemSignat
   constructor(owner: Owner, args: HdsBreadcrumbItemSignature['Args']) {
     super(owner, args);
 
-    // if want to make sure that we do not try to resolve the component if it's not needed
+    // we want to avoid resolving the component if it's not needed
     if (args.isRouteExternal) {
       void this.setupComponent();
     }
