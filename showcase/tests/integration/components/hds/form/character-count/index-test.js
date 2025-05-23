@@ -135,10 +135,10 @@ module(
         hbs`
         <input type="hidden" value={{this.value}} id="input-2" {{on "input" this.update}} />
         <Hds::Form::CharacterCount @value={{this.value}} @minLength={{20}} @maxLength={{40}} @controlId="input-2" id="test-form-character-count" as |CC|>
-          maxLength {{CC.maxLength}} 
-          minLength {{CC.minLength}} 
-          remaining {{CC.remaining}} 
-          shortfall {{CC.shortfall}} 
+          maxLength {{CC.maxLength}}
+          minLength {{CC.minLength}}
+          remaining {{CC.remaining}}
+          shortfall {{CC.shortfall}}
           currentLength {{CC.currentLength}}
         </Hds::Form::CharacterCount>`,
       );

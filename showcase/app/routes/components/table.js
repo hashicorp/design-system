@@ -4,7 +4,7 @@
  */
 
 import Route from '@ember/routing/route';
-import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table';
+import { DENSITIES } from '@hashicorp/design-system-components/components/hds/table/index';
 
 // basic function that clones an array of objects (not deep)
 const clone = (arr) => {

@@ -5,8 +5,8 @@
 
 import Route from '@ember/routing/route';
 
-import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item';
-import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item';
+import { SIZES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
+import { TYPES } from '@hashicorp/design-system-components/components/hds/accordion/item/index';
 
 export default class ComponentsAccordionRoute extends Route {
   model() {

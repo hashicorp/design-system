@@ -5,7 +5,7 @@
 
 import Route from '@ember/routing/route';
 
-import { SIZES } from '@hashicorp/design-system-components/components/hds/flyout';
+import { SIZES } from '@hashicorp/design-system-components/components/hds/flyout/index';
 
 export default class ComponentsFlyoutRoute extends Route {
   model() {

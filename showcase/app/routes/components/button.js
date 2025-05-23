@@ -8,7 +8,7 @@ import Route from '@ember/routing/route';
 import {
   SIZES,
   COLORS,
-} from '@hashicorp/design-system-components/components/hds/button';
+} from '@hashicorp/design-system-components/components/hds/button/index';
 export default class ComponentsButtonRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
