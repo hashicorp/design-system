@@ -18,13 +18,13 @@ Conversations between the user and the system can be:
 
 - **Two-way**: A conversation between the system and the user. It is commonly initiated by a user action, e.g., interacting with a button, and often requires user engagement. Modal dialogs are best for two-way conversations.
 
-## What a “dialog” isn’t
+### What a “dialog” isn’t
 
-### Form errors and alerts
+#### Form errors and alerts
 
 When a form is submitted with errors, it’s common to show an alert before the form. This kind of experience is not considered a dialog because, although the system communicates the error to the user (conversational), alerts do not overlay the UI or interrupt the user’s workflow.
 
-### Tooltip or Rich Tooltip
+#### Tooltip or Rich Tooltip
 
 While the Tooltip and Rich Tooltip overlay the UI and block content underneath, they display static informational content and are not seen as a conversation between the system and user.
 
@@ -39,4 +39,4 @@ A common example of a non-modal dialog is a SplitWindow, Panel, or Drawer. This 
 
 ![Example of a non-modal example](/assets/components/dialog-primitives/dialog-primitive-non-modal-example.png)
 
-_If you discover a use case outside of this example, [contact the Design Systems Team](/about/support) for assistance._
+_If you discover other use cases, [contact the Design Systems Team](/about/support) for assistance._
