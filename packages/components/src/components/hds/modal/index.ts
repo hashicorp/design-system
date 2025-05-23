@@ -63,13 +63,14 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
-  private _clickHandler!: (event: MouseEvent) => void;
+  private _clickHandler!: (event: MouseEvent | TouchEvent) => void;
 
   constructor(owner: Owner, args: HdsModalSignature['Args']) {
     super(owner, args);
 
     registerDestructor(this, (): void => {
       document.removeEventListener('mousedown', this._clickHandler);
+      document.removeEventListener('touchstart', this._clickHandler);
     });
   }
 
@@ -186,7 +187,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
       this.open();
     }
 
-    this._clickHandler = (event: MouseEvent) => {
+    this._clickHandler = (event: MouseEvent | TouchEvent) => {
       // check if the click is outside the modal and the modal is open
       if (!this._element.contains(event.target as Node) && this._isOpen) {
         if (!this.isDismissDisabled) {
@@ -195,18 +196,14 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     };
 
-    // document.addEventListener('pointerdown', this._clickHandler, {
-    //   capture: true,
-    //   passive: false,
-    // });
     document.addEventListener('mousedown', this._clickHandler, {
       capture: true,
       passive: false,
     });
-    // document.addEventListener('touchstart', this._clickHandler, {
-    //   capture: true,
-    //   passive: false,
-    // });
+    document.addEventListener('touchstart', this._clickHandler, {
+      capture: true,
+      passive: false,
+    });
   }
 
   @action
