@@ -3,14 +3,14 @@
 {{! NOTICE: we can't support the direct use of the "href" HTML attribute via ...attributes in the <a> elements, because we need to rely on the "@href" Ember argument to differentiate between different types of generated output }}
 {{~#if @route~}}
   {{~#if this.isRouteExternal~}}
-    <LinkToExternal
+    <this.linkToExternal
       @current-when={{@current-when}}
       @models={{hds-link-to-models @model @models}}
       @query={{hds-link-to-query @query}}
       @replace={{@replace}}
       @route={{@route}}
       ...attributes
-    >{{yield}}</LinkToExternal>
+    >{{yield}}</this.linkToExternal>
   {{~else~}}
     <LinkTo
       @current-when={{@current-when}}

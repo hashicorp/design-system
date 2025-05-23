@@ -118,6 +118,14 @@
     "typescript-eslint": "^8.29.0",
     "webpack": "^5.97.1"
   },
+  "peerDependencies": {
+    "ember-engines": ">= 0.11.0"
+  },
+  "peerDependenciesMeta": {
+    "ember-engines": {
+      "optional": true
+    }
+  },
   "ember": {
     "edition": "octane"
   },
