@@ -195,10 +195,10 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     };
 
-    // document.addEventListener('click', this._clickHandler, {
-    //   capture: true,
-    //   passive: false,
-    // });
+    document.addEventListener('pointerdown', this._clickHandler, {
+      capture: true,
+      passive: false,
+    });
   }
 
   @action
