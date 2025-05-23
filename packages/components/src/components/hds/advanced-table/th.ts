@@ -28,19 +28,23 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSignature {
   Args: {
+    align?: HdsAdvancedTableHorizontalAlignment;
     column?: HdsAdvancedTableColumn;
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
+    isExpandable?: boolean;
     isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    isVisuallyHidden?: boolean;
     newLabel?: string;
     nextColumn?: HdsAdvancedTableColumn;
     parentId?: string;
     rowspan?: number;
     scope?: HdsAdvancedTableScope;
+    tooltip?: string;
     tableHeight?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
@@ -81,7 +85,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get align(): HdsAdvancedTableHorizontalAlignment {
-    const { align = DEFAULT_ALIGN } = this.args.column ?? {};
+    const { align = DEFAULT_ALIGN } = this.args;
 
     assert(
       `@align for "Hds::Table::Th" must be one of the following: ${ALIGNMENTS.join(
@@ -89,6 +93,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       )}; received: ${align}`,
       ALIGNMENTS.includes(align)
     );
+
     return align;
   }
 

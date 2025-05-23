@@ -5,7 +5,16 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, focus, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  find,
+  settled,
+  triggerEvent,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -126,6 +135,31 @@ const setNestedTableData = (context) => {
   ]);
 };
 
+const setResizableColumnsTableData = (context) => {
+  context.set('model', [
+    { id: '1', col1: 'A', col2: 'B' },
+    { id: '2', col1: 'C', col2: 'D' },
+  ]);
+  context.set('columns', [
+    {
+      key: 'col1',
+      label: 'Col 1',
+      isResizable: true,
+      width: '120px',
+      minWidth: '60px',
+      maxWidth: '300px',
+    },
+    {
+      key: 'col2',
+      label: 'Col 2',
+      isResizable: true,
+      width: '120px',
+      minWidth: '60px',
+      maxWidth: '300px',
+    },
+  ]);
+};
+
 const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   @model={{this.model}}
   @sortBy={{this.sortBy}}
@@ -171,6 +205,17 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Th>{{B.data.name}}</B.Th>
       <B.Td>{{B.data.status}}</B.Td>
       <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
+
+const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
+  @model={{this.model}} @columns={{this.columns}} id="resize-test-table"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.col1}}</B.Td>
+      <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>`;
@@ -1291,5 +1336,145 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     }
 
     assert.dom(expandAllButton).hasAria('expanded', 'true');
+  });
+
+  test('it should allow resizing columns with the resize handle (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    assert
+      .dom('.hds-advanced-table__th-resize-handle')
+      .exists({ count: 1 }, 'There is one resize handle (not on last column)');
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+    const initialWidth = th.style.width || getComputedStyle(th).width;
+
+    // Simulate pointer drag to the right (increase width)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(handle, 'pointermove', { clientX: 130 });
+    await triggerEvent(window, 'pointerup');
+
+    const newWidth = th.style.width || getComputedStyle(th).width;
+    assert.notEqual(newWidth, initialWidth, 'Column width changed after drag');
+  });
+
+  test('it should allow resizing columns with the resize handle (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+    const initialWidth = th.style.width || getComputedStyle(th).width;
+
+    // Focus and send ArrowRight key
+    await focus(handle);
+    await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+    const widthAfterRight = th.style.width || getComputedStyle(th).width;
+    assert.notEqual(
+      widthAfterRight,
+      initialWidth,
+      'Column width increased after ArrowRight',
+    );
+
+    // Send ArrowLeft key
+    await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+    const widthAfterLeft = th.style.width || getComputedStyle(th).width;
+    assert.notEqual(
+      widthAfterLeft,
+      widthAfterRight,
+      'Column width decreased after ArrowLeft',
+    );
+  });
+
+  test('it should not allow resizing columns below their minimum width (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    // Try to resize column to a very small width (well below minWidth of 60px)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(window, 'pointermove', { clientX: 1 });
+    await triggerEvent(window, 'pointerup');
+
+    const newWidthString = th.style.width || getComputedStyle(th).width;
+    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+
+    assert.ok(
+      newWidth >= 60,
+      `Column width respects minimum width constraint (actual: ${newWidth}px, min: 60px)`,
+    );
+  });
+
+  test('it should not allow resizing columns above their maximum width (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    // Try to resize column to a very large width (well below minWidth of 60px)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(window, 'pointermove', { clientX: 10000 });
+    await triggerEvent(window, 'pointerup');
+
+    // Check the new width
+    const newWidthString = th.style.width || getComputedStyle(th).width;
+    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+
+    assert.ok(
+      newWidth <= 300,
+      `Column width respects maximum width constraint (actual: ${newWidth}px, max: 300px)`,
+    );
+  });
+
+  test('it should not allow resizing columns below their minimum width (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    // Focus handle and press ArrowLeft multiple times to try going below min width
+    await focus(handle);
+
+    for (let i = 0; i < 10; i++) {
+      // moves left 10px each time
+      await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+    }
+
+    const newWidthString = th.style.width || getComputedStyle(th).width;
+    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+
+    assert.ok(
+      newWidth >= 60,
+      `Column width respects minimum width constraint with keyboard events (actual: ${newWidth}px, min: 60px)`,
+    );
+  });
+
+  test('it should not allow resizing columns above their maximum width (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    // Focus handle and press ArrowLeft multiple times to try going below min width
+    await focus(handle);
+
+    for (let i = 0; i < 10; i++) {
+      // moves right 10px each time
+      await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+    }
+
+    const newWidthString = th.style.width || getComputedStyle(th).width;
+    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+
+    assert.ok(
+      newWidth <= 300,
+      `Column width respects maximum width constraint with keyboard events (actual: ${newWidth}px, max: 300px)`,
+    );
   });
 });

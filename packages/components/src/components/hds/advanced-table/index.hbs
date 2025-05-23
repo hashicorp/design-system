@@ -53,15 +53,20 @@
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
           {{else}}
+            {{log column.isExpandable}}
             <Hds::AdvancedTable::Th
+              @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
               @isExpanded={{this._tableModel.expandState}}
+              @isExpandable={{column.isExpandable}}
               @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @isVisuallyHidden={{column.isVisuallyHidden}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
+              @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
             >
               {{column.label}}
