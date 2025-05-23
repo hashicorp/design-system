@@ -11,7 +11,6 @@ import {
   focus,
   setupOnerror,
   find,
-  settled,
   triggerEvent,
   triggerKeyEvent,
 } from '@ember/test-helpers';
