@@ -5,8 +5,10 @@
 
 <div class={{this.classNames}} ...attributes {{this._setUpCodeObserver}}>
   <div class="hds-code-block__header">
-    {{~yield (hash Title=(component "hds/code-block/title"))~}}
-    {{~yield (hash Description=(component "hds/code-block/description"))~}}
+    {{~yield (hash Title=(component "hds/code-block/title" didInsertNode=this.registerTitleElement))~}}
+    {{~yield
+      (hash Description=(component "hds/code-block/description" didInsertNode=this.registerDescriptionElement))
+    ~}}
   </div>
   <div class="hds-code-block__body">
     {{! content within pre tag is whitespace-sensitive; do not add new lines! }}
@@ -16,6 +18,9 @@
       data-line={{@highlightLines}}
       data-start={{@lineNumberStart}}
       id={{this._preCodeId}}
+      aria-label={{@ariaLabel}}
+      aria-labelledby={{this.ariaLabelledBy}}
+      aria-describedby={{this.ariaDescribedBy}}
       tabindex="0"
     ><code {{this._setUpCodeBlockCode}}>
         {{~this._prismCode~}}

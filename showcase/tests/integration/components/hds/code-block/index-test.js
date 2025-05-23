@@ -66,7 +66,15 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
         <CB.Description>Description</CB.Description>
       </Hds::CodeBlock>
     `);
+    let titleId = document
+      .querySelector('.hds-code-block__title')
+      .getAttribute('id');
+    assert.dom('.hds-code-block__code').hasAria('labelledby', titleId);
     assert.dom('.hds-code-block__title').hasText('Title');
+    let descriptionId = document
+      .querySelector('.hds-code-block__description')
+      .getAttribute('id');
+    assert.dom('.hds-code-block__code').hasAria('describedby', descriptionId);
     assert.dom('.hds-code-block__description').hasText('Description');
   });
 
@@ -89,6 +97,36 @@ module('Integration | Component | hds/code-block/index', function (hooks) {
   });
 
   // OPTIONS
+
+  // ariaLabel
+  test('it sets the aria-label property to the value provided', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @ariaLabel="test" id="test-code-block" />
+    `);
+    assert.dom('.hds-code-block__code').hasAria('label', 'test');
+  });
+
+  // ariaLabelledBy
+  test('it sets the aria-labelledby property to the value provided', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @ariaLabelledBy="test-id" id="test-code-block" />
+    `);
+    assert.dom('.hds-code-block__code').hasAria('labelledby', 'test-id');
+  });
+  test('it does not set the aria-labelledby property to the value provided if an ariaLabel argument is set', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @ariaLabel="test" @ariaLabelledBy="test-id" id="test-code-block" />
+    `);
+    assert.dom('.hds-code-block__code').doesNotHaveAria('labelledby');
+  });
+
+  // ariaDescribedBy
+  test('it sets the aria-describedby property to the value provided', async function (assert) {
+    await render(hbs`
+      <Hds::CodeBlock @value="console.log('Hello world');" @ariaDescribedBy="test-id" id="test-code-block" />
+    `);
+    assert.dom('.hds-code-block__code').hasAria('describedby', 'test-id');
+  });
 
   // isStandalone
   test('it has rounded corners by default', async function (assert) {

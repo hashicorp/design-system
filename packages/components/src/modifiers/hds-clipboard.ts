@@ -87,8 +87,19 @@ export const getTextToCopyFromTargetElement = (
     ) {
       textToCopy = targetElement.value;
     } else {
+      // Hide any screen reader only text from the innerText calculation
+      const srOnlyTexts = targetElement.querySelectorAll('.sr-only');
+      srOnlyTexts.forEach((el: Element) => {
+        el.setAttribute('style', 'display: none;');
+      });
+
       // simplest approach
       textToCopy = targetElement.innerText;
+
+      // Restore visibility of screen reader only text
+      srOnlyTexts.forEach((el: Element) => {
+        el.removeAttribute('style');
+      });
 
       // approach based on text selection (left for backup just in case)
       // var selection = window.getSelection();
