@@ -38,7 +38,7 @@ export default class HdsInteractive extends Component<HdsInteractiveSignature> {
   constructor(owner: Owner, args: HdsInteractiveSignature['Args']) {
     super(owner, args);
 
-    // if want to make sure that we do not try to resolve the component if it's not needed
+    // we want to avoid resolving the component if it's not needed
     if (args.isRouteExternal) {
       void this.setupComponent();
     }
