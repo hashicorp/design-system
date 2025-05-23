@@ -10,6 +10,7 @@ import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 import { registerDestructor } from '@ember/destroyable';
+// import { tabbable } from 'tabbable';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -70,7 +71,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
     registerDestructor(this, (): void => {
       document.removeEventListener('mousedown', this._clickHandler);
-      // document.removeEventListener('touchstart', this._clickHandler);
+      document.removeEventListener('touchstart', this._clickHandler);
     });
   }
 
@@ -196,10 +197,14 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     };
 
-    document.addEventListener('mousedown', this._clickHandler, {
-      capture: true,
-      passive: false,
-    });
+    document.addEventListener(
+      'mousedown',
+      this._clickHandler
+      //   , {
+      //   capture: true,
+      //   passive: false,
+      // }
+    );
     // document.addEventListener('touchstart', this._clickHandler, {
     //   capture: true,
     //   passive: false,
