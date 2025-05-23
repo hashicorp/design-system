@@ -11,6 +11,15 @@ This component uses [prism.js](https://prismjs.com/) under the hood.
   <C.Property @name="<[CB].Description>" @type="yielded component">
     `ContentBlock::Description` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="ariaLabel" @type="string">
+    Accepts a localized string. The `ariaLabel` value is applied to the code block pre element.
+  </C.Property>
+  <C.Property @name="ariaLabelledBy" @type="string">
+    Accepts a localized string. The `ariaLabelledBy` value is applied to the code block pre element.
+  </C.Property>
+  <C.Property @name="ariaDescribedBy" @type="string">
+    Accepts a localized string. The `ariaDescribedBy` value is applied to the code block pre element.
+  </C.Property>
   <C.Property @name="value" @type="string" @required={{true}}>
     The text/code content for the `CodeBlock`. The component encodes this argument before displaying it.
   </C.Property>
