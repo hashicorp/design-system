@@ -69,7 +69,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
     super(owner, args);
 
     registerDestructor(this, (): void => {
-      document.removeEventListener('click', this._clickHandler);
+      document.removeEventListener('click', this._clickHandler, true);
     });
   }
 
