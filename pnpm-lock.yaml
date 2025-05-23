@@ -223,9 +223,6 @@ importers:
       '@glimmer/component':
         specifier: ^1.1.2
         version: 1.1.2(@babel/core@7.27.1)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
       '@glint/core':
         specifier: ^1.5.2
         version: 1.5.2(typescript@5.8.3)
