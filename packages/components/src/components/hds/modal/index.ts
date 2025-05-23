@@ -10,7 +10,6 @@ import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
 import { registerDestructor } from '@ember/destroyable';
-// import { tabbable } from 'tabbable';
 
 import type { WithBoundArgs } from '@glint/template';
 import type Owner from '@ember/owner';
@@ -187,7 +186,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
       this.open();
     }
 
-    this._clickHandler = (event: MouseEvent | TouchEvent) => {
+    this._clickHandler = (event: MouseEvent) => {
       // check if the click is outside the modal and the modal is open
       if (!this._element.contains(event.target as Node) && this._isOpen) {
         if (!this.isDismissDisabled) {
