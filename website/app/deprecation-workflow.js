@@ -3,9 +3,28 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-self.deprecationWorkflow = self.deprecationWorkflow || {};
-self.deprecationWorkflow.config = {
+import setupDeprecationWorkflow from 'ember-cli-deprecation-workflow';
+
+/**
+ * Docs: https://github.com/ember-cli/ember-cli-deprecation-workflow
+ */
+setupDeprecationWorkflow({
+  /**
+    false by default, but if a developer / team wants to be more aggressive about being proactive with
+    handling their deprecations, this should be set to "true"
+  */
+  throwOnUnhandled: false,
   workflow: [
+    /* ... handlers ... */
+    /* to generate this list, run your app for a while (or run the test suite),
+     * and then run in the browser console:
+     *
+     *    deprecationWorkflow.flushDeprecations()
+     *
+     * And copy the handlers here
+     */
+    /* example: */
+    /* { handler: 'silence', matchId: 'template-action' }, */
     { handler: 'silence', matchId: 'remove-owner-inject' },
     { handler: 'silence', matchId: 'ember-modifier.function-based-options' },
     { handler: 'throw', matchId: 'deprecate-auto-location' },
@@ -20,4 +39,4 @@ self.deprecationWorkflow.config = {
     { handler: 'throw', matchId: 'hds.components.modal.header' },
     { handler: 'throw', matchId: 'hds.components.sidenav.header.iconbutton' },
   ],
-};
+});
