@@ -169,7 +169,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(@glint/template@1.5.2)
       ember-modifier:
-        specifier: ^4.2.0
+        specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.27.1)
       ember-power-select:
         specifier: ^8.6.2
@@ -1008,7 +1008,7 @@ importers:
         specifier: ^2.0.0
         version: 2.0.0
       ember-modifier:
-        specifier: ^4.2.0
+        specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.27.1)
       ember-page-title:
         specifier: ^9.0.2
