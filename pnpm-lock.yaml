@@ -139,7 +139,7 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       '@nullvoxpopuli/ember-composable-helpers':
-        specifier: ^5.2.9
+        specifier: ^5.2.10
         version: 5.2.10(@babel/core@7.27.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       clipboard-polyfill:
         specifier: ^4.1.1
@@ -14104,7 +14104,7 @@ snapshots:
       '@codemirror/lint': 6.8.5
       '@codemirror/state': 6.5.1
       '@codemirror/view': 6.37.1
-      '@ember/render-modifiers': 2.1.0(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       '@ember/string': 3.1.1
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.10.0
@@ -14159,7 +14159,7 @@ snapshots:
       '@codemirror/lint': 6.8.5
       '@codemirror/state': 6.5.1
       '@codemirror/view': 6.37.1
-      '@ember/render-modifiers': 2.1.0(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
+      '@ember/render-modifiers': 3.0.0(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
       '@ember/string': 3.1.1
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.10.0

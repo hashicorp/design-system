@@ -25,7 +25,7 @@
   },
   "pnpm": {
     "overrides": {
-      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.9"
+      "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.10"
     },
     "patchedDependencies": {
       "@embroider/core": "patches/@embroider__core.patch",
