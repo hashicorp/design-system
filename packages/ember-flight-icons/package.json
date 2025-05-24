@@ -30,7 +30,7 @@
     "test": "echo 'A v2 addon does not have tests, run tests in test-app'"
   },
   "dependencies": {
-    "@embroider/addon-shim": "^1.9.0",
+    "@embroider/addon-shim": "^1.10.0",
     "@hashicorp/flight-icons": "workspace:*",
     "decorator-transforms": "^2.3.0",
     "ember-get-config": "^2.1.1"
@@ -39,7 +39,7 @@
     "@babel/core": "^7.27.1",
     "@babel/plugin-transform-typescript": "^7.27.1",
     "@babel/runtime": "^7.27.1",
-    "@embroider/addon-dev": "^7.1.1",
+    "@embroider/addon-dev": "^8.0.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.5.2",
