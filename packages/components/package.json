@@ -65,7 +65,7 @@
     "ember-element-helper": "^0.8.6",
     "ember-focus-trap": "^1.1.1",
     "ember-get-config": "^2.1.1",
-    "ember-modifier": "^4.2.0",
+    "ember-modifier": "^4.2.2",
     "ember-power-select": "^8.6.2",
     "ember-stargate": "^0.5.0",
     "ember-style-modifier": "^4.4.0",
