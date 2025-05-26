@@ -1,4 +1,9 @@
 /**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+/**
  * Debugging:
  *   https://eslint.org/docs/latest/use/configure/debug
  *  ----------------------------------------------------
