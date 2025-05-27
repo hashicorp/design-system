@@ -37,6 +37,6 @@ The DialogPrimitive sub-components are not intended to be used independently of 
 
 A common example of a non-modal dialog is a SplitWindow, Panel, or Drawer. This type of component allows the user to interact with both the main page content and the content within the dialog.
 
-![Example of a non-modal example](/assets/components/dialog-primitives/dialog-primitive-non-modal-example.png)
+![](/assets/components/dialog-primitives/dialog-primitive-non-modal-example.png)
 
 _If you discover other use cases, [contact the Design Systems Team](/about/support) for assistance._
