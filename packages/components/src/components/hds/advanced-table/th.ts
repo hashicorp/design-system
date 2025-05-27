@@ -137,6 +137,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return classes.join(' ');
   }
 
+  get showContextMenu(): boolean {
+    const { column } = this.args;
+
+    if (column === undefined) {
+      return false;
+    }
+
+    return column.isResizable ?? false;
+  }
+
   @action onFocusTrapDeactivate(): void {
     this._shouldTrapFocus = false;
     onFocusTrapDeactivate(this._element);
