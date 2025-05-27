@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  {{! TODO: Replace divs for FormDivider, Header, etc. with actual components }}
+  {{! TODO: Replace divs for Header, Group/Row, etc. with actual components }}
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
@@ -38,7 +38,7 @@
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           </Hds::Form::Section>
 
-          <div class="hds-form__divider"></div>
+          <Hds::Form::Divider />
 
           <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -147,7 +147,7 @@
         </Hds::Form::Toggle::Group>
       </Hds::Form::Section>
 
-      <div class="hds-form__divider"></div>
+      <Hds::Form::Divider />
 
       <Hds::Form::Section>
         <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-set">
@@ -230,6 +230,24 @@
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
         </Hds::Form::Section>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Text::H3>FormDivider</Shw::Text::H3>
+
+  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Shw::Grid @columns={{1}} @gap="4rem" as |SG|>
+      <SG.Item @label="hasMaxWidth=true (default) w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <Hds::Form::Divider />
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=false">
+        <Hds::Form::Divider @hasMaxWidth={{false}} />
       </SG.Item>
     </Shw::Grid>
   </div>
