@@ -1,10 +1,10 @@
-The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
-
 !!! Info
 
 The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
 
 !!!
+
+The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
 
 ## How to use this component
 
