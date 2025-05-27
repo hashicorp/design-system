@@ -33,14 +33,14 @@ For cloud products, the icon should always be `hcp`. For standalone or open-sour
 
 ### Context switcher
 
-The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects. 
-
-![Context switcher within the App Header](/assets/components/app-header/app-header-context-switcher.png)
-
 !!! Info
 
 This element only exists in Figma. For implementation in code, use the HDS [Dropdown](/components/dropdown) or, if necessary, create your own custom component styled after the Dropdown.
 !!!
+
+The context switcher allows users to switch between different global contexts within the product or application, such as navigating between different organizations or projects. 
+
+![Context switcher within the App Header](/assets/components/app-header/app-header-context-switcher.png)
 
 ## Utility navigation
 

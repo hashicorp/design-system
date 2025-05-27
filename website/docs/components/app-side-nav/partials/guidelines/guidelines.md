@@ -73,14 +73,14 @@ Use `hasSubItems` to show or signify that a link has a nested level of navigatio
 
 #### External links
 
-Use `isLinkExternal` to show that the list item is a hyperlink pointing to a page outside the product or platform.
-
-!["HashiCorp Cloud Platform" link with an external link icon](/assets/components/app-side-nav/list-item-with-external-link.png)
-
 !!! Warning
 
 Use external links sparingly. Avoid using this property to link pages that are unrelated to the product's navigation.
 !!!
+
+Use `isLinkExternal` to show that the list item is a hyperlink pointing to a page outside the product or platform.
+
+!["HashiCorp Cloud Platform" link with an external link icon](/assets/components/app-side-nav/list-item-with-external-link.png)
 
 ### Generic content
 
