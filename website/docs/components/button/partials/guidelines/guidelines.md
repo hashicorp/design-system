@@ -63,14 +63,14 @@ For example:
 
 ## Icon position
 
-Buttons are provided with flexible icon use; allowing for leading, trailing, or icon only buttons. Use icons intentionally and only when they provide the user with extra value. Do not create buttons with both leading and trailing icons. Tertiary buttons are required to have either a leading or trailing icon layout to be accessible.
-
 !!! Info
 
 **Looking for Dropdowns?**
 
 Buttons used for a Dropdown (with the chevron icon) can be found in [Dropdown](/components/dropdown).
 !!!
+
+Buttons are provided with flexible icon use; allowing for leading, trailing, or icon only buttons. Use icons intentionally and only when they provide the user with extra value. Do not create buttons with both leading and trailing icons. Tertiary buttons are required to have either a leading or trailing icon layout to be accessible.
 
 <Hds::ButtonSet>
   <Hds::Button @color="secondary" @text="No icon" />

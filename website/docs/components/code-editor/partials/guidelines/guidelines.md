@@ -54,6 +54,12 @@ The secondary actions section supports two optional buttons: the [Copy Button](/
 
 ## Custom actions
 
+!!! Warning
+
+The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](/about/support) for help translating components into dark mode.
+
+!!!
+
 Custom primary actions can be added to the header. Primary actions include those necessary for the user to complete their work.
 
 ![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
@@ -61,13 +67,6 @@ Custom primary actions can be added to the header. Primary actions include those
 Here is an example of a custom action to reveal secrets.
 
 ![The Code Editor with the title “CodeEditor title”. The custom yielded section has a “Reveal secrets” toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
-
-
-!!! Warning
-
-The Code Editor has limited support for dark mode styles. Buttons have pre-defined dark mode styles, but all other components require manual color adjustments until a dark mode theme is released. Please [contact the Design Systems Team](/about/support) for help translating components into dark mode.
-
-!!!
 
 ## External elements
 
@@ -106,11 +105,12 @@ If you wish to create custom examples using the Code Editor, we publish all of t
 For more details around syntax, visit the [specifications](/components/code-editor?tab=specifications).
 
 ## Linting
-The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line.
 
 !!! Info 
 Linting is only available in the Ember component and is not supported in Figma.
 !!!
+
+The Code Editor supports linting for JSON using [CodeMirror6](https://codemirror.net/examples/lint/). This feature highlights all errors with an underline and an icon next to the line number. Each icon has a tooltip explaining the error on the associated line.
 
 ![Code editor with linting errors. On hover of an icon indicating an error on a line, a tooltip displays details on the linting error.](/assets/components/code-editor/codeeditor-linting-preview-tooltip.png)
 

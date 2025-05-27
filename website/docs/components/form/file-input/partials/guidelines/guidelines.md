@@ -10,14 +10,14 @@ Because the File Input is based on the native HTML input, the content and visual
 
 ## Truncation
 
-Truncation is built into the native component and uses the width of the container to determine when the text gets truncated. It is not based on a character limit. 
-
 !!! Info
 
 Due to limitations in Figma, truncation will occur at the end of the text, while in the browser, truncation occurs in the middle. 
 
 ![visual difference in truncation between figma and browser](/assets/components/form/file-input/file-input-truncation.png)
 !!!
+
+Truncation is built into the native component and uses the width of the container to determine when the text gets truncated. It is not based on a character limit. 
 
 ## Multiple files
 

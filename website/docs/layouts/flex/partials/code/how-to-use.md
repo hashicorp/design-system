@@ -12,6 +12,12 @@ The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to
 
 ### Basic usage
 
+!!! Info
+
+Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
+
+!!!
+
 The simplest way to implement a flexbox layout is by using the `Layout::Flex` component to wrap some content.
 
 ```handlebars{data-execute=false}
@@ -47,13 +53,13 @@ There are cases in which it is necessary to wrap one or more child elements in a
 </Hds::Layout::Flex>
 ```
 
-!!! Info
+### Tag
 
-Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
+!!! Insight
+
+While, by default, the component renders a `<div>`, we invite consumers to consider which semantic HTML tag is the correct one for the context in which the text is used to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 
 !!!
-
-### Tag
 
 To specify which HTML tag to use to render the flex container and/or item(s), use the `@tag` argument.
 
@@ -66,12 +72,6 @@ To specify which HTML tag to use to render the flex container and/or item(s), us
   <li>{{! more content here }}</li>
 </Hds::Layout::Flex>
 ```
-
-!!! Insight
-
-While, by default, the component renders a `<div>`, we invite consumers to consider which semantic HTML tag is the correct one for the context in which the text is used to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
-
-!!!
 
 ### Direction
 
@@ -97,6 +97,14 @@ To specify in which [direction](https://developer.mozilla.org/en-US/docs/Web/CSS
 _Note: we don't expose the `reverse` directions because they come with intrinsic accessibility limitations by changing the visual order of elements on the page from the DOM order._
 
 ### Spacing
+
+!!! Warning
+
+**Important**
+
+The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
+
+!!!
 
 To control the spacing between flex items, use the `@gap` argument.
 
@@ -130,14 +138,6 @@ The first value in the array refers to the vertical gap between "rows" of items 
 The `@gap` argument accepts only **pre-defined values**, it can't be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
 
 If you need to provide custom spacing values, see below how you can use a special escape hatch for this.
-
-!!! Warning
-
-**Important**
-
-The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
-
-!!!
 
 #### Non-standard gap values
 
@@ -474,6 +474,12 @@ This is a classic layout, where a "media" element (it could be an image, an icon
 
 ### Group of cards
 
+!!! Warning
+
+A responsive implementation of this UI pattern is a bit more complex and requires usage of `min-max/max-width` values for the cards and allowing wrapping of the flex item elements. It may also require changing the direction of the flex container at a certain breakpoint.
+
+!!!
+
 Using the automatic layout offered by flexbox, you can create a group of identically sized, evenly spaced cards, like in this example:
 
 ```handlebars
@@ -495,13 +501,6 @@ Using the automatic layout offered by flexbox, you can create a group of identic
   </LF.Item>
 </Hds::Layout::Flex>
 ```
-
-!!! Warning
-
-A responsive implementation of this UI pattern is a bit more complex and requires usage of `min-max/max-width` values for the cards and allowing wrapping of the flex item elements. It may also require changing the direction of the flex container at a certain breakpoint.
-
-!!!
-
 Similarly, it's easy to implement a vertical stack of cards:
 
 ```handlebars
