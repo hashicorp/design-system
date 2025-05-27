@@ -1,0 +1,32 @@
+diff --git a/dist/src/app-files.js b/dist/src/app-files.js
+index 924a11241f9e6584fee5aba793e9cd86ea6d708f..6822e87bba314adeacee240964fd6f3317349088 100644
+--- a/dist/src/app-files.js
++++ b/dist/src/app-files.js
+@@ -74,10 +74,10 @@ class AppFiles {
+                 }
+                 continue;
+             }
+-            if (relativePath.startsWith('templates/components/')) {
+-                components.push(relativePath);
+-                continue;
+-            }
++            // if (relativePath.startsWith('templates/components/')) {
++            //     components.push(relativePath);
++            //     continue;
++            // }
+             if (relativePath.startsWith('helpers/')) {
+                 helpers.push(relativePath);
+                 continue;
+diff --git a/dist/src/module-resolver.js b/dist/src/module-resolver.js
+index b9a779995bd8a08fa86d47a0ea77c7b394a1a2bd..2206395627189588033a849505d5e074b9cbb458 100644
+--- a/dist/src/module-resolver.js
++++ b/dist/src/module-resolver.js
+@@ -479,7 +479,7 @@ class Resolver {
+             .rehome((0, path_1.resolve)(inEngine.root, 'package.json')));
+     }
+     *componentTemplateCandidates(inPackageName) {
+-        yield { prefix: '/templates/components/', suffix: '' };
++        // yield { prefix: '/templates/components/', suffix: '' };
+         yield { prefix: '/components/', suffix: '/template' };
+         let pods = this.podPrefix(inPackageName);
+         if (pods) {
