@@ -10,24 +10,10 @@ import { action } from '@ember/object';
 import { macroCondition, isTesting } from '@embroider/macros';
 
 import type { HdsAppSideNavPortalSignature } from './index';
-
-// import { PortalTargetSignature } from 'ember-stargate/components/portal-target';
-interface PortalTargetSignature {
-  Element: HTMLDivElement;
-  Args: {
-    name: string;
-    multiple?: boolean;
-    onChange?: (count: number) => void;
-  };
-  Blocks: {
-    default: [number];
-  };
-}
-
 import type { Registry as Services } from '@ember/service';
 
 interface HdsAppSideNavPortalTargetSignature {
-  Args: PortalTargetSignature['Args'] & {
+  Args: {
     targetName?: HdsAppSideNavPortalSignature['Args']['targetName'];
   };
   Element: HTMLDivElement;
