@@ -17,6 +17,18 @@ import {
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
+function getTableGridValues(tableElement) {
+  const computedStyle = window.getComputedStyle(tableElement);
+  const gridTemplateColumns = computedStyle.getPropertyValue(
+    'grid-template-columns',
+  );
+  const gridValues = gridTemplateColumns
+    .split(' ')
+    .map((value) => value.trim());
+
+  return gridValues;
+}
+
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -151,10 +163,6 @@ const setResizableColumnsTableData = (context) => {
     {
       key: 'col2',
       label: 'Col 2',
-      isResizable: true,
-      width: '120px',
-      minWidth: '60px',
-      maxWidth: '300px',
     },
   ]);
 };
@@ -1341,48 +1349,55 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     assert
       .dom('.hds-advanced-table__th-resize-handle')
       .exists({ count: 1 }, 'There is one resize handle (not on last column)');
 
-    const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
-    const initialWidth = th.style.width || getComputedStyle(th).width;
+    const handle = find('.hds-advanced-table__th-resize-handle'); // get the first handle
 
     // Simulate pointer drag to the right (increase width)
     await triggerEvent(handle, 'pointerdown', { clientX: 100 });
     await triggerEvent(handle, 'pointermove', { clientX: 130 });
     await triggerEvent(window, 'pointerup');
 
-    const newWidth = th.style.width || getComputedStyle(th).width;
-    assert.notEqual(newWidth, initialWidth, 'Column width changed after drag');
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after drag',
+    );
   });
 
   test('it should allow resizing columns with the resize handle (keyboard events)', async function (assert) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
-    const initialWidth = th.style.width || getComputedStyle(th).width;
 
     // Focus and send ArrowRight key
     await focus(handle);
     await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
-    const widthAfterRight = th.style.width || getComputedStyle(th).width;
-    assert.notEqual(
-      widthAfterRight,
-      initialWidth,
-      'Column width increased after ArrowRight',
+
+    let newGridValues = getTableGridValues(table);
+    assert.notDeepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowRight',
     );
 
     // Send ArrowLeft key
     await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
-    const widthAfterLeft = th.style.width || getComputedStyle(th).width;
-    assert.notEqual(
-      widthAfterLeft,
-      widthAfterRight,
-      'Column width decreased after ArrowLeft',
+    newGridValues = getTableGridValues(table);
+    assert.deepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values reverted after ArrowLeft',
     );
   });
 
@@ -1390,20 +1405,28 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
 
     // Try to resize column to a very small width (well below minWidth of 60px)
     await triggerEvent(handle, 'pointerdown', { clientX: 100 });
     await triggerEvent(window, 'pointermove', { clientX: 1 });
     await triggerEvent(window, 'pointerup');
 
-    const newWidthString = th.style.width || getComputedStyle(th).width;
-    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after pointer drag',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
 
     assert.ok(
-      newWidth >= 60,
-      `Column width respects minimum width constraint (actual: ${newWidth}px, min: 60px)`,
+      parseInt(firstColumnGridValue, 10) >= 60,
+      `Column width respects minimum width constraint (actual: ${firstColumnGridValue}, min: 60px)`,
     );
   });
 
@@ -1411,8 +1434,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
 
     // Try to resize column to a very large width (well below minWidth of 60px)
     await triggerEvent(handle, 'pointerdown', { clientX: 100 });
@@ -1420,12 +1445,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     await triggerEvent(window, 'pointerup');
 
     // Check the new width
-    const newWidthString = th.style.width || getComputedStyle(th).width;
-    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after pointer drag',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
 
     assert.ok(
-      newWidth <= 300,
-      `Column width respects maximum width constraint (actual: ${newWidth}px, max: 300px)`,
+      parseInt(firstColumnGridValue, 10) <= 300,
+      `Column width respects maximum width constraint (actual: ${firstColumnGridValue}px, max: 300px)`,
     );
   });
 
@@ -1433,8 +1464,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
 
     // Focus handle and press ArrowLeft multiple times to try going below min width
     await focus(handle);
@@ -1444,12 +1477,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
     }
 
-    const newWidthString = th.style.width || getComputedStyle(th).width;
-    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowLeft',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
 
     assert.ok(
-      newWidth >= 60,
-      `Column width respects minimum width constraint with keyboard events (actual: ${newWidth}px, min: 60px)`,
+      parseInt(firstColumnGridValue, 10) >= 60,
+      `Column width respects minimum width constraint with keyboard events (actual: ${firstColumnGridValue}, min: 60px)`,
     );
   });
 
@@ -1457,8 +1496,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     setResizableColumnsTableData(this);
     await render(hbsResizableColumnsAdvancedTable);
 
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
     const handle = find('.hds-advanced-table__th-resize-handle');
-    const th = handle.closest('.hds-advanced-table__th');
 
     // Focus handle and press ArrowLeft multiple times to try going below min width
     await focus(handle);
@@ -1468,12 +1509,70 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
     }
 
-    const newWidthString = th.style.width || getComputedStyle(th).width;
-    const newWidth = parseFloat(newWidthString) + 1; // adding a pixel to account for border
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowRight',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
 
     assert.ok(
-      newWidth <= 300,
-      `Column width respects maximum width constraint with keyboard events (actual: ${newWidth}px, max: 300px)`,
+      parseInt(firstColumnGridValue, 10) <= 300,
+      `Column width respects maximum width constraint with keyboard events (actual: ${firstColumnGridValue}px, max: 300px)`,
+    );
+  });
+
+  test('it should show the context menu when resizing is enabled', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="reset-column-width"]').exists();
+  });
+
+  test('it should resize the column to the initial width when resetting column width', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    // Simulate pointer drag to the right (increase width)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(handle, 'pointermove', { clientX: 130 });
+    await triggerEvent(window, 'pointerup');
+
+    let newGridValues = getTableGridValues(table);
+
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after drag',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+    await click('[data-test-context-option-key="reset-column-width"]');
+
+    newGridValues = getTableGridValues(table);
+    assert.deepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values reset to initial state after resetting column width',
     );
   });
 });

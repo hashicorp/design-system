@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import HdsAdvancedTableColumn from './models/column.ts';
 import type Owner from '@ember/owner';
 
 import {
@@ -39,6 +40,9 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
+    nextColumn?: HdsAdvancedTableColumn;
+    tableHeight?: number;
+    isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
   };
@@ -88,6 +92,16 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
       ALIGNMENTS.includes(align)
     );
     return align;
+  }
+
+  get showContextMenu(): boolean {
+    const { column } = this.args;
+
+    if (column === undefined) {
+      return false;
+    }
+
+    return column.isResizable ?? false;
   }
 
   get classNames(): string {

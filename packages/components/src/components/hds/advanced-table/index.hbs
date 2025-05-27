@@ -43,12 +43,16 @@
         {{#each this._tableModel.columns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
+              @column={{column}}
               @sortOrder={{if (eq column.key this._sortBy) this._sortOrder}}
               @onClickSort={{if column.key (fn this.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
+              @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @nextColumn={{get this._tableModel.columns (add index 1)}}
+              @tableHeight={{this._tableHeight}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
