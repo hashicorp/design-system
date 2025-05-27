@@ -134,6 +134,10 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
     }
 
+    if (this.args.column?.isResizable) {
+      classes.push('hds-advanced-table__th--is-resizable');
+    }
+
     return classes.join(' ');
   }
 
