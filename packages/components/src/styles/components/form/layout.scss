@@ -10,27 +10,46 @@
 // FORM
 
 .hds-form {
+  --hds-form-section-max-width: 1084px;
+
   display: flex;
   flex-direction: column;
   gap: 32px;
 }
 
-// WIP styles for planned components ---------------------
-.hds-form__divider {
-  height: 0;
-  border-top: 1px solid var(--token-color-border-primary);
-}
+// FORM SECTION
 
-// TODO: add a max-width property/variant
+// TODO: Use breakpoint to stack columns when screen width is less than 480px wide
+
 .hds-form__section {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  max-width: var(--hds-form-section-max-width, 1084px);
+}
 
-  // Move to Form Header (not for Section?) or make a more flexible component for text elements?
-  .hds-form__header {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+// hasMaxWidth = false
+.hds-form-section--has-max-width-false {
+  --hds-form-section-max-width: none;
+}
+
+// Set a max-width for the ButtonSet when it's within an Hds::Form
+// Q: Should this be done (max-width on ButtonSet) and if so should it be done here or in the ButtonSet component?
+.hds-form {
+  .hds-button-set {
+    max-width: var(--hds-form-section-max-width, 1084px);
   }
+}
+
+// WIP styles for planned components ---------------------
+
+.hds-form__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hds-form__divider {
+  height: 0;
+  border-top: 1px solid var(--token-color-border-primary);
 }
