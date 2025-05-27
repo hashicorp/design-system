@@ -39,7 +39,7 @@
     "@babel/core": "^7.27.1",
     "@babel/plugin-transform-typescript": "^7.27.1",
     "@babel/runtime": "^7.27.1",
-    "@embroider/addon-dev": "^7.1.1",
+    "@embroider/addon-dev": "^7.1.4",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@glint/core": "^1.5.2",
