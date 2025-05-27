@@ -6,8 +6,11 @@
 import config from 'ember-get-config';
 
 export async function initialize() {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment
+  const legacyLazyEmbed = config?.emberFlightIcons?.lazyEmbed;
+
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-  if (config?.emberFlightIcons?.lazyEmbed) {
+  if (config?.flightIconsSpriteLazyEmbed || legacyLazyEmbed) {
     const { default: svgSprite } = await import(
       '@hashicorp/flight-icons/svg-sprite/svg-sprite-module'
     );
