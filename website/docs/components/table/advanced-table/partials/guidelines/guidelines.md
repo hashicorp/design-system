@@ -199,12 +199,12 @@ Ensure that content within striped rows continue to maintain adequate color cont
 
 !!!
 
-![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
-
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
 
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
 - Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
+
+![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 ### Placement
 
