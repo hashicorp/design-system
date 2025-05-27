@@ -6,23 +6,28 @@
 // FORM LAYOUT
 
 body.components-form {
+  .shw-form-button-wrapper-margin {
+    margin: 24px 0;
+  }
+
   .shw-component-form-layout-highlight {
     .hds-form {
+      background-color: #f6fcff;
       outline: 1px dashed #78909c;
+    }
 
-      > .hds-form__header,
-      > .hds-form__section,
-      > .hds-button-set {
-        outline: 1px dashed #78909c;
-      }
+    .hds-form__header,
+    .hds-form__section,
+    .hds-button-set {
+      outline: 1px dashed #78909c;
+    }
 
-      > .hds-form__section {
-        background: #d2f4ff;
-      }
+    .hds-form__section {
+      background: #d2f4ff;
     }
   }
 
-  .shw-form-button-wrapper-margin {
-    margin: 24px 0;
+  .shw-form-custom-max-width {
+    --hds-form-section-max-width: 768px;
   }
 }

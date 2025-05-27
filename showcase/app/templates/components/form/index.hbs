@@ -8,59 +8,63 @@
 <Shw::Text::H1>Form / Layout components</Shw::Text::H1>
 
 <section data-test-percy>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
+
+  {{! TODO: Replace divs for FormDivider, Header, etc. with actual components }}
+
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-
-    <Shw::Text::H2>Containers</Shw::Text::H2>
-
-    <div class="shw-form-button-wrapper-margin">
-      <button type="button" {{on "click" this.toggleHighlight}}>
-        {{if this.showHighlight "Hide" "Show"}}
-        layout highlight
-      </button>
-    </div>
-
-    {{! TODO: Replace divs for FormSection, etc. with actual components }}
-
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="With Form, FormHeader, FormSections, FormFields, FormDivider, and ButtonSet (FormActions)">
         <Hds::Form>
           <div class="hds-form__header">
             <Shw::Placeholder @height="50px" @text="Header (TBD if needed)" @background="#e5ffd2" />
           </div>
-          <div class="hds-form__section">
+
+          <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-          </div>
-          <div class="hds-form__section">
+          </Hds::Form::Section>
+
+          <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-          </div>
+          </Hds::Form::Section>
+
           <div class="hds-form__divider"></div>
-          <div class="hds-form__section">
+
+          <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-          </div>
+          </Hds::Form::Section>
+
           <Hds::ButtonSet>
             <Shw::Placeholder @height="2.25rem" @text="ButtonSet (FormActions)" @background="#fff8d2" />
           </Hds::ButtonSet>
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>
+  </div>
 
-    <Shw::Divider />
+  <Shw::Divider />
 
-    <Shw::Text::H2>Content</Shw::Text::H2>
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
-    <div class="shw-form-button-wrapper-margin">
-      <button type="button" {{on "click" this.toggleHighlight}}>
-        {{if this.showHighlight "Hide" "Show"}}
-        layout highlight
-      </button>
-    </div>
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
 
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Hds::Form>
       <div class="hds-form__header">
         <Hds::Text::Display @size="300">Form title</Hds::Text::Display>
@@ -71,7 +75,7 @@
         </Hds::Text::Body>
       </div>
 
-      <div class="hds-form__section">
+      <Hds::Form::Section>
         <Hds::Form::TextInput::Field name="field-1-name" as |F|>
           <F.Label>Field 1</F.Label>
         </Hds::Form::TextInput::Field>
@@ -100,13 +104,13 @@
         <Hds::Form::Textarea::Field name="field-4-name" as |F|>
           <F.Label>Field 4</F.Label>
         </Hds::Form::Textarea::Field>
-      </div>
+      </Hds::Form::Section>
 
-      <div class="hds-form__section">
+      <Hds::Form::Section @hasMaxWidth={{false}}>
         <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
           <G.Legend>Group legend</G.Legend>
           {{#each @model.RADIOCARDS as |item|}}
-            <G.RadioCard @checked={{item.checked}} @value={{item.value}} {{on "change" this.onChange}} as |R|>
+            <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
               <R.Icon @name="hexagon" />
               <R.Label>{{item.label}}</R.Label>
               <R.Badge @text={{item.badge}} />
@@ -114,9 +118,9 @@
             </G.RadioCard>
           {{/each}}
         </Hds::Form::RadioCard::Group>
-      </div>
+      </Hds::Form::Section>
 
-      <div class="hds-form__section">
+      <Hds::Form::Section>
         <Hds::Form::Checkbox::Group @name="field-5-name" as |G|>
           <G.Legend>Field 5</G.Legend>
           <G.CheckboxField as |F|>
@@ -141,11 +145,11 @@
             <F.HelperText>Helper text lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</F.HelperText>
           </G.ToggleField>
         </Hds::Form::Toggle::Group>
-      </div>
+      </Hds::Form::Section>
 
       <div class="hds-form__divider"></div>
 
-      <div class="hds-form__section">
+      <Hds::Form::Section>
         <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-set">
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Horizontal set field 1</F.Label>
@@ -165,27 +169,30 @@
             <F.Label>Vertical set field 2</F.Label>
           </Hds::Form::Toggle::Field>
         </Hds::Layout::Flex>
-      </div>
+      </Hds::Form::Section>
 
       <Hds::ButtonSet>
         <Hds::Button @text="Submit" type="submit" />
         <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
       </Hds::ButtonSet>
     </Hds::Form>
+  </div>
 
-    <Shw::Divider />
+  <Shw::Divider />
 
-    <Shw::Text::H2>Components</Shw::Text::H2>
+  <Shw::Text::H2>Components</Shw::Text::H2>
 
-    <div class="shw-form-button-wrapper-margin">
-      <button type="button" {{on "click" this.toggleHighlight}}>
-        {{if this.showHighlight "Hide" "Show"}}
-        layout highlight
-      </button>
-    </div>
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
 
-    <Shw::Text::H3>Form</Shw::Text::H3>
+  <Shw::Text::H3>Form</Shw::Text::H3>
 
+  <Shw::Text::H4>Tag</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item @label="Form using default form tag">
         <Hds::Form>
@@ -199,6 +206,31 @@
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>
+  </div>
 
+  <Shw::Text::H3>FormSection</Shw::Text::H3>
+
+  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Shw::Grid @columns={{1}} @gap="4rem" as |SG|>
+      <SG.Item @label="hasMaxWidth=true (default) w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=false">
+        <Hds::Form::Section @hasMaxWidth={{false}}>
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+        </Hds::Form::Section>
+      </SG.Item>
+    </Shw::Grid>
   </div>
 </section>
