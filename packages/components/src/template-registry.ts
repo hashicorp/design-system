@@ -13,6 +13,7 @@ import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advan
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
 import type HdsAdvancedTableThComponent from './components/hds/advanced-table/th';
 import type HdsAdvancedTableThButtonTooltipComponent from './components/hds/advanced-table/th-button-tooltip';
+import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/th-context-menu.ts';
 import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle.ts';
 import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
@@ -258,6 +259,8 @@ export default interface HdsComponentsRegistry {
   'Hds::AdvancedTable::ThButtonSort': typeof HdsAdvancedTableThButtonSortComponent;
   'hds/advanced-table/th-button-sort': typeof HdsAdvancedTableThButtonSortComponent;
   'Hds::AdvancedTable::ThButtonTooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
+  'Hds::AdvancedTable::ThContextMenu': typeof HdsAdvancedTableThContextMenu;
+  'hds/advanced-table/th-context-menu': typeof HdsAdvancedTableThContextMenu;
   'Hds::AdvancedTable::ThResizeHandle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-resize-handle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-button-tooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
