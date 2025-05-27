@@ -55,12 +55,12 @@ Column placement determines the visual styling based on where the column is plac
 
 ### Alignment
 
-The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
-
 !!! Info
 
 While we don’t currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
 !!!
+
+The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
 
 #### Consistent alignment
 
@@ -177,6 +177,11 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ## Multi-select
 
+!!! Info
+
+For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
+!!!
+
 A multi-select table includes checkboxes enabling users to select multiple rows in a table to perform bulk operations. Checking or unchecking the checkbox in the table header either selects or deselects the checkboxes on each row in the table body. Individual checkboxes in the rows can also be selected or deselected.
 
 A multi-select consists of: 
@@ -189,22 +194,17 @@ A multi-select consists of:
 
 ![Example of multi-select within table cells](/assets/components/table/multi-select-cells.png)
 
-!!! Info
-
-For more details around using a multi-select Table, recommended patterns, and intended interactions visit the [Multi-select patterns](/patterns/table-multi-select) documentation.
-!!!
-
 ### Intended interaction
-
-- When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
-- When no or some rows (but not all) are selected in a single Table, clicking the parent checkbox in the Table header will change to display as checked and all rows on that page will be selected.
-- When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
-- An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
 !!! Info
 
 This documentation currently covers only fundamental multi-select table interactions. We're working to include more comprehensive patterns for handling actions when multiple rows are selected and how this impacts filtering and pagination within a data set. For questions or concerns, please reach out to [#team-design-systems](https://hashicorp.enterprise.slack.com/archives/C7KTUHNUS)
 !!!
+
+- When individual rows are selected, the parent checkbox in the Table header changes to display an indeterminate state. 
+- When no or some rows (but not all) are selected in a single Table, clicking the parent checkbox in the Table header will change to display as checked and all rows on that page will be selected.
+- When all rows are selected in a single Table, the parent checkbox in the header appears as checked. Clicking the parent checkbox will deselect all rows on that page.
+- An additional action outside of the Table is needed in order to select all rows across a paginated Table.
 
 <video width="100%" controls loop>
   <source

@@ -2,13 +2,13 @@
 
 ### When to use
 
-- For adding extra information, in the form of structured content, to a UI element.
-- When it’s necessary to _temporarily persist_ extra information in the UI; e.g., if the user benefits from cross-referencing information in the component with other elements in the UI.
-
 !!! Info
 
 **Temporarily persist:** By this, we mean the component will remain open so the content within can be cross-referenced with the rest of the UI until it's explicitly dismissed by the user. More details are in the [interaction](#interaction) section.
 !!!
+
+- For adding extra information, in the form of structured content, to a UI element.
+- When it’s necessary to _temporarily persist_ extra information in the UI; e.g., if the user benefits from cross-referencing information in the component with other elements in the UI.
 
 ### When not to use
 
@@ -28,6 +28,11 @@ View more detailed examples of the content the Rich Tooltip could contain in the
 
 ## Placement
 
+!!! Info
+
+The placement property is _relative_ to the element that toggles the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
+!!!
+
 A Rich Tooltip can be placed in various positions relative to the UI element it is associated with.
 
 The most common options are: `top`, `bottom`, `left`, `right`.
@@ -37,11 +42,6 @@ The most common options are: `top`, `bottom`, `left`, `right`.
 The Rich Tooltip supports additional placement options: `top-start`, `top-end`, `bottom-start`, `bottom-end`, `left-start`, `left-end`, `right-start`,and `right-end`.
 
 ![Additional placements of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-additional-placements.png)
-
-!!! Info
-
-The placement property is _relative_ to the element that toggles the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
-!!!
 
 ### Collision detection
 
