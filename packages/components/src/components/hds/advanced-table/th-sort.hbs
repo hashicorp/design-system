@@ -28,5 +28,19 @@
       <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
     {{/if}}
     <Hds::AdvancedTable::ThButtonSort @sortOrder={{@sortOrder}} @onClick={{@onClickSort}} @labelId={{this._labelId}} />
+
+    {{#if @column}}
+      {{#if this.showContextMenu}}
+        <Hds::AdvancedTable::ThContextMenu @column={{@column}} />
+      {{/if}}
+
+      {{#if (and @column.isResizable (not @isLastColumn))}}
+        <Hds::AdvancedTable::ThResizeHandle
+          @column={{@column}}
+          @nextColumn={{@nextColumn}}
+          @tableHeight={{@tableHeight}}
+        />
+      {{/if}}
+    {{/if}}
   </div>
 </div>

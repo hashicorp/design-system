@@ -109,6 +109,17 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         z-index: 1;
         isolation: isolate;
       }
+
+      &.hds-advanced-table__th--is-resizable {
+        .hds-advanced-table__th-content-text {
+          display: block;
+          width: 100%;
+          min-width: 30px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
     }
 
     .hds-advanced-table__th-resize-handle {
@@ -246,9 +257,11 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 // multi-select (isSelectable=true)
 .hds-advanced-table__th-content {
   display: flex;
+  flex-shrink: 1;
   gap: 8px;
   align-items: center;
   justify-content: flex-start;
+  min-width: 0;
 }
 
 .hds-advanced-table__th-button {
