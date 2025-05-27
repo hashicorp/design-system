@@ -11,7 +11,10 @@ import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts'
 interface HdsAdvancedTableThContextMenuOption {
   label: string;
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
-  action: (dropdownCloseCallback: () => void) => void;
+  action: (
+    column: HdsAdvancedTableColumn,
+    dropdownCloseCallback?: () => void
+  ) => void;
 }
 
 export interface HdsAdvancedTableThContextMenuSignature {
@@ -22,6 +25,8 @@ export interface HdsAdvancedTableThContextMenuSignature {
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
+  originalColumnWidth?: string = this.args.column.width;
+
   get classNames() {
     const classes = ['hds-advanced-table__th-context-menu'];
 
@@ -37,8 +42,12 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       options.push({
         label: 'Reset column width',
         icon: 'reload',
-        action: (dropdownCloseCallback: () => void) => {
-          dropdownCloseCallback();
+        action: (
+          column: HdsAdvancedTableColumn,
+          dropdownCloseCallback?: () => void
+        ): void => {
+          column.restoreWidth();
+          dropdownCloseCallback?.();
         },
       });
     }
