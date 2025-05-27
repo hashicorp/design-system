@@ -9,6 +9,7 @@ import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
+  key: string;
   label: string;
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
   action: (
@@ -40,6 +41,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
     if (column.isResizable) {
       options.push({
+        key: 'reset-column-width',
         label: 'Reset column width',
         icon: 'reload',
         action: (
