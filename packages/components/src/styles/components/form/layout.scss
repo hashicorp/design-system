@@ -57,7 +57,9 @@ $hds-form-section-max-width: 1088px;
 
 // WIP styles for planned components ---------------------
 
-.hds-form__header {
+// TODO: The ideas for these are still fuzzy
+.hds-form__header,
+.hds-form__section-header {
   display: flex;
   flex-direction: column;
   gap: 8px;
