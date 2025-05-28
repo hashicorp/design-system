@@ -147,6 +147,7 @@ import type HdsLayoutGridComponent from './components/hds/layout/grid';
 import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
+import type HdsKeyValuePairComponent from './components/hds/key-value-pair/index.ts';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
 import type HdsModalBodyComponent from './components/hds/modal/body';
 import type HdsModalFooterComponent from './components/hds/modal/footer';
@@ -722,6 +723,11 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
+
+  // KeyValuePair
+  'Hds::KeyValuePair': typeof HdsKeyValuePairComponent;
+  'hds/key-value-pair': typeof HdsKeyValuePairComponent;
+
 
   // MenuPrimitive
   'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;

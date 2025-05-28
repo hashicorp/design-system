@@ -1,0 +1,42 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// KEY-VALUE-PAIR
+//
+
+@use "mixins/breakpoints" as *;
+
+// notice: this is a <fieldset> element
+.hds-key-value-pair {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+  row-gap: 16px;
+}
+
+.hds-key-value-pair__row {
+  @include hds-breakpoint-above('md') {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start
+}
+
+.hds-key-value-pair__footer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+
+  .hds-key-value-pair__add-row {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,40 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "KeyValuePair Component"}}
+
+<Shw::Text::H1>KeyValuePair</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  {{#let (array (hash key="foo" value="bar") (hash key="baz" value="bop")) as |sampleData|}}
+    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}} as |KVP|>
+      <KVP.Legend>Tags applied to this workspace</KVP.Legend>
+      <KVP.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
+        can add up to 3 tags per resource.</KVP.HelperText>
+      <KVP.Error>There is an error.</KVP.Error>
+
+      <KVP.TextInput as |F|>
+        <F.Label>Tag key</F.Label>
+      </KVP.TextInput>
+      <KVP.TextInput as |F|>
+        <F.Label>Tag value</F.Label>
+      </KVP.TextInput>
+
+      <KVP.Generic>
+        <Shw::Placeholder @height="36px" @text="generic" />
+      </KVP.Generic>
+
+      <KVP.FooterExtraBefore>
+        <Shw::Placeholder @height="36px" @text="footer before" />
+      </KVP.FooterExtraBefore>
+      <KVP.FooterExtraAfter>
+        <Shw::Placeholder @height="36px" @text="footer after" />
+      </KVP.FooterExtraAfter>
+    </Hds::KeyValuePair>
+  {{/let}}
+</section>

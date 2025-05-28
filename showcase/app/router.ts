@@ -69,6 +69,7 @@ Router.map(function () {
       this.route('inline');
       this.route('standalone');
     });
+    this.route('key-value-pair');
     this.route('modal');
     this.route('page-header');
     this.route('pagination', function () {
