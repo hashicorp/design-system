@@ -264,7 +264,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   min-width: 0;
 }
 
-.hds-advanced-table__th-button {
+.hds-advanced-table__th-button,
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
   display: flex;
   flex: none;
   align-items: center;
@@ -318,13 +319,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 
 .hds-advanced-table__th-button--expand {
   align-self: flex-start;
-}
-
-.hds-advanced-table__th-context-menu {
-  .hds-dropdown-toggle-icon {
-    background-color: transparent;
-    border: 0;
-  }
 }
 
 // ----------------------------------------------------------------
