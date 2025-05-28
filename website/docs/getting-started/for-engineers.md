@@ -82,7 +82,6 @@ Our component library assumes that a box-sizing reset is applied globally in you
 There are multiple ways to use icons in your codebase. We provide icons:
 
 - as an [`Hds::Icon` Ember component](/components/icon)
-- as an Ember addon (now deprecated)
 - as a generic package that can also be consumed directly in React applications (and in web applications in general)
 
 ### Ember applications
@@ -105,7 +104,7 @@ For details about how this component should be used and its API, see [the compon
 
 #### Deferred loading
 
-In both approaches, the SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconsSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
+The SVG sprite will be injected by default into your application's `index.html` file. If you would like this to happen later as part of your app bundle, you can set the `flightIconsSpriteLazyEmbed` flag to `true` in your app's `config/environment.js` file:
 
 ```js
 module.exports = function(environment) {
@@ -116,8 +115,6 @@ module.exports = function(environment) {
   };
 }
 ```
-
-For more information on why this may be helpful in certain scenarios, see [DS-049 - Improve Ember Flight Icons Loading Performance](https://go.hashi.co/rfc/ds-049).
 
 #### Ember test selectors
 
