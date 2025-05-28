@@ -569,6 +569,32 @@
     </:body>
   </Hds::AdvancedTable>
 
+  <Shw::Text::H4 @tag="h3">Resizable columns with sorting</Shw::Text::H4>
+
+  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumnsWithSorting}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
   <Shw::Divider />
 
   <Shw::Text::H3>Functional examples</Shw::Text::H3>

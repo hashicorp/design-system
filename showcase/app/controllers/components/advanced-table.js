@@ -367,7 +367,6 @@ export default class ComponentsTableController extends Controller {
       width: '200px',
       maxWidth: '400px',
       isResizable: true,
-      isSortable: true,
     },
     {
       key: 'album',
@@ -375,7 +374,6 @@ export default class ComponentsTableController extends Controller {
       tooltip: 'More information.',
       width: '300px',
       isResizable: true,
-      isSortable: true,
     },
     {
       key: 'year',
@@ -383,13 +381,21 @@ export default class ComponentsTableController extends Controller {
       tooltip: 'More information.',
       width: '200px',
       isResizable: true,
-      isSortable: true,
     },
     {
       key: 'other',
       label: 'Additional Actions',
     },
   ];
+
+  columnResizeColumnsWithSorting = this.columnResizeColumns.map(
+    (column, index) => {
+      return {
+        ...column,
+        isSortable: index !== this.columnResizeColumns.length - 1, // last column is not sortable
+      };
+    },
+  );
 
   @action
   noop() {
