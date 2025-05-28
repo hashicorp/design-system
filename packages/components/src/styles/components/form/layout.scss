@@ -9,8 +9,11 @@
 
 // FORM
 
+// Default max-width for form sections & similar components
+$hds-form-section-max-width: 1088px;
+
 .hds-form {
-  --hds-form-section-max-width: 1084px;
+  --hds-form-section-max-width: $hds-form-section-max-width;
 
   display: flex;
   flex-direction: column;
@@ -19,7 +22,7 @@
   // Set a max-width for the ButtonSet when it's within an Hds::Form
   // Q: Should this be done (max-width on ButtonSet) and if so should it be done here or in the ButtonSet component?
   .hds-button-set {
-    max-width: var(--hds-form-section-max-width, 1084px);
+    max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
   }
 }
 
@@ -31,7 +34,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: var(--hds-form-section-max-width, 1084px);
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
 }
 
 // hasMaxWidth = false
@@ -42,7 +45,7 @@
 // FORM DIVIDER
 
 .hds-form__divider {
-  max-width: var(--hds-form-section-max-width, 1084px);
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
   height: 0;
   border-top: 1px solid var(--token-color-border-primary);
 }

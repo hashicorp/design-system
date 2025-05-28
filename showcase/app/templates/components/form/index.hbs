@@ -208,12 +208,14 @@
     </Shw::Grid>
   </div>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>FormSection</Shw::Text::H3>
 
   <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-    <Shw::Grid @columns={{1}} @gap="4rem" as |SG|>
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasMaxWidth=true (default)">
         <Hds::Form>
           <Hds::Form::Section>
@@ -244,12 +246,14 @@
     </Shw::Grid>
   </div>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>FormDivider</Shw::Text::H3>
 
   <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-    <Shw::Grid @columns={{1}} @gap="4rem" as |SG|>
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasMaxWidth=true (default) w/ custom max-width style of 768px set at Form level">
         <Hds::Form class="shw-form-custom-max-width">
           <Hds::Form::Divider />
@@ -257,7 +261,41 @@
       </SG.Item>
 
       <SG.Item @label="hasMaxWidth=false">
-        <Hds::Form::Divider @hasMaxWidth={{false}} />
+        <Hds::Form>
+          <Hds::Form::Divider @hasMaxWidth={{false}} />
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ButtonSet within Form</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="using default maxWidth matching Section maxWidth">
+        <Hds::Form>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form>
       </SG.Item>
     </Shw::Grid>
   </div>
