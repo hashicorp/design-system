@@ -39,6 +39,7 @@
 @use "../components/icon-tile";
 @use "../components/layout"; // multiple components
 @use "../components/link"; // multiple components
+@use "../components/key-value-pair";
 @use "../components/menu-primitive";
 @use "../components/modal";
 @use "../components/page-header";
@@ -58,7 +59,7 @@
 @use "../components/tooltip";
 // END COMPONENT CSS FILES IMPORTS
 
-// stylelint-disable-next-line selector-class-pattern
+/* stylelint-disable selector-class-pattern */
 .sr-only {
   position: absolute !important;
   width: 1px !important;
