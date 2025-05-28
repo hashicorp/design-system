@@ -1,0 +1,47 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<fieldset class="hds-key-value-pair" ...attributes>
+  <div class="hds-key-value-pair__header">
+    {{yield
+      (hash
+        Legend=(component "hds/form/legend" isOptional=@isOptional isReqiured=@isRequired)
+        HelperText=(component "hds/form/helper-text")
+        Error=(component "hds/form/error")
+      )
+    }}
+  </div>
+
+  {{#each @data as |item|}}
+    <div class="hds-key-value-pair__row">
+      {{yield
+        (hash
+          Select=(component "hds/form/select/field")
+          TextInput=(component "hds/form/text-input/field")
+          Generic=(component "hds/yield")
+        )
+      }}
+      <Hds::Button
+        @text="Delte row"
+        @icon="trash"
+        @isIconOnly={{true}}
+        @color="secondary"
+        class="hds-key-value-pair__delete-row"
+      />
+    </div>
+  {{/each}}
+
+  <div class="hds-key-value-pair__footer">
+    {{yield (hash FooterExtraBefore=(component "hds/yield"))}}
+    <Hds::Button
+      @text="Add row"
+      @size="medium"
+      @color="secondary"
+      @icon="plus"
+      @iconPosition="leading"
+      class="hds-key-value-pair__add-row"
+    />
+    {{yield (hash FooterExtraAfter=(component "hds/yield"))}}
+  </div>
+</fieldset>
