@@ -1,7 +1,7 @@
 
 !!! Info
 
-More details on how to assemble form components in larger form patterns can be found in the [form pattern](/patterns/form-patterns) documentation.
+More details on how to assemble form components in larger form patterns can be found in the [form patterns](/patterns/form-patterns) documentation.
 !!!
 
 Form Primitives are used to compose form fields.

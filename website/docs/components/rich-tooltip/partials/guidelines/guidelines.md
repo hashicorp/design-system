@@ -8,7 +8,7 @@
 !!!
 
 - For adding extra information, in the form of structured content, to a UI element.
-- When it’s necessary to _temporarily persist_ extra information in the UI; e.g., if the user benefits from cross-referencing information in the component with other elements in the UI.
+- Use when content needs to stay visible so users can cross-reference it with other parts of the UI. The component remains open until dismissed by the user. See the Interaction section for more.
 
 ### When not to use
 
