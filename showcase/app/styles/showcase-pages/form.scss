@@ -19,12 +19,22 @@ body.components-form {
     .hds-form__header, // component TBD
     .hds-form__section-header, // component TBD
     .hds-form__section,
+    .hds-form__field-group,
     .hds-button-set {
       outline: 1px dashed #78909c;
     }
 
     .hds-form__section {
       background: #d2f4ff;
+    }
+
+    .hds-form__field-group {
+      background: #bfecfb;
+
+      > * {
+        background: #add8e6;
+        outline: 1px dashed #78909c;
+      }
     }
 
     .hds-form__header,
