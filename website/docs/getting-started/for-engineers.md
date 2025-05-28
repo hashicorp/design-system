@@ -79,10 +79,10 @@ Our component library assumes that a box-sizing reset is applied globally in you
 
 ## Icons
 
-There are multiple ways to use icons in your codebase. We provide icons:
+There are two ways to use icons in your codebase. We provide icons:
 
 - as an [`Hds::Icon` Ember component](/components/icon)
-- as a generic package that can also be consumed directly in React applications (and in web applications in general)
+- as a generic package, `@hashicorp/flight-icons`, that can also be consumed directly in React applications (and in web applications in general)
 
 ### Ember applications
 
@@ -118,7 +118,7 @@ module.exports = function(environment) {
 
 #### Ember test selectors
 
-Both the `Hds::Icon` and the `FlightIcon` components expose a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+The `Hds::Icon` component expose a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 
 #### Using the icons without importing the whole components package
 
