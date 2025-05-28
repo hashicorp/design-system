@@ -134,6 +134,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnResize?: (columnKey: string, newWidth: string) => void;
   };
   Blocks: {
     body?: [
@@ -178,12 +179,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
+    const {
+      model,
+      childrenKey,
+      columns,
+      hasStickyFirstColumn,
+      onColumnResize,
+    } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
       columns,
+      onColumnResize,
     });
 
     if (this._tableModel.hasRowsWithChildren) {

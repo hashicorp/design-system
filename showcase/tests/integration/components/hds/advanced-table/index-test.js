@@ -1575,4 +1575,35 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       'Grid values reset to initial state after resetting column width',
     );
   });
+
+  test('it should call `onColumnResize` when a column is resized', async function (assert) {
+    setResizableColumnsTableData(this);
+    const onColumnResizeSpy = sinon.spy();
+    this.set('onColumnResize', onColumnResizeSpy);
+
+    await render(hbs`
+      <Hds::AdvancedTable
+        @model={{this.model}}
+        @columns={{this.columns}}
+        @onColumnResize={{this.onColumnResize}}
+        id="resize-test-table"
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.col1}}</B.Td>
+            <B.Td>{{B.data.col2}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Simulate pointer drag to the right (increase width)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(handle, 'pointermove', { clientX: 130 });
+    await triggerEvent(window, 'pointerup');
+
+    assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+  });
 });
