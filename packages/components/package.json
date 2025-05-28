@@ -285,6 +285,7 @@
       "./components/hds/icon-tile/index.js": "./dist/_app_/components/hds/icon-tile/index.js",
       "./components/hds/icon/index.js": "./dist/_app_/components/hds/icon/index.js",
       "./components/hds/interactive/index.js": "./dist/_app_/components/hds/interactive/index.js",
+      "./components/hds/key-value-pair/index.js": "./dist/_app_/components/hds/key-value-pair/index.js",
       "./components/hds/layout/flex/index.js": "./dist/_app_/components/hds/layout/flex/index.js",
       "./components/hds/layout/flex/item.js": "./dist/_app_/components/hds/layout/flex/item.js",
       "./components/hds/layout/grid/index.js": "./dist/_app_/components/hds/layout/grid/index.js",
