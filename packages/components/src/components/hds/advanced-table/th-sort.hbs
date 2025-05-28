@@ -22,7 +22,7 @@
   }}
   ...attributes
 >
-  <Hds::Layout::Flex @justify="space-between" @align="center">
+  <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
     <div class="hds-advanced-table__th-content">
       <span
         id={{this._labelId}}
@@ -36,7 +36,7 @@
       {{/if}}
     </div>
 
-    <Hds::Layout::Flex class="hds-advanced-table__th-actions" @align="center">
+    <Hds::Layout::Flex class="hds-advanced-table__th-actions" @align="center" @gap="8">
       <Hds::AdvancedTable::ThButtonSort
         @sortOrder={{@sortOrder}}
         @onClick={{@onClickSort}}
