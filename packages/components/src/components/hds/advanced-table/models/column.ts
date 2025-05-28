@@ -4,6 +4,7 @@ import { assert } from '@ember/debug';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type { HdsAdvancedTableHorizontalAlignment } from '../types';
+import type { HdsAdvancedTableTableColumnResizeCallback } from './table';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -34,6 +35,7 @@ export default class HdsAdvancedTableColumn {
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   private _originalWidth?: string = undefined;
+  private _onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -56,18 +58,26 @@ export default class HdsAdvancedTableColumn {
     }
   }
 
-  constructor(args: HdsAdvancedTableColumnType) {
+  constructor(args: {
+    column: HdsAdvancedTableColumnType;
+    onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+  }) {
+    const { column, onColumnResize } = args;
+
     // set column properties
-    this.label = args.label;
-    this.align = args.align;
-    this.isExpandable = 'isExpandable' in args ? args.isExpandable : false;
-    this.isSortable = args.isSortable;
-    this.isVisuallyHidden = args.isVisuallyHidden;
-    this.key = args.key;
-    this.tooltip = args.tooltip;
-    this._setWidthValues(args);
-    this._setResizableValues(args);
-    this.sortingFunction = args.sortingFunction;
+    this.label = column.label;
+    this.align = column.align;
+    this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
+    this.isSortable = column.isSortable;
+    this.isVisuallyHidden = column.isVisuallyHidden;
+    this.key = column.key;
+    this.tooltip = column.tooltip;
+    this._setWidthValues(column);
+    this._setResizableValues(column);
+    this.sortingFunction = column.sortingFunction;
+
+    // set resize callback
+    this._onColumnResize = onColumnResize;
   }
 
   private _setWidthValues({
@@ -111,6 +121,12 @@ export default class HdsAdvancedTableColumn {
       this.pxMaxWidth !== undefined
         ? Math.min(minLimitedPxWidth, this.pxMaxWidth)
         : minLimitedPxWidth;
+
+    if (this.key === undefined || this.width === undefined) {
+      return;
+    }
+
+    this._onColumnResize?.(this.key, this.width);
   }
 
   @action

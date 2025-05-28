@@ -14,10 +14,16 @@ import type {
   HdsAdvancedTableModel,
 } from '../types';
 
+export type HdsAdvancedTableTableColumnResizeCallback = (
+  columnKey: string,
+  newWidth: string
+) => void;
+
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
   columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
+  onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -42,9 +48,9 @@ export default class HdsAdvancedTableTableModel {
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, columns, childrenKey } = args;
+    const { model, columns, childrenKey, onColumnResize } = args;
 
-    this._setupColumns({ columns });
+    this._setupColumns({ columns, onColumnResize });
     this._setupRows({ model, columns, childrenKey });
   }
 
@@ -78,8 +84,13 @@ export default class HdsAdvancedTableTableModel {
 
   private _setupColumns({
     columns,
-  }: Pick<HdsAdvancedTableTableArgs, 'columns'>) {
-    this.columns = columns.map((column) => new HdsAdvancedTableColumn(column));
+    onColumnResize,
+  }: Pick<HdsAdvancedTableTableArgs, 'columns'> & {
+    onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+  }) {
+    this.columns = columns.map(
+      (column) => new HdsAdvancedTableColumn({ column, onColumnResize })
+    );
   }
 
   private _setupRows({
