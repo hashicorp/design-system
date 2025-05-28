@@ -85,7 +85,7 @@ export default class HdsAdvancedTableColumn {
     this._originalWidth = width;
 
     // TODO: discuss sensible defaults for minWidth and maxWidth
-    this.minWidth = minWidth ?? '50px';
+    this.minWidth = minWidth ?? '150px';
     this.maxWidth = maxWidth ?? '800px';
   }
 
