@@ -397,6 +397,11 @@ export default class ComponentsTableController extends Controller {
     },
   );
 
+  thResizeHandleColumn = {
+    pxWidth: 200,
+    setPxWidth: this.noop,
+  };
+
   @action
   noop() {
     // no-op

@@ -1664,6 +1664,70 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>ThResizeHandle</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="200px 200px 200px 1fr"}}
+      >
+        <div class="hds-advanced-table__thead" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Lorem
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Ipsum
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Dolor
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <Hds::AdvancedTable::Th>Sit</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+        <div class="hds-advanced-table__tbody" role="rowgroup">
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Td</Shw::Text::H3>
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
