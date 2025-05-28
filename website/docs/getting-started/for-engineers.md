@@ -118,7 +118,7 @@ module.exports = function(environment) {
 
 #### Ember test selectors
 
-The `Hds::Icon` component expose a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
+The `Hds::Icon` component exposes a `data-test-icon` helper. For this reason, we recommend installing [`ember-test-selectors`](https://github.com/simplabs/ember-test-selectors) which strips out all `data-test-*` attributes for production builds.
 
 #### Using the icons without importing the whole components package
 
