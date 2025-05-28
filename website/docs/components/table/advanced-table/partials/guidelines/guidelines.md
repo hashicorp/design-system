@@ -17,11 +17,10 @@
 
 ### Sorting
 
-![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
-
 - Sorting is not relevant for all content, so thoughtfully consider when to apply sorting.
 - An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment.
 
+![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 ### Tooltips
 
