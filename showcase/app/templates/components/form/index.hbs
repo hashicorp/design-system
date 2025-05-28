@@ -23,7 +23,7 @@
       <SG.Item @label="With Form, FormHeader, FormSections, FormFields, FormDivider, and ButtonSet (FormActions)">
         <Hds::Form>
           <div class="hds-form__header">
-            <Shw::Placeholder @height="50px" @text="Header (TBD if needed)" @background="#e5ffd2" />
+            <Shw::Placeholder @height="50px" @text="Header/Text Section (TBD if needed)" @background="#e5ffd2" />
           </div>
 
           <Hds::Form::Section>
@@ -66,16 +66,26 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Hds::Form>
+      {{! TODO: Should there be a FormHeader component or should it be more general such as a "Text Section" or something? }}
       <div class="hds-form__header">
-        <Hds::Text::Display @size="300">Form title</Hds::Text::Display>
+        <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
         <Hds::Text::Body @tag="p" @size="200">
-          Form description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel facere
-          itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
+          Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
           obcaecati consequatur tenetur.
         </Hds::Text::Body>
       </div>
 
       <Hds::Form::Section>
+        <div class="hds-form__section-header">
+          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </div>
+
         <Hds::Form::TextInput::Field name="field-1-name" as |F|>
           <F.Label>Field 1</F.Label>
         </Hds::Form::TextInput::Field>
@@ -107,6 +117,15 @@
       </Hds::Form::Section>
 
       <Hds::Form::Section @hasMaxWidth={{false}}>
+        <div class="hds-form__section-header">
+          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </div>
+
         <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
           <G.Legend>Group legend</G.Legend>
           {{#each @model.RADIOCARDS as |item|}}

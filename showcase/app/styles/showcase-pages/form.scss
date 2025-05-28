@@ -16,7 +16,8 @@ body.components-form {
       outline: 1px dashed #78909c;
     }
 
-    .hds-form__header,
+    .hds-form__header, // component TBD
+    .hds-form__section-header, // component TBD
     .hds-form__section,
     .hds-button-set {
       outline: 1px dashed #78909c;
@@ -24,6 +25,17 @@ body.components-form {
 
     .hds-form__section {
       background: #d2f4ff;
+    }
+
+    .hds-form__header,
+    .hds-form__section-header {
+      background: repeating-linear-gradient(
+        45deg,
+        #d2f4ff,
+        #d2f4ff 10px,
+        #fff 10px,
+        #fff 20px
+      );
     }
   }
 
