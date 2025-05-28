@@ -27,6 +27,13 @@ body.components-form {
     }
   }
 
+  .hds-form {
+    // Add padding if there's only a single divider
+    &:has(.hds-form__divider:only-child) {
+      padding: 16px 0;
+    }
+  }
+
   .shw-form-custom-max-width {
     --hds-form-section-max-width: 768px;
   }
