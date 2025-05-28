@@ -41,7 +41,9 @@
           <span
             id={{this._labelId}}
             class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold"
-          >{{yield}}</span>
+          >
+            {{yield}}
+          </span>
           <Hds::AdvancedTable::ThButtonTooltip @tooltip={{@tooltip}} @labelId={{this._labelId}} />
         </div>
       {{else}}
