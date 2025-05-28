@@ -214,8 +214,8 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="4rem" as |SG|>
-      <SG.Item @label="hasMaxWidth=true (default) w/ custom max-width style of 768px set at Form level">
-        <Hds::Form class="shw-form-custom-max-width">
+      <SG.Item @label="hasMaxWidth=true (default)">
+        <Hds::Form>
           <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -230,6 +230,16 @@
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
         </Hds::Form::Section>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=true w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
       </SG.Item>
     </Shw::Grid>
   </div>
