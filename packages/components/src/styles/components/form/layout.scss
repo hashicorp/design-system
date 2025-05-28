@@ -55,6 +55,11 @@ $hds-form-section-max-width: 1088px;
   --hds-form-section-max-width: none;
 }
 
+// FIELD GROUP (WIP) Uses a Layout::Flex component under the hood
+// .hds-form__field-group {
+//   outline: 2px dotted red;
+// }
+
 // WIP styles for planned components ---------------------
 
 // TODO: The ideas for these are still fuzzy
