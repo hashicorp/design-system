@@ -17,11 +17,12 @@
       <KVP.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
         can add up to 3 tags per resource.</KVP.HelperText>
       <KVP.Error>There is an error.</KVP.Error>
-
-      <KVP.TextInput as |F|>
+      {{! @glint-expect-error }}
+      <KVP.TextInput @value={{KVP.rowData.key}} as |F|>
         <F.Label>Tag key</F.Label>
       </KVP.TextInput>
-      <KVP.TextInput as |F|>
+      {{! @glint-expect-error }}
+      <KVP.TextInput @value={{KVP.rowData.value}} as |F|>
         <F.Label>Tag value</F.Label>
       </KVP.TextInput>
 

@@ -20,7 +20,7 @@
 }
 
 .hds-key-value-pair__row {
-  @include hds-breakpoint-above('md') {
+  @include hds-breakpoint-above('sm') {
     flex-direction: row;
     align-items: flex-end;
   }

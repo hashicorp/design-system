@@ -28,6 +28,7 @@ export interface HdsKeyValuePairSignature {
       FooterExtraAfter?: ComponentLike<HdsYieldSignature>;
       Select?: ComponentLike<HdsFormSelectFieldSignature>;
       TextInput?: ComponentLike<HdsFormTextInputFieldSignature>;
+      rowData?: unknown;
     }];
   };
   Element: HdsFormFieldsetSignature['Element'];
