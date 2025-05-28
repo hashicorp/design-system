@@ -14,11 +14,11 @@
 
 ### Sorting
 
-![Header column sorting](/assets/components/table/table-sorting.png)
-
 - Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
 - Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
 - A Table may only be sorted by a single value at a time.
+
+![Header column sorting](/assets/components/table/table-sorting.png)
 
 ### Tooltips
 
@@ -130,11 +130,11 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
-![Table striping examples](/assets/components/table/table-striping.png)
-
 While striping is not required, we recommend it for the added usability benefits.
 
 When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+
+![Table striping examples](/assets/components/table/table-striping.png)
 
 #### Benefits of striping
 
@@ -168,12 +168,12 @@ Row placement determines the visual styling based on where the row is placed rel
 
 ### Density
 
-![Table cell density](/assets/components/table/table-density.png)
-
 - We recommend using `medium` cell density by default.
 - If content is complex or a smaller data set (e.g., a Table of basic user data), `tall` cell density allows for more breathing room surrounding the content.
 - If content is largely string/text-based, `short` allows for more content to be displayed within the page.
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
+
+![Table cell density](/assets/components/table/table-density.png)
 
 ## Multi-select
 
