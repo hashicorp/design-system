@@ -72,6 +72,7 @@ $progress-bar-animation-duration: 0.25s;
   position: relative;
   display: flex;
   flex-direction: column;
+  // important: in Safari the text alignment of `button` elements is set to `align-items: flex-start` by default, so we need to make sure the content is centered 
   align-items: center;
   width: 100%;
   padding: 0;
