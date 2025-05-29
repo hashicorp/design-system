@@ -29,7 +29,11 @@ Router.map(function () {
     this.route('advanced-table');
     this.route('alert');
     this.route('app-footer');
-    this.route('app-header');
+    this.route('app-header', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('app-side-nav');
     this.route('application-state');
     this.route('badge');
