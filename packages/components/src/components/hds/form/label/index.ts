@@ -14,6 +14,7 @@ export interface HdsFormLabelSignature {
     controlId?: string;
     isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];
     isRequired?: HdsFormIndicatorSignature['Args']['isRequired'];
+    isHidden?: boolean;
   };
   Blocks: {
     default: [];
@@ -51,6 +52,10 @@ export default class HdsFormLabel extends Component<HdsFormLabelSignature> {
     // the reason for this is that the contextual component declarations don't pass attributes to the component
     if (this.args.contextualClass) {
       classes.push(this.args.contextualClass);
+    }
+
+    if (this.args.isHidden) {
+      classes.push('sr-only');
     }
 
     return classes.join(' ');

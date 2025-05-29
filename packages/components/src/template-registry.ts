@@ -162,8 +162,8 @@ import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
 import type HdsKeyValuePairComponent from './components/hds/key-value-pair/index.ts';
-import type HdsKeyValuePairAddRowButtonComponent  from './components/hds/key-value-pair/add-row-button.ts';
-import type HdsKeyValuePairDeleteRowButtonComponent  from './components/hds/key-value-pair/delete-row-button.ts';
+import type HdsKeyValuePairAddRowButtonComponent from './components/hds/key-value-pair/add-row-button.ts';
+import type HdsKeyValuePairDeleteRowButtonComponent from './components/hds/key-value-pair/delete-row-button.ts';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
 import type HdsModalBodyComponent from './components/hds/modal/body';
 import type HdsModalFooterComponent from './components/hds/modal/footer';
@@ -787,9 +787,9 @@ export default interface HdsComponentsRegistry {
   'hds/key-value-pair': typeof HdsKeyValuePairComponent;
   'Hds::KeyValuePair::AddRowButton': typeof HdsKeyValuePairAddRowButtonComponent;
   'hds/key-value-pair/add-row-button': typeof HdsKeyValuePairAddRowButtonComponent;
-    'Hds::KeyValuePair::DeleteRowButton': typeof HdsKeyValuePairDeleteRowButtonComponent;
+  'Hds::KeyValuePair::DeleteRowButton': typeof HdsKeyValuePairDeleteRowButtonComponent;
   'hds/key-value-pair/delete-row-button': typeof HdsKeyValuePairDeleteRowButtonComponent;
-  
+
   // MenuPrimitive
   'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;
   'hds/menu-primitive': typeof HdsMenuPrimitiveComponent;

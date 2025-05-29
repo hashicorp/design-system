@@ -26,7 +26,7 @@
           <F.Label>Key</F.Label>
         </R.TextInput>
         {{! @glint-expect-error }}
-        <R.TextInput @value={{R.rowData.value}} as |F|>
+        <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>
           <F.Label>Value</F.Label>
         </R.TextInput>
         <R.Generic>
