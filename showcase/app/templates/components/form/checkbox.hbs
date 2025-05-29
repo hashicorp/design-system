@@ -128,6 +128,25 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::Checkbox::Field disabled as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Checkbox::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled / Checked">
+      <Hds::Form::Checkbox::Field disabled checked="checked" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Checkbox::Field>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Divider />
 
   <Shw::Text::H2>"Group" of controls</Shw::Text::H2>
@@ -227,6 +246,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
@@ -312,6 +333,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
@@ -340,6 +363,31 @@
         </G.CheckboxField>
         <G.CheckboxField indeterminate={{true}} as |F|>
           <F.Label>Label of control #3</F.Label>
+        </G.CheckboxField>
+      </Hds::Form::Checkbox::Group>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Disabled">
+      <Hds::Form::Checkbox::Group @name="control-disabled" as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
+        <G.CheckboxField disabled={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
+        </G.CheckboxField>
+        <G.CheckboxField disabled={{true}} checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+        </G.CheckboxField>
+        <G.CheckboxField disabled={{true}} indeterminate={{true}} as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
         </G.CheckboxField>
       </Hds::Form::Checkbox::Group>
     </SF.Item>

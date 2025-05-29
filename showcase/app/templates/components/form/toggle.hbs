@@ -111,6 +111,19 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Disabled / Checked">
+      <Hds::Form::Toggle::Field checked="checked" disabled={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Toggle::Field>
+    </SG.Item>
+  </Shw::Grid>
+
   <Shw::Divider />
 
   <Shw::Text::H2>"Group" of controls</Shw::Text::H2>

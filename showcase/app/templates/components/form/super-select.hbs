@@ -436,6 +436,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
@@ -464,6 +466,28 @@
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        @disabled={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Complex content</Shw::Text::H3>
 
@@ -976,6 +1000,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
@@ -1004,6 +1030,28 @@
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        @disabled={{true}}
+        as |F|
+      >
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Complex content</Shw::Text::H3>
 

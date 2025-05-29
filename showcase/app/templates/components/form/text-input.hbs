@@ -356,6 +356,25 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Readonly">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" readonly={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>

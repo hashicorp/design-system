@@ -22,7 +22,7 @@
       </SF.Item>
     </Shw::Flex>
 
-    <Shw::Text::H2>States</Shw::Text::H2>
+    <Shw::Text::H3>States</Shw::Text::H3>
 
     <Shw::Flex @gap="2rem" as |SF|>
       {{#each @model.STATES as |state|}}
@@ -88,4 +88,16 @@
       </SG.Item>
     </Shw::Grid>
   </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Grid @columns="3" @gap="2rem" as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::FileInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
 </section>
