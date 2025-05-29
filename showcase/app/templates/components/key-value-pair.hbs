@@ -11,7 +11,10 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  {{#let (array (hash key="foo" value="bar") (hash key="baz" value="bop")) as |sampleData|}}
+  {{#let
+    (array (hash key="foo" value="bar" error="Invalid value.") (hash key="baz" value="bop" error="Invalid value."))
+    as |sampleData|
+  }}
     <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}}>
       <:header as |H|>
         <H.Legend>Tags applied to this workspace</H.Legend>
@@ -29,6 +32,11 @@
         {{! @glint-expect-error }}
         <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>
           <F.Label>Value</F.Label>
+          {{! @glint-expect-error }}
+          {{#if R.rowData.error}}
+            {{! @glint-expect-error }}
+            <F.Error>{{R.rowData.error}}</F.Error>
+          {{/if}}
         </R.TextInput>
         <R.Generic>
           <Shw::Placeholder @height="36px" @text="generic" />
