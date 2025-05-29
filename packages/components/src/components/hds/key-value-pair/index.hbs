@@ -29,7 +29,7 @@
           to="row"
         }}
         {{#if this.canDeleteRow}}
-          <Hds::KeyValuePair::DeleteRowButton @text={{(concat this.deleteRowButtonText " " index 1)}} />
+          <Hds::KeyValuePair::DeleteRowButton @text={{(concat this.deleteRowButtonText " " index)}} />
         {{/if}}
       </div>
     {{/let}}
