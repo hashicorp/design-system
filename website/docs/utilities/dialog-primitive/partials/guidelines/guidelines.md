@@ -1,13 +1,13 @@
 ## Usage
 
+The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If you are looking to create your own dialog-based component, use the `DialogPrimitive::Wrapper` as your foundation.
+
+A common example of this is a non-modal dialog such as a SplitWindow or Panel, which allows the user to interact with both the main page content and the content within the dialog.
+
 !!! Info
 
 If you discover a use case outside of this example, [contact the Design Systems Team](/about/support) for assistance.
 !!!
-
-The DialogPrimitive sub-components are not intended to be used independently of each other or in isolation. If you are looking to create your own dialog-based component, use the `DialogPrimitive::Wrapper` as your foundation.
-
-A common example of this is a non-modal dialog such as a SplitWindow or Panel, which allows the user to interact with both the main page content and the content within the dialog.
 
 ![Example of a non-modal example](/assets/components/dialog-primitives/dialog-primitive-non-modal-example.png)
 

@@ -35,6 +35,11 @@ Toggles come in two variant types: **button** and **icon**.
 
 ### Size
 
+!!! Info
+
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
+!!!
+
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
 <Doc::Layout @spacing="24px" @direction="vertical">
@@ -264,12 +269,12 @@ Users may not understand why something is taking additional time to load. If pos
 
 #### Generic
 
+The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
+
 !!! Warning
 
 Be careful not to misuse or overuse the Generic ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
 !!!
-
-The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
 
 ![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png =449x*)
 
