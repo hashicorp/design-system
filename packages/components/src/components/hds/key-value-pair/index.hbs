@@ -10,10 +10,11 @@
         HelperText=(component "hds/form/helper-text")
         Error=(component "hds/form/error")
       )
+      to="header"
     }}
   </div>
 
-  {{#each @data as |item|}}
+  {{#each @data as |item index|}}
     <div class="hds-key-value-pair__row">
       {{yield
         (hash
@@ -22,28 +23,19 @@
           Generic=(component "hds/yield")
           rowData=item
         )
+        to="row"
       }}
-      <Hds::Button
-        @text="Delte row"
-        @icon="trash"
-        @isIconOnly={{true}}
-        @color="secondary"
-        @size="medium"
-        class="hds-key-value-pair__delete-row"
-      />
+      {{#if this.canDeleteRow}}
+        <Hds::KeyValuePair::DeleteRowButton />
+      {{/if}}
     </div>
   {{/each}}
 
   <div class="hds-key-value-pair__footer">
-    {{yield (hash FooterExtraBefore=(component "hds/yield"))}}
-    <Hds::Button
-      @text="Add row"
-      @size="medium"
-      @color="secondary"
-      @icon="plus"
-      @iconPosition="leading"
-      class="hds-key-value-pair__add-row"
-    />
-    {{yield (hash FooterExtraAfter=(component "hds/yield"))}}
+    {{yield (hash ExtraBefore=(component "hds/yield")) to="footer"}}
+    {{#if this.canAddRow}}
+      <Hds::KeyValuePair::AddRowButton />
+    {{/if}}
+    {{yield (hash ExtraAfter=(component "hds/yield")) to="footer"}}
   </div>
 </fieldset>

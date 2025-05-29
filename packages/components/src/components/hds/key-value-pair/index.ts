@@ -5,6 +5,7 @@
 
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
+import { tracked } from '@glimmer/tracking';
 
 import type { HdsFormFieldsetSignature } from '../form/fieldset';
 import type { HdsFormLegendSignature } from '../form/legend';
@@ -17,23 +18,36 @@ import type { HdsFormTextInputFieldSignature } from '../form/text-input/field';
 export interface HdsKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     data?: Array<unknown>;
+    maxRows?: number;
   };
   Blocks: {
-    default: [{
+    header?: [{
       Legend?: ComponentLike<HdsFormLegendSignature>;
       HelperText?: ComponentLike<HdsFormHelperTextSignature>;
       Error?: ComponentLike<HdsFormErrorSignature>;
+    }];
+    row: [{
       Generic?: ComponentLike<HdsYieldSignature>;
-      FooterExtraBefore?: ComponentLike<HdsYieldSignature>;
-      FooterExtraAfter?: ComponentLike<HdsYieldSignature>;
       Select?: ComponentLike<HdsFormSelectFieldSignature>;
       TextInput?: ComponentLike<HdsFormTextInputFieldSignature>;
       rowData?: unknown;
     }];
+    footer?: [{
+      ExtraBefore?: ComponentLike<HdsYieldSignature>;
+      ExtraAfter?: ComponentLike<HdsYieldSignature>;
+    }]
   };
   Element: HdsFormFieldsetSignature['Element'];
 }
 
 export default class HdsKeyValuePair extends Component<HdsKeyValuePairSignature> {
-  // 
+  @tracked currentNumberOfRows = this.args.data?.length ?? 0;
+
+  get canAddRow(): boolean {
+    return this.args.maxRows === undefined || this.currentNumberOfRows < this.args.maxRows;
+  }
+
+  get canDeleteRow(): boolean {
+    return this.currentNumberOfRows > 1;
+  }
 }

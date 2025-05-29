@@ -12,30 +12,36 @@
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   {{#let (array (hash key="foo" value="bar") (hash key="baz" value="bop")) as |sampleData|}}
-    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}} as |KVP|>
-      <KVP.Legend>Tags applied to this workspace</KVP.Legend>
-      <KVP.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
-        can add up to 3 tags per resource.</KVP.HelperText>
-      <KVP.Error>There is an error.</KVP.Error>
-      {{! @glint-expect-error }}
-      <KVP.TextInput @value={{KVP.rowData.key}} as |F|>
-        <F.Label>Tag key</F.Label>
-      </KVP.TextInput>
-      {{! @glint-expect-error }}
-      <KVP.TextInput @value={{KVP.rowData.value}} as |F|>
-        <F.Label>Tag value</F.Label>
-      </KVP.TextInput>
+    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}}>
+      <:header as |H|>
+        <H.Legend>Tags applied to this workspace</H.Legend>
+        <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
+          can add up to 3 tags per resource.</H.HelperText>
+        <H.Error>There is an error.</H.Error>
+      </:header>
 
-      <KVP.Generic>
-        <Shw::Placeholder @height="36px" @text="generic" />
-      </KVP.Generic>
+      <:row as |R|>
+        {{! @glint-expect-error }}
+        <R.TextInput @value={{R.rowData.key}} as |F|>
+          <F.Label>Key</F.Label>
+        </R.TextInput>
+        {{! @glint-expect-error }}
+        <R.TextInput @value={{R.rowData.value}} as |F|>
+          <F.Label>Value</F.Label>
+        </R.TextInput>
+        <R.Generic>
+          <Shw::Placeholder @height="36px" @text="generic" />
+        </R.Generic>
+      </:row>
 
-      <KVP.FooterExtraBefore>
-        <Shw::Placeholder @height="36px" @text="footer before" />
-      </KVP.FooterExtraBefore>
-      <KVP.FooterExtraAfter>
-        <Shw::Placeholder @height="36px" @text="footer after" />
-      </KVP.FooterExtraAfter>
+      <:footer as |F|>
+        <F.ExtraBefore>
+          <Shw::Placeholder @height="36px" @text="footer before" />
+        </F.ExtraBefore>
+        <F.ExtraAfter>
+          <Shw::Placeholder @height="36px" @text="footer after" />
+        </F.ExtraAfter>
+      </:footer>
     </Hds::KeyValuePair>
   {{/let}}
 </section>
