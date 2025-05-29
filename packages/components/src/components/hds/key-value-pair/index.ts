@@ -23,6 +23,7 @@ export interface HdsKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     data?: Array<unknown>;
     maxRows?: number;
+    addRowButtonText?: string;
   };
   Blocks: {
     header?: [
@@ -83,6 +84,14 @@ export default class HdsKeyValuePair extends Component<HdsKeyValuePairSignature>
       this._mediaQueryListener,
       true
     );
+  }
+
+  get addRowButtonText(): string {
+    return this.args.addRowButtonText ?? 'Add Row';
+  }
+
+    get deleteRowButtonText(): string {
+    return this.args.addRowButtonText ?? 'Delete Row';
   }
 
   get canAddRow(): boolean {
