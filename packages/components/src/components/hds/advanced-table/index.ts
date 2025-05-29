@@ -194,6 +194,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onColumnResize,
     });
 
+    if (this._tableModel.hasResizableColumns) {
+      assert(
+        'Cannot have a sticky first column if there are resizable columns.',
+        !hasStickyFirstColumn
+      );
+    }
+
     if (this._tableModel.hasRowsWithChildren) {
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
