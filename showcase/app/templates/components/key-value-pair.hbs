@@ -24,6 +24,7 @@
         {{! @glint-expect-error }}
         <R.TextInput @value={{R.rowData.key}} as |F|>
           <F.Label>Key</F.Label>
+          <F.HelperText>The key you enter should be a good key.</F.HelperText>
         </R.TextInput>
         {{! @glint-expect-error }}
         <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>

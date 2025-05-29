@@ -9,6 +9,7 @@ import type { HdsButtonSignature } from '../button';
 export interface HdsKeyValuePairAddRowButtonSignature {
   Args: {
     onAddRowClick?: () => void;
+    text: HdsButtonSignature['Args']['text'];
   };
   Element: HdsButtonSignature['Element'];
 }

@@ -34,6 +34,7 @@ export interface HdsFormFieldSignature {
     isRequired?: boolean;
     layout?: HdsFormFieldLayouts;
     isLabelHidden?: boolean;
+    hiddenLabelText?: string;
   };
   Blocks: {
     default: [

@@ -15,6 +15,7 @@ export interface HdsFormLabelSignature {
     isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];
     isRequired?: HdsFormIndicatorSignature['Args']['isRequired'];
     isHidden?: boolean;
+    hiddenText?: string;
   };
   Blocks: {
     default: [];

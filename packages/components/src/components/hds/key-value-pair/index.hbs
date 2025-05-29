@@ -20,14 +20,16 @@
         {{yield
           (hash
             Select=(component "hds/form/select/field" isLabelHidden=isLabelHidden)
-            TextInput=(component "hds/form/text-input/field" isLabelHidden=isLabelHidden)
+            TextInput=(component
+              "hds/form/text-input/field" isLabelHidden=isLabelHidden hiddenLabelText=(concat "Row " index)
+            )
             Generic=(component "hds/yield")
             rowData=item
           )
           to="row"
         }}
         {{#if this.canDeleteRow}}
-          <Hds::KeyValuePair::DeleteRowButton />
+          <Hds::KeyValuePair::DeleteRowButton @text={{(concat this.deleteRowButtonText " " index 1)}} />
         {{/if}}
       </div>
     {{/let}}
@@ -36,7 +38,7 @@
   <div class="hds-key-value-pair__footer">
     {{yield (hash ExtraBefore=(component "hds/yield")) to="footer"}}
     {{#if this.canAddRow}}
-      <Hds::KeyValuePair::AddRowButton />
+      <Hds::KeyValuePair::AddRowButton @text={{this.addRowButtonText}} />
     {{/if}}
     {{yield (hash ExtraAfter=(component "hds/yield")) to="footer"}}
   </div>
