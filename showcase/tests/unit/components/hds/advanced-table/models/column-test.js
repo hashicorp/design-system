@@ -14,13 +14,13 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     assert.false(column.isResizable, 'defaults isResizable to false');
     assert.strictEqual(
       column.isSortable,
-      undefined,
-      'isSortable is undefined when not provided',
+      false,
+      'isSortable is false when not provided',
     );
     assert.strictEqual(
       column.isVisuallyHidden,
-      undefined,
-      'isVisuallyHidden is undefined when not provided',
+      false,
+      'isVisuallyHidden is false when not provided',
     );
     assert.strictEqual(
       column.key,
