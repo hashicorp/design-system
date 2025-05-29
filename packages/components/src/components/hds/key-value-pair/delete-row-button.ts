@@ -9,7 +9,7 @@ import type { HdsButtonSignature } from '../button';
 export interface HdsKeyValuePairDeleteRowButtonSignature {
   Args: {
     onAddRowClick?: () => void;
-    label?: string;
+    text: HdsButtonSignature['Args']['text'];
   };
   Element: HdsButtonSignature['Element'];
 }
