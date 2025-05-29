@@ -88,6 +88,15 @@
         </Hds::Text::Body>
       </div>
 
+      {{! TODO: Define patterns for form-level errors then update placement of this Alert as necessary }}
+      <Hds::Alert @type="inline" @color="critical" as |A|>
+        <A.Title @tag="h2">Form submission error</A.Title>
+        <A.Description>Correct the formatting of the following fields to update your user profile:</A.Description>
+        <A.Description>
+          <Hds::Link::Inline @href="#" @color="secondary">Expiration date</Hds::Link::Inline>
+        </A.Description>
+      </Hds::Alert>
+
       <Hds::Form::Section>
         <div class="hds-form__section-header">
           <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
