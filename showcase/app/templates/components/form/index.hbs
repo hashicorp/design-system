@@ -16,7 +16,7 @@
     </button>
   </div>
 
-  {{! TODO: Replace divs for Header, Group/Row, etc. with actual components }}
+  {{! TODO: Replace divs for Header, etc. with actual components }}
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
@@ -33,15 +33,21 @@
           </Hds::Form::Section>
 
           <Hds::Form::Section>
-            <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-group">
-              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField" @background="#add8e6" />
-              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField" @background="#add8e6" />
-            </Hds::Layout::Flex>
+            <Hds::Form::FieldGroup>
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
+            </Hds::Form::FieldGroup>
 
-            <Hds::Layout::Flex @gap="16" @wrap={{true}} class="hds-form__field-group">
-              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField" @background="#add8e6" />
-              <Shw::Placeholder @height="2.4em" @width="60%" @text="FieldGroup FormField" @background="#add8e6" />
-            </Hds::Layout::Flex>
+            <Hds::Form::FieldGroup @wrap={{true}}>
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
+              <Shw::Placeholder
+                @height="2.4em"
+                @width="auto"
+                {{style padding="0 1em"}}
+                @text="FieldGroup FormField 2"
+                @background="#add8e6"
+              />
+            </Hds::Form::FieldGroup>
           </Hds::Form::Section>
 
           <Hds::Form::Divider />
@@ -175,7 +181,7 @@
       <Hds::Form::Divider />
 
       <Hds::Form::Section>
-        <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-group">
+        <Hds::Form::FieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 1</F.Label>
             <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -184,16 +190,16 @@
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 2</F.Label>
           </Hds::Form::TextInput::Field>
-        </Hds::Layout::Flex>
+        </Hds::Form::FieldGroup>
 
-        <Hds::Layout::Flex @gap="16" @wrap={{true}} class="hds-form__field-group">
+        <Hds::Form::FieldGroup @wrap={{true}}>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 2, field 1</F.Label>
           </Hds::Form::TextInput::Field>
           <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
             <F.Label>Field group 2, field 2</F.Label>
           </Hds::Form::Toggle::Field>
-        </Hds::Layout::Flex>
+        </Hds::Form::FieldGroup>
       </Hds::Form::Section>
 
       <Hds::ButtonSet>
@@ -273,71 +279,6 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Field Group</Shw::Text::H3>
-
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
-
-  <Shw::Text::H4>Wrap</Shw::Text::H4>
-
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="wrap=false (default)">
-        <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-group">
-          <Hds::Form::TextInput::Field as |F|>
-            <F.Label>Control 1</F.Label>
-            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
-          </Hds::Form::TextInput::Field>
-
-          <Hds::Form::TextInput::Field as |F|>
-            <F.Label>Control 2</F.Label>
-          </Hds::Form::TextInput::Field>
-        </Hds::Layout::Flex>
-      </SG.Item>
-
-      <SG.Item @label="wrap=false with 3 fields">
-        <Hds::Layout::Flex @gap="16" @align="end" class="hds-form__field-group" as |LF|>
-          <Hds::Form::TextInput::Field as |F|>
-            <F.Label>City</F.Label>
-          </Hds::Form::TextInput::Field>
-
-          <LF.Item @basis="auto">
-            <Hds::Form::Select::Field as |F|>
-              <F.Label>State</F.Label>
-              <F.Options>
-                <option value="state-1">Ohio</option>
-                <option value="state-2">Massachusetts</option>
-                <option value="state-3">Washington</option>
-                <option value="state-4">Florida</option>
-                <option value="state-4">North Carolina</option>
-              </F.Options>
-            </Hds::Form::Select::Field>
-          </LF.Item>
-
-          <Hds::Form::TextInput::Field @width="8em" as |F|>
-            <F.Label>Zip</F.Label>
-          </Hds::Form::TextInput::Field>
-        </Hds::Layout::Flex>
-      </SG.Item>
-
-      <SG.Item @label="wrap=true">
-        <Hds::Layout::Flex @gap="16" @align="end" @wrap={{true}} class="hds-form__field-group">
-          <Hds::Form::TextInput::Field as |F|>
-            <F.Label>Field 1</F.Label>
-          </Hds::Form::TextInput::Field>
-          <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-            <F.Label>Field 2</F.Label>
-          </Hds::Form::Toggle::Field>
-        </Hds::Layout::Flex>
-      </SG.Item>
-    </Shw::Grid>
-  </div>
-
-  <Shw::Divider @level={{2}} />
-
   <Shw::Text::H3>FormDivider</Shw::Text::H3>
 
   <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
@@ -386,6 +327,71 @@
             <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
           </Hds::ButtonSet>
         </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Field Group</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
+
+  <Shw::Text::H4>Wrap</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="wrap=false (default)">
+        <Hds::Form::FieldGroup>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 1</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+          </Hds::Form::TextInput::Field>
+
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 2</F.Label>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
+
+      <SG.Item @label="wrap=false with 3 fields">
+        <Hds::Form::FieldGroup as |FG|>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>City</F.Label>
+          </Hds::Form::TextInput::Field>
+
+          <FG.Item @basis="auto">
+            <Hds::Form::Select::Field as |F|>
+              <F.Label>State</F.Label>
+              <F.Options>
+                <option value="state-1">Ohio</option>
+                <option value="state-2">Massachusetts</option>
+                <option value="state-3">Washington</option>
+                <option value="state-4">Florida</option>
+                <option value="state-4">North Carolina</option>
+              </F.Options>
+            </Hds::Form::Select::Field>
+          </FG.Item>
+
+          <Hds::Form::TextInput::Field @width="8em" as |F|>
+            <F.Label>Zip</F.Label>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
+
+      <SG.Item @label="wrap=true">
+        <Hds::Form::FieldGroup @wrap={{true}}>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Field 1</F.Label>
+          </Hds::Form::TextInput::Field>
+          <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
+            <F.Label>Field 2</F.Label>
+          </Hds::Form::Toggle::Field>
+        </Hds::Form::FieldGroup>
       </SG.Item>
     </Shw::Grid>
   </div>
