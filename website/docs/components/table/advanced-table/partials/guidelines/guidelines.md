@@ -4,7 +4,7 @@
 
 - When large datasets benefit from being viewed in a scrollable container instead of with pagination.
 - When an expandable table is needed for hierarchical data.
-- When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns. 
+- When users would benefit from more efficient keyboard navigation, such as when there are many rows or columns.
 
 ### When not to use
 
@@ -33,8 +33,7 @@ Some examples where it may be useful to include additional context in a tooltip 
 - When the label contains a product or HashiCorp-specific term.
 - When the label refers to a setting that can be changed elsewhere in the application.
 
-
-### Width 
+### Width
 
 Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
 
@@ -83,7 +82,7 @@ Use left alignment for:
 
 ![](/assets/components/table/advanced-table/start-alignment-example.png)
 
-#### Right alignment 
+#### Right alignment
 
 Right alignment can be used when expressing numerical values with decimals as this aligns the decimal places vertically.
 
@@ -141,7 +140,7 @@ Don’t center header labels or cell content within a table.
 
 Expandable rows let users show or hide more content without navigating away from the table. The expanded content should align with the header labels, even if the parent row includes minimal data.
 
-![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png) 
+![Advanced Table expandable rows. The parent rows display a summary of a Hashicorp product and the total price, the children rows show a breakdown of each billing item from that product and their individual cost.](/assets/components/table/advanced-table/expandable-rows.png)
 
 !!! Dont
 
@@ -150,7 +149,6 @@ Avoid using expandable rows when data is not structured in parent-child relation
 ![Advanced Table where the parent row has cells for name and email, but children rows have cells containing order date and total.](/assets/components/table/advanced-table/advanced-table-dont-parent-nested.png)
 
 !!!
-
 
 !!! Dont
 
@@ -161,6 +159,7 @@ Avoid using different density settings for parent and child rows.
 !!!
 
 ### Expand/Collapse All Button
+
 The Expand/Collapse All button allows users to expand or collapse all rows, including nested rows. It provides quick access to more content but may impact readability when content is long or detailed.
 
 #### Interactions
@@ -185,12 +184,12 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 ![](/assets/components/table/advanced-table/expandable-rows-collapse-state.png)
 <Doc::ImageCaption @text="Once all rows are expanded, the “Collapse All” button is displayed."/>
 
-##### Mixed state 
+##### Mixed state
 
 ![](/assets/components/table/advanced-table/expandable-rows-mixed-state.png)
 <Doc::ImageCaption @text="If some rows are expanded and others are collapsed, the “Expand All” button will persist until all rows are expanded."/>
 
-### Striping 
+### Striping
 
 !!! Info
 
@@ -225,19 +224,17 @@ Row placement determines the visual styling based on where the row is placed rel
 - Choose short density for text-heavy tables to fit more rows on a page.
 - Dense content can make tables harder to read and scan, so use it thoughtfully.
 
-
 ## Horizontal scrolling
 
 Use horizontal scrolling when the number of columns expands beyond the viewport or container.
 
 ![](/assets/components/table/advanced-table/horizontal-scrolling.png)
 
-
 ## Multi-Select
 
 !!! Info
 
-Multi-select and sorting are not supported for nested rows at this time. 
+Multi-select and sorting are not supported for nested rows at this time.
 
 !!!
 
@@ -252,3 +249,19 @@ A multi-select pattern consists of:
 2. Row level select allowing for the selection of an individual row.
 
 ![](/assets/components/table/advanced-table/table-multi-select-cells.png)
+
+## View functions
+
+The Advanced Table supports a number of different functions that allow an end-user to customize how they view the data presented in an Advanced Table, including resizing column widths and "pinning" the first column in the table so that it persists on scroll. These properties are not available within the Figma components directly, but we've provided [stickersheet template examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
+
+When these properties are enabled on the Ember component, actions related to each function are conditionally rendered within a context menu in the table header. This functions are not exposed to consumers and are therefore not customizable.
+
+![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
+
+For more details on the specifics for this functionality, visit the [specifications](?tab=specifications).
+
+## Content wrapping
+
+By default, content within the cells of the Advanced Table will wrap according to the natural reflow of the browser. This may result in content breaking to multiple lines and layout shift within the table, especially when `isResizable` is set to `true` in the Ember component. This behavior can be overidden by passing either blah blah blah...More details about
+
+<!-- @zack to add something about text wrapping (text-wrap-mode, white-space-collapse, etc), or consider moving this to the code or specs page.-->
