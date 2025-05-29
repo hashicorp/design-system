@@ -1,6 +1,6 @@
 {{! template-lint-disable no-pointer-down-event-binding }}
 <div
-  class="hds-advanced-table__th-resize-handle {{if this.resizing 'hds-advanced-table__th-resize-handle--resizing'}}"
+  class={{this.classNames}}
   draggable="false"
   role="slider"
   aria-orientation="vertical"
