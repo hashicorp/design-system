@@ -15,12 +15,12 @@ export const remarkSanitizeDocComponentApi = () => (tree) => {
       node.value = node.value
         .replace(
           /`(.*?)`/gim,
-          (_match, p1) => `${p1.replace('<', '&#60;').replace('>', '&#62;')}`,
+          (_match, p1) => `${p1.replace(/</g, '&#60;').replace(/>/g, '&#62;')}`,
         )
         .replace(
           /@name="(.*?)"/gim,
           (_match, p1) =>
-            `@name="${p1.replace('<', '&#60;').replace('>', '&#62;')}"`,
+            `@name="${p1.replace(/</g, '&#60;').replace(/>/g, '&#62;')}"`,
         );
     }
   });
