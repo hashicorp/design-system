@@ -90,7 +90,7 @@ export default class HdsKeyValuePair extends Component<HdsKeyValuePairSignature>
     return this.args.addRowButtonText ?? 'Add Row';
   }
 
-    get deleteRowButtonText(): string {
+  get deleteRowButtonText(): string {
     return this.args.addRowButtonText ?? 'Delete Row';
   }
 
