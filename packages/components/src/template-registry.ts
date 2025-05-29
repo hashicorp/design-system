@@ -13,8 +13,8 @@ import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advan
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
 import type HdsAdvancedTableThComponent from './components/hds/advanced-table/th';
 import type HdsAdvancedTableThButtonTooltipComponent from './components/hds/advanced-table/th-button-tooltip';
-import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/th-context-menu.ts';
-import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle.ts';
+import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/th-context-menu';
+import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle';
 import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
