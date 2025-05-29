@@ -79,8 +79,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Toggle::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::Toggle::Field checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::Toggle::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::Toggle::Field as |F|>
         <F.Label>This is the label</F.Label>
@@ -102,6 +107,19 @@
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
+      </Hds::Form::Toggle::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Disabled / Checked">
+      <Hds::Form::Toggle::Field checked="checked" disabled={{true}} as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Toggle::Field>
     </SG.Item>
   </Shw::Grid>

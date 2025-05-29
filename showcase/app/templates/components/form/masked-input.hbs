@@ -115,7 +115,7 @@
 
   <Shw::Text::H4>Single line</Shw::Text::H4>
 
-  {{#let (array "base" "invalid" "readonly") as |variants|}}
+  {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
       <Shw::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
@@ -143,7 +143,7 @@
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
 
-  {{#let (array "base" "invalid" "readonly") as |variants|}}
+  {{#let (array "base" "invalid" "readonly" "disabled") as |variants|}}
     {{#each variants as |variant|}}
       <Shw::Grid @columns={{3}} as |SG|>
         {{#each @model.STATES as |state|}}
@@ -275,6 +275,13 @@
       <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
     <SG.Item @label="Label + Helper text + Copy Button + Error">
@@ -491,6 +498,40 @@
     </SG.Item>
     <SG.Item @label="Label + Optional">
       <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" @isOptional={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Text::H4>Single line</Shw::Text::H4>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Readonly Optional">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" readonly={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled">
+      <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H4>Multiline</Shw::Text::H4>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Readonly">
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" readonly={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled">
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" disabled={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>

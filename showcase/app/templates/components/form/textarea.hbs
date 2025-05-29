@@ -144,8 +144,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Textarea::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::Textarea::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::Textarea::Field
         @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco"
@@ -240,6 +245,25 @@
         as |F|
       >
         <F.Label>This is the label text</F.Label>
+      </Hds::Form::Textarea::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns={{3}} as |SG|>
+    <SG.Item @label="Readonly">
+      <Hds::Form::Textarea::Field @value="Lorem ipsum dolor" readonly={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Textarea::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled">
+      <Hds::Form::Textarea::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Textarea::Field>
     </SG.Item>
   </Shw::Grid>

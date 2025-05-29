@@ -83,8 +83,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Radio::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::Radio::Field checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::Radio::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::Radio::Field as |F|>
         <F.Label>This is the label</F.Label>
@@ -106,6 +111,25 @@
           <E.Message>First error message</E.Message>
           <E.Message>Second error message</E.Message>
         </F.Error>
+      </Hds::Form::Radio::Field>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::Radio::Field disabled as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Radio::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled / Checked">
+      <Hds::Form::Radio::Field disabled checked="checked" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Radio::Field>
     </SG.Item>
   </Shw::Grid>
@@ -209,6 +233,8 @@
     </SG.Item>
   </Shw::Grid>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Horizontal layout</Shw::Text::H3>
 
   <Shw::Flex @direction="column" as |SF|>
@@ -294,6 +320,8 @@
     </SF.Item>
   </Shw::Flex>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
   <Shw::Flex as |SF|>
@@ -326,6 +354,33 @@
       </Hds::Form::Radio::Group>
     </SF.Item>
   </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Disabled">
+      <Hds::Form::Radio::Group @name="control-disabled" as |G|>
+        <G.Legend>Legend of the group</G.Legend>
+        <G.HelperText>Helper text for the entire group</G.HelperText>
+        <G.RadioField disabled={{true}} as |F|>
+          <F.Label>Label of control #1</F.Label>
+          <F.HelperText>Helper text for control #1</F.HelperText>
+        </G.RadioField>
+        <G.RadioField disabled={{true}} checked="checked" as |F|>
+          <F.Label>Label of control #2</F.Label>
+          <F.HelperText>Helper text for control #2</F.HelperText>
+        </G.RadioField>
+        <G.RadioField disabled={{true}} indeterminate={{true}} as |F|>
+          <F.Label>Label of control #3</F.Label>
+          <F.HelperText>Helper text for control #3</F.HelperText>
+        </G.RadioField>
+      </Hds::Form::Radio::Group>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Special cases</Shw::Text::H3>
 

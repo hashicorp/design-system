@@ -184,8 +184,17 @@
             </F.Options>
           </Hds::Form::Select::Field>
         </SG.Item>
-        {{! left empty on purpose }}
-        <SG.Item />
+        <SG.Item @label="Label + Helper text with link">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text
+              <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
         <SG.Item @label="Label + Error">
           <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
             <F.Label>This is the label</F.Label>
@@ -229,8 +238,8 @@
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="With legend + Required">
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="With legend + Required">
       <Hds::Form::Select::Field @isRequired={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
@@ -238,8 +247,8 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </SF.Item>
-    <SF.Item @label="With legend + Optional">
+    </SG.Item>
+    <SG.Item @label="With legend + Optional">
       <Hds::Form::Select::Field @isOptional={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
         <F.Options>
@@ -247,8 +256,44 @@
           <option>Sine qua non est</option>
         </F.Options>
       </Hds::Form::Select::Field>
-    </SF.Item>
-  </Shw::Flex>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>States</Shw::Text::H3>
+
+  <Shw::Grid @columns="3" as |SG|>
+    <SG.Item @label="Disabled">
+      <Hds::Form::Select::Field disabled={{true}} as |F|>
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Options>
+          <option>Lorem ipsum dolor</option>
+          <option>Sine qua non est</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+    </SG.Item>
+    <SG.Item @label="Disabled / Multiple">
+      <Hds::Form::Select::Field disabled={{true}} aria-label="multiple groups selected" multiple size="8" as |F|>
+        <F.Label>Lorem ipsum dolor</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+        <F.Options>
+          <optgroup label="Most common">
+            <option value="Kubernetes">Kubernetes</option>
+            <option value="AWS">AWS</option>
+            <option value="Azure" disabled>Azure</option>
+          </optgroup>
+          <optgroup label="Others">
+            <option value="Alibaba" selected>Alibaba</option>
+            <option value="CloudWise" selected>CloudWise</option>
+            <option value="SWA">SWA</option>
+            <option value="Other">Other</option>
+          </optgroup>
+        </F.Options>
+      </Hds::Form::Select::Field>
+    </SG.Item>
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
