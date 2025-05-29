@@ -29,6 +29,20 @@ function getTableGridValues(tableElement) {
   return gridValues;
 }
 
+async function resetColumnWidth(th) {
+  const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+
+  await click(contextMenuToggle);
+
+  return click('[data-test-context-option-key="reset-column-width"]');
+}
+
+async function simulateRightPointerDrag(handle) {
+  await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+  await triggerEvent(handle, 'pointermove', { clientX: 130 });
+  await triggerEvent(window, 'pointerup');
+}
+
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -1359,9 +1373,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     const handle = find('.hds-advanced-table__th-resize-handle'); // get the first handle
 
     // Simulate pointer drag to the right (increase width)
-    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
-    await triggerEvent(handle, 'pointermove', { clientX: 130 });
-    await triggerEvent(window, 'pointerup');
+    await simulateRightPointerDrag(handle);
 
     const newGridValues = getTableGridValues(table);
     assert.notEqual(
@@ -1551,10 +1563,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     const handle = find('.hds-advanced-table__th-resize-handle');
     const th = handle.closest('.hds-advanced-table__th');
 
-    // Simulate pointer drag to the right (increase width)
-    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
-    await triggerEvent(handle, 'pointermove', { clientX: 130 });
-    await triggerEvent(window, 'pointerup');
+    await simulateRightPointerDrag(handle);
 
     let newGridValues = getTableGridValues(table);
 
@@ -1564,9 +1573,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       'Grid values changed after drag',
     );
 
-    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
-    await click(contextMenuToggle);
-    await click('[data-test-context-option-key="reset-column-width"]');
+    await resetColumnWidth(th);
 
     newGridValues = getTableGridValues(table);
     assert.deepEqual(
@@ -1600,10 +1607,42 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     const handle = find('.hds-advanced-table__th-resize-handle');
 
     // Simulate pointer drag to the right (increase width)
-    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
-    await triggerEvent(handle, 'pointermove', { clientX: 130 });
-    await triggerEvent(window, 'pointerup');
+    await simulateRightPointerDrag(handle);
 
     assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+  });
+
+  test('it should call `onColumnResize` when a column width is reset', async function (assert) {
+    setResizableColumnsTableData(this);
+    const onColumnResizeSpy = sinon.spy();
+    this.set('onColumnResize', onColumnResizeSpy);
+
+    await render(hbs`
+      <Hds::AdvancedTable
+        @model={{this.model}}
+        @columns={{this.columns}}
+        @onColumnResize={{this.onColumnResize}}
+        id="resize-test-table"
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.col1}}</B.Td>
+            <B.Td>{{B.data.col2}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    await simulateRightPointerDrag(handle);
+
+    assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+
+    await resetColumnWidth(handle.closest('.hds-advanced-table__th'));
+    assert.ok(
+      onColumnResizeSpy.calledTwice,
+      'onColumnResize was called again after resetting column width',
+    );
   });
 });

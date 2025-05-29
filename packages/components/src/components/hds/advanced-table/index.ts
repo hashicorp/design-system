@@ -134,7 +134,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
-    onColumnResize?: (columnKey: string, newWidth: string) => void;
+    onColumnResize?: (columnKey: string, newWidth?: string) => void;
   };
   Blocks: {
     body?: [
