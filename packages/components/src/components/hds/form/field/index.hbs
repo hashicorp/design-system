@@ -14,7 +14,7 @@
       )
     )
   }}
-  {{#if (not-eq @layout "flag")}}
+  {{#unless (eq @layout "flag")}}
     {{yield
       (hash
         HelperText=(component
@@ -25,7 +25,7 @@
         )
       )
     }}
-  {{/if}}
+  {{/unless}}
   <div class="hds-form-field__control">
     {{! @glint-expect-error }}
     {{yield (hash Control=(component "hds/yield") id=this.id ariaDescribedBy=this.ariaDescribedBy)}}
