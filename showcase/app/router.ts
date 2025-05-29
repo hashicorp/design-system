@@ -77,6 +77,9 @@ Router.map(function () {
       this.route('indicator');
       this.route('list');
       this.route('nav');
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
     });
     this.route('table');
     this.route('tag');

@@ -493,3 +493,27 @@
     </SG.Item>
   </Shw::Grid>
 </section>
+
+<Shw::Divider />
+
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we don't have snapshots them in Percy }}
+<section>
+
+  <Shw::Text::H2>Responsiveness</Shw::Text::H2>
+
+  <Shw::Frame
+    @id="demo-stepper-large-viewports"
+    @src="/components/stepper/frameless/demo-responsiveness"
+    @height="300"
+    @label="Large viewport"
+  />
+
+  <Shw::Frame
+    @id="demo-stepper-small-viewports"
+    @src="/components/stepper/frameless/demo-responsiveness"
+    @width="400"
+    @height="650"
+    @label="Small viewport (< 480px)"
+  />
+
+</section>
