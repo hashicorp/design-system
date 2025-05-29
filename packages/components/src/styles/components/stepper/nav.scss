@@ -304,6 +304,7 @@ $progress-bar-animation-duration: 0.25s;
   }
 
   .hds-stepper-nav__step-content {
+    align-items: start;
     padding: 8px;
     border-radius: 0;
   }
