@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
+import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
@@ -22,7 +23,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
   };
-  Element: HTMLDivElement;
+  Element: HdsDropdownSignature['Element'];
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
