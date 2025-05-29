@@ -33,6 +33,7 @@ export interface HdsFormFieldSignature {
     isOptional?: boolean;
     isRequired?: boolean;
     layout?: HdsFormFieldLayouts;
+    isLabelHidden?: boolean;
   };
   Blocks: {
     default: [
@@ -107,6 +108,10 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
    */
   get isOptional(): boolean {
     return this.args.isOptional || false;
+  }
+
+  get isLabelHidden(): boolean {
+    return this.args.isLabelHidden || false;
   }
 
   /**
