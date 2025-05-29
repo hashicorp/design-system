@@ -62,11 +62,10 @@ The Code Editor has limited support for dark mode styles. Buttons have pre-defin
 
 Custom primary actions can be added to the header. Primary actions include those necessary for the user to complete their work.
 
-![The Code Editor with the title “CodeEditor title”. The custom yielded element section shows a placeholder and is between the title and the editor.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
+![The Code Editor with the title “CodeEditor title”. The custom yielded section has a “Reveal secrets” toggle.](/assets/components/code-editor/code-editor-primary-yielded-elements.png)
 
 Here is an example of a custom action to reveal secrets.
 
-![The Code Editor with the title “CodeEditor title”. The custom yielded section has a “Reveal secrets” toggle.](/assets/components/code-editor/code-editor-primary-yielded-actions.png)
 
 ## External elements
 
