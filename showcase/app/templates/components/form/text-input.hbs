@@ -260,8 +260,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::TextInput::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::TextInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
         <F.Label>This is the label</F.Label>

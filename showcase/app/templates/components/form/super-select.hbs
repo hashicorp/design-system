@@ -377,8 +377,19 @@
         {{F.options}}
       </Hds::Form::SuperSelect::Single::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::SuperSelect::Single::Field
+        @onChange={{fn (mut @model.SELECTED_OPTION)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTION}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Single::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::SuperSelect::Single::Field
         @onChange={{fn (mut @model.SELECTED_OPTION)}}
@@ -906,8 +917,19 @@
         {{F.options}}
       </Hds::Form::SuperSelect::Multiple::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::SuperSelect::Multiple::Field
+        @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
+        @options={{@model.OPTIONS}}
+        @selected={{@model.SELECTED_OPTIONS}}
+        as |F|
+      >
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+        {{F.options}}
+      </Hds::Form::SuperSelect::Multiple::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::SuperSelect::Multiple::Field
         @onChange={{fn (mut @model.SELECTED_OPTIONS)}}

@@ -96,8 +96,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::Checkbox::Field>
     </SG.Item>
-    {{! left empty on purpose }}
-    <SG.Item />
+    <SG.Item @label="Label + Helper text with link">
+      <Hds::Form::Checkbox::Field checked="checked" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text
+          <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::Checkbox::Field>
+    </SG.Item>
     <SG.Item @label="Label + Error">
       <Hds::Form::Checkbox::Field as |F|>
         <F.Label>This is the label</F.Label>

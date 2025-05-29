@@ -184,8 +184,17 @@
             </F.Options>
           </Hds::Form::Select::Field>
         </SG.Item>
-        {{! left empty on purpose }}
-        <SG.Item />
+        <SG.Item @label="Label + Helper text with link">
+          <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text
+              <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
+            <F.Options>
+              <option selected>Lorem ipsum dolor</option>
+              <option>Sine qua non est</option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+        </SG.Item>
         <SG.Item @label="Label + Error">
           <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} @isInvalid={{true}} as |F|>
             <F.Label>This is the label</F.Label>
