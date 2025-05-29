@@ -63,7 +63,11 @@ Router.map(function () {
     });
     this.route('modal');
     this.route('page-header');
-    this.route('pagination');
+    this.route('pagination', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('reveal');
     this.route('rich-tooltip');
     this.route('segmented-group');
