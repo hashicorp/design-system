@@ -3,8 +3,10 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
-import type { HdsAdvancedTableHorizontalAlignment } from '../types';
-import type { HdsAdvancedTableTableColumnResizeCallback } from './table';
+import type {
+  HdsAdvancedTableHorizontalAlignment,
+  HdsAdvancedTableColumnResizeCallback,
+} from '../types';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -35,7 +37,7 @@ export default class HdsAdvancedTableColumn {
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   private _originalWidth?: string = undefined;
-  private _onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+  private _onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -60,7 +62,7 @@ export default class HdsAdvancedTableColumn {
 
   constructor(args: {
     column: HdsAdvancedTableColumnType;
-    onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
   }) {
     const { column, onColumnResize } = args;
 
@@ -122,7 +124,7 @@ export default class HdsAdvancedTableColumn {
         ? Math.min(minLimitedPxWidth, this.pxMaxWidth)
         : minLimitedPxWidth;
 
-    if (this.key === undefined || this.width === undefined) {
+    if (this.key === undefined) {
       return;
     }
 
@@ -132,5 +134,11 @@ export default class HdsAdvancedTableColumn {
   @action
   restoreWidth(): void {
     this.width = this._originalWidth;
+
+    if (this.key === undefined) {
+      return;
+    }
+
+    this._onColumnResize?.(this.key, this.width);
   }
 }

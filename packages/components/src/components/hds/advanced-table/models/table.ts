@@ -5,26 +5,21 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
-
+import { tracked } from '@glimmer/tracking';
 import HdsAdvancedTableColumn from './column.ts';
 
 import type {
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
+  HdsAdvancedTableColumnResizeCallback,
 } from '../types';
-import { tracked } from '@glimmer/tracking';
-
-export type HdsAdvancedTableTableColumnResizeCallback = (
-  columnKey: string,
-  newWidth: string
-) => void;
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
   columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
-  onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -91,7 +86,7 @@ export default class HdsAdvancedTableTableModel {
     columns,
     onColumnResize,
   }: Pick<HdsAdvancedTableTableArgs, 'columns'> & {
-    onColumnResize?: HdsAdvancedTableTableColumnResizeCallback;
+    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
   }) {
     this.columns = columns.map(
       (column) => new HdsAdvancedTableColumn({ column, onColumnResize })
