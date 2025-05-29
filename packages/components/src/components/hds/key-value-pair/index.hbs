@@ -15,20 +15,22 @@
   </div>
 
   {{#each @data as |item index|}}
-    <div class="hds-key-value-pair__row">
-      {{yield
-        (hash
-          Select=(component "hds/form/select/field")
-          TextInput=(component "hds/form/text-input/field")
-          Generic=(component "hds/yield")
-          rowData=item
-        )
-        to="row"
-      }}
-      {{#if this.canDeleteRow}}
-        <Hds::KeyValuePair::DeleteRowButton />
-      {{/if}}
-    </div>
+    {{#let (and (gt index 0) (eq this._isDesktop true)) as |isLabelHidden|}}
+      <div class="hds-key-value-pair__row">
+        {{yield
+          (hash
+            Select=(component "hds/form/select/field" isLabelHidden=isLabelHidden)
+            TextInput=(component "hds/form/text-input/field" isLabelHidden=isLabelHidden)
+            Generic=(component "hds/yield")
+            rowData=item
+          )
+          to="row"
+        }}
+        {{#if this.canDeleteRow}}
+          <Hds::KeyValuePair::DeleteRowButton />
+        {{/if}}
+      </div>
+    {{/let}}
   {{/each}}
 
   <div class="hds-key-value-pair__footer">
