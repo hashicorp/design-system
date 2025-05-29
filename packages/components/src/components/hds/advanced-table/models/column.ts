@@ -66,7 +66,7 @@ export default class HdsAdvancedTableColumn {
 
     // set column properties
     this.label = column.label;
-    this.align = column.align;
+    this.align = column.align ?? 'left';
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
     this.isSortable = column.isSortable;
     this.isVisuallyHidden = column.isVisuallyHidden;
