@@ -91,10 +91,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   get classNames(): string {
-    const classes = ['hds-advanced-table-th-resize-handle'];
+    const classes = ['hds-advanced-table__th-resize-handle'];
 
     if (this.resizing !== null) {
-      classes.push('hds-advanced-table-th-resize-handle--resizing');
+      classes.push('hds-advanced-table__th-resize-handle--resizing');
     }
 
     return classes.join(' ');
