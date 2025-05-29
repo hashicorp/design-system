@@ -1,0 +1,8 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Layout::Flex class={{this.classNames}} @tag="div" @gap="16" @align="end" @wrap={{@wrap}} ...attributes>{{yield
+    (hash Item=(component "hds/layout/flex/item"))
+  }}</Hds::Layout::Flex>

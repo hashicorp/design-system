@@ -235,6 +235,7 @@
       "./components/hds/form/divider/index.js": "./dist/_app_/components/hds/form/divider/index.js",
       "./components/hds/form/error/index.js": "./dist/_app_/components/hds/form/error/index.js",
       "./components/hds/form/error/message.js": "./dist/_app_/components/hds/form/error/message.js",
+      "./components/hds/form/field-group/index.js": "./dist/_app_/components/hds/form/field-group/index.js",
       "./components/hds/form/field/index.js": "./dist/_app_/components/hds/form/field/index.js",
       "./components/hds/form/fieldset/index.js": "./dist/_app_/components/hds/form/fieldset/index.js",
       "./components/hds/form/file-input/base.js": "./dist/_app_/components/hds/form/file-input/base.js",

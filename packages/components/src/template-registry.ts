@@ -107,6 +107,7 @@ import type HdsFormDividerComponent from './components/hds/form/divider';
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
+import type HdsFormFieldGroupComponent from './components/hds/form/field-group';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
@@ -585,6 +586,10 @@ export default interface HdsComponentsRegistry {
   // Form Field
   'Hds::Form::Field': typeof HdsFormFieldComponent;
   'hds/form/field': typeof HdsFormFieldComponent;
+
+  // Form FieldGroup
+  'Hds::Form::FieldGroup': typeof HdsFormFieldGroupComponent;
+  'hds/form/field-group': typeof HdsFormFieldGroupComponent;
 
   // Form Fieldset
   'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
