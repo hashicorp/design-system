@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-03-20T20:50:00.564Z",
+  "lastRunTimeISO": "2025-05-29T21:34:58.612Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -1087,26 +1087,6 @@
       "height": 16
     },
     {
-      "id": "7665:167",
-      "fileName": "duo-color-24",
-      "iconName": "duo-color",
-      "description": "activity, pulse, health",
-      "category": "Services",
-      "size": "24",
-      "width": 24,
-      "height": 24
-    },
-    {
-      "id": "7665:169",
-      "fileName": "duo-color-16",
-      "iconName": "duo-color",
-      "description": "activity, pulse, health",
-      "category": "Services",
-      "size": "16",
-      "width": 16,
-      "height": 16
-    },
-    {
       "id": "7665:160",
       "fileName": "duo-24",
       "iconName": "duo",
@@ -1120,6 +1100,26 @@
       "id": "7665:162",
       "fileName": "duo-16",
       "iconName": "duo",
+      "description": "activity, pulse, health",
+      "category": "Services",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "7665:167",
+      "fileName": "duo-color-24",
+      "iconName": "duo-color",
+      "description": "activity, pulse, health",
+      "category": "Services",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "7665:169",
+      "fileName": "duo-color-16",
+      "iconName": "duo-color",
       "description": "activity, pulse, health",
       "category": "Services",
       "size": "16",
@@ -5590,7 +5590,7 @@
       "id": "350:2950",
       "fileName": "outline-24",
       "iconName": "outline",
-      "description": "outline, document",
+      "description": "outline, document, list",
       "category": "Symbols",
       "size": "24",
       "width": 24,
@@ -5600,7 +5600,7 @@
       "id": "350:2960",
       "fileName": "outline-16",
       "iconName": "outline",
-      "description": "outline, document",
+      "description": "outline, document, list",
       "category": "Symbols",
       "size": "16",
       "width": 16,
@@ -5810,7 +5810,7 @@
       "id": "363:246",
       "fileName": "zap-24",
       "iconName": "zap",
-      "description": "zap, power, run, automate",
+      "description": "zap, power, run, automate, lightning, bolt",
       "category": "Symbols",
       "size": "24",
       "width": 24,
@@ -5820,7 +5820,7 @@
       "id": "363:248",
       "fileName": "zap-16",
       "iconName": "zap",
-      "description": "zap, power, run, automate",
+      "description": "zap, power, run, automate, lightning, bolt",
       "category": "Symbols",
       "size": "16",
       "width": 16,
@@ -8167,6 +8167,66 @@
       "height": 16
     },
     {
+      "id": "350:4171",
+      "fileName": "top-24",
+      "iconName": "top",
+      "description": "top, scroll, up",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "350:4175",
+      "fileName": "top-16",
+      "iconName": "top",
+      "description": "top, scroll, up",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "8182:172",
+      "fileName": "start-24",
+      "iconName": "start",
+      "description": "move, left",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8182:176",
+      "fileName": "start-16",
+      "iconName": "start",
+      "description": "move, left",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "8182:183",
+      "fileName": "end-24",
+      "iconName": "end",
+      "description": "move, right",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8182:187",
+      "fileName": "end-16",
+      "iconName": "end",
+      "description": "move, right",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:1064",
       "fileName": "command-24",
       "iconName": "command",
@@ -9267,26 +9327,6 @@
       "height": 16
     },
     {
-      "id": "350:4171",
-      "fileName": "top-24",
-      "iconName": "top",
-      "description": "top, scroll, up",
-      "category": "Interface",
-      "size": "24",
-      "width": 24,
-      "height": 24
-    },
-    {
-      "id": "350:4175",
-      "fileName": "top-16",
-      "iconName": "top",
-      "description": "top, scroll, up",
-      "category": "Interface",
-      "size": "16",
-      "width": 16,
-      "height": 16
-    },
-    {
       "id": "350:4184",
       "fileName": "trash-24",
       "iconName": "trash",
@@ -9321,6 +9361,26 @@
       "fileName": "type-16",
       "iconName": "type",
       "description": "type, font, text",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "8182:159",
+      "fileName": "text-wrap-24",
+      "iconName": "text-wrap",
+      "description": "wrap, text",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8182:164",
+      "fileName": "text-wrap-16",
+      "iconName": "text-wrap",
+      "description": "wrap, text",
       "category": "Interface",
       "size": "16",
       "width": 16,

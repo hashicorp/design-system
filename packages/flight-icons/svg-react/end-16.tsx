@@ -1,7 +1,7 @@
 import { forwardRef, useMemo } from 'react';
 import { IconProps } from './types';
 
-export const IconTop16 = forwardRef<SVGSVGElement, IconProps>(
+export const IconEnd16 = forwardRef<SVGSVGElement, IconProps>(
     ({ color = 'currentColor', title, ...props }, svgRef) => {
         const titleId = useMemo(
             () =>
@@ -24,7 +24,7 @@ export const IconTop16 = forwardRef<SVGSVGElement, IconProps>(
             >
                 {title ? <title id={titleId}>{title}</title> : null}
                 <g fill={color}>
-                    <path d="M2.75 2.5a.75.75 0 010-1.5h10.5a.75.75 0 010 1.5H2.75zM3.235 9.795a.75.75 0 001.06-.03L7.25 6.636v7.614a.75.75 0 001.5 0V6.636l2.955 3.129a.75.75 0 001.09-1.03l-4.25-4.5a.75.75 0 00-1.09 0l-4.25 4.5a.75.75 0 00.03 1.06z" />
+                    <path d="M14.25 2a.75.75 0 01.75.75v10.5a.75.75 0 01-1.5 0V2.75a.75.75 0 01.75-.75zM6.205 3.235a.75.75 0 011.002-.08l.058.05 4.5 4.25a.75.75 0 01.053 1.034l-.053.056-4.5 4.25-.058.05a.75.75 0 01-1.025-1.085l.053-.055 3.13-2.955H1.75a.75.75 0 010-1.5h7.614L6.235 4.295l-.053-.055a.75.75 0 01.023-1.005z" />
                 </g>
             </svg>
         );
