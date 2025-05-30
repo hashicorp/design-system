@@ -5,6 +5,7 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 import type {
   HdsAdvancedTableExpandState,
@@ -33,14 +34,15 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
-  rows: HdsAdvancedTableRow[] = [];
+  @tracked rows: HdsAdvancedTableRow[] = [];
+
+  childrenKey?: string;
 
   constructor(args: HdsAdvancedTableTableArgs) {
     const { model, childrenKey } = args;
 
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
+    this.childrenKey = childrenKey;
+    this.updateModel(model);
   }
 
   get totalRowCount(): number {
@@ -69,6 +71,13 @@ export default class HdsAdvancedTableTableModel {
     } else {
       return false;
     }
+  }
+
+  @action
+  updateModel(model: HdsAdvancedTableModel) {
+    this.rows = model.map((row) => {
+      return new HdsAdvancedTableRow({ ...row, childrenKey: this.childrenKey });
+    });
   }
 
   @action
