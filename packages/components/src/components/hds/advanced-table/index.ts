@@ -157,6 +157,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked private _lastModel!: HdsAdvancedTableModel;
+
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _tableModel!: HdsAdvancedTableTableModel;
@@ -177,6 +179,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     super(owner, args);
 
     const { model, childrenKey, columns, hasStickyFirstColumn } = args;
+
+    this._lastModel = model;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
@@ -392,6 +396,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  private _didUpdateModel = modifier(() => {
+    if (this.args.model === this._lastModel) {
+      return;
+    }
+
+    this._tableModel.updateModel(this.args.model);
+  });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
