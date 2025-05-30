@@ -26,9 +26,16 @@ $hds-form-section-max-width: 1088px;
   }
 }
 
-// FORM SECTION
+// FORM HEADER & SECTION HEADER
 
-// TODO: Use breakpoint to stack columns when screen width is less than 480px wide
+.hds-form__header,
+.hds-form__section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// FORM SECTION
 
 .hds-form__section {
   display: flex;
@@ -56,14 +63,7 @@ $hds-form-section-max-width: 1088px;
 }
 
 // FIELD GROUP (WIP) Uses a Layout::Flex component under the hood
+
+// TODO: Use breakpoint to stack columns when screen width is less than 480px wide
+
 // .hds-form__field-group { }
-
-// WIP styles for planned components ---------------------
-
-// TODO: The ideas for these are still fuzzy
-.hds-form__header,
-.hds-form__section-header {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
