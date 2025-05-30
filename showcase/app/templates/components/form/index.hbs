@@ -534,6 +534,21 @@
           </Hds::Form::Toggle::Field>
         </Hds::Form::FieldGroup>
       </SG.Item>
+
+      <SG.Item @label="wrap=true w/ helper text & errors">
+        <Hds::Form::FieldGroup @wrap={{true}}>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Field 1</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+            <F.Error>This is a field-level error.</F.Error>
+          </Hds::Form::TextInput::Field>
+          <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
+            <F.Label>Field 2</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+            <F.Error>This is a field-level error.</F.Error>
+          </Hds::Form::Toggle::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
     </Shw::Grid>
   </div>
 </section>
