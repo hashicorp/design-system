@@ -429,6 +429,35 @@
         </Hds::Form::FieldGroup>
       </SG.Item>
 
+      <SG.Item @label="with one error">
+        <Hds::Form::FieldGroup>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 1</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+          </Hds::Form::TextInput::Field>
+
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 2</F.Label>
+            <F.Error>This is a field-level error</F.Error>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
+
+      <SG.Item @label="with two errors">
+        <Hds::Form::FieldGroup>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 1</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+          </Hds::Form::TextInput::Field>
+
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Control 2</F.Label>
+            <F.Error>This is a field-level error.</F.Error>
+            <F.Error>Yet another error example for a total of two.</F.Error>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
+
       <SG.Item @label="wrap=false with 3 fields">
         <Hds::Form::FieldGroup as |FG|>
           <Hds::Form::TextInput::Field as |F|>
