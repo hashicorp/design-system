@@ -22,19 +22,17 @@ Depending on these factors, there are different ways to implement the code, as d
 
 ### Standard toggle
 
-The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a piece of text (with an underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
-
-The text and icon are rendered inside an HTML `<button>` element (which technically acts as a toggling control for the popover). For details about how the user can interact with this button, see the [Interactivity](#interactivity) sub-section.
-
-
-The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
-
-
 !!! Info
 
 Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
 
 !!!
+
+The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a piece of text (with an underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
+
+The text and icon are rendered inside an HTML `<button>` element (which technically acts as a toggling control for the popover). For details about how the user can interact with this button, see the [Interactivity](#interactivity) sub-section.
+
+The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
 
 #### As a standalone element
 
@@ -238,13 +236,13 @@ When used in this way, it's up to the consumer to make sure the implementation i
 
 ### Advanced options
 
-There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
-
 !!! Insight
 
 If your use case requires customizing the component behavior or functionality, [contact the Design Systems Team](/about/support) first before actually implementing the changes (as we may already have your case covered).
 
 !!!
+
+There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
 
 #### Offset
 
@@ -262,6 +260,14 @@ The default spacing between the toggle and the tooltip itself can be tweaked usi
 
 #### Open
 
+!!! Warning
+
+**Important**
+
+This option should be considered carefully before being implemented in production code, because in this case the popover is in what's called a "manual" state, which means it can't be dismissed via `esc` or "click outside" until the end-user has interacted with it.
+
+!!!
+
 The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
 ```handlebars
@@ -273,11 +279,3 @@ The tooltip can be rendered as initially opened using the `@isOpen` argument:
   </RT.Bubble>
 </Hds::RichTooltip>
 ```
-
-!!! Warning
-
-**Important**
-
-This option should be considered carefully before being implemented in production code, because in this case the popover is in what's called a "manual" state, which means it can't be dismissed via `esc` or "click outside" until the end-user has interacted with it.
-
-!!!

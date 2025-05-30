@@ -2,6 +2,11 @@
 
 ### Form::Label
 
+!!! Warning
+
+The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. Because this is an interactive element, it cannot have links inside of it, as nested interactive elements cannot be reached by a user with assistive technology.
+!!!
+
 The default invocation requires text to be passed and a `controlId` argument (the ID of the form control associated with the label).
 
 ```handlebars
@@ -28,11 +33,6 @@ Pass an `isOptional` argument, when the user input is optional for the associate
 
 If the label needs to contain more than just text, it’s possible to pass structured content to component. While the correct text styling is applied to the component’s container, the layout of the content inside the component is the responsibility of the product team.
 
-!!! Warning
-
-The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. Because this is an interactive element, it cannot have links inside of it, as nested interactive elements cannot be reached by a user with assistive technology.
-!!!
-
 ```handlebars
 <Hds::Form::Label @controlId="control-ID">
   <span>Some text</span>
@@ -41,6 +41,11 @@ The `<label>` element is linked via `for` attribute to the `<input/select/textar
 ```
 
 ### Form::HelperText
+
+!!! Warning
+
+Interactive elements in text (associated with the input through `aria-describedby`) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, we recommend including a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+!!!
 
 The default invocation requires text to be passed and a `controlId` argument.
 
@@ -53,11 +58,6 @@ The `controlId` value is used to generate an ID, prefixed with `helper-text-`, s
 ```
 
 If the helper text needs to contain more than just text, use the block form of the component. While the correct styling is applied to the component itself, the nested components may need additional styling and are the responsibility of the product team.
-
-!!! Warning
-
-Interactive elements in text (associated with the input through `aria-describedby`) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, we recommend including a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
-!!!
 
 ```handlebars
 <Hds::Form::HelperText @controlId="control-ID">

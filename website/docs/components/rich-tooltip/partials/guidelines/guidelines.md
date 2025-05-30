@@ -2,13 +2,8 @@
 
 ### When to use
 
-!!! Info
-
-**Temporarily persist:** By this, we mean the component will remain open so the content within can be cross-referenced with the rest of the UI until it's explicitly dismissed by the user. More details are in the [interaction](#interaction) section.
-!!!
-
 - For adding extra information, in the form of structured content, to a UI element.
-- Use when content needs to stay visible so users can cross-reference it with other parts of the UI. The component remains open until dismissed by the user. See the Interaction section for more.
+- Use when content needs to stay visible so users can cross-reference it with other parts of the UI. The component remains open until dismissed by the user. See the [interaction](#interaction) section for more.
 
 ### When not to use
 

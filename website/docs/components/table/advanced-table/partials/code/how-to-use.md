@@ -70,6 +70,13 @@ For clarity, there are a couple of important points to note here:
 !!!
 
 ### Nested rows
+
+!!! Warning
+
+It is not currently supported to have `@isStriped`, multi-select, or sortable columns with nested rows. If your use case requires any of these features, please [contact the Design Systems Team](/about/support).
+
+!!!
+
 For complex data sets where there is a parent row with several children, you can render them as nested rows. By default, the Advanced Table uses the `children` key on the `@model` argument to render the nested rows. To change the key used, set the `@childrenKey` argument on the Advanced Table.
 
 To ensure the Advanced Table is accessible, the columns in the nested rows **must** match the columns of the parent rows. Otherwise the relationship between the parent and nested rows will not be clear to users.
@@ -110,12 +117,6 @@ To ensure the Advanced Table is accessible, the columns in the nested rows **mus
   ]
 ```
 
-!!! Warning
-
-It is not currently supported to have `@isStriped`, multi-select, or sortable columns with nested rows. If your use case requires any of these features, please [contact the Design Systems Team](/about/support).
-
-!!!
-
 Similar to the basic Advanced Table, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
 
 
@@ -149,7 +150,7 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 
 !!! Info
 
-This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers)
+This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers) 
 
 !!!
 
@@ -449,17 +450,25 @@ Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
 
 ### Multi-select Advanced Table
 
-A multi-select Advanced Table includes checkboxes enabling users to select multiple rows for purposes of performing bulk operations. Checking or unchecking the checkbox in the Advanced Table header either selects or deselects the checkboxes on each row in the body. Individual checkboxes in the rows can also be selected or deselected.
-
-Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
-
 !!! Warning
 
 At this time, the Advanced Table does not support multi-select nested rows. If this is a use case you require, please [contact the Design Systems Team](/about/support).
 
 !!!
 
+A multi-select Advanced Table includes checkboxes enabling users to select multiple rows for purposes of performing bulk operations. Checking or unchecking the checkbox in the Advanced Table header either selects or deselects the checkboxes on each row in the body. Individual checkboxes in the rows can also be selected or deselected.
+
+Add `isSelectable=true` to create a multi-select Advanced Table. The `onSelectionChange` argument can be used to pass a callback function to receive selection keys when the selected rows change. You must also pass a `selectionKey` to each row which gets passed back through the `onSelectionChange` callback which maps the row selection on the Advanced Table to an item in your data model.
+
 #### Simple multi-select
+
+!!! Warning
+
+**Important**
+
+To make the Advanced Table accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the Advanced Table's body.
+
+!!!
 
 This is a simple example of an Advanced Table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
 
@@ -468,7 +477,6 @@ This is a simple example of an Advanced Table with multi-selection. Notice the `
 If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
 
 !!!
-
 
 ```handlebars
 <Hds::AdvancedTable
@@ -490,14 +498,6 @@ If you want the state of the checkboxes to persist after the model updates, you 
   </:body>
 </Hds::AdvancedTable>
 ```
-
-!!! Warning
-
-**Important**
-
-To make the Advanced Table accessible, each checkbox used for the selection needs to have a distinct `aria-label`. For this reason, you need to provide a `@selectionAriaLabelSuffix` value (possibly unique) to the rows in the Advanced Table's body.
-
-!!!
 
 Here’s an example of what a `@onSelectionChange` callback function could look like.
 
