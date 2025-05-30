@@ -17,7 +17,7 @@ import type { HdsFormHelperTextSignature } from '../form/helper-text';
 import type { HdsFormErrorSignature } from '../form/error';
 import type { HdsYieldSignature } from '../yield';
 import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
-import type {HdsKeyValuePairFieldSignature} from './field.ts';
+import type { HdsKeyValuePairFieldSignature } from './field.ts';
 
 export interface HdsKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -25,7 +25,7 @@ export interface HdsKeyValuePairSignature {
     maxRows?: number;
     addRowButtonText?: string;
     onDeleteRowClick?: (index: number) => void;
-    columns?: 1 | 2 | 3; 
+    columns?: 1 | 2 | 3;
   };
   Blocks: {
     header?: [
