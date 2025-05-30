@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
+import { guidFor } from '@ember/object/internals';
 
 export interface HdsDisclosurePrimitiveSignature {
   Args: {
@@ -19,6 +20,7 @@ export interface HdsDisclosurePrimitiveSignature {
   Blocks: {
     toggle: [
       {
+        contentId: string;
         isOpen: boolean;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onClickToggle: (...args: any[]) => void;
@@ -37,6 +39,7 @@ export interface HdsDisclosurePrimitiveSignature {
 export default class HdsDisclosurePrimitive extends Component<HdsDisclosurePrimitiveSignature> {
   @tracked private _isOpen = false;
   @tracked private _isControlled = this.args.isOpen !== undefined;
+  private _contentId = 'content-' + guidFor(this);
 
   get isOpen(): boolean {
     if (this._isControlled) {
