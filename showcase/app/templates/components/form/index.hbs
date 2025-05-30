@@ -16,15 +16,15 @@
     </button>
   </div>
 
-  {{! TODO: Replace divs for FormHeader & SectionHeader with actual components }}
+  {{! TODO: Replace divs for SectionHeader with actual components }}
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="With Form, FormHeader, FormSections, FormFields, FormDivider, and ButtonSet (FormActions)">
         <Hds::Form>
-          <div class="hds-form__header">
+          <Hds::Form::Header>
             <Shw::Placeholder @height="70px" @text="FormHeader" @background="#e5ffd2" />
-          </div>
+          </Hds::Form::Header>
 
           <Hds::Form::Section>
             <div class="hds-form__section-header">
@@ -82,15 +82,14 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Hds::Form>
-      {{! TODO: Should there be a FormHeader component or should it be more general such as a "Text Section" or something? }}
-      <div class="hds-form__header">
+      <Hds::Form::Header>
         <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
         <Hds::Text::Body @tag="p" @size="200">
           Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
           facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
           obcaecati consequatur tenetur.
         </Hds::Text::Body>
-      </div>
+      </Hds::Form::Header>
 
       {{! TODO: Define patterns for form-level errors then update placement of this Alert as necessary }}
       <Hds::Alert @type="inline" @color="critical" as |A|>
@@ -265,44 +264,43 @@
   </div>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-    {{! TODO: Replace HTML with FormHeader components & fix demo below }}
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasMaxWidth=true (default)">
         <Hds::Form>
-          <div class="hds-form__header">
+          <Hds::Form::Header>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
             <Hds::Text::Body @tag="p" @size="200">
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
             </Hds::Text::Body>
-          </div>
+          </Hds::Form::Header>
         </Hds::Form>
       </SG.Item>
 
       <SG.Item @label="hasMaxWidth=false">
-        <Hds::Form::Section @hasMaxWidth={{false}}>
-          <div class="hds-form__header hds-form__header--has-max-width-false">
+        <Hds::Form>
+          <Hds::Form::Header @hasMaxWidth={{false}}>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
             <Hds::Text::Body @tag="p" @size="200">
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
             </Hds::Text::Body>
-          </div>
-        </Hds::Form::Section>
+          </Hds::Form::Header>
+        </Hds::Form>
       </SG.Item>
 
       <SG.Item @label="hasMaxWidth=true w/ custom max-width style of 768px set at Form level">
         <Hds::Form class="shw-form-custom-max-width">
-          <div class="hds-form__header">
+          <Hds::Form::Header>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
             <Hds::Text::Body @tag="p" @size="200">
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
             </Hds::Text::Body>
-          </div>
+          </Hds::Form::Header>
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>

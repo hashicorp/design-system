@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-export interface HdsFormSectionSignature {
+export interface HdsFormHeaderSignature {
   Args: { hasMaxWidth?: boolean };
   Blocks: {
     default: [];
@@ -13,17 +13,17 @@ export interface HdsFormSectionSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFormSection extends Component<HdsFormSectionSignature> {
+export default class HdsFormHeader extends Component<HdsFormHeaderSignature> {
   get hasMaxWidth(): boolean {
     const { hasMaxWidth = true } = this.args;
     return hasMaxWidth;
   }
-
+  
   get classNames(): string {
-    const classes = ['hds-form__section'];
+    const classes = ['hds-form__header'];
 
     if (!this.hasMaxWidth) {
-      classes.push('hds-form__section--has-max-width-false');
+      classes.push('hds-form__header--has-max-width-false');
     }
 
     return classes.join(' ');
