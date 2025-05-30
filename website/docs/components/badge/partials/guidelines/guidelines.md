@@ -52,13 +52,13 @@ There are three types of Badges: `filled`, `inverted`, and `outlined`.
 
 ### Filled
 
+Use filled Badges when displaying many on a single page or for subtle callouts.
+
 <Hds::Badge @text="Neutral filled" />
 <Hds::Badge @color="highlight" @text="Highlight filled" />
 <Hds::Badge @color="success" @text="Success filled" />
 <Hds::Badge @color="warning" @text="Warning filled" />
 <Hds::Badge @color="critical" @text="Critical filled" />
-
-Use filled Badges when displaying many on a single page or for subtle callouts.
 
 For example:
 
@@ -67,13 +67,13 @@ For example:
 
 ### Inverted
 
+Use inverted Badges to draw extra attention to something. However, avoid using too many inverted Badges on one page, as it could overwhelm the user and reduce the importance of nearby elements.
+
 <Hds::Badge @type="inverted" @text="Neutral inverted" />
 <Hds::Badge @type="inverted" @color="highlight" @text="Highlight inverted" />
 <Hds::Badge @type="inverted" @color="success" @text="Success inverted" />
 <Hds::Badge @type="inverted" @color="warning" @text="Warning inverted" />
 <Hds::Badge @type="inverted" @color="critical" @text="Critical inverted" />
-
-Use inverted Badges to draw extra attention to something. However, avoid using too many inverted Badges on one page, as it could overwhelm the user and reduce the importance of nearby elements.
 
 For example:
 
@@ -86,13 +86,13 @@ For example:
 
 ### Outlined
 
+Use outlined Badges as an alternative to filled Badges, but when extra attention is not required.
+
 <Hds::Badge @type="outlined" @text="Neutral outlined" />
 <Hds::Badge @type="outlined" @color="highlight" @text="Highlight outlined" />
 <Hds::Badge @type="outlined" @color="success" @text="Success outlined" />
 <Hds::Badge @type="outlined" @color="warning" @text="Warning outlined" />
 <Hds::Badge @type="outlined" @color="critical" @text="Critical outlined" />
-
-Use outlined Badges as an alternative to filled Badges, but when extra attention is not required.
 
 ## Size
 

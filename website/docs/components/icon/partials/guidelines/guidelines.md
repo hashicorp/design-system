@@ -74,16 +74,16 @@ Use animated icons to communicate activity happening in the background. For exam
 
 ## Sizes
 
-Icons are optimized for two icon sizes: `16px` and `24px`.
-
-Use `16px` icons by default in product interfaces and `24px` icons for empty states.
-
 !!! Warning
 
 **Resizing icons**
 
 There may be cases where `16px` and `24px` sizes don’t fit a design. Icons can be resized but be aware that the design is not optimized for resizing. Therefore, only resize icons as necessary and sparingly.
 !!!
+
+Icons are optimized for two icon sizes: `16px` and `24px`.
+
+Use `16px` icons by default in product interfaces and `24px` icons for empty states.
 
 ![Example of available icon sizes](/assets/foundations/flight-icons/icon-sizes.png =660x*)
 

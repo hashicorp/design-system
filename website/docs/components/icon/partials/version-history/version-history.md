@@ -4,8 +4,6 @@ Aligned private class properties to follow a standardized notation
 
 ## 4.9.0
 
-Added the `Hds::Icon` component. It replaces the `FlightIcon` component.
-
 !!! Info
 
 In the process of converting the `FlightIcon` component to the `Hds::Icon` component, we have taken the decision to change the default default layout from `display: inline-block` to `display: block`, and to rename the argument that control this option from `@isInlineBlock` to `@isInline`.
@@ -13,6 +11,8 @@ In the process of converting the `FlightIcon` component to the `Hds::Icon` compo
 This RFC document highlights the reasons for this choice: [DS-083: Migrate FlightIcon Component into HDS](https://docs.google.com/document/d/1mh4AdnyLhN1JB6qzIYkr1hUK-hMVoiKakPoQ0U34Zs0/edit).
 
 !!!
+
+Added the `Hds::Icon` component. It replaces the `FlightIcon` component.
 
 ### How to migrate
 

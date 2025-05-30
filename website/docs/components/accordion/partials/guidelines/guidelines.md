@@ -106,14 +106,14 @@ The toggle accepts many different types of content, from text-based content to n
 
 ### Interactive 
 
-Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
-
-When using this property, it should be applied to all items. Avoid mixing with default toggles.
-
 !!! Warning
 
 Use this variant only when you need to put interactive elements such as a button or a link within the toggle area. Avoid placing complex elements that may compromise the usability and accessibility of the component.
 !!!
+
+Use `containsInteractive` when nesting interactive content in the toggle. This lets users using assistive technology, access and interact with the nested element.
+
+When using this property, it should be applied to all items. Avoid mixing with default toggles.
 
 ![Example of toggle content](/assets/components/accordion/toggle-content-interactive.png =800x*)
 

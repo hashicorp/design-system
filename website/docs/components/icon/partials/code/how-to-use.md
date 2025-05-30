@@ -36,6 +36,12 @@ The default size is 16px. To use the alternative 24px icon size, set the `@size`
 
 ### Color
 
+!!! Warning
+
+We don’t validate the CSS color string to ensure that the value used is correct.
+
+!!!
+
 The default value is `currentColor` which uses the inherited text color as the icon color. When setting a custom value, we recommend using one of the pre-defined **foreground** color variables to ensure consistency with our design language:
 
 ```handlebars
@@ -60,12 +66,6 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, named c
 <Hds::Icon @name="zap" @color="rgb(46, 113, 229)" />
 ```
 
-!!! Warning
-
-We don’t validate the CSS color string to ensure that the value used is correct.
-
-!!!
-
 ### Stretched
 
 To have the icon fill the parent container (width: 100%, height: 100%), set the `@stretched` attribute to true:
@@ -89,8 +89,6 @@ To change the default display from `block` to `inline-block`, set `@isInline` to
 
 Because the `Hds::Icon` component has a `block` display value by default (changeable using the `@isInline` argument), the icon behaves like a block element. So, if you want to horizontally align it in relation to other sibling elements, you will have to use CSS to achieve the expected result.
 
-For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
-
 !!! Warning
 
 **Avoid using `vertical-align: middle`**
@@ -100,7 +98,17 @@ Just setting `vertical-align: middle` in the parent container doesn’t necessar
 This is because the [`middle` alignment](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align#middle) is not calculated in relation to the whole text “block” but to its “x-height”. To learn more, read about [how `vertical-align` works in CSS](https://www.impressivewebs.com/css-vertical-align/).
 !!!
 
+For example, to visually center an icon with a generic text node, you will need to use a parent `flex` container with `align-items: center`.
+
 ### Animated icons
+
+!!! Information
+
+**Note on accessibility**
+
+A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
+
+!!!
 
 The [loading](/icons/library?searchQuery=icon%3Aloading) and [running](/icons/library?searchQuery=icon%3Arunning) icons are animated by default, meaning no additional properties are needed:
 
@@ -113,11 +121,3 @@ If you need the non-animated version of these icons, use the corresponding [load
 ```handlebars
 <Hds::Icon @name="loading-static" @size="24" />
 ```
-
-!!! Information
-
-**Note on accessibility**
-
-A `prefers-reduced-motion` media query will automatically disable the animation if users set this preference in their environment.
-
-!!!
