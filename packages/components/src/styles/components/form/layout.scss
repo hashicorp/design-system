@@ -35,6 +35,16 @@ $hds-form-section-max-width: 1088px;
   gap: 8px;
 }
 
+// Note: Only the Form Header needs a max-width as the Section Header is used within a Section
+.hds-form__header {
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
+}
+
+// hasMaxWidth = false
+.hds-form__header--has-max-width-false {
+  --hds-form-section-max-width: none;
+}
+
 // FORM SECTION
 
 .hds-form__section {

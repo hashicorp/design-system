@@ -256,6 +256,8 @@
 
   <Shw::Text::H3>FormHeader</Shw::Text::H3>
 
+  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+
   <div class="shw-form-button-wrapper-margin">
     <button type="button" {{on "click" this.toggleHighlight}}>
       {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -263,16 +265,47 @@
   </div>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
-    <Hds::Form>
-      <div class="hds-form__header">
-        <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
-        <Hds::Text::Body @tag="p" @size="200">
-          Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
-          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
-          obcaecati consequatur tenetur.
-        </Hds::Text::Body>
-      </div>
-    </Hds::Form>
+    {{! TODO: Replace HTML with FormHeader components & fix demo below }}
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="hasMaxWidth=true (default)">
+        <Hds::Form>
+          <div class="hds-form__header">
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </div>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=false">
+        <Hds::Form::Section @hasMaxWidth={{false}}>
+          <div class="hds-form__header hds-form__header--has-max-width-false">
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </div>
+        </Hds::Form::Section>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=true w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <div class="hds-form__header">
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </div>
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
   </div>
 
   <Shw::Divider @level={{2}} />
@@ -331,14 +364,16 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Hds::Form>
-      <div class="hds-form__section-header">
-        <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
-        <Hds::Text::Body @tag="p" @size="200">
-          Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
-          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
-          obcaecati consequatur tenetur.
-        </Hds::Text::Body>
-      </div>
+      <Hds::Form::Section>
+        <div class="hds-form__section-header">
+          <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </div>
+      </Hds::Form::Section>
     </Hds::Form>
   </div>
 
@@ -356,8 +391,8 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="hasMaxWidth=true (default) w/ custom max-width style of 768px set at Form level">
-        <Hds::Form class="shw-form-custom-max-width">
+      <SG.Item @label="hasMaxWidth=true (default)">
+        <Hds::Form>
           <Hds::Form::Divider />
         </Hds::Form>
       </SG.Item>
@@ -365,6 +400,12 @@
       <SG.Item @label="hasMaxWidth=false">
         <Hds::Form>
           <Hds::Form::Divider @hasMaxWidth={{false}} />
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasMaxWidth=true w/ custom max-width style of 768px set at Form level">
+        <Hds::Form class="shw-form-custom-max-width">
+          <Hds::Form::Divider />
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>
