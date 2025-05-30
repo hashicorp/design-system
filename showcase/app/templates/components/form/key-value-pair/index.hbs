@@ -10,7 +10,7 @@
 <section data-test-percy>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
-  <Hds::KeyValuePair
+  <Hds::Form::KeyValuePair
     @isOptional={{true}}
     @data={{this.sampleData}}
     @onDeleteRowClick={{this.onDeleteRowClick}}
@@ -51,7 +51,7 @@
       </F.Generic>
       <F.AddRowButton />
     </:footer>
-  </Hds::KeyValuePair>
+  </Hds::Form::KeyValuePair>
 </section>
 
 <Shw::Divider />
@@ -61,14 +61,14 @@
 
   <Shw::Frame
     @id="demo-key-value-pair-large-viewports"
-    @src="/components/key-value-pair/frameless/demo-responsiveness"
+    @src="/components/form/key-value-pair/frameless/demo-responsiveness"
     @height="300"
     @label="Large viewport"
   />
 
   <Shw::Frame
     @id="demo-key-value-pair-small-viewports"
-    @src="/components/key-value-pair/frameless/demo-responsiveness"
+    @src="/components/form/key-value-pair/frameless/demo-responsiveness"
     @width="400"
     @height="650"
     @label="Small viewport (< 480px)"
