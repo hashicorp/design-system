@@ -1,0 +1,52 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "KeyValuePair responsiveness demo - Frameless"}}
+
+<div {{style padding="24px"}}>
+  <Hds::KeyValuePair
+    @isOptional={{true}}
+    @data={{this.sampleData}}
+    @onDeleteRowClick={{this.onDeleteRowClick}}
+    @columns={{3}}
+  >
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
+        add up to 3 tags per resource.</H.HelperText>
+      <H.Error>There is an error.</H.Error>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key}} />
+      </R.Field>
+
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value}} />
+        {{#if R.rowData.error}}
+          <F.Error>{{R.rowData.error}}</F.Error>
+        {{/if}}
+      </R.Field>
+      <R.Field as |F|>
+        <F.Generic>
+          <Shw::Placeholder @height="36px" @text="generic" />
+        </F.Generic>
+      </R.Field>
+    </:row>
+
+    <:footer as |F|>
+      <F.ExtraBefore>
+        <Shw::Placeholder @height="36px" @text="footer before" />
+      </F.ExtraBefore>
+      <F.ExtraAfter>
+        <Shw::Placeholder @height="36px" @text="footer after" />
+      </F.ExtraAfter>
+    </:footer>
+  </Hds::KeyValuePair>
+</div>
