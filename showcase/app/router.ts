@@ -74,7 +74,11 @@ Router.map(function () {
       this.route('inline');
       this.route('standalone');
     });
-    this.route('key-value-pair');
+    this.route('key-value-pair', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('modal');
     this.route('page-header');
     this.route('pagination', function () {
