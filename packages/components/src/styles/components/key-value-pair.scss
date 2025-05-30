@@ -19,7 +19,6 @@
   row-gap: 16px;
 }
 
-
 .hds-key-value-pair__row {
   @include hds-breakpoint-below("sm") {
     display: flex;
@@ -28,10 +27,10 @@
     align-items: flex-start;
   }
 
-    display: grid;
-flex-grow: 1;
-grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
-  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  display: grid;
+  flex-grow: 1;
+  grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
+  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   column-gap: 8px;
 
   &.hds-key-value-pair__row--first {
@@ -52,7 +51,7 @@ grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-con
   @include hds-breakpoint-above("sm") {
     &.hds-key-value-pair__row--first {
       grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
-}
+    }
   }
 }
 
@@ -70,7 +69,6 @@ grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-con
   }
 }
 
-
 .hds-key-value-pair__field {
   display: grid;
   grid-row: span 3;
@@ -81,7 +79,7 @@ grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-con
   .hds-key-value-pair__field-label {
     width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
   }
- 
+
   .hds-key-value-pair__field-header:not(.sr-only) {
     margin-bottom: 8px; // space between label and control
   }
