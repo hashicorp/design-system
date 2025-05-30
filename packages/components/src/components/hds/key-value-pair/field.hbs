@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-key-value-pair__field" ...attributes>
-  <div class="hds-key-value-pair__field-header {{if @isHeaderHidden 'sr-only'}}">
+  <div class="hds-key-value-pair__field-header">
     {{yield
       (hash
         Label=(component
@@ -24,9 +24,7 @@
     }}
   </div>
 
-  <div
-    class="hds-key-value-pair__field-control {{if @isHeaderHidden 'hds-key-value-pair__field-control--label-hidden'}}"
-  >
+  <div class="hds-key-value-pair__field-control">
     {{yield
       (hash
         Select=(component "hds/form/select/base")
