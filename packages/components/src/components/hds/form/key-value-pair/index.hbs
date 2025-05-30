@@ -2,13 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<fieldset
-  class="hds-key-value-pair"
-  ...attributes
-  tabindex="-1"
-  {{this._setUpFieldsetElement}}
-  {{style --hds-key-value-pair-columns=this.columns}}
->
+<fieldset class="hds-key-value-pair" ...attributes tabindex="-1" {{style --hds-key-value-pair-columns=this.columns}}>
   <div class="hds-key-value-pair__header">
     {{yield
       (hash
@@ -24,9 +18,9 @@
     <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
       {{yield
         (hash
-          Field=(component "hds/key-value-pair/field")
+          Field=(component "hds/form/key-value-pair/field")
           DeleteRowButton=(component
-            "hds/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
+            "hds/form/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
           )
           rowData=item
         )
@@ -37,7 +31,7 @@
 
   <div class="hds-key-value-pair__footer">
     {{yield
-      (hash Generic=(component "hds/yield") AddRowButton=(component "hds/key-value-pair/add-row-button"))
+      (hash Generic=(component "hds/yield") AddRowButton=(component "hds/form/key-value-pair/add-row-button"))
       to="footer"
     }}
   </div>
