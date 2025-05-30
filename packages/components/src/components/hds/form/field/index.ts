@@ -137,10 +137,10 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
   }
 
   get controlClassNames(): string {
-    const classes: string[] = ["hds-form-field__control"];
+    const classes: string[] = ['hds-form-field__control'];
 
     if (this.args.isLabelHidden) {
-      classes.push("hds-form-field__control--label-hidden");
+      classes.push('hds-form-field__control--label-hidden');
     }
 
     return classes.join(' ');
