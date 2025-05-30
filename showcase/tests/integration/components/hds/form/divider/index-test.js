@@ -26,7 +26,7 @@ module('Integration | Component | hds/form/divider/index', function (hooks) {
       .doesNotHaveClass('hds-form__divider--has-max-width-false');
   });
 
-  test(`if @hasMaWidth is false, it should have the class "hds-form__section--has-max-width-false"`, async function (assert) {
+  test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
     await render(
       hbs`<Hds::Form::Divider id="test-form-divider" @hasMaxWidth={{false}} />`,
     );
