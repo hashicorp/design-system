@@ -21,7 +21,7 @@ import type { HdsFormFieldSignature } from '../form/field/index.ts';
 
 export interface HdsKeyValuePairFieldSignature {
   Args: HdsFormFieldSignature['Args'] & {
-    isHeaderHidden?: boolean;
+    //
   };
   Blocks: {
     default?: [
