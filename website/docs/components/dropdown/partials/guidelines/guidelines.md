@@ -35,11 +35,6 @@ Toggles come in two variant types: **button** and **icon**.
 
 ### Size
 
-!!! Info
-
-While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
-!!!
-
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
 <Doc::Layout @spacing="24px" @direction="vertical">
@@ -78,6 +73,11 @@ ToggleButtons come in two sizes: **small** and **medium**. This allows for place
 </Doc::Layout>
 
 ToggleIcons come in two sizes: **small** and **medium**.
+
+!!! Info
+
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
+!!!
 
 <Doc::Layout @spacing="24px">
   <Hds::Dropdown as |D|>
