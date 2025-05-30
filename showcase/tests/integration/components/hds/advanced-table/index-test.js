@@ -529,7 +529,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert
       .dom('#data-advanced-test-table .hds-advanced-table__tr')
-      .exists({ count: 1 });
+      .exists({ count: 2 }); // header + 1 row
     assert
       .dom(
         '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
