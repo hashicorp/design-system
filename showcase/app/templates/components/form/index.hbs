@@ -16,20 +16,20 @@
     </button>
   </div>
 
-  {{! TODO: Replace divs for SectionHeader with actual components }}
-
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="With Form, FormHeader, FormSections, FormFields, FormDivider, and ButtonSet (FormActions)">
+      <SG.Item
+        @label="With Form, FormHeader, FormSections, SectionHeader, FormFields, FormDivider, and ButtonSet (FormActions)"
+      >
         <Hds::Form>
           <Hds::Form::Header>
-            <Shw::Placeholder @height="70px" @text="FormHeader" @background="#e5ffd2" />
+            <Shw::Placeholder @height="75px" @text="FormHeader" @background="#e5ffd2" />
           </Hds::Form::Header>
 
           <Hds::Form::Section>
-            <div class="hds-form__section-header">
+            <Hds::Form::Section::Header>
               <Shw::Placeholder @height="50px" @text="SectionHeader" @background="#add8e6" />
-            </div>
+            </Hds::Form::Section::Header>
 
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -91,7 +91,6 @@
         </Hds::Text::Body>
       </Hds::Form::Header>
 
-      {{! TODO: Define patterns for form-level errors then update placement of this Alert as necessary }}
       <Hds::Alert @type="inline" @color="critical" as |A|>
         <A.Title @tag="h2">Form submission error</A.Title>
         <A.Description>Correct the formatting of the following fields to update your user profile:</A.Description>
@@ -101,14 +100,14 @@
       </Hds::Alert>
 
       <Hds::Form::Section>
-        <div class="hds-form__section-header">
+        <Hds::Form::Section::Header>
           <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
           </Hds::Text::Body>
-        </div>
+        </Hds::Form::Section::Header>
 
         <Hds::Form::TextInput::Field name="field-1-name" as |F|>
           <F.Label>Field 1</F.Label>
@@ -141,14 +140,14 @@
       </Hds::Form::Section>
 
       <Hds::Form::Section @hasMaxWidth={{false}}>
-        <div class="hds-form__section-header">
+        <Hds::Form::Section::Header>
           <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
           </Hds::Text::Body>
-        </div>
+        </Hds::Form::Section::Header>
 
         <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
           <G.Legend>Group legend</G.Legend>
@@ -363,14 +362,14 @@
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Hds::Form>
       <Hds::Form::Section>
-        <div class="hds-form__section-header">
+        <Hds::Form::Section::Header>
           <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
             Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
           </Hds::Text::Body>
-        </div>
+        </Hds::Form::Section::Header>
       </Hds::Form::Section>
     </Hds::Form>
   </div>
