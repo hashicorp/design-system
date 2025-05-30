@@ -9,6 +9,7 @@ import type { HdsYieldSignature } from '../../yield';
 
 export interface HdsFormSelectBaseSignature {
   Args: {
+    id?: string;
     isInvalid?: boolean;
     width?: string;
   };

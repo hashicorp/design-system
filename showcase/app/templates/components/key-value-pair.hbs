@@ -11,8 +11,6 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  {{log this.sampleData}}
-
   <Hds::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
@@ -30,9 +28,9 @@
             <option value={{field1Option}} selected={{if (eq field1Option R.rowData.field1Value) true null}}>{{field1Option}}</option>
           {{/each}}
         </C.SelectBase>
-          {{#if R.rowData.field1Error}}
-            <C.Error>{{R.rowData.field1Error}}</C.Error>
-          {{/if}}
+        {{#if R.rowData.field1Error}}
+          <C.Error>{{R.rowData.field1Error}}</C.Error>
+        {{/if}}
       </R.Cell>
       <R.Cell as |C|>
         <C.Label>Value</C.Label>

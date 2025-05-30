@@ -16,6 +16,7 @@ export const TYPES: string[] = Object.values(HdsFormTextInputTypeValues);
 
 export interface HdsFormTextInputBaseSignature {
   Args: {
+    id?: string;
     hasVisibilityToggle?: boolean;
     isInvalid?: boolean;
     isLoading?: boolean;

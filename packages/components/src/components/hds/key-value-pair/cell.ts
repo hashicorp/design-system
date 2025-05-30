@@ -32,13 +32,11 @@ export interface HdsKeyValuePairCellSignature {
         >;
         SelectBase?: WithBoundArgs<
           typeof HdsFormSelectBaseComponent,
-          // TODO! this should be the id passed down to the base control
-          'width'
+          'id'
         >;
         TextInputBase?: WithBoundArgs<
           typeof HdsFormTextInputBaseComponent,
-          // TODO! this should be the id passed down to the base control
-          'width'
+          'id'
         >;
         Generic?: ComponentLike<HdsYieldSignature>;
         Error?: WithBoundArgs<
@@ -54,9 +52,9 @@ export interface HdsKeyValuePairCellSignature {
 }
 
 export default class HdsKeyValuePairCell extends Component<HdsKeyValuePairCellSignature> {
-  get componentId(): string {
+  get controlId(): string {
     // todo here we need to come up with a way to generate a unique ID based on row/cell combination
-    return this.args.cellId ?? 'some unique ID';
+    return this.args.cellId ? `rowIndex-${this.args.cellId}` : 'some unique ID';
   }
 }
 

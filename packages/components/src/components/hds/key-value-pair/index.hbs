@@ -18,10 +18,11 @@
     <div class="hds-key-value-pair__row">
       {{yield
         (hash
-          Cell=(component "hds/key-value-pair/cell" rowIndex=index rowData=item cellId="TEST-ID")
+          Cell=(component
+            "hds/key-value-pair/cell" rowIndex=index rowData=item cellId="TODO-MAKE-THIS-REQUIRED-OR-GENERATE?"
+          )
           rowIndex=index
           rowData=item
-          controlId="TEST-ID"
         )
         to="row"
       }}

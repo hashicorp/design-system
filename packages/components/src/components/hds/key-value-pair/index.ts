@@ -36,7 +36,6 @@ export interface HdsKeyValuePairSignature {
         >;
         rowIndex: number;
         rowData: unknown;
-        controlId: string;
       },
     ];
     footer?: [
