@@ -2,7 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<fieldset class="hds-key-value-pair" ...attributes>
+<fieldset
+  class="hds-key-value-pair"
+  ...attributes
+  tabindex="-1"
+  {{this._setUpFieldsetElement}}
+  {{style --hds-key-value-pair-columns=this.columns}}
+>
   <div class="hds-key-value-pair__header">
     {{yield
       (hash
@@ -14,22 +20,16 @@
     }}
   </div>
 
-  {{#each @data as |item index|}}
+  {{#each this.data as |item index|}}
     {{#let (and (gt index 0) (eq this._isDesktop true)) as |isLabelHidden|}}
-      <div class="hds-key-value-pair__row">
-        {{yield
-          (hash
-            Select=(component "hds/form/select/field" isLabelHidden=isLabelHidden)
-            TextInput=(component
-              "hds/form/text-input/field" isLabelHidden=isLabelHidden hiddenLabelText=(concat "Row " index)
-            )
-            Generic=(component "hds/yield")
-            rowData=item
-          )
-          to="row"
-        }}
+      <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
+        {{yield (hash Field=(component "hds/key-value-pair/field" isHeaderHidden=isLabelHidden) rowData=item) to="row"}}
         {{#if this.canDeleteRow}}
-          <Hds::KeyValuePair::DeleteRowButton @text={{(concat this.deleteRowButtonText " " index)}} />
+          <Hds::KeyValuePair::DeleteRowButton
+            @text={{(concat this.deleteRowButtonText " " index)}}
+            @onClick={{this.onDeleteRowClick}}
+            @index={{index}}
+          />
         {{/if}}
       </div>
     {{/let}}
@@ -38,7 +38,7 @@
   <div class="hds-key-value-pair__footer">
     {{yield (hash ExtraBefore=(component "hds/yield")) to="footer"}}
     {{#if this.canAddRow}}
-      <Hds::KeyValuePair::AddRowButton @text={{this.addRowButtonText}} />
+      <Hds::KeyValuePair::AddRowButton @text={{this.addRowButtonText}} @onClick={{this.onAddRowClick}} />
     {{/if}}
     {{yield (hash ExtraAfter=(component "hds/yield")) to="footer"}}
   </div>

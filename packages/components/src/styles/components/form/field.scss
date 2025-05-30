@@ -34,7 +34,7 @@
     display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
     justify-self: stretch; // allows <input> and <textarea> to go full-width
 
-    &:not(:first-child) {
+    &:not(:first-child, .hds-form-field__control--label-hidden) {
       margin-top: 8px;
     }
 
@@ -42,6 +42,8 @@
       margin-bottom: 8px;
     }
   }
+
+  
 
   // Add spacing between the character count and the error message if one exists
   .hds-form-field__character-count + .hds-form-error {

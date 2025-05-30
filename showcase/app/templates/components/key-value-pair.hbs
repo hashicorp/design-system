@@ -10,47 +10,47 @@
 <section data-test-percy>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
+  <Hds::KeyValuePair
+    @isOptional={{true}}
+    @data={{this.sampleData}}
+    @onDeleteRowClick={{this.onDeleteRowClick}}
+    @columns={{3}}
+  >
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
+        add up to 3 tags per resource.</H.HelperText>
+      <H.Error>There is an error.</H.Error>
+    </:header>
 
-  {{#let
-    (array (hash key="foo" value="bar" error="Invalid value.") (hash key="baz" value="bop" error="Invalid value."))
-    as |sampleData|
-  }}
-    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}}>
-      <:header as |H|>
-        <H.Legend>Tags applied to this workspace</H.Legend>
-        <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
-          can add up to 3 tags per resource.</H.HelperText>
-        <H.Error>There is an error.</H.Error>
-      </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key}} />
+      </R.Field>
 
-      <:row as |R|>
-        {{! @glint-expect-error }}
-        <R.TextInput @value={{R.rowData.key}} as |F|>
-          <F.Label>Key</F.Label>
-          <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        </R.TextInput>
-        {{! @glint-expect-error }}
-        <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>
-          <F.Label>Value</F.Label>
-          {{! @glint-expect-error }}
-          {{#if R.rowData.error}}
-            {{! @glint-expect-error }}
-            <F.Error>{{R.rowData.error}}</F.Error>
-          {{/if}}
-        </R.TextInput>
-        <R.Generic>
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value}} />
+        {{#if R.rowData.error}}
+          <F.Error>{{R.rowData.error}}</F.Error>
+        {{/if}}
+      </R.Field>
+      <R.Field as |F|>
+        <F.Generic>
           <Shw::Placeholder @height="36px" @text="generic" />
-        </R.Generic>
-      </:row>
+        </F.Generic>
+      </R.Field>
+    </:row>
 
-      <:footer as |F|>
-        <F.ExtraBefore>
-          <Shw::Placeholder @height="36px" @text="footer before" />
-        </F.ExtraBefore>
-        <F.ExtraAfter>
-          <Shw::Placeholder @height="36px" @text="footer after" />
-        </F.ExtraAfter>
-      </:footer>
-    </Hds::KeyValuePair>
-  {{/let}}
+    <:footer as |F|>
+      <F.ExtraBefore>
+        <Shw::Placeholder @height="36px" @text="footer before" />
+      </F.ExtraBefore>
+      <F.ExtraAfter>
+        <Shw::Placeholder @height="36px" @text="footer after" />
+      </F.ExtraAfter>
+    </:footer>
+  </Hds::KeyValuePair>
 </section>
