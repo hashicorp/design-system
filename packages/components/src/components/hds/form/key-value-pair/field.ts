@@ -11,15 +11,15 @@ import type { ComponentLike } from '@glint/template';
 // import { registerDestructor } from '@ember/destroyable';
 import { guidFor } from '@ember/object/internals';
 
-import type { HdsFormLabelSignature } from '../form/label/index.ts';
-import type { HdsFormHelperTextSignature } from '../form/helper-text/index.ts';
-import type { HdsFormErrorSignature } from '../form/error/index.ts';
-import type { HdsYieldSignature } from '../yield/index.ts';
-import type { HdsFormSelectBaseSignature } from '../form/select/base.ts';
-import type { HdsFormTextInputBaseSignature } from '../form/text-input/base.ts';
-import type { HdsFormFieldSignature } from '../form/field/index.ts';
+import type { HdsFormLabelSignature } from '../label/index.ts';
+import type { HdsFormHelperTextSignature } from '../helper-text/index.ts';
+import type { HdsFormErrorSignature } from '../error/index.ts';
+import type { HdsYieldSignature } from '../../yield/index.ts';
+import type { HdsFormSelectBaseSignature } from '../select/base.ts';
+import type { HdsFormTextInputBaseSignature } from '../text-input/base.ts';
+import type { HdsFormFieldSignature } from '../field/index.ts';
 
-export interface HdsKeyValuePairFieldSignature {
+export interface HdsFormKeyValuePairFieldSignature {
   Args: HdsFormFieldSignature['Args'] & {
     //
   };
@@ -38,16 +38,6 @@ export interface HdsKeyValuePairFieldSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsKeyValuePairField extends Component<HdsKeyValuePairFieldSignature> {
+export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValuePairFieldSignature> {
   private _id = guidFor(this);
-
-  //   get classNames(): string {
-  //   const classes: string[] = ["hds-key-value-pair-field"];
-
-  //   if (this.args.isDesktop) {
-  //     classes.push("sr-only");
-  //   }
-
-  //   return classes.join(' ');
-  // }
 }

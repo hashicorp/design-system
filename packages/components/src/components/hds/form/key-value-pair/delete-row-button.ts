@@ -4,9 +4,9 @@
  */
 import Component from '@glimmer/component';
 
-import type { HdsButtonSignature } from '../button';
+import type { HdsButtonSignature } from '../../button';
 
-export interface HdsKeyValuePairDeleteRowButtonSignature {
+export interface HdsFormKeyValuePairDeleteRowButtonSignature {
   Args: {
     text?: HdsButtonSignature['Args']['text'];
     rowIndex: number;
@@ -15,7 +15,7 @@ export interface HdsKeyValuePairDeleteRowButtonSignature {
   Element: HdsButtonSignature['Element'];
 }
 
-export default class HdsKeyValuePairDeleteRowButton extends Component<HdsKeyValuePairDeleteRowButtonSignature> {
+export default class HdsFormKeyValuePairDeleteRowButton extends Component<HdsFormKeyValuePairDeleteRowButtonSignature> {
   get text(): string {
     return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
   }

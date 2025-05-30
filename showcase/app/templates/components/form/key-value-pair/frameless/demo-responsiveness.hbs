@@ -38,15 +38,14 @@
           <Shw::Placeholder @height="36px" @text="generic" />
         </F.Generic>
       </R.Field>
+      <R.DeleteRowButton />
     </:row>
 
     <:footer as |F|>
-      <F.ExtraBefore>
-        <Shw::Placeholder @height="36px" @text="footer before" />
-      </F.ExtraBefore>
-      <F.ExtraAfter>
-        <Shw::Placeholder @height="36px" @text="footer after" />
-      </F.ExtraAfter>
+      <F.Generic>
+        <Shw::Placeholder @height="36px" @text="generic" />
+      </F.Generic>
+      <F.AddRowButton />
     </:footer>
   </Hds::KeyValuePair>
 </div>

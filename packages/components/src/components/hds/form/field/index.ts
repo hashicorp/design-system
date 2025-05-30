@@ -33,8 +33,6 @@ export interface HdsFormFieldSignature {
     isOptional?: boolean;
     isRequired?: boolean;
     layout?: HdsFormFieldLayouts;
-    isLabelHidden?: boolean;
-    hiddenLabelText?: string;
   };
   Blocks: {
     default: [
@@ -111,10 +109,6 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
     return this.args.isOptional || false;
   }
 
-  get isLabelHidden(): boolean {
-    return this.args.isLabelHidden || false;
-  }
-
   /**
    * Get the class names to apply to the component.
    * @method classNames
@@ -131,16 +125,6 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
     // notice: this will *not* be documented for public use
     if (this.args.contextualClass) {
       classes.push(this.args.contextualClass);
-    }
-
-    return classes.join(' ');
-  }
-
-  get controlClassNames(): string {
-    const classes: string[] = ['hds-form-field__control'];
-
-    if (this.args.isLabelHidden) {
-      classes.push('hds-form-field__control--label-hidden');
     }
 
     return classes.join(' ');

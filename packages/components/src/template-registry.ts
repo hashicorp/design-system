@@ -118,6 +118,10 @@ import type HdsFormHeaderDescriptionComponent from './components/hds/form/header
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
+import type HdsFormKeyValuePairComponent from './components/hds/form/key-value-pair/index.ts';
+import type HdsFormKeyValuePairAddRowButtonComponent from './components/hds/form/key-value-pair/add-row-button.ts';
+import type HdsFormKeyValuePairDeleteRowButtonComponent from './components/hds/form/key-value-pair/delete-row-button.ts';
+import type HdsFormKeyValuePairFieldComponent from './components/hds/form/key-value-pair/field.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -161,10 +165,6 @@ import type HdsLayoutGridComponent from './components/hds/layout/grid';
 import type HdsLayoutGridItemComponent from './components/hds/layout/grid/item';
 import type HdsLinkInlineComponent from './components/hds/link/inline';
 import type HdsLinkStandaloneComponent from './components/hds/link/standalone';
-import type HdsKeyValuePairComponent from './components/hds/key-value-pair/index.ts';
-import type HdsKeyValuePairAddRowButtonComponent from './components/hds/key-value-pair/add-row-button.ts';
-import type HdsKeyValuePairDeleteRowButtonComponent from './components/hds/key-value-pair/delete-row-button.ts';
-import type HdsKeyValuePairFieldComponent from './components/hds/key-value-pair/field.ts';
 import type HdsMenuPrimitiveComponent from './components/hds/menu-primitive';
 import type HdsModalBodyComponent from './components/hds/modal/body';
 import type HdsModalFooterComponent from './components/hds/modal/footer';
@@ -636,6 +636,16 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
 
+  // Form KeyValuePair
+  'Hds::Form::KeyValuePair': typeof HdsFormKeyValuePairComponent;
+  'hds/form/key-value-pair': typeof HdsFormKeyValuePairComponent;
+  'Hds::Form::KeyValuePair::AddRowButton': typeof HdsFormKeyValuePairAddRowButtonComponent;
+  'hds/form/key-value-pair/add-row-button': typeof HdsFormKeyValuePairAddRowButtonComponent;
+  'Hds::Form::KeyValuePair::DeleteRowButton': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
+  'hds/form/key-value-pair/delete-row-button': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
+  'hds/form/key-value-pair/field': typeof HdsFormKeyValuePairFieldComponent;
+  'Hds::Form::KeyValuePair::Field': typeof HdsFormKeyValuePairFieldComponent;
+
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
   'hds/form/label': typeof HdsFormLabelComponent;
@@ -782,17 +792,6 @@ export default interface HdsComponentsRegistry {
   // Link Standalone
   'Hds::Link::Standalone': typeof HdsLinkStandaloneComponent;
   'hds/link/standalone': typeof HdsLinkStandaloneComponent;
-
-  // KeyValuePair
-  'Hds::KeyValuePair': typeof HdsKeyValuePairComponent;
-  'hds/key-value-pair': typeof HdsKeyValuePairComponent;
-  'Hds::KeyValuePair::AddRowButton': typeof HdsKeyValuePairAddRowButtonComponent;
-  'hds/key-value-pair/add-row-button': typeof HdsKeyValuePairAddRowButtonComponent;
-  'Hds::KeyValuePair::DeleteRowButton': typeof HdsKeyValuePairDeleteRowButtonComponent;
-  'hds/key-value-pair/delete-row-button': typeof HdsKeyValuePairDeleteRowButtonComponent;
-
-  'hds/key-value-pair/field': typeof HdsKeyValuePairFieldComponent;
-  'Hds::KeyValuePair::Field': typeof HdsKeyValuePairFieldComponent;
 
   // MenuPrimitive
   'Hds::MenuPrimitive': typeof HdsMenuPrimitiveComponent;

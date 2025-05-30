@@ -59,6 +59,11 @@ Router.map(function () {
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
+      this.route('key-value-pair', function () {
+        this.route('frameless', function () {
+          this.route('demo-responsiveness');
+        });
+      });
       this.route('masked-input');
       this.route('radio');
       this.route('select');
@@ -73,11 +78,6 @@ Router.map(function () {
     this.route('link', function () {
       this.route('inline');
       this.route('standalone');
-    });
-    this.route('key-value-pair', function () {
-      this.route('frameless', function () {
-        this.route('demo-responsiveness');
-      });
     });
     this.route('modal');
     this.route('page-header');
