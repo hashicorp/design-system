@@ -31,6 +31,38 @@ module('Integration | Component | hds/form/field/index', function (hooks) {
     assert.dom('#test-form-field').hasClass('hds-form-field--layout-vertical');
   });
 
+  test('it should render the correct DOM order when the @layout prop has value vertical', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Field @layout="vertical" id="test-form-field" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Field>`,
+    );
+    let control = this.element.querySelector(
+      '#test-form-field .hds-form-field__control',
+    );
+    let helperText = this.element.querySelector(
+      '#test-form-field .hds-form-field__helper-text',
+    );
+    assert.equal(control.previousElementSibling, helperText);
+  });
+
+  test('it should render the correct DOM order when the @layout prop has value flag', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Field @layout="flag" id="test-form-field" as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text</F.HelperText>
+      </Hds::Form::Field>`,
+    );
+    let control = this.element.querySelector(
+      '#test-form-field .hds-form-field__control',
+    );
+    let helperText = this.element.querySelector(
+      '#test-form-field .hds-form-field__helper-text',
+    );
+    assert.equal(control.nextElementSibling, helperText);
+  });
+
   // YIELDED (CONTEXTUAL) COMPONENTS
 
   test('it renders the yielded contextual components', async function (assert) {

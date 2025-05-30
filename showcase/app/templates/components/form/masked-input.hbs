@@ -330,6 +330,13 @@
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::MaskedInput::Field>
     </SG.Item>
+    <SG.Item @label="Label + Helper text link">
+      <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
+        <F.Label>This is the label text</F.Label>
+        <F.HelperText>This is the helper text with a
+          <Hds::Link::Inline @href="#">link</Hds::Link::Inline></F.HelperText>
+      </Hds::Form::MaskedInput::Field>
+    </SG.Item>
     <SG.Item @label="Label + Helper text + Copy Button + Error">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
