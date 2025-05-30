@@ -41,8 +41,6 @@ Don’t mix `primary` and `secondary` links within a block of text or adjacent b
 
 ## Icon position
 
-An Inline Link can include a leading or trailing icon in the Ember component. Avoid creating links with both leading and trailing icons.
-
 !!! Info
 
 There is no straight-forward method to add an icon within a block of text in Figma. Some strategies to consider are:
@@ -52,6 +50,8 @@ There is no straight-forward method to add an icon within a block of text in Fig
 - Excluding the icon visually but communicating the intended usage in the engineering hand-off.
 
 !!!
+
+An Inline Link can include a leading or trailing icon in the Ember component. Avoid creating links with both leading and trailing icons.
 
 ### Trailing
 

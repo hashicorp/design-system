@@ -12,8 +12,6 @@
 
 ## Color
 
-![The color argument changes the background and title color: neutral is grey, highlight is purple, success is green, warning is orange, critical is red.](/assets/components/toast/toast-colors.png)
-
 Use color logically:
 
 - **Neutral**: provide general information to the user about an ongoing process.
@@ -21,6 +19,8 @@ Use color logically:
 - **Success**: indicate a successful action was completed.
 - **Warning**: indicate a successful action was completed but may have triggered a related issue. Provide guidance and actions if possible.
 - **Critical**: indicate an error or critical issues resulting from a failed action.
+
+![The color argument changes the background and title color: neutral is grey, highlight is purple, success is green, warning is orange, critical is red.](/assets/components/toast/toast-colors.png)
 
 ### Critical toasts
 

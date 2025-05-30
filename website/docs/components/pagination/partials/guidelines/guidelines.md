@@ -11,6 +11,12 @@
 
 ## Numbered vs Compact
 
+!!! Warning 
+
+We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
+
+!!!
+
 Cursor and offset are the most common types of pagination. Currently, most HashiCorp products use cursor-based pagination.
 
 Cursor-based pagination allows users to navigate to the next or previous set of records no matter where the user is located within the dataset (record 1 or 300). This type of pagination uses the latest record that has been delivered to the client from a database to determine the _relative_ location within the data set, rather than the exact page number.
@@ -23,24 +29,18 @@ Offset or page-based pagination divides a dataset into pages containing a defaul
 ![Supported by offset and cursor based pagination.](/assets/components/pagination/pagination-cursor-example.png)
 <Doc::ImageCaption @text="Supported by offset and cursor based pagination."/>
 
-!!! Warning 
-
-We strongly suggest that you talk to your engineering team to see which pagination variant is right for your project.
-
-!!!
-
 ## Truncation
+
+!!! Info
+
+The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
+!!!
 
 By default, in Numbered Pagination, the number of visible pages will be truncated when the total number of pages exceeds seven. What pages are truncated depends on the current page the user is on, with a few notable constants:
 
 - The first and last page will always be displayed (never be truncated).
 - The previous page and next page compared to the current page will always be displayed (unless the current page is the first or last page).
 - A maximum of seven pages or truncated pages will always be displayed.
-
-!!! Info
-
-The number of pages equals `total items / items per page`, e.g., if the total number of items is 120 and there are 10 items per page, the number of pages is 12. However, this can be variable depending on the `PageSize` and can determine whether the number of pages extends beyond the threshold of truncation.
-!!!
 
 ### Current page examples
 
