@@ -232,6 +232,7 @@ export * from './components/hds/link/types.ts';
 export { default as HdsKeyValuePair } from './components/hds/key-value-pair/index.ts';
 export { default as HdsKeyValuePairAddRowButton } from './components/hds/key-value-pair/add-row-button.ts';
 export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/key-value-pair/delete-row-button.ts';
+export {default as HdsKeyValuePairField} from './components/hds/key-value-pair/field.ts';
 
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';

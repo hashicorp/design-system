@@ -8,8 +8,9 @@ import type { HdsButtonSignature } from '../button';
 
 export interface HdsKeyValuePairDeleteRowButtonSignature {
   Args: {
-    onAddRowClick?: () => void;
+    onClick: (index: number) => void;
     text: HdsButtonSignature['Args']['text'];
+    index: number;
   };
   Element: HdsButtonSignature['Element'];
 }

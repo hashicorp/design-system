@@ -287,6 +287,7 @@
       "./components/hds/interactive/index.js": "./dist/_app_/components/hds/interactive/index.js",
       "./components/hds/key-value-pair/add-row-button.js": "./dist/_app_/components/hds/key-value-pair/add-row-button.js",
       "./components/hds/key-value-pair/delete-row-button.js": "./dist/_app_/components/hds/key-value-pair/delete-row-button.js",
+      "./components/hds/key-value-pair/field.js": "./dist/_app_/components/hds/key-value-pair/field.js",
       "./components/hds/key-value-pair/index.js": "./dist/_app_/components/hds/key-value-pair/index.js",
       "./components/hds/layout/flex/index.js": "./dist/_app_/components/hds/layout/flex/index.js",
       "./components/hds/layout/flex/item.js": "./dist/_app_/components/hds/layout/flex/item.js",

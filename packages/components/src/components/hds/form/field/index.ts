@@ -136,6 +136,16 @@ export default class HdsFormField extends Component<HdsFormFieldSignature> {
     return classes.join(' ');
   }
 
+  get controlClassNames(): string {
+    const classes: string[] = ["hds-form-field__control"];
+
+    if (this.args.isLabelHidden) {
+      classes.push("hds-form-field__control--label-hidden");
+    }
+
+    return classes.join(' ');
+  }
+
   @action
   appendDescriptor(element: HTMLElement): void {
     registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
