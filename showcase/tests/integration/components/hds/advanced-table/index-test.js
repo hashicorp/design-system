@@ -498,6 +498,50 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Test 3 description');
   });
 
+  test('it should update the table when the model changes', async function (assert) {
+    this.set('model', [
+      { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
+      { key: 'album', name: 'Test 2', description: 'Test 2 description' },
+      { key: 'year', name: 'Test 3', description: 'Test 3 description' },
+    ]);
+
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{array
+    (hash key='artist' label='components.table.headers.artist')
+    (hash key='album' label='components.table.headers.album')
+    (hash key='year' label='components.table.headers.year')
+  }}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      <B.Td>{{B.data.key}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+
+    this.set('model', [
+      { key: 'artist', name: 'Test 4', description: 'Test 4 description' },
+    ]);
+
+    assert
+      .dom('#data-advanced-test-table .hds-advanced-table__tr')
+      .exists({ count: 1 });
+    assert
+      .dom(
+        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
+      )
+      .hasText('Test 4');
+    assert
+      .dom(
+        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:last-of-type',
+      )
+      .hasText('Test 4 description');
+  });
+
   // OPTIONS
 
   // Sortable
