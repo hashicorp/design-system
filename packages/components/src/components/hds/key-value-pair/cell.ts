@@ -2,7 +2,7 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import TemplateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 
 import HdsFormlabelComponent from '../form/label/index.ts';
@@ -17,7 +17,7 @@ export interface HdsKeyValuePairCellSignature {
   Args: {
     rowIndex?: number;
     rowData?: unknown;
-    controlId?: string;
+    cellId?: string;
   };
   Blocks: {
     default: [
@@ -30,12 +30,12 @@ export interface HdsKeyValuePairCellSignature {
           typeof HdsFormHelperTextComponent,
           'contextualClass' | 'controlId'
         >;
-        Select?: WithBoundArgs<
+        SelectBase?: WithBoundArgs<
           typeof HdsFormSelectBaseComponent,
           // TODO! this should be the id passed down to the base control
           'width'
         >;
-        TextInput?: WithBoundArgs<
+        TextInputBase?: WithBoundArgs<
           typeof HdsFormTextInputBaseComponent,
           // TODO! this should be the id passed down to the base control
           'width'
@@ -53,7 +53,10 @@ export interface HdsKeyValuePairCellSignature {
   Element: HTMLDivElement;
 }
 
-const HdsKeyValuePairCell =
-  TemplateOnlyComponent<HdsKeyValuePairCellSignature>();
+export default class HdsKeyValuePairCell extends Component<HdsKeyValuePairCellSignature> {
+  get componentId(): string {
+    // todo here we need to come up with a way to generate a unique ID based on row/cell combination
+    return this.args.cellId ?? 'some unique ID';
+  }
+}
 
-export default HdsKeyValuePairCell;

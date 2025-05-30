@@ -4,20 +4,15 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
-// import { action } from '@ember/object';
-import { registerDestructor } from '@ember/destroyable';
 
 import type { HdsFormFieldsetSignature } from '../form/fieldset';
 import type { HdsFormLegendSignature } from '../form/legend';
 import type { HdsFormHelperTextSignature } from '../form/helper-text';
 import type { HdsFormErrorSignature } from '../form/error';
 import type { HdsYieldSignature } from '../yield';
-import type { HdsFormSelectFieldSignature } from '../form/select/field';
-import type { HdsFormTextInputFieldSignature } from '../form/text-input/field';
-import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
+import HdsKeyValuePairCell from './cell.ts';
 
 export interface HdsKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -35,10 +30,13 @@ export interface HdsKeyValuePairSignature {
     ];
     row: [
       {
-        Generic?: ComponentLike<HdsYieldSignature>;
-        Select?: ComponentLike<HdsFormSelectFieldSignature>;
-        TextInput?: ComponentLike<HdsFormTextInputFieldSignature>;
-        rowData?: unknown;
+        Cell?: WithBoundArgs<
+          typeof HdsKeyValuePairCell,
+          'rowIndex' | 'rowData' | 'cellId'
+        >;
+        rowIndex: number;
+        rowData: unknown;
+        controlId: string;
       },
     ];
     footer?: [
@@ -53,38 +51,6 @@ export interface HdsKeyValuePairSignature {
 
 export default class HdsKeyValuePair extends Component<HdsKeyValuePairSignature> {
   @tracked private _currentNumberOfRows = this.args.data?.length ?? 0;
-  private _desktopMQ: MediaQueryList;
-  @tracked private _isDesktop = true;
-  private _mediaQueryListener!: (event: MediaQueryListEvent) => void;
-
-  constructor(owner: Owner, args: HdsKeyValuePairSignature['Args']) {
-    super(owner, args);
-
-    this._desktopMQ = window.matchMedia(
-      `(min-width:${hdsBreakpoints['sm'].px})`
-    );
-    this.addEventListeners();
-
-    registerDestructor(this, (): void => {
-      this.removeEventListeners();
-    });
-  }
-
-  addEventListeners(): void {
-    this._mediaQueryListener = (event: MediaQueryListEvent): void => {
-      this._isDesktop = event.matches;
-    };
-
-    this._desktopMQ.addEventListener('change', this._mediaQueryListener, true);
-  }
-
-  removeEventListeners(): void {
-    this._desktopMQ.removeEventListener(
-      'change',
-      this._mediaQueryListener,
-      true
-    );
-  }
 
   get addRowButtonText(): string {
     return this.args.addRowButtonText ?? 'Add Row';

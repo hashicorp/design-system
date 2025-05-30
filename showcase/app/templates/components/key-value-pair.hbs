@@ -11,50 +11,51 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  {{#let
-    (array (hash key="foo" value="bar" error="Invalid value.") (hash key="baz" value="bop" error="Invalid value."))
-    as |sampleData|
-  }}
-    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}}>
-      <:header as |H|>
-        <H.Legend>Tags applied to this workspace</H.Legend>
-        <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
-          can add up to 3 tags per resource.</H.HelperText>
-        <H.Error>There is an error.</H.Error>
-      </:header>
+  {{log this.sampleData}}
 
-      <:row as |R|>
-        <R.cell as |C|>
-          <C.Label>Key</C.Label>
-          <C.HelperText>The key you enter should be a good key.</C.HelperText>
-          {{! @glint-expect-error }}
-          <C.TextInput @value={{R.rowData.key}} />
-        </R.cell>
-        <R.cell as |C|>
-          {{! @glint-expect-error }}
-          <C.TextInput @value={{R.rowData.value}} @isOptional={{true}} />
-          <C.Label>Value</C.Label>
-          {{! @glint-expect-error }}
-          {{#if R.rowData.error}}
-            {{! @glint-expect-error }}
-            <C.Error>{{R.rowData.error}}</C.Error>
+  <Hds::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
+        can add up to 3 tags per resource.</H.HelperText>
+      <H.Error>There is an error.</H.Error>
+    </:header>
+
+    <:row as |R|>
+      <R.Cell as |C|>
+        <C.Label>Key</C.Label>
+        <C.HelperText>The key you enter should be a good key.</C.HelperText>
+        <C.SelectBase>
+          {{#each R.rowData.field1Options as |field1Option|}}
+            <option value={{field1Option}} selected={{if (eq field1Option R.rowData.field1Value) true null}}>{{field1Option}}</option>
+          {{/each}}
+        </C.SelectBase>
+          {{#if R.rowData.field1Error}}
+            <C.Error>{{R.rowData.field1Error}}</C.Error>
           {{/if}}
-        </R.cell>
-        <R.cell as |C|>
-          <C.Generic>
-            <Shw::Placeholder @height="36px" @text="generic" />
-          </C.Generic>
-        </R.cell>
-      </:row>
+      </R.Cell>
+      <R.Cell as |C|>
+        <C.Label>Value</C.Label>
+        <C.TextInputBase @value={{R.rowData.field2Value}} @isOptional={{true}} />
+        {{#if R.rowData.field2Error}}
+          <C.Error>{{R.rowData.field2Error}}</C.Error>
+        {{/if}}
+      </R.Cell>
+      <R.Cell as |C|>
+        <C.Generic>
+          <Shw::Placeholder @height="36px" @text="generic" />
+        </C.Generic>
+      </R.Cell>
+    </:row>
 
-      <:footer as |F|>
-        <F.ExtraBefore>
-          <Shw::Placeholder @height="36px" @text="footer before" />
-        </F.ExtraBefore>
-        <F.ExtraAfter>
-          <Shw::Placeholder @height="36px" @text="footer after" />
-        </F.ExtraAfter>
-      </:footer>
-    </Hds::KeyValuePair>
-  {{/let}}
+    <:footer as |F|>
+      <F.ExtraBefore>
+        <Shw::Placeholder @height="36px" @text="footer before" />
+      </F.ExtraBefore>
+      <F.ExtraAfter>
+        <Shw::Placeholder @height="36px" @text="footer after" />
+      </F.ExtraAfter>
+    </:footer>
+  </Hds::KeyValuePair>
+
 </section>
