@@ -16,7 +16,6 @@ export interface HdsFormHelperTextSignature {
     controlId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onInsert?: (element: HTMLElement, ...args: any[]) => void;
-    isHidden?: boolean;
   };
   Blocks: {
     default: [];
@@ -68,10 +67,6 @@ export default class HdsFormHelperText extends Component<HdsFormHelperTextSignat
     // the reason for this is that the contextual component declarations don't pass attributes to the component
     if (this.args.contextualClass) {
       classes.push(this.args.contextualClass);
-    }
-
-    if (this.args.isHidden) {
-      classes.push('sr-only');
     }
 
     return classes.join(' ');
