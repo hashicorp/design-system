@@ -523,6 +523,20 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   </:body>
 </Hds::AdvancedTable>`);
 
+    assert
+      .dom('#data-advanced-test-table .hds-advanced-table__tr')
+      .exists({ count: 4 }); // header + 1 row
+    assert
+      .dom(
+        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
+      )
+      .hasText('Test 1');
+    assert
+      .dom(
+        '#data-advanced-test-table .hds-advanced-table__tr:last-of-type .hds-advanced-table__td:last-of-type',
+      )
+      .hasText('Test 3 description');
+
     this.set('model', [
       { key: 'artist', name: 'Test 4', description: 'Test 4 description' },
     ]);
