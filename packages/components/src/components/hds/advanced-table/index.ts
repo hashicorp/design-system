@@ -402,6 +402,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       return;
     }
 
+    this._lastModel = this.args.model;
+
     this._tableModel.updateModel(this.args.model);
   });
 
