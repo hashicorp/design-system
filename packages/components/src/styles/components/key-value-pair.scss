@@ -7,7 +7,7 @@
 // KEY-VALUE-PAIR
 //
 
-@use "mixins/breakpoints" as *;
+@use "../mixins/breakpoints" as *;
 
 // notice: this is a <fieldset> element
 .hds-key-value-pair {
@@ -25,10 +25,12 @@
     align-items: flex-end;
   }
 
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: flex-start;
+  & {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
 }
 
 .hds-key-value-pair__footer {

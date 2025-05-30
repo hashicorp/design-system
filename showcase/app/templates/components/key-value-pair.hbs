@@ -24,23 +24,27 @@
       </:header>
 
       <:row as |R|>
-        {{! @glint-expect-error }}
-        <R.TextInput @value={{R.rowData.key}} as |F|>
-          <F.Label>Key</F.Label>
-          <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        </R.TextInput>
-        {{! @glint-expect-error }}
-        <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>
-          <F.Label>Value</F.Label>
+        <R.cell as |C|>
+          <C.Label>Key</C.Label>
+          <C.HelperText>The key you enter should be a good key.</C.HelperText>
+          {{! @glint-expect-error }}
+          <C.TextInput @value={{R.rowData.key}} />
+        </R.cell>
+        <R.cell as |C|>
+          {{! @glint-expect-error }}
+          <C.TextInput @value={{R.rowData.value}} @isOptional={{true}} />
+          <C.Label>Value</C.Label>
           {{! @glint-expect-error }}
           {{#if R.rowData.error}}
             {{! @glint-expect-error }}
-            <F.Error>{{R.rowData.error}}</F.Error>
+            <C.Error>{{R.rowData.error}}</C.Error>
           {{/if}}
-        </R.TextInput>
-        <R.Generic>
-          <Shw::Placeholder @height="36px" @text="generic" />
-        </R.Generic>
+        </R.cell>
+        <R.cell as |C|>
+          <C.Generic>
+            <Shw::Placeholder @height="36px" @text="generic" />
+          </C.Generic>
+        </R.cell>
       </:row>
 
       <:footer as |F|>

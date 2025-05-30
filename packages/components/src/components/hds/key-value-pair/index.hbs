@@ -19,12 +19,10 @@
       <div class="hds-key-value-pair__row">
         {{yield
           (hash
-            Select=(component "hds/form/select/field" isLabelHidden=isLabelHidden)
-            TextInput=(component
-              "hds/form/text-input/field" isLabelHidden=isLabelHidden hiddenLabelText=(concat "Row " index)
-            )
-            Generic=(component "hds/yield")
+            Select=(component "hds/key-value-pair/cell" rowIndex=index rowData=item controlId="TEST-ID")
+            rowIndex=index
             rowData=item
+            controlId="TEST-ID"
           )
           to="row"
         }}

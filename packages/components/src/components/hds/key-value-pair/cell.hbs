@@ -1,0 +1,44 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-key-value-pair__cell hds-key-value-pair__cell--in-row-{{@rowIndex}}">
+  {{yield
+    (hash
+      Label=(component
+        "hds/form/label"
+        controlId=@controlId
+        contextualClass="hds-key-value-pair__cell-label"
+      )
+    )
+  }}
+  {{yield
+    (hash
+      HelperText=(component
+        "hds/form/helper-text"
+        controlId=@controlId
+        contextualClass="hds-key-value-pair__cell-helper-text"
+      )
+    )
+  }}
+  <div class="hds-key-value-pair__cell-control">
+    {{yield
+      (hash
+        Select=(component "hds/form/select/base" id=@controlId)
+        TextInput=(component "hds/form/text-input/base" id=@controlId)
+        Generic=(component "hds/yield")
+        rowIndex=@rowIndex
+        rowData=@rowData
+      )
+    }}
+  </div>
+  {{yield
+    (hash
+      Error=(component
+        "hds/form/error"
+        controlId=@controlId
+        contextualClass="hds-key-value-pair__cell-error"
+      )
+    )
+  }}
+</div>
