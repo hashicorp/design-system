@@ -1,0 +1,109 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > KEY-VALUE-PAIR
+//
+
+@use "../../mixins/breakpoints" as *;
+
+// notice: this is a <fieldset> element
+.hds-key-value-pair {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+  row-gap: 16px;
+}
+
+.hds-key-value-pair__row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: flex-start;
+
+  @include hds-breakpoint-above("sm") {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 8px;
+    row-gap: 0;
+
+    &.hds-key-value-pair__row--first {
+      .hds-key-value-pair__delete-row {
+        grid-row: 2;
+        grid-column: calc(var(--hds-key-value-pair-columns, 2) + 1);
+      }
+    }
+
+    &:not(.hds-key-value-pair__row--first) {
+      // copied styles from sr-only class
+      .hds-key-value-pair__field-header {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        white-space: nowrap !important; /* 3 */
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+        clip-path: inset(50%) !important; /* 2 */
+      }
+    }
+  }
+}
+
+.hds-key-value-pair__field-header {
+  align-self: flex-end;
+}
+
+.hds-key-value-pair__footer {
+  display: flex;
+  flex-direction: row;
+  column-gap: 16px;
+
+  .hds-key-value-pair__add-row {
+    flex-shrink: 0;
+  }
+}
+
+.hds-key-value-pair__field {
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  justify-items: start;
+  width: 100%; // we want the input element to fill the parent container
+
+  .hds-key-value-pair__field-label {
+    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
+  }
+
+  .hds-key-value-pair__field-header:not(.sr-only) {
+    margin-bottom: 8px; // space between label and control
+  }
+
+  .hds-key-value-pair__field-helper-text {
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+
+    // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+    & + .hds-key-value-pair__field-helper-text {
+      margin-top: 2px;
+    }
+  }
+
+  .hds-key-value-pair__field-error {
+    margin-top: 8px;
+  }
+
+  .hds-key-value-pair__field-control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    justify-self: stretch; // allows <input> and <textarea> to go full-width
+  }
+}
