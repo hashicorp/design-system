@@ -42,10 +42,7 @@ export default class HdsAdvancedTableTableModel {
     const { model, childrenKey } = args;
 
     this.childrenKey = childrenKey;
-
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
+    this.updateModel(model);
   }
 
   get totalRowCount(): number {
