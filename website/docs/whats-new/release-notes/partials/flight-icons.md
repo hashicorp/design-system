@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.11.0
+
+**Minor changes**
+
+`start`, `end`, and `text-wrap` icons added. Fixed the vertical alignment of `top` and `bottom`.
+
+<small class="doc-whats-new-changelog-metadata">[#2917](https://github.com/hashicorp/design-system/pull/2917)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.10.0
 
 **Minor changes**
@@ -241,14 +251,6 @@ Added `Vercel` and `Jira` icons
 Added `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog` icons.
 
 <small class="doc-whats-new-changelog-metadata">[#1610](https://github.com/hashicorp/design-system/pull/1610)</small>
-
-## 2.17.0
-
-**Minor changes**
-
-Added new `clipboard-x` icon
-
-<small class="doc-whats-new-changelog-metadata">[#1532](https://github.com/hashicorp/design-system/pull/1532)</small>
 
 
 ---

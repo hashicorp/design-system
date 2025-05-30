@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.11.0
+
+### Minor Changes
+
+`start`, `end`, and `text-wrap` icons added. Fixed the vertical alignment of `top` and `bottom`.
+
+<small class="doc-whats-new-changelog-metadata">[#2917](https://github.com/hashicorp/design-system/pull/2917)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.10.0
 
 ### Minor Changes
