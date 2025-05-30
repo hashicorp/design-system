@@ -21,18 +21,18 @@
   </div>
 
   {{#each this.data as |item index|}}
-    {{#let (and (gt index 0) (eq this._isDesktop true)) as |isLabelHidden|}}
-      <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
-        {{yield (hash Field=(component "hds/key-value-pair/field" isHeaderHidden=isLabelHidden) rowData=item) to="row"}}
-        {{#if this.canDeleteRow}}
-          <Hds::KeyValuePair::DeleteRowButton
-            @text={{(concat this.deleteRowButtonText " " index)}}
-            @onClick={{this.onDeleteRowClick}}
-            @index={{index}}
-          />
-        {{/if}}
-      </div>
-    {{/let}}
+    {{!-- {{#let ((gt index 0) (eq this._isDesktop true)) as |isLabelHidden|}} --}}
+    <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
+      {{yield (hash Field=(component "hds/key-value-pair/field") rowData=item) to="row"}}
+      {{#if this.canDeleteRow}}
+        <Hds::KeyValuePair::DeleteRowButton
+          @text={{(concat this.deleteRowButtonText " " index)}}
+          @onClick={{this.onDeleteRowClick}}
+          @index={{index}}
+        />
+      {{/if}}
+    </div>
+    {{!-- {{/let}} --}}
   {{/each}}
 
   <div class="hds-key-value-pair__footer">

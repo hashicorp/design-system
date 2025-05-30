@@ -20,37 +20,40 @@
 }
 
 .hds-key-value-pair__row {
-  @include hds-breakpoint-below("sm") {
-    display: flex;
-    flex-direction: column;
-    row-gap: 8px;
-    align-items: flex-start;
-  }
-
-  display: grid;
-  flex-grow: 1;
-  grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
-  // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  column-gap: 8px;
-
-  &.hds-key-value-pair__row--first {
-    .hds-key-value-pair__delete-row {
-      grid-row: 2;
-      grid-column: calc(var(--hds-key-value-pair-columns, 2) + 1);
-    }
-  }
-
-  &.hds-key-value-pair__row--last {
-    .hds-key-value-pair__add-row {
-      grid-row: 2;
-      grid-column: 1 / -1;
-      justify-self: start; // align it to the left side of the row
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: flex-start;
 
   @include hds-breakpoint-above("sm") {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 8px;
+    row-gap: 0;
+
     &.hds-key-value-pair__row--first {
-      grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
+      .hds-key-value-pair__delete-row {
+        grid-row: 2;
+        grid-column: calc(var(--hds-key-value-pair-columns, 2) + 1);
+      }
+    }
+
+    &:not(.hds-key-value-pair__row--first) {
+      // copied styles from sr-only class
+      .hds-key-value-pair__field-header {
+        position: absolute !important;
+        width: 1px !important;
+        height: 1px !important;
+        margin: -1px !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+        white-space: nowrap !important; /* 3 */
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+        clip-path: inset(50%) !important; /* 2 */
+      }
     }
   }
 }

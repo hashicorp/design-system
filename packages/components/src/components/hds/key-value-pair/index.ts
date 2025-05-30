@@ -6,9 +6,7 @@
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
-import type Owner from '@ember/owner';
 import { action } from '@ember/object';
-import { registerDestructor } from '@ember/destroyable';
 import { modifier } from 'ember-modifier';
 
 import type { HdsFormFieldsetSignature } from '../form/fieldset';
@@ -16,7 +14,6 @@ import type { HdsFormLegendSignature } from '../form/legend';
 import type { HdsFormHelperTextSignature } from '../form/helper-text';
 import type { HdsFormErrorSignature } from '../form/error';
 import type { HdsYieldSignature } from '../yield';
-import { hdsBreakpoints } from '../../../utils/hds-breakpoints.ts';
 import type { HdsKeyValuePairFieldSignature } from './field.ts';
 
 export interface HdsKeyValuePairSignature {
@@ -52,48 +49,16 @@ export interface HdsKeyValuePairSignature {
 }
 
 export default class HdsKeyValuePair extends Component<HdsKeyValuePairSignature> {
-  private _desktopMQ: MediaQueryList;
-  @tracked private _isDesktop = true;
-  private _mediaQueryListener!: (event: MediaQueryListEvent) => void;
   private _fieldsetElement!: HTMLFieldSetElement;
   @tracked data: Array<unknown> = this.args.data ?? [];
   @tracked private _currentNumberOfRows = this.data.length ?? 0;
-
-  constructor(owner: Owner, args: HdsKeyValuePairSignature['Args']) {
-    super(owner, args);
-
-    this._desktopMQ = window.matchMedia(
-      `(min-width:${hdsBreakpoints['sm'].px})`
-    );
-    this.addEventListeners();
-
-    registerDestructor(this, (): void => {
-      this.removeEventListeners();
-    });
-  }
 
   private _setUpFieldsetElement = modifier((element: HTMLFieldSetElement) => {
     this._fieldsetElement = element;
   });
 
-  addEventListeners(): void {
-    this._mediaQueryListener = (event: MediaQueryListEvent): void => {
-      this._isDesktop = event.matches;
-    };
-
-    this._desktopMQ.addEventListener('change', this._mediaQueryListener, true);
-  }
-
-  removeEventListeners(): void {
-    this._desktopMQ.removeEventListener(
-      'change',
-      this._mediaQueryListener,
-      true
-    );
-  }
-
   get columns(): string {
-    return `${this.args.columns ?? (this._isDesktop ? 2 : 1)}`;
+    return `${this.args.columns ?? 2}`;
   }
 
   get addRowButtonText(): string {
