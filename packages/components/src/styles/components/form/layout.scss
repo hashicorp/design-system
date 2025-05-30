@@ -1,0 +1,79 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM LAYOUT COMPONENTS
+//
+
+// FORM
+
+// Default max-width for form sections & similar components
+$hds-form-section-max-width: 1088px;
+
+.hds-form {
+  --hds-form-section-max-width: $hds-form-section-max-width;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  // Set a max-width for the ButtonSet when it's within an Hds::Form
+  // Q: Should this be done (max-width on ButtonSet) and if so should it be done here or in the ButtonSet component?
+  .hds-button-set {
+    max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
+  }
+}
+
+// FORM HEADER & SECTION HEADER
+
+.hds-form__header,
+.hds-form__section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// Note: Only the Form Header needs a max-width as the Section Header is used within a Section
+.hds-form__header {
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
+}
+
+// hasMaxWidth = false
+.hds-form__header--has-max-width-false {
+  --hds-form-section-max-width: none;
+}
+
+// FORM SECTION
+
+.hds-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
+}
+
+// hasMaxWidth = false
+.hds-form__section--has-max-width-false {
+  --hds-form-section-max-width: none;
+}
+
+// FORM DIVIDER
+
+.hds-form__divider {
+  max-width: var(--hds-form-section-max-width, $hds-form-section-max-width);
+  height: 0;
+  border-top: 1px solid var(--token-color-border-primary);
+}
+
+// hasMaxWidth = false
+.hds-form__divider--has-max-width-false {
+  --hds-form-section-max-width: none;
+}
+
+// FIELD GROUP (WIP) Uses a Layout::Flex component under the hood
+
+// TODO: Use breakpoint to stack columns when screen width is less than 480px wide
+
+// .hds-form__field-group { }
