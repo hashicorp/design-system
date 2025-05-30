@@ -1,11 +1,11 @@
 The Helios Table [multi-select functionality](/components/table/table#multi-select) supports performing bulk actions and selection of one or more rows within a Table.
 
-![Example of Table multi-select in context](/assets/patterns/table-multi-select/multi-select-preview-image.png)
-
 !!! Info
 
 These guidelines are meant to assist teams in designing and building Tables that have bulk editing and selection functionality. Currently there aren’t Ember or Figma components to support these advanced patterns, but they can be composed using a combination of HDS components.
 !!!
+
+![Example of Table multi-select in context](/assets/patterns/table-multi-select/multi-select-preview-image.png)
 
 ## Selected count
 
