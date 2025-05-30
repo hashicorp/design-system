@@ -358,6 +358,50 @@ export default class ComponentsTableController extends Controller {
     this.focusableElementsVisible = !this.focusableElementsVisible;
   }
 
+  // COLUMN RESIZING DEMO
+  columnResizeColumns = [
+    {
+      key: 'artist',
+      label: 'Artist',
+      tooltip: 'More information.',
+      width: '200px',
+      maxWidth: '400px',
+      isResizable: true,
+    },
+    {
+      key: 'album',
+      label: 'Album',
+      tooltip: 'More information.',
+      width: '300px',
+      isResizable: true,
+    },
+    {
+      key: 'year',
+      label: 'Release Year',
+      tooltip: 'More information.',
+      width: '200px',
+      isResizable: true,
+    },
+    {
+      key: 'other',
+      label: 'Additional Actions',
+    },
+  ];
+
+  columnResizeColumnsWithSorting = this.columnResizeColumns.map(
+    (column, index) => {
+      return {
+        ...column,
+        isSortable: index !== this.columnResizeColumns.length - 1, // last column is not sortable
+      };
+    },
+  );
+
+  thResizeHandleColumn = {
+    pxWidth: 200,
+    setPxWidth: this.noop,
+  };
+
   @action
   noop() {
     // no-op

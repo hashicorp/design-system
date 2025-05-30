@@ -6,8 +6,8 @@
 {{page-title "AdvancedTable Component"}}
 
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
-<section data-test-percy>
 
+<section data-test-percy>
   <Shw::Text::Body>
     <a
       class="shw-frame__open-link"
@@ -542,6 +542,60 @@
   </Hds::AdvancedTable>
 
   <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Resizable columns</Shw::Text::H2>
+
+  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Resizable columns with sorting</Shw::Text::H4>
+
+  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumnsWithSorting}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
 
   <Shw::Text::H3>Functional examples</Shw::Text::H3>
 
@@ -1606,6 +1660,68 @@
         </SF.Item>
       {{/each}}
     {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThResizeHandle</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="200px 200px 200px 1fr"}}
+      >
+        <div class="hds-advanced-table__thead" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Lorem
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Ipsum
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
+              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                <div class="hds-advanced-table__th-content">
+                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                    Dolor
+                  </span>
+                </div>
+                <Hds::AdvancedTable::ThResizeHandle
+                  @column={{this.thResizeHandleColumn}}
+                  @nextColumn={{@nextColumn}}
+                  @tableHeight={{@tableHeight}}
+                />
+              </Hds::Layout::Flex>
+            </div>
+            <Hds::AdvancedTable::Th>Sit</Hds::AdvancedTable::Th>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider @level={{2}} />

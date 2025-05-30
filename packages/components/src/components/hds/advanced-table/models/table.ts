@@ -5,15 +5,21 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import HdsAdvancedTableColumn from './column.ts';
 
 import type {
+  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
+  HdsAdvancedTableColumnResizeCallback,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
+  columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
+  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -33,14 +39,15 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
+  @tracked columns: HdsAdvancedTableColumn[] = [];
+
   rows: HdsAdvancedTableRow[] = [];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey } = args;
+    const { model, columns, childrenKey, onColumnResize } = args;
 
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
+    this._setupColumns({ columns, onColumnResize });
+    this._setupRows({ model, columns, childrenKey });
   }
 
   get totalRowCount(): number {
@@ -69,6 +76,31 @@ export default class HdsAdvancedTableTableModel {
     } else {
       return false;
     }
+  }
+
+  get hasResizableColumns(): boolean {
+    return this.columns.some((column) => column.isResizable);
+  }
+
+  private _setupColumns({
+    columns,
+    onColumnResize,
+  }: Pick<HdsAdvancedTableTableArgs, 'columns'> & {
+    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
+  }) {
+    this.columns = columns.map(
+      (column) => new HdsAdvancedTableColumn({ column, onColumnResize })
+    );
+  }
+
+  private _setupRows({
+    model,
+    columns,
+    childrenKey,
+  }: Pick<HdsAdvancedTableTableArgs, 'model' | 'columns' | 'childrenKey'>) {
+    this.rows = model.map((row) => {
+      return new HdsAdvancedTableRow({ ...row, childrenKey, columns });
+    });
   }
 
   @action
