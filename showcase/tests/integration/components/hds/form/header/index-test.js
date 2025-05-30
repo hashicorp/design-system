@@ -8,30 +8,30 @@ import { setupRenderingTest } from 'showcase/tests/helpers';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | hds/form/section/index', function (hooks) {
+module('Integration | Component | hds/form/header/index', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
-    await render(hbs`<Hds::Form::Section id="test-form-section" />`);
-    assert.dom('#test-form-section').hasClass('hds-form__section');
+    await render(hbs`<Hds::Form::Header id="test-form-header" />`);
+    assert.dom('#test-form-header').hasClass('hds-form__header');
   });
 
   // Options
 
   // hasMaxWidth
   test(`it should have the default max-width if no @hasMaxWidth prop is declared`, async function (assert) {
-    await render(hbs`<Hds::Form::Section id="test-form-section" />`);
+    await render(hbs`<Hds::Form::Header id="test-form-header" />`);
     assert
-      .dom('#test-form-section')
-      .doesNotHaveClass('hds-form__section--has-max-width-false');
+      .dom('#test-form-header')
+      .doesNotHaveClass('hds-form__header--has-max-width-false');
   });
 
   test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
     await render(
-      hbs`<Hds::Form::Section id="test-form-section" @hasMaxWidth={{false}} />`,
+      hbs`<Hds::Form::Header id="test-form-header" @hasMaxWidth={{false}} />`,
     );
     assert
-      .dom('#test-form-section')
-      .hasClass('hds-form__section--has-max-width-false');
+      .dom('#test-form-header')
+      .hasClass('hds-form__header--has-max-width-false');
   });
 });
