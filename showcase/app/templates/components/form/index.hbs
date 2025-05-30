@@ -16,17 +16,21 @@
     </button>
   </div>
 
-  {{! TODO: Replace divs for Header, etc. with actual components }}
+  {{! TODO: Replace divs for FormHeader & SectionHeader with actual components }}
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="With Form, FormHeader, FormSections, FormFields, FormDivider, and ButtonSet (FormActions)">
         <Hds::Form>
           <div class="hds-form__header">
-            <Shw::Placeholder @height="50px" @text="Header/Text Section (TBD if needed)" @background="#e5ffd2" />
+            <Shw::Placeholder @height="70px" @text="FormHeader" @background="#e5ffd2" />
           </div>
 
           <Hds::Form::Section>
+            <div class="hds-form__section-header">
+              <Shw::Placeholder @height="50px" @text="SectionHeader" @background="#add8e6" />
+            </div>
+
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -222,13 +226,13 @@
 
   <Shw::Text::H2>Components</Shw::Text::H2>
 
+  <Shw::Text::H3>Form</Shw::Text::H3>
+
   <div class="shw-form-button-wrapper-margin">
     <button type="button" {{on "click" this.toggleHighlight}}>
       {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
     </button>
   </div>
-
-  <Shw::Text::H3>Form</Shw::Text::H3>
 
   <Shw::Text::H4>Tag</Shw::Text::H4>
 
@@ -250,7 +254,36 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>FormHeader</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Hds::Form>
+      <div class="hds-form__header">
+        <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+        <Hds::Text::Body @tag="p" @size="200">
+          Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
+          obcaecati consequatur tenetur.
+        </Hds::Text::Body>
+      </div>
+    </Hds::Form>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>FormSection</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
 
   <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
 
@@ -288,7 +321,36 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3>SectionHeader</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+    <Hds::Form>
+      <div class="hds-form__section-header">
+        <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
+        <Hds::Text::Body @tag="p" @size="200">
+          Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
+          obcaecati consequatur tenetur.
+        </Hds::Text::Body>
+      </div>
+    </Hds::Form>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>FormDivider</Shw::Text::H3>
+
+  <div class="shw-form-button-wrapper-margin">
+    <button type="button" {{on "click" this.toggleHighlight}}>
+      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+    </button>
+  </div>
 
   <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
 
