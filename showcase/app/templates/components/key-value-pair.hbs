@@ -1,0 +1,56 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "KeyValuePair Component"}}
+
+<Shw::Text::H1>KeyValuePair</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  {{#let
+    (array (hash key="foo" value="bar" error="Invalid value.") (hash key="baz" value="bop" error="Invalid value."))
+    as |sampleData|
+  }}
+    <Hds::KeyValuePair @isOptional={{true}} @data={{sampleData}}>
+      <:header as |H|>
+        <H.Legend>Tags applied to this workspace</H.Legend>
+        <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You
+          can add up to 3 tags per resource.</H.HelperText>
+        <H.Error>There is an error.</H.Error>
+      </:header>
+
+      <:row as |R|>
+        {{! @glint-expect-error }}
+        <R.TextInput @value={{R.rowData.key}} as |F|>
+          <F.Label>Key</F.Label>
+          <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        </R.TextInput>
+        {{! @glint-expect-error }}
+        <R.TextInput @value={{R.rowData.value}} @isOptional={{true}} as |F|>
+          <F.Label>Value</F.Label>
+          {{! @glint-expect-error }}
+          {{#if R.rowData.error}}
+            {{! @glint-expect-error }}
+            <F.Error>{{R.rowData.error}}</F.Error>
+          {{/if}}
+        </R.TextInput>
+        <R.Generic>
+          <Shw::Placeholder @height="36px" @text="generic" />
+        </R.Generic>
+      </:row>
+
+      <:footer as |F|>
+        <F.ExtraBefore>
+          <Shw::Placeholder @height="36px" @text="footer before" />
+        </F.ExtraBefore>
+        <F.ExtraAfter>
+          <Shw::Placeholder @height="36px" @text="footer after" />
+        </F.ExtraAfter>
+      </:footer>
+    </Hds::KeyValuePair>
+  {{/let}}
+</section>

@@ -1,0 +1,45 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<fieldset class="hds-key-value-pair" ...attributes>
+  <div class="hds-key-value-pair__header">
+    {{yield
+      (hash
+        Legend=(component "hds/form/legend" isOptional=@isOptional isReqiured=@isRequired)
+        HelperText=(component "hds/form/helper-text")
+        Error=(component "hds/form/error")
+      )
+      to="header"
+    }}
+  </div>
+
+  {{#each @data as |item index|}}
+    {{#let (and (gt index 0) (eq this._isDesktop true)) as |isLabelHidden|}}
+      <div class="hds-key-value-pair__row">
+        {{yield
+          (hash
+            Select=(component "hds/form/select/field" isLabelHidden=isLabelHidden)
+            TextInput=(component
+              "hds/form/text-input/field" isLabelHidden=isLabelHidden hiddenLabelText=(concat "Row " index)
+            )
+            Generic=(component "hds/yield")
+            rowData=item
+          )
+          to="row"
+        }}
+        {{#if this.canDeleteRow}}
+          <Hds::KeyValuePair::DeleteRowButton @text={{(concat this.deleteRowButtonText " " index)}} />
+        {{/if}}
+      </div>
+    {{/let}}
+  {{/each}}
+
+  <div class="hds-key-value-pair__footer">
+    {{yield (hash ExtraBefore=(component "hds/yield")) to="footer"}}
+    {{#if this.canAddRow}}
+      <Hds::KeyValuePair::AddRowButton @text={{this.addRowButtonText}} />
+    {{/if}}
+    {{yield (hash ExtraAfter=(component "hds/yield")) to="footer"}}
+  </div>
+</fieldset>

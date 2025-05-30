@@ -213,6 +213,12 @@ export { default as HdsLinkInline } from './components/hds/link/inline.ts';
 export { default as HdsLinkStandalone } from './components/hds/link/standalone.ts';
 export * from './components/hds/link/types.ts';
 
+// KeyValuePair
+
+export { default as HdsKeyValuePair } from './components/hds/key-value-pair/index.ts';
+export { default as HdsKeyValuePairAddRowButton } from './components/hds/key-value-pair/add-row-button.ts';
+export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/key-value-pair/delete-row-button.ts';
+
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';
 export * from './components/hds/modal/types.ts';
