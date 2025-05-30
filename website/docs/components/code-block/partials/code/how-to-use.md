@@ -1,12 +1,6 @@
 ## How to use this component
 
-The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
-
-!!! Info
-
-If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
-
-!!!
+The basic invocation requires a `@value` argument. The component encodes this argument before displaying it. If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
 
 ```handlebars
 <Hds::CodeBlock
@@ -34,6 +28,12 @@ as |CB|>
 
 ### Title tag
 
+!!! Insight
+
+The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 The `@tag` argument changes the HTML element that wraps the `[CB].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a CodeBlock is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
 ```handlebars
@@ -57,12 +57,6 @@ The `@tag` argument changes the HTML element that wraps the `[CB].Title` content
   </CB.Title>
 </Hds::CodeBlock>
 ```
-
-!!! Insight
-
-The default `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
-
-!!!
 
 ### Language
 
