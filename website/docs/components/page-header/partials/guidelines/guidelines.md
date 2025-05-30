@@ -12,19 +12,15 @@
 
 ## Title
 
-Displays the title or topmost heading of the page. We recommend not exceeding 50 characters in length, but in the case of a longer value (e.g., a user or automatically generated value) the title will wrap to multiple lines.
-
 !!! Warning
 
 The Page Header renders the title as an `<h1>` element. Ensure this is the only `<h1>` on the page, as more than one `<h1>` can confuse screen readers and impact the semantic hierarchy of the page.
 
 !!!
 
+Displays the title or topmost heading of the page. We recommend not exceeding 50 characters in length, but in the case of a longer value (e.g., a user or automatically generated value) the title will wrap to multiple lines.
+
 ## Breadcrumb
-
-Displays a [Breadcrumb](/components/breadcrumb) to communicate the application hierarchy and location to the user.
-
-![Page Header Breadcrumb](/assets/components/page-header/page-header-breadcrumb.png =700x*)
 
 !!! Warning
 
@@ -34,17 +30,21 @@ The [Breadcrumb](/components/breadcrumb) uses a landmark `<nav>` element. Ensure
 
 !!!
 
+Displays a [Breadcrumb](/components/breadcrumb) to communicate the application hierarchy and location to the user.
+
+![Page Header Breadcrumb](/assets/components/page-header/page-header-breadcrumb.png =700x*)
+
 ## Icon Tile
-
-Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, object, or product branding.
-
-![Page Header Icon Tile](/assets/components/page-header/page-header-icon-tile.png =700x*)
 
 !!! Info
 
 For consistency and to avoid competing visually with the title, only the `medium` size of the [IconTile](/components/icon-tile) is supported in the Page Header.
 
 !!!
+
+Displays a Helios [IconTile](/components/icon-tile) as a visual indicator for the content of the page, object, or product branding.
+
+![Page Header Icon Tile](/assets/components/page-header/page-header-icon-tile.png =700x*)
 
 ## Badges
 
@@ -222,6 +222,12 @@ Size only pertains to the Figma component and accounts for smaller viewports by 
 
 ### Responsiveness
 
+!!! Info
+
+Additional responsive characteristics are the responsibility of the consumer and dependent on the layout and spacing methods defined at the application level.
+
+!!!
+
 The Page Header component in Figma supports two sizes; `large` which accounts for the majority of desktop sizes and large tablets, and `small` which accounts for smaller tablet and mobile devices. The core difference between each variant is the vertical stacking of elements.
 
 The Ember component uses a variety of different methods to ensure fluidity and responsiveness:
@@ -229,9 +235,3 @@ The Ember component uses a variety of different methods to ensure fluidity and r
 - By default, the component will fill the page layout it is used within. It does not have any padding or margin explicitly applied, allowing it to adapt to different layout and spacing methods.
 - The component has breakpoints by means of container queries (at `768px` and one at `400px`) that account for the majority of content within the component and stack elements in a single column as the container shrinks.
 - Elements displayed inline with each other (e.g., title and badges) have `flex-wrap: wrap;` set to wrap elements when the available space is reduced.
-
-!!! Info
-
-Additional responsive characteristics are the responsibility of the consumer and dependent on the layout and spacing methods defined at the application level.
-
-!!!

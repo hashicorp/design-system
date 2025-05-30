@@ -24,6 +24,12 @@ When the Flyout has been closed, the browser automatically returns the focus to 
 
 ## How to use this component
 
+!!! Info
+
+When a Flyout is opened with the keyboard, the focus is automatically set to the first focusable element inside the Flyout, which is the “Dismiss” button.
+
+!!!
+
 ```handlebars
 <Hds::Button
   @text="Open Flyout"
@@ -51,9 +57,3 @@ When the Flyout has been closed, the browser automatically returns the focus to 
   </Hds::Flyout>
 {{/if}}
 ```
-
-!!! Info
-
-When a Flyout is opened with the keyboard, the focus is automatically set to the first focusable element inside the Flyout, which is the “Dismiss” button.
-
-!!!

@@ -17,13 +17,13 @@ While similar in functionality and interaction, the Flyout and [Modal](/componen
 
 #### Complexity
 
-A Flyout is useful for more complex content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly.
-
 !!! Info
 
 Complexity of content is relative, use your own judgment to determine if the content or function is overly complex and consider moving it to its own page.
 
 !!!
+
+A Flyout is useful for more complex content, given the space it occupies in the viewport, while Modals are useful for less complex content that can be interacted with quickly.
 
 #### Status and messaging
 
@@ -113,6 +113,11 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 
 ### Tagline
 
+!!! Warning
+
+Even though adding a title icon and tagline can help the user better understand the content, both elements add visual weight which might not be suitable or necessary for all Flyouts.
+!!!
+
 **With tagline**
 
 ![Flyout header tagline, title, and dismiss button](/assets/components/dialog-primitives/dialog-primitives-header-tagline-and-title.jpg)
@@ -124,11 +129,6 @@ The purpose and function of the Flyout should not rely solely on an icon, instea
 A **tagline** helps the user maintain the context of the main page the Flyout was triggered from. Since a Flyout disables and obscures the main page content, adding a tagline can help the user understand the relationship between the Flyout and the main page.
 
 The **tagline** should directly reference the page, feature title, or object to reinforce the purpose of the Flyout.
-
-!!! Warning
-
-Even though adding a title icon and tagline can help the user better understand the content, both elements add visual weight which might not be suitable or necessary for all Flyouts.
-!!!
 
 ### Description
 
@@ -148,17 +148,17 @@ The body of the Flyout supports any generic content, local components, or Helios
 
 ## Flyout footer
 
+!!! Info
+
+The footer is **optional** and should be used sparingly as it increases the complexity of the Flyout.
+!!!
+
 The Flyout footer is a persistent content area at the bottom of the Flyout, and supports additional descriptive content, links, actions, and any other generic content or Helios components.
 
 The Ember and Figma components account for the footer in slightly different ways, though both can achieve the same results:
 
 - The Ember component is a generic container that yields elements passed to it.
 - The Figma component consists of a variant for the number of actions, as well as support for generic content via an instance swap property.
-
-!!! Info
-
-The footer is **optional** and should be used sparingly as it increases the complexity of the Flyout.
-!!!
 
 **With one action**
 
@@ -212,19 +212,19 @@ Multiple dismissal options are available that can be customized in production wi
 
 ## Positioning and responsive sizing
 
-A Flyout should slide out from the right side of the viewport on top of the main page content and occupy 100% of the viewport height.
-
-- This is true regardless of whether there is a sidebar or navigational element that persists on the page.
-- A Flyout should overlay all content and block/disable interaction on the main page.
-
-![Flyout in a desktop viewport](/assets/components/flyout/flyout-sizing.png)
-
 !!! Info
 
 In Figma, the Flyout should be paired with the [Overlay](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-32335&t=gWdKy44MzTP4cTRo-1) component which obscures the main page content the Flyout sits on top of. Using the Flyout without the overlay is currently not supported and helps to communicate visually the `inert` nature of the main page.
 
 We publish a [[Template] Flyout](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67212-27152&t=gWdKy44MzTP4cTRo-1) component coupling these two components together that can be imported into your design file and detached.
 !!!
+
+A Flyout should slide out from the right side of the viewport on top of the main page content and occupy 100% of the viewport height.
+
+- This is true regardless of whether there is a sidebar or navigational element that persists on the page.
+- A Flyout should overlay all content and block/disable interaction on the main page.
+
+![Flyout in a desktop viewport](/assets/components/flyout/flyout-sizing.png)
 
 On smaller viewports, the Flyout should occupy 100% of the viewport width minus half the size of the minimized SideNav width from the viewport edge.
 
