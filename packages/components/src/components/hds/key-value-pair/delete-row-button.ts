@@ -2,20 +2,21 @@
  * Copyright (c) HashiCorp, Inc.
  * SPDX-License-Identifier: MPL-2.0
  */
-import TemplateOnlyComponent from '@ember/component/template-only';
+import Component from '@glimmer/component';
 
 import type { HdsButtonSignature } from '../button';
 
 export interface HdsKeyValuePairDeleteRowButtonSignature {
   Args: {
-    onClick: (index: number) => void;
-    text: HdsButtonSignature['Args']['text'];
-    index: number;
+    text?: HdsButtonSignature['Args']['text'];
+    rowIndex: number;
+    canDeleteRow?: boolean;
   };
   Element: HdsButtonSignature['Element'];
 }
 
-const HdsKeyValuePairDeleteRowButton =
-  TemplateOnlyComponent<HdsKeyValuePairDeleteRowButtonSignature>();
-
-export default HdsKeyValuePairDeleteRowButton;
+export default class HdsKeyValuePairDeleteRowButton extends Component<HdsKeyValuePairDeleteRowButtonSignature> {
+  get text(): string {
+    return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
+  }
+}

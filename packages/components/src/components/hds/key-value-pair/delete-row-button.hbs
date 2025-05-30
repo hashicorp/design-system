@@ -2,12 +2,13 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Button
-  @text={{@text}}
-  @icon="trash"
-  @isIconOnly={{true}}
-  @color="secondary"
-  @size="medium"
-  class="hds-key-value-pair__delete-row"
-  {{on "click" (fn @onClick @index)}}
-/>
+{{#if @canDeleteRow}}
+  <Hds::Button
+    @text={{this.text}}
+    @icon="trash"
+    @isIconOnly={{true}}
+    @color="secondary"
+    @size="medium"
+    class="hds-key-value-pair__delete-row"
+  />
+{{/if}}
