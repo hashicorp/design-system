@@ -1,0 +1,47 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-key-value-pair__field" ...attributes>
+  <div class="hds-key-value-pair__field-header {{if @isHeaderHidden 'sr-only'}}">
+    {{yield
+      (hash
+        Label=(component
+          "hds/form/label"
+          controlId=this._id
+          isRequired=@isRequired
+          isOptional=@isOptional
+          contextualClass="hds-key-value-pair__field-label"
+        )
+      )
+    }}
+    {{yield
+      (hash
+        HelperText=(component
+          "hds/form/helper-text" controlId=this._id contextualClass="hds-key-value-pair__field-helper-text"
+        )
+      )
+    }}
+  </div>
+
+  <div
+    class="hds-key-value-pair__field-control {{if @isHeaderHidden 'hds-key-value-pair__field-control--label-hidden'}}"
+  >
+    {{yield
+      (hash
+        Select=(component "hds/form/select/base")
+        TextInput=(component "hds/form/text-input/base" id=this._id)
+        Generic=(component "hds/yield")
+      )
+    }}
+  </div>
+
+  {{! id=this.id ariaDescribedBy=this.ariaDescribedBy }}
+
+  {{yield
+    (hash Error=(component "hds/form/error" controlId=this._id contextualClass="hds-key-value-pair__field-error"))
+  }}
+</div>
+
+{{! onInsert=this.appendDescriptor
+        onRemove=this.removeDescriptor }}
