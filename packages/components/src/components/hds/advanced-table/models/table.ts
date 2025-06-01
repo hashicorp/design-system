@@ -78,10 +78,6 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  get hasResizableColumns(): boolean {
-    return this.columns.some((column) => column.isResizable);
-  }
-
   private _setupColumns({
     columns,
     onColumnResize,
