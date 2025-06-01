@@ -194,10 +194,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onColumnResize,
     });
 
-    if (this._tableModel.hasResizableColumns) {
+    const resizableColumns = columns.filter((column) => column.isResizable);
+    const resizableColumnLabels = resizableColumns.map(
+      (column) => column.label
+    );
+
+    if (resizableColumns.length > 0) {
       assert(
         'Cannot have a sticky first column if there are resizable columns.',
         !hasStickyFirstColumn
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows. Resizable columns are ${resizableColumnLabels.toString()}`,
+        !this._tableModel.hasRowsWithChildren
       );
     }
 
