@@ -198,6 +198,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorTop = false;
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
+  @tracked lastModel: HdsAdvancedTableModel | null = null;
+  @tracked lastColumns: HdsAdvancedTableColumn[] = [];
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
