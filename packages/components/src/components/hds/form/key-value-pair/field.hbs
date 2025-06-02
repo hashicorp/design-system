@@ -18,7 +18,10 @@
     {{yield
       (hash
         HelperText=(component
-          "hds/form/helper-text" controlId=this._id contextualClass="hds-key-value-pair__field-helper-text"
+          "hds/form/helper-text"
+          controlId=this._id
+          contextualClass="hds-key-value-pair__field-helper-text"
+          onInsert=this.appendDescriptor
         )
       )
     }}
@@ -28,18 +31,30 @@
     {{yield
       (hash
         Select=(component "hds/form/select/base")
-        TextInput=(component "hds/form/text-input/base" id=this._id)
+        TextInput=(component
+          "hds/form/key-value-pair/text-input"
+          id=this._id
+          ariaDescribedBy=this.ariaDescribedBy
+          isRequired=@isRequired
+          isInvalid=@isInvalid
+        )
+        TextInputBase=(component "hds/form/text-input/base" isInvalid=@isInvalid)
         Generic=(component "hds/yield")
+        id=this._id
+        ariaDescribedBy=this.ariaDescribedBy
       )
     }}
   </div>
 
-  {{! id=this.id ariaDescribedBy=this.ariaDescribedBy }}
-
   {{yield
-    (hash Error=(component "hds/form/error" controlId=this._id contextualClass="hds-key-value-pair__field-error"))
+    (hash
+      Error=(component
+        "hds/form/error"
+        controlId=this._id
+        contextualClass="hds-key-value-pair__field-error"
+        onInsert=this.appendDescriptor
+        onRemove=this.removeDescriptor
+      )
+    )
   }}
 </div>
-
-{{! onInsert=this.appendDescriptor
-        onRemove=this.removeDescriptor }}

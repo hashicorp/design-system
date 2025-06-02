@@ -29,7 +29,6 @@
     display: grid;
     flex-grow: 1;
     grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     column-gap: 8px;
     row-gap: 0;
 

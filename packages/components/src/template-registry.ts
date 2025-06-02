@@ -122,6 +122,7 @@ import type HdsFormKeyValuePairComponent from './components/hds/form/key-value-p
 import type HdsFormKeyValuePairAddRowButtonComponent from './components/hds/form/key-value-pair/add-row-button.ts';
 import type HdsFormKeyValuePairDeleteRowButtonComponent from './components/hds/form/key-value-pair/delete-row-button.ts';
 import type HdsFormKeyValuePairFieldComponent from './components/hds/form/key-value-pair/field.ts';
+import type HdsFormKeyValuePairTextInputComponent from './components/hds/form/key-value-pair/text-input.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -645,6 +646,8 @@ export default interface HdsComponentsRegistry {
   'hds/form/key-value-pair/delete-row-button': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
   'hds/form/key-value-pair/field': typeof HdsFormKeyValuePairFieldComponent;
   'Hds::Form::KeyValuePair::Field': typeof HdsFormKeyValuePairFieldComponent;
+    'hds/form/key-value-pair/text-input': typeof HdsFormKeyValuePairTextInputComponent;
+  'Hds::Form::KeyValuePair::TextInput': typeof HdsFormKeyValuePairTextInputComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
