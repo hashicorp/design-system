@@ -22,17 +22,17 @@ Depending on these factors, there are different ways to implement the code, as d
 
 ### Standard toggle
 
-!!! Info
-
-Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
-
-!!!
-
 The standard `Toggle` element **ensures perceivability and accessibility out of the box**. It consist of a piece of text (with an underline decoration applied to it) and an optional icon. The icon can be leading or trailing, and its size is always proportional to the font size of the text (`1em`).
 
 The text and icon are rendered inside an HTML `<button>` element (which technically acts as a toggling control for the popover). For details about how the user can interact with this button, see the [Interactivity](#interactivity) sub-section.
 
 The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
+
+!!! Info
+
+Note: we apply a CSS reset (`all: initial`) to the container to avoid styles applied to the parent elements leaking into the tooltip content. If you find any issue with this reset, [contact the Design Systems Team](/about/support).
+
+!!!
 
 #### As a standalone element
 

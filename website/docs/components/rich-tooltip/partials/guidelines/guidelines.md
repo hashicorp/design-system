@@ -23,11 +23,6 @@ View more detailed examples of the content the Rich Tooltip could contain in the
 
 ## Placement
 
-!!! Info
-
-The placement property is _relative_ to the element that toggles the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
-!!!
-
 A Rich Tooltip can be placed in various positions relative to the UI element it is associated with.
 
 The most common options are: `top`, `bottom`, `left`, `right`.
@@ -37,6 +32,11 @@ The most common options are: `top`, `bottom`, `left`, `right`.
 The Rich Tooltip supports additional placement options: `top-start`, `top-end`, `bottom-start`, `bottom-end`, `left-start`, `left-end`, `right-start`,and `right-end`.
 
 ![Additional placements of the Rich Tooltip](/assets/components/rich-tooltip/rich-tooltip-additional-placements.png)
+
+!!! Info
+
+The placement property is _relative_ to the element that toggles the component, rather than the direction of the pointer. E.g., `placement=left` will render the component to the _left_ of the toggle, but the pointer will be pointing to the right.
+!!!
 
 ### Collision detection
 

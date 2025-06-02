@@ -20,6 +20,14 @@ When no `@tag` argument is provided, the text element is rendered as a `<span>` 
 
 ### HTML tag
 
+To specify which HTML tag to use to render the element, use the `@tag` argument:
+
+```handlebars
+<Hds::Text::Display @tag="h1">Page title</Hds::Text::Display>
+<Hds::Text::Body @tag="p">Paragraph text</Hds::Text::Body>
+<Hds::Text::Code @tag="pre">Code sample</Hds::Text::Code>
+```
+
 !!! Insight
 
 While by default the component renders a `<span>`, we invite consumers to:
@@ -28,14 +36,6 @@ While by default the component renders a `<span>`, we invite consumers to:
 - always set a `@tag` value accordingly, to make the semantic choice explicit
 
 !!!
-
-To specify which HTML tag to use to render the element, use the `@tag` argument:
-
-```handlebars
-<Hds::Text::Display @tag="h1">Page title</Hds::Text::Display>
-<Hds::Text::Body @tag="p">Paragraph text</Hds::Text::Body>
-<Hds::Text::Code @tag="pre">Code sample</Hds::Text::Code>
-```
 
 ### Size
 
@@ -80,12 +80,6 @@ To specify a text alignment, use the `@align` argument:
 
 ### Color
 
-!!! Warning
-
-We don’t validate the CSS color string to ensure that the value used is correct.
-
-!!!
-
 It is possible to apply a specific **foreground** color to the text (from a predefined list) using the `@color` argument:
 
 ```handlebars
@@ -107,6 +101,11 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 ```handlebars
 <Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
 ```
+!!! Warning
+
+We don’t validate the CSS color string to ensure that the value used is correct.
+
+!!!
 
 ### Structured content
 

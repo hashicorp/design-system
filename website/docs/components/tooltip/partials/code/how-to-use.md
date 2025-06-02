@@ -75,15 +75,6 @@ You can change the default `inline-block` display to use `flex` display if neede
 
 #### Extra Tippy Options
 
-!!! Warning
-
-If you enable the `allowHTML` option:
-- be sure to sanitize your data
-- to maintain accessibility, do not include interactive content such as links or buttons
-- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
-
-!!!
-
 You can use `@extraTippyOptions` to provide more specific options to [Tippy.js](https://atomiks.github.io/tippyjs/). For a full list of available options refer to the [Tippy.js API documentation](https://atomiks.github.io/tippyjs/v6/all-props/).
 
 For example, you can use the `allowHTML` option to enable rich tooltip text:
@@ -96,6 +87,15 @@ For example, you can use the `allowHTML` option to enable rich tooltip text:
   More information
 </Hds::TooltipButton>
 ```
+
+!!! Warning
+
+If you enable the `allowHTML` option:
+- be sure to sanitize your data
+- to maintain accessibility, do not include interactive content such as links or buttons
+- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
+
+!!!
 
 ### Ember modifier
 
@@ -143,15 +143,6 @@ An Ember modifier is available if your use case requires attaching a tooltip to 
 
 #### Extra Tippy Options
 
-!!! Warning
-
-If you enable the `allowHTML` option:
-- be sure to sanitize your data
-- to maintain accessibility, do not include interactive content such as links or buttons
-- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
-
-!!!
-
 You can enable extra [Tippy.js options](https://atomiks.github.io/tippyjs/v6/all-props/) by passing a hash of the options you wish to use similarly to how the `TooltipButton` component works. You should make sure that any additional options chosen will still result in a WCAG-conformant outcome.
 
 For example, this is how to enable rich text in the case of the modifier:
@@ -166,3 +157,11 @@ For example, this is how to enable rich text in the case of the modifier:
   </a>
 </p>
 ```
+!!! Warning
+
+If you enable the `allowHTML` option:
+- be sure to sanitize your data
+- to maintain accessibility, do not include interactive content such as links or buttons
+- we recommend using only basic inline-level text formatting tags such as `strong` or `em`; using block-level tags such as `div` or `p` will make the HTML syntax invalid
+
+!!!
