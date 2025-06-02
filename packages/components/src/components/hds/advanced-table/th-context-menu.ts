@@ -44,7 +44,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
       options.push({
         key: 'reset-column-width',
         label: 'Reset column width',
-        icon: 'reload',
+        icon: 'rotate-ccw',
         action: (
           column: HdsAdvancedTableColumn,
           dropdownCloseCallback?: () => void

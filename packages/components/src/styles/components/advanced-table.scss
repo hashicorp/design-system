@@ -128,7 +128,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       bottom: 0;
       z-index: 2;
       width: 24px;
-      transform: translateX(50%);
+      transform: translateX(12.5px); // (width of the handler (24px) + border width (1px)) / 2 == 12.5px
       cursor: col-resize;
 
       &::after {
@@ -137,9 +137,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         right: 0;
         bottom: 0;
         z-index: 2;
-        width: 1px;
-        background-color: $hds-advanced-table-border-color;
-        transform: translateX(-11.5px); // (width of the handle (24px) - width of the visual handle (1px)) / 2 == 11.5px
         content: "";
       }
 
