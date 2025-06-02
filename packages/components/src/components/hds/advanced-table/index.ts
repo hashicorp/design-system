@@ -11,6 +11,7 @@ import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
+import { next } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 import {
@@ -174,6 +175,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorTop = false;
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
+  @tracked lastModel: HdsAdvancedTableModel | null = null;
+  @tracked lastColumns: HdsAdvancedTableColumn[] = [];
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
@@ -406,6 +409,19 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  private _onUpdateContent = modifier(() => {
+    const { columns, model } = this.args;
+
+    if (this.lastModel !== model || this.lastColumns !== columns) {
+      this._tableModel.setupData(this.args.model, this.args.columns);
+
+      next(() => {
+        this.lastModel = model;
+        this.lastColumns = columns;
+      });
+    }
+  });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
