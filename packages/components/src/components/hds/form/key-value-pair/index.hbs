@@ -18,7 +18,7 @@
     <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
       {{yield
         (hash
-          Field=(component "hds/form/key-value-pair/field")
+          Field=(component "hds/form/key-value-pair/field" rowIndex=index)
           DeleteRowButton=(component
             "hds/form/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
           )
