@@ -40,14 +40,18 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
+  @tracked rows: HdsAdvancedTableRow[] = [];
 
-  rows: HdsAdvancedTableRow[] = [];
+  childrenKey?: string;
+  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 
   constructor(args: HdsAdvancedTableTableArgs) {
     const { model, columns, childrenKey, onColumnResize } = args;
 
-    this._setupColumns({ columns, onColumnResize });
-    this._setupRows({ model, columns, childrenKey });
+    this.childrenKey = childrenKey;
+    this.onColumnResize = onColumnResize;
+
+    this.setupData(model, columns);
   }
 
   get totalRowCount(): number {
@@ -78,24 +82,25 @@ export default class HdsAdvancedTableTableModel {
     }
   }
 
-  private _setupColumns({
-    columns,
-    onColumnResize,
-  }: Pick<HdsAdvancedTableTableArgs, 'columns'> & {
-    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
-  }) {
+  @action
+  setupData(
+    model: HdsAdvancedTableModel,
+    columns: HdsAdvancedTableColumnType[]
+  ) {
     this.columns = columns.map(
-      (column) => new HdsAdvancedTableColumn({ column, onColumnResize })
+      (column) =>
+        new HdsAdvancedTableColumn({
+          column,
+          onColumnResize: this.onColumnResize,
+        })
     );
-  }
 
-  private _setupRows({
-    model,
-    columns,
-    childrenKey,
-  }: Pick<HdsAdvancedTableTableArgs, 'model' | 'columns' | 'childrenKey'>) {
     this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey, columns });
+      return new HdsAdvancedTableRow({
+        ...row,
+        childrenKey: this.childrenKey,
+        columns,
+      });
     });
   }
 
