@@ -418,7 +418,7 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="wrap=false (default)">
+      <SG.Item @label="wrap=false, with equal widths (default)">
         <Hds::Form::FieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Control 1</F.Label>
@@ -428,6 +428,22 @@
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Control 2</F.Label>
           </Hds::Form::TextInput::Field>
+        </Hds::Form::FieldGroup>
+      </SG.Item>
+
+      <SG.Item @label="with mixed widths (80% & 20%)">
+        <Hds::Form::FieldGroup as |FG|>
+          <FG.Item @basis="80%">
+            <Hds::Form::TextInput::Field as |F|>
+              <F.Label>Control 1</F.Label>
+            </Hds::Form::TextInput::Field>
+          </FG.Item>
+
+          <FG.Item @basis="20%">
+            <Hds::Form::TextInput::Field as |F|>
+              <F.Label>Control 2</F.Label>
+            </Hds::Form::TextInput::Field>
+          </FG.Item>
         </Hds::Form::FieldGroup>
       </SG.Item>
 
@@ -460,7 +476,7 @@
         </Hds::Form::FieldGroup>
       </SG.Item>
 
-      <SG.Item @label="wrap=false with 3 fields of equal width">
+      <SG.Item @label=" with 3 fields of equal width">
         <Hds::Form::FieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Control 1</F.Label>
