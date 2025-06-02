@@ -120,7 +120,7 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 ## Custom content
 
-If necessary to include metadata like key/value pairs, multiple page-level statuses, or other structured content, custom content can be passed to the component via the `hasGenericInstance` property in Figma, and to the generic contextual component in Ember.
+If necessary to include additional metadata, key/value pairs, multiple page-level statuses, or other structured content, custom content can be passed to the component via the `hasGenericInstance` property in Figma, and to the generic contextual component in Ember.
 
 ![Page Header custom metadata](/assets/components/page-header/page-header-custom-metadata-example.png =700x*)
 
