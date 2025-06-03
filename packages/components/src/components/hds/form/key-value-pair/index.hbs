@@ -2,13 +2,31 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<fieldset class="hds-key-value-pair" ...attributes tabindex="-1" {{style --hds-key-value-pair-columns=this.columns}}>
+<fieldset
+  class="hds-key-value-pair"
+  ...attributes
+  {{style --hds-key-value-pair-columns=this.columns}}
+  {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
+  aria-labelledby="{{this._id}}-legend"
+  {{! @glint-expect-error }}
+  aria-describedby={{this.ariaDescribedBy}}
+>
   <div class="hds-key-value-pair__header">
     {{yield
       (hash
-        Legend=(component "hds/form/legend" isOptional=@isOptional isReqiured=@isRequired)
-        HelperText=(component "hds/form/helper-text")
-        Error=(component "hds/form/error")
+        Legend=(component
+          "hds/form/legend"
+          isOptional=@isOptional
+          isRequired=@isRequired
+          id=(concat this._id "-legend")
+          contextualClass="hds-key-value-pair__legend"
+        )
+        HelperText=(component
+          "hds/form/helper-text"
+          controlId=this._id
+          onInsert=this.appendDescriptor
+          contextualClass="hds-key-value-pair__helper-text"
+        )
       )
       to="header"
     }}
@@ -28,6 +46,19 @@
       }}
     </div>
   {{/each}}
+
+  {{yield
+    (hash
+      Error=(component
+        "hds/form/error"
+        controlId=this._id
+        onInsert=this.appendDescriptor
+        onRemove=this.removeDescriptor
+        contextualClass="hds-key-value-pair__error-text"
+      )
+    )
+    to="header"
+  }}
 
   <div class="hds-key-value-pair__footer">
     {{yield

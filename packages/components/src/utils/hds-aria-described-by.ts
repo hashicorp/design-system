@@ -8,7 +8,8 @@ import { scheduleOnce } from '@ember/runloop';
 import type Component from '@glimmer/component';
 import type { HdsFormFieldSignature } from '../components/hds/form/field/';
 import type { HdsFormFieldsetSignature } from '../components/hds/form/fieldset/';
-import type {HdsFormKeyValuePairFieldSignature} from '../components/hds/form/key-value-pair/field';
+import type { HdsFormKeyValuePairFieldSignature } from '../components/hds/form/key-value-pair/field';
+import type { HdsFormKeyValuePairSignature } from '../components/hds/form/key-value-pair/index';
 
 type ElementSet = Set<HTMLElement>;
 
@@ -43,7 +44,11 @@ class AriaDescriptorMap {
 
 const ariaDescriptorMap = new AriaDescriptorMap();
 
-type AriaDescribedByArgs = HdsFormFieldSignature | HdsFormFieldsetSignature | HdsFormKeyValuePairFieldSignature;
+type AriaDescribedByArgs =
+  | HdsFormFieldSignature
+  | HdsFormFieldsetSignature
+  | HdsFormKeyValuePairFieldSignature
+  | HdsFormKeyValuePairSignature;
 
 export interface AriaDescribedByComponent
   extends Component<AriaDescribedByArgs> {

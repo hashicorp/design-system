@@ -253,7 +253,7 @@
       "./components/hds/form/key-value-pair/delete-row-button.js": "./dist/_app_/components/hds/form/key-value-pair/delete-row-button.js",
       "./components/hds/form/key-value-pair/field.js": "./dist/_app_/components/hds/form/key-value-pair/field.js",
       "./components/hds/form/key-value-pair/index.js": "./dist/_app_/components/hds/form/key-value-pair/index.js",
-      "./components/hds/form/key-value-pair/text-input.js": "./dist/_app_/components/hds/form/key-value-pair/text-input.js",
+      "./components/hds/form/key-value-pair/label.js": "./dist/_app_/components/hds/form/key-value-pair/label.js",
       "./components/hds/form/label/index.js": "./dist/_app_/components/hds/form/label/index.js",
       "./components/hds/form/legend/index.js": "./dist/_app_/components/hds/form/legend/index.js",
       "./components/hds/form/masked-input/base.js": "./dist/_app_/components/hds/form/masked-input/base.js",

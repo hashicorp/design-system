@@ -4,7 +4,7 @@
  */
 import Component from '@glimmer/component';
 
-import type { HdsButtonSignature } from '../../button';
+import type { HdsButtonSignature } from '../../button/index.ts';
 
 export interface HdsFormKeyValuePairDeleteRowButtonSignature {
   Args: {

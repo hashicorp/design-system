@@ -7,11 +7,12 @@
     {{yield
       (hash
         Label=(component
-          "hds/form/label"
+          "hds/form/key-value-pair/label"
           controlId=this._id
           isRequired=@isRequired
           isOptional=@isOptional
           contextualClass="hds-key-value-pair__field-label"
+          hiddenText=this.labelHiddenText
         )
       )
     }}
@@ -31,20 +32,13 @@
     {{yield
       (hash
         Select=(component "hds/form/select/base")
-        TextInput=(component
-          "hds/form/key-value-pair/text-input"
-          id=this._id
-          ariaDescribedBy=this.ariaDescribedBy
-          isRequired=@isRequired
-          isInvalid=@isInvalid
-        )
-        TextInputBase=(component "hds/form/text-input/base" isInvalid=@isInvalid)
+        TextInput=(component "hds/form/text-input/base" isInvalid=@isInvalid id=this._id isRequired=@isRequired)
         Generic=(component "hds/yield")
         id=this._id
-        ariaDescribedBy=this.ariaDescribedBy
       )
     }}
   </div>
+  {{! ariaDescribedBy=this.ariaDescribedBy }}
 
   {{yield
     (hash
