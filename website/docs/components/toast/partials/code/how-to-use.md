@@ -108,7 +108,7 @@ You can pass more than one `D.Description` contextual components to have multipl
 
 !!! Warning
 
-Use this method with caution and as an escape hatch. Contact the Design Systems Team to check that the solution is conformant and satisfies accessibility criteria.
+Use this method with caution and as an escape hatch. [Contact the Design Systems Team](/about/support) to check that the solution is conformant and satisfies accessibility criteria.
 !!!
 
 Use the `Generic` contextual component to insert custom content. Generic content will appear after the title, description, and actions. Product teams will need to implement spacing, layout, and styling for generic content.

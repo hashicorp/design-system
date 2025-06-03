@@ -1,6 +1,6 @@
 !!! Info
 
-The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
+There is no `Text` component in Figma, but an equivalent set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
 
 !!!
 
