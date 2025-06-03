@@ -6,6 +6,8 @@
 import Component from '@glimmer/component';
 import type { ComponentLike } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
+import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
 
 import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
 import type { HdsFormLegendSignature } from '../legend/index.ts';
@@ -15,6 +17,12 @@ import type { HdsYieldSignature } from '../../yield/index.ts';
 import type { HdsFormKeyValuePairFieldSignature } from './field.ts';
 import type { HdsFormKeyValuePairDeleteRowButtonSignature } from './delete-row-button.ts';
 import type { HdsFormKeyValuePairAddRowButtonSignature } from './add-row-button.ts';
+import {
+  ariaDescribedBy,
+  registerAriaDescriptionElement,
+  unregisterAriaDescriptionElement,
+} from '../../../../utils/hds-aria-described-by.ts';
+import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -46,7 +54,10 @@ export interface HdsFormKeyValuePairSignature {
   Element: HdsFormFieldsetSignature['Element'];
 }
 
+// @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
+@ariaDescribedBy
 export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSignature> {
+  private _id = guidFor(this);
   @tracked data: Array<unknown> = this.args.data ?? [];
 
   get columns(): string {
@@ -55,5 +66,14 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
 
   get canDeleteRow(): boolean {
     return this.data.length > 1;
+  }
+
+  @action
+  appendDescriptor(element: HTMLElement): void {
+    registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
+  }
+
+  @action removeDescriptor(element: HTMLElement): void {
+    unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 }
