@@ -35,7 +35,7 @@ body.components-form {
     .hds-form__section {
       background: #d2f4ff;
 
-      > * {
+      > *[class*="hds-form"] {
         background: #bfecfb;
       }
     }
