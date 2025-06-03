@@ -5,7 +5,7 @@
 <fieldset
   class="hds-key-value-pair"
   ...attributes
-  {{style --hds-key-value-pair-columns=this.columns}}
+  {{style --hds-key-value-pair-columns=(concat this._columns.length)}}
   {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
   aria-labelledby="{{this._id}}-legend"
   {{! @glint-expect-error }}
@@ -27,26 +27,62 @@
           onInsert=this.appendDescriptor
           contextualClass="hds-key-value-pair__helper-text"
         )
+        Generic=(component "hds/yield")
       )
       to="header"
     }}
   </div>
 
+  {{#if (eq @data.length 0)}}
+    <div class="hds-key-value-pair__row hds-key-value-pair__row--first">
+      {{yield
+        (hash
+          Field=(component
+            "hds/form/key-value-pair/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
+          )
+          Generic=(component "hds/form/key-value-pair/yield" onInsert=this._setUpColumn onRemove=this._removeColumn)
+          DeleteRowButton=(component
+            "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow
+          )
+        )
+        to="row"
+      }}
+    </div>
+  {{/if}}
+
   {{#each this.data as |item index|}}
     <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
       {{yield
         (hash
-          Field=(component "hds/form/key-value-pair/field" rowIndex=index)
-          DeleteRowButton=(component
-            "hds/form/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
+          Field=(component
+            "hds/form/key-value-pair/field" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+          )
+          Generic=(component
+            "hds/form/key-value-pair/yield" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
           )
           rowData=item
         )
         to="row"
       }}
+      <span class="hds-key-value-pair__row-delete-button-container">
+        {{yield
+          (hash
+            DeleteRowButton=(component
+              "hds/form/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
+            )
+          )
+          to="row"
+        }}
+      </span>
     </div>
   {{/each}}
 
+  <div class="hds-key-value-pair__footer">
+    {{yield
+      (hash Generic=(component "hds/yield") AddRowButton=(component "hds/form/key-value-pair/add-row-button"))
+      to="footer"
+    }}
+  </div>
   {{yield
     (hash
       Error=(component
@@ -57,13 +93,6 @@
         contextualClass="hds-key-value-pair__error-text"
       )
     )
-    to="header"
+    to="footer"
   }}
-
-  <div class="hds-key-value-pair__footer">
-    {{yield
-      (hash Generic=(component "hds/yield") AddRowButton=(component "hds/form/key-value-pair/add-row-button"))
-      to="footer"
-    }}
-  </div>
 </fieldset>

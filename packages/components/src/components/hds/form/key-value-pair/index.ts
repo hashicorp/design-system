@@ -23,24 +23,25 @@ import {
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
+import type {HdsFormKeyValuePairYieldSignature} from './yield.ts';
 
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
-    data?: Array<unknown>;
-    columns?: 1 | 2 | 3;
+    data: Array<unknown>;
   };
   Blocks: {
     header?: [
       {
         Legend?: ComponentLike<HdsFormLegendSignature>;
         HelperText?: ComponentLike<HdsFormHelperTextSignature>;
-        Error?: ComponentLike<HdsFormErrorSignature>;
+        Generic?: ComponentLike<HdsYieldSignature>;
       },
     ];
     row: [
       {
         Field?: ComponentLike<HdsFormKeyValuePairFieldSignature>;
         DeleteRowButton?: ComponentLike<HdsFormKeyValuePairDeleteRowButtonSignature>;
+        Generic?: ComponentLike<HdsFormKeyValuePairYieldSignature>;
         rowData?: unknown;
       },
     ];
@@ -48,6 +49,7 @@ export interface HdsFormKeyValuePairSignature {
       {
         Generic?: ComponentLike<HdsYieldSignature>;
         AddRowButton?: ComponentLike<HdsFormKeyValuePairAddRowButtonSignature>;
+        Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];
   };
@@ -58,14 +60,19 @@ export interface HdsFormKeyValuePairSignature {
 @ariaDescribedBy
 export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSignature> {
   private _id = guidFor(this);
+  @tracked  _columns: HTMLDivElement[] = [];
   @tracked data: Array<unknown> = this.args.data ?? [];
-
-  get columns(): string {
-    return `${this.args.columns ?? 2}`;
-  }
 
   get canDeleteRow(): boolean {
     return this.data.length > 1;
+  }
+
+  @action _setUpColumn(element: HTMLDivElement): void {
+    this._columns.push(element);
+  }
+
+    @action _removeColumn(element: HTMLDivElement): void {
+      this._columns = this._columns.filter((col) => col !== element);
   }
 
   @action

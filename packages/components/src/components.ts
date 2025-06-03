@@ -233,7 +233,7 @@ export { default as HdsKeyValuePair } from './components/hds/form/key-value-pair
 export { default as HdsKeyValuePairAddRowButton } from './components/hds/form/key-value-pair/add-row-button.ts';
 export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/form/key-value-pair/delete-row-button.ts';
 export { default as HdsKeyValuePairField } from './components/hds/form/key-value-pair/field.ts';
-export { default as HdsKeyValuePairLabel } from './components/hds/form/key-value-pair/label.ts';
+export { default as HdsKeyValuePairYield } from './components/hds/form/key-value-pair/yield.ts';
 
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';

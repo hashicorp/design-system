@@ -26,6 +26,8 @@ const DEFAULT_DATA = [
 
 export default class KeyValuePairController extends Controller {
   @tracked sampleData = DEFAULT_DATA;
+  emptyData = [];
+  sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
 
   @action onDeleteRowClick(index) {
     this.sampleData = this.sampleData.filter((_, i) => i !== index);
