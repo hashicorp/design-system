@@ -14,9 +14,13 @@
   >
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
-      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
-        add up to 3 tags per resource.</H.HelperText>
-      <H.Error>There is an error.</H.Error>
+      <H.HelperText>
+        Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can add up to 3
+        tags per resource.
+      </H.HelperText>
+      <H.Generic>
+        <Shw::Placeholder @height="36px" @text="generic" />
+      </H.Generic>
     </:header>
 
     <:row as |R|>
@@ -46,6 +50,7 @@
         <Shw::Placeholder @height="36px" @text="generic" />
       </F.Generic>
       <F.AddRowButton />
+      <F.Error>There is an error.</F.Error>
     </:footer>
   </Hds::Form::KeyValuePair>
 </div>

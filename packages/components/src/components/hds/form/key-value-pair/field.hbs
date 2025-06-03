@@ -2,12 +2,12 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-key-value-pair__field" ...attributes>
+<div class="hds-key-value-pair__field" ...attributes {{this._onInsert}}>
   <div class="hds-key-value-pair__field-header">
     {{yield
       (hash
         Label=(component
-          "hds/form/key-value-pair/label"
+          "hds/form/label"
           controlId=this._id
           isRequired=@isRequired
           isOptional=@isOptional
@@ -31,14 +31,14 @@
   <div class="hds-key-value-pair__field-control">
     {{yield
       (hash
-        Select=(component "hds/form/select/base")
-        TextInput=(component "hds/form/text-input/base" isInvalid=@isInvalid id=this._id isRequired=@isRequired)
+        Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id required=@isRequired)
+        TextInput=(component "hds/form/text-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
+        Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this._id required=@isRequired)
+        MaskedInput=(component "hds/form/masked-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
         Generic=(component "hds/yield")
-        id=this._id
       )
     }}
   </div>
-  {{! ariaDescribedBy=this.ariaDescribedBy }}
 
   {{yield
     (hash
