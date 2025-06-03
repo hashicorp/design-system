@@ -252,16 +252,10 @@ A multi-select pattern consists of:
 
 ## View functions
 
-The Advanced Table supports a number of different functions to customize how the data is viewed and displayed, including resizing column widths and "pinning" the first column in the table so that it persists on scroll. These properties are not available within the Figma components directly, but we've provided [stickersheet template examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
+The Advanced Table supports functions allowing users to customize how their data is displayed, including resizing column widths and "pinning" the first column in the table so that it persists on scroll. These properties are not available within the Figma components directly, but we've provided [stickersheet template examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
 
 When these properties are enabled on the Ember component, actions related to each function are conditionally rendered within a context menu in the table header. These functions are not exposed to consumers and are therefore not customizable.
 
 ![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
 
-Visit the [specifications](?tab=specifications) tab for more details on this functionality..
-
-## Content wrapping
-
-By default, content within the cells of the Advanced Table will wrap according to the natural reflow of the content in browser. This may result in content breaking to multiple lines and layout shift within the table, especially when `isResizable` is set to `true` in the Ember component. This behavior can be overidden by passing either blah blah blah...More details about text wrapping.
-
-<!-- @zack to add something about text wrapping (text-wrap-mode, white-space-collapse, etc), or consider moving this to the code or specs page.-->
+Visit the [specifications](?tab=specifications) tab for more details on this functionality.
