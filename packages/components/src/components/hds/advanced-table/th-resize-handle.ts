@@ -87,7 +87,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       return;
     }
 
-    return `${tableHeight - TABLE_BORDER_WIDTH * 2}px`;
+    return `${tableHeight - TABLE_BORDER_WIDTH * 4}px`;
   }
 
   get classNames(): string {
