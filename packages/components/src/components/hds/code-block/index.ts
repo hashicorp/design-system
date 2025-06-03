@@ -41,6 +41,10 @@ import 'prismjs/components/prism-yaml';
 import 'prismjs/components/prism-markup-templating';
 import 'prismjs/components/prism-handlebars';
 
+const TITLE_ELEMENT_SELECTOR = '.hds-code-block__title';
+const DESCRIPTION_ELEMENT_SELECTOR = '.hds-code-block__description';
+const PRECODE_ELEMENT_SELECTOR = '.hds-code-block__code';
+
 export const LANGUAGES: string[] = Object.values(HdsCodeBlockLanguageValues);
 
 export interface HdsCodeBlockSignature {
@@ -83,11 +87,13 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   private _preCodeId = 'pre-code-' + guidFor(this);
   private _preCodeElement!: HTMLPreElement;
   private _observer!: ResizeObserver;
+  private _element!: HTMLDivElement;
 
   // If a code block is hidden from view, and made visible after load, the Prism code needs to be re-run
   private _setUpCodeObserver = modifier((element: HTMLElement) => {
+    this._element = element as HTMLDivElement;
     this._preCodeElement = element.querySelector(
-      '.hds-code-block__code'
+      PRECODE_ELEMENT_SELECTOR
     ) as HTMLPreElement;
     this._observer = new ResizeObserver((entries) => {
       entries.forEach((entry) => {
@@ -176,15 +182,25 @@ export default class HdsCodeBlock extends Component<HdsCodeBlockSignature> {
   }
 
   @action
-  registerTitleElement(element: HdsCodeBlockTitleSignature['Element']): void {
-    this._titleId = element.id;
+  registerTitleElement(): void {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      const titleElement = this._element.querySelector(
+        TITLE_ELEMENT_SELECTOR
+      ) as HTMLElement;
+      this._titleId = titleElement.id;
+    });
   }
 
   @action
-  registerDescriptionElement(
-    element: HdsCodeBlockDescriptionSignature['Element']
-  ): void {
-    this._descriptionId = element.id;
+  registerDescriptionElement(): void {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      const descriptionElement = this._element.querySelector(
+        DESCRIPTION_ELEMENT_SELECTOR
+      ) as HTMLElement;
+      this._descriptionId = descriptionElement.id;
+    });
   }
 
   @action

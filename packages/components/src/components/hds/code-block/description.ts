@@ -5,13 +5,14 @@
 
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 import type { HdsTextBodySignature } from '../text/body';
 
 type HdsCodeBlockDescriptionElement = HdsTextBodySignature['Element'];
 export interface HdsCodeBlockDescriptionSignature {
   Args: {
-    didInsertNode: (element: HdsCodeBlockDescriptionElement) => void;
+    didInsertNode?: () => void;
   };
   Blocks: {
     default: [];
@@ -23,13 +24,19 @@ export default class HdsCodeBlockDescription extends Component<HdsCodeBlockDescr
   private _id = 'description-' + guidFor(this);
 
   private _setUpDescription = modifier(
-    (
-      element: HTMLElement,
-      [insertCallbackFunction]: [(element: HTMLElement) => void]
-    ) => {
+    (element: HTMLElement, [insertCallbackFunction]: [() => void]) => {
       if (typeof insertCallbackFunction === 'function') {
-        insertCallbackFunction(element);
+        insertCallbackFunction();
       }
     }
   );
+
+  @action
+  didInsertNode(): void {
+    const { didInsertNode } = this.args;
+
+    if (typeof didInsertNode === 'function') {
+      didInsertNode();
+    }
+  }
 }
