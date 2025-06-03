@@ -15,13 +15,16 @@ import { modifier } from 'ember-modifier';
 import Prism from 'prismjs';
 
 import type { SafeString } from '@ember/template';
-import type { ComponentLike } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 
 import type { HdsCodeBlockTitleSignature } from './title';
 import type { HdsCodeBlockDescriptionSignature } from './description';
 import { HdsCodeBlockLanguageValues } from './types.ts';
 import type { HdsCodeBlockLanguages } from './types.ts';
 import type { HdsCopyButtonSignature } from '../copy/button/index.ts';
+
+import HdsCodeBlockTitleComponent from './title.ts';
+import HdsCodeBlockDescriptionComponent from './description.ts';
 
 import 'prismjs/plugins/line-numbers/prism-line-numbers';
 import 'prismjs/plugins/line-highlight/prism-line-highlight';
@@ -63,8 +66,14 @@ export interface HdsCodeBlockSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsCodeBlockTitleSignature>;
-        Description?: ComponentLike<HdsCodeBlockDescriptionSignature>;
+        Title?: WithBoundArgs<
+          typeof HdsCodeBlockTitleComponent,
+          'didInsertNode'
+        >;
+        Description?: WithBoundArgs<
+          typeof HdsCodeBlockDescriptionComponent,
+          'didInsertNode'
+        >;
       },
     ];
   };
