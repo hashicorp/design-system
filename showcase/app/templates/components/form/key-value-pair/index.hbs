@@ -25,14 +25,14 @@
 
     <:row as |R|>
       <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Text Input using custom Field</F.Label>
+        <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
         <F.TextInput @value={{R.rowData.key}} />
       </R.Field>
 
       <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Text Input using text-input/base</F.Label>
-        <F.TextInputBase @value={{R.rowData.value}} id={{F.id}} aria-describedby={{F.ariaDescribedBy}} required />
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value}} />
         {{#if R.rowData.error}}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}

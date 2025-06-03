@@ -13,15 +13,14 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
-import HdsFormLabelComponent from '../label/index.ts';
+import HdsFormKeyValuePairLabelComponent from './label.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 import type { HdsFormSelectBaseSignature } from '../select/base.ts';
 import type { HdsFormFieldSignature } from '../field/index.ts';
-import type {HdsFormKeyValuePairTextInputSignature} from './text-input.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type {HdsFormTextInputBaseSignature} from '../text-input/base.ts';
+import type { HdsFormTextInputBaseSignature } from '../text-input/base.ts';
 
 export interface HdsFormKeyValuePairFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
@@ -32,7 +31,7 @@ export interface HdsFormKeyValuePairFieldSignature {
     default?: [
       {
         Label?: WithBoundArgs<
-          typeof HdsFormLabelComponent,
+          typeof HdsFormKeyValuePairLabelComponent,
           'contextualClass' | 'controlId' | 'isRequired' | 'isOptional'
         >;
         HelperText?: WithBoundArgs<
@@ -45,8 +44,7 @@ export interface HdsFormKeyValuePairFieldSignature {
         >;
         Generic?: ComponentLike<HdsYieldSignature>;
         Select?: ComponentLike<HdsFormSelectBaseSignature>;
-        TextInput?: ComponentLike<HdsFormKeyValuePairTextInputSignature>;
-         TextInputBase?: ComponentLike<HdsFormTextInputBaseSignature>;
+        TextInput?: ComponentLike<HdsFormTextInputBaseSignature>;
         id?: string;
         ariaDescribedBy?: string;
       },
@@ -60,12 +58,16 @@ export interface HdsFormKeyValuePairFieldSignature {
 export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValuePairFieldSignature> {
   private _id = guidFor(this);
 
-    @action
-    appendDescriptor(element: HTMLElement): void {
-      registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
-    }
-  
-    @action removeDescriptor(element: HTMLElement): void {
-      unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
-    }
+  get labelHiddenText(): string {
+    return `Row ${this.args.rowIndex + 1}`;
+  }
+
+  @action
+  appendDescriptor(element: HTMLElement): void {
+    registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
+  }
+
+  @action removeDescriptor(element: HTMLElement): void {
+    unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
+  }
 }
