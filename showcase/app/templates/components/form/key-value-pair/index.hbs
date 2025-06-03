@@ -50,6 +50,8 @@
     </:footer>
   </Hds::Form::KeyValuePair>
 
+  <Shw::Divider />
+
   <Shw::Text::H2>Not able to delete rows</Shw::Text::H2>
 
   <Shw::Text::H3>With empty <code>@data</code> argument</Shw::Text::H3>
@@ -220,6 +222,45 @@
     </:footer>
   </Hds::Form::KeyValuePair>
 
+  <Shw::Divider />
+
+  <Shw::Text::H2>Input types</Shw::Text::H2>
+
+  <div class="hds-key-value-pair" {{style --hds-key-value-pair-columns="3"}}>
+    {{! setting hds-key-value-pair__row--first class on all rows to force the labels and help text to be visible }}
+    <div class="hds-key-value-pair__row hds-key-value-pair__row--first">
+      <Hds::Form::KeyValuePair::Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+        <F.Error>Sample text.</F.Error>
+      </Hds::Form::KeyValuePair::Field>
+      <Hds::Form::KeyValuePair::Field as |F|>
+        <F.Label>Textarea</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea @value="Sample text" />
+        <F.Error>Sample text.</F.Error>
+      </Hds::Form::KeyValuePair::Field>
+      <Hds::Form::KeyValuePair::Field as |F|>
+        <F.Label>Masked Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput @value="Sample text" />
+        <F.Error>Sample text.</F.Error>
+      </Hds::Form::KeyValuePair::Field>
+    </div>
+    <div class="hds-key-value-pair__row hds-key-value-pair__row--first">
+      <Hds::Form::KeyValuePair::Field as |F|>
+        <F.Label>Select</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Select>
+          <option value="option1">Option 1</option>
+          <option value="option2">Option 2</option>
+          <option value="option3">Option 3</option>
+        </F.Select>
+        <F.Error>Sample text.</F.Error>
+      </Hds::Form::KeyValuePair::Field>
+    </div>
+  </div>
 </section>
 
 <Shw::Divider />
