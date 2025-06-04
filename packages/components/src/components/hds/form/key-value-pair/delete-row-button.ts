@@ -13,7 +13,7 @@ export interface HdsFormKeyValuePairDeleteRowButtonSignature {
     rowIndex: number;
     rowData: unknown;
     canDeleteRow?: boolean;
-    onClick: (rowData: unknown) => void;
+    onClick?: (rowData: unknown) => void;
   };
   Element: HdsButtonSignature['Element'];
 }
