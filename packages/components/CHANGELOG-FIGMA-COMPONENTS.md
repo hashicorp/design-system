@@ -1,5 +1,16 @@
 # [HDS Components UI Kit v2.0](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=2-7&t=HYGTIoXBy2YkVWDP-1)
 
+## June 4th, 2025
+
+This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.
+
+`CodeBlock` - Added height toggle for overflowing code.
+
+`Icons` - Added three new icons:
+- start
+- end
+- text-wrap
+
 ## May 7th, 2025
 
 This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.
