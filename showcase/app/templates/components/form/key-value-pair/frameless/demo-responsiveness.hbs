@@ -6,12 +6,7 @@
 {{page-title "KeyValuePair responsiveness demo - Frameless"}}
 
 <div {{style padding="24px"}}>
-  <Hds::Form::KeyValuePair
-    @isOptional={{true}}
-    @data={{this.sampleData}}
-    @onDeleteRowClick={{this.onDeleteRowClick}}
-    @columns={{3}}
-  >
+  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -24,24 +19,25 @@
     </:header>
 
     <:row as |R|>
-      <R.Field as |F|>
+      <R.Field @isInvalid={{(if R.rowData.error true)}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
         <F.TextInput @value={{R.rowData.key}} />
-      </R.Field>
-
-      <R.Field as |F|>
-        <F.Label>Value</F.Label>
-        <F.TextInput @value={{R.rowData.value}} />
         {{#if R.rowData.error}}
           <F.Error>{{R.rowData.error}}</F.Error>
         {{/if}}
       </R.Field>
-      <R.Field as |F|>
-        <F.Generic>
-          <Shw::Placeholder @height="36px" @text="generic" />
-        </F.Generic>
+
+      <R.Field @isInvalid={{(if R.rowData.error true)}} as |F|>
+        <F.Label>Value</F.Label>
+        <F.Textarea @value={{R.rowData.value}} />
+        {{#if R.rowData.error}}
+          <F.Error>{{R.rowData.error}}</F.Error>
+        {{/if}}
       </R.Field>
+      <R.Generic>
+        <Shw::Placeholder @height="36px" @width="200px" @text="generic" />
+      </R.Generic>
       <R.DeleteRowButton />
     </:row>
 

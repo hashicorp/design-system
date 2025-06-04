@@ -8,6 +8,8 @@ import type { ComponentLike } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { schedule } from '@ember/runloop';
+import { modifier } from 'ember-modifier';
 
 import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
 import type { HdsFormLegendSignature } from '../legend/index.ts';
@@ -23,7 +25,7 @@ import {
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type {HdsFormKeyValuePairYieldSignature} from './yield.ts';
+import type { HdsFormKeyValuePairYieldSignature } from './yield.ts';
 
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -60,19 +62,27 @@ export interface HdsFormKeyValuePairSignature {
 @ariaDescribedBy
 export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSignature> {
   private _id = guidFor(this);
-  @tracked  _columns: HTMLDivElement[] = [];
-  @tracked data: Array<unknown> = this.args.data ?? [];
+  private _element!: HTMLElement;
+  @tracked _columns: HTMLDivElement[] = [];
+  @tracked _gridTemplateColumns = '';
+
+  get data(): Array<unknown> {
+    return this.args.data ?? [];
+  }
 
   get canDeleteRow(): boolean {
     return this.data.length > 1;
   }
 
-  @action _setUpColumn(element: HTMLDivElement): void {
-    this._columns.push(element);
+  @action _setUpColumn(): void {
+        // eslint-disable-next-line ember/no-runloop
+        schedule('afterRender', (): void => {
+          this.updateColumns();
+        });
   }
 
-    @action _removeColumn(element: HTMLDivElement): void {
-      this._columns = this._columns.filter((col) => col !== element);
+  @action _removeColumn(element: HTMLDivElement): void {
+    this._columns = this._columns.filter((col) => col !== element);
   }
 
   @action
@@ -83,4 +93,28 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
   @action removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
+
+  private _setUpKeyValuePair = modifier((element: HTMLElement) => {
+    this._element = element;
+  })
+
+    // Update the column array based on how they are ordered in the DOM
+    private updateColumns(): void {
+      const columns = this._element.querySelector('.hds-key-value-pair__row--first')?.querySelectorAll('.hds-key-value-pair__field, .hds-key-value-pair__generic-container');
+
+      let newColumnNodes: HTMLDivElement[] = [];
+      let newGridTemplateColumns = '';
+      columns?.forEach((column) => {
+        newColumnNodes = [...newColumnNodes, column as HTMLDivElement];
+        if (column.classList.contains('hds-key-value-pair__field')) {
+          newGridTemplateColumns += '1fr ';
+        }
+        if (column.classList.contains('hds-key-value-pair__generic-container')) {
+          newGridTemplateColumns += 'auto ';
+        }
+      });
+
+      this._columns = newColumnNodes;
+      this._gridTemplateColumns = `${newGridTemplateColumns} min-content`
+    }
 }

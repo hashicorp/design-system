@@ -27,28 +27,28 @@
       )
     }}
   </div>
-
   <div class="hds-key-value-pair__field-control">
     {{yield
       (hash
         Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id required=@isRequired)
+        SuperSelectSingle=(component "hds/form/super-select/single/base" isInvalid=@isInvalid triggerId=this._id)
+        SuperSelectMultiple=(component "hds/form/super-select/multiple/base" isInvalid=@isInvalid triggerId=this._id)
         TextInput=(component "hds/form/text-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
         Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this._id required=@isRequired)
+        FileInput=(component "hds/form/file-input/base" id=this._id required=@isRequired)
         MaskedInput=(component "hds/form/masked-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
-        Generic=(component "hds/yield")
+      )
+    }}
+    {{yield
+      (hash
+        Error=(component
+          "hds/form/error"
+          controlId=this._id
+          contextualClass="hds-key-value-pair__field-error"
+          onInsert=this.appendDescriptor
+          onRemove=this.removeDescriptor
+        )
       )
     }}
   </div>
-
-  {{yield
-    (hash
-      Error=(component
-        "hds/form/error"
-        controlId=this._id
-        contextualClass="hds-key-value-pair__field-error"
-        onInsert=this.appendDescriptor
-        onRemove=this.removeDescriptor
-      )
-    )
-  }}
 </div>

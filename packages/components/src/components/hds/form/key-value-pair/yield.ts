@@ -21,20 +21,19 @@ export interface HdsFormKeyValuePairYieldSignature {
 }
 
 export default class HdsFormKeyValuePairYieldLabel extends Component<HdsFormKeyValuePairYieldSignature> {
-    constructor(owner: Owner, args: HdsFormKeyValuePairYieldSignature['Args']) {
-      super(owner, args);
-     
-      registerDestructor(this, (): void => {
-        if (this.args.onRemove && this.args.rowIndex === 0) {
-        this.args.onRemove(this.element as HTMLDivElement);
-        }
-      });
-    }
+  constructor(owner: Owner, args: HdsFormKeyValuePairYieldSignature['Args']) {
+    super(owner, args);
 
-    private _onInsert = modifier((element: HTMLDivElement) => {
-      if (this.args.onInsert && this.args.rowIndex === 0) {
-      this.args.onInsert(element);
+    registerDestructor(this, (): void => {
+      if (this.args.onRemove && this.args.rowIndex === 0) {
+        this.args.onRemove(this.element as HTMLDivElement);
       }
     });
-  
+  }
+
+  private _onInsert = modifier((element: HTMLDivElement) => {
+    if (this.args.onInsert && this.args.rowIndex === 0) {
+      this.args.onInsert(element);
+    }
+  });
 }

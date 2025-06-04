@@ -24,14 +24,16 @@ import type { HdsFormTextareaBaseSignature } from '../textarea/base.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormTextInputBaseSignature } from '../text-input/base.ts';
 import type { HdsFormMaskedInputBaseSignature } from '../masked-input/base.ts';
-import type { HdsYieldSignature } from '../../yield/index.ts';
 import HdsFormLabelComponent from '../label/index.ts';
+import type { HdsFormSuperSelectSingleBaseSignature } from '../super-select/single/base.ts';
+import type { HdsFormSuperSelectMultipleBaseSignature } from '../super-select/multiple/base.ts';
+import type { HdsFormFileInputBaseSignature } from '../file-input/base.ts';
 
 export interface HdsFormKeyValuePairFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
     rowIndex: number;
     isInvalid?: boolean;
-        onInsert?: (element: HTMLDivElement) => void;
+    onInsert?: (element: HTMLDivElement) => void;
     onRemove?: (element: HTMLDivElement) => void;
   };
   Blocks: {
@@ -39,7 +41,11 @@ export interface HdsFormKeyValuePairFieldSignature {
       {
         Label?: WithBoundArgs<
           typeof HdsFormLabelComponent,
-          'contextualClass' | 'controlId' | 'isRequired' | 'isOptional' | 'hiddenText'
+          | 'contextualClass'
+          | 'controlId'
+          | 'isRequired'
+          | 'isOptional'
+          | 'hiddenText'
         >;
         HelperText?: WithBoundArgs<
           typeof HdsFormHelperTextComponent,
@@ -53,7 +59,9 @@ export interface HdsFormKeyValuePairFieldSignature {
         TextInput?: ComponentLike<HdsFormTextInputBaseSignature>;
         Textarea?: ComponentLike<HdsFormTextareaBaseSignature>;
         MaskedInput?: ComponentLike<HdsFormMaskedInputBaseSignature>;
-        Generic?: ComponentLike<HdsYieldSignature>;
+        SuperSelectSingle?: ComponentLike<HdsFormSuperSelectSingleBaseSignature>;
+        SuperSelectMultiple?: ComponentLike<HdsFormSuperSelectMultipleBaseSignature>;
+        FileInput?: ComponentLike<HdsFormFileInputBaseSignature>;
       },
     ];
   };
@@ -65,21 +73,21 @@ export interface HdsFormKeyValuePairFieldSignature {
 export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValuePairFieldSignature> {
   private _id = guidFor(this);
 
-      constructor(owner: Owner, args: HdsFormKeyValuePairFieldSignature['Args']) {
-        super(owner, args);
-       
-        registerDestructor(this, (): void => {
-                  if (this.args.onRemove && this.args.rowIndex === 0) {
+  constructor(owner: Owner, args: HdsFormKeyValuePairFieldSignature['Args']) {
+    super(owner, args);
+
+    registerDestructor(this, (): void => {
+      if (this.args.onRemove && this.args.rowIndex === 0) {
         this.args.onRemove(this.element as HTMLDivElement);
-        }
-        });
       }
-  
-      private _onInsert = modifier((element: HTMLDivElement) => {
-              if (this.args.onInsert && this.args.rowIndex === 0) {
+    });
+  }
+
+  private _onInsert = modifier((element: HTMLDivElement) => {
+    if (this.args.onInsert && this.args.rowIndex === 0) {
       this.args.onInsert(element);
-      }
-      });
+    }
+  });
 
   get labelHiddenText(): string {
     return `Row ${this.args.rowIndex + 1}`;
