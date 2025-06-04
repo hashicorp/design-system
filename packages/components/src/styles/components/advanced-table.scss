@@ -259,8 +259,33 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   min-width: 0;
 }
 
-.hds-advanced-table__th-button,
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
+  width: 24px;
+  height: 24px;
+  margin: -2px 0;
+  padding: 0;
+  color: var(--token-color-foreground-faint);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
+    box-shadow: var(--token-elevation-low-box-shadow);
+    cursor: pointer;
+  }
+
+  &:focus::before {
+    border-color: transparent;
+  }
+
+  @include hds-focus-ring-basic();
+}
+
+.hds-advanced-table__th-button {
   display: flex;
   flex: none;
   align-items: center;
