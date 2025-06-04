@@ -19,8 +19,8 @@
     </:header>
 
     <:row as |R|>
-      <R.Field @isInvalid={{(if R.rowData.error true)}} as |F|>
-        <F.Label>Key</F.Label>
+      <R.Field @isInvalid={{(if R.rowData.error true)}} @width="1fr" as |F|>
+        <F.Label>Key (width=1fr)</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
         <F.TextInput @value={{R.rowData.key}} />
         {{#if R.rowData.error}}
@@ -28,8 +28,8 @@
         {{/if}}
       </R.Field>
 
-      <R.Field @isInvalid={{(if R.rowData.error true)}} as |F|>
-        <F.Label>Value</F.Label>
+      <R.Field @isInvalid={{(if R.rowData.error true)}} @width="2fr" as |F|>
+        <F.Label>Value (width=2fr)</F.Label>
         <F.Textarea @value={{R.rowData.value}} />
         {{#if R.rowData.error}}
           <F.Error>{{R.rowData.error}}</F.Error>

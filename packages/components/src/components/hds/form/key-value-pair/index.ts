@@ -66,19 +66,21 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
   @tracked _columns: HTMLDivElement[] = [];
   @tracked _gridTemplateColumns = '';
 
-  get data(): Array<unknown> {
-    return this.args.data ?? [];
-  }
+  // @tracked data = this.args.data;
+
+  // get data(): Array<unknown> {
+  //   return this.args.data;
+  // }
 
   get canDeleteRow(): boolean {
-    return this.data.length > 1;
+    return this.args.data.length > 1;
   }
 
   @action _setUpColumn(): void {
-        // eslint-disable-next-line ember/no-runloop
-        schedule('afterRender', (): void => {
-          this.updateColumns();
-        });
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      this.updateColumns();
+    });
   }
 
   @action _removeColumn(element: HTMLDivElement): void {
@@ -96,25 +98,35 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
 
   private _setUpKeyValuePair = modifier((element: HTMLElement) => {
     this._element = element;
-  })
+  });
 
-    // Update the column array based on how they are ordered in the DOM
-    private updateColumns(): void {
-      const columns = this._element.querySelector('.hds-key-value-pair__row--first')?.querySelectorAll('.hds-key-value-pair__field, .hds-key-value-pair__generic-container');
+  // Update the column array based on how they are ordered in the DOM
+  private updateColumns(): void {
+    const columns = this._element
+      .querySelector('.hds-key-value-pair__row--first')
+      ?.querySelectorAll(
+        '.hds-key-value-pair__field, .hds-key-value-pair__generic-container'
+      );
 
-      let newColumnNodes: HTMLDivElement[] = [];
-      let newGridTemplateColumns = '';
-      columns?.forEach((column) => {
-        newColumnNodes = [...newColumnNodes, column as HTMLDivElement];
-        if (column.classList.contains('hds-key-value-pair__field')) {
+    let newColumnNodes: HTMLDivElement[] = [];
+    let newGridTemplateColumns = '';
+    columns?.forEach((column) => {
+      const columnElement = column as HTMLDivElement;
+
+      newColumnNodes = [...newColumnNodes, columnElement];
+      if (column.classList.contains('hds-key-value-pair__field')) {
+        if (columnElement.dataset['width']) {
+          newGridTemplateColumns += `${columnElement.dataset['width']} `;
+        } else {
           newGridTemplateColumns += '1fr ';
         }
-        if (column.classList.contains('hds-key-value-pair__generic-container')) {
-          newGridTemplateColumns += 'auto ';
-        }
-      });
+      }
+      if (column.classList.contains('hds-key-value-pair__generic-container')) {
+        newGridTemplateColumns += 'auto ';
+      }
+    });
 
-      this._columns = newColumnNodes;
-      this._gridTemplateColumns = `${newGridTemplateColumns} min-content`
-    }
+    this._columns = newColumnNodes;
+    this._gridTemplateColumns = `${newGridTemplateColumns} min-content`;
+  }
 }

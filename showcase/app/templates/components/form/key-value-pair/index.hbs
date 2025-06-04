@@ -9,7 +9,7 @@
 
 <section data-test-percy>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
+  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.functionalExampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -22,7 +22,12 @@
       <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key}} {{on "blur" (fn this.onKeyInputBlur R.rowData)}} />
+        {{#if R.rowData.error}}
+          <F.Error>
+            {{R.rowData.error}}
+          </F.Error>
+        {{/if}}
       </R.Field>
 
       <R.Field @isOptional={{true}} as |F|>
@@ -33,7 +38,7 @@
     </:row>
 
     <:footer as |F|>
-      {{#if this.canAddRow}}
+      {{#if (lt this.functionalExampleData.length 4)}}
         <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
       {{else}}
         <F.Generic>
@@ -98,7 +103,7 @@
         <F.Label>Value</F.Label>
         <F.TextInput @value={{R.rowData.value}} />
       </R.Field>
-      <R.Generic><Shw::Placeholder @height="36px" @text="generic" /></R.Generic>
+      <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
       <R.DeleteRowButton />
     </:row>
 
@@ -111,36 +116,6 @@
   </Hds::Form::KeyValuePair>
 
   <Shw::Text::H2>Columns</Shw::Text::H2>
-
-  <Shw::Text::H3>3 columns</Shw::Text::H3>
-
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
-    <:header as |H|>
-      <H.Legend>Tags applied to this workspace</H.Legend>
-      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
-        add up to 3 tags per resource.</H.HelperText>
-    </:header>
-
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Key</F.Label>
-        <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Value</F.Label>
-        <F.TextInput @value={{R.rowData.value}} />
-      </R.Field>
-      <R.Generic>
-        <Shw::Placeholder @height="36px" @width="100px" @text="generic" />
-      </R.Generic>
-      <R.DeleteRowButton />
-    </:row>
-
-    <:footer as |F|>
-      <F.AddRowButton />
-    </:footer>
-  </Hds::Form::KeyValuePair>
 
   <Shw::Text::H3>2 columns</Shw::Text::H3>
 
@@ -423,6 +398,34 @@
       </R.Field>
     </:row>
   </Hds::Form::KeyValuePair>
+
+  <Shw::Text::H2>With custom input widths</Shw::Text::H2>
+
+  <Hds::Form::KeyValuePair @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Custom input widths</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @width="100px" as |F|>
+        <F.Label>Text Input (100px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+      </R.Field>
+      <R.Field @width="400px" as |F|>
+        <F.Label>Textarea (400px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea @value="Sample text" />
+      </R.Field>
+      <R.Field @width="max-content" as |F|>
+        <F.Label>Masked Input (max-content)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput @value="Sample text" />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValuePair>
+
 </section>
 
 <Shw::Divider />

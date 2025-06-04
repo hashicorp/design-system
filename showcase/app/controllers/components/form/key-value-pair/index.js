@@ -26,23 +26,51 @@ const DEFAULT_DATA = [
 ];
 
 export default class KeyValuePairController extends Controller {
-  @tracked sampleData = DEFAULT_DATA;
-  @tracked canAddRow = this.sampleData.length < 4;
+  @tracked functionalExampleData = DEFAULT_DATA;
+  @tracked canAddRow = this.functionalExampleData.length < 4;
 
   emptyData = [];
   sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
+  sampleData = DEFAULT_DATA;
+
+  @action onKeyInputBlur(item, event) {
+    const value = event.target.value;
+
+    if (value === undefined || value === '') {
+      const newData = this.functionalExampleData.map((data) => {
+        if (item.id === data.id) {
+          return { ...data, key: value, error: 'Key is required.' };
+        }
+        return data;
+      });
+
+      this.functionalExampleData = newData;
+    } else {
+      const newData = this.functionalExampleData.map((data) => {
+        if (item.id === data.id) {
+          return { ...data, value, error: undefined };
+        }
+        return data;
+      });
+
+      this.functionalExampleData = newData;
+    }
+  }
 
   @action onDeleteRowClick(item) {
-    console.log('onDeleteRowClick', item);
-    // this.sampleData = this.sampleData.filter((data) => data !== item);
+    this.functionalExampleData = this.functionalExampleData.filter(
+      (data) => data.id !== item.id,
+    );
   }
 
   @action onAddRowClick() {
-    console.log('onAddRowClick');
-    this.sampleData.push({
-      key: '',
-      value: '',
-      id: this.sampleData.length + 1,
-    });
+    this.functionalExampleData = [
+      ...this.functionalExampleData,
+      {
+        key: '',
+        value: '',
+        id: this.functionalExampleData.length + 1,
+      },
+    ];
   }
 }

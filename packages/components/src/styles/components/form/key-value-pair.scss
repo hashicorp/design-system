@@ -32,7 +32,8 @@
     row-gap: 0;
 
     &.hds-key-value-pair__row--first {
-      .hds-key-value-pair__generic-container, .hds-key-value-pair__row-delete-button-container {
+      .hds-key-value-pair__generic-container,
+      .hds-key-value-pair__row-delete-button-container {
         grid-row: span 2;
       }
     }
@@ -70,7 +71,7 @@
   grid-row: span 2;
   grid-template-rows: subgrid;
   width: 100%; // we want the input element to fill the parent container
-  
+
   .hds-key-value-pair__field-header {
     align-self: flex-end;
   }
@@ -111,7 +112,8 @@
   }
 }
 
-.hds-key-value-pair__generic-container, .hds-key-value-pair__row-delete-button-container {
+.hds-key-value-pair__generic-container,
+.hds-key-value-pair__row-delete-button-container {
   display: grid;
   grid-template-rows: subgrid;
   align-items: flex-start;
