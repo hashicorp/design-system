@@ -31,7 +31,16 @@ const getComponentPaths = (baseDir) => {
             components[`copy-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/form')) {
             if (folder.name === 'primitives') {
-              const primitiveNames = ['character-count', 'error', 'field', 'fieldset', 'helper-text', 'indicator', 'label', 'legend'];
+              const primitiveNames = [
+                'character-count',
+                'error',
+                'field',
+                'fieldset',
+                'helper-text',
+                'indicator',
+                'label',
+                'legend',
+              ];
               primitiveNames.forEach((componentName) => {
                 components[`form-${componentName}`] = componentPath;
               });
@@ -83,15 +92,26 @@ const extractVersion = (changelogContent, version) => {
 };
 
 const convertComponentNameFormat = (componentName) => {
-  let separator = '';
-  const multiLevelComponentNames = ['copy', 'form', 'layout', 'link', 'stepper'];
-  if (multiLevelComponentNames.includes(componentName.split('-')[0])) {
-    separator = '::';
+  const twoLevelComponentNames = ['copy', 'form', 'layout', 'link', 'stepper'];
+  const threeLevelComponentNames = [
+    'stepper-step-indicator',
+    'stepper-task-indicator',
+  ];
+  if (twoLevelComponentNames.includes(componentName.split('-')[0])) {
+    let words = componentName
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+    if (threeLevelComponentNames.includes(componentName)) {
+      return words.join('::');
+    } else {
+      return words[0] + '::' + words.slice(1).join('');
+    }
+  } else {
+    return componentName
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
   }
-  return componentName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(separator);
 };
 
 const extractComponentChangelogEntries = (components, lastVersionContent) => {
@@ -129,7 +149,10 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
       const newEntries = componentChangelogEntries[componentName]
         .map((entry) => {
           // If the component is a form primitive, we want to keep the component name in the description
-          if (allComponentsPath[componentName] === './docs/components/form/primitives') {
+          if (
+            allComponentsPath[componentName] ===
+            './docs/components/form/primitives'
+          ) {
             return entry;
           } else {
             return entry.split(' - ')[1];
