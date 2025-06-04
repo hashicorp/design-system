@@ -9,7 +9,6 @@ export interface HdsFormFileInputBaseSignature {
   Args: {
     id?: string;
     ariaDescribedBy?: string;
-    required?: boolean;
   };
   Element: HTMLInputElement;
 }
