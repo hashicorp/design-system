@@ -31,7 +31,6 @@ export interface HdsFormSuperSelectSingleBaseSignature {
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
-    required?: boolean;
   };
   Blocks: PowerSelectSignature['Blocks'];
   Element: PowerSelectSignature['Element'];
