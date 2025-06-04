@@ -26,9 +26,14 @@ const getComponentPaths = (baseDir) => {
         const componentPath = `${baseDir}/${folder.name}`;
         const partialsPath = `${componentPath}/partials`;
         if (fs.existsSync(partialsPath)) {
-          // we have two special cases where intermediate namespacing is used to group components:
-          // `copy` components and `link` components
-          if (baseDir.endsWith('/copy')) {
+          // we have some special cases where intermediate namespacing is used to group components:
+          if (baseDir.endsWith('/layouts')) {
+            if (folder.name === 'app-frame') {
+              components[`${folder.name}`] = componentPath;
+            } else {
+              components[`layout-${folder.name}`] = componentPath;
+            }
+          } else if (baseDir.endsWith('/copy')) {
             components[`copy-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/link')) {
             components[`link-${folder.name}`] = componentPath;
@@ -70,7 +75,7 @@ const extractVersion = (changelogContent, version) => {
 
 const convertComponentNameFormat = (componentName) => {
   let separator = '';
-  const multiLevelComponentNames = ['copy', 'link', 'stepper'];
+  const multiLevelComponentNames = ['copy', 'link', 'stepper', 'layout'];
   if (multiLevelComponentNames.includes(componentName.split('-')[0])) {
     separator = '::';
   }
