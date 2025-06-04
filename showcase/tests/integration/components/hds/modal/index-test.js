@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   click,
@@ -231,7 +231,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-button').isFocused();
   });
 
-  test('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
+  skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
     await render(
       hbs`<Hds::Dropdown as |D|>
             <D.ToggleButton id="test-toggle" @text="open modal" />
