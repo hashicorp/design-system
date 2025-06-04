@@ -3,4 +3,5 @@
 ---
 
 `AppHeader` - Fixed import path for `hds-breakpoints`
+
 `AppSideNav` - Fixed import path for `hds-breakpoints`
