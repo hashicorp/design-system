@@ -69,10 +69,15 @@ const extractVersion = (changelogContent, version) => {
 };
 
 const convertComponentNameFormat = (componentName) => {
+  let separator = '';
+  const multiLevelComponentNames = ['copy', 'link', 'stepper'];
+  if (multiLevelComponentNames.includes(componentName.split('-')[0])) {
+    separator = '::';
+  }
   return componentName
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join('');
+    .join(separator);
 };
 
 const extractComponentChangelogEntries = (components, lastVersionContent) => {
