@@ -23,7 +23,7 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
     await render(hbs`<Hds::Form::Separator id="test-form-separator" />`);
     assert
       .dom('#test-form-separator')
-      .doesNotHaveClass('hds-form__separator--has-max-width-false');
+      .hasClass('hds-form__separator--has-max-width');
   });
 
   test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
@@ -32,6 +32,6 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
     );
     assert
       .dom('#test-form-separator')
-      .hasClass('hds-form__separator--has-max-width-false');
+      .doesNotHaveClass('hds-form__separator--has-max-width');
   });
 });

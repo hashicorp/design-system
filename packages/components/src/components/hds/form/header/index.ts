@@ -22,8 +22,8 @@ export default class HdsFormHeader extends Component<HdsFormHeaderSignature> {
   get classNames(): string {
     const classes = ['hds-form__header'];
 
-    if (!this.hasMaxWidth) {
-      classes.push('hds-form__header--has-max-width-false');
+    if (this.hasMaxWidth) {
+      classes.push('hds-form__header--has-max-width');
     }
 
     return classes.join(' ');

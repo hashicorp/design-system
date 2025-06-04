@@ -19,8 +19,8 @@ export default class HdsFormSeparator extends Component<HdsFormSeparatorSignatur
   get classNames(): string {
     const classes = ['hds-form__separator'];
 
-    if (!this.hasMaxWidth) {
-      classes.push('hds-form__separator--has-max-width-false');
+    if (this.hasMaxWidth) {
+      classes.push('hds-form__separator--has-max-width');
     }
 
     return classes.join(' ');
