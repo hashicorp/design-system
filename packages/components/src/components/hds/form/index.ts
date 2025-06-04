@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { HdsFormTagValues } from './types.ts';
 
 import type { HdsFormTag } from './types.ts';
+import type Owner from '@ember/owner';
 
 export const DEFAULT_TAG = HdsFormTagValues.Form;
 
@@ -21,18 +22,19 @@ export interface HdsFormSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLElement;
+  Element: HTMLFormElement | HTMLDivElement;
 }
 
 export default class HdsForm extends Component<HdsFormSignature> {
-  get componentTag(): HdsFormTag {
-    const { tag = DEFAULT_TAG } = this.args;
+  tag: HdsFormTag;
+
+  constructor(owner: Owner, args: HdsFormSignature['Args']) {
+    super(owner, args);
+    this.tag = args.tag ?? DEFAULT_TAG;
 
     assert(
-      `@tag for "Hds::Form" must be one of the following: ${AVAILABLE_TAGS.join(', ')}; received: ${tag}`,
-      AVAILABLE_TAGS.includes(tag)
+      `@tag for "Hds::Form" must be one of the following: ${AVAILABLE_TAGS.join(', ')}; received: ${this.tag}`,
+      AVAILABLE_TAGS.includes(this.tag)
     );
-
-    return tag;
   }
 }
