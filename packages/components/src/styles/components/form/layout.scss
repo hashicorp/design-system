@@ -60,11 +60,10 @@ $hds-form-section-max-width: 768px;
 }
 
 // FORM DIVIDER
+// Uses HDS::Separator under the hood
 
 .hds-form__divider {
   max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
-  height: 0;
-  border-top: 1px solid var(--token-color-border-primary);
 }
 
 // hasMaxWidth = false
