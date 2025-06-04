@@ -6,6 +6,14 @@ This changelog corresponds with the [4.20](/whats-new/release-notes#4200) releas
 
 `CodeBlock` - Added height toggle for overflowing code.
 
+### Breaking changes
+
+`AppHeader` - Multiple changes include:
+
+- Refactored the component to support a list coupled with the context switcher
+- Reorganized the local component dependencies
+- Updated the focus ring to use dark variables
+
 ## May 7th, 2025
 
 This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.
