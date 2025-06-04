@@ -12,6 +12,17 @@
 </p>
 
 
+### June 4th, 2025
+
+This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.
+
+`CodeBlock` - Added height toggle for overflowing code.
+
+`Icons` - Added three new icons:
+- start
+- end
+- text-wrap
+
 ### May 7th, 2025
 
 This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.
@@ -148,10 +159,6 @@ _Adding support for a `Tooltip` and updates to the `Sort Button` result in a bre
 ### January 24th, 2024
 
 `IconTile` - Added Vault Radar logo.
-
-### November 6th, 2023
-
-`CodeBlock` - Added new component.
 
 
 ---
