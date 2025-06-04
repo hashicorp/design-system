@@ -5,11 +5,12 @@
 <fieldset
   class="hds-key-value-pair"
   ...attributes
-  {{style --hds-key-value-pair-columns=(concat this._columns.length)}}
+  {{style --hds-key-value-pair-columns=this._gridTemplateColumns}}
   {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
   aria-labelledby="{{this._id}}-legend"
   {{! @glint-expect-error }}
   aria-describedby={{this.ariaDescribedBy}}
+  {{this._setUpKeyValuePair}}
 >
   <div class="hds-key-value-pair__header">
     {{yield
@@ -65,10 +66,11 @@
         to="row"
       }}
       <span class="hds-key-value-pair__row-delete-button-container">
+        <span />
         {{yield
           (hash
             DeleteRowButton=(component
-              "hds/form/key-value-pair/delete-row-button" rowIndex=index canDeleteRow=this.canDeleteRow
+              "hds/form/key-value-pair/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
             )
           )
           to="row"

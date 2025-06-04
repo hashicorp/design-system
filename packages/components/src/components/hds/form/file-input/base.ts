@@ -6,6 +6,11 @@
 import templateOnlyComponent from '@ember/component/template-only';
 
 export interface HdsFormFileInputBaseSignature {
+  Args: {
+    id?: string;
+    ariaDescribedBy?: string;
+    required?: boolean;
+  };
   Element: HTMLInputElement;
 }
 
