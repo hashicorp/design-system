@@ -51,7 +51,7 @@
     </div>
   {{/if}}
 
-  {{#each this.data as |item index|}}
+  {{#each @data as |item index|}}
     <div class="hds-key-value-pair__row {{if (eq index 0) 'hds-key-value-pair__row--first'}}">
       {{yield
         (hash

@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-key-value-pair__field" ...attributes {{this._onInsert}}>
+<div class="hds-key-value-pair__field" data-width={{@width}} ...attributes {{this._onInsert}}>
   <div class="hds-key-value-pair__field-header">
     {{yield
       (hash
@@ -28,17 +28,35 @@
     }}
   </div>
   <div class="hds-key-value-pair__field-control">
-    {{yield
-      (hash
-        Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id required=@isRequired)
-        SuperSelectSingle=(component "hds/form/super-select/single/base" isInvalid=@isInvalid triggerId=this._id)
-        SuperSelectMultiple=(component "hds/form/super-select/multiple/base" isInvalid=@isInvalid triggerId=this._id)
-        TextInput=(component "hds/form/text-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
-        Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this._id required=@isRequired)
-        FileInput=(component "hds/form/file-input/base" id=this._id required=@isRequired)
-        MaskedInput=(component "hds/form/masked-input/base" isInvalid=@isInvalid id=this._id required=@isRequired)
-      )
-    }}
+
+    {{! @glint-expect-error - Glint does not recognize `this.ariaDescribedby` as defined when used directly in a multi-line hash passed to yield. Since `@glint-expect-error` only applies to the line immediately after it and cannot be placed inside a multi-line hash, we use a `let` to work around this limitation. }}
+    {{#let this.ariaDescribedby as |ariaDescribedBy|}}
+
+      {{yield
+        (hash
+          FileInput=(component "hds/form/file-input/base" id=this._id ariaDescribedBy=ariaDescribedBy)
+          MaskedInput=(component
+            "hds/form/masked-input/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy
+          )
+          Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy)
+          SuperSelectSingle=(component
+            "hds/form/super-select/single/base" isInvalid=@isInvalid triggerId=this._id ariaDescribedBy=ariaDescribedBy
+          )
+          SuperSelectMultiple=(component
+            "hds/form/super-select/multiple/base"
+            isInvalid=@isInvalid
+            triggerId=this._id
+            ariaDescribedBy=ariaDescribedBy
+          )
+          TextInput=(component
+            "hds/form/text-input/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy
+          )
+          Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy)
+        )
+      }}
+
+    {{/let}}
+
     {{yield
       (hash
         Error=(component
