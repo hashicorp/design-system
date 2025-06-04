@@ -409,6 +409,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     if (this.lastModel !== model || this.lastColumns !== columns) {
       this._tableModel.setupData(this.args.model, this.args.columns);
 
+      // eslint-disable-next-line ember/no-runloop
       next(() => {
         this.lastModel = model;
         this.lastColumns = columns;
