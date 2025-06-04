@@ -9,11 +9,8 @@
 
 // FORM
 
-// Default max-width for Form Sections & similar components
-$hds-form-section-max-width: 768px;
-
 .hds-form {
-  --hds-form-section-max-width: #{$hds-form-section-max-width};
+  --hds-form-section-max-width: 768px; // default max-width used by FormSection, etc.
 
   display: flex;
   flex-direction: column;
@@ -46,5 +43,5 @@ $hds-form-section-max-width: 768px;
 // hasMaxWidth = true
 
 .hds-form-content--has-max-width {
-  max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
+  max-width: var(--hds-form-section-max-width);
 }

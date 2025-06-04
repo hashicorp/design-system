@@ -283,6 +283,19 @@
         </Hds::Form>
       </SG.Item>
 
+      <SG.Item @label="inherited MaxWidth of 44em using custom CSS class on Form">
+        <Hds::Form class="shw-form-custon-max-width">
+          <Hds::Form::Header>
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </Hds::Form::Header>
+        </Hds::Form>
+      </SG.Item>
+
       <SG.Item @label="hasMaxWidth=false">
         <Hds::Form>
           <Hds::Form::Header @hasMaxWidth={{false}}>
@@ -314,6 +327,16 @@
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasMaxWidth=true (default)">
         <Hds::Form>
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="inherited MaxWidth of 44em using custom CSS class on Form">
+        <Hds::Form class="shw-form-custon-max-width">
           <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -377,6 +400,12 @@
         </Hds::Form>
       </SG.Item>
 
+      <SG.Item @label="inherited MaxWidth of 44em using custom CSS class on Form">
+        <Hds::Form class="shw-form-custon-max-width">
+          <Hds::Form::Separator />
+        </Hds::Form>
+      </SG.Item>
+
       <SG.Item @label="hasMaxWidth=false">
         <Hds::Form>
           <Hds::Form::Separator @hasMaxWidth={{false}} />
@@ -399,6 +428,17 @@
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="within FormSection so it has a maxWidth">
         <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Submit" type="submit" />
+              <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+            </Hds::ButtonSet>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="inherited MaxWidth of 44em using custom CSS class on Form">
+        <Hds::Form class="shw-form-custon-max-width">
           <Hds::Form::Section>
             <Hds::ButtonSet>
               <Hds::Button @text="Submit" type="submit" />
