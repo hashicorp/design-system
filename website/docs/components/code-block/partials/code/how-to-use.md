@@ -1,9 +1,18 @@
 ## How to use this component
 
-The basic invocation requires a `@value` argument. The component encodes this argument before displaying it. If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
+To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
+
+The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
+
+!!! Info
+
+If the `\n` escape sequence is used in the `@value` string in Handlebars, it will not be automatically converted to a newline, as it can have unexpected side effects.
+
+!!!
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="basic usage"
   @value="aws ec2 --region us-west-1 accept-vpc-peering-connection"
 />
 ```
@@ -64,6 +73,7 @@ The `language` argument sets the syntax highlighting used. We only support the f
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="language"
   @language="go"
   @value="package main
 import fmt
@@ -79,6 +89,7 @@ Set `hasCopyButton` to `true` to display a button for users to copy `CodeBlock` 
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="copy button"
   @language="javascript"
   @hasCopyButton={{true}}
   @copyButtonText="Copy javascript code"
@@ -93,6 +104,7 @@ Line numbers are displayed by default. Set `hasLineNumbers` to `false` to hide t
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="line numbers"
   @language="javascript"
   @hasLineNumbers={{false}}
   @value="let codeLang=`JavaScript`;
@@ -112,6 +124,7 @@ By default, long lines of code will overflow the `CodeBlock` container requiring
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="line wrapping"
   @language="javascript"
   @hasLineWrapping={{true}}
   @value="console.log(`I am JavaScript code`, `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam`);"
@@ -124,6 +137,7 @@ Highlight either individual code lines or a range of code lines. (Examples: `2, 
 
 ```handlebars
 <Hds::CodeBlock
+  @ariaLabel="line highlighting"
   @language="javascript"
   @highlightLines={{"2, 4"}}
   @value="import Application from `@ember/application`;

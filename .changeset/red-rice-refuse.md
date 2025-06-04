@@ -6,6 +6,6 @@
 
 `Stepper::Nav` - Replaced custom breakpoint (`550px`) with standard `sm` (`480px`) breakpoint
 
-`AppHeader` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable and relied on the `@breakpoint` argument for override of mobile behaviour
+`AppHeader` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable and relied on the `@breakpoint` argument for override of mobile behavior
 
-`AppSideNav` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable, added `@breakpoint` argument, and relied on it for override of mobile behaviour
+`AppSideNav` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable, added `@breakpoint` argument, and relied on it for override of mobile behavior
