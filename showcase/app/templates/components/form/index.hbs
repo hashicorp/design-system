@@ -62,9 +62,11 @@
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           </Hds::Form::Section>
 
-          <Hds::ButtonSet>
-            <Shw::Placeholder @height="2.25rem" @text="ButtonSet (FormActions)" @background="#fff8d2" />
-          </Hds::ButtonSet>
+          <Hds::Form::Section>
+            <Hds::ButtonSet>
+              <Shw::Placeholder @height="2.25rem" @text="ButtonSet wrapped in Section" @background="#fff8d2" />
+            </Hds::ButtonSet>
+          </Hds::Form::Section>
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>
@@ -215,10 +217,12 @@
         </Hds::Form::FieldGroup>
       </Hds::Form::Section>
 
-      <Hds::ButtonSet>
-        <Hds::Button @text="Submit" type="submit" />
-        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-      </Hds::ButtonSet>
+      <Hds::Form::Section>
+        <Hds::ButtonSet>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </Hds::ButtonSet>
+      </Hds::Form::Section>
     </Hds::Form>
   </div>
 
@@ -383,7 +387,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>ButtonSet within Form</Shw::Text::H3>
+  <Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
 
   <div class="shw-form-button-wrapper-margin">
     <button type="button" {{on "click" this.toggleHighlight}}>
@@ -393,9 +397,20 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="using default maxWidth matching Section maxWidth">
+      <SG.Item @label="within FormSection so it has a maxWidth">
         <Hds::Form>
-          <Hds::ButtonSet>
+          <Hds::Form::Section>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Submit" type="submit" />
+              <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+            </Hds::ButtonSet>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="not within FormSection so it has no maxWidth">
+        <Hds::Form>
+          <Hds::ButtonSet @hasMaxWidth={{false}}>
             <Hds::Button @text="Submit" type="submit" />
             <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
           </Hds::ButtonSet>
