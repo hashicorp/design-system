@@ -1,6 +1,8 @@
 ## How to use this component
 
-The basic invocation requires a `@value` argument. The component encodes this argument before displaying it. To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
+To use this component, you must either include the yielded `Title` component, provide an `@ariaLabel`, or specify an `@ariaLabelledBy`.
+
+The basic invocation requires a `@value` argument. The component encodes this argument before displaying it.
 
 !!! Info
 
