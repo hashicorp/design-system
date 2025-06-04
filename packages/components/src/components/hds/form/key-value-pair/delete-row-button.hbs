@@ -10,5 +10,7 @@
     @color="secondary"
     @size="medium"
     class="hds-key-value-pair__delete-row"
+    {{on "click" this.onClick}}
+    ...attributes
   />
 {{/if}}
