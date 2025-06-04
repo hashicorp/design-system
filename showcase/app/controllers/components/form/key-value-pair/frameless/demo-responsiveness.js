@@ -4,8 +4,6 @@
  */
 
 import Controller from '@ember/controller';
-import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 
 const DEFAULT_DATA = [
   {
@@ -25,9 +23,5 @@ const DEFAULT_DATA = [
 ];
 
 export default class KeyValuePairController extends Controller {
-  @tracked sampleData = DEFAULT_DATA;
-
-  @action onDeleteRowClick(index) {
-    this.sampleData = this.sampleData.filter((_, i) => i !== index);
-  }
+  sampleData = DEFAULT_DATA;
 }
