@@ -34,7 +34,11 @@ Router.map(function () {
         this.route('demo-responsiveness');
       });
     });
-    this.route('app-side-nav');
+    this.route('app-side-nav', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('application-state');
     this.route('badge');
     this.route('badge-count');
