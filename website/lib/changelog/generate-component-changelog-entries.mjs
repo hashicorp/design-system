@@ -27,14 +27,23 @@ const getComponentPaths = (baseDir) => {
         const partialsPath = `${componentPath}/partials`;
         if (fs.existsSync(partialsPath)) {
           // we have some special cases where intermediate namespacing is used to group components:
-          if (baseDir.endsWith('/layouts')) {
+          if (baseDir.endsWith('/copy')) {
+            components[`copy-${folder.name}`] = componentPath;
+          } else if (baseDir.endsWith('/form')) {
+            if (folder.name === 'primitives') {
+              const primitiveNames = ['character-count', 'error', 'field', 'fieldset', 'helper-text', 'indicator', 'label', 'legend'];
+              primitiveNames.forEach((componentName) => {
+                components[`form-${componentName}`] = componentPath;
+              });
+            } else {
+              components[`form-${folder.name}`] = componentPath;
+            }
+          } else if (baseDir.endsWith('/layouts')) {
             if (folder.name === 'app-frame') {
               components[`${folder.name}`] = componentPath;
             } else {
               components[`layout-${folder.name}`] = componentPath;
             }
-          } else if (baseDir.endsWith('/copy')) {
-            components[`copy-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/link')) {
             components[`link-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/stepper')) {
@@ -75,7 +84,7 @@ const extractVersion = (changelogContent, version) => {
 
 const convertComponentNameFormat = (componentName) => {
   let separator = '';
-  const multiLevelComponentNames = ['copy', 'link', 'stepper', 'layout'];
+  const multiLevelComponentNames = ['copy', 'form', 'layout', 'link', 'stepper'];
   if (multiLevelComponentNames.includes(componentName.split('-')[0])) {
     separator = '::';
   }
@@ -118,7 +127,14 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
     if (!versionHistoryContent.includes(`## ${version}`)) {
       // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
       const newEntries = componentChangelogEntries[componentName]
-        .map((entry) => entry.split(' - ')[1])
+        .map((entry) => {
+          // If the component is a form primitive, we want to keep the component name in the description
+          if (allComponentsPath[componentName] === './docs/components/form/primitives') {
+            return entry;
+          } else {
+            return entry.split(' - ')[1];
+          }
+        })
         .join('\n\n');
       const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
       fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
