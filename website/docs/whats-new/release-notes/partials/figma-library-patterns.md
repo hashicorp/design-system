@@ -12,6 +12,10 @@
 </p>
 
 
+### June 4th, 2025
+
+`Application Template` - Updated to include each of the breakpoints for their widths.
+
 ### May 9th, 2025
 
 This changelog corresponds with the [4.19](/whats-new/release-notes#4190) release.

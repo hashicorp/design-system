@@ -12,6 +12,16 @@
 </p>
 
 
+### June 4, 2025
+
+`Breakpoints` - Added new variables for each breakpoint including:
+
+- `sm` : 480
+- `md` : 768
+- `lg` : 1088
+- `xl` : 1440
+- `xxl` : 1920
+
 ### April 2nd, 2025
 
 `Typography` - Added font weight variables to each type style.
