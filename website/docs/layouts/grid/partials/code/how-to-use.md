@@ -12,6 +12,13 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 
 ### Basic usage
 
+
+!!! Info
+
+Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
+
+!!!
+
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.
 
 ```handlebars
@@ -26,12 +33,6 @@ The simplest way to implement a grid layout is by using the `Layout::Grid` compo
 Every child of the **grid container** will be stretched to fit evenly within the underlying grid column tracks behaving as a **grid item** (for details on what this means, refer to the guide linked at the top of the page).
 
 In some cases, it may be necessary to wrap one or more content items within the optional `Layout::Grid::Item` component. i.e., to group content together within a column or row, prevent content from being stretched to fit the underlying grid column width, or to make use of `rowspan` and `colspan` options in order to create more complex layouts. (See below for more details and examples on these features.)
-
-!!! Info
-
-Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
-
-!!!
 
 ### Preventing content stretch
 
@@ -49,6 +50,12 @@ Wrap content in a `Grid::Item` to prevent it from stretching to fill the grid co
 
 ### Tag
 
+!!! Insight
+
+While, by default, the component renders a `<div>`, we invite consumers to consider which semantic HTML tag is the correct one for the context in which the text is used to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 To specify the HTML tag used to render the grid container and/or item(s), use the `@tag` argument.
 
 ```handlebars{data-execute=false}
@@ -60,14 +67,15 @@ To specify the HTML tag used to render the grid container and/or item(s), use th
   <li>{{! more content here }}</li>
 </Hds::Layout::Grid>
 ```
+### Spacing
 
-!!! Insight
+!!! Warning
 
-While, by default, the component renders a `<div>`, we invite consumers to consider which semantic HTML tag is the correct one for the context in which the text is used to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+**Important**
+
+The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
 
 !!!
-
-### Spacing
 
 To control the spacing between grid items, use the `@gap` argument.
 
@@ -98,14 +106,6 @@ The first value in the array refers to the vertical gap between “rows” of it
 The `@gap` argument accepts only **pre-defined values**, it can’t be used to provide custom spacing values. Refer to the [Component API](#component-api) section for details on which values are accepted.
 
 If you need to provide custom spacing values, see below how you can use a special escape hatch for this.
-
-!!! Warning
-
-**Important**
-
-The **pre-defined value(s)** passed to the `@gap` argument **must be string(s)**, not numbers!
-
-!!!
 
 #### Non-standard gap values
 
@@ -247,8 +247,6 @@ Note: By default, if a height is set on the `Grid` parent, grid row heights will
 
 ## Common layout patterns
 
-Below are examples of common layout patterns that can be achieved using the `Layout::Grid` component in combination with other HDS components.
-
 !!! Warning
 
 **Important**
@@ -256,6 +254,8 @@ Below are examples of common layout patterns that can be achieved using the `Lay
 The examples below are meant to show how one _could_ use the `Layout::Grid` component to implement certain common/standard UI patterns. They're **not** meant to be taken literally as they are and be used in production code. 
 
 !!!
+
+Below are examples of common layout patterns that can be achieved using the `Layout::Grid` component in combination with other HDS components.
 
 ### Card layouts
 

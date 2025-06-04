@@ -34,6 +34,12 @@ Optionally, you can pass a title and/or a description using the `[CE].Title` and
 
 ### Title tag
 
+!!! Insight
+
+The default `@tag` is `"h2"`, however, the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 The `@tag` argument changes the HTML element that wraps the `[CE].Title` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a Code Editor is within a subsection of the page below a heading level 2, the value should be `"h3"`. 
 
 ```handlebars
@@ -50,12 +56,6 @@ The `@tag` argument changes the HTML element that wraps the `[CE].Title` content
   </CE.Title>
 </Hds::CodeEditor>
 ```
-
-!!! Insight
-
-The default `@tag` is `"h2"`, however, the correct value is dependent on the individual page. We strongly encourage consumers to update the `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
-
-!!!
 
 ### Language
 

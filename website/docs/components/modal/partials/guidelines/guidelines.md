@@ -40,6 +40,11 @@ Common examples include:
 
 ### Critical
 
+!!! Info
+
+In Figma, the `critical` Modal color is coupled with the `critical` Button color. However, in code, the Modal footer `yields` components passed to it and can accept any Button type or color. We recommend matching the `critical` colors for both the Modal and Button components to better communicate the severity of a destructive action.
+!!!
+
 Use **Critical** to indicate an irreversible destructive action that will impact other settings, items, or objects within the current feature or in other application areas.
 
 Common examples include:
@@ -49,11 +54,6 @@ Common examples include:
 - Alerting the user of unsaved changes that will be discarded.
 
 ![A critical modal, the heading is dark red with a light red background and the primary button in the footer is also red.](/assets/components/modal/modal-color-critical.png)
-
-!!! Info
-
-In Figma, the `critical` Modal color is coupled with the `critical` Button color. However, in code, the Modal footer `yields` components passed to it and can accept any Button type or color. We recommend matching the `critical` colors for both the Modal and Button components to better communicate the severity of a destructive action.
-!!!
 
 ## Size
 

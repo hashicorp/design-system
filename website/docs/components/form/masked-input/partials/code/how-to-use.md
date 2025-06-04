@@ -51,6 +51,18 @@ If you need to make the content visible by default or control the masking from o
 
 #### Multiline
 
+!!! Info
+
+**Important to know**
+
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
+
+When the text is not masked, the newline characters will be respected. This means it may occupy more lines than when it’s masked (see the example above).
+
+Something to keep in mind when designing and implementing functionality that makes use of this component.
+
+!!!
+
 Set `@isMultiline` argument to `true` to render a `<textarea>`
 
 ```handlebars
@@ -71,18 +83,6 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
   <F.Label>Private key</F.Label>
 </Hds::Form::MaskedInput::Field>
 ```
-
-!!! Info
-
-**Important to know**
-
-When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even if it’s inside a `<textarea>` element.
-
-When the text is not masked, the newline characters will be respected. This means it may occupy more lines than when it’s masked (see the example above).
-
-Something to keep in mind when designing and implementing functionality that makes use of this component.
-
-!!!
 
 #### Copy button
 
@@ -322,12 +322,12 @@ Pass a custom width for the control using the `@width` argument.
 
 ### Form::MaskedInput::Base
 
-The Base component is intended for rare cases where the Field component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
-
 !!! Warning
 
 `Form::MaskedInput::Base` does not come with built-in accessibility functionality. It is the responsibility of the product team to ensure the implementation is conformant.
 !!!
+
+The Base component is intended for rare cases where the Field component can’t be used and a custom implementation is needed. Most of the details for the Field component also apply to the Base component, but see the [Component API](#component-api) for more details.
 
 The default invocation creates a `<input type="text">` or a `<textarea>` control with an automatically generated `ID` attribute.
 
@@ -338,6 +338,17 @@ The default invocation creates a `<input type="text">` or a `<textarea>` control
   name="demo-team-token"
 />
 ```
+!!! Info
+
+**Important to know**
+
+When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even though it’s inside a `<textarea>` element.
+
+Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
+
+Something to keep in mind when designing and implementing functionality that requires this component.
+
+!!!
 
 When the `@isMultiline` argument is set to `true`, it creates a `<textarea>` control with an automatically generated `ID` attribute. You can also adjust the height of `<textarea>` either by using the `rows` attribute or by setting a custom `@height` value.
 
@@ -358,15 +369,3 @@ v/Ow5T0q5gIJAiEAyS4RaI9YG8EWx/2w0T67ZUVAw8eOMB6BIUg0Xcu+3okCIBOs
   name="demo-team-token"
 />
 ```
-
-!!! Info
-
-**Important to know**
-
-When the multiline input is masked, the browser converts newline characters to masked characters: this means that the multiline text will appear as a single long string of characters, even though it’s inside a `<textarea>` element.
-
-Instead, when the text is not masked it will respect the newline characters: this means it may occupy more lines that when it’s masked (try the example above).
-
-Something to keep in mind when designing and implementing functionality that requires this component.
-
-!!!
