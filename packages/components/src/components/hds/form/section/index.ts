@@ -22,8 +22,8 @@ export default class HdsFormSection extends Component<HdsFormSectionSignature> {
   get classNames(): string {
     const classes = ['hds-form__section'];
 
-    if (!this.hasMaxWidth) {
-      classes.push('hds-form__section--has-max-width-false');
+    if (this.hasMaxWidth) {
+      classes.push('hds-form__section--has-max-width');
     }
 
     return classes.join(' ');
