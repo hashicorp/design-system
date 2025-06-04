@@ -153,7 +153,7 @@ This component takes advantage of the `sort-by` helper provided by [@nullvoxpopu
 
 !!!
 
-Add `isSortable=true` to the hash for each column that should be sortable. 
+Add `isSortable=true` to the hash for each column that should be sortable.
 
 ```handlebars
 <Hds::AdvancedTable
@@ -382,32 +382,31 @@ We recommend using functionalities like [pagination](/components/pagination), [s
 
 #### Vertical scrolling
 
-For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `hasStickyHeader` argument can be used to make the column headers persist as the user scrolls.
+For situations where the default number of rows visible may be high, it can be difficult for users to track which column is which once they scroll. In this case, the `maxHeight` argument can be used to set the maximum height of the Advanced Table which will also add a sticky header. This will make the column headers persist as the user scrolls.
+
+If you want to set the `maxHeight` but not have a sticky header, set `hasStickyHeader` to false.
 
 ```handlebars
-<!-- this is an element with "height: 500px" -->
-<div class="doc-advanced-table-vertical-scrollable-wrapper">
-  <Hds::AdvancedTable
-    @model={{this.demoDataWithLargeNumberOfRows}}
-    @columns={{array
-      (hash key="id" label="ID")
-      (hash key="name" label="Name" isSortable=true)
-      (hash key="email" label="Email")
-      (hash key="role" label="Role" isSortable=true)
-    }}
-    @hasStickyHeader={{true}}
-    @maxHeight="500px"
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Td>{{B.data.id}}</B.Td>
-        <B.Td>{{B.data.name}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.role}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-</div>
+<Hds::AdvancedTable
+  @model={{this.demoDataWithLargeNumberOfRows}}
+  @columns={{array
+    (hash key="id" label="ID")
+    (hash key="name" label="Name" isSortable=true)
+    (hash key="email" label="Email")
+    (hash key="role" label="Role" isSortable=true)
+  }}
+  @hasStickyHeader={{true}}
+  @maxHeight="500px"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.id}}</B.Td>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.role}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
 ```
 
 #### Horizontal scrolling
@@ -419,36 +418,33 @@ The component adds the sticky styles to the `[B].Th` component in each row. If t
 Note: Using `@hasStickyFirstColumn` with nested rows is not supported.
 
 ```handlebars
-<!-- this is an element with "overflow: auto" -->
-<div class="doc-advanced-table-scrollable-wrapper">
-  <Hds::AdvancedTable
-    @hasStickyFirstColumn={{true}}
-    @model={{this.demoDataWithLargeNumberOfColumns}}
-    @columns={{array
-      (hash key="first_name" label="First Name" isSortable=true)
-      (hash key="last_name" label="Last Name" isSortable=true)
-      (hash key="age" label="Age" isSortable=true)
-      (hash key="email" label="Email")
-      (hash key="phone" label="Phone")
-      (hash key="bio" label="Biography" width="350px")
-      (hash key="education" label="Education Degree")
-      (hash key="occupation" label="Occupation")
-    }}
-  >
-    <:body as |B|>
-      <B.Tr>
-        <B.Th>{{B.data.first_name}}</B.Th>
-        <B.Td>{{B.data.last_name}}</B.Td>
-        <B.Td>{{B.data.age}}</B.Td>
-        <B.Td>{{B.data.email}}</B.Td>
-        <B.Td>{{B.data.phone}}</B.Td>
-        <B.Td>{{B.data.bio}}</B.Td>
-        <B.Td>{{B.data.education}}</B.Td>
-        <B.Td>{{B.data.occupation}}</B.Td>
-      </B.Tr>
-    </:body>
-  </Hds::AdvancedTable>
-</div>
+<Hds::AdvancedTable
+  @hasStickyFirstColumn={{true}}
+  @model={{this.demoDataWithLargeNumberOfColumns}}
+  @columns={{array
+    (hash key="first_name" label="First Name" isSortable=true)
+    (hash key="last_name" label="Last Name" isSortable=true)
+    (hash key="age" label="Age" isSortable=true)
+    (hash key="email" label="Email")
+    (hash key="phone" label="Phone")
+    (hash key="bio" label="Biography" width="350px")
+    (hash key="education" label="Education Degree")
+    (hash key="occupation" label="Occupation")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Th>{{B.data.first_name}}</B.Th>
+      <B.Td>{{B.data.last_name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.email}}</B.Td>
+      <B.Td>{{B.data.phone}}</B.Td>
+      <B.Td>{{B.data.bio}}</B.Td>
+      <B.Td>{{B.data.education}}</B.Td>
+      <B.Td>{{B.data.occupation}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
 ```
 
 ### Multi-select Advanced Table
