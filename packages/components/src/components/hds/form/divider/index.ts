@@ -7,10 +7,7 @@ import Component from '@glimmer/component';
 
 export interface HdsFormDividerSignature {
   Args: { hasMaxWidth?: boolean };
-  Blocks: {
-    default: [];
-  };
-  Element: HTMLDivElement;
+  Element: HTMLElement;
 }
 
 export default class HdsFormDivider extends Component<HdsFormDividerSignature> {
