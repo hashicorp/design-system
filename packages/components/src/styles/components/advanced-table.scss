@@ -8,6 +8,7 @@
 //
 //
 
+@use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
 $hds-advanced-table-border-radius: var(--token-border-radius-medium);
@@ -275,14 +276,23 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     background-color: var(--token-color-surface-interactive);
     border-color: var(--token-color-border-strong);
     box-shadow: var(--token-elevation-low-box-shadow);
-    cursor: pointer;
   }
 
-  &:focus::before {
+  &:focus,
+  &.mock-focus {
     border-color: transparent;
+
+    &::before {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: none;
+      border-radius: 3px;
+    }
   }
 
-  @include hds-focus-ring-basic();
+  @include hds-focus-ring-with-pseudo-element($radius: inherit);
 }
 
 .hds-advanced-table__th-button {
