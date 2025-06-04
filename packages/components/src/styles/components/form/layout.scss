@@ -59,15 +59,15 @@ $hds-form-section-max-width: 768px;
   --hds-form-section-max-width: none;
 }
 
-// FORM DIVIDER
+// FORM Separator
 // Uses HDS::Separator under the hood
 
-.hds-form__divider {
+.hds-form__separator {
   max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
 }
 
 // hasMaxWidth = false
-.hds-form__divider--has-max-width-false {
+.hds-form__separator--has-max-width-false {
   --hds-form-section-max-width: none;
 }
 

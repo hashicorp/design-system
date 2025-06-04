@@ -103,7 +103,6 @@ import type HdsFormCharacterCountComponent from './components/hds/form/character
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
 import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
 import type HdsFormCheckboxGroupComponent from './components/hds/form/checkbox/group';
-import type HdsFormDividerComponent from './components/hds/form/divider';
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
@@ -129,6 +128,7 @@ import type HdsFormSectionComponent from './components/hds/form/section';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
+import type HdsFormSeparatorComponent from './components/hds/form/separator/index.ts';
 import type HdsFormSuperSelectAfterOptionsComponent from './components/hds/form/super-select/after-options';
 import type HdsFormSuperSelectOptionGroupComponent from './components/hds/form/super-select/option-group';
 import type HdsFormSuperSelectPlaceholderComponent from './components/hds/form/super-select/placeholder';
@@ -573,10 +573,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Checkbox::Group': typeof HdsFormCheckboxGroupComponent;
   'hds/form/checkbox/group': typeof HdsFormCheckboxGroupComponent;
 
-  // Form Divider
-  'Hds::Form::Divider': typeof HdsFormDividerComponent;
-  'hds/form/divider': typeof HdsFormDividerComponent;
-
   // Form Error
   'Hds::Form::Error': typeof HdsFormErrorComponent;
   'hds/form/error': typeof HdsFormErrorComponent;
@@ -668,6 +664,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::Select::Field': typeof HdsFormSelectFieldComponent;
   'hds/form/select/field': typeof HdsFormSelectFieldComponent;
+
+  // Form Separator
+  'Hds::Form::Separator': typeof HdsFormSeparatorComponent;
+  'hds/form/separator': typeof HdsFormSeparatorComponent;
 
   // Form Super Select
   'Hds::Form::SuperSelect::AfterOptions': typeof HdsFormSuperSelectAfterOptionsComponent;
