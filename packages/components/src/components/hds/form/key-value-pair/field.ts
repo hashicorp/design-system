@@ -35,6 +35,7 @@ export interface HdsFormKeyValuePairFieldSignature {
     isInvalid?: boolean;
     onInsert?: (element: HTMLDivElement) => void;
     onRemove?: (element: HTMLDivElement) => void;
+    width?: string;
   };
   Blocks: {
     default?: [
