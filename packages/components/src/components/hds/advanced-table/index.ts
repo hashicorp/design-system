@@ -197,23 +197,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       onColumnResize,
     });
 
-    const resizableColumns = columns.filter((column) => column.isResizable);
-    const resizableColumnLabels = resizableColumns.map(
-      (column) => column.label
-    );
-
-    if (resizableColumns.length > 0) {
-      assert(
-        'Cannot have a sticky first column if there are resizable columns.',
-        !hasStickyFirstColumn
-      );
-
-      assert(
-        `Cannot have resizable columns if there are nested rows. Resizable columns are ${resizableColumnLabels.toString()}`,
-        !this._tableModel.hasRowsWithChildren
-      );
-    }
-
     if (this._tableModel.hasRowsWithChildren) {
       const sortableColumns = columns.filter((column) => column.isSortable);
       const sortableColumnLabels = sortableColumns.map(
@@ -228,6 +211,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       assert(
         'Cannot have a sticky first column if there are nested rows.',
         !hasStickyFirstColumn
+      );
+
+      const resizableColumns = columns.filter((column) => column.isResizable);
+      const resizableColumnLabels = resizableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows. Resizable columns are ${resizableColumnLabels.toString()}`,
+        resizableColumns.length === 0
       );
     }
   }
