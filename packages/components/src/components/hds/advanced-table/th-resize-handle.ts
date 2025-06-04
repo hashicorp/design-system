@@ -7,6 +7,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
+import { modifier } from 'ember-modifier';
 
 import type HdsAdvancedTableColumn from './models/column';
 
@@ -67,8 +68,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startNextColumnPxWidth?: number;
   } | null = null;
 
+  private handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private boundResize: (event: PointerEvent) => void;
   private boundStopResize: () => void;
+
+  private registerHandleElement = modifier(
+    (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {
+      this.handleElement = element;
+    }
+  );
 
   constructor(
     owner: unknown,
@@ -135,6 +143,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       nextColumn,
       currentNextColumnPxWidth // Current next col width before keyboard step
     );
+
+    this.handleElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'nearest',
+    });
   }
 
   @action
