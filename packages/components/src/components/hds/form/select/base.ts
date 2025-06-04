@@ -11,7 +11,7 @@ export interface HdsFormSelectBaseSignature {
   Args: {
     isInvalid?: boolean;
     width?: string;
-        required?: boolean;
+    required?: boolean;
     id?: string;
     ariaDescribedBy?: string;
   };

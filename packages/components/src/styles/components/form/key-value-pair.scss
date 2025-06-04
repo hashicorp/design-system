@@ -23,26 +23,17 @@
   display: flex;
   flex-direction: column;
   row-gap: 8px;
-  align-items: flex-start;
+  align-items: flex-end;
 
   @include hds-breakpoint-above("sm") {
     display: grid;
     flex-grow: 1;
-    grid-template-columns: repeat(var(--hds-key-value-pair-columns, 2), 1fr) min-content;
+    grid-template-columns: var(--hds-key-value-pair-columns);
     row-gap: 0;
 
     &.hds-key-value-pair__row--first {
-      .hds-key-value-pair__row-generic-container {
-  display: grid;
-  grid-row: span 3;
-  grid-template-rows: subgrid;
-  justify-items: start;
-  width: 100%; // we want the input element to fill the parent container
-}
-
-      .hds-key-value-pair__row-delete-button-container {
-        grid-row: 2;
-        grid-column: calc(var(--hds-key-value-pair-columns, 2) + 1);
+      .hds-key-value-pair__generic-container, .hds-key-value-pair__row-delete-button-container {
+        grid-row: span 2;
       }
     }
 
@@ -64,10 +55,6 @@
   }
 }
 
-.hds-key-value-pair__field-header {
-  align-self: flex-end;
-}
-
 .hds-key-value-pair__footer {
   display: flex;
   flex-direction: row;
@@ -80,10 +67,13 @@
 
 .hds-key-value-pair__field {
   display: grid;
-  grid-row: span 3;
+  grid-row: span 2;
   grid-template-rows: subgrid;
-  justify-items: start;
   width: 100%; // we want the input element to fill the parent container
+  
+  .hds-key-value-pair__field-header {
+    align-self: flex-end;
+  }
 
   .hds-form-select {
     width: 100%; // we want the select element to fill the parent container
@@ -114,11 +104,20 @@
 
   .hds-key-value-pair__field-control {
     display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    flex-direction: column;
     align-self: flex-start;
     justify-self: stretch; // allows <input> and <textarea> to go full-width
+    width: 100%;
   }
 }
 
-.hds-key-value-pair__field:has(+ *), .hds-key-value-pair__row-generic-container:has(+ *){
+.hds-key-value-pair__generic-container, .hds-key-value-pair__row-delete-button-container {
+  display: grid;
+  grid-template-rows: subgrid;
+  align-items: flex-start;
+}
+
+.hds-key-value-pair__field:has(+ *),
+.hds-key-value-pair__generic-container:has(+ *) {
   padding-right: 8px;
 }
