@@ -26,10 +26,33 @@ const getComponentPaths = (baseDir) => {
         const componentPath = `${baseDir}/${folder.name}`;
         const partialsPath = `${componentPath}/partials`;
         if (fs.existsSync(partialsPath)) {
-          // we have two special cases where intermediate namespacing is used to group components:
-          // `copy` components and `link` components
+          // we have some special cases where intermediate namespacing is used to group components:
           if (baseDir.endsWith('/copy')) {
             components[`copy-${folder.name}`] = componentPath;
+          } else if (baseDir.endsWith('/form')) {
+            if (folder.name === 'primitives') {
+              const primitiveNames = [
+                'character-count',
+                'error',
+                'field',
+                'fieldset',
+                'helper-text',
+                'indicator',
+                'label',
+                'legend',
+              ];
+              primitiveNames.forEach((componentName) => {
+                components[`form-${componentName}`] = componentPath;
+              });
+            } else {
+              components[`form-${folder.name}`] = componentPath;
+            }
+          } else if (baseDir.endsWith('/layouts')) {
+            if (folder.name === 'app-frame') {
+              components[`${folder.name}`] = componentPath;
+            } else {
+              components[`layout-${folder.name}`] = componentPath;
+            }
           } else if (baseDir.endsWith('/link')) {
             components[`link-${folder.name}`] = componentPath;
           } else if (baseDir.endsWith('/stepper')) {
@@ -69,15 +92,26 @@ const extractVersion = (changelogContent, version) => {
 };
 
 const convertComponentNameFormat = (componentName) => {
-  let separator = '';
-  const multiLevelComponentNames = ['copy', 'link', 'stepper'];
-  if (multiLevelComponentNames.includes(componentName.split('-')[0])) {
-    separator = '::';
+  const twoLevelComponentNames = ['copy', 'form', 'layout', 'link', 'stepper'];
+  const threeLevelComponentNames = [
+    'stepper-step-indicator',
+    'stepper-task-indicator',
+  ];
+  if (twoLevelComponentNames.includes(componentName.split('-')[0])) {
+    let words = componentName
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+    if (threeLevelComponentNames.includes(componentName)) {
+      return words.join('::');
+    } else {
+      return words[0] + '::' + words.slice(1).join('');
+    }
+  } else {
+    return componentName
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join('');
   }
-  return componentName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(separator);
 };
 
 const extractComponentChangelogEntries = (components, lastVersionContent) => {
@@ -113,7 +147,17 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
     if (!versionHistoryContent.includes(`## ${version}`)) {
       // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
       const newEntries = componentChangelogEntries[componentName]
-        .map((entry) => entry.split(' - ')[1])
+        .map((entry) => {
+          // If the component is a form primitive, we want to keep the component name in the description
+          if (
+            allComponentsPath[componentName] ===
+            './docs/components/form/primitives'
+          ) {
+            return entry;
+          } else {
+            return entry.split(' - ')[1];
+          }
+        })
         .join('\n\n');
       const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
       fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
