@@ -23,7 +23,7 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
     await render(hbs`<Hds::Form::Section id="test-form-section" />`);
     assert
       .dom('#test-form-section')
-      .hasClass('hds-form__section--has-max-width');
+      .hasClass('hds-form-content--has-max-width');
   });
 
   test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
@@ -32,6 +32,6 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
     );
     assert
       .dom('#test-form-section')
-      .doesNotHaveClass('hds-form__section--has-max-width');
+      .doesNotHaveClass('hds-form-content--has-max-width');
   });
 });

@@ -29,12 +29,6 @@ $hds-form-section-max-width: 768px;
   gap: 8px;
 }
 
-// Note: Only the Form Header needs a max-width as the Section Header is used within a Section
-// hasMaxWidth = false
-.hds-form__header--has-max-width {
-  max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
-}
-
 // FORM SECTION
 
 .hds-form__section {
@@ -43,21 +37,14 @@ $hds-form-section-max-width: 768px;
   gap: 24px;
 }
 
-// hasMaxWidth = false
-.hds-form__section--has-max-width {
-  max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
-}
-
-// FORM Separator
-// Uses HDS::Separator under the hood
-
-// hasMaxWidth = false
-.hds-form__separator--has-max-width {
-  max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
-}
-
-// FIELD GROUP (WIP) Uses a Layout::Flex component under the hood
-
+// FIELD GROUP Uses a Layout::Flex component under the hood
 // TODO: Use breakpoint to stack columns when screen width is less than 480px wide
-
 // .hds-form__field-group { }
+
+// OPTIONS
+
+// hasMaxWidth = true
+
+.hds-form-content--has-max-width {
+  max-width: var(--hds-form-section-max-width, #{$hds-form-section-max-width});
+}

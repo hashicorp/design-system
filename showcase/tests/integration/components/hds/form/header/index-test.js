@@ -21,7 +21,7 @@ module('Integration | Component | hds/form/header/index', function (hooks) {
   // hasMaxWidth
   test(`it should have the default max-width if no @hasMaxWidth prop is declared`, async function (assert) {
     await render(hbs`<Hds::Form::Header id="test-form-header" />`);
-    assert.dom('#test-form-header').hasClass('hds-form__header--has-max-width');
+    assert.dom('#test-form-header').hasClass('hds-form-content--has-max-width');
   });
 
   test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
@@ -30,6 +30,6 @@ module('Integration | Component | hds/form/header/index', function (hooks) {
     );
     assert
       .dom('#test-form-header')
-      .doesNotHaveClass('hds-form__header--has-max-width');
+      .doesNotHaveClass('hds-form-content--has-max-width');
   });
 });
