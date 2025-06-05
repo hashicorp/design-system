@@ -12,6 +12,7 @@ import { focusable, type FocusableElement } from 'tabbable';
 import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import type HdsAdvancedTableColumn from './models/column.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -22,6 +23,7 @@ export interface HdsAdvancedTableTdSignature {
   Args: {
     align?: HdsAdvancedTableHorizontalAlignment;
     rowspan?: number;
+    columns?: HdsAdvancedTableColumn[];
     columnKey?: string;
     colspan?: number;
   };
@@ -33,6 +35,16 @@ export interface HdsAdvancedTableTdSignature {
 export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSignature> {
   @tracked private _shouldTrapFocus = false;
   private _element!: HTMLDivElement;
+
+  get column(): HdsAdvancedTableColumn | undefined {
+    const { columns, columnKey } = this.args;
+
+    if (columns === undefined || columnKey === undefined) {
+      return undefined;
+    }
+
+    return columns.find((column) => column.key === columnKey);
+  }
 
   // rowspan and colspan have to return 'auto' if not defined because otherwise the style modifier sets grid-area: undefined on the cell, which breaks the grid styles
   get rowspan(): string {
