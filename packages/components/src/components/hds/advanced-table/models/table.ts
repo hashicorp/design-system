@@ -294,6 +294,8 @@ export default class HdsAdvancedTableTableModel {
         row.updateColumnOrder(updated);
       }
 
+      sourceColumn.isBeingDragged = false;
+
       this.onColumnReorder?.(updated);
     }
   }

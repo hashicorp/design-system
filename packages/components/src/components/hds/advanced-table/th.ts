@@ -165,6 +165,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     event.dataTransfer?.setData('text/plain', column.key ?? '');
 
+    column.isBeingDragged = true;
+
     onReorderDragStart(column);
   }
 
