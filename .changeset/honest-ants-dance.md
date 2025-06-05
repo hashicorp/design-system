@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`Form::KeyValue::Pair` - Added component and related sub-components.
+`Form::KeyValuePair` - Added component and related sub-components.
