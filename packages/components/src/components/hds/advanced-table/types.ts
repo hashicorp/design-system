@@ -77,6 +77,7 @@ export type HdsAdvancedTableExpandState = boolean;
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
   isResizable?: boolean;
+  isReorderable?: boolean;
   isVisuallyHidden?: boolean;
   label: string;
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
@@ -119,3 +120,12 @@ export type HdsAdvancedTableColumnResizeCallback = (
   columnKey: string,
   newWidth?: string
 ) => void;
+
+export type HdsAdvancedTableColumnReorderCallback = (
+  columnOrder: string[]
+) => void;
+
+export interface HdsAdvancedTableCell {
+  columnKey: string;
+  content: unknown;
+}
