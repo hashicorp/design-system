@@ -6,21 +6,23 @@
 import Component from '@glimmer/component';
 
 export interface HdsFormSeparatorSignature {
-  Args: { hasMaxWidth?: boolean };
+  Args: {
+    isFullWidth?: boolean;
+  };
   Element: HTMLElement;
 }
 
 export default class HdsFormSeparator extends Component<HdsFormSeparatorSignature> {
-  get hasMaxWidth(): boolean {
-    const { hasMaxWidth = true } = this.args;
-    return hasMaxWidth;
+  get isFullWidth(): boolean {
+    return this.args.isFullWidth ?? false;
   }
 
   get classNames(): string {
     const classes = ['hds-form__separator'];
 
-    if (this.hasMaxWidth) {
-      classes.push('hds-form-content--has-max-width');
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-form-content--is-full-width');
     }
 
     return classes.join(' ');

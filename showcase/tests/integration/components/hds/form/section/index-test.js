@@ -18,20 +18,20 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   // Options
 
-  // hasMaxWidth
-  test(`it should have the default max-width if no @hasMaxWidth prop is declared`, async function (assert) {
+  // isFullWidth
+  test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
     await render(hbs`<Hds::Form::Section id="test-form-section" />`);
     assert
       .dom('#test-form-section')
-      .hasClass('hds-form-content--has-max-width');
+      .doesNotHaveClass('hds-form-content--is-full-width');
   });
 
-  test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
+  test(`if @isFullWidth is true, it should not have a max-width set`, async function (assert) {
     await render(
-      hbs`<Hds::Form::Section id="test-form-section" @hasMaxWidth={{false}} />`,
+      hbs`<Hds::Form::Section id="test-form-section" @isFullWidth={{true}} />`,
     );
     assert
       .dom('#test-form-section')
-      .doesNotHaveClass('hds-form-content--has-max-width');
+      .hasClass('hds-form-content--is-full-width');
   });
 });
