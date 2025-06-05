@@ -231,6 +231,7 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-button').isFocused();
   });
 
+  // this test works, but is flaky in CI, so skipping for now
   skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
     await render(
       hbs`<Hds::Dropdown as |D|>
