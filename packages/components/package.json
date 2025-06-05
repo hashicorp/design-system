@@ -96,6 +96,7 @@
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
     "ember-basic-dropdown": "^8.6.1",
+    "ember-math-helpers": "^5.0.0",
     "ember-source": "^6.4.0",
     "ember-math-helpers": "^5.0.0",
     "ember-template-lint": "^7.0.2",

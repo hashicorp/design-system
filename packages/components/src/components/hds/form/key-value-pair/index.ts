@@ -32,6 +32,8 @@ const KEY_VALUE_PAIR_GENERIC_SELECTOR =
   '.hds-form-key-value-pair__yield-container';
 const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
   '.hds-form-key-value-pair__row--first';
+const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
+  '.hds-form-key-value-pair__row-delete-button-container';
 
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -105,13 +107,13 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
     const columns = this._element
       .querySelector(KEY_VALUE_PAIR_FIRST_ROW_SELECTOR)
       ?.querySelectorAll(
-        `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}`
+        `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}, ${KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR}`
       );
 
     let newColumnNodes: HTMLDivElement[] = [];
     let newGridTemplateColumns = '';
 
-    columns?.forEach((column) => {
+    columns?.forEach((column, index) => {
       const columnElement = column as HTMLDivElement;
 
       newColumnNodes = [...newColumnNodes, columnElement];
@@ -130,10 +132,28 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
         column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))
       ) {
         newGridTemplateColumns += 'auto ';
+
+        columnElement.style.setProperty(
+          '--hds-key-value-pair-column-index',
+          `${index + 1}`
+        );
+      }
+
+      if (
+        column.classList.contains(
+          KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR.substring(1)
+        )
+      ) {
+        newGridTemplateColumns += 'min-content ';
+
+        columnElement.style.setProperty(
+          '--hds-key-value-pair-column-index',
+          `${index + 1}`
+        );
       }
     });
 
     this._columns = newColumnNodes;
-    this._gridTemplateColumns = `${newGridTemplateColumns} min-content`;
+    this._gridTemplateColumns = newGridTemplateColumns;
   }
 }

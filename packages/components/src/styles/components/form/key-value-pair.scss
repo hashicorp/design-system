@@ -33,9 +33,10 @@
     align-items: flex-end;
 
     &.hds-form-key-value-pair__row--first {
-      .hds-form-key-value-pair__yield-container,
-      .hds-form-key-value-pair__row-delete-button-container {
-        grid-row: span 2;
+      .hds-form-key-value-pair__row-delete-button-container,
+      .hds-form-key-value-pair__yield-container {
+        grid-row: 2;
+        grid-column: var(--hds-key-value-pair-column-index);
       }
     }
 
