@@ -2,8 +2,8 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<div class="hds-key-value-pair__field" data-width={{@width}} ...attributes {{this._onInsert}}>
-  <div class="hds-key-value-pair__field-header">
+<div class="hds-form-key-value-pair__field" data-width={{@width}} ...attributes {{this._onInsert}}>
+  <div class="hds-form-key-value-pair__field-header">
     {{yield
       (hash
         Label=(component
@@ -11,7 +11,7 @@
           controlId=this._id
           isRequired=@isRequired
           isOptional=@isOptional
-          contextualClass="hds-key-value-pair__field-label"
+          contextualClass="hds-form-key-value-pair__field-label"
           hiddenText=this.labelHiddenText
         )
       )
@@ -21,16 +21,16 @@
         HelperText=(component
           "hds/form/helper-text"
           controlId=this._id
-          contextualClass="hds-key-value-pair__field-helper-text"
+          contextualClass="hds-form-key-value-pair__field-helper-text"
           onInsert=this.appendDescriptor
         )
       )
     }}
   </div>
-  <div class="hds-key-value-pair__field-control">
+  <div class="hds-form-key-value-pair__field-control">
 
     {{! @glint-expect-error - Glint does not recognize `this.ariaDescribedby` as defined when used directly in a multi-line hash passed to yield. Since `@glint-expect-error` only applies to the line immediately after it and cannot be placed inside a multi-line hash, we use a `let` to work around this limitation. }}
-    {{#let this.ariaDescribedby as |ariaDescribedBy|}}
+    {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
 
       {{yield
         (hash
@@ -62,7 +62,7 @@
         Error=(component
           "hds/form/error"
           controlId=this._id
-          contextualClass="hds-key-value-pair__field-error"
+          contextualClass="hds-form-key-value-pair__field-error"
           onInsert=this.appendDescriptor
           onRemove=this.removeDescriptor
         )
