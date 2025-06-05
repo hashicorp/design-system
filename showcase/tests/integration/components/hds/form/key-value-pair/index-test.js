@@ -85,7 +85,7 @@ module(
         .hasText('Generic content');
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error-text',
+          '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error',
         )
         .hasText('Error text');
     });
@@ -158,7 +158,7 @@ module(
         .hasText('Generic content');
     });
 
-     // ACCESSIBILITY
+    // ACCESSIBILITY
 
     test('it should match the label with the input using `for` and `id` attributes', async function (assert) {
       await this.createKeyValuePair();
@@ -167,19 +167,17 @@ module(
         '#test-form-key-value-pair .hds-form-key-value-pair__header legend',
       ).id;
 
-      assert
-        .dom('#test-form-key-value-pair')
-        .hasAria('labelledby', legendId);
+      assert.dom('#test-form-key-value-pair').hasAria('labelledby', legendId);
     });
 
     test('it should match the helper text ids to `aria-describedby` of the input', async function (assert) {
-     await this.createKeyValuePair();
+      await this.createKeyValuePair();
       const helperId = document.querySelector(
         '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__helper-text',
       ).id;
 
       const errorId = document.querySelector(
-        '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error-text',
+        '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error',
       ).id;
 
       assert
