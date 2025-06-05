@@ -48,7 +48,7 @@ export default class KeyValuePairController extends Controller {
     } else {
       const newData = this.functionalExampleData.map((data) => {
         if (item.id === data.id) {
-          return { ...data, value, error: undefined };
+          return { ...data, key: value, error: undefined };
         }
         return data;
       });
