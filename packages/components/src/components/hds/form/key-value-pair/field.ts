@@ -73,18 +73,20 @@ export interface HdsFormKeyValuePairFieldSignature {
 @ariaDescribedBy
 export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValuePairFieldSignature> {
   private _id = guidFor(this);
+  private _element!: HTMLDivElement;
 
   constructor(owner: Owner, args: HdsFormKeyValuePairFieldSignature['Args']) {
     super(owner, args);
 
     registerDestructor(this, (): void => {
       if (this.args.onRemove && this.args.rowIndex === 0) {
-        this.args.onRemove(this.element as HTMLDivElement);
+        this.args.onRemove(this._element);
       }
     });
   }
 
   private _onInsert = modifier((element: HTMLDivElement) => {
+    this._element = element;
     if (this.args.onInsert && this.args.rowIndex === 0) {
       this.args.onInsert(element);
     }
