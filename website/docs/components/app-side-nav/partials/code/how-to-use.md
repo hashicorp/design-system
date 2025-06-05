@@ -1,8 +1,6 @@
 
 This section provides in-depth instructions on how consumers can use the **full-featured `Hds::AppSideNav`** component to build a “standard” sidebar navigation with responsive behavior, animations/transitions, support for portals, etc.
 
-Given the complexity and level of customization that an application’s navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
-
 !!! Insight
 
 The App Side Nav component is intended to be used in combination with the [`Hds::AppHeader`](/components/app-header) and [`Hds::AppFrame`](/layouts/app-frame) components:
@@ -12,6 +10,8 @@ The App Side Nav component is intended to be used in combination with the [`Hds:
 - App Side Nav takes care of providing the visual elements used to build page-level in context navigation for the application but is agnostic of where it’s used (even though it has intrinsic sizing).
 
 !!!
+
+Given the complexity and level of customization that an application’s navigation may require, it is not possible to cover all the possible use cases in this documentation. For this reason, if you need to implement a navigation element using this component, [contact the Design Systems Team](/about/support) for support.
 
 ## Full-featured component
 

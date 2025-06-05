@@ -258,12 +258,12 @@ While not recommended for `page` type Alerts, it may be necessary to have more t
 
 ### Alerts within a Reveal
 
-**As a last resort**, when multiple Alerts of the same type are necessary, display the Alerts that require immediate attention or have the most impact to the user within the page while obfuscating additional Alerts within a [Reveal](/components/reveal). We recommend against hiding `critical` and `warning` Alerts in this manner as they generally must be addressed quickly to avoid a negative outcome.
-
 !!! Warning
 
 This method should be **rare and infrequent**, and should only be used if the number of Alerts of the same type exceeds two. Instead, effort should be put into placing Alerts that matter most to the user and in ways that make them easy to resolve.
 !!!
+
+**As a last resort**, when multiple Alerts of the same type are necessary, display the Alerts that require immediate attention or have the most impact to the user within the page while obfuscating additional Alerts within a [Reveal](/components/reveal). We recommend against hiding `critical` and `warning` Alerts in this manner as they generally must be addressed quickly to avoid a negative outcome.
 
 This pattern is somewhat experimental, if you find a use case for it we recommend performing a usability test and collecting user feedback as a means to validate the pattern. The HDS team would love to discuss your findings through our normal [support channels](/about/support).
 

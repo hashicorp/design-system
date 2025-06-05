@@ -68,12 +68,12 @@ The App Footer supports both `Light` and `Dark` theme options. The dark theme ca
 
 ## Responsiveness
 
-In Figma, we support two size variants, `Large` and `Small`, to help illustrate how the component will respond to different viewport sizes. In code, the component is responsive. 
-
 !!! Warning 
 
 Due to limitations in Figma, the component may not be a direct translation to what is rendered in the browser. The Ember component should be the source of truth for proper wrapping.
 !!!
+
+In Figma, we support two size variants, `Large` and `Small`, to help illustrate how the component will respond to different viewport sizes. In code, the component is responsive. 
 
 ### Large
 

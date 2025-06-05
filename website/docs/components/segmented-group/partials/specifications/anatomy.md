@@ -2,6 +2,11 @@
 
 ### Base component
 
+!!! Info
+
+The Segmented Group `Base` component is only available in Figma and is suited for less complex scenarios which don’t perform complex filtering or functions.
+!!!
+
 ![Segmented Group Base Anatomy](/assets/components/form/segmented-group/segmented-group-anatomy-base.png =600x*)
 
 | Element | Usage |
@@ -9,11 +14,6 @@
 | Segmented Input | Required; can be one of many types which extend the [Text Input](/components/form/text-input) component. |
 | Segmented Button | Required; can be either `Button` or `Dropdown` which are extensions of the Helios [Button](/components/button) and [Toggle Button](/components/dropdown) components. |
 | Container | Wraps the primitives in an auto layout container. |
-
-!!! Info
-
-The Segmented Group `Base` component is only available in Figma and is suited for less complex scenarios which don’t perform complex filtering or functions.
-!!!
 
 ### Segment anatomy
 

@@ -1,7 +1,5 @@
 ## Usage
 
-A Segmented Group is an agnostic container that wraps two or more Segments, making the relevant use cases broad.
-
 !!! Info
 
 How these components are published and assembled is fundamentally different between the Figma and Ember components.
@@ -9,6 +7,8 @@ How these components are published and assembled is fundamentally different betw
 - In Figma, we publish multiple primitive `Segment` components (`Segmented Button`, `Segmented Dropdown`, and `Segmented Input`) that are intended to be assembled in an auto layout container. A pre-assembled `Base` component is also made available for more simple instances.
 - The Ember component is a container that enforces consistent styling and grouping of nested Helios input fields and action components. It does not manage any logic or functionality out of the box, these are left up to the consumer to implement based on the nested components.
 !!!
+
+A Segmented Group is an agnostic container that wraps two or more Segments, making the relevant use cases broad.
 
 ### When to use
 

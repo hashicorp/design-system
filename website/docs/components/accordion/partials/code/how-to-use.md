@@ -198,6 +198,12 @@ The `ariaLabel` value is applied to the HTML button which controls visibility of
 
 ### Title tag
 
+!!! Insight
+
+The default `@titleTag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@titleTag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 The `@titleTag` argument changes the HTML element that wraps the title block of each `Accordion::Item`. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if an Accordion is within a subsection of the page below a heading level 2, the value should be `"h3"`.
 
 ```handlebars
@@ -225,13 +231,6 @@ The `@titleTag` argument changes the HTML element that wraps the title block of 
     </A.Item>
   </Hds::Accordion>
 ```
-
-!!! Insight
-
-The default `@titleTag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the `@titleTag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
-
-!!!
-
 ### Open
 
 Set `isOpen` to `true` on an `Accordion::Item` to display its associated content on page load instead of initially hiding it.
