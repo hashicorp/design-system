@@ -1,3 +1,9 @@
+## 4.20.0
+
+Removed usage of `--hds-app-desktop-breakpoint` CSS variable and relied on the `@breakpoint` argument for override of mobile behavior
+
+Fixed import path for `hds-breakpoints`
+
 ## 4.19.0
 
 Formally published the `AppHeader` component. To be used in conjunction with the `AppFrame` and the `AppSideNav` components.

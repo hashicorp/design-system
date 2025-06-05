@@ -1,3 +1,7 @@
+## 4.20.0
+
+Fixed bug with click event listener not properly removed
+
 ## 4.19.0
 
 Fixed issue where conditionally disabling ability to dismiss the `Modal` breaks click outside to dismiss.

@@ -1,3 +1,7 @@
+## 4.20.0
+
+Fixed type error where the `TooltipButton` text could be undefined.
+
 ## 4.18.1
 
 Increase spacing above the dotted text decoration underline, that appears on the interactive variant, to 2px from the default.

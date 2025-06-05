@@ -22,7 +22,7 @@ navigation:
     - menubar
     - topbar
 status:
-  added: 4.19.0
+  updated: 4.20.0
 ---
 
 <section data-tab="Guidelines">
