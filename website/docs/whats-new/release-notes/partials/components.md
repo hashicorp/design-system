@@ -12,6 +12,120 @@
   </a>
 </p>
 
+## 4.20.0
+
+**Minor changes**
+
+`CodeBlock` - Added height toggle control, which is present when a `maxHeight` is set and code content height exceeds the `maxHeight` value
+
+<small class="doc-whats-new-changelog-metadata">[#2826](https://github.com/hashicorp/design-system/pull/2826)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`breakpoints` - Added responsive breakpoint values and helpers for responsiveness
+
+<small class="doc-whats-new-changelog-metadata">[#2848](https://github.com/hashicorp/design-system/pull/2848)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Pagination` - Replaced custom breakpoint (`1000px`) with standard `lg` (`1088px`) breakpoint
+
+`Stepper::Nav` - Replaced custom breakpoint (`550px`) with standard `sm` (`480px`) breakpoint
+
+`AppHeader` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable and relied on the `@breakpoint` argument for override of mobile behavior
+
+`AppSideNav` - Removed usage of `--hds-app-desktop-breakpoint` CSS variable, added `@breakpoint` argument, and relied on it for override of mobile behavior
+
+<small class="doc-whats-new-changelog-metadata">[#2859](https://github.com/hashicorp/design-system/pull/2859)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**Patch changes**
+
+`AppHeader` - Fixed import path for `hds-breakpoints`
+
+`AppSideNav` - Fixed import path for `hds-breakpoints`
+
+<small class="doc-whats-new-changelog-metadata">[#2886](https://github.com/hashicorp/design-system/pull/2886) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppSideNav` - Fixed bug where scrolling was blocked when the `AppSideNav` was expanded on desktop views. Also fixed bug which allowed user to focus links that were visually hidden.
+
+<small class="doc-whats-new-changelog-metadata">[#2869](https://github.com/hashicorp/design-system/pull/2869)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Time` - Fixed type error where the `TooltipButton` text could be undefined.
+
+<small class="doc-whats-new-changelog-metadata">[#2877](https://github.com/hashicorp/design-system/pull/2877)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppSideNav` - Fixed component types for `AppSideNav::Portal` and `AppSideNav::Portal::Target` to no longer require `@target` or `@name`.
+
+`SideNav` - Fixed component types for `SideNav::Portal` and `SideNav::Portal::Target` to no longer require `@target` or `@name`.
+
+<small class="doc-whats-new-changelog-metadata">[#2908](https://github.com/hashicorp/design-system/pull/2908)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::Label` - Forced the `for` HTML attribute to be converted to a string
+
+<small class="doc-whats-new-changelog-metadata">[#2863](https://github.com/hashicorp/design-system/pull/2863)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AdvancedTable` - Added `@maxHeight` argument, which sets the max height of the Advanced Table and automatically adds a sticky header to it. Also updated the container styles to constrain the Advanced Table width to the parent's width.
+
+<small class="doc-whats-new-changelog-metadata">[#2865](https://github.com/hashicorp/design-system/pull/2865)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Fixed issues with line numbers when line wrapping is present and when the number of lines changes dynamically; line highlighting when the Code Block is hidden from view initially such as when used inside a Tabs component; and line highlighting when hasLineNumbers is false.
+
+<small class="doc-whats-new-changelog-metadata">[#2856](https://github.com/hashicorp/design-system/pull/2856)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal` - Fixed bug with click event listener not properly removed
+
+<small class="doc-whats-new-changelog-metadata">[#2902](https://github.com/hashicorp/design-system/pull/2902)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Stepper::Nav` - Fixed issue in Safari with text alignment on interactive steps
+
+<small class="doc-whats-new-changelog-metadata">[#2909](https://github.com/hashicorp/design-system/pull/2909)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`CodeBlock` - Added arguments `@ariaLabel`, `@ariaLabelledBy`, and `@ariaDescribedBy`. Added screen-reader only copy for highlighted lines.
+
+`hds-clipboard` - Prevent screen-reader only text (text with the `sr-only` class) from being copied to the clipboard.
+
+<small class="doc-whats-new-changelog-metadata">[#2879](https://github.com/hashicorp/design-system/pull/2879)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Introduce the `hds-resolve-link-to-component` utility to correctly resolve the LinkTo component when `@isRouteExternal` is set on `HdsBreadcrumbItem` or `HdsInteractive`. Consumers are now required to install `ember-engines` when `@isRouteExternal` is `true`.
+
+<small class="doc-whats-new-changelog-metadata">[#2867](https://github.com/hashicorp/design-system/pull/2867) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Layout::Flex` - Added missing export of component/subcomponent
+
+`Layout::Grid` - Added missing export of component/subcomponent
+
+<small class="doc-whats-new-changelog-metadata">[#2883](https://github.com/hashicorp/design-system/pull/2883)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.11.0
+
 ## 4.19.0
 
 **Minor changes**
@@ -1390,65 +1504,6 @@ Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
 <small class="doc-whats-new-changelog-metadata">[#2177](https://github.com/hashicorp/design-system/pull/2177) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
-
-## 4.5.0
-
-**🚨 Caution: This version has been deprecated 🚨**
-
-[4.5.0 documentation](https://hds-website-4-5-0.vercel.app/)
-
-**Minor changes**
-
-`SideNav` - Adds option to exclude query params from route transition/focus management
-
-<small class="doc-whats-new-changelog-metadata">[#2158](https://github.com/hashicorp/design-system/pull/2158)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Tabs` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2168](https://github.com/hashicorp/design-system/pull/2168)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`ApplicationState` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2155](https://github.com/hashicorp/design-system/pull/2155)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`PageHeader` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2160](https://github.com/hashicorp/design-system/pull/2160)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`SideNav` - Converted component to TypeScript
-
-<small class="doc-whats-new-changelog-metadata">[#2102](https://github.com/hashicorp/design-system/pull/2102)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**Patch changes**
-
-`Alert` - Fixed typo in `HdsAlertTypes`
-
-<small class="doc-whats-new-changelog-metadata">[#2154](https://github.com/hashicorp/design-system/pull/2154)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-`Dropdown::Toggle::Icon` - Fixed inconsistencies with `Button` including:
-
-- Added missing text color
-- Reduced icon sizes
-
-<small class="doc-whats-new-changelog-metadata">[#2178](https://github.com/hashicorp/design-system/pull/2178)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.1.0
 
 
 ---
