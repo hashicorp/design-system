@@ -14,6 +14,7 @@ interface HdsAdvancedTableRowArgs {
   columns: HdsAdvancedTableColumn[];
   id?: string;
   childrenKey?: string;
+  columnOrder?: string[];
 }
 
 export default class HdsAdvancedTableRow {
@@ -24,6 +25,7 @@ export default class HdsAdvancedTableRow {
 
   @tracked isOpen: boolean = false;
   @tracked cells: HdsAdvancedTableCell[] = [];
+  @tracked columnOrder: string[] = [];
 
   children: HdsAdvancedTableRow[] = [];
   childrenKey: string;
@@ -36,6 +38,18 @@ export default class HdsAdvancedTableRow {
     return this.isOpen && this.hasChildren;
   }
 
+  get orderedCells(): HdsAdvancedTableCell[] {
+    return this.columnOrder.reduce((acc, key) => {
+      const cell = this.cells.find((cell) => cell.columnKey === key);
+
+      if (cell) {
+        acc.push(cell);
+      }
+
+      return acc;
+    }, [] as HdsAdvancedTableCell[]);
+  }
+
   constructor(args: HdsAdvancedTableRowArgs) {
     const { columns } = args;
 
@@ -43,10 +57,13 @@ export default class HdsAdvancedTableRow {
       const cell = args[column.key ?? ''];
 
       return {
-        columnKey: column.key,
-        value: cell,
+        columnKey: column.key ?? '',
+        content: cell,
       };
     });
+
+    this.columnOrder =
+      args.columnOrder ?? this.cells.map((cell) => cell.columnKey);
 
     // set row data
     Object.assign(this, args);
@@ -60,6 +77,15 @@ export default class HdsAdvancedTableRow {
         // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
         (child) => new HdsAdvancedTableRow(child)
       );
+    }
+  }
+
+  @action
+  updateColumnOrder(columnOrder: string[]) {
+    this.columnOrder = columnOrder;
+
+    for (const child of this.children) {
+      child.updateColumnOrder(columnOrder);
     }
   }
 

@@ -20,7 +20,6 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
 } from './types.ts';
-import type { HdsAdvancedTableSignature } from './index.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
@@ -52,7 +51,8 @@ export interface HdsAdvancedTableThSignature {
     tableHeight?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
-    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
+    onReorderDrop?: (column: HdsAdvancedTableColumn) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
@@ -149,6 +149,41 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     const { hasResizableColumns } = this.args;
 
     return hasResizableColumns ?? false;
+  }
+
+  @action
+  handleDragStart(event: DragEvent): void {
+    const { column, onReorderDragStart } = this.args;
+
+    if (
+      column === undefined ||
+      column.key === undefined ||
+      typeof onReorderDragStart !== 'function'
+    ) {
+      return;
+    }
+
+    event.dataTransfer?.setData('text/plain', column.key ?? '');
+
+    onReorderDragStart(column);
+  }
+
+  @action
+  handleDragOver(event: DragEvent): void {
+    event.preventDefault();
+  }
+
+  @action
+  handleDrop(event: DragEvent): void {
+    event.preventDefault();
+
+    const { column, onReorderDrop } = this.args;
+
+    if (column === undefined || typeof onReorderDrop !== 'function') {
+      return;
+    }
+
+    onReorderDrop(column);
   }
 
   @action onFocusTrapDeactivate(): void {
