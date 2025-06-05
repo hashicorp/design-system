@@ -19,8 +19,6 @@ navigation:
   keywords:
     - dropdown
     - powerselect
-status:
-  updated: 4.19.0
 ---
 
 <section data-tab="Guidelines">

@@ -1,3 +1,7 @@
+## 4.20.0
+
+Fixed component types for `SideNav::Portal` and `SideNav::Portal::Target` to no longer require `@target` or `@name`.
+
 ## 4.19.0
 
 Deprecated the `SideNav` component. Use the `AppSideNav` component in combination with the `AppHeader` component as a replacement.
