@@ -556,7 +556,7 @@
         </Hds::Form::Section>
       </SG.Item>
 
-      <SG.Item @label="3 fields, mix of widths (1/3, auto, & 8em)">
+      <SG.Item @label="3 fields, mix of widths (1/3, auto, & 6em)">
         <Hds::Form::Section>
           <Hds::Form::FieldGroup as |FG|>
             <Hds::Form::TextInput::Field as |F|>
@@ -576,7 +576,7 @@
               </Hds::Form::Select::Field>
             </FG.Item>
 
-            <Hds::Form::TextInput::Field @width="8em" as |F|>
+            <Hds::Form::TextInput::Field @width="6em" as |F|>
               <F.Label>Zip</F.Label>
             </Hds::Form::TextInput::Field>
           </Hds::Form::FieldGroup>
@@ -615,6 +615,25 @@
     </Shw::Grid>
   </div>
 </section>
+
+<Shw::Divider />
+
+<Shw::Text::H2>Responsiveness</Shw::Text::H2>
+
+<Shw::Frame
+  @id="demo-form-layout-large-viewports"
+  @src="/components/form/frameless/demo-responsiveness"
+  @height="550"
+  @label="Large viewport"
+/>
+
+<Shw::Frame
+  @id="demo-form-layout-small-viewports"
+  @src="/components/form/frameless/demo-responsiveness"
+  @width="479"
+  @height="850"
+  @label="Small viewport (< 480px)"
+/>
 
 <Shw::Divider />
 

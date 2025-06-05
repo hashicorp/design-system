@@ -50,7 +50,10 @@ Router.map(function () {
     this.route('code-editor');
     this.route('dropdown');
     this.route('flyout');
-    this.route('form', function () {
+    this.route('form', function (): void {
+      this.route('frameless', function (): void {
+        this.route('demo-responsiveness');
+      });
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
