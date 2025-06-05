@@ -1,10 +1,10 @@
-The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
-
 !!! Info
 
-The equivalent in Figma is not a component, but a set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
+There is no `Text` component in Figma, but an equivalent set of [typographic Figma styles](https://www.figma.com/design/uX4OEaJQdWfzULADchjAeN/HDS-Foundations-v2.0?node-id=1262-9192&t=z7hDCKFFuGUMDRYe-1).
 
 !!!
+
+The `Text` component is a **code-only** component used to apply specific predefined HDS typographic styles to a block of text or content.
 
 ## How to use this component
 
@@ -51,14 +51,6 @@ Different style variants support different sizes: refer to the [Component API](#
 
 ### Weight
 
-To apply a specific font weight to the text, use the `@weight` argument:
-
-```handlebars
-<Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with "medium" font weight</Hds::Text::Display>
-<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight</Hds::Text::Body>
-<Hds::Text::Code @tag="pre" @weight="bold">Code sample with "bold" font weight</Hds::Text::Code>
-```
-
 !!! Critical
 
 **Important**
@@ -67,6 +59,14 @@ Different typographic styles support only [a limited set of font weights](/found
 Refer to the [Component API](#component-api) section to see what the allowed combinations are for the different styles.
 
 !!!
+
+To apply a specific font weight to the text, use the `@weight` argument:
+
+```handlebars
+<Hds::Text::Display @tag="h4" @size="300" @weight="medium">Level 4 heading with "medium" font weight</Hds::Text::Display>
+<Hds::Text::Body @tag="p" @weight="semibold">Paragraph text with "semibold" font weight</Hds::Text::Body>
+<Hds::Text::Code @tag="pre" @weight="bold">Code sample with "bold" font weight</Hds::Text::Code>
+```
 
 ### Alignment
 
@@ -101,7 +101,6 @@ Or it can be one of the standard CSS color formats (hex, rgb, rgba, hsl, etc.):
 ```handlebars
 <Hds::Text::Body @tag="p" @color="#FF0000">This text has a "#FF0000" (red) color applied</Hds::Text::Body>
 ```
-
 !!! Warning
 
 We don’t validate the CSS color string to ensure that the value used is correct.
@@ -116,7 +115,7 @@ Since the component is not prescriptive on the tags that can be used to render t
 <Hds::Text::Body @tag="p" @size="300">This text contains some <strong>strong</strong> and <em>em</em> tags, a <Hds::Link::Inline @href="#">link</Hds::Link::Inline>.</Hds::Text::Body>
 ```
 
-We can imagine even more complex examples where we may want to apply a typographic style to an entire block of content:
+In some cases, you may want to apply a typographic style to an entire block of content. While technically possible, this isn’t always desirable or appropriate. Be mindful of the underlying HTML structure. Semantic markup supports accessibility and helps maintain clean, readable code for developers now and in the future: 
 
 ```handlebars
 <Hds::Text::Body @tag="div" @size="200" @color="strong">
@@ -128,12 +127,3 @@ We can imagine even more complex examples where we may want to apply a typograph
   <p>This is also some generic text in a paragraph.</p>
 </Hds::Text::Body>
 ```
-
-!!! Warning
-
-**Notice**
-
-While this is technically possible, it’s not necessarily desirable (or correct in every possible context).
-Please be mindful of how the markup is structured, in terms of HTML semantics (for accessibility) as well as code readability (for the developers writing/reviewing/maintaining that code, now and in the future).
-
-!!!

@@ -38,14 +38,14 @@ The tooltip supports additional placement options: `top-start`, `top-end`, `bott
 
 ## Offset
 
-The default and recommended distance between the trigger and the tooltip’s pointer is 4px.
-
-![Default offset of the tooltip](/assets/components/tooltip/tooltip-spacing.png)
-
 !!! Info
 
  In some cases, adding an offset may be necessary to adjust the position of the tooltip. Changing the default offset should be done sparingly and only when it’s necessary to make sure that the tooltip does not obscure or cover the trigger or other important information.
 !!!
+
+The default and recommended distance between the trigger and the tooltip’s pointer is 4px.
+
+![Default offset of the tooltip](/assets/components/tooltip/tooltip-spacing.png)
 
 !!! Do
 
@@ -71,11 +71,11 @@ If more complex content is necessary to convey the information, consider other d
 
 ## Text overflow
 
-The text should wrap when it exceeds a maximum width of 280px. There is no character limit, but we recommend keeping it short and concise (~80 characters).
-
-![Tooltip with wrapped text](/assets/components/tooltip/tooltip-text-wrapping.png)
-
 !!! Info
 
 Text wrapping can be achieved using the property `isMultiline` in Figma.
 !!!
+
+The text should wrap when it exceeds a maximum width of 280px. There is no character limit, but we recommend keeping it short and concise (~80 characters).
+
+![Tooltip with wrapped text](/assets/components/tooltip/tooltip-text-wrapping.png)

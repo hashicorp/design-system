@@ -60,10 +60,6 @@ If a user needs to copy only a portion of the Code Block, the relevant portion c
 
 ## Line numbers
 
-Line numbers are displayed by default and can make longer blocks of code and snippets easier to parse. This is especially true in the case of logs and long configuration files that may have a higher degree of complexity.
-
-![Example of line numbers within the Code Block](/assets/components/code-block/code-block-line-numbers.png)
-
 !!! Info
 
 In the Figma component, the code examples have the appropriate number of lines by default but must be manually hidden or shown to match the length of custom snippets.
@@ -83,12 +79,7 @@ Interacting with this button removes the height limit, expanding the Code Block 
 
 Interacting with it again collapses the Code Block back to its set `maxHeight`.
 
-
 ## Line highlighting
-
-Use line highlighting to target and call attention to specific lines or multiple lines within a block of code.
-
-![Example of line highlighting in the Code Block](/assets/components/code-block/code-block-line-highlighting.png)
 
 !!! Info
 
@@ -96,6 +87,10 @@ In the Ember component, lines can be highlighted by passing a single line number
 
 In the Figma component, line highlighting (`highlightLines`) is a boolean property that displays a _representative_ example of what a highlighted line will look like visually and is not a property that can be controlled by the consumer. Instead, lines that are intended to be highlighted should be communicated in the engineering handoff or annotated in the design file.
 !!!
+
+Use line highlighting to target and call attention to specific lines or multiple lines within a block of code.
+
+![Example of line highlighting in the Code Block](/assets/components/code-block/code-block-line-highlighting.png)
 
 ## Language
 

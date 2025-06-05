@@ -26,9 +26,7 @@ The standard `Toggle` element **ensures perceivability and accessibility out of 
 
 The text and icon are rendered inside an HTML `<button>` element (which technically acts as a toggling control for the popover). For details about how the user can interact with this button, see the [Interactivity](#interactivity) sub-section.
 
-
 The `Bubble` element is a pure container that yields the children inside the "popover" tooltip bubble. Consumers can pass whatever content they need to it, but they are responsible for styling and structuring it according to their needs/context.
-
 
 !!! Info
 
@@ -238,13 +236,13 @@ When used in this way, it's up to the consumer to make sure the implementation i
 
 ### Advanced options
 
-There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
-
 !!! Insight
 
 If your use case requires customizing the component behavior or functionality, [contact the Design Systems Team](/about/support) first before actually implementing the changes (as we may already have your case covered).
 
 !!!
+
+There might be special use cases in which consumers may need to fine tune the Rich Tooltip behavior. Below we provide some some examples.
 
 #### Offset
 
@@ -262,6 +260,14 @@ The default spacing between the toggle and the tooltip itself can be tweaked usi
 
 #### Open
 
+!!! Warning
+
+**Important**
+
+This option should be considered carefully before being implemented in production code, because in this case the popover is in what's called a "manual" state, which means it can't be dismissed via `esc` or "click outside" until the end-user has interacted with it.
+
+!!!
+
 The tooltip can be rendered as initially opened using the `@isOpen` argument:
 
 ```handlebars
@@ -273,11 +279,3 @@ The tooltip can be rendered as initially opened using the `@isOpen` argument:
   </RT.Bubble>
 </Hds::RichTooltip>
 ```
-
-!!! Warning
-
-**Important**
-
-This option should be considered carefully before being implemented in production code, because in this case the popover is in what's called a "manual" state, which means it can't be dismissed via `esc` or "click outside" until the end-user has interacted with it.
-
-!!!

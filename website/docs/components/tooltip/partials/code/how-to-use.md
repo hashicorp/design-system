@@ -157,7 +157,6 @@ For example, this is how to enable rich text in the case of the modifier:
   </a>
 </p>
 ```
-
 !!! Warning
 
 If you enable the `allowHTML` option:

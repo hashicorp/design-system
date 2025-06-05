@@ -17,11 +17,10 @@
 
 ### Sorting
 
-![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
-
 - Sorting is not relevant for all content, so thoughtfully consider when to apply sorting.
 - An Advanced Table allows end-users to sort by one column at a time. While multiple columns may offer sorting options, users can only apply sorting to one column at any given moment.
 
+![A group of 4 Advanced Table header cells, with each variant of sort button: no sort button, the default unsorted, sorted ascending, and sorted descending.](/assets/components/table/advanced-table/table-sorting.png)
 
 ### Tooltips
 
@@ -199,12 +198,12 @@ Ensure that content within striped rows continue to maintain adequate color cont
 
 !!!
 
-![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
-
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.
 
 - Non-Nested Advanced Tables: Striping starts with the second row, distinguishing it from the header.
 - Nested Advanced Tables: Child rows are automatically striped, while parent rows remain unstriped to visually reinforce hierarchy. This behavior cannot be disabled.
+
+![Advanced Tables with row striping have rows that alternate between white and light grey background color.](/assets/components/table/advanced-table/advanced-table-striping.png)
 
 ### Placement
 
@@ -236,13 +235,13 @@ Use horizontal scrolling when the number of columns expands beyond the viewport 
 
 ## Multi-Select
 
-Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
-
 !!! Info
 
 Multi-select and sorting are not supported for nested rows at this time. 
 
 !!!
+
+Multi-select allows users to select multiple rows to perform bulk actions, such as deleting or exporting data. The Advanced Table maintains selection states across pagination and filtering, ensuring consistency when interacting with large datasets. For more details, check out the [Multi-Select Table Pattern.](https://helios.hashicorp.design/patterns/table-multi-select)
 
 A multi-select pattern consists of:
 
