@@ -6,7 +6,9 @@
 import Component from '@glimmer/component';
 
 export interface HdsFormHeaderSignature {
-  Args: { hasMaxWidth?: boolean };
+  Args: {
+    isFullWidth?: boolean;
+  };
   Blocks: {
     default: [];
   };
@@ -14,16 +16,16 @@ export interface HdsFormHeaderSignature {
 }
 
 export default class HdsFormHeader extends Component<HdsFormHeaderSignature> {
-  get hasMaxWidth(): boolean {
-    const { hasMaxWidth = true } = this.args;
-    return hasMaxWidth;
+  get isFullWidth(): boolean {
+    return this.args.isFullWidth ?? false;
   }
 
   get classNames(): string {
     const classes = ['hds-form__header'];
 
-    if (this.hasMaxWidth) {
-      classes.push('hds-form-content--has-max-width');
+    // add a class based on the @isFullWidth argument
+    if (this.isFullWidth) {
+      classes.push('hds-form-content--is-full-width');
     }
 
     return classes.join(' ');
