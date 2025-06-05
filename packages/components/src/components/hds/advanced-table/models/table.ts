@@ -140,6 +140,7 @@ export default class HdsAdvancedTableTableModel {
       (column) =>
         new HdsAdvancedTableColumn({
           column,
+          table: this,
           onColumnResize: this.onColumnResize,
         })
     );

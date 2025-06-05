@@ -4,9 +4,11 @@ import { assert } from '@ember/debug';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumnResizeCallback,
 } from '../types';
+import type HdsAdvancedTable from './table.ts';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -34,10 +36,21 @@ export default class HdsAdvancedTableColumn {
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
 
+  @tracked isBeingDragged: boolean = false;
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
+
+  table: HdsAdvancedTable;
 
   private _originalWidth?: string = undefined;
   private _onColumnResize?: HdsAdvancedTableColumnResizeCallback;
+
+  get cells(): HdsAdvancedTableCell[] {
+    return this.table.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+
+      return cell!;
+    });
+  }
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -62,9 +75,12 @@ export default class HdsAdvancedTableColumn {
 
   constructor(args: {
     column: HdsAdvancedTableColumnType;
+    table: HdsAdvancedTable;
     onColumnResize?: HdsAdvancedTableColumnResizeCallback;
   }) {
-    const { column, onColumnResize } = args;
+    const { column, table, onColumnResize } = args;
+
+    this.table = table;
 
     // set column properties
     this.label = column.label;
