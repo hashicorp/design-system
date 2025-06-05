@@ -10,7 +10,7 @@
 @use "../../mixins/breakpoints" as *;
 
 // notice: this is a <fieldset> element
-.hds-key-value-pair {
+.hds-form-key-value-pair {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -19,7 +19,7 @@
   row-gap: 16px;
 }
 
-.hds-key-value-pair__row {
+.hds-form-key-value-pair__row {
   display: flex;
   flex-direction: column;
   row-gap: 8px;
@@ -31,16 +31,16 @@
     grid-template-columns: var(--hds-key-value-pair-columns);
     row-gap: 0;
 
-    &.hds-key-value-pair__row--first {
-      .hds-key-value-pair__generic-container,
-      .hds-key-value-pair__row-delete-button-container {
+    &.hds-form-key-value-pair__row--first {
+      .hds-form-key-value-pair__yield-container,
+      .hds-form-key-value-pair__row-delete-button-container {
         grid-row: span 2;
       }
     }
 
-    &:not(.hds-key-value-pair__row--first) {
+    &:not(.hds-form-key-value-pair__row--first) {
       // copied styles from sr-only class
-      .hds-key-value-pair__field-header {
+      .hds-form-key-value-pair__field-header {
         position: absolute !important;
         width: 1px !important;
         height: 1px !important;
@@ -56,23 +56,23 @@
   }
 }
 
-.hds-key-value-pair__footer {
+.hds-form-key-value-pair__footer {
   display: flex;
   flex-direction: row;
   column-gap: 16px;
 
-  .hds-key-value-pair__add-row {
+  .hds-form-key-value-pair__add-row-button {
     flex-shrink: 0;
   }
 }
 
-.hds-key-value-pair__field {
+.hds-form-key-value-pair__field {
   display: grid;
   grid-row: span 2;
   grid-template-rows: subgrid;
   width: 100%; // we want the input element to fill the parent container
 
-  .hds-key-value-pair__field-header {
+  .hds-form-key-value-pair__field-header {
     align-self: flex-end;
   }
 
@@ -80,30 +80,30 @@
     width: 100%; // we want the select element to fill the parent container
   }
 
-  .hds-key-value-pair__field-label {
+  .hds-form-key-value-pair__field-label {
     width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
   }
 
-  .hds-key-value-pair__field-header:not(.sr-only) {
+  .hds-form-key-value-pair__field-header:not(.sr-only) {
     margin-bottom: 8px; // space between label and control
   }
 
-  .hds-key-value-pair__field-helper-text {
+  .hds-form-key-value-pair__field-helper-text {
     &:not(:first-child) {
       margin-top: 4px;
     }
 
     // special case: if there are multiple helper text lines, we want to reduce the spacing between them
-    & + .hds-key-value-pair__field-helper-text {
+    & + .hds-form-key-value-pair__field-helper-text {
       margin-top: 2px;
     }
   }
 
-  .hds-key-value-pair__field-error {
+  .hds-form-key-value-pair__field-error {
     margin-top: 8px;
   }
 
-  .hds-key-value-pair__field-control {
+  .hds-form-key-value-pair__field-control {
     display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
     flex-direction: column;
     align-self: flex-start;
@@ -112,14 +112,14 @@
   }
 }
 
-.hds-key-value-pair__generic-container,
-.hds-key-value-pair__row-delete-button-container {
+.hds-form-key-value-pair__yield-container,
+.hds-form-key-value-pair__row-delete-button-container {
   display: grid;
   grid-template-rows: subgrid;
   align-items: flex-start;
 }
 
-.hds-key-value-pair__field:has(+ *),
-.hds-key-value-pair__generic-container:has(+ *) {
+.hds-form-key-value-pair__field:has(+ *),
+.hds-form-key-value-pair__yield-container:has(+ *) {
   padding-right: 8px;
 }

@@ -27,6 +27,10 @@ import {
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormKeyValuePairYieldSignature } from './yield.ts';
 
+const KEY_VALUE_PAIR_FIELD_SELECTOR = ".hds-form-key-value-pair__field"
+const KEY_VALUE_PAIR_GENERIC_SELECTOR = ".hds-form-key-value-pair__yield-container";
+const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR = ".hds-form-key-value-pair__row--first";
+
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     data: Array<unknown>;
@@ -37,6 +41,7 @@ export interface HdsFormKeyValuePairSignature {
         Legend?: ComponentLike<HdsFormLegendSignature>;
         HelperText?: ComponentLike<HdsFormHelperTextSignature>;
         Generic?: ComponentLike<HdsYieldSignature>;
+        Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];
     row: [
@@ -51,7 +56,6 @@ export interface HdsFormKeyValuePairSignature {
       {
         Generic?: ComponentLike<HdsYieldSignature>;
         AddRowButton?: ComponentLike<HdsFormKeyValuePairAddRowButtonSignature>;
-        Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];
   };
@@ -65,12 +69,6 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
   private _element!: HTMLElement;
   @tracked _columns: HTMLDivElement[] = [];
   @tracked _gridTemplateColumns = '';
-
-  // @tracked data = this.args.data;
-
-  // get data(): Array<unknown> {
-  //   return this.args.data;
-  // }
 
   get canDeleteRow(): boolean {
     return this.args.data.length > 1;
@@ -103,25 +101,26 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
   // Update the column array based on how they are ordered in the DOM
   private updateColumns(): void {
     const columns = this._element
-      .querySelector('.hds-key-value-pair__row--first')
-      ?.querySelectorAll(
-        '.hds-key-value-pair__field, .hds-key-value-pair__generic-container'
-      );
+      .querySelector(KEY_VALUE_PAIR_FIRST_ROW_SELECTOR)
+      ?.querySelectorAll(`${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}`);
 
     let newColumnNodes: HTMLDivElement[] = [];
     let newGridTemplateColumns = '';
+    
     columns?.forEach((column) => {
       const columnElement = column as HTMLDivElement;
 
       newColumnNodes = [...newColumnNodes, columnElement];
-      if (column.classList.contains('hds-key-value-pair__field')) {
+      // do substring to remove the leading dot from the class selector
+      if (column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))) {
         if (columnElement.dataset['width']) {
           newGridTemplateColumns += `${columnElement.dataset['width']} `;
         } else {
           newGridTemplateColumns += '1fr ';
         }
       }
-      if (column.classList.contains('hds-key-value-pair__generic-container')) {
+      // do substring to remove the leading dot from the class selector
+      if (column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))) {
         newGridTemplateColumns += 'auto ';
       }
     });
