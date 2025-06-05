@@ -615,3 +615,176 @@
     </Shw::Grid>
   </div>
 </section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+  <Shw::Text::H2>Examples of forms</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Simple forms</Shw::Text::H4>
+
+  <Shw::Text::Body>With just fields</Shw::Text::Body>
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field name="form-example-01-group-name" @isRequired={{true}} as |F|>
+        <F.Label>Group name</F.Label>
+        <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-), and
+          underscores (_).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::TextInput::Field name="form-example-01-group-description" @isOptional={{true}} as |F|>
+        <F.Label>Group description</F.Label>
+        <F.HelperText>A brief description can help others understand this group's purpose</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </Hds::Form::Section>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::Body>With just fields and actions</Shw::Text::Body>
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field name="form-example-02-project-name" @isRequired={{true}} as |F|>
+        <F.Label>Project name</F.Label>
+        <F.HelperText>
+          <ul {{style margin="0" padding-left="15px"}}>
+            <li>Valid characters include ASCII letters, numbers, spaces, as well as dashes (-), and underscores (_).</li>
+            <li>Cannot begin or end with spaces.</li>
+          </ul>
+        </F.HelperText>
+        <F.CharacterCount @minLength={{3}} />
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::Textarea::Field name="form-example-02-project-description" @isOptional={{true}} as |F|>
+        <F.Label>Project description</F.Label>
+        <F.HelperText>Help others understand what this project's purpose is</F.HelperText>
+        <F.CharacterCount @maxLength={{256}} />
+      </Hds::Form::Textarea::Field>
+    </Hds::Form::Section>
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Create project" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::Body>With extra alert before the actions</Shw::Text::Body>
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field name="form-example-03-cluster-name" @isRequired={{true}} as |F|>
+        <F.Label>Cluster name</F.Label>
+        <F.HelperText>Provide a meaningful name for your cluster</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::Select::Field name="form-example-03-project-type" as |F|>
+        <F.Label>Cluster type</F.Label>
+        <F.HelperText>What type of cluster do you need</F.HelperText>
+        <F.Options>
+          <option value=""></option>
+          <option value="foo">foo</option>
+          <option value="bar">bar</option>
+          <option value="baz">baz</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+    </Hds::Form::Section>
+
+    <Hds::Alert @color="highlight" @icon="info-fill" @type="compact" as |A|>
+      <A.Description>Clusters are scoped to a single project for now and cannot connect to other clusters in other
+        projects.</A.Description>
+    </Hds::Alert>
+
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Create cluster" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Forms with headers</Shw::Text::H4>
+
+  <Shw::Text::Body>Main header with title/description</Shw::Text::Body>
+  <Hds::Form>
+    <Hds::Form::Header>
+      <Hds::Text::Display @size="400" @tag="h2">Auth Token TTL</Hds::Text::Display>
+      <Hds::Text::Body @tag="p" @size="200">Edit the auth token TTL issued by Boundary controllers. Changes are not
+        immediate, and will only affect new sessions.</Hds::Text::Body>
+    </Hds::Form::Header>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field name="form-example-11-ttl" @isRequired={{true}} as |F|>
+        <F.Label>Time to Live</F.Label>
+        <F.HelperText>Maximum time to live for all auth tokens, globally, in hours (defaults to {ttl}).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::TextInput::Field name="form-example-11-tts" @isOptional={{true}} as |F|>
+        <F.Label>Time to Stale</F.Label>
+        <F.HelperText>Maximum time for inactivity for all auth tokens, globally, in hours (defaults to 24 hours).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </Hds::Form::Section>
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Save" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::Body>Main header + section headers</Shw::Text::Body>
+  <Hds::Form>
+    <Hds::Form::Header>
+      <Hds::Text::Display @size="400" @tag="h2">Cluster details</Hds::Text::Display>
+      <Hds::Alert @icon="info-fill" @type="compact" as |A|>
+        <A.Description>You are creating a stand-alone cluster. If you want to create a secondary cluster in a federated
+          set of clusters, go to the primary cluster and select the Federation tab.</A.Description>
+      </Hds::Alert>
+    </Hds::Form::Header>
+    <Hds::Form::Section>
+      <Hds::Form::Separator />
+      <Hds::Form::Section::Header>
+        <Hds::Text::Display @size="300" @tag="h3">Cluster customization</Hds::Text::Display>
+      </Hds::Form::Section::Header>
+      <Hds::Form::TextInput::Field name="form-example-12-cluster-id" @isRequired={{true}} as |F|>
+        <F.Label>Cluster ID</F.Label>
+        <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must
+          start with a letter and end with a letter or number..</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Alert @icon="info-fill" @type="compact" as |A|>
+        <A.Description>We’d like your feedback on our cluster tiers, size, and billing plan offerings. Provide your
+          feedback
+          <Hds::Link::Inline @href="#">here</Hds::Link::Inline></A.Description>
+      </Hds::Alert>
+      <Hds::Form::Select::Field name="form-example-12-cluster-tier" @isRequired={{true}} as |F|>
+        <F.Label>Cluster tier</F.Label>
+        <F.HelperText>Compare features across tiers in more detail in
+          <Hds::Link::Inline @href="#">our documentation</Hds::Link::Inline>.</F.HelperText>
+        <F.Options>
+          <option value="development">Development</option>
+          <option value="standard">Standard</option>
+          <option value="plus">Plus</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+      <Hds::Form::Separator />
+      <Hds::Form::Section::Header>
+        <Hds::Text::Display @size="300" @tag="h3">Cluster accessibility</Hds::Text::Display>
+        <Hds::Text::Body @tag="p">Configure network access to your cluster. Internal (RPC and Gossip) communication is
+          always secure to Consul servers over a private peering or a transit gateway connection. For increased
+          security, limit the IP addresses allowed to connect using the “Allow select IPs only” section below.</Hds::Text::Body>
+      </Hds::Form::Section::Header>
+      <Hds::Form::Radio::Group @name="datacenter" as |G|>
+        <G.RadioField checked={{true}} as |F|>
+          <F.Label>Private</F.Label>
+          <F.HelperText>Most secure, the clusters endpoint is private and not accessible to the public internet, only
+            connected networks have access to the cluster's endpoint via HTTPS or gRPC.</F.HelperText>
+        </G.RadioField>
+        <G.RadioField as |F|>
+          <F.Label>Public</F.Label>
+          <F.HelperText>Less secure, the clusters endpoint is accessible from any connection outside of your network via
+            HTTPS.</F.HelperText>
+        </G.RadioField>
+      </Hds::Form::Radio::Group>
+      <Hds::Form::Toggle::Field as |F|>
+        <F.Label>Allow select IPs only</F.Label>
+        <F.HelperText>When enabled, any address ranges not included in the IP allowlist will be denied network access.
+          Input up to 3 IPV4 address ranges in CIDR notation.</F.HelperText>
+      </Hds::Form::Toggle::Field>
+    </Hds::Form::Section>
+  </Hds::Form>
+
+</section>
