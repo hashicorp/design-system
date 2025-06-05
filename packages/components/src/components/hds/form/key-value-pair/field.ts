@@ -91,7 +91,7 @@ export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValueP
   });
 
   get labelHiddenText(): string {
-    return `Row ${this.args.rowIndex + 1}`;
+    return `row ${this.args.rowIndex + 1}`;
   }
 
   @action

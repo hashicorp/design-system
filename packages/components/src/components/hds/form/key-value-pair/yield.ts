@@ -20,7 +20,7 @@ export interface HdsFormKeyValuePairYieldSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFormKeyValuePairYieldLabel extends Component<HdsFormKeyValuePairYieldSignature> {
+export default class HdsFormKeyValuePairYield extends Component<HdsFormKeyValuePairYieldSignature> {
   constructor(owner: Owner, args: HdsFormKeyValuePairYieldSignature['Args']) {
     super(owner, args);
 
