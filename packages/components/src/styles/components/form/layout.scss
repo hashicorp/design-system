@@ -40,8 +40,16 @@
 
 // OPTIONS
 
-// hasMaxWidth = true
+// isFullWidth = false (default)
 
-.hds-form-content--has-max-width {
+.hds-form__header,
+.hds-form__section,
+.hds-form__separator {
   max-width: var(--hds-form-section-max-width);
+}
+
+// isFullWidth = true
+
+.hds-form-content--is-full-width {
+  max-width: none;
 }

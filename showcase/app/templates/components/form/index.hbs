@@ -143,7 +143,7 @@
         </Hds::Form::Textarea::Field>
       </Hds::Form::Section>
 
-      <Hds::Form::Section @hasMaxWidth={{false}}>
+      <Hds::Form::Section @isFullWidth={{true}}>
         <Hds::Form::Section::Header>
           <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
@@ -260,7 +260,7 @@
 
   <Shw::Text::H3>FormHeader</Shw::Text::H3>
 
-  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
   <div class="shw-form-button-wrapper-margin">
     <button type="button" {{on "click" this.toggleHighlight}}>
@@ -270,7 +270,7 @@
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="hasMaxWidth=true (default)">
+      <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form>
           <Hds::Form::Header>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
@@ -296,9 +296,9 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="hasMaxWidth=false">
+      <SG.Item @label="isFullWidth=true">
         <Hds::Form>
-          <Hds::Form::Header @hasMaxWidth={{false}}>
+          <Hds::Form::Header @isFullWidth={{true}}>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
             <Hds::Text::Body @tag="p" @size="200">
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
@@ -321,11 +321,11 @@
     </button>
   </div>
 
-  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="hasMaxWidth=true (default)">
+      <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form>
           <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -345,8 +345,8 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="hasMaxWidth=false">
-        <Hds::Form::Section @hasMaxWidth={{false}}>
+      <SG.Item @label="isFullWidth=true">
+        <Hds::Form::Section @hisFullWidth={{true}}>
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -390,11 +390,11 @@
     </button>
   </div>
 
-  <Shw::Text::H4>hasMaxWidth</Shw::Text::H4>
+  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="hasMaxWidth=true (default)">
+      <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form>
           <Hds::Form::Separator />
         </Hds::Form>
@@ -406,9 +406,9 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="hasMaxWidth=false">
+      <SG.Item @label="isFullWidth=true">
         <Hds::Form>
-          <Hds::Form::Separator @hasMaxWidth={{false}} />
+          <Hds::Form::Separator @isFullWidth={{true}} />
         </Hds::Form>
       </SG.Item>
     </Shw::Grid>
@@ -448,9 +448,9 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="not within FormSection so it has no maxWidth">
+      <SG.Item @label="not within FormSection so it is full width">
         <Hds::Form>
-          <Hds::ButtonSet @hasMaxWidth={{false}}>
+          <Hds::ButtonSet @isFullWidth={{true}}>
             <Hds::Button @text="Submit" type="submit" />
             <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
           </Hds::ButtonSet>

@@ -18,20 +18,20 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
 
   // Options
 
-  // hasMaxWidth
-  test(`it should have the default max-width if no @hasMaxWidth prop is declared`, async function (assert) {
+  // isFullWidth
+  test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
     await render(hbs`<Hds::Form::Separator id="test-form-separator" />`);
     assert
       .dom('#test-form-separator')
-      .hasClass('hds-form-content--has-max-width');
+      .doesNotHaveClass('hds-form-content--is-full-width');
   });
 
-  test(`if @hasMaxWidth is false, it should not have a max-width set`, async function (assert) {
+  test(`if @isFullWidth is true, it should not have a max-width set`, async function (assert) {
     await render(
-      hbs`<Hds::Form::Separator id="test-form-separator" @hasMaxWidth={{false}} />`,
+      hbs`<Hds::Form::Separator id="test-form-separator" @isFullWidth={{true}} />`,
     );
     assert
       .dom('#test-form-separator')
-      .doesNotHaveClass('hds-form-content--has-max-width');
+      .hasClass('hds-form-content--is-full-width');
   });
 });
