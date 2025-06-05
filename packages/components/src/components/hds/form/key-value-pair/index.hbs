@@ -63,16 +63,14 @@
         to="row"
       }}
 
-      <span class="hds-form-key-value-pair__row-delete-button-container">
-        {{yield
-          (hash
-            DeleteRowButton=(component
-              "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow
-            )
+      {{yield
+        (hash
+          DeleteRowButton=(component
+            "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow
           )
-          to="row"
-        }}
-      </span>
+        )
+        to="row"
+      }}
     </div>
   {{/if}}
 
@@ -90,16 +88,15 @@
         )
         to="row"
       }}
-      <span class="hds-form-key-value-pair__row-delete-button-container">
-        {{yield
-          (hash
-            DeleteRowButton=(component
-              "hds/form/key-value-pair/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
-            )
+
+      {{yield
+        (hash
+          DeleteRowButton=(component
+            "hds/form/key-value-pair/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
           )
-          to="row"
-        }}
-      </span>
+        )
+        to="row"
+      }}
     </div>
   {{/each}}
 

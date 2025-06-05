@@ -454,7 +454,9 @@
   <Shw::Grid @columns={{3}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
-        <Hds::Form::KeyValuePair::DeleteRowButton mock-state-value={{state}} @canDeleteRow={{true}} />
+        <div {{style display="grid" gridTemplateColumns="min-content"}}>
+          <Hds::Form::KeyValuePair::DeleteRowButton mock-state-value={{state}} @canDeleteRow={{true}} />
+        </div>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
