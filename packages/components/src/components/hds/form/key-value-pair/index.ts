@@ -27,9 +27,11 @@ import {
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormKeyValuePairYieldSignature } from './yield.ts';
 
-const KEY_VALUE_PAIR_FIELD_SELECTOR = ".hds-form-key-value-pair__field"
-const KEY_VALUE_PAIR_GENERIC_SELECTOR = ".hds-form-key-value-pair__yield-container";
-const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR = ".hds-form-key-value-pair__row--first";
+const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-pair__field';
+const KEY_VALUE_PAIR_GENERIC_SELECTOR =
+  '.hds-form-key-value-pair__yield-container';
+const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
+  '.hds-form-key-value-pair__row--first';
 
 export interface HdsFormKeyValuePairSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
@@ -102,17 +104,21 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
   private updateColumns(): void {
     const columns = this._element
       .querySelector(KEY_VALUE_PAIR_FIRST_ROW_SELECTOR)
-      ?.querySelectorAll(`${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}`);
+      ?.querySelectorAll(
+        `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}`
+      );
 
     let newColumnNodes: HTMLDivElement[] = [];
     let newGridTemplateColumns = '';
-    
+
     columns?.forEach((column) => {
       const columnElement = column as HTMLDivElement;
 
       newColumnNodes = [...newColumnNodes, columnElement];
       // do substring to remove the leading dot from the class selector
-      if (column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))) {
+      if (
+        column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))
+      ) {
         if (columnElement.dataset['width']) {
           newGridTemplateColumns += `${columnElement.dataset['width']} `;
         } else {
@@ -120,7 +126,9 @@ export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSi
         }
       }
       // do substring to remove the leading dot from the class selector
-      if (column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))) {
+      if (
+        column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))
+      ) {
         newGridTemplateColumns += 'auto ';
       }
     });
