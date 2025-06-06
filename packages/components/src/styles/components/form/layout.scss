@@ -43,12 +43,10 @@
 
 .hds-form__field-group {
   // When there are columns, stack them vertically on small screens
-  &.hds-layout-flex--direction-row {
-    // applies to screen widths of 479px & below
-    @include hds-breakpoint-below("sm") {
-      flex-direction: column;
-      align-items: start;
-    }
+  // applies to screen widths of 479px & below
+  @include hds-breakpoint-below("sm") {
+    flex-direction: column;
+    align-items: start;
   }
 }
 
