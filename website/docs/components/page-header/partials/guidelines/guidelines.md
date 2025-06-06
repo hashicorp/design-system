@@ -62,7 +62,7 @@ Use badges to express similar or related metadata pertaining to the page content
 
 !!! Dont
 
-Don’t use more than three badges within the Page Header, instead explore ways to express additional metadata in the `customMetadata` area or move the content to the main page.
+Don’t use more than three badges within the Page Header. Instead, explore ways to express additional metadata in the `generic` area of the component or move the content to the main page.
 
 ![Page Header Badges Metadata](/assets/components/page-header/page-header-badges-dont-many-badges.png =700x*)
 
@@ -118,9 +118,9 @@ Instead, link to more complex content using an [Inline Link](/components/link/in
 
 !!!
 
-## Custom metadata
+## Custom content
 
-If necessary to include metadata like key/value pairs, multiple page-level statuses, or other structured content, custom metadata can be passed to the component via the `customMetadata` property in Figma.
+If it is necessary to include additional metadata, key/value pairs, multiple page-level statuses, or other structured content, this custom content can be passed to the component via the `hasGenericInstance` property in Figma, and to the generic contextual component in Ember.
 
 ![Page Header custom metadata](/assets/components/page-header/page-header-custom-metadata-example.png =700x*)
 
