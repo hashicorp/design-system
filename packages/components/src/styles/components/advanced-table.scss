@@ -418,6 +418,19 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       isolation: isolate;
     }
 
+    &.hds-advanced-table__td--is-being-dragged {
+      position: relative;
+      background-color: var(--token-color-surface-strong);
+      border-color: var(--token-color-surface-strong);
+
+      &::before {
+        position: absolute;
+        background-color: var(--token-color-surface-strong);
+        content: "";
+        inset: 0;
+      }
+    }
+
     // density
 
     .hds-advanced-table--density-short & {

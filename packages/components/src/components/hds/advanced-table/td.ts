@@ -81,6 +81,10 @@ export default class HdsAdvancedTableTd extends Component<HdsAdvancedTableTdSign
       classes.push(`hds-advanced-table__td--align-${this.align}`);
     }
 
+    if (this.column?.isBeingDragged) {
+      classes.push('hds-advanced-table__td--is-being-dragged');
+    }
+
     return classes.join(' ');
   }
 
