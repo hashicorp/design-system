@@ -13,7 +13,7 @@ The Breadcrumb component is composed of three different parts, each with their o
     This controls if the Breadcrumb Items can wrap if they don’t fit within the container.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;breadcrumbs&quot;">
-    Accepts a localized string.
+    Accepts a string.
   </C.Property>
   <C.Property @name="didInsert" @type="function">
     This hook method is called when the component is inserted in the DOM. Internally we use the `did-insert` modifier from `@ember/render-modifiers`.
@@ -50,7 +50,7 @@ The Breadcrumb component is composed of three different parts, each with their o
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="ariaLabel" @type="string" @default="show more">
-    Set on the truncation toggle button. Accepts a localized string.
+    Set on the truncation toggle button. Accepts a string.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded to the content of the [MenuPrimitive](/utilities/menu-primitive) component (used to show/hide the yielded Breadcrumb Items via a "toggle" button).

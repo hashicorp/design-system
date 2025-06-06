@@ -4,7 +4,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="ariaLabel" @type="string" @default="dismiss">
-    Accepts a localized string.
+    Accepts a string.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

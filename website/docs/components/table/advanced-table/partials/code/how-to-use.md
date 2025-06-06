@@ -687,7 +687,7 @@ _Notice: only non-sortable headers can be visually hidden._
 
 #### Internationalized column headers, overflow menu dropdown
 
-Here’s an Advanced Table implementation that uses an array hash with localized strings for the column headers. It indicates which columns should be sortable, and adds an overflow menu.
+Here’s an Advanced Table implementation that uses an array hash with strings for the column headers. It indicates which columns should be sortable, and adds an overflow menu.
 
 ```handlebars{data-execute=false}
 <Hds::AdvancedTable
