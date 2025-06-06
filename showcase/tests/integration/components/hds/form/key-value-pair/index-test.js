@@ -45,9 +45,9 @@ module(
 
           <:footer as |F|>
             <F.AddRowButton />
-            <F.Generic>
-              <span id="footer-generic">Generic content</span>
-            </F.Generic>
+            <F.Alert as |A|>
+              <A.Description>Alert content</A.Description>
+            </F.Alert>
           </:footer>
         </Hds::Form::KeyValuePair>
       `);
@@ -154,8 +154,12 @@ module(
         .exists()
         .hasText('Add row');
       assert
-        .dom('#test-form-key-value-pair #footer-generic')
-        .hasText('Generic content');
+        .dom('#test-form-key-value-pair .hds-alert')
+        .hasText('Alert content');
+      assert
+        .dom('#test-form-key-value-pair .hds-alert')
+        .hasClass('hds-alert--type-compact')
+        .hasClass('hds-alert--color-neutral');
     });
 
     // STYLES
