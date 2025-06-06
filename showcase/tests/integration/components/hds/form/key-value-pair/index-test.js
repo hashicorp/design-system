@@ -158,6 +158,67 @@ module(
         .hasText('Generic content');
     });
 
+    // STYLES
+
+    test('it should set the appropriate column indexes for the generic content and delete row button', async function (assert) {
+      await this.createKeyValuePair({
+        data: [{ value: 'Test value' }, { value: 'Another value' }],
+      });
+
+      assert
+        .dom(
+          '#test-form-key-value-pair .hds-form-key-value-pair__row-delete-button-container',
+        )
+        .hasStyle({ '--hds-key-value-pair-column-index': '3' });
+
+      assert
+        .dom(
+          '#test-form-key-value-pair .hds-form-key-value-pair__yield-container',
+        )
+        .hasStyle({ '--hds-key-value-pair-column-index': '2' });
+    });
+
+    test('it should set the appropriate grid-column-template for the rows with custom widths', async function (assert) {
+      await this.createKeyValuePair({
+        data: [{ value: 'Test value' }, { value: 'Another value' }],
+      });
+
+      assert
+        .dom('#test-form-key-value-pair')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
+    });
+
+    test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
+      this.data = [{ value: 'Test value' }, { value: 'Another value' }];
+      await render(hbs`
+        <Hds::Form::KeyValuePair
+          id="test-form-key-value-pair"
+          @data={{this.data}}
+        >
+          <:row as |R|>
+            <R.Field @width="200px" as |F|>
+               <F.Label>Value</F.Label>
+               <F.HelperText>Helper text</F.HelperText>
+        <F.Textarea @value={{R.rowData.value}} />
+        <F.Error>Error text</F.Error>
+            </R.Field>
+            <R.Generic>
+              <span id="row-generic">Generic content</span>
+            </R.Generic>
+            <R.DeleteRowButton />
+          </:row>
+        </Hds::Form::KeyValuePair>
+      `);
+
+      assert
+        .dom('#test-form-key-value-pair .hds-form-key-value-pair__field')
+        .hasAttribute('data-width', '200px');
+
+      assert
+        .dom('#test-form-key-value-pair')
+        .hasStyle({ '--hds-key-value-pair-columns': '200px auto min-content' });
+    });
+
     // ACCESSIBILITY
 
     test('it should match the label with the input using `for` and `id` attributes', async function (assert) {
