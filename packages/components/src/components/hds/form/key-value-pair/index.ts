@@ -4,28 +4,29 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
 
-import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
-import type { HdsFormLegendSignature } from '../legend/index.ts';
-import type { HdsFormHelperTextSignature } from '../helper-text/index.ts';
-import type { HdsFormErrorSignature } from '../error/index.ts';
-import type { HdsYieldSignature } from '../../yield/index.ts';
-import type { HdsFormKeyValuePairFieldSignature } from './field.ts';
-import type { HdsFormKeyValuePairDeleteRowButtonSignature } from './delete-row-button.ts';
-import type { HdsFormKeyValuePairAddRowButtonSignature } from './add-row-button.ts';
 import {
   ariaDescribedBy,
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import HdsFormErrorComponent from '../error/index.ts';
+import HdsFormHelperTextComponent from '../helper-text/index.ts';
+import HdsFormKeyValuePairDeleteRowButtonComponent from './delete-row-button.ts';
+import HdsFormKeyValuePairFieldComponent from './field.ts';
+import HdsFormKeyValuePairYieldComponent from './yield.ts';
+import HdsFormLegendComponent from '../legend/index.ts';
+
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type { HdsFormKeyValuePairYieldSignature } from './yield.ts';
+import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
+import type { HdsFormKeyValuePairAddRowButtonSignature } from './add-row-button.ts';
+import type { HdsYieldSignature } from '../../yield/index.ts';
 
 const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-pair__field';
 const KEY_VALUE_PAIR_GENERIC_SELECTOR =
@@ -42,17 +43,35 @@ export interface HdsFormKeyValuePairSignature {
   Blocks: {
     header?: [
       {
-        Legend?: ComponentLike<HdsFormLegendSignature>;
-        HelperText?: ComponentLike<HdsFormHelperTextSignature>;
+        Legend?: WithBoundArgs<
+          typeof HdsFormLegendComponent,
+          'contextualClass' | 'isOptional' | 'isRequired' | 'id'
+        >;
+        HelperText?: WithBoundArgs<
+          typeof HdsFormHelperTextComponent,
+          'contextualClass' | 'controlId' | 'onInsert'
+        >;
+        Error?: WithBoundArgs<
+          typeof HdsFormErrorComponent,
+          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
+        >;
         Generic?: ComponentLike<HdsYieldSignature>;
-        Error?: ComponentLike<HdsFormErrorSignature>;
       },
     ];
     row: [
       {
-        Field?: ComponentLike<HdsFormKeyValuePairFieldSignature>;
-        DeleteRowButton?: ComponentLike<HdsFormKeyValuePairDeleteRowButtonSignature>;
-        Generic?: ComponentLike<HdsFormKeyValuePairYieldSignature>;
+        Field?: WithBoundArgs<
+          typeof HdsFormKeyValuePairFieldComponent,
+          'rowIndex' | 'onInsert' | 'onRemove'
+        >;
+        DeleteRowButton?: WithBoundArgs<
+          typeof HdsFormKeyValuePairDeleteRowButtonComponent,
+          'rowIndex' | 'rowData' | 'canDeleteRow'
+        >;
+        Generic?: WithBoundArgs<
+          typeof HdsFormKeyValuePairYieldComponent,
+          'rowIndex' | 'onInsert' | 'onRemove'
+        >;
         rowData?: unknown;
       },
     ];
