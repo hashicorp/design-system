@@ -16,6 +16,7 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import HdsAlertComponent from '../../alert/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormKeyValuePairDeleteRowButtonComponent from './delete-row-button.ts';
@@ -77,7 +78,7 @@ export interface HdsFormKeyValuePairSignature {
     ];
     footer?: [
       {
-        Generic?: ComponentLike<HdsYieldSignature>;
+        Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
         AddRowButton?: ComponentLike<HdsFormKeyValuePairAddRowButtonSignature>;
       },
     ];
