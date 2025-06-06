@@ -27,7 +27,7 @@ The base `AppFooter` component includes a copyright notice. It also wraps and co
     Set the overall theme used by the component and its children.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Footer items&quot;">
-    Accepts a localized string. The `ariaLabel` value is applied to the list of `AppFooter` content.
+    Accepts a string. The `ariaLabel` value is applied to the list of `AppFooter` content.
   </C.Property>
   <C.Property @name="copyrightYear" @type="string" @default="currentYear">
     Pass a custom year value for the `Copyright` instead of the default current year value.
@@ -97,7 +97,7 @@ The `AppFooter::LegalLinks` component, yielded as contextual component.
     Override the default href value with a custom url value.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string" @default="&quot;Legal links&quot;">
-    Accepts a localized string. The `ariaLabel` value is applied to the nested list of included legal links.
+    Accepts a string. The `ariaLabel` value is applied to the nested list of included legal links.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

@@ -15,13 +15,13 @@ This component uses [CodeMirror 6](https://codemirror.net/) under the hood.
     `ContentBlock::Generic` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
-    Accepts a localized string. The `ariaLabel` value is applied to the code editor input element.
+    Accepts a string. The `ariaLabel` value is applied to the code editor input element.
   </C.Property>
   <C.Property @name="ariaLabelledBy" @type="string">
-    Accepts a localized string. The `ariaLabelledBy` value is applied to the code editor input element.
+    Accepts a string. The `ariaLabelledBy` value is applied to the code editor input element.
   </C.Property>
   <C.Property @name="ariaDescribedBy" @type="string">
-    Accepts a localized string. The `ariaDescribedBy` value is applied to the code editor input element.
+    Accepts a string. The `ariaDescribedBy` value is applied to the code editor input element.
   </C.Property>
   <C.Property @name="hasCopyButton" @type="boolean" @default="false">
     Used to control whether a copy button for copying the code/text content will be displayed.

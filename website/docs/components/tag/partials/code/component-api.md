@@ -10,7 +10,7 @@
     The text of the Tag; or link text when the `@route` or `@href` are set. If no text value is defined an error will be thrown.
   </C.Property>
   <C.Property @name="ariaLabel" @type="string">
-    Accepts a localized string; the fallback is set to `Dismiss`. Note that the total value of the `aria-label` attribute is `@ariaLabel` + `@text`.
+    Accepts a string; the fallback is set to `Dismiss`. Note that the total value of the `aria-label` attribute is `@ariaLabel` + `@text`.
   </C.Property>
   <C.Property @name="href">
     URL parameter that’s passed down to the `<a>` element.

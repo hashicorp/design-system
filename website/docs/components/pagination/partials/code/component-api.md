@@ -23,7 +23,7 @@ These Pagination sub-elements may be used directly if you need to cover a very s
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="ariaLabel" @type="string" @default="Pagination">
-    Accepts a localized string.
+    Accepts a string.
 </C.Property>
 <C.Property @name="totalItems" @required={{true}} @type="number">
 Pass the total number of items to be paginated. If no value is defined an error will be thrown.
@@ -70,7 +70,7 @@ This component supports use of [`...attributes`](https://guides.emberjs.com/rele
 
 <Doc::ComponentApi as |C|>
 <C.Property @name="ariaLabel" @type="string" @default="Pagination">
-    Accepts a localized string.
+    Accepts a string.
 </C.Property>
 <C.Property @name="showLabels" @type="boolean" @default="true">
 Used to control the visibility of the "prev/next" text labels.

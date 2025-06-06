@@ -143,7 +143,7 @@ Order multiple Alerts by their importance and impact on the user, starting from 
 
 ## Placing Alerts
 
-`Inline` and `compact` Alerts can have more meaning if they are placed within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards, or where a specific localized message is necessary.
+`Inline` and `compact` Alerts can have more meaning if they are placed within the element that is responsible for the Alert. This can help when it’s necessary to have more than one Alert on the page and is relevant for pages that aggregate content like dashboards, or where a specific message is necessary.
 
 ![Example of multiple Alerts placed to different parts of the UI](/assets/components/alert/combining-contextualized-alerts.png)
 
