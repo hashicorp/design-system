@@ -4,7 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import type { ComponentLike, WithBoundArgs } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { registerDestructor } from '@ember/destroyable';
@@ -16,18 +16,19 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
-import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
-import type { HdsFormSelectBaseSignature } from '../select/base.ts';
-import type { HdsFormFieldSignature } from '../field/index.ts';
-import type { HdsFormTextareaBaseSignature } from '../textarea/base.ts';
-import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type { HdsFormTextInputBaseSignature } from '../text-input/base.ts';
-import type { HdsFormMaskedInputBaseSignature } from '../masked-input/base.ts';
+import HdsFormFileInputBaseComponent from '../file-input/base.ts';
+import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormLabelComponent from '../label/index.ts';
-import type { HdsFormSuperSelectSingleBaseSignature } from '../super-select/single/base.ts';
-import type { HdsFormSuperSelectMultipleBaseSignature } from '../super-select/multiple/base.ts';
-import type { HdsFormFileInputBaseSignature } from '../file-input/base.ts';
+import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
+import HdsFormSelectBaseComponent from '../select/base.ts';
+import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
+import HdsFormSuperSelectSingleBaseComponent from '../super-select/single/base.ts';
+import HdsFormTextareaBaseComponent from '../textarea/base.ts';
+import HdsFormTextInputBaseComponent from '../text-input/base.ts';
+
+import type { HdsFormFieldSignature } from '../field/index.ts';
+import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export interface HdsFormKeyValuePairFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
@@ -56,13 +57,34 @@ export interface HdsFormKeyValuePairFieldSignature {
           typeof HdsFormErrorComponent,
           'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
         >;
-        Select?: ComponentLike<HdsFormSelectBaseSignature>;
-        TextInput?: ComponentLike<HdsFormTextInputBaseSignature>;
-        Textarea?: ComponentLike<HdsFormTextareaBaseSignature>;
-        MaskedInput?: ComponentLike<HdsFormMaskedInputBaseSignature>;
-        SuperSelectSingle?: ComponentLike<HdsFormSuperSelectSingleBaseSignature>;
-        SuperSelectMultiple?: ComponentLike<HdsFormSuperSelectMultipleBaseSignature>;
-        FileInput?: ComponentLike<HdsFormFileInputBaseSignature>;
+        Select?: WithBoundArgs<
+          typeof HdsFormSelectBaseComponent,
+          'isInvalid' | 'id' | 'ariaDescribedBy'
+        >;
+        FileInput?: WithBoundArgs<
+          typeof HdsFormFileInputBaseComponent,
+          'id' | 'ariaDescribedBy'
+        >;
+        MaskedInput?: WithBoundArgs<
+          typeof HdsFormMaskedInputBaseComponent,
+          'id' | 'ariaDescribedBy' | 'isInvalid'
+        >;
+        SuperSelectSingle?: WithBoundArgs<
+          typeof HdsFormSuperSelectSingleBaseComponent,
+          'triggerId' | 'ariaDescribedBy' | 'isInvalid'
+        >;
+        SuperSelectMultiple?: WithBoundArgs<
+          typeof HdsFormSuperSelectMultipleBaseComponent,
+          'triggerId' | 'ariaDescribedBy' | 'isInvalid'
+        >;
+        TextInput?: WithBoundArgs<
+          typeof HdsFormTextInputBaseComponent,
+          'id' | 'ariaDescribedBy' | 'isInvalid'
+        >;
+        Textarea?: WithBoundArgs<
+          typeof HdsFormTextareaBaseComponent,
+          'id' | 'ariaDescribedBy' | 'isInvalid'
+        >;
       },
     ];
   };
