@@ -10,13 +10,11 @@
 <section data-test-percy>
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item
         @label="With Form, FormHeader, FormSections, SectionHeader, FormFields, FormSeparator, and ButtonSet (FormActions)"
@@ -37,7 +35,7 @@
           </Hds::Form::Section>
 
           <Hds::Form::Section>
-            <Hds::Form::FieldGroup>
+            <Hds::Form::FieldGroup @direction="column">
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
             </Hds::Form::FieldGroup>
@@ -76,13 +74,11 @@
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Hds::Form>
       <Hds::Form::Header>
         <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
@@ -232,15 +228,13 @@
 
   <Shw::Text::H3>Form</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
   <Shw::Text::H4>Tag</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item @label="Form using default form tag">
         <Hds::Form>
@@ -262,13 +256,11 @@
 
   <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form>
@@ -284,7 +276,7 @@
       </SG.Item>
 
       <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custon-max-width">
+        <Hds::Form class="shw-component-form-layout-custom-max-width">
           <Hds::Form::Header>
             <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
             <Hds::Text::Body @tag="p" @size="200">
@@ -315,15 +307,13 @@
 
   <Shw::Text::H3>FormSection</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
   <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form>
@@ -336,7 +326,7 @@
       </SG.Item>
 
       <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custon-max-width">
+        <Hds::Form class="shw-component-form-layout-custom-max-width">
           <Hds::Form::Section>
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -359,13 +349,11 @@
 
   <Shw::Text::H3>SectionHeader</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Hds::Form>
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
@@ -384,15 +372,13 @@
 
   <Shw::Text::H3>FormSeparator</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
   <Shw::Text::H4>isFullWidth</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form {{style padding="16px 0"}}>
@@ -401,7 +387,7 @@
       </SG.Item>
 
       <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custon-max-width" {{style padding="16px 0"}}>
+        <Hds::Form class="shw-component-form-layout-custom-max-width" {{style padding="16px 0"}}>
           <Hds::Form::Separator />
         </Hds::Form>
       </SG.Item>
@@ -418,13 +404,11 @@
 
   <Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="within FormSection so it has a maxWidth">
         <Hds::Form>
@@ -438,7 +422,7 @@
       </SG.Item>
 
       <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custon-max-width">
+        <Hds::Form class="shw-component-form-layout-custom-max-width">
           <Hds::Form::Section>
             <Hds::ButtonSet>
               <Hds::Button @text="Submit" type="submit" />
@@ -463,15 +447,13 @@
 
   <Shw::Text::H3>Field Group</Shw::Text::H3>
 
-  <div class="shw-form-button-wrapper-margin">
-    <button type="button" {{on "click" this.toggleHighlight}}>
-      {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-    </button>
-  </div>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
   <Shw::Text::H4>Wrap</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="wrap=false, with equal widths (default)">
         <Hds::Form::Section>
@@ -886,14 +868,14 @@
           All content is full width
         {{/if}}
       </Shw::Label>
-      <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custon-max-width"}}>
+      <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custom-max-width"}}>
         <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
           <Hds::Text::Display @size="400" @tag="h2">Add user</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">Grant access to HCP resources for your team members (this will send them an invite via email). Read more about user permissions in our
             <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
         </Hds::Form::Header>
         <Hds::Form::Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custon-max-width"}}
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
           @isFullWidth={{(if (eq case "fullwidth") true)}}
         >
           <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
@@ -928,7 +910,7 @@
             <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
         </Hds::Form::Header>
         <Hds::Form::Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custon-max-width"}}
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
           @isFullWidth={{(if (eq case "fullwidth") true)}}
         >
           <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
@@ -953,7 +935,7 @@
           </Hds::Form::RadioCard::Group>
         </Hds::Form::Section>
         <Hds::Form::Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custon-max-width"}}
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
           @isFullWidth={{(if (eq case "fullwidth") true)}}
         >
           <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
