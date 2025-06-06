@@ -9,10 +9,7 @@ import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
-import type { ComponentLike } from '@glint/template';
-
-import type { HdsStepperNavStepSignature } from './step';
-import type { HdsStepperNavPanelSignature } from './panel';
+import type { WithBoundArgs } from '@glint/template';
 import { HdsStepperTitleTagValues } from '../types.ts';
 import type {
   HdsStepperTitleTags,
@@ -20,6 +17,8 @@ import type {
   HdsStepperNavStep,
   HdsStepperNavPanelIds,
 } from '../types.ts';
+import HdsStepperNavStepComponent from './step.ts';
+import HdsStepperNavPanelComponent from './panel.ts';
 
 const STEP_ELEMENT_SELECTOR = '.hds-stepper-nav__step-content';
 const PANEL_ELEMENT_SELECTOR = '.hds-stepper-nav__panel';
@@ -37,8 +36,14 @@ export interface HdsStepperNavSignature {
     body?: [];
     default: [
       {
-        Step?: ComponentLike<HdsStepperNavStepSignature>;
-        Panel?: ComponentLike<HdsStepperNavPanelSignature>;
+        Step?: WithBoundArgs<
+          typeof HdsStepperNavStepComponent,
+          'currentStep'
+        >;
+        Panel?: WithBoundArgs<
+          typeof HdsStepperNavPanelComponent,
+          'currentStep'
+        >;
       },
     ];
   };

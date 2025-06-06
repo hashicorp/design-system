@@ -257,9 +257,11 @@
 
   <Shw::Text::H3>Nav::Panel</Shw::Text::H3>
 
-  <Hds::Stepper::Nav::Panel>
-    <Shw::Placeholder @text="Generic content" @height="100" />
-  </Hds::Stepper::Nav::Panel>
+  <Hds::Stepper::Nav @currentStep={{0}} @isInteractive={{false}} @ariaLabel="Nav panel" as |S|>
+    <S.Panel>
+      <Shw::Placeholder @text="Generic content" @height="100" />
+    </S.Panel>
+  </Hds::Stepper::Nav>
 
   <Shw::Divider />
 
@@ -382,7 +384,13 @@
 
   <Shw::Grid @gap="3rem" @columns={{1}} as |SG|>
     <SG.Item @label="Contextual components">
-      <Hds::Stepper::Nav @titleTag="h4" @currentStep={{1}} @isInteractive={{false}} as |S|>
+      <Hds::Stepper::Nav
+        @titleTag="h4"
+        @currentStep={{1}}
+        @isInteractive={{false}}
+        @ariaLabel="Contextual components"
+        as |S|
+      >
         <S.Step>
           <:title>Title</:title>
           <:description>Description</:description>
