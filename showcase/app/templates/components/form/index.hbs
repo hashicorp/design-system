@@ -139,7 +139,7 @@
         </Hds::Form::Textarea::Field>
       </Hds::Form::Section>
 
-      <Hds::Form::Section @isFullWidth={{true}}>
+      <Hds::Form::Section @isFullWidth={{true}} @hasBorder={{true}}>
         <Hds::Form::Section::Header>
           <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
@@ -341,6 +341,34 @@
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
         </Hds::Form::Section>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>hasBorder</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="hasBorder=false (default)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasBorder=true">
+        <Hds::Form>
+          <Hds::Form::Section @hasBorder={{true}}>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
       </SG.Item>
     </Shw::Grid>
   </div>
