@@ -18,6 +18,21 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   // Options
 
+  // hasBorder
+  test(`it should not have a border by default`, async function (assert) {
+    await render(hbs`<Hds::Form::Section id="test-form-section" />`);
+    assert
+      .dom('#test-form-section')
+      .doesNotHaveClass('hds-form__section--has-border');
+  });
+
+  test(`it should have a border if @hasBorder is true`, async function (assert) {
+    await render(
+      hbs`<Hds::Form::Section id="test-form-section" @hasBorder={{true}} />`,
+    );
+    assert.dom('#test-form-section').hasClass('hds-form__section--has-border');
+  });
+
   // isFullWidth
   test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
     await render(hbs`<Hds::Form::Section id="test-form-section" />`);
