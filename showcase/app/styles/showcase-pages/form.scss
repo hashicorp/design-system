@@ -1,0 +1,64 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM LAYOUT
+
+body.components-form {
+  .shw-component-form-layout-button-highlight {
+    display: block;
+    margin: 24px 0;
+  }
+
+  .shw-component-form-layout-highlight-elements {
+    .hds-form {
+      background-color: #f6fcff;
+      outline: 1px dashed #78909c;
+    }
+
+    .hds-form__header,
+    .hds-form__section,
+    .hds-button-set {
+      outline: 1px dashed #78909c;
+    }
+
+    .hds-form__header,
+    .hds-form__section,
+    .hds-button-set {
+      background: #d2f4ff;
+    }
+
+    .hds-form__section-header {
+      background: #add8e6;
+    }
+
+    .hds-form__section {
+      background: #d2f4ff;
+
+      > *[class*="hds-form"] {
+        background: #bfecfb;
+      }
+    }
+
+    .hds-form__section-field-group {
+      background: #bfecfb;
+
+      > * {
+        background: #add8e6;
+      }
+    }
+  }
+
+  .shw-component-form-layout-custom-max-width {
+    // we use Cloud UI as an example
+    // see: https://github.com/hashicorp/cloud-ui/blob/main/addons/core/package/src/styles/core/_overrides.scss#L69-L76
+    --hds-form-section-max-width: 32em;
+  }
+
+  .shw-component-form-layout-examples-wrapper {
+    > .shw-label {
+      margin-bottom: 16px;
+    }
+  }
+}

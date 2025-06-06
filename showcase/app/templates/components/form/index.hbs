@@ -1,0 +1,1053 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Form Component"}}
+
+<Shw::Text::H1>Form / Layout components</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item
+        @label="With Form, FormHeader, FormSections, SectionHeader, FormFields, FormSeparator, and ButtonSet (FormActions)"
+      >
+        <Hds::Form>
+          <Hds::Form::Header>
+            <Shw::Placeholder @height="75px" @text="FormHeader" @background="#e5ffd2" />
+          </Hds::Form::Header>
+
+          <Hds::Form::Section>
+            <Hds::Form::Section::Header>
+              <Shw::Placeholder @height="50px" @text="SectionHeader" @background="#add8e6" />
+            </Hds::Form::Section::Header>
+
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup @direction="column">
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
+            </Hds::Form::Section::FieldGroup>
+
+            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+              <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
+              <Shw::Placeholder
+                @height="2.4em"
+                @width="auto"
+                {{style padding="0 1em"}}
+                @text="FieldGroup FormField 2"
+                @background="#add8e6"
+              />
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+
+          <Hds::Form::Separator />
+
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+
+          <Hds::Form::Section>
+            <Hds::ButtonSet>
+              <Shw::Placeholder @height="2.25rem" @text="ButtonSet wrapped in Section" @background="#fff8d2" />
+            </Hds::ButtonSet>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Hds::Form>
+      <Hds::Form::Header>
+        <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+        <Hds::Text::Body @tag="p" @size="200">
+          Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+          facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
+          obcaecati consequatur tenetur.
+        </Hds::Text::Body>
+      </Hds::Form::Header>
+
+      <Hds::Form::Section>
+        <Hds::Alert @type="inline" @color="critical" as |A|>
+          <A.Title @tag="h2">Form submission error</A.Title>
+          <A.Description>Correct the formatting of the following fields to update your user profile:</A.Description>
+          <A.Description>
+            <Hds::Link::Inline @href="#" @color="secondary">Expiration date</Hds::Link::Inline>
+          </A.Description>
+        </Hds::Alert>
+      </Hds::Form::Section>
+
+      <Hds::Form::Section>
+        <Hds::Form::Section::Header>
+          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </Hds::Form::Section::Header>
+
+        <Hds::Form::TextInput::Field name="field-1-name" as |F|>
+          <F.Label>Field 1</F.Label>
+        </Hds::Form::TextInput::Field>
+
+        <Hds::Form::Radio::Group @layout="horizontal" @name="field-2-name" as |G|>
+          <G.Legend>Field 2</G.Legend>
+          <G.RadioField as |F|>
+            <F.Label>Option 1</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>Option 2</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>Option 3</F.Label>
+          </G.RadioField>
+        </Hds::Form::Radio::Group>
+
+        <Hds::Form::Select::Field name="field-3-name" as |F|>
+          <F.Label>Field 3</F.Label>
+          <F.Options>
+            <option value="Kubernetes">Kubernetes</option>
+            <option value="Other" selected>Selected</option>
+          </F.Options>
+        </Hds::Form::Select::Field>
+
+        <Hds::Form::Textarea::Field name="field-4-name" as |F|>
+          <F.Label>Field 4</F.Label>
+        </Hds::Form::Textarea::Field>
+      </Hds::Form::Section>
+
+      <Hds::Form::Section @isFullWidth={{true}} @hasBorder={{true}}>
+        <Hds::Form::Section::Header>
+          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </Hds::Form::Section::Header>
+
+        <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
+          <G.Legend>Group legend</G.Legend>
+          {{#each @model.RADIOCARDS_GENERIC as |item|}}
+            <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
+              <R.Icon @name="hexagon" />
+              <R.Label>{{item.label}}</R.Label>
+              <R.Badge @text={{item.badge}} />
+              <R.Description>{{item.description}}</R.Description>
+            </G.RadioCard>
+          {{/each}}
+        </Hds::Form::RadioCard::Group>
+      </Hds::Form::Section>
+
+      <Hds::Form::Section>
+        <Hds::Form::Checkbox::Group @name="field-5-name" as |G|>
+          <G.Legend>Field 5</G.Legend>
+          <G.CheckboxField as |F|>
+            <F.Label>Option 1</F.Label>
+          </G.CheckboxField>
+          <G.CheckboxField as |F|>
+            <F.Label>Option 2</F.Label>
+          </G.CheckboxField>
+          <G.CheckboxField as |F|>
+            <F.Label>Option 3</F.Label>
+          </G.CheckboxField>
+        </Hds::Form::Checkbox::Group>
+
+        <Hds::Form::FileInput::Field name="field-6-name" as |F|>
+          <F.Label>Field 6</F.Label>
+        </Hds::Form::FileInput::Field>
+
+        <Hds::Form::Toggle::Group as |G|>
+          <G.Legend>Field 7 Legend</G.Legend>
+          <G.ToggleField name="field-7-name" @id="field-7-name" as |F|>
+            <F.Label>Field 7</F.Label>
+            <F.HelperText>Helper text lorem ipsum dolor sit amet consectetur adipisicing elit praesentium.</F.HelperText>
+          </G.ToggleField>
+        </Hds::Form::Toggle::Group>
+      </Hds::Form::Section>
+
+      <Hds::Form::Separator />
+
+      <Hds::Form::Section>
+        <Hds::Form::Section::FieldGroup>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Field group 1, field 1</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+          </Hds::Form::TextInput::Field>
+
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Field group 1, field 2</F.Label>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::Section::FieldGroup>
+
+        <Hds::Form::Section::FieldGroup @wrap={{true}}>
+          <Hds::Form::TextInput::Field as |F|>
+            <F.Label>Field group 2, field 1</F.Label>
+          </Hds::Form::TextInput::Field>
+          <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
+            <F.Label>Field group 2, field 2</F.Label>
+          </Hds::Form::Toggle::Field>
+        </Hds::Form::Section::FieldGroup>
+      </Hds::Form::Section>
+
+      <Hds::Form::Section>
+        <Hds::ButtonSet>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </Hds::ButtonSet>
+      </Hds::Form::Section>
+    </Hds::Form>
+  </div>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Components</Shw::Text::H2>
+
+  <Shw::Text::H3>Form</Shw::Text::H3>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <Shw::Text::H4>Tag</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
+      <SG.Item @label="Form using default form tag">
+        <Hds::Form>
+          <Shw::Placeholder @height="50px" @text="Form" />
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="Form using div tag">
+        <Hds::Form @tag="div">
+          <Shw::Placeholder @height="50px" @text="Form" />
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>FormHeader</Shw::Text::H3>
+
+  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="isFullWidth=false (default)">
+        <Hds::Form>
+          <Hds::Form::Header>
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </Hds::Form::Header>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+        <Hds::Form class="shw-component-form-layout-custom-max-width">
+          <Hds::Form::Header>
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </Hds::Form::Header>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="isFullWidth=true">
+        <Hds::Form>
+          <Hds::Form::Header @isFullWidth={{true}}>
+            <Hds::Text::Display @size="400">Form Header title</Hds::Text::Display>
+            <Hds::Text::Body @tag="p" @size="200">
+              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
+              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+              dolor obcaecati consequatur tenetur.
+            </Hds::Text::Body>
+          </Hds::Form::Header>
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>FormSection</Shw::Text::H3>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="isFullWidth=false (default)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+        <Hds::Form class="shw-component-form-layout-custom-max-width">
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="isFullWidth=true">
+        <Hds::Form::Section @hisFullWidth={{true}}>
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+        </Hds::Form::Section>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>hasBorder</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="hasBorder=false (default)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="hasBorder=true">
+        <Hds::Form>
+          <Hds::Form::Section @hasBorder={{true}}>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="Bordered Section nested in another bordered Section">
+        <Hds::Form>
+          <Hds::Form::Section @hasBorder={{true}}>
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+
+            <Hds::Form::Section @hasBorder={{true}}>
+              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            </Hds::Form::Section>
+
+            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>SectionHeader</Shw::Text::H3>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Hds::Form>
+      <Hds::Form::Section>
+        <Hds::Form::Section::Header>
+          <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">
+            Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </Hds::Text::Body>
+        </Hds::Form::Section::Header>
+      </Hds::Form::Section>
+    </Hds::Form>
+  </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>Section FieldGroup</Shw::Text::H3>
+
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <Shw::Text::H4>Wrap</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="wrap=false, with equal widths (default)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 1</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+              </Hds::Form::TextInput::Field>
+
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 2</F.Label>
+              </Hds::Form::TextInput::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="with mixed widths (80% & 20%)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup as |FG|>
+              <FG.Item @basis="80%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 1</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
+
+              <FG.Item @basis="20%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 2</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="with one error">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 1</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+              </Hds::Form::TextInput::Field>
+
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 2</F.Label>
+                <F.Error>This is a field-level error</F.Error>
+              </Hds::Form::TextInput::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="with two errors">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 1</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+              </Hds::Form::TextInput::Field>
+
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 2</F.Label>
+                <F.Error>This is a field-level error.</F.Error>
+                <F.Error>Yet another error example for a total of two.</F.Error>
+              </Hds::Form::TextInput::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label=" with 3 fields of equal width">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 1</F.Label>
+              </Hds::Form::TextInput::Field>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 2</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+              </Hds::Form::TextInput::Field>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Control 3</F.Label>
+              </Hds::Form::TextInput::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="3 fields, mix of widths (1/3, auto, & 6em)">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup as |FG|>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>City</F.Label>
+              </Hds::Form::TextInput::Field>
+
+              <FG.Item @basis="auto">
+                <Hds::Form::Select::Field as |F|>
+                  <F.Label>State</F.Label>
+                  <F.Options>
+                    <option value="state-1">Ohio</option>
+                    <option value="state-2">Massachusetts</option>
+                    <option value="state-3">Washington</option>
+                    <option value="state-4">Florida</option>
+                    <option value="state-4">North Carolina</option>
+                  </F.Options>
+                </Hds::Form::Select::Field>
+              </FG.Item>
+
+              <Hds::Form::TextInput::Field @width="6em" as |F|>
+                <F.Label>Zip</F.Label>
+              </Hds::Form::TextInput::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="wrap=true">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Field 1</F.Label>
+              </Hds::Form::TextInput::Field>
+              <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
+                <F.Label>Field 2</F.Label>
+              </Hds::Form::Toggle::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="wrap=true w/ helper text & errors">
+        <Hds::Form>
+          <Hds::Form::Section>
+            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+              <Hds::Form::TextInput::Field as |F|>
+                <F.Label>Field 1</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+                <F.Error>This is a field-level error.</F.Error>
+              </Hds::Form::TextInput::Field>
+              <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
+                <F.Label>Field 2</F.Label>
+                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
+                <F.Error>This is a field-level error.</F.Error>
+              </Hds::Form::Toggle::Field>
+            </Hds::Form::Section::FieldGroup>
+          </Hds::Form::Section>
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
+</section>
+
+<Shw::Divider @level={{2}} />
+
+<Shw::Text::H3>FormSeparator</Shw::Text::H3>
+
+<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+</button>
+
+<Shw::Text::H4>isFullWidth</Shw::Text::H4>
+
+<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+    <SG.Item @label="isFullWidth=false (default)">
+      <Hds::Form {{style padding="16px 0"}}>
+        <Hds::Form::Separator />
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+      <Hds::Form class="shw-component-form-layout-custom-max-width" {{style padding="16px 0"}}>
+        <Hds::Form::Separator />
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="isFullWidth=true">
+      <Hds::Form {{style padding="16px 0"}}>
+        <Hds::Form::Separator @isFullWidth={{true}} />
+      </Hds::Form>
+    </SG.Item>
+  </Shw::Grid>
+</div>
+
+<Shw::Divider @level={{2}} />
+
+<Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
+
+<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+</button>
+
+<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+    <SG.Item @label="within FormSection so it has a maxWidth">
+      <Hds::Form>
+        <Hds::Form::Section>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+      <Hds::Form class="shw-component-form-layout-custom-max-width">
+        <Hds::Form::Section>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="not within FormSection so it is full width">
+      <Hds::Form>
+        <Hds::ButtonSet @isFullWidth={{true}}>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </Hds::ButtonSet>
+      </Hds::Form>
+    </SG.Item>
+  </Shw::Grid>
+</div>
+
+<Shw::Divider />
+
+<Shw::Text::H2>Responsiveness</Shw::Text::H2>
+
+<Shw::Text::H3>Basic form</Shw::Text::H3>
+
+<Shw::Frame
+  @id="demo-form-layout-large-viewports"
+  @src="/components/form/frameless/demo-responsiveness"
+  @height="550"
+  @label="Large viewport - simple form"
+/>
+
+<Shw::Frame
+  @id="demo-form-layout-small-viewports"
+  @src="/components/form/frameless/demo-responsiveness"
+  @width="479"
+  @height="850"
+  @label="Small viewport (< 480px) - simple form"
+/>
+
+<Shw::Text::H3>Complex form</Shw::Text::H3>
+
+<Shw::Frame
+  @id="demo-form-layout-large-viewports-complex"
+  @src="/components/form/frameless/demo-responsiveness-complex"
+  @height="550"
+  @label="Large viewport - complex form"
+/>
+<Shw::Frame
+  @id="demo-form-layout-small-viewports-complex"
+  @src="/components/form/frameless/demo-responsiveness-complex"
+  @width="479"
+  @height="850"
+  @label="Small viewport (< 480px) - complex form"
+/>
+
+<Shw::Divider />
+
+<section class="shw-component-form-layout-examples-wrapper" data-test-percy>
+  <Shw::Text::H2>Examples of forms</Shw::Text::H2>
+
+  <Shw::Text::H4 @tag="h3">Simple forms</Shw::Text::H4>
+
+  <Shw::Label>With just fields</Shw::Label>
+
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
+        <F.Label>Group name</F.Label>
+        <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-), and
+          underscores (_).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::TextInput::Field @isOptional={{true}} as |F|>
+        <F.Label>Group description</F.Label>
+        <F.HelperText>A brief description can help others understand this group's purpose</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </Hds::Form::Section>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Label>With just fields and actions</Shw::Label>
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
+        <F.Label>Project name</F.Label>
+        <F.HelperText>
+          <ul {{style margin="0" padding-left="15px"}}>
+            <li>Valid characters include ASCII letters, numbers, spaces, as well as dashes (-), and underscores (_).</li>
+            <li>Cannot begin or end with spaces.</li>
+          </ul>
+        </F.HelperText>
+        <F.CharacterCount @minLength={{3}} />
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+        <F.Label>Project description</F.Label>
+        <F.HelperText>Help others understand what this project's purpose is</F.HelperText>
+        <F.CharacterCount @maxLength={{256}} />
+      </Hds::Form::Textarea::Field>
+    </Hds::Form::Section>
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Create project" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Label>With extra alert before the actions</Shw::Label>
+  <Hds::Form>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
+        <F.Label>Cluster name</F.Label>
+        <F.HelperText>Provide a meaningful name for your cluster</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::Select::Field as |F|>
+        <F.Label>Cluster type</F.Label>
+        <F.HelperText>What type of cluster do you need</F.HelperText>
+        <F.Options>
+          <option value=""></option>
+          <option value="foo">foo</option>
+          <option value="bar">bar</option>
+          <option value="baz">baz</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+    </Hds::Form::Section>
+
+    <Hds::Alert @color="highlight" @icon="info-fill" @type="compact" as |A|>
+      <A.Description>Clusters are scoped to a single project for now and cannot connect to other clusters in other
+        projects.</A.Description>
+    </Hds::Alert>
+
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Create cluster" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Forms with headers</Shw::Text::H4>
+
+  <Shw::Label>Main header with title/description</Shw::Label>
+  <Hds::Form>
+    <Hds::Form::Header>
+      <Hds::Text::Display @size="400" @tag="h2">Auth Token TTL</Hds::Text::Display>
+      <Hds::Text::Body @tag="p" @size="200">Edit the auth token TTL issued by Boundary controllers. Changes are not
+        immediate, and will only affect new sessions.</Hds::Text::Body>
+    </Hds::Form::Header>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
+        <F.Label>Time to Live</F.Label>
+        <F.HelperText>Maximum time to live for all auth tokens, globally, in hours (defaults to {ttl}).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::TextInput::Field @isOptional={{true}} as |F|>
+        <F.Label>Time to Stale</F.Label>
+        <F.HelperText>Maximum time for inactivity for all auth tokens, globally, in hours (defaults to 24 hours).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </Hds::Form::Section>
+    <Hds::ButtonSet>
+      <Hds::Button @color="primary" @text="Save" type="submit" />
+      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+    </Hds::ButtonSet>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Label>Main header + section headers</Shw::Label>
+  <Hds::Form>
+    <Hds::Form::Header>
+      <Hds::Text::Display @size="400" @tag="h2">Cluster details</Hds::Text::Display>
+      <Hds::Alert @icon="info-fill" @type="compact" as |A|>
+        <A.Description>You are creating a stand-alone cluster. If you want to create a secondary cluster in a federated
+          set of clusters, go to the primary cluster and select the Federation tab.</A.Description>
+      </Hds::Alert>
+    </Hds::Form::Header>
+    <Hds::Form::Section>
+      <Hds::Form::Separator />
+      <Hds::Form::Section::Header>
+        <Hds::Text::Display @size="300" @tag="h3">Cluster customization</Hds::Text::Display>
+      </Hds::Form::Section::Header>
+      <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
+        <F.Label>Cluster ID</F.Label>
+        <F.HelperText>Must be a unique set of 3-36 characters. May include numbers, hyphens, and lowercase letters. Must
+          start with a letter and end with a letter or number.</F.HelperText>
+        <F.CharacterCount @minLength={{3}} @maxLength={{36}} />
+      </Hds::Form::TextInput::Field>
+      <Hds::Alert @icon="info-fill" @type="compact" as |A|>
+        <A.Description>We’d like your feedback on our cluster tiers, size, and billing plan offerings. Provide your
+          feedback
+          <Hds::Link::Inline @href="#">here</Hds::Link::Inline></A.Description>
+      </Hds::Alert>
+      <Hds::Form::Select::Field @isRequired={{true}} as |F|>
+        <F.Label>Cluster tier</F.Label>
+        <F.HelperText>Compare features across tiers in more detail in
+          <Hds::Link::Inline @href="#">our documentation</Hds::Link::Inline>.</F.HelperText>
+        <F.Options>
+          <option value="development">Development</option>
+          <option value="standard">Standard</option>
+          <option value="plus">Plus</option>
+        </F.Options>
+      </Hds::Form::Select::Field>
+      <Hds::Form::Separator />
+      <Hds::Form::Section::Header>
+        <Hds::Text::Display @size="300" @tag="h3">Cluster accessibility</Hds::Text::Display>
+        <Hds::Text::Body @tag="p">Configure network access to your cluster. Internal (RPC and Gossip) communication is
+          always secure to Consul servers over a private peering or a transit gateway connection. For increased
+          security, limit the IP addresses allowed to connect using the “Allow select IPs only” section below.</Hds::Text::Body>
+      </Hds::Form::Section::Header>
+      <Hds::Form::Radio::Group as |G|>
+        <G.RadioField checked={{true}} as |F|>
+          <F.Label>Private</F.Label>
+          <F.HelperText>Most secure, the clusters endpoint is private and not accessible to the public internet, only
+            connected networks have access to the cluster's endpoint via HTTPS or gRPC.</F.HelperText>
+        </G.RadioField>
+        <G.RadioField as |F|>
+          <F.Label>Public</F.Label>
+          <F.HelperText>Less secure, the clusters endpoint is accessible from any connection outside of your network via
+            HTTPS.</F.HelperText>
+        </G.RadioField>
+      </Hds::Form::Radio::Group>
+      <Hds::Form::Toggle::Field as |F|>
+        <F.Label>Allow select IPs only</F.Label>
+        <F.HelperText>When enabled, any address ranges not included in the IP allowlist will be denied network access.
+          Input up to 3 IPV4 address ranges in CIDR notation.</F.HelperText>
+      </Hds::Form::Toggle::Field>
+    </Hds::Form::Section>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Forms with different types of content</Shw::Text::H4>
+
+  <Shw::Label>Mixed section widths</Shw::Label>
+  <Hds::Form>
+    <Hds::Form::Header>
+      <Hds::Text::Display @size="400" @tag="h2">Add policy</Hds::Text::Display>
+      <Hds::Text::Body @tag="p" @size="200">Please specify which policy you would like to assign to your cluster. Read
+        more about policies in our
+        <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
+    </Hds::Form::Header>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field as |F|>
+        <F.Label>Secret ID</F.Label>
+        <F.HelperText>Create a token within your self-managed cluster and attach only the "builtin/global-read-only"
+          policy to it. Once complete, save the token, copy its secret ID from the token list, and insert it below.</F.HelperText>
+      </Hds::Form::TextInput::Field>
+    </Hds::Form::Section>
+    <Hds::Form::Section @isFullWidth={{true}}>
+      <Hds::Form::RadioCard::Group @alignment="center" as |G|>
+        <G.Legend>Policy framework</G.Legend>
+        {{#each @model.RADIOCARDS_PRODUCTS as |item|}}
+          <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
+            <R.Icon @name={{item.icon}} />
+            <R.Label>{{item.label}}</R.Label>
+            {{#if item.badge}}
+              <R.Badge @text={{item.badge}} @color="highlight" />
+            {{/if}}
+            <R.Description>{{item.description}}</R.Description>
+          </G.RadioCard>
+        {{/each}}
+      </Hds::Form::RadioCard::Group>
+    </Hds::Form::Section>
+    <Hds::Form::Section>
+      <Hds::Form::TextInput::Field as |F|>
+        <F.Label>Policy set name</F.Label>
+        <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-), and
+          underscores (_).</F.HelperText>
+      </Hds::Form::TextInput::Field>
+      <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+        <F.Label>Description</F.Label>
+        <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
+        <F.CharacterCount @maxLength={{256}} />
+      </Hds::Form::Textarea::Field>
+    </Hds::Form::Section>
+    <Hds::Layout::Flex @gap="24" @align="center">
+      <Hds::ButtonSet>
+        <Hds::Button @color="primary" @text="Save" type="submit" />
+        <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      </Hds::ButtonSet>
+      <Hds::Alert @type="compact" @color="highlight" as |A|>
+        <A.Description>Only visible to users with permission to create and manage policies at organization or project
+          level.</A.Description>
+      </Hds::Alert>
+    </Hds::Layout::Flex>
+  </Hds::Form>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4 @tag="h3">Custom widths</Shw::Text::H4>
+
+  {{#let (array "form" "section" "field" "section+field" "fullwidth") as |cases|}}
+    {{#each cases as |case|}}
+
+      <Shw::Label>
+        {{#if (eq case "form")}}
+          Custom width set via local CSS class at form level
+        {{else if (eq case "section")}}
+          Custom width set via local CSS class only at section level (not at header/separator)
+        {{else if (eq case "field")}}
+          Custom width set directly on field
+        {{else if (eq case "section+field")}}
+          Custom width set directly on field
+        {{else if (eq case "fullwidth")}}
+          All content is full width
+        {{/if}}
+      </Shw::Label>
+      <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custom-max-width"}}>
+        <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
+          <Hds::Text::Display @size="400" @tag="h2">Add user</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">Grant access to HCP resources for your team members (this will send them
+            an invite via email). Read more about user permissions in our
+            <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
+        </Hds::Form::Header>
+        <Hds::Form::Section
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
+          @isFullWidth={{(if (eq case "fullwidth") true)}}
+        >
+          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
+            <F.Label>Email address for user</F.Label>
+          </Hds::Form::TextInput::Field>
+          <Hds::Form::Toggle::Field {{on "change" (fn this.toggleDemoCustomWidthsStatus case)}} as |F|>
+            <F.Label>Assign this user an organization role</F.Label>
+            <F.HelperText>Users without organization roles cannot view or edit anything inside this organization until
+              project-level or workspace-level roles are assigned to them after they accept their invitation.</F.HelperText>
+          </Hds::Form::Toggle::Field>
+          {{#if (get this.showDemoCustomWidthsToggleContent case)}}
+            <Hds::Layout::Flex @align="end" @gap="16">
+              <Hds::Form::Select::Field as |F|>
+                <F.Label>Select an organization role</F.Label>
+                <F.Options>
+                  <option value="admin">Admin</option>
+                  <option value="browser">Browser</option>
+                  <option value="contributor">Contributor</option>
+                  <option selected="true" value="viewer">Viewer</option>
+                </F.Options>
+              </Hds::Form::Select::Field>
+            </Hds::Layout::Flex>
+          {{/if}}
+        </Hds::Form::Section>
+
+        <Hds::Form::Separator @isFullWidth={{(if (eq case "fullwidth") true)}} />
+
+        <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
+          <Hds::Text::Display @size="400" @tag="h2">Add policy</Hds::Text::Display>
+          <Hds::Text::Body @tag="p" @size="200">Please specify which policy you would like to assign to your cluster.
+            Read more about policies in our
+            <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
+        </Hds::Form::Header>
+        <Hds::Form::Section
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
+          @isFullWidth={{(if (eq case "fullwidth") true)}}
+        >
+          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
+            <F.Label>Secret ID</F.Label>
+            <F.HelperText>Create a token within your self-managed cluster and attach only the "builtin/global-read-only"
+              policy to it. Once complete, save the token, copy its secret ID from the token list, and insert it below.</F.HelperText>
+          </Hds::Form::TextInput::Field>
+        </Hds::Form::Section>
+        <Hds::Form::Section @isFullWidth={{true}}>
+          <Hds::Form::RadioCard::Group @alignment="center" as |G|>
+            <G.Legend>Policy framework</G.Legend>
+            {{#each @model.RADIOCARDS_PRODUCTS as |item|}}
+              <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
+                <R.Icon @name={{item.icon}} />
+                <R.Label>{{item.label}}</R.Label>
+                {{#if item.badge}}
+                  <R.Badge @text={{item.badge}} @color="highlight" />
+                {{/if}}
+                <R.Description>{{item.description}}</R.Description>
+              </G.RadioCard>
+            {{/each}}
+          </Hds::Form::RadioCard::Group>
+        </Hds::Form::Section>
+        <Hds::Form::Section
+          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
+          @isFullWidth={{(if (eq case "fullwidth") true)}}
+        >
+          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
+            <F.Label>Policy set name</F.Label>
+            <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-),
+              and underscores (_).</F.HelperText>
+          </Hds::Form::TextInput::Field>
+          <Hds::Form::Textarea::Field
+            @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}}
+            @isOptional={{true}}
+            as |F|
+          >
+            <F.Label>Description</F.Label>
+            <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
+            <F.CharacterCount @maxLength={{256}} />
+          </Hds::Form::Textarea::Field>
+        </Hds::Form::Section>
+        <Hds::Layout::Flex @gap="24" @align="center">
+          <Hds::ButtonSet>
+            <Hds::Button @color="primary" @text="Save" type="submit" />
+            <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+          </Hds::ButtonSet>
+          <Hds::Alert @type="compact" @color="highlight" as |A|>
+            <A.Description>Only visible to users with permission to create and manage policies at organization or
+              project level.</A.Description>
+          </Hds::Alert>
+        </Hds::Layout::Flex>
+      </Hds::Form>
+      <Shw::Divider @level={{2}} />
+
+    {{/each}}
+  {{/let}}
+
+</section>

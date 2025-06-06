@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#if (eq this.tag "form")}}
+  <form class="hds-form" ...attributes>
+    {{yield}}
+  </form>
+{{else}}
+  <div class="hds-form" ...attributes>
+    {{yield}}
+  </div>
+{{/if}}
