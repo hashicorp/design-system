@@ -56,7 +56,15 @@ body.components-form {
     }
   }
 
-  .shw-form-custon-max-width {
-    --hds-form-section-max-width: 44em;
+  .shw-component-form-layout-custon-max-width {
+    // we use Cloud UI as an example
+    // see: https://github.com/hashicorp/cloud-ui/blob/main/addons/core/package/src/styles/core/_overrides.scss#L69-L76
+    --hds-form-section-max-width: 32em;
+  }
+
+  .shw-component-form-layout-examples-wrapper {
+    > .shw-label {
+      margin-bottom: 16px;
+    }
   }
 }
