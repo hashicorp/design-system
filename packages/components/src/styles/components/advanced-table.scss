@@ -448,6 +448,19 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       isolation: isolate;
     }
 
+    &.hds-advanced-table__td--is-being-dragged {
+      position: relative;
+      background-color: var(--token-color-surface-strong);
+      border-color: var(--token-color-surface-strong);
+
+      &::before {
+        position: absolute;
+        background-color: var(--token-color-surface-strong);
+        content: "";
+        inset: 0;
+      }
+    }
+
     // density
 
     .hds-advanced-table--density-short & {
