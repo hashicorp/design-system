@@ -68,6 +68,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @tracked private _shouldTrapFocus = false;
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
+  @tracked private _dragCount = 0;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -173,6 +174,28 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action
   handleDragOver(event: DragEvent): void {
     event.preventDefault();
+  }
+
+  @action
+  handleDragEnter(event: DragEvent): void {
+    event.preventDefault();
+
+    this._dragCount = this._dragCount + 1;
+
+    if (this._dragCount === 1) {
+      console.log('entering');
+    }
+  }
+
+  @action
+  handleDragLeave(event: DragEvent): void {
+    event.preventDefault();
+
+    this._dragCount = this._dragCount - 1;
+
+    if (this._dragCount === 0) {
+      console.log('leaving');
+    }
   }
 
   @action
