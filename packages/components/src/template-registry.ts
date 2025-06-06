@@ -106,7 +106,6 @@ import type HdsFormCheckboxGroupComponent from './components/hds/form/checkbox/g
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
-import type HdsFormFieldGroupComponent from './components/hds/form/field-group';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
@@ -125,6 +124,7 @@ import type HdsFormRadioCardDescriptionComponent from './components/hds/form/rad
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
 import type HdsFormSectionComponent from './components/hds/form/section';
+import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group/index.ts';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
@@ -585,10 +585,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Field': typeof HdsFormFieldComponent;
   'hds/form/field': typeof HdsFormFieldComponent;
 
-  // Form FieldGroup
-  'Hds::Form::FieldGroup': typeof HdsFormFieldGroupComponent;
-  'hds/form/field-group': typeof HdsFormFieldGroupComponent;
-
   // Form Fieldset
   'Hds::Form::Fieldset': typeof HdsFormFieldsetComponent;
   'hds/form/fieldset': typeof HdsFormFieldsetComponent;
@@ -653,6 +649,10 @@ export default interface HdsComponentsRegistry {
   // Form Section
   'Hds::Form::Section': typeof HdsFormSectionComponent;
   'hds/form/section': typeof HdsFormSectionComponent;
+
+  // Form Section FieldGroup
+  'Hds::Form::Section::FieldGroup': typeof HdsFormSectionFieldGroupComponent;
+  'hds/form/section/field-group': typeof HdsFormSectionFieldGroupComponent;
 
   // Form Section Header
   'Hds::Form::Section::Header': typeof HdsFormSectionHeaderComponent;
