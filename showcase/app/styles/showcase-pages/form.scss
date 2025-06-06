@@ -6,11 +6,12 @@
 // FORM LAYOUT
 
 body.components-form {
-  .shw-form-button-wrapper-margin {
+  .shw-component-form-layout-button-highlight {
+    display: block;
     margin: 24px 0;
   }
 
-  .shw-component-form-layout-highlight {
+  .shw-component-form-layout-highlight-elements {
     .hds-form {
       background-color: #f6fcff;
       outline: 1px dashed #78909c;
@@ -49,14 +50,7 @@ body.components-form {
     }
   }
 
-  .hds-form {
-    // Add padding if there's only a single separator
-    &:has(.hds-form__separator:only-child) {
-      padding: 16px 0;
-    }
-  }
-
-  .shw-component-form-layout-custon-max-width {
+  .shw-component-form-layout-custom-max-width {
     // we use Cloud UI as an example
     // see: https://github.com/hashicorp/cloud-ui/blob/main/addons/core/package/src/styles/core/_overrides.scss#L69-L76
     --hds-form-section-max-width: 32em;
