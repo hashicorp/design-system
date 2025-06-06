@@ -104,7 +104,10 @@
 
   <div class="hds-form-key-value-pair__footer">
     {{yield
-      (hash Generic=(component "hds/yield") AddRowButton=(component "hds/form/key-value-pair/add-row-button"))
+      (hash
+        Alert=(component "hds/alert" color="neutral" type="compact")
+        AddRowButton=(component "hds/form/key-value-pair/add-row-button")
+      )
       to="footer"
     }}
   </div>
