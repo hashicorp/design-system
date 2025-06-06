@@ -138,6 +138,7 @@
       "./components/hds/accordion/index.js": "./dist/_app_/components/hds/accordion/index.js",
       "./components/hds/accordion/item/button.js": "./dist/_app_/components/hds/accordion/item/button.js",
       "./components/hds/accordion/item/index.js": "./dist/_app_/components/hds/accordion/item/index.js",
+      "./components/hds/advanced-table/column-drag-preview.js": "./dist/_app_/components/hds/advanced-table/column-drag-preview.js",
       "./components/hds/advanced-table/expandable-tr-group.js": "./dist/_app_/components/hds/advanced-table/expandable-tr-group.js",
       "./components/hds/advanced-table/index.js": "./dist/_app_/components/hds/advanced-table/index.js",
       "./components/hds/advanced-table/models/column.js": "./dist/_app_/components/hds/advanced-table/models/column.js",
