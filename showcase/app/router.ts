@@ -53,6 +53,7 @@ Router.map(function () {
     this.route('form', function (): void {
       this.route('frameless', function (): void {
         this.route('demo-responsiveness');
+        this.route('demo-responsiveness-complex');
       });
       this.route('base-elements');
       this.route('checkbox');

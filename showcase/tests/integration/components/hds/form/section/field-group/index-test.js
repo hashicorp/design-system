@@ -31,7 +31,7 @@ module(
       );
       assert
         .dom('#test-form-section-field-group')
-        .doesNotHaveClass('hds-layout-flex--has-wrappinge');
+        .doesNotHaveClass('hds-layout-flex--has-wrapping');
     });
 
     test('it should have the class "hds-layout-flex--has-wrapping" if @wrap is true', async function (assert) {
