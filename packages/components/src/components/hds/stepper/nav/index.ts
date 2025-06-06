@@ -36,10 +36,7 @@ export interface HdsStepperNavSignature {
     body?: [];
     default: [
       {
-        Step?: WithBoundArgs<
-          typeof HdsStepperNavStepComponent,
-          'currentStep'
-        >;
+        Step?: WithBoundArgs<typeof HdsStepperNavStepComponent, 'currentStep'>;
         Panel?: WithBoundArgs<
           typeof HdsStepperNavPanelComponent,
           'currentStep'
