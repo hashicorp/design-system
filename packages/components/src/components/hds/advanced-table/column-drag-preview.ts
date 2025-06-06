@@ -16,4 +16,10 @@ export interface HdsAdvancedTableColumnDragPreviewSignature {
   };
   Element: HTMLDivElement;
 }
-export default class HdsAdvancedTableColumnDragPreview extends Component<HdsAdvancedTableColumnDragPreviewSignature> {}
+export default class HdsAdvancedTableColumnDragPreview extends Component<HdsAdvancedTableColumnDragPreviewSignature> {
+  get text(): string | undefined {
+    const { column } = this.args;
+
+    return column.key;
+  }
+}
