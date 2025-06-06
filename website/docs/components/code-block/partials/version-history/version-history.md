@@ -1,5 +1,7 @@
 ## 4.20.0
 
+Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
+
 Added height toggle control, which is present when a `maxHeight` is set and code content height exceeds the `maxHeight` value
 
 Fixed issues with line numbers when line wrapping is present and when the number of lines changes dynamically; line highlighting when the Code Block is hidden from view initially such as when used inside a Tabs component; and line highlighting when hasLineNumbers is false.
