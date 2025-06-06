@@ -36,6 +36,13 @@
   gap: 24px;
 }
 
+// hasBorder = true
+.hds-form__section--has-border {
+  padding: 24px;
+  border: 1px solid var(--token-color-border-primary);
+  border-radius: var(--token-border-radius-medium);
+}
+
 // FIELD GROUP
 // Note: Uses a Layout::Flex component under the hood which includes the main layout styles
 // If responsive behavior is later added to the Layout::Flex component, this behavior should be replaced and
