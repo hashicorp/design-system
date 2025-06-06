@@ -1,0 +1,42 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Component from '@glimmer/component';
+import { modifier } from 'ember-modifier';
+import { registerDestructor } from '@ember/destroyable';
+import type Owner from '@ember/owner';
+
+export interface HdsFormKeyValuePairYieldSignature {
+  Args: {
+    onInsert?: (element: HTMLDivElement) => void;
+    onRemove?: (element: HTMLDivElement) => void;
+    rowIndex: number;
+  };
+  Blocks: {
+    default: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsFormKeyValuePairYield extends Component<HdsFormKeyValuePairYieldSignature> {
+  private _element!: HTMLDivElement;
+
+  constructor(owner: Owner, args: HdsFormKeyValuePairYieldSignature['Args']) {
+    super(owner, args);
+
+    registerDestructor(this, (): void => {
+      if (this.args.onRemove && this.args.rowIndex === 0) {
+        this.args.onRemove(this._element);
+      }
+    });
+  }
+
+  private _onInsert = modifier((element: HTMLDivElement) => {
+    this._element = element;
+    if (this.args.onInsert && this.args.rowIndex === 0) {
+      this.args.onInsert(element);
+    }
+  });
+}

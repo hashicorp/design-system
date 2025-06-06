@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<Hds::Button
+  @text={{this.text}}
+  @size="medium"
+  @color="secondary"
+  @icon="plus"
+  @iconPosition="leading"
+  class="hds-form-key-value-pair__add-row-button"
+  {{on "click" this.onClick}}
+  ...attributes
+/>

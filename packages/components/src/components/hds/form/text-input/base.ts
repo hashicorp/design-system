@@ -22,6 +22,8 @@ export interface HdsFormTextInputBaseSignature {
     type?: HdsFormTextInputTypes;
     value?: string;
     width?: string;
+    id?: string;
+    ariaDescribedBy?: string;
   };
   Element: HTMLInputElement;
 }

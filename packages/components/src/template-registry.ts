@@ -110,6 +110,11 @@ import type HdsFormFileInputBaseComponent from './components/hds/form/file-input
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
+import type HdsFormKeyValuePairComponent from './components/hds/form/key-value-pair/index.ts';
+import type HdsFormKeyValuePairAddRowButtonComponent from './components/hds/form/key-value-pair/add-row-button.ts';
+import type HdsFormKeyValuePairDeleteRowButtonComponent from './components/hds/form/key-value-pair/delete-row-button.ts';
+import type HdsFormKeyValuePairFieldComponent from './components/hds/form/key-value-pair/field.ts';
+import type HdsFormKeyValuePairYieldComponent from './components/hds/form/key-value-pair/yield.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -595,6 +600,18 @@ export default interface HdsComponentsRegistry {
   // Form Indicator
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
+
+  // Form KeyValuePair
+  'Hds::Form::KeyValuePair': typeof HdsFormKeyValuePairComponent;
+  'hds/form/key-value-pair': typeof HdsFormKeyValuePairComponent;
+  'Hds::Form::KeyValuePair::AddRowButton': typeof HdsFormKeyValuePairAddRowButtonComponent;
+  'hds/form/key-value-pair/add-row-button': typeof HdsFormKeyValuePairAddRowButtonComponent;
+  'Hds::Form::KeyValuePair::DeleteRowButton': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
+  'hds/form/key-value-pair/delete-row-button': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
+  'hds/form/key-value-pair/field': typeof HdsFormKeyValuePairFieldComponent;
+  'Hds::Form::KeyValuePair::Field': typeof HdsFormKeyValuePairFieldComponent;
+  'hds/form/key-value-pair/yield': typeof HdsFormKeyValuePairYieldComponent;
+  'Hds::Form::KeyValuePair::Yield': typeof HdsFormKeyValuePairYieldComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
