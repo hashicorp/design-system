@@ -58,7 +58,9 @@
           Field=(component
             "hds/form/key-value-pair/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
           )
-          Generic=(component "hds/form/key-value-pair/yield" onInsert=this._setUpColumn onRemove=this._removeColumn)
+          Generic=(component
+            "hds/form/key-value-pair/yield" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
+          )
         )
         to="row"
       }}
@@ -66,7 +68,7 @@
       {{yield
         (hash
           DeleteRowButton=(component
-            "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow
+            "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow rowData=undefined
           )
         )
         to="row"
