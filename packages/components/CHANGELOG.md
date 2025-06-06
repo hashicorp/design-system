@@ -32,6 +32,12 @@
 
 ### Patch Changes
 
+`CodeBlock` - Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
+
+<small class="doc-whats-new-changelog-metadata">[#2925](https://github.com/hashicorp/design-system/pull/2925)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 `AppHeader` - Fixed import path for `hds-breakpoints`
 
 `AppSideNav` - Fixed import path for `hds-breakpoints`
