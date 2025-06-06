@@ -36,10 +36,26 @@ export interface HdsStepperNavSignature {
     body?: [];
     default: [
       {
-        Step?: WithBoundArgs<typeof HdsStepperNavStepComponent, 'currentStep'>;
+        Step?: WithBoundArgs<
+          typeof HdsStepperNavStepComponent,
+          | 'currentStep'
+          | 'isNavInteractive'
+          | 'titleTag'
+          | 'stepIds'
+          | 'panelIds'
+          | 'didInsertNode'
+          | 'willDestroyNode'
+          | 'onStepChange'
+          | 'onKeyUp'
+        >;
         Panel?: WithBoundArgs<
           typeof HdsStepperNavPanelComponent,
-          'currentStep'
+          | 'currentStep'
+          | 'isNavInteractive'
+          | 'stepIds'
+          | 'panelIds'
+          | 'didInsertNode'
+          | 'willDestroyNode'
         >;
       },
     ];
