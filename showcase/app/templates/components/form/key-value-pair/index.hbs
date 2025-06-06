@@ -47,7 +47,7 @@
         <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
       {{else}}
         <F.Generic>
-          <Hds::Alert @type="inline" @color="critical" as |A|>
+          <Hds::Alert @type="compact" as |A|>
             <A.Description>
               You can only add up to 4 tags to this resource.
             </A.Description>
@@ -252,7 +252,7 @@
 
     <:footer as |F|>
       <F.Generic>
-        <Hds::Alert @type="inline" @color="critical" as |A|>
+        <Hds::Alert @type="compact" as |A|>
           <A.Description>
             You can only add up to 3 tags to this resource.
           </A.Description>
