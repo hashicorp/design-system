@@ -188,3 +188,7 @@
     />
   {{/if}}
 </div>
+
+{{#each this._tableModel.reorderableColumns as |column|}}
+  <Hds::AdvancedTable::ColumnDragPreview @column={{column}} />
+{{/each}}

@@ -8,10 +8,10 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
-
-import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import { HdsAdvancedTableHorizontalAlignmentValues } from './types.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+
+import type { HdsAdvancedTableHorizontalAlignment } from './types.ts';
 import type HdsAdvancedTableColumn from './models/column.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
