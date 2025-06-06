@@ -49,11 +49,12 @@
 // the styles should be removed
 
 .hds-form__section-field-group {
-  // When there are columns, stack them vertically on small screens
-  // applies to screen widths of 479px & below
-  @include hds-breakpoint-below("sm") {
-    flex-direction: column;
-    align-items: start;
+  &.hds-layout-flex--direction-row {
+    // When there are columns, stack them vertically
+    @include hds-breakpoint-below("md") {
+      flex-direction: column;
+      align-items: start;
+    }
   }
 }
 
