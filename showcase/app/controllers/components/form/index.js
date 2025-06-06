@@ -20,7 +20,9 @@ export default class FormController extends Controller {
   toggleDemoCustomWidthsStatus(usecase) {
     const current = this.showDemoCustomWidthsToggleContent[usecase] ?? false;
     // re-assign to trigger tracking
-    this.showDemoCustomWidthsToggleContent = { ...this.showDemoCustomWidthsToggleContent };
+    this.showDemoCustomWidthsToggleContent = {
+      ...this.showDemoCustomWidthsToggleContent,
+    };
     this.showDemoCustomWidthsToggleContent[usecase] = !current;
   }
 }

@@ -41,7 +41,7 @@
 // If responsive behavior is later added to the Layout::Flex component, this behavior should be replaced and
 // the styles should be removed
 
-.hds-form__field-group {
+.hds-form__section-field-group {
   // When there are columns, stack them vertically on small screens
   // applies to screen widths of 479px & below
   @include hds-breakpoint-below("sm") {
