@@ -551,11 +551,7 @@ importers:
         specifier: ^9.1.2
         version: 9.1.2
       ember-a11y-testing:
-<<<<<<< HEAD
         specifier: ^7.1.2
-=======
-        specifier: ^7.1.0
->>>>>>> 329ae759b (fix: lockfile)
         version: 7.1.2(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)))(@glint/template@1.5.2)(qunit@2.23.1)(webpack@5.99.8)
       ember-auto-import:
         specifier: ^2.10.0
@@ -825,11 +821,7 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
       ember-a11y-testing:
-<<<<<<< HEAD
         specifier: ^7.1.2
-=======
-        specifier: ^7.0.2
->>>>>>> 329ae759b (fix: lockfile)
         version: 7.1.2(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)))(@glint/template@1.5.2)(qunit@2.23.1)(webpack@5.99.8)
       ember-auto-import:
         specifier: ^2.10.0
