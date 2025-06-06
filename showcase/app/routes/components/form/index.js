@@ -37,13 +37,15 @@ export default class ComponentsFormRoute extends Route {
         value: '2',
         icon: 'hashicorp',
         label: 'Sentinel',
-        description: 'Write policies imperatively for attribute-based access control to enforce compliance and security requirements.',
+        description:
+          'Write policies imperatively for attribute-based access control to enforce compliance and security requirements.',
       },
       {
         value: '3',
         icon: 'opa',
         label: 'Open Policy Agent (OPA)',
-        description: 'Open-source, general-purpose policy engine that allows you to enforce fine-grained access control and decision-making across cloud-native environments.',
+        description:
+          'Open-source, general-purpose policy engine that allows you to enforce fine-grained access control and decision-making across cloud-native environments.',
       },
     ];
     return { RADIOCARDS_GENERIC, RADIOCARDS_PRODUCTS };

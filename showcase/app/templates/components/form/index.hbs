@@ -35,12 +35,12 @@
           </Hds::Form::Section>
 
           <Hds::Form::Section>
-            <Hds::Form::FieldGroup @direction="column">
+            <Hds::Form::Section::FieldGroup @direction="column">
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
-            </Hds::Form::FieldGroup>
+            </Hds::Form::Section::FieldGroup>
 
-            <Hds::Form::FieldGroup @wrap={{true}}>
+            <Hds::Form::Section::FieldGroup @wrap={{true}}>
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder
                 @height="2.4em"
@@ -49,7 +49,7 @@
                 @text="FieldGroup FormField 2"
                 @background="#add8e6"
               />
-            </Hds::Form::FieldGroup>
+            </Hds::Form::Section::FieldGroup>
           </Hds::Form::Section>
 
           <Hds::Form::Separator />
@@ -192,7 +192,7 @@
       <Hds::Form::Separator />
 
       <Hds::Form::Section>
-        <Hds::Form::FieldGroup>
+        <Hds::Form::Section::FieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 1</F.Label>
             <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -201,16 +201,16 @@
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 2</F.Label>
           </Hds::Form::TextInput::Field>
-        </Hds::Form::FieldGroup>
+        </Hds::Form::Section::FieldGroup>
 
-        <Hds::Form::FieldGroup @wrap={{true}}>
+        <Hds::Form::Section::FieldGroup @wrap={{true}}>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 2, field 1</F.Label>
           </Hds::Form::TextInput::Field>
           <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
             <F.Label>Field group 2, field 2</F.Label>
           </Hds::Form::Toggle::Field>
-        </Hds::Form::FieldGroup>
+        </Hds::Form::Section::FieldGroup>
       </Hds::Form::Section>
 
       <Hds::Form::Section>
@@ -370,82 +370,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>FormSeparator</Shw::Text::H3>
-
-  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
-    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-  </button>
-
-  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
-
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="isFullWidth=false (default)">
-        <Hds::Form {{style padding="16px 0"}}>
-          <Hds::Form::Separator />
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custom-max-width" {{style padding="16px 0"}}>
-          <Hds::Form::Separator />
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="isFullWidth=true">
-        <Hds::Form {{style padding="16px 0"}}>
-          <Hds::Form::Separator @isFullWidth={{true}} />
-        </Hds::Form>
-      </SG.Item>
-    </Shw::Grid>
-  </div>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
-
-  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
-    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-  </button>
-
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="within FormSection so it has a maxWidth">
-        <Hds::Form>
-          <Hds::Form::Section>
-            <Hds::ButtonSet>
-              <Hds::Button @text="Submit" type="submit" />
-              <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-            </Hds::ButtonSet>
-          </Hds::Form::Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custom-max-width">
-          <Hds::Form::Section>
-            <Hds::ButtonSet>
-              <Hds::Button @text="Submit" type="submit" />
-              <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-            </Hds::ButtonSet>
-          </Hds::Form::Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="not within FormSection so it is full width">
-        <Hds::Form>
-          <Hds::ButtonSet @isFullWidth={{true}}>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
-        </Hds::Form>
-      </SG.Item>
-    </Shw::Grid>
-  </div>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H3>Field Group</Shw::Text::H3>
+  <Shw::Text::H3>Section FieldGroup</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -457,7 +382,7 @@
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="wrap=false, with equal widths (default)">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup>
+          <Hds::Form::Section::FieldGroup>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 1</F.Label>
               <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -466,13 +391,13 @@
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 2</F.Label>
             </Hds::Form::TextInput::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="with mixed widths (80% & 20%)">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup as |FG|>
+          <Hds::Form::Section::FieldGroup as |FG|>
             <FG.Item @basis="80%">
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 1</F.Label>
@@ -484,13 +409,13 @@
                 <F.Label>Control 2</F.Label>
               </Hds::Form::TextInput::Field>
             </FG.Item>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="with one error">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup>
+          <Hds::Form::Section::FieldGroup>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 1</F.Label>
               <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -500,13 +425,13 @@
               <F.Label>Control 2</F.Label>
               <F.Error>This is a field-level error</F.Error>
             </Hds::Form::TextInput::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="with two errors">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup>
+          <Hds::Form::Section::FieldGroup>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 1</F.Label>
               <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -517,13 +442,13 @@
               <F.Error>This is a field-level error.</F.Error>
               <F.Error>Yet another error example for a total of two.</F.Error>
             </Hds::Form::TextInput::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label=" with 3 fields of equal width">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup>
+          <Hds::Form::Section::FieldGroup>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 1</F.Label>
             </Hds::Form::TextInput::Field>
@@ -534,13 +459,13 @@
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Control 3</F.Label>
             </Hds::Form::TextInput::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="3 fields, mix of widths (1/3, auto, & 6em)">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup as |FG|>
+          <Hds::Form::Section::FieldGroup as |FG|>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>City</F.Label>
             </Hds::Form::TextInput::Field>
@@ -561,26 +486,26 @@
             <Hds::Form::TextInput::Field @width="6em" as |F|>
               <F.Label>Zip</F.Label>
             </Hds::Form::TextInput::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="wrap=true">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup @wrap={{true}}>
+          <Hds::Form::Section::FieldGroup @wrap={{true}}>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Field 1</F.Label>
             </Hds::Form::TextInput::Field>
             <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
               <F.Label>Field 2</F.Label>
             </Hds::Form::Toggle::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
 
       <SG.Item @label="wrap=true w/ helper text & errors">
         <Hds::Form::Section>
-          <Hds::Form::FieldGroup @wrap={{true}}>
+          <Hds::Form::Section::FieldGroup @wrap={{true}}>
             <Hds::Form::TextInput::Field as |F|>
               <F.Label>Field 1</F.Label>
               <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -591,12 +516,87 @@
               <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
               <F.Error>This is a field-level error.</F.Error>
             </Hds::Form::Toggle::Field>
-          </Hds::Form::FieldGroup>
+          </Hds::Form::Section::FieldGroup>
         </Hds::Form::Section>
       </SG.Item>
     </Shw::Grid>
   </div>
 </section>
+
+<Shw::Divider @level={{2}} />
+
+<Shw::Text::H3>FormSeparator</Shw::Text::H3>
+
+<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+</button>
+
+<Shw::Text::H4>isFullWidth</Shw::Text::H4>
+
+<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+    <SG.Item @label="isFullWidth=false (default)">
+      <Hds::Form {{style padding="16px 0"}}>
+        <Hds::Form::Separator />
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+      <Hds::Form class="shw-component-form-layout-custom-max-width" {{style padding="16px 0"}}>
+        <Hds::Form::Separator />
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="isFullWidth=true">
+      <Hds::Form {{style padding="16px 0"}}>
+        <Hds::Form::Separator @isFullWidth={{true}} />
+      </Hds::Form>
+    </SG.Item>
+  </Shw::Grid>
+</div>
+
+<Shw::Divider @level={{2}} />
+
+<Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
+
+<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+</button>
+
+<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+    <SG.Item @label="within FormSection so it has a maxWidth">
+      <Hds::Form>
+        <Hds::Form::Section>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+      <Hds::Form class="shw-component-form-layout-custom-max-width">
+        <Hds::Form::Section>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SG.Item>
+
+    <SG.Item @label="not within FormSection so it is full width">
+      <Hds::Form>
+        <Hds::ButtonSet @isFullWidth={{true}}>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </Hds::ButtonSet>
+      </Hds::Form>
+    </SG.Item>
+  </Shw::Grid>
+</div>
 
 <Shw::Divider />
 
@@ -871,7 +871,8 @@
       <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custom-max-width"}}>
         <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
           <Hds::Text::Display @size="400" @tag="h2">Add user</Hds::Text::Display>
-          <Hds::Text::Body @tag="p" @size="200">Grant access to HCP resources for your team members (this will send them an invite via email). Read more about user permissions in our
+          <Hds::Text::Body @tag="p" @size="200">Grant access to HCP resources for your team members (this will send them
+            an invite via email). Read more about user permissions in our
             <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.</Hds::Text::Body>
         </Hds::Form::Header>
         <Hds::Form::Section
