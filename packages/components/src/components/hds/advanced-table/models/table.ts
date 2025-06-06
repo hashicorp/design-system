@@ -5,15 +5,21 @@
 
 import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+import HdsAdvancedTableColumn from './column.ts';
 
 import type {
+  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
   HdsAdvancedTableModel,
+  HdsAdvancedTableColumnResizeCallback,
 } from '../types';
 
 interface HdsAdvancedTableTableArgs {
   model: HdsAdvancedTableModel;
+  columns: HdsAdvancedTableColumnType[];
   childrenKey?: string;
+  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 }
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
@@ -33,14 +39,19 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 }
 
 export default class HdsAdvancedTableTableModel {
-  rows: HdsAdvancedTableRow[] = [];
+  @tracked columns: HdsAdvancedTableColumn[] = [];
+  @tracked rows: HdsAdvancedTableRow[] = [];
+
+  childrenKey?: string;
+  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, childrenKey } = args;
+    const { model, columns, childrenKey, onColumnResize } = args;
 
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey });
-    });
+    this.childrenKey = childrenKey;
+    this.onColumnResize = onColumnResize;
+
+    this.setupData(model, columns);
   }
 
   get totalRowCount(): number {
@@ -69,6 +80,28 @@ export default class HdsAdvancedTableTableModel {
     } else {
       return false;
     }
+  }
+
+  @action
+  setupData(
+    model: HdsAdvancedTableModel,
+    columns: HdsAdvancedTableColumnType[]
+  ) {
+    this.columns = columns.map(
+      (column) =>
+        new HdsAdvancedTableColumn({
+          column,
+          onColumnResize: this.onColumnResize,
+        })
+    );
+
+    this.rows = model.map((row) => {
+      return new HdsAdvancedTableRow({
+        ...row,
+        childrenKey: this.childrenKey,
+        columns,
+      });
+    });
   }
 
   @action

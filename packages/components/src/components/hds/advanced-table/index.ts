@@ -11,6 +11,7 @@ import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
+import { next } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 import {
@@ -133,6 +134,7 @@ export interface HdsAdvancedTableSignature {
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnResize?: (columnKey: string, newWidth?: string) => void;
   };
   Blocks: {
     body?: [
@@ -157,6 +159,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+  @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _tableModel!: HdsAdvancedTableTableModel;
@@ -172,15 +175,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorTop = false;
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
+  @tracked lastModel: HdsAdvancedTableModel | null = null;
+  @tracked lastColumns: HdsAdvancedTableColumn[] = [];
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
+    const {
+      model,
+      childrenKey,
+      columns,
+      hasStickyFirstColumn,
+      onColumnResize,
+    } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       childrenKey,
+      columns,
+      onColumnResize,
     });
 
     if (this._tableModel.hasRowsWithChildren) {
@@ -197,6 +210,16 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       assert(
         'Cannot have a sticky first column if there are nested rows.',
         !hasStickyFirstColumn
+      );
+
+      const resizableColumns = columns.filter((column) => column.isResizable);
+      const resizableColumnLabels = resizableColumns.map(
+        (column) => column.label
+      );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows. Resizable columns are ${resizableColumnLabels.toString()}`,
+        resizableColumns.length === 0
       );
     }
   }
@@ -217,24 +240,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       // otherwise fallback to the default format "sortBy:sortOrder"
       return `${this._sortBy}:${this._sortOrder}`;
     }
-  }
-
-  get columnWidths(): string[] | undefined {
-    const { columns } = this.args;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const widths: string[] = new Array(columns.length);
-    let hasCustomColumnWidth = false;
-
-    for (let i = 0; i < columns.length; i++) {
-      const column = columns[i];
-
-      if (column?.['width']) {
-        widths[i] = column.width;
-        if (!hasCustomColumnWidth) hasCustomColumnWidth = true;
-      }
-    }
-
-    return hasCustomColumnWidth ? widths : undefined;
   }
 
   get identityKey(): string | undefined {
@@ -337,21 +342,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const { isSelectable, columns } = this.args;
+    const { isSelectable } = this.args;
+    const { columns } = this._tableModel;
 
     const DEFAULT_COLUMN_WIDTH = '1fr';
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    if (!this.columnWidths) {
+    const hasCustomColumnWidths = columns.some(
+      (column) => column.width !== undefined
+    );
+
+    if (hasCustomColumnWidths) {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+      for (let i = 0; i < columns.length; i++) {
+        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
+      }
+    } else {
       // if there are no custom column widths, each column is the same width and they take up the available space
       style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
-    } else {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
-      }
     }
 
     return style;
@@ -392,6 +402,20 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  private _onUpdateContent = modifier(() => {
+    const { columns, model } = this.args;
+
+    if (this.lastModel !== model || this.lastColumns !== columns) {
+      this._tableModel.setupData(this.args.model, this.args.columns);
+
+      // eslint-disable-next-line ember/no-runloop
+      next(() => {
+        this.lastModel = model;
+        this.lastColumns = columns;
+      });
+    }
+  });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
@@ -448,6 +472,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
+      this._tableHeight = element.clientHeight;
+
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,

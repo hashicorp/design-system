@@ -9,6 +9,7 @@ import { assert } from '@ember/debug';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
+import HdsAdvancedTableColumn from './models/column.ts';
 import type Owner from '@ember/owner';
 
 import {
@@ -23,6 +24,7 @@ import type {
 } from './types.ts';
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
+import type { HdsAdvancedTableThSignature } from './th.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -31,12 +33,16 @@ export const DEFAULT_ALIGN = HdsAdvancedTableHorizontalAlignmentValues.Left;
 
 export interface HdsAdvancedTableThSortSignature {
   Args: {
+    column?: HdsAdvancedTableThSignature['Args']['column'];
     align?: HdsAdvancedTableHorizontalAlignment;
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
+    nextColumn?: HdsAdvancedTableColumn;
+    tableHeight?: number;
+    isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
   };
@@ -88,6 +94,16 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
     return align;
   }
 
+  get showContextMenu(): boolean {
+    const { column } = this.args;
+
+    if (column === undefined) {
+      return false;
+    }
+
+    return column.isResizable ?? false;
+  }
+
   get classNames(): string {
     const classes = ['hds-advanced-table__th', 'hds-advanced-table__th--sort'];
 
@@ -102,6 +118,10 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
 
     if (this.args.isStickyColumn && this.args.isStickyColumnPinned) {
       classes.push('hds-advanced-table__th--is-sticky-column-pinned');
+    }
+
+    if (this.args.column?.isResizable) {
+      classes.push('hds-advanced-table__th--is-resizable');
     }
 
     return classes.join(' ');
