@@ -12,6 +12,7 @@ import type PowerSelectRegistry from 'ember-power-select/template-registry';
 import type { EmbroiderUtilRegistry } from '@embroider/util';
 // eslint-disable-next-line ember/no-at-ember-render-modifiers
 import type RenderModifiersRegistry from '@ember/render-modifiers/template-registry';
+import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -22,15 +23,10 @@ declare module '@glint/environment-ember-loose/registry' {
       EmberTruthRegistry,
       PowerSelectRegistry,
       RenderModifiersRegistry,
+      EmberComposableHelpersRegistry,
       EmbroiderUtilRegistry /*, other addon registries */ {
     // local entries
     Portal: typeof Portal;
     PortalTarget: typeof PortalTarget;
-    'sort-by': HelperLike<{
-      Args: {
-        Positional: [string[], unknown[]];
-      };
-      Return: unknown[];
-    }>;
   }
 }
