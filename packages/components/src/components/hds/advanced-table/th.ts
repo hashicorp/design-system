@@ -49,7 +49,10 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
-    onReorderDrop?: (column: HdsAdvancedTableColumn) => void;
+    onReorderDrop?: (
+      column: HdsAdvancedTableColumn,
+      side: 'left' | 'right'
+    ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
@@ -273,17 +276,16 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     const { column, onReorderDrop } = this.args;
 
+    this.dragSide = null;
+
     if (column === undefined || typeof onReorderDrop !== 'function') {
       return;
     }
 
     // Determine which side of the header the drop occurred on
     const dropSide = this._getDragSide(event);
-    console.log(`dropped on ${dropSide}`);
 
-    // You might want to modify onReorderDrop to accept the side parameter
-    // For now, we'll just call the original function
-    onReorderDrop(column);
+    onReorderDrop(column, dropSide);
   }
 
   @action onFocusTrapDeactivate(): void {

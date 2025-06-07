@@ -178,7 +178,7 @@ export default class HdsAdvancedTableTableModel {
   }
 
   @action
-  reorderColumn(targetColumn: HdsAdvancedTableColumn) {
+  reorderColumn(targetColumn: HdsAdvancedTableColumn, side: 'left' | 'right') {
     const sourceColumn = this.reorderDraggedColumn;
 
     if (sourceColumn == null || sourceColumn === targetColumn) {
@@ -191,8 +191,22 @@ export default class HdsAdvancedTableTableModel {
     if (oldIndex !== -1 && newIndex !== -1) {
       const updated = [...this.columnOrder];
 
-      updated.splice(oldIndex, 1); // Remove from old
-      updated.splice(newIndex, 0, sourceColumn.key as string); // Insert at new
+      updated.splice(oldIndex, 1); // Remove from old position
+
+      // Calculate the insertion index based on the side
+      // If dropping to the right of the target, insert after the target
+      // If dropping to the left of the target, insert before the target
+      // Adjust for the shift in indices caused by removing the source column
+      const adjustedIndex =
+        side === 'right'
+          ? newIndex > oldIndex
+            ? newIndex
+            : newIndex + 1
+          : newIndex > oldIndex
+            ? newIndex - 1
+            : newIndex;
+
+      updated.splice(adjustedIndex, 0, sourceColumn.key as string); // Insert at new position
 
       this.columnOrder = updated;
 
