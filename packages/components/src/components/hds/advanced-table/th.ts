@@ -61,6 +61,19 @@ export interface HdsAdvancedTableThSignature {
   Element: HTMLDivElement;
 }
 
+function constructDragPreview(width: number, height?: number): HTMLDivElement {
+  const dragPreviewElement = document.createElement('div');
+
+  // set the styles for the drag preview the most correct way
+  dragPreviewElement.style.width = `${width}px`;
+  if (height) {
+    dragPreviewElement.style.height = `${height}px`;
+  }
+  dragPreviewElement.style.backgroundColor = 'red';
+
+  return dragPreviewElement;
+}
+
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
   private _element!: HTMLDivElement;
@@ -69,6 +82,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
   @tracked private _dragCount = 0;
+
+  @tracked dragSide: 'left' | 'right' | null = null;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -164,6 +179,29 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       return;
     }
 
+    const dragPreview = constructDragPreview(
+      this._element.clientWidth,
+      this.args.tableHeight
+    );
+
+    // Append to document body first so it's in the DOM
+    document.body.appendChild(dragPreview);
+
+    // Position off-screen to be invisible but still in DOM
+    dragPreview.style.position = 'absolute';
+    dragPreview.style.left = '-9999px';
+    dragPreview.style.top = '-9999px';
+
+    event.dataTransfer?.setDragImage(
+      dragPreview,
+      this._element.clientWidth / 2,
+      10
+    );
+
+    setTimeout(() => {
+      document.body.removeChild(dragPreview);
+    }, 0);
+
     event.dataTransfer?.setData('text/plain', column.key ?? '');
 
     column.isBeingDragged = true;
@@ -171,9 +209,35 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     onReorderDragStart(column);
   }
 
+  /**
+   * Determines whether the drag event is occurring on the left or right side of the th element
+   * @param event The drag event
+   * @returns 'left' if on the left half, 'right' if on the right half
+   */
+  private _getDragSide(event: DragEvent): 'left' | 'right' {
+    const rect = this._element.getBoundingClientRect();
+    const mouseX = event.clientX;
+    const elementMiddleX = rect.left + rect.width / 2;
+
+    return mouseX < elementMiddleX ? 'left' : 'right';
+  }
+
   @action
   handleDragOver(event: DragEvent): void {
     event.preventDefault();
+
+    const { column } = this.args;
+
+    if (
+      column === undefined ||
+      column.key === undefined ||
+      column.table.reorderDraggedColumn?.key === column.key
+    ) {
+      return;
+    }
+
+    // Determine which side of the header the drag is occurring on
+    this.dragSide = this._getDragSide(event);
   }
 
   @action
@@ -183,7 +247,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._dragCount = this._dragCount + 1;
 
     if (this._dragCount === 1) {
-      console.log('entering');
+      // Log which side of the header the drag entered on
+      const dragSide = this._getDragSide(event);
+      console.log(`entering ${dragSide}`);
     }
   }
 
@@ -194,7 +260,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._dragCount = this._dragCount - 1;
 
     if (this._dragCount === 0) {
-      console.log('leaving');
+      this.dragSide = null;
     }
   }
 
@@ -208,6 +274,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       return;
     }
 
+    // Determine which side of the header the drop occurred on
+    const dropSide = this._getDragSide(event);
+    console.log(`dropped on ${dropSide}`);
+
+    // You might want to modify onReorderDrop to accept the side parameter
+    // For now, we'll just call the original function
     onReorderDrop(column);
   }
 

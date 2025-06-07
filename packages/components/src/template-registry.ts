@@ -8,7 +8,6 @@ import type HdsAccordionComponent from './components/hds/accordion';
 import type HdsAccordionItemComponent from './components/hds/accordion/item';
 import type HdsAccordionItemButtonComponent from './components/hds/accordion/item/button';
 import type HdsAdvancedTableComponent from './components/hds/advanced-table';
-import type HdsAdvancedTableColumnDragPreview from './components/hds/advanced-table/column-drag-preview';
 import type HdsAdvancedTableTdComponent from './components/hds/advanced-table/td';
 import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advanced-table/th-button-expand';
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
@@ -251,8 +250,6 @@ export default interface HdsComponentsRegistry {
   'hds/advanced-table': typeof HdsAdvancedTableComponent;
   'Hds::AdvancedTable::Td': typeof HdsAdvancedTableTdComponent;
   'hds/advanced-table/td': typeof HdsAdvancedTableTdComponent;
-  'Hds::AdvancedTable::ColumnDragPreview': typeof HdsAdvancedTableColumnDragPreview;
-  'hds/advanced-table/column-drag-preview': typeof HdsAdvancedTableColumnDragPreview;
   'Hds::AdvancedTable::Th': typeof HdsAdvancedTableThComponent;
   'hds/advanced-table/th': typeof HdsAdvancedTableThComponent;
   'Hds::AdvancedTable::Tr': typeof HdsAdvancedTableTrComponent;
