@@ -121,6 +121,33 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       }
     }
 
+    .hds-advanced-table__th-drag-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      background-color: var(--token-color-surface-strong);
+      content: "";
+    }
+
+    .hds-advanced-table__th-drop-side-indicator {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 8px;
+      background-color: blue;
+      content: "";
+
+      &.hds-advanced-table__th-drop-side-indicator--left {
+        left: 0;
+      }
+
+      &.hds-advanced-table__th-drop-side-indicator--right {
+        right: 0;
+      }
+    }
+
     .hds-advanced-table__th-resize-handle {
       @include hds-focus-ring-with-pseudo-element($position: absolute);
 
@@ -416,19 +443,6 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       );
       z-index: 1;
       isolation: isolate;
-    }
-
-    &.hds-advanced-table__td--is-being-dragged {
-      position: relative;
-      background-color: var(--token-color-surface-strong);
-      border-color: var(--token-color-surface-strong);
-
-      &::before {
-        position: absolute;
-        background-color: var(--token-color-surface-strong);
-        content: "";
-        inset: 0;
-      }
     }
 
     // density

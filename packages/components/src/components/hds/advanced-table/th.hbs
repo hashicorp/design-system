@@ -82,4 +82,23 @@
       {{/if}}
     {{/if}}
   </Hds::Layout::Flex>
+
+  {{#if @column.isBeingDragged}}
+    <div
+      class="hds-advanced-table__th-drag-indicator"
+      aria-hidden="true"
+      role="presentation"
+      {{style height=(if @tableHeight (concat (sub @tableHeight 3.5) "px"))}}
+    />
+  {{/if}}
+
+  {{#if this.dragSide}}
+    <div
+      class="hds-advanced-table__th-drop-side-indicator
+        {{concat 'hds-advanced-table__th-drop-side-indicator--' this.dragSide}}"
+      aria-hidden="true"
+      role="presentation"
+      {{style height=(if @tableHeight (concat (sub @tableHeight 3.5) "px"))}}
+    />
+  {{/if}}
 </div>
