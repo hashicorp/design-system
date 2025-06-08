@@ -23,6 +23,7 @@
     )
   }}
   {{on "dragstart" this.handleDragStart}}
+  {{on "dragend" this.handleDragEnd}}
   {{on "dragover" this.handleDragOver}}
   {{on "dragenter" this.handleDragEnter}}
   {{on "dragleave" this.handleDragLeave}}
@@ -105,7 +106,7 @@
     />
   {{/if}}
 
-  {{#if this.dragSide}}
+  {{#if (and this.isDraggingOver this.dragSide)}}
     <div
       class="hds-advanced-table__th-drop-side-indicator
         {{concat 'hds-advanced-table__th-drop-side-indicator--' this.dragSide}}"
