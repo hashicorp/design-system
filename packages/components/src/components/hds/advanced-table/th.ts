@@ -81,6 +81,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @tracked private _shouldTrapFocus = false;
   @tracked private _dragCount = 0;
 
+  @tracked isDraggingOver = false;
   @tracked dragSide: 'left' | 'right' | null = null;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
@@ -173,9 +174,18 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return column.isResizable ?? false;
   }
 
+  _resetDragState(): void {
+    this._dragCount = 0;
+    this.isDraggingOver = false;
+    this.dragSide = null;
+  }
+
   @action
   handleDragStart(event: DragEvent): void {
     const { column, onReorderDragStart } = this.args;
+
+    // Reset drag state at the start of a new drag operation
+    this._resetDragState();
 
     if (
       column === undefined ||
@@ -221,6 +231,13 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
    * @returns 'left' if on the left half, 'right' if on the right half
    */
   private _getDragSide(event: DragEvent): 'left' | 'right' {
+    const { column, isLastColumn } = this.args;
+
+    if (isLastColumn && column !== undefined && !column.isReorderable) {
+      // If it's the last column and its not reorderable, we can only drop on the left side
+      return 'left';
+    }
+
     const rect = this._element.getBoundingClientRect();
     const mouseX = event.clientX;
     const elementMiddleX = rect.left + rect.width / 2;
@@ -253,9 +270,7 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     this._dragCount = this._dragCount + 1;
 
     if (this._dragCount === 1) {
-      // Log which side of the header the drag entered on
-      const dragSide = this._getDragSide(event);
-      console.log(`entering ${dragSide}`);
+      this.isDraggingOver = true;
     }
   }
 
@@ -265,8 +280,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     this._dragCount = this._dragCount - 1;
 
-    if (this._dragCount === 0) {
-      this.dragSide = null;
+    // Ensure count doesn't go negative and reset isDraggingOver when appropriate
+    if (this._dragCount <= 0) {
+      this._resetDragState();
     }
   }
 
@@ -276,7 +292,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
     const { column, onReorderDrop } = this.args;
 
-    this.dragSide = null;
+    // Reset drag state completely when an item is dropped
+    this._resetDragState();
 
     if (column === undefined || typeof onReorderDrop !== 'function') {
       return;
@@ -304,6 +321,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
+  }
+
+  @action
+  handleDragEnd(): void {
+    // Reset drag state when drag operation ends (whether dropped or canceled)
+    this._resetDragState();
   }
 
   private _manageExpandButton = modifier((button: HTMLButtonElement) => {
