@@ -17,7 +17,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item
-        @label="With Form, FormHeader, FormHeaderTitle, FormSections, SectionHeader, FormFields, FormSeparator, and ButtonSet (FormActions)"
+        @label="With Form, FormHeader, FormHeaderTitle, FormSections, SectionHeader, SectionHeaderTitle, FormFields, FormSeparator, and ButtonSet (FormActions)"
       >
         <Hds::Form>
           <Hds::Form::Header>
@@ -84,7 +84,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Hds::Form>
       <Hds::Form::Header>
-        <Hds::Form::Header::Title>Form Header title</Hds::Form::Header::Title>
+        <Hds::Form::Header::Title>Form header title</Hds::Form::Header::Title>
         <Hds::Text::Body @tag="p" @size="200">
           Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
           facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
@@ -104,7 +104,7 @@
 
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
-          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
           <Hds::Text::Body @tag="p" @size="200">
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
@@ -144,7 +144,7 @@
 
       <Hds::Form::Section @isFullWidth={{true}} @hasBorder={{true}}>
         <Hds::Form::Section::Header>
-          <Hds::Text::Display @size="300">Section Header title</Hds::Text::Display>
+          <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
           <Hds::Text::Body @tag="p" @size="200">
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
@@ -406,7 +406,7 @@
     <Hds::Form>
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
-          <Hds::Text::Display @size="400">Section Header title</Hds::Text::Display>
+          <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
           <Hds::Text::Body @tag="p" @size="200">
             Seaction Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
