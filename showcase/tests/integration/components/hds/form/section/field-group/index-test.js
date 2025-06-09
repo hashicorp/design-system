@@ -22,7 +22,7 @@ module(
         .hasClass('hds-form__section-field-group');
     });
 
-    // Options
+    // OPTIONS
 
     // wrap
     test('it should have the default wrap if no @wrap prop is declared', async function (assert) {

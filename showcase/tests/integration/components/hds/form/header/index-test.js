@@ -16,7 +16,7 @@ module('Integration | Component | hds/form/header/index', function (hooks) {
     assert.dom('#test-form-header').hasClass('hds-form__header');
   });
 
-  // Options
+  // OPTIONS
 
   // isFullWidth
   test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {
