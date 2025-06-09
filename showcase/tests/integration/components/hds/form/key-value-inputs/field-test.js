@@ -34,7 +34,9 @@ module(
     </Hds::Form::KeyValueInputs::Field>`);
 
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-label')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
         .hasText('Label row 1');
       assert.dom('#test-form-key-value-field .hds-form-text-input').exists();
       assert
@@ -43,7 +45,9 @@ module(
         )
         .hasText('Helper text');
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-error')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+        )
         .hasText('Error text');
     });
 
@@ -58,7 +62,9 @@ module(
     </Hds::Form::KeyValueInputs::Field>`);
 
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-label')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
         .includesText('Required');
     });
 
@@ -71,7 +77,9 @@ module(
     </Hds::Form::KeyValueInputs::Field>`);
 
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-label')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
         .includesText('(Optional)');
     });
 
@@ -87,7 +95,9 @@ module(
         .dom('#test-form-key-value-field .hds-form-text-input')
         .hasClass('hds-form-text-input--is-invalid');
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-error')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+        )
         .hasText('Error text');
     });
 
@@ -115,7 +125,9 @@ module(
       ).id;
 
       assert
-        .dom('#test-form-key-value-field .hds-form-key-value-inputs__field-label')
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
         .hasAttribute('for', inputId);
     });
 
