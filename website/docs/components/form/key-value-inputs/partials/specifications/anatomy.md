@@ -1,15 +1,21 @@
 ## Anatomy
 
 <!-- image then table -->
-![Anatomy of form MaskedInput](/assets/components/form/masked-input/masked-input-anatomy.png =836x*)
+![Anatomy of Key Value Inputs](/assets/components/form/key-value-inputs/key-value-inputs-anatomy.png)
 
 <!-- this is just an example, refer to other components to see how to fill this table -->
-| Element          | Usage                                           |
-|------------------|-------------------------------------------------|
-| Label             | Required                                       |
-| Indicator         | Optional                                       |
-| Helper text       | Optional                                       |
-| Placeholder/Value | Optional                                       |
-| Toggle button     | Required                                       |
-| Control           | Required                                       |
-| Error message     | Triggered by system                            |
+| Element              | Usage                                           |
+|----------------------|-------------------------------------------------|
+| Legend               | Required                                        |
+| Indicator            | Optional                                        |
+| Fieldset helper text | Optional                                        |
+| Fieldset generic slot| Optional                                        |
+| Key label            | Required - if key input visible                 |
+| Key helper text      | Optional                                        |
+| Key input            | Optional                                        |
+| Value label          | Required - if value input visible               |
+| Value helper text    | Optional                                        |
+| Value input          | Optional                                        |
+| Delete row button    | Triggered by system                             |
+| Add row button       | Required                                        |
+| Fieldset validation  | Triggered by system                             |
