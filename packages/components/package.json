@@ -232,6 +232,7 @@
       "./components/hds/form/checkbox/base.js": "./dist/_app_/components/hds/form/checkbox/base.js",
       "./components/hds/form/checkbox/field.js": "./dist/_app_/components/hds/form/checkbox/field.js",
       "./components/hds/form/checkbox/group.js": "./dist/_app_/components/hds/form/checkbox/group.js",
+      "./components/hds/form/description/index.js": "./dist/_app_/components/hds/form/description/index.js",
       "./components/hds/form/error/index.js": "./dist/_app_/components/hds/form/error/index.js",
       "./components/hds/form/error/message.js": "./dist/_app_/components/hds/form/error/message.js",
       "./components/hds/form/field/index.js": "./dist/_app_/components/hds/form/field/index.js",
