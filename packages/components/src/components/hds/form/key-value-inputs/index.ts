@@ -118,7 +118,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  private _setUpKeyValuePair = modifier((element: HTMLElement) => {
+  private _setUpKeyValueInputs = modifier((element: HTMLElement) => {
     this._element = element;
   });
 
