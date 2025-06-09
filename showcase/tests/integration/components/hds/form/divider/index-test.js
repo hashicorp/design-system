@@ -16,7 +16,7 @@ module('Integration | Component | hds/form/separator/index', function (hooks) {
     assert.dom('#test-form-separator').hasClass('hds-form__separator');
   });
 
-  // Options
+  // OPTIONS
 
   // isFullWidth
   test(`it should have the default max-width if no @isFullWidth prop is declared`, async function (assert) {

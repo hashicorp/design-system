@@ -16,7 +16,7 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
     assert.dom('#test-form-section').hasClass('hds-form__section');
   });
 
-  // Options
+  // OPTIONS
 
   // hasBorder
   test(`it should not have a border by default`, async function (assert) {
