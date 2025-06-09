@@ -5,16 +5,9 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import {
-  render,
-  click,
-  focus,
-  setupOnerror,
-  settled,
-} from '@ember/test-helpers';
+import { render, click, focus, setupOnerror } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
-import { tracked } from '@glimmer/tracking';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
