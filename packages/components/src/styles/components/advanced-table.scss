@@ -22,6 +22,7 @@ $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
+$hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
 
 // ADVANCED TABLE
 
@@ -261,8 +262,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 }
 
 .hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
-  width: 24px;
-  height: 24px;
+  width: $hds-advanced-table-button-size;
+  height: $hds-advanced-table-button-size;
   margin: -2px 0;
   padding: 0;
   color: var(--token-color-foreground-faint);
@@ -300,8 +301,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   flex: none;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: $hds-advanced-table-button-size;
+  height: $hds-advanced-table-button-size;
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
   color: var(--token-color-foreground-faint);
