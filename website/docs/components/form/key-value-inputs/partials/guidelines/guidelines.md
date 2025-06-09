@@ -9,7 +9,6 @@
 
 - When inputs in each row are not closely related, use the form layout helpers instead.
 
-
 ## Header
 
 Key value inputs use a header that includes a legend, helper text and generic content slot.
@@ -50,7 +49,7 @@ Don’t repeat information in each row if it can be explained once at the top of
 
 ### Validation
 
-In addition to form-level validation, if a specific error is associated with the fieldset, it will be displayed above the rows.
+In addition to form-level validation, if a specific error is associated with the fieldset, it will be displayed below the add new row button.
 
 ![Below the legend and helper text is a compact critical alert showing a fieldset error.](/assets/components/form/key-value-inputs/key-value-inputs-fieldset-error.png)
 
