@@ -35,6 +35,8 @@
     <li><strong>PageDown (fn + down)</strong>: Move to last cell in the column</li>
   </ul>
 
+  <Hds::Button @text="Update the content" {{on "click" this.changeData}} />
+
   <Hds::AdvancedTable
     @model={{this.model.music}}
     @columns={{array

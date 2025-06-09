@@ -5,9 +5,16 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, focus, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  settled,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+import { tracked } from '@glimmer/tracking';
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
@@ -499,61 +506,71 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   });
 
   test('it should update the table when the model changes', async function (assert) {
-    this.set('model', [
-      { key: 'artist', name: 'Test 1', description: 'Test 1 description' },
-      { key: 'album', name: 'Test 2', description: 'Test 2 description' },
-      { key: 'year', name: 'Test 3', description: 'Test 3 description' },
-    ]);
+    const bodySelector = '.hds-advanced-table__tbody';
+    const rowSelector = '.hds-advanced-table__tr';
+    const cellSelector = '.hds-advanced-table__td';
+
+    const getBodyContent = () => {
+      return Array.from(
+        document.querySelectorAll(`${bodySelector} ${rowSelector}`),
+      ).map((row) => {
+        const cells = row.querySelectorAll(cellSelector);
+        return Array.from(cells).map((cell) => cell.textContent.trim());
+      });
+    };
+    class TrackedContext {
+      @tracked model = [];
+      @tracked newRecordName = 'New Record';
+    }
+
+    this.set('context', new TrackedContext());
+
+    this.context.model = [
+      { name: 'Bob', age: 20, country: 'USA' },
+      { name: 'Alice', age: 25, country: 'UK' },
+      { name: 'Charlie', age: 30, country: 'Canada' },
+    ];
 
     await render(hbs`<Hds::AdvancedTable
   id='data-advanced-test-table'
-  @model={{this.model}}
+  @model={{this.context.model}}
   @columns={{array
-    (hash key='artist' label='components.table.headers.artist')
-    (hash key='album' label='components.table.headers.album')
-    (hash key='year' label='components.table.headers.year')
+    (hash key='name' label='Name')
+    (hash key='age' label='Age')
+    (hash key='country' label='Country')
   }}
 >
   <:body as |B|>
     <B.Tr id={{B.rowIndex}}>
-      <B.Td>{{B.data.key}}</B.Td>
       <B.Td>{{B.data.name}}</B.Td>
-      <B.Td>{{B.data.description}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.country}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>`);
 
-    assert
-      .dom('#data-advanced-test-table .hds-advanced-table__tr')
-      .exists({ count: 4 }); // header + 1 row
-    assert
-      .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
-      )
-      .hasText('Test 1');
-    assert
-      .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:last-of-type .hds-advanced-table__td:last-of-type',
-      )
-      .hasText('Test 3 description');
-
-    this.set('model', [
-      { key: 'artist', name: 'Test 4', description: 'Test 4 description' },
+    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 3 });
+    assert.deepEqual(getBodyContent(), [
+      ['Bob', '20', 'USA'],
+      ['Alice', '25', 'UK'],
+      ['Charlie', '30', 'Canada'],
     ]);
 
-    assert
-      .dom('#data-advanced-test-table .hds-advanced-table__tr')
-      .exists({ count: 2 }); // header + 1 row
-    assert
-      .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:nth-of-type(2n)',
-      )
-      .hasText('Test 4');
-    assert
-      .dom(
-        '#data-advanced-test-table .hds-advanced-table__tr:first-of-type .hds-advanced-table__td:last-of-type',
-      )
-      .hasText('Test 4 description');
+    this.context.newRecordName = 'Jane';
+
+    this.context.model = [
+      { name: this.context.newRecordName, age: 35, country: 'Mexico' },
+    ];
+    await settled();
+
+    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
+    assert.deepEqual(getBodyContent(), [['Jane', '35', 'Mexico']]);
+
+    this.context.newRecordName = 'John';
+    await this.pauseTest();
+    await settled();
+    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
+    assert.deepEqual(getBodyContent(), [['John', '35', 'Mexico']]);
   });
 
   // OPTIONS

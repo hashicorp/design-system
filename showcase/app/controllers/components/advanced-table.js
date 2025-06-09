@@ -60,6 +60,13 @@ export default class ComponentsTableController extends Controller {
   @deepTracked multiSelectUserData__demo4 = [...this.model.userDataDemo4];
   @tracked focusableElementsVisible = false;
 
+  @action
+  changeData() {
+    this.model.music[0].artist = 'Wompus';
+
+    console.log(this.model.music);
+  }
+
   get clustersWithExtraData() {
     return this.model.clusters.map((record) => {
       return {
