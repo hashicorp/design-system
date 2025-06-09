@@ -39,13 +39,18 @@
           )
           Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy)
           SuperSelectSingle=(component
-            "hds/form/super-select/single/base" isInvalid=@isInvalid triggerId=this._id ariaDescribedBy=ariaDescribedBy
+            "hds/form/super-select/single/base"
+            isInvalid=@isInvalid
+            triggerId=this._id
+            ariaDescribedBy=ariaDescribedBy
+            ariaLabelledBy=(concat this.idPrefix this._id)
           )
           SuperSelectMultiple=(component
             "hds/form/super-select/multiple/base"
             isInvalid=@isInvalid
             triggerId=this._id
             ariaDescribedBy=ariaDescribedBy
+            ariaLabelledBy=(concat this.idPrefix this._id)
           )
           TextInput=(component
             "hds/form/text-input/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy
