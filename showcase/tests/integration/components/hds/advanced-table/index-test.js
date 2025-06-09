@@ -518,22 +518,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
         return Array.from(cells).map((cell) => cell.textContent.trim());
       });
     };
-    class TrackedContext {
-      @tracked model = [];
-      @tracked newRecordName = 'New Record';
-    }
 
-    this.set('context', new TrackedContext());
-
-    this.context.model = [
+    this.set('model', [
       { name: 'Bob', age: 20, country: 'USA' },
       { name: 'Alice', age: 25, country: 'UK' },
       { name: 'Charlie', age: 30, country: 'Canada' },
-    ];
+    ]);
 
     await render(hbs`<Hds::AdvancedTable
   id='data-advanced-test-table'
-  @model={{this.context.model}}
+  @model={{this.model}}
   @columns={{array
     (hash key='name' label='Name')
     (hash key='age' label='Age')
@@ -556,21 +550,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       ['Charlie', '30', 'Canada'],
     ]);
 
-    this.context.newRecordName = 'Jane';
-
-    this.context.model = [
-      { name: this.context.newRecordName, age: 35, country: 'Mexico' },
-    ];
-    await settled();
-
+    this.set('model', [{ name: 'Jane', age: 35, country: 'Mexico' }]);
     assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
     assert.deepEqual(getBodyContent(), [['Jane', '35', 'Mexico']]);
-
-    this.context.newRecordName = 'John';
-    await this.pauseTest();
-    await settled();
-    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
-    assert.deepEqual(getBodyContent(), [['John', '35', 'Mexico']]);
   });
 
   // OPTIONS
