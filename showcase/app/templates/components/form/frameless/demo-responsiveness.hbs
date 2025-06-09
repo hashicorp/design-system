@@ -11,14 +11,14 @@
       <Hds::Form::Header>
         <Hds::Form::Header::Title>Form responsiveness demo</Hds::Form::Header::Title>
         <Hds::Text::Body @tag="p" @size="200">
-          This is a demo of responsive layout behavior in a form. Only the FieldGroup component layout is responsive,
-          the rest of the form just has a fluid layout with a set max-width.
+          This is a demo of responsive layout behavior. Only the FieldGroup component is responsive; other content just
+          has a set max-width.
         </Hds::Text::Body>
       </Hds::Form::Header>
 
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
-          <Hds::Form::Header::Title>Your personal details</Hds::Form::Header::Title>
+          <Hds::Text::Display @weight="semibold" @size="300">Your personal details</Hds::Text::Display>
           <Hds::Text::Body @tag="p" @size="200">
             Please fill out the fields below with your personal details.
           </Hds::Text::Body>
@@ -57,6 +57,14 @@
             <F.Label>Zip</F.Label>
           </Hds::Form::TextInput::Field>
         </Hds::Form::Section::FieldGroup>
+
+        <Hds::Form::TextInput::Field as |F|>
+          <F.Label>Favorite animal</F.Label>
+        </Hds::Form::TextInput::Field>
+
+        <Hds::Form::Textarea::Field name="demo-description" as |F|>
+          <F.Label>Short bio</F.Label>
+        </Hds::Form::Textarea::Field>
       </Hds::Form::Section>
 
       <Hds::Form::Section>

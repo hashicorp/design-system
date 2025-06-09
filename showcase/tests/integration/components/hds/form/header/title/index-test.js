@@ -48,14 +48,18 @@ module(
       await render(
         hbs`<Hds::Form::Header::Title id="test-form-header-title" />`,
       );
-      assert.dom('#test-form-header-title').hasClass('hds-typography-display-400');
+      assert
+        .dom('#test-form-header-title')
+        .hasClass('hds-typography-display-400');
     });
 
     test('it should render the component with a specified size', async function (assert) {
       await render(
         hbs`<Hds::Form::Header::Title id="test-form-header-title" @size="300" />`,
       );
-      assert.dom('#test-form-header-title').hasClass('hds-typography-display-300');
+      assert
+        .dom('#test-form-header-title')
+        .hasClass('hds-typography-display-300');
     });
   },
 );
