@@ -59,7 +59,7 @@ Router.map(function () {
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
-      this.route('key-value-pair', function () {
+      this.route('key-value-inputs', function () {
         this.route('frameless', function () {
           this.route('demo-responsiveness');
         });

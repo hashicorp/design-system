@@ -3,7 +3,7 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <fieldset
-  class="hds-form-key-value-pair"
+  class="hds-form-key-value-inputs"
   ...attributes
   {{style --hds-key-value-pair-columns=this._gridTemplateColumns}}
   {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
@@ -12,7 +12,7 @@
   aria-describedby={{this.ariaDescribedBy}}
   {{this._setUpKeyValuePair}}
 >
-  <div class="hds-form-key-value-pair__header">
+  <div class="hds-form-key-value-inputs__header">
     {{yield
       (hash
         Legend=(component
@@ -20,7 +20,7 @@
           isOptional=@isOptional
           isRequired=@isRequired
           id=(concat this._id "-legend")
-          contextualClass="hds-form-key-value-pair__legend"
+          contextualClass="hds-form-key-value-inputs__legend"
         )
       )
       to="header"
@@ -31,7 +31,7 @@
           "hds/form/helper-text"
           controlId=this._id
           onInsert=this.appendDescriptor
-          contextualClass="hds-form-key-value-pair__helper-text"
+          contextualClass="hds-form-key-value-inputs__helper-text"
         )
       )
       to="header"
@@ -44,7 +44,7 @@
           controlId=this._id
           onInsert=this.appendDescriptor
           onRemove=this.removeDescriptor
-          contextualClass="hds-form-key-value-pair__error"
+          contextualClass="hds-form-key-value-inputs__error"
         )
       )
       to="header"
@@ -52,14 +52,14 @@
   </div>
 
   {{#if (eq @data.length 0)}}
-    <div class="hds-form-key-value-pair__row hds-form-key-value-pair__row--first">
+    <div class="hds-form-key-value-inputs__row hds-form-key-value-inputs__row--first">
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-pair/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
           )
           Generic=(component
-            "hds/form/key-value-pair/yield" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
+            "hds/form/key-value-inputs/yield" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
         )
         to="row"
@@ -68,7 +68,7 @@
       {{yield
         (hash
           DeleteRowButton=(component
-            "hds/form/key-value-pair/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow rowData=undefined
+            "hds/form/key-value-inputs/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow rowData=undefined
           )
         )
         to="row"
@@ -77,14 +77,14 @@
   {{/if}}
 
   {{#each @data as |item index|}}
-    <div class="hds-form-key-value-pair__row {{if (eq index 0) 'hds-form-key-value-pair__row--first'}}">
+    <div class="hds-form-key-value-inputs__row {{if (eq index 0) 'hds-form-key-value-inputs__row--first'}}">
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-pair/field" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
           )
           Generic=(component
-            "hds/form/key-value-pair/yield" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/yield" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
           )
           rowData=item
         )
@@ -94,7 +94,7 @@
       {{yield
         (hash
           DeleteRowButton=(component
-            "hds/form/key-value-pair/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
+            "hds/form/key-value-inputs/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
           )
         )
         to="row"
@@ -102,11 +102,11 @@
     </div>
   {{/each}}
 
-  <div class="hds-form-key-value-pair__footer">
+  <div class="hds-form-key-value-inputs__footer">
     {{yield
       (hash
         Alert=(component "hds/alert" color="neutral" type="compact")
-        AddRowButton=(component "hds/form/key-value-pair/add-row-button")
+        AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
       )
       to="footer"
     }}

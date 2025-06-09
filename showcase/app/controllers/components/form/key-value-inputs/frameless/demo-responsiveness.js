@@ -22,6 +22,6 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class KeyValuePairController extends Controller {
+export default class KeyValueInputsDemoResponsivenessController extends Controller {
   sampleData = DEFAULT_DATA;
 }

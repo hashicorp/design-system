@@ -3,18 +3,18 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-{{page-title "KeyValuePair Component"}}
+{{page-title "KeyValueInputs Component"}}
 
-<Shw::Text::H1>KeyValuePair</Shw::Text::H1>
+<Shw::Text::H1>KeyValueInputs</Shw::Text::H1>
 
 <section data-test-percy>
 
   <Shw::Text::Body>
-    This example is a more "functional example" of the KeyValuePair component, meant to show how a consumer could
+    This example is a more "functional example" of the KeyValueInputs component, meant to show how a consumer could
     implement the behavior.
   </Shw::Text::Body>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.functionalExampleData}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.functionalExampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -53,7 +53,7 @@
         </F.Alert>
       {{/if}}
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Divider />
 
@@ -61,7 +61,7 @@
 
   <Shw::Text::H3>With empty <code>@data</code> argument</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @data={{this.emptyData}}>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
     </:header>
@@ -86,11 +86,11 @@
       </F.Generic>
       <F.AddRowButton />
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H3>With 1 item in <code>@data</code> argument</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @data={{this.sampleDataWith1Row}}>
+  <Hds::Form::KeyValueInputs @data={{this.sampleDataWith1Row}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
     </:header>
@@ -116,13 +116,13 @@
       </F.Generic>
       <F.AddRowButton />
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H2>Columns</Shw::Text::H2>
 
   <Shw::Text::H3>2 columns</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
@@ -146,11 +146,11 @@
     <:footer as |F|>
       <F.AddRowButton />
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H3>1 column</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
@@ -169,7 +169,7 @@
     <:footer as |F|>
       <F.AddRowButton />
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Divider />
 
@@ -177,7 +177,7 @@
 
   <Shw::Text::H3>With placeholders</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -216,11 +216,11 @@
         <Shw::Placeholder @height="36px" @text="generic" />
       </F.Generic>
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H3>With components</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -255,7 +255,7 @@
         </A.Description>
       </F.Alert>
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Divider />
 
@@ -263,7 +263,7 @@
 
   <Shw::Text::H3>Default</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @data={{this.emptyData}}>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
     <:header as |H|>
       <H.Legend>All default inputs</H.Legend>
     </:header>
@@ -325,11 +325,11 @@
         <F.FileInput />
       </R.Field>
     </:row>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H3>With errors</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair @data={{this.emptyData}}>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
     <:header as |H|>
       <H.Legend>All default inputs</H.Legend>
     </:header>
@@ -398,11 +398,11 @@
         <F.Error>Sample text.</F.Error>
       </R.Field>
     </:row>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H2>With custom input widths</Shw::Text::H2>
 
-  <Hds::Form::KeyValuePair @data={{this.sampleData}}>
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Custom input widths</H.Legend>
     </:header>
@@ -425,7 +425,7 @@
       </R.Field>
       <R.DeleteRowButton />
     </:row>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Divider />
 
@@ -433,14 +433,14 @@
 
   <Shw::Text::H3>With custom text</Shw::Text::H3>
 
-  <Hds::Form::KeyValuePair::AddRowButton @text="Custom text" />
+  <Hds::Form::KeyValueInputs::AddRowButton @text="Custom text" />
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
   <Shw::Grid @columns={{3}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
-        <Hds::Form::KeyValuePair::AddRowButton mock-state-value={{state}} />
+        <Hds::Form::KeyValueInputs::AddRowButton mock-state-value={{state}} />
       </SG.Item>
     {{/each}}
   </Shw::Grid>
@@ -451,7 +451,7 @@
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
         <div {{style display="grid" gridTemplateColumns="min-content"}}>
-          <Hds::Form::KeyValuePair::DeleteRowButton mock-state-value={{state}} @canDeleteRow={{true}} />
+          <Hds::Form::KeyValueInputs::DeleteRowButton mock-state-value={{state}} @canDeleteRow={{true}} />
         </div>
       </SG.Item>
     {{/each}}
@@ -466,14 +466,14 @@
 
   <Shw::Frame
     @id="demo-key-value-pair-large-viewports"
-    @src="/components/form/key-value-pair/frameless/demo-responsiveness"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
     @height="300"
     @label="Large viewport"
   />
 
   <Shw::Frame
     @id="demo-key-value-pair-small-viewports"
-    @src="/components/form/key-value-pair/frameless/demo-responsiveness"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
     @width="400"
     @height="650"
     @label="Small viewport (< 480px)"

@@ -229,11 +229,11 @@ export * from './components/hds/link/types.ts';
 
 // KeyValuePair
 
-export { default as HdsKeyValuePair } from './components/hds/form/key-value-pair/index.ts';
-export { default as HdsKeyValuePairAddRowButton } from './components/hds/form/key-value-pair/add-row-button.ts';
-export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/form/key-value-pair/delete-row-button.ts';
-export { default as HdsKeyValuePairField } from './components/hds/form/key-value-pair/field.ts';
-export { default as HdsKeyValuePairYield } from './components/hds/form/key-value-pair/yield.ts';
+export { default as HdsKeyValuePair } from './components/hds/form/key-value-inputs/index.ts';
+export { default as HdsKeyValuePairAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
+export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
+export { default as HdsKeyValuePairField } from './components/hds/form/key-value-inputs/field.ts';
+export { default as HdsKeyValuePairYield } from './components/hds/form/key-value-inputs/yield.ts';
 
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';

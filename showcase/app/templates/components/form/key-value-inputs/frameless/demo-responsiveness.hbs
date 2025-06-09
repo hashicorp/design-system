@@ -6,7 +6,7 @@
 {{page-title "KeyValuePair responsiveness demo - Frameless"}}
 
 <div {{style padding="24px"}}>
-  <Hds::Form::KeyValuePair @isOptional={{true}} @data={{this.sampleData}}>
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -43,11 +43,11 @@
     </:row>
 
     <:footer as |F|>
-      <F.Generic>
-        <Shw::Placeholder @height="36px" @text="generic" />
-      </F.Generic>
-      <F.AddRowButton />
-      <F.Error>There is an error.</F.Error>
+      <F.Alert as |A|>
+        <A.Description>
+          Sample alert content.
+        </A.Description>
+      </F.Alert>
     </:footer>
-  </Hds::Form::KeyValuePair>
+  </Hds::Form::KeyValueInputs>
 </div>

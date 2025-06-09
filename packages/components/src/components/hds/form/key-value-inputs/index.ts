@@ -19,25 +19,25 @@ import {
 import HdsAlertComponent from '../../alert/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
-import HdsFormKeyValuePairDeleteRowButtonComponent from './delete-row-button.ts';
-import HdsFormKeyValuePairFieldComponent from './field.ts';
-import HdsFormKeyValuePairYieldComponent from './yield.ts';
+import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
+import HdsFormKeyValueInputsFieldComponent from './field.ts';
+import HdsFormKeyValueInputsYieldComponent from './yield.ts';
 import HdsFormLegendComponent from '../legend/index.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
-import type { HdsFormKeyValuePairAddRowButtonSignature } from './add-row-button.ts';
+import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
-const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-pair__field';
+const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
 const KEY_VALUE_PAIR_GENERIC_SELECTOR =
-  '.hds-form-key-value-pair__yield-container';
+  '.hds-form-key-value-inputs__yield-container';
 const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
-  '.hds-form-key-value-pair__row--first';
+  '.hds-form-key-value-inputs__row--first';
 const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
-  '.hds-form-key-value-pair__row-delete-button-container';
+  '.hds-form-key-value-inputs__row-delete-button-container';
 
-export interface HdsFormKeyValuePairSignature {
+export interface HdsFormKeyValueInputsSignature {
   Args: HdsFormFieldsetSignature['Args'] & {
     data: Array<unknown>;
   };
@@ -62,15 +62,15 @@ export interface HdsFormKeyValuePairSignature {
     row: [
       {
         Field?: WithBoundArgs<
-          typeof HdsFormKeyValuePairFieldComponent,
+          typeof HdsFormKeyValueInputsFieldComponent,
           'rowIndex' | 'onInsert' | 'onRemove'
         >;
         DeleteRowButton?: WithBoundArgs<
-          typeof HdsFormKeyValuePairDeleteRowButtonComponent,
+          typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
           'rowIndex' | 'rowData' | 'canDeleteRow'
         >;
         Generic?: WithBoundArgs<
-          typeof HdsFormKeyValuePairYieldComponent,
+          typeof HdsFormKeyValueInputsYieldComponent,
           'rowIndex' | 'onInsert' | 'onRemove'
         >;
         rowData?: unknown;
@@ -79,7 +79,7 @@ export interface HdsFormKeyValuePairSignature {
     footer?: [
       {
         Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
-        AddRowButton?: ComponentLike<HdsFormKeyValuePairAddRowButtonSignature>;
+        AddRowButton?: ComponentLike<HdsFormKeyValueInputsAddRowButtonSignature>;
       },
     ];
   };
@@ -88,7 +88,7 @@ export interface HdsFormKeyValuePairSignature {
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
-export default class HdsFormKeyValuePair extends Component<HdsFormKeyValuePairSignature> {
+export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
   private _id = guidFor(this);
   private _element!: HTMLElement;
   @tracked _columns: HTMLDivElement[] = [];

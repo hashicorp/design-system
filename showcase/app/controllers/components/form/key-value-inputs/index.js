@@ -25,7 +25,7 @@ const DEFAULT_DATA = [
   },
 ];
 
-export default class KeyValuePairController extends Controller {
+export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
   @tracked canAddRow = this.functionalExampleData.length < 4;
 

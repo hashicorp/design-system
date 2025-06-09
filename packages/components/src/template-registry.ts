@@ -118,11 +118,11 @@ import type HdsFormHeaderDescriptionComponent from './components/hds/form/header
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
-import type HdsFormKeyValuePairComponent from './components/hds/form/key-value-pair/index.ts';
-import type HdsFormKeyValuePairAddRowButtonComponent from './components/hds/form/key-value-pair/add-row-button.ts';
-import type HdsFormKeyValuePairDeleteRowButtonComponent from './components/hds/form/key-value-pair/delete-row-button.ts';
-import type HdsFormKeyValuePairFieldComponent from './components/hds/form/key-value-pair/field.ts';
-import type HdsFormKeyValuePairYieldComponent from './components/hds/form/key-value-pair/yield.ts';
+import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value-inputs/index.ts';
+import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.ts';
+import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.ts';
+import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.ts';
+import type HdsFormKeyValueInputsYieldComponent from './components/hds/form/key-value-inputs/yield.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -638,16 +638,16 @@ export default interface HdsComponentsRegistry {
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
 
   // Form KeyValuePair
-  'Hds::Form::KeyValuePair': typeof HdsFormKeyValuePairComponent;
-  'hds/form/key-value-pair': typeof HdsFormKeyValuePairComponent;
-  'Hds::Form::KeyValuePair::AddRowButton': typeof HdsFormKeyValuePairAddRowButtonComponent;
-  'hds/form/key-value-pair/add-row-button': typeof HdsFormKeyValuePairAddRowButtonComponent;
-  'Hds::Form::KeyValuePair::DeleteRowButton': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
-  'hds/form/key-value-pair/delete-row-button': typeof HdsFormKeyValuePairDeleteRowButtonComponent;
-  'hds/form/key-value-pair/field': typeof HdsFormKeyValuePairFieldComponent;
-  'Hds::Form::KeyValuePair::Field': typeof HdsFormKeyValuePairFieldComponent;
-  'hds/form/key-value-pair/yield': typeof HdsFormKeyValuePairYieldComponent;
-  'Hds::Form::KeyValuePair::Yield': typeof HdsFormKeyValuePairYieldComponent;
+  'Hds::Form::KeyValueInputs': typeof HdsFormKeyValueInputsComponent;
+  'hds/form/key-value-inputs': typeof HdsFormKeyValueInputsComponent;
+  'Hds::Form::KeyValueInputs::AddRowButton': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'hds/form/key-value-inputs/add-row-button': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'Hds::Form::KeyValueInputs::DeleteRowButton': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/delete-row-button': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/field': typeof HdsFormKeyValueInputsFieldComponent;
+  'Hds::Form::KeyValueInputs::Field': typeof HdsFormKeyValueInputsFieldComponent;
+  'hds/form/key-value-inputs/yield': typeof HdsFormKeyValueInputsYieldComponent;
+  'Hds::Form::KeyValueInputs::Yield': typeof HdsFormKeyValueInputsYieldComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
