@@ -268,7 +268,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   color: var(--token-color-foreground-faint);
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 3px;
+  border-radius: var(--token-border-radius-x-small);
 
   &:hover,
   &.mock-hover {
@@ -288,7 +288,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
       bottom: 0;
       left: 0;
       border: none;
-      border-radius: 3px;
+      border-radius: var(--token-border-radius-x-small);
     }
   }
 

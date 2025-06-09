@@ -29,12 +29,6 @@ export interface HdsAdvancedTableThContextMenuSignature {
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
   originalColumnWidth?: string = this.args.column.width;
 
-  get classNames() {
-    const classes = ['hds-advanced-table__th-context-menu'];
-
-    return classes.join(' ');
-  }
-
   get _options(): HdsAdvancedTableThContextMenuOption[] {
     const { column } = this.args;
 
