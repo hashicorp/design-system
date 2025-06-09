@@ -8,7 +8,7 @@ import { modifier } from 'ember-modifier';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 
-export interface HdsFormKeyValuePairYieldSignature {
+export interface HdsFormKeyValueInputsYieldSignature {
   Args: {
     onInsert?: (element: HTMLDivElement) => void;
     onRemove?: (element: HTMLDivElement) => void;
@@ -20,10 +20,10 @@ export interface HdsFormKeyValuePairYieldSignature {
   Element: HTMLDivElement;
 }
 
-export default class HdsFormKeyValuePairYield extends Component<HdsFormKeyValuePairYieldSignature> {
+export default class HdsFormKeyValueInputsYield extends Component<HdsFormKeyValueInputsYieldSignature> {
   private _element!: HTMLDivElement;
 
-  constructor(owner: Owner, args: HdsFormKeyValuePairYieldSignature['Args']) {
+  constructor(owner: Owner, args: HdsFormKeyValueInputsYieldSignature['Args']) {
     super(owner, args);
 
     registerDestructor(this, (): void => {

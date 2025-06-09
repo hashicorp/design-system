@@ -8,11 +8,11 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | Component | hds/form/key-value-pair', function (hooks) {
+module('Acceptance | Component | hds/form/key-value-inputs', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('components/form/key-value-pair passes a11y automated checks', async function (assert) {
-    await visit('/components/form/key-value-pair');
+  test('components/form/key-value-inputs passes a11y automated checks', async function (assert) {
+    await visit('/components/form/key-value-inputs');
     await a11yAudit();
     assert.ok(true, 'a11y automation audit passed');
   });

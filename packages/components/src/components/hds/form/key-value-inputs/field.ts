@@ -30,7 +30,7 @@ import HdsFormTextInputBaseComponent from '../text-input/base.ts';
 import type { HdsFormFieldSignature } from '../field/index.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
-export interface HdsFormKeyValuePairFieldSignature {
+export interface HdsFormKeyValueInputsFieldSignature {
   Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
     rowIndex: number;
     isInvalid?: boolean;
@@ -93,11 +93,11 @@ export interface HdsFormKeyValuePairFieldSignature {
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
-export default class HdsFormKeyValuePairField extends Component<HdsFormKeyValuePairFieldSignature> {
+export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
   private _id = guidFor(this);
   private _element!: HTMLDivElement;
 
-  constructor(owner: Owner, args: HdsFormKeyValuePairFieldSignature['Args']) {
+  constructor(owner: Owner, args: HdsFormKeyValueInputsFieldSignature['Args']) {
     super(owner, args);
 
     registerDestructor(this, (): void => {
