@@ -27,7 +27,7 @@ export default class HdsFormKeyValueInputsYield extends Component<HdsFormKeyValu
     super(owner, args);
 
     registerDestructor(this, (): void => {
-      if (this.args.onRemove && this.args.rowIndex === 0) {
+      if (this.args.onRemove) {
         this.args.onRemove(this._element);
       }
     });
@@ -35,7 +35,7 @@ export default class HdsFormKeyValueInputsYield extends Component<HdsFormKeyValu
 
   private _onInsert = modifier((element: HTMLDivElement) => {
     this._element = element;
-    if (this.args.onInsert && this.args.rowIndex === 0) {
+    if (this.args.onInsert) {
       this.args.onInsert(element);
     }
   });

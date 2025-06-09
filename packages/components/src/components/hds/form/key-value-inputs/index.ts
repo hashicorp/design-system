@@ -91,7 +91,6 @@ export interface HdsFormKeyValueInputsSignature {
 export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
   private _id = guidFor(this);
   private _element!: HTMLElement;
-  @tracked _columns: HTMLDivElement[] = [];
   @tracked _gridTemplateColumns = '';
 
   get canDeleteRow(): boolean {
@@ -101,12 +100,15 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
   @action _setUpColumn(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
-      this.updateColumns();
+      this._updateColumns();
     });
   }
 
-  @action _removeColumn(element: HTMLDivElement): void {
-    this._columns = this._columns.filter((col) => col !== element);
+  @action _removeColumn(): void {
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', (): void => {
+      this._updateColumns();
+    });
   }
 
   @action
@@ -123,20 +125,18 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
   });
 
   // Update the column array based on how they are ordered in the DOM
-  private updateColumns(): void {
+  private _updateColumns = () => {
     const columns = this._element
       .querySelector(KEY_VALUE_PAIR_FIRST_ROW_SELECTOR)
       ?.querySelectorAll(
         `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}, ${KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR}`
       );
 
-    let newColumnNodes: HTMLDivElement[] = [];
     let newGridTemplateColumns = '';
 
     columns?.forEach((column, index) => {
       const columnElement = column as HTMLDivElement;
 
-      newColumnNodes = [...newColumnNodes, columnElement];
       // do substring to remove the leading dot from the class selector
       if (
         column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))
@@ -173,7 +173,6 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
       }
     });
 
-    this._columns = newColumnNodes;
     this._gridTemplateColumns = newGridTemplateColumns;
   }
 }

@@ -19,7 +19,7 @@ import {
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
-import HdsFormLabelComponent from '../label/index.ts';
+import HdsFormLabelComponent, {ID_PREFIX} from '../label/index.ts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
@@ -101,7 +101,7 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     super(owner, args);
 
     registerDestructor(this, (): void => {
-      if (this.args.onRemove && this.args.rowIndex === 0) {
+      if (this.args.onRemove) {
         this.args.onRemove(this._element);
       }
     });
@@ -109,7 +109,7 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
 
   private _onInsert = modifier((element: HTMLDivElement) => {
     this._element = element;
-    if (this.args.onInsert && this.args.rowIndex === 0) {
+    if (this.args.onInsert) {
       this.args.onInsert(element);
     }
   });
@@ -117,6 +117,10 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
   get labelHiddenText(): string {
     return `row ${this.args.rowIndex + 1}`;
   }
+
+    get idPrefix(): string {
+      return ID_PREFIX;
+    }
 
   @action
   appendDescriptor(element: HTMLElement): void {
