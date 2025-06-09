@@ -9,7 +9,7 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
-  'Integration | Component | hds/form/key-value-pair/index',
+  'Integration | Component | hds/form/key-value-inputs/index',
   function (hooks) {
     setupRenderingTest(hooks);
 
@@ -17,7 +17,7 @@ module(
       this.set('createKeyValuePair', async (args = {}) => {
         this.data = args.data ?? [];
         return await render(hbs`
-        <Hds::Form::KeyValuePair
+        <Hds::Form::KeyValueInputs
           id="test-form-key-value-pair"
           @data={{this.data}}
         >
@@ -49,7 +49,7 @@ module(
               <A.Description>Alert content</A.Description>
             </F.Alert>
           </:footer>
-        </Hds::Form::KeyValuePair>
+        </Hds::Form::KeyValueInputs>
       `);
       });
     });
@@ -58,7 +58,7 @@ module(
       await this.createKeyValuePair();
       assert
         .dom('#test-form-key-value-pair')
-        .hasClass('hds-form-key-value-pair');
+        .hasClass('hds-form-key-value-inputs');
     });
 
     // HEADER
@@ -66,18 +66,18 @@ module(
     test('it should render the header content', async function (assert) {
       await this.createKeyValuePair();
       assert
-        .dom('#test-form-key-value-pair .hds-form-key-value-pair__header')
+        .dom('#test-form-key-value-pair .hds-form-key-value-inputs__header')
         .exists();
       // await pauseTest(); // Wait for the header to render
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__header legend',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__header legend',
         )
         .hasText('Legend')
-        .hasClass('hds-form-key-value-pair__legend');
+        .hasClass('hds-form-key-value-inputs__legend');
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__helper-text',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
         )
         .hasText('Helper text');
       assert
@@ -85,7 +85,7 @@ module(
         .hasText('Generic content');
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
         )
         .hasText('Error text');
     });
@@ -95,12 +95,12 @@ module(
     test('it should render the row content', async function (assert) {
       await this.createKeyValuePair();
       assert
-        .dom('#test-form-key-value-pair .hds-form-key-value-pair__row')
+        .dom('#test-form-key-value-pair .hds-form-key-value-inputs__row')
         .exists();
 
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__row .hds-form-key-value-pair__field',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__row .hds-form-key-value-inputs__field',
         )
         .exists();
       assert
@@ -113,7 +113,7 @@ module(
       await this.createKeyValuePair();
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__row .hds-form-key-value-pair__delete-row-button',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
         )
         .doesNotExist();
     });
@@ -124,7 +124,7 @@ module(
       });
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__row .hds-form-key-value-pair__delete-row-button',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
         )
         .doesNotExist();
     });
@@ -135,7 +135,7 @@ module(
       });
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__row .hds-form-key-value-pair__delete-row-button',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
         )
         .exists({ count: 2 });
     });
@@ -145,11 +145,11 @@ module(
     test('it should render the footer content', async function (assert) {
       await this.createKeyValuePair();
       assert
-        .dom('#test-form-key-value-pair .hds-form-key-value-pair__footer')
+        .dom('#test-form-key-value-pair .hds-form-key-value-inputs__footer')
         .exists();
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__footer .hds-form-key-value-pair__add-row-button',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__footer .hds-form-key-value-inputs__add-row-button',
         )
         .exists()
         .hasText('Add row');
@@ -171,13 +171,13 @@ module(
 
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__row-delete-button-container',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__row-delete-button-container',
         )
         .hasStyle({ '--hds-key-value-pair-column-index': '3' });
 
       assert
         .dom(
-          '#test-form-key-value-pair .hds-form-key-value-pair__yield-container',
+          '#test-form-key-value-pair .hds-form-key-value-inputs__yield-container',
         )
         .hasStyle({ '--hds-key-value-pair-column-index': '2' });
     });
@@ -195,7 +195,7 @@ module(
     test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
       this.data = [{ value: 'Test value' }, { value: 'Another value' }];
       await render(hbs`
-        <Hds::Form::KeyValuePair
+        <Hds::Form::KeyValueInputs
           id="test-form-key-value-pair"
           @data={{this.data}}
         >
@@ -211,11 +211,11 @@ module(
             </R.Generic>
             <R.DeleteRowButton />
           </:row>
-        </Hds::Form::KeyValuePair>
+        </Hds::Form::KeyValueInputs>
       `);
 
       assert
-        .dom('#test-form-key-value-pair .hds-form-key-value-pair__field')
+        .dom('#test-form-key-value-pair .hds-form-key-value-inputs__field')
         .hasAttribute('data-width', '200px');
 
       assert
@@ -229,7 +229,7 @@ module(
       await this.createKeyValuePair();
 
       const legendId = document.querySelector(
-        '#test-form-key-value-pair .hds-form-key-value-pair__header legend',
+        '#test-form-key-value-pair .hds-form-key-value-inputs__header legend',
       ).id;
 
       assert.dom('#test-form-key-value-pair').hasAria('labelledby', legendId);
@@ -238,11 +238,11 @@ module(
     test('it should match the helper text ids to `aria-describedby` of the input', async function (assert) {
       await this.createKeyValuePair();
       const helperId = document.querySelector(
-        '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__helper-text',
+        '#test-form-key-value-pair .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
       ).id;
 
       const errorId = document.querySelector(
-        '#test-form-key-value-pair .hds-form-key-value-pair__header .hds-form-key-value-pair__error',
+        '#test-form-key-value-pair .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
       ).id;
 
       assert

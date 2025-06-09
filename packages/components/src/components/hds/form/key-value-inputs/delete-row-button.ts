@@ -7,17 +7,20 @@ import { action } from '@ember/object';
 
 import type { HdsButtonSignature } from '../../button/index.ts';
 
-export interface HdsFormKeyValuePairAddRowButtonSignature {
+export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
   Args: {
     text?: HdsButtonSignature['Args']['text'];
-    onClick?: () => void;
+    rowIndex: number;
+    rowData: unknown;
+    canDeleteRow?: boolean;
+    onClick?: (rowData: unknown) => void;
   };
   Element: HdsButtonSignature['Element'];
 }
 
-export default class HdsFormKeyValuePairAddRowButton extends Component<HdsFormKeyValuePairAddRowButtonSignature> {
+export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsFormKeyValueInputsDeleteRowButtonSignature> {
   get text(): string {
-    return this.args.text ?? 'Add row';
+    return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
   }
 
   @action
@@ -25,7 +28,7 @@ export default class HdsFormKeyValuePairAddRowButton extends Component<HdsFormKe
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
-      onClick();
+      onClick(this.args.rowData);
     }
   }
 }
