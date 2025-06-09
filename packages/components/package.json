@@ -239,6 +239,7 @@
       "./components/hds/form/file-input/base.js": "./dist/_app_/components/hds/form/file-input/base.js",
       "./components/hds/form/file-input/field.js": "./dist/_app_/components/hds/form/file-input/field.js",
       "./components/hds/form/header/index.js": "./dist/_app_/components/hds/form/header/index.js",
+      "./components/hds/form/header/title/index.js": "./dist/_app_/components/hds/form/header/title/index.js",
       "./components/hds/form/helper-text/index.js": "./dist/_app_/components/hds/form/helper-text/index.js",
       "./components/hds/form/index.js": "./dist/_app_/components/hds/form/index.js",
       "./components/hds/form/indicator/index.js": "./dist/_app_/components/hds/form/indicator/index.js",
