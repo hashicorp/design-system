@@ -9,7 +9,7 @@
   <:main>
     <Hds::Form>
       <Hds::Form::Header>
-        <Hds::Text::Display @size="400">Complex form demo</Hds::Text::Display>
+        <Hds::Form::Header::Title>Complex form demo</Hds::Form::Header::Title>
         <Hds::Text::Body @tag="p" @size="200">
           This is a demo of responsive layout behavior in a form. Only the FieldGroup component layout is responsive,
           the rest of the form just has a fluid layout with a set max-width.
@@ -27,63 +27,3 @@
     </Hds::Form>
   </:main>
 </Mock::App>
-
-{{! <Hds::Form>
-  <Hds::Form::Header>
-    <Hds::Text::Display @size="400">Form responsiveness demo</Hds::Text::Display>
-    <Hds::Text::Body @tag="p" @size="200">
-      This is a demo of responsive layout behavior in a form. Only the FieldGroup component layout is responsive,
-      the rest of the form just has a fluid layout with a set max-width.
-    </Hds::Text::Body>
-  </Hds::Form::Header>
-
-  <Hds::Form::Section>
-    <Hds::Form::Section::Header>
-      <Hds::Text::Display @size="300">Your personal details</Hds::Text::Display>
-      <Hds::Text::Body @tag="p" @size="200">
-        Please fill out the fields below with your personal details.
-      </Hds::Text::Body>
-    </Hds::Form::Section::Header>
-
-    <Hds::Form::Section::FieldGroup>
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>First name</F.Label>
-        <F.HelperText>Your given name</F.HelperText>
-      </Hds::Form::TextInput::Field>
-
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>Last name</F.Label>
-      </Hds::Form::TextInput::Field>
-    </Hds::Form::Section::FieldGroup>
-
-    <Hds::Form::Section::FieldGroup as |FG|>
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>City</F.Label>
-      </Hds::Form::TextInput::Field>
-
-      <FG.Item @basis="auto">
-        <Hds::Form::Select::Field as |F|>
-          <F.Label>State</F.Label>
-          <F.Options>
-            <option value="state-1">Ohio</option>
-            <option value="state-2">Massachusetts</option>
-            <option value="state-3">Washington</option>
-            <option value="state-4">Florida</option>
-            <option value="state-4">North Carolina</option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-      </FG.Item>
-
-      <Hds::Form::TextInput::Field @width="6em" as |F|>
-        <F.Label>Zip</F.Label>
-      </Hds::Form::TextInput::Field>
-    </Hds::Form::Section::FieldGroup>
-  </Hds::Form::Section>
-
-  <Hds::Form::Section>
-    <Hds::ButtonSet>
-      <Hds::Button @text="Submit" type="submit" />
-      <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-    </Hds::ButtonSet>
-  </Hds::Form::Section>
-</Hds::Form> }}
