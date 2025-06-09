@@ -13,6 +13,7 @@ import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
+
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableThSortOrderValues,
