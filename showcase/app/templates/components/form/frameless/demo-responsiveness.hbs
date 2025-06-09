@@ -58,6 +58,25 @@
           </Hds::Form::TextInput::Field>
         </Hds::Form::Section::FieldGroup>
 
+        <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
+          <G.Legend>Choose datacenter</G.Legend>
+          <G.RadioField as |F|>
+            <F.Label>NYC1</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>DC1</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>NYC2</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>SF1</F.Label>
+          </G.RadioField>
+          <G.RadioField as |F|>
+            <F.Label>Lorem ipsum dolor wat</F.Label>
+          </G.RadioField>
+        </Hds::Form::Radio::Group>
+
         <Hds::Form::TextInput::Field as |F|>
           <F.Label>Favorite animal</F.Label>
         </Hds::Form::TextInput::Field>
