@@ -1,0 +1,14 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<Hds::Text::Display
+  class="hds-form__section-header-title"
+  @weight="semibold"
+  @tag={{this.tag}}
+  @size={{this.size}}
+  ...attributes
+>
+  {{yield}}
+</Hds::Text::Display>
