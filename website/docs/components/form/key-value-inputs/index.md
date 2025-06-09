@@ -7,7 +7,7 @@ links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67397-98270&t=w8xQlWxzH7bwXLe2-1
   github: >-
-    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/masked-input
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form/key-value-inputs
 related:
   - components/form/text-input
   - components/form/masked-input
