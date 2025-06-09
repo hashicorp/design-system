@@ -637,7 +637,7 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
 
-  // Form KeyValuePair
+  // Form KeyValueInputs
   'Hds::Form::KeyValueInputs': typeof HdsFormKeyValueInputsComponent;
   'hds/form/key-value-inputs': typeof HdsFormKeyValueInputsComponent;
   'Hds::Form::KeyValueInputs::AddRowButton': typeof HdsFormKeyValueInputsAddRowButtonComponent;

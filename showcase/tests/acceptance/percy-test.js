@@ -104,8 +104,8 @@ module('Acceptance | Percy test', function (hooks) {
     await visit('/components/form/file-input');
     await percySnapshot('Form - FileInput');
 
-    await visit('/components/form/key-value-pair');
-    await percySnapshot('Form - KeyValuePair');
+    await visit('/components/form/key-value-inputs');
+    await percySnapshot('Form - KeyValueInputs');
 
     await visit('/components/form/masked-input');
     await percySnapshot('Form - MaskedInput');

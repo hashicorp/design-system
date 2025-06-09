@@ -227,13 +227,13 @@ export { default as HdsLinkInline } from './components/hds/link/inline.ts';
 export { default as HdsLinkStandalone } from './components/hds/link/standalone.ts';
 export * from './components/hds/link/types.ts';
 
-// KeyValuePair
+// KeyValueInputs
 
-export { default as HdsKeyValuePair } from './components/hds/form/key-value-inputs/index.ts';
-export { default as HdsKeyValuePairAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
-export { default as HdsKeyValuePairDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
-export { default as HdsKeyValuePairField } from './components/hds/form/key-value-inputs/field.ts';
-export { default as HdsKeyValuePairYield } from './components/hds/form/key-value-inputs/yield.ts';
+export { default as HdsKeyValueInputs } from './components/hds/form/key-value-inputs/index.ts';
+export { default as HdsKeyValueInputsAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
+export { default as HdsKeyValueInputsDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
+export { default as HdsKeyValueInputsField } from './components/hds/form/key-value-inputs/field.ts';
+export { default as HdsKeyValueInputsYield } from './components/hds/form/key-value-inputs/yield.ts';
 
 // Modal
 export { default as HdsModal } from './components/hds/modal/index.ts';
