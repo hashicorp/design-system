@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 import { restartableTask, timeout } from 'ember-concurrency';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 
 import TOKENS_RAW from '@hashicorp/design-system-tokens/dist/docs/products/tokens.json';
 

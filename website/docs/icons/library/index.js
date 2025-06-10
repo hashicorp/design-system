@@ -6,7 +6,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { restartableTask, timeout } from 'ember-concurrency';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import { AVAILABLE_NAMES } from '@hashicorp/design-system-components/components/hds/icon/index';
 
 import catalog from '@hashicorp/flight-icons/catalog.json';
