@@ -3,6 +3,13 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Text::Display class="hds-form__header-title" @weight="medium" @tag={{this.tag}} @size={{this.size}} @color="strong" ...attributes>
+<Hds::Text::Display
+  class="hds-form__header-title"
+  @weight="medium"
+  @tag={{this.tag}}
+  @size={{this.size}}
+  @color="strong"
+  ...attributes
+>
   {{yield}}
 </Hds::Text::Display>
