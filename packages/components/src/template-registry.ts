@@ -104,7 +104,6 @@ import type HdsFormCharacterCountComponent from './components/hds/form/character
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
 import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
 import type HdsFormCheckboxGroupComponent from './components/hds/form/checkbox/group';
-import type HdsFormDescriptionComponent from './components/hds/form/description';
 import type HdsFormErrorComponent from './components/hds/form/error';
 import type HdsFormErrorMessageComponent from './components/hds/form/error/message';
 import type HdsFormFieldComponent from './components/hds/form/field';
@@ -112,6 +111,7 @@ import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
 import type HdsFormHeaderComponent from './components/hds/form/header';
+import type HdsFormHeaderDescriptionComponent from './components/hds/form/header/description';
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
@@ -129,6 +129,7 @@ import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-car
 import type HdsFormSectionComponent from './components/hds/form/section';
 import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group/index.ts';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header';
+import type HdsFormSectionHeaderDescriptionComponent from './components/hds/form/section/header/description';
 import type HdsFormSectionHeaderTitleComponent from './components/hds/form/section/header/title';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
@@ -578,10 +579,6 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Checkbox::Group': typeof HdsFormCheckboxGroupComponent;
   'hds/form/checkbox/group': typeof HdsFormCheckboxGroupComponent;
 
-  // Form Description
-  'Hds::Form::Description': typeof HdsFormDescriptionComponent;
-  'hds/form/description': typeof HdsFormDescriptionComponent;
-
   // Form Error
   'Hds::Form::Error': typeof HdsFormErrorComponent;
   'hds/form/error': typeof HdsFormErrorComponent;
@@ -608,6 +605,10 @@ export default interface HdsComponentsRegistry {
   // Form Header
   'Hds::Form::Header': typeof HdsFormHeaderComponent;
   'hds/form/header': typeof HdsFormHeaderComponent;
+
+  // Form Header Description
+  'Hds::Form::Header::Description': typeof HdsFormHeaderDescriptionComponent;
+  'hds/form/header/description': typeof HdsFormHeaderDescriptionComponent;
 
   // Form Header Title
   'Hds::Form::Header::Title': typeof HdsFormHeaderTitleComponent;
@@ -670,6 +671,10 @@ export default interface HdsComponentsRegistry {
   // Form Section Header
   'Hds::Form::Section::Header': typeof HdsFormSectionHeaderComponent;
   'hds/form/section/header': typeof HdsFormSectionHeaderComponent;
+
+  // Form Section Header Description
+  'Hds::Form::Section::Header::Description': typeof HdsFormSectionHeaderDescriptionComponent;
+  'hds/form/section/header/description': typeof HdsFormSectionHeaderDescriptionComponent;
 
   // Form Section Header Title
   'Hds::Form::Section::Header::Title': typeof HdsFormSectionHeaderTitleComponent;
