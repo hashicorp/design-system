@@ -105,13 +105,6 @@ export default class HdsAdvancedTableTableModel {
   }
 
   @action
-  updateModel(model: HdsAdvancedTableModel) {
-    this.rows = model.map((row) => {
-      return new HdsAdvancedTableRow({ ...row, childrenKey: this.childrenKey });
-    });
-  }
-
-  @action
   openAll() {
     this.rows.forEach((row) => row.openAll());
   }
