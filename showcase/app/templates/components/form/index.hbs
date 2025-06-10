@@ -17,7 +17,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item
-        @label="With Form, FormHeader, FormHeaderTitle, FormDescription, FormSections, SectionHeader, SectionHeaderTitle, FormFields, FormSeparator, and ButtonSet (FormActions)"
+        @label="With Form, FormHeader, FormHeaderTitle, FormHeaderDescription, FormSection, SectionHeader, SectionHeaderTitle, FormSectionHeaderDescription, FormFields, FormSeparator, and ButtonSet (FormActions)"
       >
         <Hds::Form>
           <Hds::Form::Header>
@@ -25,7 +25,7 @@
               <Shw::Placeholder @height="3.2em" @text="FormHeaderTitle" @background="#e5ffd2" />
             </Hds::Form::Header::Title>
             <Hds::Form::Header::Description>
-              <Shw::Placeholder @height="4.8em" @text="Form Description" @background="#e5ffd2" />
+              <Shw::Placeholder @height="4.8em" @text="FormHeaderDescription" @background="#e5ffd2" />
             </Hds::Form::Header::Description>
           </Hds::Form::Header>
 
@@ -35,7 +35,7 @@
                 <Shw::Placeholder @height="2.8em" @text="SectionHeaderTitle" @background="#add8e6" />
               </Hds::Form::Section::Header::Title>
               <Hds::Form::Section::Header::Description>
-                <Shw::Placeholder @height="4.8em" @text="Section Description" @background="#add8e6" />
+                <Shw::Placeholder @height="4.8em" @text="FormSectionHeaderDescription" @background="#add8e6" />
               </Hds::Form::Section::Header::Description>
             </Hds::Form::Section::Header>
 
@@ -45,7 +45,7 @@
           </Hds::Form::Section>
 
           <Hds::Form::Section>
-            <Hds::Form::Section::FieldGroup @direction="column">
+            <Hds::Form::Section::FieldGroup>
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
             </Hds::Form::Section::FieldGroup>
@@ -54,7 +54,7 @@
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder
                 @height="2.4em"
-                @width="auto"
+                @width="max-content"
                 {{style padding="0 1em"}}
                 @text="FieldGroup FormField 2"
                 @background="#add8e6"
@@ -563,10 +563,10 @@
           <Hds::Form::Section>
             <Hds::Form::Section::FieldGroup @direction="column">
               <Hds::Form::TextInput::Field as |F|>
-                <F.Label>Field 1</F.Label>
+                <F.Label>Field 1 text input</F.Label>
               </Hds::Form::TextInput::Field>
               <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-                <F.Label>Field 2</F.Label>
+                <F.Label>Field 2 toggle</F.Label>
               </Hds::Form::Toggle::Field>
             </Hds::Form::Section::FieldGroup>
           </Hds::Form::Section>
@@ -578,12 +578,12 @@
           <Hds::Form::Section>
             <Hds::Form::Section::FieldGroup @direction="column">
               <Hds::Form::TextInput::Field as |F|>
-                <F.Label>Field 1</F.Label>
+                <F.Label>Field 1 text input</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
                 <F.Error>This is a field-level error.</F.Error>
               </Hds::Form::TextInput::Field>
               <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-                <F.Label>Field 2</F.Label>
+                <F.Label>Field 2 toggle</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
                 <F.Error>This is a field-level error.</F.Error>
               </Hds::Form::Toggle::Field>
