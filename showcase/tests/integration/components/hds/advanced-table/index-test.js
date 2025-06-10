@@ -498,6 +498,56 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       .hasText('Test 3 description');
   });
 
+  test('it should update the table when the model changes', async function (assert) {
+    const bodySelector = '.hds-advanced-table__tbody';
+    const rowSelector = '.hds-advanced-table__tr';
+    const cellSelector = '.hds-advanced-table__td';
+
+    const getBodyContent = () => {
+      return Array.from(
+        document.querySelectorAll(`${bodySelector} ${rowSelector}`),
+      ).map((row) => {
+        const cells = row.querySelectorAll(cellSelector);
+        return Array.from(cells).map((cell) => cell.textContent.trim());
+      });
+    };
+
+    this.set('model', [
+      { name: 'Bob', age: 20, country: 'USA' },
+      { name: 'Alice', age: 25, country: 'UK' },
+      { name: 'Charlie', age: 30, country: 'Canada' },
+    ]);
+
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{array
+    (hash key='name' label='Name')
+    (hash key='age' label='Age')
+    (hash key='country' label='Country')
+  }}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.country}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+
+    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 3 });
+    assert.deepEqual(getBodyContent(), [
+      ['Bob', '20', 'USA'],
+      ['Alice', '25', 'UK'],
+      ['Charlie', '30', 'Canada'],
+    ]);
+
+    this.set('model', [{ name: 'Jane', age: 35, country: 'Mexico' }]);
+    assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
+    assert.deepEqual(getBodyContent(), [['Jane', '35', 'Mexico']]);
+  });
+
   // OPTIONS
 
   // Sortable
