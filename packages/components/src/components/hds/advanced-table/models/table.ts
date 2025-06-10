@@ -66,6 +66,10 @@ export default class HdsAdvancedTableTableModel {
     return this.flattenedVisibleRows[this.flattenedVisibleRows.length - 1];
   }
 
+  get hasResizableColumns(): boolean {
+    return this.columns.some((column) => column.isResizable);
+  }
+
   get hasRowsWithChildren(): boolean {
     return this.rows.some((row) => row.hasChildren);
   }

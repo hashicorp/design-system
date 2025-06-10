@@ -401,6 +401,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push('hds-advanced-table__thead--is-pinned');
     }
 
+    if (this._tableModel.hasResizableColumns) {
+      classes.push('hds-advanced-table__thead--has-resizable-columns');
+    }
+
     return classes.join(' ');
   }
 
