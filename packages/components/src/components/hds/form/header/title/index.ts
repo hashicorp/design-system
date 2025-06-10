@@ -24,7 +24,11 @@ export interface HdsFormHeaderTitleSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLHeadingElement | HTMLDivElement;
+  Element:
+    | HTMLDivElement
+    | HTMLSpanElement
+    | HTMLHeadingElement
+    | HTMLParagraphElement;
 }
 
 export default class HdsFormHeaderTitle extends Component<HdsFormHeaderTitleSignature> {

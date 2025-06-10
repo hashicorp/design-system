@@ -9,7 +9,11 @@ export interface HdsFormDescriptionSignature {
   Blocks: {
     default: [];
   };
-  Element: HTMLParagraphElement;
+  Element:
+    | HTMLDivElement
+    | HTMLSpanElement
+    | HTMLHeadingElement
+    | HTMLParagraphElement;
 }
 
 const HdsFormDescription = TemplateOnlyComponent<HdsFormDescriptionSignature>();
