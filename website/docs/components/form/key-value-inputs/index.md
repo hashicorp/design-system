@@ -12,7 +12,6 @@ related:
   - components/form/text-input
   - components/form/masked-input
   - components/form/select
-  - components/form/super-select
   - components/form/textarea
 previewImage: assets/illustrations/components/form/key-value-inputs.jpg
 navigation:
