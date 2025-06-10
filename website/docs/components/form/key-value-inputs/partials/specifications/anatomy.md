@@ -1,9 +1,7 @@
 ## Anatomy
 
-<!-- image then table -->
 ![Anatomy of Key Value Inputs](/assets/components/form/key-value-inputs/key-value-inputs-anatomy.png)
 
-<!-- this is just an example, refer to other components to see how to fill this table -->
 | Element              | Usage                                           |
 |----------------------|-------------------------------------------------|
 | Legend               | Required                                        |
