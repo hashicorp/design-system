@@ -4,16 +4,13 @@
  */
 
 import TemplateOnlyComponent from '@ember/component/template-only';
+import type { HdsTextBodySignature } from '../../text/body.ts';
 
 export interface HdsFormDescriptionSignature {
   Blocks: {
     default: [];
   };
-  Element:
-    | HTMLDivElement
-    | HTMLSpanElement
-    | HTMLHeadingElement
-    | HTMLParagraphElement;
+  Element: HdsTextBodySignature['Element'];
 }
 
 const HdsFormDescription = TemplateOnlyComponent<HdsFormDescriptionSignature>();

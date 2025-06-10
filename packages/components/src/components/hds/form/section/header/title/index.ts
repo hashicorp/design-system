@@ -11,6 +11,7 @@ import type { HdsFormHeaderTag } from '../../../types.ts';
 import { HdsFormHeaderTagValues } from '../../../types.ts';
 
 import type { HdsTextSizes } from '../../../../text/types.ts';
+import type { HdsTextDisplaySignature } from '../../../../text/display.ts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.ThreeHundred;
 export const DEFAULT_TAG = HdsFormHeaderTagValues.Div;
@@ -24,11 +25,7 @@ export interface HdsFormSectionHeaderTitleSignature {
   Blocks: {
     default: [];
   };
-  Element:
-    | HTMLDivElement
-    | HTMLSpanElement
-    | HTMLHeadingElement
-    | HTMLParagraphElement;
+  Element: HdsTextDisplaySignature['Element'];
 }
 
 export default class HdsFormSectionHeaderTitle extends Component<HdsFormSectionHeaderTitleSignature> {
