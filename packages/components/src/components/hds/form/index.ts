@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 import { HdsFormTagValues } from './types.ts';
 
-import type { HdsFormTag } from './types.ts';
+import type { HdsFormTags } from './types.ts';
 import type Owner from '@ember/owner';
 
 export const DEFAULT_TAG = HdsFormTagValues.Form;
@@ -17,7 +17,7 @@ export const AVAILABLE_TAGS: string[] = Object.values(HdsFormTagValues);
 
 export interface HdsFormSignature {
   Args: {
-    tag?: HdsFormTag;
+    tag?: HdsFormTags;
   };
   Blocks: {
     default: [];
@@ -26,7 +26,7 @@ export interface HdsFormSignature {
 }
 
 export default class HdsForm extends Component<HdsFormSignature> {
-  tag: HdsFormTag;
+  tag: HdsFormTags;
 
   constructor(owner: Owner, args: HdsFormSignature['Args']) {
     super(owner, args);
