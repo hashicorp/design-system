@@ -221,6 +221,18 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
     }
   }
 
+  // Resizable columns
+  &.hds-advanced-table__thead--has-resizable-columns {
+    .hds-advanced-table__th .hds-advanced-table__th-content-text {
+      display: block;
+      width: 100%;
+      min-width: 30px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
   // sticky header
   &.hds-advanced-table__thead--sticky {
     position: sticky;
