@@ -292,9 +292,8 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
   }
 
   &:focus,
-  &.mock-focus {
-    border-color: transparent;
-
+  &.mock-focus,
+  .hds-dropdown-toggle-icon--is-open {
     &::before {
       top: 0;
       right: 0;
@@ -302,10 +301,9 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       left: 0;
       border: none;
       border-radius: var(--token-border-radius-x-small);
+      box-shadow: var(--token-focus-ring-action-box-shadow);
     }
   }
-
-  @include hds-focus-ring-with-pseudo-element($radius: inherit);
 }
 
 .hds-advanced-table__th-button {
