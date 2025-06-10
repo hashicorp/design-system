@@ -59,8 +59,6 @@ Read more about this in our [form patterns validation documentation](/patterns/f
 
 Each row often has two inputs, one for a key and one for a value. However, there may be exceptions where a single input may be necessary. 
 
-In instances like this, an input is omitted because it only requires one piece of information for each row.
-
 ![Only one input per row instead of two. ](/assets/components/form/key-value-inputs/key-value-inputs-value-only.png)
 
 ### Input types
