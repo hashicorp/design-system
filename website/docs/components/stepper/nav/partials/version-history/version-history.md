@@ -1,3 +1,7 @@
+## 4.20.1
+
+Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
+
 ## 4.20.0
 
 Replaced custom breakpoint (`550px`) with standard `sm` (`480px`) breakpoint
