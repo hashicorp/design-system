@@ -12,6 +12,38 @@
   </a>
 </p>
 
+## 4.20.1
+
+**Patch changes**
+
+`AdvancedTable` - Fixed a bug that prevented the `model` from updating when the argument changes
+
+<small class="doc-whats-new-changelog-metadata">[#2919](https://github.com/hashicorp/design-system/pull/2919)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Stepper::Nav` - Updated signature to use `WithBoundArgs` instead of `ComponentLike` for contextual components to resolve linting issues
+
+<small class="doc-whats-new-changelog-metadata">[#2936](https://github.com/hashicorp/design-system/pull/2936)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Accordion` - Set `aria-controls` of `Accordion::Item::Button` to `contentId` from `DisclosurePrimitive` for a11y improvements with toggled content
+
+`DisclosurePrimitive` - Changed DOM structure of content section and exposed `contentId` for a11y improvements with toggled content
+
+`Reveal` - Set `aria-controls` of `Reveal::Toggle` to `contentId` from `DisclosurePrimitive` for a11y improvements with toggled content
+
+<small class="doc-whats-new-changelog-metadata">[#2643](https://github.com/hashicorp/design-system/pull/2643)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::Field` - Fixed focus order a11y issue for helper text links with `@layout` of `flag`
+
+<small class="doc-whats-new-changelog-metadata">[#2915](https://github.com/hashicorp/design-system/pull/2915)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.20.0
 
 [4.20.0 documentation](https://hds-website-4-20-0.vercel.app/)
@@ -1500,18 +1532,6 @@ Removed `popover-polyfill` dependency and instantiating code
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@5.1.1
-
-## 4.5.1
-
-**🚨 Caution: This version has been deprecated 🚨**
-
-**Patch changes**
-
-Fixed syncing of `<F.Error />` ids to the `aria-describedby` attribute
-
-<small class="doc-whats-new-changelog-metadata">[#2177](https://github.com/hashicorp/design-system/pull/2177) - Thanks [@fivetanley](https://github.com/fivetanley) for the contribution! 🙏</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
 
 
 ---
