@@ -3,6 +3,11 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::Layout::Flex class={{this.classNames}} @tag="div" @gap="16" @align="end" @wrap={{@wrap}} ...attributes>{{yield
-    (hash Item=(component "hds/layout/flex/item"))
-  }}</Hds::Layout::Flex>
+<Hds::Layout::Flex
+  class="hds-form__section-field-group"
+  @tag="div"
+  @gap="16"
+  @align={{if (not (eq @direction "column")) "end"}}
+  @direction={{@direction}}
+  ...attributes
+>{{yield (hash Item=(component "hds/layout/flex/item"))}}</Hds::Layout::Flex>

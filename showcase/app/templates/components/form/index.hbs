@@ -50,7 +50,7 @@
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
             </Hds::Form::Section::FieldGroup>
 
-            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+            <Hds::Form::Section::FieldGroup @direction="column">
               <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
               <Shw::Placeholder
                 @height="2.4em"
@@ -213,7 +213,7 @@
           </Hds::Form::TextInput::Field>
         </Hds::Form::Section::FieldGroup>
 
-        <Hds::Form::Section::FieldGroup @wrap={{true}}>
+        <Hds::Form::Section::FieldGroup @direction="column">
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 2, field 1</F.Label>
           </Hds::Form::TextInput::Field>
@@ -432,11 +432,11 @@
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <Shw::Text::H4>Wrap</Shw::Text::H4>
+  <Shw::Text::H4>Direction</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="wrap=false, with equal widths (default)">
+      <SG.Item @label="direction=row, with equal widths (default)">
         <Hds::Form>
           <Hds::Form::Section>
             <Hds::Form::Section::FieldGroup>
@@ -558,10 +558,10 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="wrap=true">
+      <SG.Item @label="direction=column">
         <Hds::Form>
           <Hds::Form::Section>
-            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+            <Hds::Form::Section::FieldGroup @direction="column">
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Field 1</F.Label>
               </Hds::Form::TextInput::Field>
@@ -573,10 +573,10 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="wrap=true w/ helper text & errors">
+      <SG.Item @label="direction=column w/ helper text & errors">
         <Hds::Form>
           <Hds::Form::Section>
-            <Hds::Form::Section::FieldGroup @wrap={{true}}>
+            <Hds::Form::Section::FieldGroup @direction="column">
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Field 1</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
