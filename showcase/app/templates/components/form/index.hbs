@@ -24,9 +24,9 @@
             <Hds::Form::Header::Title>
               <Shw::Placeholder @height="3.2em" @text="FormHeaderTitle" @background="#e5ffd2" />
             </Hds::Form::Header::Title>
-            <Hds::Form::Description>
+            <Hds::Form::Header::Description>
               <Shw::Placeholder @height="4.8em" @text="Form Description" @background="#e5ffd2" />
-            </Hds::Form::Description>
+            </Hds::Form::Header::Description>
           </Hds::Form::Header>
 
           <Hds::Form::Section>
@@ -34,9 +34,9 @@
               <Hds::Form::Section::Header::Title>
                 <Shw::Placeholder @height="2.8em" @text="SectionHeaderTitle" @background="#add8e6" />
               </Hds::Form::Section::Header::Title>
-              <Hds::Form::Description>
+              <Hds::Form::Section::Header::Description>
                 <Shw::Placeholder @height="4.8em" @text="Section Description" @background="#add8e6" />
-              </Hds::Form::Description>
+              </Hds::Form::Section::Header::Description>
             </Hds::Form::Section::Header>
 
             <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
@@ -92,11 +92,11 @@
     <Hds::Form>
       <Hds::Form::Header>
         <Hds::Form::Header::Title>Form header title</Hds::Form::Header::Title>
-        <Hds::Form::Description>
+        <Hds::Form::Header::Description>
           Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
           facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam dolor
           obcaecati consequatur tenetur.
-        </Hds::Form::Description>
+        </Hds::Form::Header::Description>
       </Hds::Form::Header>
 
       <Hds::Form::Section>
@@ -112,11 +112,11 @@
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
           <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
-          <Hds::Form::Description>
+          <Hds::Form::Section::Header::Description>
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
-          </Hds::Form::Description>
+          </Hds::Form::Section::Header::Description>
         </Hds::Form::Section::Header>
 
         <Hds::Form::TextInput::Field name="field-1-name" as |F|>
@@ -152,11 +152,11 @@
       <Hds::Form::Section @isFullWidth={{true}} @hasBorder={{true}}>
         <Hds::Form::Section::Header>
           <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
-          <Hds::Form::Description>
+          <Hds::Form::Section::Header::Description>
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
-          </Hds::Form::Description>
+          </Hds::Form::Section::Header::Description>
         </Hds::Form::Section::Header>
 
         <Hds::Form::RadioCard::Group @name="radio-card-align-center" @alignment="center" as |G|>
@@ -276,11 +276,11 @@
         <Hds::Form>
           <Hds::Form::Header>
             <Hds::Form::Header::Title>Form Header title</Hds::Form::Header::Title>
-            <Hds::Form::Description>
+            <Hds::Form::Header::Description>
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
-            </Hds::Form::Description>
+            </Hds::Form::Header::Description>
           </Hds::Form::Header>
         </Hds::Form>
       </SG.Item>
@@ -289,11 +289,11 @@
         <Hds::Form class="shw-component-form-layout-custom-max-width">
           <Hds::Form::Header>
             <Hds::Form::Header::Title @size="300">Form Header Title w/ size of 300</Hds::Form::Header::Title>
-            <Hds::Form::Description>
+            <Hds::Form::Header::Description>
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
-            </Hds::Form::Description>
+            </Hds::Form::Header::Description>
           </Hds::Form::Header>
         </Hds::Form>
       </SG.Item>
@@ -302,11 +302,11 @@
         <Hds::Form>
           <Hds::Form::Header @isFullWidth={{true}}>
             <Hds::Form::Header::Title>Form Header title</Hds::Form::Header::Title>
-            <Hds::Form::Description>
+            <Hds::Form::Header::Description>
               Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
               facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
               dolor obcaecati consequatur tenetur.
-            </Hds::Form::Description>
+            </Hds::Form::Header::Description>
           </Hds::Form::Header>
         </Hds::Form>
       </SG.Item>
@@ -414,11 +414,11 @@
       <Hds::Form::Section>
         <Hds::Form::Section::Header>
           <Hds::Form::Section::Header::Title>Section header title</Hds::Form::Section::Header::Title>
-          <Hds::Form::Description>
+          <Hds::Form::Section::Header::Description>
             Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
             vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
             dolor obcaecati consequatur tenetur.
-          </Hds::Form::Description>
+          </Hds::Form::Section::Header::Description>
         </Hds::Form::Section::Header>
       </Hds::Form::Section>
     </Hds::Form>
@@ -797,8 +797,10 @@
   <Hds::Form>
     <Hds::Form::Header>
       <Hds::Form::Header::Title @tag="h2">Auth Token TTL</Hds::Form::Header::Title>
-      <Hds::Form::Description>Edit the auth token TTL issued by Boundary controllers. Changes are not immediate, and
-        will only affect new sessions.</Hds::Form::Description>
+      <Hds::Form::Header::Description>
+        Edit the auth token TTL issued by Boundary controllers. Changes are not immediate, and will only affect new
+        sessions.
+      </Hds::Form::Header::Description>
     </Hds::Form::Header>
     <Hds::Form::Section>
       <Hds::Form::TextInput::Field @isRequired={{true}} as |F|>
@@ -856,9 +858,11 @@
       <Hds::Form::Separator />
       <Hds::Form::Section::Header>
         <Hds::Form::Section::Header::Title @tag="h3">Cluster accessibility</Hds::Form::Section::Header::Title>
-        <Hds::Form::Description>Configure network access to your cluster. Internal (RPC and Gossip) communication is
-          always secure to Consul servers over a private peering or a transit gateway connection. For increased
-          security, limit the IP addresses allowed to connect using the “Allow select IPs only” section below.</Hds::Form::Description>
+        <Hds::Form::Section::Header::Description>
+          Configure network access to your cluster. Internal (RPC and Gossip) communication is always secure to Consul
+          servers over a private peering or a transit gateway connection. For increased security, limit the IP addresses
+          allowed to connect using the “Allow select IPs only” section below.
+        </Hds::Form::Section::Header::Description>
       </Hds::Form::Section::Header>
       <Hds::Form::Radio::Group as |G|>
         <G.RadioField checked={{true}} as |F|>
@@ -888,10 +892,10 @@
   <Hds::Form>
     <Hds::Form::Header>
       <Hds::Form::Header::Title @tag="h2">Add policy</Hds::Form::Header::Title>
-      <Hds::Form::Description>
+      <Hds::Form::Header::Description>
         Please specify which policy you would like to assign to your cluster. Read more about policies in our
         <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.
-      </Hds::Form::Description>
+      </Hds::Form::Header::Description>
     </Hds::Form::Header>
     <Hds::Form::Section>
       <Hds::Form::TextInput::Field as |F|>
@@ -962,11 +966,13 @@
       <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custom-max-width"}}>
         <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
           <Hds::Form::Header::Title @tag="h2">Add user</Hds::Form::Header::Title>
-          <Hds::Form::Description>
-            Grant access to HCP resources for your team members (this will send them an invite via email).</Hds::Form::Description>
-          <Hds::Form::Description>Read more about user permissions in our
+          <Hds::Form::Header::Description>
+            Grant access to HCP resources for your team members (this will send them an invite via email).
+          </Hds::Form::Header::Description>
+          <Hds::Form::Header::Description>
+            Read more about user permissions in our
             <Hds::Link::Inline @href="#" @icon="docs-link">documentation</Hds::Link::Inline>.
-          </Hds::Form::Description>
+          </Hds::Form::Header::Description>
         </Hds::Form::Header>
         <Hds::Form::Section
           class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
@@ -999,10 +1005,10 @@
 
         <Hds::Form::Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
           <Hds::Form::Header::Title @tag="h2">Add policy</Hds::Form::Header::Title>
-          <Hds::Form::Description>
+          <Hds::Form::Header::Description>
             Please specify which policy you would like to assign to your cluster. Read more about policies in our
             <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.
-          </Hds::Form::Description>
+          </Hds::Form::Header::Description>
         </Hds::Form::Header>
         <Hds::Form::Section
           class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
