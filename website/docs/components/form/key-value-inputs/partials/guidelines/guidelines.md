@@ -121,9 +121,14 @@ This uses the compact neutral alert, so it doesn’t visually compete with other
 
 ## Responsive behavior
 
+
+### SM or more
+
 In experiences that are greater than or equal to the [`sm` breakpoint](/foundations/breakpoints), a visible label and helper text are only present in the first row. This is because the form elements are condensed which will help reduce visual clutter.
 
 ![Key value input rows with the key and value are side by side along with a delete button to the right. Only one visible label and helper text per grouping of key and value inputs. Add new row button below the group of inputs.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-desktop.png)
+
+### Less than SM
 
 However, when the viewport is less than the [`sm` breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. Since the form height increases, the visible labels and helper text orient the user as they are scrolling down and filling in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
 
