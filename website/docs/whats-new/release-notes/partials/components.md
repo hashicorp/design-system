@@ -14,6 +14,8 @@
 
 ## 4.20.1
 
+[4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
+
 **Patch changes**
 
 `AdvancedTable` - Fixed a bug that prevented the `model` from updating when the argument changes
