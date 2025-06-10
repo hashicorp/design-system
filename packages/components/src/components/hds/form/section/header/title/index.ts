@@ -7,15 +7,18 @@ import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
 import { HdsTextSizeValues } from '../../../../text/types.ts';
 
-import type { HdsTextTags, HdsTextSizes } from '../../../../text/types.ts';
+import type { HdsFormHeaderTag } from '../../../types.ts';
+import { HdsFormHeaderTagValues } from '../../../types.ts';
+
+import type { HdsTextSizes } from '../../../../text/types.ts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.ThreeHundred;
-export const DEFAULT_TAG = 'div';
-export const AVAILABLE_TAGS = ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+export const DEFAULT_TAG = HdsFormHeaderTagValues.Div;
+export const AVAILABLE_TAGS: string[] = Object.values(HdsFormHeaderTagValues);
 
 export interface HdsFormSectionHeaderTitleSignature {
   Args: {
-    tag?: HdsTextTags;
+    tag?: HdsFormHeaderTag;
     size?: HdsTextSizes;
   };
   Blocks: {
@@ -25,7 +28,7 @@ export interface HdsFormSectionHeaderTitleSignature {
 }
 
 export default class HdsFormSectionHeaderTitle extends Component<HdsFormSectionHeaderTitleSignature> {
-  get tag(): HdsTextTags {
+  get tag(): HdsFormHeaderTag {
     const { tag = DEFAULT_TAG } = this.args;
 
     assert(
