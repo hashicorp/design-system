@@ -11,7 +11,7 @@
 
 ## Header
 
-Key value inputs use a header that includes a legend, helper text and generic content slot.
+Key value inputs use a header that includes a legend, helper text, and a generic content slot.
 
 ![](/assets/components/form/key-value-inputs/key-value-inputs-legend-content.png)
 
@@ -115,21 +115,21 @@ The add button is displayed by default and, when clicked, appends a new row to c
 
 Use a compact alert to notify the user when they've reached a maximum number of rows. While the content can be customized, we recommend using the following message: "Only {maximum number} {objects} can be added at a time."
 
-This uses the compact neutral alert, so it doesn’t visually compete with other higher-priority feedback, such as input errors.
+This uses the compact neutral alert, so it doesn’t visually compete with other high-priority feedback, such as input errors.
 
 ![A compact neutral alert that says "Limit of fifteen invites has been reached."](/assets/components/form/key-value-inputs/key-value-inputs-footer-notification.png)
 
 ## Responsive behavior
 
 
-### SM or more
+### Small or larger
 
-In experiences that are greater than or equal to the [`sm` breakpoint](/foundations/breakpoints), a visible label and helper text are only present in the first row. This is because the form elements are condensed which will help reduce visual clutter.
+In experiences that are greater than or equal to the [small (`sm`) breakpoint](/foundations/breakpoints), a visible label and helper text are only present in the first row. This is because the form elements are condensed, which helps reduce visual clutter.
 
 ![Key value input rows with the key and value are side by side along with a delete button to the right. Only one visible label and helper text per grouping of key and value inputs. Add new row button below the group of inputs.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-desktop.png)
 
-### Less than SM
+### Less than small
 
-However, when the viewport is less than the [`sm` breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. Since the form height increases, the visible labels and helper text orient the user as they are scrolling down and filling in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
+However, when the viewport is less than the [small (`sm`) breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text help orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
 
 ![Key and value inputs per row stack on top of each other. The delete button is below the value input. Each input has their label and helper text visible.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-mobile.png)
