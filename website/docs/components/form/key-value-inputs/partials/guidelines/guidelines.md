@@ -7,7 +7,7 @@
 
 ### When not to use
 
-- When inputs in each row are not closely related, use the form layout helpers instead.
+- When inputs in each row are not closely related, use the [form layout helpers](/components/form/layout) instead.
 
 ## Header
 
