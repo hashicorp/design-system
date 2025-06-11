@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 
 import type HdsAdvancedTableColumn from './models/column';
@@ -121,11 +120,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const { column, nextColumn } = this.args;
 
-    assert(
-      'HdsAdvancedTableThResizeHandle: column pxWidth must be a number to resize with keyboard.',
-      typeof column.pxWidth === 'number'
-    );
-
     const currentColumnPxWidth = column.pxWidth;
     const currentNextColumnPxWidth = nextColumn?.pxWidth;
 
@@ -141,9 +135,9 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     this._applyResizeDelta(
       deltaX,
       column,
-      currentColumnPxWidth, // Current width before keyboard step
+      currentColumnPxWidth ?? 0, // Current width before keyboard step
       nextColumn,
-      currentNextColumnPxWidth // Current next col width before keyboard step
+      currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
 
     this.handleElement.scrollIntoView({
@@ -160,15 +154,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     const { column, nextColumn } = this.args;
 
-    assert(
-      'HdsAdvancedTableThResizeHandle: column pxWidth must be a number to start resize.',
-      typeof column.pxWidth === 'number'
-    );
-
     this.resizing = {
       startX: event.clientX,
-      startColumnPxWidth: column.pxWidth,
-      startNextColumnPxWidth: nextColumn?.pxWidth,
+      startColumnPxWidth: column.pxWidth ?? 0,
+      startNextColumnPxWidth: nextColumn?.pxWidth ?? 0,
     };
 
     window.addEventListener('pointermove', this.boundResize);

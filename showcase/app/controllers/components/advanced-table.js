@@ -364,23 +364,16 @@ export default class ComponentsTableController extends Controller {
       key: 'artist',
       label: 'Artist',
       tooltip: 'More information.',
-      width: '200px',
-      maxWidth: '400px',
-      isResizable: true,
     },
     {
       key: 'album',
       label: 'Album',
       tooltip: 'More information.',
-      width: '300px',
-      isResizable: true,
     },
     {
       key: 'year',
       label: 'Release Year',
       tooltip: 'More information.',
-      width: '200px',
-      isResizable: true,
     },
     {
       key: 'other',
