@@ -1,5 +1,9 @@
 import Route from '@ember/routing/route';
 
+import { AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
+
+import { AVAILABLE_SIZES as BODY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/body';
+
 export default class ComponentsFormRoute extends Route {
   model() {
     const RADIOCARDS_GENERIC = [
@@ -48,6 +52,11 @@ export default class ComponentsFormRoute extends Route {
           'Open-source, general-purpose policy engine that allows you to enforce fine-grained access control and decision-making across cloud-native environments.',
       },
     ];
-    return { RADIOCARDS_GENERIC, RADIOCARDS_PRODUCTS };
+    return {
+      RADIOCARDS_GENERIC,
+      RADIOCARDS_PRODUCTS,
+      DISPLAY_AVAILABLE_SIZES,
+      BODY_AVAILABLE_SIZES,
+    };
   }
 }

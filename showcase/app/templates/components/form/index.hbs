@@ -285,19 +285,6 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custom-max-width">
-          <Hds::Form::Header>
-            <Hds::Form::Header::Title @size="300">Form Header Title w/ size of 300</Hds::Form::Header::Title>
-            <Hds::Form::Header::Description>
-              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
-              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
-              dolor obcaecati consequatur tenetur.
-            </Hds::Form::Header::Description>
-          </Hds::Form::Header>
-        </Hds::Form>
-      </SG.Item>
-
       <SG.Item @label="isFullWidth=true">
         <Hds::Form>
           <Hds::Form::Header @isFullWidth={{true}}>
@@ -312,6 +299,20 @@
       </SG.Item>
     </Shw::Grid>
   </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>FormHeaderTitle sizes</Shw::Text::H4>
+
+  <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
+    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
+      <SG.Item @label="size={{size}}">
+        <Hds::Form::Header::Title @size={{size}}>
+          Form Header Title w/ size of ({{size}})
+        </Hds::Form::Header::Title>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
@@ -403,7 +404,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>SectionHeader</Shw::Text::H3>
+  <Shw::Text::H3>SectionHeader, SectionHeaderTitle, & Description</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -423,6 +424,20 @@
       </Hds::Form::Section>
     </Hds::Form>
   </div>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>SectionHeaderTitle sizes</Shw::Text::H4>
+
+  <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
+    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
+      <SG.Item @label="size={{size}}">
+        <Hds::Form::Section::Header::Title @size={{size}}>
+          Section Header Title w/ size of ({{size}})
+        </Hds::Form::Section::Header::Title>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
 
