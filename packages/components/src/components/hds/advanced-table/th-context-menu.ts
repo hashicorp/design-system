@@ -22,29 +22,28 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    isResizable?: boolean;
+    hasResizableColumns?: boolean;
+    onRestoreColumnWidths?: () => void;
   };
   Element: HdsDropdownSignature['Element'];
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
-  originalColumnWidth?: string = this.args.column.width;
-
   get _options(): HdsAdvancedTableThContextMenuOption[] {
-    const { isResizable } = this.args;
+    const { hasResizableColumns } = this.args;
 
     const options: HdsAdvancedTableThContextMenuOption[] = [];
 
-    if (isResizable) {
+    if (hasResizableColumns) {
       options.push({
         key: 'reset-column-width',
-        label: 'Reset column width',
+        label: 'Reset column widths',
         icon: 'rotate-ccw',
         action: (
-          column: HdsAdvancedTableColumn,
+          _column: HdsAdvancedTableColumn,
           dropdownCloseCallback?: () => void
         ): void => {
-          column.restoreWidth();
+          this.args.onRestoreColumnWidths?.();
           dropdownCloseCallback?.();
         },
       });

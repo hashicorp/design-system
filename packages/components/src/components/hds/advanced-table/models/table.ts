@@ -172,6 +172,7 @@ export default class HdsAdvancedTableTableModel {
       (column) =>
         new HdsAdvancedTableColumn({
           column,
+          table: this,
           onColumnResize: this.onColumnResize,
         })
     );
@@ -182,6 +183,13 @@ export default class HdsAdvancedTableTableModel {
         childrenKey: this.childrenKey,
         columns,
       });
+    });
+  }
+
+  @action
+  restoreColumnWidths(): void {
+    this.columns.forEach((column) => {
+      column.width = column.originalWidth;
     });
   }
 
