@@ -26,3 +26,9 @@ export enum HdsBadgeColorValues {
   Critical = 'critical',
 }
 export type HdsBadgeColors = `${HdsBadgeColorValues}`;
+
+export default {
+  HdsBadgeSizeValues,
+  HdsBadgeTypeValues,
+  HdsBadgeColorValues,
+};

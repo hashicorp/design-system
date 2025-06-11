@@ -38,3 +38,10 @@ export enum HdsCardTagValues {
 }
 
 export type HdsCardTag = `${HdsCardTagValues}`;
+
+export default {
+  HdsCardBackgroundValues,
+  HdsCardLevelValues,
+  HdsCardOverflowValues,
+  HdsCardTagValues,
+};

@@ -8,3 +8,7 @@ export enum HdsCopySnippetColorValues {
   Secondary = 'secondary',
 }
 export type HdsCopySnippetColors = `${HdsCopySnippetColorValues}`;
+
+export default {
+  HdsCopySnippetColorValues,
+};

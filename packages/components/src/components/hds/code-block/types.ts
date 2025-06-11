@@ -27,3 +27,8 @@ export enum HdsCodeBlockTitleTagValues {
 }
 
 export type HdsCodeBlockTitleTags = `${HdsCodeBlockTitleTagValues}`;
+
+export default {
+  HdsCodeBlockLanguageValues,
+  HdsCodeBlockTitleTagValues,
+};

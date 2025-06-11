@@ -30,3 +30,9 @@ export enum HdsAlertTitleTagValues {
 }
 
 export type HdsAlertTitleTags = `${HdsAlertTitleTagValues}`;
+
+export default {
+  HdsAlertTypeValues,
+  HdsAlertColorValues,
+  HdsAlertTitleTagValues,
+};

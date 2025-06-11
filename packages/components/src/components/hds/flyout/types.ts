@@ -9,3 +9,7 @@ export enum HdsFlyoutSizesValues {
 }
 
 export type HdsFlyoutSizes = `${HdsFlyoutSizesValues}`;
+
+export default {
+  HdsFlyoutSizesValues,
+};

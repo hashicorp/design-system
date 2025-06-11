@@ -25,3 +25,8 @@ export enum HdsTagTooltipPlacementValues {
 }
 
 export type HdsTagTooltipPlacements = `${HdsTagTooltipPlacementValues}`;
+
+export default {
+  HdsTagColorValues,
+  HdsTagTooltipPlacementValues,
+};

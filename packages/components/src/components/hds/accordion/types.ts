@@ -33,3 +33,10 @@ export enum HdsAccordionItemTitleTagValues {
 }
 
 export type HdsAccordionItemTitleTags = `${HdsAccordionItemTitleTagValues}`;
+
+export default {
+  HdsAccordionTypeValues,
+  HdsAccordionSizeValues,
+  HdsAccordionForceStateValues,
+  HdsAccordionItemTitleTagValues,
+};

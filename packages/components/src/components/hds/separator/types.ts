@@ -8,3 +8,7 @@ export enum HdsSeparatorSpacingValues {
   TwentyFour = '24',
 }
 export type HdsSeparatorSpacing = `${HdsSeparatorSpacingValues}`;
+
+export default {
+  HdsSeparatorSpacingValues,
+};

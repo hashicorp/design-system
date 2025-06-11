@@ -24,3 +24,7 @@ export const HdsDropdownPositionToPlacementValues: Record<
   [HdsDropdownPositionValues.TopLeft]: 'top-start',
   [HdsDropdownPositionValues.TopRight]: 'top-end',
 };
+
+export default {
+  HdsDropdownPositionValues,
+};

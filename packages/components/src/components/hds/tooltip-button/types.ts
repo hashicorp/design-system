@@ -19,3 +19,7 @@ export enum HdsTooltipPlacementValues {
 }
 
 export type HdsTooltipPlacements = `${HdsTooltipPlacementValues}`;
+
+export default {
+  HdsTooltipPlacementValues,
+};

@@ -23,3 +23,9 @@ export enum HdsButtonIconPositionValues {
   Trailing = 'trailing',
 }
 export type HdsButtonIconPositions = `${HdsButtonIconPositionValues}`;
+
+export default {
+  HdsButtonSizeValues,
+  HdsButtonColorValues,
+  HdsButtonIconPositionValues,
+};

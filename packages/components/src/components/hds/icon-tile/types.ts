@@ -32,3 +32,9 @@ export enum HdsIconTileColorNeutral {
 }
 
 export type HdsIconTileColors = HdsIconTileProducts | HdsIconTileColorNeutral;
+
+export default {
+  HdsIconTileSizeValues,
+  HdsIconTileProductValues,
+  HdsIconTileColorNeutral,
+};
