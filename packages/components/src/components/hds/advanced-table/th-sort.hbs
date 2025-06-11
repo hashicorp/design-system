@@ -45,7 +45,11 @@
 
       {{#if @column}}
         {{#if this.showContextMenu}}
-          <Hds::AdvancedTable::ThContextMenu @column={{@column}} />
+          <Hds::AdvancedTable::ThContextMenu
+            @column={{@column}}
+            @hasResizableColumns={{@hasResizableColumns}}
+            @onRestoreColumnWidths={{@onRestoreColumnWidths}}
+          />
         {{/if}}
 
         {{#if (and @hasResizableColumns (not @isLastColumn))}}

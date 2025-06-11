@@ -47,6 +47,7 @@ export interface HdsAdvancedTableThSignature {
     scope?: HdsAdvancedTableScope;
     tooltip?: string;
     tableHeight?: number;
+    onRestoreColumnWidths?: () => void;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;

@@ -398,6 +398,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
         if (column.width === undefined) {
           column.setPxWidth(width);
+          column.originalWidth = `${width}px`;
         }
       });
     }
