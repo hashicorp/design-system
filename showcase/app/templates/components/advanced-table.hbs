@@ -1664,68 +1664,6 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>ThResizeHandle</Shw::Text::H3>
-
-  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
-    <SF.Item @grow={{true}}>
-      <div
-        class="hds-advanced-table hds-advanced-table--density-medium"
-        role="grid"
-        {{style gridTemplateColumns="200px 200px 200px 1fr"}}
-      >
-        <div class="hds-advanced-table__thead" role="rowgroup">
-          <div class="hds-advanced-table__tr" role="row">
-            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
-              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
-                <div class="hds-advanced-table__th-content">
-                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
-                    Lorem
-                  </span>
-                </div>
-                <Hds::AdvancedTable::ThResizeHandle
-                  @column={{this.thResizeHandleColumn}}
-                  @nextColumn={{@nextColumn}}
-                  @tableHeight={{@tableHeight}}
-                />
-              </Hds::Layout::Flex>
-            </div>
-            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
-              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
-                <div class="hds-advanced-table__th-content">
-                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
-                    Ipsum
-                  </span>
-                </div>
-                <Hds::AdvancedTable::ThResizeHandle
-                  @column={{this.thResizeHandleColumn}}
-                  @nextColumn={{@nextColumn}}
-                  @tableHeight={{@tableHeight}}
-                />
-              </Hds::Layout::Flex>
-            </div>
-            <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
-              <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
-                <div class="hds-advanced-table__th-content">
-                  <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
-                    Dolor
-                  </span>
-                </div>
-                <Hds::AdvancedTable::ThResizeHandle
-                  @column={{this.thResizeHandleColumn}}
-                  @nextColumn={{@nextColumn}}
-                  @tableHeight={{@tableHeight}}
-                />
-              </Hds::Layout::Flex>
-            </div>
-            <Hds::AdvancedTable::Th>Sit</Hds::AdvancedTable::Th>
-          </div>
-        </div>
-      </div>
-    </SF.Item>
-  </Shw::Flex>
-
-  <Shw::Divider @level={{2}} />
-
   <Shw::Text::H3>Td</Shw::Text::H3>
 
   <Shw::Flex @label="Horizontal alignment" as |SF|>
@@ -2060,5 +1998,60 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThContextMenu</Shw::Text::H3>
+
+  <Shw::Grid @label="Expand all interactive states + Expand state" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <Hds::Dropdown::Toggle::Icon
+          @icon="more-vertical"
+          @text="Context menu"
+          @hasChevron={{false}}
+          @size="small"
+          mock-state-value={{state}}
+        />
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThResizeHandle</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="200px 200px 200px 200px 1fr"}}
+      >
+        <div class="hds-advanced-table__thead" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            {{#each @model.STATES as |state|}}
+              <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
+                <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                  <div class="hds-advanced-table__th-content">
+                    <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                      {{capitalize state}}
+                    </span>
+                  </div>
+                  <Hds::AdvancedTable::ThResizeHandle
+                    mock-state-value={{state}}
+                    @column={{this.thResizeHandleColumn}}
+                    @nextColumn={{@nextColumn}}
+                    @tableHeight={{@tableHeight}}
+                  />
+                </Hds::Layout::Flex>
+              </div>
+            {{/each}}
+            <Hds::AdvancedTable::Th />
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>
