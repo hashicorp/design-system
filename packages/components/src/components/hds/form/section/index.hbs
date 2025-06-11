@@ -4,5 +4,13 @@
 }}
 
 <div class={{this.classNames}} ...attributes>
-  {{yield}}
+  {{yield
+    (hash
+      Header=(component "hds/form/section/header")
+      HeaderTitle=(component "hds/form/section/header/title")
+      HeaderDescription=(component "hds/form/section/header/description")
+      FieldGroup=(component "hds/form/section/field-group")
+      Section=(component "hds/form/section")
+    )
+  }}
 </div>

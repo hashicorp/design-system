@@ -5,13 +5,29 @@
 
 import Component from '@glimmer/component';
 
+import type { ComponentLike } from '@glint/template';
+import type { HdsYieldSignature } from '../../yield/index.ts';
+import type { HdsFormSectionHeaderSignature } from '../section/header/index.ts';
+import type { HdsFormSectionHeaderTitleSignature } from '../section/header/title/index.ts';
+import type { HdsFormSectionHeaderDescriptionSignature } from '../section/header/description/index.ts';
+import type { HdsFormSectionFieldGroupSignature } from '../section/field-group/index.ts';
+
 export interface HdsFormSectionSignature {
   Args: {
     hasBorder?: boolean;
     isFullWidth?: boolean;
   };
   Blocks: {
-    default: [];
+    default: [
+      {
+        Generic?: ComponentLike<HdsYieldSignature>;
+        Section?: ComponentLike<HdsFormSectionSignature>; // for nested sections (TODO: test if this is correct)
+        Header?: ComponentLike<HdsFormSectionHeaderSignature>;
+        HeaderTitle?: ComponentLike<HdsFormSectionHeaderTitleSignature>;
+        HeaderDescription?: ComponentLike<HdsFormSectionHeaderDescriptionSignature>;
+        FieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+      },
+    ];
   };
   Element: HTMLDivElement;
 }

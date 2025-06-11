@@ -5,10 +5,34 @@
 
 {{#if (eq this.tag "form")}}
   <form class="hds-form" ...attributes>
-    {{yield}}
+    {{yield
+      (hash
+        Header=(component "hds/form/header")
+        HeaderTitle=(component "hds/form/header/title")
+        HeaderDescription=(component "hds/form/header/description")
+        Section=(component "hds/form/section")
+        SectionHeader=(component "hds/form/section/header")
+        SectionHeaderTitle=(component "hds/form/section/header/title")
+        SectionHeaderDescription=(component "hds/form/section/header/description")
+        SectionFieldGroup=(component "hds/form/section/field-group")
+        Separator=(component "hds/form/separator")
+      )
+    }}
   </form>
 {{else}}
   <div class="hds-form" ...attributes>
-    {{yield}}
+    {{yield
+      (hash
+        Header=(component "hds/form/header")
+        HeaderTitle=(component "hds/form/header/title")
+        HeaderDescription=(component "hds/form/header/description")
+        Section=(component "hds/form/section")
+        SectionHeader=(component "hds/form/section/header")
+        SectionHeaderTitle=(component "hds/form/section/header/title")
+        SectionHeaderDescription=(component "hds/form/section/header/description")
+        SectionFieldGroup=(component "hds/form/section/field-group")
+        Separator=(component "hds/form/separator")
+      )
+    }}
   </div>
 {{/if}}
