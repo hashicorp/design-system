@@ -143,19 +143,21 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       }
 
       &:focus::after,
-      &.mock-focus,
+      &.mock-focus::after,
       &:hover::after,
+      &.mock-hover::after,
       &.hds-advanced-table__th-resize-handle--resizing::after {
         width: 3px;
         transform: translateX(-10.5px); // (width of the handle (24px) - width of the visual handle (3px)) / 2 == 10.5px
       }
 
-      &:hover::after {
+      &:hover::after,
+      &.mock-hover::after {
         background-color: $hds-advanced-table-border-resize-handle-hover-color;
       }
 
       &:focus::after,
-      &.mock-focus,
+      &.mock-focus::after,
       &.hds-advanced-table__th-resize-handle--resizing::after {
         background-color: var(--token-color-palette-blue-300);
       }
