@@ -359,3 +359,8 @@ export function mkRego(parserConf: ParserConfig = {}) {
 }
 
 export const rego = mkRego();
+
+export default {
+  mkRego,
+  rego,
+};

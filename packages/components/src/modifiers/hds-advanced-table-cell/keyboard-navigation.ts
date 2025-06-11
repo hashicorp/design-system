@@ -154,3 +154,7 @@ export const handleGridCellKeyPress = (
     }
   }
 };
+
+export default {
+  handleGridCellKeyPress,
+};

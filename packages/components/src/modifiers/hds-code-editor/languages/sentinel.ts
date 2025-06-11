@@ -217,3 +217,8 @@ export function mkSentinel(parserConf: ParserConfig) {
 }
 
 export const sentinel = mkSentinel({});
+
+export default {
+  mkSentinel,
+  sentinel,
+};
