@@ -76,7 +76,6 @@ export type HdsAdvancedTableExpandState = boolean;
 
 interface BaseHdsAdvancedTableColumn {
   align?: HdsAdvancedTableHorizontalAlignment;
-  isResizable?: boolean;
   isVisuallyHidden?: boolean;
   label: string;
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;

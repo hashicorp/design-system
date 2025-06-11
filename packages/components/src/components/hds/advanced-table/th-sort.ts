@@ -25,6 +25,7 @@ import type {
 import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts';
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -35,6 +36,7 @@ export interface HdsAdvancedTableThSortSignature {
   Args: {
     column?: HdsAdvancedTableThSignature['Args']['column'];
     align?: HdsAdvancedTableHorizontalAlignment;
+    hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     onClickSort?: HdsAdvancedTableThButtonSortSignature['Args']['onClick'];
     sortOrder?: HdsAdvancedTableThSortOrder;
     tooltip?: string;
@@ -95,13 +97,9 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   }
 
   get showContextMenu(): boolean {
-    const { column } = this.args;
+    const { hasResizableColumns } = this.args;
 
-    if (column === undefined) {
-      return false;
-    }
-
-    return column.isResizable ?? false;
+    return hasResizableColumns ?? false;
   }
 
   get classNames(): string {
