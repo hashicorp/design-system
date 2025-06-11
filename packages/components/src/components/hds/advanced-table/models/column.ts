@@ -27,8 +27,8 @@ export default class HdsAdvancedTableColumn {
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
-  @tracked minWidth?: `${number}px` = undefined;
-  @tracked maxWidth?: `${number}px` = undefined;
+  @tracked minWidth?: `${number}px` = '150px';
+  @tracked maxWidth?: `${number}px` = '800px';
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
 
