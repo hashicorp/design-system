@@ -369,6 +369,7 @@ export default class ComponentsTableController extends Controller {
       key: 'album',
       label: 'Album',
       tooltip: 'More information.',
+      width: '350px',
     },
     {
       key: 'year',

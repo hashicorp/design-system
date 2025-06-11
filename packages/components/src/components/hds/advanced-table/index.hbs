@@ -54,6 +54,7 @@
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::ThSort>
@@ -73,6 +74,7 @@
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
