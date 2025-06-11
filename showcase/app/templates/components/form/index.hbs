@@ -663,17 +663,6 @@
       </Hds::Form>
     </SG.Item>
 
-    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-      <Hds::Form class="shw-component-form-layout-custom-max-width">
-        <Hds::Form::Section>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
-        </Hds::Form::Section>
-      </Hds::Form>
-    </SG.Item>
-
     <SG.Item @label="not within FormSection so it is full width">
       <Hds::Form>
         <Hds::ButtonSet @isFullWidth={{true}}>
