@@ -1,11 +1,15 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
+import type HdsAdvancedTableModel from './table.ts';
 import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumnResizeCallback,
+  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
+
+const DEFAULT_MIN_WIDTH = '150px';
+const DEFAULT_MAX_WIDTH = '800px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
@@ -27,15 +31,17 @@ export default class HdsAdvancedTableColumn {
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
-  @tracked minWidth?: `${number}px` = '150px';
-  @tracked maxWidth?: `${number}px` = '800px';
+  @tracked minWidth?: `${number}px` = DEFAULT_MIN_WIDTH;
+  @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
+  @tracked originalWidth?: string = undefined;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
-  private _originalWidth?: string = undefined;
   private _onColumnResize?: HdsAdvancedTableColumnResizeCallback;
+
+  table: HdsAdvancedTableModel;
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -60,9 +66,13 @@ export default class HdsAdvancedTableColumn {
 
   constructor(args: {
     column: HdsAdvancedTableColumnType;
+    table: HdsAdvancedTableModel;
     onColumnResize?: HdsAdvancedTableColumnResizeCallback;
   }) {
-    const { column, onColumnResize } = args;
+    const { column, table, onColumnResize } = args;
+
+    // set reference to table model
+    this.table = table;
 
     // set column properties
     this.label = column.label;
@@ -91,11 +101,10 @@ export default class HdsAdvancedTableColumn {
     this.width = width;
 
     // capture the width at the time of instantiation so it can be restored
-    this._originalWidth = width;
+    this.originalWidth = width;
 
-    // TODO: discuss sensible defaults for minWidth and maxWidth
-    this.minWidth = minWidth ?? '150px';
-    this.maxWidth = maxWidth ?? '800px';
+    this.minWidth = minWidth ?? DEFAULT_MIN_WIDTH;
+    this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
   @action
@@ -117,7 +126,7 @@ export default class HdsAdvancedTableColumn {
 
   @action
   restoreWidth(): void {
-    this.width = this._originalWidth;
+    this.width = this.originalWidth;
 
     if (this.key === undefined) {
       return;
