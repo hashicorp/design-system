@@ -11,13 +11,11 @@ import type { ComponentLike } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
-import { next } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import {
   HdsAdvancedTableDensityValues,
-  HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
 import type {
@@ -26,7 +24,6 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableSelectableRow,
-  HdsAdvancedTableSortingFunction,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
@@ -153,9 +150,6 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
-  @tracked private _sortBy = this.args.sortBy ?? undefined;
-  @tracked private _sortOrder =
-    this.args.sortOrder || HdsAdvancedTableThSortOrderValues.Asc;
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
@@ -176,25 +170,29 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   @tracked showScrollIndicatorTop = false;
   @tracked showScrollIndicatorBottom = false;
   @tracked stickyColumnOffset = '0px';
-  @tracked lastModel: HdsAdvancedTableModel | null = null;
-  @tracked lastColumns: HdsAdvancedTableColumn[] = [];
 
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
     const {
       model,
-      childrenKey,
       columns,
+      childrenKey,
+      sortBy,
+      sortOrder,
       hasStickyFirstColumn,
       onColumnResize,
+      onSort,
     } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
-      childrenKey,
       columns,
+      childrenKey,
+      sortBy,
+      sortOrder,
       onColumnResize,
+      onSort,
     });
 
     if (this._tableModel.hasRowsWithChildren) {
@@ -225,24 +223,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     }
   }
 
-  get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
-    // get the current column
-    const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this._sortBy
-    );
-
-    if (
-      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
-      currentColumn?.sortingFunction &&
-      typeof currentColumn.sortingFunction === 'function'
-    ) {
-      return currentColumn.sortingFunction;
-    } else {
-      // otherwise fallback to the default format "sortBy:sortOrder"
-      return `${this._sortBy}:${this._sortOrder}`;
-    }
-  }
-
   get identityKey(): string | undefined {
     // we have to provide a way for the consumer to pass undefined because Ember tries to interpret undefined as missing an arg and therefore falls back to the default
     if (this.args.identityKey === 'none') {
@@ -267,11 +247,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get sortedMessageText(): string {
-    if (this.args.sortedMessageText) {
-      return this.args.sortedMessageText;
-    } else if (this._sortBy && this._sortOrder) {
+    const { sortBy, sortOrder, sortedMessageText } = this.args;
+
+    if (sortedMessageText !== undefined) {
+      return sortedMessageText;
+    } else if (sortBy !== undefined && sortOrder !== undefined) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this._sortBy} ${this._sortOrder}ending`;
+      return `Sorted by ${sortBy} ${sortOrder}ending`;
     } else {
       return '';
     }
@@ -409,17 +391,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   private _onUpdateContent = modifier(() => {
-    const { columns, model } = this.args;
+    const { columns, model, sortBy, sortOrder } = this.args;
 
-    if (this.lastModel !== model || this.lastColumns !== columns) {
-      this._tableModel.setupData(this.args.model, this.args.columns);
-
-      // eslint-disable-next-line ember/no-runloop
-      next(() => {
-        this.lastModel = model;
-        this.lastColumns = columns;
-      });
-    }
+    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
   });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
@@ -525,27 +499,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _setUpThead = modifier((element: HTMLDivElement) => {
     this._theadElement = element;
   });
-
-  @action
-  setSortBy(column: string): void {
-    if (this._sortBy === column) {
-      // check to see if the column is already sorted and invert the sort order if so
-      this._sortOrder =
-        this._sortOrder === HdsAdvancedTableThSortOrderValues.Asc
-          ? HdsAdvancedTableThSortOrderValues.Desc
-          : HdsAdvancedTableThSortOrderValues.Asc;
-    } else {
-      // otherwise, set the sort order to ascending
-      this._sortBy = column;
-      this._sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
-    }
-
-    const { onSort } = this.args;
-
-    if (typeof onSort === 'function') {
-      onSort(this._sortBy, this._sortOrder);
-    }
-  }
 
   onSelectionChangeCallback(
     checkbox?: HdsFormCheckboxBaseSignature['Element'],

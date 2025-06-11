@@ -7,20 +7,24 @@ import HdsAdvancedTableRow from './row.ts';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import HdsAdvancedTableColumn from './column.ts';
+import { HdsAdvancedTableThSortOrderValues } from '../types.ts';
 
+import type { HdsAdvancedTableSignature } from '../index.ts';
 import type {
-  HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
   HdsAdvancedTableExpandState,
-  HdsAdvancedTableModel,
-  HdsAdvancedTableColumnResizeCallback,
+  HdsAdvancedTableSortingFunction,
 } from '../types';
 
-interface HdsAdvancedTableTableArgs {
-  model: HdsAdvancedTableModel;
-  columns: HdsAdvancedTableColumnType[];
-  childrenKey?: string;
-  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
-}
+type HdsAdvancedTableTableArgs = Pick<
+  HdsAdvancedTableSignature['Args'],
+  | 'model'
+  | 'columns'
+  | 'childrenKey'
+  | 'sortBy'
+  | 'sortOrder'
+  | 'onColumnResize'
+  | 'onSort'
+>;
 
 function getVisibleRows(rows: HdsAdvancedTableRow[]): HdsAdvancedTableRow[] {
   return rows.reduce((acc, row) => {
@@ -41,25 +45,91 @@ function getChildrenCount(rows: HdsAdvancedTableRow[]): number {
 export default class HdsAdvancedTableTableModel {
   @tracked columns: HdsAdvancedTableColumn[] = [];
   @tracked rows: HdsAdvancedTableRow[] = [];
+  @tracked sortBy: HdsAdvancedTableTableArgs['sortBy'] = undefined;
+  @tracked sortOrder: HdsAdvancedTableTableArgs['sortOrder'] =
+    HdsAdvancedTableThSortOrderValues.Asc;
 
-  childrenKey?: string;
-  onColumnResize?: HdsAdvancedTableColumnResizeCallback;
+  childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
+  onColumnResize?: HdsAdvancedTableTableArgs['onColumnResize'];
+  onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
   constructor(args: HdsAdvancedTableTableArgs) {
-    const { model, columns, childrenKey, onColumnResize } = args;
+    const {
+      model,
+      columns,
+      childrenKey,
+      sortBy,
+      sortOrder,
+      onColumnResize,
+      onSort,
+    } = args;
 
     this.childrenKey = childrenKey;
     this.onColumnResize = onColumnResize;
+    this.onSort = onSort;
 
-    this.setupData(model, columns);
+    this.setupData({ model, columns, sortBy, sortOrder });
+  }
+
+  get sortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
+    // get the current column
+    const currentColumn = this.columns.find(
+      (column) => column.key === this.sortBy
+    );
+
+    if (
+      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
+      currentColumn?.sortingFunction &&
+      typeof currentColumn.sortingFunction === 'function'
+    ) {
+      return currentColumn.sortingFunction;
+    } else {
+      // otherwise fallback to the default format "sortBy:sortOrder"
+      return `${this.sortBy}:${this.sortOrder}`;
+    }
+  }
+
+  get sortedRows(): HdsAdvancedTableRow[] {
+    const criteria = this.sortCriteria;
+    const rows = this.rows;
+
+    if (rows.length <= 1 || criteria === undefined) {
+      return rows;
+    }
+
+    if (typeof criteria === 'function') {
+      // Use custom sort function
+      return [...rows].sort(criteria);
+    } else {
+      // Parse the criteria string format "sortBy:sortOrder"
+      const [sortBy, sortOrder] = criteria.split(':');
+
+      if (!sortBy) {
+        return rows;
+      }
+
+      return [...rows].sort((a, b) => {
+        const valueA = a[sortBy] as string | number | boolean;
+        const valueB = b[sortBy] as string | number | boolean;
+
+        if (valueA < valueB) {
+          return sortOrder === 'asc' ? -1 : 1;
+        }
+        if (valueA > valueB) {
+          return sortOrder === 'asc' ? 1 : -1;
+        }
+
+        return 0;
+      });
+    }
   }
 
   get totalRowCount(): number {
-    return getChildrenCount(this.rows);
+    return getChildrenCount(this.sortedRows);
   }
 
   get flattenedVisibleRows(): HdsAdvancedTableRow[] {
-    return getVisibleRows(this.rows);
+    return getVisibleRows(this.sortedRows);
   }
 
   get lastVisibleRow(): HdsAdvancedTableRow | undefined {
@@ -88,9 +158,16 @@ export default class HdsAdvancedTableTableModel {
 
   @action
   setupData(
-    model: HdsAdvancedTableModel,
-    columns: HdsAdvancedTableColumnType[]
+    args: Pick<
+      HdsAdvancedTableTableArgs,
+      'model' | 'columns' | 'sortBy' | 'sortOrder'
+    >
   ) {
+    const { model, columns, sortBy, sortOrder } = args;
+
+    this.sortBy = sortBy;
+    this.sortOrder = sortOrder ?? HdsAdvancedTableThSortOrderValues.Asc;
+
     this.columns = columns.map(
       (column) =>
         new HdsAdvancedTableColumn({
@@ -106,6 +183,25 @@ export default class HdsAdvancedTableTableModel {
         columns,
       });
     });
+  }
+
+  @action
+  setSortBy(column: string): void {
+    if (this.sortBy === column) {
+      // check to see if the column is already sorted and invert the sort order if so
+      this.sortOrder =
+        this.sortOrder === HdsAdvancedTableThSortOrderValues.Asc
+          ? HdsAdvancedTableThSortOrderValues.Desc
+          : HdsAdvancedTableThSortOrderValues.Asc;
+    } else {
+      // otherwise, set the sort order to ascending
+      this.sortBy = column;
+      this.sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
+    }
+
+    if (typeof this.onSort === 'function') {
+      this.onSort(this.sortBy, this.sortOrder);
+    }
   }
 
   @action
