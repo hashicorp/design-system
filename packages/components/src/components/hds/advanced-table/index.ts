@@ -390,12 +390,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     return classes.join(' ');
   }
 
-  private _onUpdateContent = modifier(() => {
-    const { columns, model, sortBy, sortOrder } = this.args;
-
-    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
-  });
-
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
       // 6px as a buffer so the shadow doesn't appear over the border radius on the edge of the table
@@ -531,6 +525,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         []
       ),
     });
+  }
+
+  @action
+  setupTableModelData(): void {
+    const { columns, model, sortBy, sortOrder } = this.args;
+
+    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
   }
 
   @action
