@@ -10,6 +10,7 @@ import { assert } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 
 import type HdsAdvancedTableColumn from './models/column';
+import type { HdsAdvancedTableSignature } from '.';
 
 const TABLE_BORDER_WIDTH = 1;
 const KEYBOARD_RESIZE_STEP = 10;
@@ -53,6 +54,7 @@ export interface HdsAdvancedTableThResizeHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
+    hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
   };
   Blocks: {
@@ -181,9 +183,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startNextColumnPxWidth?: number
   ): void {
     const canResizeNeighbor =
-      nextColumn !== undefined &&
-      nextColumn.isResizable &&
-      startNextColumnPxWidth !== undefined;
+      nextColumn !== undefined && startNextColumnPxWidth !== undefined;
 
     if (canResizeNeighbor) {
       const effectiveDelta = calculateEffectiveDelta(

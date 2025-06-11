@@ -545,7 +545,7 @@
 
   <Shw::Text::H2>Resizable columns</Shw::Text::H2>
 
-  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}}>
+  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}} @hasResizableColumns={{true}}>
     <:body as |B|>
       <B.Tr>
         <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>

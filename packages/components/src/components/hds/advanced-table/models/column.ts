@@ -1,6 +1,5 @@
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-import { assert } from '@ember/debug';
 
 import type { HdsAdvancedTableColumn as HdsAdvancedTableColumnType } from '../types';
 import type {
@@ -25,7 +24,6 @@ export default class HdsAdvancedTableColumn {
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
   @tracked isReorderable?: boolean = false;
-  @tracked isResizable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -75,7 +73,6 @@ export default class HdsAdvancedTableColumn {
     this.key = column.key;
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
-    this._setResizableValues(column);
     this.sortingFunction = column.sortingFunction;
 
     // set resize callback
@@ -99,19 +96,6 @@ export default class HdsAdvancedTableColumn {
     // TODO: discuss sensible defaults for minWidth and maxWidth
     this.minWidth = minWidth ?? '150px';
     this.maxWidth = maxWidth ?? '800px';
-  }
-
-  private _setResizableValues({
-    isResizable,
-  }: HdsAdvancedTableColumnType): void {
-    if (isResizable) {
-      assert(
-        'width must be set a px value to use isResizable',
-        isPxSize(this.width)
-      );
-    }
-
-    this.isResizable = isResizable ?? false;
   }
 
   @action

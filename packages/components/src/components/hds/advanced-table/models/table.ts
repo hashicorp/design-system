@@ -20,6 +20,7 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'model'
   | 'columns'
   | 'childrenKey'
+  | 'hasResizableColumns'
   | 'sortBy'
   | 'sortOrder'
   | 'onColumnResize'
@@ -50,6 +51,7 @@ export default class HdsAdvancedTableTableModel {
     HdsAdvancedTableThSortOrderValues.Asc;
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
+  hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
   onColumnResize?: HdsAdvancedTableTableArgs['onColumnResize'];
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
@@ -58,6 +60,7 @@ export default class HdsAdvancedTableTableModel {
       model,
       columns,
       childrenKey,
+      hasResizableColumns,
       sortBy,
       sortOrder,
       onColumnResize,
@@ -65,6 +68,7 @@ export default class HdsAdvancedTableTableModel {
     } = args;
 
     this.childrenKey = childrenKey;
+    this.hasResizableColumns = hasResizableColumns;
     this.onColumnResize = onColumnResize;
     this.onSort = onSort;
 
@@ -134,10 +138,6 @@ export default class HdsAdvancedTableTableModel {
 
   get lastVisibleRow(): HdsAdvancedTableRow | undefined {
     return this.flattenedVisibleRows[this.flattenedVisibleRows.length - 1];
-  }
-
-  get hasResizableColumns(): boolean {
-    return this.columns.some((column) => column.isResizable);
   }
 
   get hasRowsWithChildren(): boolean {

@@ -33,6 +33,7 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
+    hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
     isLastColumn?: boolean;
@@ -138,13 +139,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { column } = this.args;
+    const { hasResizableColumns } = this.args;
 
-    if (column === undefined) {
-      return false;
-    }
-
-    return column.isResizable ?? false;
+    return hasResizableColumns ?? false;
   }
 
   @action onFocusTrapDeactivate(): void {

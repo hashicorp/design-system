@@ -118,21 +118,22 @@ export interface HdsAdvancedTableSignature {
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
-    onSelectionChange?: (
-      selection: HdsAdvancedTableOnSelectionChangeSignature
-    ) => void;
-    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
     selectableColumnKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
+    onSelectionChange?: (
+      selection: HdsAdvancedTableOnSelectionChangeSignature
+    ) => void;
+    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
   };
   Blocks: {
     body?: [
@@ -178,6 +179,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       model,
       columns,
       childrenKey,
+      hasResizableColumns,
       sortBy,
       sortOrder,
       hasStickyFirstColumn,
@@ -189,6 +191,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       model,
       columns,
       childrenKey,
+      hasResizableColumns,
       sortBy,
       sortOrder,
       onColumnResize,
@@ -211,14 +214,9 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         !hasStickyFirstColumn
       );
 
-      const resizableColumns = columns.filter((column) => column.isResizable);
-      const resizableColumnLabels = resizableColumns.map(
-        (column) => column.label
-      );
-
       assert(
-        `Cannot have resizable columns if there are nested rows. Resizable columns are ${resizableColumnLabels.toString()}`,
-        resizableColumns.length === 0
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
       );
     }
   }
