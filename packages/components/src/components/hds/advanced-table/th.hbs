@@ -70,10 +70,11 @@
         <Hds::AdvancedTable::ThContextMenu @column={{@column}} />
       {{/if}}
 
-      {{#if (and @column.isResizable (not @isLastColumn))}}
+      {{#if (and @hasResizableColumns (not @isLastColumn))}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
           @nextColumn={{@nextColumn}}
+          @hasResizableColumns={{@hasResizableColumns}}
           @tableHeight={{@tableHeight}}
         />
       {{/if}}
