@@ -17,9 +17,7 @@
   {{! Mix of shortcut names used for testing purposes }}
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item
-        @label="With Form, FormHeader, FormHeaderTitle, FormHeaderDescription, FormSection, SectionHeader, SectionHeaderTitle, FormSectionHeaderDescription, FormFields, FormSeparator, and ButtonSet"
-      >
+      <SG.Item>
         <Hds::Form as |FORM|>
           <FORM.Header>
             <FORM.HeaderTitle>
