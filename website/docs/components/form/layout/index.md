@@ -3,13 +3,18 @@ title: Layout
 description: {Optional long description that appears in the cover}
 caption: {Short description that appears in the cards}
 links:
-  figma: {link to the "Form::Layout" page in the components Figma library}
-  github: {link to the "Form::Layout" component's folder in the GitHub repo}
-related: ['path/to/component', 'path/to/pattern']
+  figma: >-
+    https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/azcdumnXvCyGfSVfEVZhGH/HDS-Components-v2.0?node-id=83107-2070&p=f&t=CeumEO6vBV6h0IuD-0
+  github: >-
+    https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form
+related:
+  - patterns/form-patterns
 previewImage: assets/illustrations/components/form-layout.jpg
 navigation:
   order: 98
   keywords: ['add', 'alternate', 'keywords', 'here']
+status:
+  added: 4.21.0
 ---
 
 <section data-tab="Guidelines">
