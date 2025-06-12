@@ -29,8 +29,16 @@ Router.map(function () {
     this.route('advanced-table');
     this.route('alert');
     this.route('app-footer');
-    this.route('app-header');
-    this.route('app-side-nav');
+    this.route('app-header', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
+    this.route('app-side-nav', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('application-state');
     this.route('badge');
     this.route('badge-count');
@@ -63,7 +71,11 @@ Router.map(function () {
     });
     this.route('modal');
     this.route('page-header');
-    this.route('pagination');
+    this.route('pagination', function () {
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
+    });
     this.route('reveal');
     this.route('rich-tooltip');
     this.route('segmented-group');
@@ -73,6 +85,9 @@ Router.map(function () {
       this.route('indicator');
       this.route('list');
       this.route('nav');
+      this.route('frameless', function () {
+        this.route('demo-responsiveness');
+      });
     });
     this.route('table');
     this.route('tag');
