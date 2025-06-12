@@ -68,6 +68,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
+  @tracked nextColumnDelta: number = 0;
 
   private handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
   private boundResize: (event: PointerEvent) => void;
@@ -107,6 +108,20 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  stopResize(): void {
+    const { nextColumn } = this.args;
+
+    if (nextColumn === undefined) {
+      return;
+    }
+
+    nextColumn.imposedWidthDelta =
+      nextColumn.imposedWidthDelta + this.nextColumnDelta;
+
+    this.nextColumnDelta = 0;
   }
 
   @action
@@ -190,6 +205,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
       nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
+      this.nextColumnDelta = actualAppliedDelta;
     } else {
       column.setPxWidth(startColumnPxWidth + deltaX);
     }

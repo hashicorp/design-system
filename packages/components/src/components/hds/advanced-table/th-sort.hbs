@@ -47,8 +47,9 @@
         {{#if this.showContextMenu}}
           <Hds::AdvancedTable::ThContextMenu
             @column={{@column}}
+            @previousColumn={{@previousColumn}}
+            @nextColumn={{@nextColumn}}
             @hasResizableColumns={{@hasResizableColumns}}
-            @onRestoreColumnWidths={{@onRestoreColumnWidths}}
           />
         {{/if}}
 
