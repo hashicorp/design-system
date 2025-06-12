@@ -20,7 +20,7 @@ export const AVAILABLE_TAGS: string[] = Object.values(HdsFormHeaderTagValues);
 export interface HdsFormSectionHeaderTitleSignature {
   Args: {
     tag?: HdsFormHeaderTags;
-    size?: HdsTextSizes;
+    size?: HdsTextDisplaySignature['Args']['size'];
   };
   Blocks: {
     default: [];

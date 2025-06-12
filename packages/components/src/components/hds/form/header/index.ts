@@ -16,8 +16,8 @@ export interface HdsFormHeaderSignature {
   Blocks: {
     default: [
       {
-        HeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
-        HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
+        Title?: ComponentLike<HdsFormHeaderTitleSignature>;
+        Description?: ComponentLike<HdsFormHeaderDescriptionSignature>;
       },
     ];
   };
@@ -25,15 +25,11 @@ export interface HdsFormHeaderSignature {
 }
 
 export default class HdsFormHeader extends Component<HdsFormHeaderSignature> {
-  get isFullWidth(): boolean {
-    return this.args.isFullWidth ?? false;
-  }
-
   get classNames(): string {
     const classes = ['hds-form__header'];
 
     // add a class based on the @isFullWidth argument
-    if (this.isFullWidth) {
+    if (this.args.isFullWidth) {
       classes.push('hds-form-content--is-full-width');
     }
 
