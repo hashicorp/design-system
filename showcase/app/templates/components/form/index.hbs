@@ -305,7 +305,7 @@
 
   <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
     {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
-      <SG.Item @label="size={{size}}">
+      <SG.Item @label="size={{size}} {{if (eq size this.model.FORM_HEADER_TITLE_DEFAULT_SIZE) '(default)'}}">
         <Hds::Form::Header::Title @size={{size}}>
           Form Header Title w/ size of ({{size}})
         </Hds::Form::Header::Title>
@@ -430,7 +430,7 @@
 
   <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
     {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
-      <SG.Item @label="size={{size}}">
+      <SG.Item @label="size={{size}} {{if (eq size this.model.SECTION_HEADER_TITLE_DEFAULT_SIZE) '(default)'}}">
         <Hds::Form::Section::Header::Title @size={{size}}>
           Section Header Title w/ size of ({{size}})
         </Hds::Form::Section::Header::Title>
