@@ -53,6 +53,7 @@
     // When there are columns, stack them vertically
     @include hds-breakpoint-below("md") {
       flex-direction: column;
+      gap: 24px;
       align-items: start;
     }
   }

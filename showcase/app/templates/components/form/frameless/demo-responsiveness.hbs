@@ -53,9 +53,11 @@
             </Hds::Form::Select::Field>
           </FG.Item>
 
-          <Hds::Form::TextInput::Field @width="6em" as |F|>
-            <F.Label>Zip</F.Label>
-          </Hds::Form::TextInput::Field>
+          <FG.Item @basis="8em">
+            <Hds::Form::TextInput::Field as |F|>
+              <F.Label>Zip</F.Label>
+            </Hds::Form::TextInput::Field>
+          </FG.Item>
         </Hds::Form::Section::FieldGroup>
 
         <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>

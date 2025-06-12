@@ -448,11 +448,11 @@
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <Shw::Text::H4>Direction</Shw::Text::H4>
+  <Shw::Text::H4>Content</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="direction=row, with equal widths (default)">
+      <SG.Item @label="with equal widths (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionFieldGroup>
@@ -464,26 +464,6 @@
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 2</F.Label>
               </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="with mixed widths (80% & 20%)">
-        <Hds::Form as |FORM|>
-          <FORM.Section>
-            <FORM.SectionFieldGroup as |FG|>
-              <FG.Item @basis="80%">
-                <Hds::Form::TextInput::Field as |F|>
-                  <F.Label>Control 1</F.Label>
-                </Hds::Form::TextInput::Field>
-              </FG.Item>
-
-              <FG.Item @basis="20%">
-                <Hds::Form::TextInput::Field as |F|>
-                  <F.Label>Control 2</F.Label>
-                </Hds::Form::TextInput::Field>
-              </FG.Item>
             </FORM.SectionFieldGroup>
           </FORM.Section>
         </Hds::Form>
@@ -526,6 +506,26 @@
         </Hds::Form>
       </SG.Item>
 
+      <SG.Item @label="with mixed widths (80% & 20%)">
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <FORM.SectionFieldGroup as |FG|>
+              <FG.Item @basis="80%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 1</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
+
+              <FG.Item @basis="20%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 2</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
+            </FORM.SectionFieldGroup>
+          </FORM.Section>
+        </Hds::Form>
+      </SG.Item>
+
       <SG.Item @label=" with 3 fields of equal width">
         <Hds::Form as |FORM|>
           <FORM.Section>
@@ -545,7 +545,7 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="3 fields, mix of widths (1/3, auto, & 6em)">
+      <SG.Item @label="3 fields, mix of widths (1/3, auto, & 8em)">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionFieldGroup as |FG|>
@@ -566,43 +566,11 @@
                 </Hds::Form::Select::Field>
               </FG.Item>
 
-              <Hds::Form::TextInput::Field @width="6em" as |F|>
-                <F.Label>Zip</F.Label>
-              </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="direction=column">
-        <Hds::Form as |FORM|>
-          <FORM.Section>
-            <FORM.SectionFieldGroup @direction="column">
-              <Hds::Form::TextInput::Field as |F|>
-                <F.Label>Field 1 text input</F.Label>
-              </Hds::Form::TextInput::Field>
-              <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-                <F.Label>Field 2 toggle</F.Label>
-              </Hds::Form::Toggle::Field>
-            </FORM.SectionFieldGroup>
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="direction=column w/ helper text & errors">
-        <Hds::Form as |FORM|>
-          <FORM.Section>
-            <FORM.SectionFieldGroup @direction="column">
-              <Hds::Form::TextInput::Field as |F|>
-                <F.Label>Field 1 text input</F.Label>
-                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
-                <F.Error>This is a field-level error.</F.Error>
-              </Hds::Form::TextInput::Field>
-              <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
-                <F.Label>Field 2 toggle</F.Label>
-                <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
-                <F.Error>This is a field-level error.</F.Error>
-              </Hds::Form::Toggle::Field>
+              <FG.Item @basis="8em">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Zip</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
             </FORM.SectionFieldGroup>
           </FORM.Section>
         </Hds::Form>
