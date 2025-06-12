@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsYieldSignature } from '../../yield/index.ts';
 import type { HdsFormSectionHeaderSignature } from '../section/header/index.ts';
 import type { HdsFormSectionHeaderTitleSignature } from '../section/header/title/index.ts';
 import type { HdsFormSectionHeaderDescriptionSignature } from '../section/header/description/index.ts';
@@ -20,7 +19,6 @@ export interface HdsFormSectionSignature {
   Blocks: {
     default: [
       {
-        Generic?: ComponentLike<HdsYieldSignature>;
         Section?: ComponentLike<HdsFormSectionSignature>; // for nested sections (TODO: test if this is correct)
         Header?: ComponentLike<HdsFormSectionHeaderSignature>;
         HeaderTitle?: ComponentLike<HdsFormSectionHeaderTitleSignature>;
