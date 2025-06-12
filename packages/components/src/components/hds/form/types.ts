@@ -9,7 +9,7 @@ export enum HdsFormTagValues {
 }
 export type HdsFormTags = `${HdsFormTagValues}`;
 
-export enum HdsFormHeaderTagValues {
+export enum HdsFormHeaderTitleTagValues {
   Div = 'div',
   H1 = 'h1',
   H2 = 'h2',
@@ -18,4 +18,4 @@ export enum HdsFormHeaderTagValues {
   H5 = 'h5',
   H6 = 'h6',
 }
-export type HdsFormHeaderTags = `${HdsFormHeaderTagValues}`;
+export type HdsFormHeaderTitleTags = `${HdsFormHeaderTitleTagValues}`;
