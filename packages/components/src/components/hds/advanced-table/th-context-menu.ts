@@ -8,6 +8,7 @@ import Component from '@glimmer/component';
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
+import { action } from '@ember/object';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -15,6 +16,8 @@ interface HdsAdvancedTableThContextMenuOption {
   icon: HdsDropdownToggleIconSignature['Args']['icon'];
   action: (
     column: HdsAdvancedTableColumn,
+    previousColumn?: HdsAdvancedTableColumn,
+    nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ) => void;
 }
@@ -22,8 +25,9 @@ interface HdsAdvancedTableThContextMenuOption {
 export interface HdsAdvancedTableThContextMenuSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    previousColumn?: HdsAdvancedTableColumn;
+    nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
-    onRestoreColumnWidths?: () => void;
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -37,18 +41,25 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     if (hasResizableColumns) {
       options.push({
         key: 'reset-column-width',
-        label: 'Reset column widths',
+        label: 'Reset column width',
         icon: 'rotate-ccw',
-        action: (
-          _column: HdsAdvancedTableColumn,
-          dropdownCloseCallback?: () => void
-        ): void => {
-          this.args.onRestoreColumnWidths?.();
-          dropdownCloseCallback?.();
-        },
+        action: this.resetColumnWidth.bind(this),
       });
     }
 
     return options;
+  }
+
+  @action
+  resetColumnWidth(
+    column: HdsAdvancedTableColumn,
+    previousColumn?: HdsAdvancedTableColumn,
+    nextColumn?: HdsAdvancedTableColumn,
+    dropdownCloseCallback?: () => void
+  ): void {
+    column.restoreWidth();
+    previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
+    nextColumn?.onPreviousColumnWidthRestored();
+    dropdownCloseCallback?.();
   }
 }
