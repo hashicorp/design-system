@@ -135,7 +135,7 @@ export default class HdsAdvancedTableColumn {
 
   @action
   onNextColumnWidthRestored(imposedWidthDelta: number): void {
-    console.log({ imposedWidthDelta });
+    this.setPxWidth((this.pxWidth ?? 0) - imposedWidthDelta);
   }
 
   @action
