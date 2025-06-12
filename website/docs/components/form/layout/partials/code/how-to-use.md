@@ -1,6 +1,6 @@
 ## How to use this component
 
-Use the `Form` to contain other Form layout components and form content. This establishes consistent spacing for Form Sections and other content.
+Use the `Form` to contain other Form layout components and form content. This establishes consistent spacing for each `FormSection` and the other content.
 
 ### Form
 
@@ -26,7 +26,7 @@ Use the optional `FormHeader` to include a `Title` and `Description` for your `F
 <Hds::Form as |FORM|>
   <FORM.Header>
     <FORM.HeaderTitle>My form title</FORM.HeaderTitle>
-    <FORM.HeaderDescription>A brief desciption of my form content.</FORM.HeaderDescription>
+    <FORM.HeaderDescription>A brief description of my form content.</FORM.HeaderDescription>
   </FORM.Header>
 </Hds::Form>
 ```
@@ -34,6 +34,8 @@ Use the optional `FormHeader` to include a `Title` and `Description` for your `F
 ### Form Section
 
 Use `FormSection` components to wrap and group together related Form Fields and other form content establishing a consistent max-width and spacing for the content.
+
+Note: You should use at least one `FormSection` to wrap Form Field content to establish consistent spacing and a consistent max-width.
 
 While the `FormSection` is typically used to contain Form Fields, it can also be used to contain other content as needed such as an `Alert`.
 
@@ -124,8 +126,7 @@ Similarly to the `Form`, each `FormSection` can optionally include its own `Sect
     <FORM.SectionHeader>
       <FORM.SectionHeaderTitle>Section header title</FORM.SectionHeaderTitle>
       <FORM.SectionHeaderDescription>
-        Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
-        vel facere itaque necessitatibus quisquam omnis deserunt!
+        Section Header description
       </FORM.SectionHeaderDescription>
     </FORM.SectionHeader>
   </FORM.Section>
@@ -152,7 +153,7 @@ If further visual separation between each `FormSection` is desired, add a `FormS
 
 ### Section Field Group
 
-To create tighter groupings of related Form Fields or controls, use the `SectionFieldGroup`. By default, the wrapped content will be laid out in a row of equal width elements.
+To lay out related Form Fields or controls in a row, use the `SectionFieldGroup`.
 
 ```handlebars
 <Hds::Form as |FORM|>
@@ -170,9 +171,8 @@ To create tighter groupings of related Form Fields or controls, use the `Section
 </Hds::Form>
 ```
 
-To control the widths of individual elements within a `SectionFieldGroup`, you can wrap the element with an `Item` and pass in a `basis` value.
+To control the widths of individual elements within a `SectionFieldGroup`, you can wrap the element with an `Item` and pass in a `basis` value. Fields not wrapped with an `Item` will take up the remaining available width.
 
-<!-- TODO: refine code example -->
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Section>
@@ -204,6 +204,37 @@ To control the widths of individual elements within a `SectionFieldGroup`, you c
 </Hds::Form>
 ```
 
-<!-- 
-TODO: Add example with direction="column"
- -->
+#### Responsive layout
+
+In screen widths below 768px (the “md” breakpoint), the `SectionFieldGroup` content layout will automatically stack.
+
+```handlebars
+<Hds::Form class="doc-form-layout-mobile-view" as |FORM|>
+  <FORM.Section>
+    <FORM.SectionFieldGroup as |FG|>
+      <Hds::Form::TextInput::Field as |F|>
+        <F.Label>City</F.Label>
+      </Hds::Form::TextInput::Field>
+
+      <FG.Item @basis="auto">
+        <Hds::Form::Select::Field as |F|>
+          <F.Label>State</F.Label>
+          <F.Options>
+            <option value="state-1">Ohio</option>
+            <option value="state-2">Massachusetts</option>
+            <option value="state-3">Washington</option>
+            <option value="state-4">Florida</option>
+            <option value="state-4">North Carolina</option>
+          </F.Options>
+        </Hds::Form::Select::Field>
+      </FG.Item>
+
+      <FG.Item @basis="6em">
+        <Hds::Form::TextInput::Field as |F|>
+          <F.Label>Zip</F.Label>
+        </Hds::Form::TextInput::Field>
+      </FG.Item>
+    </FORM.SectionFieldGroup>
+  </FORM.Section>
+</Hds::Form>
+```
