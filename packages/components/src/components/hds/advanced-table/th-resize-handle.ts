@@ -111,20 +111,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   @action
-  stopResize(): void {
-    const { nextColumn } = this.args;
-
-    if (nextColumn === undefined) {
-      return;
-    }
-
-    nextColumn.imposedWidthDelta =
-      nextColumn.imposedWidthDelta + this.nextColumnDelta;
-
-    this.nextColumnDelta = 0;
-  }
-
-  @action
   handleKeydown(event: KeyboardEvent): void {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
       return;
@@ -177,6 +163,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     window.addEventListener('pointermove', this.boundResize);
     window.addEventListener('pointerup', this.boundStopResize);
+    window.addEventListener('mouseup', this.boundStopResize);
   }
 
   private _applyResizeDelta(
@@ -235,6 +222,17 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   private _stopResize(): void {
     window.removeEventListener('pointermove', this.boundResize);
     window.removeEventListener('pointerup', this.boundStopResize);
+
+    const { nextColumn } = this.args;
+
+    if (nextColumn === undefined) {
+      return;
+    }
+
+    nextColumn.imposedWidthDelta =
+      nextColumn.imposedWidthDelta + this.nextColumnDelta;
+
+    this.nextColumnDelta = 0;
 
     this.resizing = null;
   }
