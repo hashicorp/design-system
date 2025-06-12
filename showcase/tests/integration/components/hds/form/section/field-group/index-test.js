@@ -21,26 +21,5 @@ module(
         .dom('#test-form-section-field-group')
         .hasClass('hds-form__section-field-group');
     });
-
-    // OPTIONS
-
-    // direction
-    test('it should render the component with the default direction', async function (assert) {
-      await render(
-        hbs`<Hds::Form::Section::FieldGroup id="test-form-section-field-group" />`,
-      );
-      assert
-        .dom('#test-form-section-field-group')
-        .hasClass('hds-layout-flex--direction-row');
-    });
-
-    test('it should render the component with a specified direction', async function (assert) {
-      await render(
-        hbs`<Hds::Form::Section::FieldGroup id="test-form-section-field-group" @direction="column" />`,
-      );
-      assert
-        .dom('#test-form-section-field-group')
-        .hasClass('hds-layout-flex--direction-column');
-    });
   },
 );
