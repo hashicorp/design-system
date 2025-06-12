@@ -8,7 +8,6 @@ import { assert } from '@ember/debug';
 import type { HdsFormHeaderTags } from '../../types.ts';
 import { HdsFormHeaderTagValues } from '../../types.ts';
 
-import type { HdsTextSizes } from '../../../text/types.ts';
 import { HdsTextSizeValues } from '../../../text/types.ts';
 import type { HdsTextDisplaySignature } from '../../../text/display.ts';
 

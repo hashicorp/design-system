@@ -3,5 +3,9 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <div class="hds-form__section-header" ...attributes>
-  {{yield}}
+  {{yield
+    (hash
+      Title=(component "hds/form/section/header/title") Description=(component "hds/form/section/header/description")
+    )
+  }}
 </div>
