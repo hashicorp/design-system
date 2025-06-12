@@ -2,8 +2,6 @@ import Route from '@ember/routing/route';
 
 import { AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
 
-import { AVAILABLE_SIZES as BODY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/body';
-
 export default class ComponentsFormRoute extends Route {
   model() {
     const RADIOCARDS_GENERIC = [
@@ -56,7 +54,6 @@ export default class ComponentsFormRoute extends Route {
       RADIOCARDS_GENERIC,
       RADIOCARDS_PRODUCTS,
       DISPLAY_AVAILABLE_SIZES,
-      BODY_AVAILABLE_SIZES,
     };
   }
 }

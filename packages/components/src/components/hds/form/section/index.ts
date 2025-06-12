@@ -19,11 +19,11 @@ export interface HdsFormSectionSignature {
   Blocks: {
     default: [
       {
-        Section?: ComponentLike<HdsFormSectionSignature>; // for nested sections (TODO: test if this is correct)
+        Section?: ComponentLike<HdsFormSectionSignature>; // for nested sections
         Header?: ComponentLike<HdsFormSectionHeaderSignature>;
         HeaderTitle?: ComponentLike<HdsFormSectionHeaderTitleSignature>;
         HeaderDescription?: ComponentLike<HdsFormSectionHeaderDescriptionSignature>;
-        FieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+        SectionFieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
       },
     ];
   };

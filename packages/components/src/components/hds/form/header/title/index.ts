@@ -5,12 +5,11 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsTextSizeValues } from '../../../text/types.ts';
-
 import type { HdsFormHeaderTags } from '../../types.ts';
 import { HdsFormHeaderTagValues } from '../../types.ts';
 
 import type { HdsTextSizes } from '../../../text/types.ts';
+import { HdsTextSizeValues } from '../../../text/types.ts';
 import type { HdsTextDisplaySignature } from '../../../text/display.ts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.FourHundred;
@@ -20,7 +19,7 @@ export const AVAILABLE_TAGS: string[] = Object.values(HdsFormHeaderTagValues);
 export interface HdsFormHeaderTitleSignature {
   Args: {
     tag?: HdsFormHeaderTags;
-    size?: HdsTextSizes;
+    size?: HdsTextDisplaySignature['Args']['size'];
   };
   Blocks: {
     default: [];
@@ -42,7 +41,7 @@ export default class HdsFormHeaderTitle extends Component<HdsFormHeaderTitleSign
     return tag;
   }
 
-  get size(): HdsTextSizes {
+  get size(): HdsTextDisplaySignature['Args']['size'] {
     return this.args.size ?? DEFAULT_SIZE;
   }
 }
