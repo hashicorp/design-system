@@ -24,7 +24,6 @@ import type { HdsFormSectionFieldGroupSignature } from './section/field-group/in
 import type { HdsFormSeparatorSignature } from './separator/index.ts';
 
 export const DEFAULT_TAG = HdsFormTagValues.Form;
-
 export const AVAILABLE_TAGS: string[] = Object.values(HdsFormTagValues);
 
 export interface HdsFormSignature {
