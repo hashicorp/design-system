@@ -128,8 +128,9 @@ export default class HdsAdvancedTableColumn {
   @action
   onPreviousColumnWidthRestored(): void {
     const restoredWidth = (this.pxWidth ?? 0) + this.imposedWidthDelta;
-    console.log(this.pxWidth, this.imposedWidthDelta, restoredWidth);
+
     this.setPxWidth(restoredWidth);
+
     this.imposedWidthDelta = 0;
   }
 
@@ -141,6 +142,7 @@ export default class HdsAdvancedTableColumn {
   @action
   restoreWidth(): void {
     this.width = this.originalWidth;
+    this.imposedWidthDelta = 0;
 
     if (this.key === undefined) {
       return;
