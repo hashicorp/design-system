@@ -12,7 +12,6 @@ import type { HdsFormTags } from './types.ts';
 import type Owner from '@ember/owner';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsYieldSignature } from '../yield/index.ts';
 import type { HdsFormHeaderSignature } from './header/index.ts';
 import type { HdsFormHeaderTitleSignature } from './/header/title/index.ts';
 import type { HdsFormHeaderDescriptionSignature } from './header/description/index.ts';
@@ -33,7 +32,6 @@ export interface HdsFormSignature {
   Blocks: {
     default: [
       {
-        Generic?: ComponentLike<HdsYieldSignature>;
         Header?: ComponentLike<HdsFormHeaderSignature>;
         HeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
         HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
