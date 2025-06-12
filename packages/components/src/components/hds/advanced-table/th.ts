@@ -41,13 +41,13 @@ export interface HdsAdvancedTableThSignature {
     isStickyColumnPinned?: boolean;
     isVisuallyHidden?: boolean;
     newLabel?: string;
+    previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     parentId?: string;
     rowspan?: number;
     scope?: HdsAdvancedTableScope;
     tooltip?: string;
     tableHeight?: number;
-    onRestoreColumnWidths?: () => void;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;

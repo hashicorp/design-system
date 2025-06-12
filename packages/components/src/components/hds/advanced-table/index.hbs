@@ -52,9 +52,9 @@
               @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
+              @previousColumn={{get this._tableModel.columns (sub index 1)}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
-              @onRestoreColumnWidths={{this._tableModel.restoreColumnWidths}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
@@ -71,11 +71,11 @@
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
               @isStickyColumnPinned={{this.isStickyColumnPinned}}
               @isVisuallyHidden={{column.isVisuallyHidden}}
+              @previousColumn={{get this._tableModel.columns (sub index 1)}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
-              @onRestoreColumnWidths={{this._tableModel.restoreColumnWidths}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}

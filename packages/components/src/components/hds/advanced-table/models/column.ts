@@ -36,6 +36,7 @@ export default class HdsAdvancedTableColumn {
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
   @tracked originalWidth?: string = undefined;
+  @tracked imposedWidthDelta: number = 0;
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
@@ -122,6 +123,19 @@ export default class HdsAdvancedTableColumn {
     }
 
     this._onColumnResize?.(this.key, this.width);
+  }
+
+  @action
+  onPreviousColumnWidthRestored(): void {
+    const restoredWidth = (this.pxWidth ?? 0) + this.imposedWidthDelta;
+    console.log(this.pxWidth, this.imposedWidthDelta, restoredWidth);
+    this.setPxWidth(restoredWidth);
+    this.imposedWidthDelta = 0;
+  }
+
+  @action
+  onNextColumnWidthRestored(imposedWidthDelta: number): void {
+    console.log({ imposedWidthDelta });
   }
 
   @action

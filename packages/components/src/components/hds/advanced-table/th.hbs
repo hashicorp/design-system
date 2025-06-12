@@ -24,6 +24,11 @@
   ...attributes
 >
   <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+    {{round @column.imposedWidthDelta}}
+    +
+    {{round @column.pxWidth}}
+    =
+    {{round (sum @column.imposedWidthDelta @column.pxWidth)}}
     {{#if @column.isVisuallyHidden}}
       <span class="sr-only">{{yield}}</span>
     {{else}}
@@ -69,8 +74,9 @@
       {{#if this.showContextMenu}}
         <Hds::AdvancedTable::ThContextMenu
           @column={{@column}}
+          @previousColumn={{@previousColumn}}
+          @nextColumn={{@nextColumn}}
           @hasResizableColumns={{@hasResizableColumns}}
-          @onRestoreColumnWidths={{@onRestoreColumnWidths}}
         />
       {{/if}}
 

@@ -42,12 +42,12 @@ export interface HdsAdvancedTableThSortSignature {
     tooltip?: string;
     rowspan?: number;
     colspan?: number;
+    previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     tableHeight?: number;
     isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
-    onRestoreColumnWidths?: () => void;
   };
   Blocks: {
     default?: [];
