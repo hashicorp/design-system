@@ -1,0 +1,75 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+<div class="hds-form-key-value-inputs__field" data-width={{@width}} ...attributes {{this._onInsert}}>
+  <div class="hds-form-key-value-inputs__field-header">
+    {{yield
+      (hash
+        Label=(component
+          "hds/form/label"
+          controlId=this._id
+          isRequired=@isRequired
+          isOptional=@isOptional
+          contextualClass="hds-form-key-value-inputs__field-label"
+          hiddenText=this.labelHiddenText
+        )
+      )
+    }}
+    {{yield
+      (hash
+        HelperText=(component
+          "hds/form/helper-text"
+          controlId=this._id
+          contextualClass="hds-form-key-value-inputs__field-helper-text"
+          onInsert=this.appendDescriptor
+        )
+      )
+    }}
+  </div>
+  <div class="hds-form-key-value-inputs__field-control">
+
+    {{! @glint-expect-error - Glint does not recognize `this.ariaDescribedby` as defined when used directly in a multi-line hash passed to yield. Since `@glint-expect-error` only applies to the line immediately after it and cannot be placed inside a multi-line hash, we use a `let` to work around this limitation. }}
+    {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
+      {{yield
+        (hash
+          FileInput=(component "hds/form/file-input/base" id=this._id ariaDescribedBy=ariaDescribedBy)
+          MaskedInput=(component
+            "hds/form/masked-input/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy
+          )
+          Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy)
+          SuperSelectSingle=(component
+            "hds/form/super-select/single/base"
+            isInvalid=@isInvalid
+            triggerId=this._id
+            ariaDescribedBy=ariaDescribedBy
+            ariaLabelledBy=(concat this.idPrefix this._id)
+          )
+          SuperSelectMultiple=(component
+            "hds/form/super-select/multiple/base"
+            isInvalid=@isInvalid
+            triggerId=this._id
+            ariaDescribedBy=ariaDescribedBy
+            ariaLabelledBy=(concat this.idPrefix this._id)
+          )
+          TextInput=(component
+            "hds/form/text-input/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy
+          )
+          Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this._id ariaDescribedBy=ariaDescribedBy)
+        )
+      }}
+    {{/let}}
+
+    {{yield
+      (hash
+        Error=(component
+          "hds/form/error"
+          controlId=this._id
+          contextualClass="hds-form-key-value-inputs__field-error"
+          onInsert=this.appendDescriptor
+          onRemove=this.removeDescriptor
+        )
+      )
+    }}
+  </div>
+</div>
