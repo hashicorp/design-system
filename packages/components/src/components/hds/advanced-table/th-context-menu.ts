@@ -57,9 +57,9 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ): void {
-    column.restoreWidth();
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();
+    column.restoreWidth();
     dropdownCloseCallback?.();
   }
 }
