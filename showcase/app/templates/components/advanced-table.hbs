@@ -2007,16 +2007,18 @@
 
   <Shw::Text::H3>ThContextMenu</Shw::Text::H3>
 
-  <Shw::Grid @label="Expand all interactive states + Expand state" @columns={{4}} as |SG|>
+  <Shw::Grid @label="Context menu all interactive states" @columns={{4}} as |SG|>
     {{#each @model.STATES as |state|}}
       <SG.Item @label={{capitalize state}}>
-        <Hds::Dropdown::Toggle::Icon
-          @icon="more-vertical"
-          @text="Context menu"
-          @hasChevron={{false}}
-          @size="small"
-          mock-state-value={{state}}
-        />
+        <div class="hds-advanced-table__th-context-menu">
+          <Hds::Dropdown::Toggle::Icon
+            @icon="more-vertical"
+            @text="Context menu"
+            @hasChevron={{false}}
+            @size="small"
+            mock-state-value={{state}}
+          />
+        </div>
       </SG.Item>
     {{/each}}
   </Shw::Grid>
