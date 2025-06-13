@@ -9,7 +9,7 @@
   AppHeader
 </Shw::Text::H1>
 
-<section data-test-percy=>
+<section data-test-percy>
 
   <Shw::Text::H2>Content</Shw::Text::H2>
 
@@ -247,7 +247,7 @@
   <Shw::Text::H2>Application Title</Shw::Text::H2>
 
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-
+    
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -553,7 +553,7 @@
         <SG.Item @label="{{capitalize color}}">
           {{#if (eq state "disabled")}}
             <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled= />
+              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
             </div>
           {{else}}
             <div class="hds-app-header">
@@ -573,7 +573,7 @@
         <SG.Item @label="With icon">
           {{#if (eq state "disabled")}}
             <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled= />
+              <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
             </div>
           {{else}}
             <div class="hds-app-header">
@@ -598,7 +598,7 @@
         <SG.Item @label="With count">
           {{#if (eq state "disabled")}}
             <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled= />
+              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
             </div>
           {{else}}
             <div class="hds-app-header">
@@ -623,7 +623,7 @@
                 @badgeIcon="hexagon"
                 @text="Lorem"
                 @color={{color}}
-                disabled=
+                disabled
               />
             </div>
           {{else}}
