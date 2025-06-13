@@ -134,6 +134,19 @@ export * from './components/hds/dropdown/types.ts';
 export { default as HdsFlyout } from './components/hds/flyout/index.ts';
 export * from './components/hds/flyout/types.ts';
 
+// Form > Layout
+export { default as HdsForm } from './components/hds/form/index.ts';
+export { default as HdsFormHeader } from './components/hds/form/header/index.ts';
+export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.ts';
+export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.ts';
+export { default as HdsFormSection } from './components/hds/form/section/index.ts';
+export { default as HdsFormSectionHeader } from './components/hds/form/section/header/index.ts';
+export { default as HdsFormSectionHeaderTitle } from './components/hds/form/section/header/title.ts';
+export { default as HdsFormSectionHeaderDescription } from './components/hds/form/section/header/description.ts';
+export { default as HdsFormSectionFieldGroup } from './components/hds/form/section/field-group/index.ts';
+export { default as HdsFormSeparator } from './components/hds/form/separator/index.ts';
+export * from './components/hds/form/types.ts';
+
 // Form > Base elements
 export { default as HdsFormCharacterCount } from './components/hds/form/character-count/index.ts';
 export { default as HdsFormError } from './components/hds/form/error/index.ts';
