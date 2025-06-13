@@ -112,6 +112,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   @action
+  onColumnResize(key?: string, width?: string): void {
+    const { onColumnResize } = this.args;
+
+    if (typeof onColumnResize === 'function' && key !== undefined) {
+      onColumnResize(key, width);
+    }
+  }
+
+  @action
   handleKeydown(event: KeyboardEvent): void {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') {
       return;
@@ -141,6 +150,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       nextColumn,
       currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
+
+    this._setNextColumnImposedWidthDelta(nextColumn, this.nextColumnDelta);
+
+    this.onColumnResize(column.key, column.width);
 
     this.handleElement.scrollIntoView({
       behavior: 'smooth',
@@ -223,21 +236,25 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.removeEventListener('pointermove', this.boundResize);
     window.removeEventListener('pointerup', this.boundStopResize);
 
-    const { column, nextColumn, onColumnResize } = this.args;
+    const { column, nextColumn } = this.args;
 
+    this._setNextColumnImposedWidthDelta(nextColumn, this.nextColumnDelta);
+
+    this.onColumnResize(column.key, column.width);
+
+    this.resizing = null;
+  }
+
+  private _setNextColumnImposedWidthDelta(
+    nextColumn: HdsAdvancedTableColumn | undefined,
+    delta: number
+  ): void {
     if (nextColumn === undefined) {
       return;
     }
 
-    nextColumn.imposedWidthDelta =
-      nextColumn.imposedWidthDelta + this.nextColumnDelta;
+    nextColumn.imposedWidthDelta = (nextColumn.imposedWidthDelta ?? 0) + delta;
 
     this.nextColumnDelta = 0;
-
-    if (typeof onColumnResize === 'function' && column.key !== undefined) {
-      onColumnResize(column.key, column.width);
-    }
-
-    this.resizing = null;
   }
 }
