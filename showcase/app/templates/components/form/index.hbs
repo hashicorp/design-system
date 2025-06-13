@@ -638,44 +638,6 @@
 
 <Shw::Divider />
 
-<Shw::Text::H2>Responsiveness</Shw::Text::H2>
-
-<Shw::Text::H3>Basic form</Shw::Text::H3>
-
-<Shw::Frame
-  @id="demo-form-layout-large-viewports"
-  @src="/components/form/frameless/demo-responsiveness"
-  @height="850"
-  @label="Large viewport - simple form"
-/>
-
-<Shw::Frame
-  @id="demo-form-layout-small-viewports"
-  @src="/components/form/frameless/demo-responsiveness"
-  @width="479"
-  @height="980"
-  @label="Small viewport (< 480px) - simple form"
-/>
-
-<Shw::Text::H3>Complex form</Shw::Text::H3>
-
-<Shw::Frame
-  @id="demo-form-layout-large-viewports-complex"
-  @src="/components/form/frameless/demo-responsiveness-complex"
-  @height="550"
-  @label="Large viewport - complex form"
-/>
-
-<Shw::Frame
-  @id="demo-form-layout-small-viewports-complex"
-  @src="/components/form/frameless/demo-responsiveness-complex"
-  @width="479"
-  @height="850"
-  @label="Small viewport (< 480px) - complex form"
-/>
-
-<Shw::Divider />
-
 <section class="shw-component-form-layout-examples-wrapper" data-test-percy>
   <Shw::Text::H2>Examples of forms</Shw::Text::H2>
 
@@ -856,185 +818,52 @@
   <Shw::Text::H4 @tag="h3">Forms with different types of content</Shw::Text::H4>
 
   <Shw::Label>Mixed section widths</Shw::Label>
-  <Hds::Form as |FORM|>
-    <FORM.Header>
-      <FORM.HeaderTitle @tag="h2">Add policy</FORM.HeaderTitle>
-      <FORM.HeaderDescription>
-        Please specify which policy you would like to assign to your cluster. Read more about policies in our
-        <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.
-      </FORM.HeaderDescription>
-    </FORM.Header>
-    <FORM.Section>
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>Secret ID</F.Label>
-        <F.HelperText>Create a token within your self-managed cluster and attach only the "builtin/global-read-only"
-          policy to it. Once complete, save the token, copy its secret ID from the token list, and insert it below.</F.HelperText>
-      </Hds::Form::TextInput::Field>
-    </FORM.Section>
-    <FORM.Section @isFullWidth={{true}}>
-      <Hds::Form::RadioCard::Group @alignment="center" as |G|>
-        <G.Legend>Policy framework</G.Legend>
-        {{#each @model.RADIOCARDS_PRODUCTS as |item|}}
-          <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
-            <R.Icon @name={{item.icon}} />
-            <R.Label>{{item.label}}</R.Label>
-            {{#if item.badge}}
-              <R.Badge @text={{item.badge}} @color="highlight" />
-            {{/if}}
-            <R.Description>{{item.description}}</R.Description>
-          </G.RadioCard>
-        {{/each}}
-      </Hds::Form::RadioCard::Group>
-    </FORM.Section>
-    <FORM.Section>
-      <Hds::Form::TextInput::Field as |F|>
-        <F.Label>Policy set name</F.Label>
-        <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-), and
-          underscores (_).</F.HelperText>
-      </Hds::Form::TextInput::Field>
-      <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-        <F.Label>Description</F.Label>
-        <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
-        <F.CharacterCount @maxLength={{256}} />
-      </Hds::Form::Textarea::Field>
-    </FORM.Section>
-    <Hds::Layout::Flex @gap="24" @align="center">
-      <Hds::ButtonSet>
-        <Hds::Button @color="primary" @text="Save" type="submit" />
-        <Hds::Button @color="secondary" @text="Cancel" @href="#" />
-      </Hds::ButtonSet>
-      <Hds::Alert @type="compact" @color="highlight" as |A|>
-        <A.Description>Only visible to users with permission to create and manage policies at organization or project
-          level.</A.Description>
-      </Hds::Alert>
-    </Hds::Layout::Flex>
+  <Hds::Form>
+    {{! Here we use Mock::App components to avoid too much code repetition  }}
+    <Mock::App::Main::GenericForm::Partials::AddPolicy />
   </Hds::Form>
 
-  <Shw::Divider @level={{2}} />
+</section>
 
-  <Shw::Text::H4 @tag="h3">Custom widths</Shw::Text::H4>
+<Shw::Divider />
 
-  {{#let (array "form" "section" "field" "section+field" "fullwidth") as |cases|}}
-    {{#each cases as |case|}}
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
+<section>
 
-      <Shw::Label>
-        {{#if (eq case "form")}}
-          Custom width set via local CSS class at form level
-        {{else if (eq case "section")}}
-          Custom width set via local CSS class only at section level (not at header/separator)
-        {{else if (eq case "field")}}
-          Custom width set directly on field
-        {{else if (eq case "section+field")}}
-          Custom width set directly on field
-        {{else if (eq case "fullwidth")}}
-          All content is full width
-        {{/if}}
-      </Shw::Label>
-      <Hds::Form class={{if (eq case "form") "shw-component-form-layout-custom-max-width"}} as |FORM|>
-        <FORM.Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
-          <FORM.HeaderTitle @tag="h2">Add user</FORM.HeaderTitle>
-          <FORM.HeaderDescription>
-            Grant access to HCP resources for your team members (this will send them an invite via email).
-          </FORM.HeaderDescription>
-          <FORM.HeaderDescription>
-            Read more about user permissions in our
-            <Hds::Link::Inline @href="#" @icon="docs-link">documentation</Hds::Link::Inline>.
-          </FORM.HeaderDescription>
-        </FORM.Header>
-        <FORM.Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
-          @isFullWidth={{(if (eq case "fullwidth") true)}}
-        >
-          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
-            <F.Label>Email address for user</F.Label>
-          </Hds::Form::TextInput::Field>
-          <Hds::Form::Toggle::Field {{on "change" (fn this.toggleDemoCustomWidthsStatus case)}} as |F|>
-            <F.Label>Assign this user an organization role</F.Label>
-            <F.HelperText>Users without organization roles cannot view or edit anything inside this organization until
-              project-level or workspace-level roles are assigned to them after they accept their invitation.</F.HelperText>
-          </Hds::Form::Toggle::Field>
-          {{#if (get this.showDemoCustomWidthsToggleContent case)}}
-            <Hds::Layout::Flex @align="end" @gap="16">
-              <Hds::Form::Select::Field as |F|>
-                <F.Label>Select an organization role</F.Label>
-                <F.Options>
-                  <option value="admin">Admin</option>
-                  <option value="browser">Browser</option>
-                  <option value="contributor">Contributor</option>
-                  <option selected="true" value="viewer">Viewer</option>
-                </F.Options>
-              </Hds::Form::Select::Field>
-            </Hds::Layout::Flex>
-          {{/if}}
-        </FORM.Section>
+  <Shw::Text::H2>Responsiveness</Shw::Text::H2>
 
-        <Hds::Form::Separator @isFullWidth={{(if (eq case "fullwidth") true)}} />
+  <Shw::Text::H3>Basic form</Shw::Text::H3>
 
-        <FORM.Header @isFullWidth={{(if (eq case "fullwidth") true)}}>
-          <FORM.HeaderTitle @tag="h2">Add policy</FORM.HeaderTitle>
-          <FORM.HeaderDescription>
-            Please specify which policy you would like to assign to your cluster. Read more about policies in our
-            <Hds::Link::Inline @href="#">documentation</Hds::Link::Inline>.
-          </FORM.HeaderDescription>
-        </FORM.Header>
-        <FORM.Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
-          @isFullWidth={{(if (eq case "fullwidth") true)}}
-        >
-          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
-            <F.Label>Secret ID</F.Label>
-            <F.HelperText>Create a token within your self-managed cluster and attach only the "builtin/global-read-only"
-              policy to it. Once complete, save the token, copy its secret ID from the token list, and insert it below.</F.HelperText>
-          </Hds::Form::TextInput::Field>
-        </FORM.Section>
-        <FORM.Section @isFullWidth={{true}}>
-          <Hds::Form::RadioCard::Group @alignment="center" as |G|>
-            <G.Legend>Policy framework</G.Legend>
-            {{#each @model.RADIOCARDS_PRODUCTS as |item|}}
-              <G.RadioCard @checked={{item.checked}} @value={{item.value}} as |R|>
-                <R.Icon @name={{item.icon}} />
-                <R.Label>{{item.label}}</R.Label>
-                {{#if item.badge}}
-                  <R.Badge @text={{item.badge}} @color="highlight" />
-                {{/if}}
-                <R.Description>{{item.description}}</R.Description>
-              </G.RadioCard>
-            {{/each}}
-          </Hds::Form::RadioCard::Group>
-        </FORM.Section>
-        <FORM.Section
-          class={{if (or (eq case "section") (eq case "section+field")) "shw-component-form-layout-custom-max-width"}}
-          @isFullWidth={{(if (eq case "fullwidth") true)}}
-        >
-          <Hds::Form::TextInput::Field @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}} as |F|>
-            <F.Label>Policy set name</F.Label>
-            <F.HelperText>Valid characters include ASCII letters, numbers, as well as spaces, periods (.), dashes (-),
-              and underscores (_).</F.HelperText>
-          </Hds::Form::TextInput::Field>
-          <Hds::Form::Textarea::Field
-            @width={{(if (or (eq case "field") (eq case "section+field")) "400px")}}
-            @isOptional={{true}}
-            as |F|
-          >
-            <F.Label>Description</F.Label>
-            <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
-            <F.CharacterCount @maxLength={{256}} />
-          </Hds::Form::Textarea::Field>
-        </FORM.Section>
-        <Hds::Layout::Flex @gap="24" @align="center">
-          <Hds::ButtonSet>
-            <Hds::Button @color="primary" @text="Save" type="submit" />
-            <Hds::Button @color="secondary" @text="Cancel" @href="#" />
-          </Hds::ButtonSet>
-          <Hds::Alert @type="compact" @color="highlight" as |A|>
-            <A.Description>Only visible to users with permission to create and manage policies at organization or
-              project level.</A.Description>
-          </Hds::Alert>
-        </Hds::Layout::Flex>
-      </Hds::Form>
-      <Shw::Divider @level={{2}} />
+  <Shw::Frame
+    @id="demo-form-layout-large-viewports"
+    @src="/components/form/frameless/demo-form-basic"
+    @height="850"
+    @label="Large viewport - simple form"
+  />
 
-    {{/each}}
-  {{/let}}
+  <Shw::Frame
+    @id="demo-form-layout-small-viewports"
+    @src="/components/form/frameless/demo-form-basic"
+    @width="479"
+    @height="980"
+    @label="Small viewport (< 480px) - simple form"
+  />
+
+  <Shw::Text::H3>Complex form</Shw::Text::H3>
+
+  <Shw::Frame
+    @id="demo-form-layout-large-viewports-complex"
+    @src="/components/form/frameless/demo-form-complex"
+    @height="550"
+    @label="Large viewport - complex form"
+  />
+
+  <Shw::Frame
+    @id="demo-form-layout-small-viewports-complex"
+    @src="/components/form/frameless/demo-form-complex"
+    @width="479"
+    @height="850"
+    @label="Small viewport (< 480px) - complex form"
+  />
 
 </section>

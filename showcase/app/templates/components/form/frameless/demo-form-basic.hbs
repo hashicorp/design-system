@@ -7,23 +7,23 @@
 
 <Mock::App>
   <:main>
-    <Hds::Form>
-      <Hds::Form::Header>
-        <Hds::Form::Header::Title>Form responsiveness demo</Hds::Form::Header::Title>
-        <Hds::Form::Header::Description>
-          Only the SectionFieldGroup is responsive; other content just has a max-width.
-        </Hds::Form::Header::Description>
-      </Hds::Form::Header>
+    <Hds::Form as |FORM|>
 
-      <Hds::Form::Section>
-        <Hds::Form::Section::Header>
-          <Hds::Form::Section::Header::Title>Your personal details</Hds::Form::Section::Header::Title>
-          <Hds::Form::Section::Header::Description>
+      <FORM.Header>
+        <FORM.HeaderTitle>Account signup form</FORM.HeaderTitle>
+        <FORM.HeaderDescription>Create your account to start using our cloud-based platform and unlock a suite of
+          powerful features designed to help you grow your business.</FORM.HeaderDescription>
+      </FORM.Header>
+
+      <FORM.Section>
+        <FORM.SectionHeader>
+          <FORM.SectionHeaderTitle>Your personal details</FORM.SectionHeaderTitle>
+          <FORM.SectionHeaderDescription>
             Please fill out the fields below with your personal details.
-          </Hds::Form::Section::Header::Description>
-        </Hds::Form::Section::Header>
+          </FORM.SectionHeaderDescription>
+        </FORM.SectionHeader>
 
-        <Hds::Form::Section::FieldGroup>
+        <FORM.SectionFieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>First name</F.Label>
             <F.HelperText>Your given name</F.HelperText>
@@ -32,9 +32,9 @@
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Last name</F.Label>
           </Hds::Form::TextInput::Field>
-        </Hds::Form::Section::FieldGroup>
+        </FORM.SectionFieldGroup>
 
-        <Hds::Form::Section::FieldGroup as |FG|>
+        <FORM.SectionFieldGroup as |FG|>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>City</F.Label>
           </Hds::Form::TextInput::Field>
@@ -57,42 +57,39 @@
               <F.Label>Zip</F.Label>
             </Hds::Form::TextInput::Field>
           </FG.Item>
-        </Hds::Form::Section::FieldGroup>
+        </FORM.SectionFieldGroup>
 
-        <Hds::Form::Radio::Group @layout="horizontal" @name="datacenter-demo3" as |G|>
-          <G.Legend>Choose datacenter</G.Legend>
+        <Hds::Form::Radio::Group @layout="horizontal" @name="demo-radio-group" as |G|>
+          <G.Legend>Favorite pet</G.Legend>
           <G.RadioField as |F|>
-            <F.Label>NYC1</F.Label>
+            <F.Label>Cat</F.Label>
           </G.RadioField>
           <G.RadioField as |F|>
-            <F.Label>DC1</F.Label>
+            <F.Label>Dog</F.Label>
           </G.RadioField>
           <G.RadioField as |F|>
-            <F.Label>NYC2</F.Label>
+            <F.Label>Hamster</F.Label>
           </G.RadioField>
           <G.RadioField as |F|>
-            <F.Label>SF1</F.Label>
+            <F.Label>Parrot</F.Label>
           </G.RadioField>
           <G.RadioField as |F|>
-            <F.Label>Lorem ipsum dolor wat</F.Label>
+            <F.Label>Turtle</F.Label>
           </G.RadioField>
         </Hds::Form::Radio::Group>
 
         <Hds::Form::TextInput::Field as |F|>
-          <F.Label>Favorite animal</F.Label>
+          <F.Label>Email</F.Label>
         </Hds::Form::TextInput::Field>
 
-        <Hds::Form::Textarea::Field name="demo-description" as |F|>
+        <Hds::Form::Textarea::Field as |F|>
           <F.Label>Short bio</F.Label>
         </Hds::Form::Textarea::Field>
-      </Hds::Form::Section>
 
-      <Hds::Form::Section>
-        <Hds::ButtonSet>
-          <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-        </Hds::ButtonSet>
-      </Hds::Form::Section>
+        <Mock::App::Main::GenericForm::Partials::Actions />
+
+      </FORM.Section>
+
     </Hds::Form>
   </:main>
 </Mock::App>
