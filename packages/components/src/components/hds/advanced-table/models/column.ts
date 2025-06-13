@@ -40,8 +40,6 @@ export default class HdsAdvancedTableColumn {
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
-  private _onColumnResize?: HdsAdvancedTableColumnResizeCallback;
-
   table: HdsAdvancedTableModel;
 
   get pxWidth(): number | undefined {
@@ -68,9 +66,8 @@ export default class HdsAdvancedTableColumn {
   constructor(args: {
     column: HdsAdvancedTableColumnType;
     table: HdsAdvancedTableModel;
-    onColumnResize?: HdsAdvancedTableColumnResizeCallback;
   }) {
-    const { column, table, onColumnResize } = args;
+    const { column, table } = args;
 
     // set reference to table model
     this.table = table;
@@ -85,9 +82,6 @@ export default class HdsAdvancedTableColumn {
     this.tooltip = column.tooltip;
     this._setWidthValues(column);
     this.sortingFunction = column.sortingFunction;
-
-    // set resize callback
-    this._onColumnResize = onColumnResize;
   }
 
   private _setWidthValues({
@@ -122,8 +116,6 @@ export default class HdsAdvancedTableColumn {
     if (this.key === undefined) {
       return;
     }
-
-    this._onColumnResize?.(this.key, this.width);
   }
 
   // This method is called when the column width is changed by the previous column.
@@ -150,7 +142,5 @@ export default class HdsAdvancedTableColumn {
     if (this.key === undefined) {
       return;
     }
-
-    this._onColumnResize?.(this.key, this.width);
   }
 }

@@ -185,7 +185,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       sortBy,
       sortOrder,
       hasStickyFirstColumn,
-      onColumnResize,
       onSort,
     } = args;
 
@@ -196,7 +195,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       hasResizableColumns,
       sortBy,
       sortOrder,
-      onColumnResize,
       onSort,
     });
 
@@ -247,7 +245,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get sortedMessageText(): string {
-    const { sortBy, sortOrder, sortedMessageText } = this.args;
+    const { sortedMessageText } = this.args;
+    const { sortBy, sortOrder } = this._tableModel;
 
     if (sortedMessageText !== undefined) {
       return sortedMessageText;

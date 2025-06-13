@@ -169,7 +169,6 @@ const setResizableColumnsTableData = (context) => {
     {
       key: 'col1',
       label: 'Col 1',
-      isResizable: true,
       width: '120px',
       minWidth: '60px',
       maxWidth: '300px',
@@ -231,7 +230,7 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
 </Hds::AdvancedTable>`;
 
 const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
-  @model={{this.model}} @columns={{this.columns}} id="resize-test-table"
+  @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
 >
   <:body as |B|>
     <B.Tr>
@@ -777,6 +776,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
       .hasText('Melanie');
+
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__caption')
       .hasText('Sorted by artist ascending');
@@ -1592,6 +1592,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       <Hds::AdvancedTable
         @model={{this.model}}
         @columns={{this.columns}}
+        @hasResizableColumns={{true}}
         @onColumnResize={{this.onColumnResize}}
         id="resize-test-table"
       >
@@ -1614,13 +1615,16 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
   test('it should call `onColumnResize` when a column width is reset', async function (assert) {
     setResizableColumnsTableData(this);
-    const onColumnResizeSpy = sinon.spy();
+    const onColumnResizeSpy = sinon.spy((key) => {
+      console.log('Column resized', key);
+    });
     this.set('onColumnResize', onColumnResizeSpy);
 
     await render(hbs`
       <Hds::AdvancedTable
         @model={{this.model}}
         @columns={{this.columns}}
+        @hasResizableColumns={{true}}
         @onColumnResize={{this.onColumnResize}}
         id="resize-test-table"
       >

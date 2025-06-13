@@ -48,6 +48,7 @@ export interface HdsAdvancedTableThSortSignature {
     isLastColumn?: boolean;
     isStickyColumn?: boolean;
     isStickyColumnPinned?: boolean;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Blocks: {
     default?: [];

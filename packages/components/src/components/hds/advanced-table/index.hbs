@@ -55,6 +55,7 @@
               @previousColumn={{get this._tableModel.columns (sub index 1)}}
               @nextColumn={{get this._tableModel.columns (add index 1)}}
               @tableHeight={{this._tableHeight}}
+              @onColumnResize={{@onColumnResize}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
@@ -76,6 +77,7 @@
               @tableHeight={{this._tableHeight}}
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
+              @onColumnResize={{@onColumnResize}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}

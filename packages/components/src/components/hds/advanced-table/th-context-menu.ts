@@ -4,11 +4,12 @@
  */
 
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
-import { action } from '@ember/object';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -28,6 +29,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
     previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Element: HdsDropdownSignature['Element'];
 }
@@ -57,9 +59,16 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     nextColumn?: HdsAdvancedTableColumn,
     dropdownCloseCallback?: () => void
   ): void {
+    const { onColumnResize } = this.args;
+
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();
     column.restoreWidth();
+
+    if (typeof onColumnResize === 'function' && column.key !== undefined) {
+      console.log('resetting');
+      onColumnResize(column.key, column.width);
+    }
 
     dropdownCloseCallback?.();
   }

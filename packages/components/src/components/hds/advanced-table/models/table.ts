@@ -23,7 +23,6 @@ type HdsAdvancedTableTableArgs = Pick<
   | 'hasResizableColumns'
   | 'sortBy'
   | 'sortOrder'
-  | 'onColumnResize'
   | 'onSort'
 >;
 
@@ -52,7 +51,6 @@ export default class HdsAdvancedTableTableModel {
 
   childrenKey?: HdsAdvancedTableTableArgs['childrenKey'];
   hasResizableColumns?: HdsAdvancedTableTableArgs['hasResizableColumns'];
-  onColumnResize?: HdsAdvancedTableTableArgs['onColumnResize'];
   onSort?: HdsAdvancedTableSignature['Args']['onSort'];
 
   constructor(args: HdsAdvancedTableTableArgs) {
@@ -63,13 +61,11 @@ export default class HdsAdvancedTableTableModel {
       hasResizableColumns,
       sortBy,
       sortOrder,
-      onColumnResize,
       onSort,
     } = args;
 
     this.childrenKey = childrenKey;
     this.hasResizableColumns = hasResizableColumns;
-    this.onColumnResize = onColumnResize;
     this.onSort = onSort;
 
     this.setupData({ model, columns, sortBy, sortOrder });
@@ -173,7 +169,6 @@ export default class HdsAdvancedTableTableModel {
         new HdsAdvancedTableColumn({
           column,
           table: this,
-          onColumnResize: this.onColumnResize,
         })
     );
 
