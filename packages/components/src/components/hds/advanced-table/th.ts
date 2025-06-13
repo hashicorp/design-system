@@ -20,6 +20,7 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
 } from './types.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -50,6 +51,7 @@ export interface HdsAdvancedTableThSignature {
     tableHeight?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
   Blocks: {
