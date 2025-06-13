@@ -33,21 +33,18 @@ const SAMPLE_COLUMNS = [
     label: 'Project name',
     key: 'project-name',
     isSortable: true,
-    isResizable: true,
     width: '300px',
   },
   {
     label: 'Current run ID',
     key: 'current-run-id',
     isSortable: true,
-    isResizable: true,
     width: '300px',
   },
   {
     label: 'Run status',
     key: 'run-status',
     isSortable: true,
-    isResizable: true,
     width: '200px',
   },
   {
