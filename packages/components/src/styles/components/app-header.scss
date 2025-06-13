@@ -145,10 +145,10 @@
 .hds-app-header__home-link {
   @include hds-interactive-dark-theme($add-visible-border: false);
   display: flex;
+  gap: 8px;
   align-items: center;
   justify-content: center;
   padding: 3px;
-  gap: 8px;
   text-decoration: none;
 
   // Set home link container size:
