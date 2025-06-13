@@ -13,12 +13,12 @@ import type Owner from '@ember/owner';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsFormHeaderSignature } from './header/index.ts';
-import type { HdsFormHeaderTitleSignature } from './/header/title/index.ts';
-import type { HdsFormHeaderDescriptionSignature } from './header/description/index.ts';
+import type { HdsFormHeaderTitleSignature } from './header/title.ts';
+import type { HdsFormHeaderDescriptionSignature } from './header/description.ts';
 import type { HdsFormSectionSignature } from './section/index.ts';
 import type { HdsFormSectionHeaderSignature } from './section/header/index.ts';
-import type { HdsFormSectionHeaderTitleSignature } from './section/header/title/index.ts';
-import type { HdsFormSectionHeaderDescriptionSignature } from './section/header/description/index.ts';
+import type { HdsFormSectionHeaderTitleSignature } from './section/header/title.ts';
+import type { HdsFormSectionHeaderDescriptionSignature } from './section/header/description.ts';
 import type { HdsFormSectionFieldGroupSignature } from './section/field-group/index.ts';
 import type { HdsFormSeparatorSignature } from './separator/index.ts';
 
