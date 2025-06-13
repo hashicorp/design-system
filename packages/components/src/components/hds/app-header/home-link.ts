@@ -30,7 +30,7 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
 
     return ariaLabel;
   }
-  
+
   get title(): string {
     const { title } = this.args;
 
