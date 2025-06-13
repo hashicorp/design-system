@@ -8,3 +8,7 @@ export enum HdsCopyButtonSizeValues {
   Medium = 'medium',
 }
 export type HdsCopyButtonSizes = `${HdsCopyButtonSizeValues}`;
+
+export default {
+  HdsCopyButtonSizeValues,
+};

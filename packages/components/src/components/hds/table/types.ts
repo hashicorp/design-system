@@ -93,3 +93,13 @@ export interface HdsTableOnSelectionChangeSignature {
 }
 
 export type HdsTableModel = Array<Record<string, unknown>>;
+
+export default {
+  HdsTableDensityValues,
+  HdsTableHorizontalAlignmentValues,
+  HdsTableScopeValues,
+  HdsTableThSortOrderIconValues,
+  HdsTableThSortOrderLabelValues,
+  HdsTableThSortOrderValues,
+  HdsTableVerticalAlignmentValues,
+};

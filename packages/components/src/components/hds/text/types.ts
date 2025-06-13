@@ -62,3 +62,11 @@ export enum HdsTextGroupValues {
   Body = 'body',
 }
 export type HdsTextGroups = `${HdsTextGroupValues}`;
+
+export default {
+  HdsTextColorValues,
+  HdsTextAlignValues,
+  HdsTextWeightValues,
+  HdsTextSizeValues,
+  HdsTextGroupValues,
+};
