@@ -921,24 +921,24 @@
         <T.Tab>Complex form</T.Tab>
         <T.Tab>Generic content</T.Tab>
         <T.Panel>
-          <div {{style padding="24px 0" }}>
+          <div {{style padding="24px 0"}}>
             {{! Here we use Mock::App components to avoid too much code repetition  }}
             <Mock::App::Main::GenericForm::Partials::AccountSignup />
           </div>
         </T.Panel>
         <T.Panel>
-          <div {{style padding="24px 0" }}>
+          <div {{style padding="24px 0"}}>
             {{! Here we use Mock::App components to avoid too much code repetition  }}
             <Hds::Form>
               <Mock::App::Main::GenericForm::Partials::AddUser @isHeaderFullWidth={{true}} />
               <Hds::Form::Separator />
               <Mock::App::Main::GenericForm::Partials::AddPolicy />
-              <Mock::App::Main::GenericForm::Partials::Actions/>
+              <Mock::App::Main::GenericForm::Partials::Actions />
             </Hds::Form>
           </div>
         </T.Panel>
         <T.Panel>
-          <div {{style padding="24px 0" }}>
+          <div {{style padding="24px 0"}}>
             <Shw::Placeholder @text="Generic content" @height="250" />
           </div>
         </T.Panel>
