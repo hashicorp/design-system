@@ -1,5 +1,19 @@
 # @hashicorp/design-system-components
 
+## 4.20.2
+
+### Patch Changes
+
+`Button` - added missing types to the barrel export file
+
+`Layout::Flex` - added missing types to the barrel export file
+
+`Layout::Grid` - added missing types to the barrel export file
+
+<small class="doc-whats-new-changelog-metadata">[#2943](https://github.com/hashicorp/design-system/pull/2943)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.20.1
 
 [4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
