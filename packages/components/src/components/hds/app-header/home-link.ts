@@ -13,6 +13,7 @@ export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     icon: HdsIconSignature['Args']['name'];
     color?: string;
+    title?: string;
     ariaLabel: string;
   };
   Element: HdsInteractiveSignature['Element'];
@@ -28,5 +29,11 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
     );
 
     return ariaLabel;
+  }
+  
+  get title(): string {
+    const { title } = this.args;
+
+    return title || '';
   }
 }

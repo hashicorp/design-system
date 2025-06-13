@@ -17,4 +17,11 @@
   aria-label={{this.ariaLabel}}
 >
   <Hds::Icon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+  {{#if this.title}}
+    <Hds::Text::Display
+      class="hds-app-header__home-link-title"
+      @size="100"
+      @color="foreground-high-contrast"
+    >{{this.title}}</Hds::Text::Display>
+  {{/if}}
 </Hds::Interactive>
