@@ -12,6 +12,20 @@
   </a>
 </p>
 
+## 4.20.2
+
+**Patch changes**
+
+`Button` - added missing types to the barrel export file
+
+`Layout::Flex` - added missing types to the barrel export file
+
+`Layout::Grid` - added missing types to the barrel export file
+
+<small class="doc-whats-new-changelog-metadata">[#2943](https://github.com/hashicorp/design-system/pull/2943)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.20.1
 
 [4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
@@ -1524,16 +1538,6 @@ Removed `popover-polyfill` dependency and instantiating code
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@5.1.2
-
-## 4.5.2
-
-**🚨 Caution: This version has been deprecated 🚨**
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.1.1
 
 
 ---
