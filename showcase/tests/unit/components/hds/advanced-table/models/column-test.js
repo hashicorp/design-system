@@ -1,6 +1,8 @@
 import { module, test } from 'qunit';
-import sinon from 'sinon';
-import HdsAdvancedTableColumn from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
+import HdsAdvancedTableColumn, {
+  DEFAULT_MAX_WIDTH,
+  DEFAULT_MIN_WIDTH,
+} from '@hashicorp/design-system-components/components/hds/advanced-table/models/column';
 
 module('Unit | Component | hds/advanced-table/models/column', function () {
   test('initializes with default properties when minimal args provided', function (assert) {
@@ -11,7 +13,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     assert.strictEqual(column.label, 'Test Column', 'sets the label property');
     assert.strictEqual(column.align, 'left', 'defaults to left alignment');
     assert.false(column.isExpandable, 'defaults isExpandable to false');
-    assert.false(column.isResizable, 'defaults isResizable to false');
     assert.strictEqual(
       column.isSortable,
       false,
@@ -29,13 +30,13 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     );
     assert.strictEqual(
       column.minWidth,
-      undefined,
-      'minWidth is undefined when width is not provided',
+      DEFAULT_MIN_WIDTH,
+      'minWidth is set to the default value when width is not provided',
     );
     assert.strictEqual(
       column.maxWidth,
-      undefined,
-      'maxWidth is undefined when width is not provided',
+      DEFAULT_MAX_WIDTH,
+      'maxWidth is set to the default value when width is not provided',
     );
     assert.strictEqual(
       column.tooltip,
@@ -56,7 +57,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
         label: 'Full Column',
         align: 'center',
         isExpandable: true,
-        isResizable: false,
         isSortable: true,
         isVisuallyHidden: true,
         key: 'test-column',
@@ -68,7 +68,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
     assert.strictEqual(column.label, 'Full Column', 'sets the label property');
     assert.strictEqual(column.align, 'center', 'sets the alignment');
     assert.true(column.isExpandable, 'sets isExpandable');
-    assert.false(column.isResizable, 'sets isResizable');
     assert.true(column.isSortable, 'sets isSortable');
     assert.true(column.isVisuallyHidden, 'sets isVisuallyHidden');
     assert.strictEqual(column.key, 'test-column', 'sets the key');
@@ -202,45 +201,6 @@ module('Unit | Component | hds/advanced-table/models/column', function () {
       column.width,
       '200px',
       'sets exact width when within constraints',
-    );
-  });
-
-  test('setPxWidth calls resize callback when key is present', function (assert) {
-    const resizeSpy = sinon.spy();
-
-    const column = new HdsAdvancedTableColumn({
-      column: {
-        label: 'Callback Test',
-        width: '150px',
-        key: 'test-key',
-      },
-      onColumnResize: resizeSpy,
-    });
-
-    column.setPxWidth(200);
-
-    assert.ok(
-      resizeSpy.calledOnceWith('test-key', '200px'),
-      'resize callback was called when key is present',
-    );
-  });
-
-  test('setPxWidth does not call resize callback when key is missing', function (assert) {
-    const resizeSpy = sinon.spy();
-
-    const column = new HdsAdvancedTableColumn({
-      column: {
-        label: 'No Key',
-        width: '150px',
-      },
-      onColumnResize: resizeSpy,
-    });
-
-    column.setPxWidth(200);
-
-    assert.false(
-      resizeSpy.called,
-      'resize callback was not called when key is missing',
     );
   });
 

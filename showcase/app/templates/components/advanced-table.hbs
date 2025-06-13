@@ -8,6 +8,7 @@
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
 
 <section data-test-percy>
+  import type { ActionState } from '@ember/-internals/glimmer/lib/modifiers/action';
   <Shw::Text::Body>
     <a
       class="shw-frame__open-link"
@@ -2053,7 +2054,9 @@
                 </Hds::Layout::Flex>
               </div>
             {{/each}}
-            <Hds::AdvancedTable::Th />
+            <Hds::AdvancedTable::Th>
+              Actions
+            </Hds::AdvancedTable::Th>
           </div>
         </div>
       </div>
