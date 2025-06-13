@@ -2,7 +2,6 @@ import Route from '@ember/routing/route';
 
 import { AVAILABLE_SIZES as DISPLAY_AVAILABLE_SIZES } from '@hashicorp/design-system-components/components/hds/text/display';
 import { DEFAULT_SIZE as FORM_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/design-system-components/components/hds/form/header/title';
-import { DEFAULT_SIZE as SECTION_HEADER_TITLE_DEFAULT_SIZE } from '@hashicorp/design-system-components/components/hds/form/section/header/title';
 
 export default class ComponentsFormRoute extends Route {
   model() {
@@ -57,7 +56,6 @@ export default class ComponentsFormRoute extends Route {
       RADIOCARDS_PRODUCTS,
       DISPLAY_AVAILABLE_SIZES,
       FORM_HEADER_TITLE_DEFAULT_SIZE,
-      SECTION_HEADER_TITLE_DEFAULT_SIZE,
     };
   }
 }

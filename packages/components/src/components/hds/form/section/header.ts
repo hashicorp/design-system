@@ -6,15 +6,15 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsFormSectionHeaderTitleSignature } from './title.ts';
-import type { HdsFormSectionHeaderDescriptionSignature } from './description.ts';
+import type { HdsFormHeaderTitleSignature } from '../header/title.ts';
+import type { HdsFormHeaderDescriptionSignature } from '../header/description.ts';
 
 export interface HdsFormSectionHeaderSignature {
   Blocks: {
     default: [
       {
-        Title?: ComponentLike<HdsFormSectionHeaderTitleSignature>;
-        Description?: ComponentLike<HdsFormSectionHeaderDescriptionSignature>;
+        Title?: ComponentLike<HdsFormHeaderTitleSignature>;
+        Description?: ComponentLike<HdsFormHeaderDescriptionSignature>;
       },
     ];
   };

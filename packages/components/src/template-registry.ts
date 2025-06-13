@@ -128,9 +128,7 @@ import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-car
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
 import type HdsFormSectionComponent from './components/hds/form/section';
 import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group';
-import type HdsFormSectionHeaderComponent from './components/hds/form/section/header';
-import type HdsFormSectionHeaderDescriptionComponent from './components/hds/form/section/header/description';
-import type HdsFormSectionHeaderTitleComponent from './components/hds/form/section/header/title';
+import type HdsFormSectionHeaderComponent from './components/hds/form/section/header.ts';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
 import type HdsFormSeparatorComponent from './components/hds/form/separator';
@@ -671,14 +669,6 @@ export default interface HdsComponentsRegistry {
   // Form Section Header
   'Hds::Form::Section::Header': typeof HdsFormSectionHeaderComponent;
   'hds/form/section/header': typeof HdsFormSectionHeaderComponent;
-
-  // Form Section Header Description
-  'Hds::Form::Section::Header::Description': typeof HdsFormSectionHeaderDescriptionComponent;
-  'hds/form/section/header/description': typeof HdsFormSectionHeaderDescriptionComponent;
-
-  // Form Section Header Title
-  'Hds::Form::Section::Header::Title': typeof HdsFormSectionHeaderTitleComponent;
-  'hds/form/section/header/title': typeof HdsFormSectionHeaderTitleComponent;
 
   // Form Select
   'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;

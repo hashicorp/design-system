@@ -18,25 +18,28 @@
     <Hds::Form as |FORM|>
       <FORM.Header>
         <FORM.HeaderTitle>
-          <Shw::Placeholder @height="3.2em" @text="FormHeaderTitle" @background="#e5ffd2" />
+          <Shw::Placeholder @height="3.2em" @text="HeaderTitle" @background="#e4c5f3" />
         </FORM.HeaderTitle>
         <FORM.HeaderDescription>
-          <Shw::Placeholder @height="4.8em" @text="FormHeaderDescription" @background="#e5ffd2" />
+          <Shw::Placeholder @height="4.8em" @text="HeaderDescription" @background="#e4c5f3" />
         </FORM.HeaderDescription>
       </FORM.Header>
 
       <FORM.Section as |FS|>
+        <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+        <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+
+        <Hds::Form::Separator />
+
         <FS.Header as |FSH|>
           <FSH.Title>
-            <Shw::Placeholder @height="2.8em" @text="SectionHeaderTitle" @background="#add8e6" />
+            <Shw::Placeholder @height="2.8em" @text="SectionHeaderTitle" @background="#e5ffd2" />
           </FSH.Title>
           <FORM.SectionHeaderDescription>
-            <Shw::Placeholder @height="4.8em" @text="FormSectionHeaderDescription" @background="#add8e6" />
+            <Shw::Placeholder @height="4.8em" @text="SectionHeaderDescription" @background="#e5ffd2" />
           </FORM.SectionHeaderDescription>
         </FS.Header>
 
-        <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-        <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
         <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
       </FORM.Section>
 
@@ -256,43 +259,83 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>FormHeader, FormHeaderTitle, & Description</Shw::Text::H3>
-
-  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
+  <Shw::Text::H3>FormHeader w/ Title &amp; Description</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="isFullWidth=false (default)">
-        <Hds::Form as |FORM|>
-          <FORM.Header>
-            <FORM.HeaderTitle>Form Header title</FORM.HeaderTitle>
-            <FORM.HeaderDescription>
-              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
-              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
-              dolor obcaecati consequatur tenetur.
-            </FORM.HeaderDescription>
-          </FORM.Header>
-        </Hds::Form>
-      </SG.Item>
+  <Shw::Text::H4>width</Shw::Text::H4>
 
-      <SG.Item @label="isFullWidth=true">
-        <Hds::Form as |FORM|>
-          <FORM.Header @isFullWidth={{true}}>
-            <FORM.HeaderTitle>Form Header title</FORM.HeaderTitle>
-            <FORM.HeaderDescription>
-              Form Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam vel
-              facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
-              dolor obcaecati consequatur tenetur.
-            </FORM.HeaderDescription>
-          </FORM.Header>
-        </Hds::Form>
-      </SG.Item>
-    </Shw::Grid>
-  </div>
+  <Shw::Flex
+    @direction="column"
+    @gap="2rem"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}"
+    as |SF|
+  >
+    <SF.Item @label="isFullWidth=false (default)">
+      <Hds::Form as |FORM|>
+        <FORM.Header>
+          <Shw::Placeholder @height="2.4em" @text="HeaderTitle" />
+          <Shw::Placeholder @height="2.4em" @text="HeaderDescription" />
+        </FORM.Header>
+      </Hds::Form>
+    </SF.Item>
+
+    <SF.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
+      <Hds::Form class="shw-component-form-layout-custom-max-width" as |FORM|>
+        <FORM.Header>
+          <Shw::Placeholder @height="2.4em" @text="HeaderTitle" />
+          <Shw::Placeholder @height="2.4em" @text="HeaderDescription" />
+        </FORM.Header>
+      </Hds::Form>
+    </SF.Item>
+
+    <SF.Item @label="isFullWidth=true">
+      <Hds::Form as |FORM|>
+        <FORM.Header @isFullWidth={{true}}>
+          <Shw::Placeholder @height="2.4em" @text="HeaderTitle" />
+          <Shw::Placeholder @height="2.4em" @text="HeaderDescription" />
+        </FORM.Header>
+      </Hds::Form>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>content</Shw::Text::H4>
+
+  <Shw::Flex
+    @direction="column"
+    @gap="1.4rem"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}"
+    as |SF|
+  >
+    <SF.Item as |SFI|>
+      <SFI.Label>content yielded via <code>FORM</code></SFI.Label>
+      <Hds::Form as |FORM|>
+        <FORM.Header>
+          <FORM.HeaderTitle>Section header title</FORM.HeaderTitle>
+          <FORM.HeaderDescription>
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </FORM.HeaderDescription>
+        </FORM.Header>
+      </Hds::Form>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>content yielded via <code>FORM_SECTION</code></SFI.Label>
+      <Hds::Form>
+        <Hds::Form::Header as |FORM_HEADER|>
+          <FORM_HEADER.Title>Section header title</FORM_HEADER.Title>
+          <FORM_HEADER.Description>
+            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
+            dolor obcaecati consequatur tenetur.
+          </FORM_HEADER.Description>
+        </Hds::Form::Header>
+      </Hds::Form>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
@@ -316,16 +359,20 @@
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <Shw::Text::H4>isFullWidth</Shw::Text::H4>
+  <Shw::Text::H4>width</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <FORM.SectionHeader>
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderTitle" />
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderDescription" />
+            </FORM.SectionHeader>
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -333,35 +380,45 @@
       <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
         <Hds::Form class="shw-component-form-layout-custom-max-width" as |FORM|>
           <FORM.Section>
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <FORM.SectionHeader>
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderTitle" />
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderDescription" />
+            </FORM.SectionHeader>
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
 
       <SG.Item @label="isFullWidth=true">
-        <Hds::Form::Section @isFullWidth={{true}}>
-          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-          <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-        </Hds::Form::Section>
+        <Hds::Form as |FORM|>
+          <FORM.Section @isFullWidth={{true}}>
+            <FORM.SectionHeader>
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderTitle" />
+              <Shw::Placeholder @height="2.4em" @text="SectionHeaderDescription" />
+            </FORM.SectionHeader>
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+          </FORM.Section>
+        </Hds::Form>
       </SG.Item>
     </Shw::Grid>
   </div>
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H4>hasBorder</Shw::Text::H4>
+  <Shw::Text::H4>border</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasBorder=false (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -369,9 +426,9 @@
       <SG.Item @label="hasBorder=true">
         <Hds::Form as |FORM|>
           <FORM.Section @hasBorder={{true}}>
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -379,17 +436,17 @@
       <SG.Item @label="Bordered Section nested in another bordered Section">
         <Hds::Form as |FORM|>
           <FORM.Section @hasBorder={{true}}>
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
 
             <FORM.Section @hasBorder={{true}}>
-              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
-              <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+              <Shw::Placeholder @height="2.4em" @text="FormField" />
+              <Shw::Placeholder @height="2.4em" @text="FormField" />
+              <Shw::Placeholder @height="2.4em" @text="FormField" />
             </FORM.Section>
 
-            <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
+            <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -398,40 +455,66 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>SectionHeader, SectionHeaderTitle, & Description</Shw::Text::H3>
+  <Shw::Text::H3>SectionHeader w/ Title &amp; Description</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-    <Hds::Form as |FORM|>
-      <FORM.Section>
-        <FORM.SectionHeader>
-          <FORM.SectionHeaderTitle>Section header title</FORM.SectionHeaderTitle>
-          <FORM.SectionHeaderDescription>
-            Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
-            vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt quibusdam
-            dolor obcaecati consequatur tenetur.
-          </FORM.SectionHeaderDescription>
-        </FORM.SectionHeader>
-      </FORM.Section>
-    </Hds::Form>
-  </div>
+  <Shw::Text::H4>content</Shw::Text::H4>
 
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H4>SectionHeaderTitle sizes</Shw::Text::H4>
-
-  <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
-    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
-      <SG.Item @label="size={{size}} {{if (eq size this.model.SECTION_HEADER_TITLE_DEFAULT_SIZE) '(default)'}}">
-        <Hds::Form::Section::Header::Title @size={{size}}>
-          Section Header Title w/ size of ({{size}})
-        </Hds::Form::Section::Header::Title>
-      </SG.Item>
-    {{/each}}
-  </Shw::Grid>
+  <Shw::Flex
+    @direction="column"
+    @gap="1.4rem"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}"
+    as |SF|
+  >
+    <SF.Item as |SFI|>
+      <SFI.Label>content yielded via <code>FORM</code></SFI.Label>
+      <Hds::Form as |FORM|>
+        <FORM.Section>
+          <FORM.SectionHeader>
+            <FORM.SectionHeaderTitle>Section header title</FORM.SectionHeaderTitle>
+            <FORM.SectionHeaderDescription>
+              Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+              vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt
+              quibusdam dolor obcaecati consequatur tenetur.
+            </FORM.SectionHeaderDescription>
+          </FORM.SectionHeader>
+        </FORM.Section>
+      </Hds::Form>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>content yielded via <code>FORM_SECTION</code></SFI.Label>
+      <Hds::Form>
+        <Hds::Form::Section as |FORM_SECTION|>
+          <FORM_SECTION.Header>
+            <FORM_SECTION.HeaderTitle>Section header title</FORM_SECTION.HeaderTitle>
+            <FORM_SECTION.HeaderDescription>
+              Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+              vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt
+              quibusdam dolor obcaecati consequatur tenetur.
+            </FORM_SECTION.HeaderDescription>
+          </FORM_SECTION.Header>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SF.Item>
+    <SF.Item as |SFI|>
+      <SFI.Label>content yielded via <code>FORM_SECTION_HEADER</code></SFI.Label>
+      <Hds::Form>
+        <Hds::Form::Section>
+          <Hds::Form::Section::Header as |FORM_SECTION_HEADER|>
+            <FORM_SECTION_HEADER.Title>Section header title</FORM_SECTION_HEADER.Title>
+            <FORM_SECTION_HEADER.Description>
+              Section Header description—lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi eum neque totam
+              vel facere itaque necessitatibus quisquam omnis deserunt! Dicta, explicabo quia quis odio nesciunt
+              quibusdam dolor obcaecati consequatur tenetur.
+            </FORM_SECTION_HEADER.Description>
+          </Hds::Form::Section::Header>
+        </Hds::Form::Section>
+      </Hds::Form>
+    </SF.Item>
+  </Shw::Flex>
 
   <Shw::Divider @level={{2}} />
 
