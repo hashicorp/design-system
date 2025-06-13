@@ -19,3 +19,8 @@ export enum HdsFormHeaderTitleTagValues {
   H6 = 'h6',
 }
 export type HdsFormHeaderTitleTags = `${HdsFormHeaderTitleTagValues}`;
+
+export default {
+  HdsFormTagValues,
+  HdsFormHeaderTitleTagValues,
+};
