@@ -64,7 +64,6 @@ if (useMiddlewareReporter()) {
 }
 
 setup(QUnit.assert);
-
 setupEmberOnerrorValidation();
 loadTests();
 start();
