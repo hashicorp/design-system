@@ -244,7 +244,7 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Application Name</Shw::Text::H2>
+  <Shw::Text::H2>Application Title</Shw::Text::H2>
 
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     
@@ -482,6 +482,24 @@
               @ariaLabel="Boundary"
               @color="var(--token-color-boundary-brand)"
               @href="#"
+              mock-state-value={{state}}
+            />
+          </div>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+      {{#each states as |state|}}
+        <SF.Item @label={{state}}>
+          <div class="hds-app-header">
+            <Hds::AppHeader::HomeLink
+              @icon="terraform"
+              @ariaLabel="Boundary"
+              @href="#"
+              @title="Terraform Admin Console"
               mock-state-value={{state}}
             />
           </div>
