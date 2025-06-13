@@ -62,3 +62,18 @@ body.components-form {
     }
   }
 }
+
+// FRAMELESS PAGES
+
+body.components-form.frameless {
+  .shw-component-form-layout-frameless-demo-complex-custom-component {
+    position: relative;
+    isolation: isolate;
+
+    .shw-component-form-layout-frameless-demo-complex-custom-component__toggle {
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+  }
+}
