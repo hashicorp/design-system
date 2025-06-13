@@ -5,9 +5,43 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click, focus, setupOnerror } from '@ember/test-helpers';
+import {
+  render,
+  click,
+  focus,
+  setupOnerror,
+  find,
+  triggerEvent,
+  triggerKeyEvent,
+} from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+
+function getTableGridValues(tableElement) {
+  const computedStyle = window.getComputedStyle(tableElement);
+  const gridTemplateColumns = computedStyle.getPropertyValue(
+    'grid-template-columns',
+  );
+  const gridValues = gridTemplateColumns
+    .split(' ')
+    .map((value) => value.trim());
+
+  return gridValues;
+}
+
+async function resetColumnWidth(th) {
+  const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+
+  await click(contextMenuToggle);
+
+  return click('[data-test-context-option-key="reset-column-width"]');
+}
+
+async function simulateRightPointerDrag(handle) {
+  await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+  await triggerEvent(handle, 'pointermove', { clientX: 130 });
+  await triggerEvent(window, 'pointerup');
+}
 
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
@@ -126,6 +160,26 @@ const setNestedTableData = (context) => {
   ]);
 };
 
+const setResizableColumnsTableData = (context) => {
+  context.set('model', [
+    { id: '1', col1: 'A', col2: 'B' },
+    { id: '2', col1: 'C', col2: 'D' },
+  ]);
+  context.set('columns', [
+    {
+      key: 'col1',
+      label: 'Col 1',
+      width: '120px',
+      minWidth: '60px',
+      maxWidth: '300px',
+    },
+    {
+      key: 'col2',
+      label: 'Col 2',
+    },
+  ]);
+};
+
 const hbsSortableAdvancedTable = hbs`<Hds::AdvancedTable
   @model={{this.model}}
   @sortBy={{this.sortBy}}
@@ -171,6 +225,17 @@ const hbsNestedAdvancedTable = hbs`<Hds::AdvancedTable
       <B.Th>{{B.data.name}}</B.Th>
       <B.Td>{{B.data.status}}</B.Td>
       <B.Td>{{B.data.description}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`;
+
+const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
+  @model={{this.model}} @columns={{this.columns}} @hasResizableColumns={{true}} id="resize-test-table"
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.col1}}</B.Td>
+      <B.Td>{{B.data.col2}}</B.Td>
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>`;
@@ -711,6 +776,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__td:nth-of-type(1)')
       .hasText('Melanie');
+
     assert
       .dom('#data-test-advanced-table .hds-advanced-table__caption')
       .hasText('Sorted by artist ascending');
@@ -1291,5 +1357,327 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     }
 
     assert.dom(expandAllButton).hasAria('expanded', 'true');
+  });
+
+  test('it should allow resizing columns with the resize handle (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    assert
+      .dom('.hds-advanced-table__th-resize-handle')
+      .exists({ count: 1 }, 'There is one resize handle (not on last column)');
+
+    const handle = find('.hds-advanced-table__th-resize-handle'); // get the first handle
+
+    // Simulate pointer drag to the right (increase width)
+    await simulateRightPointerDrag(handle);
+
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after drag',
+    );
+  });
+
+  test('it should allow resizing columns with the resize handle (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Focus and send ArrowRight key
+    await focus(handle);
+    await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+
+    let newGridValues = getTableGridValues(table);
+    assert.notDeepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowRight',
+    );
+
+    // Send ArrowLeft key
+    await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+    newGridValues = getTableGridValues(table);
+    assert.deepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values reverted after ArrowLeft',
+    );
+  });
+
+  test('it should not allow resizing columns below their minimum width (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Try to resize column to a very small width (well below minWidth of 60px)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(window, 'pointermove', { clientX: 1 });
+    await triggerEvent(window, 'pointerup');
+
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after pointer drag',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
+
+    assert.ok(
+      parseInt(firstColumnGridValue, 10) >= 60,
+      `Column width respects minimum width constraint (actual: ${firstColumnGridValue}, min: 60px)`,
+    );
+  });
+
+  test('it should not allow resizing columns above their maximum width (pointer events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Try to resize column to a very large width (well below minWidth of 60px)
+    await triggerEvent(handle, 'pointerdown', { clientX: 100 });
+    await triggerEvent(window, 'pointermove', { clientX: 10000 });
+    await triggerEvent(window, 'pointerup');
+
+    // Check the new width
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after pointer drag',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
+
+    assert.ok(
+      parseInt(firstColumnGridValue, 10) <= 300,
+      `Column width respects maximum width constraint (actual: ${firstColumnGridValue}px, max: 300px)`,
+    );
+  });
+
+  test('it should not allow resizing columns below their minimum width (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Focus handle and press ArrowLeft multiple times to try going below min width
+    await focus(handle);
+
+    for (let i = 0; i < 10; i++) {
+      // moves left 10px each time
+      await triggerKeyEvent(handle, 'keydown', 'ArrowLeft');
+    }
+
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowLeft',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
+
+    assert.ok(
+      parseInt(firstColumnGridValue, 10) >= 60,
+      `Column width respects minimum width constraint with keyboard events (actual: ${firstColumnGridValue}, min: 60px)`,
+    );
+  });
+
+  test('it should not allow resizing columns above their maximum width (keyboard events)', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Focus handle and press ArrowLeft multiple times to try going below min width
+    await focus(handle);
+
+    for (let i = 0; i < 10; i++) {
+      // moves right 10px each time
+      await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+    }
+
+    const newGridValues = getTableGridValues(table);
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after ArrowRight',
+    );
+
+    const firstColumnGridValue = newGridValues[0];
+
+    assert.ok(
+      parseInt(firstColumnGridValue, 10) <= 300,
+      `Column width respects maximum width constraint with keyboard events (actual: ${firstColumnGridValue}px, max: 300px)`,
+    );
+  });
+
+  test('it should show the context menu when resizing is enabled', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const th = find('.hds-advanced-table__th'); // find the first header cell
+
+    assert.ok(
+      th.querySelector('.hds-advanced-table__th-context-menu'),
+      'context menu exists',
+    );
+
+    const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
+    await click(contextMenuToggle);
+
+    assert.dom('[data-test-context-option-key="reset-column-width"]').exists();
+  });
+
+  test('it should resize the column to the initial width when resetting column width', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const table = find('.hds-advanced-table');
+    const originalGridValues = getTableGridValues(table);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    await simulateRightPointerDrag(handle);
+
+    let newGridValues = getTableGridValues(table);
+
+    assert.notEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values changed after drag',
+    );
+
+    await resetColumnWidth(th);
+
+    newGridValues = getTableGridValues(table);
+    assert.deepEqual(
+      newGridValues,
+      originalGridValues,
+      'Grid values reset to initial state after resetting column width',
+    );
+  });
+
+  test('it should call `onColumnResize` when a column is resized by dragging', async function (assert) {
+    setResizableColumnsTableData(this);
+    const onColumnResizeSpy = sinon.spy();
+    this.set('onColumnResize', onColumnResizeSpy);
+
+    await render(hbs`
+      <Hds::AdvancedTable
+        @model={{this.model}}
+        @columns={{this.columns}}
+        @hasResizableColumns={{true}}
+        @onColumnResize={{this.onColumnResize}}
+        id="resize-test-table"
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.col1}}</B.Td>
+            <B.Td>{{B.data.col2}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    await focus(handle);
+
+    await triggerKeyEvent(handle, 'keydown', 'ArrowRight');
+
+    assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+  });
+
+  test('it should call `onColumnResize` when a column is resized by keyboard', async function (assert) {
+    setResizableColumnsTableData(this);
+    const onColumnResizeSpy = sinon.spy();
+    this.set('onColumnResize', onColumnResizeSpy);
+
+    await render(hbs`
+      <Hds::AdvancedTable
+        @model={{this.model}}
+        @columns={{this.columns}}
+        @hasResizableColumns={{true}}
+        @onColumnResize={{this.onColumnResize}}
+        id="resize-test-table"
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.col1}}</B.Td>
+            <B.Td>{{B.data.col2}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    // Simulate pointer drag to the right (increase width)
+    await simulateRightPointerDrag(handle);
+
+    assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+  });
+
+  test('it should call `onColumnResize` when a column width is reset', async function (assert) {
+    setResizableColumnsTableData(this);
+    const onColumnResizeSpy = sinon.spy((key) => {
+      console.log('Column resized', key);
+    });
+    this.set('onColumnResize', onColumnResizeSpy);
+
+    await render(hbs`
+      <Hds::AdvancedTable
+        @model={{this.model}}
+        @columns={{this.columns}}
+        @hasResizableColumns={{true}}
+        @onColumnResize={{this.onColumnResize}}
+        id="resize-test-table"
+      >
+        <:body as |B|>
+          <B.Tr>
+            <B.Td>{{B.data.col1}}</B.Td>
+            <B.Td>{{B.data.col2}}</B.Td>
+          </B.Tr>
+        </:body>
+      </Hds::AdvancedTable>
+    `);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+
+    await simulateRightPointerDrag(handle);
+
+    assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
+
+    await resetColumnWidth(handle.closest('.hds-advanced-table__th'));
+    assert.ok(
+      onColumnResizeSpy.calledTwice,
+      'onColumnResize was called again after resetting column width',
+    );
   });
 });
