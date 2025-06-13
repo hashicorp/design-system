@@ -5,21 +5,19 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
-import { HdsTextSizeValues } from '../../../../text/types.ts';
+import type { HdsFormHeaderTitleTags } from '../types.ts';
+import { HdsFormHeaderTitleTagValues } from '../types.ts';
 
-import type { HdsFormHeaderTitleTags } from '../../../types.ts';
-import { HdsFormHeaderTitleTagValues } from '../../../types.ts';
+import { HdsTextSizeValues } from '../../text/types.ts';
+import type { HdsTextDisplaySignature } from '../../text/display.ts';
 
-import type { HdsTextSizes } from '../../../../text/types.ts';
-import type { HdsTextDisplaySignature } from '../../../../text/display.ts';
-
-export const DEFAULT_SIZE = HdsTextSizeValues.ThreeHundred;
+export const DEFAULT_SIZE = HdsTextSizeValues.FourHundred;
 export const DEFAULT_TAG = HdsFormHeaderTitleTagValues.Div;
 export const AVAILABLE_TAGS: string[] = Object.values(
   HdsFormHeaderTitleTagValues
 );
 
-export interface HdsFormSectionHeaderTitleSignature {
+export interface HdsFormHeaderTitleSignature {
   Args: {
     tag?: HdsFormHeaderTitleTags;
     size?: HdsTextDisplaySignature['Args']['size'];
@@ -30,7 +28,7 @@ export interface HdsFormSectionHeaderTitleSignature {
   Element: HdsTextDisplaySignature['Element'];
 }
 
-export default class HdsFormSectionHeaderTitle extends Component<HdsFormSectionHeaderTitleSignature> {
+export default class HdsFormHeaderTitle extends Component<HdsFormHeaderTitleSignature> {
   get tag(): HdsFormHeaderTitleTags {
     const { tag = DEFAULT_TAG } = this.args;
 
@@ -44,7 +42,7 @@ export default class HdsFormSectionHeaderTitle extends Component<HdsFormSectionH
     return tag;
   }
 
-  get size(): HdsTextSizes {
+  get size(): HdsTextDisplaySignature['Args']['size'] {
     return this.args.size ?? DEFAULT_SIZE;
   }
 }

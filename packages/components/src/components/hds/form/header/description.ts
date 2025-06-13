@@ -4,7 +4,7 @@
  */
 
 import TemplateOnlyComponent from '@ember/component/template-only';
-import type { HdsTextBodySignature } from '../../../text/body.ts';
+import type { HdsTextBodySignature } from '../../text/body.ts';
 
 export interface HdsFormHeaderDescriptionSignature {
   Blocks: {

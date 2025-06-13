@@ -6,8 +6,8 @@
 import Component from '@glimmer/component';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsFormHeaderTitleSignature } from './title/index.ts';
-import type { HdsFormHeaderDescriptionSignature } from './description/index.ts';
+import type { HdsFormHeaderTitleSignature } from './title.ts';
+import type { HdsFormHeaderDescriptionSignature } from './description.ts';
 
 export interface HdsFormHeaderSignature {
   Args: {

@@ -127,13 +127,13 @@ import type HdsFormRadioCardDescriptionComponent from './components/hds/form/rad
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
 import type HdsFormSectionComponent from './components/hds/form/section';
-import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group/index.ts';
+import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header';
 import type HdsFormSectionHeaderDescriptionComponent from './components/hds/form/section/header/description';
 import type HdsFormSectionHeaderTitleComponent from './components/hds/form/section/header/title';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
-import type HdsFormSeparatorComponent from './components/hds/form/separator/index.ts';
+import type HdsFormSeparatorComponent from './components/hds/form/separator';
 import type HdsFormSuperSelectAfterOptionsComponent from './components/hds/form/super-select/after-options';
 import type HdsFormSuperSelectOptionGroupComponent from './components/hds/form/super-select/option-group';
 import type HdsFormSuperSelectPlaceholderComponent from './components/hds/form/super-select/placeholder';
