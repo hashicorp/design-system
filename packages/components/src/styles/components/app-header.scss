@@ -147,10 +147,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 3px;
+  gap: 8px;
+  text-decoration: none;
 
   // Set home link container size:
-  width: var(--token-app-header-home-link-size);
-  height: var(--token-app-header-home-link-size);
+  // min-width: var(--token-app-header-home-link-size);
+  // min-height: var(--token-app-header-home-link-size);
 
   // disabled state:
   &:disabled,
