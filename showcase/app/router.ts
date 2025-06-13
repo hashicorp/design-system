@@ -52,8 +52,8 @@ Router.map(function () {
     this.route('flyout');
     this.route('form', function (): void {
       this.route('frameless', function (): void {
-        this.route('demo-responsiveness');
-        this.route('demo-responsiveness-complex');
+        this.route('demo-form-basic');
+        this.route('demo-form-complex');
       });
       this.route('base-elements');
       this.route('checkbox');
