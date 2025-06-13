@@ -10,6 +10,135 @@
 </Shw::Text::H1>
 
 <section data-test-percy>
+
+  <Shw::Text::H2>Application Name</Shw::Text::H2>
+
+  <Shw::Text::H3>Badge / Outlined</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <div>
+            <Hds::Badge @text="Terraform Admin UI" @type="outlined" @color="neutral-dark-mode" @size="medium" />
+          </div>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Badge / Filled</Shw::Text::H3>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <div>
+            <Hds::Badge @text="Terraform Admin UI" @type="filled" @color="neutral-dark-mode" @size="medium" />
+          </div>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Text / Display 300</Shw::Text::H3>
+
+   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Text::Display @color="foreground-high-contrast" @size="300">Terraform Admin UI</Hds::Text::Display>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Text / Display 200</Shw::Text::H3>
+
+   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Text::Display @color="foreground-high-contrast" @size="200">Terraform Admin UI</Hds::Text::Display>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Text::H3>Text / Display 100</Shw::Text::H3>
+
+   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
+        </:logo>
+        <:globalActions>
+          <Hds::Text::Display @color="foreground-high-contrast" @size="100">Terraform Admin UI</Hds::Text::Display>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+  </Shw::Grid>
+
+  <Shw::Divider @level="2" />
+
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Text::H3>With generic content</Shw::Text::H3>
