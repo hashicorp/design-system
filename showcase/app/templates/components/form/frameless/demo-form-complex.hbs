@@ -8,16 +8,23 @@
 <Mock::App>
   <:main>
 
-    <Shw::Text::Body>
-      <label>
-        👉 Choose custom width applied to the form elements:
-        <select {{on "change" this.setCustomWidthMode}}>
-          {{#each-in this.customWidthOptions as |customWidthOptionValue customWidthOptionText|}}
-            <option value={{customWidthOptionValue}}>{{customWidthOptionText}}</option>
-          {{/each-in}}
-        </select>
-      </label>
-    </Shw::Text::Body>
+    <Shw::Flex @gap="48px" {{style align-items="center" justify-content="space-between"}} as |SF|>
+      <SF.Item>
+        <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+          {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+        </button>
+      </SF.Item>
+      <SF.Item>
+        <label>
+          👉 Choose custom width applied to the form elements:
+          <select {{on "change" this.setCustomWidthMode}}>
+            {{#each-in this.customWidthOptions as |customWidthOptionValue customWidthOptionText|}}
+              <option value={{customWidthOptionValue}}>{{customWidthOptionText}}</option>
+            {{/each-in}}
+          </select>
+        </label>
+      </SF.Item>
+    </Shw::Flex>
 
     <Shw::Label>
       {{#if (eq this.customWidthMode "mixed")}}
@@ -30,16 +37,18 @@
         Custom width set via local CSS class only at section level (not at header/separator)
       {{else if (eq this.customWidthMode "section")}}
         Custom width set via local CSS class only at section level (not at header/separator)
-      {{! TODO! }}
-      {{!-- {{else if (eq this.customWidthMode "field")}}
+        {{! TODO! }}
+        {{!-- {{else if (eq this.customWidthMode "field")}}
         Custom width set directly on field --}}
       {{/if}}
-      / [excluded: RadioCard]
+      [excluded: RadioCard]
     </Shw::Label>
 
-    <Hds::Form class={{if (eq this.customWidthMode "form") "shw-component-form-layout-custom-max-width"}}>
+    <Hds::Form
+      class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}
+        {{if (eq this.customWidthMode 'form') 'shw-component-form-layout-custom-max-width'}}"
+    >
 
-      {{! Here we use Mock::App components to avoid too much code repetition  }}
       {{! TODO! add handling of custom width here! }}
       <Mock::App::Main::GenericForm::Partials::AddUser
         @isHeaderFullWidth={{(if (or (eq this.customWidthMode "mixed") (eq this.customWidthMode "fullwidth")) true)}}

@@ -5,6 +5,34 @@
 
 import type { TemplateOnlyComponent } from '@ember/component/template-only';
 
+// HDS components
+import {
+  HdsFormHeader,
+  HdsFormSection,
+  HdsFormSectionHeader,
+  HdsFormSeparator,
+  HdsFormRadioCardGroup,
+  HdsFormTextareaField,
+  HdsFormTextInputField,
+  HdsFormRadioGroup,
+  HdsFormToggleField,
+  HdsCodeEditor,
+  HdsLinkInline,
+} from '@hashicorp/design-system-components/components';
+
+// types
+import type { HdsFormHeaderSignature } from '@hashicorp/design-system-components/components/hds/form/header/index';
+import type { HdsFormSectionSignature } from '@hashicorp/design-system-components/components/hds/form/section/index';
+
+export interface MockAppMainGenericFormPartialsAddPolicySignature {
+  Args: {
+    isHeaderFullWidth?: HdsFormHeaderSignature['Args']['isFullWidth'];
+    isSectionFullWidth?: HdsFormSectionSignature['Args']['isFullWidth'];
+    extraHeaderClass?: string;
+    extraSectionClass?: string;
+  };
+}
+
 const RADIOCARDS_PRODUCTS = [
   {
     value: '1',
@@ -31,28 +59,15 @@ const RADIOCARDS_PRODUCTS = [
   },
 ];
 
-// HDS components
-import {
-  HdsFormHeader,
-  HdsFormSection,
-  HdsFormRadioCardGroup,
-  HdsFormTextareaField,
-  HdsFormTextInputField,
-  HdsLinkInline,
-} from '@hashicorp/design-system-components/components';
-
-// types
-import type { HdsFormHeaderSignature } from '@hashicorp/design-system-components/components/hds/form/header/index';
-import type { HdsFormSectionSignature } from '@hashicorp/design-system-components/components/hds/form/section/index';
-
-export interface MockAppMainGenericFormPartialsAddPolicySignature {
-  Args: {
-    isHeaderFullWidth?: HdsFormHeaderSignature['Args']['isFullWidth'];
-    isSectionFullWidth?: HdsFormSectionSignature['Args']['isFullWidth'];
-    extraHeaderClass?: string;
-    extraSectionClass?: string;
-  };
+const MOCK_SENTINEL_CODE = `policy "require-storage-encryption" {
+  input = { storage: input.storage }
+  deny when not input.storage.encryption.enabled
 }
+
+metadata {
+  category = "Storage"
+  description = "Denies creation of storage accounts without encryption enabled."
+}`;
 
 const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMainGenericFormPartialsAddPolicySignature> =
   <template>
@@ -95,7 +110,7 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
         </G.RadioCard>
       {{/each}}
     </HdsFormRadioCardGroup>
-    {{!-- end of the special full-width content --}}
+    {{! end of the special full-width content }}
     <HdsFormSection
       class={{@extraSectionClass}}
       @isFullWidth={{@isSectionFullWidth}}
@@ -105,11 +120,80 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
         <F.HelperText>Valid characters include ASCII letters, numbers, as well
           as spaces, periods (.), dashes (-), and underscores (_).</F.HelperText>
       </HdsFormTextInputField>
+    </HdsFormSection>
+
+    <HdsFormSeparator />
+
+
+    <HdsFormSection>
+      <HdsFormSectionHeader as |FSH|>
+        <FSH.Title>Policy OPA </FSH.Title>
+        <FSH.Description>Policy OPA is a governance rule that enforces specific access controls and compliance requirements within the organization's infrastructure.</FSH.Description>
+      </HdsFormSectionHeader>
+      <HdsFormTextInputField placeholder="e.g data.terraform.deny" as |F|>
+        <F.Label>Query</F.Label>
+        <F.HelperText>
+          The rule expression that the policy will evaluate.
+          <HdsLinkInline
+            @href="https://www.terraform.io/cloud-docs/policy-enforcement/opa"
+            @icon="external-link"
+          >
+            Learn more about defining OPA policies
+          </HdsLinkInline>.
+        </F.HelperText>
+      </HdsFormTextInputField>
+    </HdsFormSection>
+
+    <HdsCodeEditor
+      @language="sentinel"
+      @value={{MOCK_SENTINEL_CODE}}
+      @ariaLabel="Policy code"
+      as |CE|
+    >
+      {{! @glint-expect-error }}
+      <CE.Title>
+        Policy OPA code (Sentinel)
+      </CE.Title>
+    </HdsCodeEditor>
+
+    <HdsFormSeparator />
+
+    <HdsFormHeader as |FH|>
+      <FH.Title>Policy metadata</FH.Title>
+      <FH.Description>Policy metadata is supplementary information associated
+        with a policy.</FH.Description>
+    </HdsFormHeader>
+
+    <HdsFormSection>
+
+
+      <HdsFormRadioGroup as |G|>
+        <G.RadioField checked={{true}} as |F|>
+          <F.Label>Private</F.Label>
+          <F.HelperText>Most secure, the policy is private and not accessible to
+            the general organization.</F.HelperText>
+        </G.RadioField>
+        <G.RadioField as |F|>
+          <F.Label>Public</F.Label>
+          <F.HelperText>Less secure, the policy is accessible to anyone within
+            your organization.</F.HelperText>
+        </G.RadioField>
+      </HdsFormRadioGroup>
+      <HdsFormToggleField as |F|>
+        <F.Label>Allow admin users</F.Label>
+        <F.HelperText>When enabled, allows admin users to view the policy. This
+          setting grants administrators elevated access within the system,
+          ensuring they have full visibility into policy details and associated
+          metadata.
+        </F.HelperText>
+      </HdsFormToggleField>
+
       <HdsFormTextareaField @isOptional={{true}} as |F|>
         <F.Label>Description</F.Label>
         <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
         <F.CharacterCount @maxLength={{256}} />
       </HdsFormTextareaField>
+
     </HdsFormSection>
   </template>;
 
