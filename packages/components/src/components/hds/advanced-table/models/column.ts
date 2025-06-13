@@ -7,8 +7,8 @@ import type {
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
 
-const DEFAULT_MIN_WIDTH = '150px';
-const DEFAULT_MAX_WIDTH = '800px';
+export const DEFAULT_MIN_WIDTH = '150px';
+export const DEFAULT_MAX_WIDTH = '800px';
 
 function isPxSize(value?: string): boolean {
   if (value === undefined) {
