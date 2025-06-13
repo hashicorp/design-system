@@ -60,6 +60,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     previousColumn?.onNextColumnWidthRestored(column.imposedWidthDelta);
     nextColumn?.onPreviousColumnWidthRestored();
     column.restoreWidth();
+
     dropdownCloseCallback?.();
   }
 }
