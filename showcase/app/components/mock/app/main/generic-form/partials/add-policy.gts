@@ -15,7 +15,6 @@ import {
   HdsFormSeparator,
   HdsFormField,
   HdsFormFileInputBase,
-  HdsFormMaskedInputBase,
   HdsFormRadioCardGroup,
   HdsFormRadioGroup,
   HdsFormTextareaField,
@@ -158,9 +157,17 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
     </HdsFormSection>
 
     {{! fake custom component, inspired by a vault one }}
-    <div class="shw-component-form-layout-frameless-demo-complex-custom-component">
-      <div class="shw-component-form-layout-frameless-demo-complex-custom-component__toggle">
-        <HdsFormToggleField checked="checked" {{on "change" this.toggleFileUpload}} as |F|>
+    <div
+      class="shw-component-form-layout-frameless-demo-complex-custom-component"
+    >
+      <div
+        class="shw-component-form-layout-frameless-demo-complex-custom-component__toggle"
+      >
+        <HdsFormToggleField
+          checked="checked"
+          {{on "change" this.toggleFileUpload}}
+          as |F|
+        >
           <F.Label>Enter as text</F.Label>
         </HdsFormToggleField>
       </div>

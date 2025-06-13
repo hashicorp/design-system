@@ -8,11 +8,11 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 const CUSTOM_WIDTH_OPTIONS = {
-  'mixed': 'fullwidth / mixed',
-  'fullwidth': 'fullwidth / all',
-  'form': 'custom width / form',
+  mixed: 'fullwidth / mixed',
+  fullwidth: 'fullwidth / all',
+  form: 'custom width / form',
   'header+section': 'custom width / header+section',
-  'section': 'custom width / section',
+  section: 'custom width / section',
   // TODO!
   // 'field': 'custom width / field',
 };
@@ -29,6 +29,6 @@ export default class FramelessDemoFormComplexController extends Controller {
 
   @action
   setCustomWidthMode(event) {
-   this.customWidthMode = event.target.value;
+    this.customWidthMode = event.target.value;
   }
 }
