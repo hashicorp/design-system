@@ -11,134 +11,6 @@
 
 <section data-test-percy>
 
-  <Shw::Text::H2>Application Name</Shw::Text::H2>
-
-  <Shw::Text::H3>Badge / Outlined</Shw::Text::H3>
-
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-    <SG.Item>
-      <Hds::AppHeader @hasA11yRefocus={{false}}>
-        <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:globalActions>
-          <div>
-            <Hds::Badge @text="Terraform Admin UI" @type="outlined" @color="neutral-dark-mode" @size="medium" />
-          </div>
-        </:globalActions>
-        <:utilityActions>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-          </Hds::Dropdown>
-        </:utilityActions>
-      </Hds::AppHeader>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H3>Badge / Filled</Shw::Text::H3>
-
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-    <SG.Item>
-      <Hds::AppHeader @hasA11yRefocus={{false}}>
-        <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:globalActions>
-          <div>
-            <Hds::Badge @text="Terraform Admin UI" @type="filled" @color="neutral-dark-mode" @size="medium" />
-          </div>
-        </:globalActions>
-        <:utilityActions>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-          </Hds::Dropdown>
-        </:utilityActions>
-      </Hds::AppHeader>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H3>Text / Display 300</Shw::Text::H3>
-
-   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-    <SG.Item>
-      <Hds::AppHeader @hasA11yRefocus={{false}}>
-        <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:globalActions>
-          <Hds::Text::Display @color="foreground-high-contrast" @size="300">Terraform Admin UI</Hds::Text::Display>
-        </:globalActions>
-        <:utilityActions>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-          </Hds::Dropdown>
-        </:utilityActions>
-      </Hds::AppHeader>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H3>Text / Display 200</Shw::Text::H3>
-
-   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-    <SG.Item>
-      <Hds::AppHeader @hasA11yRefocus={{false}}>
-        <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:globalActions>
-          <Hds::Text::Display @color="foreground-high-contrast" @size="200">Terraform Admin UI</Hds::Text::Display>
-        </:globalActions>
-        <:utilityActions>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-          </Hds::Dropdown>
-        </:utilityActions>
-      </Hds::AppHeader>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Text::H3>Text / Display 100</Shw::Text::H3>
-
-   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
-    <SG.Item>
-      <Hds::AppHeader @hasA11yRefocus={{false}}>
-        <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="HashiCorp home menu" @href="#" />
-        </:logo>
-        <:globalActions>
-          <Hds::Text::Display @color="foreground-high-contrast" @size="100">Terraform Admin UI</Hds::Text::Display>
-        </:globalActions>
-        <:utilityActions>
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="help" @text="help menu" />
-          </Hds::Dropdown>
-
-          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
-            <dd.ToggleIcon @icon="user" @text="user menu" />
-          </Hds::Dropdown>
-        </:utilityActions>
-      </Hds::AppHeader>
-    </SG.Item>
-  </Shw::Grid>
-
-  <Shw::Divider @level="2" />
-
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Text::H3>With generic content</Shw::Text::H3>
@@ -372,6 +244,77 @@
 
   <Shw::Divider />
 
+  <Shw::Text::H2>Application Name</Shw::Text::H2>
+
+  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+    
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform Admin Console home" @href="#" @title="Terraform Admin Console" />
+        </:logo>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#">Account Settings</dd.Interactive>
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="Admin UI home" @href="#" @title="Admin UI" />
+        </:logo>
+        <:globalActions>
+            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleButton @text="Choose an organization" @icon="org" />
+            <dd.Checkmark>
+              organizationName
+            </dd.Checkmark>
+          </Hds::Dropdown>
+        </:globalActions>
+        <:utilityActions>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="help" @text="help menu" />
+            <dd.Title @text="Help & Support" />
+            <dd.Interactive @href="#">Documentation</dd.Interactive>
+            <dd.Interactive @href="#">Tutorials</dd.Interactive>
+            <dd.Interactive @href="#">Terraform Provider</dd.Interactive>
+            <dd.Interactive @href="#">Changelog</dd.Interactive>
+            <dd.Separator />
+            <dd.Interactive @href="#">Create support ticket</dd.Interactive>
+            <dd.Interactive @href="#">Give feedback</dd.Interactive>
+          </Hds::Dropdown>
+
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+            <dd.ToggleIcon @icon="user" @text="user menu" />
+            <dd.Title @text="Signed In" />
+            <dd.Description @text="email@domain.com" />
+            <dd.Interactive @href="#">Account Settings</dd.Interactive>
+          </Hds::Dropdown>
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="boundary-color" @ariaLabel="Boundary Desktop home" @href="#" @title="Boundary Desktop" />
+        </:logo>
+        <:utilityActions>
+          <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
+        </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+  </Shw::Grid>
+
+  <Shw::Divider />
+
   <Shw::Text::H2>Options</Shw::Text::H2>
 
   <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
@@ -466,7 +409,7 @@
 
   <Shw::Text::H2>Base elements</Shw::Text::H2>
 
-  <Shw::Text::H3>SideNav::Header::HomeLink</Shw::Text::H3>
+  <Shw::Text::H3>AppHeader::HomeLink</Shw::Text::H3>
 
   <Shw::Text::H4>Content</Shw::Text::H4>
 
@@ -484,6 +427,32 @@
           @ariaLabel="Boundary"
           @color="var(--token-color-boundary-brand)"
           @href="#"
+        />
+      </div>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Text::H4>Application Title</Shw::Text::H4>
+
+  <Shw::Flex as |SF|>
+    <SF.Item>
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink
+          @icon="hashicorp"
+          @ariaLabel="HashiCorp"
+          @href="#"
+          @title="Admin UI"
+        />
+      </div>
+    </SF.Item>
+
+    <SF.Item>
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink
+          @icon="terraform"
+          @ariaLabel="HashiCorp"
+          @href="#"
+          @title="Terraform Admin Console"
         />
       </div>
     </SF.Item>
