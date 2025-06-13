@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import type HdsAdvancedTableModel from './table.ts';
 import type {
   HdsAdvancedTableHorizontalAlignment,
-  HdsAdvancedTableColumnResizeCallback,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
 
