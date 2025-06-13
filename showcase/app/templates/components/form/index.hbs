@@ -910,6 +910,84 @@
 
 <Shw::Divider />
 
+<section>
+
+  <Shw::Text::H2>Within containers</Shw::Text::H2>
+
+  <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+    <SF.Item @label="Within Tabs">
+      <Hds::Tabs as |T|>
+        <T.Tab>Simple form</T.Tab>
+        <T.Tab>Complex form</T.Tab>
+        <T.Tab>Generic content</T.Tab>
+        <T.Panel>
+          <div {{style padding="24px 0" }}>
+            {{! Here we use Mock::App components to avoid too much code repetition  }}
+            <Mock::App::Main::GenericForm::Partials::AccountSignup />
+          </div>
+        </T.Panel>
+        <T.Panel>
+          <div {{style padding="24px 0" }}>
+            {{! Here we use Mock::App components to avoid too much code repetition  }}
+            <Hds::Form>
+              <Mock::App::Main::GenericForm::Partials::AddUser @isHeaderFullWidth={{true}} />
+              <Hds::Form::Separator />
+              <Mock::App::Main::GenericForm::Partials::AddPolicy />
+              <Mock::App::Main::GenericForm::Partials::Actions/>
+            </Hds::Form>
+          </div>
+        </T.Panel>
+        <T.Panel>
+          <div {{style padding="24px 0" }}>
+            <Shw::Placeholder @text="Generic content" @height="250" />
+          </div>
+        </T.Panel>
+      </Hds::Tabs>
+    </SF.Item>
+    <SF.Item @label="Within a Modal">
+      <button type="button" {{on "click" this.activateModal}}>Open modal</button>
+      {{#if this.isModalActive}}
+        <Hds::Modal id="test-form-in-modal" @onClose={{this.deactivateModal}} as |M|>
+          <M.Header>Account signup form</M.Header>
+          <M.Body>
+            {{! Here we use Mock::App components to avoid too much code repetition  }}
+            <Mock::App::Main::GenericForm::Partials::AccountSignup @hideHeader={{true}} @hideActions={{true}} />
+          </M.Body>
+          <M.Footer as |F|>
+            {{! TODO! replace with partials/actions and pass callback as argument }}
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="Submit" {{on "click" this.deactivateModal}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </M.Footer>
+        </Hds::Modal>
+      {{/if}}
+    </SF.Item>
+    <SF.Item @label="Within a Flyout">
+      <button type="button" {{on "click" this.activateFlyout}}>Open flyout</button>
+      {{#if this.isFlyoutActive}}
+        <Hds::Flyout id="test-form-in-flyout" @onClose={{this.deactivateFlyout}} as |F|>
+          <F.Header>Account signup form</F.Header>
+          <F.Body>
+            {{! Here we use Mock::App components to avoid too much code repetition  }}
+            <Mock::App::Main::GenericForm::Partials::AccountSignup @hideHeader={{true}} @hideActions={{true}} />
+          </F.Body>
+          <F.Footer as |F|>
+            {{! TODO! replace with partials/actions and pass callback as argument }}
+            <Hds::ButtonSet>
+              <Hds::Button type="submit" @text="Submit" {{on "click" this.deactivateFlyout}} />
+              <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </Hds::ButtonSet>
+          </F.Footer>
+        </Hds::Flyout>
+      {{/if}}
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
 {{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
 <section>
 
