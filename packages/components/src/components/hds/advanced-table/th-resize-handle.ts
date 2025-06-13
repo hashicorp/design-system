@@ -55,6 +55,7 @@ export interface HdsAdvancedTableThResizeHandleSignature {
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
     tableHeight?: number;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Blocks: {
     default?: [];
@@ -163,7 +164,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     window.addEventListener('pointermove', this.boundResize);
     window.addEventListener('pointerup', this.boundStopResize);
-    window.addEventListener('mouseup', this.boundStopResize);
   }
 
   private _applyResizeDelta(
@@ -223,7 +223,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     window.removeEventListener('pointermove', this.boundResize);
     window.removeEventListener('pointerup', this.boundStopResize);
 
-    const { nextColumn } = this.args;
+    const { column, nextColumn, onColumnResize } = this.args;
 
     if (nextColumn === undefined) {
       return;
@@ -233,6 +233,10 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       nextColumn.imposedWidthDelta + this.nextColumnDelta;
 
     this.nextColumnDelta = 0;
+
+    if (typeof onColumnResize === 'function' && column.key !== undefined) {
+      onColumnResize(column.key, column.width);
+    }
 
     this.resizing = null;
   }
