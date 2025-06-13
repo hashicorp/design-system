@@ -13,6 +13,7 @@ import {
   HdsFormHeaderTitle,
   HdsFormHeaderDescription,
   HdsFormSection,
+  HdsFormSectionFieldGroup,
   HdsFormTextInputField,
   HdsFormSelectField,
   HdsFormToggleField,
@@ -68,7 +69,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       {{!-- @width={{(if
           (or (eq case "field") (eq case "section+field")) "400px"
         )}} --}}
-      <HdsFormTextInputField as |F|>
+      <HdsFormTextInputField @isRequired={{true}} as |F|>
         <F.Label>Email address for user</F.Label>
       </HdsFormTextInputField>
       <HdsFormToggleField {{on "change" this.toggleExtraContent}} as |F|>
@@ -91,6 +92,29 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
           </HdsFormSelectField>
         </HdsLayoutFlex>
       {{/if}}
+
+      <HdsFormSectionFieldGroup as |FG|>
+        <FG.Item @basis="20%">
+          <HdsFormSelectField as |F|>
+            <F.Label>Prefix</F.Label>
+            <F.Options>
+              <option value=""></option>
+              <option value="+1">+1 (USA)</option>
+              <option value="+44">+44 (UK)</option>
+              <option value="+81">+81 (Japan)</option>
+              <option value="+234">+234 (Nigeria)</option>
+              <option value="+61">+61 (Australia)</option>
+              <option value="+55">+55 (Brazil)</option>
+            </F.Options>
+          </HdsFormSelectField>
+        </FG.Item>
+        <FG.Item @basis="80%">
+          <HdsFormTextInputField @type="tel" as |F|>
+            <F.Label>Phone Number:</F.Label>
+          </HdsFormTextInputField>
+        </FG.Item>
+      </HdsFormSectionFieldGroup>
+
     </HdsFormSection>
   </template>
 }

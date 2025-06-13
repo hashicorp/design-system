@@ -3,7 +3,9 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { TemplateOnlyComponent } from '@ember/component/template-only';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { on } from '@ember/modifier';
 
 // HDS components
 import {
@@ -11,10 +13,13 @@ import {
   HdsFormSection,
   HdsFormSectionHeader,
   HdsFormSeparator,
+  HdsFormField,
+  HdsFormFileInputBase,
+  HdsFormMaskedInputBase,
   HdsFormRadioCardGroup,
+  HdsFormRadioGroup,
   HdsFormTextareaField,
   HdsFormTextInputField,
-  HdsFormRadioGroup,
   HdsFormToggleField,
   HdsCodeEditor,
   HdsLinkInline,
@@ -23,6 +28,7 @@ import {
 // types
 import type { HdsFormHeaderSignature } from '@hashicorp/design-system-components/components/hds/form/header/index';
 import type { HdsFormSectionSignature } from '@hashicorp/design-system-components/components/hds/form/section/index';
+import style from 'ember-style-modifier/modifiers/style';
 
 export interface MockAppMainGenericFormPartialsAddPolicySignature {
   Args: {
@@ -69,7 +75,13 @@ metadata {
   description = "Denies creation of storage accounts without encryption enabled."
 }`;
 
-const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMainGenericFormPartialsAddPolicySignature> =
+export default class MockAppMainGenericFormPartialsAddPolicy extends Component<MockAppMainGenericFormPartialsAddPolicySignature> {
+  @tracked showFileUpload = false;
+
+  toggleFileUpload = () => {
+    this.showFileUpload = !this.showFileUpload;
+  };
+
   <template>
     <HdsFormHeader
       class={{@extraHeaderClass}}
@@ -124,11 +136,12 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
 
     <HdsFormSeparator />
 
-
     <HdsFormSection>
       <HdsFormSectionHeader as |FSH|>
         <FSH.Title>Policy OPA </FSH.Title>
-        <FSH.Description>Policy OPA is a governance rule that enforces specific access controls and compliance requirements within the organization's infrastructure.</FSH.Description>
+        <FSH.Description>Policy OPA is a governance rule that enforces specific
+          access controls and compliance requirements within the organization's
+          infrastructure.</FSH.Description>
       </HdsFormSectionHeader>
       <HdsFormTextInputField placeholder="e.g data.terraform.deny" as |F|>
         <F.Label>Query</F.Label>
@@ -144,17 +157,32 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
       </HdsFormTextInputField>
     </HdsFormSection>
 
-    <HdsCodeEditor
-      @language="sentinel"
-      @value={{MOCK_SENTINEL_CODE}}
-      @ariaLabel="Policy code"
-      as |CE|
-    >
-      {{! @glint-expect-error }}
-      <CE.Title>
-        Policy OPA code (Sentinel)
-      </CE.Title>
-    </HdsCodeEditor>
+    {{! fake custom component, inspired by a vault one }}
+    <div class="shw-component-form-layout-frameless-demo-complex-custom-component">
+      <div class="shw-component-form-layout-frameless-demo-complex-custom-component__toggle">
+        <HdsFormToggleField checked="checked" {{on "change" this.toggleFileUpload}} as |F|>
+          <F.Label>Enter as text</F.Label>
+        </HdsFormToggleField>
+      </div>
+      <HdsFormField @layout="vertical" as |F|>
+        <F.Label>Policy OPA code (Sentinel)</F.Label>
+        <F.HelperText>Lorem ipsum dolor sit amet, consectetur adipiscing elit</F.HelperText>
+        <F.Control>
+          {{#if this.showFileUpload}}
+            <HdsFormFileInputBase aria-label="Fake file upload" />
+          {{else}}
+            <HdsCodeEditor
+              @language="sentinel"
+              @value={{MOCK_SENTINEL_CODE}}
+              @hasFullScreenButton={{true}}
+              @hasCopyButton={{true}}
+              @ariaLabel="Policy OPA code"
+              {{style width="100%"}}
+            />
+          {{/if}}
+        </F.Control>
+      </HdsFormField>
+    </div>
 
     <HdsFormSeparator />
 
@@ -165,7 +193,6 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
     </HdsFormHeader>
 
     <HdsFormSection>
-
 
       <HdsFormRadioGroup as |G|>
         <G.RadioField checked={{true}} as |F|>
@@ -195,6 +222,5 @@ const MockAppMainGenericFormPartialsAddPolicy: TemplateOnlyComponent<MockAppMain
       </HdsFormTextareaField>
 
     </HdsFormSection>
-  </template>;
-
-export default MockAppMainGenericFormPartialsAddPolicy;
+  </template>
+}
