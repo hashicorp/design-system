@@ -35,8 +35,8 @@ export default class HdsAdvancedTableColumn {
   @tracked maxWidth?: `${number}px` = DEFAULT_MAX_WIDTH;
   @tracked tooltip?: string = undefined;
   @tracked width?: string = undefined;
-  @tracked originalWidth?: string = undefined;
-  @tracked imposedWidthDelta: number = 0;
+  @tracked originalWidth?: string = undefined; // used to restore the width when resetting
+  @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
 
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
@@ -108,6 +108,7 @@ export default class HdsAdvancedTableColumn {
     this.maxWidth = maxWidth ?? DEFAULT_MAX_WIDTH;
   }
 
+  // Sets the column width in pixels, ensuring it respects the min and max width constraints.
   @action
   setPxWidth(newPxWidth: number): void {
     const pxMinWidth = this.pxMinWidth ?? 1;
@@ -125,6 +126,7 @@ export default class HdsAdvancedTableColumn {
     this._onColumnResize?.(this.key, this.width);
   }
 
+  // This method is called when the column width is changed by the previous column.
   @action
   onPreviousColumnWidthRestored(): void {
     const restoredWidth = (this.pxWidth ?? 0) + this.imposedWidthDelta;
@@ -134,6 +136,7 @@ export default class HdsAdvancedTableColumn {
     this.imposedWidthDelta = 0;
   }
 
+  // This method is called when the next column width is restored.
   @action
   onNextColumnWidthRestored(imposedWidthDelta: number): void {
     this.setPxWidth((this.pxWidth ?? 0) - imposedWidthDelta);
