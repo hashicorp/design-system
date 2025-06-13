@@ -18,8 +18,14 @@ const CUSTOM_WIDTH_OPTIONS = {
 };
 
 export default class FramelessDemoFormComplexController extends Controller {
+  @tracked showHighlight = false;
   @tracked customWidthMode = 'mixed';
   customWidthOptions = CUSTOM_WIDTH_OPTIONS;
+
+  @action
+  toggleHighlight() {
+    this.showHighlight = !this.showHighlight;
+  }
 
   @action
   setCustomWidthMode(event) {
