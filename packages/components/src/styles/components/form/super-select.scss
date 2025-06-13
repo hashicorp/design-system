@@ -371,8 +371,7 @@ $hds-super-select-item-height: 36px;
     display: none;
   }
 
-  // Hiding all dividers and showing one when a selected groupd is preceeded by another selected group
-  // Note: The :first-of-type selector was not used, as it doesn't work when appended to the end of a :has selector
+  // Hiding all separator lines and showing one when a selected group is preceeded by another selected group
   .hds-form-super-select__option-group::before {
     display: none;
   }
