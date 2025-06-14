@@ -55,6 +55,7 @@ Router.map(function () {
         this.route('demo-form-basic');
         this.route('demo-form-complex');
       });
+      this.route('layout');
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
