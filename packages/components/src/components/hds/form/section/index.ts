@@ -10,6 +10,7 @@ import type { HdsFormSectionHeaderSignature } from './header.ts';
 import type { HdsFormHeaderTitleSignature } from '../header/title.ts';
 import type { HdsFormHeaderDescriptionSignature } from '../header/description.ts';
 import type { HdsFormSectionFieldGroupSignature } from '../section/field-group/index.ts';
+import type { HdsLayoutFlexItemSignature } from '../../layout/flex/item.ts';
 
 export interface HdsFormSectionSignature {
   Args: {
@@ -23,7 +24,8 @@ export interface HdsFormSectionSignature {
         Header?: ComponentLike<HdsFormSectionHeaderSignature>;
         HeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
         HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
-        SectionFieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+        FieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+        FieldGroupItem?: ComponentLike<HdsLayoutFlexItemSignature>;
       },
     ];
   };
