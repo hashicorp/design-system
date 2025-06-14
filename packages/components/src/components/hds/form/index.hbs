@@ -1,0 +1,38 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{#if (eq this.tag "form")}}
+  <form class="hds-form" ...attributes>
+    {{yield
+      (hash
+        Header=(component "hds/form/header")
+        HeaderTitle=(component "hds/form/header/title")
+        HeaderDescription=(component "hds/form/header/description")
+        Section=(component "hds/form/section")
+        SectionHeader=(component "hds/form/section/header")
+        SectionHeaderTitle=(component "hds/form/header/title" size="300")
+        SectionHeaderDescription=(component "hds/form/header/description")
+        SectionFieldGroup=(component "hds/form/section/field-group")
+        Separator=(component "hds/form/separator")
+      )
+    }}
+  </form>
+{{else}}
+  <div class="hds-form" ...attributes>
+    {{yield
+      (hash
+        Header=(component "hds/form/header")
+        HeaderTitle=(component "hds/form/header/title")
+        HeaderDescription=(component "hds/form/header/description")
+        Section=(component "hds/form/section")
+        SectionHeader=(component "hds/form/section/header")
+        SectionHeaderTitle=(component "hds/form/header/title" size="300")
+        SectionHeaderDescription=(component "hds/form/header/description")
+        SectionFieldGroup=(component "hds/form/section/field-group")
+        Separator=(component "hds/form/separator")
+      )
+    }}
+  </div>
+{{/if}}

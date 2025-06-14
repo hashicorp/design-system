@@ -1,0 +1,17 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+<div class={{this.classNames}} ...attributes>
+  {{yield
+    (hash
+      Header=(component "hds/form/section/header")
+      HeaderTitle=(component "hds/form/header/title" size="300")
+      HeaderDescription=(component "hds/form/header/description")
+      FieldGroup=(component "hds/form/section/field-group")
+      FieldGroupItem=(component "hds/layout/flex/item")
+      Section=(component "hds/form/section")
+    )
+  }}
+</div>
