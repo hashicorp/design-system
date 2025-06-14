@@ -28,7 +28,10 @@ module(
       await render(
         hbs`<Hds::Form::Section::FieldGroup id="test-form-section-field-group"><pre>test</pre></Hds::Form::Section::FieldGroup>`,
       );
-      assert.dom('#test-form-section-field-group > pre').exists().hasText('test');
+      assert
+        .dom('#test-form-section-field-group > pre')
+        .exists()
+        .hasText('test');
     });
 
     test('it should render the `Item` yielded contextual component', async function (assert) {
