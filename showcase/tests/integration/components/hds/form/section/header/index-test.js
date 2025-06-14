@@ -21,5 +21,23 @@ module(
         .dom('#test-form-section-header')
         .hasClass('hds-form__section-header');
     });
+
+    // CONTENT
+
+    test('it should yield the Title and Description children', async function (assert) {
+      await render(
+        hbs`
+          <Hds::Form::Section::Header id="test-form-section-header" as |Header|>
+            <Header.Title /><Header.Description />
+          </Hds::Form::Section::Header>
+        `,
+      );
+      assert
+        .dom('#test-form-section-header > .hds-form__header-title')
+        .exists('Title is yielded');
+      assert
+        .dom('#test-form-section-header > .hds-form__header-description')
+        .exists('Description is yielded');
+    });
   },
 );

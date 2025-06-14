@@ -16,6 +16,20 @@ module('Integration | Component | hds/form/header/index', function (hooks) {
     assert.dom('#test-form-header').hasClass('hds-form__header');
   });
 
+  // CONTENT
+
+  test('it should yield the Title and Description children', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Header id="test-form-header" as |Header|><Header.Title /><Header.Description /></Hds::Form::Header>`,
+    );
+    assert
+      .dom('#test-form-header > .hds-form__header-title')
+      .exists('Title is yielded');
+    assert
+      .dom('#test-form-header > .hds-form__header-description')
+      .exists('Description is yielded');
+  });
+
   // OPTIONS
 
   // isFullWidth
