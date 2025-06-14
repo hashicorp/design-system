@@ -21,5 +21,14 @@ module(
         .dom('#test-form-description')
         .hasClass('hds-form__header-description');
     });
+
+    // CONTENT
+
+    test('it should render the yielded content', async function (assert) {
+      await render(
+        hbs`<Hds::Form::Header::Description id="test-form-description"><pre>test</pre></Hds::Form::Header::Description>`,
+      );
+      assert.dom('#test-form-description > pre').exists().hasText('test');
+    });
   },
 );

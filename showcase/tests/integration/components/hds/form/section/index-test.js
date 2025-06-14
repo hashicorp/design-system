@@ -16,6 +16,48 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
     assert.dom('#test-form-section').hasClass('hds-form__section');
   });
 
+  // CONTENT
+
+  test('it should yield the Section Header, HeaderTitle/Description, SectionFieldGroup and Section children', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Section id="test-form-section" as |Section|>
+            <Section.Header>
+              <Section.HeaderTitle />
+              <Section.HeaderDescription />
+            </Section.Header>
+            <Section.FieldGroup as |FG|>
+              <FG.Item />
+            </Section.FieldGroup>
+            <span>misc content</span>
+          </Hds::Form::Section>`,
+    );
+    assert
+      .dom('#test-form-section > .hds-form__section-header')
+      .exists('Header is yielded');
+    assert
+      .dom(
+        '#test-form-section > .hds-form__section-header > .hds-form__header-title',
+      )
+      .exists('HeaderTitle is yielded');
+    assert
+      .dom(
+        '#test-form-section .hds-form__section-header > .hds-form__header-description',
+      )
+      .exists('HeaderDescription is yielded');
+    assert
+      .dom('#test-form-section > .hds-form__section-field-group')
+      .exists('FieldGroup is yielded');
+    assert
+      .dom(
+        '#test-form-section > .hds-form__section-field-group > .hds-layout-flex-item',
+      )
+      .exists('Item is yielded');
+    assert
+      .dom('#test-form-section > span')
+      .exists('Misc content is yielded')
+      .hasText('misc content');
+  });
+
   // OPTIONS
 
   // hasBorder

@@ -20,6 +20,14 @@ module(
       assert.dom('#test-form-header-title').hasClass('hds-form__header-title');
     });
 
+    // CONTENT
+    test('it should render the yielded content', async function (assert) {
+      await render(
+        hbs`<Hds::Form::Header::Title id="test-form-header-title"><pre>test</pre></Hds::Form::Header::Title>`,
+      );
+      assert.dom('#test-form-header-title > pre').exists().hasText('test');
+    });
+
     // OPTIONS
 
     // Tag
