@@ -8,11 +8,11 @@ import { visit } from '@ember/test-helpers';
 import { setupApplicationTest } from 'showcase/tests/helpers';
 import { a11yAudit } from 'ember-a11y-testing/test-support';
 
-module('Acceptance | components/form', function (hooks) {
+module('Acceptance | components/form/layout', function (hooks) {
   setupApplicationTest(hooks);
 
-  test('Components/form page passes automated a11y checks', async function (assert) {
-    await visit('/components/form');
+  test('Components/form/layout page passes automated a11y checks', async function (assert) {
+    await visit('/components/form/layout');
 
     await a11yAudit();
 
