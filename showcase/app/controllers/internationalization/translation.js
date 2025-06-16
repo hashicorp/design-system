@@ -18,6 +18,11 @@ export default class InternationalizationTranslationController extends Controlle
     event.preventDefault();
     const { value } = event.target;
     this.lang = value;
-    this.intl.setLocale(value);
+
+    try {
+      this.intl.setLocale(value);
+    } catch {
+      // will throw an error if the locale is unset
+    }
   }
 }
