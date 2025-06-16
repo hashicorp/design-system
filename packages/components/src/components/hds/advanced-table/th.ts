@@ -21,6 +21,7 @@ import type {
   HdsAdvancedTableExpandState,
 } from './types.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -51,6 +52,7 @@ export interface HdsAdvancedTableThSignature {
     tableHeight?: number;
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
+    onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
