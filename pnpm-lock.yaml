@@ -162,9 +162,6 @@ importers:
       ember-get-config:
         specifier: ^2.1.1
         version: 2.1.1(@glint/template@1.5.2)
-      ember-intl:
-        specifier: ^7.1.8
-        version: 7.3.1(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.27.1)
@@ -256,6 +253,9 @@ importers:
       ember-basic-dropdown:
         specifier: ^8.6.1
         version: 8.6.2(@babel/core@7.27.1)(@ember/string@3.1.1)(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
+      ember-intl:
+        specifier: ^7.3.0
+        version: 7.3.1(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-math-helpers:
         specifier: ^5.0.0
         version: 5.0.0(@babel/core@7.27.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
@@ -611,7 +611,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(@glint/template@1.5.2)
       ember-intl:
-        specifier: ^7.1.8
+        specifier: ^7.3.0
         version: 7.3.1(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-load-initializers:
         specifier: ^3.0.1
@@ -2818,7 +2818,7 @@ packages:
     engines: {node: '>= 18'}
     peerDependencies:
       ember-engines: '>= 0.11.0'
-      ember-intl: ^6.5.3
+      ember-intl: ^7.3.0
     peerDependenciesMeta:
       ember-engines:
         optional: true
