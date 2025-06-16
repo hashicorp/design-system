@@ -4,59 +4,44 @@
  */
 
 import Helper from '@ember/component/helper';
-import { getOwner } from '@ember/owner';
-import { isBlank } from '@ember/utils';
+import { service } from '@ember/service';
+import { assert } from '@ember/debug';
 import { isPresent } from '@ember/utils';
 
-import type { IntlService } from 'ember-intl';
-import type { FormatMessageParameters } from 'ember-intl/-private/formatjs';
-
-interface HdsSafeTHelperNamedArgs {
-  default: string;
-}
-
+import type HdsIntlService from '../services/hds-intl';
 interface HdsTHelperSignature {
   Args: {
     Positional: string[];
-    Named: HdsSafeTHelperNamedArgs & FormatMessageParameters[1];
+    Named: {
+      default: string;
+      htmlSafe?: boolean | undefined;
+      locale?: string | undefined;
+      [key: string]: unknown;
+    };
   };
   Return: string;
 }
 
 export default class HdsTHelper extends Helper<HdsTHelperSignature> {
-  get intl(): IntlService | undefined {
-    const owner = getOwner(this);
-
-    if (
-      typeof owner?.factoryFor === 'function' &&
-      owner.factoryFor('service:intl')
-    ) {
-      return owner.lookup('service:intl');
-    }
-
-    return undefined;
-  }
+  @service hdsIntl!: HdsIntlService;
 
   compute(
     positional: HdsTHelperSignature['Args']['Positional'],
     named: HdsTHelperSignature['Args']['Named']
   ): HdsTHelperSignature['Return'] {
     const key = positional[0];
-    const { default: defaultString, ...options } = named;
+    const { default: defaultString, ...restNamed } = named;
 
-    if (typeof key !== 'string' || isBlank(key)) {
-      return defaultString;
-    }
+    assert(
+      'Hds::T helper requires a key as the first positional argument',
+      typeof key === 'string' && isPresent(key)
+    );
 
-    // try to use ember-intl if available and a translation key exists
-    if (this.intl !== undefined) {
-      const localeIsSet = isPresent(this.intl.locales);
-
-      if (localeIsSet && this.intl.exists(key)) {
-        return this.intl.t(key, options);
-      }
-    }
-
-    return defaultString;
+    return this.hdsIntl.t(key, {
+      default: defaultString,
+      htmlSafe: named.htmlSafe,
+      locale: named.locale,
+      ...restNamed,
+    });
   }
 }
