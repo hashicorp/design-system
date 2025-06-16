@@ -241,7 +241,7 @@
 
   <Shw::Text::H4>Tag</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}">
     <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
       <SG.Item @label="Form using default form tag">
         <Hds::Form>
@@ -270,7 +270,7 @@
   <Shw::Flex
     @direction="column"
     @gap="2rem"
-    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}"
     as |SF|
   >
     <SF.Item @label="isFullWidth=false (default)">
@@ -361,7 +361,7 @@
 
   <Shw::Text::H4>width</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="isFullWidth=false (default)">
         <Hds::Form as |FORM|>
@@ -411,7 +411,7 @@
 
   <Shw::Text::H4>border</Shw::Text::H4>
 
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}">
     <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
       <SG.Item @label="hasBorder=false (default)">
         <Hds::Form as |FORM|>

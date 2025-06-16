@@ -11,7 +11,8 @@ body.components-form {
     margin: 24px 0;
   }
 
-  .shw-component-form-layout-highlight-elements {
+  .shw-component-form-layout-highlight-elements,
+  .shw-component-form-layout-highlight-elements-and-placeholders {
     .hds-form {
       background-color: #f6fcff;
       outline: 1px dashed #78909c;
@@ -47,6 +48,12 @@ body.components-form {
       > * {
         background: #add8e6;
       }
+    }
+  }
+
+  .shw-component-form-layout-highlight-elements-and-placeholders {
+    .shw-placeholder {
+      background-color: #add8e6;
     }
   }
 
