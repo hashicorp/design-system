@@ -9,7 +9,7 @@ links:
     https://github.com/hashicorp/design-system/tree/main/packages/components/src/components/hds/form
 related:
   - patterns/form-patterns
-previewImage: /assets/components/form/layout/form.jpg
+previewImage: assets/illustrations/components/form/layout.jpg
 navigation:
   order: 98
   keywords: ['add', 'alternate', 'keywords', 'here']
