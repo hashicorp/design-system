@@ -10,11 +10,11 @@
 <section data-test-percy>
 
   <Shw::Text::Body>
-    This example is a more "functional example" of the KeyValueInputs component, meant to show how a consumer could
-    implement the behavior.
+    This is a functional example of the KeyValueInputs component, meant to show how a consumer could implement the
+    behavior.
   </Shw::Text::Body>
 
-  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.functionalExampleData}}>
+  <Hds::Form::KeyValueInputs @data={{this.functionalExampleData}} @columns={{2}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -24,22 +24,34 @@
     </:header>
 
     <:row as |R|>
-      <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
-        <F.Label>Key</F.Label>
-        <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} {{on "blur" (fn this.onKeyInputBlur R.rowData)}} />
-        {{#if R.rowData.error}}
-          <F.Error>
-            {{R.rowData.error}}
-          </F.Error>
-        {{/if}}
-      </R.Field>
+      {{#let (get this.functionalExampleErrors R.rowIndex) as |rowErrors|}}
+        {{#let (get rowErrors "key") as |keyError|}}
+          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq keyError undefined) true)}} as |F|>
+            <F.Label>Key</F.Label>
+            <F.HelperText>The key you enter should be a good key.</F.HelperText>
+            <F.TextInput @value={{R.rowData.key.text}} {{on "blur" (fn this.onInputBlur R.rowData "key")}} />
 
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Value</F.Label>
-        <F.Textarea @value={{R.rowData.value}} />
-      </R.Field>
-      <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+            {{#if (not-eq keyError undefined)}}
+              <F.Error>
+                {{keyError}}
+              </F.Error>
+            {{/if}}
+          </R.Field>
+        {{/let}}
+
+        {{#let (get rowErrors "value") as |valueError|}}
+          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq valueError undefined) true)}} as |F|>
+            <F.Label>Value</F.Label>
+            <F.Textarea @value={{R.rowData.value.text}} {{on "blur" (fn this.onInputBlur R.rowData "value")}} />
+            {{#if (not-eq valueError undefined)}}
+              <F.Error>
+                {{valueError}}
+              </F.Error>
+            {{/if}}
+          </R.Field>
+        {{/let}}
+        <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+      {{/let}}
     </:row>
 
     <:footer as |F|>
@@ -70,12 +82,12 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Field as |F|>
         <F.Label>Value</F.Label>
-        <F.TextInput @value={{R.rowData.value}} />
+        <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton />
     </:row>
@@ -96,12 +108,12 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Field as |F|>
         <F.Label>Value</F.Label>
-        <F.TextInput @value={{R.rowData.value}} />
+        <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
       <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
       <R.DeleteRowButton />
@@ -127,12 +139,12 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Field as |F|>
         <F.Label>Value</F.Label>
-        <F.TextInput @value={{R.rowData.value}} />
+        <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton />
     </:row>
@@ -155,7 +167,7 @@
       <R.Field as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
       <R.DeleteRowButton />
     </:row>
@@ -187,7 +199,7 @@
       <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Generic>
@@ -196,7 +208,7 @@
 
       <R.Field @isOptional={{true}} as |F|>
         <F.Label>Value</F.Label>
-        <F.Textarea @value={{R.rowData.value}} />
+        <F.Textarea @value={{R.rowData.value.text}} />
       </R.Field>
       <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
       <R.Generic>
@@ -227,7 +239,7 @@
       <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
         <F.Label>Key</F.Label>
         <F.HelperText>The key you enter should be a good key.</F.HelperText>
-        <F.TextInput @value={{R.rowData.key}} />
+        <F.TextInput @value={{R.rowData.key.text}} />
       </R.Field>
 
       <R.Generic>
@@ -559,6 +571,31 @@
     </:row>
   </Hds::Form::KeyValueInputs>
 
+  <Shw::Text::H2>With and without helper text</Shw::Text::H2>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Alignment with and without helper text</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Textarea</F.Label>
+        <F.Textarea @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput aria-label="Masked input" @value="Sample text" />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
   <Shw::Text::H2>With custom input widths</Shw::Text::H2>
 
   <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
@@ -624,17 +661,24 @@
   <Shw::Text::H2>Responsiveness</Shw::Text::H2>
 
   <Shw::Frame
-    @id="demo-key-value-pair-large-viewports"
+    @id="demo-key-value-inputs-large-viewports"
     @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
     @height="300"
     @label="Large viewport"
   />
 
   <Shw::Frame
-    @id="demo-key-value-pair-small-viewports"
+    @id="demo-key-value-inputs-small-viewports"
     @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
     @width="400"
     @height="650"
     @label="Small viewport (< 480px)"
+  />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-within-form"
+    @src="/components/form/key-value-inputs/frameless/demo-in-form"
+    @height="300"
+    @label="Within a larger form"
   />
 </section>
