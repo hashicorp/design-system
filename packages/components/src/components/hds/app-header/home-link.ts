@@ -20,20 +20,22 @@ export interface HdsAppHeaderHomeLinkSignature {
 }
 
 export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLinkSignature> {
+  get title(): string {
+    const { title } = this.args;
+
+    return title || '';
+  }
+
   get ariaLabel(): string {
-    const { ariaLabel } = this.args;
+    const { ariaLabel, title } = this.args;
 
     assert(
       '@ariaLabel for "Hds::AppHeader::HomeLink" ("Logo") must have a valid value',
       ariaLabel !== undefined
     );
 
-    return ariaLabel;
+    // If title exists, prefix the aria label with it, otherwise use the provided ariaLabel
+    return title ? `${title} ${ariaLabel}` : ariaLabel;
   }
 
-  get title(): string {
-    const { title } = this.args;
-
-    return title || '';
-  }
 }
