@@ -6,24 +6,18 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 
 export default class InternationalizationTranslationController extends Controller {
-  queryParams = ['lang'];
+  @service intl;
 
-  @tracked lang = 'en';
+  @tracked lang = null;
 
   @action
   setLang(event) {
     event.preventDefault();
     const { value } = event.target;
     this.lang = value;
-  }
-
-  get langDetails() {
-    return {
-      en: { label: 'English', text: 'This text is displayed in English' },
-      es: { label: 'Spanish', text: 'This text is displayed in Spanish' },
-      fr: { label: 'French', text: 'This text is displayed in French' },
-    }[this.lang];
+    this.intl.setLocale(value);
   }
 }
