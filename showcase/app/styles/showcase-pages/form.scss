@@ -5,6 +5,8 @@
 
 // FORM LAYOUT
 
+@use "../typography" as *;
+
 body.components-form {
   .shw-component-form-layout-button-highlight {
     display: block;
@@ -73,6 +75,18 @@ body.components-form {
 // FRAMELESS PAGES
 
 body.components-form.frameless {
+  .shw-component-form-layout-frameless-demo-complex-top-toolbar {
+    @include shw-font-family("system sans");
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 24px 0;
+    font-size: 0.9rem;
+
+    .shw-component-form-layout-button-highlight {
+      margin: 0;
+    }
+  }
+
   .shw-component-form-layout-frameless-demo-complex-custom-component {
     position: relative;
     isolation: isolate;

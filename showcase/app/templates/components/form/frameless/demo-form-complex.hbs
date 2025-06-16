@@ -8,7 +8,7 @@
 <Mock::App>
   <:main>
 
-    <Shw::Flex @gap="48px" {{style align-items="center" justify-content="space-between"}} as |SF|>
+    <Shw::Flex class="shw-component-form-layout-frameless-demo-complex-top-toolbar" as |SF|>
       <SF.Item>
         <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
           {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
