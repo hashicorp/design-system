@@ -74,6 +74,7 @@ export interface HdsFormKeyValueInputsSignature {
           'rowIndex' | 'onInsert' | 'onRemove'
         >;
         rowData?: unknown;
+        rowIndex?: number;
       },
     ];
     footer?: [
