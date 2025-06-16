@@ -1,0 +1,70 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "Translation"}}
+
+<Shw::Text::H1>Translation</Shw::Text::H1>
+
+<section data-test-percy>
+  <Shw::Text::H2>Demo</Shw::Text::H2>
+  <Shw::Text::Body>
+    This page demonstrates how to use the translation feature in HashiCorp Design System components. The language can be
+    changed using the dropdown below.
+  </Shw::Text::Body>
+
+  <Hds::Form::Select::Field @value={{this.lang}} {{on "change" this.setLang}} as |F|>
+    <F.Label>{{hds-t
+        "showcase.pages.internationalization.translation.language"
+        default="Language (Default translation)"
+      }}</F.Label>
+
+    <F.Options>
+      <option value="en" selected={{eq this.lang "en"}}>
+        {{hds-t
+          "showcase.pages.internationalization.translation.language-options.en"
+          default="English (Default translation)"
+        }}
+      </option>
+      <option value="es" selected={{eq this.lang "es"}}>
+        {{hds-t
+          "showcase.pages.internationalization.translation.language-options.es"
+          default="Spanish (Default translation)"
+        }}
+      </option>
+      <option value="fr" selected={{eq this.lang "fr"}}>
+        {{hds-t
+          "showcase.pages.internationalization.translation.language-options.fr"
+          default="French (Default translation)"
+        }}
+      </option>
+    </F.Options>
+  </Hds::Form::Select::Field>
+
+  <Hds::ApplicationState as |A|>
+    <A.Header @title={{this.langDetails.label}} @icon="flag" />
+    <A.Body
+      @text={{hds-t
+        "showcase.pages.internationalization.translation.body"
+        default="The text is displayed in the selected language (Default translation)."
+      }}
+    />
+    <A.Footer as |F|>
+      <F.Button
+        @color="primary"
+        @text={{hds-t
+          "showcase.pages.internationalization.translation.actions.primary"
+          default="Primary action (Default translation)"
+        }}
+      />
+      <F.Button
+        @color="secondary"
+        @text={{hds-t
+          "showcase.pages.internationalization.translation.actions.secondary"
+          default="Secondary action (Default translation)"
+        }}
+      />
+    </A.Footer>
+  </Hds::ApplicationState>
+</section>
