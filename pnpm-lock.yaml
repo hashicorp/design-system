@@ -159,9 +159,6 @@ importers:
       ember-get-config:
         specifier: ^2.1.1
         version: 2.1.1(@glint/template@1.5.2)
-      ember-intl:
-        specifier: ^7.1.8
-        version: 7.3.1(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-modifier:
         specifier: ^4.2.2
         version: 4.2.2(@babel/core@7.27.1)
@@ -256,6 +253,9 @@ importers:
       ember-basic-dropdown:
         specifier: ^8.6.1
         version: 8.6.2(@babel/core@7.27.1)(@ember/string@4.0.1)(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
+      ember-intl:
+        specifier: ^7.3.0
+        version: 7.3.1(@ember/test-helpers@4.0.4(@babel/core@7.27.1)(@glint/template@1.5.2)(ember-source@6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-source:
         specifier: ^6.4.0
         version: 6.5.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)
@@ -608,7 +608,7 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(@glint/template@1.5.2)
       ember-intl:
-        specifier: ^7.1.8
+        specifier: ^7.3.0
         version: 7.3.1(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
       ember-load-initializers:
         specifier: ^3.0.1
@@ -780,7 +780,7 @@ importers:
         version: 1.1.2
       '@hashicorp/design-system-components':
         specifier: workspace:*
-        version: file:packages/components(@babel/core@7.27.1)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glimmer/tracking@1.1.2)(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.27.1)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))
+        version: file:packages/components(aba8c7c55063a240b6840d5d920aaaac)
       '@hashicorp/design-system-tokens':
         specifier: workspace:*
         version: link:../packages/tokens
@@ -2815,7 +2815,7 @@ packages:
     peerDependencies:
       '@ember/string': ^3.1.1 || ^4.0.0
       ember-engines: '>= 0.11.0'
-      ember-intl: ^6.5.3
+      ember-intl: ^7.3.0
     peerDependenciesMeta:
       ember-engines:
         optional: true
@@ -9951,7 +9951,6 @@ packages:
     engines: {node: '>=0.6.0', teleport: '>=0.2.0'}
     deprecated: |-
       You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
-
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
   qs@6.13.0:
@@ -14872,7 +14871,7 @@ snapshots:
 
   '@handlebars/parser@2.0.0': {}
 
-  '@hashicorp/design-system-components@file:packages/components(@babel/core@7.27.1)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glimmer/tracking@1.1.2)(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-basic-dropdown@8.6.2(@babel/core@7.27.1)(@ember/string@4.0.1)(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/environment-ember-loose@1.5.2(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(ember-cli-htmlbars@6.3.0)(ember-modifier@4.2.2(@babel/core@7.27.1)))(@glint/template@1.5.2)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)))(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5))':
+  '@hashicorp/design-system-components@file:packages/components(aba8c7c55063a240b6840d5d920aaaac)':
     dependencies:
       '@codemirror/commands': 6.8.1
       '@codemirror/lang-go': 6.0.1
@@ -14917,6 +14916,8 @@ snapshots:
       tabbable: 6.2.0
       tippy.js: 6.3.7
       tracked-built-ins: 4.0.0(@babel/core@7.27.1)
+    optionalDependencies:
+      ember-intl: 7.3.1(@ember/test-helpers@5.2.2(@babel/core@7.27.1)(@glint/template@1.5.2))(@glint/template@1.5.2)(typescript@5.8.3)(webpack@5.99.9)
     transitivePeerDependencies:
       - '@babel/core'
       - '@ember/test-helpers'

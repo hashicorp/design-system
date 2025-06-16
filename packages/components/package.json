@@ -64,7 +64,6 @@
     "ember-element-helper": "^0.8.6",
     "ember-focus-trap": "^1.1.1",
     "ember-get-config": "^2.1.1",
-    "ember-intl": "^7.1.8",
     "ember-modifier": "^4.2.2",
     "ember-power-select": "^8.7.1",
     "ember-stargate": "^0.5.0",
@@ -98,7 +97,7 @@
     "babel-plugin-ember-template-compilation": "^2.4.1",
     "concurrently": "^9.1.2",
     "ember-basic-dropdown": "^8.6.1",
-    "ember-intl": "^6.5.3",
+    "ember-intl": "^7.3.0",
     "ember-source": "^6.4.0",
     "ember-template-lint": "^7.0.2",
     "ember-template-lint-plugin-prettier": "^5.0.0",
@@ -124,7 +123,7 @@
   "peerDependencies": {
     "@ember/string": "^3.1.1 || ^4.0.0",
     "ember-engines": ">= 0.11.0",
-    "ember-intl": "^6.5.3"
+    "ember-intl": "^7.3.0"
   },
   "peerDependenciesMeta": {
     "ember-engines": {
