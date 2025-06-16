@@ -1,5 +1,3 @@
-# We will want to split this file into multiple files in the future
-
 showcase:
   components:
     accordion:
@@ -7,12 +5,14 @@ showcase:
   pages:
     internationalization:
       translation:
-        language: "Language"
-        language-options:
-          en: "🇺🇸 English (United States)"
-          fr: "🇫🇷 French (France)"
-          es: "🇪🇸 Spanish (Spain)"
         actions:
           primary: "Primary Action"
           secondary: "Secondary Action"
         body: "The text is displayed in the selected language."
+        language: "Language"
+        language-options:
+          none: "None"
+          en: "🇺🇸 English (United States)"
+          fr: "🇫🇷 French (France)"
+          es: "🇪🇸 Spanish (Spain)"
+        title: "Selected language"
