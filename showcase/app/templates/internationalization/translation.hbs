@@ -21,19 +21,25 @@
       }}</F.Label>
 
     <F.Options>
-      <option value="en" selected={{eq this.lang "en"}}>
+      <option value="" selected={{eq this.lang ""}}>
+        {{hds-t
+          "showcase.pages.internationalization.translation.language-options.none"
+          default="None (Default translation)"
+        }}
+      </option>
+      <option value="en-us" selected={{eq this.lang "en-us"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.en"
           default="English (Default translation)"
         }}
       </option>
-      <option value="es" selected={{eq this.lang "es"}}>
+      <option value="es-es" selected={{eq this.lang "es-es"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.es"
           default="Spanish (Default translation)"
         }}
       </option>
-      <option value="fr" selected={{eq this.lang "fr"}}>
+      <option value="fr-fr" selected={{eq this.lang "fr-fr"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.fr"
           default="French (Default translation)"
@@ -43,7 +49,13 @@
   </Hds::Form::Select::Field>
 
   <Hds::ApplicationState as |A|>
-    <A.Header @title={{this.langDetails.label}} @icon="flag" />
+    <A.Header
+      @title={{hds-t
+        "showcase.pages.internationalization.translation.title"
+        default="Selected language (Default translation)."
+      }}
+      @icon="flag"
+    />
     <A.Body
       @text={{hds-t
         "showcase.pages.internationalization.translation.body"

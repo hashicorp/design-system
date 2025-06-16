@@ -1,0 +1,18 @@
+showcase:
+  components:
+    accordion:
+      component_name: "Accordéon"
+  pages:
+    internationalization:
+      translation:
+        actions:
+          primary: "Action principale"
+          secondary: "Action secondaire"
+        body: "Le texte est affiché dans la langue sélectionnée."
+        language: "Langue"
+        language-options:
+          none: "Aucun"
+          en: "🇺🇸 Anglais (États-Unis)"
+          fr: "🇫🇷 Français (France)"
+          es: "🇪🇸 Espagnol (Espagne)"
+        title: "Langue sélectionnée"
