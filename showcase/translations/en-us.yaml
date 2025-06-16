@@ -4,3 +4,15 @@ showcase:
   components:
     accordion:
       component_name: "Accordion"
+  pages:
+    internationalization:
+      translation:
+        language: "Language"
+        language-options:
+          en: "🇺🇸 English (United States)"
+          fr: "🇫🇷 French (France)"
+          es: "🇪🇸 Spanish (Spain)"
+        actions:
+          primary: "Primary Action"
+          secondary: "Secondary Action"
+        body: "The text is displayed in the selected language."
