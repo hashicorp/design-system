@@ -6,55 +6,71 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { deepTracked } from 'ember-deep-tracked';
 
 const DEFAULT_DATA = [
   {
     id: 1,
-    key: 'prod',
-    value: 'This is a production tag',
+    key: {
+      text: 'prod',
+    },
+    value: {
+      text: 'This is a production tag',
+    },
   },
   {
     id: 2,
-    key: 'enterprise',
-    value: '',
+    key: {
+      text: 'enterprise',
+    },
+    value: {
+      text: '',
+    },
   },
   {
     id: 3,
-    key: 'beta',
-    value: 'Feature includes beta',
+    key: {
+      text: 'beta',
+    },
+    value: {
+      text: 'Feature includes beta',
+    },
   },
 ];
 
 export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
   @tracked canAddRow = this.functionalExampleData.length < 4;
+  @deepTracked functionalExampleErrors = [];
 
   emptyData = [];
   sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
   sampleData = DEFAULT_DATA;
 
-  @action onKeyInputBlur(item, event) {
+  @action onInputBlur(item, inputType, event) {
     const value = event.target.value;
 
     if (value === undefined || value === '') {
-      const newData = this.functionalExampleData.map((data) => {
-        if (item.id === data.id) {
-          return { ...data, key: value, error: 'Key is required.' };
-        }
-        return data;
-      });
+      const itemWithErrorIndex = this.functionalExampleData.findIndex(
+        (data) => data.id === item.id,
+      );
 
-      this.functionalExampleData = newData;
+      this.functionalExampleErrors[itemWithErrorIndex] = {
+        ...this.functionalExampleErrors[itemWithErrorIndex],
+        [inputType]: `${inputType} is required.`,
+      };
     } else {
-      const newData = this.functionalExampleData.map((data) => {
-        if (item.id === data.id) {
-          return { ...data, key: value, error: undefined };
-        }
-        return data;
-      });
+      const itemWithErrorIndex = this.functionalExampleData.findIndex(
+        (data) => data.id === item.id,
+      );
 
-      this.functionalExampleData = newData;
+      this.functionalExampleErrors[itemWithErrorIndex] = {
+        ...this.functionalExampleErrors[itemWithErrorIndex],
+        [inputType]: undefined,
+      };
     }
+
+    console.log();
   }
 
   @action onDeleteRowClick(item) {
