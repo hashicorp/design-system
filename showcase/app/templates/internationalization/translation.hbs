@@ -10,39 +10,46 @@
 <section data-test-percy>
   <Shw::Text::H2>Demo</Shw::Text::H2>
   <Shw::Text::Body>
-    This page demonstrates how to use the translation feature in HashiCorp Design System components. The language can be
-    changed using the dropdown below.
+    This page demonstrates the use of the
+    <code>hds-t</code>
+    helper for internationalizing text. Selecting a language from the dropdown below will set the global locale used by
+    <code>ember-intl</code>
+    to translate the text on this page. Selecting
+    <code>None</code>
+    demonstrates the fallback translation, which is used in consuming applications that have not yet set up
+    internationalization through
+    <code>ember-intl</code>. The locale will be reset back to its initial value when leaving the page.
   </Shw::Text::Body>
 
   <Hds::Form::Select::Field @value={{this.lang}} {{on "change" this.setLang}} as |F|>
     <F.Label>{{hds-t
         "showcase.pages.internationalization.translation.language"
-        default="Language (Default translation)"
+        default="Language (Fallback translation)"
       }}</F.Label>
 
     <F.Options>
       <option value="" selected={{eq this.lang ""}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.none"
-          default="None (Default translation)"
+          default="None (Fallback translation)"
         }}
       </option>
       <option value="en-us" selected={{eq this.lang "en-us"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.en"
-          default="English (Default translation)"
+          default="English (Fallback translation)"
         }}
       </option>
       <option value="es-es" selected={{eq this.lang "es-es"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.es"
-          default="Spanish (Default translation)"
+          default="Spanish (Fallback translation)"
         }}
       </option>
       <option value="fr-fr" selected={{eq this.lang "fr-fr"}}>
         {{hds-t
           "showcase.pages.internationalization.translation.language-options.fr"
-          default="French (Default translation)"
+          default="French (Fallback translation)"
         }}
       </option>
     </F.Options>
@@ -52,14 +59,14 @@
     <A.Header
       @title={{hds-t
         "showcase.pages.internationalization.translation.title"
-        default="Selected language (Default translation)."
+        default="Selected language (Fallback translation)."
       }}
       @icon="flag"
     />
     <A.Body
       @text={{hds-t
         "showcase.pages.internationalization.translation.body"
-        default="The text is displayed in the selected language (Default translation)."
+        default="The text is displayed in the selected language (Fallback translation)."
       }}
     />
     <A.Footer as |F|>
@@ -67,14 +74,14 @@
         @color="primary"
         @text={{hds-t
           "showcase.pages.internationalization.translation.actions.primary"
-          default="Primary action (Default translation)"
+          default="Primary action (Fallback translation)"
         }}
       />
       <F.Button
         @color="secondary"
         @text={{hds-t
           "showcase.pages.internationalization.translation.actions.secondary"
-          default="Secondary action (Default translation)"
+          default="Secondary action (Fallback translation)"
         }}
       />
     </A.Footer>
