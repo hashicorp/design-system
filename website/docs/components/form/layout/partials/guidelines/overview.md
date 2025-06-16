@@ -1,1 +1,1 @@
-{description}
+The Form layout components are used as structural components to organize and space the structure and spacing between elements in forms. 

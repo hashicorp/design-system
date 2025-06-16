@@ -16,6 +16,8 @@ Form layout components in Ember and their related Layout “Template” componen
 
 The Form component ensures a consistent and streamlined user experience. We recommend using a single-column layout for forms, as multi-column layouts can disrupt the visual flow and reading order. Multi-column layouts can potentially result in missed inputs requiring resolution and thereby increasing friction. They should only be used when grouping related inputs improves the user experience.
 
+![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
+
 ### Spacing
 
 Spacing in forms is based on a decreasing scale on an 8px grid. From largest to smallest, the spacing structure is:
@@ -44,7 +46,7 @@ Place inputs in rows to save space or create columns within the form.
 
 !!!
 
-Visit the (Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
+Visit the [Form Patterns][/patterns/form-patterns] guidelines for additional details on spacing in forms.
 
 ## Form Header
 
@@ -98,21 +100,13 @@ A 32px gap is included above and below to divide the Separators and to avoid the
 
 Don’t use Separators at the end of the last section between the fields and the button set or actions.
 
-![ALT TEXT](/assets/components/form/layout/?.png)
-
-!!!
-
-!!! Do
-
-Instead, use the section spacing value of 32px between the last field and the button set or actions.
-
-![ALT TEXT](/assets/components/form/layout/?.png)
+![Separator being uses after all the content in a form](/assets/components/form/layout/divider-spacing-dont.png)
 
 !!!
 
 ## Button Set
 
-Buttons are necessary for communicating how the form details can be saved or submitted. We recommend using a Button Set [/patterns/form-patterns#button-sets] so the user can Save/Submit or Cancel the form.
+Buttons are necessary for communicating how the form details can be saved or submitted. We recommend using a [Button Set](/patterns/form-patterns#button-sets) so the user can Save/Submit or Cancel the form.
 
 ## Width and resizing behavior
 
