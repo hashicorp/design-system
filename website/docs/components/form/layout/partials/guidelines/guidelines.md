@@ -92,7 +92,7 @@ A Separator can be placed between Sections when a clearer visual distinction bet
 
 A 32px gap is included above and below to divide the Separators and to avoid the appearance of being from the surrounding form elements; otherwise, it can appear “attached” to a specific section or field.
 
-![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-actions-do.png)
+![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-actions-do-1.png)
 
 !!!
 
