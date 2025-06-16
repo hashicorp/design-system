@@ -62,6 +62,7 @@ Router.map(function () {
       this.route('key-value-inputs', function () {
         this.route('frameless', function () {
           this.route('demo-responsiveness');
+          this.route('demo-in-form');
         });
       });
       this.route('masked-input');
