@@ -1,6 +1,6 @@
 ## Anatomy
 
-![Anatomy of Key Value Inputs](/assets/components/form/key-value-inputs/key-value-inputs-anatomy.png)
+![](/assets/components/form/key-value-inputs/key-value-inputs-anatomy.png)
 
 | Element              | Usage                                           |
 |----------------------|-------------------------------------------------|
