@@ -33,7 +33,7 @@ export default class CopySnippetController extends Controller {
   }
 
   routeDidChange() {
-    if (this.router.currentRoute.name === 'components.copy.snippet') {
+    if (this.router.currentRoute.name === 'cp.copy.snippet') {
       // eslint-disable-next-line ember/no-runloop
       scheduleOnce('afterRender', this, replaceMockCopyStatus);
     }
