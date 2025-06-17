@@ -103,14 +103,16 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     return this.args.data.length > 1;
   }
 
-  @action _setUpColumn(): void {
+  @action
+  _setUpColumn(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._updateColumns();
     });
   }
 
-  @action _removeColumn(): void {
+  @action
+  _removeColumn(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._updateColumns();
@@ -122,7 +124,8 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  @action removeDescriptor(element: HTMLElement): void {
+  @action
+  removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
