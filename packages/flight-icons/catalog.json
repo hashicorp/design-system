@@ -2648,7 +2648,7 @@
     },
     {
       "id": "7665:175",
-      "fileName": "ping-identity -24",
+      "fileName": "ping-identity-24",
       "iconName": "ping-identity ",
       "description": "ping, identity",
       "category": "Services",
@@ -2658,28 +2658,8 @@
     },
     {
       "id": "7665:177",
-      "fileName": "ping-identity -16",
+      "fileName": "ping-identity-16",
       "iconName": "ping-identity ",
-      "description": "ping, identity",
-      "category": "Services",
-      "size": "16",
-      "width": 16,
-      "height": 16
-    },
-    {
-      "id": "7665:182",
-      "fileName": "ping-identity-color-24",
-      "iconName": "ping-identity-color",
-      "description": "ping, identity",
-      "category": "Services",
-      "size": "24",
-      "width": 24,
-      "height": 24
-    },
-    {
-      "id": "7665:184",
-      "fileName": "ping-identity-color-16",
-      "iconName": "ping-identity-color",
       "description": "ping, identity",
       "category": "Services",
       "size": "16",
