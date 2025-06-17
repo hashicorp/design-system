@@ -68,6 +68,7 @@ module(
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__header')
         .exists();
+
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
