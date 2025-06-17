@@ -95,17 +95,17 @@ export default class KeyValueInputsController extends Controller {
         [inputType]: undefined,
       };
     }
-
-    console.log();
   }
 
-  @action onDeleteRowClick(item) {
+  @action
+  onDeleteRowClick(item) {
     this.functionalExampleData = this.functionalExampleData.filter(
       (data) => data.id !== item.id,
     );
   }
 
-  @action onAddRowClick() {
+  @action
+  onAddRowClick() {
     this.functionalExampleData = [
       ...this.functionalExampleData,
       {
@@ -116,13 +116,15 @@ export default class KeyValueInputsController extends Controller {
     ];
   }
 
-  @action onDynamicExampleDeleteRowClick(item) {
+  @action
+  onDynamicExampleDeleteRowClick(item) {
     this.dynamicInputExampleData = this.dynamicInputExampleData.filter(
       (data) => data.id !== item.id,
     );
   }
 
-  @action onDynamicExampleAddRowClick() {
+  @action
+  onDynamicExampleAddRowClick() {
     this.dynamicInputExampleData = [
       ...this.dynamicInputExampleData,
       {
@@ -135,7 +137,8 @@ export default class KeyValueInputsController extends Controller {
     ];
   }
 
-  @action onDynamicInputChange(item, event) {
+  @action
+  onDynamicInputChange(item, event) {
     const newKey = event.target.value;
 
     const itemIndex = this.dynamicInputExampleData.findIndex(
