@@ -53,15 +53,6 @@
         )
         to="row"
       }}
-
-      {{yield
-        (hash
-          DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow rowData=undefined
-          )
-        )
-        to="row"
-      }}
     </div>
   {{/if}}
 
@@ -81,14 +72,12 @@
         to="row"
       }}
 
-      {{yield
-        (hash
-          DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" canDeleteRow=this.canDeleteRow rowData=item rowIndex=index
-          )
-        )
-        to="row"
-      }}
+      {{#if (eq this.canDeleteRow true)}}
+        {{yield
+          (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
+          to="row"
+        }}
+      {{/if}}
     </div>
   {{/each}}
 
