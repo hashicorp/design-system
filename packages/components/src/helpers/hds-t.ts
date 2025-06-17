@@ -9,15 +9,12 @@ import { assert } from '@ember/debug';
 import { isPresent } from '@ember/utils';
 
 import type HdsIntlService from '../services/hds-intl';
+import type { HdsIntlTOptions } from '../services/hds-intl';
+
 interface HdsTHelperSignature {
   Args: {
     Positional: string[];
-    Named: {
-      default: string;
-      htmlSafe?: boolean | undefined;
-      locale?: string | undefined;
-      [key: string]: unknown;
-    };
+    Named: HdsIntlTOptions;
   };
   Return: string;
 }
@@ -30,18 +27,12 @@ export default class HdsTHelper extends Helper<HdsTHelperSignature> {
     named: HdsTHelperSignature['Args']['Named']
   ): HdsTHelperSignature['Return'] {
     const key = positional[0];
-    const { default: defaultString, ...restNamed } = named;
 
     assert(
       'Hds::T helper requires a key as the first positional argument',
       typeof key === 'string' && isPresent(key)
     );
 
-    return this.hdsIntl.t(key, {
-      default: defaultString,
-      htmlSafe: named.htmlSafe,
-      locale: named.locale,
-      ...restNamed,
-    });
+    return this.hdsIntl.t(key, named);
   }
 }

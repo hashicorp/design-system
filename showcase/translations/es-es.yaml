@@ -1,7 +1,4 @@
 showcase:
-  components:
-    accordion:
-      component_name: "Acordeón"
   pages:
     internationalization:
       translation:

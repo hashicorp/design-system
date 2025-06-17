@@ -33,6 +33,8 @@ const plugins = [
     'modifiers/**/*.js',
     'services/**/!(*types).js',
     'instance-initializers/**/*.js',
+    '!helpers/hds-t.js',
+    '!services/hds-intl.js',
   ]),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
