@@ -27,11 +27,13 @@ export default class KeyValueInputsDemoInFormController extends Controller {
   @tracked sampleData = DEFAULT_DATA;
   @deepTracked formErrors = [];
 
-  @action onDeleteRowClick(item) {
+  @action
+  onDeleteRowClick(item) {
     this.sampleData = this.sampleData.filter((data) => data.id !== item.id);
   }
 
-  @action onAddRowClick() {
+  @action
+  onAddRowClick() {
     this.sampleData = [
       ...this.sampleData,
       {
@@ -42,7 +44,8 @@ export default class KeyValueInputsDemoInFormController extends Controller {
     ];
   }
 
-  @action onSubmitForm(event) {
+  @action
+  onSubmitForm(event) {
     event.preventDefault();
 
     const formElement = document.getElementById('create-plugin-form');
