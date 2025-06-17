@@ -295,11 +295,19 @@
           <B.Td @align="right">
             <Hds::Dropdown @isInline={{true}} as |dd|>
               <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+<<<<<<< HEAD:showcase/app/templates/page-components/table.hbs
               <dd.Interactive @route="page-components.table">Create</dd.Interactive>
               <dd.Interactive @route="page-components.table">Read</dd.Interactive>
               <dd.Interactive @route="page-components.table">Update</dd.Interactive>
               <dd.Separator />
               <dd.Interactive @route="page-components.table" @color="critical" @icon="trash">Delete</dd.Interactive>
+=======
+              <dd.Interactive @route="hds.components.table">Create</dd.Interactive>
+              <dd.Interactive @route="hds.components.table">Read</dd.Interactive>
+              <dd.Interactive @route="hds.components.table">Update</dd.Interactive>
+              <dd.Separator />
+              <dd.Interactive @route="hds.components.table" @color="critical" @icon="trash">Delete</dd.Interactive>
+>>>>>>> 6a39b80e5 (namespaces translations):showcase/app/templates/components/table.hbs
             </Hds::Dropdown>
           </B.Td>
         </B.Tr>
@@ -1665,7 +1673,11 @@
             <B.Td @align="left">
               <Hds::Dropdown @isInline={{true}} @listPosition="bottom-right" as |dd|>
                 <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+<<<<<<< HEAD:showcase/app/templates/page-components/table.hbs
                 <dd.Interactive @route="page-components.table">Dropdown</dd.Interactive>
+=======
+                <dd.Interactive @route="hds.components.table">Dropdown</dd.Interactive>
+>>>>>>> 6a39b80e5 (namespaces translations):showcase/app/templates/components/table.hbs
               </Hds::Dropdown>
             </B.Td>
             <B.Td @align="center">
@@ -1735,7 +1747,11 @@
             <B.Td>
               <Hds::Dropdown as |D|>
                 <D.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+<<<<<<< HEAD:showcase/app/templates/page-components/table.hbs
                 <D.Interactive @route="page-components.table">Dropdown</D.Interactive>
+=======
+                <D.Interactive @route="hds.components.table">Dropdown</D.Interactive>
+>>>>>>> 6a39b80e5 (namespaces translations):showcase/app/templates/components/table.hbs
               </Hds::Dropdown>
             </B.Td>
             <B.Td>
