@@ -27,7 +27,6 @@ module(
             <H.Generic>
               <span id="header-generic">Generic content</span>
               </H.Generic>
-            <H.Error>Error text</H.Error>
           </:header>
 
           <:row as |R|>
@@ -48,6 +47,7 @@ module(
             <F.Alert as |A|>
               <A.Description>Alert content</A.Description>
             </F.Alert>
+            <F.Error>Error text</F.Error>
           </:footer>
         </Hds::Form::KeyValueInputs>
       `);
@@ -158,7 +158,7 @@ module(
 
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
         )
         .hasText('Error text');
     });
@@ -243,7 +243,7 @@ module(
       ).id;
 
       const errorId = document.querySelector(
-        '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
+        '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
       ).id;
 
       assert
