@@ -114,10 +114,185 @@ module(
 
     // ACCESSIBILITY
 
-    test('it should match the label with the input using `for` and `id` attributes', async function (assert) {
+    test('it should associate the label and help text appropriately for FileInputs', async function (assert) {
       await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
     <F.Label>Label</F.Label>
+       <F.FileInput />
+       <F.HelperText>Helper text</F.HelperText>
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const inputId = document.querySelector(
+        '#test-form-key-value-field .hds-form-file-input',
+      ).id;
+
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
+        .hasAttribute('for', inputId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field .hds-form-file-input')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately for MaskedInputs', async function (assert) {
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+       <F.MaskedInput />
+       <F.HelperText>Helper text</F.HelperText>
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const inputId = document.querySelector(
+        '#test-form-key-value-field .hds-form-masked-input__control',
+      ).id;
+
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
+        .hasAttribute('for', inputId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field .hds-form-masked-input__control')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately Selects', async function (assert) {
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.HelperText>Helper text</F.HelperText>
+       <F.Select>
+        <option>Option 1</option>
+       </F.Select>
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const inputId = document.querySelector(
+        '#test-form-key-value-field .hds-form-select',
+      ).id;
+
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
+        .hasAttribute('for', inputId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field .hds-form-select')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately SuperSelectSingles', async function (assert) {
+      this.set('options', ['Option 1', 'Option 2']);
+      this.set('selected_option', 'Option 1');
+      this.set('NOOP', () => {});
+
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.HelperText>Helper text</F.HelperText>
+               <F.SuperSelectSingle
+               @onChange={{this.NOOP}}
+          @options={{this.options}}
+          @selected={{this.selected_option}}
+          as |option|
+        >
+          {{option}}
+        </F.SuperSelectSingle>
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const labelId = document.querySelector(
+        '#test-form-key-value-field .hds-form-label',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field [role="combobox"]')
+        .hasAria('labelledby', labelId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field [role="combobox"]')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately SuperSelectMultiples', async function (assert) {
+      this.set('options', ['Option 1', 'Option 2']);
+      this.set('NOOP', () => {});
+
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.HelperText>Helper text</F.HelperText>
+               <F.SuperSelectMultiple
+               @onChange={{this.NOOP}}
+          @options={{this.options}}
+          as |option|
+        >
+          {{option}}
+        </F.SuperSelectMultiple>
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const labelId = document.querySelector(
+        '#test-form-key-value-field .hds-form-label',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field [role="combobox"]')
+        .hasAria('labelledby', labelId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field [role="combobox"]')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately TextInputs', async function (assert) {
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.HelperText>Helper text</F.HelperText>
        <F.TextInput @value="Value" />
+       <F.Error>Error text</F.Error>
        </Hds::Form::KeyValueInputs::Field>`);
 
       const inputId = document.querySelector(
@@ -129,15 +304,6 @@ module(
           '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
         )
         .hasAttribute('for', inputId);
-    });
-
-    test('it should match the helper text ids to `aria-describedby` of the input', async function (assert) {
-      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
-    <F.Label>Label</F.Label>
-    <F.HelperText>Helper text</F.HelperText>
-       <F.TextInput @value="Value" />
-       <F.Error>Error text</F.Error>
-       </Hds::Form::KeyValueInputs::Field>`);
 
       const helperId = document.querySelector(
         '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
@@ -149,6 +315,37 @@ module(
 
       assert
         .dom('#test-form-key-value-field .hds-form-text-input')
+        .hasAria('describedby', `${helperId} ${errorId}`);
+    });
+
+    test('it should associate the label and help text appropriately Textareas', async function (assert) {
+      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
+    <F.Label>Label</F.Label>
+    <F.HelperText>Helper text</F.HelperText>
+       <F.Textarea @value="Value" />
+       <F.Error>Error text</F.Error>
+       </Hds::Form::KeyValueInputs::Field>`);
+
+      const inputId = document.querySelector(
+        '#test-form-key-value-field .hds-form-textarea',
+      ).id;
+
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
+        .hasAttribute('for', inputId);
+
+      const helperId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+      ).id;
+
+      const errorId = document.querySelector(
+        '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+      ).id;
+
+      assert
+        .dom('#test-form-key-value-field .hds-form-textarea')
         .hasAria('describedby', `${helperId} ${errorId}`);
     });
   },

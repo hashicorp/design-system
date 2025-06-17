@@ -6,9 +6,6 @@
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
-import { registerDestructor } from '@ember/destroyable';
-import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
 import {
@@ -16,10 +13,11 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
-import HdsFormLabelComponent, {ID_PREFIX} from '../label/index.ts';
+import HdsFormLabelComponent, { ID_PREFIX } from '../label/index.ts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
@@ -27,15 +25,18 @@ import HdsFormSuperSelectSingleBaseComponent from '../super-select/single/base.t
 import HdsFormTextareaBaseComponent from '../textarea/base.ts';
 import HdsFormTextInputBaseComponent from '../text-input/base.ts';
 
-import type { HdsFormFieldSignature } from '../field/index.ts';
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
 
 export interface HdsFormKeyValueInputsFieldSignature {
-  Args: Omit<HdsFormFieldSignature['Args'], 'contextualClass' | 'layout'> & {
-    rowIndex: number;
+  Args: {
+    extraAriaDescribedBy?: string;
+    id?: string;
     isInvalid?: boolean;
+    isOptional?: boolean;
+    isRequired?: boolean;
     onInsert?: (element: HTMLDivElement) => void;
     onRemove?: (element: HTMLDivElement) => void;
+    rowIndex: number;
     width?: string;
   };
   Blocks: {
@@ -45,89 +46,89 @@ export interface HdsFormKeyValueInputsFieldSignature {
           typeof HdsFormLabelComponent,
           | 'contextualClass'
           | 'controlId'
-          | 'isRequired'
-          | 'isOptional'
           | 'hiddenText'
+          | 'isOptional'
+          | 'isRequired'
         >;
         HelperText?: WithBoundArgs<
           typeof HdsFormHelperTextComponent,
           'contextualClass' | 'controlId' | 'onInsert'
         >;
+        FileInput?: WithBoundArgs<
+          typeof HdsFormFileInputBaseComponent,
+          'ariaDescribedBy' | 'id'
+        >;
+        MaskedInput?: WithBoundArgs<
+          typeof HdsFormMaskedInputBaseComponent,
+          'ariaDescribedBy' | 'id' | 'isInvalid'
+        >;
+        Select?: WithBoundArgs<
+          typeof HdsFormSelectBaseComponent,
+          'ariaDescribedBy' | 'id' | 'isInvalid'
+        >;
+        SuperSelectSingle?: WithBoundArgs<
+          typeof HdsFormSuperSelectSingleBaseComponent,
+          'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'
+        >;
+        SuperSelectMultiple?: WithBoundArgs<
+          typeof HdsFormSuperSelectMultipleBaseComponent,
+          'ariaDescribedBy' | 'ariaLabelledBy' | 'isInvalid' | 'triggerId'
+        >;
+        TextInput?: WithBoundArgs<
+          typeof HdsFormTextInputBaseComponent,
+          'ariaDescribedBy' | 'id' | 'isInvalid'
+        >;
+        Textarea?: WithBoundArgs<
+          typeof HdsFormTextareaBaseComponent,
+          'ariaDescribedBy' | 'id' | 'isInvalid'
+        >;
         Error?: WithBoundArgs<
           typeof HdsFormErrorComponent,
           'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
         >;
-        Select?: WithBoundArgs<
-          typeof HdsFormSelectBaseComponent,
-          'isInvalid' | 'id' | 'ariaDescribedBy'
-        >;
-        FileInput?: WithBoundArgs<
-          typeof HdsFormFileInputBaseComponent,
-          'id' | 'ariaDescribedBy'
-        >;
-        MaskedInput?: WithBoundArgs<
-          typeof HdsFormMaskedInputBaseComponent,
-          'id' | 'ariaDescribedBy' | 'isInvalid'
-        >;
-        SuperSelectSingle?: WithBoundArgs<
-          typeof HdsFormSuperSelectSingleBaseComponent,
-          'triggerId' | 'ariaDescribedBy' | 'isInvalid'
-        >;
-        SuperSelectMultiple?: WithBoundArgs<
-          typeof HdsFormSuperSelectMultipleBaseComponent,
-          'triggerId' | 'ariaDescribedBy' | 'isInvalid'
-        >;
-        TextInput?: WithBoundArgs<
-          typeof HdsFormTextInputBaseComponent,
-          'id' | 'ariaDescribedBy' | 'isInvalid'
-        >;
-        Textarea?: WithBoundArgs<
-          typeof HdsFormTextareaBaseComponent,
-          'id' | 'ariaDescribedBy' | 'isInvalid'
-        >;
       },
     ];
   };
-  Element: HTMLElement;
+  Element: HTMLDivElement;
 }
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
-  private _id = guidFor(this);
   private _element!: HTMLDivElement;
-
-  constructor(owner: Owner, args: HdsFormKeyValueInputsFieldSignature['Args']) {
-    super(owner, args);
-
-    registerDestructor(this, (): void => {
-      if (this.args.onRemove) {
-        this.args.onRemove(this._element);
-      }
-    });
-  }
 
   private _onInsert = modifier((element: HTMLDivElement) => {
     this._element = element;
     if (this.args.onInsert) {
       this.args.onInsert(element);
     }
+
+    return () => {
+      if (this.args.onRemove) {
+        this.args.onRemove(element);
+      }
+    };
   });
+
+  get id(): string {
+    return getElementId(this);
+  }
 
   get labelHiddenText(): string {
     return `row ${this.args.rowIndex + 1}`;
   }
 
-    get idPrefix(): string {
-      return ID_PREFIX;
-    }
+  get idPrefix(): string {
+    return ID_PREFIX;
+  }
 
   @action
   appendDescriptor(element: HTMLElement): void {
     registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  @action removeDescriptor(element: HTMLElement): void {
+  @action
+  removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 }

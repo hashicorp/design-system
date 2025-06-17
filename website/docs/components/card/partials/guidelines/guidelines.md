@@ -16,44 +16,39 @@ Interactive cards are actionable (e.g., it can be hovered, clicked, focused, etc
 
 ## Levels
 
+![example of card styles for various levels, including: base, mid, and high](/assets/components/card/card-levels.png)
+
 ### Base
 
 Use the `base` level for static cards.
-
-![example of base card style with borders](/assets/components/card/card-base.png =184x*)
 
 ### Mid
 
 - For **static cards** use `mid` as the default level.
 - For **interactive cards** use `mid` as the rested state.
 
-![example of base card style with borders](/assets/components/card/card-mid.png =184x*)
-
 ### High
 
 - For **static cards** use `high` for emphasis, but use sparingly.
 - For **interactive cards** use `high` for the raised state.
 
-![example of base card style with borders](/assets/components/card/card-high.png =184x*)
-
 ## Border
 
-Card containers come with or without borders. 
+Card containers come with or without borders.
 
-### Background
+![example of card styles with and without borders](/assets/components/card/card-borders.png)
 
-There are two backgrounds available: `neutral-0` and `neutral-50`.
+## Background
 
-<Doc::Layout @spacing="16px">
-    ![example of base card style with borders](/assets/components/card/card-base-neutral0.png =184x*)
-    ![example of base card style with borders](/assets/components/card/card-base-neutral50.png =184x*)
-</Doc::Layout>
+There are two backgrounds available: `neutral-primary` and `neutral-secondary`.
 
-### Recommended spacing
+![example of card styles in two background colors: neutral-primary and neutral-secondary](/assets/components/card/card-backgrounds.png)
+
+## Recommended spacing
 
 We recommend the following spacing options for cards:
 
-![example of base card style with borders](/assets/components/card/card-spacing.png =800x*)
+![example of card styles for recommended spacing options: 16px, 24px, 16px 24px, 24px 16px](/assets/components/card/card-spacing.png)
 
 - 16px all around
 - 24px all around

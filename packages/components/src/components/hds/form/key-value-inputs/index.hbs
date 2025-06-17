@@ -7,7 +7,7 @@
   ...attributes
   {{style --hds-key-value-pair-columns=this._gridTemplateColumns}}
   {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
-  aria-labelledby="{{this._id}}-legend"
+  aria-labelledby="{{this.id}}-legend"
   {{! @glint-expect-error }}
   aria-describedby={{this.ariaDescribedBy}}
   {{this._setUpKeyValueInputs}}
@@ -17,10 +17,10 @@
       (hash
         Legend=(component
           "hds/form/legend"
+          contextualClass="hds-form-key-value-inputs__legend"
+          id=(concat this.id "-legend")
           isOptional=@isOptional
           isRequired=@isRequired
-          id=(concat this._id "-legend")
-          contextualClass="hds-form-key-value-inputs__legend"
         )
       )
       to="header"
@@ -29,26 +29,14 @@
       (hash
         HelperText=(component
           "hds/form/helper-text"
-          controlId=this._id
-          onInsert=this.appendDescriptor
           contextualClass="hds-form-key-value-inputs__helper-text"
+          controlId=this.id
+          onInsert=this.appendDescriptor
         )
       )
       to="header"
     }}
     {{yield (hash Generic=(component "hds/yield")) to="header"}}
-    {{yield
-      (hash
-        Error=(component
-          "hds/form/error"
-          controlId=this._id
-          onInsert=this.appendDescriptor
-          onRemove=this.removeDescriptor
-          contextualClass="hds-form-key-value-inputs__error"
-        )
-      )
-      to="header"
-    }}
   </div>
 
   {{#if (eq @data.length 0)}}
@@ -56,20 +44,12 @@
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-inputs/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component
-            "hds/form/key-value-inputs/yield" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
+            "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
-        )
-        to="row"
-      }}
-
-      {{yield
-        (hash
-          DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" rowIndex=0 canDeleteRow=this.canDeleteRow rowData=undefined
-          )
+          rowIndex=0
         )
         to="row"
       }}
@@ -81,24 +61,23 @@
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-inputs/field" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
           )
           Generic=(component
-            "hds/form/key-value-inputs/yield" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
           )
           rowData=item
+          rowIndex=index
         )
         to="row"
       }}
 
-      {{yield
-        (hash
-          DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
-          )
-        )
-        to="row"
-      }}
+      {{#if (eq this.canDeleteRow true)}}
+        {{yield
+          (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
+          to="row"
+        }}
+      {{/if}}
     </div>
   {{/each}}
 
@@ -107,6 +86,13 @@
       (hash
         Alert=(component "hds/alert" color="neutral" type="compact")
         AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
+        Error=(component
+          "hds/form/error"
+          contextualClass="hds-form-key-value-inputs__error"
+          controlId=this.id
+          onInsert=this.appendDescriptor
+          onRemove=this.removeDescriptor
+        )
       )
       to="footer"
     }}

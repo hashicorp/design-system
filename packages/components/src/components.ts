@@ -81,6 +81,7 @@ export { default as HdsBreadcrumbTruncation } from './components/hds/breadcrumb/
 
 // Button
 export { default as HdsButton } from './components/hds/button/index.ts';
+export * from './components/hds/button/types.ts';
 
 // ButtonSet
 export { default as HdsButtonSet } from './components/hds/button-set/index.ts';
@@ -155,6 +156,14 @@ export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/
 // Form > FileInput
 export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.ts';
 export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.ts';
+
+// Form > KeyValueInputs
+
+export { default as HdsFormKeyValueInputs } from './components/hds/form/key-value-inputs/index.ts';
+export { default as HdsFormKeyValueInputsAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
+export { default as HdsFormKeyValueInputsDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
+export { default as HdsFormKeyValueInputsField } from './components/hds/form/key-value-inputs/field.ts';
+export { default as HdsFormKeyValueInputsGeneric } from './components/hds/form/key-value-inputs/generic.ts';
 
 // Form > MaskedInput
 export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-input/base.ts';
@@ -341,10 +350,18 @@ export { default as HdsAppFrameSidebar } from './components/hds/app-frame/parts/
 // Layout > Flex
 export { default as HdsLayoutFlex } from './components/hds/layout/flex/index.ts';
 export { default as HdsLayoutFlexItem } from './components/hds/layout/flex/item.ts';
+export * from './components/hds/layout/flex/types.ts';
 
 // Layout > Grid
 export { default as HdsLayoutGrid } from './components/hds/layout/grid/index.ts';
 export { default as HdsLayoutGridItem } from './components/hds/layout/grid/item.ts';
+// we're being explicit with exports here as AvailableTagNames and AvailableElements are overlapping the Flex exports
+export {
+  HdsLayoutGridAlignValues,
+  HdsLayoutGridGapValues,
+  type HdsLayoutGridAligns,
+  type HdsLayoutGridGaps,
+} from './components/hds/layout/grid/types.ts';
 
 // -----------------------------------------------------------
 // ### UTILITIES

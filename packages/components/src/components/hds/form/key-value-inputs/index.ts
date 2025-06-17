@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
-import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
@@ -16,45 +15,44 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsAlertComponent from '../../alert/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
 import HdsFormKeyValueInputsFieldComponent from './field.ts';
-import HdsFormKeyValueInputsYieldComponent from './yield.ts';
+import HdsFormKeyValueInputsGenericComponent from './generic.ts';
 import HdsFormLegendComponent from '../legend/index.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
 import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
 const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
 const KEY_VALUE_PAIR_GENERIC_SELECTOR =
-  '.hds-form-key-value-inputs__yield-container';
+  '.hds-form-key-value-inputs__generic-container';
 const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
   '.hds-form-key-value-inputs__row--first';
 const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
   '.hds-form-key-value-inputs__row-delete-button-container';
 
 export interface HdsFormKeyValueInputsSignature {
-  Args: HdsFormFieldsetSignature['Args'] & {
+  Args: {
     data: Array<unknown>;
+    extraAriaDescribedBy?: string;
+    isOptional?: boolean;
+    isRequired?: boolean;
   };
   Blocks: {
     header?: [
       {
         Legend?: WithBoundArgs<
           typeof HdsFormLegendComponent,
-          'contextualClass' | 'isOptional' | 'isRequired' | 'id'
+          'contextualClass' | 'id' | 'isOptional' | 'isRequired'
         >;
         HelperText?: WithBoundArgs<
           typeof HdsFormHelperTextComponent,
           'contextualClass' | 'controlId' | 'onInsert'
-        >;
-        Error?: WithBoundArgs<
-          typeof HdsFormErrorComponent,
-          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
         >;
         Generic?: ComponentLike<HdsYieldSignature>;
       },
@@ -63,48 +61,58 @@ export interface HdsFormKeyValueInputsSignature {
       {
         Field?: WithBoundArgs<
           typeof HdsFormKeyValueInputsFieldComponent,
-          'rowIndex' | 'onInsert' | 'onRemove'
+          'onInsert' | 'onRemove' | 'rowIndex'
+        >;
+        Generic?: WithBoundArgs<
+          typeof HdsFormKeyValueInputsGenericComponent,
+          'onInsert' | 'onRemove' | 'rowIndex'
         >;
         DeleteRowButton?: WithBoundArgs<
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
-          'rowIndex' | 'rowData' | 'canDeleteRow'
-        >;
-        Generic?: WithBoundArgs<
-          typeof HdsFormKeyValueInputsYieldComponent,
-          'rowIndex' | 'onInsert' | 'onRemove'
+          'rowData' | 'rowIndex'
         >;
         rowData?: unknown;
+        rowIndex?: number;
       },
     ];
     footer?: [
       {
-        Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
         AddRowButton?: ComponentLike<HdsFormKeyValueInputsAddRowButtonSignature>;
+        Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
+        Error?: WithBoundArgs<
+          typeof HdsFormErrorComponent,
+          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
+        >;
       },
     ];
   };
-  Element: HdsFormFieldsetSignature['Element'];
+  Element: HTMLElement;
 }
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
-  private _id = guidFor(this);
   private _element!: HTMLElement;
   @tracked _gridTemplateColumns = '';
+
+  get id(): string {
+    return getElementId(this);
+  }
 
   get canDeleteRow(): boolean {
     return this.args.data.length > 1;
   }
 
-  @action _setUpColumn(): void {
+  @action
+  _setUpColumn(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._updateColumns();
     });
   }
 
-  @action _removeColumn(): void {
+  @action
+  _removeColumn(): void {
     // eslint-disable-next-line ember/no-runloop
     schedule('afterRender', (): void => {
       this._updateColumns();
@@ -116,7 +124,8 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  @action removeDescriptor(element: HTMLElement): void {
+  @action
+  removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
@@ -174,5 +183,5 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     });
 
     this._gridTemplateColumns = newGridTemplateColumns;
-  }
+  };
 }

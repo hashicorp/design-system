@@ -26,8 +26,7 @@ module(
             <H.HelperText>Helper text</H.HelperText>
             <H.Generic>
               <span id="header-generic">Generic content</span>
-              </H.Generic>
-            <H.Error>Error text</H.Error>
+            </H.Generic>
           </:header>
 
           <:row as |R|>
@@ -48,6 +47,7 @@ module(
             <F.Alert as |A|>
               <A.Description>Alert content</A.Description>
             </F.Alert>
+            <F.Error>Error text</F.Error>
           </:footer>
         </Hds::Form::KeyValueInputs>
       `);
@@ -68,7 +68,6 @@ module(
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__header')
         .exists();
-      // await pauseTest(); // Wait for the header to render
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
@@ -83,11 +82,6 @@ module(
       assert
         .dom('#test-form-key-value-inputs #header-generic')
         .hasText('Generic content');
-      assert
-        .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
-        )
-        .hasText('Error text');
     });
 
     // ROW
@@ -160,6 +154,10 @@ module(
         .dom('#test-form-key-value-inputs .hds-alert')
         .hasClass('hds-alert--type-compact')
         .hasClass('hds-alert--color-neutral');
+
+      assert
+        .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__error')
+        .hasText('Error text');
     });
 
     // STYLES
@@ -177,12 +175,12 @@ module(
 
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__yield-container',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
         )
         .hasStyle({ '--hds-key-value-pair-column-index': '2' });
     });
 
-    test('it should set the appropriate grid-column-template for the rows with custom widths', async function (assert) {
+    test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
       await this.createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
@@ -192,7 +190,7 @@ module(
         .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
     });
 
-    test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
+    test('it should set the appropriate grid-column-template for the rows with custom widths', async function (assert) {
       this.data = [{ value: 'Test value' }, { value: 'Another value' }];
       await render(hbs`
         <Hds::Form::KeyValueInputs
@@ -223,6 +221,28 @@ module(
         .hasStyle({ '--hds-key-value-pair-columns': '200px auto min-content' });
     });
 
+    test('it should update the appropriate grid-column-template for the rows without custom widths', async function (assert) {
+      await this.createKeyValueInputs({
+        data: [{ value: 'Test value' }],
+      });
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
+
+      this.set('data', [{ value: 'Test value' }, { value: 'Another value' }]);
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
+
+      this.set('data', [{ value: 'Test value' }]);
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
+    });
+
     // ACCESSIBILITY
 
     test('it should match the label with the input using `for` and `id` attributes', async function (assert) {
@@ -242,7 +262,7 @@ module(
       ).id;
 
       const errorId = document.querySelector(
-        '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
+        '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
       ).id;
 
       assert

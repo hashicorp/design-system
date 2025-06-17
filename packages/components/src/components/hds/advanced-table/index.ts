@@ -13,6 +13,7 @@ import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
+
 import {
   HdsAdvancedTableDensityValues,
   HdsAdvancedTableThSortOrderValues,
@@ -157,6 +158,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
+
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _tableModel!: HdsAdvancedTableTableModel;
@@ -392,6 +394,10 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
     return classes.join(' ');
   }
+
+  private _didUpdateModel = modifier(() => {
+    this._tableModel.updateModel(this.args.model);
+  });
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
