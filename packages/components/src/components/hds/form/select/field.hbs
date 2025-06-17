@@ -16,10 +16,10 @@
     <Hds::Form::Select::Base
       @isInvalid={{@isInvalid}}
       @width={{@width}}
-      @id={{F.id}}
-      @ariaDescribedBy={{F.ariaDescribedBy}}
       required={{@isRequired}}
       ...attributes
+      id={{F.id}}
+      aria-describedby={{F.ariaDescribedBy}}
       as |S|
     >
       {{yield (hash Options=S.Options)}}

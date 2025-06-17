@@ -14,10 +14,10 @@
   {{yield (hash Label=F.Label HelperText=F.HelperText Error=F.Error)}}
   <F.Control>
     <Hds::Form::FileInput::Base
-      @id={{F.id}}
-      @ariaDescribedBy={{F.ariaDescribedBy}}
       required={{@isRequired}}
       ...attributes
+      id={{F.id}}
+      aria-describedby={{F.ariaDescribedBy}}
     />
   </F.Control>
 </Hds::Form::Field>

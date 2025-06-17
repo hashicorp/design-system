@@ -23,10 +23,10 @@
         @isInvalid={{@isInvalid}}
         @isLoading={{@isLoading}}
         @hasVisibilityToggle={{this.showVisibilityToggle}}
-        @id={{F.id}}
-        @ariaDescribedBy={{F.ariaDescribedBy}}
         required={{@isRequired}}
         ...attributes
+        id={{F.id}}
+        aria-describedby={{F.ariaDescribedBy}}
       />
       {{#if this.showVisibilityToggle}}
         <Hds::Form::VisibilityToggle
