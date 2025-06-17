@@ -53,6 +53,7 @@
     // When there are columns, stack them vertically
     @include hds-breakpoint-below("md") {
       flex-direction: column;
+      // per design specs: when the fields are stacked they should match the rest of the spacing and have 24px so that there isn't a weird visual rhythm
       gap: 24px;
       align-items: start;
     }
