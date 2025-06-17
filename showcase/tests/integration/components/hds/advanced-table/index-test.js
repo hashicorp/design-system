@@ -561,9 +561,9 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
   id='data-advanced-test-table'
   @model={{this.model}}
   @columns={{array
-    (hash key='artist' label='components.table.headers.artist')
-    (hash key='album' label='components.table.headers.album')
-    (hash key='year' label='components.table.headers.year')
+    (hash key='artist' label='cp.table.headers.artist')
+    (hash key='album' label='cp.table.headers.album')
+    (hash key='year' label='cp.table.headers.year')
   }}
 >
   <:body as |B|>

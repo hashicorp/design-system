@@ -99,7 +99,7 @@ export default class PaginationController extends Controller {
   // =============================
 
   get demoRouteName() {
-    // eg. 'components.pagination';
+    // eg. 'cp.pagination';
     return this.router.currentRouteName;
   }
 

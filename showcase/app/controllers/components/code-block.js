@@ -57,7 +57,7 @@ func main2() {
   }
 
   routeDidChange() {
-    if (this.router.currentRoute.name === 'components.code-block') {
+    if (this.router.currentRoute.name === 'cp.code-block') {
       // eslint-disable-next-line ember/no-runloop
       scheduleOnce('afterRender', this, replaceMockCopyStatus);
     }
