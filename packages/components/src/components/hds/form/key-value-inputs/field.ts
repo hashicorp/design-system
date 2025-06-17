@@ -6,8 +6,6 @@
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
 import { action } from '@ember/object';
-import { registerDestructor } from '@ember/destroyable';
-import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
 
 import {
@@ -99,21 +97,17 @@ export interface HdsFormKeyValueInputsFieldSignature {
 export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
   private _element!: HTMLDivElement;
 
-  constructor(owner: Owner, args: HdsFormKeyValueInputsFieldSignature['Args']) {
-    super(owner, args);
-
-    registerDestructor(this, (): void => {
-      if (this.args.onRemove) {
-        this.args.onRemove(this._element);
-      }
-    });
-  }
-
   private _onInsert = modifier((element: HTMLDivElement) => {
     this._element = element;
     if (this.args.onInsert) {
       this.args.onInsert(element);
     }
+
+    return () => {
+      if (this.args.onRemove) {
+        this.args.onRemove(element);
+      }
+    };
   });
 
   get id(): string {
