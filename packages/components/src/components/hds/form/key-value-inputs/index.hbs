@@ -37,18 +37,6 @@
       to="header"
     }}
     {{yield (hash Generic=(component "hds/yield")) to="header"}}
-    {{yield
-      (hash
-        Error=(component
-          "hds/form/error"
-          controlId=this._id
-          onInsert=this.appendDescriptor
-          onRemove=this.removeDescriptor
-          contextualClass="hds-form-key-value-inputs__error"
-        )
-      )
-      to="header"
-    }}
   </div>
 
   {{#if (eq @data.length 0)}}
@@ -104,11 +92,25 @@
     </div>
   {{/each}}
 
-  <div class="hds-form-key-value-inputs__footer">
+  <div>
+    <div class="hds-form-key-value-inputs__footer">
+      {{yield
+        (hash
+          Alert=(component "hds/alert" color="neutral" type="compact")
+          AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
+        )
+        to="footer"
+      }}
+    </div>
     {{yield
       (hash
-        Alert=(component "hds/alert" color="neutral" type="compact")
-        AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
+        Error=(component
+          "hds/form/error"
+          controlId=this._id
+          onInsert=this.appendDescriptor
+          onRemove=this.removeDescriptor
+          contextualClass="hds-form-key-value-inputs__error"
+        )
       )
       to="footer"
     }}

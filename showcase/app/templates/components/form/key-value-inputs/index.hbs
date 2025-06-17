@@ -603,7 +603,7 @@
     </:row>
   </Hds::Form::KeyValueInputs>
 
-  <Shw::Text::H2>With and without helper text</Shw::Text::H2>
+  <Shw::Text::H3>With and without helper text</Shw::Text::H3>
 
   <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
     <:header as |H|>
@@ -628,7 +628,7 @@
     </:row>
   </Hds::Form::KeyValueInputs>
 
-  <Shw::Text::H2>With custom input widths</Shw::Text::H2>
+  <Shw::Text::H3>With custom input widths</Shw::Text::H3>
 
   <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
     <:header as |H|>
@@ -653,6 +653,119 @@
       </R.Field>
       <R.DeleteRowButton />
     </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>KeyValueInputs Footer content</Shw::Text::H2>
+
+  <Shw::Text::H3>With add button</Shw::Text::H3>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+    <:footer as |F|>
+      <F.AddRowButton />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With alert</Shw::Text::H3>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+    <:footer as |F|>
+      <F.Alert as |A|>
+        <A.Description>
+          This is sample footer content. It can contain an alert, a button, or any other content.
+        </A.Description>
+      </F.Alert>
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With alert and add button</Shw::Text::H3>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+    <:footer as |F|>
+      <F.AddRowButton />
+      <F.Alert as |A|>
+        <A.Description>
+          This is sample footer content. It can contain an alert, a button, or any other content.
+        </A.Description>
+      </F.Alert>
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With add button and error</Shw::Text::H3>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+    <:footer as |F|>
+      <F.AddRowButton />
+      <F.Error>
+        This is a sample error message.
+      </F.Error>
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With alert and error</Shw::Text::H3>
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+    <:footer as |F|>
+      <F.Alert as |A|>
+        <A.Description>
+          This is sample footer content. It can contain an alert, a button, or any other content.
+        </A.Description>
+      </F.Alert>
+      <F.Error>
+        This is a sample error message.
+      </F.Error>
+    </:footer>
   </Hds::Form::KeyValueInputs>
 
   <Shw::Divider />
