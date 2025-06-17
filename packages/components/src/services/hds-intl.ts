@@ -6,7 +6,7 @@ import { assert } from '@ember/debug';
 import type { IntlService } from 'ember-intl';
 import type { FormatMessageParameters } from 'ember-intl/-private/formatjs';
 
-type HdsIntlTOptions = FormatMessageParameters[1] & {
+export type HdsIntlTOptions = FormatMessageParameters[1] & {
   default: string;
   htmlSafe?: boolean | undefined;
   locale?: string | undefined;
@@ -30,7 +30,7 @@ export default class HdsIntlService extends Service {
     const { default: defaultString, ...restOptions } = options;
 
     assert(
-      'Hds::T helper requires a key as the first positional argument',
+      'HdsIntlService requires a key as the first positional argument',
       typeof key === 'string' && isPresent(key)
     );
 

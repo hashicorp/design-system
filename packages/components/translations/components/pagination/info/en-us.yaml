@@ -1,2 +1,1 @@
-range: "{start}–{end}"
-range-of-total: "{start}–{end} of {total}"
+info: "{start}–{end}{hasTotal, select, true{ of {total}} other{}}"

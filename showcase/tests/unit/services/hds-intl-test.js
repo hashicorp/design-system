@@ -5,6 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupTest } from 'showcase/tests/helpers';
+import { setupOnerror } from '@ember/test-helpers';
 
 const defaultString = 'Default text';
 
@@ -13,17 +14,17 @@ module('Unit | Service | hds-intl', function (hooks) {
 
   hooks.beforeEach(function () {
     this.intl = this.owner.lookup('service:intl');
-    this.service = this.owner.lookup('service:hds-intl');
+    this.hdsIntl = this.owner.lookup('service:hds-intl');
     this.defaultOptions = { default: defaultString };
   });
 
   test('it exists', function (assert) {
-    assert.ok(this.service);
+    assert.ok(this.hdsIntl);
   });
 
   test('it returns the default string if the key does not exist in translations', function (assert) {
     const testKey = 'key.that.does.not.exist';
-    const result = this.service.t(testKey, this.defaultOptions);
+    const result = this.hdsIntl.t(testKey, this.defaultOptions);
 
     assert.strictEqual(
       result,
@@ -33,18 +34,13 @@ module('Unit | Service | hds-intl', function (hooks) {
   });
 
   test('it returns the translated string if key exists in translations', function (assert) {
+    const greeting = 'Hello from HDS Intl!';
     const testKey = 'greeting';
-    this.intl.addTranslations('en-us', {
-      greeting: 'Hello from Real Intl!',
-    });
+    this.intl.addTranslations('en-us', { greeting });
 
-    const result = this.service.t(testKey, this.defaultOptions);
+    const result = this.hdsIntl.t(testKey, this.defaultOptions);
 
-    assert.strictEqual(
-      result,
-      'Hello from Real Intl!',
-      'returns translated string',
-    );
+    assert.strictEqual(result, greeting, 'returns translated string');
   });
 
   test('it passes options to intl.t() when translating', function (assert) {
@@ -59,7 +55,7 @@ module('Unit | Service | hds-intl', function (hooks) {
       age: 30,
     };
 
-    const result = this.service.t(testKey, options);
+    const result = this.hdsIntl.t(testKey, options);
 
     assert.strictEqual(
       result,
@@ -84,12 +80,26 @@ module('Unit | Service | hds-intl', function (hooks) {
       locale: 'es-es',
     };
 
-    const result = this.service.t(testKey, options);
+    const result = this.hdsIntl.t(testKey, options);
 
     assert.strictEqual(
       result,
       '¡Hola!',
       'uses specified locale for translation',
     );
+  });
+
+  test('it throws an error if the key is not a non-empty string', function (assert) {
+    const errorMessage =
+      'HdsIntlService requires a key as the first positional argument';
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+
+    this.hdsIntl.t(undefined, {});
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    }, 'throws error for undefined key');
   });
 });
