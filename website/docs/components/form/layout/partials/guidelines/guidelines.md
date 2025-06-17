@@ -46,7 +46,7 @@ Place inputs in rows to save space or create columns within the form.
 
 !!!
 
-Visit the [Form Patterns][/patterns/form-patterns] guidelines for additional details on spacing in forms.
+Visit the [Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
 
 ## Form Header
 
