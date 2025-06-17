@@ -181,7 +181,7 @@ module(
         .hasStyle({ '--hds-key-value-pair-column-index': '2' });
     });
 
-    test('it should set the appropriate grid-column-template for the rows with custom widths', async function (assert) {
+    test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
       await this.createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
@@ -191,7 +191,7 @@ module(
         .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
     });
 
-    test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {
+    test('it should set the appropriate grid-column-template for the rows with custom widths', async function (assert) {
       this.data = [{ value: 'Test value' }, { value: 'Another value' }];
       await render(hbs`
         <Hds::Form::KeyValueInputs
@@ -220,6 +220,28 @@ module(
       assert
         .dom('#test-form-key-value-inputs')
         .hasStyle({ '--hds-key-value-pair-columns': '200px auto min-content' });
+    });
+
+    test('it should update the appropriate grid-column-template for the rows without custom widths', async function (assert) {
+      await this.createKeyValueInputs({
+        data: [{ value: 'Test value' }],
+      });
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
+
+      this.set('data', [{ value: 'Test value' }, { value: 'Another value' }]);
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
+
+      this.set('data', [{ value: 'Test value' }]);
+
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
     });
 
     // ACCESSIBILITY
