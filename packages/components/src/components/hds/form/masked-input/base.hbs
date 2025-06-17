@@ -9,18 +9,18 @@
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       @height={{@height}}
-      ...attributes
       id={{this.id}}
       aria-describedby={{@ariaDescribedBy}}
+      ...attributes
     />
   {{else}}
     <Hds::Form::TextInput::Base
       class="hds-form-masked-input__control"
       @value={{@value}}
       @isInvalid={{@isInvalid}}
-      ...attributes
       id={{this.id}}
       aria-describedby={{@ariaDescribedBy}}
+      ...attributes
     />
   {{/if}}
   <Hds::Form::VisibilityToggle
