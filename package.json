@@ -29,7 +29,6 @@
       "ember-composable-helpers": "npm:@nullvoxpopuli/ember-composable-helpers@^5.2.11"
     },
     "patchedDependencies": {
-      "@embroider/core": "patches/@embroider__core.patch",
       "broccoli-asset-rewrite": "patches/broccoli-asset-rewrite.patch"
     }
   }
