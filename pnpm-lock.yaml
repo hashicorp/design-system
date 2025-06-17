@@ -18961,16 +18961,8 @@ snapshots:
   ember-math-helpers@5.0.0(@babel/core@7.27.1)(ember-source@6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)):
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      ember-source: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
-    transitivePeerDependencies:
-      - '@babel/core'
-      - supports-color
-
-  ember-math-helpers@5.0.0(@babel/core@7.27.1)(ember-source@5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)):
-    dependencies:
-      '@embroider/addon-shim': 1.10.0
       decorator-transforms: 2.3.0(@babel/core@7.27.1)
-      ember-source: 5.12.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(@glint/template@1.5.2)(rsvp@4.8.5)(webpack@5.99.8)
+      ember-source: 6.4.0(@glimmer/component@1.1.2(@babel/core@7.27.1))(rsvp@4.8.5)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
