@@ -81,18 +81,11 @@
     </div>
   {{/each}}
 
-  <div>
-    <div class="hds-form-key-value-inputs__footer">
-      {{yield
-        (hash
-          Alert=(component "hds/alert" color="neutral" type="compact")
-          AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
-        )
-        to="footer"
-      }}
-    </div>
+  <div class="hds-form-key-value-inputs__footer">
     {{yield
       (hash
+        Alert=(component "hds/alert" color="neutral" type="compact")
+        AddRowButton=(component "hds/form/key-value-inputs/add-row-button")
         Error=(component
           "hds/form/error"
           contextualClass="hds-form-key-value-inputs__error"
