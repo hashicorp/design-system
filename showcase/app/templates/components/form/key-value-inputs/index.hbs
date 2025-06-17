@@ -328,6 +328,27 @@
     </:row>
   </Hds::Form::KeyValueInputs>
 
+  <Shw::Text::H3>With very long content</Shw::Text::H3>
+
+  <div {{style max-width="600px"}}>
+    <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+      <:header as |H|>
+        <H.Legend>Parent with max-width set: This is the label text that should go on multiple linesThis is the label
+          text that should go on multiple linesThis is the label text that should go on multiple lines</H.Legend>
+        <H.HelperText>This is the helper text that should go on multiple lines This is the helper text that should go on
+          multiple lines
+        </H.HelperText>
+      </:header>
+      <:row as |R|>
+        <R.Field as |F|>
+          <F.Label>Text Input</F.Label>
+          <F.TextInput />
+        </R.Field>
+        <R.DeleteRowButton />
+      </:row>
+    </Hds::Form::KeyValueInputs>
+  </div>
+
   <Shw::Divider />
 
   <Shw::Text::H2>KeyValueInputs::Field</Shw::Text::H2>
@@ -650,6 +671,76 @@
         <F.Label>Masked Input (max-content)</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.MaskedInput @value="Sample text" />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With very long text</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Custom input widths and very long content</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Textarea</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea
+          @value="This is the first line of text. This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Masked Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With very long text and custom input widths</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Custom input widths and very long content</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @width="100px" as |F|>
+        <F.Label>Text Input (100px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field @width="400px" as |F|>
+        <F.Label>Textarea (400px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea
+          @value="This is the first line of text. This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field @width="max-content" as |F|>
+        <F.Label>Masked Input (max-content)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
       </R.Field>
       <R.DeleteRowButton />
     </:row>
