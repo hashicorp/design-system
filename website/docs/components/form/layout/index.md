@@ -1,7 +1,7 @@
 ---
 title: Layout
-description: The Form layout components are used as structural components to organize and space the structure and spacing between elements in forms.
-caption: The Form layout components are used as structural components to organize and space the structure and spacing between elements in forms.
+description: Form layout components are used to create consistent structure and spacing for form elements.
+caption: Components used to create consistent structure and spacing for form elements.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/branch/azcdumnXvCyGfSVfEVZhGH/HDS-Components-v2.0?node-id=83107-2070&p=f&t=CeumEO6vBV6h0IuD-0

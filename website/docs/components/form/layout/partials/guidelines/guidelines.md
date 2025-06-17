@@ -50,9 +50,9 @@ Visit the [Form Patterns][/patterns/form-patterns] guidelines for additional det
 
 ## Form Header
 
-An optional header is available within **the Form component**. The Header has two variants, one for the form-level header and one for section-level headers. Each variant contains styled and spaced text elements to serve as a starting point for consistent hierarchy and structure. All text elements have a gap of 8px applied.
+An optional header is available within the **Form component**. The Header has two variants, one for the form-level header and one for section-level headers. Each variant contains styled text for a Title and Description to serve as a starting point. All Header child elements have a gap of 8px applied between them.
 
-The title and description can be customized, and a space for custom content can be edited or removed as needed.
+The Title and Description content can be edited as needed. The space for custom content can also be edited or removed as needed.
 
 ![Form Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-header-anatomy.png)
 
@@ -76,11 +76,12 @@ The title and description can be customized, and a space for custom content can 
 
 ![Section Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-section-anatomy.png)
 
-### Section Field Groups
+### Section Field Group
 
-The Section Field Group is a way to organize closely related inputs, setting tighter spacing to visually reinforce their relation, e.g., address inputs.
+The Section Field Group is used to lay out closely related form inputs in a single row and also sets tighter spacing between them to reinforce their relationship. (16px spacing vs. 24px)
 
-Section Field Group contents can be arranged horizontally or vertically and are spaced 16px apart, rather than the 24px between other inputs.
+In narrower screens, such as mobile devices, form inputs contained in a Section Field Group automatically “stack.”
+
 
 ![Section Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
 
@@ -98,7 +99,7 @@ A 32px gap is included above and below to divide the Separators and to avoid the
 
 !!! Dont
 
-Don’t use Separators at the end of the last section between the fields and the button set or actions.
+Don’t use a Separator between the last Section and the Button Set or form actions at the bottom of the Form content.
 
 ![Separator being uses after all the content in a form](/assets/components/form/layout/divider-spacing-dont.png)
 
@@ -106,7 +107,7 @@ Don’t use Separators at the end of the last section between the fields and the
 
 ## Button Set
 
-Buttons are necessary for communicating how the form details can be saved or submitted. We recommend using a [Button Set](/patterns/form-patterns#button-sets) so the user can Save/Submit or Cancel the form.
+Buttons are necessary saving or submitting form information. For consistent spacing and layout, we recommend using a [Button Set](/patterns/form-patterns#button-sets) to contain the buttons/actions to Save/Submit or Cancel the form.
 
 ## Width and resizing behavior
 
@@ -118,7 +119,7 @@ Where more control is needed, you can override the max-width property with any v
 
 ### Full-width
 
-Sections can also be set to full-width, if needed. Any component requiring increased width for usability, e.g., Radio Card Group and Key Value Input, should be moved into a new Section to allow for full width, even if they would otherwise be grouped with associated fields.
+Individual Sections can be set to full-width, if needed. Any component requiring increased width for usability, e.g., a Radio Card Group or Key Value Input, should be moved into a separate Section to allow for full width layout, even if they would otherwise be grouped with other associated fields.
 
 ![Full width Form content in comparison to constricted width content](/assets/components/form/layout/form-mixed-width-example.png)
 
