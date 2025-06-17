@@ -157,9 +157,7 @@ module(
         .hasClass('hds-alert--color-neutral');
 
       assert
-        .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
-        )
+        .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__error')
         .hasText('Error text');
     });
 
