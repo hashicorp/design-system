@@ -5,8 +5,6 @@
 
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
-import { registerDestructor } from '@ember/destroyable';
-import type Owner from '@ember/owner';
 
 export interface HdsFormKeyValueInputsGenericSignature {
   Args: {
@@ -23,23 +21,16 @@ export interface HdsFormKeyValueInputsGenericSignature {
 export default class HdsFormKeyValueInputsGeneric extends Component<HdsFormKeyValueInputsGenericSignature> {
   private _element!: HTMLDivElement;
 
-  constructor(
-    owner: Owner,
-    args: HdsFormKeyValueInputsGenericSignature['Args']
-  ) {
-    super(owner, args);
-
-    registerDestructor(this, (): void => {
-      if (this.args.onRemove) {
-        this.args.onRemove(this._element);
-      }
-    });
-  }
-
   private _onInsert = modifier((element: HTMLDivElement) => {
     this._element = element;
     if (this.args.onInsert) {
       this.args.onInsert(element);
     }
+
+    return () => {
+      if (this.args.onRemove) {
+        this.args.onRemove(element);
+      }
+    };
   });
 }
