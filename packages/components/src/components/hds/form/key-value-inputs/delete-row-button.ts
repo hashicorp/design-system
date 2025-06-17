@@ -9,10 +9,10 @@ import type { HdsButtonSignature } from '../../button/index.ts';
 
 export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
   Args: {
-    text?: HdsButtonSignature['Args']['text'];
-    rowIndex: number;
-    rowData: unknown;
     onClick?: (rowData: unknown) => void;
+    rowData: unknown;
+    rowIndex: number;
+    text?: HdsButtonSignature['Args']['text'];
   };
   Element: HdsButtonSignature['Element'];
 }
