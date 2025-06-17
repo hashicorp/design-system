@@ -45,6 +45,7 @@ function setupRenderingTest(hooks: NestedHooks, options?: SetupTestOptions) {
 function setupTest(hooks: NestedHooks, options?: SetupTestOptions) {
   upstreamSetupTest(hooks, options);
 
+  setupIntl(hooks, 'en-us');
   // Additional setup for unit tests can be done here.
 }
 
