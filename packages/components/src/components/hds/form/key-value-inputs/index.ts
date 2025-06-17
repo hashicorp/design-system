@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import { tracked } from '@glimmer/tracking';
-import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
 import { schedule } from '@ember/runloop';
 import { modifier } from 'ember-modifier';
@@ -16,6 +15,7 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsAlertComponent from '../../alert/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
@@ -90,9 +90,12 @@ export interface HdsFormKeyValueInputsSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
-  private _id = guidFor(this);
   private _element!: HTMLElement;
   @tracked _gridTemplateColumns = '';
+
+  get id(): string {
+    return getElementId(this);
+  }
 
   get canDeleteRow(): boolean {
     return this.args.data.length > 1;
