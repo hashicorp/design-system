@@ -133,7 +133,8 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     registerAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  @action removeDescriptor(element: HTMLElement): void {
+  @action
+  removeDescriptor(element: HTMLElement): void {
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 }
