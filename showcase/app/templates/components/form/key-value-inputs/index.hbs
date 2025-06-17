@@ -14,7 +14,7 @@
     behavior.
   </Shw::Text::Body>
 
-  <Hds::Form::KeyValueInputs @data={{this.functionalExampleData}} @columns={{2}}>
+  <Hds::Form::KeyValueInputs @data={{this.functionalExampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -89,6 +89,7 @@
         <F.Label>Value</F.Label>
         <F.TextInput @value={{R.rowData.value.text}} />
       </R.Field>
+      <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
       <R.DeleteRowButton />
     </:row>
 
@@ -263,6 +264,37 @@
   <Shw::Divider />
 
   <Shw::Text::H2>KeyValueInputs Header content</Shw::Text::H2>
+
+  <Shw::Text::H3>Default</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With helper text</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
 
   <Shw::Text::H3>Required</Shw::Text::H3>
 
@@ -658,6 +690,61 @@
 <Shw::Divider />
 
 <section>
+  <Shw::Text::H2>Demos</Shw::Text::H2>
+
+  <Shw::Text::H3>Key input selection changes value input type</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
+    <:header as |H|>
+      <H.Legend>Sample label</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
+          <option selected={{if (eq R.rowData.key "tag") true}}>Tag</option>
+          <option selected={{if (eq R.rowData.key "other") true}}>Other</option>
+        </F.Select>
+      </R.Field>
+
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        {{#if (eq R.rowData.key "tag")}}
+          <F.SuperSelectSingle
+            @onChange={{fn (mut @model.SELECTED_OPTION)}}
+            @options={{@model.OPTIONS}}
+            @selected={{@model.SELECTED_OPTION}}
+            @ariaLabel="Label"
+            as |option|
+          >
+            {{option}}
+          </F.SuperSelectSingle>
+        {{else if (eq R.rowData.key "other")}}
+          <F.Textarea @value={{R.rowData.value.text}} />
+        {{/if}}
+      </R.Field>
+      <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <div {{style margin-top="2rem"}}>
+    <Shw::Frame
+      @id="demo-key-value-inputs-within-form"
+      @src="/components/form/key-value-inputs/frameless/demo-in-form"
+      @height="300"
+      @label="With other responsive components"
+    />
+  </div>
+</section>
+
+<Shw::Divider />
+
+<section>
   <Shw::Text::H2>Responsiveness</Shw::Text::H2>
 
   <Shw::Frame
@@ -673,12 +760,5 @@
     @width="400"
     @height="650"
     @label="Small viewport (< 480px)"
-  />
-
-  <Shw::Frame
-    @id="demo-key-value-inputs-within-form"
-    @src="/components/form/key-value-inputs/frameless/demo-in-form"
-    @height="300"
-    @label="Within a larger form"
   />
 </section>
