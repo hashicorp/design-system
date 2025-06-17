@@ -282,8 +282,8 @@
       </Hds::Form>
     </SF.Item>
 
-    <SF.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-      <Hds::Form class="shw-component-form-layout-custom-max-width" as |FORM|>
+    <SF.Item @label="inherited sectionMaxWidth=32em set on Form parent">
+      <Hds::Form @sectionMaxWidth="32em" as |FORM|>
         <FORM.Header>
           <Shw::Placeholder @height="2.4em" @text="HeaderTitle" />
           <Shw::Placeholder @height="2.4em" @text="HeaderDescription" />
@@ -377,8 +377,8 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-        <Hds::Form class="shw-component-form-layout-custom-max-width" as |FORM|>
+      <SG.Item @label="inherited sectionMaxWidth=32em set on Form parent">
+        <Hds::Form @sectionMaxWidth="32em" as |FORM|>
           <FORM.Section>
             <FORM.SectionHeader>
               <Shw::Placeholder @height="2.4em" @text="SectionHeaderTitle" />
@@ -673,8 +673,8 @@
       </Hds::Form>
     </SG.Item>
 
-    <SG.Item @label="inherited MaxWidth of 32em using custom CSS class on Form">
-      <Hds::Form class="shw-component-form-layout-custom-max-width" {{style padding="16px 0"}} as |FORM|>
+    <SG.Item @label="inherited sectionMaxWidth=32em set on Form parent">
+      <Hds::Form @sectionMaxWidth="32em" {{style padding="16px 0"}} as |FORM|>
         <FORM.Separator />
       </Hds::Form>
     </SG.Item>

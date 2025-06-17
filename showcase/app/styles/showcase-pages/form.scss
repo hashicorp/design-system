@@ -59,11 +59,12 @@ body.components-form {
     }
   }
 
-  .shw-component-form-layout-custom-max-width {
-    // we use Cloud UI as an example
-    // see: https://github.com/hashicorp/cloud-ui/blob/main/addons/core/package/src/styles/core/_overrides.scss#L69-L76
-    --hds-form-section-max-width: 32em;
-  }
+  // Replaced by @sectionMaxWidth prop on Form component
+  // .shw-component-form-layout-custom-max-width {
+  //   // we use Cloud UI as an example
+  //   // see: https://github.com/hashicorp/cloud-ui/blob/main/addons/core/package/src/styles/core/_overrides.scss#L69-L76
+  //   --hds-form-section-max-width: 32em;
+  // }
 
   .shw-component-form-layout-examples-wrapper {
     > .shw-label {

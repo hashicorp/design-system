@@ -27,6 +27,7 @@ export const AVAILABLE_TAGS: string[] = Object.values(HdsFormTagValues);
 export interface HdsFormSignature {
   Args: {
     tag?: HdsFormTags;
+    sectionMaxWidth?: string;
   };
   Blocks: {
     default: [
@@ -58,5 +59,15 @@ export default class HdsForm extends Component<HdsFormSignature> {
       `@tag for "Hds::Form" must be one of the following: ${AVAILABLE_TAGS.join(', ')}; received: ${this.tag}`,
       AVAILABLE_TAGS.includes(this.tag)
     );
+  }
+
+  get sectionMaxWidthStyle(): Record<string, string> {
+    const sectionMaxWidthStyle: { [key: string]: string } = {};
+
+    if (this.args.sectionMaxWidth) {
+      sectionMaxWidthStyle['--hds-form-section-max-width'] =
+        this.args.sectionMaxWidth;
+    }
+    return sectionMaxWidthStyle;
   }
 }

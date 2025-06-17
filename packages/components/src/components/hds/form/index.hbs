@@ -4,7 +4,7 @@
 }}
 
 {{#if (eq this.tag "form")}}
-  <form class="hds-form" ...attributes>
+  <form class="hds-form" {{style this.sectionMaxWidthStyle}} ...attributes>
     {{yield
       (hash
         Header=(component "hds/form/header")
@@ -21,7 +21,7 @@
     }}
   </form>
 {{else}}
-  <div class="hds-form" ...attributes>
+  <div class="hds-form" {{style this.sectionMaxWidthStyle}} ...attributes>
     {{yield
       (hash
         Header=(component "hds/form/header")
