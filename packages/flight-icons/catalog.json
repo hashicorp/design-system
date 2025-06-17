@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-05-29T21:34:58.612Z",
+  "lastRunTimeISO": "2025-06-17T18:52:27.403Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2648,9 +2648,9 @@
     },
     {
       "id": "7665:175",
-      "fileName": "ping-identity -24",
+      "fileName": "ping-identity-24",
       "iconName": "ping-identity ",
-      "description": "activity, pulse, health",
+      "description": "ping, identity",
       "category": "Services",
       "size": "24",
       "width": 24,
@@ -2658,9 +2658,9 @@
     },
     {
       "id": "7665:177",
-      "fileName": "ping-identity -16",
+      "fileName": "ping-identity-16",
       "iconName": "ping-identity ",
-      "description": "activity, pulse, health",
+      "description": "ping, identity",
       "category": "Services",
       "size": "16",
       "width": 16,
@@ -2670,7 +2670,7 @@
       "id": "7665:182",
       "fileName": "ping-identity-color-24",
       "iconName": "ping-identity-color",
-      "description": "activity, pulse, health",
+      "description": "ping, identity",
       "category": "Services",
       "size": "24",
       "width": 24,
@@ -2680,7 +2680,7 @@
       "id": "7665:184",
       "fileName": "ping-identity-color-16",
       "iconName": "ping-identity-color",
-      "description": "activity, pulse, health",
+      "description": "ping, identity",
       "category": "Services",
       "size": "16",
       "width": 16,
