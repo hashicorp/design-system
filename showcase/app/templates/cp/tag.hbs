@@ -19,10 +19,10 @@
       <Hds::Tag @text="My text tag" />
     </SF.Item>
     <SF.Item>
-      <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
+      <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="cp.tag" />
     </SF.Item>
     <SF.Item>
-      <Hds::Tag @text="My link tag" @route="components.tag" />
+      <Hds::Tag @text="My link tag" @route="cp.tag" />
     </SF.Item>
   </Shw::Flex>
 
@@ -43,11 +43,11 @@
       <Hds::Tag
         @text="This is a very long text that should go on multiple lines"
         @onDismiss={{this.noop}}
-        @route="components.tag"
+        @route="cp.tag"
       />
     </SF.Item>
     <SF.Item>
-      <Hds::Tag @text="This is a very long text that should go on multiple lines" @route="components.tag" />
+      <Hds::Tag @text="This is a very long text that should go on multiple lines" @route="cp.tag" />
     </SF.Item>
   </Shw::Flex>
 
@@ -78,7 +78,7 @@
                 @color={{color}}
                 @text="My link tag"
                 @onDismiss={{this.noop}}
-                @route="components.tag"
+                @route="cp.tag"
                 mock-state-value={{state}}
                 mock-state-selector="button"
               />
@@ -88,7 +88,7 @@
                 @color={{color}}
                 @text="My link tag"
                 @onDismiss={{this.noop}}
-                @route="components.tag"
+                @route="cp.tag"
                 mock-state-value={{state}}
                 mock-state-selector="a"
               />
@@ -97,7 +97,7 @@
               <Hds::Tag
                 @color={{color}}
                 @text="My link tag"
-                @route="components.tag"
+                @route="cp.tag"
                 mock-state-value={{state}}
                 mock-state-selector="a"
               />
@@ -156,7 +156,7 @@
     </SF.Item>
     <SF.Item>
       <div class="shw-component-tag-inheritance-font-style">
-        <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="components.tag" />
+        <Hds::Tag @text="My link tag" @onDismiss={{this.noop}} @route="cp.tag" />
       </div>
     </SF.Item>
     <SF.Item>
@@ -169,7 +169,7 @@
         <Hds::Tag
           @text="This is a very long text that should go on multiple lines"
           @onDismiss={{this.noop}}
-          @route="components.tag"
+          @route="cp.tag"
         />
       </div>
     </SF.Item>
@@ -187,7 +187,7 @@
       <Hds::Tag
         @text="My link tag"
         @onDismiss={{this.noop}}
-        @route="components.tag"
+        @route="cp.tag"
         class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
       />
     </SF.Item>
@@ -202,7 +202,7 @@
       <Hds::Tag
         @text="This is a very long text that should go on multiple lines"
         @onDismiss={{this.noop}}
-        @route="components.tag"
+        @route="cp.tag"
         class="shw-component-tag-inheritance-font-style shw-component-tag-inheritance-background-color"
       />
     </SF.Item>
