@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 
 const DEFAULT_DATA = [
-   {
+  {
     id: 1,
     key: {
       text: 'enterprise',
@@ -45,27 +45,28 @@ const DYNAMIC_INPUT_EXAMPLE_DATA = [
     value: {
       inputType: 'textarea',
       text: 'This is a dynamic input',
-    }
-  }, {
+    },
+  },
+  {
     id: 2,
     key: 'tag',
     value: {
       inputType: 'select',
-    }
+    },
   },
-   {
+  {
     id: 3,
     key: 'tag',
     value: {
       inputType: 'select',
-    }
-   }
-]
+    },
+  },
+];
 
 export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
   @tracked canAddRow = this.functionalExampleData.length < 4;
-  @deepTracked functionalExampleErrors = [{value: 'Value is required.'}];
+  @deepTracked functionalExampleErrors = [{ value: 'Value is required.' }];
   @deepTracked dynamicInputExampleData = DYNAMIC_INPUT_EXAMPLE_DATA;
 
   emptyData = [];
@@ -127,8 +128,8 @@ export default class KeyValueInputsController extends Controller {
       {
         key: 'tag',
         value: {
-      inputType: 'select',
-    },
+          inputType: 'select',
+        },
         id: this.dynamicInputExampleData.length + 1,
       },
     ];
@@ -144,8 +145,11 @@ export default class KeyValueInputsController extends Controller {
     if (itemIndex !== -1) {
       const newInputType = newKey === 'tag' ? 'select' : 'textarea';
 
-      const newData = [...this.dynamicInputExampleData]
-      newData[itemIndex] = { key: newKey.toLowerCase(), value: {inputType :newInputType }};
+      const newData = [...this.dynamicInputExampleData];
+      newData[itemIndex] = {
+        key: newKey.toLowerCase(),
+        value: { inputType: newInputType },
+      };
 
       this.dynamicInputExampleData = newData;
     }
