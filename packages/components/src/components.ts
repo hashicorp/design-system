@@ -141,7 +141,7 @@ export { default as HdsFormHeaderTitle } from './components/hds/form/header/titl
 export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.ts';
 export { default as HdsFormSection } from './components/hds/form/section/index.ts';
 export { default as HdsFormSectionHeader } from './components/hds/form/section/header.ts';
-export { default as HdsFormSectionFieldGroup } from './components/hds/form/section/field-group/index.ts';
+export { default as HdsFormSectionMultiFieldGroup } from './components/hds/form/section/multi-field-group/index.ts';
 export { default as HdsFormSeparator } from './components/hds/form/separator/index.ts';
 export * from './components/hds/form/types.ts';
 

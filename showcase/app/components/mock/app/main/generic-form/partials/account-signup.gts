@@ -44,7 +44,7 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
           </FORM.SectionHeaderDescription>
         </FORM.SectionHeader>
 
-        <FORM.SectionFieldGroup>
+        <FORM.SectionMultiFieldGroup>
           <HdsFormTextInputField as |F|>
             <F.Label>First name</F.Label>
             <F.HelperText>Your given name</F.HelperText>
@@ -53,9 +53,9 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
           <HdsFormTextInputField as |F|>
             <F.Label>Last name</F.Label>
           </HdsFormTextInputField>
-        </FORM.SectionFieldGroup>
+        </FORM.SectionMultiFieldGroup>
 
-        <FORM.SectionFieldGroup as |FG|>
+        <FORM.SectionMultiFieldGroup as |FG|>
           <HdsFormTextInputField as |F|>
             <F.Label>City</F.Label>
           </HdsFormTextInputField>
@@ -78,7 +78,7 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
               <F.Label>Zip</F.Label>
             </HdsFormTextInputField>
           </FG.Item>
-        </FORM.SectionFieldGroup>
+        </FORM.SectionMultiFieldGroup>
 
         <HdsFormRadioGroup @layout="horizontal" @name="demo-radio-group" as |G|>
           <G.Legend>Favorite pet</G.Legend>

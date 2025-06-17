@@ -44,21 +44,21 @@
       </FORM.Section>
 
       <FORM.Section>
-        <FORM.SectionFieldGroup>
-          <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
-          <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 2" @background="#add8e6" />
-        </FORM.SectionFieldGroup>
+        <FORM.SectionMultiFieldGroup>
+          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 1" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 2" @background="#add8e6" />
+        </FORM.SectionMultiFieldGroup>
 
-        <FORM.SectionFieldGroup @direction="column">
-          <Shw::Placeholder @height="2.4em" @text="FieldGroup FormField 1" @background="#add8e6" />
+        <FORM.SectionMultiFieldGroup @direction="column">
+          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 1" @background="#add8e6" />
           <Shw::Placeholder
             @height="2.4em"
             @width="max-content"
             {{style padding="0 1em"}}
-            @text="FieldGroup FormField 2"
+            @text="MultiFieldGroup FormField 2"
             @background="#add8e6"
           />
-        </FORM.SectionFieldGroup>
+        </FORM.SectionMultiFieldGroup>
       </FORM.Section>
 
       <Hds::Form::Separator />
@@ -199,7 +199,7 @@
       <FORM.Separator />
 
       <FORM.Section>
-        <FORM.SectionFieldGroup>
+        <FORM.SectionMultiFieldGroup>
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 1</F.Label>
             <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -208,16 +208,16 @@
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 1, field 2</F.Label>
           </Hds::Form::TextInput::Field>
-        </FORM.SectionFieldGroup>
+        </FORM.SectionMultiFieldGroup>
 
-        <FORM.SectionFieldGroup @direction="column">
+        <FORM.SectionMultiFieldGroup @direction="column">
           <Hds::Form::TextInput::Field as |F|>
             <F.Label>Field group 2, field 1</F.Label>
           </Hds::Form::TextInput::Field>
           <Hds::Form::Toggle::Field name="demo-cost-estimate" as |F|>
             <F.Label>Field group 2, field 2</F.Label>
           </Hds::Form::Toggle::Field>
-        </FORM.SectionFieldGroup>
+        </FORM.SectionMultiFieldGroup>
       </FORM.Section>
 
       <FORM.Section>
@@ -518,7 +518,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Section FieldGroup</Shw::Text::H3>
+  <Shw::Text::H3>Section MultiFieldGroup</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -531,7 +531,7 @@
       <SG.Item @label="with equal widths (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup>
+            <FORM.SectionMultiFieldGroup>
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 1</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -540,7 +540,7 @@
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 2</F.Label>
               </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -548,7 +548,7 @@
       <SG.Item @label="with one error">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup>
+            <FORM.SectionMultiFieldGroup>
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 1</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -558,7 +558,7 @@
                 <F.Label>Control 2</F.Label>
                 <F.Error>This is a field-level error</F.Error>
               </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -566,7 +566,7 @@
       <SG.Item @label="with two errors">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup>
+            <FORM.SectionMultiFieldGroup>
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 1</F.Label>
                 <F.HelperText>Lorem ipsum dolor sit amet consectetur.</F.HelperText>
@@ -577,7 +577,7 @@
                 <F.Error>This is a field-level error.</F.Error>
                 <F.Error>Yet another error example for a total of two.</F.Error>
               </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -585,7 +585,7 @@
       <SG.Item @label="with mixed widths (80% & 20%)">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup as |FG|>
+            <FORM.SectionMultiFieldGroup as |FG|>
               <FG.Item @basis="80%">
                 <Hds::Form::TextInput::Field as |F|>
                   <F.Label>Control 1</F.Label>
@@ -597,7 +597,7 @@
                   <F.Label>Control 2</F.Label>
                 </Hds::Form::TextInput::Field>
               </FG.Item>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -605,7 +605,7 @@
       <SG.Item @label=" with 3 fields of equal width">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup>
+            <FORM.SectionMultiFieldGroup>
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 1</F.Label>
               </Hds::Form::TextInput::Field>
@@ -616,7 +616,7 @@
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>Control 3</F.Label>
               </Hds::Form::TextInput::Field>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>
@@ -624,7 +624,7 @@
       <SG.Item @label="3 fields, mix of widths (1/3, auto, & 8em)">
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionFieldGroup as |FG|>
+            <FORM.SectionMultiFieldGroup as |FG|>
               <Hds::Form::TextInput::Field as |F|>
                 <F.Label>City</F.Label>
               </Hds::Form::TextInput::Field>
@@ -647,7 +647,7 @@
                   <F.Label>Zip</F.Label>
                 </Hds::Form::TextInput::Field>
               </FG.Item>
-            </FORM.SectionFieldGroup>
+            </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
       </SG.Item>

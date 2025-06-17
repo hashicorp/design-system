@@ -127,8 +127,8 @@ import type HdsFormRadioCardDescriptionComponent from './components/hds/form/rad
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
 import type HdsFormSectionComponent from './components/hds/form/section';
-import type HdsFormSectionFieldGroupComponent from './components/hds/form/section/field-group';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header.ts';
+import type HdsFormSectionMultiFieldGroupComponent from './components/hds/form/section/multi-field-group/index.ts';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
 import type HdsFormSeparatorComponent from './components/hds/form/separator';
@@ -662,13 +662,13 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::Section': typeof HdsFormSectionComponent;
   'hds/form/section': typeof HdsFormSectionComponent;
 
-  // Form Section FieldGroup
-  'Hds::Form::Section::FieldGroup': typeof HdsFormSectionFieldGroupComponent;
-  'hds/form/section/field-group': typeof HdsFormSectionFieldGroupComponent;
-
   // Form Section Header
   'Hds::Form::Section::Header': typeof HdsFormSectionHeaderComponent;
   'hds/form/section/header': typeof HdsFormSectionHeaderComponent;
+
+  // Form Section MultiFieldGroup
+  'Hds::Form::Section::MultiFieldGroup': typeof HdsFormSectionMultiFieldGroupComponent;
+  'hds/form/section/multi-field-group': typeof HdsFormSectionMultiFieldGroupComponent;
 
   // Form Select
   'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;

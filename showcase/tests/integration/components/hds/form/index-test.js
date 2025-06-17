@@ -62,9 +62,9 @@ module('Integration | Component | hds/form/index', function (hooks) {
                   <FORM.SectionHeaderTitle />
                   <FORM.SectionHeaderDescription />
                 </FORM.SectionHeader>
-                <FORM.SectionFieldGroup as |FG|>
+                <FORM.SectionMultiFieldGroup as |FG|>
                   <FG.Item />
-                </FORM.SectionFieldGroup>
+                </FORM.SectionMultiFieldGroup>
               </FORM.Section>
               <FORM.Separator />
               <FORM.ButtonSet />
@@ -100,15 +100,17 @@ module('Integration | Component | hds/form/index', function (hooks) {
         )
         .exists(`SectionHeaderDescription is yielded for tag=${tag}`);
 
-      // SectionFieldGroup content
-      assert
-        .dom('#test-form > .hds-form__section > .hds-form__section-field-group')
-        .exists(`SectionFieldGroup is yielded for tag=${tag}`);
+      // SectionMultiFieldGroup content
       assert
         .dom(
-          '#test-form > .hds-form__section > .hds-form__section-field-group > .hds-layout-flex-item',
+          '#test-form > .hds-form__section > .hds-form__section-multi-field-group',
         )
-        .exists(`FieldGroup Item is yielded for tag=${tag}`);
+        .exists(`SectionMultiFieldGroup is yielded for tag=${tag}`);
+      assert
+        .dom(
+          '#test-form > .hds-form__section > .hds-form__section-multi-field-group > .hds-layout-flex-item',
+        )
+        .exists(`MultiFieldGroup Item is yielded for tag=${tag}`);
 
       // other content
       assert

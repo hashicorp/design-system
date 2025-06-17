@@ -13,7 +13,7 @@ import {
   HdsFormHeaderTitle,
   HdsFormHeaderDescription,
   HdsFormSection,
-  HdsFormSectionFieldGroup,
+  HdsFormSectionMultiFieldGroup,
   HdsFormTextInputField,
   HdsFormSelectField,
   HdsFormToggleField,
@@ -93,7 +93,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
         </HdsLayoutFlex>
       {{/if}}
 
-      <HdsFormSectionFieldGroup as |FG|>
+      <HdsFormSectionMultiFieldGroup as |FG|>
         <FG.Item @basis="20%">
           <HdsFormSelectField as |F|>
             <F.Label>Prefix</F.Label>
@@ -113,7 +113,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
             <F.Label>Phone Number:</F.Label>
           </HdsFormTextInputField>
         </FG.Item>
-      </HdsFormSectionFieldGroup>
+      </HdsFormSectionMultiFieldGroup>
 
     </HdsFormSection>
   </template>

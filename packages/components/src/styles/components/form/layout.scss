@@ -48,7 +48,7 @@
 // If responsive behavior is later added to the Layout::Flex component, this behavior should be replaced and
 // the styles should be removed
 
-.hds-form__section-field-group {
+.hds-form__section-multi-field-group {
   &.hds-layout-flex--direction-row {
     // When there are columns, stack them vertically
     @include hds-breakpoint-below("md") {

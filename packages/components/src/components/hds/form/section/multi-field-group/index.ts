@@ -9,7 +9,7 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsLayoutFlexItemSignature } from '../../../layout/flex/item.ts';
 import type { AvailableElements } from '../../../layout/flex/types.ts';
 
-export interface HdsFormSectionFieldGroupSignature {
+export interface HdsFormSectionMultiFieldGroupSignature {
   Blocks: {
     default: [
       {
@@ -20,7 +20,7 @@ export interface HdsFormSectionFieldGroupSignature {
   Element: AvailableElements;
 }
 
-const HdsFormSectionFieldGroup =
-  TemplateOnlyComponent<HdsFormSectionFieldGroupSignature>();
+const HdsFormSectionMultiFieldGroup =
+  TemplateOnlyComponent<HdsFormSectionMultiFieldGroupSignature>();
 
-export default HdsFormSectionFieldGroup;
+export default HdsFormSectionMultiFieldGroup;

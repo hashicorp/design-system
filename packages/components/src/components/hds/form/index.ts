@@ -17,7 +17,7 @@ import type { HdsFormHeaderTitleSignature } from './header/title.ts';
 import type { HdsFormHeaderDescriptionSignature } from './header/description.ts';
 import type { HdsFormSectionSignature } from './section/index.ts';
 import type { HdsFormSectionHeaderSignature } from './section/header.ts';
-import type { HdsFormSectionFieldGroupSignature } from './section/field-group/index.ts';
+import type { HdsFormSectionMultiFieldGroupSignature } from './section/multi-field-group/index.ts';
 import type { HdsFormSeparatorSignature } from './separator/index.ts';
 import type { HdsButtonSetSignature } from '../button-set/index.ts';
 
@@ -39,7 +39,7 @@ export interface HdsFormSignature {
         SectionHeader?: ComponentLike<HdsFormSectionHeaderSignature>;
         SectionHeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
         SectionHeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
-        SectionFieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+        SectionMultiFieldGroup?: ComponentLike<HdsFormSectionMultiFieldGroupSignature>;
         Separator?: ComponentLike<HdsFormSeparatorSignature>;
         ButtonSet?: ComponentLike<HdsButtonSetSignature>;
       },

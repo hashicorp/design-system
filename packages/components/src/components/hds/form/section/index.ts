@@ -9,7 +9,7 @@ import type { ComponentLike } from '@glint/template';
 import type { HdsFormSectionHeaderSignature } from './header.ts';
 import type { HdsFormHeaderTitleSignature } from '../header/title.ts';
 import type { HdsFormHeaderDescriptionSignature } from '../header/description.ts';
-import type { HdsFormSectionFieldGroupSignature } from '../section/field-group/index.ts';
+import type { HdsFormSectionMultiFieldGroupSignature } from './multi-field-group/index.ts';
 import type { HdsLayoutFlexItemSignature } from '../../layout/flex/item.ts';
 
 export interface HdsFormSectionSignature {
@@ -24,7 +24,7 @@ export interface HdsFormSectionSignature {
         Header?: ComponentLike<HdsFormSectionHeaderSignature>;
         HeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
         HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
-        FieldGroup?: ComponentLike<HdsFormSectionFieldGroupSignature>;
+        MultiFieldGroup?: ComponentLike<HdsFormSectionMultiFieldGroupSignature>;
         FieldGroupItem?: ComponentLike<HdsLayoutFlexItemSignature>;
       },
     ];
