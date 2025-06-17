@@ -67,7 +67,7 @@ module('Integration | Component | hds/form/index', function (hooks) {
                 </FORM.SectionMultiFieldGroup>
               </FORM.Section>
               <FORM.Separator />
-              <FORM.ButtonSet />
+              <Hds::ButtonSet />
             </Hds::Form>`,
       );
 
