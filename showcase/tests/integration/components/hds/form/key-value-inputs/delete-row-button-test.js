@@ -22,13 +22,6 @@ module(
         .hasClass('hds-form-key-value-inputs__delete-row-button');
     });
 
-    test('it should not render if `@canDeleteRow` is false', async function (assert) {
-      await render(
-        hbs`<Hds::Form::KeyValueInputs::DeleteRowButton id="test-form-key-value-delete-row-button" @canDeleteRow={{false}} @rowIndex={{0}} />`,
-      );
-      assert.dom('#test-form-key-value-delete-row-button').doesNotExist();
-    });
-
     test('it should render with default text', async function (assert) {
       await render(
         hbs`<Hds::Form::KeyValueInputs::DeleteRowButton id="test-form-key-value-delete-row-button" @canDeleteRow={{true}} @rowIndex={{0}} />`,

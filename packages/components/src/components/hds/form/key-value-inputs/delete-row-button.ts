@@ -12,7 +12,6 @@ export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
     text?: HdsButtonSignature['Args']['text'];
     rowIndex: number;
     rowData: unknown;
-    canDeleteRow?: boolean;
     onClick?: (rowData: unknown) => void;
   };
   Element: HdsButtonSignature['Element'];
