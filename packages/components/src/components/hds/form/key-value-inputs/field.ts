@@ -6,7 +6,6 @@
 import Component from '@glimmer/component';
 import type { WithBoundArgs } from '@glint/template';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { registerDestructor } from '@ember/destroyable';
 import type Owner from '@ember/owner';
 import { modifier } from 'ember-modifier';
@@ -16,6 +15,7 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
+import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
@@ -94,7 +94,6 @@ export interface HdsFormKeyValueInputsFieldSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
-  private _id = guidFor(this);
   private _element!: HTMLDivElement;
 
   constructor(owner: Owner, args: HdsFormKeyValueInputsFieldSignature['Args']) {
@@ -113,6 +112,10 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
       this.args.onInsert(element);
     }
   });
+
+  get id(): string {
+    return getElementId(this);
+  }
 
   get labelHiddenText(): string {
     return `row ${this.args.rowIndex + 1}`;
