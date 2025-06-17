@@ -52,10 +52,6 @@ export interface HdsFormKeyValueInputsSignature {
           typeof HdsFormHelperTextComponent,
           'contextualClass' | 'controlId' | 'onInsert'
         >;
-        Error?: WithBoundArgs<
-          typeof HdsFormErrorComponent,
-          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
-        >;
         Generic?: ComponentLike<HdsYieldSignature>;
       },
     ];
@@ -81,6 +77,10 @@ export interface HdsFormKeyValueInputsSignature {
       {
         Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
         AddRowButton?: ComponentLike<HdsFormKeyValueInputsAddRowButtonSignature>;
+        Error?: WithBoundArgs<
+          typeof HdsFormErrorComponent,
+          'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
+        >;
       },
     ];
   };
@@ -175,5 +175,5 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     });
 
     this._gridTemplateColumns = newGridTemplateColumns;
-  }
+  };
 }
