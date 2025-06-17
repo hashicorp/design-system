@@ -8,11 +8,11 @@
       (hash
         Label=(component
           "hds/form/label"
-          controlId=this.id
-          isRequired=@isRequired
-          isOptional=@isOptional
           contextualClass="hds-form-key-value-inputs__field-label"
+          controlId=this.id
           hiddenText=this.labelHiddenText
+          isOptional=@isOptional
+          isRequired=@isRequired
         )
       )
     }}
@@ -20,8 +20,8 @@
       (hash
         HelperText=(component
           "hds/form/helper-text"
-          controlId=this.id
           contextualClass="hds-form-key-value-inputs__field-helper-text"
+          controlId=this.id
           onInsert=this.appendDescriptor
         )
       )
@@ -33,29 +33,29 @@
     {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
       {{yield
         (hash
-          FileInput=(component "hds/form/file-input/base" id=this.id ariaDescribedBy=ariaDescribedBy)
+          FileInput=(component "hds/form/file-input/base" ariaDescribedBy=ariaDescribedBy id=this.id)
           MaskedInput=(component
-            "hds/form/masked-input/base" isInvalid=@isInvalid id=this.id ariaDescribedBy=ariaDescribedBy
+            "hds/form/masked-input/base" ariaDescribedBy=ariaDescribedBy id=this.id isInvalid=@isInvalid
           )
-          Select=(component "hds/form/select/base" isInvalid=@isInvalid id=this.id ariaDescribedBy=ariaDescribedBy)
+          Select=(component "hds/form/select/base" ariaDescribedBy=ariaDescribedBy id=this.id isInvalid=@isInvalid)
           SuperSelectSingle=(component
             "hds/form/super-select/single/base"
-            isInvalid=@isInvalid
-            triggerId=this.id
             ariaDescribedBy=ariaDescribedBy
             ariaLabelledBy=(concat this.idPrefix this.id)
+            isInvalid=@isInvalid
+            triggerId=this.id
           )
           SuperSelectMultiple=(component
             "hds/form/super-select/multiple/base"
-            isInvalid=@isInvalid
-            triggerId=this.id
             ariaDescribedBy=ariaDescribedBy
             ariaLabelledBy=(concat this.idPrefix this.id)
+            isInvalid=@isInvalid
+            triggerId=this.id
           )
           TextInput=(component
-            "hds/form/text-input/base" isInvalid=@isInvalid id=this.id ariaDescribedBy=ariaDescribedBy
+            "hds/form/text-input/base" ariaDescribedBy=ariaDescribedBy id=this.id isInvalid=@isInvalid
           )
-          Textarea=(component "hds/form/textarea/base" isInvalid=@isInvalid id=this.id ariaDescribedBy=ariaDescribedBy)
+          Textarea=(component "hds/form/textarea/base" ariaDescribedBy=ariaDescribedBy id=this.id isInvalid=@isInvalid)
         )
       }}
     {{/let}}
@@ -64,8 +64,8 @@
       (hash
         Error=(component
           "hds/form/error"
-          controlId=this.id
           contextualClass="hds-form-key-value-inputs__field-error"
+          controlId=this.id
           onInsert=this.appendDescriptor
           onRemove=this.removeDescriptor
         )

@@ -17,10 +17,10 @@
       (hash
         Legend=(component
           "hds/form/legend"
+          contextualClass="hds-form-key-value-inputs__legend"
+          id=(concat this.id "-legend")
           isOptional=@isOptional
           isRequired=@isRequired
-          id=(concat this.id "-legend")
-          contextualClass="hds-form-key-value-inputs__legend"
         )
       )
       to="header"
@@ -29,9 +29,9 @@
       (hash
         HelperText=(component
           "hds/form/helper-text"
+          contextualClass="hds-form-key-value-inputs__helper-text"
           controlId=this.id
           onInsert=this.appendDescriptor
-          contextualClass="hds-form-key-value-inputs__helper-text"
         )
       )
       to="header"
@@ -44,7 +44,7 @@
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-inputs/field" rowIndex=0 onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component
             "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
@@ -70,10 +70,10 @@
       {{yield
         (hash
           Field=(component
-            "hds/form/key-value-inputs/field" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
           )
           Generic=(component
-            "hds/form/key-value-inputs/generic" rowIndex=index onInsert=this._setUpColumn onRemove=this._removeColumn
+            "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
           )
           rowData=item
           rowIndex=index
@@ -84,7 +84,7 @@
       {{yield
         (hash
           DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" rowIndex=index rowData=item canDeleteRow=this.canDeleteRow
+            "hds/form/key-value-inputs/delete-row-button" canDeleteRow=this.canDeleteRow rowData=item rowIndex=index
           )
         )
         to="row"
@@ -106,10 +106,10 @@
       (hash
         Error=(component
           "hds/form/error"
+          contextualClass="hds-form-key-value-inputs__error"
           controlId=this.id
           onInsert=this.appendDescriptor
           onRemove=this.removeDescriptor
-          contextualClass="hds-form-key-value-inputs__error"
         )
       )
       to="footer"
