@@ -19,7 +19,7 @@ module(
     </Hds::Form::KeyValueInputs::Yield>`);
       assert
         .dom('#test-form-key-value-yield')
-        .hasClass('hds-form-key-value-inputs__yield-container');
+        .hasClass('hds-form-key-value-inputs__generic-container');
     });
 
     test('it should render the content', async function (assert) {

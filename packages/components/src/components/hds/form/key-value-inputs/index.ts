@@ -21,7 +21,7 @@ import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
 import HdsFormKeyValueInputsDeleteRowButtonComponent from './delete-row-button.ts';
 import HdsFormKeyValueInputsFieldComponent from './field.ts';
-import HdsFormKeyValueInputsYieldComponent from './yield.ts';
+import HdsFormKeyValueInputsGenericComponent from './generic.ts';
 import HdsFormLegendComponent from '../legend/index.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
@@ -31,7 +31,7 @@ import type { HdsYieldSignature } from '../../yield/index.ts';
 
 const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
 const KEY_VALUE_PAIR_GENERIC_SELECTOR =
-  '.hds-form-key-value-inputs__yield-container';
+  '.hds-form-key-value-inputs__generic-container';
 const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
   '.hds-form-key-value-inputs__row--first';
 const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
@@ -66,7 +66,7 @@ export interface HdsFormKeyValueInputsSignature {
           'rowIndex' | 'rowData' | 'canDeleteRow'
         >;
         Generic?: WithBoundArgs<
-          typeof HdsFormKeyValueInputsYieldComponent,
+          typeof HdsFormKeyValueInputsGenericComponent,
           'rowIndex' | 'onInsert' | 'onRemove'
         >;
         rowData?: unknown;

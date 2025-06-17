@@ -6,10 +6,10 @@
   <span class="hds-form-key-value-inputs__row-delete-button-container">
     <Hds::Button
       @text={{this.text}}
+      @size="medium"
+      @color="secondary"
       @icon="trash"
       @isIconOnly={{true}}
-      @color="secondary"
-      @size="medium"
       class="hds-form-key-value-inputs__delete-row-button"
       {{on "click" this.onClick}}
       ...attributes

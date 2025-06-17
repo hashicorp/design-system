@@ -26,7 +26,7 @@ module(
             <H.HelperText>Helper text</H.HelperText>
             <H.Generic>
               <span id="header-generic">Generic content</span>
-              </H.Generic>
+            </H.Generic>
           </:header>
 
           <:row as |R|>
@@ -176,7 +176,7 @@ module(
 
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__yield-container',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
         )
         .hasStyle({ '--hds-key-value-pair-column-index': '2' });
     });
