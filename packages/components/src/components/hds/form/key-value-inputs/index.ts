@@ -25,7 +25,6 @@ import HdsFormKeyValueInputsGenericComponent from './generic.ts';
 import HdsFormLegendComponent from '../legend/index.ts';
 
 import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-described-by.ts';
-import type { HdsFormFieldsetSignature } from '../fieldset/index.ts';
 import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
@@ -38,8 +37,11 @@ const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
   '.hds-form-key-value-inputs__row-delete-button-container';
 
 export interface HdsFormKeyValueInputsSignature {
-  Args: HdsFormFieldsetSignature['Args'] & {
+  Args: {
     data: Array<unknown>;
+    extraAriaDescribedBy?: string;
+    isOptional?: boolean;
+    isRequired?: boolean;
   };
   Blocks: {
     header?: [
@@ -84,7 +86,7 @@ export interface HdsFormKeyValueInputsSignature {
       },
     ];
   };
-  Element: HdsFormFieldsetSignature['Element'];
+  Element: HTMLElement;
 }
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
