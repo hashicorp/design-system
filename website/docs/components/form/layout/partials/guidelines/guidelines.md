@@ -1,39 +1,3 @@
-## Single column layout
-
-The Form component ensures a consistent and streamlined user experience. We recommend using a single-column layout for forms, as multi-column layouts can disrupt the visual flow and reading order. Multi-column layouts can potentially result in missed inputs requiring resolution and thereby increasing friction. They should only be used when grouping related inputs improves the user experience.
-
-![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
-
-### Spacing
-
-Spacing in forms is based on a decreasing scale on an 8px grid. From largest to smallest, the spacing structure is:
-
-- Sections are 32px apart
-- Separators are 32px from Section elements on either vertical side
-- Inputs within a Section are 24px apart; unless they are within a Section Field Group
-- Inputs within a Section Field Group have 16px spacing in wider viewports. In small viewports, the stacking matches the 24px spacing that all other Section elements share
-- Text elements inside the Form Header and Form Section Header are 8px apart
-
-![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
-
-!!! Do
-
-Organize inputs together when they are closely related and beneficial to read together. No more than three inputs should be put within a single row.
-
-![Three credit card information fields arranged with one full width field followed by a row of two side-by-side equal width fields](/assets/components/form/layout/form-do-rows.png)
-
-!!!
-
-!!! Dont
-
-Place inputs in rows to save space or create columns within the form.
-
-![Three equal width fields for credit card information arranged in a single row](/assets/components/form/layout/form-dont-rows.png)
-
-!!!
-
-Visit the [Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
-
 ## Form Header
 
 An optional header is available within the **Form component**. The Header has two variants, one for the form-level header and one for section-level headers. Each variant contains styled text for a Title and Description to serve as a starting point. All Header child elements have a gap of 8px applied between them.
@@ -94,6 +58,42 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 ## Button Set
 
 Buttons are necessary saving or submitting form information. For consistent spacing and layout, we recommend using a [Button Set](/patterns/form-patterns#button-sets) to contain the buttons/actions to Save/Submit or Cancel the form.
+
+## Single column layout
+
+The Form component ensures a consistent and streamlined user experience. We recommend using a single-column layout for forms, as multi-column layouts can disrupt the visual flow and reading order. Multi-column layouts can potentially result in missed inputs requiring resolution and thereby increasing friction. They should only be used when grouping related inputs improves the user experience.
+
+![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
+
+### Spacing
+
+Spacing in forms is based on a decreasing scale on an 8px grid. From largest to smallest, the spacing structure is:
+
+- Sections are 32px apart
+- Separators are 32px from Section elements on either vertical side
+- Inputs within a Section are 24px apart; unless they are within a Section Field Group
+- Inputs within a Section Field Group have 16px spacing in wider viewports. In small viewports, the stacking matches the 24px spacing that all other Section elements share
+- Text elements inside the Form Header and Form Section Header are 8px apart
+
+![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
+
+!!! Do
+
+Organize inputs together when they are closely related and beneficial to read together. No more than three inputs should be put within a single row.
+
+![Three credit card information fields arranged with one full width field followed by a row of two side-by-side equal width fields](/assets/components/form/layout/form-do-rows.png)
+
+!!!
+
+!!! Dont
+
+Place inputs in rows to save space or create columns within the form.
+
+![Three equal width fields for credit card information arranged in a single row](/assets/components/form/layout/form-dont-rows.png)
+
+!!!
+
+Visit the [Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
 
 ## Width and resizing behavior
 
