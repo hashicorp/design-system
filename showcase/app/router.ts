@@ -24,7 +24,7 @@ Router.map(function () {
       });
     });
   });
-  this.route('components', function () {
+  this.route('cp', { path: 'components' }, function () {
     this.route('accordion');
     this.route('advanced-table');
     this.route('alert');
