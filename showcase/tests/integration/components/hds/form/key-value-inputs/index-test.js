@@ -68,7 +68,7 @@ module(
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__header')
         .exists();
-      // await pauseTest(); // Wait for the header to render
+
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
@@ -83,11 +83,6 @@ module(
       assert
         .dom('#test-form-key-value-inputs #header-generic')
         .hasText('Generic content');
-      assert
-        .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
-        )
-        .hasText('Error text');
     });
 
     // ROW
@@ -160,6 +155,12 @@ module(
         .dom('#test-form-key-value-inputs .hds-alert')
         .hasClass('hds-alert--type-compact')
         .hasClass('hds-alert--color-neutral');
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__error',
+        )
+        .hasText('Error text');
     });
 
     // STYLES
