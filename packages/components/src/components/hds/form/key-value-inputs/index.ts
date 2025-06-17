@@ -46,7 +46,7 @@ export interface HdsFormKeyValueInputsSignature {
       {
         Legend?: WithBoundArgs<
           typeof HdsFormLegendComponent,
-          'contextualClass' | 'isOptional' | 'isRequired' | 'id'
+          'contextualClass' | 'id' | 'isOptional' | 'isRequired'
         >;
         HelperText?: WithBoundArgs<
           typeof HdsFormHelperTextComponent,
@@ -59,15 +59,15 @@ export interface HdsFormKeyValueInputsSignature {
       {
         Field?: WithBoundArgs<
           typeof HdsFormKeyValueInputsFieldComponent,
-          'rowIndex' | 'onInsert' | 'onRemove'
-        >;
-        DeleteRowButton?: WithBoundArgs<
-          typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
-          'rowIndex' | 'rowData' | 'canDeleteRow'
+          'onInsert' | 'onRemove' | 'rowIndex'
         >;
         Generic?: WithBoundArgs<
           typeof HdsFormKeyValueInputsGenericComponent,
-          'rowIndex' | 'onInsert' | 'onRemove'
+          'onInsert' | 'onRemove' | 'rowIndex'
+        >;
+        DeleteRowButton?: WithBoundArgs<
+          typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
+          'canDeleteRow' | 'rowData' | 'rowIndex'
         >;
         rowData?: unknown;
         rowIndex?: number;
@@ -75,8 +75,8 @@ export interface HdsFormKeyValueInputsSignature {
     ];
     footer?: [
       {
-        Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
         AddRowButton?: ComponentLike<HdsFormKeyValueInputsAddRowButtonSignature>;
+        Alert?: WithBoundArgs<typeof HdsAlertComponent, 'color' | 'type'>;
         Error?: WithBoundArgs<
           typeof HdsFormErrorComponent,
           'contextualClass' | 'controlId' | 'onInsert' | 'onRemove'
