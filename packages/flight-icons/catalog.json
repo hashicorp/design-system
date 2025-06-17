@@ -2652,7 +2652,7 @@
     },
     {
       "id": "7665:175",
-      "fileName": "ping-identity -24",
+      "fileName": "ping-identity-24",
       "iconName": "ping-identity ",
       "description": "ping, identity",
       "category": "Services",
@@ -2662,7 +2662,7 @@
     },
     {
       "id": "7665:177",
-      "fileName": "ping-identity -16",
+      "fileName": "ping-identity-16",
       "iconName": "ping-identity ",
       "description": "ping, identity",
       "category": "Services",
