@@ -848,9 +848,9 @@ Here’s an Advanced Table implementation that uses an array hash with strings f
 <Hds::AdvancedTable
   @model={{this.model.myDemoData}}
   @columns={{array
-      (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
-      (hash key="album" label=(t "components.table.headers.album") isSortable=true)
-      (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+      (hash key="artist" label=(t "hds.components.table.headers.artist") isSortable=true)
+      (hash key="album" label=(t "hds.components.table.headers.album") isSortable=true)
+      (hash key="year" label=(t "hds.components.table.headers.year") isSortable=true)
       (hash key="other" label=(t "global.titles.other"))
     }}
 >

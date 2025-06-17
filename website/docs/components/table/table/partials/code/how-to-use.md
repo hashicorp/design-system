@@ -58,7 +58,7 @@ If you want to use the component but have no model defined (e.g., there are only
 To use a Table with a model, first define the data model in your route or model:
 
 ```javascript
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default class ComponentsTableRoute extends Route {
   async model() {
@@ -81,7 +81,7 @@ export default class ComponentsTableRoute extends Route {
     //    },
     //  },
     // ...
-    let response = await fetch('/api/demo.json');
+    let response = await fetch("/api/demo.json");
     let { data } = await response.json();
     return { myDemoData: data };
   }
@@ -106,7 +106,11 @@ Then, in the template code you will need to:
 ```handlebars
 <Hds::Table
   @model={{this.model.myDemoData}}
-  @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
+  @columns={{array
+    (hash label="Artist")
+    (hash label="Album")
+    (hash label="Year")
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -272,7 +276,6 @@ This is a pretty advanced example, intended to cover some edge cases that we enc
 
 !!!
 
-
 The `Hds::Table` exposes (via yielding) some of its internal properties and methods, to allow extremely customized sorting functionalities:
 
 - `setSortBy` is the internal function used to set the `sortBy` and `sortOrder` tracked values
@@ -322,21 +325,20 @@ _The code has been simplified for clarity._
 myDemoCustomSortingFunction = (sortBy, sortOrder) => {
   // here goes the logic for the custom sorting of the `model` or `data` array
   // based on the `sortBy/sortOrder` arguments
-  if (sortBy === 'peer-name') {
+  if (sortBy === "peer-name") {
     myDemoDataArray.sort((s1, s2) => {
       // logic for sorting by `peer-name` goes here
     });
-  } else if (sortBy === 'status') {
+  } else if (sortBy === "status") {
     myDemoDataArray.sort((s1, s2) => {
       // logic for sorting by `status` goes here
     });
-  //
-  // same for all the other conditions/columns
-  // ...
+    //
+    // same for all the other conditions/columns
+    // ...
   }
   return myDemoDataArray;
 };
-
 ```
 
 ### Density
@@ -414,7 +416,8 @@ If you have more than just text content in the table cell, you'll want to wrap t
     <B.Tr>
       <B.Td>
         <div class="doc-table-valign-demo">
-          <Hds::Icon @name="headphones" /> {{B.data.artist}}
+          <Hds::Icon @name="headphones" />
+          {{B.data.artist}}
         </div>
       </B.Td>
       <B.Td>{{B.data.album}}</B.Td>
@@ -443,12 +446,21 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td @align="right">
         <Hds::Dropdown @isInline={{true}} as |dd|>
-          <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <dd.ToggleIcon
+            @icon="more-horizontal"
+            @text="Overflow Options"
+            @hasChevron={{false}}
+            @size="small"
+          />
           <dd.Interactive @route="components">Create</dd.Interactive>
           <dd.Interactive @route="components">Read</dd.Interactive>
           <dd.Interactive @route="components">Update</dd.Interactive>
           <dd.Separator />
-          <dd.Interactive @route="components" @color="critical" @icon="trash">Delete</dd.Interactive>
+          <dd.Interactive
+            @route="components"
+            @color="critical"
+            @icon="trash"
+          >Delete</dd.Interactive>
         </Hds::Dropdown>
       </B.Td>
     </B.Tr>
@@ -465,8 +477,18 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist")
-    (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
-    (hash key="vinyl-cost" label="Vinyl Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
+    (hash
+      key="album"
+      label="Album"
+      tooltip="Title of the album (in its first release)"
+    )
+    (hash
+      key="vinyl-cost"
+      label="Vinyl Cost (USD)"
+      isSortable=true
+      tooltip="Cost of the vinyl (adjusted for inflation)"
+      align="right"
+    )
   }}
 >
   <:body as |B|>
@@ -494,7 +516,6 @@ Below we show a couple of examples of how a scrollable table could be implemente
 In most cases, wrapping the table with a container that has `overflow: auto` does the trick.
 
 The default table layout is `auto` which means the browser will try to optimize the width of the columns to fit their different content. In some cases, this will mean the content may wrap (see the `Phone` column as an example) in which case you may want to apply a `width` to [suggest to the browser](https://www.w3.org/TR/WD-CSS2-971104/tables.html#h-17.2) to apply a specific width to a column (see the `Biography` column).
-
 
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
@@ -533,7 +554,6 @@ The default table layout is `auto` which means the browser will try to optimize 
 If you have specified the width of some of the columns, leaving the others to adapt to their content automatically, and you want to avoid the wrapping of content within the cells, you need to introduce a secondary wrapping element around the table with its `width` set to ` max-content`.
 
 In this case the table layout is still set to `auto` (default). If instead you want to set it to `fixed` (using the `@isFixedLayout` argument) you will have to specify the width for **every** column or the table will explode horizontally.
-
 
 ```handlebars
 <!-- this is an element with "overflow: auto" -->
@@ -599,7 +619,10 @@ This is a simple example of a table with multi-selection. Notice the `@selection
   }}
 >
   <:body as |B|>
-    <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+    <B.Tr
+      @selectionKey={{B.data.id}}
+      @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+    >
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
@@ -636,7 +659,6 @@ demoOnSelectionChange({
 ```
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
-
 
 !!! Info
 
@@ -740,7 +762,11 @@ In the demo below, we are persisting the selection in the data/model, so that wh
     }}
   >
     <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+      >
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
@@ -781,7 +807,6 @@ demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
-
 #### Usability and accessibility considerations
 
 Since the “selected” state of a row is communicated by the checkbox, there are some important considerations to keep in mind when implementing a multi-select table.
@@ -817,7 +842,12 @@ In this example we’re visually hiding the label in the last column by passing 
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Year" isSortable=true)
-    (hash key="other" label="Select an action from the menu" isVisuallyHidden=true width="60px")
+    (hash
+      key="other"
+      label="Select an action from the menu"
+      isVisuallyHidden=true
+      width="60px"
+    )
   }}
 >
   <:body as |B|>
@@ -826,20 +856,20 @@ In this example we’re visually hiding the label in the last column by passing 
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
       <B.Td>
-          <Hds::Dropdown as |D|>
-            <D.ToggleIcon
-              @icon="more-horizontal"
-              @text="Overflow Options"
-              @hasChevron={{false}}
-              @size="small"
-            />
-            <D.Interactive
-              @href="#"
-              @color="critical"
-              @icon="trash"
-            >Delete</D.Interactive>
-          </Hds::Dropdown>
-        </B.Td>
+        <Hds::Dropdown as |D|>
+          <D.ToggleIcon
+            @icon="more-horizontal"
+            @text="Overflow Options"
+            @hasChevron={{false}}
+            @size="small"
+          />
+          <D.Interactive
+            @href="#"
+            @color="critical"
+            @icon="trash"
+          >Delete</D.Interactive>
+        </Hds::Dropdown>
+      </B.Td>
     </B.Tr>
   </:body>
 </Hds::Table>
@@ -855,9 +885,9 @@ Here’s a Table implementation that uses an array hash with strings for the col
 <Hds::Table
   @model={{this.model.myDemoData}}
   @columns={{array
-      (hash key="artist" label=(t "components.table.headers.artist") isSortable=true)
-      (hash key="album" label=(t "components.table.headers.album") isSortable=true)
-      (hash key="year" label=(t "components.table.headers.year") isSortable=true)
+      (hash key="artist" label=(t "hds.components.table.headers.artist") isSortable=true)
+      (hash key="album" label=(t "hds.components.table.headers.album") isSortable=true)
+      (hash key="year" label=(t "hds.components.table.headers.year") isSortable=true)
       (hash key="other" label=(t "global.titles.other"))
     }}
 >
