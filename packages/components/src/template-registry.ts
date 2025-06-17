@@ -122,7 +122,7 @@ import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value
 import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.ts';
 import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.ts';
 import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.ts';
-import type HdsFormKeyValueInputsYieldComponent from './components/hds/form/key-value-inputs/yield.ts';
+import type HdsFormKeyValueInputsGenericComponent from './components/hds/form/key-value-inputs/generic.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -646,8 +646,8 @@ export default interface HdsComponentsRegistry {
   'hds/form/key-value-inputs/delete-row-button': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
   'hds/form/key-value-inputs/field': typeof HdsFormKeyValueInputsFieldComponent;
   'Hds::Form::KeyValueInputs::Field': typeof HdsFormKeyValueInputsFieldComponent;
-  'hds/form/key-value-inputs/yield': typeof HdsFormKeyValueInputsYieldComponent;
-  'Hds::Form::KeyValueInputs::Yield': typeof HdsFormKeyValueInputsYieldComponent;
+  'hds/form/key-value-inputs/generic': typeof HdsFormKeyValueInputsGenericComponent;
+  'Hds::Form::KeyValueInputs::Generic': typeof HdsFormKeyValueInputsGenericComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;

@@ -34,7 +34,7 @@
 
     &.hds-form-key-value-inputs__row--first {
       .hds-form-key-value-inputs__row-delete-button-container,
-      .hds-form-key-value-inputs__yield-container {
+      .hds-form-key-value-inputs__generic-container {
         grid-row: 2;
         grid-column: var(--hds-key-value-pair-column-index);
       }
@@ -117,7 +117,7 @@
   margin-top: 12px;
 }
 
-.hds-form-key-value-inputs__yield-container,
+.hds-form-key-value-inputs__generic-container,
 .hds-form-key-value-inputs__row-delete-button-container {
   display: grid;
   grid-template-rows: subgrid;
@@ -125,7 +125,7 @@
 }
 
 .hds-form-key-value-inputs__field:has(+ *),
-.hds-form-key-value-inputs__yield-container:has(+ *) {
+.hds-form-key-value-inputs__generic-container:has(+ *) {
   @include hds-breakpoint-above("sm") {
     padding-right: 8px;
   }

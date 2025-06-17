@@ -389,9 +389,9 @@
         <F.Label>Super Select Single</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SELECTED_OPTION)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTION}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
           @ariaLabel="Label"
           as |option|
         >
@@ -402,9 +402,9 @@
         <F.Label>Super Select Multiple</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTIONS}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
           @ariaLabel="Label"
           as |option|
         >
@@ -459,9 +459,9 @@
         <F.Label>Super Select Single</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SELECTED_OPTION)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTION}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
           @ariaLabel="Label"
           as |option|
         >
@@ -473,9 +473,9 @@
         <F.Label>Super Select Multiple</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTIONS}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
           @ariaLabel="Label"
           as |option|
         >
@@ -528,9 +528,9 @@
         <F.Label>Super Select Single</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SELECTED_OPTION)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTION}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
           @ariaLabel="Label"
           as |option|
         >
@@ -541,9 +541,9 @@
         <F.Label>Super Select Multiple</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTIONS}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
           @ariaLabel="Label"
           as |option|
         >
@@ -594,9 +594,9 @@
         <F.Label>Super Select Single</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SELECTED_OPTION)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTION}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
           @ariaLabel="Label"
           as |option|
         >
@@ -607,9 +607,9 @@
         <F.Label>Super Select Multiple</F.Label>
         <F.HelperText>Sample text.</F.HelperText>
         <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SELECTED_OPTIONS)}}
-          @options={{@model.OPTIONS}}
-          @selected={{@model.SELECTED_OPTIONS}}
+          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+          @options={{@model.SUPERSELECT_OPTIONS}}
+          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
           @ariaLabel="Label"
           as |option|
         >
@@ -858,40 +858,7 @@
       </F.Error>
     </:footer>
   </Hds::Form::KeyValueInputs>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>KeyValueInputs::AddRowButton</Shw::Text::H2>
-
-  <Shw::Text::H3>With custom text</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs::AddRowButton @text="Custom text" />
-
-  <Shw::Text::H3>States</Shw::Text::H3>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    {{#each @model.STATES as |state|}}
-      <SG.Item @label={{capitalize state}} class="shw-component-code-block-copy-button">
-        <Hds::Form::KeyValueInputs::AddRowButton mock-state-value={{state}} />
-      </SG.Item>
-    {{/each}}
-  </Shw::Grid>
-
-  <Shw::Text::H2>KeyValueInputs::DeleteRowButton</Shw::Text::H2>
-
-  <Shw::Grid @columns={{3}} as |SG|>
-    {{#each @model.STATES as |state|}}
-      <SG.Item @label={{capitalize state}}>
-        <div {{style display="grid" gridTemplateColumns="min-content"}}>
-          <Hds::Form::KeyValueInputs::DeleteRowButton mock-state-value={{state}} @canDeleteRow={{true}} />
-        </div>
-      </SG.Item>
-    {{/each}}
-  </Shw::Grid>
-
 </section>
-
-<Shw::Divider />
 
 <section>
   <Shw::Text::H2>Demos</Shw::Text::H2>
@@ -916,9 +883,9 @@
         <F.Label>Value</F.Label>
         {{#if (eq R.rowData.key "tag")}}
           <F.SuperSelectSingle
-            @onChange={{fn (mut @model.SELECTED_OPTION)}}
-            @options={{@model.OPTIONS}}
-            @selected={{@model.SELECTED_OPTION}}
+            @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+            @options={{@model.SUPERSELECT_OPTIONS}}
+            @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
             @ariaLabel="Label"
             as |option|
           >
