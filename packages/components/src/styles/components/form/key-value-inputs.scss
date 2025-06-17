@@ -60,12 +60,9 @@
 
 .hds-form-key-value-inputs__footer {
   display: flex;
-  flex-direction: row;
-  column-gap: 16px;
-
-  .hds-form-key-value-inputs__add-row-button {
-    flex-shrink: 0;
-  }
+  flex-direction: column;
+  row-gap: 16px;
+  align-items: flex-start;
 }
 
 .hds-form-key-value-inputs__field {
