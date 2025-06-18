@@ -129,7 +129,7 @@ import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-car
 import type HdsFormSectionComponent from './components/hds/form/section';
 import type HdsFormSectionHeaderComponent from './components/hds/form/section/header.ts';
 import type HdsFormSectionMultiFieldGroupComponent from './components/hds/form/section/multi-field-group/index.ts';
-import type HdsFormSectionMultiFieldGroupItemComponent from './components/hds/form/section/multi-field-group/item/index.ts';
+import type HdsFormSectionMultiFieldGroupItemComponent from './components/hds/form/section/multi-field-group/item.ts';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
 import type HdsFormSeparatorComponent from './components/hds/form/separator';

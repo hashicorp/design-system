@@ -5,7 +5,7 @@
 
 import Component from '@glimmer/component';
 
-import type { AvailableElements } from '../../../../layout/flex/types.ts';
+import type { AvailableElements } from '../../../layout/flex/types.ts';
 
 export interface HdsFormSectionMultiFieldGroupItemSignature {
   Args: {
