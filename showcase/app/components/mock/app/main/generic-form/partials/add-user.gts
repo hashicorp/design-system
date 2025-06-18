@@ -94,7 +94,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       {{/if}}
 
       <HdsFormSectionMultiFieldGroup as |FG|>
-        <FG.Item @basis="20%">
+        <FG.Item @width="20%">
           <HdsFormSelectField as |F|>
             <F.Label>Prefix</F.Label>
             <F.Options>
@@ -108,7 +108,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
             </F.Options>
           </HdsFormSelectField>
         </FG.Item>
-        <FG.Item @basis="80%">
+        <FG.Item @width="80%">
           <HdsFormTextInputField @type="tel" as |F|>
             <F.Label>Phone Number:</F.Label>
           </HdsFormTextInputField>
