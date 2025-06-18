@@ -14,7 +14,7 @@ export interface HdsAppHeaderHomeLinkSignature {
     icon: HdsIconSignature['Args']['name'];
     isIconOnly?: boolean;
     color?: string;
-    text?: string;
+    text: string;
   };
   Element: HdsInteractiveSignature['Element'];
 }
