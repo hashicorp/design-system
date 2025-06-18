@@ -141,4 +141,12 @@
       {{/if}}
     </SG.Item>
   </Shw::Grid>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label={{html-safe "<code>app-footer</code> with overridden translations"}}>
+      <Hds::AppFooter as |F|>
+        <F.LegalLinks />
+      </Hds::AppFooter>
+    </SF.Item>
+  </Shw::Flex>
 </section>
