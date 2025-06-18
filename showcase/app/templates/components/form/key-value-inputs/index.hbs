@@ -261,385 +261,240 @@
     </:footer>
   </Hds::Form::KeyValueInputs>
 
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Header</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" @gap="3rem" as |SF|>
+    <SF.Item @label="No header - ⚠️ not valid/accessible ⚠️">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With legend">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With legend + helper text">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the label.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With multiple helper texts">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>Sample legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the label.</H.HelperText>
+          <H.HelperText>This is another helper text, that should appear below the first helper text, with the right amount of space between them.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Text Input</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With very long content">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam diam mi etiam mollis tortor
+            vestibulum. Felis, arcu amet, nibh eget eget etiam orci aliquet. Varius facilisis magna faucibus commodo
+            iaculis faucibus aliquet.</H.Legend>
+          <H.HelperText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam diam mi etiam mollis tortor
+            vestibulum. Felis, arcu amet, nibh eget eget etiam orci aliquet. Varius facilisis magna faucibus commodo
+            iaculis faucibus aliquet.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With 'required' indicator">
+      <Hds::Form::KeyValueInputs @isRequired={{true}} @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the label.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With 'Optional' indicator">
+      <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the label.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
+
   <Shw::Divider />
 
-  <Shw::Text::H2>KeyValueInputs Header content</Shw::Text::H2>
+  <Shw::Text::H2>Field</Shw::Text::H2>
 
-  <Shw::Text::H3>Default</Shw::Text::H3>
+  <Shw::Text::H3>Inputs</Shw::Text::H3>
 
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>Sample legend</H.Legend>
-    </:header>
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.TextInput />
-      </R.Field>
-      <R.DeleteRowButton />
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>With helper text</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>Sample legend</H.Legend>
-      <H.HelperText>This is sample helper text.</H.HelperText>
-    </:header>
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.TextInput />
-      </R.Field>
-      <R.DeleteRowButton />
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>With multiple helper texts</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>Sample legend</H.Legend>
-      <H.HelperText>This is sample helper text.</H.HelperText>
-      <H.HelperText>This is another helper text.</H.HelperText>
-    </:header>
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.TextInput />
-      </R.Field>
-      <R.DeleteRowButton />
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>Required</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @isRequired={{true}} @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>Sample legend</H.Legend>
-      <H.HelperText>This is sample helper text.</H.HelperText>
-    </:header>
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.TextInput />
-      </R.Field>
-      <R.DeleteRowButton />
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>Optional</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>Sample legend</H.Legend>
-      <H.HelperText>This is sample helper text.</H.HelperText>
-    </:header>
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.TextInput />
-      </R.Field>
-      <R.DeleteRowButton />
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>With very long content</Shw::Text::H3>
-
-  <div {{style max-width="600px"}}>
-    <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-      <:header as |H|>
-        <H.Legend>Parent with max-width set: This is the label text that should go on multiple linesThis is the label
-          text that should go on multiple linesThis is the label text that should go on multiple lines</H.Legend>
-        <H.HelperText>This is the helper text that should go on multiple lines This is the helper text that should go on
-          multiple lines
-        </H.HelperText>
-      </:header>
-      <:row as |R|>
-        <R.Field as |F|>
-          <F.Label>Text Input</F.Label>
-          <F.TextInput />
-        </R.Field>
-        <R.DeleteRowButton />
-      </:row>
-    </Hds::Form::KeyValueInputs>
-  </div>
-
-  <Shw::Divider />
-
-  <Shw::Text::H2>KeyValueInputs::Field</Shw::Text::H2>
-
-  <Shw::Text::H3>Default</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>All default inputs</H.Legend>
-    </:header>
-
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.TextInput @value="Sample text" />
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Textarea</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Textarea @value="Sample text" />
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Masked Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.MaskedInput @value="Sample text" />
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Select</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Select>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </F.Select>
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Super Select Single</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectSingle>
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>Super Select Multiple</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectMultiple>
-      </R.Field>
-      <R.Field as |F|>
-        <F.Label>File Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.FileInput />
-      </R.Field>
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>With errors</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>All default inputs</H.Legend>
-    </:header>
-
-    <:row as |R|>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.TextInput @value="Sample text" />
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Textarea</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Textarea @value="Sample text" />
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Masked Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.MaskedInput @value="Sample text" />
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Select</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Select>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </F.Select>
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Super Select Single</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectSingle>
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>Super Select Multiple</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectMultiple>
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-      <R.Field @isInvalid={{true}} as |F|>
-        <F.Label>File Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.FileInput />
-        <F.Error>Sample text.</F.Error>
-      </R.Field>
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>Required</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>All required inputs</H.Legend>
-    </:header>
-
-    <:row as |R|>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.TextInput @value="Sample text" />
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Textarea</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Textarea @value="Sample text" />
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Masked Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.MaskedInput @value="Sample text" />
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Select</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Select>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </F.Select>
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Super Select Single</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectSingle>
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>Super Select Multiple</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectMultiple>
-      </R.Field>
-      <R.Field @isRequired={{true}} as |F|>
-        <F.Label>File Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.FileInput />
-      </R.Field>
-    </:row>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Text::H3>Optional</Shw::Text::H3>
-
-  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
-    <:header as |H|>
-      <H.Legend>All optional inputs</H.Legend>
-    </:header>
-
-    <:row as |R|>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Text Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.TextInput @value="Sample text" />
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Textarea</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Textarea @value="Sample text" />
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Masked Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.MaskedInput @value="Sample text" />
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Select</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.Select>
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </F.Select>
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Super Select Single</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectSingle
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectSingle>
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>Super Select Multiple</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.SuperSelectMultiple
-          @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
-          @options={{@model.SUPERSELECT_OPTIONS}}
-          @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
-          @ariaLabel="Label"
-          as |option|
-        >
-          {{option}}
-        </F.SuperSelectMultiple>
-      </R.Field>
-      <R.Field @isOptional={{true}} as |F|>
-        <F.Label>File Input</F.Label>
-        <F.HelperText>Sample text.</F.HelperText>
-        <F.FileInput />
-      </R.Field>
-    </:row>
-  </Hds::Form::KeyValueInputs>
+  <Shw::Flex @direction="column" as |SF|>
+    {{#let (array "text-input" "textarea" "masked-input" "select" "superselect-single" "superselect-multiple" "file-input") as |controls|}}
+      {{#each controls as |control|}}
+        <SF.Item @label={{control}}>
+          <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+            <:row as |R|>
+              {{#let (array "default" "required" "optional" "error" ) as |cases|}}
+                {{#each cases as |case|}}
+                  <R.Field @isRequired={{if (eq case 'required') true}} @isOptional={{if (eq case 'optional') true}} as |F|>
+                    <F.Label>This is the legend</F.Label>
+                    <F.HelperText>
+                      {{#if (eq case "default")}}
+                        Base (default)
+                      {{else if (eq case "required")}}
+                        With 'required' indicator
+                      {{else if (eq case "optional")}}
+                        With 'optional' indicator
+                      {{else if (eq case "error")}}
+                        With error message
+                      {{/if}}
+                    </F.HelperText>
+                    {{#if (eq control "text-input")}}
+                      <F.TextInput />
+                    {{else if (eq control "textarea")}}
+                      <F.Textarea />
+                    {{else if (eq control "masked-input")}}
+                      <F.MaskedInput />
+                    {{else if (eq control "select")}}
+                      <F.Select>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                      </F.Select>
+                    {{else if (eq control "superselect-single")}}
+                      <F.SuperSelectSingle
+                        @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+                        @options={{@model.SUPERSELECT_OPTIONS}}
+                        @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
+                        @ariaLabel="Label"
+                        as |option|
+                      >
+                        {{option}}
+                      </F.SuperSelectSingle>
+                    {{else if (eq control "superselect-multiple")}}
+                      <F.SuperSelectMultiple
+                        @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+                        @options={{@model.SUPERSELECT_OPTIONS}}
+                        @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
+                        @ariaLabel="Label"
+                        as |option|
+                      >
+                        {{option}}
+                      </F.SuperSelectMultiple>
+                    {{else if (eq control "file-input")}}
+                      <F.FileInput />
+                    {{/if}}
+                    {{#if (eq case "error")}}
+                      <F.Error>This is the error message.</F.Error>
+                    {{/if}}
+                  </R.Field>
+                {{/each}}
+              {{/let}}
+            </:row>
+          </Hds::Form::KeyValueInputs>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
 
   <Shw::Text::H3>With and without helper text</Shw::Text::H3>
 
@@ -883,62 +738,62 @@
   </Hds::Form::KeyValueInputs>
 </section>
 
-<section>
+<Shw::Divider />
+
+<section data-test-percy>
+
   <Shw::Text::H2>Demos</Shw::Text::H2>
 
-  <Shw::Text::H3>Key input selection changes value input type</Shw::Text::H3>
+  <Shw::Text::H3 />
 
-  <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
-    <:header as |H|>
-      <H.Legend>Sample label</H.Legend>
-    </:header>
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Key input selection changes value input type">
+      <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
+              <option selected={{if (eq R.rowData.key "single-line") true}}>Single line</option>
+              <option selected={{if (eq R.rowData.key "multi-line") true}}>Multiline</option>
+              <option selected={{if (eq R.rowData.key "tags") true}}>Tags</option>
+            </F.Select>
+          </R.Field>
 
-    <:row as |R|>
-      <R.Field as |F|>
-        <F.Label>Key</F.Label>
-        <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
-          <option selected={{if (eq R.rowData.key "tag") true}}>Tag</option>
-          <option selected={{if (eq R.rowData.key "other") true}}>Other</option>
-        </F.Select>
-      </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            {{#if (eq R.rowData.key "single-line")}}
+              <F.Textinput @value={{R.rowData.value.text}} />
+            {{else if (eq R.rowData.key "textarea")}}
+              <F.Textarea @value={{R.rowData.value.text}} />
+            {{else if (eq R.rowData.key "superselect")}}
+              <F.SuperSelectSingle
+                @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+                @options={{@model.SUPERSELECT_OPTIONS}}
+                @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
+                @ariaLabel="Label"
+                as |option|
+              >
+                {{option}}
+              </F.SuperSelectSingle>
+            {{/if}}
+          </R.Field>
+          <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
+        </:row>
 
-      <R.Field as |F|>
-        <F.Label>Value</F.Label>
-        {{#if (eq R.rowData.key "tag")}}
-          <F.SuperSelectSingle
-            @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-            @options={{@model.SUPERSELECT_OPTIONS}}
-            @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-            @ariaLabel="Label"
-            as |option|
-          >
-            {{option}}
-          </F.SuperSelectSingle>
-        {{else if (eq R.rowData.key "other")}}
-          <F.Textarea @value={{R.rowData.value.text}} />
-        {{/if}}
-      </R.Field>
-      <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
-    </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
 
-    <:footer as |F|>
-      <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
-    </:footer>
-  </Hds::Form::KeyValueInputs>
-
-  <div {{style margin-top="2rem"}}>
-    <Shw::Frame
-      @id="demo-key-value-inputs-within-form"
-      @src="/components/form/key-value-inputs/frameless/demo-in-form"
-      @height="300"
-      @label="With other responsive components"
-    />
-  </div>
 </section>
 
 <Shw::Divider />
 
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
 <section>
+
   <Shw::Text::H2>Responsiveness</Shw::Text::H2>
 
   <Shw::Frame
@@ -956,6 +811,8 @@
     @label="Small viewport (< 480px)"
   />
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Frame
     @id="demo-key-value-inputs-custom-widths-large-viewports"
     @src="/components/form/key-value-inputs/frameless/demo-responsiveness-custom-widths"
@@ -964,10 +821,28 @@
   />
 
   <Shw::Frame
-    @id="demo-key-value-inputs-custom-widths--small-viewports"
+    @id="demo-key-value-inputs-custom-widths-small-viewports"
     @src="/components/form/key-value-inputs/frameless/demo-responsiveness-custom-widths"
     @width="400"
     @height="650"
     @label="Custom widths + small viewport (< 480px)"
   />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-within-form-large-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-in-form"
+    @height="600"
+    @label="With other responsive components"
+  />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-within-form-small-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-in-form"
+    @width="400"
+    @height="650"
+    @label="With other responsive components"
+  />
+
 </section>

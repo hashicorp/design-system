@@ -70,7 +70,7 @@
             </Hds::Form::Textarea::Field>
           </div>
 
-          <Hds::Form::KeyValueInputs @data={{this.sampleData}} {{style margin-top="24px"}}>
+          <Hds::Form::KeyValueInputs @data={{this.sampleData}} @isOptional={{true}} {{style margin-top="24px"}}>
             <:header as |H|>
               <H.Legend>Plugin binaries</H.Legend>
               <H.HelperText>
