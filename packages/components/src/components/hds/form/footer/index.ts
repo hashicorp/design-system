@@ -5,18 +5,25 @@
 
 import Component from '@glimmer/component';
 
+import type { ComponentLike } from '@glint/template';
+import type { HdsButtonSetSignature } from '../../button-set/index.ts';
+
 export interface HdsFormFooterSignature {
   Args: {
     isFullWidth?: boolean;
   };
   Blocks: {
-    default: [];
-  };
+      default: [
+        {
+          ButtonSet?: ComponentLike<HdsButtonSetSignature>;
+        },
+      ];
+    };
   Element: HTMLDivElement;
 }
 
 export default class HdsFormFooter extends Component<HdsFormFooterSignature> {
-  get classNames() {
+  get classNames():string {
     const classes = ['hds-form__footer'];
 
     // add a class based on the @isFullWidth argument

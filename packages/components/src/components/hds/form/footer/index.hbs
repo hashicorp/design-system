@@ -3,6 +3,6 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 
-<Hds::ButtonSet class={{this.classNames}} ...attributes>
-  {{yield}}
-</Hds::ButtonSet>
+<div class={{this.classNames}} ...attributes>
+  {{yield (hash ButtonSet=(component "hds/button-set"))}}
+</div>

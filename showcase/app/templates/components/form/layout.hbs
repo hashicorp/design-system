@@ -70,7 +70,7 @@
       </FORM.Section>
 
       <FORM.Footer>
-        <Shw::Placeholder @height="2.25rem" @text="ButtonSet wrapped in Section" @background="#fff8d2" />
+        <Shw::Placeholder @height="2.25rem" @text="Form Footer" @background="#fff8d2" />
       </FORM.Footer>
     </Hds::Form>
   </div>
@@ -219,8 +219,10 @@
       </FORM.Section>
 
       <FORM.Footer>
-        <Hds::Button @text="Submit" type="submit" />
-        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        <Hds::ButtonSet>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </Hds::ButtonSet>
       </FORM.Footer>
     </Hds::Form>
   </div>
@@ -739,8 +741,10 @@
     <SF.Item @label="isFullWidth=false (default)">
       <Hds::Form as |FORM|>
         <FORM.Footer>
-          <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
@@ -748,8 +752,10 @@
     <SF.Item @label="inherited sectionMaxWidth=32em set on Form parent">
       <Hds::Form @sectionMaxWidth="32em" as |FORM|>
         <FORM.Footer>
-          <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
@@ -757,8 +763,10 @@
     <SF.Item @label="isFullWidth=true">
       <Hds::Form as |FORM|>
         <FORM.Footer @isFullWidth={{true}}>
-          <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          <Hds::ButtonSet>
+            <Hds::Button @text="Submit" type="submit" />
+            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          </Hds::ButtonSet>
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
@@ -810,8 +818,10 @@
       </Hds::Form::Textarea::Field>
     </FORM.Section>
     <FORM.Footer>
-      <Hds::Button @color="primary" @text="Create project" type="submit" />
-      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      <Hds::ButtonSet>
+        <Hds::Button @color="primary" @text="Create project" type="submit" />
+        <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      </Hds::ButtonSet>
     </FORM.Footer>
   </Hds::Form>
 
@@ -842,8 +852,10 @@
     </Hds::Alert>
 
     <FORM.Footer>
-      <Hds::Button @color="primary" @text="Create cluster" type="submit" />
-      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      <Hds::ButtonSet>
+        <Hds::Button @color="primary" @text="Create cluster" type="submit" />
+        <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      </Hds::ButtonSet>
     </FORM.Footer>
   </Hds::Form>
 
@@ -871,8 +883,10 @@
       </Hds::Form::TextInput::Field>
     </FORM.Section>
     <FORM.Footer>
-      <Hds::Button @color="primary" @text="Save" type="submit" />
-      <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      <Hds::ButtonSet>
+        <Hds::Button @color="primary" @text="Save" type="submit" />
+        <Hds::Button @color="secondary" @text="Cancel" @href="#" />
+      </Hds::ButtonSet>
     </FORM.Footer>
   </Hds::Form>
 
