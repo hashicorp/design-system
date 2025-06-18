@@ -13,3 +13,12 @@ showcase:
           fr: "🇫🇷 Francés (Francia)"
           es: "🇪🇸 Español (España)"
         title: "Idioma seleccionado"
+hds:
+  components:
+    app-footer:
+      legal-links:
+        support: "Soporte"
+        terms: "Términos"
+        privacy: "Privacidad"
+        security: "Seguridad"
+        accessibility: "Accesibilidad"
