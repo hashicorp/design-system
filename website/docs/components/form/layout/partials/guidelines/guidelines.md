@@ -55,9 +55,9 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 
 !!!
 
-## Button Set
+## Form Footer
 
-Buttons are necessary saving or submitting form information. For consistent spacing and layout, we recommend using a [Button Set](/patterns/form-patterns#button-sets) to contain the buttons/actions to Save/Submit or Cancel the form.
+The final Section within a form is the Form Footer. The Form Footer typically houses a Button or [Button Set](/patterns/form-patterns#button-sets) to allow users to save or submit form information. For consistent spacing and layout, we recommend using a Button Set to contain the buttons/actions to Save/Submit or Cancel the form.
 
 ## Single column layout
 
