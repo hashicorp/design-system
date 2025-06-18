@@ -6,11 +6,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { service } from '@ember/service';
 import { modifier } from 'ember-modifier';
 
 import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import type { HdsCopyButtonSignature } from '../../copy/button/index.ts';
 import type { HdsFormVisibilityToggleSignature } from '../visibility-toggle/index.ts';
+import type HdsIntlService from '../../../../services/hds-intl.ts';
 
 export interface HdsFormMaskedInputBaseSignature {
   Args: {
@@ -31,6 +33,8 @@ export interface HdsFormMaskedInputBaseSignature {
 }
 
 export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInputBaseSignature> {
+  @service hdsIntl!: HdsIntlService;
+
   @tracked _isContentMasked = true;
   @tracked private _isControlled = this.args.isContentMasked !== undefined;
 
@@ -71,9 +75,19 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     if (this.args.visibilityToggleAriaLabel) {
       return this.args.visibilityToggleAriaLabel;
     } else if (this.isContentMasked) {
-      return 'Show masked content';
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.show-masked-content',
+        {
+          default: 'Show masked content',
+        }
+      );
     } else {
-      return 'Hide masked content';
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.hide-masked-content',
+        {
+          default: 'Hide masked content',
+        }
+      );
     }
   }
 
@@ -81,9 +95,19 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     if (this.args.visibilityToggleAriaMessageText) {
       return this.args.visibilityToggleAriaMessageText;
     } else if (this.isContentMasked) {
-      return 'Input content is hidden';
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.input-content-is-hidden',
+        {
+          default: 'Input content is hidden',
+        }
+      );
     } else {
-      return 'Input content is visible';
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.input-content-is-visible',
+        {
+          default: 'Input content is visible',
+        }
+      );
     }
   }
 
@@ -91,7 +115,12 @@ export default class HdsFormMaskedInputBase extends Component<HdsFormMaskedInput
     if (this.args.copyButtonText) {
       return this.args.copyButtonText;
     } else {
-      return 'Copy masked content';
+      return this.hdsIntl.t(
+        'hds.components.form.masked-input.base.copy-masked-content',
+        {
+          default: 'Copy masked content',
+        }
+      );
     }
   }
 
