@@ -34,31 +34,26 @@ export default class InternationalizationTranslationController extends Controlle
 
   @tracked lang = null;
 
-  get serviceTranslations() {
-    return Object.entries(SERVICE_TRANSLATIONS).reduce(
-      (acc, [key, translationKey]) => {
-        acc[key] = this.hdsIntl.t(translationKey.key, {
-          default: translationKey.default,
-        });
-        return acc;
-      },
-      {},
-    );
-  }
+  hdsIntlTranslations = Object.entries(SERVICE_TRANSLATIONS).reduce(
+    (acc, [key, translationKey]) => {
+      acc[key] = this.hdsIntl.t(translationKey.key, {
+        default: translationKey.default,
+      });
+      return acc;
+    },
+    {},
+  );
 
-  get emberIntlTranslations() {
-    return Object.entries(SERVICE_TRANSLATIONS).reduce(
-      (acc, [key, translationKey]) => {
-        acc[key] = this.intl.t(translationKey.key);
-        return acc;
-      },
-      {},
-    );
-  }
+  emberIntlTranslations = Object.entries(SERVICE_TRANSLATIONS).reduce(
+    (acc, [key, translationKey]) => {
+      acc[key] = this.intl.t(translationKey.key);
+      return acc;
+    },
+    {},
+  );
 
   @action
   setLang(event) {
-    event.preventDefault();
     const { value } = event.target;
     this.lang = value;
 
