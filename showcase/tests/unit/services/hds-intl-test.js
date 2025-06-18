@@ -90,16 +90,8 @@ module('Unit | Service | hds-intl', function (hooks) {
   });
 
   test('it throws an error if the key is not a non-empty string', function (assert) {
-    const errorMessage =
-      'HdsIntlService requires a key as the first positional argument';
-    setupOnerror(function (error) {
-      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    assert.throws(() => {
+      this.hdsIntl.t(undefined, { default: '' });
     });
-
-    this.hdsIntl.t(undefined, {});
-
-    assert.throws(function () {
-      throw new Error(errorMessage);
-    }, 'throws error for undefined key');
   });
 });

@@ -1,1 +1,1 @@
-info: "{itemsRangeStart}–{itemsRangeEnd}{hasTotal, select, true{ of {totalItems}} other{}}"
+page_range: "{itemsRangeStart}–{itemsRangeEnd}{showTotalItems, select, true{ of {totalItems}} false{} other{}}"
