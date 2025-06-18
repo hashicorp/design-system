@@ -86,7 +86,7 @@ The `Form::KeyValueInputs::DeleteRowButton` component, yielded as a contextual c
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="onClick" type="function">
-    Callback function that is invoked when the button is clicked. The function recieves the DOM `event` and the data for the associated row.
+    Callback function that is invoked when the button is clicked. The function receives the DOM `event` and the data for the associated row.
   </C.Property>
   <C.Property @name="text" type="string">
     The name for the button.
@@ -104,7 +104,7 @@ The `Form::KeyValueInputs::AddRowButton` component, yielded as a contextual comp
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="onClick" type="function">
-    Callback function that is invoked when the button is clicked. The function recieves the DOM `event`.
+    Callback function that is invoked when the button is clicked. The function receives the DOM `event`.
   </C.Property>
   <C.Property @name="text" type="string">
     The name for the button.
