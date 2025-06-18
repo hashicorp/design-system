@@ -13,7 +13,10 @@
 
 `AdvancedTable::ThButtonTooltip` - Translated template strings
 
-`AdvancedTable::ThSelectable` - Translated template strings
+`AdvancedTable::ThSelectable`
+
+- Translated template strings
+- Removed extraneous screen-reader-only text
 
 `AppFooter::Copyright` - Translated template strings
 
@@ -41,6 +44,9 @@
 
 `Table::ThButtonTooltip` - Translated template strings
 
-`Table::ThSelectable` - Translated template strings
+`Table::ThSelectable`
+
+- Translated template strings
+- Removed extraneous screen-reader-only text
 
 `Time::Range` - Translated template strings
