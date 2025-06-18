@@ -342,8 +342,8 @@
   <Shw::Text::H4>FormHeaderTitle sizes</Shw::Text::H4>
 
   <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
-    {{#each this.model.DISPLAY_AVAILABLE_SIZES as |size|}}
-      <SG.Item @label="size={{size}} {{if (eq size this.model.FORM_HEADER_TITLE_DEFAULT_SIZE) '(default)'}}">
+    {{#each @model.DISPLAY_AVAILABLE_SIZES as |size|}}
+      <SG.Item @label="size={{size}} {{if (eq size @model.FORM_HEADER_TITLE_DEFAULT_SIZE) '(default)'}}">
         <Hds::Form::Header::Title @size={{size}}>
           Form Header Title w/ size of ({{size}})
         </Hds::Form::Header::Title>
