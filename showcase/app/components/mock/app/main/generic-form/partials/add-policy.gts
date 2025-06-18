@@ -200,7 +200,6 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
     </HdsFormHeader>
 
     <HdsFormSection>
-
       <HdsFormRadioGroup as |G|>
         <G.RadioField checked={{true}} as |F|>
           <F.Label>Private</F.Label>
@@ -213,6 +212,12 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
             your organization.</F.HelperText>
         </G.RadioField>
       </HdsFormRadioGroup>
+    </HdsFormSection>
+
+    <HdsFormSection @hasBorder={{true}}>
+      <HdsFormSectionHeader as |FSH|>
+        <FSH.Title>Some more metadata</FSH.Title>
+      </HdsFormSectionHeader>
       <HdsFormToggleField as |F|>
         <F.Label>Allow admin users</F.Label>
         <F.HelperText>When enabled, allows admin users to view the policy. This
@@ -221,13 +226,11 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
           metadata.
         </F.HelperText>
       </HdsFormToggleField>
-
       <HdsFormTextareaField @isOptional={{true}} as |F|>
         <F.Label>Description</F.Label>
         <F.HelperText>A brief description of the policy, up to 256 characters</F.HelperText>
         <F.CharacterCount @maxLength={{256}} />
       </HdsFormTextareaField>
-
     </HdsFormSection>
   </template>
 }
