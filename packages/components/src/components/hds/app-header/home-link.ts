@@ -12,30 +12,40 @@ import type { HdsInteractiveSignature } from '../interactive/';
 export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     icon: HdsIconSignature['Args']['name'];
+    isIconOnly?: boolean;
     color?: string;
-    title?: string;
-    ariaLabel: string;
+    text?: string;
   };
   Element: HdsInteractiveSignature['Element'];
 }
 
 export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLinkSignature> {
-  get title(): string {
-    const { title } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
-    return title || '';
+    assert (
+      '@text for "Hds::AppHeader::HomeLink" must have a valid value',
+      text !== undefined
+    )
+
+    return text;
   }
 
-  get ariaLabel(): string {
-    const { ariaLabel, title } = this.args;
+  get icon(): HdsIconSignature['Args']['name'] {
+    const { icon } = this.args;
 
     assert(
-      '@ariaLabel for "Hds::AppHeader::HomeLink" ("Logo") must have a valid value',
-      ariaLabel !== undefined
+      '@icon for "Hds::AppHeader::HomeLink" must have a valid value',
+      icon !== undefined
     );
 
-    // If title exists, prefix the aria label with it, otherwise use the provided ariaLabel
-    return title ? `${title} ${ariaLabel}` : ariaLabel;
+    return icon;
   }
 
+  get isIconOnly(): boolean {
+    if (this.icon) {
+      return this.args.isIconOnly ?? false;
+    }
+    return false;
+  }
 }

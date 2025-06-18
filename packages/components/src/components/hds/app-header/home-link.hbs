@@ -14,14 +14,20 @@
   @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   ...attributes
-  aria-label={{this.ariaLabel}}
+  aria-label={{if this.isIconOnly this.text null}}
 >
-  <Hds::Icon @name={{@icon}} @color={{@color}} @stretched={{true}} />
-  {{#if this.title}}
+  {{#if this.isIconOnly}}
+    {{#if this.icon}}
+      <Hds::Icon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+    {{/if}}
+  {{else}}
+    {{#if this.icon}}
+      <Hds::Icon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+    {{/if}}
     <Hds::Text::Display
       class="hds-app-header__home-link-title"
       @size="100"
       @color="foreground-high-contrast"
-    >{{this.title}}</Hds::Text::Display>
+    >{{this.text}}</Hds::Text::Display>
   {{/if}}
 </Hds::Interactive>

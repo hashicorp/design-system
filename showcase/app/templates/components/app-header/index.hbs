@@ -44,7 +44,7 @@
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -81,7 +81,7 @@
     <SG.Item @label="With max recommended phase 1 content & Terraform logo">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="Terraform home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -120,7 +120,7 @@
     <SG.Item @label="With max proposed future content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -172,7 +172,7 @@
     <SG.Item @label="40 characters long organization name with dashes">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -208,7 +208,7 @@
     <SG.Item @label="40 characters long organization name with no dashes">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -244,14 +244,14 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Application Title</Shw::Text::H2>
+  <Shw::Text::H2>Text</Shw::Text::H2>
 
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
     
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @ariaLabel="home" @href="#" @title="Terraform Admin Console" />
+          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform Admin Console" @href="#" />
         </:logo>
         <:utilityActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -267,7 +267,7 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="home" @href="#" @title="Admin UI" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="Admin UI" @href="#" />
         </:logo>
         <:globalActions>
             <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -303,7 +303,7 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="boundary-color" @ariaLabel="home" @href="#" @title="Boundary Desktop" />
+          <Hds::AppHeader::HomeLink @icon="boundary-color" @text="Boundary Desktop" @href="#" />
         </:logo>
         <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
@@ -321,7 +321,7 @@
     <SG.Item @label="With custom breakpoint (menu button is visible at wide screen width)">
       <Hds::AppHeader @hasA11yRefocus={{false}} @breakpoint="20000px">
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp home menu" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -416,7 +416,7 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Icon">
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" />
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{true}} @href="#" />
       </div>
     </SF.Item>
 
@@ -424,7 +424,8 @@
       <div class="hds-app-header">
         <Hds::AppHeader::HomeLink
           @icon="boundary"
-          @ariaLabel="Boundary"
+          @text="Boundary"
+          @isIconOnly={{true}}
           @color="var(--token-color-boundary-brand)"
           @href="#"
         />
@@ -432,14 +433,14 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Application Title</Shw::Text::H4>
+  <Shw::Text::H4>Text</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
     <SF.Item>
       <div class="hds-app-header">
         <Hds::AppHeader::HomeLink
           @icon="hashicorp"
-          @ariaLabel="HashiCorp"
+          @text="HashiCorp"
           @href="#"
           @title="Admin UI"
         />
@@ -450,7 +451,7 @@
       <div class="hds-app-header">
         <Hds::AppHeader::HomeLink
           @icon="terraform"
-          @ariaLabel="HashiCorp"
+          @text="HashiCorp"
           @href="#"
           @title="Terraform Admin Console"
         />
@@ -465,7 +466,7 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
-            <Hds::AppHeader::HomeLink @icon="hashicorp" @ariaLabel="HashiCorp" @href="#" mock-state-value={{state}} />
+            <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{true}} @href="#" mock-state-value={{state}} />
           </div>
         </SF.Item>
       {{/each}}
@@ -479,7 +480,8 @@
           <div class="hds-app-header">
             <Hds::AppHeader::HomeLink
               @icon="boundary"
-              @ariaLabel="Boundary"
+              @isIconOnly={{true}}
+              @text="Boundary"
               @color="var(--token-color-boundary-brand)"
               @href="#"
               mock-state-value={{state}}
@@ -497,9 +499,8 @@
           <div class="hds-app-header">
             <Hds::AppHeader::HomeLink
               @icon="terraform"
-              @ariaLabel="Boundary"
+              @text="Terraform Admin Console"
               @href="#"
-              @title="Terraform Admin Console"
               mock-state-value={{state}}
             />
           </div>
