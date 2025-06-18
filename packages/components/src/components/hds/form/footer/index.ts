@@ -13,17 +13,17 @@ export interface HdsFormFooterSignature {
     isFullWidth?: boolean;
   };
   Blocks: {
-      default: [
-        {
-          ButtonSet?: ComponentLike<HdsButtonSetSignature>;
-        },
-      ];
-    };
+    default: [
+      {
+        ButtonSet?: ComponentLike<HdsButtonSetSignature>;
+      },
+    ];
+  };
   Element: HTMLDivElement;
 }
 
 export default class HdsFormFooter extends Component<HdsFormFooterSignature> {
-  get classNames():string {
+  get classNames(): string {
     const classes = ['hds-form__footer'];
 
     // add a class based on the @isFullWidth argument
