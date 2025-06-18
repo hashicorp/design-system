@@ -5,7 +5,6 @@
 
 import { module, test } from 'qunit';
 import { setupTest } from 'showcase/tests/helpers';
-import { setupOnerror } from '@ember/test-helpers';
 
 const defaultString = 'Default text';
 
