@@ -60,7 +60,7 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
             <F.Label>City</F.Label>
           </HdsFormTextInputField>
 
-          <FG.Item @basis="auto">
+          <FG.Item @width="auto">
             <HdsFormSelectField as |F|>
               <F.Label>State</F.Label>
               <F.Options>
@@ -73,7 +73,7 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
             </HdsFormSelectField>
           </FG.Item>
 
-          <FG.Item @basis="8em">
+          <FG.Item @width="8em">
             <HdsFormTextInputField as |F|>
               <F.Label>Zip</F.Label>
             </HdsFormTextInputField>

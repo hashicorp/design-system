@@ -18,7 +18,7 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
 
   // CONTENT
 
-  test('it should yield the Section Header, HeaderTitle/Description, SectionMultiFieldGroup and Section children', async function (assert) {
+  test('it should yield the Section Header, HeaderTitle/Description, SectionMultiFieldGroup, SectionMultiFieldGroupItem, and Section children', async function (assert) {
     await render(
       hbs`<Hds::Form::Section id="test-form-section" as |Section|>
             <Section.Header>
@@ -49,7 +49,7 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
       .exists('MultiFieldGroup is yielded');
     assert
       .dom(
-        '#test-form-section > .hds-form__section-multi-field-group > .hds-layout-flex-item',
+        '#test-form-section > .hds-form__section-multi-field-group > .hds-form__section-multi-field-group-item',
       )
       .exists('Item is yielded');
     assert

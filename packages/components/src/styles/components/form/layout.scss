@@ -43,7 +43,7 @@
   border-radius: var(--token-border-radius-medium);
 }
 
-// FIELD GROUP
+// MULTI FIELD GROUP
 // Note: Uses a Layout::Flex component under the hood which includes the main layout styles
 // If responsive behavior is later added to the Layout::Flex component, this behavior should be replaced and
 // the styles should be removed
@@ -58,6 +58,13 @@
       align-items: start;
     }
   }
+}
+
+// MULTI FIELD GROUP ITEM
+.hds-form__section-multi-field-group-item {
+  --hds-form-section-multi-field-group-item-width: unset;
+
+  width: var(--hds-form-section-multi-field-group-item-width);
 }
 
 // OPTIONS

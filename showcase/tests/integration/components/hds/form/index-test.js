@@ -108,7 +108,7 @@ module('Integration | Component | hds/form/index', function (hooks) {
         .exists(`SectionMultiFieldGroup is yielded for tag=${tag}`);
       assert
         .dom(
-          '#test-form > .hds-form__section > .hds-form__section-multi-field-group > .hds-layout-flex-item',
+          '#test-form > .hds-form__section > .hds-form__section-multi-field-group > .hds-form__section-multi-field-group-item',
         )
         .exists(`MultiFieldGroup Item is yielded for tag=${tag}`);
 

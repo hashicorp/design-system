@@ -6,14 +6,14 @@
 import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { ComponentLike } from '@glint/template';
-import type { HdsLayoutFlexItemSignature } from '../../../layout/flex/item.ts';
+import type { HdsFormSectionMultiFieldGroupItemSignature } from './item/index.ts';
 import type { AvailableElements } from '../../../layout/flex/types.ts';
 
 export interface HdsFormSectionMultiFieldGroupSignature {
   Blocks: {
     default: [
       {
-        Item?: ComponentLike<HdsLayoutFlexItemSignature>;
+        Item?: ComponentLike<HdsFormSectionMultiFieldGroupItemSignature>;
       },
     ];
   };

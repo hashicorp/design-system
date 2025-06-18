@@ -258,6 +258,7 @@
       "./components/hds/form/section/header.js": "./dist/_app_/components/hds/form/section/header.js",
       "./components/hds/form/section/index.js": "./dist/_app_/components/hds/form/section/index.js",
       "./components/hds/form/section/multi-field-group/index.js": "./dist/_app_/components/hds/form/section/multi-field-group/index.js",
+      "./components/hds/form/section/multi-field-group/item/index.js": "./dist/_app_/components/hds/form/section/multi-field-group/item/index.js",
       "./components/hds/form/select/base.js": "./dist/_app_/components/hds/form/select/base.js",
       "./components/hds/form/select/field.js": "./dist/_app_/components/hds/form/select/field.js",
       "./components/hds/form/separator/index.js": "./dist/_app_/components/hds/form/separator/index.js",
