@@ -5,9 +5,9 @@
 
 import Component from '@glimmer/component';
 
-import type { ComponentLike } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsFormSectionHeaderSignature } from './header.ts';
-import type { HdsFormHeaderTitleSignature } from '../header/title.ts';
+import type HdsFormHeaderTitleComponent from '../header/title.ts';
 import type { HdsFormHeaderDescriptionSignature } from '../header/description.ts';
 import type { HdsFormSectionMultiFieldGroupSignature } from './multi-field-group/index.ts';
 import type { HdsFormSectionMultiFieldGroupItemSignature } from './multi-field-group/item/index.ts';
@@ -22,7 +22,7 @@ export interface HdsFormSectionSignature {
       {
         Section?: ComponentLike<HdsFormSectionSignature>; // for nested sections
         Header?: ComponentLike<HdsFormSectionHeaderSignature>;
-        HeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
+        HeaderTitle?: WithBoundArgs<typeof HdsFormHeaderTitleComponent, 'size'>;
         HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
         MultiFieldGroup?: ComponentLike<HdsFormSectionMultiFieldGroupSignature>;
         MultiFieldGroupItem?: ComponentLike<HdsFormSectionMultiFieldGroupItemSignature>;

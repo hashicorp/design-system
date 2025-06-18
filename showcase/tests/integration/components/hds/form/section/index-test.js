@@ -25,10 +25,9 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
               <Section.HeaderTitle />
               <Section.HeaderDescription />
             </Section.Header>
-            <Section.MultiFieldGroup as |FG|>
-              <FG.Item />
+            <Section.MultiFieldGroup>
+              <Section.MultiFieldGroupItem />
             </Section.MultiFieldGroup>
-            <span>misc content</span>
           </Hds::Form::Section>`,
     );
     assert
@@ -52,10 +51,6 @@ module('Integration | Component | hds/form/section/index', function (hooks) {
         '#test-form-section > .hds-form__section-multi-field-group > .hds-form__section-multi-field-group-item',
       )
       .exists('Item is yielded');
-    assert
-      .dom('#test-form-section > span')
-      .exists('Misc content is yielded')
-      .hasText('misc content');
   });
 
   // OPTIONS

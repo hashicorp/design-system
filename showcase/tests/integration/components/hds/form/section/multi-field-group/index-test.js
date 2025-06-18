@@ -44,7 +44,7 @@ module(
       );
       assert
         .dom(
-          '#test-form-section-multi-field-group > .hds-layout-flex-item > pre',
+          '#test-form-section-multi-field-group > .hds-form__section-multi-field-group-item > pre',
         )
         .exists()
         .hasText('test');

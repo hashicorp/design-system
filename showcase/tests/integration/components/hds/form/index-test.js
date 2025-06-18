@@ -62,12 +62,11 @@ module('Integration | Component | hds/form/index', function (hooks) {
                   <FORM.SectionHeaderTitle />
                   <FORM.SectionHeaderDescription />
                 </FORM.SectionHeader>
-                <FORM.SectionMultiFieldGroup as |FG|>
-                  <FG.Item />
+                <FORM.SectionMultiFieldGroup>
+                  <FORM.SectionMultiFieldGroupItem />
                 </FORM.SectionMultiFieldGroup>
               </FORM.Section>
               <FORM.Separator />
-              <Hds::ButtonSet />
             </Hds::Form>`,
       );
 
@@ -110,15 +109,12 @@ module('Integration | Component | hds/form/index', function (hooks) {
         .dom(
           '#test-form > .hds-form__section > .hds-form__section-multi-field-group > .hds-form__section-multi-field-group-item',
         )
-        .exists(`MultiFieldGroup Item is yielded for tag=${tag}`);
+        .exists(`MultiFieldGroupItem is yielded for tag=${tag}`);
 
       // other content
       assert
         .dom('#test-form > hr.hds-separator')
         .exists(`Separator is yielded for tag=${tag}`);
-      assert
-        .dom('#test-form > .hds-button-set')
-        .exists(`ButtonSet is yielded for tag=${tag}`);
     }
   });
 

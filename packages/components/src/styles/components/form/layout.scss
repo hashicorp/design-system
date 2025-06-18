@@ -62,9 +62,7 @@
 
 // MULTI FIELD GROUP ITEM
 .hds-form__section-multi-field-group-item {
-  --hds-form-section-multi-field-group-item-width: unset;
-
-  width: var(--hds-form-section-multi-field-group-item-width);
+  width: var(--hds-form-section-multi-field-group-item-width, auto);
 }
 
 // OPTIONS
