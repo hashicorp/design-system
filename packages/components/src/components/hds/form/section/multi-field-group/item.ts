@@ -5,8 +5,6 @@
 
 import Component from '@glimmer/component';
 
-import type { AvailableElements } from '../../../layout/flex/types.ts';
-
 export interface HdsFormSectionMultiFieldGroupItemSignature {
   Args: {
     width?: string;
@@ -14,7 +12,7 @@ export interface HdsFormSectionMultiFieldGroupItemSignature {
   Blocks: {
     default: [];
   };
-  Element: AvailableElements;
+  Element: HTMLDivElement;
 }
 
 export default class HdsFormSectionMultiFieldGroupItem extends Component<HdsFormSectionMultiFieldGroupItemSignature> {

@@ -45,19 +45,23 @@
 
       <FORM.Section>
         <FORM.SectionMultiFieldGroup>
-          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 1" @background="#add8e6" />
+          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup Item 1" @background="#add8e6" />
           <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 2" @background="#add8e6" />
         </FORM.SectionMultiFieldGroup>
 
-        <FORM.SectionMultiFieldGroup @direction="column">
-          <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 1" @background="#add8e6" />
-          <Shw::Placeholder
-            @height="2.4em"
-            @width="max-content"
-            {{style padding="0 1em"}}
-            @text="MultiFieldGroup FormField 2"
-            @background="#add8e6"
-          />
+        <FORM.SectionMultiFieldGroup as |FG|>
+          <FG.Item @width="100%">
+            <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup Item 2" @background="#add8e6" />
+          </FG.Item>
+
+          <FG.Item @width="max-content">
+            <Shw::Placeholder
+              @height="2.4em"
+              {{style padding="0 1em"}}
+              @text="MultiFieldGroup Item 2"
+              @background="#add8e6"
+            />
+          </FG.Item>
         </FORM.SectionMultiFieldGroup>
       </FORM.Section>
 
@@ -552,7 +556,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>Section MultiFieldGroup</Shw::Text::H3>
+  <Shw::Text::H3>Section MultiFieldGroup & Item</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}

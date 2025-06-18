@@ -7,7 +7,6 @@ import TemplateOnlyComponent from '@ember/component/template-only';
 
 import type { ComponentLike } from '@glint/template';
 import type { HdsFormSectionMultiFieldGroupItemSignature } from './item.ts';
-import type { AvailableElements } from '../../../layout/flex/types.ts';
 
 export interface HdsFormSectionMultiFieldGroupSignature {
   Blocks: {
@@ -17,7 +16,7 @@ export interface HdsFormSectionMultiFieldGroupSignature {
       },
     ];
   };
-  Element: AvailableElements;
+  Element: HTMLDivElement;
 }
 
 const HdsFormSectionMultiFieldGroup =

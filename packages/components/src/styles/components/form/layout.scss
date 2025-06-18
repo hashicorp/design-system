@@ -44,19 +44,19 @@
 }
 
 // MULTI FIELD GROUP
-// Note: Uses a Layout::Flex component under the hood which includes the main layout styles
-// If responsive behavior is later added to the Layout::Flex component, this behavior should be replaced and
-// the styles should be removed
 
 .hds-form__section-multi-field-group {
-  &.hds-layout-flex--direction-row {
-    // When there are columns, stack them vertically
-    @include hds-breakpoint-below("md") {
-      flex-direction: column;
-      // per design specs: when the fields are stacked they should match the rest of the spacing and have 24px so that there isn't a weird visual rhythm
-      gap: 24px;
-      align-items: start;
-    }
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: end;
+
+  // When there are columns, stack them vertically
+  @include hds-breakpoint-below("md") {
+    flex-direction: column;
+    // per design specs: when the fields are stacked they should match the rest of the spacing and have 24px so that there isn't a weird visual rhythm
+    gap: 24px;
+    align-items: start;
   }
 }
 
