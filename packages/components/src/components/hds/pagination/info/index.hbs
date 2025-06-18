@@ -6,13 +6,13 @@
   {{hds-t
     "hds.components.pagination.info"
     default=(if
-      @showTotalItems
+      @totalItems
       (concat @itemsRangeStart "–" @itemsRangeEnd " of " @totalItems)
       (concat @itemsRangeStart "–" @itemsRangeEnd)
     )
     start=@itemsRangeStart
     end=@itemsRangeEnd
     total=@totalItems
-    hasTotal=@showTotalItems
+    hasTotal=@totalItems
   }}
 </Hds::Text::Body>
