@@ -14,7 +14,6 @@ import type { HdsFormSectionMultiFieldGroupItemSignature } from './multi-field-g
 
 export interface HdsFormSectionSignature {
   Args: {
-    hasBorder?: boolean;
     isFullWidth?: boolean;
   };
   Blocks: {
@@ -35,11 +34,6 @@ export interface HdsFormSectionSignature {
 export default class HdsFormSection extends Component<HdsFormSectionSignature> {
   get classNames(): string {
     const classes = ['hds-form__section'];
-
-    // add a class based on the @hasBorder argument
-    if (this.args.hasBorder) {
-      classes.push('hds-form__section--has-border');
-    }
 
     // add a class based on the @isFullWidth argument
     if (this.args.isFullWidth) {

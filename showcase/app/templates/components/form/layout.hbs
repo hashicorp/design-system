@@ -148,7 +148,7 @@
         </Hds::Form::Textarea::Field>
       </FORM.Section>
 
-      <FORM.Section @isFullWidth={{true}} @hasBorder={{true}}>
+      <FORM.Section @isFullWidth={{true}}>
         <FORM.SectionHeader>
           <FORM.SectionHeaderTitle>Section header title</FORM.SectionHeaderTitle>
           <FORM.SectionHeaderDescription>
@@ -438,52 +438,6 @@
             </FORM.SectionHeader>
             <Shw::Placeholder @height="2.4em" @text="FormField" />
             <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-    </Shw::Grid>
-  </div>
-
-  <Shw::Divider @level={{2}} />
-
-  <Shw::Text::H4>border</Shw::Text::H4>
-
-  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="hasBorder=false (default)">
-        <Hds::Form as |FORM|>
-          <FORM.Section>
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="hasBorder=true">
-        <Hds::Form as |FORM|>
-          <FORM.Section @hasBorder={{true}}>
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label="Bordered Section nested in another bordered Section">
-        <Hds::Form as |FORM|>
-          <FORM.Section @hasBorder={{true}}>
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-            <Shw::Placeholder @height="2.4em" @text="FormField" />
-
-            <FORM.Section @hasBorder={{true}}>
-              <Shw::Placeholder @height="2.4em" @text="FormField" />
-              <Shw::Placeholder @height="2.4em" @text="FormField" />
-              <Shw::Placeholder @height="2.4em" @text="FormField" />
-            </FORM.Section>
-
             <Shw::Placeholder @height="2.4em" @text="FormField" />
           </FORM.Section>
         </Hds::Form>

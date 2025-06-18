@@ -214,7 +214,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       </HdsFormRadioGroup>
     </HdsFormSection>
 
-    <HdsFormSection @hasBorder={{true}}>
+    <HdsFormSection>
       <HdsFormSectionHeader as |FSH|>
         <FSH.Title>Some more metadata</FSH.Title>
       </HdsFormSectionHeader>
