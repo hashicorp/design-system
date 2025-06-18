@@ -41,24 +41,23 @@ const DEFAULT_DATA = [
 const DYNAMIC_INPUT_EXAMPLE_DATA = [
   {
     id: 1,
-    key: 'other',
+    key: 'multi-line',
     value: {
-      inputType: 'textarea',
-      text: 'This is a dynamic input',
+      text: 'This is a multiline text that should go on multiple lines inside a textarea control',
     },
   },
   {
     id: 2,
-    key: 'tag',
+    key: 'tags',
     value: {
       inputType: 'select',
     },
   },
   {
     id: 3,
-    key: 'tag',
+    key: 'single-line',
     value: {
-      inputType: 'select',
+      text: 'This is a single line text',
     },
   },
 ];
