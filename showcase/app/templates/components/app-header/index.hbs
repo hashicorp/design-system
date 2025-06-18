@@ -270,7 +270,7 @@
           <Hds::AppHeader::HomeLink @icon="hashicorp" @text="Admin UI" @href="#" />
         </:logo>
         <:globalActions>
-            <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
+          <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
             <dd.ToggleButton @text="Choose an organization" @icon="org" />
             <dd.Checkmark>
               organizationName
@@ -438,23 +438,13 @@
   <Shw::Flex as |SF|>
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink
-          @icon="hashicorp"
-          @text="HashiCorp"
-          @href="#"
-          @title="Admin UI"
-        />
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" @title="Admin UI" />
       </div>
     </SF.Item>
 
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink
-          @icon="terraform"
-          @text="HashiCorp"
-          @href="#"
-          @title="Terraform Admin Console"
-        />
+        <Hds::AppHeader::HomeLink @icon="terraform" @text="HashiCorp" @href="#" @title="Terraform Admin Console" />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -466,7 +456,13 @@
       {{#each states as |state|}}
         <SF.Item @label={{state}}>
           <div class="hds-app-header">
-            <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{true}} @href="#" mock-state-value={{state}} />
+            <Hds::AppHeader::HomeLink
+              @icon="hashicorp"
+              @text="HashiCorp"
+              @isIconOnly={{true}}
+              @href="#"
+              mock-state-value={{state}}
+            />
           </div>
         </SF.Item>
       {{/each}}
