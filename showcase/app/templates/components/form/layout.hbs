@@ -239,7 +239,43 @@
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
   </button>
 
-  <Shw::Text::H4>Tag</Shw::Text::H4>
+  <Shw::Text::H4>width</Shw::Text::H4>
+
+  <Shw::Flex
+    @direction="column"
+    @gap="2rem"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}"
+    as |SF|
+  >
+    {{#let (array undefined "32em" "100%" "none") as |sectionMaxWidths|}}
+      {{#each sectionMaxWidths as |sectionMaxWidth|}}
+        <SF.Item @label="" as |SFI|>
+          <SFI.Label>
+            {{#if sectionMaxWidth}}
+              sectionMaxWidth={{sectionMaxWidth}}
+            {{else}}
+              default widths
+            {{/if}}
+          </SFI.Label>
+          <Hds::Form @sectionMaxWidth={{sectionMaxWidth}} as |FORM|>
+            <FORM.Header>
+              <Shw::Placeholder @height="36px" @text="Header" @background="#e4c5f3" />
+            </FORM.Header>
+            <FORM.Section>
+              <Shw::Placeholder @height="36px" @text="Section" @background="#add8e6" />
+            </FORM.Section>
+            <FORM.Separator />
+            <FORM.Section @isFullWidth={{true}}>
+              <Shw::Placeholder @height="36px" @text="Section / Full width" @background="#add8e6" />
+            </FORM.Section>
+            <FORM.Separator @isFullWidth={{true}} />
+          </Hds::Form>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Text::H4>tag</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}">
     <Shw::Grid @columns={{2}} @gap="2rem" as |SG|>
