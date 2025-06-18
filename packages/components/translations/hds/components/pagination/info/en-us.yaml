@@ -1,1 +1,1 @@
-info: "{start}–{end}{hasTotal, select, true{ of {total}} other{}}"
+info: "{itemsRangeStart}–{itemsRangeEnd}{hasTotal, select, true{ of {totalItems}} other{}}"
