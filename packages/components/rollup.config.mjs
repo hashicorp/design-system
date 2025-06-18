@@ -19,6 +19,8 @@ const plugins = [
   // addon. Anything not listed here may get optimized away.
   addon.publicEntrypoints([
     '**/*.{js,ts}',
+    '!helpers/hds-t.js',
+    '!services/hds-intl.js',
     'index.js',
     'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
@@ -33,8 +35,6 @@ const plugins = [
     'modifiers/**/*.js',
     'services/**/!(*types).js',
     'instance-initializers/**/*.js',
-    '!helpers/hds-t.js',
-    '!services/hds-intl.js',
   ]),
 
   // Follow the V2 Addon rules about dependencies. Your code can import from
