@@ -23,10 +23,10 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
   get text(): string {
     const { text } = this.args;
 
-    assert (
+    assert(
       '@text for "Hds::AppHeader::HomeLink" must have a valid value',
       text !== undefined
-    )
+    );
 
     return text;
   }
