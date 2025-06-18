@@ -12,11 +12,13 @@ import { Compartment } from '@codemirror/state';
 import { EditorView } from '@codemirror/view';
 import { guidFor } from '@ember/object/internals';
 import { isEmpty } from '@ember/utils';
+import { service } from '@ember/service';
 
 // hds-dark theme
 import hdsDarkTheme from './hds-code-editor/themes/hds-dark-theme.ts';
 import hdsDarkHighlightStyle from './hds-code-editor/highlight-styles/hds-dark-highlight-style.ts';
 
+import type HdsIntlService from '../services/hds-intl.ts';
 import type { HdsCodeEditorLanguages } from './hds-code-editor/types.ts';
 import type { ArgsFor, PositionalArgs, NamedArgs } from 'ember-modifier';
 import type {
@@ -161,6 +163,8 @@ const LANGUAGES: Record<
 } as const;
 
 export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignature> {
+  @service declare hdsIntl: HdsIntlService;
+
   editor!: EditorViewType;
   element!: HTMLElementWithEditor;
 
@@ -306,8 +310,13 @@ export default class HdsCodeEditorModifier extends Modifier<HdsCodeEditorSignatu
 
     element.id = `lint-panel-instructions-${this.element.id}`;
     element.classList.add('sr-only');
-    element.textContent =
-      'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel';
+    element.textContent = this.hdsIntl.t(
+      'hds.modifiers.hds-code-editor.lint-panel-description',
+      {
+        default:
+          'Press `Ctrl-Shift-m` (`Cmd-Shift-m` on macOS) while focus is on the textbox to open the linting panel',
+      }
+    );
 
     this.element.insertAdjacentElement('beforebegin', element);
 
