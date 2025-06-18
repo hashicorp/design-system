@@ -18,11 +18,11 @@ const plugins = [
   // These are the modules that users should be able to import from your
   // addon. Anything not listed here may get optimized away.
   addon.publicEntrypoints([
-    'components/**/!(*types).js',
-    'helpers/**/!(hds-t).js',
-    'modifiers/**/*.js',
-    'services/**/!(hds-intl|*types).js',
-    'instance-initializers/**/*.js',
+    'components/**/!(*types).{js,ts}',
+    'helpers/**/!(hds-t).{js,ts}',
+    'modifiers/**/*.{js,ts}',
+    'services/**/!(hds-intl|*types).{js,ts}',
+    'instance-initializers/**/*.{js,ts}',
     'index.js',
     'template-registry.js',
     'styles/@hashicorp/design-system-components.scss',
