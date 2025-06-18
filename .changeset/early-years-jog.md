@@ -30,7 +30,11 @@
 
 `CodeEditor` - Translated template strings
 
+`DismissButton` - Translated template strings
+
 `Form::Indicator` - Translated template strings
+
+`Form::MaskedInput::Base` - Translated template strings
 
 `Form::SuperSelect` - Translated template strings
 
