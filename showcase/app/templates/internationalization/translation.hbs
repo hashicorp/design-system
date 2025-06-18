@@ -115,11 +115,11 @@
     </SG.Item>
     <SG.Item @label={{html-safe "Using the <code>hds-intl</code> service"}}>
       <Hds::ApplicationState as |A|>
-        <A.Header @title={{this.serviceTranslations.title}} @icon="flag" />
-        <A.Body @text={{this.serviceTranslations.body}} />
+        <A.Header @title={{this.hdsIntlTranslations.title}} @icon="flag" />
+        <A.Body @text={{this.hdsIntlTranslations.body}} />
         <A.Footer as |F|>
-          <F.Button @color="primary" @text={{this.serviceTranslations.primaryAction}} />
-          <F.Button @color="secondary" @text={{this.serviceTranslations.secondaryAction}} />
+          <F.Button @color="primary" @text={{this.hdsIntlTranslations.primaryAction}} />
+          <F.Button @color="secondary" @text={{this.hdsIntlTranslations.secondaryAction}} />
         </A.Footer>
       </Hds::ApplicationState>
     </SG.Item>
