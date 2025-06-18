@@ -110,6 +110,7 @@ import type HdsFormFieldComponent from './components/hds/form/field';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
+import type HdsFormFooterComponent from './components/hds/form/footer';
 import type HdsFormHeaderComponent from './components/hds/form/header';
 import type HdsFormHeaderDescriptionComponent from './components/hds/form/header/description';
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
@@ -600,6 +601,10 @@ export default interface HdsComponentsRegistry {
 
   'Hds::Form::FileInput::Field': typeof HdsFormFileInputFieldComponent;
   'hds/form/file-input/field': typeof HdsFormFileInputFieldComponent;
+
+  // Form Footer
+  'Hds::Form::Footer': typeof HdsFormFooterComponent;
+  'hds/form/footer': typeof HdsFormFooterComponent;
 
   // Form Header
   'Hds::Form::Header': typeof HdsFormHeaderComponent;

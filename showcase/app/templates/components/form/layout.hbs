@@ -69,11 +69,9 @@
         <Shw::Placeholder @height="2.4em" @text="FormField" @background="#add8e6" />
       </FORM.Section>
 
-      <FORM.Section>
-        <Hds::ButtonSet>
-          <Shw::Placeholder @height="2.25rem" @text="ButtonSet wrapped in Section" @background="#fff8d2" />
-        </Hds::ButtonSet>
-      </FORM.Section>
+      <FORM.Footer>
+        <Shw::Placeholder @height="2.25rem" @text="ButtonSet wrapped in Section" @background="#fff8d2" />
+      </FORM.Footer>
     </Hds::Form>
   </div>
 
@@ -220,12 +218,10 @@
         </FORM.SectionMultiFieldGroup>
       </FORM.Section>
 
-      <FORM.Section>
-        <Hds::ButtonSet>
-          <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-        </Hds::ButtonSet>
-      </FORM.Section>
+      <FORM.Footer>
+        <Hds::Button @text="Submit" type="submit" />
+        <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+      </FORM.Footer>
     </Hds::Form>
   </div>
 
@@ -725,34 +721,48 @@
 
 <Shw::Divider @level={{2}} />
 
-<Shw::Text::H3>ButtonSet within Form / FormSection</Shw::Text::H3>
+<Shw::Text::H3>Form Footer</Shw::Text::H3>
 
 <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
   {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
 </button>
 
-<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-    <SG.Item @label="within FormSection so it has a maxWidth">
-      <Hds::Form as |FORM|>
-        <FORM.Section>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
-        </FORM.Section>
-      </Hds::Form>
-    </SG.Item>
+<Shw::Text::H4>width</Shw::Text::H4>
 
-    <SG.Item @label="not within FormSection so it is full width">
-      <Hds::Form>
-        <Hds::ButtonSet>
+<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+  <Shw::Flex
+    @direction="column"
+    @gap="2rem"
+    class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}"
+    as |SF|
+  >
+    <SF.Item @label="isFullWidth=false (default)">
+      <Hds::Form as |FORM|>
+        <FORM.Footer>
           <Hds::Button @text="Submit" type="submit" />
           <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-        </Hds::ButtonSet>
+        </FORM.Footer>
       </Hds::Form>
-    </SG.Item>
-  </Shw::Grid>
+    </SF.Item>
+
+    <SF.Item @label="inherited sectionMaxWidth=32em set on Form parent">
+      <Hds::Form @sectionMaxWidth="32em" as |FORM|>
+        <FORM.Footer>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </FORM.Footer>
+      </Hds::Form>
+    </SF.Item>
+
+    <SF.Item @label="isFullWidth=true">
+      <Hds::Form as |FORM|>
+        <FORM.Footer @isFullWidth={{true}}>
+          <Hds::Button @text="Submit" type="submit" />
+          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+        </FORM.Footer>
+      </Hds::Form>
+    </SF.Item>
+  </Shw::Flex>
 </div>
 
 <Shw::Divider />
@@ -799,10 +809,10 @@
         <F.CharacterCount @maxLength={{256}} />
       </Hds::Form::Textarea::Field>
     </FORM.Section>
-    <Hds::ButtonSet>
+    <FORM.Footer>
       <Hds::Button @color="primary" @text="Create project" type="submit" />
       <Hds::Button @color="secondary" @text="Cancel" @href="#" />
-    </Hds::ButtonSet>
+    </FORM.Footer>
   </Hds::Form>
 
   <Shw::Divider @level={{2}} />
@@ -831,10 +841,10 @@
         projects.</A.Description>
     </Hds::Alert>
 
-    <Hds::ButtonSet>
+    <FORM.Footer>
       <Hds::Button @color="primary" @text="Create cluster" type="submit" />
       <Hds::Button @color="secondary" @text="Cancel" @href="#" />
-    </Hds::ButtonSet>
+    </FORM.Footer>
   </Hds::Form>
 
   <Shw::Divider @level={{2}} />
@@ -860,10 +870,10 @@
         <F.HelperText>Maximum time for inactivity for all auth tokens, globally, in hours (defaults to 24 hours).</F.HelperText>
       </Hds::Form::TextInput::Field>
     </FORM.Section>
-    <Hds::ButtonSet>
+    <FORM.Footer>
       <Hds::Button @color="primary" @text="Save" type="submit" />
       <Hds::Button @color="secondary" @text="Cancel" @href="#" />
-    </Hds::ButtonSet>
+    </FORM.Footer>
   </Hds::Form>
 
   <Shw::Divider @level={{2}} />

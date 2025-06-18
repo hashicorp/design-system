@@ -20,6 +20,7 @@ import type { HdsFormSectionHeaderSignature } from './section/header.ts';
 import type { HdsFormSectionMultiFieldGroupSignature } from './section/multi-field-group/index.ts';
 import type { HdsFormSectionMultiFieldGroupItemSignature } from './section/multi-field-group/item.ts';
 import type { HdsFormSeparatorSignature } from './separator/index.ts';
+import type { HdsFormFooterSignature } from './footer/index.ts';
 
 export const DEFAULT_TAG = HdsFormTagValues.Form;
 export const AVAILABLE_TAGS: string[] = Object.values(HdsFormTagValues);
@@ -42,6 +43,7 @@ export interface HdsFormSignature {
         SectionMultiFieldGroup?: ComponentLike<HdsFormSectionMultiFieldGroupSignature>;
         SectionMultiFieldGroupItem?: ComponentLike<HdsFormSectionMultiFieldGroupItemSignature>;
         Separator?: ComponentLike<HdsFormSeparatorSignature>;
+        Footer?: ComponentLike<HdsFormFooterSignature>;
       },
     ];
   };

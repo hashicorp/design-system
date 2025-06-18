@@ -67,6 +67,7 @@ module('Integration | Component | hds/form/index', function (hooks) {
                 </FORM.SectionMultiFieldGroup>
               </FORM.Section>
               <FORM.Separator />
+              <FORM.Footer />
             </Hds::Form>`,
       );
 
@@ -111,10 +112,14 @@ module('Integration | Component | hds/form/index', function (hooks) {
         )
         .exists(`MultiFieldGroupItem is yielded for tag=${tag}`);
 
-      // other content
+      // Separator & Footer content
       assert
         .dom('#test-form > hr.hds-separator')
         .exists(`Separator is yielded for tag=${tag}`);
+
+      assert
+        .dom('#test-form > .hds-form__footer')
+        .exists(`Footer is yielded for tag=${tag}`);
     }
   });
 
