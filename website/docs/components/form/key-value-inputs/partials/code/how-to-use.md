@@ -1,6 +1,6 @@
 ## How to use this component
 
-The basic invocation of the Key Value Inputs requires the `@data` argument. This is used as the inital data to create the rows of inputs.
+The basic invocation of the Key Value Inputs requires the `@data` argument. This is used as the initial data to create the rows of inputs.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array
