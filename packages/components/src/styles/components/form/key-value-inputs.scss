@@ -8,6 +8,7 @@
 //
 
 @use "../../mixins/breakpoints" as *;
+@use "../../mixins/screen-reader-only" as *;
 
 // notice: this is a <fieldset> element
 .hds-form-key-value-inputs {
@@ -16,7 +17,7 @@
   margin: 0;
   padding: 0;
   border: none;
-  row-gap: 16px;
+  row-gap: 12px;
 }
 
 .hds-form-key-value-inputs__row {
@@ -28,7 +29,7 @@
   @include hds-breakpoint-above("sm") {
     display: grid;
     flex-grow: 1;
-    grid-template-columns: var(--hds-key-value-pair-columns);
+    grid-template-columns: var(--hds-key-value-pair-columns, 1fr 1fr min-content);
     row-gap: 0;
     align-items: flex-end;
 
@@ -36,6 +37,7 @@
       .hds-form-key-value-inputs__row-delete-button-container,
       .hds-form-key-value-inputs__generic-container {
         grid-row: 2;
+        // need to set the `grid-column` because the `grid-row` is set, otherwise it defaults to the first column
         grid-column: var(--hds-key-value-pair-column-index);
       }
     }
@@ -43,16 +45,7 @@
     &:not(.hds-form-key-value-inputs__row--first) {
       // copied styles from sr-only class
       .hds-form-key-value-inputs__field-header {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        margin: -1px !important;
-        padding: 0 !important;
-        overflow: hidden !important;
-        white-space: nowrap !important; /* 3 */
-        border: 0 !important;
-        clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-        clip-path: inset(50%) !important; /* 2 */
+        @include screen-reader-only();
       }
     }
   }
