@@ -68,8 +68,14 @@ export default class HdsModal extends Component<HdsModalSignature> {
   constructor(owner: Owner, args: HdsModalSignature['Args']) {
     super(owner, args);
 
+    console.log('Constructor invoked');
+
     registerDestructor(this, (): void => {
+      console.group('registerDestructor');
+      console.log('`registerDestructor` invoked');
       document.removeEventListener('click', this._clickHandler, true);
+      console.log('removed `click` event listener');
+      console.groupEnd();
     });
   }
 
@@ -119,13 +125,16 @@ export default class HdsModal extends Component<HdsModalSignature> {
     return classes.join(' ');
   }
 
-  @action registerOnCloseCallback(event: Event): void {
+  @action
+  registerOnCloseCallback(event: Event): void {
+    console.group('@action registerOnCloseCallback() invoked');
     if (
       !this.isDismissDisabled &&
       this.args.onClose &&
       typeof this.args.onClose === 'function'
     ) {
       this.args.onClose(event);
+      console.log('this.args.onClose() invoked');
     }
 
     // If the dismissal of the modal is disabled, we keep the modal open/visible otherwise we mark it as closed
@@ -136,22 +145,28 @@ export default class HdsModal extends Component<HdsModalSignature> {
         // As there is no way to `preventDefault` on `close` events, we call the `showModal` function
         // preserving the state of the modal dialog
         this._element.showModal();
+        console.log('re-opened the modal with `this._element.showModal()` when dismiss is disabled');
       }
     } else {
       this._isOpen = false;
+      console.log('close the modal setting `this._isOpen = false`');
 
       // Reset page `overflow` property
       if (this._body) {
         this._body.style.removeProperty('overflow');
+        console.log('remove property `overflow` that we assigned before');
         if (this._bodyInitialOverflowValue === '') {
+          console.log('initial overflow value was empty string');
           if (this._body.style.length === 0) {
             this._body.removeAttribute('style');
+            console.log('entirely removed the `style` attribute because its lenght is 0');
           }
         } else {
           this._body.style.setProperty(
             'overflow',
             this._bodyInitialOverflowValue
           );
+          console.log('set back initial overflow value that was stored as', this._bodyInitialOverflowValue);
         }
       }
 
@@ -160,13 +175,16 @@ export default class HdsModal extends Component<HdsModalSignature> {
         const initiator = document.getElementById(this.args.returnFocusTo);
         if (initiator) {
           initiator.focus();
+          console.log('return focus to element declared as `this.args.returnFocusTo`');
         }
       }
     }
+    console.groupEnd();
   }
 
   @action
   didInsert(element: HTMLDialogElement): void {
+    console.group('@action didInsert() invoked');
     // Store references of `<dialog>` and `<body>` elements
     this._element = element;
     this._body = document.body;
@@ -175,15 +193,18 @@ export default class HdsModal extends Component<HdsModalSignature> {
       // Store the initial `overflow` value of `<body>` so we can reset to it
       this._bodyInitialOverflowValue =
         this._body.style.getPropertyValue('overflow');
+      console.log('stored initial `overflow` value for `body` as', this._bodyInitialOverflowValue);
     }
 
     // Register "onClose" callback function to be called when a native 'close' event is dispatched
     // eslint-disable-next-line @typescript-eslint/unbound-method
     this._element.addEventListener('close', this.registerOnCloseCallback, true);
+    console.log('added event listener for `close` applied to this._element with `this.registerOnCloseCallback`');
 
     // If the modal dialog is not already open
     if (!this._element.open) {
       this.open();
+      console.log('opening Dialog element via `this.open();`');
     }
 
     this._clickHandler = (event: MouseEvent) => {
@@ -191,18 +212,23 @@ export default class HdsModal extends Component<HdsModalSignature> {
       if (!this._element.contains(event.target as Node) && this._isOpen) {
         if (!this.isDismissDisabled) {
           void this.onDismiss();
+          console.log('executed `this.onDismiss()` inside `this._clickHandler`');
         }
       }
     };
+    console.log('defined `this._clickHandler` callback');
 
     document.addEventListener('click', this._clickHandler, {
       capture: true,
       passive: false,
     });
+    console.log('added event listener to `document` for `click` and assigned `this._documentClickHandler` callback');
+    console.groupEnd();
   }
 
   @action
   willDestroyNode(): void {
+    console.group('@action willDestroyNode() invoked');
     if (this._element) {
       this._element.removeEventListener(
         'close',
@@ -210,27 +236,35 @@ export default class HdsModal extends Component<HdsModalSignature> {
         this.registerOnCloseCallback,
         true
       );
+      console.log('removed event listener for `close` applied to this._element with `this.registerOnCloseCallback`');
     }
+    console.groupEnd();
   }
 
   @action
   open(): void {
+    console.group('@action open() invoked');
     // Make modal dialog visible using the native `showModal` method
     this._element.showModal();
+    console.log('opened Dialog element via native call `this._element.showModal();`');
     this._isOpen = true;
+    console.log('set `this._isOpen = true`');
 
     // Prevent page from scrolling when the dialog is open
     if (this._body) this._body.style.setProperty('overflow', 'hidden');
+    console.log('set `overflow: hidden on `body` element');
 
     // Call "onOpen" callback function
     if (this.args.onOpen && typeof this.args.onOpen === 'function') {
       this.args.onOpen();
     }
+    console.groupEnd();
   }
 
   @action
   // eslint-disable-next-line @typescript-eslint/require-await
   async onDismiss(): Promise<void> {
+    console.group('async @action onDismiss() invoked');
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
     if (this._element.open) {
@@ -238,11 +272,15 @@ export default class HdsModal extends Component<HdsModalSignature> {
       const listener = () => {
         waiter.endAsync(token);
         this._element.removeEventListener('close', listener);
+        console.log('removed event listener for `close` with `listener`');
       };
       this._element.addEventListener('close', listener);
+      console.log('added back event listener for `close` with `listener`');
     }
 
     // Make modal dialog invisible using the native `close` method
     this._element.close();
+    console.log('closed Dialog element via native call `this._element.close();`');
+    console.groupEnd();
   }
 }
