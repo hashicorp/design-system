@@ -86,15 +86,25 @@
   }
 }
 
-.hds-form-key-value-inputs__field-helper-text,
 .hds-form-key-value-inputs__helper-text {
   &:not(:first-child) {
     margin-top: 4px;
   }
 
   // special case: if there are multiple helper text lines, we want to reduce the spacing between them
-  & + .hds-form-key-value-inputs__field-helper-text,
   & + .hds-form-key-value-inputs__helper-text {
+    margin-top: 2px;
+  }
+}
+
+// Separated this from the above to avoid unneccessary combinations of CSS selectors when CSS is compiled
+.hds-form-key-value-inputs__field-helper-text {
+  &:not(:first-child) {
+    margin-top: 4px;
+  }
+
+  // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+  & + .hds-form-key-value-inputs__field-helper-text {
     margin-top: 2px;
   }
 }
