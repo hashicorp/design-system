@@ -2,7 +2,7 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<Hds::Dropdown class="hds-advanced-table__th-context-menu" ...attributes as |D|>
+<Hds::Dropdown class="hds-advanced-table__th-context-menu" @enableCollisionDetection={{true}} ...attributes as |D|>
   <D.ToggleIcon @icon="more-vertical" @text="Context menu" @hasChevron={{false}} @size="small" />
 
   {{#each this._options as |option|}}

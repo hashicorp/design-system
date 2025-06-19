@@ -371,6 +371,34 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     });
   });
 
+  test('it throws an assertion if @hasResizableColumns and has nested rows', async function (assert) {
+    const errorMessage =
+      'Cannot have resizable columns if there are nested rows.';
+
+    setNestedTableData(this);
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(hbs`<Hds::AdvancedTable
+      id='data-test-advanced-table'
+      @hasResizableColumns={{true}}
+      @model={{this.model}}
+      @columns={{array (hash key='name' label='Name') (hash key='age' label='Age')}}
+    >
+      <:body as |B|>
+        <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}}>
+          <B.Td>{{B.data.name}}</B.Td>
+          <B.Td>{{B.data.age}}</B.Td>
+        </B.Tr>
+      </:body>
+    </Hds::AdvancedTable>`);
+
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
   test('it should support splattributes', async function (assert) {
     setSortableTableData(this);
     await render(
