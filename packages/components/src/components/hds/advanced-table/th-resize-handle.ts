@@ -69,15 +69,15 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
     startColumnPxWidth: number;
     startNextColumnPxWidth?: number;
   } | null = null;
-  @tracked nextColumnDelta: number = 0;
+  @tracked private _nextColumnDelta: number = 0;
 
-  private handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
-  private boundResize: (event: PointerEvent) => void;
-  private boundStopResize: () => void;
+  private _handleElement!: HdsAdvancedTableThResizeHandleSignature['Element'];
+  private _boundResize: (event: PointerEvent) => void;
+  private _boundStopResize: () => void;
 
-  private registerHandleElement = modifier(
+  private _registerHandleElement = modifier(
     (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {
-      this.handleElement = element;
+      this._handleElement = element;
     }
   );
 
@@ -87,8 +87,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   ) {
     super(owner, args);
 
-    this.boundResize = this._resize.bind(this);
-    this.boundStopResize = this._stopResize.bind(this);
+    this._boundResize = this._resize.bind(this);
+    this._boundStopResize = this._stopResize.bind(this);
   }
 
   get height(): string | undefined {
@@ -113,7 +113,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   onColumnResize(key?: string, width?: string): void {
-    const { onColumnResize } = this.args;
+    const { onColumnResize } = this.args.column;
 
     if (typeof onColumnResize === 'function' && key !== undefined) {
       onColumnResize(key, width);
@@ -151,11 +151,11 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       currentNextColumnPxWidth ?? 0 // Current next col width before keyboard step
     );
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this.nextColumnDelta);
+    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
 
     this.onColumnResize(column.key, column.width);
 
-    this.handleElement.scrollIntoView({
+    this._handleElement.scrollIntoView({
       behavior: 'smooth',
       block: 'nearest',
       inline: 'nearest',
@@ -175,8 +175,8 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       startNextColumnPxWidth: nextColumn?.pxWidth ?? 0,
     };
 
-    window.addEventListener('pointermove', this.boundResize);
-    window.addEventListener('pointerup', this.boundStopResize);
+    window.addEventListener('pointermove', this._boundResize);
+    window.addEventListener('pointerup', this._boundStopResize);
   }
 
   private _applyResizeDelta(
@@ -205,7 +205,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
       const actualAppliedDelta = actualNewColumnWidth - startColumnPxWidth;
 
       nextColumn.setPxWidth(startNextColumnPxWidth - actualAppliedDelta);
-      this.nextColumnDelta = actualAppliedDelta;
+      this._nextColumnDelta = actualAppliedDelta;
     } else {
       column.setPxWidth(startColumnPxWidth + deltaX);
     }
@@ -233,12 +233,12 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
   }
 
   private _stopResize(): void {
-    window.removeEventListener('pointermove', this.boundResize);
-    window.removeEventListener('pointerup', this.boundStopResize);
+    window.removeEventListener('pointermove', this._boundResize);
+    window.removeEventListener('pointerup', this._boundStopResize);
 
     const { column, nextColumn } = this.args;
 
-    this._setNextColumnImposedWidthDelta(nextColumn, this.nextColumnDelta);
+    this._setNextColumnImposedWidthDelta(nextColumn, this._nextColumnDelta);
 
     this.onColumnResize(column.key, column.width);
 
@@ -255,6 +255,6 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
     nextColumn.imposedWidthDelta = (nextColumn.imposedWidthDelta ?? 0) + delta;
 
-    this.nextColumnDelta = 0;
+    this._nextColumnDelta = 0;
   }
 }
