@@ -113,7 +113,7 @@ export default class HdsAdvancedTableThResizeHandle extends Component<HdsAdvance
 
   @action
   onColumnResize(key?: string, width?: string): void {
-    const { onColumnResize } = this.args.column;
+    const { onColumnResize } = this.args;
 
     if (typeof onColumnResize === 'function' && key !== undefined) {
       onColumnResize(key, width);
