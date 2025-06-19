@@ -38,7 +38,9 @@
     }}
   </div>
 
-  {{yield (hash Generic=(component "hds/yield")) to="header"}}
+  <div>
+    {{yield (hash Generic=(component "hds/yield")) to="header"}}
+  </div>
 
   {{#if (eq @data.length 0)}}
     <div class="hds-form-key-value-inputs__row hds-form-key-value-inputs__row--first">
