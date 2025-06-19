@@ -10,7 +10,6 @@ export interface HdsFormKeyValueInputsGenericSignature {
   Args: {
     onInsert?: (element: HTMLDivElement) => void;
     onRemove?: (element: HTMLDivElement) => void;
-    rowIndex: number;
   };
   Blocks: {
     default: [];

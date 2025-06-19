@@ -36,8 +36,9 @@
       )
       to="header"
     }}
-    {{yield (hash Generic=(component "hds/yield")) to="header"}}
   </div>
+
+  {{yield (hash Generic=(component "hds/yield")) to="header"}}
 
   {{#if (eq @data.length 0)}}
     <div class="hds-form-key-value-inputs__row hds-form-key-value-inputs__row--first">
@@ -46,9 +47,7 @@
           Field=(component
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
-          Generic=(component
-            "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
-          )
+          Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
           rowIndex=0
         )
         to="row"
@@ -63,21 +62,19 @@
           Field=(component
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
           )
-          Generic=(component
-            "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=index
-          )
+          Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
           rowData=item
           rowIndex=index
         )
         to="row"
       }}
 
-      {{#if (eq this.canDeleteRow true)}}
-        {{yield
-          (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
-          to="row"
-        }}
-      {{/if}}
+      {{!-- {{#if this.canDeleteRow}} --}}
+      {{yield
+        (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
+        to="row"
+      }}
+      {{!-- {{/if}} --}}
     </div>
   {{/each}}
 

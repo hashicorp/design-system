@@ -172,13 +172,13 @@ module(
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__row-delete-button-container',
         )
-        .hasStyle({ '--hds-key-value-pair-column-index': '3' });
+        .hasStyle({ '--hds-key-value-inputs-column-index': '3' });
 
       assert
         .dom(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
         )
-        .hasStyle({ '--hds-key-value-pair-column-index': '2' });
+        .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
     });
 
     test('it should set the appropriate grid-column-template for the rows without custom widths', async function (assert) {

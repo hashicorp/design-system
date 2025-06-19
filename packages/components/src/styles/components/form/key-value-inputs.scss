@@ -30,20 +30,20 @@
     display: grid;
     flex-grow: 1;
     grid-template-columns: var(--hds-key-value-pair-columns, 1fr 1fr min-content);
-    row-gap: 0;
     align-items: flex-end;
+    column-gap: 8px;
+    row-gap: 0;
 
     &.hds-form-key-value-inputs__row--first {
       .hds-form-key-value-inputs__row-delete-button-container,
       .hds-form-key-value-inputs__generic-container {
         grid-row: 2;
         // need to set the `grid-column` because the `grid-row` is set, otherwise it defaults to the first column
-        grid-column: var(--hds-key-value-pair-column-index);
+        grid-column: var(--hds-key-value-inputs-column-index);
       }
     }
 
     &:not(.hds-form-key-value-inputs__row--first) {
-      // copied styles from sr-only class
       .hds-form-key-value-inputs__field-header {
         @include screen-reader-only();
       }
@@ -54,7 +54,7 @@
 .hds-form-key-value-inputs__footer {
   display: flex;
   flex-direction: column;
-  row-gap: 16px;
+  row-gap: 12px;
   align-items: flex-start;
 }
 
@@ -66,18 +66,15 @@
 
   .hds-form-key-value-inputs__field-header {
     align-self: flex-end;
+    min-width: 0;
   }
 
   .hds-form-select {
     width: 100%; // we want the select element to fill the parent container
   }
 
-  .hds-form-key-value-inputs__field-label {
-    width: fit-content; // needed to avoid extra invisible space since the <label> is interactive
-  }
-
-  .hds-form-key-value-inputs__field-header:not(.sr-only) {
-    margin-bottom: 8px; // space between label and control
+  .hds-form-key-value-inputs__field-header {
+    margin-bottom: 12px; // space between label and control
   }
 
   .hds-form-key-value-inputs__field-control {
@@ -104,19 +101,10 @@
 
 .hds-form-key-value-inputs__field-error,
 .hds-form-key-value-inputs__error {
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .hds-form-key-value-inputs__generic-container,
 .hds-form-key-value-inputs__row-delete-button-container {
-  display: grid;
-  grid-template-rows: subgrid;
-  align-items: flex-start;
-}
-
-.hds-form-key-value-inputs__field:has(+ *),
-.hds-form-key-value-inputs__generic-container:has(+ *) {
-  @include hds-breakpoint-above("sm") {
-    padding-right: 8px;
-  }
+  align-self: flex-start;
 }
