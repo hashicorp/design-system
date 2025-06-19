@@ -8,6 +8,11 @@
 @use "../../typography" as *;
 
 body.components-form-layout {
+  // increase contrast
+  .shw-placeholder {
+    color: #000;
+  }
+
   .shw-component-form-layout-button-highlight {
     display: block;
     margin: 24px 0;
