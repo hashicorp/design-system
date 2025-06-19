@@ -296,6 +296,23 @@
     </:row>
   </Hds::Form::KeyValueInputs>
 
+  <Shw::Text::H3>With multiple helper texts</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Sample legend</H.Legend>
+      <H.HelperText>This is sample helper text.</H.HelperText>
+      <H.HelperText>This is another helper text.</H.HelperText>
+    </:header>
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.TextInput />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
   <Shw::Text::H3>Required</Shw::Text::H3>
 
   <Hds::Form::KeyValueInputs @isRequired={{true}} @data={{this.emptyData}}>
@@ -644,6 +661,12 @@
       <R.Field as |F|>
         <F.HelperText>Sample text.</F.HelperText>
         <F.MaskedInput aria-label="Masked input" @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.HelperText>Another helper text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
       </R.Field>
       <R.DeleteRowButton />
     </:row>
