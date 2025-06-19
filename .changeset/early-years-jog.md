@@ -13,7 +13,7 @@
 
 `AdvancedTable::ThButtonTooltip` - Translated template strings
 
-`AdvancedTable::ThSelectable`
+`AdvancedTable::ThSelectable` - Translated template strings. Removed extraneous screen-reader-only text.
 
 - Translated template strings
 - Removed extraneous screen-reader-only text
@@ -48,7 +48,7 @@
 
 `Table::ThButtonTooltip` - Translated template strings
 
-`Table::ThSelectable`
+`Table::ThSelectable` - Translated template strings. Removed extraneous screen-reader-only text.
 
 - Translated template strings
 - Removed extraneous screen-reader-only text
