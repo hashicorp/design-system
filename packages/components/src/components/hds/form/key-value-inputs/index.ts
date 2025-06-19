@@ -65,7 +65,7 @@ export interface HdsFormKeyValueInputsSignature {
         >;
         Generic?: WithBoundArgs<
           typeof HdsFormKeyValueInputsGenericComponent,
-          'onInsert' | 'onRemove' | 'rowIndex'
+          'onInsert' | 'onRemove'
         >;
         DeleteRowButton?: WithBoundArgs<
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
@@ -86,7 +86,7 @@ export interface HdsFormKeyValueInputsSignature {
       },
     ];
   };
-  Element: HTMLElement;
+  Element: HTMLFieldSetElement;
 }
 
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
@@ -141,29 +141,31 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
         `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}, ${KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR}`
       );
 
-    let newGridTemplateColumns = '';
+    let updatedGridTemplateColumns = '';
 
     columns?.forEach((column, index) => {
       const columnElement = column as HTMLDivElement;
 
-      // do substring to remove the leading dot from the class selector
       if (
+        // do substring to remove the leading dot from the class selector
         column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))
       ) {
         if (columnElement.dataset['width']) {
-          newGridTemplateColumns += `${columnElement.dataset['width']} `;
+          updatedGridTemplateColumns += `${columnElement.dataset['width']} `;
         } else {
-          newGridTemplateColumns += '1fr ';
+          updatedGridTemplateColumns += '1fr ';
         }
       }
-      // do substring to remove the leading dot from the class selector
+
       if (
+        // do substring to remove the leading dot from the class selector
         column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))
       ) {
-        newGridTemplateColumns += 'auto ';
+        updatedGridTemplateColumns += 'auto ';
 
+        // Set grid-column so generic content appears in the correct column when grid-row is set; otherwise, browsers default it to the first column.
         columnElement.style.setProperty(
-          '--hds-key-value-pair-column-index',
+          '--hds-key-value-inputs-column-index',
           `${index + 1}`
         );
       }
@@ -173,15 +175,16 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
           KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR.substring(1)
         )
       ) {
-        newGridTemplateColumns += 'min-content ';
+        updatedGridTemplateColumns += 'min-content ';
 
+        // Set grid-column so generic content appears in the correct column when grid-row is set; otherwise, browsers default it to the first column.
         columnElement.style.setProperty(
-          '--hds-key-value-pair-column-index',
+          '--hds-key-value-inputs-column-index',
           `${index + 1}`
         );
       }
     });
 
-    this._gridTemplateColumns = newGridTemplateColumns;
+    this._gridTemplateColumns = updatedGridTemplateColumns;
   };
 }

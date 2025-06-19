@@ -5,7 +5,9 @@
 <label class={{this.classNames}} for="{{@controlId}}" id={{this.id}} ...attributes>
   {{yield}}
   <Hds::Form::Indicator @isRequired={{@isRequired}} @isOptional={{@isOptional}} />
-  <span class="sr-only">
-    {{@hiddenText}}
-  </span>
+  {{#if @hiddenText}}
+    <span class="sr-only">
+      {{@hiddenText}}
+    </span>
+  {{/if}}
 </label>
