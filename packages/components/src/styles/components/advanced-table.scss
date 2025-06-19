@@ -121,6 +121,8 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       bottom: 0;
       z-index: 2;
       width: 24px;
+      scroll-margin-right: 24px;
+      scroll-margin-left: 24px;
       transform: translateX(12.5px); // (width of the handler (24px) + border width (1px)) / 2 == 12.5px
       cursor: col-resize;
 

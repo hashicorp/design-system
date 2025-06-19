@@ -13,6 +13,7 @@ import {
   find,
   triggerEvent,
   triggerKeyEvent,
+  findAll,
 } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
@@ -639,6 +640,61 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
     this.set('model', [{ name: 'Jane', age: 35, country: 'Mexico' }]);
     assert.dom(`${bodySelector} ${rowSelector}`).exists({ count: 1 });
     assert.deepEqual(getBodyContent(), [['Jane', '35', 'Mexico']]);
+  });
+
+  test('it should update the table when the columns change', async function (assert) {
+    function getColumnLabels() {
+      return Array.from(
+        document.querySelectorAll(
+          '.hds-advanced-table__thead .hds-advanced-table__th',
+        ),
+      ).map((th) => th.textContent.trim());
+    }
+
+    const columns = [
+      { key: 'name', label: 'Name' },
+      { key: 'age', label: 'Age' },
+      { key: 'country', label: 'Country' },
+    ];
+
+    this.setProperties({
+      columns,
+      model: [
+        { name: 'Bob', age: 20, country: 'USA' },
+        { name: 'Alice', age: 25, country: 'UK' },
+        { name: 'Charlie', age: 30, country: 'Canada' },
+      ],
+    });
+
+    await render(hbs`<Hds::AdvancedTable
+  id='data-advanced-test-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+>
+  <:body as |B|>
+    <B.Tr id={{B.rowIndex}}>
+      <B.Td>{{B.data.name}}</B.Td>
+      <B.Td>{{B.data.age}}</B.Td>
+      <B.Td>{{B.data.country}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>`);
+
+    assert.deepEqual(getColumnLabels(), ['Name', 'Age', 'Country']);
+
+    this.set(
+      'columns',
+      columns.map((column) => ({
+        ...column,
+        label: `Updated ${column.label}`,
+      })),
+    );
+
+    assert.deepEqual(getColumnLabels(), [
+      'Updated Name',
+      'Updated Age',
+      'Updated Country',
+    ]);
   });
 
   // OPTIONS

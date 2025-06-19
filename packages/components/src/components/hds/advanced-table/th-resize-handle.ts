@@ -8,8 +8,8 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { modifier } from 'ember-modifier';
 
-import type HdsAdvancedTableColumn from './models/column';
-import type { HdsAdvancedTableSignature } from '.';
+import type HdsAdvancedTableColumn from './models/column.ts';
+import type { HdsAdvancedTableSignature } from './index.ts';
 
 const TABLE_BORDER_WIDTH = 1;
 const KEYBOARD_RESIZE_STEP = 10;

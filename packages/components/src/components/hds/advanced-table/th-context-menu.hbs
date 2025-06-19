@@ -3,7 +3,12 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Dropdown class="hds-advanced-table__th-context-menu" @enableCollisionDetection={{true}} ...attributes as |D|>
-  <D.ToggleIcon @icon="more-vertical" @text="Context menu" @hasChevron={{false}} @size="small" />
+  <D.ToggleIcon
+    @icon="more-vertical"
+    @text="Additional actions for {{@column.label}}"
+    @hasChevron={{false}}
+    @size="small"
+  />
 
   {{#each this._options as |option|}}
     <D.Interactive
