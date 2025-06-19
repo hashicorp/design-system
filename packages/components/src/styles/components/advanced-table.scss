@@ -111,15 +111,6 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
         z-index: 1;
         isolation: isolate;
       }
-
-      &.hds-advanced-table__th--is-resizable .hds-advanced-table__th-content-text {
-        display: block;
-        width: 100%;
-        min-width: 30px;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
     }
 
     .hds-advanced-table__th-resize-handle {

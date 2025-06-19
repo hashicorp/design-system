@@ -2,6 +2,6 @@
 "@hashicorp/design-system-components": minor
 ---
 
-`AdvancedTable` - Added `isResizable` option to column object. When `true`, allows the column to be resized with both a click-and-drag and a keyboard interface.
-
 Added `ember-math-helpers` dependency.
+
+`AdvancedTable` - Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
