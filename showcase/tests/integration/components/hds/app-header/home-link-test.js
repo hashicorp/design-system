@@ -19,7 +19,8 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
-  @ariaLabel='HashiCorp'
+  @text='HashiCorp'
+  @isIconOnly={{true}}
   id='test-home-link'
 />`,
     );
@@ -32,7 +33,8 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
-  @ariaLabel='HashiCorp'
+  @text='HashiCorp'
+  @isIconOnly={{true}}
   @href='https://www.hashicorp.com/'
   id='test-home-link'
 />`,
@@ -48,7 +50,8 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='boundary'
-  @ariaLabel='Boundary'
+  @text='Boundary'
+  @isIconOnly={{true}}
   @color='var(--token-color-boundary-brand)'
   @href='#'
 />`,
@@ -56,6 +59,18 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     assert
       .dom('.hds-icon-boundary')
       .hasAttribute('fill', 'var(--token-color-boundary-brand)');
+  });
+
+  test('it renders the logo with text when @isIconOnly is false', async function (assert) {
+    await render(
+      hbs`<Hds::AppHeader::HomeLink
+  @icon='hashicorp'
+  @text='HashiCorp'
+  @isIconOnly={{false}}
+  @href='#'
+/>`,
+    );
+    assert.dom('.hds-app-header__home-link-text').exists();
   });
 
   // ASSERTIONS
