@@ -25,10 +25,10 @@
     Examples of HTML attributes: `id`, `name`, `disabled`, `required`. See [the whole list of HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attributes). Examples of Ember modifiers: `\{{on "input" [do something]}}`, `\{{on "change" [do something]}}`, `\{{on "blur" [do something]}}`.
   </C.Property>
   <C.Property @name="<:header>" @type="named block">
-    This is a named block where the content of the KeyValueInput header is rendered, this can include: legend, helper text, and a generic slot.
+    This is a named block where the content of the KeyValueInputs header is rendered, this can include: legend, helper text, and a generic slot.
   </C.Property>
     <C.Property @name="<:row>" @type="named block">
-    This is a named block where the content of the KeyValueInput rows are rendered.
+    This is a named block where the content of the KeyValueInputs rows are rendered.
     <Doc::ComponentApi as |C|>
      <C.Property @name="[R].rowData" @type="unknown">
         The data of the row associated with the `@each` loop. 
@@ -39,7 +39,7 @@
     </Doc::ComponentApi>
   </C.Property>
     <C.Property @name="<:footer>" @type="named block">
-    This is a named block where the content of the KeyValueInput footer is rendered, this can include: alert, add row button, error.
+    This is a named block where the content of the KeyValueInputs footer is rendered, this can include: alert, add row button, error.
   </C.Property>
 </Doc::ComponentApi>
 
@@ -49,7 +49,7 @@
 
 The `Form::Legend` component, yielded as a contextual component in the `:header` named block.
 
-The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives) component.
+The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives?tab=code#formlegend-1) component.
 
 The `id` attribute of the element is automatically generated using the `controlId` value of the control.
 
@@ -57,7 +57,7 @@ The `id` attribute of the element is automatically generated using the `controlI
 
 The `Form::HelperText` component, yielded as a contextual component in the `:header` named block.
 
-The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
+The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives?tab=code#formhelpertext-2) component.
 
 The `id` attribute of the element is automatically generated using the `controlId` value of the control.
 
@@ -89,7 +89,7 @@ The `Form::KeyValueInputs::DeleteRowButton` component, yielded as a contextual c
     Callback function that is invoked when the button is clicked. The function receives the DOM `event` and the data for the associated row.
   </C.Property>
   <C.Property @name="text" type="string">
-    The name for the button.
+    Screen-reader only text for the button.
     <br /><br />
     By default, the name is "Delete row {rowIndex}".
   </C.Property>
@@ -124,7 +124,7 @@ The `Alert` component, yielded as a contextual component in the `:footer` named 
 
 The `Form::Error` component, yielded as a contextual component in the `:footer` named block.
 
-The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives) component.
+The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Error`](/components/form/primitives?tab=code#formerror-2) component.
 
 The `id` attribute of the element is automatically generated using the `controlId` value of the control.
 
@@ -154,10 +154,10 @@ The `id` attribute of the element is automatically generated using the `controlI
     Sets the width of the Field. By default, the field is `1fr`.
   </C.Property>
   <C.Property @name="[F].Label" @type="yielded component">
-     The `Form::Label` component, yielded as a contextual component. For details about its API, check the [`Form::Label`](/components/form/primitives) component.
+     The `Form::Label` component, yielded as a contextual component. For details about its API, check the [`Form::Label`](/components/form/primitives?tab=code#formlabel-2) component.
   </C.Property>
     <C.Property @name="[F].HelperText" @type="yielded component">
-    The `Form::HelperText` component, yielded as a contextual component. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
+    The `Form::HelperText` component, yielded as a contextual component. For details about its API, check the [`Form::HelperText`](/components/form/primitives?tab=code#formhelpertext-2) component.
   </C.Property>
   <C.Property @name="[F].FileInput" @type="yielded component">
     `Form::FileInput::Base` component, yielded as a contextual component. For details about its API, check the [`Form::FileInput::Base`](/components/form/file-input?tab=code#formfileinputbase-1) component.
@@ -181,7 +181,7 @@ The `id` attribute of the element is automatically generated using the `controlI
     `Form::Textarea::Base` component, yielded as a contextual component. For details about its API, check the [`Form::Textarea::Base`](/components/form/textarea?tab=code#formtextareabase-1) component.
   </C.Property>
       <C.Property @name="[F].Error" @type="yielded component">
-    The `Form::Error` component, yielded as a contextual component. For details about its API, check the [`Form::Error`](/components/form/primitives) component.
+    The `Form::Error` component, yielded as a contextual component. For details about its API, check the [`Form::Error`](/components/form/primitives?tab=code#formerror-2) component.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).

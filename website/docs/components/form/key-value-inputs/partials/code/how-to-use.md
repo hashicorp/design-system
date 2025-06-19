@@ -87,9 +87,9 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indicator that
 ```
 ### Validation
 
-The Key Value Pair can be validated at the fieldset or each individual field. You can choose which level is appropriate depending on the use case, but it is best practice to make any error message as specific as possible. Avoid putting the error on the fieldset if the issue is with a single field.
+The Key Value Inputs can be validated at the fieldset or each individual field. You can choose which level is appropriate depending on the use case, but it is best practice to make any error message as specific as possible. Avoid putting the error on the fieldset if the issue is with a single field.
 
-To display an error on a field, set the `isInvalid` argument and use the `[F].Error` yielded component from the field.
+To display an error on a field, set the `isInvalid` argument on the `[R].Field` yielded component, and use the `[F].Error` yielded component.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array
@@ -238,7 +238,7 @@ If there is additional content needed in the header or a need for a not supporte
 
 ### Updating the rows
 
-You are responsible for handling the logic to add or remove a row. To do this, use the `onClick` argument to pass a callback function on the Add Row Button and Delete Row Button components.
+You are responsible for handling the logic to add or remove a row. To do this, use the `onClick` argument to pass a callback function on the yielded `[F].AddRowButton` in the `:footer` named block or the yielded `[R].DeleteRowButton` in the `:row` named block.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{this.updatingRowsExampleData}}>
