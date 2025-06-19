@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { ComponentLike } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
@@ -32,9 +32,9 @@ import type {
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
-import type { HdsAdvancedTableTdSignature } from './td.ts';
-import type { HdsAdvancedTableThSignature } from './th.ts';
-import type { HdsAdvancedTableTrSignature } from './tr.ts';
+import type HdsAdvancedTableTd from './td.ts';
+import type HdsAdvancedTableTh from './th.ts';
+import type HdsAdvancedTableTr from './tr.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -140,9 +140,34 @@ export interface HdsAdvancedTableSignature {
   Blocks: {
     body?: [
       {
-        Td?: ComponentLike<HdsAdvancedTableTdSignature>;
-        Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
-        Th?: ComponentLike<HdsAdvancedTableThSignature>;
+        Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
+        Tr?: WithBoundArgs<
+          typeof HdsAdvancedTableTr,
+          | 'selectionScope'
+          | 'isLastRow'
+          | 'isSelectable'
+          | 'onSelectionChange'
+          | 'didInsert'
+          | 'willDestroy'
+          | 'selectionAriaLabelSuffix'
+          | 'hasStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'isParentRow'
+          | 'depth'
+          | 'displayRow'
+        >;
+        Th?: WithBoundArgs<
+          typeof HdsAdvancedTableTh,
+          | 'depth'
+          | 'isExpandable'
+          | 'isExpanded'
+          | 'newLabel'
+          | 'parentId'
+          | 'scope'
+          | 'isStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'onClickToggle'
+        >;
         data?: Record<string, unknown>;
         rowIndex?: number | string;
         isOpen?: HdsAdvancedTableExpandState;
