@@ -110,9 +110,11 @@ Refer to the [button organization stacking guidelines](/patterns/button-organiza
 The width of a form and the fields it contains are largely dependent on the form’s context. Adhering to these high-level guidelines can make a complex form approachable and introduce consistency in the UX application.
 
 ### Field width
+
 Generally, a field’s width should account for the estimated width of the content it accepts. This gives the user an accurate sense of the character length and type of content the field accepts, which is important in setting user expectations.
 
 ### Responsive properties
+
 As the viewport shrinks, the form should expand relative to the viewport width, eventually occupying the entire width of the content area. Horizontal field groups should stack vertically as the viewport shrinks.
 
 ## Form headers
@@ -126,6 +128,7 @@ Text elements within a form should use logical sizing to reinforce hierarchy wit
 ## Form organization
 
 ### Need-based organization
+
 Fields within a form generally fall into three need-based categories that can determine the order and organization of within a form: **technical and application needs**, **user needs**, and **business needs**.
 
 #### Technical and application needs
@@ -161,7 +164,7 @@ Once a logical organization has been established,
 
 - categorize elements and fields into sections,
 - introduce typographic elements to establish hierarchy,
-- and, if necessary, [use separators](#using-dividers) to differentiate sections clearly.
+- and, if necessary, [use separators](#using-separators) to differentiate sections clearly.
 
 Each one of these methods will help the user better parse and understand the relationships between each section and the fields contained within.
 
@@ -174,11 +177,11 @@ Since longer forms can result in a lower completion rate, we recommend looking f
 If a field is optional, consider whether it’s actually needed in the form. If the information isn’t critical to the experience or feature, can the field be removed?
 !!!
 
-#### Multiple sections
+### Multiple sections
 
 Using sections based on the relationship between fields can make a longer form seem less complex. Introducing typographic elements and dividers can further aid the hierarchy of the form and differentiate sections from one another.
 
-##### Using separators
+#### Using separators
 
 [Separators](components/separator) introduce more visual hierarchy and differentiation in longer, complex forms.
 
