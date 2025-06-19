@@ -3,22 +3,22 @@ showcase:
     internationalization:
       translation:
         actions:
-          primary: "Primary Action"
-          secondary: "Secondary Action"
-        body: "The text is displayed in the selected language."
-        language: "Language"
+          primary: Primary Action
+          secondary: Secondary Action
+        body: The text is displayed in the selected language.
+        language: Language
         language-options:
-          none: "None"
-          en: "🇺🇸 English (United States)"
-          fr: "🇫🇷 French (France)"
-          es: "🇪🇸 Spanish (Spain)"
-        title: "Selected language"
+          none: None
+          en: 🇺🇸 English (United States)
+          fr: 🇫🇷 French (France)
+          es: 🇪🇸 Spanish (Spain)
+        title: Selected language
 hds:
   components:
     app-footer:
       legal-links:
-        support: "Support"
-        terms: "Terms"
-        privacy: "Privacy"
-        security: "Security"
-        accessibility: "Accessibility"
+        support: Support
+        terms: Terms
+        privacy: Privacy
+        security: Security
+        accessibility: Accessibility
