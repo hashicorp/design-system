@@ -9,7 +9,7 @@
   {{did-insert this.didInsert}}
   {{will-destroy this.willDestroyNode}}
   {{! @glint-expect-error - https://github.com/josemarluedke/ember-focus-trap/issues/86 }}
-  {{focus-trap isActive=this._isOpen focusTrapOptions=(hash onDeactivate=this.onDismiss)}}
+  {{focus-trap isActive=this._isOpen focusTrapOptions=(hash onDeactivate=this.onManualDismiss)}}
 >
   <:header>
     {{yield
@@ -17,7 +17,7 @@
         Header=(component
           "hds/dialog-primitive/header"
           id=this.id
-          onDismiss=this.onDismiss
+          onDismiss=this.onManualDismiss
           contextualClassPrefix="hds-modal"
           titleTag="h1"
         )
@@ -30,7 +30,9 @@
   <:footer>
     {{yield
       (hash
-        Footer=(component "hds/dialog-primitive/footer" onDismiss=this.onDismiss contextualClass="hds-modal__footer")
+        Footer=(component
+          "hds/dialog-primitive/footer" onDismiss=this.onManualDismiss contextualClass="hds-modal__footer"
+        )
       )
     }}
   </:footer>
