@@ -62,9 +62,6 @@
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that the component should take up the full width of the parent container.
   </C.Property>
-  <C.Property @name="hasBorder" @type="boolean" @default="false">
-    Determines whether a border and padding are added to the `Form::Section`.
-  </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.
   </C.Property>
@@ -98,7 +95,7 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Form::Section::FieldGroup
+### Form::Section::MultiFieldGroup
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">

@@ -86,11 +86,10 @@ While the `FormSection` is typically used to contain Form Fields, it can also be
 
 Pass an `isFullWidth` argument to override the default max-width of an individual `FormSection` if needed.
 
-You can add a border around a `FormSection` by setting `hasBorder` to `true`.
 
 ```handlebars
 <Hds::Form as |FORM|>
-  <FORM.Section @isFullWidth={{true}} @hasBorder={{true}}>
+  <FORM.Section @isFullWidth={{true}}>
     <Hds::Form::RadioCard::Group @name="radio-card-basic-example" @alignment="center" as |G|>
       <G.Legend>Create connection</G.Legend>
         <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
@@ -153,12 +152,12 @@ If further visual separation between each `FormSection` is desired, add a `FormS
 
 ### Section Field Group
 
-To lay out related Form Fields or controls in a row, use the `SectionFieldGroup`.
+To lay out related Form Fields or controls in a row, use the `SectionMultiFieldGroup`.
 
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Section>
-    <FORM.SectionFieldGroup>
+    <FORM.SectionMultiFieldGroup>
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>First name</F.Label>
       </Hds::Form::TextInput::Field>
@@ -166,22 +165,22 @@ To lay out related Form Fields or controls in a row, use the `SectionFieldGroup`
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>Last name</F.Label>
       </Hds::Form::TextInput::Field>
-    </FORM.SectionFieldGroup>
+    </FORM.SectionMultiFieldGroup>
   </FORM.Section>
 </Hds::Form>
 ```
 
-To control the widths of individual elements within a `SectionFieldGroup`, you can wrap the element with an `Item` and pass in a `basis` value. Fields not wrapped with an `Item` will take up the remaining available width.
+To control the widths of individual elements within a `SectioMultiFieldGroup`, you can wrap the element with an `Item` and pass in a `width` value. Fields not wrapped with an `Item` will take up the remaining available width.
 
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Section>
-    <FORM.SectionFieldGroup as |FG|>
+    <FORM.SectionMultiFieldGroup as |FG|>
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>City</F.Label>
       </Hds::Form::TextInput::Field>
 
-      <FG.Item @basis="auto">
+      <FG.Item @width="auto">
         <Hds::Form::Select::Field as |F|>
           <F.Label>State</F.Label>
           <F.Options>
@@ -194,29 +193,29 @@ To control the widths of individual elements within a `SectionFieldGroup`, you c
         </Hds::Form::Select::Field>
       </FG.Item>
 
-      <FG.Item @basis="6em">
+      <FG.Item @width="6em">
         <Hds::Form::TextInput::Field as |F|>
           <F.Label>Zip</F.Label>
         </Hds::Form::TextInput::Field>
       </FG.Item>
-    </FORM.SectionFieldGroup>
+    </FORM.SectionMultiFieldGroup>
   </FORM.Section>
 </Hds::Form>
 ```
 
 #### Responsive layout
 
-In screen widths below 768px (the “md” breakpoint), the `SectionFieldGroup` content layout will automatically stack.
+In screen widths below 768px (the “md” breakpoint), the `SectionMultiFieldGroup` content layout will automatically stack.
 
 ```handlebars
 <Hds::Form class="doc-form-layout-mobile-view" as |FORM|>
   <FORM.Section>
-    <FORM.SectionFieldGroup as |FG|>
+    <FORM.SectionMultiFieldGroup as |FG|>
       <Hds::Form::TextInput::Field as |F|>
         <F.Label>City</F.Label>
       </Hds::Form::TextInput::Field>
 
-      <FG.Item @basis="auto">
+      <FG.Item @width="auto">
         <Hds::Form::Select::Field as |F|>
           <F.Label>State</F.Label>
           <F.Options>
@@ -229,12 +228,12 @@ In screen widths below 768px (the “md” breakpoint), the `SectionFieldGroup` 
         </Hds::Form::Select::Field>
       </FG.Item>
 
-      <FG.Item @basis="6em">
+      <FG.Item @width="6em">
         <Hds::Form::TextInput::Field as |F|>
           <F.Label>Zip</F.Label>
         </Hds::Form::TextInput::Field>
       </FG.Item>
-    </FORM.SectionFieldGroup>
+    </FORM.SectionMultiFieldGroup>
   </FORM.Section>
 </Hds::Form>
 ```
