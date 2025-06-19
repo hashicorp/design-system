@@ -301,6 +301,26 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.ok(closed);
   });
 
+  test('it should call `onClose` function if the component is destroyed while the modal is open', async function (assert) {
+    let closed = false;
+    this.set('onClose', () => (closed = true));
+
+    this.set('showModal', true);
+
+    await render(
+      hbs`
+        {{#if this.showModal}}
+          <Hds::Modal id="test-modal" @onClose={{this.onClose}} as |M|>
+            <M.Header>Title</M.Header>
+          </Hds::Modal>
+        {{/if}}
+      `,
+    );
+
+    this.set('showModal', false);
+    assert.ok(closed);
+  });
+
   // ASSERTIONS
 
   test('it should throw an assertion if an incorrect value for @size is provided', async function (assert) {

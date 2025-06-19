@@ -10,6 +10,8 @@ import { tracked } from '@glimmer/tracking';
 export default class ModalController extends Controller {
   @tracked basicModalActive = false;
   @tracked longModalActive = false;
+  @tracked deactivateModalOnCloseActive = false;
+  @tracked deactivateModalOnDestroyActive = false;
   @tracked formModalActive = false;
   @tracked tabsModalActive = false;
   @tracked dropdownModalActive = false;
