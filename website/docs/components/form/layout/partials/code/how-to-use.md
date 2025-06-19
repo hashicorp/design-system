@@ -33,11 +33,11 @@ Use the optional `FormHeader` to include a `Title` and `Description` for your `F
 
 ### Form Section
 
-Use `FormSection` components to wrap and group together related Form Fields and other form content establishing a consistent max-width and spacing for the content.
+Use `FormSection` components to wrap and group together related Form Fields and other form content. This establishes a consistent max-width and spacing for the content.
 
-Note: You should use at least one `FormSection` to wrap Form Field content to establish consistent spacing and a consistent max-width.
+Note: You should use at least one `FormSection` to wrap Form Field content otherwise the content won't be spaced properly or use a max-width.
 
-While the `FormSection` is typically used to contain Form Fields, it can also be used to contain other content as needed such as an `Alert`.
+While the `FormSection` is typically used to contain Form Fields, it can also be used to contain and set a consistent max-width for other content as needed such as an `Alert`.
 
 ```handlebars
 <Hds::Form as |FORM|>
@@ -86,7 +86,6 @@ While the `FormSection` is typically used to contain Form Fields, it can also be
 
 Pass an `isFullWidth` argument to override the default max-width of an individual `FormSection` if needed.
 
-
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Section @isFullWidth={{true}}>
@@ -134,7 +133,7 @@ Similarly to the `Form`, each `FormSection` can optionally include its own `Sect
 
 ### Form Separator
 
-If further visual separation between each `FormSection` is desired, add a `FormSeparator` in-between.
+If further visual separation between Form Sections is desired, add a `FormSeparator` in-between.
 
 ```handlebars
 <Hds::Form as |FORM|>
@@ -150,7 +149,7 @@ If further visual separation between each `FormSection` is desired, add a `FormS
 </Hds::Form>
 ```
 
-### Section Field Group
+### Section Multi Field Group
 
 To lay out related Form Fields or controls in a row, use the `SectionMultiFieldGroup`.
 
@@ -170,7 +169,7 @@ To lay out related Form Fields or controls in a row, use the `SectionMultiFieldG
 </Hds::Form>
 ```
 
-To control the widths of individual elements within a `SectioMultiFieldGroup`, you can wrap the element with an `Item` and pass in a `width` value. Fields not wrapped with an `Item` will take up the remaining available width.
+To control the widths of individual elements within a `SectionMultiFieldGroup`, you can wrap the element with an `Item` and pass in a `width` value. Fields not wrapped with an `Item` will take up the remaining available width.
 
 ```handlebars
 <Hds::Form as |FORM|>
@@ -193,7 +192,7 @@ To control the widths of individual elements within a `SectioMultiFieldGroup`, y
         </Hds::Form::Select::Field>
       </FG.Item>
 
-      <FG.Item @width="6em">
+      <FG.Item @width="8em">
         <Hds::Form::TextInput::Field as |F|>
           <F.Label>Zip</F.Label>
         </Hds::Form::TextInput::Field>
@@ -235,5 +234,14 @@ In screen widths below 768px (the “md” breakpoint), the `SectionMultiFieldGr
       </FG.Item>
     </FORM.SectionMultiFieldGroup>
   </FORM.Section>
+</Hds::Form>
+```
+
+### Form Footer
+
+The `FormFooter` should be used at the bottom of the other `Form` content to contain form actions for the form content. Use a `ButtonSet` to wrap 
+
+```handlebars
+<Hds::Form as |FORM|>
 </Hds::Form>
 ```

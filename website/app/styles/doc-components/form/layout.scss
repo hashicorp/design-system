@@ -28,12 +28,9 @@
     }
 
     // simulate responsive layout
-    .hds-form__section-field-group {
-    &.hds-layout-flex--direction-row {
-      // When there are columns, stack them vertically
+    .hds-form__section-multi-field-group {
       flex-direction: column;
       align-items: start;
     }
-}
   }
 }
