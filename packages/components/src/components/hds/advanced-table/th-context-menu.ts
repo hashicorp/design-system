@@ -66,7 +66,6 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
     column.restoreWidth();
 
     if (typeof onColumnResize === 'function' && column.key !== undefined) {
-      console.log('resetting');
       onColumnResize(column.key, column.width);
     }
 
