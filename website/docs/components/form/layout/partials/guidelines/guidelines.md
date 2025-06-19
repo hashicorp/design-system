@@ -1,3 +1,7 @@
+## Form
+
+The Form component serves as the container for all the other Form layout related components and form content.
+
 ## Form Header
 
 An optional header is available within the **Form component**. The Header has two variants, one for the form-level header and one for section-level headers. Each variant contains styled text for a Title and Description to serve as a starting point. All Header child elements have a gap of 8px applied between them.
@@ -22,7 +26,7 @@ Inputs within a form are organized in Sections. Multiple Sections may be used to
 
 Similar to the Form Header, the Section Header contains styled and spaced text elements.
 
-The title and description can be customized, and a space for custom content can be edited or removed.
+The included Title and Description text can be edited while the space for custom content can be edited or removed.
 
 ![Section Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-section-anatomy.png)
 
