@@ -1,6 +1,6 @@
 ## Form
 
-The Form component serves as the container for all the other Form layout related components and form content.
+The **Form** component serves as the container for all the other Form layout related components and form content.
 
 ## Form Header
 

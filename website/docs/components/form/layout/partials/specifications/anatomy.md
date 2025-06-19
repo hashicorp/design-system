@@ -1,7 +1,7 @@
 ## Anatomy
 
 <!-- image then table -->
-![Anatomy of formLayout](/assets/components/alert/form-layout-anatomy-inline.png)
+![Anatomy of formLayout](/assets/components/form/layout/form-anatomy-expanded.png)
 
 <!-- this is just an example, refer to other components to see how to fill this table -->
 | Element          | Usage                                           |
