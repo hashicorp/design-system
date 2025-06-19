@@ -225,7 +225,7 @@
       <FORM.Footer>
         <Hds::ButtonSet>
           <Hds::Button @text="Submit" type="submit" />
-          <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
+          <Hds::Button @text="Cancel" @color="secondary" />
         </Hds::ButtonSet>
       </FORM.Footer>
     </Hds::Form>
@@ -297,7 +297,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>FormHeader w/ Title &amp; Description</Shw::Text::H3>
+  <Shw::Text::H3>Header w/ Title &amp; Description</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -377,7 +377,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H4>FormHeaderTitle sizes</Shw::Text::H4>
+  <Shw::Text::H4>HeaderTitle sizes</Shw::Text::H4>
 
   <Shw::Grid @columns={{1}} @gap="1.4rem" as |SG|>
     {{#each @model.DISPLAY_AVAILABLE_SIZES as |size|}}
@@ -391,7 +391,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H3>FormSection</Shw::Text::H3>
+  <Shw::Text::H3>Section</Shw::Text::H3>
 
   <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
     {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
@@ -645,51 +645,49 @@
       </SG.Item>
     </Shw::Grid>
   </div>
-</section>
 
-<Shw::Divider @level={{2}} />
+  <Shw::Divider @level={{2}} />
 
-<Shw::Text::H3>FormSeparator</Shw::Text::H3>
+  <Shw::Text::H3>Separator</Shw::Text::H3>
 
-<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
-  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-</button>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-<Shw::Text::H4>isFullWidth</Shw::Text::H4>
+  <Shw::Text::H4>width</Shw::Text::H4>
 
-<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-    <SG.Item @label="isFullWidth=false (default)">
-      <Hds::Form {{style padding="16px 0"}} as |FORM|>
-        <FORM.Separator />
-      </Hds::Form>
-    </SG.Item>
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
+      <SG.Item @label="isFullWidth=false (default)">
+        <Hds::Form {{style padding="16px 0"}} as |FORM|>
+          <FORM.Separator />
+        </Hds::Form>
+      </SG.Item>
 
-    <SG.Item @label="inherited sectionMaxWidth=32em set on Form parent">
-      <Hds::Form @sectionMaxWidth="32em" {{style padding="16px 0"}} as |FORM|>
-        <FORM.Separator />
-      </Hds::Form>
-    </SG.Item>
+      <SG.Item @label="inherited sectionMaxWidth=32em set on Form parent">
+        <Hds::Form @sectionMaxWidth="32em" {{style padding="16px 0"}} as |FORM|>
+          <FORM.Separator />
+        </Hds::Form>
+      </SG.Item>
 
-    <SG.Item @label="isFullWidth=true">
-      <Hds::Form {{style padding="16px 0"}}>
-        <Hds::Form::Separator @isFullWidth={{true}} />
-      </Hds::Form>
-    </SG.Item>
-  </Shw::Grid>
-</div>
+      <SG.Item @label="isFullWidth=true">
+        <Hds::Form {{style padding="16px 0"}}>
+          <Hds::Form::Separator @isFullWidth={{true}} />
+        </Hds::Form>
+      </SG.Item>
+    </Shw::Grid>
+  </div>
 
-<Shw::Divider @level={{2}} />
+  <Shw::Divider @level={{2}} />
 
-<Shw::Text::H3>Form Footer</Shw::Text::H3>
+  <Shw::Text::H3>Footer</Shw::Text::H3>
 
-<button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
-  {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
-</button>
+  <button type="button" class="shw-component-form-layout-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
 
-<Shw::Text::H4>width</Shw::Text::H4>
+  <Shw::Text::H4>width</Shw::Text::H4>
 
-<div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
   <Shw::Flex
     @direction="column"
     @gap="2rem"
@@ -699,10 +697,7 @@
     <SF.Item @label="isFullWidth=false (default)">
       <Hds::Form as |FORM|>
         <FORM.Footer>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
+          <Shw::Placeholder @height="2.4em" @text="Footer" />
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
@@ -710,10 +705,7 @@
     <SF.Item @label="inherited sectionMaxWidth=32em set on Form parent">
       <Hds::Form @sectionMaxWidth="32em" as |FORM|>
         <FORM.Footer>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
+          <Shw::Placeholder @height="2.4em" @text="Footer" />
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
@@ -721,15 +713,63 @@
     <SF.Item @label="isFullWidth=true">
       <Hds::Form as |FORM|>
         <FORM.Footer @isFullWidth={{true}}>
-          <Hds::ButtonSet>
-            <Hds::Button @text="Submit" type="submit" />
-            <Hds::Button @text="Cancel" @color="secondary" @href="https://hashicorp.com" />
-          </Hds::ButtonSet>
+          <Shw::Placeholder @height="2.4em" @text="Footer" />
         </FORM.Footer>
       </Hds::Form>
     </SF.Item>
   </Shw::Flex>
-</div>
+
+  <Shw::Text::H4>content</Shw::Text::H4>
+
+  <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
+    <Shw::Flex
+      @direction="column"
+      @gap="2rem"
+      class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements-and-placeholders'}}"
+      as |SF|
+    >
+      <SF.Item as |SFI|>
+        <SFI.Label>With <code>Hds::ButtonSet</code></SFI.Label>
+        <Hds::Form as |FORM|>
+          <FORM.Footer>
+            <Hds::ButtonSet>
+              <Hds::Button @text="Submit" type="submit" />
+              <Hds::Button @text="Cancel" @color="secondary" />
+            </Hds::ButtonSet>
+          </FORM.Footer>
+        </Hds::Form>
+      </SF.Item>
+      <SF.Item as |SFI|>
+        <SFI.Label>With yielded <code>ButtonSet</code></SFI.Label>
+        <Hds::Form as |FORM|>
+          <FORM.Footer as |FF|>
+            <FF.ButtonSet>
+              <Hds::Button @text="Submit" type="submit" />
+              <Hds::Button @text="Cancel" @color="secondary" />
+            </FF.ButtonSet>
+          </FORM.Footer>
+        </Hds::Form>
+      </SF.Item>
+      <SF.Item @label="with extra content (eg. alert)">
+        <Hds::Form as |FORM|>
+          <FORM.Footer>
+            <Hds::Layout::Flex @gap="32">
+              <Hds::ButtonSet>
+                <Hds::Button @text="Submit" type="submit" />
+                <Hds::Button @text="Cancel" @color="secondary" />
+              </Hds::ButtonSet>
+              <Hds::Alert @color="highlight" @icon="info-fill" @type="compact" as |A|>
+                <A.Description>Clusters are scoped to a single project for now and cannot connect to other clusters in
+                  other projects.</A.Description>
+              </Hds::Alert>
+            </Hds::Layout::Flex>
+          </FORM.Footer>
+        </Hds::Form>
+      </SF.Item>
+    </Shw::Flex>
+  </div>
+
+</section>
 
 <Shw::Divider />
 

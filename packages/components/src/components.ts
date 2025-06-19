@@ -136,6 +136,7 @@ export * from './components/hds/flyout/types.ts';
 
 // Form > Layout
 export { default as HdsForm } from './components/hds/form/index.ts';
+export { default as HdsFormFooter } from './components/hds/form/footer/index.ts';
 export { default as HdsFormHeader } from './components/hds/form/header/index.ts';
 export { default as HdsFormHeaderTitle } from './components/hds/form/header/title.ts';
 export { default as HdsFormHeaderDescription } from './components/hds/form/header/description.ts';
