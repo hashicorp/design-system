@@ -7,16 +7,16 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { tracked } from '@glimmer/tracking';
-import type { ComponentLike } from '@glint/template';
+import type { WithBoundArgs } from '@glint/template';
 import { guidFor } from '@ember/object/internals';
 import { modifier } from 'ember-modifier';
 import type Owner from '@ember/owner';
+import { schedule } from '@ember/runloop';
 
 import HdsAdvancedTableTableModel from './models/table.ts';
 
 import {
   HdsAdvancedTableDensityValues,
-  HdsAdvancedTableThSortOrderValues,
   HdsAdvancedTableVerticalAlignmentValues,
 } from './types.ts';
 import type {
@@ -25,16 +25,16 @@ import type {
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableOnSelectionChangeSignature,
   HdsAdvancedTableSelectableRow,
-  HdsAdvancedTableSortingFunction,
   HdsAdvancedTableThSortOrder,
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
 } from './types.ts';
+import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
-import type { HdsAdvancedTableTdSignature } from './td.ts';
-import type { HdsAdvancedTableThSignature } from './th.ts';
-import type { HdsAdvancedTableTrSignature } from './tr.ts';
+import type HdsAdvancedTableTd from './td.ts';
+import type HdsAdvancedTableTh from './th.ts';
+import type HdsAdvancedTableTr from './tr.ts';
 
 export const DENSITIES: HdsAdvancedTableDensities[] = Object.values(
   HdsAdvancedTableDensityValues
@@ -120,27 +120,54 @@ export interface HdsAdvancedTableSignature {
     isSelectable?: boolean;
     isStriped?: boolean;
     model: HdsAdvancedTableModel;
-    onSelectionChange?: (
-      selection: HdsAdvancedTableOnSelectionChangeSignature
-    ) => void;
-    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
     selectionAriaLabelSuffix?: string;
     sortBy?: string;
     selectableColumnKey?: string;
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnResize?: (columnKey: string, newWidth?: string) => void;
+    onSelectionChange?: (
+      selection: HdsAdvancedTableOnSelectionChangeSignature
+    ) => void;
+    onSort?: (sortBy: string, sortOrder: HdsAdvancedTableThSortOrder) => void;
   };
   Blocks: {
     body?: [
       {
-        Td?: ComponentLike<HdsAdvancedTableTdSignature>;
-        Tr?: ComponentLike<HdsAdvancedTableTrSignature>;
-        Th?: ComponentLike<HdsAdvancedTableThSignature>;
+        Td?: WithBoundArgs<typeof HdsAdvancedTableTd, 'align'>;
+        Tr?: WithBoundArgs<
+          typeof HdsAdvancedTableTr,
+          | 'selectionScope'
+          | 'isLastRow'
+          | 'isSelectable'
+          | 'onSelectionChange'
+          | 'didInsert'
+          | 'willDestroy'
+          | 'selectionAriaLabelSuffix'
+          | 'hasStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'isParentRow'
+          | 'depth'
+          | 'displayRow'
+        >;
+        Th?: WithBoundArgs<
+          typeof HdsAdvancedTableTh,
+          | 'depth'
+          | 'isExpandable'
+          | 'isExpanded'
+          | 'newLabel'
+          | 'parentId'
+          | 'scope'
+          | 'isStickyColumn'
+          | 'isStickyColumnPinned'
+          | 'onClickToggle'
+        >;
         data?: Record<string, unknown>;
         rowIndex?: number | string;
         isOpen?: HdsAdvancedTableExpandState;
@@ -151,14 +178,11 @@ export interface HdsAdvancedTableSignature {
 }
 
 export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignature> {
-  @tracked private _sortBy = this.args.sortBy ?? undefined;
-  @tracked private _sortOrder =
-    this.args.sortOrder || HdsAdvancedTableThSortOrderValues.Asc;
   @tracked
   private _selectAllCheckbox?: HdsFormCheckboxBaseSignature['Element'] =
     undefined;
   @tracked private _isSelectAllCheckboxSelected?: boolean = undefined;
-
+  @tracked private _tableHeight = 0;
   private _selectableRows: HdsAdvancedTableSelectableRow[] = [];
   private _captionId = 'caption-' + guidFor(this);
   private _tableModel!: HdsAdvancedTableTableModel;
@@ -178,11 +202,25 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   constructor(owner: Owner, args: HdsAdvancedTableSignature['Args']) {
     super(owner, args);
 
-    const { model, childrenKey, columns, hasStickyFirstColumn } = args;
+    const {
+      model,
+      columns,
+      childrenKey,
+      hasResizableColumns,
+      sortBy,
+      sortOrder,
+      hasStickyFirstColumn,
+      onSort,
+    } = args;
 
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
+      columns,
       childrenKey,
+      hasResizableColumns,
+      sortBy,
+      sortOrder,
+      onSort,
     });
 
     if (this._tableModel.hasRowsWithChildren) {
@@ -200,43 +238,12 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         'Cannot have a sticky first column if there are nested rows.',
         !hasStickyFirstColumn
       );
+
+      assert(
+        `Cannot have resizable columns if there are nested rows.`,
+        !hasResizableColumns
+      );
     }
-  }
-
-  get getSortCriteria(): string | HdsAdvancedTableSortingFunction<unknown> {
-    // get the current column
-    const currentColumn = this.args?.columns?.find(
-      (column) => column.key === this._sortBy
-    );
-
-    if (
-      // check if there is a custom sorting function associated with the current `sortBy` column (we assume the column has `isSortable`)
-      currentColumn?.sortingFunction &&
-      typeof currentColumn.sortingFunction === 'function'
-    ) {
-      return currentColumn.sortingFunction;
-    } else {
-      // otherwise fallback to the default format "sortBy:sortOrder"
-      return `${this._sortBy}:${this._sortOrder}`;
-    }
-  }
-
-  get columnWidths(): string[] | undefined {
-    const { columns } = this.args;
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const widths: string[] = new Array(columns.length);
-    let hasCustomColumnWidth = false;
-
-    for (let i = 0; i < columns.length; i++) {
-      const column = columns[i];
-
-      if (column?.['width']) {
-        widths[i] = column.width;
-        if (!hasCustomColumnWidth) hasCustomColumnWidth = true;
-      }
-    }
-
-    return hasCustomColumnWidth ? widths : undefined;
   }
 
   get identityKey(): string | undefined {
@@ -263,11 +270,14 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
   }
 
   get sortedMessageText(): string {
-    if (this.args.sortedMessageText) {
-      return this.args.sortedMessageText;
-    } else if (this._sortBy && this._sortOrder) {
+    const { sortedMessageText } = this.args;
+    const { sortBy, sortOrder } = this._tableModel;
+
+    if (sortedMessageText !== undefined) {
+      return sortedMessageText;
+    } else if (sortBy !== undefined && sortOrder !== undefined) {
       // we should allow the user to define a custom value here (e.g., for i18n) - tracked with HDS-965
-      return `Sorted by ${this._sortBy} ${this._sortOrder}ending`;
+      return `Sorted by ${sortBy} ${sortOrder}ending`;
     } else {
       return '';
     }
@@ -339,21 +349,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
 
   // returns the grid-template-columns CSS attribute for the grid
   get gridTemplateColumns(): string {
-    const { isSelectable, columns } = this.args;
+    const { isSelectable } = this.args;
+    const { columns } = this._tableModel;
 
     const DEFAULT_COLUMN_WIDTH = '1fr';
 
     // if there is a select checkbox, the first column has a 'min-content' width to hug the checkbox content
     let style = isSelectable ? 'min-content ' : '';
 
-    if (!this.columnWidths) {
+    const hasCustomColumnWidths = columns.some(
+      (column) => column.width !== undefined
+    );
+
+    if (hasCustomColumnWidths) {
+      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
+      for (let i = 0; i < columns.length; i++) {
+        style += ` ${columns[i]!.width ?? DEFAULT_COLUMN_WIDTH}`;
+      }
+    } else {
       // if there are no custom column widths, each column is the same width and they take up the available space
       style += `repeat(${columns.length}, ${DEFAULT_COLUMN_WIDTH})`;
-    } else {
-      // check the custom column widths, if the current column has a custom width use the custom width. otherwise take the available space.
-      for (let i = 0; i < this.columnWidths.length; i++) {
-        style += ` ${this.columnWidths[i] ? this.columnWidths[i] : DEFAULT_COLUMN_WIDTH}`;
-      }
     }
 
     return style;
@@ -392,12 +407,26 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
       classes.push('hds-advanced-table__thead--is-pinned');
     }
 
+    if (this._tableModel.hasResizableColumns) {
+      classes.push('hds-advanced-table__thead--has-resizable-columns');
+    }
+
     return classes.join(' ');
   }
 
-  private _didUpdateModel = modifier(() => {
-    this._tableModel.updateModel(this.args.model);
-  });
+  private _setColumnWidth = modifier(
+    (element: HTMLDivElement, [column]: [HdsAdvancedTableColumnType]) => {
+      // eslint-disable-next-line ember/no-runloop
+      schedule('afterRender', () => {
+        const width = element.offsetWidth;
+
+        if (column.width === undefined) {
+          column.setPxWidth(width);
+          column.originalWidth = `${width}px`;
+        }
+      });
+    }
+  );
 
   private _setUpScrollWrapper = modifier((element: HTMLDivElement) => {
     this._scrollHandler = () => {
@@ -454,6 +483,8 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     element.addEventListener('scroll', this._scrollHandler);
 
     const updateMeasurements = () => {
+      this._tableHeight = element.clientHeight;
+
       this.scrollIndicatorDimensions = getScrollIndicatorDimensions(
         element,
         this._theadElement,
@@ -501,27 +532,6 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._theadElement = element;
   });
 
-  @action
-  setSortBy(column: string): void {
-    if (this._sortBy === column) {
-      // check to see if the column is already sorted and invert the sort order if so
-      this._sortOrder =
-        this._sortOrder === HdsAdvancedTableThSortOrderValues.Asc
-          ? HdsAdvancedTableThSortOrderValues.Desc
-          : HdsAdvancedTableThSortOrderValues.Asc;
-    } else {
-      // otherwise, set the sort order to ascending
-      this._sortBy = column;
-      this._sortOrder = HdsAdvancedTableThSortOrderValues.Asc;
-    }
-
-    const { onSort } = this.args;
-
-    if (typeof onSort === 'function') {
-      onSort(this._sortBy, this._sortOrder);
-    }
-  }
-
   onSelectionChangeCallback(
     checkbox?: HdsFormCheckboxBaseSignature['Element'],
     selectionKey?: string
@@ -553,6 +563,13 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
         []
       ),
     });
+  }
+
+  @action
+  setupTableModelData(): void {
+    const { columns, model, sortBy, sortOrder } = this.args;
+
+    this._tableModel.setupData({ columns, model, sortBy, sortOrder });
   }
 
   @action

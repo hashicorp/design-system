@@ -1,0 +1,17 @@
+{{! template-lint-disable no-pointer-down-event-binding }}
+<div
+  class={{this.classNames}}
+  draggable="false"
+  role="slider"
+  aria-orientation="horizontal"
+  aria-valuenow={{@column.pxWidth}}
+  aria-valuemin={{@column.pxMinWidth}}
+  aria-valuemax={{@column.pxMaxWidth}}
+  tabindex="0"
+  aria-label="Resize {{@column.label}} column"
+  {{this._registerHandleElement}}
+  {{on "pointerdown" this.startResize}}
+  {{on "keydown" this.handleKeydown}}
+  {{style height=this.height}}
+  ...attributes
+/>
