@@ -3,16 +3,5 @@
   SPDX-License-Identifier: MPL-2.0
 }}
 <Hds::Text::Body class="hds-pagination-info" @tag="div" @size="100" @weight="medium" ...attributes>
-  {{hds-t
-    "hds.components.pagination.info.page_range"
-    default=(if
-      this.showTotalItems
-      (concat @itemsRangeStart "–" @itemsRangeEnd " of " @totalItems)
-      (concat @itemsRangeStart "–" @itemsRangeEnd)
-    )
-    itemsRangeStart=@itemsRangeStart
-    itemsRangeEnd=@itemsRangeEnd
-    totalItems=@totalItems
-    showTotalItems=this.showTotalItems
-  }}
+  {{this.translatedItemsRange}}
 </Hds::Text::Body>
