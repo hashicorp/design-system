@@ -266,17 +266,17 @@
     <Hds::Flyout
       id="dropdown-initiated-flyout"
       @onClose={{fn this.deactivateFlyout "dropdownInitiatedFlyoutActive"}}
-      as |M|
+      as |F|
     >
-      <M.Header>
+      <F.Header>
         Flyout title
-      </M.Header>
-      <M.Body>
+      </F.Header>
+      <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </M.Body>
-      <M.Footer as |F|>
+      </F.Body>
+      <F.Footer as |F|>
         <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
-      </M.Footer>
+      </F.Footer>
     </Hds::Flyout>
   {{/if}}
 
@@ -297,17 +297,120 @@
       id="dropdown-initiated-flyout-with-returned-focus"
       @onClose={{fn this.deactivateFlyout "dropdownInitiatedWithReturnedFocusFlyoutActive"}}
       @returnFocusTo="dropdown-initiated-flyout-with-returned-focus-toggle"
-      as |M|
+      as |F|
     >
-      <M.Header>
+      <F.Header>
         Flyout title
-      </M.Header>
-      <M.Body>
+      </F.Header>
+      <F.Body>
         <p class="hds-typography-body-300 hds-foreground-primary">Flyout content</p>
-      </M.Body>
-      <M.Footer as |F|>
+      </F.Body>
+      <F.Footer as |F|>
         <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
-      </M.Footer>
+      </F.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <br />
+  <br />
+
+  <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnCloseActive")}}>Deactivated with `onClose`</button>
+
+  {{#if this.deactivateFlyoutOnCloseActive}}
+    <Hds::Flyout
+      id="deactivate-flyout-on-close"
+      @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnCloseActive"}}
+      as |F|
+    >
+      <F.Header>
+        Flyout title
+      </F.Header>
+      <F.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Clicking the "confirm" button executes the
+          <code>F.close</code>
+          method.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-top="12px"}}>This is equivalent to a
+          manual dismiss (<code>Esc</code>
+          key, click outsite, click dismiss button) because they're all calling the same function, which invokes the
+          native
+          <code>close()</code>
+          method of the
+          <code>Dialog</code>
+          HTML element, who then will cause the
+          <code>willDestroyNode</code>
+          action to execute.</p>
+      </F.Body>
+      <F.Footer as |F|>
+        <Hds::Button type="button" @text="Confirm" {{on "click" F.close}} />
+      </F.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnDestroyActive")}}>Deactivated on destroy</button>
+
+  {{#if this.deactivateFlyoutOnDestroyActive}}
+    <Hds::Flyout
+      id="deactivate-flyout-on-destruction"
+      @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnDestroyActive"}}
+      as |F|
+    >
+      <F.Header>
+        Flyout title
+      </F.Header>
+      <F.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Clicking the "confirm" button will directly remove the
+          flyout from the DOM.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin-top="12px"}}>This is not equivalent to
+          a manual dismiss (<code>Esc</code>
+          key, click outsite, click dismiss button) because it will trigger directly the
+          <code>willDestroyNode</code>
+          action.</p>
+      </F.Body>
+      <F.Footer>
+        <Hds::Button
+          type="button"
+          @text="Confirm"
+          {{on "click" (fn this.deactivateFlyout "deactivateFlyoutOnDestroyActive")}}
+        />
+      </F.Footer>
+    </Hds::Flyout>
+  {{/if}}
+
+  <button type="button" {{on "click" (fn this.activateFlyout "deactivateFlyoutOnSubmitActive")}}>Deactivated on form
+    submit</button>
+
+  {{#if this.deactivateFlyoutOnSubmitActive}}
+    <Hds::Flyout id="deactivate-flyout-on-submit" @onClose={{fn this.deactivateFlyout "deactivateFlyoutOnSubmitActive"}} as |F|>
+      <F.Header>
+        Flyout title
+      </F.Header>
+      <F.Body>
+        <p class="hds-typography-body-300 hds-foreground-primary">Clicking the "confirm" button will submit the form and
+          the associated action will remove the flyout from the DOM.</p>
+        <p class="hds-typography-body-200 hds-foreground-primary" {{style margin="12px 0 32px"}}>This is not equivalent to
+          a manual dismiss (<code>Esc</code>
+          key, click outsite, click dismiss button) because it will trigger directly the
+          <code>willDestroyNode</code>
+          action.</p>
+        <form
+          id="deactivate-flyout-on-submit__form"
+          {{on "submit" this.deactivateFlyoutOnSubmit}}
+        >
+          <Hds::Form::TextInput::Field name="deactivate-flyout-on-submit__input" as |F|>
+            <F.Label>Fill in this input</F.Label>
+            <F.HelperText>This is a fake input, used to emulate validation on submit</F.HelperText>
+            {{#if this.deactivateFlyoutOnSubmitValidationError}}
+              <F.Error>Fill in the input above</F.Error>
+            {{/if}}
+          </Hds::Form::TextInput::Field>
+        </form>
+      </F.Body>
+      <F.Footer as |F|>
+        <Hds::ButtonSet>
+          <Hds::Button type="submit" @text="Confirm" form="deactivate-flyout-on-submit__form" />
+          <Hds::Button type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+        </Hds::ButtonSet>
+      </F.Footer>
     </Hds::Flyout>
   {{/if}}
 
