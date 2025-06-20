@@ -34,10 +34,7 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
   get icon(): HdsIconSignature['Args']['name'] {
     const { icon } = this.args;
 
-    assert(
-      '@icon name must be provided',
-      icon !== undefined
-    );
+    assert('@icon name must be provided', icon !== undefined);
 
     return icon;
   }
