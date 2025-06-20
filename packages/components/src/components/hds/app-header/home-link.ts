@@ -35,7 +35,7 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
     const { icon } = this.args;
 
     assert(
-      '@icon for "Hds::AppHeader::HomeLink" must have a valid value',
+      '@icon name must be provided',
       icon !== undefined
     );
 
@@ -43,9 +43,6 @@ export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLink
   }
 
   get isIconOnly(): boolean {
-    if (this.icon) {
-      return this.args.isIconOnly ?? false;
-    }
-    return false;
+    return this.args.isIconOnly ?? true;
   }
 }

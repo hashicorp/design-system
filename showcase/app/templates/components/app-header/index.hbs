@@ -10,7 +10,6 @@
 </Shw::Text::H1>
 
 <section data-test-percy>
-
   <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Text::H3>With generic content</Shw::Text::H3>
@@ -44,7 +43,7 @@
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -251,7 +250,7 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform Admin Console" @href="#" />
+          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform Admin Console" @isIconOnly={{false}} @href="#" />
         </:logo>
         <:utilityActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -267,7 +266,12 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="Admin UI" @href="#" />
+          <Hds::AppHeader::HomeLink
+            @icon="hashicorp"
+            @text="Admin UI"
+            @isIconOnly={{false}}
+            @href="#"
+          />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -303,7 +307,12 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="boundary-color" @text="Boundary Desktop" @href="#" />
+          <Hds::AppHeader::HomeLink
+            @icon="boundary-color"
+            @text="Boundary Desktop"
+            @isIconOnly={{false}}
+            @href="#"
+          />
         </:logo>
         <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
@@ -314,7 +323,12 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" />
+          <Hds::AppHeader::HomeLink
+            @icon="hashicorp"
+            @text="HashiCorp Cloud Platform"
+            @isIconOnly={{false}}
+            @href="#"
+          />
           <Hds::Badge @text="Assuming Role: Admin" @color="highlight" @icon="eye" @type="filled" />
         </:logo>
       </Hds::AppHeader>
