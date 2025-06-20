@@ -25,7 +25,7 @@ declare module '@glint/environment-ember-loose/registry' {
       RenderModifiersRegistry,
       ShowcaseTemplateRegistry,
       EmberComposableHelpersRegistry {
-    // ember-cli-string-helpers is deprecated and doesn't provide own types, we need to move to @ember/string
+    // TODO: `ember-cli-string-helpers` is deprecated and doesn't provide own types, we need to move to `@ember/string` [HDS-4973](https://hashicorp.atlassian.net/browse/HDS-4973)
     capitalize: HelperLike<{
       Args: {
         Positional: [string];
