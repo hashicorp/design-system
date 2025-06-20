@@ -71,14 +71,14 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
   id='test-home-link'
 />`,
     );
-    assert.dom('#test-home-link').hasClass('.hds-app-header__home-link-text');
+    assert.dom('.hds-app-header__home-link-text').exists();
   });
 
   // ASSERTIONS
 
-  test('it should throw an assertion if @ariaLabel is missing/has no value', async function (assert) {
+  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
     const errorMessage =
-      '@text for "Hds::AppHeader::HomeLink" ("Logo") must have a valid value';
+      '@text for "Hds::AppHeader::HomeLink" must have a valid value';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
