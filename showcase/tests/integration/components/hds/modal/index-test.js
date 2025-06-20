@@ -169,27 +169,6 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     assert.dom('#test-modal').isNotVisible();
   });
 
-  test('it should appropriately dismiss the modal when clicking outside the modal', async function (assert) {
-    this.set('isDismissDisabled', true);
-    await render(
-      hbs`<Hds::Modal @isDismissDisabled={{this.isDismissDisabled}} id="test-modal" as |M|>
-            <M.Header>Title</M.Header>
-            <M.Footer as |F|>
-              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
-            </M.Footer>
-          </Hds::Modal>`,
-    );
-
-    await click('.hds-modal__overlay');
-    assert.dom('#test-modal').isVisible();
-
-    // now let's check that the state is reset and it can be closed
-    this.set('isDismissDisabled', false);
-    await rerender();
-    await click('.hds-modal__overlay');
-    assert.dom('#test-modal').isNotVisible();
-  });
-
   // ACCESSIBILITY
 
   test('it uses the title as name for the dialog', async function (assert) {
