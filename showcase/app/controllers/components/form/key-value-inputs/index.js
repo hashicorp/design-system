@@ -57,16 +57,24 @@ const DYNAMIC_INPUT_EXAMPLE_DATA = [
     id: 3,
     key: 'single-line',
     value: {
+      inputType: 'textinput',
       text: 'This is a single line text',
     },
   },
 ];
+
+const mapKeyToInputType = {
+  ['multi-line']: 'textarea',
+  tags: 'select',
+  ['single-line']: 'textinput',
+};
 
 export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
   @tracked canAddRow = this.functionalExampleData.length < 4;
   @deepTracked functionalExampleErrors = [{ value: 'Value is required.' }];
   @deepTracked dynamicInputExampleData = DYNAMIC_INPUT_EXAMPLE_DATA;
+  @deepTracked startWithEmptyExampleData = [];
 
   emptyData = [];
   sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
@@ -145,15 +153,61 @@ export default class KeyValueInputsController extends Controller {
     );
 
     if (itemIndex !== -1) {
-      const newInputType = newKey === 'tag' ? 'select' : 'textarea';
+      const newInputType = mapKeyToInputType[newKey];
 
       const newData = [...this.dynamicInputExampleData];
       newData[itemIndex] = {
-        key: newKey.toLowerCase(),
+        key: newKey,
         value: { inputType: newInputType },
       };
 
       this.dynamicInputExampleData = newData;
+    }
+  }
+
+  @action
+  onStartWithEmptyDeleteRowClick(item) {
+    this.startWithEmptyExampleData = this.startWithEmptyExampleData.filter(
+      (data) => data.id !== item.id,
+    );
+  }
+
+  @action
+  onStartWithEmptyAddRowClick() {
+    if (this.startWithEmptyExampleData.length === 0) {
+      const keyValueInputs = document.getElementById(
+        'start-with-empty-example',
+      );
+
+      const nameInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='key']",
+      );
+      const valueInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='value']",
+      );
+
+      // when going from empty to one row, we want to save the values from the row that is rendered and add a new one. otherwise, the data in the initial row is overwritten
+      this.startWithEmptyExampleData = [
+        {
+          key: nameInput ? nameInput.value : '',
+          value: valueInput ? valueInput.value : '',
+          id: 1,
+        },
+        {
+          key: '',
+          value: '',
+          id: 2,
+        },
+      ];
+    } else {
+      this.startWithEmptyExampleData = [
+        ...this.startWithEmptyExampleData,
+        {
+          key: '',
+          value: '',
+          id: this.functionalExampleData.length + 1,
+        },
+      ];
     }
   }
 }

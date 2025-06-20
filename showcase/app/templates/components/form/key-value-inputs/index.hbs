@@ -727,8 +727,6 @@
 
   <Shw::Text::H2>Demos</Shw::Text::H2>
 
-  <Shw::Text::H3 />
-
   <Shw::Flex as |SF|>
     <SF.Item @label="Key input selection changes value input type">
       <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
@@ -736,19 +734,19 @@
           <R.Field as |F|>
             <F.Label>Key</F.Label>
             <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
-              <option selected={{if (eq R.rowData.key "single-line") true}}>Single line</option>
-              <option selected={{if (eq R.rowData.key "multi-line") true}}>Multiline</option>
-              <option selected={{if (eq R.rowData.key "tags") true}}>Tags</option>
+              <option value="single-line" selected={{if (eq R.rowData.key "single-line") true}}>Single line</option>
+              <option value="multi-line" selected={{if (eq R.rowData.key "multi-line") true}}>Multiline</option>
+              <option value="tags" selected={{if (eq R.rowData.key "tags") true}}>Tags</option>
             </F.Select>
           </R.Field>
 
           <R.Field as |F|>
             <F.Label>Value</F.Label>
-            {{#if (eq R.rowData.key "single-line")}}
-              <F.Textinput @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "textarea")}}
+            {{#if (eq R.rowData.value.inputType "textinput")}}
+              <F.TextInput @value={{R.rowData.value.text}} />
+            {{else if (eq R.rowData.key "multi-line")}}
               <F.Textarea @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "superselect")}}
+            {{else if (eq R.rowData.key "tags")}}
               <F.SuperSelectSingle
                 @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
                 @options={{@model.SUPERSELECT_OPTIONS}}
@@ -765,6 +763,29 @@
 
         <:footer as |F|>
           <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Key input starts with an empty array">
+      <Hds::Form::KeyValueInputs @data={{this.startWithEmptyExampleData}} id="start-with-empty-example">
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput @value={{R.rowData.key}} name="key" />
+          </R.Field>
+
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput @value={{R.rowData.value}} name="value" />
+          </R.Field>
+          <R.DeleteRowButton @onClick={{this.onStartWithEmptyDeleteRowClick}} />
+        </:row>
+
+        <:footer as |F|>
+          <F.AddRowButton @text="Add tag" @onClick={{this.onStartWithEmptyAddRowClick}} />
         </:footer>
       </Hds::Form::KeyValueInputs>
     </SF.Item>
