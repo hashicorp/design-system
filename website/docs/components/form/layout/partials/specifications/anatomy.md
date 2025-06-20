@@ -4,10 +4,10 @@
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Icon             | Optional, but recommended                       |
-| Title            | Required, if no description Optional, otherwise |
-| Description      | Required, if no title Optional, otherwise       |
-| Actions          | Optional                                        |
-| Dismiss button   | Optional                                        |
-| Content          | Required                                        |
-| Container        | Required                                        |
+| Title            | Optional                                        |
+| Description      | Optional                                        |
+| Additional content | Optional                                      |
+| Form error       | Optional                                        |
+| Field            | Required, at least one per form                 |
+| Separator        | Optional                                        |
+| Footer           | Optional                                        |
