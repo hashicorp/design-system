@@ -145,6 +145,33 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 </Hds::AdvancedTable>
 ```
 
+### Resizable Columns
+
+Set the `@hasResizableColumns` argument to `true` in order to make columns resizable either by clicking and dragging on the column border with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
+
+Optionally, the `@onColumnResize` attribute accepts a callback function that receives the resized column's key and new size in CSS pixels (e.g., `"12px"`).
+
+Reset the column to its original width by choosing the "Reset column width" option in the header cell context menu.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.model.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
 
 ### Sortable Advanced Table
 
