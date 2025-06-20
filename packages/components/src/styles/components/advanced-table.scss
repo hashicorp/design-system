@@ -113,6 +113,33 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       }
     }
 
+    .hds-advanced-table__th-drag-indicator {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      background-color: var(--token-color-surface-strong);
+      content: "";
+    }
+
+    .hds-advanced-table__th-drop-side-indicator {
+      position: absolute;
+      top: 0;
+      z-index: 1;
+      width: 8px;
+      background-color: blue;
+      content: "";
+
+      &.hds-advanced-table__th-drop-side-indicator--left {
+        left: 0;
+      }
+
+      &.hds-advanced-table__th-drop-side-indicator--right {
+        right: 0;
+      }
+    }
+
     .hds-advanced-table__th-resize-handle {
       @include hds-focus-ring-with-pseudo-element($position: absolute);
 
@@ -153,6 +180,30 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       &.mock-focus::after,
       &.hds-advanced-table__th-resize-handle--resizing::after {
         background-color: var(--token-color-palette-blue-300);
+      }
+    }
+
+    .hds-advanced-table__th-resize-handle {
+      @include hds-focus-ring-with-pseudo-element($position: absolute);
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 16px;
+      transform: translateX(8.5px);
+      cursor: col-resize;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        width: 1px;
+        background-color: $hds-advanced-table-border-color;
+        transform: translateX(-7.5px);
+        content: "";
       }
     }
 

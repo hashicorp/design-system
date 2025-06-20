@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 
 import type HdsAdvancedTableModel from './table.ts';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
@@ -37,9 +38,18 @@ export default class HdsAdvancedTableColumn {
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
 
+  @tracked isBeingDragged: boolean = false;
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   table: HdsAdvancedTableModel;
+
+  get cells(): HdsAdvancedTableCell[] {
+    return this.table.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+
+      return cell!;
+    });
+  }
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -75,6 +85,7 @@ export default class HdsAdvancedTableColumn {
     this.label = column.label;
     this.align = column.align ?? 'left';
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
+    this.isReorderable = column.isReorderable ?? false;
     this.isSortable = column.isSortable ?? false;
     this.isVisuallyHidden = column.isVisuallyHidden ?? false;
     this.key = column.key;
