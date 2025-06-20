@@ -10,4 +10,4 @@ Form layout components in Ember and their related Layout “Template” componen
 ### When not to use
 
 - To organize non-form content
-- To create key-value pairs, use the [Key Value Inputs](/components/forms/key-value-inputs) component
+- To create a form for key-value pairs, use the [Key Value Inputs](/components/forms/key-value-inputs) component

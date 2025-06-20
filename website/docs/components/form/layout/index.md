@@ -29,7 +29,6 @@ status:
 
 <section data-tab="Specifications">
   @include "partials/specifications/anatomy.md"
-  @include "partials/specifications/states.md"
 </section>
 
 <section data-tab="Accessibility">

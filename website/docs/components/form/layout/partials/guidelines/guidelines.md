@@ -1,12 +1,12 @@
-## Form
+The Form component serves as the container for all Form layout components and form content. It ensures a consistent and streamlined user experience. 
 
-The **Form** component serves as the container for all the other Form layout related components and form content.
+We recommend using a single-column layout for forms, as multi-column layouts can disrupt the visual flow and reading order. Multi-column layouts can potentially result in missed inputs requiring resolution and thereby increasing friction. They should only be used when grouping related inputs improves the user experience. See [Section Field Group](#section-field-group)
+
+![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
 ## Form Header
 
-An optional header is available within the **Form component**. The Header has two variants, one for the form-level header and one for section-level headers. Each variant contains styled text for a Title and Description to serve as a starting point. All Header child elements have a gap of 8px applied between them.
-
-The Title and Description content can be edited as needed. The space for custom content can also be edited or removed as needed.
+The Form component has an optional header with styled text for a Title and Description. It also includes a space for custom content to use as needed.
 
 ![Form Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-header-anatomy.png)
 
@@ -22,24 +22,22 @@ The form-level error message will appear below the Header as its own Section and
 
 Inputs within a form are organized in Sections. Multiple Sections may be used to group content for a more scannable and organized experience. Inputs that belong under the same heading or are related to the same topic should be within a Section.
 
-### Section Header
+### Form Section Header
 
-Similar to the Form Header, the Section Header contains styled and spaced text elements.
-
-The included Title and Description text can be edited while the space for custom content can be edited or removed.
+Similar to the Form Header, the Section Header contains styled and spaced text elements, and a space for custom content to be used as needed.
 
 ![Section Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-section-anatomy.png)
 
-### Section Field Group
+### Form Section Multi Field Group
 
-The Section Field Group is used to lay out closely related form inputs in a single row and also sets tighter spacing between them to reinforce their relationship. (16px spacing vs. 24px)
+The Section Field Group organizes closely related form inputs in a single row, setting 16px between them, as opposed to 24px when stacked. This reinforces their relationship.
 
-In narrower screens, such as mobile devices, form inputs contained in a Section Field Group automatically “stack.”
+In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically “stack.”
 
 
-![Section Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
+![Section Multi Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
 
-## Separator
+## Form Separator
 
 A Separator can be placed between Sections when a clearer visual distinction between Sections is needed.
 
@@ -61,7 +59,7 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 
 ## Form Footer
 
-The final Section within a form is the Form Footer. The Form Footer typically houses a Button or [Button Set](/patterns/form-patterns#button-sets) to allow users to save or submit form information. For consistent spacing and layout, we recommend using a Button Set to contain the buttons/actions to Save/Submit or Cancel the form.
+The Form Footer typically houses a Button or Button Set to allow users to save or submit form information. We recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
 
 ## Single column layout
 
@@ -69,14 +67,13 @@ The Form component ensures a consistent and streamlined user experience. We reco
 
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
-### Spacing
+## Spacing
 
 Spacing in forms is based on a decreasing scale on an 8px grid. From largest to smallest, the spacing structure is:
 
 - Sections are 32px apart
 - Separators are 32px from Section elements on either vertical side
-- Inputs within a Section are 24px apart; unless they are within a Section Field Group
-- Inputs within a Section Field Group have 16px spacing in wider viewports. In small viewports, the stacking matches the 24px spacing that all other Section elements share
+- When inputs are stacked, they are 24px apart. When inputs are within a Section Field Group and side by side, e.g., in wider viewports, they are 16px apart.
 - Text elements inside the Form Header and Form Section Header are 8px apart
 
 ![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
