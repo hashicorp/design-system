@@ -50,6 +50,7 @@
             @previousColumn={{@previousColumn}}
             @nextColumn={{@nextColumn}}
             @hasResizableColumns={{@hasResizableColumns}}
+            @resizeHandleElement={{this._resizeHandleElement}}
             @onColumnResize={{@onColumnResize}}
           />
         {{/if}}
@@ -61,6 +62,7 @@
             @hasResizableColumns={{@hasResizableColumns}}
             @tableHeight={{@tableHeight}}
             @onColumnResize={{@onColumnResize}}
+            {{this._registerResizeHandleElement}}
           />
         {{/if}}
       {{/if}}

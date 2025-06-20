@@ -11,6 +11,7 @@ import { tracked } from '@glimmer/tracking';
 import { focusable, type FocusableElement } from 'tabbable';
 import HdsAdvancedTableColumn from './models/column.ts';
 import type Owner from '@ember/owner';
+import { modifier } from 'ember-modifier';
 
 import {
   HdsAdvancedTableHorizontalAlignmentValues,
@@ -26,6 +27,7 @@ import type { HdsAdvancedTableThButtonSortSignature } from './th-button-sort.ts'
 import { onFocusTrapDeactivate } from '../../../modifiers/hds-advanced-table-cell/dom-management.ts';
 import type { HdsAdvancedTableThSignature } from './th.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -59,7 +61,10 @@ export interface HdsAdvancedTableThSortSignature {
 export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableThSortSignature> {
   private _labelId = guidFor(this);
   private _element!: HTMLDivElement;
+
   @tracked private _shouldTrapFocus = false;
+  @tracked
+  private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
   constructor(owner: Owner, args: HdsAdvancedTableThSortSignature['Args']) {
     super(owner, args);
@@ -140,4 +145,10 @@ export default class HdsAdvancedTableThSort extends Component<HdsAdvancedTableTh
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
   }
+
+  private _registerResizeHandleElement = modifier(
+    (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {
+      this._resizeHandleElement = element;
+    }
+  );
 }
