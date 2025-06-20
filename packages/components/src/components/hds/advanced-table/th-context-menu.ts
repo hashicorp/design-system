@@ -31,7 +31,7 @@ export interface HdsAdvancedTableThContextMenuSignature {
     previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
-    resizeHandleElement: HdsAdvancedTableThResizeHandleSignature['Element'];
+    resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Element: HdsDropdownSignature['Element'];
@@ -68,7 +68,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
 
   @action
   resizeColumn() {
-    this.args.resizeHandleElement.focus();
+    this.args.resizeHandleElement?.focus();
   }
 
   @action
