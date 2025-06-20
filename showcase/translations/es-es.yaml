@@ -1,3 +1,4 @@
+# These files are for demonstrating the i18n capabilities of the hdsIntl service and the hds-t helper
 showcase:
   pages:
     internationalization:
