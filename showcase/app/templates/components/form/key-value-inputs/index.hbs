@@ -734,19 +734,19 @@
           <R.Field as |F|>
             <F.Label>Key</F.Label>
             <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
-              <option value="single-line" selected={{if (eq R.rowData.key "single-line") true}}>Single line</option>
-              <option value="multi-line" selected={{if (eq R.rowData.key "multi-line") true}}>Multiline</option>
-              <option value="tags" selected={{if (eq R.rowData.key "tags") true}}>Tags</option>
+              <option value="textinput" selected={{if (eq R.rowData.key "textinput") true}}>Single line</option>
+              <option value="textarea" selected={{if (eq R.rowData.key "textarea") true}}>Multiline</option>
+              <option value="select" selected={{if (eq R.rowData.key "select") true}}>Tags</option>
             </F.Select>
           </R.Field>
 
           <R.Field as |F|>
             <F.Label>Value</F.Label>
-            {{#if (eq R.rowData.value.inputType "textinput")}}
+            {{#if (eq R.rowData.key "textinput")}}
               <F.TextInput @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "multi-line")}}
+            {{else if (eq R.rowData.key "textarea")}}
               <F.Textarea @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "tags")}}
+            {{else if (eq R.rowData.key "select")}}
               <F.SuperSelectSingle
                 @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
                 @options={{@model.SUPERSELECT_OPTIONS}}
