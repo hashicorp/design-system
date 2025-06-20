@@ -41,13 +41,7 @@ In narrower screens, such as mobile devices, form inputs contained in a Section 
 
 A Separator can be placed between Sections when a clearer visual distinction between Sections is needed.
 
-!!! Do
-
-A 32px gap is included above and below to divide the Separators and to avoid the appearance of being from the surrounding form elements; otherwise, it can appear “attached” to a specific section or field.
-
 ![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-do-1.png)
-
-!!!
 
 !!! Dont
 
@@ -110,4 +104,4 @@ Individual Sections can be set to full-width, if needed. Any component requiring
 
 ![Full width Form content in comparison to constricted width content](/assets/components/form/layout/form-mixed-width-example.png)
 
-Fields within a Section Field Group stack automatically at the ['md' breakpoint](/foundations/breakpoints). Forms inside [Flyout](/components/flyout) and [Modal](/components/modal) components should stack in all instances except when used in the **large** Flyout size variants.
+Fields within a Section Multi Field Group stack automatically at the ['md' breakpoint](/foundations/breakpoints). 
