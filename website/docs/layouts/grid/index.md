@@ -18,7 +18,7 @@ navigation:
     - flex
   label: Grid
 status:
-  updated: 4.20.0
+  updated: 4.20.2
 ---
 
 <section data-tab="Code">
