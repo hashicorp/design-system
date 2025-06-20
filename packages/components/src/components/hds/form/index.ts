@@ -5,13 +5,14 @@
 
 import Component from '@glimmer/component';
 import { assert } from '@ember/debug';
+import HdsFormHeaderTitleComponent from './header/title.ts';
 
 import { HdsFormTagValues } from './types.ts';
 
 import type { HdsFormTags } from './types.ts';
 import type Owner from '@ember/owner';
 
-import type { ComponentLike } from '@glint/template';
+import type { ComponentLike, WithBoundArgs } from '@glint/template';
 import type { HdsFormHeaderSignature } from './header/index.ts';
 import type { HdsFormHeaderTitleSignature } from './header/title.ts';
 import type { HdsFormHeaderDescriptionSignature } from './header/description.ts';
@@ -38,7 +39,10 @@ export interface HdsFormSignature {
         HeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
         Section?: ComponentLike<HdsFormSectionSignature>;
         SectionHeader?: ComponentLike<HdsFormSectionHeaderSignature>;
-        SectionHeaderTitle?: ComponentLike<HdsFormHeaderTitleSignature>;
+        SectionHeaderTitle?: WithBoundArgs<
+          typeof HdsFormHeaderTitleComponent,
+          'size'
+        >;
         SectionHeaderDescription?: ComponentLike<HdsFormHeaderDescriptionSignature>;
         SectionMultiFieldGroup?: ComponentLike<HdsFormSectionMultiFieldGroupSignature>;
         SectionMultiFieldGroupItem?: ComponentLike<HdsFormSectionMultiFieldGroupItemSignature>;
