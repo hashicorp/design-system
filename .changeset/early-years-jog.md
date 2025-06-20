@@ -3,8 +3,7 @@
 ---
 
 - Added `ember-intl` as a dependency
-- Added translations for untranslated strings in `components`
-- Added `hds-intl` service for translations with default fallback values
+- Added `hdsIntl` service for translations with default fallback values
 - Added `hds-t` helper which uses the `hds-intl` service to provide translations in templates
 
 `AdvancedTable` - Translated template strings. Removed extraneous screen-reader-only text.
