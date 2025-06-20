@@ -20,6 +20,10 @@ export default class ModalController extends Controller {
   @tracked isDismissDisabled;
   @tracked dropdownInitiatedModalActive = false;
   @tracked dropdownInitiatedWithReturnedFocusModalActive = false;
+  @tracked deactivateModalOnCloseActive = false;
+  @tracked deactivateModalOnDestroyActive = false;
+  @tracked deactivateModalOnSubmitActive = false;
+  @tracked deactivateModalOnSubmitValidationError = false;
 
   @action
   activateModal(modal) {
@@ -36,6 +40,20 @@ export default class ModalController extends Controller {
 
     if (modal === 'dismissDisabledModalActive') {
       this.isDismissDisabled = undefined;
+    }
+  }
+
+  @action
+  deactivateModalOnSubmit(event) {
+    event.preventDefault(); // Prevent page reload
+    const formData = new FormData(event.target);
+    const value = formData.get('deactivate-modal-on-submit__input');
+
+    if (!value) {
+      this.deactivateModalOnSubmitValidationError = true;
+    } else {
+      this.deactivateModalOnSubmitValidationError = false;
+      this.deactivateModalOnSubmitActive = false;
     }
   }
 
