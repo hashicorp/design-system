@@ -40,7 +40,7 @@ Upgraded the following dependencies:
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Modal` - Reverted changes introduced in [#2846](https://github.com/hashicorp/design-system/pull/2846) and [#2902](https://github.com/hashicorp/design-system/pull/2902) related to the click behaviour outside the modal when dismissing is disabled
+`Modal` - Reverted changes introduced in [#2846](https://github.com/hashicorp/design-system/pull/2846) and [#2902](https://github.com/hashicorp/design-system/pull/2902) related to the click behavior outside the modal when dismissing is disabled
 
 <small class="doc-whats-new-changelog-metadata">[#2964](https://github.com/hashicorp/design-system/pull/2964)</small>
 
