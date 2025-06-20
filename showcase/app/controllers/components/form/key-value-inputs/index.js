@@ -41,33 +41,25 @@ const DEFAULT_DATA = [
 const DYNAMIC_INPUT_EXAMPLE_DATA = [
   {
     id: 1,
-    key: 'multi-line',
+    key: 'textarea',
     value: {
       text: 'This is a multiline text that should go on multiple lines inside a textarea control',
     },
   },
   {
     id: 2,
-    key: 'tags',
+    key: 'select',
     value: {
-      inputType: 'select',
     },
   },
   {
     id: 3,
-    key: 'single-line',
+    key: 'textinput',
     value: {
-      inputType: 'textinput',
       text: 'This is a single line text',
     },
   },
 ];
-
-const mapKeyToInputType = {
-  ['multi-line']: 'textarea',
-  tags: 'select',
-  ['single-line']: 'textinput',
-};
 
 export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
@@ -153,12 +145,9 @@ export default class KeyValueInputsController extends Controller {
     );
 
     if (itemIndex !== -1) {
-      const newInputType = mapKeyToInputType[newKey];
-
       const newData = [...this.dynamicInputExampleData];
       newData[itemIndex] = {
         key: newKey,
-        value: { inputType: newInputType },
       };
 
       this.dynamicInputExampleData = newData;
