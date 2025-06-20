@@ -73,7 +73,7 @@ Forms across our products should use a maximum width; this can be achieved by us
 
 ### Multi-column
 
-Field groups create the appearance of a multi-column layout within the form.
+Forms follow a [single column layout](/components/form/layout#single-column-layout). However, you can use the [Section Multi Field Group](/components/form/layout#form-section-multi-field-group) to place multiple fields in a row when appropriate.
 
 !!! Do
 
