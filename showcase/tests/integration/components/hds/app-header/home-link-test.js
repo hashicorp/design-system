@@ -71,9 +71,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
   id='test-home-link'
 />`,
     );
-    assert
-      .dom('#test-home-link')
-      .hasClass('.hds-app-header__home-link-text');
+    assert.dom('#test-home-link').hasClass('.hds-app-header__home-link-text');
   });
 
   // ASSERTIONS
