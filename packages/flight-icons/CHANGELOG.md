@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.11.1
+
+### Patch Changes
+
+Removed extra space in `PingID` name, and updated description.
+
+<small class="doc-whats-new-changelog-metadata">[#2959](https://github.com/hashicorp/design-system/pull/2959)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.11.0
 
 ### Minor Changes

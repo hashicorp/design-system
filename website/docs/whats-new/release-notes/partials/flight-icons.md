@@ -12,6 +12,16 @@
   </a>
 </p>
 
+## 3.11.1
+
+**Patch changes**
+
+Removed extra space in `PingID` name, and updated description.
+
+<small class="doc-whats-new-changelog-metadata">[#2959](https://github.com/hashicorp/design-system/pull/2959)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.11.0
 
 **Minor changes**
@@ -237,20 +247,6 @@ Added new set of icons for Google services:
 Added `Vault Secrets` icon.
 
 <small class="doc-whats-new-changelog-metadata">[#1638](https://github.com/hashicorp/design-system/pull/1638)</small>
-
-## 2.18.0
-
-**Minor changes**
-
-Added `Vercel` and `Jira` icons
-
-<small class="doc-whats-new-changelog-metadata">[#1585](https://github.com/hashicorp/design-system/pull/1585)</small>
-
-<div class="doc-whats-new-changelog-separator"></div>
-
-Added `twitter-x` icon, and older `twitter` icon. Also the `aws-cdk` and `jfrog` icons.
-
-<small class="doc-whats-new-changelog-metadata">[#1610](https://github.com/hashicorp/design-system/pull/1610)</small>
 
 
 ---

@@ -12,6 +12,42 @@
   </a>
 </p>
 
+## 4.20.2
+
+**Patch changes**
+
+Upgraded the following dependencies:
+
+- `@embroider/addon-shim` from `1.9.0` to `1.10.0`
+- `@embroider/macros` from `1.16.12` to `1.18.0`
+- `@nullvoxpopuli/ember-composable-helpers` from `5.2.9` to `5.2.10`
+- `ember-concurrency` from `4.0.2` to `4.0.4`
+- `ember-power-select` from `8.6.2` to `8.7.1`
+
+<small class="doc-whats-new-changelog-metadata">[#2952](https://github.com/hashicorp/design-system/pull/2952)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Button` - added missing types to the barrel export file
+
+`Layout::Flex` - added missing types to the barrel export file
+
+`Layout::Grid` - added missing types to the barrel export file
+
+<small class="doc-whats-new-changelog-metadata">[#2943](https://github.com/hashicorp/design-system/pull/2943)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Modal` - Reverted changes introduced in [#2846](https://github.com/hashicorp/design-system/pull/2846) and [#2902](https://github.com/hashicorp/design-system/pull/2902) related to the click behaviour outside the modal when dismissing is disabled
+
+<small class="doc-whats-new-changelog-metadata">[#2964](https://github.com/hashicorp/design-system/pull/2964)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.11.1
+
 ## 4.20.1
 
 [4.20.1 documentation](https://hds-website-4-20-1.vercel.app/)
@@ -1524,16 +1560,6 @@ Removed `popover-polyfill` dependency and instantiating code
 **🔄 Updated dependencies:**
 
 - @hashicorp/ember-flight-icons@5.1.2
-
-## 4.5.2
-
-**🚨 Caution: This version has been deprecated 🚨**
-
-**Patch changes**
-
-**🔄 Updated dependencies:**
-
-- @hashicorp/ember-flight-icons@5.1.1
 
 
 ---
