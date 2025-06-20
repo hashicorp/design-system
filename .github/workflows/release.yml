@@ -43,5 +43,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           # Token setup in hashibot-hds' account
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # Generate npm provenance statement
-          NPM_CONFIG_PROVENANCE: true
