@@ -12,6 +12,10 @@ export default class FlyoutController extends Controller {
   @tracked largeFlyoutActive = false;
   @tracked dropdownInitiatedFlyoutActive = false;
   @tracked dropdownInitiatedWithReturnedFocusFlyoutActive = false;
+  @tracked deactivateFlyoutOnCloseActive = false;
+  @tracked deactivateFlyoutOnDestroyActive = false;
+  @tracked deactivateFlyoutOnSubmitActive = false;
+  @tracked deactivateFlyoutOnSubmitValidationError = false;
 
   @action
   activateFlyout(Flyout) {
@@ -21,5 +25,19 @@ export default class FlyoutController extends Controller {
   @action
   deactivateFlyout(Flyout) {
     this[Flyout] = false;
+  }
+
+  @action
+  deactivateFlyoutOnSubmit(event) {
+    event.preventDefault(); // Prevent page reload
+    const formData = new FormData(event.target);
+    const value = formData.get('deactivate-flyout-on-submit__input');
+
+    if (!value) {
+      this.deactivateFlyoutOnSubmitValidationError = true;
+    } else {
+      this.deactivateFlyoutOnSubmitValidationError = false;
+      this.deactivateFlyoutOnSubmitActive = false;
+    }
   }
 }

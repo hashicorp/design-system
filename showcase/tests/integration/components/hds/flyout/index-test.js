@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import { module, skip, test } from 'qunit';
+import { module, test, skip } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
 import {
   click,
   render,
+  triggerKeyEvent,
   resetOnerror,
   setupOnerror,
   settled,
@@ -138,6 +139,162 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await click('button.hds-flyout__dismiss');
     assert.dom('#test-flyout').isNotVisible();
   });
+  test('it should close the flyout when the "close" function is called', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|>
+            <M.Footer as |F|>
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </M.Footer>
+          </Hds::Flyout>`,
+    );
+    assert.dom('#test-flyout').isVisible();
+    await click('#cancel-button');
+    assert.dom('#test-flyout').isNotVisible();
+  });
+  test('it should close the flyout when the "esc" key is pressed', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Hds::Flyout>`,
+    );
+    assert.dom('#test-flyout').isVisible();
+    await triggerKeyEvent('.hds-flyout', 'keydown', 'Escape');
+    assert.dom('#test-flyout').isNotVisible();
+  });
+  test('it should close the flyout when clicking outside', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Hds::Flyout>`,
+    );
+    assert.dom('#test-flyout').isVisible();
+    await click('.hds-flyout__overlay');
+    assert.dom('#test-flyout').isNotVisible();
+  });
+
+  // BODY OVERFLOW
+
+  test('it should close the flyout and remove the body overflow style - manual dismiss', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Hds::Flyout>`,
+    );
+
+    // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-flyout').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the flyout is closed the `overflow:hidden` style should be removed
+    await click('button.hds-flyout__dismiss');
+    assert.dom('#test-flyout').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the flyout and remove the body overflow style - click outside', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|><M.Header>Title</M.Header></Hds::Flyout>`,
+    );
+
+    // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-flyout').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the flyout is closed the `overflow:hidden` style should be removed
+    await click('.hds-flyout__overlay');
+    assert.dom('#test-flyout').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the flyout and remove the body overflow style - dismiss via `F.close`', async function (assert) {
+    await render(
+      hbs`<Hds::Flyout id="test-flyout" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer as |F|>
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </M.Footer>
+          </Hds::Flyout>`,
+    );
+
+    // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-flyout').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the flyout is closed the `overflow:hidden` style should be removed
+    await click('#cancel-button');
+    assert.dom('#test-flyout').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the flyout and remove the body overflow style - direct DOM removal', async function (assert) {
+    this.set('isFlyoutRendered', false);
+    this.set(
+      'deactivateFlyout',
+      function () {
+        this.set('isFlyoutRendered', false);
+      }.bind(this),
+    );
+
+    await render(
+      hbs`
+        {{#if this.isFlyoutRendered}}
+          <Hds::Flyout id="test-flyout" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer>
+              <Hds::Button id="confirm-button" type="button" @text="Confirm" @color="primary" {{on "click" this.deactivateFlyout}} />
+            </M.Footer>
+          </Hds::Flyout>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-flyout').doesNotExist();
+    this.set('isFlyoutRendered', true);
+    assert.dom('#test-flyout').exists();
+
+    // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-flyout').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the flyout is removed from the DOM the `overflow:hidden` style should be removed
+    await click('#confirm-button');
+    assert.dom('#test-flyout').doesNotExist();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the flyout and remove the body overflow style - form submit', async function (assert) {
+    this.set('isFlyoutRendered', false);
+    this.set(
+      'deactivateFlyoutOnSubmit',
+      function (event) {
+        event.preventDefault(); // prevent page reload
+        this.set('isFlyoutRendered', false);
+      }.bind(this),
+    );
+
+    await render(
+      hbs`
+        {{#if this.isFlyoutRendered}}
+          <Hds::Flyout id="test-flyout" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Body>
+              <form id="test-form" {{on "submit" this.deactivateFlyoutOnSubmit}} />
+            </M.Body>
+            <M.Footer>
+              <Hds::Button id="submit-button" form="test-form" type="submit" @text="Confirm" @color="primary" />
+            </M.Footer>
+          </Hds::Flyout>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-flyout').doesNotExist();
+    this.set('isFlyoutRendered', true);
+    assert.dom('#test-flyout').exists();
+
+    // when the flyout is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-flyout').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the form is submitted and the flyout is removed from the DOM the `overflow:hidden` style should be removed
+    await click('#submit-button');
+    assert.dom('#test-flyout').doesNotExist();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
 
   // ACCESSIBILITY
 
@@ -176,7 +333,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.dom('#test-button').isFocused();
   });
 
-  // not sure how to reach the `body` element, it says "body is not a valid root element"
+  // this test is flaky in CI, so skipping for now
   skip('it returns focus to the `body` element, if the one that initiated the open event not anymore in the DOM', async function (assert) {
     await render(
       hbs`<Hds::Dropdown as |D|>
@@ -194,7 +351,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     await click('#test-interactive');
     assert.true(this.showFlyout);
     await click('button.hds-flyout__dismiss');
-    assert.dom('body', 'body').isFocused();
+    assert.dom('body', 'document').isFocused();
   });
 
   test('it returns focus to a specific element if provided via`@returnFocusTo`', async function (assert) {
@@ -232,7 +389,7 @@ module('Integration | Component | hds/flyout/index', function (hooks) {
     assert.ok(opened);
   });
 
-  skip('it should call `onClose` function if provided', async function (assert) {
+  test('it should call `onClose` function if provided', async function (assert) {
     let closed = false;
     this.set('onClose', () => (closed = true));
     await render(

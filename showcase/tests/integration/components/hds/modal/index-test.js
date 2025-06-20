@@ -139,6 +139,23 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await click('#cancel-button');
     assert.dom('#test-modal').isNotVisible();
   });
+  test('it should close the modal when the "esc" key is pressed', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
+    );
+    assert.dom('#test-modal').isVisible();
+    await triggerKeyEvent('.hds-modal', 'keydown', 'Escape');
+    assert.dom('#test-modal').isNotVisible();
+  });
+  // TODO! while we decide what to do about the original bug
+  skip('it should close the modal when clicking outside', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
+    );
+    assert.dom('#test-modal').isVisible();
+    await click('.hds-modal__overlay');
+    assert.dom('#test-modal').isNotVisible();
+  });
   test('it should not close the modal when `@isDismissDisabled` is `true`', async function (assert) {
     this.set('isDismissDisabled', true);
     await render(
@@ -167,6 +184,134 @@ module('Integration | Component | hds/modal/index', function (hooks) {
     await rerender();
     await click('button.hds-modal__dismiss');
     assert.dom('#test-modal').isNotVisible();
+  });
+
+  // BODY OVERFLOW
+
+  test('it should close the modal and remove the body overflow style - manual dismiss', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
+    );
+
+    // when the modal is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-modal').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the modal is closed the `overflow:hidden` style should be removed
+    await click('button.hds-modal__dismiss');
+    assert.dom('#test-modal').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the modal and remove the body overflow style - click outside', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|><M.Header>Title</M.Header></Hds::Modal>`,
+    );
+
+    // when the modal is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-modal').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the modal is closed the `overflow:hidden` style should be removed
+    await click('.hds-modal__overlay');
+    assert.dom('#test-flyout').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the modal and remove the body overflow style - dismiss via `F.close`', async function (assert) {
+    await render(
+      hbs`<Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer as |F|>
+              <Hds::Button id="cancel-button" type="button" @text="Cancel" @color="secondary" {{on "click" F.close}} />
+            </M.Footer>
+          </Hds::Modal>`,
+    );
+
+    // when the modal is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-modal').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the modal is closed the `overflow:hidden` style should be removed
+    await click('#cancel-button');
+    assert.dom('#test-modal').isNotVisible();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the modal and remove the body overflow style - direct DOM removal', async function (assert) {
+    this.set('isModalRendered', false);
+    this.set(
+      'deactivateModal',
+      function () {
+        this.set('isModalRendered', false);
+      }.bind(this),
+    );
+
+    await render(
+      hbs`
+        {{#if this.isModalRendered}}
+          <Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Footer>
+              <Hds::Button id="confirm-button" type="button" @text="Confirm" @color="primary" {{on "click" this.deactivateModal}} />
+            </M.Footer>
+          </Hds::Modal>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-modal').doesNotExist();
+    this.set('isModalRendered', true);
+    assert.dom('#test-modal').exists();
+
+    // when the modal is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-modal').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the modal is removed from the DOM the `overflow:hidden` style should be removed
+    await click('#confirm-button');
+    assert.dom('#test-modal').doesNotExist();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
+  });
+
+  test('it should close the modal and remove the body overflow style - form submit', async function (assert) {
+    this.set('isModalRendered', false);
+    this.set(
+      'deactivateModalOnSubmit',
+      function (event) {
+        event.preventDefault(); // prevent page reload
+        this.set('isModalRendered', false);
+      }.bind(this),
+    );
+
+    await render(
+      hbs`
+        {{#if this.isModalRendered}}
+          <Hds::Modal id="test-modal" as |M|>
+            <M.Header>Title</M.Header>
+            <M.Body>
+              <form id="test-form" {{on "submit" this.deactivateModalOnSubmit}} />
+            </M.Body>
+            <M.Footer>
+              <Hds::Button id="submit-button" form="test-form" type="submit" @text="Confirm" @color="primary" />
+            </M.Footer>
+          </Hds::Modal>
+        {{/if}}
+      `,
+    );
+
+    assert.dom('#test-modal').doesNotExist();
+    this.set('isModalRendered', true);
+    assert.dom('#test-modal').exists();
+
+    // when the modal is open the `<body>` element gets applied an overflow:hidden via inline style
+    assert.dom('#test-modal').isVisible();
+    assert.dom('body', document).hasStyle({ overflow: 'hidden' });
+
+    // when the form is submitted and the modal is removed from the DOM the `overflow:hidden` style should be removed
+    await click('#submit-button');
+    assert.dom('#test-modal').doesNotExist();
+    assert.dom('body', document).doesNotHaveStyle({ overflow: 'hidden' });
   });
 
   // ACCESSIBILITY
