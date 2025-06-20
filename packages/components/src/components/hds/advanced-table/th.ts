@@ -21,6 +21,7 @@ import type {
   HdsAdvancedTableExpandState,
 } from './types.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 
 export const ALIGNMENTS: string[] = Object.values(
   HdsAdvancedTableHorizontalAlignmentValues
@@ -63,7 +64,10 @@ export interface HdsAdvancedTableThSignature {
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
   private _labelId = this.args.newLabel ? this.args.newLabel : guidFor(this);
   private _element!: HTMLDivElement;
+
   @tracked private _shouldTrapFocus = false;
+  @tracked
+  private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -164,6 +168,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
   }
+
+  private _registerResizeHandleElement = modifier(
+    (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {
+      this._resizeHandleElement = element;
+    }
+  );
 
   private _manageExpandButton = modifier((button: HTMLButtonElement) => {
     const { didInsertExpandButton, willDestroyExpandButton } = this.args;

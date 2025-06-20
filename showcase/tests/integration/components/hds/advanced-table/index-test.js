@@ -29,12 +29,12 @@ function getTableGridValues(tableElement) {
   return gridValues;
 }
 
-async function resetColumnWidth(th) {
+async function performContextMenuAction(th, key) {
   const contextMenuToggle = th.querySelector('.hds-dropdown-toggle-icon');
 
   await click(contextMenuToggle);
 
-  return click('[data-test-context-option-key="reset-column-width"]');
+  return click(`[data-test-context-option-key="${key}"]`);
 }
 
 async function simulateRightPointerDrag(handle) {
@@ -1656,7 +1656,7 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       'Grid values changed after drag',
     );
 
-    await resetColumnWidth(th);
+    await performContextMenuAction(th, 'reset-column-width');
 
     newGridValues = getTableGridValues(table);
     assert.deepEqual(
@@ -1664,6 +1664,18 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
       originalGridValues,
       'Grid values reset to initial state after resetting column width',
     );
+  });
+
+  test('it should focus the resize handle when the "resize column" context menu option is clicked', async function (assert) {
+    setResizableColumnsTableData(this);
+    await render(hbsResizableColumnsAdvancedTable);
+
+    const handle = find('.hds-advanced-table__th-resize-handle');
+    const th = handle.closest('.hds-advanced-table__th');
+
+    await performContextMenuAction(th, 'resize-column');
+
+    assert.ok(handle === document.activeElement, 'Resize handle is focused');
   });
 
   test('it should call `onColumnResize` when a column is resized by dragging', async function (assert) {
@@ -1757,7 +1769,10 @@ module('Integration | Component | hds/advanced-table/index', function (hooks) {
 
     assert.ok(onColumnResizeSpy.calledOnce, 'onColumnResize was called');
 
-    await resetColumnWidth(handle.closest('.hds-advanced-table__th'));
+    await performContextMenuAction(
+      handle.closest('.hds-advanced-table__th'),
+      'reset-column-width',
+    );
     assert.ok(
       onColumnResizeSpy.calledTwice,
       'onColumnResize was called again after resetting column width',

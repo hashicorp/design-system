@@ -10,6 +10,8 @@ import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
+import { tracked } from '@glimmer/tracking';
+import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -29,27 +31,44 @@ export interface HdsAdvancedTableThContextMenuSignature {
     previousColumn?: HdsAdvancedTableColumn;
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
+    resizeHandleElement: HdsAdvancedTableThResizeHandleSignature['Element'];
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Element: HdsDropdownSignature['Element'];
 }
 
 export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvancedTableThContextMenuSignature> {
+  @tracked private _element!: HdsDropdownSignature['Element'];
+
   get _options(): HdsAdvancedTableThContextMenuOption[] {
     const { hasResizableColumns } = this.args;
 
-    const options: HdsAdvancedTableThContextMenuOption[] = [];
+    let options: HdsAdvancedTableThContextMenuOption[] = [];
 
     if (hasResizableColumns) {
-      options.push({
-        key: 'reset-column-width',
-        label: 'Reset column width',
-        icon: 'rotate-ccw',
-        action: this.resetColumnWidth.bind(this),
-      });
+      options = [
+        ...options,
+        {
+          key: 'resize-column',
+          label: 'Resize column',
+          icon: 'rotate-ccw',
+          action: this.resizeColumn.bind(this),
+        },
+        {
+          key: 'reset-column-width',
+          label: 'Reset column width',
+          icon: 'rotate-ccw',
+          action: this.resetColumnWidth.bind(this),
+        },
+      ];
     }
 
     return options;
+  }
+
+  @action
+  resizeColumn() {
+    this.args.resizeHandleElement.focus();
   }
 
   @action
