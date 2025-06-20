@@ -10,10 +10,15 @@
   {{on "click" this.onClick}}
   aria-labelledby="{{this._prefixLabelId}} {{@labelId}}"
   aria-expanded="{{this.isExpanded}}"
-  aria-description="Toggle the visibility of the related rows."
+  aria-description={{hds-t
+    "hds.components.advanced-table.th-button-expand.aria-description"
+    default="Toggle the visibility of the related rows."
+  }}
   ...attributes
 >
   {{! template-lint-enable no-unsupported-role-attributes}}
-  <span id={{this._prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Toggle</span>
+  <span id={{this._prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">
+    {{hds-t "hds.components.common.toggle" default="Toggle"}}
+  </span>
   <Hds::Icon @name={{this.icon}} />
 </button>

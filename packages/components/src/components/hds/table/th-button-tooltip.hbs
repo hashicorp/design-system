@@ -10,6 +10,8 @@
   aria-labelledby="{{this._prefixLabelId}} {{@labelId}}"
   ...attributes
 >
-  <span id={{this._prefixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">More information for</span>
+  <span id={{this._prefixLabelId}} class="hds-table__th-button-aria-label-hidden-segment">
+    {{hds-t "hds.components.common.tooltip-prefix" default="More information for"}}
+  </span>
   <Hds::Icon @name="info" />
 </button>

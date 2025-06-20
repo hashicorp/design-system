@@ -9,7 +9,9 @@
   aria-labelledby="{{this._prefixLabelId}} {{@labelId}} {{this._suffixLabelId}}"
   ...attributes
 >
-  <span id={{this._prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">Sort by</span>
+  <span id={{this._prefixLabelId}} class="hds-advanced-table__th-button-aria-label-hidden-segment">
+    {{hds-t "hds.components.common.sort-by" default="Sort by"}}
+  </span>
   <span
     id={{this._suffixLabelId}}
     class="hds-advanced-table__th-button-aria-label-hidden-segment"

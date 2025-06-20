@@ -1,0 +1,2 @@
+page_range: "{itemsRangeStart}–{itemsRangeEnd}"
+page_range_with_total: "{itemsRangeStart}–{itemsRangeEnd} of {totalItems}"
