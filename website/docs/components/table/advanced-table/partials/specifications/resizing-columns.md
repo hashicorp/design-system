@@ -16,6 +16,8 @@ To prevent a column from being resized beyond a reasonable amount, the Advanced 
 
 ### Content wrapping
 
-By default, content within the cells of the Advanced Table will wrap according to the natural reflow browser. This may result in content breaking to multiple lines and layout shift within the table, especially when `isResizable` is set to `true` in the Ember component. This behavior can be overidden by blah blah blah...more details about text wrapping.
+By default, content within the cells of the Advanced Table will wrap according to the browser’s natural reflow. This may result in content breaking to multiple lines and layout shift within the table, especially when `hasResizableColumns` is set to `true` in the Ember component. This behavior can be overidden by blah blah blah...more details about text wrapping.
+
+How cell content responds to resizing is determined by the implementation. For example, truncation with an ellipsis can be achieved by applying custom CSS (e.g., `text-overflow: ellipsis; white-space: nowrap; overflow: hidden;`) to the relevant element within the table cell. The component provides flexibility to support a range of approaches based on project requirements.
 
 <!-- @zack to add something about text wrapping (text-wrap-mode, white-space-collapse, etc), or consider moving this to the code or specs page.-->
