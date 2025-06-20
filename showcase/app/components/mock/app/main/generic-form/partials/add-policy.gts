@@ -137,7 +137,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
 
     <HdsFormSection>
       <HdsFormSectionHeader as |FSH|>
-        <FSH.Title>Policy OPA </FSH.Title>
+        <FSH.Title @tag="h3">Policy OPA</FSH.Title>
         <FSH.Description>Policy OPA is a governance rule that enforces specific
           access controls and compliance requirements within the organization's
           infrastructure.</FSH.Description>
@@ -194,7 +194,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
     <HdsFormSeparator />
 
     <HdsFormHeader as |FH|>
-      <FH.Title>Policy metadata</FH.Title>
+      <FH.Title @tag="h2">Policy metadata</FH.Title>
       <FH.Description>Policy metadata is supplementary information associated
         with a policy.</FH.Description>
     </HdsFormHeader>
@@ -216,7 +216,7 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
 
     <HdsFormSection>
       <HdsFormSectionHeader as |FSH|>
-        <FSH.Title>Some more metadata</FSH.Title>
+        <FSH.Title @tag="h3">Some more metadata</FSH.Title>
       </HdsFormSectionHeader>
       <HdsFormToggleField as |F|>
         <F.Label>Allow admin users</F.Label>
