@@ -44,3 +44,8 @@ export enum HdsAppFooterThemeValues {
 }
 
 export type HdsAppFooterThemeTypes = `${HdsAppFooterThemeValues}`;
+
+export default {
+  HdsAppFooterStatusValues,
+  HdsAppFooterThemeValues,
+};
