@@ -242,9 +242,9 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider />
+  <Shw::Divider @level="2" />
 
-  <Shw::Text::H2>Text</Shw::Text::H2>
+  <Shw::Text::H3>With text</Shw::Text::H3>
 
   <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
 
@@ -308,6 +308,15 @@
         <:utilityActions>
           <Hds::Button @color="secondary" @icon="search" @isIconOnly={{true}} @text="Search" />
         </:utilityActions>
+      </Hds::AppHeader>
+    </SG.Item>
+
+    <SG.Item>
+      <Hds::AppHeader @hasA11yRefocus={{false}}>
+        <:logo>
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp Cloud Platform" @href="#" />
+          <Hds::Badge @text="Assuming Role: Admin" @color="highlight" @icon="eye" @type="filled" />
+        </:logo>
       </Hds::AppHeader>
     </SG.Item>
 
@@ -443,7 +452,7 @@
 
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink @icon="terraform" @text="HashiCorp" @href="#" @title="Terraform Admin Console" />
+        <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform" @href="#" @title="Terraform Admin Console" />
       </div>
     </SF.Item>
   </Shw::Flex>
