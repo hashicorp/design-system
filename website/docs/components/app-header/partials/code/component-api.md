@@ -50,6 +50,12 @@ The `AppHeader::HomeLink` component uses the generic `Hds::Interactive` componen
   <C.Property @name="icon" @type="string" @required={{true}}>
     Used to show an icon. Any [icon](/icons/library) name is accepted. [See guidance on which icon to use depending on the product](/components/app-header#home-link).
   </C.Property>
+  <C.Property @name="text" @type="string" @required={{true}}>
+    Used to display text inline with the logo. If `@isIconOnly` is set to false, this value will also be passed to the `aria-label` of the `<a>` tag.
+  </C.Property>
+  <C.Property @name="isIconOnly" @type="boolean" @default="false">
+    Indicates if the Home Link will only contain a icon/logo, or if the `@text` property will be rendered adjacent to the logo. 
+  </C.Property>
   <C.Property @name="color" @type="string">
     Used to specify an optional custom color provided as any valid CSS color. For more details on acceptable values, see the [Icon color argument](/components/icon?tab=code#fill). If unspecified, it will use the App Headers’s default white text color.
   </C.Property>
@@ -64,9 +70,6 @@ The `AppHeader::HomeLink` component uses the generic `Hds::Interactive` componen
   </C.Property>
   <C.Property @name="isRouteExternal" @type="boolean" @default="false">
     This controls whether the “LinkTo” is external to the Ember engine, in which case it will use a `<LinkToExternal>` for the `@route`.
-  </C.Property>
-  <C.Property @name="ariaLabel" @type="string" @required={{true}}>
-    The value of the aria-label. If no text value is defined, an error will be thrown.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
