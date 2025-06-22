@@ -146,17 +146,6 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Form::Separator
-
-<Doc::ComponentApi as |C|>
-  <C.Property @name="isFullWidth" @type="boolean" @default="false">
-    Indicates that the separator should take up the full width of the parent container.
-  </C.Property>
-  <C.Property @name="...attributes">
-    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
-  </C.Property>
-</Doc::ComponentApi>
-
 ### Form::Section::MultiFieldGroup
 
 <Doc::ComponentApi as |C|>
@@ -185,9 +174,23 @@
   </C.Property>
 </Doc::ComponentApi>
 
+### Form::Separator
+
+<Doc::ComponentApi as |C|>
+  <C.Property @name="isFullWidth" @type="boolean" @default="false">
+    Indicates that the separator should take up the full width of the parent container.
+  </C.Property>
+  <C.Property @name="...attributes">
+    This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
+  </C.Property>
+</Doc::ComponentApi>
+
 ### Form::Footer
 
 <Doc::ComponentApi as |C|>
+  <C.Property @name="<[FF].ButtonSet>" @type="yielded component">
+    `ButtonSet` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that the footer should take up the full width of the parent container.
   </C.Property>
