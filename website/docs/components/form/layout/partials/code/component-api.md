@@ -6,7 +6,7 @@
   <C.Property @name="tag" @type="enum" @values={{array "form" "div"}} @default="form">
     The HTML tag that wraps the `Form` content.
   </C.Property>
-  <C.Property @name="sectionMaxWidth" @type="string" @default="672px">
+  <C.Property @name="sectionMaxWidth" @type="string" @valueNote="any valid CSS width (px, rem, etc)" @default="672px">
     The max-width value for `Form Section` components and other direct `Form` child components which include the `FormHeader`, `FormSeparator`, and `FormFooter`.
   </C.Property>
   <C.Property @name="yield">
@@ -21,7 +21,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
-    Indicates that the component should take up the full width of the parent container.
+    Indicates that the header should take up the full width of the parent container.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.
@@ -31,7 +31,7 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Title
+### Form::Header::Title
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="tag" @type="enum" @values={{array "div" "h1" "h2" "h3" "h4" "h5" "h6"}} @default="div">
@@ -48,7 +48,7 @@
   </C.Property>
 </Doc::ComponentApi>
 
-### Description
+### Form::Header::Description
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
@@ -63,7 +63,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
-    Indicates that the component should take up the full width of the parent container.
+    Indicates that the section should take up the full width of the parent container.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.
@@ -88,10 +88,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
-    Indicates that the component should take up the full width of the parent container.
-  </C.Property>
-  <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of the element.
+    Indicates that the separator should take up the full width of the parent container.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
@@ -112,7 +109,7 @@
 ### Form::Section::MultiFieldGroupItem
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="width" @type="string">
+  <C.Property @name="width" @type="string" @valueNote="any valid CSS width (px, rem, etc)">
     Sets the width for the component.
   </C.Property>
   <C.Property @name="yield">
@@ -127,7 +124,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
-    Indicates that the component should take up the full width of the parent container.
+    Indicates that the footer should take up the full width of the parent container.
   </C.Property>
   <C.Property @name="yield">
     Elements passed as children are yielded as inner content of the element.

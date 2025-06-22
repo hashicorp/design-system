@@ -149,7 +149,7 @@ If further visual separation between Form Sections is desired, add a `FormSepara
 </Hds::Form>
 ```
 
-### Section Multi Field Group
+### Form Section Multi Field Group
 
 To lay out related Form Fields or controls in a row, use the `SectionMultiFieldGroup`.
 
