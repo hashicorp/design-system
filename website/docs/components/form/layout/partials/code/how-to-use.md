@@ -285,9 +285,15 @@ In screen widths below 768px (the “md” breakpoint), the `SectionMultiFieldGr
 
 ### Form Footer
 
-The `FormFooter` should be used at the bottom of the other `Form` content to contain form actions for the form content. Use a `ButtonSet` to wrap 
+The `FormFooter` should be used at the bottom of the other `Form` content to contain form actions. Use a [Button Set](/components/button-set) to wrap and set spacing for Buttons.
 
 ```handlebars
 <Hds::Form as |FORM|>
+  <FORM.Footer as |FF|>
+    <FF.ButtonSet>
+      <Hds::Button @text="Submit" type="submit" />
+      <Hds::Button @text="Cancel" @color="secondary" />
+    </FF.ButtonSet>
+  </FORM.Footer>
 </Hds::Form>
 ```
