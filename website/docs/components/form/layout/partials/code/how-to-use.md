@@ -20,12 +20,33 @@ The `Form` renders as an HTML `form` element by default. Use the `tag` argument 
 
 ### Form Header, Title, & Description
 
+!!! Insight
+
+The default Form Header Title `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the Title `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 Use the optional `FormHeader` to include a `Title` and `Description` for your `Form`.
 
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Header>
-    <FORM.HeaderTitle>My form title</FORM.HeaderTitle>
+    <FORM.HeaderTitle @tag="h2">My form title</FORM.HeaderTitle>
+    <FORM.HeaderDescription>A brief description of my form content.</FORM.HeaderDescription>
+  </FORM.Header>
+</Hds::Form>
+```
+
+#### Form Header Title tag & size
+
+The `@tag` argument changes the HTML element that wraps the `FormHeaderTitle` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a `FormHeaderTitle` appears directly below the main heading of the page, it should be `"h2"`.
+
+To specify which size the `FormHeaderTitle` displays at, use the `@tag` argument.
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Header>
+    <FORM.HeaderTitle @tag="h3" @size="300">My form title</FORM.HeaderTitle>
     <FORM.HeaderDescription>A brief description of my form content.</FORM.HeaderDescription>
   </FORM.Header>
 </Hds::Form>
@@ -116,13 +137,38 @@ Pass an `isFullWidth` argument to override the default max-width of an individua
 
 ### Form Section Header, Title, & Description
 
+!!! Insight
+
+The default Form Section Header Title `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the Title `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
+
+!!!
+
 Similarly to the `Form`, each `FormSection` can optionally include its own `SectionHeader` with `Title` and `Description`.
 
 ```handlebars
 <Hds::Form as |FORM|>
   <FORM.Section>
     <FORM.SectionHeader>
-      <FORM.SectionHeaderTitle>Section header title</FORM.SectionHeaderTitle>
+      <FORM.SectionHeaderTitle @tag="h3">Section header title</FORM.SectionHeaderTitle>
+      <FORM.SectionHeaderDescription>
+        Section Header description
+      </FORM.SectionHeaderDescription>
+    </FORM.SectionHeader>
+  </FORM.Section>
+</Hds::Form>
+```
+
+#### Section Header Title tag & size
+
+The `@tag` argument changes the HTML element that wraps the `SectionHeaderTitle` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if the `FormHeaderTitle` tag is `"h3"`, the Section Title should be `"h4"`.
+
+To specify which size the `SectionHeaderTitle` displays at, use the `@tag` argument.
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <FORM.SectionHeader>
+      <FORM.SectionHeaderTitle @tag="h4" @size="200">Section header title</FORM.SectionHeaderTitle>
       <FORM.SectionHeaderDescription>
         Section Header description
       </FORM.SectionHeaderDescription>
