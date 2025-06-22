@@ -12,7 +12,14 @@ related:
 previewImage: assets/illustrations/components/form/layout.jpg
 navigation:
   order: 98
-  keywords: ['add', 'alternate', 'keywords', 'here']
+  keywords:
+    - form
+    - layout
+    - spacing
+    - section
+    - field group
+    - button set
+    - input
 status:
   added: 4.21.0
 ---
