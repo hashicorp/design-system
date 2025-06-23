@@ -11,7 +11,7 @@ related:
   - patterns/form-patterns
 previewImage: assets/illustrations/components/form/layout.jpg
 navigation:
-    label: Layout
+  label: Layout
   order: 98
   keywords:
     - form
