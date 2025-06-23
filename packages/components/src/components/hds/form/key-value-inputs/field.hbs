@@ -29,7 +29,7 @@
   </div>
   <div class="hds-form-key-value-inputs__field-control">
 
-    {{! @glint-expect-error - Glint does not recognize `this.ariaDescribedby` as defined when used directly in a multi-line hash passed to yield. Since `@glint-expect-error` only applies to the line immediately after it and cannot be placed inside a multi-line hash, we use a `let` to work around this limitation. }}
+    {{! @glint-expect-error - Glint does not recognize `this.ariaDescribedBy` as defined when used directly in a multi-line hash passed to yield. Since `@glint-expect-error` only applies to the line immediately after it and cannot be placed inside a multi-line hash, we use a `let` to work around this limitation. }}
     {{#let this.ariaDescribedBy as |ariaDescribedBy|}}
       {{yield
         (hash
