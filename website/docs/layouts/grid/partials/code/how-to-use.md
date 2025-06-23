@@ -142,7 +142,7 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 
 ### Column min width
 
-Specify a `columnMinWidth` size to exercise control over how many columns occupy a row. If the total widths of the columns add up to more than 100% of the parent they will automatically wrap to the next row as necessary to fit.
+Specify a `columnMinWidth` size to exercise control over how many columns occupy a row. If the total widths of the columns add up to more than 100% of the parent they will <strong>automatically wrap to the next row</strong> as necessary to fit.
 
 Note: The `gap` size will be subtracted from the `columnMinWidth`, so take this into account when specifying a column min width.
 
@@ -269,21 +269,13 @@ Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex)
     <Hds::Layout::Grid @columnMinWidth="100%" @gap="16">
       <Hds::Layout::Flex @align="center" @gap="8">
         <Hds::IconTile @icon="cloud" @size="small" />
-        <Hds::Text::Display @tag="h2" @size="300">
-          Active resources
-        </Hds::Text::Display>
+        <Hds::Text::Display @tag="h2" @size="300">Active resources</Hds::Text::Display>
       </Hds::Layout::Flex>
       <Hds::Layout::Grid @columnMinWidth="100%" @gap="8" as |LG|>
-          <LG.Item>
-            <Hds::Badge
-              @text="5 active resources"
-              @color="success"
-              @icon="check-circle"
-            />
-          </LG.Item>
-          <Hds::Text::Body @tag="p">
-            There are 5 active resources inside this project.
-          </Hds::Text::Body>
+        <LG.Item>
+          <Hds::Badge @text="5 active resources" @color="success" @icon="check-circle" />
+        </LG.Item>
+        <Hds::Text::Body @tag="p">This project has 5 active resources.</Hds::Text::Body>
       </Hds::Layout::Grid>
       <Hds::Link::Standalone
         @icon="arrow-right"
@@ -300,6 +292,11 @@ Note: The following example makes use of nested `Grid` and [Flex](/layouts/flex)
 
   <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
     <Hds::Text::Display @tag="h2" @size="300">Card #3</Hds::Text::Display>
+  </Hds::Card::Container>
+
+  <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>
+    <Hds::Text::Display @tag="h2" @size="300">Card #4</Hds::Text::Display>
+    <Hds::Text::Body @tag="p">(wraps to the next line as Grid @columnMinWidth is set to 33.33%)</Hds::Text::Body>
   </Hds::Card::Container>
 </Hds::Layout::Grid>
 ```
