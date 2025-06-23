@@ -27,7 +27,6 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -85,7 +84,6 @@ export default class HdsAdvancedTableColumn {
     this.label = column.label;
     this.align = column.align ?? 'left';
     this.isExpandable = 'isExpandable' in column ? column.isExpandable : false;
-    this.isReorderable = column.isReorderable ?? false;
     this.isSortable = column.isSortable ?? false;
     this.isVisuallyHidden = column.isVisuallyHidden ?? false;
     this.key = column.key;

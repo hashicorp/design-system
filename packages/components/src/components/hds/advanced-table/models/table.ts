@@ -104,10 +104,6 @@ export default class HdsAdvancedTableTableModel {
     });
   }
 
-  get reorderableColumns(): HdsAdvancedTableColumn[] {
-    return this.columns.filter((column) => column.isReorderable);
-  }
-
   get orderedColumns(): HdsAdvancedTableColumn[] {
     return this.columnOrder.map((key) => {
       const column = this.columns.find((column) => column.key === key);

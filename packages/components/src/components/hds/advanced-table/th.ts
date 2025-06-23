@@ -35,6 +35,7 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
+    hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
@@ -64,19 +65,6 @@ export interface HdsAdvancedTableThSignature {
     default?: [];
   };
   Element: HTMLDivElement;
-}
-
-function constructDragPreview(width: number, height?: number): HTMLDivElement {
-  const dragPreviewElement = document.createElement('div');
-
-  // set the styles for the drag preview the most correct way
-  dragPreviewElement.style.width = `${width}px`;
-  if (height) {
-    dragPreviewElement.style.height = `${height}px`;
-  }
-  dragPreviewElement.style.backgroundColor = 'red';
-
-  return dragPreviewElement;
 }
 
 export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSignature> {
@@ -180,11 +168,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   @action
-  handleDragStart(event: DragEvent): void {
-    const { column, onReorderDragStart } = this.args;
-
-    // Reset drag state at the start of a new drag operation
-    this._resetDragState();
+  handleDragStart(column: HdsAdvancedTableColumn): void {
+    const { onReorderDragStart } = this.args;
 
     if (
       column === undefined ||
@@ -194,46 +179,19 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
       return;
     }
 
-    const dragPreview = constructDragPreview(
-      this._element.clientWidth,
-      this.args.tableHeight
-    );
-
-    // Append to document body first so it's in the DOM
-    document.body.appendChild(dragPreview);
-
-    // Position off-screen to be invisible but still in DOM
-    dragPreview.style.position = 'absolute';
-    dragPreview.style.left = '-9999px';
-    dragPreview.style.top = '-9999px';
-
-    event.dataTransfer?.setDragImage(
-      dragPreview,
-      this._element.clientWidth / 2,
-      10
-    );
-
-    setTimeout(() => {
-      document.body.removeChild(dragPreview);
-    }, 0);
-
-    event.dataTransfer?.setData('text/plain', column.key ?? '');
-
+    // Set the local state that shows this column is being dragged
     column.isBeingDragged = true;
 
+    // Call the main action from the parent table component
     onReorderDragStart(column);
   }
 
-  /**
-   * Determines whether the drag event is occurring on the left or right side of the th element
-   * @param event The drag event
-   * @returns 'left' if on the left half, 'right' if on the right half
-   */
+  // determines whether the drag event is occurring on the left or right side of the th element
   private _getDragSide(event: DragEvent): 'left' | 'right' {
     const { column, isLastColumn } = this.args;
 
-    if (isLastColumn && column !== undefined && !column.isReorderable) {
-      // If it's the last column and its not reorderable, we can only drop on the left side
+    if (isLastColumn && column !== undefined) {
+      // If it's the last column, we can only drop on the left side
       return 'left';
     }
 

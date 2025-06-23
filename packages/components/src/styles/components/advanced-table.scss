@@ -140,6 +140,12 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       }
     }
 
+    .hds-advanced-table__th-reorder-handle {
+      width: 24px;
+      height: 24px;
+      background-color: red;
+    }
+
     .hds-advanced-table__th-resize-handle {
       @include hds-focus-ring-with-pseudo-element($position: absolute);
 
