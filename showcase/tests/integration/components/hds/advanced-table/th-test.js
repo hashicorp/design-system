@@ -240,9 +240,9 @@ module('Integration | Component | hds/advanced-table/th', function (hooks) {
     ]);
 
     this.set('columns', [
-      { key: 'artist', label: 'components.table.headers.artist' },
-      { key: 'album', label: 'components.table.headers.album' },
-      { key: 'year', label: 'components.table.headers.year' },
+      { key: 'artist', label: 'cp.table.headers.artist' },
+      { key: 'album', label: 'cp.table.headers.album' },
+      { key: 'year', label: 'cp.table.headers.year' },
     ]);
 
     await render(
