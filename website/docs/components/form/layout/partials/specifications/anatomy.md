@@ -6,7 +6,7 @@
 |------------------|-------------------------------------------------|
 | Title            | Optional                                        |
 | Description      | Optional                                        |
-| Additional content | Optional                                      |
+| Section | Consists of multiple content types (text, fields) and groups content                                      |
 | Form error       | Optional                                        |
 | Field            | Required, at least one per form                 |
 | Separator        | Optional                                        |
