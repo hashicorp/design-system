@@ -97,11 +97,6 @@
 
 ### Form::Section
 
- <!-- 
- Question: I included a yielded Section component within the Section to allow for a nested Section but does that actually make sense to include?
- Should I keep the yielded Section within a Section and if so should I document it here? (I included it as sort of an edge case but I don't think we want to recommend or encourage that usage.)
-  -->
-
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[FS].Header>" @type="yielded component">
     `Form::Section::Header` yielded as contextual component (see below).
