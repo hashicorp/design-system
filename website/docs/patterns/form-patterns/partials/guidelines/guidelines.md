@@ -67,9 +67,7 @@ Organize buttons based on the [Button Set](/components/button-set) guidelines, e
 
 ### Single-column
 
-We recommend using a single-column layout for forms to streamline data entry. Since a relative width will adjust based on the viewport and container width, we recommend using a maximum and minimum width to ensure a smooth transition at any size.
-
-Forms across our products should use a maximum width; this can be achieved by using the Form Layout component or by using a size or unit relative to the page, viewport, or container size, e.g., viewport width unit (`vw`), percentage width (`50%`), or a character unit (`ch`).
+We recommend using a single-column layout for forms to streamline data entry. Forms across our products should use a maximum width; this can be achieved by using the Form Layout component or by using a size or unit relative to the page, viewport, or container size, e.g., viewport width unit (`vw`), percentage width (`50%`), or a character unit (`ch`).
 
 ### Multi-column
 
@@ -102,8 +100,6 @@ If using multiple inputs in a row, stack fields vertically at the `md` breakpoin
 
 ![Stack fields](/assets/patterns/form-patterns/multi-column-stacking.png =350x*)
 !!!
-
-Refer to the [button organization stacking guidelines](/patterns/button-organization#stacking-order) when determining how buttons should stack as the viewport condenses.
 
 ## Width
 

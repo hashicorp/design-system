@@ -4,10 +4,10 @@
 
 | Element          | Usage                                           |
 |------------------|-------------------------------------------------|
-| Title            | Optional                                        |
-| Description      | Optional                                        |
-| Section | Consists of multiple content types (text, fields) and groups content                                      |
-| Form error       | Optional                                        |
-| Field            | Required, at least one per form                 |
+| Title/section title           | Optional                                        |
+| Description/section description      | Optional                                        |
+| Section          | May consist of multiple content types, including text, fields, and multi field groups |
+| Form error       | Optional, uses the critical inline [Alert](components/alert#status-alerts)                                       |
+| Field            | Required, supports any Form component or text elements               |
 | Separator        | Optional                                        |
-| Footer           | Optional                                        |
+| Footer           | Most often consists of [ButtonSet](components/button-set) and calls to action |
