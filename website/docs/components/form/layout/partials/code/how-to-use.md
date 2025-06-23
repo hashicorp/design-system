@@ -162,7 +162,7 @@ Similarly to the `Form`, each `FormSection` can optionally include its own `Sect
 
 The `@tag` argument changes the HTML element that wraps the `SectionHeaderTitle` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if the `FormHeaderTitle` tag is `"h3"`, the Section Title should be `"h4"`.
 
-To specify which size the `SectionHeaderTitle` displays at, use the `@tag` argument.
+To specify which size the `SectionHeaderTitle` displays at, use the `@size` argument.
 
 ```handlebars
 <Hds::Form as |FORM|>
