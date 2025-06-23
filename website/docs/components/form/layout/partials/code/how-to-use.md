@@ -404,6 +404,18 @@ If needed, you can set a custom max-width for all Form Sections and other conten
 
 ```handlebars{data-execute=false}
 <Hds::Form @sectionMaxWidth="100%">
-  <!-- content here -->
+  <!-- Sections, FormHeader, FormFooter, and FormSeparators will all have 100% max-width -->
+</Hds::Form>
+```
+
+If you set a custom max-width for Form content, you can still override it on an individual Section allowing certain Sections to expand to full width.
+
+```handlebars{data-execute=false}
+<Hds::Form @sectionMaxWidth="36rem" as |FORM|>
+  <!-- Sections, FormHeader, FormFooter, and FormSeparators will all have 36rem max-width -->
+
+  <FORM.Section @isFullWidth={{true}}>
+    <!-- Except this Section, which will have 100% max-width -->
+  </FORM.Section>
 </Hds::Form>
 ```
