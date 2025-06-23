@@ -1,6 +1,6 @@
 {{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
+Copyright (c) HashiCorp, Inc.
+SPDX-License-Identifier: MPL-2.0
 }}
 
 {{page-title "AppHeader Component"}}
@@ -14,7 +14,7 @@
 
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="2rem" }} as |SG|>
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -39,7 +39,7 @@
 
   <Shw::Text::H3>With typical child component content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="3rem" }} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -80,7 +80,7 @@
     <SG.Item @label="With max recommended phase 1 content & Terraform logo">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -119,7 +119,7 @@
     <SG.Item @label="With max proposed future content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -167,11 +167,11 @@
 
   <Shw::Text::H3>With long content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="3rem" }} as |SG|>
     <SG.Item @label="40 characters long organization name with dashes">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -207,7 +207,7 @@
     <SG.Item @label="40 characters long organization name with no dashes">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -245,7 +245,7 @@
 
   <Shw::Text::H3>With text</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="2rem" }} as |SG|>
 
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
@@ -313,12 +313,7 @@
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
-          <Hds::AppHeader::HomeLink
-            @icon="hashicorp"
-            @text="HashiCorp Cloud Platform"
-            @isIconOnly={{false}}
-            @href="#"
-          />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp Cloud Platform" @isIconOnly={{false}} @href="#" />
           <Hds::Badge @text="Assuming Role: Admin" @color="highlight" @icon="eye" @type="filled" />
         </:logo>
       </Hds::AppHeader>
@@ -330,11 +325,11 @@
 
   <Shw::Text::H2>Options</Shw::Text::H2>
 
-  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+  <Shw::Grid @columns={{1}} {{style gap="3rem" }} as |SG|>
     <SG.Item @label="With custom breakpoint (menu button is visible at wide screen width)">
       <Hds::AppHeader @hasA11yRefocus={{false}} @breakpoint="20000px">
         <:logo>
-          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @isIconOnly={{true}} @href="#" />
+          <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp home menu" @href="#" />
         </:logo>
         <:globalActions>
           <Hds::Dropdown @enableCollisionDetection={{true}} as |dd|>
@@ -378,40 +373,18 @@
 
   <Shw::Text::H2>Responsiveness</Shw::Text::H2>
 
-  <Shw::Frame
-    @id="demo-app-header-large-viewports"
-    @src="/components/app-header/frameless/demo-responsiveness"
-    @height="400"
-    @label="Large viewport"
-  />
+  <Shw::Frame @id="demo-app-header-large-viewports" @src="/components/app-header/frameless/demo-responsiveness" @height="400" @label="Large viewport" />
 
-  <Shw::Frame
-    @id="demo-app-header-small-viewports"
-    @src="/components/app-header/frameless/demo-responsiveness"
-    @width="800"
-    @height="400"
-    @label="Small viewport (< 1088px)"
-  />
+  <Shw::Frame @id="demo-app-header-small-viewports" @src="/components/app-header/frameless/demo-responsiveness" @width="800" @height="400" @label="Small viewport (< 1088px)" />
 
   <Shw::Divider />
 
   <Shw::Text::H2>Demo</Shw::Text::H2>
 
-  <Shw::Frame
-    @id="demo-full-app-frame-with-app-header-and-app-side-nav"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav"
-    @height="780"
-    @label="Full AppFrame with AppHeader & AppSideNav"
-  />
+  <Shw::Frame @id="demo-full-app-frame-with-app-header-and-app-side-nav" @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav" @height="780" @label="Full AppFrame with AppHeader & AppSideNav" />
   <Shw::Divider />
 
-  <Shw::Frame
-    @id="demo-full-app-frame-with-app-header-and-app-side-nav-small-viewport"
-    @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav"
-    @width="800"
-    @height="780"
-    @label="Full AppFrame with AppHeader & AppSideNav (small viewport)"
-  />
+  <Shw::Frame @id="demo-full-app-frame-with-app-header-and-app-side-nav-small-viewport" @src="/layouts/app-frame/frameless/demo-full-app-frame-with-app-header-and-app-side-nav" @width="800" @height="780" @label="Full AppFrame with AppHeader & AppSideNav (small viewport)" />
 
 </section>
 
@@ -428,19 +401,13 @@
   <Shw::Flex as |SF|>
     <SF.Item @label="Icon">
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{true}} @href="#" />
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" />
       </div>
     </SF.Item>
 
     <SF.Item @label="Custom color">
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink
-          @icon="boundary"
-          @text="Boundary"
-          @isIconOnly={{true}}
-          @color="var(--token-color-boundary-brand)"
-          @href="#"
-        />
+        <Hds::AppHeader::HomeLink @icon="boundary" @text="Boundary" @color="var(--token-color-boundary-brand)" @href="#" />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -465,55 +432,37 @@
 
   <Shw::Flex as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item @label={{state}}>
-          <div class="hds-app-header">
-            <Hds::AppHeader::HomeLink
-              @icon="hashicorp"
-              @text="HashiCorp"
-              @isIconOnly={{true}}
-              @href="#"
-              mock-state-value={{state}}
-            />
-          </div>
-        </SF.Item>
-      {{/each}}
+    {{#each states as |state|}}
+    <SF.Item @label={{state}}>
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" mock-state-value={{state}} />
+      </div>
+    </SF.Item>
+    {{/each}}
     {{/let}}
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item>
-          <div class="hds-app-header">
-            <Hds::AppHeader::HomeLink
-              @icon="boundary"
-              @isIconOnly={{true}}
-              @text="Boundary"
-              @color="var(--token-color-boundary-brand)"
-              @href="#"
-              mock-state-value={{state}}
-            />
-          </div>
-        </SF.Item>
-      {{/each}}
+    {{#each states as |state|}}
+    <SF.Item>
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink @icon="boundary" @text="Boundary" @color="var(--token-color-boundary-brand)" @href="#" mock-state-value={{state}} />
+      </div>
+    </SF.Item>
+    {{/each}}
     {{/let}}
   </Shw::Flex>
 
   <Shw::Flex as |SF|>
     {{#let (array "default" "hover" "active" "focus") as |states|}}
-      {{#each states as |state|}}
-        <SF.Item @label={{state}}>
-          <div class="hds-app-header">
-            <Hds::AppHeader::HomeLink
-              @icon="terraform"
-              @text="Terraform Admin Console"
-              @href="#"
-              mock-state-value={{state}}
-            />
-          </div>
-        </SF.Item>
-      {{/each}}
+    {{#each states as |state|}}
+    <SF.Item @label={{state}}>
+      <div class="hds-app-header">
+        <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform Admin Console" @isIconOnly={{false}} @href="#" mock-state-value={{state}} />
+      </div>
+    </SF.Item>
+    {{/each}}
     {{/let}}
   </Shw::Flex>
 
@@ -524,20 +473,20 @@
   <Shw::Text::H4>States</Shw::Text::H4>
 
   {{#let (array "Primary" "Secondary") as |colors|}}
-    {{#each colors as |color|}}
-      <Shw::Text::Body>{{color}}</Shw::Text::Body>
-      <Shw::Flex as |SF|>
-        {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
-          {{#each states as |state|}}
-            <SF.Item @label={{state}}>
-              <div class="hds-app-header">
-                <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
-              </div>
-            </SF.Item>
-          {{/each}}
-        {{/let}}
-      </Shw::Flex>
+  {{#each colors as |color|}}
+  <Shw::Text::Body>{{color}}</Shw::Text::Body>
+  <Shw::Flex as |SF|>
+    {{#let (array "default" "hover" "active" "focus" "disabled") as |states|}}
+    {{#each states as |state|}}
+    <SF.Item @label={{state}}>
+      <div class="hds-app-header">
+        <Hds::Button @icon="search" @isIconOnly={{true}} @text="Search" mock-state-value={{state}} />
+      </div>
+    </SF.Item>
     {{/each}}
+    {{/let}}
+  </Shw::Flex>
+  {{/each}}
   {{/let}}
 
   <Shw::Divider @level="2" />
@@ -549,148 +498,115 @@
   <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SG|>
     {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item>
-        <span class="shw-label">{{capitalize state}}</span>
-      </SG.Item>
+    <SG.Item>
+      <span class="shw-label">{{capitalize state}}</span>
+    </SG.Item>
     {{/each}}
     <SG.Item>
       <span class="shw-label">Open</span>
     </SG.Item>
 
     {{#each @model.TOGGLE_BUTTON_COLORS as |color|}}
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="{{capitalize color}}">
-          {{#if (eq state "disabled")}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
-            </div>
-          {{else}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
-            </div>
-          {{/if}}
-        </SG.Item>
-      {{/each}}
-
-      <SG.Item @label="{{capitalize color}}">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
-        </div>
-      </SG.Item>
-
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="With icon">
-          {{#if (eq state "disabled")}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
-            </div>
-          {{else}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button
-                @icon="hexagon"
-                @text="Lorem"
-                @color={{color}}
-                mock-state-value={{state}}
-              />
-            </div>
-          {{/if}}
-        </SG.Item>
-      {{/each}}
-
-      <SG.Item @label="With icon">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
-        </div>
-      </SG.Item>
-
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="With count">
-          {{#if (eq state "disabled")}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
-            </div>
-          {{else}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
-            </div>
-          {{/if}}
-        </SG.Item>
-      {{/each}}
-
-      <SG.Item @label="With count">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
-        </div>
-      </SG.Item>
-
-      {{#each @model.TOGGLE_STATES as |state|}}
-        <SG.Item @label="With badge">
-          {{#if (eq state "disabled")}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button
-                @badge="Sit"
-                @badgeIcon="hexagon"
-                @text="Lorem"
-                @color={{color}}
-                disabled
-              />
-            </div>
-          {{else}}
-            <div class="hds-app-header">
-              <Hds::Dropdown::Toggle::Button
-                @badge="Sit"
-                @badgeIcon="hexagon"
-                @text="Lorem"
-                @color={{color}}
-                mock-state-value={{state}}
-              />
-            </div>
-          {{/if}}
-        </SG.Item>
-      {{/each}}
-
-      <SG.Item @label="With badge">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Button
-            @badge="Sit"
-            @badgeIcon="hexagon"
-            @text="Lorem"
-            @isOpen={{true}}
-            @color={{color}}
-          />
-        </div>
-      </SG.Item>
-    {{/each}}
-
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Icon
-            @icon="more-horizontal"
-            @text="overflow menu"
-            @hasChevron={{false}}
-            mock-state-value={{state}}
-          />
-        </div>
-      </SG.Item>
-    {{/each}}
-    <SG.Item @label="Icon">
+    <SG.Item @label="{{capitalize color}}">
+      {{#if (eq state "disabled")}}
       <div class="hds-app-header">
-        <Hds::Dropdown::Toggle::Icon
-          @icon="more-horizontal"
-          @text="overflow menu"
-          @hasChevron={{false}}
-          @isOpen={{true}}
-        />
+        <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} disabled />
+      </div>
+      {{else}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @color={{color}} mock-state-value={{state}} />
+      </div>
+      {{/if}}
+    </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="{{capitalize color}}">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @text="Lorem ipsum" @isOpen={{true}} @color={{color}} />
       </div>
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Icon+chevron">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
-        </div>
-      </SG.Item>
+    <SG.Item @label="With icon">
+      {{#if (eq state "disabled")}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} disabled />
+      </div>
+      {{else}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+      </div>
+      {{/if}}
+    </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="With icon">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @icon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+    <SG.Item @label="With count">
+      {{#if (eq state "disabled")}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} disabled />
+      </div>
+      {{else}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+      </div>
+      {{/if}}
+    </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="With count">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @count="12" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+    <SG.Item @label="With badge">
+      {{#if (eq state "disabled")}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} disabled />
+      </div>
+      {{else}}
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @color={{color}} mock-state-value={{state}} />
+      </div>
+      {{/if}}
+    </SG.Item>
+    {{/each}}
+
+    <SG.Item @label="With badge">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Button @badge="Sit" @badgeIcon="hexagon" @text="Lorem" @isOpen={{true}} @color={{color}} />
+      </div>
+    </SG.Item>
+    {{/each}}
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+    <SG.Item @label="Icon">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @text="overflow menu" @hasChevron={{false}} mock-state-value={{state}} />
+      </div>
+    </SG.Item>
+    {{/each}}
+    <SG.Item @label="Icon">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @icon="more-horizontal" @text="overflow menu" @hasChevron={{false}} @isOpen={{true}} />
+      </div>
+    </SG.Item>
+
+    {{#each @model.TOGGLE_STATES as |state|}}
+    <SG.Item @label="Icon+chevron">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @icon="user" @text={{state}} mock-state-value={{state}} />
+      </div>
+    </SG.Item>
     {{/each}}
 
     <SG.Item @label="Icon+chevron">
@@ -700,15 +616,11 @@
     </SG.Item>
 
     {{#each @model.TOGGLE_STATES as |state|}}
-      <SG.Item @label="Avatar+chevron">
-        <div class="hds-app-header">
-          <Hds::Dropdown::Toggle::Icon
-            @text={{state}}
-            @imageSrc="/assets/images/avatar.png"
-            mock-state-value={{state}}
-          />
-        </div>
-      </SG.Item>
+    <SG.Item @label="Avatar+chevron">
+      <div class="hds-app-header">
+        <Hds::Dropdown::Toggle::Icon @text={{state}} @imageSrc="/assets/images/avatar.png" mock-state-value={{state}} />
+      </div>
+    </SG.Item>
     {{/each}}
 
     <SG.Item @label="Avatar+chevron">
@@ -717,7 +629,7 @@
       </div>
     </SG.Item>
 
-    <SG.Item @label="With nested content" {{style padding-bottom="11em"}}>
+    <SG.Item @label="With nested content" {{style padding-bottom="11em" }}>
       <div class="hds-app-header">
         <Hds::Dropdown @height="284px" @listPosition="bottom-left" @isOpen={{true}} as |D|>
           <D.ToggleIcon @icon="help" @text="help menu" />

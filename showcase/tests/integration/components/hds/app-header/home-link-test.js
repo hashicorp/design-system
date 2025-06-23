@@ -20,7 +20,6 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
   @text='HashiCorp'
-  @isIconOnly={{true}}
   id='test-home-link'
 />`,
     );
@@ -34,7 +33,6 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
   @text='HashiCorp'
-  @isIconOnly={{true}}
   @href='https://www.hashicorp.com/'
   id='test-home-link'
 />`,
@@ -51,7 +49,6 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
       hbs`<Hds::AppHeader::HomeLink
   @icon='boundary'
   @text='Boundary'
-  @isIconOnly={{true}}
   @color='var(--token-color-boundary-brand)'
   @href='#'
 />`,
