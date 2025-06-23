@@ -83,6 +83,7 @@
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
+              @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
               @onReorderDrop={{this._tableModel.reorderColumn}}
               {{this._setColumnWidth column}}

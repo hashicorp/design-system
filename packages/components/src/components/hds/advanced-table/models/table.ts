@@ -90,6 +90,10 @@ export default class HdsAdvancedTableTableModel {
     this.onColumnReorder = onColumnReorder;
   }
 
+  get hasColumnBeingDragged(): boolean {
+    return this.reorderDraggedColumn !== null;
+  }
+
   get reorderDraggedColumnCells(): HdsAdvancedTableCell[] {
     if (this.reorderDraggedColumn === null) {
       return [];

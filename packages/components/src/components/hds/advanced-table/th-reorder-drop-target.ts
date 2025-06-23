@@ -1,0 +1,143 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
+import { modifier } from 'ember-modifier';
+
+import type HdsAdvancedTableColumn from './models/column.ts';
+
+export interface HdsAdvancedTableThReorderDropTargetSignature {
+  Args: {
+    column: HdsAdvancedTableColumn;
+    isLastColumn?: boolean;
+    tableHeight?: number;
+    onReorderDrop?: (
+      column: HdsAdvancedTableColumn,
+      side: 'left' | 'right'
+    ) => void;
+  };
+  Blocks: {
+    default?: [];
+  };
+  Element: HTMLDivElement;
+}
+
+export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAdvancedTableThReorderDropTargetSignature> {
+  @tracked private _dragSide: 'left' | 'right' | null = null;
+  @tracked private _isDraggingOver = false;
+  @tracked private _dragCount = 0;
+
+  private _element!: HdsAdvancedTableThReorderDropTargetSignature['Element'];
+
+  get classNames(): string {
+    const { column } = this.args;
+
+    const classes = ['hds-advanced-table__th-reorder-drop-target'];
+
+    if (column.isBeingDragged) {
+      classes.push(
+        'hds-advanced-table__th-reorder-drop-target--is-being-dragged'
+      );
+    } else if (this._isDraggingOver) {
+      classes.push(
+        'hds-advanced-table__th-reorder-drop-target--is-dragging-over'
+      );
+
+      if (this._dragSide) {
+        classes.push(
+          `hds-advanced-table__th-reorder-drop-target--is-dragging-over--${this._dragSide}`
+        );
+      }
+    }
+
+    return classes.join(' ');
+  }
+
+  private _registerElement = modifier(
+    (element: HdsAdvancedTableThReorderDropTargetSignature['Element']) => {
+      this._element = element;
+    }
+  );
+
+  private _resetDragState(): void {
+    this._dragCount = 0;
+    this._isDraggingOver = false;
+    this._dragSide = null;
+  }
+
+  // determines whether the drag event is occurring on the left or right side of the th element
+  private _getDragSide(event: DragEvent): 'left' | 'right' {
+    const { column, isLastColumn } = this.args;
+
+    if (isLastColumn && column !== undefined) {
+      // If it's the last column, we can only drop on the left side
+      return 'left';
+    }
+
+    const rect = this._element.getBoundingClientRect();
+    const mouseX = event.clientX;
+    const elementMiddleX = rect.left + rect.width / 2;
+
+    return mouseX < elementMiddleX ? 'left' : 'right';
+  }
+
+  @action
+  handleDragOver(event: DragEvent): void {
+    event.preventDefault();
+
+    const { column } = this.args;
+
+    if (column.isBeingDragged) {
+      return;
+    }
+
+    // Determine which side of the header the drag is occurring on
+    this._dragSide = this._getDragSide(event);
+  }
+
+  @action
+  handleDragEnter(event: DragEvent): void {
+    event.preventDefault();
+
+    this._dragCount = this._dragCount + 1;
+
+    if (this._dragCount === 1) {
+      this._isDraggingOver = true;
+    }
+  }
+
+  @action
+  handleDragLeave(event: DragEvent): void {
+    event.preventDefault();
+
+    this._dragCount = this._dragCount - 1;
+
+    // Ensure count doesn't go negative and reset isDraggingOver when appropriate
+    if (this._dragCount <= 0) {
+      this._resetDragState();
+    }
+  }
+
+  @action
+  handleDrop(event: DragEvent): void {
+    event.preventDefault();
+
+    const { column, onReorderDrop } = this.args;
+
+    // Reset drag state completely when an item is dropped
+    this._resetDragState();
+
+    if (column === undefined || typeof onReorderDrop !== 'function') {
+      return;
+    }
+
+    // Determine which side of the header the drop occurred on
+    const dropSide = this._getDragSide(event);
+
+    onReorderDrop(column, dropSide);
+  }
+}

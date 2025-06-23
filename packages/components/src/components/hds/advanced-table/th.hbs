@@ -21,11 +21,6 @@
       onDeactivate=this.onFocusTrapDeactivate initialFocus=this.getInitialFocus clickOutsideDeactivates=true
     )
   }}
-  {{on "dragend" this.handleDragEnd}}
-  {{on "dragover" this.handleDragOver}}
-  {{on "dragenter" this.handleDragEnter}}
-  {{on "dragleave" this.handleDragLeave}}
-  {{on "drop" this.handleDrop}}
   ...attributes
 >
   <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
@@ -88,6 +83,7 @@
           @columnWidth={{this._element.clientWidth}}
           @tableHeight={{@tableHeight}}
           @onReorderDragStart={{this.handleDragStart}}
+          @onReorderDragEnd={{@onReorderDragEnd}}
         />
       {{/if}}
 
@@ -104,22 +100,11 @@
     {{/if}}
   </Hds::Layout::Flex>
 
-  {{!-- {{#if @column.isBeingDragged}}
-    <div
-      class="hds-advanced-table__th-drag-indicator"
-      aria-hidden="true"
-      role="presentation"
-      {{style height=(if @tableHeight (concat (sub @tableHeight 3.5) "px"))}}
-    />
-  {{/if}} --}}
-
-  {{#if (and this.isDraggingOver this.dragSide)}}
-    <div
-      class="hds-advanced-table__th-drop-side-indicator
-        {{concat 'hds-advanced-table__th-drop-side-indicator--' this.dragSide}}"
-      aria-hidden="true"
-      role="presentation"
-      {{style height=(if @tableHeight (concat (sub @tableHeight 3.5) "px"))}}
+  {{#if @column.table.hasColumnBeingDragged}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @isLastColumn={{@isLastColumn}}
+      @tableHeight={{@tableHeight}}
     />
   {{/if}}
 </div>

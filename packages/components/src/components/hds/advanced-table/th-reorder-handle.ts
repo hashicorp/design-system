@@ -14,6 +14,7 @@ export interface HdsAdvancedTableThReorderHandleSignature {
     columnWidth: number;
     tableHeight?: number;
     onReorderDragStart: (column: HdsAdvancedTableColumn) => void;
+    onReorderDragEnd?: () => void;
   };
   Blocks: {
     default?: [];
@@ -74,5 +75,16 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
     setTimeout(() => document.body.removeChild(dragPreview), 0);
 
     onReorderDragStart(column);
+  }
+
+  @action
+  handleDragEnd(): void {
+    const { column, onReorderDragEnd } = this.args;
+
+    column.isBeingDragged = false;
+
+    if (typeof onReorderDragEnd === 'function') {
+      onReorderDragEnd();
+    }
   }
 }

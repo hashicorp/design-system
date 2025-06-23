@@ -54,6 +54,7 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
+    onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
@@ -74,10 +75,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @tracked private _shouldTrapFocus = false;
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
-  @tracked private _dragCount = 0;
-
-  @tracked isDraggingOver = false;
-  @tracked dragSide: 'left' | 'right' | null = null;
 
   constructor(owner: Owner, args: HdsAdvancedTableThSignature['Args']) {
     super(owner, args);
@@ -156,15 +153,9 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   }
 
   get showContextMenu(): boolean {
-    const { hasResizableColumns } = this.args;
+    const { hasResizableColumns, hasReorderableColumns } = this.args;
 
-    return hasResizableColumns ?? false;
-  }
-
-  _resetDragState(): void {
-    this._dragCount = 0;
-    this.isDraggingOver = false;
-    this.dragSide = null;
+    return (hasResizableColumns || hasReorderableColumns) ?? false;
   }
 
   @action
@@ -186,82 +177,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     onReorderDragStart(column);
   }
 
-  // determines whether the drag event is occurring on the left or right side of the th element
-  private _getDragSide(event: DragEvent): 'left' | 'right' {
-    const { column, isLastColumn } = this.args;
-
-    if (isLastColumn && column !== undefined) {
-      // If it's the last column, we can only drop on the left side
-      return 'left';
-    }
-
-    const rect = this._element.getBoundingClientRect();
-    const mouseX = event.clientX;
-    const elementMiddleX = rect.left + rect.width / 2;
-
-    return mouseX < elementMiddleX ? 'left' : 'right';
-  }
-
-  @action
-  handleDragOver(event: DragEvent): void {
-    event.preventDefault();
-
-    const { column } = this.args;
-
-    if (
-      column === undefined ||
-      column.key === undefined ||
-      column.table.reorderDraggedColumn?.key === column.key
-    ) {
-      return;
-    }
-
-    // Determine which side of the header the drag is occurring on
-    this.dragSide = this._getDragSide(event);
-  }
-
-  @action
-  handleDragEnter(event: DragEvent): void {
-    event.preventDefault();
-
-    this._dragCount = this._dragCount + 1;
-
-    if (this._dragCount === 1) {
-      this.isDraggingOver = true;
-    }
-  }
-
-  @action
-  handleDragLeave(event: DragEvent): void {
-    event.preventDefault();
-
-    this._dragCount = this._dragCount - 1;
-
-    // Ensure count doesn't go negative and reset isDraggingOver when appropriate
-    if (this._dragCount <= 0) {
-      this._resetDragState();
-    }
-  }
-
-  @action
-  handleDrop(event: DragEvent): void {
-    event.preventDefault();
-
-    const { column, onReorderDrop } = this.args;
-
-    // Reset drag state completely when an item is dropped
-    this._resetDragState();
-
-    if (column === undefined || typeof onReorderDrop !== 'function') {
-      return;
-    }
-
-    // Determine which side of the header the drop occurred on
-    const dropSide = this._getDragSide(event);
-
-    onReorderDrop(column, dropSide);
-  }
-
   @action onFocusTrapDeactivate(): void {
     this._shouldTrapFocus = false;
     onFocusTrapDeactivate(this._element);
@@ -278,12 +193,6 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
 
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
-  }
-
-  @action
-  handleDragEnd(): void {
-    // Reset drag state when drag operation ends (whether dropped or canceled)
-    this._resetDragState();
   }
 
   private _registerResizeHandleElement = modifier(
