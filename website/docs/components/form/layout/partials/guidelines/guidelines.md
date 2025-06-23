@@ -76,7 +76,7 @@ Similar to the Form Header, the Section Header contains styled and spaced text e
 
 The Section Multi Field Group organizes closely related form inputs in a single row, setting 16px between them, as opposed to 24px when stacked. This reinforces their relationship.
 
-In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically “stack.”
+In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically stack.
 
 
 ![Section Multi Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
