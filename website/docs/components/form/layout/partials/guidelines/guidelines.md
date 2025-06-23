@@ -15,7 +15,7 @@ The Form component serves as the container for all Form layout components and fo
 
 ## Single column layout
 
-The Form component ensures a consistent and streamlined user experience through the use of a single-column layout. Multi-column layouts can disrupt the visual flow and reading orderof fields which can result in missed inputs and increased friction. Multiple fields can be places in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
+The Form component ensures a consistent and streamlined user experience through the use of a single-column layout. Multi-column layouts can disrupt the visual flow and reading order of fields which can result in missed inputs and increased friction. Multiple fields can be places in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
 
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
@@ -74,7 +74,7 @@ Similar to the Form Header, the Section Header contains styled and spaced text e
 
 ### Form Section Multi Field Group
 
-The Section Field Group organizes closely related form inputs in a single row, setting 16px between them, as opposed to 24px when stacked. This reinforces their relationship.
+The Section Multi Field Group organizes closely related form inputs in a single row, setting 16px between them, as opposed to 24px when stacked. This reinforces their relationship.
 
 In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically “stack.”
 
@@ -97,7 +97,7 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 
 ## Form Footer
 
-The Form Footer typically houses a Button or Button Set to allow users to save or submit form information. We recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
+The Form Footer typically houses a Button or Button Set to allow users to save or submit form information. When there's more than one action, we recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
 
 ## Width and resizing behavior
 
