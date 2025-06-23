@@ -49,8 +49,7 @@ const DYNAMIC_INPUT_EXAMPLE_DATA = [
   {
     id: 2,
     key: 'select',
-    value: {
-    },
+    value: {},
   },
   {
     id: 3,
@@ -156,6 +155,23 @@ export default class KeyValueInputsController extends Controller {
 
   @action
   onStartWithEmptyDeleteRowClick(item) {
+    // if press delete on the first row, we want to reset the inputs to empty
+    if (item === undefined) {
+      const keyValueInputs = document.getElementById(
+        'start-with-empty-example',
+      );
+
+      const nameInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='key']",
+      );
+      const valueInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='value']",
+      );
+
+      nameInput.value = '';
+      valueInput.value = '';
+    }
+
     this.startWithEmptyExampleData = this.startWithEmptyExampleData.filter(
       (data) => data.id !== item.id,
     );

@@ -50,6 +50,7 @@
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
+          DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=undefined rowIndex=0)
           rowIndex=0
         )
         to="row"
@@ -71,12 +72,11 @@
         to="row"
       }}
 
-      {{#if this.canDeleteRow}}
-        {{yield
-          (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
-          to="row"
-        }}
-      {{/if}}
+      {{! leaving as a separate yield to keep the delete row button at the end of the row }}
+      {{yield
+        (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
+        to="row"
+      }}
     </div>
   {{/each}}
 

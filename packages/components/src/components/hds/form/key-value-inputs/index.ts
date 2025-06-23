@@ -99,10 +99,6 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     return getElementId(this);
   }
 
-  get canDeleteRow(): boolean {
-    return this.args.data.length > 1;
-  }
-
   @action
   _setUpColumn(): void {
     // eslint-disable-next-line ember/no-runloop

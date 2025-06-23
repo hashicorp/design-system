@@ -102,37 +102,12 @@ module(
         .dom('#test-form-key-value-inputs #row-generic')
         .exists({ count: 1 })
         .hasText('Generic content');
-    });
 
-    test('it does not render the delete row button if `@data` is empty', async function (assert) {
-      await this.createKeyValueInputs();
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button',
         )
-        .doesNotExist();
-    });
-
-    test('it does not render the delete row button if `@data` has 1 item', async function (assert) {
-      await this.createKeyValueInputs({
-        data: [{ value: 'Test value' }],
-      });
-      assert
-        .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
-        )
-        .doesNotExist();
-    });
-
-    test('it does render the delete row button if `@data` has more than 1 item', async function (assert) {
-      await this.createKeyValueInputs({
-        data: [{ value: 'Test value' }, { value: 'Another value' }],
-      });
-      assert
-        .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__row .hds-form-key-value-inputs__delete-row-button',
-        )
-        .exists({ count: 2 });
+        .exists();
     });
 
     // FOOTER
@@ -220,28 +195,6 @@ module(
       assert
         .dom('#test-form-key-value-inputs')
         .hasStyle({ '--hds-key-value-pair-columns': '200px auto min-content' });
-    });
-
-    test('it should update the appropriate grid-column-template for the rows without custom widths', async function (assert) {
-      await this.createKeyValueInputs({
-        data: [{ value: 'Test value' }],
-      });
-
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
-
-      this.set('data', [{ value: 'Test value' }, { value: 'Another value' }]);
-
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
-
-      this.set('data', [{ value: 'Test value' }]);
-
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
     });
 
     // ACCESSIBILITY
