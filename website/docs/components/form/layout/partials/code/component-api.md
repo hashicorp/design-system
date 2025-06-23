@@ -144,7 +144,7 @@
 ### Form::Section::MultiFieldGroup
 
 <Doc::ComponentApi as |C|>
-  <C.Property @name="<[MF].Item>" @type="yielded component">
+  <C.Property @name="<[MFG].Item>" @type="yielded component">
     `Form::Section::MultiFieldGroup::Item` yielded as contextual component (see below).
   </C.Property>
   <C.Property @name="yield">
