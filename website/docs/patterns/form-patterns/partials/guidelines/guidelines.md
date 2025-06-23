@@ -187,13 +187,6 @@ Using sections based on the relationship between fields can make a longer form s
 
 Use separators to break up different types of content and categories within a form. Only use separators between sections, not between fields.
 
-!!! Do
-
-Include a 32px gap between the last field and the button set or actions.
-
-![Spacing using separators](/assets/patterns/form-patterns/divider-spacing-do.png =500x*)
-!!!
-
 !!! Dont
 
 Don’t use separators at the end of the last section between the fields and the button set or actions.

@@ -15,7 +15,7 @@ The Form component serves as the container for all Form layout components and fo
 
 ## Single column layout
 
-The Form component ensures a consistent and streamlined user experience through the use of a single-column layout. Multi-column layouts can disrupt the visual flow and reading order of fields which can result in missed inputs and increased friction. Multiple fields can be places in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
+Multi-column layouts can disrupt the visual flow and reading order of fields which can result in missed inputs and increased friction. Multiple fields can be places in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
 
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
