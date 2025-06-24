@@ -613,13 +613,15 @@
         </Hds::Form>
       </SG.Item>
 
-      <SG.Item @label="3 fields, mix of widths (remaining available space, auto, & 8em)">
+      <SG.Item @label="3 fields, wrapped with Items w/ widths of 100%, auto, & 6em">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup as |FG|>
-              <Hds::Form::TextInput::Field as |F|>
-                <F.Label>City</F.Label>
-              </Hds::Form::TextInput::Field>
+              <FG.Item @width="100%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>City</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FG.Item>
 
               <FG.Item @width="auto">
                 <Hds::Form::Select::Field as |F|>
@@ -634,11 +636,71 @@
                 </Hds::Form::Select::Field>
               </FG.Item>
 
-              <FG.Item @width="8em">
+              <FG.Item @width="6em">
                 <Hds::Form::TextInput::Field as |F|>
                   <F.Label>Zip</F.Label>
                 </Hds::Form::TextInput::Field>
               </FG.Item>
+            </FORM.SectionMultiFieldGroup>
+          </FORM.Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="3 Fields, wrapped with Items w/ widths set on Fields of 100%, auto, & 6em">
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <FORM.SectionMultiFieldGroup>
+              <FORM.SectionMultiFieldGroupItem>
+                <Hds::Form::TextInput::Field @width="100%" as |F|>
+                  <F.Label>City</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FORM.SectionMultiFieldGroupItem>
+
+              <FORM.SectionMultiFieldGroupItem>
+                <Hds::Form::Select::Field @width="auto" as |F|>
+                  <F.Label>State</F.Label>
+                  <F.Options>
+                    <option value="state-1">Ohio</option>
+                    <option value="state-2">Massachusetts</option>
+                    <option value="state-3">Washington</option>
+                    <option value="state-4">Florida</option>
+                    <option value="state-4">North Carolina</option>
+                  </F.Options>
+                </Hds::Form::Select::Field>
+              </FORM.SectionMultiFieldGroupItem>
+
+              <FORM.SectionMultiFieldGroupItem>
+                <Hds::Form::TextInput::Field @width="6em" as |F|>
+                  <F.Label>Zip</F.Label>
+                </Hds::Form::TextInput::Field>
+              </FORM.SectionMultiFieldGroupItem>
+            </FORM.SectionMultiFieldGroup>
+          </FORM.Section>
+        </Hds::Form>
+      </SG.Item>
+
+      <SG.Item @label="3 Fields, w/ widths set on Fields of 100%, auto, & 6em (no Item wrappers)">
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <FORM.SectionMultiFieldGroup>
+              <Hds::Form::TextInput::Field @width="100%" as |F|>
+                <F.Label>City</F.Label>
+              </Hds::Form::TextInput::Field>
+
+              <Hds::Form::Select::Field @width="auto" as |F|>
+                <F.Label>State</F.Label>
+                <F.Options>
+                  <option value="state-1">Ohio</option>
+                  <option value="state-2">Massachusetts</option>
+                  <option value="state-3">Washington</option>
+                  <option value="state-4">Florida</option>
+                  <option value="state-4">North Carolina</option>
+                </F.Options>
+              </Hds::Form::Select::Field>
+
+              <Hds::Form::TextInput::Field @width="6em" as |F|>
+                <F.Label>Zip</F.Label>
+              </Hds::Form::TextInput::Field>
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
