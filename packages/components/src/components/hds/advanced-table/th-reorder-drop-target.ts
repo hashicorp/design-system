@@ -13,7 +13,6 @@ import type HdsAdvancedTableColumn from './models/column.ts';
 export interface HdsAdvancedTableThReorderDropTargetSignature {
   Args: {
     column: HdsAdvancedTableColumn;
-    isLastColumn?: boolean;
     tableHeight?: number;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
@@ -38,20 +37,23 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     const classes = ['hds-advanced-table__th-reorder-drop-target'];
 
+    if (column.isFirst) {
+      classes.push('hds-advanced-table__th-reorder-drop-target--is-first');
+    } else if (column.isLast) {
+      classes.push('hds-advanced-table__th-reorder-drop-target--is-last');
+    }
+
     if (column.isBeingDragged) {
       classes.push(
         'hds-advanced-table__th-reorder-drop-target--is-being-dragged'
       );
-    } else if (this._isDraggingOver) {
+    } else if (this._isDraggingOver && this._dragSide !== null) {
       classes.push(
-        'hds-advanced-table__th-reorder-drop-target--is-dragging-over'
+        ...[
+          'hds-advanced-table__th-reorder-drop-target--is-dragging-over',
+          `hds-advanced-table__th-reorder-drop-target--is-dragging-over--${this._dragSide}`,
+        ]
       );
-
-      if (this._dragSide) {
-        classes.push(
-          `hds-advanced-table__th-reorder-drop-target--is-dragging-over--${this._dragSide}`
-        );
-      }
     }
 
     return classes.join(' ');
@@ -71,13 +73,6 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
   // determines whether the drag event is occurring on the left or right side of the th element
   private _getDragSide(event: DragEvent): 'left' | 'right' {
-    const { column, isLastColumn } = this.args;
-
-    if (isLastColumn && column !== undefined) {
-      // If it's the last column, we can only drop on the left side
-      return 'left';
-    }
-
     const rect = this._element.getBoundingClientRect();
     const mouseX = event.clientX;
     const elementMiddleX = rect.left + rect.width / 2;
@@ -90,13 +85,22 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     event.preventDefault();
 
     const { column } = this.args;
+    const { reorderDraggedColumn } = column.table;
 
-    if (column.isBeingDragged) {
+    if (column.isBeingDragged || reorderDraggedColumn === null) {
       return;
     }
 
-    // Determine which side of the header the drag is occurring on
-    this._dragSide = this._getDragSide(event);
+    const { next, previous } = reorderDraggedColumn.siblings;
+    const dragSide = this._getDragSide(event);
+
+    if (
+      (column === previous && dragSide === 'left') ||
+      (column === next && dragSide === 'right') ||
+      (column !== previous && column !== next)
+    ) {
+      this._dragSide = dragSide;
+    }
   }
 
   @action

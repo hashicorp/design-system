@@ -119,31 +119,51 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
       right: 0;
       left: 0;
       z-index: 1;
+    }
 
-      &.hds-advanced-table__th-reorder-drop-target--is-being-dragged {
-        background-color: var(--token-color-surface-strong);
+    // is being dragged
+    .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
+      background-color: var(--token-color-surface-strong);
+    }
+
+    // is dragging over
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: var(--token-color-palette-blue-300);
+        content: "";
       }
+    }
 
-      &.hds-advanced-table__th-reorder-drop-target--is-dragging-over {
-        &::after {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          width: 4px;
-          background-color: var(--token-color-palette-blue-300);
-          content: "";
-        }
+    // dragging over left
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
+      left: 0;
+      transform: translateX(-3px);
+    }
 
-        &.hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
-          left: 0;
-          transform: translateX(-3px); // to center the line on the left side
-        }
+    // dragging over left and is first
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left.hds-advanced-table__th-reorder-drop-target--is-first::after {
+      transform: translateX(0);
+    }
 
-        &.hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
-          right: 0;
-          transform: translateX(3px); // to center the line on the right side
-        }
-      }
+    // dragging over right
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
+      right: 0;
+      transform: translateX(3px);
+    }
+
+    // dragging over right and is last
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
+      transform: translateX(0);
     }
 
     .hds-advanced-table__th-reorder-handle {
