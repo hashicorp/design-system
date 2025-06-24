@@ -1,5 +1,3 @@
-The Form component serves as the container for all Form layout components and form content. It ensures a consistent and streamlined user experience. 
-
 ### When to use
 
 - To structure and organize form elements and inputs into a consistent layout
@@ -29,6 +27,10 @@ Spacing in forms is based on a decreasing scale on an 8px grid. From largest to 
 ![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
 
 Visit the [Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
+
+## Form
+
+The Form component serves as the container for all Form layout components and form content. It establishes the spacing between the Form Header, Sections, Separators, and Form Footer.
 
 ## Form Header
 
