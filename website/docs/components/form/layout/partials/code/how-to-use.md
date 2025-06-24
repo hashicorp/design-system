@@ -20,7 +20,7 @@ The `Form` renders as an HTML `form` element by default. Use the `tag` argument 
 
 ### Form Header, Title, & Description
 
-!!! Insight
+!!! Info
 
 The default Form Header Title `@tag` is `"div"` because the correct value is dependent on the individual page. We strongly encourage consumers to update the Title `@tag` to meet WCAG Success Criterion [1.3.1 Info and Relationships](https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html) as the visual experience should match what is presented to the user with assistive technology.
 
@@ -54,9 +54,13 @@ To specify which size the `FormHeaderTitle` displays at, use the `@size` argumen
 
 ### Form Section
 
-Use `FormSection` components to wrap and group together related Form Fields and other form content. This establishes a consistent max-width and spacing for the content.
+!!! Warning
 
-Note: You should use at least one `FormSection` to wrap Form Field content otherwise the content won't be spaced properly or use a max-width.
+You should use at least one `FormSection` to wrap Form Field content otherwise the content won’t be spaced properly or use a max-width.
+
+!!!
+
+Use `FormSection` components to wrap and group together related Form Fields and other form content. This establishes a consistent max-width and spacing for the content.
 
 While the `FormSection` is typically used to contain Form Fields, it can also be used to contain and set a consistent max-width for other content as needed such as an `Alert`.
 
