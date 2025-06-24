@@ -135,7 +135,7 @@ Pass an `isFullWidth` argument to override the default max-width of an individua
 </Hds::Form>
 ```
 
-### Form Section Header, Title, & Description
+### Section Header, Title, & Description
 
 !!! Insight
 
@@ -177,25 +177,7 @@ To specify which size the `SectionHeaderTitle` displays at, use the `@size` argu
 </Hds::Form>
 ```
 
-### Form Separator
-
-If further visual separation between Form Sections is desired, add a `FormSeparator` in-between.
-
-```handlebars
-<Hds::Form as |FORM|>
-  <FORM.Section>
-    <Hds::Text::Body>First section</Hds::Text::Body>
-  </FORM.Section>
-
-  <FORM.Separator />
-
-  <FORM.Section>
-    <Hds::Text::Body>Second section</Hds::Text::Body>
-  </FORM.Section>
-</Hds::Form>
-```
-
-### Form Section Multi Field Group
+### Section Multi Field Group
 
 To lay out related Form Fields or controls in a row, use the `SectionMultiFieldGroup`.
 
@@ -244,6 +226,24 @@ To control the widths of individual elements within a `SectionMultiFieldGroup`, 
         </Hds::Form::TextInput::Field>
       </FG.Item>
     </FORM.SectionMultiFieldGroup>
+  </FORM.Section>
+</Hds::Form>
+```
+
+### Form Separator
+
+If further visual separation between Form Sections is desired, add a `FormSeparator` in-between.
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Text::Body>First section</Hds::Text::Body>
+  </FORM.Section>
+
+  <FORM.Separator />
+
+  <FORM.Section>
+    <Hds::Text::Body>Second section</Hds::Text::Body>
   </FORM.Section>
 </Hds::Form>
 ```
