@@ -10,8 +10,6 @@ The Form component serves as the container for all Form layout components and fo
 - To organize non-form content
 - To create a form for key-value pairs, use the [Key Value Inputs](/components/forms/key-value-inputs) component
 
-![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
-
 
 ## Single column layout
 
@@ -85,7 +83,13 @@ In narrower screens, such as mobile devices, form inputs contained in a Section 
 
 A Separator can be placed between Sections when a clearer visual distinction between Sections is needed.
 
+!!! Do
+
+Use a Separator to add space between Sections or before a new Section Header. 
+
 ![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-do-1.png)
+
+!!!
 
 !!! Dont
 
