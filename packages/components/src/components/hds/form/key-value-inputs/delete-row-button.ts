@@ -22,17 +22,17 @@ export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
 }
 
 export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsFormKeyValueInputsDeleteRowButtonSignature> {
-    private _onInsert = modifier(() => {
-      if (this.args.onInsert) {
-        this.args.onInsert();
+  private _onInsert = modifier(() => {
+    if (this.args.onInsert) {
+      this.args.onInsert();
+    }
+
+    return () => {
+      if (this.args.onRemove) {
+        this.args.onRemove();
       }
-  
-      return () => {
-        if (this.args.onRemove) {
-          this.args.onRemove();
-        }
-      };
-    });
+    };
+  });
 
   get text(): string {
     return this.args.text ?? `Delete row ${this.args.rowIndex + 1}`;
