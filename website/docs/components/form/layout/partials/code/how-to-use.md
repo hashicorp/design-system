@@ -289,7 +289,7 @@ In screen widths below 768px (the [“md” breakpoint](/foundations/breakpoints
 
 ### Form Footer
 
-The `FormFooter` should be used at the bottom of the other `Form` content to contain form actions. Use a [Button Set](/components/button-set) to wrap and set spacing for Buttons.
+The `FormFooter` should be used at the bottom of the other `Form` content to contain form actions. Use the yielded `ButtonSet` to wrap and set spacing for Buttons.
 
 ```handlebars
 <Hds::Form as |FORM|>
