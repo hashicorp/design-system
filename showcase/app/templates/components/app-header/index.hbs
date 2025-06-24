@@ -14,7 +14,7 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Text::H3>With generic content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  <Shw::Flex @direction="column" {{style gap="2rem"}} as |SG|>
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -33,13 +33,13 @@ SPDX-License-Identifier: MPL-2.0
         </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
-  </Shw::Grid>
+  </Shw::Flex>
 
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>With typical child component content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+  <Shw::Flex @direction="column" {{style gap="3rem"}} as |SG|>
     <SG.Item @label="With minimum recommended phase 1 content">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -161,13 +161,13 @@ SPDX-License-Identifier: MPL-2.0
         </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
-  </Shw::Grid>
+  </Shw::Flex>
 
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>With long content</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="3rem"}} as |SG|>
+  <Shw::Flex @direction="column" {{style gap="3rem"}} as |SG|>
     <SG.Item @label="40 characters long organization name with dashes">
       <Hds::AppHeader @hasA11yRefocus={{false}}>
         <:logo>
@@ -239,13 +239,13 @@ SPDX-License-Identifier: MPL-2.0
         </:utilityActions>
       </Hds::AppHeader>
     </SG.Item>
-  </Shw::Grid>
+  </Shw::Flex>
 
   <Shw::Divider @level="2" />
 
   <Shw::Text::H3>With text</Shw::Text::H3>
 
-  <Shw::Grid @columns={{1}} {{style gap="2rem"}} as |SG|>
+  <Shw::Flex @direction="column" {{style gap="3rem"}} as |SG|>
 
     <SG.Item>
       <Hds::AppHeader @hasA11yRefocus={{false}}>
@@ -324,7 +324,7 @@ SPDX-License-Identifier: MPL-2.0
       </Hds::AppHeader>
     </SG.Item>
 
-  </Shw::Grid>
+  </Shw::Flex>
 
   <Shw::Divider />
 
@@ -444,18 +444,18 @@ SPDX-License-Identifier: MPL-2.0
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Text::H4>Text</Shw::Text::H4>
+  <Shw::Text::H4>With text</Shw::Text::H4>
 
   <Shw::Flex as |SF|>
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @href="#" @title="Admin UI" />
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{false}} @href="#" @title="Admin UI" />
       </div>
     </SF.Item>
 
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform" @href="#" @title="Terraform Admin Console" />
+        <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform" @href="#" @isIconOnly={{false}} @title="Terraform Admin Console" />
       </div>
     </SF.Item>
   </Shw::Flex>
