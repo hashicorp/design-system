@@ -77,6 +77,10 @@ Place inputs in rows to save space or create columns within the form.
 
 !!!
 
+#### Stacking behavior
+
+Fields within a Section Multi Field Group stack automatically at the ['md' breakpoint](/foundations/breakpoints). 
+
 ## Form Separator
 
 A Separator can be placed between Sections when a clearer visual distinction between Sections is needed.
@@ -114,7 +118,3 @@ Where more control is needed, you can override the max-width property with any v
 Individual Sections can be set to full-width, if needed. Any component requiring increased width for usability, e.g., a Radio Card Group, should be moved into a separate Section to allow for full width layout, even if they would otherwise be grouped with other associated fields.
 
 ![Full width Form content in comparison to constricted width content](/assets/components/form/layout/form-mixed-width-example.png)
-
-### Stacking behavior
-
-Fields within a Section Multi Field Group stack automatically at the ['md' breakpoint](/foundations/breakpoints). 
