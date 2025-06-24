@@ -22,6 +22,16 @@ module(
         .hasClass('hds-form-masked-input__control');
     });
 
+    test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
+      await render(
+        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" @ariaDescribedBy="test-form-masked-input-description" />`,
+      );
+      assert
+        .dom('#test-form-masked-input')
+        .exists()
+        .hasAria('describedby', 'test-form-masked-input-description');
+    });
+
     // MASKING
 
     test('it should render the text masked by default', async function (assert) {

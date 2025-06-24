@@ -20,6 +20,16 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
     assert.dom('#test-form-text-input').hasClass('hds-form-text-input');
   });
 
+  test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
+    await render(
+      hbs`<Hds::Form::TextInput::Base @id="test-form-text-input" @ariaDescribedBy="test-form-text-input-description" />`,
+    );
+    assert
+      .dom('#test-form-text-input')
+      .exists()
+      .hasAria('describedby', 'test-form-text-input-description');
+  });
+
   // TYPE
 
   test('it should render the "text" type if no type is declared', async function (assert) {
