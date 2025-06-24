@@ -8,6 +8,7 @@
 //
 //
 
+@use "../mixins/button" as *;
 @use "../mixins/focus-ring" as *;
 
 $hds-advanced-table-border-radius: var(--token-border-radius-medium);
@@ -16,10 +17,12 @@ $hds-advanced-table-inner-border-radius: calc(
   #{$hds-advanced-table-border-radius} - #{$hds-advanced-table-border-width}
 );
 $hds-advanced-table-border-color: var(--token-color-border-primary);
+$hds-advanced-table-border-resize-handle-hover-color: #b1b1b5;
 $hds-advanced-table-header-height: 48px;
 $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
+$hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
 
 // ADVANCED TABLE
 
@@ -86,6 +89,7 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     display: contents;
 
     .hds-advanced-table__th {
+      position: relative;
       align-content: center;
       height: 100%;
       padding: $hds-advanced-table-cell-padding-medium;
@@ -106,6 +110,49 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
         );
         z-index: 1;
         isolation: isolate;
+      }
+    }
+
+    .hds-advanced-table__th-resize-handle {
+      @include hds-focus-ring-with-pseudo-element($position: absolute);
+
+      top: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      width: 24px;
+      scroll-margin-right: 24px;
+      scroll-margin-left: 24px;
+      transform: translateX(12.5px); // (width of the handler (24px) + border width (1px)) / 2 == 12.5px
+      cursor: col-resize;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        content: "";
+      }
+
+      &:focus::after,
+      &.mock-focus::after,
+      &:hover::after,
+      &.mock-hover::after,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        width: 3px;
+        transform: translateX(-10.5px); // (width of the handle (24px) - width of the visual handle (3px)) / 2 == 10.5px
+      }
+
+      &:hover::after,
+      &.mock-hover::after {
+        background-color: $hds-advanced-table-border-resize-handle-hover-color;
+      }
+
+      &:focus::after,
+      &.mock-focus::after,
+      &.hds-advanced-table__th-resize-handle--resizing::after {
+        background-color: var(--token-color-palette-blue-300);
       }
     }
 
@@ -169,6 +216,18 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
     }
   }
 
+  // Resizable columns
+  &.hds-advanced-table__thead--has-resizable-columns {
+    .hds-advanced-table__th .hds-advanced-table__th-content-text {
+      display: block;
+      width: 100%;
+      min-width: 30px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
   // sticky header
   &.hds-advanced-table__thead--sticky {
     position: sticky;
@@ -202,9 +261,44 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
 // multi-select (isSelectable=true)
 .hds-advanced-table__th-content {
   display: flex;
+  flex-shrink: 1;
   gap: 8px;
   align-items: center;
   justify-content: flex-start;
+  min-width: 0;
+}
+
+.hds-advanced-table__th-context-menu .hds-dropdown-toggle-icon {
+  width: $hds-advanced-table-button-size;
+  height: $hds-advanced-table-button-size;
+  margin: -2px 0;
+  padding: 0;
+  color: var(--token-color-foreground-faint);
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--token-border-radius-x-small);
+
+  &:hover,
+  &.mock-hover {
+    color: var(--token-color-foreground-primary);
+    background-color: var(--token-color-surface-interactive);
+    border-color: var(--token-color-border-strong);
+    box-shadow: var(--token-elevation-low-box-shadow);
+  }
+
+  &:focus,
+  &.mock-focus,
+  .hds-dropdown-toggle-icon--is-open {
+    &::before {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border: none;
+      border-radius: var(--token-border-radius-x-small);
+      box-shadow: var(--token-focus-ring-action-box-shadow);
+    }
+  }
 }
 
 .hds-advanced-table__th-button {
@@ -212,8 +306,8 @@ $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px differenc
   flex: none;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
+  width: $hds-advanced-table-button-size;
+  height: $hds-advanced-table-button-size;
   margin: -2px 0; // this is necessary to compensate for the height of the button being 24px while the line height of the text is 20px (the overall height of the cell shoud be 48px and we want to keep the cell's padding as is for consistency with Figma)
   padding: 0;
   color: var(--token-color-foreground-faint);

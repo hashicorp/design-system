@@ -6,8 +6,8 @@
 {{page-title "AdvancedTable Component"}}
 
 <Shw::Text::H1>AdvancedTable</Shw::Text::H1>
-<section data-test-percy>
 
+<section data-test-percy>
   <Shw::Text::Body>
     <a
       class="shw-frame__open-link"
@@ -542,6 +542,93 @@
   </Hds::AdvancedTable>
 
   <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H2>Resizable columns</Shw::Text::H2>
+
+  <Hds::AdvancedTable @model={{this.model.music}} @columns={{this.columnResizeColumns}} @hasResizableColumns={{true}}>
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Resizable columns with sorting</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{this.columnResizeColumnsWithSorting}}
+    @hasResizableColumns={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            {{B.data.album}}
+          </div>
+        </B.Td>
+        <B.Td>
+          <Hds::Badge @text={{B.data.year}} @type={{B.data.badge-type}} @color={{B.data.badge-color.name}} />
+        </B.Td>
+        <B.Td>
+          <Hds::ButtonSet>
+            <Hds::Button @text="Add" @isIconOnly={{true}} @icon="plus" @size="small" />
+            <Hds::Button @text="Edit" @isIconOnly={{true}} @icon="edit" @size="small" @color="secondary" />
+            <Hds::Button @text="Delete" @isIconOnly={{true}} @icon="trash" @size="small" @color="critical" />
+          </Hds::ButtonSet>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Text::H4 @tag="h3">Resizable columns with truncated cell content</Shw::Text::H4>
+
+  <Hds::AdvancedTable
+    @model={{this.model.music}}
+    @columns={{array
+      (hash key="artist" label="Artist")
+      (hash key="album" label="Album")
+      (hash key="quote" label="Quote" width="400px")
+    }}
+    @hasResizableColumns={{true}}
+  >
+    <:body as |B|>
+      <B.Tr>
+        <B.Th @scope="row"><Hds::Link::Inline @href="#showcase">{{B.data.artist}}</Hds::Link::Inline></B.Th>
+        <B.Td>
+          <div class="shw-component-advanced-table-cell-content-div">
+            <Hds::Icon @name={{B.data.icon}} @isInline={{true}} />
+            <span class="shw-component-advanced-table-text-truncate">
+              {{B.data.album}}
+            </span>
+          </div>
+        </B.Td>
+        <B.Td>
+          <span class="shw-component-advanced-table-text-truncate">{{B.data.quote}}</span>
+        </B.Td>
+      </B.Tr>
+    </:body>
+  </Hds::AdvancedTable>
+
+  <Shw::Divider />
 
   <Shw::Text::H3>Functional examples</Shw::Text::H3>
 
@@ -1944,5 +2031,64 @@
       </SG.Item>
     {{/each}}
   </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThContextMenu</Shw::Text::H3>
+
+  <Shw::Grid @label="Context menu all interactive states" @columns={{4}} as |SG|>
+    {{#each @model.STATES as |state|}}
+      <SG.Item @label={{capitalize state}}>
+        <div class="hds-advanced-table__th-context-menu">
+          <Hds::Dropdown::Toggle::Icon
+            @icon="more-vertical"
+            @text="Context menu"
+            @hasChevron={{false}}
+            @size="small"
+            mock-state-value={{state}}
+          />
+        </div>
+      </SG.Item>
+    {{/each}}
+  </Shw::Grid>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3>ThResizeHandle</Shw::Text::H3>
+
+  <Shw::Flex @direction="row" @gap="2rem" as |SF|>
+    <SF.Item @grow={{true}}>
+      <div
+        class="hds-advanced-table hds-advanced-table--density-medium"
+        role="grid"
+        {{style gridTemplateColumns="200px 200px 200px 200px 1fr"}}
+      >
+        <div class="hds-advanced-table__thead" role="rowgroup">
+          <div class="hds-advanced-table__tr" role="row">
+            {{#each @model.STATES as |state|}}
+              <div class="hds-advanced-table__th hds-advanced-table__th--is-resizable" role="columnheader">
+                <Hds::Layout::Flex @justify="space-between" @align="center" @gap="8">
+                  <div class="hds-advanced-table__th-content">
+                    <span class="hds-advanced-table__th-content-text hds-typography-body-200 hds-font-weight-semibold">
+                      {{capitalize state}}
+                    </span>
+                  </div>
+                  <Hds::AdvancedTable::ThResizeHandle
+                    mock-state-value={{state}}
+                    @column={{this.thResizeHandleColumn}}
+                    @nextColumn={{@nextColumn}}
+                    @tableHeight={{@tableHeight}}
+                  />
+                </Hds::Layout::Flex>
+              </div>
+            {{/each}}
+            <Hds::AdvancedTable::Th>
+              Actions
+            </Hds::AdvancedTable::Th>
+          </div>
+        </div>
+      </div>
+    </SF.Item>
+  </Shw::Flex>
 
 </section>
