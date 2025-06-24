@@ -10,6 +10,7 @@
   aria-labelledby="{{this.id}}-legend"
   {{! @glint-expect-error }}
   aria-describedby={{this.ariaDescribedBy}}
+  tabindex="-1"
   {{this._setUpKeyValueInputs}}
 >
   <div class="hds-form-key-value-inputs__header">
@@ -50,7 +51,9 @@
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
-          DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=undefined rowIndex=0)
+          DeleteRowButton=(component
+            "hds/form/key-value-inputs/delete-row-button" fieldsetElement=this._element rowData=undefined rowIndex=0
+          )
           rowIndex=0
         )
         to="row"
@@ -74,7 +77,11 @@
 
       {{! leaving as a separate yield to keep the delete row button at the end of the row }}
       {{yield
-        (hash DeleteRowButton=(component "hds/form/key-value-inputs/delete-row-button" rowData=item rowIndex=index))
+        (hash
+          DeleteRowButton=(component
+            "hds/form/key-value-inputs/delete-row-button" fieldsetElement=this._element rowData=item rowIndex=index
+          )
+        )
         to="row"
       }}
     </div>

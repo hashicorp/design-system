@@ -69,7 +69,7 @@ export interface HdsFormKeyValueInputsSignature {
         >;
         DeleteRowButton?: WithBoundArgs<
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
-          'rowData' | 'rowIndex'
+          'fieldsetElement' | 'rowData' | 'rowIndex'
         >;
         rowData?: unknown;
         rowIndex?: number;
@@ -92,7 +92,7 @@ export interface HdsFormKeyValueInputsSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInputsSignature> {
-  private _element!: HTMLElement;
+  private _element!: HTMLFieldSetElement;
   @tracked _gridTemplateColumns = '';
 
   get id(): string {
@@ -125,7 +125,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     unregisterAriaDescriptionElement(this as AriaDescribedByComponent, element);
   }
 
-  private _setUpKeyValueInputs = modifier((element: HTMLElement) => {
+  private _setUpKeyValueInputs = modifier((element: HTMLFieldSetElement) => {
     this._element = element;
   });
 

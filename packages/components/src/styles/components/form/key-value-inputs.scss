@@ -18,6 +18,11 @@
   padding: 0;
   border: none;
   row-gap: 12px;
+
+  &:focus {
+    // we move focus to the fieldset when a row is deleted, but we don't need the focus outline visible.
+    outline: none;
+  }
 }
 
 .hds-form-key-value-inputs__row {
