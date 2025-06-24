@@ -13,7 +13,7 @@ The Form component serves as the container for all Form layout components and fo
 
 ## Single column layout
 
-Multi-column layouts can disrupt the visual flow and reading order of fields which can result in missed inputs and increased friction. Multiple fields can be places in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
+Multi-column form layouts can disrupt the visual flow and reading order of fields leading to increased friction and missed inputs. Multiple fields should be placed in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
 
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
@@ -21,10 +21,10 @@ Multi-column layouts can disrupt the visual flow and reading order of fields whi
 
 Spacing in forms is based on a decreasing scale on an 8px grid. From largest to smallest, the spacing structure is:
 
-- Sections are 32px apart
-- Separators are 32px from Section elements on either vertical side
-- When inputs are stacked, they are 24px apart. When inputs are within a Section Field Group and side by side, e.g., in wider viewports, they are 16px apart.
-- Text elements inside the Form Header and Form Section Header are 8px apart
+- The Form Header, Sections, Separators, and Footer are 32px apart.
+- Stacked inputs are 24px apart.
+- Side by side inputs within a Section Multi Field Group are 16px apart.
+- Text elements within the Form Header and Form Section Headers are 8px apart.
 
 ![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
 
@@ -48,19 +48,19 @@ The form-level error message will appear below the Header as its own Section and
 
 Inputs within a form are organized in Sections. Multiple Sections may be used to group content for a more scannable and organized experience. Inputs that belong under the same heading or are related to the same topic should be within a Section.
 
-### Form Section Header
+### Section Header
 
 Similar to the Form Header, the Section Header contains styled and spaced text elements, and a space for custom content to be used as needed.
 
 ![Section Header anatomy showing a Title, a Description, and a placeholder for additional content](/assets/components/form/layout/form-section-anatomy.png)
 
-### Form Section Multi Field Group
+### Section Multi Field Group
 
 The Section Multi Field Group organizes closely related form inputs in a single row, setting 16px between them, as opposed to 24px when stacked. This reinforces their relationship.
 
 ![Section Multi Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
 
-In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically stack at the ['md' breakpoint](/foundations/breakpoints). 
+In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically stack at the [“md” breakpoint](/foundations/breakpoints). 
 
 
 !!! Do
@@ -93,7 +93,7 @@ Use a Separator to add space between Sections or before a new Section Header.
 
 !!! Dont
 
-Don’t use a Separator between the last Section and the Button Set or form actions at the bottom of the Form content.
+Don’t use a Separator between the last Section and Form Footer / Button Set.
 
 ![Separator being uses after all the content in a form](/assets/components/form/layout/divider-spacing-dont.png)
 
@@ -101,15 +101,14 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 
 ## Form Footer
 
-The Form Footer typically houses a Button or Button Set to allow users to submit form information. When there's more than one action, we recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
+The Form Footer typically houses Buttons to allow users to submit form information. When there's more than one Button or action, we recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
 
 ## Width and resizing behavior
 
 ### Max-width
 
-Sections have a default max-width of 672px, establishing a consistent line length throughout applications.
+Sections have a default max-width of 672px, establishing a consistent line length throughout applications. It's possible to customize this max-width value if needed.
 
-Where more control is needed, you can override the max-width property with any valid CSS value. In these cases, all sections should be set to the same max-width value.
 
 ### Full-width
 
