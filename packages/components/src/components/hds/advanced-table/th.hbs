@@ -101,6 +101,10 @@
   </Hds::Layout::Flex>
 
   {{#if @column.table.hasColumnBeingDragged}}
-    <Hds::AdvancedTable::ThReorderDropTarget @column={{@column}} @tableHeight={{@tableHeight}} />
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+    />
   {{/if}}
 </div>

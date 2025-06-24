@@ -71,7 +71,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     this._dragSide = null;
   }
 
-  // determines whether the drag event is occurring on the left or right side of the th element
+  // determines whether the drag event is occurring on the left or right side of the element
   private _getDragSide(event: DragEvent): 'left' | 'right' {
     const rect = this._element.getBoundingClientRect();
     const mouseX = event.clientX;
@@ -120,7 +120,7 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
 
     this._dragCount = this._dragCount - 1;
 
-    // Ensure count doesn't go negative and reset isDraggingOver when appropriate
+    // ensure count doesn't go negative and reset isDraggingOver when appropriate
     if (this._dragCount <= 0) {
       this._resetDragState();
     }
@@ -131,17 +131,19 @@ export default class HdsAdvancedTableThReorderDropTarget extends Component<HdsAd
     event.preventDefault();
 
     const { column, onReorderDrop } = this.args;
+    const { _dragSide } = this;
 
-    // Reset drag state completely when an item is dropped
+    // reset drag state completely when an item is dropped
     this._resetDragState();
 
-    if (column === undefined || typeof onReorderDrop !== 'function') {
+    if (
+      column === undefined ||
+      _dragSide === null ||
+      typeof onReorderDrop !== 'function'
+    ) {
       return;
     }
 
-    // Determine which side of the header the drop occurred on
-    const dropSide = this._getDragSide(event);
-
-    onReorderDrop(column, dropSide);
+    onReorderDrop(column, _dragSide);
   }
 }
