@@ -172,6 +172,9 @@ export default class KeyValueInputsController extends Controller {
       valueInput.value = '';
     }
 
+    console.log('onStartWithEmptyDeleteRowClick', item);
+    console.log('startWithEmptyExampleData', this.startWithEmptyExampleData);
+
     this.startWithEmptyExampleData = this.startWithEmptyExampleData.filter(
       (data) => data.id !== item.id,
     );
@@ -210,7 +213,7 @@ export default class KeyValueInputsController extends Controller {
         {
           key: '',
           value: '',
-          id: this.functionalExampleData.length + 1,
+          id: this.startWithEmptyExampleData.length + 1,
         },
       ];
     }
