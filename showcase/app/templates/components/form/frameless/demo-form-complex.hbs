@@ -37,9 +37,6 @@
         Custom width set via local CSS class only at section level (not at header/separator)
       {{else if (eq this.customWidthMode "section")}}
         Custom width set via local CSS class only at section level (not at header/separator)
-        {{! TODO! }}
-        {{!-- {{else if (eq this.customWidthMode "field")}}
-        Custom width set directly on field --}}
       {{/if}}
       [excluded: RadioCard]
     </Shw::Label>
@@ -49,7 +46,6 @@
         {{if (eq this.customWidthMode 'form') 'shw-component-form-layout-custom-max-width'}}"
     >
 
-      {{! TODO! add handling of custom width here! }}
       <Mock::App::Main::GenericForm::Partials::AddUser
         @isHeaderFullWidth={{(if (or (eq this.customWidthMode "mixed") (eq this.customWidthMode "fullwidth")) true)}}
         @isSectionFullWidth={{(if (eq this.customWidthMode "fullwidth") true)}}

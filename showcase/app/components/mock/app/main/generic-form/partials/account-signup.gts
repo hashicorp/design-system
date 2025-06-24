@@ -29,7 +29,7 @@ const MockAppMainGenericFormPartialsAccountSignup: TemplateOnlyComponent<MockApp
 
       {{#unless @hideHeader}}
         <FORM.Header>
-          <FORM.HeaderTitle>Account signup form</FORM.HeaderTitle>
+          <FORM.HeaderTitle @tag="h1">Account signup form</FORM.HeaderTitle>
           <FORM.HeaderDescription>Create your account to start using our
             cloud-based platform and unlock a suite of powerful features
             designed to help you grow your business.</FORM.HeaderDescription>

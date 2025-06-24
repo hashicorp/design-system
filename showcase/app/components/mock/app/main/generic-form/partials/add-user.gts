@@ -66,9 +66,6 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       class={{@extraSectionClass}}
       @isFullWidth={{@isSectionFullWidth}}
     >
-      {{!-- @width={{(if
-          (or (eq case "field") (eq case "section+field")) "400px"
-        )}} --}}
       <HdsFormTextInputField @isRequired={{true}} as |F|>
         <F.Label>Email address for user</F.Label>
       </HdsFormTextInputField>
