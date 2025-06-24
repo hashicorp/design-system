@@ -34,6 +34,11 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  // hide empty sections
+  &:empty {
+    display: none;
+  }
 }
 
 // MULTI FIELD GROUP

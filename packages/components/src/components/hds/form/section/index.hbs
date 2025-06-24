@@ -2,9 +2,9 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-
+{{! IMPORTANT: we need to add "squishies" here (~) because otherwise the whitespace added by Ember causes the empty element to still occupy space - See https://handlebarsjs.com/guide/expressions.html#whitespace-control }}
 <div class={{this.classNames}} ...attributes>
-  {{yield
+  {{~yield
     (hash
       Header=(component "hds/form/section/header")
       HeaderTitle=(component "hds/form/header/title" size="300")
@@ -12,5 +12,5 @@
       MultiFieldGroup=(component "hds/form/section/multi-field-group")
       MultiFieldGroupItem=(component "hds/form/section/multi-field-group/item")
     )
-  }}
+  ~}}
 </div>
