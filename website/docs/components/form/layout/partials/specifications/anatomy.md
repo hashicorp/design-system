@@ -4,8 +4,8 @@
 
 | Element                           | Usage                                                                                   |
 |-----------------------------------|-----------------------------------------------------------------------------------------|
-| Title/section title               | Optional                                                                                |
-| Description/section description   | Optional                                                                                |
+| Title/Section title               | Optional                                                                                |
+| Description/Section description   | Optional                                                                                |
 | Section                           | May consist of multiple content types, including text, fields, and multi field groups.  |
 | Form error                        | Optional, uses the critical inline [Alert](components/alert#status-alerts)              |
 | Field                             | Required, supports any Form component or text elements                                  |

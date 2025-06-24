@@ -97,7 +97,7 @@ Don’t use a Separator between the last Section and the Button Set or form acti
 
 ## Form Footer
 
-The Form Footer typically houses a Button or Button Set to allow users to save or submit form information. When there's more than one action, we recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
+The Form Footer typically houses a Button or Button Set to allow users to submit form information. When there's more than one action, we recommend using the [Button Set](/patterns/form-patterns#button-sets) component for consistent spacing and layout.
 
 ## Width and resizing behavior
 
@@ -109,7 +109,7 @@ Where more control is needed, you can override the max-width property with any v
 
 ### Full-width
 
-Individual Sections can be set to full-width, if needed. Any component requiring increased width for usability, e.g., a Radio Card Group or Key Value Input, should be moved into a separate Section to allow for full width layout, even if they would otherwise be grouped with other associated fields.
+Individual Sections can be set to full-width, if needed. Any component requiring increased width for usability, e.g., a Radio Card Group, should be moved into a separate Section to allow for full width layout, even if they would otherwise be grouped with other associated fields.
 
 ![Full width Form content in comparison to constricted width content](/assets/components/form/layout/form-mixed-width-example.png)
 
