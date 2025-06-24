@@ -254,7 +254,7 @@ If further visual separation between Form Sections is desired, add a `FormSepara
 
 #### Responsive layout
 
-In screen widths below 768px (the “md” breakpoint), the `SectionMultiFieldGroup` content layout will automatically stack.
+In screen widths below 768px (the [“md” breakpoint](/foundations/breakpoints)), the `SectionMultiFieldGroup` content layout will automatically stack.
 
 ```handlebars
 <Hds::Form class="doc-form-layout-mobile-view" as |FORM|>
