@@ -298,7 +298,7 @@ The `FormFooter` should be used at the bottom of the other `Form` content to con
 </Hds::Form>
 ```
 
-### Putting it all together
+## Putting it all together
 
 An example form with Sections using the default max-width together with a full-width Section:
 
