@@ -1,0 +1,8 @@
+{{! template-lint-disable no-pointer-down-event-binding }}
+<div
+  draggable="true"
+  class={{this.classNames}}
+  {{on "dragstart" this.handleDragStart}}
+  {{on "dragend" this.handleDragEnd}}
+  ...attributes
+/>
