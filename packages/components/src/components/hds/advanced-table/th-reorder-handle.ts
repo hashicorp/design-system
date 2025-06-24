@@ -25,20 +25,13 @@ export interface HdsAdvancedTableThReorderHandleSignature {
 function constructDragPreview(width: number, height?: number): HTMLDivElement {
   const dragPreviewElement = document.createElement('div');
 
+  dragPreviewElement.className = 'hds-advanced-table__th-reorder-drag-preview';
+
   dragPreviewElement.style.width = `${width}px`;
 
   if (height) {
     dragPreviewElement.style.height = `${height}px`;
   }
-
-  // You can style this however you want the drag "ghost" image to look
-  dragPreviewElement.style.opacity = '0.5';
-  dragPreviewElement.style.backgroundColor = 'hsl(205, 80%, 90%)'; // A light blue
-  dragPreviewElement.style.border = '1px solid hsl(205, 100%, 50%)';
-  dragPreviewElement.style.borderRadius = '4px';
-  dragPreviewElement.style.position = 'absolute';
-  dragPreviewElement.style.left = '-9999px';
-  dragPreviewElement.style.top = '-9999px';
 
   document.body.appendChild(dragPreviewElement);
 
