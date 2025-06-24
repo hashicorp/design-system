@@ -14,7 +14,7 @@
     behavior.
   </Shw::Text::Body>
 
-  <Hds::Form::KeyValueInputs @data={{this.functionalExampleData}}>
+  <Hds::Form::KeyValueInputs id="functional-example-1" @data={{this.functionalExampleData}}>
     <:header as |H|>
       <H.Legend>Tags applied to this workspace</H.Legend>
       <H.HelperText>
@@ -29,7 +29,12 @@
           <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq keyError undefined) true)}} as |F|>
             <F.Label>Key</F.Label>
             <F.HelperText>The key you enter should be a good key.</F.HelperText>
-            <F.TextInput @value={{R.rowData.key.text}} {{on "blur" (fn this.onInputBlur R.rowData "key")}} />
+            <F.TextInput
+              name="key"
+              @value={{R.rowData.key.text}}
+              {{on "change" this.onInputChange}}
+              {{on "blur" (fn this.onInputBlur R.rowData "key")}}
+            />
 
             {{#if (not-eq keyError undefined)}}
               <F.Error>
@@ -42,7 +47,12 @@
         {{#let (get rowErrors "value") as |valueError|}}
           <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq valueError undefined) true)}} as |F|>
             <F.Label>Value</F.Label>
-            <F.Textarea @value={{R.rowData.value.text}} {{on "blur" (fn this.onInputBlur R.rowData "value")}} />
+            <F.Textarea
+              name="value"
+              @value={{R.rowData.value.text}}
+              {{on "blur" (fn this.onInputBlur R.rowData "value")}}
+              {{on "change" this.onInputChange}}
+            />
             {{#if (not-eq valueError undefined)}}
               <F.Error>
                 {{valueError}}
@@ -50,7 +60,9 @@
             {{/if}}
           </R.Field>
         {{/let}}
-        <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+        {{#if this.canDeleteRow}}
+          <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+        {{/if}}
       {{/let}}
     </:row>
 
@@ -758,6 +770,7 @@
               <F.TextInput @value={{R.rowData.value.text}} />
             {{/if}}
           </R.Field>
+
           <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
         </:row>
 

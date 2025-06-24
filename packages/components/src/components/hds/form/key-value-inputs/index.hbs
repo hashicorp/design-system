@@ -52,7 +52,12 @@
           )
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
           DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" fieldsetElement=this._element rowData=undefined rowIndex=0
+            "hds/form/key-value-inputs/delete-row-button"
+            fieldsetElement=this._element
+            onInsert=this._setUpColumn
+            onRemove=this._removeColumn
+            rowData=undefined
+            rowIndex=0
           )
           rowIndex=0
         )
@@ -79,7 +84,12 @@
       {{yield
         (hash
           DeleteRowButton=(component
-            "hds/form/key-value-inputs/delete-row-button" fieldsetElement=this._element rowData=item rowIndex=index
+            "hds/form/key-value-inputs/delete-row-button"
+            fieldsetElement=this._element
+            onInsert=this._setUpColumn
+            onRemove=this._removeColumn
+            rowData=item
+            rowIndex=index
           )
         )
         to="row"

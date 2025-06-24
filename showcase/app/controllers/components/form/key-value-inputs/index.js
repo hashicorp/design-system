@@ -7,6 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
+import { schedule } from '@ember/runloop';
 
 const DEFAULT_DATA = [
   {
@@ -62,6 +63,7 @@ const DYNAMIC_INPUT_EXAMPLE_DATA = [
 
 export default class KeyValueInputsController extends Controller {
   @tracked functionalExampleData = DEFAULT_DATA;
+  @tracked canDeleteRow = true;
   @tracked canAddRow = this.functionalExampleData.length < 4;
   @deepTracked functionalExampleErrors = [{ value: 'Value is required.' }];
   @deepTracked dynamicInputExampleData = DYNAMIC_INPUT_EXAMPLE_DATA;
@@ -70,6 +72,32 @@ export default class KeyValueInputsController extends Controller {
   emptyData = [];
   sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
   sampleData = DEFAULT_DATA;
+
+  checkIfCanDeleteRow() {
+    console.log('checkIfCanDeleteRow called');
+    if (this.functionalExampleData.length > 1) {
+      this.canDeleteRow = true;
+    } else {
+      const keyValueInputs = document.getElementById('functional-example-1');
+
+      const nameInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='key']",
+      );
+      const valueInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first textarea[name='value']",
+      );
+
+      if (nameInput.value === '' && valueInput.value === '') {
+        this.canDeleteRow = false;
+      } else {
+        this.canDeleteRow = true;
+      }
+    }
+  }
+
+  @action onInputChange() {
+    this.checkIfCanDeleteRow();
+  }
 
   @action onInputBlur(item, inputType, event) {
     const value = event.target.value;
@@ -100,18 +128,50 @@ export default class KeyValueInputsController extends Controller {
     this.functionalExampleData = this.functionalExampleData.filter(
       (data) => data.id !== item.id,
     );
+
+    // eslint-disable-next-line ember/no-runloop
+    schedule('afterRender', () => {
+      this.checkIfCanDeleteRow();
+    });
   }
 
   @action
   onAddRowClick() {
-    this.functionalExampleData = [
-      ...this.functionalExampleData,
-      {
-        key: '',
-        value: '',
-        id: this.functionalExampleData.length + 1,
-      },
-    ];
+    if (this.functionalExampleData.length === 0) {
+      const keyValueInputs = document.getElementById('functional-example-1');
+
+      const nameInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='key']",
+      );
+      const valueInput = keyValueInputs.querySelector(
+        ".hds-form-key-value-inputs__row--first input[name='value']",
+      );
+
+      // when going from empty to one row, we want to save the values from the row that is rendered and add a new one. otherwise, the data in the initial row is overwritten
+      this.functionalExampleData = [
+        {
+          key: nameInput ? nameInput.value : '',
+          value: valueInput ? valueInput.value : '',
+          id: 1,
+        },
+        {
+          key: '',
+          value: '',
+          id: 2,
+        },
+      ];
+    } else {
+      this.functionalExampleData = [
+        ...this.functionalExampleData,
+        {
+          key: '',
+          value: '',
+          id: this.functionalExampleData.length + 1,
+        },
+      ];
+    }
+
+    this.checkIfCanDeleteRow();
   }
 
   @action

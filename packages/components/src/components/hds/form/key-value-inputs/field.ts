@@ -34,8 +34,8 @@ export interface HdsFormKeyValueInputsFieldSignature {
     isInvalid?: boolean;
     isOptional?: boolean;
     isRequired?: boolean;
-    onInsert?: (element: HTMLDivElement) => void;
-    onRemove?: (element: HTMLDivElement) => void;
+    onInsert?: () => void;
+    onRemove?: () => void;
     rowIndex: number;
     width?: string;
   };
@@ -95,17 +95,14 @@ export interface HdsFormKeyValueInputsFieldSignature {
 // @ts-expect-error: decorator function return type 'ClassOf<AriaDescribedBy>' is not assignable to 'typeof HdsFormField'
 @ariaDescribedBy
 export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValueInputsFieldSignature> {
-  private _element!: HTMLDivElement;
-
-  private _onInsert = modifier((element: HTMLDivElement) => {
-    this._element = element;
+  private _onInsert = modifier(() => {
     if (this.args.onInsert) {
-      this.args.onInsert(element);
+      this.args.onInsert();
     }
 
     return () => {
       if (this.args.onRemove) {
-        this.args.onRemove(element);
+        this.args.onRemove();
       }
     };
   });

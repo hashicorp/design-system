@@ -8,8 +8,8 @@ import { modifier } from 'ember-modifier';
 
 export interface HdsFormKeyValueInputsGenericSignature {
   Args: {
-    onInsert?: (element: HTMLDivElement) => void;
-    onRemove?: (element: HTMLDivElement) => void;
+    onInsert?: () => void;
+    onRemove?: () => void;
   };
   Blocks: {
     default: [];
@@ -18,17 +18,14 @@ export interface HdsFormKeyValueInputsGenericSignature {
 }
 
 export default class HdsFormKeyValueInputsGeneric extends Component<HdsFormKeyValueInputsGenericSignature> {
-  private _element!: HTMLDivElement;
-
-  private _onInsert = modifier((element: HTMLDivElement) => {
-    this._element = element;
+  private _onInsert = modifier(() => {
     if (this.args.onInsert) {
-      this.args.onInsert(element);
+      this.args.onInsert();
     }
 
     return () => {
       if (this.args.onRemove) {
-        this.args.onRemove(element);
+        this.args.onRemove();
       }
     };
   });

@@ -69,7 +69,7 @@ export interface HdsFormKeyValueInputsSignature {
         >;
         DeleteRowButton?: WithBoundArgs<
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
-          'fieldsetElement' | 'rowData' | 'rowIndex'
+          'fieldsetElement' | 'onInsert' | 'onRemove' | 'rowData' | 'rowIndex'
         >;
         rowData?: unknown;
         rowIndex?: number;
