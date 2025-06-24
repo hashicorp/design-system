@@ -126,7 +126,11 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       class={{@extraSectionClass}}
       @isFullWidth={{@isSectionFullWidth}}
     >
-      <HdsFormTextInputField @width="300px" placeholder="This field has a custom width of 300px" as |F|>
+      <HdsFormTextInputField
+        @width="300px"
+        placeholder="This field has a custom width of 300px"
+        as |F|
+      >
         <F.Label>Policy set name</F.Label>
         <F.HelperText>Valid characters include ASCII letters, numbers, as well
           as spaces, periods (.), dashes (-), and underscores (_).</F.HelperText>
