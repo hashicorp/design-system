@@ -49,19 +49,19 @@
           <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup FormField 2" @background="#add8e6" />
         </FORM.SectionMultiFieldGroup>
 
-        <FORM.SectionMultiFieldGroup as |FG|>
-          <FG.Item @width="100%">
+        <FORM.SectionMultiFieldGroup as |SMFG|>
+          <SMFG.Item @width="100%">
             <Shw::Placeholder @height="2.4em" @text="MultiFieldGroup Item 2" @background="#add8e6" />
-          </FG.Item>
+          </SMFG.Item>
 
-          <FG.Item @width="max-content">
+          <SMFG.Item @width="max-content">
             <Shw::Placeholder
               @height="2.4em"
               {{style padding="0 1em"}}
               @text="MultiFieldGroup Item 2"
               @background="#add8e6"
             />
-          </FG.Item>
+          </SMFG.Item>
         </FORM.SectionMultiFieldGroup>
       </FORM.Section>
 
@@ -519,8 +519,8 @@
   <Shw::Text::H4>Content</Shw::Text::H4>
 
   <div class="{{if this.showHighlight 'shw-component-form-layout-highlight-elements'}}">
-    <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
-      <SG.Item @label="with equal widths (default)">
+    <Shw::Flex @direction="column" @gap="2rem" as |SF|>
+      <SF.Item @label="two fields / equal widths (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -535,9 +535,9 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="with one error">
+      <SF.Item @label="with one error">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -553,9 +553,9 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="with two errors">
+      <SF.Item @label="with two errors">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -572,29 +572,9 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="with mixed widths (80% & 20%)">
-        <Hds::Form as |FORM|>
-          <FORM.Section>
-            <FORM.SectionMultiFieldGroup as |FG|>
-              <FG.Item @width="80%">
-                <Hds::Form::TextInput::Field as |F|>
-                  <F.Label>Control 1</F.Label>
-                </Hds::Form::TextInput::Field>
-              </FG.Item>
-
-              <FG.Item @width="20%">
-                <Hds::Form::TextInput::Field as |F|>
-                  <F.Label>Control 2</F.Label>
-                </Hds::Form::TextInput::Field>
-              </FG.Item>
-            </FORM.SectionMultiFieldGroup>
-          </FORM.Section>
-        </Hds::Form>
-      </SG.Item>
-
-      <SG.Item @label=" with 3 fields of equal width">
+      <SF.Item @label=" three fields / equal widths (default)">
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -611,19 +591,62 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="3 fields, wrapped with Items w/ widths of 100%, auto, & 6em">
+      <SF.Item as |SFI|>
+        <SFI.Label>with <code>Item</code>s / mixed widths (80% &amp; 20%)</SFI.Label>
         <Hds::Form as |FORM|>
           <FORM.Section>
-            <FORM.SectionMultiFieldGroup as |FG|>
-              <FG.Item @width="100%">
+            <FORM.SectionMultiFieldGroup as |SMFG|>
+              <SMFG.Item @width="80%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 1</F.Label>
+                </Hds::Form::TextInput::Field>
+              </SMFG.Item>
+
+              <SMFG.Item @width="20%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 2</F.Label>
+                </Hds::Form::TextInput::Field>
+              </SMFG.Item>
+            </FORM.SectionMultiFieldGroup>
+          </FORM.Section>
+        </Hds::Form>
+      </SF.Item>
+
+      <SF.Item as |SFI|>
+        <SFI.Label>with <code>Item</code>s / mixed widths (20% &amp; 80%) + custom width on <code>Field</code></SFI.Label>
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <FORM.SectionMultiFieldGroup as |SMFG|>
+              <SMFG.Item @width="20%">
+                <Hds::Form::TextInput::Field as |F|>
+                  <F.Label>Control 1</F.Label>
+                </Hds::Form::TextInput::Field>
+              </SMFG.Item>
+              <SMFG.Item @width="80%">
+                <Hds::Form::TextInput::Field @width="300px" placeholder="This field has a custom width of 300px" as |F|>
+                  <F.Label>Control 2</F.Label>
+                  <F.HelperText>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</F.HelperText>
+                </Hds::Form::TextInput::Field>
+              </SMFG.Item>
+            </FORM.SectionMultiFieldGroup>
+          </FORM.Section>
+        </Hds::Form>
+      </SF.Item>
+
+      <SF.Item as |SFI|>
+        <SFI.Label>with <code>Item</code>s / mixed widths (100%, auto, 6em)</SFI.Label>
+        <Hds::Form as |FORM|>
+          <FORM.Section>
+            <FORM.SectionMultiFieldGroup as |SMFG|>
+              <SMFG.Item @width="100%">
                 <Hds::Form::TextInput::Field as |F|>
                   <F.Label>City</F.Label>
                 </Hds::Form::TextInput::Field>
-              </FG.Item>
+              </SMFG.Item>
 
-              <FG.Item @width="auto">
+              <SMFG.Item @width="auto">
                 <Hds::Form::Select::Field as |F|>
                   <F.Label>State</F.Label>
                   <F.Options>
@@ -634,19 +657,20 @@
                     <option value="state-4">North Carolina</option>
                   </F.Options>
                 </Hds::Form::Select::Field>
-              </FG.Item>
+              </SMFG.Item>
 
-              <FG.Item @width="6em">
+              <SMFG.Item @width="6em">
                 <Hds::Form::TextInput::Field as |F|>
                   <F.Label>Zip</F.Label>
                 </Hds::Form::TextInput::Field>
-              </FG.Item>
+              </SMFG.Item>
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="3 Fields, wrapped with Items w/ widths set on Fields of 100%, auto, & 6em">
+      <SF.Item as |SFI|>
+        <SFI.Label>with <code>Item</code>s / mixed widths set on <code>Field</code>s (100%, auto, 6em)</SFI.Label>
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -677,9 +701,10 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
+      </SF.Item>
 
-      <SG.Item @label="3 Fields, w/ widths set on Fields of 100%, auto, & 6em (no Item wrappers)">
+      <SF.Item as |SFI|>
+        <SFI.Label>without <code>Item</code>s / mixed widths set on <code>Field</code>s (100%, auto, 6em)</SFI.Label>
         <Hds::Form as |FORM|>
           <FORM.Section>
             <FORM.SectionMultiFieldGroup>
@@ -704,8 +729,8 @@
             </FORM.SectionMultiFieldGroup>
           </FORM.Section>
         </Hds::Form>
-      </SG.Item>
-    </Shw::Grid>
+      </SF.Item>
+    </Shw::Flex>
   </div>
 
   <Shw::Divider @level={{2}} />
