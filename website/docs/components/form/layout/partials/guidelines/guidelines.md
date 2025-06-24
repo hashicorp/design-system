@@ -28,22 +28,6 @@ Spacing in forms is based on a decreasing scale on an 8px grid. From largest to 
 
 ![Representation of the various spacing sizes between Form layout components](/assets/components/form/layout/form-layout-spacing.png)
 
-!!! Do
-
-Organize inputs together when they are closely related and beneficial to read together. No more than three inputs should be put within a single row.
-
-![Three credit card information fields arranged with one full width field followed by a row of two side-by-side equal width fields](/assets/components/form/layout/form-do-rows.png)
-
-!!!
-
-!!! Dont
-
-Place inputs in rows to save space or create columns within the form.
-
-![Three equal width fields for credit card information arranged in a single row](/assets/components/form/layout/form-dont-rows.png)
-
-!!!
-
 Visit the [Form Patterns](/patterns/form-patterns) guidelines for additional details on spacing in forms.
 
 ## Form Header
@@ -77,7 +61,21 @@ The Section Multi Field Group organizes closely related form inputs in a single 
 In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically stack.
 
 
-![Section Multi Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
+!!! Do
+
+Organize inputs together when they are closely related and beneficial to read together. No more than three inputs should be put within a single row.
+
+![Three credit card information fields arranged with one full width field followed by a row of two side-by-side equal width fields](/assets/components/form/layout/form-do-rows.png)
+
+!!!
+
+!!! Dont
+
+Place inputs in rows to save space or create columns within the form.
+
+![Three equal width fields for credit card information arranged in a single row](/assets/components/form/layout/form-dont-rows.png)
+
+!!!
 
 ## Form Separator
 
@@ -116,5 +114,7 @@ Where more control is needed, you can override the max-width property with any v
 Individual Sections can be set to full-width, if needed. Any component requiring increased width for usability, e.g., a Radio Card Group, should be moved into a separate Section to allow for full width layout, even if they would otherwise be grouped with other associated fields.
 
 ![Full width Form content in comparison to constricted width content](/assets/components/form/layout/form-mixed-width-example.png)
+
+### Stacking behavior
 
 Fields within a Section Multi Field Group stack automatically at the ['md' breakpoint](/foundations/breakpoints). 
