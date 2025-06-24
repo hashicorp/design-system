@@ -742,9 +742,7 @@
 
           <R.Field as |F|>
             <F.Label>Value</F.Label>
-            {{#if (eq R.rowData.key "textinput")}}
-              <F.TextInput @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "textarea")}}
+            {{#if (eq R.rowData.key "textarea")}}
               <F.Textarea @value={{R.rowData.value.text}} />
             {{else if (eq R.rowData.key "select")}}
               <F.SuperSelectSingle
@@ -756,6 +754,8 @@
               >
                 {{option}}
               </F.SuperSelectSingle>
+            {{else}}
+              <F.TextInput @value={{R.rowData.value.text}} />
             {{/if}}
           </R.Field>
           <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />

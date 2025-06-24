@@ -126,10 +126,7 @@ export default class KeyValueInputsController extends Controller {
     this.dynamicInputExampleData = [
       ...this.dynamicInputExampleData,
       {
-        key: 'tag',
-        value: {
-          inputType: 'select',
-        },
+        key: 'textinput',
         id: this.dynamicInputExampleData.length + 1,
       },
     ];
@@ -171,9 +168,6 @@ export default class KeyValueInputsController extends Controller {
       nameInput.value = '';
       valueInput.value = '';
     }
-
-    console.log('onStartWithEmptyDeleteRowClick', item);
-    console.log('startWithEmptyExampleData', this.startWithEmptyExampleData);
 
     this.startWithEmptyExampleData = this.startWithEmptyExampleData.filter(
       (data) => data.id !== item.id,
