@@ -184,7 +184,7 @@
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="<[FF].ButtonSet>" @type="yielded component">
-    `ButtonSet` yielded as contextual component (see below).
+    `[ButtonSet](/component/button-set]` yielded as contextual component
   </C.Property>
   <C.Property @name="isFullWidth" @type="boolean" @default="false">
     Indicates that the footer should take up the full width of the parent container.
