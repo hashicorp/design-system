@@ -41,7 +41,7 @@ Use the optional `FormHeader` to include a `Title` and `Description` for your `F
 
 The `@tag` argument changes the HTML element that wraps the `FormHeaderTitle` content. When organizing the content on a webpage, the heading levels should reflect the structure of the page. For example, if a `FormHeaderTitle` appears directly below the main heading of the page, it should be `"h2"`.
 
-To specify which size the `FormHeaderTitle` displays at, use the `@tag` argument.
+To specify which size the `FormHeaderTitle` displays at, use the `@size` argument.
 
 ```handlebars
 <Hds::Form as |FORM|>
