@@ -52,10 +52,10 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
       </C.Property>
-      <C.Property @name="minWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)">
+      <C.Property @name="minWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="150px">
         If set, determines the column’s minimum width when resizing.
       </C.Property>
-      <C.Property @name="maxWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)">
+      <C.Property @name="maxWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="800px">
         If set, determines the column’s maximum width when resizing.
       </C.Property>
       <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
