@@ -4,7 +4,7 @@ Spacing between sections, fields, text, and other form elements should follow a 
 
 ### Form
 
-A **form component** acts as a layout mechanism by wrapping the content, fields, and actions into sections with consistent spacing while simultaneously handling the logic for submitting information and data collected by the fields.
+A form acts as a container for form sections, fields, and other form content.
 
 ### Sections
 
