@@ -10,10 +10,10 @@ import type { HdsButtonSignature } from '../../button/index.ts';
 
 export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
   Args: {
-    fieldsetElement?: HTMLFieldSetElement;
     onClick?: (rowData: unknown) => void;
     onInsert?: () => void;
     onRemove?: () => void;
+    returnFocusTo?: HTMLFieldSetElement;
     rowData: unknown;
     rowIndex: number;
     text?: HdsButtonSignature['Args']['text'];
@@ -31,6 +31,9 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
       if (this.args.onRemove) {
         this.args.onRemove();
       }
+
+      // move focus to the fieldset element so people using a keyboard are not forced back to the top of the page.
+      this.args.returnFocusTo?.focus();
     };
   });
 
@@ -45,8 +48,5 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
     if (typeof onClick === 'function') {
       onClick(this.args.rowData);
     }
-
-    // move focus to the fieldset element so people using a keyboard are not forced back to the top of the page.
-    this.args.fieldsetElement?.focus();
   }
 }

@@ -22,12 +22,12 @@ module('Integration | Component | hds/form/text-input/base', function (hooks) {
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      hbs`<Hds::Form::TextInput::Base @id="test-form-text-input" @ariaDescribedBy="test-form-text-input-description" />`,
+      hbs`<Hds::Form::TextInput::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
     );
     assert
-      .dom('#test-form-text-input')
+      .dom('#custom-id')
       .exists()
-      .hasAria('describedby', 'test-form-text-input-description');
+      .hasAria('describedby', 'custom-description-id');
   });
 
   // TYPE

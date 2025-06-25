@@ -27,8 +27,8 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
   });
 
   test('it should set the id correctly if pass @id argument', async function (assert) {
-    await render(hbs`<Hds::Form::Legend @id="test-form-legend" />`);
-    assert.dom('#test-form-legend').exists();
+    await render(hbs`<Hds::Form::Legend @id="custom-id" />`);
+    assert.dom('#custom-id').exists();
   });
 
   // CONTENT

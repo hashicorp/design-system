@@ -39,9 +39,7 @@
     }}
   </div>
 
-  <div>
-    {{yield (hash Generic=(component "hds/yield")) to="header"}}
-  </div>
+  {{yield (hash Generic=(component "hds/yield")) to="header"}}
 
   {{#if (eq @data.length 0)}}
     <div class="hds-form-key-value-inputs__row hds-form-key-value-inputs__row--first">
@@ -53,7 +51,7 @@
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
           DeleteRowButton=(component
             "hds/form/key-value-inputs/delete-row-button"
-            fieldsetElement=this._element
+            returnFocusTo=this._element
             onInsert=this._setUpColumn
             onRemove=this._removeColumn
             rowData=undefined
@@ -85,7 +83,7 @@
         (hash
           DeleteRowButton=(component
             "hds/form/key-value-inputs/delete-row-button"
-            fieldsetElement=this._element
+            returnFocusTo=this._element
             onInsert=this._setUpColumn
             onRemove=this._removeColumn
             rowData=item

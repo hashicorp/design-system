@@ -34,7 +34,7 @@ const KEY_VALUE_PAIR_GENERIC_SELECTOR =
 const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
   '.hds-form-key-value-inputs__row--first';
 const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
-  '.hds-form-key-value-inputs__row-delete-button-container';
+  '.hds-form-key-value-inputs__delete-row-button-container';
 
 export interface HdsFormKeyValueInputsSignature {
   Args: {
@@ -69,7 +69,7 @@ export interface HdsFormKeyValueInputsSignature {
         >;
         DeleteRowButton?: WithBoundArgs<
           typeof HdsFormKeyValueInputsDeleteRowButtonComponent,
-          'fieldsetElement' | 'onInsert' | 'onRemove' | 'rowData' | 'rowIndex'
+          'onInsert' | 'onRemove' | 'returnFocusTo' | 'rowData' | 'rowIndex'
         >;
         rowData?: unknown;
         rowIndex?: number;
@@ -140,7 +140,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     let updatedGridTemplateColumns = '';
 
     columns?.forEach((column, index) => {
-      const columnElement = column as HTMLDivElement;
+      const columnElement = column as HTMLElement;
 
       if (
         // do substring to remove the leading dot from the class selector

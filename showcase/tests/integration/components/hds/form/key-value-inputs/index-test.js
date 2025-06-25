@@ -87,7 +87,7 @@ module(
 
     // ROW
 
-    test('it should render the row content', async function (assert) {
+    test('it should render the row content if the data argument is an empty array', async function (assert) {
       await this.createKeyValueInputs();
       assert
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__row')
@@ -108,6 +108,31 @@ module(
           '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button',
         )
         .exists();
+    });
+
+    test('it should render the row content if the data argument has entries', async function (assert) {
+      await this.createKeyValueInputs({
+        data: [{ value: 'Test value' }, { value: 'Another value' }],
+      });
+      assert
+        .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__row')
+        .exists({ count: 2 });
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__row .hds-form-key-value-inputs__field',
+        )
+        .exists({ count: 2 });
+      assert
+        .dom('#test-form-key-value-inputs #row-generic')
+        .exists({ count: 2 })
+        .hasText('Generic content');
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button',
+        )
+        .exists({ count: 2 });
     });
 
     // FOOTER
@@ -138,6 +163,72 @@ module(
 
     // STYLES
 
+    test('it should set the appropriate column indexes for the generic content and delete row button if there is no data', async function (assert) {
+      await this.createKeyValueInputs();
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button-container',
+        )
+        .hasStyle({ '--hds-key-value-inputs-column-index': '3' });
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__generic-container',
+        )
+        .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
+    });
+
+    test('it should set the appropriate column indexes when there is complex row content', async function (assert) {
+      this.data = [
+        { key: 'Test key', value: 'Test value' },
+        { key: 'Another key', value: 'Another value' },
+      ];
+      await render(hbs`
+        <Hds::Form::KeyValueInputs
+          id="test-form-key-value-inputs"
+          @data={{this.data}}
+        >
+          <:header as |H|>
+            <H.Legend>Legend</H.Legend>
+          </:header>
+
+          <:row as |R|>
+            <R.Field as |F|>
+               <F.Label>Key</F.Label>
+        <F.TextInput @value={{R.rowData.key}} />
+            </R.Field>
+            <R.Generic id="row-generic-1">
+              Generic content
+            </R.Generic>
+            <R.Field as |F|>
+               <F.Label>Value</F.Label>
+        <F.Textarea @value={{R.rowData.value}} />
+            </R.Field>
+            <R.DeleteRowButton />
+            {{!-- Adding generic content after the delete row button to ensure it is actually rendered in a column before the delete icon --}}
+            <R.Generic id="row-generic-2">
+              Generic content
+            </R.Generic>
+          </:row>
+        </Hds::Form::KeyValueInputs>
+      `);
+
+      assert
+        .dom(
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button-container',
+        )
+        .hasStyle({ '--hds-key-value-inputs-column-index': '5' });
+
+      assert
+        .dom('#test-form-key-value-inputs #row-generic-1')
+        .hasStyle({ '--hds-key-value-inputs-column-index': '2' });
+
+      assert
+        .dom('#test-form-key-value-inputs #row-generic-2')
+        .hasStyle({ '--hds-key-value-inputs-column-index': '4' });
+    });
+
     test('it should set the appropriate column indexes for the generic content and delete row button', async function (assert) {
       await this.createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
@@ -145,7 +236,7 @@ module(
 
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__row-delete-button-container',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__delete-row-button-container',
         )
         .hasStyle({ '--hds-key-value-inputs-column-index': '3' });
 

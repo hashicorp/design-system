@@ -432,6 +432,29 @@
         </:footer>
       </Hds::Form::KeyValueInputs>
     </SF.Item>
+    <SF.Item @label="With extra content">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+          <H.Generic><Shw::Placeholder @height="36px" @text="generic content" /></H.Generic>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
   </Shw::Flex>
 
   <Shw::Divider />

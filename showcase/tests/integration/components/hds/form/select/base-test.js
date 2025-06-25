@@ -18,12 +18,12 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      hbs`<Hds::Form::Select::Base @id="test-form-select" @ariaDescribedBy="test-form-select-description" />`,
+      hbs`<Hds::Form::Select::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
     );
     assert
-      .dom('#test-form-select')
+      .dom('#custom-id')
       .exists()
-      .hasAria('describedby', 'test-form-select-description');
+      .hasAria('describedby', 'custom-description-id');
   });
 
   // OPTIONS

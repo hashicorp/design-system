@@ -14,12 +14,9 @@ module(
     setupRenderingTest(hooks);
 
     test('it should render the component with a CSS class that matches the component name', async function (assert) {
-      await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" as |F|>
-      <F.Label>Label</F.Label>
-      <F.TextInput @value="Value" />
-      <F.HelperText>Helper text</F.HelperText>
-      <F.Error>Error text</F.Error>
-    </Hds::Form::KeyValueInputs::Field>`);
+      await render(
+        hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" />`,
+      );
       assert
         .dom('#test-form-key-value-field')
         .hasClass('hds-form-key-value-inputs__field');
@@ -33,6 +30,7 @@ module(
       <F.Error>Error text</F.Error>
     </Hds::Form::KeyValueInputs::Field>`);
 
+      // The screen reader only text ("row 1") is also included in the label
       assert
         .dom(
           '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
@@ -57,8 +55,6 @@ module(
       await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @isRequired={{true}} @rowIndex={{0}} as |F|>
       <F.Label>Label</F.Label>
       <F.TextInput @value="Value" />
-      <F.HelperText>Helper text</F.HelperText>
-      <F.Error>Error text</F.Error>
     </Hds::Form::KeyValueInputs::Field>`);
 
       assert
@@ -72,8 +68,6 @@ module(
       await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @isOptional={{true}} @rowIndex={{0}} as |F|>
       <F.Label>Label</F.Label>
       <F.TextInput @value="Value" />
-      <F.HelperText>Helper text</F.HelperText>
-      <F.Error>Error text</F.Error>
     </Hds::Form::KeyValueInputs::Field>`);
 
       assert
@@ -87,7 +81,6 @@ module(
       await render(hbs`<Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @isInvalid={{true}} @rowIndex={{0}} as |F|>
       <F.Label>Label</F.Label>
       <F.TextInput @value="Value" />
-      <F.HelperText>Helper text</F.HelperText>
       <F.Error>Error text</F.Error>
     </Hds::Form::KeyValueInputs::Field>`);
 

@@ -18,11 +18,11 @@ module('Integration | Component | hds/form/file-input/base', function (hooks) {
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      hbs`<Hds::Form::FileInput::Base @id="test-form-file-input" @ariaDescribedBy="test-form-file-input-description" />`,
+      hbs`<Hds::Form::FileInput::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
     );
     assert
-      .dom('#test-form-file-input')
+      .dom('#custom-id')
       .exists()
-      .hasAria('describedby', 'test-form-file-input-description');
+      .hasAria('describedby', 'custom-description-id');
   });
 });

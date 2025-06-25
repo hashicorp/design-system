@@ -18,12 +18,12 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
 
   test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
     await render(
-      hbs`<Hds::Form::Textarea::Base @id="test-form-textarea" @ariaDescribedBy="test-form-textarea-description" />`,
+      hbs`<Hds::Form::Textarea::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
     );
     assert
-      .dom('#test-form-textarea')
+      .dom('#custom-id')
       .exists()
-      .hasAria('describedby', 'test-form-textarea-description');
+      .hasAria('describedby', 'custom-description-id');
   });
 
   // VALUE

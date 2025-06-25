@@ -24,12 +24,12 @@ module(
 
     test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
       await render(
-        hbs`<Hds::Form::MaskedInput::Base @id="test-form-masked-input" @ariaDescribedBy="test-form-masked-input-description" />`,
+        hbs`<Hds::Form::MaskedInput::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
       );
       assert
-        .dom('#test-form-masked-input')
+        .dom('#custom-id')
         .exists()
-        .hasAria('describedby', 'test-form-masked-input-description');
+        .hasAria('describedby', 'custom-description-id');
     });
 
     // MASKING

@@ -17,7 +17,11 @@
   margin: 0;
   padding: 0;
   border: none;
-  row-gap: 12px;
+  row-gap: 24px;
+
+  @include hds-breakpoint-above("md") {
+    row-gap: 12px;
+  }
 
   &:focus {
     // we move focus to the fieldset when a row is deleted, but we don't need the focus outline visible.
@@ -31,7 +35,7 @@
   row-gap: 8px;
   align-items: flex-start;
 
-  @include hds-breakpoint-above("sm") {
+  @include hds-breakpoint-above("md") {
     display: grid;
     flex-grow: 1;
     grid-template-columns: var(--hds-key-value-pair-columns, 1fr 1fr min-content);
@@ -40,7 +44,7 @@
     row-gap: 0;
 
     &.hds-form-key-value-inputs__row--first {
-      .hds-form-key-value-inputs__row-delete-button-container,
+      .hds-form-key-value-inputs__delete-row-button-container,
       .hds-form-key-value-inputs__generic-container {
         grid-row: 2;
         // need to set the `grid-column` because the `grid-row` is set, otherwise it defaults to the first column
@@ -72,14 +76,11 @@
   .hds-form-key-value-inputs__field-header {
     align-self: flex-end;
     min-width: 0;
+    margin-bottom: 12px; // space between label and control
   }
 
   .hds-form-select {
     width: 100%; // we want the select element to fill the parent container
-  }
-
-  .hds-form-key-value-inputs__field-header {
-    margin-bottom: 12px; // space between label and control
   }
 
   .hds-form-key-value-inputs__field-control {
@@ -119,6 +120,6 @@
 }
 
 .hds-form-key-value-inputs__generic-container,
-.hds-form-key-value-inputs__row-delete-button-container {
+.hds-form-key-value-inputs__delete-row-button-container {
   align-self: flex-start;
 }
