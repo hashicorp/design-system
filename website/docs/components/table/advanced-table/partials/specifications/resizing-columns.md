@@ -1,6 +1,6 @@
 ## Column resizing
 
-The Advanced Table supports resizing individual columns to display the entire contents of a cell or to give hierarchical preference to specific columns within the table.
+The Advanced Table supports resizing individual columns to display the entire contents of a cell.
 
 The Ember component supports this via an interactive "resize border" which functions either by clicking and dragging on the horizontal axis with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
 
