@@ -18,6 +18,9 @@
   <C.Property @name="<[F].SectionHeader>" @type="yielded component">
     `Form::Section::Header` yielded as contextual component (see below).
   </C.Property>
+  <C.Property @name="<[F].SectionHeaderTitle>" @type="yielded component">
+    `Form::Section::Header::Title` yielded as contextual component (see below).
+  </C.Property>
   <C.Property @name="<[F].SectionHeaderDescription>" @type="yielded component">
     `Form::.Section::Header::Description` yielded as contextual component (see below).
   </C.Property>
