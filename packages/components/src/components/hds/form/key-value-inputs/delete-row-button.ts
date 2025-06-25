@@ -32,8 +32,13 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
         this.args.onRemove();
       }
 
-      // move focus to the fieldset element so people using a keyboard are not forced back to the top of the page.
-      this.args.returnFocusTo?.focus();
+      const { returnFocusTo } = this.args;
+
+      if (returnFocusTo && document.body.contains(returnFocusTo)) {
+        this.args.returnFocusTo?.focus();
+      } else if (returnFocusTo && returnFocusTo.isConnected) {
+        this.args.returnFocusTo?.focus();
+      }
     };
   });
 

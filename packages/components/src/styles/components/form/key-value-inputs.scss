@@ -76,7 +76,11 @@
   .hds-form-key-value-inputs__field-header {
     align-self: flex-end;
     min-width: 0;
-    margin-bottom: 12px; // space between label and control
+    margin-bottom: 8px;
+
+    @include hds-breakpoint-above("md") {
+      margin-bottom: 12px;
+    }
   }
 
   .hds-form-select {

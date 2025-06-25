@@ -49,6 +49,14 @@
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
+          rowIndex=0
+        )
+        to="row"
+      }}
+
+      {{! leaving as a separate yield to keep the delete row button at the end of the row }}
+      {{yield
+        (hash
           DeleteRowButton=(component
             "hds/form/key-value-inputs/delete-row-button"
             returnFocusTo=this._element
@@ -57,7 +65,6 @@
             rowData=undefined
             rowIndex=0
           )
-          rowIndex=0
         )
         to="row"
       }}
@@ -83,9 +90,9 @@
         (hash
           DeleteRowButton=(component
             "hds/form/key-value-inputs/delete-row-button"
-            returnFocusTo=this._element
             onInsert=this._setUpColumn
             onRemove=this._removeColumn
+            returnFocusTo=this._element
             rowData=item
             rowIndex=index
           )
