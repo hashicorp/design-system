@@ -8,11 +8,6 @@
 - To organize non-form content
 - To create a form for key-value pairs, use the [Key Value Inputs](/components/forms/key-value-inputs) component
 
-
-## Single column layout
-
-Multi-column form layouts can disrupt the visual flow and reading order of fields leading to increased friction and missed inputs. Multiple fields should be placed in a row only when grouping related inputs improves the user experience. See [Section Multi Field Group](/components/form/layout#form-section-multi-field-group)
-
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 
 ## Spacing
