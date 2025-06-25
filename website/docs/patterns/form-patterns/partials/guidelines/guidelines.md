@@ -2,10 +2,6 @@
 
 Spacing between sections, fields, text, and other form elements should follow a decreasing scale on an 8px grid. This creates a consistent visual hierarchy between elements.
 
-### Form
-
-A form acts as a container for form sections, fields, and other form content.
-
 ### Sections
 
 A section occupies the largest hierarchy within the form. Sections organize text and fields (inputs, checkboxes, toggles, etc.) into logical groups. A form consisting of more than one section should use a 32px gap between sections.
