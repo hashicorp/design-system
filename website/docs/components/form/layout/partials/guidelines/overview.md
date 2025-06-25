@@ -1,3 +1,1 @@
-## Usage
-
 Form layout components in Ember and the related Form “Template” component in Figma are structural components that provide the scaffolding for building standardized forms across products. These components establish spacing and layout standards to give users a consistent experience.

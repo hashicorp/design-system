@@ -8,7 +8,7 @@ A **form component** acts as a layout mechanism by wrapping the content, fields,
 
 ### Sections
 
-A **section** occupies the largest hierarchy within the form. Sections organize text, fields (inputs, checkboxes, toggles, etc.), and actions into logical groups. A form consisting of more than one section should use a 32px gap between sections.
+A section occupies the largest hierarchy within the form. Sections organize text and fields (inputs, checkboxes, toggles, etc.) into logical groups. A form consisting of more than one section should use a 32px gap between sections.
 
 ![Example of multiple sections in a form](/assets/patterns/form-patterns/form-sections.png =450x*)
 
@@ -41,7 +41,7 @@ Fields can be further divided into two types: **text fields** and **data fields*
 
 ### Field group
 
-If fields are collecting related information or information that is part of the same object, they may be organized in a field group. Within a field group there should be a 16px gap either horizontally, or vertically between each field.
+If fields are collecting related information or information that is part of the same object, they may be organized in a field group. Field groups are organized in rows with a 16px gap between fields.
 
 ![Example of fields organized in a set](/assets/patterns/form-patterns/field-set.png =450x*)
 
@@ -67,11 +67,11 @@ Organize buttons based on the [Button Set](/components/button-set) guidelines, e
 
 ### Single-column
 
-We recommend using a single-column layout for forms to streamline data entry. Forms across our products should use a maximum width; this can be achieved by using the Form Layout component or by using a size or unit relative to the page, viewport, or container size, e.g., viewport width unit (`vw`), percentage width (`50%`), or a character unit (`ch`).
+We recommend using a single-column layout for forms to streamline data entry. Forms across our products should use a maximum width which can be achieved by using the [Form Layout component](/components/form/layout) or by using a size or unit relative to the page, viewport, or container size, e.g., viewport width unit (`vw`), percentage width (`50%`), or a character unit (`ch`).
 
 ### Multi-column
 
-Forms follow a [single column layout](/components/form/layout#single-column-layout). However, you can use the [Section Multi Field Group](/components/form/layout#form-section-multi-field-group) to place multiple fields in a row when appropriate.
+While forms should typically follow a [single column layout](/components/form/layout#single-column-layout), you can use the [Section Multi Field Group](/components/form/layout#form-section-multi-field-group) to place multiple fields in a row, as needed.
 
 !!! Do
 
@@ -89,7 +89,7 @@ Don't organize a set of fields in two columns and another set in three columns.
 
 !!! Dont
 
-Don't exceed more than three fields in a horizontal set. In most scenarios, it's best to limit the number of columns in a form or section to two.
+Don't exceed more than three fields in a field group. In most scenarios, it's best to limit the number of columns in a form or section to two.
 
 ![Three field maximum in a set](/assets/patterns/form-patterns/multi-column-three-fields-max.png =500x*)
 !!!
@@ -111,7 +111,7 @@ Generally, a field’s width should account for the estimated width of the conte
 
 ### Responsive properties
 
-As the viewport shrinks, the form should expand relative to the viewport width, eventually occupying the entire width of the content area. Horizontal field groups should stack vertically as the viewport shrinks.
+As the viewport shrinks, the form should expand relative to the viewport width, eventually occupying the entire width of the content area. Field groups should stack vertically as the viewport shrinks.
 
 ## Form headers
 
