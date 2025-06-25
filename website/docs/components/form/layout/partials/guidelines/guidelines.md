@@ -84,7 +84,7 @@ A Separator can be placed between Sections when a clearer visual distinction bet
 
 Use a Separator to add space between Sections or before a new Section Header. 
 
-![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-do-1.png)
+![Separator used to add extra visual differentiation between two Sections](/assets/components/form/layout/divider-spacing-do.png)
 
 !!!
 
