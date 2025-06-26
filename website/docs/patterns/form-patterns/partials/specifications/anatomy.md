@@ -15,5 +15,5 @@ Elements and content within a form are variable but can be broken down into sect
 
 !!! Info
 
-Helios does not currently publish any components to assist with layout and organization within forms. Rather, this anatomy is meant to establish a common language for discussing the elements within a form.
+Using [Form Layout](/components/form/layout) will set up the spacing and structure of a form as a helper to implement this guidance.
 !!!
