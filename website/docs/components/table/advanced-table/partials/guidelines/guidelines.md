@@ -120,6 +120,16 @@ Don’t center header labels or cell content within a table.
 
 !!!
 
+## Resizable columns
+
+If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table. These properties are not available within the Figma component, but we've provided [examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
+
+In the Ember component, actions related to each function are conditionally rendered in a context menu in the table header when `hasResizableColumns` is set to true. These functions are not customizable.
+
+![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
+
+Visit the [specifications](?tab=specifications#column-resizing) tab for more details on this functionality.
+
 ## Column and row span
 
 - Supports combining multiple columns or rows into a single cell.
@@ -249,13 +259,3 @@ A multi-select pattern consists of:
 2. Row level select allowing for the selection of an individual row.
 
 ![](/assets/components/table/advanced-table/table-multi-select-cells.png)
-
-## Resizable columns
-
-If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table to elevate or decrease the hierarchy of specific columns. These properties are not available within the Figma components directly, but we've provided [stickersheet template examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
-
-In the Ember component, actions related to each function are conditionally rendered in a context menu in the table header when `hasResizableColumns` is set to true. These functions are not exposed to consumers and are therefore not customizable.
-
-![An example of the open context menu in the Advanced Table displaying an action to reset the width of the column](/assets/components/table/advanced-table/advanced-table-context-menu.png)
-
-Visit the [specifications](?tab=specifications#column-resizing) tab for more details on this functionality.

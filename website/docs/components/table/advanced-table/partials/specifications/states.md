@@ -4,7 +4,7 @@
 
 Sortable header columns have interactive state variants, indicating their interactivity. Non-sortable header columns are static and do not include state variants.
 
-![Header column state example](/assets/components/table/advanced-table/Advanced-table-sort-button-states.png)
+![Header column state example](/assets/components/table/advanced-table/advanced-table-sort-button-states.png)
 
 ### Advanced Table cells
 

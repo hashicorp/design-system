@@ -9,11 +9,18 @@
 | Checkbox         | Optional, but required when cells yield a checkbox |
 | Label            | Required                                        |
 | Tooltip button   | Optional                                        |
-| Sort button      | Optional, Options: none, ascending, descending            |
+| Sort button      | Optional, Options: none, ascending, descending  |
 | Container        | Required                                        |
 
-### Advanced Table cells
+#### Context menu
 
+![](/assets/components/table/advanced-table/advanced-table-header-context-menu-anatomy.png)
+
+| Element                          | Usage                                                                       |
+|----------------------------------|-----------------------------------------------------------------------------|
+| Context menu and resize controls | Optional, conditionally renders when `@hasResizableColumns` is set to true. |
+
+### Advanced Table cells
 
 #### Expandable cell
 
