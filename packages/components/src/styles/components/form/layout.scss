@@ -1,0 +1,81 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM LAYOUT COMPONENTS
+//
+
+@use "../../mixins/breakpoints" as *;
+
+// FORM
+
+.hds-form {
+  --hds-form-section-max-width: 672px; // default max-width used by FormSection, etc.
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+// FORM HEADER & SECTION HEADER
+
+.hds-form__header,
+.hds-form__section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+// FORM SECTION
+
+.hds-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  // hide empty sections
+  &:empty {
+    display: none;
+  }
+}
+
+// MULTI FIELD GROUP
+
+.hds-form__section-multi-field-group {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: end;
+
+  // When there are columns, stack them vertically
+  @include hds-breakpoint-below("md") {
+    flex-direction: column;
+    // per design specs: when the fields are stacked they should match the rest of the spacing and have 24px so that there isn't a weird visual rhythm
+    gap: 24px;
+    align-items: start;
+  }
+}
+
+// MULTI FIELD GROUP ITEM
+.hds-form__section-multi-field-group-item {
+  width: var(--hds-form-section-multi-field-group-item-width, auto);
+}
+
+// OPTIONS
+
+// isFullWidth = false (default)
+
+.hds-form__header,
+.hds-form__section,
+.hds-form__separator,
+.hds-form__footer {
+  max-width: var(--hds-form-section-max-width);
+}
+
+// isFullWidth = true
+
+.hds-form-content--is-full-width {
+  max-width: none;
+}
