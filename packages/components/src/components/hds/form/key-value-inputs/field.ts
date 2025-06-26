@@ -17,7 +17,9 @@ import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
-import HdsFormLabelComponent, { ID_PREFIX as LABEL_ID_PREFIX } from '../label/index.ts';
+import HdsFormLabelComponent, {
+  ID_PREFIX as LABEL_ID_PREFIX,
+} from '../label/index.ts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
