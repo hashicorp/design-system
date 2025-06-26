@@ -18,11 +18,9 @@ module(
         this.data = args.data ?? [];
         this.isFieldsetRequired = args.isFieldsetRequired;
         this.isFieldsetOptional = args.isFieldsetOptional;
-        this.xxxId = args.id;
         return await render(hbs`
           <Hds::Form::KeyValueInputs
             id="test-form-key-value-inputs"
-            @is={{this.xxxId}}
             @data={{this.data}}
             @isRequired={{this.isFieldsetRequired}}
             @isOptional={{this.isFieldsetOptional}}
@@ -351,31 +349,25 @@ module(
 
     // ACCESSIBILITY
 
-    ['default', 'custom'].forEach((mode) => {
-      test(`it should associate together the filedset and its legent, help text and error - ${mode === 'custom' ? 'with custom @id' : 'default'}`, async function (assert) {
-        const opts = {};
-        if (mode === 'custom') {
-          opts.id = 'custom-id';
-        }
-        await this.createKeyValueInputs(opts);
+    test('it should associate together the filedset and its legent, help text and error', async function (assert) {
+      await this.createKeyValueInputs();
 
-        const legendId = document.querySelector(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
-        ).id;
-        const helperId = document.querySelector(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
-        ).id;
-        const errorId = document.querySelector(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
-        ).id;
+      const legendId = document.querySelector(
+        '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
+      ).id;
+      const helperId = document.querySelector(
+        '#test-form-key-value-inputs .hds-form-key-value-inputs__header .hds-form-key-value-inputs__helper-text',
+      ).id;
+      const errorId = document.querySelector(
+        '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
+      ).id;
 
-        assert
-          .dom('#test-form-key-value-inputs')
-          .hasAria('labelledby', legendId);
-        assert
-          .dom('#test-form-key-value-inputs')
-          .hasAria('describedby', `${helperId} ${errorId}`);
-      });
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasAria('labelledby', legendId);
+      assert
+        .dom('#test-form-key-value-inputs')
+        .hasAria('describedby', `${helperId} ${errorId}`);
     });
   },
 );

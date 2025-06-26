@@ -15,7 +15,8 @@ import {
   registerAriaDescriptionElement,
   unregisterAriaDescriptionElement,
 } from '../../../../utils/hds-aria-described-by.ts';
-import { getElementId } from '../../../../utils/hds-get-element-id.ts';
+import { guidFor } from '@ember/object/internals';
+
 import HdsAlertComponent from '../../alert/index.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
@@ -95,8 +96,10 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
   private _element!: HTMLFieldSetElement;
   @tracked _gridTemplateColumns = '';
 
-  get id(): string {
-    return getElementId(this);
+  // this is not a specific DOM id, but a value that is used to "glue" together
+  // different fieldsset-related elements (legend, helper text, error) with the fieldset itself
+  get glueId(): string {
+    return guidFor(this);
   }
 
   @action
