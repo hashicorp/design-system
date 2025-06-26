@@ -15,5 +15,5 @@
 | Value helper text    | Optional                                        |
 | Value input          | Optional                                        |
 | Delete row button    | Triggered by system                             |
-| Add row button       | Required                                        |
+| Footer               | Either has add button or compact alert          |
 | Fieldset validation  | Triggered by system                             |

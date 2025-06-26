@@ -47,14 +47,6 @@ Don’t repeat information in each row if it can be explained once at the top of
 
 !!!
 
-### Validation
-
-In addition to form-level validation, if a specific error is associated with the fieldset, it will be displayed below the add button.
-
-![Below the legend and helper text is a compact critical alert showing a fieldset error that the user has reached the maximum number of rows.](/assets/components/form/key-value-inputs/key-value-inputs-fieldset-error.png)
-
-Read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
-
 ## Input rows
 
 Each row often has two inputs, one for a key and one for a value. However, there may be exceptions where a single input may be necessary. 
@@ -119,17 +111,25 @@ This uses the compact neutral alert, so it doesn’t visually compete with other
 
 ![A compact neutral alert that says "Limit of fifteen invites has been reached."](/assets/components/form/key-value-inputs/key-value-inputs-footer-notification.png)
 
+### Validation
+
+In addition to form-level validation, if a specific error is associated with the fieldset, it will be displayed below the add button.
+
+![Below the legend and helper text is a compact critical alert showing a fieldset error that the user has reached the maximum number of rows.](/assets/components/form/key-value-inputs/key-value-inputs-fieldset-error.png)
+
+Read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
+
 ## Responsive behavior
 
 
 ### Small or larger
 
-In experiences that are greater than or equal to the [small (`sm`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
+In experiences that are greater than or equal to the [medium (`md`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
 
 ![Key value input rows with the key and value are side by side along with a delete button to the right. Only one visible label and helper text per grouping of key and value inputs. Add new row button below the group of inputs.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-desktop.png)
 
 ### Less than small
 
-However, when the viewport is less than the [small (`sm`) breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text help orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
+However, when the viewport is less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text help orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
 
 ![Key and value inputs stack on top of each other. The delete button is below the value input. Each input has their label and helper text visible.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-mobile.png)

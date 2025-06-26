@@ -1,8 +1,8 @@
 ---
 title: Key Value Inputs
 description: >-
-  Key value inputs are rows of inputs that can be added and deleted by end users.
-caption: Key value inputs are rows of inputs that can be added and deleted by end users.
+  Rows of inputs that can be added and deleted by end users.
+caption: Rows of inputs that can be added and deleted by end users.
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=82680-53759&t=MwE1WlTzeH6NeUOf-1
