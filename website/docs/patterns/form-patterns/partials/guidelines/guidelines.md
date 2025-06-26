@@ -94,7 +94,7 @@ Don't exceed more than three fields in a field group. In most scenarios, it's be
 
 If using multiple inputs in a row, stack fields vertically at the `md` breakpoint. This behavior is automatically applied in the Form Layout.
 
-![Stack fields](/assets/patterns/form-patterns/multi-column-stacking.png =350x*)
+![Stack fields](/assets/patterns/form-patterns/multi-column-stacking.png)
 !!!
 
 ## Width
