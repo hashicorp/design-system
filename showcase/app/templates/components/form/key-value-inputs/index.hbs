@@ -1,0 +1,888 @@
+{{!
+  Copyright (c) HashiCorp, Inc.
+  SPDX-License-Identifier: MPL-2.0
+}}
+
+{{page-title "KeyValueInputs Component"}}
+
+<Shw::Text::H1>KeyValueInputs</Shw::Text::H1>
+
+<section data-test-percy>
+
+  <Shw::Text::Body>
+    This is a functional example of the KeyValueInputs component, meant to show how a consumer could implement the
+    behavior.
+  </Shw::Text::Body>
+
+  <Hds::Form::KeyValueInputs id="functional-example-1" @data={{this.functionalExampleData}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>
+        Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can add up to 3
+        tags per resource.
+      </H.HelperText>
+    </:header>
+
+    <:row as |R|>
+      {{#let (get this.functionalExampleErrors R.rowIndex) as |rowErrors|}}
+        {{#let (get rowErrors "key") as |keyError|}}
+          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq keyError undefined) true)}} as |F|>
+            <F.Label>Key</F.Label>
+            <F.HelperText>The key you enter should be a good key.</F.HelperText>
+            <F.TextInput
+              name="key"
+              @value={{R.rowData.key.text}}
+              {{on "change" this.onInputChange}}
+              {{on "blur" (fn this.onInputBlur R.rowData "key")}}
+            />
+
+            {{#if (not-eq keyError undefined)}}
+              <F.Error>
+                {{keyError}}
+              </F.Error>
+            {{/if}}
+          </R.Field>
+        {{/let}}
+
+        {{#let (get rowErrors "value") as |valueError|}}
+          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq valueError undefined) true)}} as |F|>
+            <F.Label>Value</F.Label>
+            <F.Textarea
+              name="value"
+              @value={{R.rowData.value.text}}
+              {{on "blur" (fn this.onInputBlur R.rowData "value")}}
+              {{on "change" this.onInputChange}}
+            />
+            {{#if (not-eq valueError undefined)}}
+              <F.Error>
+                {{valueError}}
+              </F.Error>
+            {{/if}}
+          </R.Field>
+        {{/let}}
+        {{#if this.canDeleteRow}}
+          <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+        {{/if}}
+      {{/let}}
+    </:row>
+
+    <:footer as |F|>
+      {{#if (lt this.functionalExampleData.length 4)}}
+        <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
+      {{else}}
+        <F.Alert as |A|>
+          <A.Description>
+            You can only add up to 4 tags to this resource.
+          </A.Description>
+        </F.Alert>
+      {{/if}}
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Not able to delete rows</Shw::Text::H2>
+
+  <Shw::Text::H3>With empty <code>@data</code> argument</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value.text}} />
+      </R.Field>
+      <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
+      <R.DeleteRowButton />
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With 1 item in <code>@data</code> argument</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleDataWith1Row}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value.text}} />
+      </R.Field>
+      <R.Generic><Shw::Placeholder @height="36px" @width="200px" @text="generic" /></R.Generic>
+      <R.DeleteRowButton />
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H2>Columns</Shw::Text::H2>
+
+  <Shw::Text::H3>2 columns</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
+        add up to 3 tags per resource.</H.HelperText>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+
+      <R.Field as |F|>
+        <F.Label>Value</F.Label>
+        <F.TextInput @value={{R.rowData.value.text}} />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>1 column</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}} @onDeleteRowClick={{this.onDeleteRowClick}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can
+        add up to 3 tags per resource.</H.HelperText>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Generic slots</Shw::Text::H2>
+
+  <Shw::Text::H3>With placeholders</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>
+        Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can add up to 3
+        tags per resource.
+      </H.HelperText>
+      <H.Generic>
+        <Shw::Placeholder @height="36px" @text="generic" />
+      </H.Generic>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+
+      <R.Generic>
+        <Shw::Placeholder @height="36px" @width="200px" @text="generic" />
+      </R.Generic>
+
+      <R.Field @isOptional={{true}} as |F|>
+        <F.Label>Value</F.Label>
+        <F.Textarea @value={{R.rowData.value.text}} />
+      </R.Field>
+      <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+      <R.Generic>
+        <Shw::Placeholder @height="36px" @width="300px" @text="generic" />
+      </R.Generic>
+    </:row>
+
+    <:footer as |F|>
+      <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Text::H3>With components</Shw::Text::H3>
+
+  <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Tags applied to this workspace</H.Legend>
+      <H.HelperText>
+        Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can add up to 3
+        tags per resource.
+      </H.HelperText>
+      <H.Generic>
+        <Hds::Button @text="About tags" @color="tertiary" @icon="help" />
+      </H.Generic>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @isRequired={{true}} isInvalid={{R.rowData.error}} as |F|>
+        <F.Label>Key</F.Label>
+        <F.HelperText>The key you enter should be a good key.</F.HelperText>
+        <F.TextInput @value={{R.rowData.key.text}} />
+      </R.Field>
+
+      <R.Generic>
+        <Hds::Form::Toggle::Field as |F|>
+          <F.Label>Enable in production</F.Label>
+          <F.HelperText>Toggle this to enable the feature in production.</F.HelperText>
+        </Hds::Form::Toggle::Field>
+      </R.Generic>
+      <R.DeleteRowButton />
+    </:row>
+
+    <:footer as |F|>
+      <F.Alert as |A|>
+        <A.Description>
+          You can only add up to 3 tags to this resource.
+        </A.Description>
+      </F.Alert>
+    </:footer>
+  </Hds::Form::KeyValueInputs>
+
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Base elements</Shw::Text::H2>
+
+  <Shw::Text::H3>Header</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" @gap="3rem" as |SF|>
+    <SF.Item @label="No header - ⚠️ not valid/accessible ⚠️">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With legend">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With legend + helper text">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With multiple helper texts">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>Sample legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+          <H.HelperText>This is another helper text, that should appear below the first helper text, with the right
+            amount of space between them.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Text Input</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With very long content">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam diam mi etiam mollis tortor
+            vestibulum. Felis, arcu amet, nibh eget eget etiam orci aliquet. Varius facilisis magna faucibus commodo
+            iaculis faucibus aliquet.</H.Legend>
+          <H.HelperText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Diam diam mi etiam mollis tortor
+            vestibulum. Felis, arcu amet, nibh eget eget etiam orci aliquet. Varius facilisis magna faucibus commodo
+            iaculis faucibus aliquet.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With 'required' indicator">
+      <Hds::Form::KeyValueInputs @isRequired={{true}} @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With 'Optional' indicator">
+      <Hds::Form::KeyValueInputs @isOptional={{true}} @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+    <SF.Item @label="With extra content">
+      <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+        <:header as |H|>
+          <H.Legend>This is the legend</H.Legend>
+          <H.HelperText>This is the helper text, usually used jointly with the legend.</H.HelperText>
+          <H.Generic><Shw::Placeholder @height="36px" @text="generic content" /></H.Generic>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @text="Add row" />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Divider />
+
+  <Shw::Text::H3>Field</Shw::Text::H3>
+
+  <Shw::Text::H4>Input types</Shw::Text::H4>
+
+  <Shw::Flex @direction="column" as |SF|>
+    {{#let
+      (array "text-input" "textarea" "masked-input" "select" "superselect-single" "superselect-multiple" "file-input")
+      as |controls|
+    }}
+      {{#each controls as |control|}}
+        <SF.Item @label={{control}}>
+          <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+            <:row as |R|>
+              {{#let (array "default" "required" "optional" "error") as |cases|}}
+                {{#each cases as |case|}}
+                  <R.Field
+                    @isRequired={{if (eq case "required") true}}
+                    @isOptional={{if (eq case "optional") true}}
+                    as |F|
+                  >
+                    <F.Label>This is the legend</F.Label>
+                    <F.HelperText>
+                      {{#if (eq case "default")}}
+                        Base (default)
+                      {{else if (eq case "required")}}
+                        With 'required' indicator
+                      {{else if (eq case "optional")}}
+                        With 'optional' indicator
+                      {{else if (eq case "error")}}
+                        With error message
+                      {{/if}}
+                    </F.HelperText>
+                    {{#if (eq control "text-input")}}
+                      <F.TextInput />
+                    {{else if (eq control "textarea")}}
+                      <F.Textarea />
+                    {{else if (eq control "masked-input")}}
+                      <F.MaskedInput />
+                    {{else if (eq control "select")}}
+                      <F.Select>
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                        <option value="option3">Option 3</option>
+                      </F.Select>
+                    {{else if (eq control "superselect-single")}}
+                      <F.SuperSelectSingle
+                        @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+                        @options={{@model.SUPERSELECT_OPTIONS}}
+                        @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
+                        @ariaLabel="Label"
+                        as |option|
+                      >
+                        {{option}}
+                      </F.SuperSelectSingle>
+                    {{else if (eq control "superselect-multiple")}}
+                      <F.SuperSelectMultiple
+                        @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTIONS)}}
+                        @options={{@model.SUPERSELECT_OPTIONS}}
+                        @selected={{@model.SUPERSELECT_SELECTED_OPTIONS}}
+                        @ariaLabel="Label"
+                        as |option|
+                      >
+                        {{option}}
+                      </F.SuperSelectMultiple>
+                    {{else if (eq control "file-input")}}
+                      <F.FileInput />
+                    {{/if}}
+                    {{#if (eq case "error")}}
+                      <F.Error>This is the error message.</F.Error>
+                    {{/if}}
+                  </R.Field>
+                {{/each}}
+              {{/let}}
+            </:row>
+          </Hds::Form::KeyValueInputs>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>Alignment with and without helper text</Shw::Text::H4>
+
+  <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+    <:header as |H|>
+      <H.Legend>This is the legend</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Textarea</F.Label>
+        <F.Textarea @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.HelperText>This is the helper text.</F.HelperText>
+        <F.MaskedInput aria-label="Masked input" @value="Sample text" />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>This is the label</F.Label>
+        <F.HelperText>This is the helper text.</F.HelperText>
+        <F.HelperText>This is another helper text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>With custom input widths</Shw::Text::H4>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>This is the legend</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @width="100px" as |F|>
+        <F.Label>Width=100px</F.Label>
+        <F.HelperText>Helper text.</F.HelperText>
+        <F.TextInput @value="Sample text" />
+      </R.Field>
+      <R.Field @width="400px" as |F|>
+        <F.Label>Width=400px</F.Label>
+        <F.HelperText>Helper text.</F.HelperText>
+        <F.Textarea @value="Sample text" />
+      </R.Field>
+      <R.Field @width="max-content" as |F|>
+        <F.Label>Width=max-content</F.Label>
+        <F.HelperText>Helper text.</F.HelperText>
+        <F.MaskedInput @value="Sample text" />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>With very long text as content</Shw::Text::H4>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Custom input widths and very long content</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field as |F|>
+        <F.Label>Text Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Textarea</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea
+          @value="This is the first line of text. This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field as |F|>
+        <F.Label>Masked Input</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H4>With very long text and custom input widths</Shw::Text::H4>
+
+  <Hds::Form::KeyValueInputs @data={{this.sampleData}}>
+    <:header as |H|>
+      <H.Legend>Custom input widths and very long content</H.Legend>
+    </:header>
+
+    <:row as |R|>
+      <R.Field @width="100px" as |F|>
+        <F.Label>Text Input (100px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.TextInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field @width="400px" as |F|>
+        <F.Label>Textarea (400px)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.Textarea
+          @value="This is the first line of text. This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.Field @width="max-content" as |F|>
+        <F.Label>Masked Input (max-content)</F.Label>
+        <F.HelperText>Sample text.</F.HelperText>
+        <F.MaskedInput
+          @value="This is the first line of text.
+          This is the second line of text that should go on multiple lines"
+        />
+      </R.Field>
+      <R.DeleteRowButton />
+    </:row>
+  </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider />
+
+  <Shw::Text::H3>Footer</Shw::Text::H3>
+
+  <Shw::Flex @direction="column" @gap="3rem" as |SF|>
+    {{#let
+      (array
+        (hash key="add" label="With add button")
+        (hash key="alert" label="With alert")
+        (hash key="alert+add" label="With alert and add button")
+        (hash key="add+error" label="With add button and error")
+        (hash key="alert+error" label="With alert and error")
+        (hash key="alert+add+error" label="With alert and add button and error")
+        (hash key="add+generic" label="With add button and generic content")
+      )
+      as |combinations|
+    }}
+      {{#each combinations as |combination|}}
+        <SF.Item @label={{combination.label}}>
+          <Hds::Form::KeyValueInputs @data={{this.emptyData}}>
+            {{! <:header as |H|>
+              <H.Legend>This is the legend</H.Legend>
+              <H.HelperText>This is the helper text.</H.HelperText>
+            </:header> }}
+            <:row as |R|>
+              <R.Field as |F|>
+                <F.Label>Key</F.Label>
+                <F.TextInput />
+              </R.Field>
+              <R.Field as |F|>
+                <F.Label>Value</F.Label>
+                <F.TextInput />
+              </R.Field>
+              <R.DeleteRowButton />
+            </:row>
+            <:footer as |F|>
+              {{#if
+                (or
+                  (eq combination.key "add")
+                  (eq combination.key "alert+add")
+                  (eq combination.key "add+error")
+                  (eq combination.key "alert+add+error")
+                  (eq combination.key "add+generic")
+                )
+              }}
+                <F.AddRowButton />
+              {{/if}}
+              {{#if
+                (or
+                  (eq combination.key "alert")
+                  (eq combination.key "alert+add")
+                  (eq combination.key "alert+error")
+                  (eq combination.key "alert+add+error")
+                )
+              }}
+                <F.Alert as |A|>
+                  <A.Description>This is the alert description.</A.Description>
+                </F.Alert>
+              {{/if}}
+              {{#if
+                (or
+                  (eq combination.key "error")
+                  (eq combination.key "add+error")
+                  (eq combination.key "alert+error")
+                  (eq combination.key "alert+add+error")
+                )
+              }}
+                <F.Error>This is the error message.</F.Error>
+              {{/if}}
+              {{#if (eq combination.key "add+generic")}}
+                <Shw::Placeholder @height="36px" @text="generic content" />
+              {{/if}}
+            </:footer>
+          </Hds::Form::KeyValueInputs>
+        </SF.Item>
+      {{/each}}
+    {{/let}}
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+<section data-test-percy>
+
+  <Shw::Text::H2>Demos</Shw::Text::H2>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Key input selection changes value input type">
+      <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
+              <option value="textinput" selected={{if (eq R.rowData.key "textinput") true}}>Single line</option>
+              <option value="textarea" selected={{if (eq R.rowData.key "textarea") true}}>Multiline</option>
+              <option value="select" selected={{if (eq R.rowData.key "select") true}}>Tags</option>
+            </F.Select>
+          </R.Field>
+
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            {{#if (eq R.rowData.key "textarea")}}
+              <F.Textarea @value={{R.rowData.value.text}} />
+            {{else if (eq R.rowData.key "select")}}
+              <F.SuperSelectSingle
+                @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
+                @options={{@model.SUPERSELECT_OPTIONS}}
+                @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
+                @ariaLabel="Label"
+                as |option|
+              >
+                {{option}}
+              </F.SuperSelectSingle>
+            {{else}}
+              <F.TextInput @value={{R.rowData.value.text}} />
+            {{/if}}
+          </R.Field>
+
+          <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
+        </:row>
+
+        <:footer as |F|>
+          <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
+
+  <Shw::Flex as |SF|>
+    <SF.Item @label="Key input starts with an empty array">
+      <Hds::Form::KeyValueInputs @data={{this.startWithEmptyExampleData}} id="start-with-empty-example">
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Key</F.Label>
+            <F.TextInput @value={{R.rowData.key}} name="key" />
+          </R.Field>
+
+          <R.Field as |F|>
+            <F.Label>Value</F.Label>
+            <F.TextInput @value={{R.rowData.value}} name="value" />
+          </R.Field>
+          <R.DeleteRowButton @onClick={{this.onStartWithEmptyDeleteRowClick}} />
+        </:row>
+
+        <:footer as |F|>
+          <F.AddRowButton @text="Add tag" @onClick={{this.onStartWithEmptyAddRowClick}} />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </SF.Item>
+  </Shw::Flex>
+
+</section>
+
+<Shw::Divider />
+
+{{! For some reason, Ember tests don't play well with iframes (URL not found) so we can't take snapshots of these examples in Percy }}
+<section>
+
+  <Shw::Text::H2>Responsiveness</Shw::Text::H2>
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-large-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
+    @height="300"
+    @label="Large viewport"
+  />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-small-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness"
+    @width="400"
+    @height="650"
+    @label="Small viewport (< 480px)"
+  />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-custom-widths-large-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness-custom-widths"
+    @height="300"
+    @label="Custom widths + large viewport"
+  />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-custom-widths-small-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-responsiveness-custom-widths"
+    @width="400"
+    @height="650"
+    @label="Custom widths + small viewport (< 480px)"
+  />
+
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-within-form-large-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-in-form"
+    @height="600"
+    @label="With other responsive components"
+  />
+
+  <Shw::Frame
+    @id="demo-key-value-inputs-within-form-small-viewports"
+    @src="/components/form/key-value-inputs/frameless/demo-in-form"
+    @width="400"
+    @height="650"
+    @label="With other responsive components"
+  />
+
+</section>
