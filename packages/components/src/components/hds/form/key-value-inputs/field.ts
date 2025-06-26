@@ -17,7 +17,7 @@ import { getElementId } from '../../../../utils/hds-get-element-id.ts';
 import HdsFormErrorComponent from '../error/index.ts';
 import HdsFormFileInputBaseComponent from '../file-input/base.ts';
 import HdsFormHelperTextComponent from '../helper-text/index.ts';
-import HdsFormLabelComponent, { ID_PREFIX } from '../label/index.ts';
+import HdsFormLabelComponent, { ID_PREFIX as LABEL_ID_PREFIX } from '../label/index.ts';
 import HdsFormMaskedInputBaseComponent from '../masked-input/base.ts';
 import HdsFormSelectBaseComponent from '../select/base.ts';
 import HdsFormSuperSelectMultipleBaseComponent from '../super-select/multiple/base.ts';
@@ -115,8 +115,8 @@ export default class HdsFormKeyValueInputsField extends Component<HdsFormKeyValu
     return `row ${this.args.rowIndex + 1}`;
   }
 
-  get idPrefix(): string {
-    return ID_PREFIX;
+  get labelIdPrefix(): string {
+    return LABEL_ID_PREFIX;
   }
 
   @action
