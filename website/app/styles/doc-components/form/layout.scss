@@ -1,0 +1,36 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM LAYOUT HELPER COMPONENTS
+
+#show-content-components-form-layout {
+  .doc-form-layout-mobile-view {
+    position: relative;
+    max-width: 280px;
+    padding: 16px 16px 65px;
+    background: #fff;
+    border: 1px solid;
+    border-radius: 16px;
+    aspect-ratio: 9 / 16;
+
+    // home button
+    &::before {
+      position: absolute;
+      inset: auto 0 15px 0;
+      width: 40px;
+      height: 40px;
+      margin: 0 auto;
+      background: var(--token-color-palette-neutral-200);
+      border-radius: 50%;
+      content: "";
+    }
+
+    // simulate responsive layout
+    .hds-form__section-multi-field-group {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+}
