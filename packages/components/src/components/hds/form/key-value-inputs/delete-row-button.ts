@@ -34,10 +34,7 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
 
       const { returnFocusTo } = this.args;
 
-      if (
-        returnFocusTo &&
-        (document.body.contains(returnFocusTo) || returnFocusTo.isConnected)
-      ) {
+      if (returnFocusTo && returnFocusTo.isConnected) {
         returnFocusTo.focus();
       }
     };
