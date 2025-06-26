@@ -38,7 +38,9 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasText('test');
   });
 
-  // COLUMN MIN WIDTH
+  // OPTIONS
+
+  // ColumnMinWidth
 
   // Note: A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
   test('if the @columnMinWidth prop is not declared, --hds-layout-grid-column-min-width should be unset', async function (assert) {
@@ -57,7 +59,25 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
-  // TAG
+  // ColumnWidth
+
+  test('it should not have the hds-layout-grid--has-column-width class if @columnWidth is not declared', async function (assert) {
+    await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
+    assert
+      .dom('#test-layout-grid')
+      .doesNotHaveClass('hds-layout-grid--has-column-width');
+  });
+
+  test('it should have the hds-layout-grid--has-column-width class if @columnWidth is declared', async function (assert) {
+    await render(
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnWidth="200px" />`,
+    );
+    assert
+      .dom('#test-layout-grid')
+      .hasClass('hds-layout-grid--has-column-width');
+  });
+
+  // Tag
 
   test('it should render with a "div" element if @tag is not declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
@@ -71,7 +91,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
     assert.dom('#test-layout-grid').hasTagName('section');
   });
 
-  // ALIGN
+  // Align
 
   test('it should render the element without specific classes if @align is not declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
@@ -89,7 +109,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasClass('hds-layout-grid--align-items-stretch');
   });
 
-  // GAP
+  // Gap
 
   test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
@@ -141,6 +161,21 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
     });
     await render(hbs`<Hds::Layout::Grid @gap={{array 4 "foo"}} />`);
+    assert.throws(function () {
+      throw new Error(errorMessage);
+    });
+  });
+
+  test('it should throw an assertion if both @columnMinWidth and @columnWidth are declared', async function (assert) {
+    const errorMessage =
+      '@columnMinWidth and @columnWidth for "Hds::Layout::Grid" cannot be used together';
+    assert.expect(2);
+    setupOnerror(function (error) {
+      assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
+    });
+    await render(
+      hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" @columnWidth="300px" />`,
+    );
     assert.throws(function () {
       throw new Error(errorMessage);
     });
