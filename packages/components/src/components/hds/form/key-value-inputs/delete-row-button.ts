@@ -10,7 +10,7 @@ import type { HdsButtonSignature } from '../../button/index.ts';
 
 export interface HdsFormKeyValueInputsDeleteRowButtonSignature {
   Args: {
-    onClick?: (rowData: unknown) => void;
+    onClick?: (rowData: unknown, rowIndex: number) => void;
     onInsert?: () => void;
     onRemove?: () => void;
     returnFocusTo?: HTMLFieldSetElement;
@@ -49,7 +49,7 @@ export default class HdsFormKeyValueInputsDeleteRowButton extends Component<HdsF
     const { onClick } = this.args;
 
     if (typeof onClick === 'function') {
-      onClick(this.args.rowData);
+      onClick(this.args.rowData, this.args.rowIndex);
     }
   }
 }
