@@ -7,7 +7,7 @@
   ...attributes
   {{style --hds-key-value-pair-columns=this._gridTemplateColumns}}
   {{! need to set aria-labelledby because the legend is not a direct descendant of the fieldset }}
-  aria-labelledby="{{this.id}}-legend"
+  aria-labelledby="legend-{{this.id}}"
   {{! @glint-expect-error }}
   aria-describedby={{this.ariaDescribedBy}}
   tabindex="-1"
@@ -19,7 +19,7 @@
         Legend=(component
           "hds/form/legend"
           contextualClass="hds-form-key-value-inputs__legend"
-          id=(concat this.id "-legend")
+          id=(concat "legend-" this.id)
           isOptional=@isOptional
           isRequired=@isRequired
         )
