@@ -49,6 +49,7 @@
             "hds/form/key-value-inputs/field" onInsert=this._setUpColumn onRemove=this._removeColumn rowIndex=0
           )
           Generic=(component "hds/form/key-value-inputs/generic" onInsert=this._setUpColumn onRemove=this._removeColumn)
+          rowData=undefined
           rowIndex=0
         )
         to="row"
@@ -96,6 +97,8 @@
             rowData=item
             rowIndex=index
           )
+          rowData=item
+          rowIndex=index
         )
         to="row"
       }}
