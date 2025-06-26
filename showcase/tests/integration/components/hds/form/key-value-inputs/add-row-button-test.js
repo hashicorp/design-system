@@ -22,6 +22,8 @@ module(
         .hasClass('hds-form-key-value-inputs__add-row-button');
     });
 
+    // TEXT
+
     test('it should render with default text', async function (assert) {
       await render(
         hbs`<Hds::Form::KeyValueInputs::AddRowButton id="test-form-key-value-add-row-button" />`,
@@ -36,6 +38,8 @@ module(
       assert.dom('#test-form-key-value-add-row-button').hasText('Custom text');
     });
 
+    // CALLBACKS
+
     test('it should call `@onClick` action when clicked', async function (assert) {
       let clicked = false;
       this.set('onClick', () => {
@@ -48,6 +52,21 @@ module(
 
       await click('#test-form-key-value-add-row-button');
       assert.ok(clicked);
+    });
+
+    // ACCESSIBILITY
+
+    test('it should provide an `aria-description` attribute', async function (assert) {
+      await render(
+        hbs`<Hds::Form::KeyValueInputs::AddRowButton id="test-form-key-value-add-row-button" />`,
+      );
+      assert
+        .dom('#test-form-key-value-add-row-button')
+        .hasAttribute(
+          'aria-description',
+          /.+/,
+          'aria-description should not be empty',
+        );
     });
   },
 );

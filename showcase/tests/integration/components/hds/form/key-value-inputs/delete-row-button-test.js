@@ -5,7 +5,7 @@
 
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'showcase/tests/helpers';
-import { render, click } from '@ember/test-helpers';
+import { render, click, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module(
@@ -21,6 +21,8 @@ module(
         .dom('#test-form-key-value-delete-row-button')
         .hasClass('hds-form-key-value-inputs__delete-row-button');
     });
+
+    // TEXT
 
     test('it should render with default text', async function (assert) {
       await render(
@@ -40,18 +42,127 @@ module(
         .hasAria('label', 'Custom text');
     });
 
-    test('it should call `@onClick` action when clicked', async function (assert) {
+    // CALLBACKS
+
+    test('it should call `@onClick` action when clicked and return rowData/rowIndex as positional arguments', async function (assert) {
+      const rowData = { test: true };
+      const rowIndex = 5;
+      this.set('rowData', rowData);
+      this.set('rowIndex', rowIndex);
       let clicked = false;
-      this.set('onClick', () => {
-        clicked = true;
-      });
+      this.set(
+        'onClick',
+        function (passedRowData, passedRowIndex) {
+          clicked = true;
+          this.set('passedRowData', passedRowData);
+          this.set('passedRowIndex', passedRowIndex);
+        }.bind(this),
+      );
 
       await render(
-        hbs`<Hds::Form::KeyValueInputs::DeleteRowButton @onClick={{this.onClick}} id="test-form-key-value-delete-row-button" @rowIndex={{0}} />`,
+        hbs`<Hds::Form::KeyValueInputs::DeleteRowButton @onClick={{this.onClick}} @rowData={{this.rowData}} @rowIndex={{this.rowIndex}} id="test-form-key-value-delete-row-button" />`,
       );
 
       await click('#test-form-key-value-delete-row-button');
       assert.ok(clicked);
+      assert.strictEqual(
+        this.passedRowData,
+        rowData,
+        'rowData is passed as first argument',
+      );
+      assert.strictEqual(
+        this.passedRowIndex,
+        rowIndex,
+        'rowIndex is passed as second argument',
+      );
+    });
+
+    test('it should call `@onInsert/@onRemove` callbacks when added/removed', async function (assert) {
+      this.set('isRendered', false);
+      let inserted = false;
+      let removed = false;
+      this.set('onInsert', () => {
+        inserted = true;
+      });
+      this.set('onRemove', () => {
+        removed = true;
+      });
+
+      await render(
+        hbs`
+          {{#if this.isRendered}}
+            <Hds::Form::KeyValueInputs::DeleteRowButton @onInsert={{this.onInsert}} @onRemove={{this.onRemove}} />
+          {{/if}}
+        `,
+      );
+
+      assert.notOk(inserted);
+      assert.notOk(removed);
+      this.set('isRendered', true);
+      assert.ok(inserted);
+      this.set('isRendered', false);
+      assert.ok(removed);
+    });
+
+    // RETURN FOCUS
+
+    test('it returns focus to the element that initiated the open event, if is still in the DOM', async function (assert) {
+      await render(
+        hbs`<button id="test-button" type="button" {{on "click" (set this "showFlyout" true)}}>open flyout</button>
+          {{#if this.showFlyout}}
+            <Hds::Flyout id="test-flyout" as |M|>
+              <M.Header>Title</M.Header>
+            </Hds::Flyout>
+          {{/if}}
+          `,
+      );
+      await click('#test-button');
+      assert.true(this.showFlyout);
+      await click('button.hds-flyout__dismiss');
+    });
+
+    // TODO! - Dylan, I'll try to get this working tomorrow :)
+    test('it returns focus to the main frameset when a row is deleted and the `DeleteRowButton` element removed from the DOM', async function (assert) {
+      this.data = [
+        { key: 'Test key', value: 'Test value' },
+        { key: 'Another key', value: 'Another value' },
+      ];
+      this.set(
+        'onClick',
+        function (_passedRowData, passedRowIndex) {
+          this.set(
+            'data',
+            this.data.filter((_row, idx) => idx !== passedRowIndex),
+          );
+        }.bind(this),
+      );
+
+      await render(hbs`
+        <Hds::Form::KeyValueInputs
+          id="test-form-key-value-inputs"
+          @data={{this.data}}
+        >
+          <:row as |R|>
+            {{#let R.rowIndex as |index|}}
+              <R.Field as |F|>
+                <F.Label>Label</F.Label>
+                <F.TextInput data-test-input="row-{{index}}" />
+              </R.Field>
+              <R.Generic />
+              <R.DeleteRowButton data-test-button="row-{{index}}" @onClick={{this.onClick}} />
+            {{/let}}
+          </:row>
+        </Hds::Form::KeyValueInputs>
+      `);
+
+      const inputSelector =
+        '#test-form-key-value-inputs [data-test-input="row-1"]';
+      const buttonSelector =
+        '#test-form-key-value-inputs [data-test-button="row-1"]';
+      await fillIn(inputSelector, 'test');
+      assert.dom(inputSelector).isFocused();
+      await click(buttonSelector);
+      assert.dom('#test-form-key-value-inputs').isFocused();
     });
   },
 );
