@@ -91,7 +91,7 @@ module(
       await this.createKeyValueInputs({ isFieldsetRequired: true });
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator.hds-badge--color-neutral',
         )
         .exists();
     });
@@ -99,7 +99,7 @@ module(
       await this.createKeyValueInputs({ isFieldsetOptional: true });
       assert
         .dom(
-          '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator',
+          '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend .hds-form-indicator.hds-form-indicator--optional',
         )
         .exists();
     });

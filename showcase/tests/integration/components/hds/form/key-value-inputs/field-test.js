@@ -93,7 +93,7 @@ module(
 
     // LABEL HIDDEN TEXT
 
-    test('it should render the label with a screen-reader-only text', async function (assert) {
+    test('it should render the label with screen-reader-only text based on the provided `@rowIndex` argument', async function (assert) {
       await render(hbs`
         <Hds::Form::KeyValueInputs::Field id="test-form-key-value-field" @rowIndex={{0}} as |F|>
           <F.Label>Label</F.Label>
@@ -111,30 +111,6 @@ module(
           '#test-form-key-value-field .hds-form-key-value-inputs__field-label .sr-only',
         )
         .hasText('row 1');
-    });
-
-    // YIELDED (CONTEXTUAL) COMPONENTS
-
-    YIELDED_INPUTS.forEach(({ type, selector }) => {
-      test(`it renders the yielded contextual components for the "${type}" input`, async function (assert) {
-        await this.createKeyValueInputsField({ type });
-        assert
-          .dom(
-            '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
-          )
-          .hasText('Label row 1');
-        assert
-          .dom(
-            '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
-          )
-          .hasText('Helper text');
-        assert.dom(`#test-form-key-value-field ${selector}`).exists();
-        assert
-          .dom(
-            '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
-          )
-          .hasText('Error text');
-      });
     });
 
     // REQUIRED/OPTIONAL
@@ -165,6 +141,34 @@ module(
           '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
         )
         .includesText('(Optional)');
+    });
+
+    // YIELDED (CONTEXTUAL) COMPONENTS
+
+    test('it renders the yielded `Label`, `HelperText`, and `Error` contextual components', async function (assert) {
+      await this.createKeyValueInputsField();
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-label',
+        )
+        .hasText('Label row 1');
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-helper-text',
+        )
+        .hasText('Helper text');
+      assert
+        .dom(
+          '#test-form-key-value-field .hds-form-key-value-inputs__field-error',
+        )
+        .hasText('Error text');
+    });
+
+    YIELDED_INPUTS.forEach(({ type, selector }) => {
+      test(`it renders the yielded "${type}" input as contextual components`, async function (assert) {
+        await this.createKeyValueInputsField({ type });
+        assert.dom(`#test-form-key-value-field ${selector}`).exists();
+      });
     });
 
     // INVALID

@@ -106,22 +106,6 @@ module(
 
     // RETURN FOCUS
 
-    test('it returns focus to the element that initiated the open event, if is still in the DOM', async function (assert) {
-      await render(
-        hbs`<button id="test-button" type="button" {{on "click" (set this "showFlyout" true)}}>open flyout</button>
-          {{#if this.showFlyout}}
-            <Hds::Flyout id="test-flyout" as |M|>
-              <M.Header>Title</M.Header>
-            </Hds::Flyout>
-          {{/if}}
-          `,
-      );
-      await click('#test-button');
-      assert.true(this.showFlyout);
-      await click('button.hds-flyout__dismiss');
-    });
-
-    // TODO! - Dylan, I'll try to get this working tomorrow :)
     test('it returns focus to the main frameset when a row is deleted and the `DeleteRowButton` element removed from the DOM', async function (assert) {
       this.data = [
         { key: 'Test key', value: 'Test value' },
