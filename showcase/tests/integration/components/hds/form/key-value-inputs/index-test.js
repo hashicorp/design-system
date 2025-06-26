@@ -18,12 +18,14 @@ module(
         this.data = args.data ?? [];
         this.isFieldsetRequired = args.isFieldsetRequired;
         this.isFieldsetOptional = args.isFieldsetOptional;
+        this.extraAriaDescribedBy = args.extraAriaDescribedBy;
         return await render(hbs`
           <Hds::Form::KeyValueInputs
             id="test-form-key-value-inputs"
             @data={{this.data}}
             @isRequired={{this.isFieldsetRequired}}
             @isOptional={{this.isFieldsetOptional}}
+            @extraAriaDescribedBy={{this.extraAriaDescribedBy}}
           >
             <:header as |H|>
               <H.Legend>Legend</H.Legend>
@@ -350,7 +352,8 @@ module(
     // ACCESSIBILITY
 
     test('it should associate together the filedset and its legent, help text and error', async function (assert) {
-      await this.createKeyValueInputs();
+      const extraAriaDescribedBy = 'extra';
+      await this.createKeyValueInputs({ extraAriaDescribedBy });
 
       const legendId = document.querySelector(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__header legend',
@@ -362,12 +365,13 @@ module(
         '#test-form-key-value-inputs .hds-form-key-value-inputs__error',
       ).id;
 
+      assert.dom('#test-form-key-value-inputs').hasAria('labelledby', legendId);
       assert
         .dom('#test-form-key-value-inputs')
-        .hasAria('labelledby', legendId);
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasAria('describedby', `${helperId} ${errorId}`);
+        .hasAria(
+          'describedby',
+          `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+        );
     });
   },
 );

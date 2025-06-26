@@ -28,6 +28,7 @@ module(
         this.type = args.type ?? 'TextInput';
         this.isInvalid = args.isInvalid;
         this.controlId = args.id;
+        this.extraAriaDescribedBy = args.extraAriaDescribedBy;
         // ---
         this.options = ['Option 1', 'Option 2'];
         this.selected_option = 'Option 1';
@@ -38,6 +39,7 @@ module(
             id="test-form-key-value-field"
             @id={{this.controlId}}
             @isInvalid={{this.isInvalid}}
+            @extraAriaDescribedBy={{this.extraAriaDescribedBy}}
             @rowIndex={{0}}
           as |F|>
             <F.Label>Label</F.Label>
@@ -231,7 +233,8 @@ module(
     YIELDED_INPUTS.forEach(({ type, selector }) => {
       ['default', 'custom'].forEach((mode) => {
         test(`it should associate the label and help text appropriately for the "${type}" input - ${mode === 'custom' ? 'with custom @id' : 'default'}`, async function (assert) {
-          const opts = { type };
+          const extraAriaDescribedBy = 'extra';
+          const opts = { type, extraAriaDescribedBy };
           if (mode === 'custom') {
             opts.id = 'custom-id';
           }
@@ -256,7 +259,10 @@ module(
               .hasAria('labelledby', labelId);
             assert
               .dom('#test-form-key-value-field [role="combobox"]')
-              .hasAria('describedby', `${helperId} ${errorId}`);
+              .hasAria(
+                'describedby',
+                `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+              );
           } else {
             assert
               .dom(
@@ -265,7 +271,10 @@ module(
               .hasAttribute('for', inputId);
             assert
               .dom(`#test-form-key-value-field ${selector}`)
-              .hasAria('describedby', `${helperId} ${errorId}`);
+              .hasAria(
+                'describedby',
+                `${helperId} ${errorId} ${extraAriaDescribedBy}`,
+              );
           }
         });
       });
