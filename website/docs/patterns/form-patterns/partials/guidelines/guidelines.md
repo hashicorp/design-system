@@ -190,7 +190,7 @@ Don’t use separators at the end of the last section between the fields and the
 
 Instead, use the section spacing value of 32px.
 
-![Spacing between trailing actions](/assets/patterns/form-patterns/divider-spacing-actions-do.png =500x*)
+![Spacing between trailing actions](/assets/patterns/form-patterns/divider-spacing-do.png)
 !!!
 
 #### Multiple steps or pages
