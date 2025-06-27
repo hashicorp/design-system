@@ -64,6 +64,7 @@ Router.map(function () {
           this.route('demo-responsiveness');
           this.route('demo-responsiveness-custom-widths');
           this.route('demo-in-form');
+          this.route('demo-flows');
         });
       });
       this.route('masked-input');
