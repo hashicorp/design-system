@@ -21,8 +21,12 @@ A legend is required to provide context for the overall [fieldset](https://devel
 
 Regardless on whether the key value inputs is placed along with other form components, or solo, a legend is always mandetory. 
 
+
+#### With other elements
+
 ![The key value inputs, which is part of a larger form, has the fieldset legend visible describing to the user what files to upload.](/assets/components/form/key-value-inputs/key-value-inputs-legend-part-of-larger-form.png)
 
+#### Alone in form
 
 ![Key value inputs are the only form elements on the page.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
 
