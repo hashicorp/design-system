@@ -34,7 +34,6 @@
 | Icon         | Optional |
 | Container    | Required |
 
-
 #### Nested cell
 
 ![](/assets/components/table/advanced-table/advanced-table-cell-nested-anatomy.png)
