@@ -1,5 +1,37 @@
 # @hashicorp/design-system-components
 
+## 4.21.0
+
+### Minor Changes
+
+`Form` - Added `Form` component and related sub-components for form layout
+
+`Form::Separator` - Added `Form::Separator` component
+
+<small class="doc-whats-new-changelog-metadata">[#2898](https://github.com/hashicorp/design-system/pull/2898)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `ember-math-helpers` dependency.
+
+`AdvancedTable` - Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
+
+<small class="doc-whats-new-changelog-metadata">[#2849](https://github.com/hashicorp/design-system/pull/2849)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+Upgraded: `@nullvoxpopuli/ember-composable-helpers` from 5.2.10 to 5.2.11
+
+<small class="doc-whats-new-changelog-metadata">[#2954](https://github.com/hashicorp/design-system/pull/2954) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.12.0
+
 ## 4.20.2
 
 [4.20.2 documentation](https://hds-website-4-20-2.vercel.app/)
