@@ -2,7 +2,7 @@
 
 ### Dropdown
 
-![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png =374x*)
+![Dropdown anatomy](/assets/components/dropdown/dropdown-anatomy.png)
 
 | Element          | Usage                  |
 |------------------|------------------------|
@@ -14,8 +14,8 @@
 ### Toggle
 
 <Doc::Layout @spacing="48px">
-    ![Toggle button anatomy](/assets/components/dropdown/dropdown-button-anatomy.png =278x*)
-    ![Toggle icon anatomy](/assets/components/dropdown/dropdown-icon-anatomy.png =794x*)
+    ![Toggle button anatomy](/assets/components/dropdown/dropdown-button-anatomy.png)
+    ![Toggle icon anatomy](/assets/components/dropdown/dropdown-icon-anatomy.png)
 </Doc::Layout>
 
 | Element                   | Usage                                           |
@@ -26,7 +26,7 @@
 
 ### ListItem
 
-![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png =820x*)
+![Dropdown ListItem anatomy](/assets/components/dropdown/dropdown-listitem-anatomy.png)
 
 | Element          | Usage                                                    |
 |------------------|----------------------------------------------------------|

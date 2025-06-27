@@ -12,89 +12,26 @@
 
 ## Toggle
 
-### Types
+### Toggle types
 
 Toggles come in two variant types: **button** and **icon**.
 
-<Doc::Layout @spacing="24px">
-  <Hds::Dropdown as |D|>
-    <D.ToggleButton @text="Primary" />
-    <D.Interactive>Item One</D.Interactive>
-    <D.Interactive>Item Two</D.Interactive>
-    <D.Interactive>Item Three</D.Interactive>
-    <D.Interactive>Item Four</D.Interactive>
-  </Hds::Dropdown>
-  <Hds::Dropdown as |D|>
-    <D.ToggleIcon @icon="user" @text="user menu" />
-    <D.Interactive>Item One</D.Interactive>
-    <D.Interactive>Item Two</D.Interactive>
-    <D.Interactive>Item Three</D.Interactive>
-    <D.Interactive>Item Four</D.Interactive>
-  </Hds::Dropdown>
-</Doc::Layout>
+![Example of the two toggle variant types](/assets/components/dropdown/dropdown-toggle-types.png)
 
-### Size
+### Toggle size
 
 ToggleButtons come in two sizes: **small** and **medium**. This allows for placement in ButtonSets with buttons of the same size.
 
-<Doc::Layout @spacing="24px" @direction="vertical">
-  <Hds::ButtonSet>
-    <Hds::Dropdown as |D|>
-      <D.ToggleButton @text="Primary" @size="small"/>
-      <D.Interactive>Item One</D.Interactive>
-      <D.Interactive>Item Two</D.Interactive>
-      <D.Interactive>Item Three</D.Interactive>
-      <D.Interactive>Item Four</D.Interactive>
-    </Hds::Dropdown>
-    <Hds::Dropdown as |D|>
-      <D.ToggleButton @text="Secondary" @color="secondary" @size="small" />
-      <D.Interactive>Item One</D.Interactive>
-      <D.Interactive>Item Two</D.Interactive>
-      <D.Interactive>Item Three</D.Interactive>
-      <D.Interactive>Item Four</D.Interactive>
-    </Hds::Dropdown>
-  </Hds::ButtonSet>
-  <Hds::ButtonSet>
-    <Hds::Dropdown as |D|>
-      <D.ToggleButton @text="Primary" />
-      <D.Interactive>Item One</D.Interactive>
-      <D.Interactive>Item Two</D.Interactive>
-      <D.Interactive>Item Three</D.Interactive>
-      <D.Interactive>Item Four</D.Interactive>
-    </Hds::Dropdown>
-    <Hds::Dropdown as |D|>
-      <D.ToggleButton @text="Secondary" @color="secondary" />
-      <D.Interactive>Item One</D.Interactive>
-      <D.Interactive>Item Two</D.Interactive>
-      <D.Interactive>Item Three</D.Interactive>
-      <D.Interactive>Item Four</D.Interactive>
-    </Hds::Dropdown>
-  </Hds::ButtonSet>
-</Doc::Layout>
+![Example of the two toggle button sizes](/assets/components/dropdown/dropdown-toggle-button-sizes.png)
 
 ToggleIcons come in two sizes: **small** and **medium**.
 
 !!! Info
 
-While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images start to become unrecognizable in smaller sizes.
+While we provide a small size variant, we recommend only using this for the Overflow menu within [Tables](/components/table/table) because the icons and images can become unrecognizable in smaller sizes.
 !!!
 
-<Doc::Layout @spacing="24px">
-  <Hds::Dropdown as |D|>
-    <D.ToggleIcon @icon="more-horizontal" @size="small" @text="Overflow Options" @hasChevron={{false}} />
-    <D.Interactive>Item One</D.Interactive>
-    <D.Interactive>Item Two</D.Interactive>
-    <D.Interactive>Item Three</D.Interactive>
-    <D.Interactive>Item Four</D.Interactive>
-  </Hds::Dropdown>
-  <Hds::Dropdown as |D|>
-    <D.ToggleIcon @icon="user" @text="user menu" />
-    <D.Interactive>Item One</D.Interactive>
-    <D.Interactive>Item Two</D.Interactive>
-    <D.Interactive>Item Three</D.Interactive>
-    <D.Interactive>Item Four</D.Interactive>
-  </Hds::Dropdown>
-</Doc::Layout>
+![Example of the two toggle button sizes](/assets/components/dropdown/dropdown-toggle-icon-sizes.png)
 
 ### Chevron usage
 
@@ -102,11 +39,11 @@ Open Toggles use icon `chevron-up`, while closed Toggles use `chevron-down`.
 
 ToggleButtons require a visible chevron to indicate interactivity and provide distinction between Dropdowns and standard Buttons.
 
-![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png =286x*)
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-button-chevrons.png)
 
 We strongly recommend providing visible chevrons on most instances of ToggleIcons to indicate interactivity. That said, it’s common to see ToggleIcons that use the `more-horizontal` icon without chevrons. Their placement, usually in the last column of a [Table](/components/table/table), is typically indicative of this type of interaction.
 
-![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png =750x*)
+![Example of open and closed dropdowns](/assets/components/dropdown/dropdown-icon-chevrons.png)
 
 ## List
 
@@ -114,110 +51,41 @@ We strongly recommend providing visible chevrons on most instances of ToggleIcon
 
 Lists can be positioned to the left or right of the Toggle, and above or below the Toggle to fit more appropriately within the UI. Lists do not currently have collision detection.
 
-![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png =963x*)
+![Dropdown list placement examples](/assets/components/dropdown/dropdown-placement.png)
 
-### Size
+### List size
 
 #### Width
 
 By default, Lists have a minimum width of 200px and a maximum width of 400px. This means if there’s a long string in a ListItem, the List will automatically expand up to 400px to accommodate the content before it wraps.
 
-<div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="Signed in as" />
-    <Hds::Dropdown::ListItem::Description @text="name@email.com" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive>User settings</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive>Admin</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive>Sign out</Hds::Dropdown::ListItem::Interactive>
-  </ul>
-</div>
+![Dropdown menu at 200px wide](/assets/components/dropdown/dropdown-menu-min-width.png)
 
 If you do not want the width of the List to expand automatically to accommodate the widest ListItem, you can indicate a specific width between 200px–400px.
 
-<div class="hds-dropdown__content" style="width: 320px">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Title @text="Consul version v1.10.6" />
-    <Hds::Dropdown::ListItem::Interactive @icon="sync">Update Consul version</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive @icon="edit">Edit cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Title @text="Import to Terraform" />
-    <Hds::Dropdown::ListItem::Description @text="Copy and run this command in Terraform to import and manage this resource via our Terraform Provider" />
-    <Hds::Dropdown::ListItem::Generic>
-      <Hds::Link::Standalone @color="primary" @text="Docs: Import usage" @icon="docs-link" @iconPosition="trailing" @href="#" />
-    </Hds::Dropdown::ListItem::Generic>
-    <Hds::Dropdown::ListItem::CopyItem @text="terraform import hcp_connect" />
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
-  </ul>
-</div>
+![A wider dropdown menu at 310px](/assets/components/dropdown/dropdown-menu-max-width.png)
 
 #### Height
 
 The height of the ListContainer is automatically determined based on the contents, but the height can also be set manually. We recommend setting the height manually if you know the list will be long. In code, the `@height` property actually acts as a `max-height`.
 
-<div class="hds-dropdown__content" style="height: 275px">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Planning">Planning</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Planning">Planning</Hds::Dropdown::ListItem::Checkbox>
-  </ul>
-</div>
-
+![Dropdown menu with many items and a set height so it scrolls](/assets/components/dropdown/dropdown-menu-scroll.png)
 
 ### Header
 
 A Header provides a fixed space at the top of the List. Typically, Headers house a search feature that allows the user to search/filter through the available options in the list. This is great for really long lists when filtering on complex datasets.
 
-<div class="hds-dropdown__content">
-  <Hds::Dropdown::Header @hasDivider={{true}}>
-    <Hds::Form::TextInput::Base @type="search" placeholder="Search" />
-  </Hds::Dropdown::Header>
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-  </ul>
-</div>
+![Dropdown menu with a header that includes a search field](/assets/components/dropdown/dropdown-menu-header.png)
 
 ### Footer
 
 A Footer provides a fixed space at the bottom of the List. Typically, Footers house actions related to the ListItems, e.g., when found in a filtering pattern an "Apply" Button can be used to submit the selections.
 
-<div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Checkbox @value="Planned">Planned</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy override">Policy override</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Policy checked">Policy checked</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Cost estimated">Cost estimated</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Errored">Errored</Hds::Dropdown::ListItem::Checkbox>
-    <Hds::Dropdown::ListItem::Checkbox @value="Fetched">Fetched</Hds::Dropdown::ListItem::Checkbox>
-  </ul>
-  <Hds::Dropdown::Footer @hasDivider={{true}}>
-    <Hds::ButtonSet>
-      <Hds::Button @text="Apply" type="submit" @size="small" @isFullWidth={{true}} />
-      <Hds::Button @text="Cancel" @color="secondary" @size="small" @isFullWidth={{true}} />
-    </Hds::ButtonSet>
-  </Hds::Dropdown::Footer>
-</div>
+![Dropdown menu with a footer that includes a button set with a primary "Apply" button and secondary "Cancel" button](/assets/components/dropdown/dropdown-menu-footer.png)
 
 ## ListItem
 
-### Types
+### ListItem types
 
 For maximum flexibility, we offer a variety of ListItems options.
 
@@ -228,7 +96,7 @@ Use Interactive ListItems for actions (buttons) or links.
 - Use `Interactive - Critical` for destructive actions.
 - Use `Interactive - Action` for everything else.
 
-![Interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-interactive.png =449x*)
+![Interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-interactive.png)
 
 #### Selection ListItems
 
@@ -238,36 +106,36 @@ Selection ListItems allow the user to select one or more options within a Dropdo
 - Use `Checkbox` for multi-selection within a form or larger filter pattern.
 - Use `Radio` for single selection within a form or larger filter pattern.
 
-![Selection ListItem types](/assets/components/dropdown/dropdown-listitem-types-selection.png =396x*)
+![Selection ListItem types](/assets/components/dropdown/dropdown-listitem-types-selection.png)
 
 !!! Do
 
 Use `Checkmark` for context switching.
 
-![Example of proper checkmark list items](/assets/components/dropdown/dropdown-interactive-contextswitcher-do.png =280x*)
+![Example of proper checkmark list items](/assets/components/dropdown/dropdown-context-switcher-do.png)
 !!!
 
 !!! Dont
 
 Don't use `Checkmark` instead of `Radio` in larger filter patterns.
 
-![Example of incorrect checkmark list items](/assets/components/dropdown/dropdown-interactive-filter-dont.png =768x*)
+![Example of incorrect checkmark list items](/assets/components/dropdown/dropdown-interactive-filter-dont.png)
 !!!
 
-#### Non-interactive
+#### Non-interactive ListItems
 
 Non-interactive ListItems help provide structure and context to a Dropdown. Types include: `Description`, `Loading`, `Separator`, and `Title`.
 
-![Non-interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-noninteractive.png =449x*)
+![Non-interactive ListItem types](/assets/components/dropdown/dropdown-listitem-types-noninteractive.png)
 
 !!! Do
 
 Users may not understand why something is taking additional time to load. If possible, determine what should be displayed prior to the user opening the dropdown (e.g., on page load). If that is not possible, provide an informative loading message.
 
-![Example of loading list item](/assets/components/dropdown/dropdown-loading-do.png =248x*)
+![Example of loading list item](/assets/components/dropdown/dropdown-loading-do.png)
 !!!
 
-#### Generic
+#### Generic ListItems
 
 The Generic ListItem allows you to add generic content in place of a ListItem. It includes predefined left and right padding to ensure proper alignment with other ListItems in the List.
 
@@ -276,44 +144,26 @@ The Generic ListItem allows you to add generic content in place of a ListItem. I
 Be careful not to misuse or overuse the Generic ListItem. Relying on this escape hatch too often could result in an overly complex Dropdown.
 !!!
 
-![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png =449x*)
+![Generic ListItem type](/assets/components/dropdown/dropdown-listitem-types-generic.png)
 
 ### Icon usage
 
-Icons in ListItems are optional. Generally, we recommend letting the text speak for itself, but icons can add value in the following situations:
+Icons in ListItems are optional, and we generally recommend letting the text speak for itself.
 
-- When they reinforce the content, e.g., `edit` for an edit or rename action.
-- When using Interactive ListItems, a `trailingIcon` can indicate that a link is external.
-- When using Critical ListItems; read more about [how color blind users see critical actions](/components/dropdown?tab=accessibility) in our UIs.
-- To avoid inconsistent icon use within the same List. Instead use icons in all ListItems. Doing so keeps the text aligned so the eye can scan the list of options more easily.
-
-!!! Do
-
-Use icons consistently and when they reinforce the content.
-
-<div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="edit">Rename cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="reload">Restore cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="github" @trailingIcon="external-link">Reference cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
-  </ul>
-</div>
-!!!
+However, icons can add value when they reinforce the content or indicate external links. When using Critical ListItems, icons may also improve [how color blind users see critical actions](/components/dropdown?tab=accessibility).
 
 !!! Dont
 
-Avoid inconsistent icon use.
+Avoid inconsistent icon use within the same List.
 
-<div class="hds-dropdown__content">
-  <ul class="hds-dropdown__list">
-    <Hds::Dropdown::ListItem::Interactive @color="action">Rename cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Interactive @color="action" @icon="reload">Restore cluster</Hds::Dropdown::ListItem::Interactive>
-    <Hds::Dropdown::ListItem::Separator />
-    <Hds::Dropdown::ListItem::Interactive @color="critical" @icon="trash">Delete cluster</Hds::Dropdown::ListItem::Interactive>
-  </ul>
-</div>
+![Dropdown use case examples](/assets/components/dropdown/dropdown-icon-usage-dont.png)
+!!!
+
+!!! Do
+
+Use icons consistently. Doing so keeps the text aligned so the eye can scan the list of options more easily.
+
+![Dropdown use case examples](/assets/components/dropdown/dropdown-icon-usage-do.png)
 !!!
 
 ### Badge usage
@@ -324,7 +174,7 @@ Avoid inconsistent icon use.
 - When an item has vital information that users should be able to see at a glance, i.e., a unique status.
 - When an item should be distinguished from others in the list, e.g., an item view is Public vs Private.
 
-![Dropdown use case examples](/assets/components/dropdown/dropdown-interactive-badge-example.png)
+![Dropdown width badges in various places](/assets/components/dropdown/dropdown-interactive-badge-example.png)
 
 !!! Info
 
@@ -343,10 +193,10 @@ We recommend adding a second confirmation layer after the user clicks “Delete�
 
 !!! Do
 
-![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png =780x*)
+![example of how to use a second confirmation layer](/assets/components/dropdown/dropdown-example-do.png)
 !!!
 
 !!! Dont
 
-![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png =507x*)
+![example of how not to use a second confirmation layer](/assets/components/dropdown/dropdown-example-dont.png)
 !!!
