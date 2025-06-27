@@ -25,6 +25,7 @@ export interface HdsLayoutGridSignature {
   Args: {
     tag?: AvailableTagNames;
     columnMinWidth?: string;
+    columnWidth?: string;
     align?: HdsLayoutGridAligns;
     gap?: HdsLayoutGridGaps | [HdsLayoutGridGaps, HdsLayoutGridGaps];
   };
@@ -82,15 +83,36 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     }
   }
 
+  /*
+    LOGIC:
+
+    If columnMinWidth is passed in:
+    1) we set --hds-layout-grid-column-min-width to the passed in value
+    2) We use the fallback value of "auto-fit" for --hds-layout-grid-column-fill-type (reults in a more fluid layout)
+
+    If columnWidth is passed in:
+    1) we set --hds-layout-grid-column-min-width to the passed in value
+    2) we add a class name to the Grid which sets --hds-layout-grid-column-fill-type to "auto-fill" (results in a more fixed layout)
+
+    If both columnMinWidth & columnWidth are passed in:
+    1) We throw an error, as it doesn't make sense in the context of a CSS grid layout (too complex to determine which to use & desired behavior)
+  */
   get inlineStyles(): Record<string, unknown> {
     const inlineStyles: {
       '--hds-layout-grid-column-min-width'?: string;
     } = {};
 
-    if (this.args.columnMinWidth) {
+    // if both columnMinWidth and columnWidth are passed in, we throw an error
+    assert(
+      `@columnMinWidth and @columnWidth for "Hds::Layout::Grid" cannot be used together`,
+      !(this.args.columnMinWidth && this.args.columnWidth)
+    );
+
+    if (this.args.columnMinWidth || this.args.columnWidth) {
       inlineStyles['--hds-layout-grid-column-min-width'] =
-        this.args.columnMinWidth;
+        this.args.columnMinWidth ?? this.args.columnWidth;
     }
+
     return inlineStyles;
   }
 
@@ -111,6 +133,11 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
         classes.push(`hds-layout-grid--row-gap-${this.gap[0]}`);
         classes.push(`hds-layout-grid--column-gap-${this.gap[0]}`);
       }
+    }
+
+    // add a class based on the @columnWidth argument
+    if (this.args.columnWidth) {
+      classes.push(`hds-layout-grid--has-column-width`);
     }
 
     return classes.join(' ');

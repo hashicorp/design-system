@@ -14,7 +14,7 @@
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
   grid-template-columns: repeat(
-    auto-fit,
+    var(--hds-layout-grid-column-fill-type, auto-fit),
     minmax(calc(var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)), 1fr)
   );
 
@@ -22,6 +22,12 @@
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
   gap: var(--hds-layout-grid-row-gap, 0) var(--hds-layout-grid-column-gap, 0);
+}
+
+// columnWidth
+// We set the fill type to "auto-fill" if a columnWidth value is passed in to trigger a "fixed" column layout vs. a fluid layout.
+.hds-layout-grid--has-column-width {
+  --hds-layout-grid-column-fill-type: auto-fill;
 }
 
 // align
