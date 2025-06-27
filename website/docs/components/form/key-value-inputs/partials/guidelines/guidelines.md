@@ -17,15 +17,14 @@ Key value inputs use a header that includes a legend, helper text, and a generic
 
 ### Legend
 
-A legend is required to provide context for the overall [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset). A legend can be configured to render either as its default size, or as a heading depending on where the Key Value Inputs live within the page content.
+A legend is required to provide context for the overall [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset).
 
-When placed along with other form components, we recommend using the default legend style provided by the component.
+Regardless on whether the key value inputs is placed along with other form components, or solo, a legend is always mandetory. 
 
 ![The key value inputs, which is part of a larger form, has the fieldset legend visible describing to the user what files to upload.](/assets/components/form/key-value-inputs/key-value-inputs-legend-part-of-larger-form.png)
 
-When using the Key Value Inputs as its own section, we recommend using a heading for the legend. The heading size to use is dependent on the existing heading structure.
 
-![Key value inputs are the only form elements on the page, the heading uses display 300 and an H2 tag.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
+![Key value inputs are the only form elements on the page.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
 
 ### Helper text and generic content
 
@@ -83,11 +82,21 @@ If there is a row limit and the user reaches it, the add button should be replac
 
 If the maximum number of rows has been reached and the user deletes a row, the alert should be replaced with the add button.
 
-### Deleting rows
+### Delete behavior
 
-A single row is required at all times. A delete button will only appear for the first row if a second row has been added.
+!!! Info
 
-![A single row with a key and value input with no delete button on the side.](/assets/components/form/key-value-inputs/key-value-inputs-single-row.png)
+The interactions described in this section will have to be implemented by the consumer.
+
+!!!
+
+A single row is required at all times. If that row's content is empty, the delete button will be hidden.
+
+![A single row with a key and value input with no delete button on the side.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
+
+Once content is filled in either of the two inputs, the delete button will become visible. Clicking it will delete that row's data.
+
+![A single row with a key and value input with a delete button on the side. The key input has data in it.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
 
 If more than one row is present, users can opt to delete any of the rows.
 
