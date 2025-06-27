@@ -1,5 +1,5 @@
 {
-  "lastRunTimeISO": "2025-06-17T18:52:27.403Z",
+  "lastRunTimeISO": "2025-06-25T21:50:47.532Z",
   "lastRunFigma": {
     "id": "TLnoT5AYQfy3tZ0H68BgOr",
     "page": "Export",
@@ -2648,7 +2648,7 @@
     },
     {
       "id": "7665:175",
-      "fileName": "ping-identity-24",
+      "fileName": "ping-identity -24",
       "iconName": "ping-identity ",
       "description": "ping, identity",
       "category": "Services",
@@ -2658,7 +2658,7 @@
     },
     {
       "id": "7665:177",
-      "fileName": "ping-identity-16",
+      "fileName": "ping-identity -16",
       "iconName": "ping-identity ",
       "description": "ping, identity",
       "category": "Services",
@@ -8767,6 +8767,26 @@
       "height": 16
     },
     {
+      "id": "8361:244",
+      "fileName": "move-horizontal-24",
+      "iconName": "move-horizontal",
+      "description": "column, move, arrows, table",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8361:252",
+      "fileName": "move-horizontal-16",
+      "iconName": "move-horizontal",
+      "description": "column, move, arrows, table",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
       "id": "350:2988",
       "fileName": "paperclip-24",
       "iconName": "paperclip",
@@ -8921,6 +8941,26 @@
       "fileName": "repeat-16",
       "iconName": "repeat",
       "description": "repeat, redo, process, loop",
+      "category": "Interface",
+      "size": "16",
+      "width": 16,
+      "height": 16
+    },
+    {
+      "id": "8357:159",
+      "fileName": "resize-column-24",
+      "iconName": "resize-column",
+      "description": "column, resize, arrows, table",
+      "category": "Interface",
+      "size": "24",
+      "width": 24,
+      "height": 24
+    },
+    {
+      "id": "8357:164",
+      "fileName": "resize-column-16",
+      "iconName": "resize-column",
+      "description": "column, resize, arrows, table",
       "category": "Interface",
       "size": "16",
       "width": 16,
