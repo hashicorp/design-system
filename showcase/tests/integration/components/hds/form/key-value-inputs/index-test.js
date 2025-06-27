@@ -273,17 +273,17 @@ module(
 
     // CUSTOM WIDTHS
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-pair-columns` for the rows without custom widths', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows without custom widths', async function (assert) {
       await this.createKeyValueInputs({
         data: [{ value: 'Test value' }, { value: 'Another value' }],
       });
 
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto min-content' });
+        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto min-content' });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-pair-columns` for the rows with complex structure', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with complex structure', async function (assert) {
       this.data = [
         { key: 'Test key', value: 'Test value' },
         { key: 'Another key', value: 'Another value' },
@@ -303,11 +303,11 @@ module(
         </Hds::Form::KeyValueInputs>
       `);
       assert.dom('#test-form-key-value-inputs').hasStyle({
-        '--hds-key-value-pair-columns': '1fr auto 1fr auto min-content',
+        '--hds-key-value-inputs-columns': '1fr auto 1fr auto min-content',
       });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-pair-columns` for the row when there is no data and no yielded delete button', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the row when there is no data and no yielded delete button', async function (assert) {
       this.data = [];
       await render(hbs`
         <Hds::Form::KeyValueInputs
@@ -322,10 +322,10 @@ module(
       `);
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '1fr auto' });
+        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto' });
     });
 
-    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-pair-columns` for the rows with custom widths', async function (assert) {
+    test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with custom widths', async function (assert) {
       this.data = [{ value: 'Test value' }, { value: 'Another value' }];
       await render(hbs`
         <Hds::Form::KeyValueInputs
@@ -346,12 +346,14 @@ module(
 
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-pair-columns': '200px auto min-content' });
+        .hasStyle({
+          '--hds-key-value-inputs-columns': '200px auto min-content',
+        });
     });
 
     // ACCESSIBILITY
 
-    test('it should associate together the filedset and its legent, help text and error', async function (assert) {
+    test('it should associate together the fieldset and its legend, help text and error', async function (assert) {
       const extraAriaDescribedBy = 'extra';
       await this.createKeyValueInputs({ extraAriaDescribedBy });
 

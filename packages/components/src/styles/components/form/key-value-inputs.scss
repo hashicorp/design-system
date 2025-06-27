@@ -38,7 +38,7 @@
   @include hds-breakpoint-above("md") {
     display: grid;
     flex-grow: 1;
-    grid-template-columns: var(--hds-key-value-pair-columns, 1fr 1fr min-content);
+    grid-template-columns: var(--hds-key-value-inputs-columns, 1fr 1fr min-content);
     align-items: flex-end;
     column-gap: 8px;
     row-gap: 0;

@@ -29,12 +29,12 @@ import type { AriaDescribedByComponent } from '../../../../utils/hds-aria-descri
 import type { HdsFormKeyValueInputsAddRowButtonSignature } from './add-row-button.ts';
 import type { HdsYieldSignature } from '../../yield/index.ts';
 
-const KEY_VALUE_PAIR_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
-const KEY_VALUE_PAIR_GENERIC_SELECTOR =
+const KEY_VALUE_INPUTS_FIELD_SELECTOR = '.hds-form-key-value-inputs__field';
+const KEY_VALUE_INPUTS_GENERIC_SELECTOR =
   '.hds-form-key-value-inputs__generic-container';
-const KEY_VALUE_PAIR_FIRST_ROW_SELECTOR =
+const KEY_VALUE_INPUTS_FIRST_ROW_SELECTOR =
   '.hds-form-key-value-inputs__row--first';
-const KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR =
+const KEY_VALUE_INPUTS_DELETE_ROW_CONTAINER_SELECTOR =
   '.hds-form-key-value-inputs__delete-row-button-container';
 
 export interface HdsFormKeyValueInputsSignature {
@@ -135,9 +135,9 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
   // Update the column array based on how they are ordered in the DOM
   private _updateColumns = () => {
     const columns = this._element
-      .querySelector(KEY_VALUE_PAIR_FIRST_ROW_SELECTOR)
+      .querySelector(KEY_VALUE_INPUTS_FIRST_ROW_SELECTOR)
       ?.querySelectorAll(
-        `${KEY_VALUE_PAIR_FIELD_SELECTOR}, ${KEY_VALUE_PAIR_GENERIC_SELECTOR}, ${KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR}`
+        `${KEY_VALUE_INPUTS_FIELD_SELECTOR}, ${KEY_VALUE_INPUTS_GENERIC_SELECTOR}, ${KEY_VALUE_INPUTS_DELETE_ROW_CONTAINER_SELECTOR}`
       );
 
     let updatedGridTemplateColumns = '';
@@ -147,7 +147,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
 
       if (
         // do substring to remove the leading dot from the class selector
-        column.classList.contains(KEY_VALUE_PAIR_FIELD_SELECTOR.substring(1))
+        column.classList.contains(KEY_VALUE_INPUTS_FIELD_SELECTOR.substring(1))
       ) {
         if (columnElement.dataset['width']) {
           updatedGridTemplateColumns += `${columnElement.dataset['width']} `;
@@ -158,7 +158,9 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
 
       if (
         // do substring to remove the leading dot from the class selector
-        column.classList.contains(KEY_VALUE_PAIR_GENERIC_SELECTOR.substring(1))
+        column.classList.contains(
+          KEY_VALUE_INPUTS_GENERIC_SELECTOR.substring(1)
+        )
       ) {
         updatedGridTemplateColumns += 'auto ';
 
@@ -171,7 +173,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
 
       if (
         column.classList.contains(
-          KEY_VALUE_PAIR_DELETE_ROW_CONTAINER_SELECTOR.substring(1)
+          KEY_VALUE_INPUTS_DELETE_ROW_CONTAINER_SELECTOR.substring(1)
         )
       ) {
         updatedGridTemplateColumns += 'min-content ';
