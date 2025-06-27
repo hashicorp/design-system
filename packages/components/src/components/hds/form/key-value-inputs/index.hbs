@@ -23,23 +23,17 @@
           isOptional=@isOptional
           isRequired=@isRequired
         )
-      )
-      to="header"
-    }}
-    {{yield
-      (hash
         HelperText=(component
           "hds/form/helper-text"
           contextualClass="hds-form-key-value-inputs__helper-text"
           controlId=this.glueId
           onInsert=this.appendDescriptor
         )
+        Generic=(component "hds/yield")
       )
       to="header"
     }}
   </div>
-
-  {{yield (hash Generic=(component "hds/yield")) to="header"}}
 
   {{#if (eq @data.length 0)}}
     <div class="hds-form-key-value-inputs__row hds-form-key-value-inputs__row--first">
