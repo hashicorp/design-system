@@ -104,7 +104,7 @@ If more than one row is present, users can opt to delete any of the rows.
 
 ## Footer
 
-The footer includes an add button or a compact alert.
+The footer includes an add button, compact alert, or fieldset validation.
 
 ### Add button
 
