@@ -344,11 +344,9 @@ module(
         .dom('#test-form-key-value-inputs .hds-form-key-value-inputs__field')
         .hasAttribute('data-width', '200px');
 
-      assert
-        .dom('#test-form-key-value-inputs')
-        .hasStyle({
-          '--hds-key-value-inputs-columns': '200px auto min-content',
-        });
+      assert.dom('#test-form-key-value-inputs').hasStyle({
+        '--hds-key-value-inputs-columns': '200px auto min-content',
+      });
     });
 
     // ACCESSIBILITY
