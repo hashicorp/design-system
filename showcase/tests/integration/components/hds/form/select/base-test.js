@@ -16,6 +16,16 @@ module('Integration | Component | hds/form/select/base', function (hooks) {
     assert.dom('#test-form-select').hasClass('hds-form-select');
   });
 
+  test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Select::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
+    );
+    assert
+      .dom('#custom-id')
+      .exists()
+      .hasAria('describedby', 'custom-description-id');
+  });
+
   // OPTIONS
 
   test('it should render the options passed via contextual component', async function (assert) {

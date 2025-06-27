@@ -26,6 +26,11 @@ module('Integration | Component | hds/form/legend/index', function (hooks) {
     assert.dom('#test-form-legend').hasClass('my-class');
   });
 
+  test('it should set the id correctly if pass @id argument', async function (assert) {
+    await render(hbs`<Hds::Form::Legend @id="custom-id" />`);
+    assert.dom('#custom-id').exists();
+  });
+
   // CONTENT
 
   test('it renders a legend with the defined text', async function (assert) {

@@ -170,6 +170,14 @@ export { default as HdsFormCheckboxGroup } from './components/hds/form/checkbox/
 export { default as HdsFormFileInputBase } from './components/hds/form/file-input/base.ts';
 export { default as HdsFormFileInputField } from './components/hds/form/file-input/field.ts';
 
+// Form > KeyValueInputs
+
+export { default as HdsFormKeyValueInputs } from './components/hds/form/key-value-inputs/index.ts';
+export { default as HdsFormKeyValueInputsAddRowButton } from './components/hds/form/key-value-inputs/add-row-button.ts';
+export { default as HdsFormKeyValueInputsDeleteRowButton } from './components/hds/form/key-value-inputs/delete-row-button.ts';
+export { default as HdsFormKeyValueInputsField } from './components/hds/form/key-value-inputs/field.ts';
+export { default as HdsFormKeyValueInputsGeneric } from './components/hds/form/key-value-inputs/generic.ts';
+
 // Form > MaskedInput
 export { default as HdsFormMaskedInputBase } from './components/hds/form/masked-input/base.ts';
 export { default as HdsFormMaskedInputField } from './components/hds/form/masked-input/field.ts';

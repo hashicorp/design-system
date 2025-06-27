@@ -16,6 +16,16 @@ module('Integration | Component | hds/form/textarea/base', function (hooks) {
     assert.dom('#test-form-textarea').hasClass('hds-form-textarea');
   });
 
+  test('it should set aria-describedby and id arguments if pass @id or @ariaDescribedBy', async function (assert) {
+    await render(
+      hbs`<Hds::Form::Textarea::Base @id="custom-id" @ariaDescribedBy="custom-description-id" />`,
+    );
+    assert
+      .dom('#custom-id')
+      .exists()
+      .hasAria('describedby', 'custom-description-id');
+  });
+
   // VALUE
 
   test('it should render the input with the value provided via @value argument', async function (assert) {

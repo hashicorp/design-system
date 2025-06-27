@@ -2,4 +2,12 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
-<input class={{this.classNames}} {{style width=@width}} ...attributes value={{@value}} type={{this.type}} />
+<input
+  class={{this.classNames}}
+  {{style width=@width}}
+  id={{@id}}
+  aria-describedby={{@ariaDescribedBy}}
+  ...attributes
+  value={{@value}}
+  type={{this.type}}
+/>
