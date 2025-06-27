@@ -19,7 +19,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
-  @ariaLabel='HashiCorp'
+  @text='HashiCorp'
   id='test-home-link'
 />`,
     );
@@ -32,7 +32,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='hashicorp'
-  @ariaLabel='HashiCorp'
+  @text='HashiCorp'
   @href='https://www.hashicorp.com/'
   id='test-home-link'
 />`,
@@ -48,7 +48,7 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
     await render(
       hbs`<Hds::AppHeader::HomeLink
   @icon='boundary'
-  @ariaLabel='Boundary'
+  @text='Boundary'
   @color='var(--token-color-boundary-brand)'
   @href='#'
 />`,
@@ -58,11 +58,24 @@ module('Integration | Component | hds/app-header/home-link', function (hooks) {
       .hasAttribute('fill', 'var(--token-color-boundary-brand)');
   });
 
+  test('it renders the logo with text when @isIconOnly is false', async function (assert) {
+    await render(
+      hbs`<Hds::AppHeader::HomeLink
+  @icon='hashicorp'
+  @text='HashiCorp'
+  @isIconOnly={{false}}
+  @href='#'
+  id='test-home-link'
+/>`,
+    );
+    assert.dom('.hds-text').exists();
+  });
+
   // ASSERTIONS
 
-  test('it should throw an assertion if @ariaLabel is missing/has no value', async function (assert) {
+  test('it should throw an assertion if @text is missing/has no value', async function (assert) {
     const errorMessage =
-      '@ariaLabel for "Hds::AppHeader::HomeLink" ("Logo") must have a valid value';
+      '@text for "Hds::AppHeader::HomeLink" must have a valid value';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);
