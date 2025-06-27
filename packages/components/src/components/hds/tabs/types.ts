@@ -13,3 +13,7 @@ export type HdsTabsSizes = `${HdsTabsSizeValues}`;
 export type HdsTabsPanelIds = string[];
 
 export type HdsTabsTabIds = string[];
+
+export default {
+  HdsTabsSizeValues,
+};

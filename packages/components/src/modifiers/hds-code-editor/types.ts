@@ -18,3 +18,7 @@ export enum HdsCodeEditorLanguageValues {
 }
 
 export type HdsCodeEditorLanguages = `${HdsCodeEditorLanguageValues}`;
+
+export default {
+  HdsCodeEditorLanguageValues,
+};
