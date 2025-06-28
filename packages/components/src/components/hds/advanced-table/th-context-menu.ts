@@ -51,7 +51,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
         {
           key: 'resize-column',
           label: 'Resize column',
-          icon: 'rotate-ccw',
+          icon: 'resize-column',
           action: this.resizeColumn.bind(this),
         },
         {
