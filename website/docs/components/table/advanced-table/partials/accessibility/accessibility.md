@@ -112,6 +112,39 @@ Returns to navigation mode.
 
 ![Keyboard focus on 'The Beatles' row using the arrow key.](/assets/components/table/advanced-table/advanced-table-keyboard-navigation-tab.png)
 
+### Resizing columns
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+While in Action Mode, Tab to the context menu.
+
+![Keyboard focus on the context menu within the column header.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize.png)
+
+<Doc::Badge @type="neutral">Enter</Doc::Badge>
+
+Press Enter to open the context menu.
+
+![The open context menu with two options; resize column, and reset column width.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-context-menu.png)
+
+<Doc::Badge @type="neutral">Tab</Doc::Badge>
+
+With the context menu open, press Tab to select the `Resize column` option.
+
+![Keyboard focus on the resize column option in the context menu.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-column.png)
+
+<Doc::BadgeGroup>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-left" @title="Left arrow" />
+  </Doc::Badge>
+  <Doc::Badge @type="neutral">
+    <Hds::Icon @name="arrow-right" @title="Right` arrow" />
+  </Doc::Badge>
+</Doc::BadgeGroup>
+
+Focus will be moved to the resize border. Use the right and left arrow keys to increase or decrease the width of the column in `10px` increments.
+
+![Keyboard focus on the resize border for the column.](/assets/components/table/advanced-table/advanced-table-keyboard-action-mode-resize-border.png)
+
 ### Row selection
 
 You should clearly communicate to the user how many rows are selected and how many rows there are total outside of the Advanced Table. For additional considerations, read the [Multi-select usability and accessibility considerations](/components/table/advanced-table?tab=code#usability-and-accessibility-considerations).
