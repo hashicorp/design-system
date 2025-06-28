@@ -54,9 +54,15 @@ The Advanced Table component itself is where most of the options will be applied
       </C.Property>
       <C.Property @name="minWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="150px">
         If set, determines the column’s minimum width when resizing.
+        <Doc::Banner @type="info">
+          Overriding the default `minWidth` requires the `width` property to be set.
+        </Doc::Banner>
       </C.Property>
       <C.Property @name="maxWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="800px">
         If set, determines the column’s maximum width when resizing.
+        <Doc::Banner @type="info">
+          Overriding the default `maxWidth` requires the `width` property to be set.
+        </Doc::Banner>
       </C.Property>
       <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
         If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility). <em>Only available for non-sortable columns.</em>
