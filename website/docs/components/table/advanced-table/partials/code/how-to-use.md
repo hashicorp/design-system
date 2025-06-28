@@ -193,8 +193,9 @@ By default, the minimum and maximum width of each column are set to `150px` and 
       key="album"
       label="Album"
       isSortable=true
-      minWidth="500px"
-      maxWidth="1000px"
+      width="300px"
+      minWidth="200px"
+      maxWidth="500px"
     )
     (hash key="year" label="Release Year")
   }}
