@@ -9,18 +9,18 @@ Because disabled states completely remove the interactive function of an element
 
 ### Toggle
 
-![Example of dropdown toggle states](/assets/components/dropdown/dropdown-toggle-states.png =687x*)
+![Example of dropdown toggle states](/assets/components/dropdown/dropdown-toggle-states.png)
 
 ### ListItem
 
 #### Interactive
-![Example of listitem interactive states](/assets/components/dropdown/dropdown-listitem-interactive-states.png =432x*)
+![Example of listitem interactive states](/assets/components/dropdown/dropdown-listitem-interactive-states.png)
 
 #### Checkbox
-![Example of listitem checkbox states](/assets/components/dropdown/dropdown-listitem-checkbox-states.png =432x*)
+![Example of listitem checkbox states](/assets/components/dropdown/dropdown-listitem-checkbox-states.png)
 
 #### Checkmark
-![Example of listitem checkmark states](/assets/components/dropdown/dropdown-listitem-checkmark-states.png =432x*)
+![Example of listitem checkmark states](/assets/components/dropdown/dropdown-listitem-checkmark-states.png)
 
 #### Radio
-![Example of listitem radio states](/assets/components/dropdown/dropdown-listitem-radio-states.png =432x*)
+![Example of listitem radio states](/assets/components/dropdown/dropdown-listitem-radio-states.png)
