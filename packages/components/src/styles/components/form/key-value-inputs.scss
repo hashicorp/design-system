@@ -1,0 +1,134 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+//
+// FORM > KEY-VALUE-INPUTS
+//
+
+@use "sass:map";
+@use "../../mixins/breakpoints" as *;
+@use "../../mixins/button" as *;
+@use "../../mixins/screen-reader-only" as *;
+
+// this is the width of the icon-only button
+$hds-delete-button-width: map.get($hds-button-size-props, "medium", "min-height");
+
+// notice: this is a <fieldset> element
+.hds-form-key-value-inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  border: none;
+  row-gap: 24px;
+
+  @include hds-breakpoint-above("md") {
+    row-gap: 12px;
+  }
+
+  &:focus {
+    // we move focus to the fieldset when a row is deleted, but we don't need the focus outline visible.
+    outline: none;
+  }
+}
+
+.hds-form-key-value-inputs__row {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  align-items: flex-start;
+
+  @include hds-breakpoint-above("md") {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: var(--hds-key-value-inputs-columns, 1fr 1fr $hds-delete-button-width);
+    align-items: flex-end;
+    column-gap: 8px;
+    row-gap: 0;
+
+    &.hds-form-key-value-inputs__row--first {
+      .hds-form-key-value-inputs__delete-row-button-container,
+      .hds-form-key-value-inputs__generic-container {
+        grid-row: 2;
+        // need to set the `grid-column` because the `grid-row` is set, otherwise it defaults to the first column
+        grid-column: var(--hds-key-value-inputs-column-index);
+      }
+    }
+
+    &:not(.hds-form-key-value-inputs__row--first) {
+      .hds-form-key-value-inputs__field-header {
+        @include screen-reader-only();
+      }
+    }
+  }
+}
+
+.hds-form-key-value-inputs__footer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  align-items: flex-start;
+}
+
+.hds-form-key-value-inputs__field {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+  width: 100%; // we want the input element to fill the parent container
+
+  .hds-form-key-value-inputs__field-header {
+    align-self: flex-end;
+    min-width: 0;
+    margin-bottom: 8px;
+
+    @include hds-breakpoint-above("md") {
+      margin-bottom: 12px;
+    }
+  }
+
+  .hds-form-select {
+    width: 100%; // we want the select element to fill the parent container
+  }
+
+  .hds-form-key-value-inputs__field-control {
+    display: flex; // to avoid extra whitespace when the content is an <input>, <select>, or <textarea> (inline elements)
+    flex-direction: column;
+    align-self: flex-start;
+    justify-self: stretch; // allows <input> and <textarea> to go full-width
+    width: 100%;
+  }
+}
+
+.hds-form-key-value-inputs__helper-text {
+  &:not(:first-child) {
+    margin-top: 4px;
+  }
+
+  // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+  & + .hds-form-key-value-inputs__helper-text {
+    margin-top: 2px;
+  }
+}
+
+// Separated this from the above to avoid unneccessary combinations of CSS selectors when CSS is compiled
+.hds-form-key-value-inputs__field-helper-text {
+  &:not(:first-child) {
+    margin-top: 4px;
+  }
+
+  // special case: if there are multiple helper text lines, we want to reduce the spacing between them
+  & + .hds-form-key-value-inputs__field-helper-text {
+    margin-top: 2px;
+  }
+}
+
+.hds-form-key-value-inputs__field-error {
+  margin-top: 8px;
+}
+
+.hds-form-key-value-inputs__generic-container,
+.hds-form-key-value-inputs__delete-row-button-container {
+  align-self: flex-start;
+}

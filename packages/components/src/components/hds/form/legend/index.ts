@@ -5,13 +5,14 @@
 
 import Component from '@glimmer/component';
 
-import type { HdsFormIndicatorSignature } from '../indicator';
+import type { HdsFormIndicatorSignature } from '../indicator/index.ts';
 
 export interface HdsFormLegendSignature {
   Args: {
     contextualClass?: string;
     isOptional?: HdsFormIndicatorSignature['Args']['isOptional'];
     isRequired?: HdsFormIndicatorSignature['Args']['isRequired'];
+    id?: string;
   };
   Blocks: {
     default: [];

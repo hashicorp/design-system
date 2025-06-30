@@ -118,6 +118,11 @@ import type HdsFormHeaderDescriptionComponent from './components/hds/form/header
 import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
+import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value-inputs/index.ts';
+import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.ts';
+import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.ts';
+import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.ts';
+import type HdsFormKeyValueInputsGenericComponent from './components/hds/form/key-value-inputs/generic.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -631,6 +636,18 @@ export default interface HdsComponentsRegistry {
   // Form Indicator
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
+
+  // Form KeyValueInputs
+  'Hds::Form::KeyValueInputs': typeof HdsFormKeyValueInputsComponent;
+  'hds/form/key-value-inputs': typeof HdsFormKeyValueInputsComponent;
+  'Hds::Form::KeyValueInputs::AddRowButton': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'hds/form/key-value-inputs/add-row-button': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'Hds::Form::KeyValueInputs::DeleteRowButton': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/delete-row-button': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/field': typeof HdsFormKeyValueInputsFieldComponent;
+  'Hds::Form::KeyValueInputs::Field': typeof HdsFormKeyValueInputsFieldComponent;
+  'hds/form/key-value-inputs/generic': typeof HdsFormKeyValueInputsGenericComponent;
+  'Hds::Form::KeyValueInputs::Generic': typeof HdsFormKeyValueInputsGenericComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
