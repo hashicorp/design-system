@@ -2,7 +2,7 @@
 
 <Doc::Badge @type="warning">Conditionally conformant</Doc::Badge>
 
-In order to be conformant, there must be a Legend in the `:header` named block. This is to identify what the group of inputs is for to all users.
+To be conformant, a Legend must be included in the `:header` named block identifying the purpose of the input groups.
 
 ## Applicable WCAG Success Criteria
 

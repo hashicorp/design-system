@@ -87,7 +87,7 @@ Use the `@isRequired` and `@isOptional` arguments to add a visual indicator that
 ```
 ### Validation
 
-The Key Value Inputs can be validated at the fieldset or each individual field. You can choose which level is appropriate depending on the use case, but it is best practice to make any error message as specific as possible. Avoid putting the error on the fieldset if the issue is with a single field.
+The Key Value Inputs can be validated at the fieldset level or on each individual field. You can choose which level is appropriate depending on the use case, but it is best practice to make any error message as specific as possible. Avoid putting the error on the fieldset if the issue occurs on a single field.
 
 To display an error on a field, set the `isInvalid` argument on the `[R].Field` yielded component, and use the `[F].Error` yielded component.
 
@@ -123,7 +123,7 @@ To display an error on a field, set the `isInvalid` argument on the `[R].Field` 
 </Hds::Form::KeyValueInputs>
 ```
 
-To display an error for the whole group of inputs, use the `[F].Error` component yielded by the `:footer` named block.
+To display an error for the entire fieldset (the whole group of inputs), use the `[F].Error` component yielded by the `:footer` named block.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array
@@ -132,7 +132,7 @@ To display an error for the whole group of inputs, use the `[F].Error` component
   <:header as |H|>
     <H.Legend>Invite multiple users to your organization</H.Legend>
     <H.HelperText>
-      Users without organization roles cannot view or edit anything inside their organization until project-level or workspace-level roles are assigned to them after they accept their invitation.
+      Users without an organization role cannot view or edit anything inside their organization until a project-level or workspace-level role is assigned to them after they accept their invitation.
     </H.HelperText>
   </:header>
   <:row as |R|>
@@ -200,7 +200,7 @@ The `Form::KeyValueInputs::Field` component yields [File Input](/components/form
 
 ### Generic content 
 
-If there is additional content needed in the header or a need for a not supported input type, there are generic slots available.
+If there is additional content needed in the header or a need for an unsupported input type, there are generic slots available.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array
@@ -210,7 +210,7 @@ If there is additional content needed in the header or a need for a not supporte
   <:header as |H|>
     <H.Legend>Grant access to HCP resources for your team members</H.Legend>
     <H.HelperText>
-      Users without organization roles cannot view or edit anything inside their organization until project-level or workspace-level roles are assigned to them after they accept their invitation.
+      Users without an organization role cannot view or edit anything inside their organization until a project-level or workspace-level role is assigned to them after they accept their invitation.
     </H.HelperText>
     <H.Generic>
       <Hds::Button @color="tertiary" @text="What can each role do?" @icon="help" />
@@ -245,7 +245,7 @@ You are responsible for handling the logic to add or remove a row. To do this, u
   <:header as |H|>
     <H.Legend>Invite multiple users to your organization</H.Legend>
     <H.HelperText>
-      Users without organization roles cannot view or edit anything inside their organization until project-level or workspace-level roles are assigned to them after they accept their invitation.
+      Users without an organization role cannot view or edit anything inside their organization until a project-level or workspace-level role is assigned to them after they accept their invitation.
     </H.HelperText>
   </:header>
   <:row as |R|>
@@ -276,7 +276,7 @@ You are responsible for handling the logic to add or remove a row. To do this, u
 
 ### Maximum number of rows
 
-You are responsible for implementing the logic for the maximum number of rows a user can add. If they have reached the maximum number of rows, you can use the yielded Alert in the `:footer` named block.
+Consumers are responsible for implementing the logic for the maximum number of rows a user can add. If they have reached the maximum number of rows, you can use the yielded Alert in the `:footer` named block to notify them.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array
@@ -319,7 +319,7 @@ You are responsible for implementing the logic for the maximum number of rows a 
 
 ### Field width
 
-By default, each field shares the available space evenly. There may be situations where you need to customize the width by setting the `width` argument on the field.
+Fields are equal width by default. Use the Field’s `width` argument to customize field widths.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{array

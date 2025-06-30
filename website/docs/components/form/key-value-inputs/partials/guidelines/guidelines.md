@@ -19,22 +19,22 @@ Key value inputs use a header that includes a legend, helper text, and a generic
 
 A legend is required to provide context for the overall [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset).
 
-Regardless on whether the key value inputs is placed along with other form components, or solo, a legend is always mandetory. 
+Regardless of whether the Key Value Inputs component is placed together with other form components, or used on its own, a legend is always mandatory. 
 
 
 #### With other elements
 
-![The key value inputs, which is part of a larger form, has the fieldset legend visible describing to the user what files to upload.](/assets/components/form/key-value-inputs/key-value-inputs-legend-part-of-larger-form.png)
+![The Key Value Inputs component used as part of a larger form. It includes a Legend explaining to the user what files they should use it to upload.](/assets/components/form/key-value-inputs/key-value-inputs-legend-part-of-larger-form.png)
 
 #### Alone in form
 
-![Key value inputs are the only form elements on the page.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
+![The Key Value Inputs component used as the sole form elements on a page.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
 
 ### Helper text and generic content
 
-The helper text and generic content slot are optional and can be used to provide additional information that applies to all rows.
+The optional helper text and generic content slot can be used to provide additional information that applies to all rows.
 
-!!! DO
+!!! Do
 
 Use the helper text and generic content slot to reduce the amount of repeated information in each row. This focuses the user’s attention on data submission.
 
@@ -42,11 +42,11 @@ Use the helper text and generic content slot to reduce the amount of repeated in
 
 !!!
 
-!!! DONT
+!!! Dont
 
 Don’t repeat information in each row if it can be explained once at the top of the rows.
 
-![Each row has an input, toggle with helper text enabled and a button in the generic slot. This has repetitive information in each row that over complicates the key value input component's usage.](/assets/components/form/key-value-inputs/key-value-inputs-helper-generic-dont.png)
+![Each row has an input, toggle with helper text enabled and a button in the generic slot. This has repetitive information in each row that over complicates the Key Value Input component's usage.](/assets/components/form/key-value-inputs/key-value-inputs-helper-generic-dont.png)
 
 !!!
 
@@ -58,7 +58,7 @@ Each row often has two inputs, one for a key and one for a value. However, there
 
 ### Input types
 
-Key and value inputs can use various form elements, although there are some common patterns that represent the majority of HashiCorp use cases.
+The Key Value Inputs component can contain various types of form elements, although there are some common patterns that represent the majority of HashiCorp use cases.
 
 For the key input, this includes:
 
@@ -90,17 +90,17 @@ If the maximum number of rows has been reached and the user deletes a row, the a
 
 !!! Info
 
-The interactions described in this section will have to be implemented by the consumer.
+The interactions described in this section must be implemented by the consumer.
 
 !!!
 
-A single row is required at all times. If that row's content is empty, the delete button will be hidden.
+At least one row is required. If the row's inputs are empty, the delete button will be hidden.
 
-![A single row with a key and value input with no delete button on the side.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
+![A single row with empty key and value inputs. No delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
 
-Once content is filled in either of the two inputs, the delete button will become visible. Clicking it will delete that row's data.
+Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will delete the row and its data.
 
-![A single row with a key and value input with a delete button on the side. The key input has data in it.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
+![A single row with a key and value input. The key input includes entered data. A delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
 
 If more than one row is present, users can opt to delete any of the rows.
 
@@ -120,7 +120,7 @@ The add button is displayed by default and, when clicked, appends a new row to c
 
 Use a compact alert to notify the user when they've reached a maximum number of rows. While the content can be customized, we recommend using the following message: "Only {maximum number} {objects} can be added at a time."
 
-This uses the compact neutral alert, so it doesn’t visually compete with other high-priority feedback, such as input errors.
+This uses the compact `neutral` Alert to avoid visually competing with other high-priority feedback, such as input errors.
 
 ![A compact neutral alert that says "Limit of fifteen invites has been reached."](/assets/components/form/key-value-inputs/key-value-inputs-footer-notification.png)
 
@@ -134,7 +134,6 @@ Read more about this in our [form patterns validation documentation](/patterns/f
 
 ## Responsive behavior
 
-
 ### Small or larger
 
 In experiences that are greater than or equal to the [medium (`md`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
@@ -143,6 +142,6 @@ In experiences that are greater than or equal to the [medium (`md`) breakpoint](
 
 ### Less than small
 
-However, when the viewport is less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack and occupy 100% of the container and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text help orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider putting that information in the fieldset helper text instead to reduce the visual noise.
+When the viewport is less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack to occupy 100% of the container width and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider placing that information in the fieldset helper text instead to reduce the visual noise.
 
 ![Key and value inputs stack on top of each other. The delete button is below the value input. Each input has their label and helper text visible.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-mobile.png)

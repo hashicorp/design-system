@@ -20,7 +20,7 @@
         The `id` attribute of the element is automatically generated.
       </C.Property>
       <C.Property @name="[H].Generic" @type="yielded component">
-        A generic container yielded as contextual component Elements passed as children are yielded after all the other elements. The content is unstyled by default, so consumers will need to take care of layout and style of the content.
+        A generic container yielded as contextual component. Elements passed in as children are yielded after all the other elements. The content is unstyled by default, so consumers will need to take care of layout and style of the content.
       </C.Property>
     </Doc::ComponentApi>
   </C.Property>
@@ -153,7 +153,7 @@ The `Form::KeyValueInputs::Generic` component, yielded as contextual component i
 
 <Doc::ComponentApi as |C|>
   <C.Property @name="yield">
-    Elements passed as children are yielded as inner content of a `<div>` HTML element.
+    Elements passed as children are yielded as inner content of an HTML `<div>` element.
   </C.Property>
   <C.Property @name="...attributes">
     This component supports use of [`...attributes`](https://guides.emberjs.com/release/in-depth-topics/patterns-for-components/#toc_attribute-ordering).
