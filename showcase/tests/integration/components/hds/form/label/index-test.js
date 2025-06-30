@@ -40,7 +40,7 @@ module('Integration | Component | hds/form/label/index', function (hooks) {
       .hasText('This is an HTML element inside the label');
   });
 
-  test('it renders hidden text if set @hiddentText', async function (assert) {
+  test('it renders hidden text if set @hiddenText', async function (assert) {
     await render(
       hbs`<Hds::Form::Label id="test-form-label" @hiddenText="this is hidden">This is the label</Hds::Form::Label>`,
     );
