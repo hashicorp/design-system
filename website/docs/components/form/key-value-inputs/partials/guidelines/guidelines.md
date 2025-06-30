@@ -19,14 +19,17 @@ The header for the Key Value Inputs includes a legend, helper text, and a generi
 
 A legend is required to provide context for the overall [fieldset](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/fieldset).
 
-Regardless of whether the Key Value Inputs component is placed together with other form components, or used on its own, a legend is always mandatory. 
-
+Regardless of whether the Key Value Inputs component is placed together with other form components, or used on its own, a legend is always mandatory.
 
 #### With other elements
+
+The legend's usage with other form elements present.
 
 ![The Key Value Inputs component used as part of a larger form. It includes a Legend explaining to the user what files they should use it to upload.](/assets/components/form/key-value-inputs/key-value-inputs-legend-part-of-larger-form.png)
 
 #### Alone in form
+
+The legend's usage when the Key Value Inputs are the only form element on the page.
 
 ![The Key Value Inputs component used as the sole form elements on a page.](/assets/components/form/key-value-inputs/key-value-inputs-legend-alone-in-form.png)
 
@@ -52,7 +55,7 @@ Don’t repeat information in each row if it can be explained once at the top of
 
 ## Input rows
 
-Each row often has two inputs, one for a key and one for a value. However, there may be exceptions where a single input may be necessary. 
+Each row typically includes two inputs, one for a key and one for a value. However, there may be exceptions where a single input may be necessary. 
 
 ![](/assets/components/form/key-value-inputs/key-value-inputs-value-only.png)
 
@@ -133,9 +136,10 @@ In addition to form-level validation, if a specific error is associated with the
 Read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
 
 ## Responsive behavior
+
 ### Small or larger
 
-In experiences that are greater than or equal to the [medium (`md`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
+In viewport sizes that are greater than or equal to the [medium (`md`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
 
 ![Key value input rows with the key and value are side by side along with a delete button to the right. Only one visible label and helper text per grouping of key and value inputs. Add new row button below the group of inputs.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-desktop.png)
 
