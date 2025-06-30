@@ -145,6 +145,8 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
     columns?.forEach((column, index) => {
       const columnElement = column as HTMLElement;
 
+      // FIELD
+
       if (
         // do substring to remove the leading dot from the class selector
         column.classList.contains(KEY_VALUE_INPUTS_FIELD_SELECTOR.substring(1))
@@ -155,6 +157,8 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
           updatedGridTemplateColumns += '1fr ';
         }
       }
+
+      // GENERIC
 
       if (
         // do substring to remove the leading dot from the class selector
@@ -171,13 +175,13 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
         );
       }
 
+      // DELETE BUTTON
+
       if (
         column.classList.contains(
           KEY_VALUE_INPUTS_DELETE_ROW_CONTAINER_SELECTOR.substring(1)
         )
       ) {
-        updatedGridTemplateColumns += 'min-content ';
-
         // Set grid-column so generic content appears in the correct column when grid-row is set; otherwise, browsers default it to the first column.
         columnElement.style.setProperty(
           '--hds-key-value-inputs-column-index',
@@ -185,6 +189,10 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
         );
       }
     });
+
+    // we always set aside the space for the delete button (it's always the last element)
+    // even when it's not rendered, to avoid layout shifts when moving to/from an empty state
+    updatedGridTemplateColumns += '36px ';
 
     this._gridTemplateColumns = updatedGridTemplateColumns;
   };
