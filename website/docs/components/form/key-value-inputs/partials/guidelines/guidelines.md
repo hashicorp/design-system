@@ -97,13 +97,19 @@ The interactions described in this section must be implemented by the consumer.
 
 !!!
 
-At least one row is required. If the row's inputs are empty, the delete button will be hidden.
+At least one row is required at all times.
+
+#### Single row behavior
+
+If the row's inputs are empty, the delete button will be hidden.
 
 ![A single row with empty key and value inputs. No delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
 
-Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will delete the row's data if only one row is present.
+Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will reset the row's data.
 
 ![A single row with a key and value input. The key input includes entered data. A delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
+
+#### More than one row behavior
 
 If more than one row is present, users can opt to delete any of the rows.
 
