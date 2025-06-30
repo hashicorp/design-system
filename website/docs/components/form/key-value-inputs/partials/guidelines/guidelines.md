@@ -11,7 +11,7 @@
 
 ## Header
 
-Key value inputs use a header that includes a legend, helper text, and a generic content slot.
+The header for the Key Value Inputs includes a legend, helper text, and a generic content slot.
 
 ![](/assets/components/form/key-value-inputs/key-value-inputs-legend-content.png)
 
@@ -133,7 +133,6 @@ In addition to form-level validation, if a specific error is associated with the
 Read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
 
 ## Responsive behavior
-
 ### Small or larger
 
 In experiences that are greater than or equal to the [medium (`md`) breakpoint](/foundations/breakpoints), the label and helper text are only visible for the first row of inputs. This reduces visual clutter by condensing the form elements.
