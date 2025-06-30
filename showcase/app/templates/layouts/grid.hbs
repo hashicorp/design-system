@@ -8,7 +8,8 @@
 <Shw::Text::H1>Layout::Grid</Shw::Text::H1>
 
 <section data-test-percy>
-  <Shw::Text::H2>Column min width</Shw::Text::H2>
+  <Shw::Text::H2>Column width management </Shw::Text::H2>
+  <Shw::Text::H3>Column min width</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="No min width columns (min-width defaults to 0px)">
@@ -75,7 +76,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Text::H2>Column width</Shw::Text::H2>
+  <Shw::Text::H3>Column width</Shw::Text::H3>
 
   <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="33.33% width columns">
