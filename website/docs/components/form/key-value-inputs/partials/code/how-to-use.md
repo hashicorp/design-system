@@ -238,7 +238,7 @@ If there is additional content needed in the header or a need for an unsupported
 
 ### Updating the rows
 
-You are responsible for handling the logic to add or remove a row. To do this, use the `onClick` argument to pass a callback function on the yielded `[F].AddRowButton` in the `:footer` named block or the yielded `[R].DeleteRowButton` in the `:row` named block.
+Consumers are responsible for handling the logic to add or remove a row. To do this, use the `onClick` argument to pass a callback function on the yielded `[F].AddRowButton` in the `:footer` named block or the yielded `[R].DeleteRowButton` in the `:row` named block.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{this.updatingRowsExampleData}}>
