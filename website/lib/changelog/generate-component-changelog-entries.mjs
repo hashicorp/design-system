@@ -44,6 +44,8 @@ const getComponentPaths = (baseDir) => {
               primitiveNames.forEach((componentName) => {
                 components[`form-${componentName}`] = componentPath;
               });
+            } else if (folder.name === 'layout') {
+              components[`form`] = componentPath;
             } else {
               components[`form-${folder.name}`] = componentPath;
             }
@@ -97,7 +99,10 @@ const convertComponentNameFormat = (componentName) => {
     'stepper-step-indicator',
     'stepper-task-indicator',
   ];
-  if (twoLevelComponentNames.includes(componentName.split('-')[0])) {
+  if (
+    twoLevelComponentNames.includes(componentName.split('-')[0]) &&
+    componentName != 'form'
+  ) {
     let words = componentName
       .split('-')
       .map((word) => word.charAt(0).toUpperCase() + word.slice(1));
@@ -143,22 +148,30 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
       );
     }
 
+    // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
+    const newEntries = componentChangelogEntries[componentName]
+      .map((entry) => {
+        // If the component is a form primitive, we want to keep the component name in the description
+        if (
+          allComponentsPath[componentName] ===
+            './docs/components/form/primitives' ||
+          allComponentsPath[componentName] === './docs/components/form/layout'
+        ) {
+          return entry;
+        } else {
+          return entry.split(' - ')[1];
+        }
+      })
+      .join('\n\n');
     // prevent duplicate sections if the script is called multiple times
-    if (!versionHistoryContent.includes(`## ${version}`)) {
-      // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
-      const newEntries = componentChangelogEntries[componentName]
-        .map((entry) => {
-          // If the component is a form primitive, we want to keep the component name in the description
-          if (
-            allComponentsPath[componentName] ===
-            './docs/components/form/primitives'
-          ) {
-            return entry;
-          } else {
-            return entry.split(' - ')[1];
-          }
-        })
-        .join('\n\n');
+    if (!versionHistoryContent.includes(newEntries)) {
+      if (versionHistoryContent.includes(`## ${version}`)) {
+        // If the version already exists, append the new entries to that section
+        versionHistoryContent = versionHistoryContent.replace(
+          `## ${version}\n\n`,
+          '',
+        );
+      }
       const newHeading = `## ${version}\n\n${newEntries}\n\n${versionHistoryContent}`;
       fs.writeFileSync(versionHistoryPath, newHeading, 'utf8');
     }
