@@ -109,14 +109,12 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
       !(this.args.columnMinWidth && this.args.columnWidth)
     );
 
-    // if either columnMinWidth or columnWidth is passed in, we use it in the column width calculation in the CSS
-    if (this.args.columnMinWidth || this.args.columnWidth) {
+    if (this.args.columnMinWidth) {
       inlineStyles['--hds-layout-grid-column-min-width'] =
         this.args.columnMinWidth ?? this.args.columnWidth;
-    }
-
-    // if columnWidth is passed in, we set the fill type to "auto-fill" to trigger a more "fixed" layout
-    if (this.args.columnWidth) {
+    } else if (this.args.columnWidth) {
+      inlineStyles['--hds-layout-grid-column-min-width'] =
+        this.args.columnMinWidth ?? this.args.columnWidth;
       inlineStyles['--hds-layout-grid-column-fill-type'] = 'auto-fill';
     }
 
