@@ -40,15 +40,22 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // OPTIONS
 
-  // COLUMN MIN WIDTH
+  // COLUMN MIN WIDTH AND COLUMN WIDTH
 
-  // Note: A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
-  test('if the @columnMinWidth prop is not declared, --hds-layout-grid-column-min-width should be unset', async function (assert) {
+  // Notes:
+  // A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
+  // A fallback value of `auto-fit` is set in the CSS for the `--hds-layout-grid-column-fill-type` custom property
+
+  // if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties
+  test('if neither columnMinWidth or columnWidth are declared, we do not set the inline custom properties', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveStyle('--hds-layout-grid-column-min-width');
+      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
+      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
   });
+
+  // COLUMN MIN WIDTH
 
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
     await render(
@@ -60,15 +67,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
   });
 
   // COLUMN WIDTH
-
-  // Note: A fallback value of `auto-fit` is set in the CSS for the `--hds-layout-grid-column-fill-type` custom property
-  test('if the @columnWidth prop is not declared, the inline fill-type and width custom properties should not be set', async function (assert) {
-    await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
-      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
-  });
 
   test('it should set the correct fill type and column width if the @columnWidth prop is declared', async function (assert) {
     await render(
