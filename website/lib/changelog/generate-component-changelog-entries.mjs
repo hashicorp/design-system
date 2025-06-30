@@ -46,7 +46,6 @@ const getComponentPaths = (baseDir) => {
               });
             } else if (folder.name === 'layout') {
               components[`form`] = componentPath;
-              components[`form-separator`] = componentPath;
             } else {
               components[`form-${folder.name}`] = componentPath;
             }
