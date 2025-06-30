@@ -14,5 +14,5 @@
 | Value label          | Required - if value input visible                                             |
 | Value helper text    | Optional                                                                      |
 | Value input          | Optional                                                                      |
-| Delete row button    | Triggered by system                                                           |
+| Delete row button    | Optional                                                                      |
 | Footer               | Either has add button or compact alert in addition to fieldset validation     |
