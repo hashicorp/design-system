@@ -111,10 +111,10 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
 
     if (this.args.columnMinWidth) {
       inlineStyles['--hds-layout-grid-column-min-width'] =
-        this.args.columnMinWidth ?? this.args.columnWidth;
+        this.args.columnMinWidth;
     } else if (this.args.columnWidth) {
       inlineStyles['--hds-layout-grid-column-min-width'] =
-        this.args.columnMinWidth ?? this.args.columnWidth;
+        this.args.columnWidth;
       inlineStyles['--hds-layout-grid-column-fill-type'] = 'auto-fill';
     }
 
