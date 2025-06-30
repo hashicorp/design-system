@@ -53,7 +53,7 @@ When adding Dropdown components within the App Header, be sure to set `enableCol
 
 The `Hds::AppHeader::HomeLink` child component should be yielded within the `<:logo>` block. It provides consistent branding and navigates the user to the “home” or main dashboard page.
 
-It requires a value for the `@icon` and `@ariaLabel` arguments.
+It requires a value for the `@icon` and `@text` arguments.
 
 It is built on top of the [`Hds::Interactive` component](/utilities/interactive), so it accepts all its routing arguments (eg. `@href`, `@route`, `@query`, `@model(s)`, etc.).
 
@@ -68,7 +68,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
-      @ariaLabel="HashiCorp home menu"
+      @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
@@ -77,6 +77,26 @@ probably need to be set to `true` (or omitted to rely on defaults)
     <Doc::Placeholder @height="2em" @width="auto" @text="OrgSwitcher" @background="#e4e4e4" />
   </:globalActions>
   
+  <:utilityActions>
+    <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
+    <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
+  </:utilityActions>
+</Hds::AppHeader>
+```
+
+When `@isIconOnly` is set to `false`, the `@text` argument displays text inline with the logo and can be used to more deliberately title an application or provide other differentiating text.
+
+```handlebars
+<Hds::AppHeader @hasA11yRefocus={{false}}>
+  <:logo>
+    <Hds::AppHeader::HomeLink 
+      @icon="terraform" 
+      @text="Admin Console"
+      @isIconOnly={{false}}
+      @href="/"
+    />
+  </:logo>
+
   <:utilityActions>
     <Doc::Placeholder @height="2em" @width="auto" @text="HelpMenu" @background="#e4e4e4" />
     <Doc::Placeholder @height="2em" @width="auto" @text="UserMenu" @background="#e4e4e4" />
@@ -95,7 +115,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="terraform" 
-      @ariaLabel="Terraform home menu"
+      @text="Terraform home menu"
       @color="var(--token-color-terraform-brand)"
       @href="/"
     />
@@ -125,7 +145,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
-      @ariaLabel="HashiCorp home menu"
+      @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
@@ -159,7 +179,7 @@ probably need to be set to `true` (or omitted to rely on defaults)
   <:logo>
     <Hds::AppHeader::HomeLink 
       @icon="hashicorp" 
-      @ariaLabel="HashiCorp home menu"
+      @text="HashiCorp home menu"
       @href="/"
     />
   </:logo>
