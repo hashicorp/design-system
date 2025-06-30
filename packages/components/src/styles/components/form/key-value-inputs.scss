@@ -13,7 +13,7 @@
 @use "../../mixins/screen-reader-only" as *;
 
 // this is the width of the icon-only button
-$hds-delete-button-width: map.get($hds-button-size-props, "md", "min-height");
+$hds-delete-button-width: map.get($hds-button-size-props, "medium", "min-height");
 
 // notice: this is a <fieldset> element
 .hds-form-key-value-inputs {
