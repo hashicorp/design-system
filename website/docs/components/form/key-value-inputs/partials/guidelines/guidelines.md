@@ -105,7 +105,7 @@ If the row's inputs are empty, the delete button will be hidden.
 
 ![A single row with empty key and value inputs. No delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
 
-Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will remove the row's data.
+Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will remove the row's data and then hide the button.
 
 ![A single row with a key and value input. The key input includes entered data. A delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
 
