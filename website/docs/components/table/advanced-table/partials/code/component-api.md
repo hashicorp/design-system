@@ -52,14 +52,14 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
       </C.Property>
-      <C.Property @name="minWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="150px">
-        If set, determines the column’s minimum width when resizing.
+      <C.Property @name="minWidth" @type="string" @default="150px">
+        If set, determines the column’s minimum width when resizing. Accepts any positive CSS pixel value (e.g., 1px).
         <Doc::Banner @type="info">
           Overriding the default `minWidth` requires the `width` property to be set.
         </Doc::Banner>
       </C.Property>
-      <C.Property @name="maxWidth" @type="string" @valueNote="Any positive CSS pixel value (e.g., 1px)" @default="800px">
-        If set, determines the column’s maximum width when resizing.
+      <C.Property @name="maxWidth" @type="string" @default="800px">
+        If set, determines the column’s maximum width when resizing. Accepts any positive CSS pixel value (e.g., 1px).
         <Doc::Banner @type="info">
           Overriding the default `maxWidth` requires the `width` property to be set.
         </Doc::Banner>
