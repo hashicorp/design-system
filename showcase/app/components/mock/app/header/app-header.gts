@@ -46,7 +46,8 @@ export default class MockAppHeaderAppHeader extends Component<MockAppHeaderAppHe
       <:logo>
         <HdsAppHeaderHomeLink
           @icon="hashicorp"
-          @ariaLabel="HashiCorp home menu"
+          @text="HashiCorp home menu"
+          @isIconOnly={{true}}
           @href="#"
         />
       </:logo>
