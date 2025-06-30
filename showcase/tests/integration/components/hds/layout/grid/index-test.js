@@ -40,7 +40,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // OPTIONS
 
-  // COLUMN_MIN_WIDTH
+  // COLUMN MIN WIDTH
 
   // Note: A fallback value of 0px is set in the CSS for the `--hds-layout-grid-column-min-width` custom property
   test('if the @columnMinWidth prop is not declared, --hds-layout-grid-column-min-width should be unset', async function (assert) {
@@ -59,22 +59,25 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
-  // COLUMN_WIDTH
+  // COLUMN WIDTH
 
-  test('it should not have the hds-layout-grid--has-column-width class if @columnWidth is not declared', async function (assert) {
+  // Note: A fallback value of `auto-fit` is set in the CSS for the `--hds-layout-grid-column-fill-type` custom property
+  test('if the @columnWidth prop is not declared, the inline fill-type and width custom properties should not be set', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
     assert
       .dom('#test-layout-grid')
-      .doesNotHaveClass('hds-layout-grid--has-column-width');
+      .doesNotHaveStyle('--hds-layout-grid-column-min-width')
+      .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
   });
 
-  test('it should have the hds-layout-grid--has-column-width class if @columnWidth is declared', async function (assert) {
+  test('it should set the correct fill type and column width if the @columnWidth prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Layout::Grid id="test-layout-grid" @columnWidth="200px" />`,
     );
     assert
       .dom('#test-layout-grid')
-      .hasClass('hds-layout-grid--has-column-width');
+      .hasStyle({ '--hds-layout-grid-column-fill-type': 'auto-fill' })
+      .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
 
   // TAG

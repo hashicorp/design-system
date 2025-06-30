@@ -24,12 +24,6 @@
   gap: var(--hds-layout-grid-row-gap, 0) var(--hds-layout-grid-column-gap, 0);
 }
 
-// columnWidth
-// We set the fill type to "auto-fill" if a columnWidth value is passed in to trigger a "fixed" column layout vs. a fluid layout.
-.hds-layout-grid--has-column-width {
-  --hds-layout-grid-column-fill-type: auto-fill;
-}
-
 // align
 
 .hds-layout-grid--align-items-start {
