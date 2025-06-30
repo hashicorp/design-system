@@ -280,7 +280,7 @@ module(
 
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto min-content' });
+        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto 2.25rem' });
     });
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with complex structure', async function (assert) {
@@ -303,7 +303,7 @@ module(
         </Hds::Form::KeyValueInputs>
       `);
       assert.dom('#test-form-key-value-inputs').hasStyle({
-        '--hds-key-value-inputs-columns': '1fr auto 1fr auto min-content',
+        '--hds-key-value-inputs-columns': '1fr auto 1fr auto 2.25rem',
       });
     });
 
@@ -322,7 +322,8 @@ module(
       `);
       assert
         .dom('#test-form-key-value-inputs')
-        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto' });
+        // per design specs, the last column is always set to provide space for the delete button, even if the button is not rendered, to avoid layout shifts
+        .hasStyle({ '--hds-key-value-inputs-columns': '1fr auto 2.25rem' });
     });
 
     test('it should set the appropriate `grid-template-columns` CSS property via `--hds-key-value-inputs-columns` for the rows with custom widths', async function (assert) {
@@ -345,7 +346,7 @@ module(
         .hasAttribute('data-width', '200px');
 
       assert.dom('#test-form-key-value-inputs').hasStyle({
-        '--hds-key-value-inputs-columns': '200px auto min-content',
+        '--hds-key-value-inputs-columns': '200px auto 2.25rem',
       });
     });
 

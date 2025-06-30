@@ -192,7 +192,7 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
 
     // we always set aside the space for the delete button (it's always the last element)
     // even when it's not rendered, to avoid layout shifts when moving to/from an empty state
-    updatedGridTemplateColumns += '36px ';
+    updatedGridTemplateColumns += '2.25rem ';
 
     this._gridTemplateColumns = updatedGridTemplateColumns;
   };
