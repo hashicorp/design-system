@@ -129,11 +129,11 @@ This uses the compact `neutral` Alert to avoid visually competing with other hig
 
 ### Validation
 
-In addition to form-level validation, if a specific error is associated with the fieldset, it will be displayed below the add button.
+If a specific error is associated with the fieldset, it will be displayed below the add button.
 
 ![Below the legend and helper text is a compact critical alert showing a fieldset error that the user has reached the maximum number of rows.](/assets/components/form/key-value-inputs/key-value-inputs-fieldset-error.png)
 
-Read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
+For additional information on form validation, read more about this in our [form patterns validation documentation](/patterns/form-patterns?tab=validation).
 
 ## Responsive behavior
 
