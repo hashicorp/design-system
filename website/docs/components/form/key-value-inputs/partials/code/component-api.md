@@ -9,12 +9,12 @@
   <C.Property @name="<:header>" @type="named block">
     A named block where the content of the KeyValueInputs header is rendered.
     <Doc::ComponentApi as |C|>
-      <C.Property @name="<[H].Legend>" @type="yielded component">
+      <C.Property @name="[H].Legend" @type="yielded component">
         Container that yields its content inside the `<legend>` element. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::Legend`](/components/form/primitives) component.
         <br/><br/>
         The `id` attribute of the element is automatically generated.
       </C.Property>
-      <C.Property @name="<[H].HelperText>" @type="yielded component">
+      <C.Property @name="[H].HelperText" @type="yielded component">
         Container that yields its content inside the “helper text” block at fieldset level. The content can be a simple string or a more complex/structured string, in which case it inherits the text style. For details about its API, check the [`Form::HelperText`](/components/form/primitives) component.
         <br/><br/>
         The `id` attribute of the element is automatically generated.
@@ -49,8 +49,6 @@
     <Doc::ComponentApi as |C|>
       <C.Property @name="[F].Alert" @type="yielded component">
         `Form::Alert` yielded as contextual component. For details about its API, check the [`Form::Legend`](/components/form/primitives) component.
-        <br/>It is automatically set to `compact` and `neutral`.
-        <br/>The alert is automatically set to `compact` and `neutral`.
         <br/>It is automatically set to `compact` and `neutral`.
       </C.Property>
       <C.Property @name="[F].AddButton" @type="yielded component">

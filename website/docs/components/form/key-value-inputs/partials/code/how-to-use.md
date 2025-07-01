@@ -2,17 +2,15 @@
 
 !!! Insight
 
-**TODO**
-
 Given the complexity and level of custom code required to use this component, it is not possible to cover all the possible use cases in this documentation.
 
-For this reason, if you need to implement a key-value input pattern using this component, or migrate an existing one, [contact the Design Systems Team](/about/support) for support.
+If you need assistance implementing a key-value input pattern using this component, or migrate an existing one, [contact the Design Systems Team](/about/support) for support.
 
 !!!
 
 The basic invocation of the Key Value Inputs requires the `@data` argument. This is used as the initial data to create the rows of inputs.
 
-Each input is associated with a field, that contains a label (with optional indicator), an optional helper text, the input, and an optional error message.
+Each input is associated with a field, that contains a label; the input; and an optional indicator, helper text, and error message.
 
 ```handlebars
 <!--  ========================================================================================
@@ -337,7 +335,7 @@ Out of the box, the Key Value Inputs component provides only the overall layout 
 
 !!!
 
-Below we showcase a couple of examples of common patterns: they should be used as starting point, and adapted to the actual context and needs.
+Below we showcase a couple of examples of common patterns. They should be used as starting point, and adapted to the actual context and needs.
 
 ### Updating the rows
 
@@ -379,7 +377,7 @@ Consumers are responsible for handling the logic to add or remove a row. To do t
 
 ### Maximum number of rows
 
-Consumers are responsible for implementing the logic for the maximum number of rows a user can add. If they have reached the maximum number of rows, you can use the yielded Alert in the `:footer` named block to notify them.
+Consumers are responsible for implementing the logic for the maximum number of rows a user can add. If they have reached the maximum number of rows, you can use the yielded Alert in the `:footer` named block to notify them, and remove the yielded `[F].AddRowButton`.
 
 ```handlebars
 <Hds::Form::KeyValueInputs @data={{this.maxRowsExampleData}}>
