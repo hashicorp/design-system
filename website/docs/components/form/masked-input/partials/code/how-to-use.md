@@ -135,15 +135,19 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::MaskedInput::Field @isRequired={{true}} name="demo-team-token" as |F|>
-  <F.Label>Terraform Cloud team token</F.Label>
-  <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
-</Hds::Form::MaskedInput::Field>
-<br />
-<Hds::Form::MaskedInput::Field @isOptional={{true}} name="demo-team-token" as |F|>
-  <F.Label>Terraform Cloud team token</F.Label>
-  <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
-</Hds::Form::MaskedInput::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::MaskedInput::Field @isRequired={{true}} name="demo-team-token" as |F|>
+      <F.Label>Terraform Cloud team token</F.Label>
+      <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
+    </Hds::Form::MaskedInput::Field>
+
+    <Hds::Form::MaskedInput::Field @isOptional={{true}} name="demo-team-token" as |F|>
+      <F.Label>Terraform Cloud team token</F.Label>
+      <F.HelperText>The token must include permissions to manage workspaces and projects.</F.HelperText>
+    </Hds::Form::MaskedInput::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Character count

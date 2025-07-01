@@ -65,15 +65,19 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::Textarea::Field @isRequired={{true}} name="demo-description" as |F|>
-  <F.Label>Short description</F.Label>
-  <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
-</Hds::Form::Textarea::Field>
-<br />
-<Hds::Form::Textarea::Field @isOptional={{true}} name="demo-description" as |F|>
-  <F.Label>Short description</F.Label>
-  <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
-</Hds::Form::Textarea::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Textarea::Field @isRequired={{true}} name="demo-description" as |F|>
+      <F.Label>Short description</F.Label>
+      <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
+    </Hds::Form::Textarea::Field>
+
+    <Hds::Form::Textarea::Field @isOptional={{true}} name="demo-description" as |F|>
+      <F.Label>Short description</F.Label>
+      <F.HelperText>Add a short description about the workspace you are creating.</F.HelperText>
+    </Hds::Form::Textarea::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Character count
