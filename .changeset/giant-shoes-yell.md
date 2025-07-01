@@ -2,4 +2,4 @@
 "@hashicorp/design-system-components": patch
 ---
 
-`SuperSelect::Multiple` - Enhanced display of grouped options when only selected options are shown
+`Form::SuperSelect` - Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multple`
