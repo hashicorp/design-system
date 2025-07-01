@@ -55,8 +55,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .doesNotHaveStyle('--hds-layout-grid-column-fill-type');
   });
 
-  // COLUMN MIN WIDTH
-
   test('it should render the correct min-width if the @columnMinWidth prop is declared', async function (assert) {
     await render(
       hbs`<Hds::Layout::Grid id="test-layout-grid" @columnMinWidth="200px" />`,
@@ -65,8 +63,6 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
       .dom('#test-layout-grid')
       .hasStyle({ '--hds-layout-grid-column-min-width': '200px' });
   });
-
-  // COLUMN WIDTH
 
   test('it should set the correct fill type and column width if the @columnWidth prop is declared', async function (assert) {
     await render(
