@@ -14,6 +14,6 @@ Cells have a default and focused state. The focused state provides visual feedba
 
 ### Resize border
 
-The border on a resizable columns has an interactive state via the resize border element, indicating interactivity.
+To indicate interactivity, the border on a resizable column has visual interactive states.
 
 ![Resize border states](/assets/components/table/advanced-table/advanced-table-resize-border-states.png)

@@ -210,6 +210,65 @@ By default, the minimum and maximum width of each column are set to `150px` and 
 </Hds::AdvancedTable>
 ```
 
+#### Content wrapping
+
+By default, content within the cells will wrap according to the browser’s natural reflow. This may result in the layout shifting.
+
+How resizing for the cell content works is determined by the implementation. For example, truncation with an ellipsis can be achieved by applying custom CSS to the relevant element within the table cell, e.g., `text-overflow: ellipsis; white-space: nowrap; overflow: hidden;`.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.model.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.artist}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.album}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.year}}
+          </span>
+        </div>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+
+<style>
+  .doc-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .doc-advanced-table-text-truncate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+</style>
+```
+
 ### Sortable Advanced Table
 
 !!! Info

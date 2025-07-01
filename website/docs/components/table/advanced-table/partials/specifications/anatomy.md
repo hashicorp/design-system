@@ -10,7 +10,7 @@
 | Label            | Required                                        |
 | Tooltip button   | Optional                                        |
 | Sort button      | Optional, Options: none, ascending, descending  |
-| Context menu     | Optional, is conditionally rendered when `@hasResizableColumns` is set to true. |
+| Context menu     | Rendered when `@hasResizableColumns` is set to true. |
 | Container        | Required                                        |
 
 #### Context menu
