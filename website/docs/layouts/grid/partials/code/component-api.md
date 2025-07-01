@@ -7,13 +7,20 @@
     A valid HTML tag name to be used to render the grid element.
   </C.Property>
   <C.Property @name="columnMinWidth" @type="string" @default="0px">
-    Set any valid CSS dimension as a minimum width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will begin to wrap to the next row as necessary to fit. The column gap size is subtracted from this minimum width.
-    <br><br>
+    Set any valid CSS dimension as a minimum width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
+    <br /><br />
+    if there are fewer items than would fit in a row, columns will stretch so that the combined width adds up to 100%. The column gap size is automatically subtracted from this minimum width.
+    <br /><br />
     <em>Note: With the default min-width of 0px, the columns will never wrap.</em>
+  </C.Property>
+  <C.Property @name="columnWidth" @type="string" @default="0px">
+    Set any valid CSS dimension as a width for the grid columns. If the total width of columns in a row exceeds 100% of the parent, columns will wrap to the next row as necessary to fit.
+    <br /><br />
+    If there are fewer items than will fit in a row, they will maintain the specified column width instead of stretching unlike the `columnMinWidth` option. The column gap size is automatically subtracted from the width.
   </C.Property>
   <C.Property @name="align" @type="enum" @values={{array "start" "center" "end" "stretch"}}>
     The value of the CSS `align-items` property, which controls the alignment of the grid items on the block axis within their grid areas (for a technical explanation: [see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)).
-    <br/><br/>
+    <br /><br />
     <em>Note: we only expose a subset of the values allowed for this property, which cover the most common use cases.</em>
   </C.Property>
   <C.Property @name="gap" @type="enum" @values={{array "4" "8" "12" "16" "32" "48"}}>

@@ -140,11 +140,19 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 </Hds::Layout::Grid>
 ```
 
+## Column width management
+
 ### Column min width
 
-Specify a `columnMinWidth` size to exercise control over how many columns occupy a row. If the total widths of the columns add up to more than 100% of the parent they will automatically wrap to the next row as necessary to fit.
+!!! Info
 
-Note: The `gap` size will be subtracted from the `columnMinWidth`, so take this into account when specifying a column min width.
+Column widths specified using `columnMinWidth` are semi-fluid. If fewer items are included than would otherwise fit, the column widths will adjust so that their combined width adds up to 100%. To instead create a more “fixed” layout, specify column widths using `columnWidth` instead.
+
+!!!
+
+Specify a `columnMinWidth` size to exercise control over the maximum number of columns to occupy a row. If the total widths of the columns add up to more than 100% of the parent, they will automatically wrap to the next row as necessary to fit.
+
+Note: The `gap` size will be automatically subtracted from the `columnMinWidth`, so take this into account when specifying a column min width.
 
 #### Using percentage values
 
@@ -159,7 +167,26 @@ Column min-widths specified as a percentage value will maintain the same size ra
 </Hds::Layout::Grid>
 ```
 
-#### Using fixed values
+#### Semi-fluid width behavior
+
+Column-width will automatically adjust to maintain a combined width of 100%.
+
+```handlebars
+<Hds::Text::Display>With 2 items</Hds::Text::Display>
+<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+</Hds::Layout::Grid>
+
+<hr />
+
+<Hds::Text::Display>With 1 item</Hds::Text::Display>
+<Hds::Layout::Grid @columnMinWidth="33.33%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+</Hds::Layout::Grid>
+```
+
+#### Using fixed unit values
 
 Column min-widths specified using pixels or other fixed units, allows you to create layouts which are “automatically” responsive.
 
@@ -189,6 +216,35 @@ At the specified column min width, columns are forced to stack in this narrower 
     <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
   </Hds::Layout::Grid>
 </div>
+```
+
+### Column width
+
+To create column layouts that are more “fixed” vs. fluid, use `columnWidth` to specify a width for the columns.
+
+```handlebars
+<Hds::Text::Display>With 4 items</Hds::Text::Display>
+<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+  <Doc::Placeholder @height="40px" @text="Item 3" @background="#d2f4ff" />
+  <Doc::Placeholder @height="40px" @text="Item 4" @background="#fff8d2" />
+</Hds::Layout::Grid>
+
+<hr />
+
+<Hds::Text::Display>With 2 items</Hds::Text::Display>
+<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+  <Doc::Placeholder @height="40px" @text="Item 2" @background="#e5ffd2" />
+</Hds::Layout::Grid>
+
+<hr />
+
+<Hds::Text::Display>With 1 item</Hds::Text::Display>
+<Hds::Layout::Grid @columnWidth="33.33%" @gap="16">
+  <Doc::Placeholder @height="40px" @text="Item 1" @background="#e4c5f3" />
+</Hds::Layout::Grid>
 ```
 
 ### Align
