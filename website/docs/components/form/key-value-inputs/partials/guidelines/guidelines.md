@@ -145,6 +145,6 @@ In viewport sizes that are greater than or equal to the [medium (`md`) breakpoin
 
 ### Less than medium
 
-In viewports less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack to occupy 100% of the container width and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider placing that information in the fieldset helper text instead to reduce the visual noise.
+When the viewport is less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack to occupy 100% of the container width and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider placing that information in the fieldset helper text instead to reduce the visual noise.
 
 ![Key and value inputs stack on top of each other. The delete button is below the value input. Each input has their label and helper text visible.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-mobile.png)
