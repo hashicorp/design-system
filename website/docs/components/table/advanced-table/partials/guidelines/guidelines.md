@@ -122,7 +122,7 @@ Don’t center header labels or cell content within a table.
 
 ## Resizable columns
 
-If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table. These properties are not available within the Figma component, but we've provided [examples](#jory-to-update-this-link-when-figma-is-published) that you can copy and paste into your design files.
+If `hasResizableColumns` is set to true on the Ember component, users can customize the width of each column in the Advanced Table. These properties are not available within the Figma component, but we've provided [examples](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=81060-291665&t=UHpPyO7erZKLy4SD-1) that you can copy and paste into your design files.
 
 In the Ember component, actions related to each function are conditionally rendered in a context menu in the table header when `hasResizableColumns` is set to true. These functions are not customizable.
 

@@ -4,7 +4,7 @@ The Advanced Table supports resizing individual columns to display the entire co
 
 This is supported via an interactive "resize border" that functions either by clicking and dragging on the horizontal axis with a mouse or by moving the focus to the resize border with the keyboard and using the right and left arrow keys.
 
-The Figma component does not support a specific property to communicate resizing. Instead, we publish a [Resize Border](#jory-to-update-this-link-when-figma-is-published) component individually for use in prototypes or interactive demonstrations. [Templates](#jory-to-update-this-link-when-figma-is-published) are available on the Advanced Table stickersheet to provide a starting point for expressing this interaction.
+The Figma component does not support a specific property to communicate resizing. Instead, we publish a [Resize Border](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=80647-127234&t=UHpPyO7erZKLy4SD-1) component individually for use in prototypes or interactive demonstrations. [Templates](https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?m=auto&node-id=72039-5091&t=UHpPyO7erZKLy4SD-1) are available on the Advanced Table stickersheet to provide a starting point for expressing this interaction.
 
 ![The interactive resize border in its active state being dragged with a mouse](/assets/components/table/advanced-table/advanced-table-resize-interaction.png)
 
