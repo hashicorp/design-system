@@ -2,7 +2,7 @@
 
 ### When to use
 
-- When two related inputs (often a key and value pair) are repeated for batch submission.
+- When two related inputs (often a key and value) are repeated for batch submission.
 - When collective validation of each associated row is required.
 
 ### When not to use
@@ -61,7 +61,7 @@ Each row typically includes two inputs, one for a key and one for a value. Howev
 
 ### Input types
 
-The Key Value Inputs component can contain various types of form elements, although there are some common patterns that represent the majority of HashiCorp use cases.
+The Key Value Inputs component can contain various types of form elements, but there are some common patterns that represent the majority of HashiCorp use cases.
 
 For the key input, this includes:
 
@@ -99,7 +99,7 @@ If the row's inputs are empty, the delete button will be hidden.
 
 ![A single row with empty key and value inputs. No delete button is visible.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-empty-content.png)
 
-Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will remove the row's data and then hide the button.
+Once content is entered in either of the two inputs, the delete button will become visible. Clicking it will remove the row's data and hide the button.
 
 ![A single row with a key and value input. The key input includes entered data and a delete button is visible with a cursor pressing it. Below it is showing that same key value input with no data in it with no delete button next to it.](/assets/components/form/key-value-inputs/key-value-inputs-single-row-with-content.png)
 
