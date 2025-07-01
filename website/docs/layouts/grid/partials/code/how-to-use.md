@@ -142,15 +142,21 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 
 ## Column width management
 
-### Column min width
-
-!!! Info
+There are two options for controlling the widths of columns within the `Grid`, `@columnMinWidth` and `@columnWidth`.
 
 Using `@columnMinWidth` creates a semi-fluid layout. This means that if there are fewer items than fit in a single row, the columns will automatically adjust so that their combined widths add up to 100%.
 
 If you instead want to create a more “fixed” layout, in which the column widths remain consistent no matter how few items are in a single row, use `@columnWidth` instead.
 
-!!!
+### Column min width
+
+<!-- !!! Info
+
+Using `@columnMinWidth` creates a semi-fluid layout. This means that if there are fewer items than fit in a single row, the columns will automatically adjust so that their combined widths add up to 100%.
+
+If you instead want to create a more “fixed” layout, in which the column widths remain consistent no matter how few items are in a single row, use `@columnWidth` instead.
+
+!!! -->
 
 Specify a `columnMinWidth` size to exercise control over the maximum number of columns to occupy a row. If the total widths of the columns add up to more than 100% of the parent, they will automatically wrap to the next row as necessary to fit.
 
