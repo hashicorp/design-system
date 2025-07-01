@@ -91,13 +91,7 @@ If the maximum number of rows has been reached and the user deletes a row, the a
 
 ### Delete behavior
 
-!!! Info
-
-The interactions described in this section must be implemented by the consumer.
-
-!!!
-
-At least one row is required at all times.
+The interactions in this section are intended to be implemented by the consumer. At least one row should remain visible at all times.
 
 #### Single row behavior
 
@@ -149,8 +143,8 @@ In viewport sizes that are greater than or equal to the [medium (`md`) breakpoin
 
 ![Key value input rows with the key and value are side by side along with a delete button to the right. Only one visible label and helper text per grouping of key and value inputs. Add new row button below the group of inputs.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-desktop.png)
 
-### Small
+### Less than medium
 
-When the viewport is the [small (`sm`) breakpoint](/foundations/breakpoints), all field elements stack to occupy 100% of the container width and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider placing that information in the fieldset helper text instead to reduce the visual noise.
+In viewports less than the [medium (`md`) breakpoint](/foundations/breakpoints), all field elements stack to occupy 100% of the container width and display the label and helper text for their associated inputs. As the form height increases, the visible labels and helper text orient the user as they scroll down and fill in information. If repeating each input’s helper text isn’t useful to the user, consider placing that information in the fieldset helper text instead to reduce the visual noise.
 
 ![Key and value inputs stack on top of each other. The delete button is below the value input. Each input has their label and helper text visible.](/assets/components/form/key-value-inputs/key-value-inputs-ip-address-mobile.png)
