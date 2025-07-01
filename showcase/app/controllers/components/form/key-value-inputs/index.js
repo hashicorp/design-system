@@ -71,7 +71,6 @@ export default class KeyValueInputsController extends Controller {
   @deepTracked startWithEmptyExampleData = [];
 
   emptyData = [];
-  sampleDataWith1Row = DEFAULT_DATA.slice(0, 1);
   sampleData = DEFAULT_DATA;
 
   checkIfCanDeleteRow() {
