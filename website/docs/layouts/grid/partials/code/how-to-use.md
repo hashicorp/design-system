@@ -146,7 +146,9 @@ If the grid items are wrapping on multiple lines, you have to overwrite both the
 
 !!! Info
 
-Column widths specified using `columnMinWidth` are semi-fluid. If fewer items are included than would otherwise fit, the column widths will adjust so that their combined width adds up to 100%. To instead create a more “fixed” layout, specify column widths using `columnWidth` instead.
+Using `@columnMinWidth` creates a semi-fluid layout. This means that if there are fewer items than fit in a single row, the columns will automatically adjust so that their combined widths add up to 100%.
+
+If you instead want to create a more “fixed” layout, in which the column widths remain consistent no matter how few items are in a single row, use `@columnWidth` instead.
 
 !!!
 
