@@ -31,6 +31,12 @@ For cloud products, the icon should always be `hcp`. For standalone or open-sour
 
 ![Examples of the Home link using different logos](/assets/components/app-header/app-header-home-link.png)
 
+#### Text
+
+The home link supports an optional `text` property to more explicitly title an application. We recommend using this property sparingly as it's often unnecessary to title a HashiCorp application in such an explicit manner.
+
+![Example of text displayed in the Home Link that reads Admin UI](/assets/components/app-header/app-header-home-link-text.png)
+
 ### Context switcher
 
 !!! Info

@@ -9,7 +9,7 @@ Instead of using the `<table>` elements, the Advanced Table uses `<div>`s with e
 To use an Advanced Table, first define the data model in your route or model:
 
 ```javascript
-import Route from '@ember/routing/route';
+import Route from "@ember/routing/route";
 
 export default class ComponentsAdvancedTableRoute extends Route {
   async model() {
@@ -32,7 +32,7 @@ export default class ComponentsAdvancedTableRoute extends Route {
     //    },
     //  },
     // ...
-    let response = await fetch('/api/demo.json');
+    let response = await fetch("/api/demo.json");
     let { data } = await response.json();
     return { myDemoData: data };
   }
@@ -46,7 +46,11 @@ You can insert your own content into the `:body` block and the component will ta
 ```handlebars
 <Hds::AdvancedTable
   @model={{this.model.myDemoData}}
-  @columns={{array (hash label="Artist") (hash label="Album") (hash label="Year")}}
+  @columns={{array
+    (hash label="Artist")
+    (hash label="Album")
+    (hash label="Year")
+  }}
 >
   <:body as |B|>
     <B.Tr>
@@ -82,43 +86,42 @@ For complex data sets where there is a parent row with several children, you can
 To ensure the Advanced Table is accessible, the columns in the nested rows **must** match the columns of the parent rows. Otherwise the relationship between the parent and nested rows will not be clear to users.
 
 ```javascript
-  // example of data retrieved for the model:
-  [
-    {
-      id: '1',
-      name: 'Policy set 1',
-      status: 'PASS',
-      children: [
-        {
-          name: 'test-advisory-pass.sentinel',
-          status: 'PASS',
-          description: 'Sample description for this thing.'
-        },
-        {
-          name: 'test-hard-mandatory-pass.sentinel',
-          status: 'PASS',
-          description: 'Sample description for this thing.'
-        }
-      ]
-    },
-    {
-      id: '2',
-      name: 'Policy set 2',
-      status: 'FAIL',
-      children: [
-        {
-          name: 'test-advisory-pass.sentinel',
-          status: 'PASS',
-          description: 'Sample description for this thing.'
-        },
-        // ...
-      ]
-    },
-  ]
+// example of data retrieved for the model:
+[
+  {
+    id: "1",
+    name: "Policy set 1",
+    status: "PASS",
+    children: [
+      {
+        name: "test-advisory-pass.sentinel",
+        status: "PASS",
+        description: "Sample description for this thing.",
+      },
+      {
+        name: "test-hard-mandatory-pass.sentinel",
+        status: "PASS",
+        description: "Sample description for this thing.",
+      },
+    ],
+  },
+  {
+    id: "2",
+    name: "Policy set 2",
+    status: "FAIL",
+    children: [
+      {
+        name: "test-advisory-pass.sentinel",
+        status: "PASS",
+        description: "Sample description for this thing.",
+      },
+      // ...
+    ],
+  },
+];
 ```
 
 Similar to the basic Advanced Table, you can insert your own content into the `:body` block and the component will take care of looping over the `@model` provided for the parent and nested rows. The component adds the expand/collapse button to the `[B].Th` component in each row that has children.
-
 
 ```handlebars
 <Hds::AdvancedTable
@@ -145,6 +148,126 @@ Similar to the basic Advanced Table, you can insert your own content into the `:
 </Hds::AdvancedTable>
 ```
 
+### Resizable Columns
+
+!!! Info
+
+Resizable columns are not supported in instances of the Advanced Table that have nested rows.
+!!!
+
+Set the `@hasResizableColumns` argument to `true` in order to make columns resizable either by clicking and dragging on the column border with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
+
+Optionally, the `@onColumnResize` attribute accepts a callback function that receives the resized column's key and new size in CSS pixels (e.g., `"12px"`).
+
+Reset the column to its original width by choosing the "Reset column width" option in the header cell context menu.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.model.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+By default, the minimum and maximum width of each column are set to `150px` and `800px` respectively. This can be overridden if necessary by passing either a `minWidth` or `maxWidth` argument to the `columns` array.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.model.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash
+      key="album"
+      label="Album"
+      isSortable=true
+      width="300px"
+      minWidth="200px"
+      maxWidth="500px"
+    )
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>{{B.data.artist}}</B.Td>
+      <B.Td>{{B.data.album}}</B.Td>
+      <B.Td>{{B.data.year}}</B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+```
+
+#### Content wrapping
+
+By default, content within the cells will wrap according to the browser’s natural reflow. This may result in the layout shifting.
+
+How resizing for the cell content works is determined by the implementation. For example, truncation with an ellipsis can be achieved by applying custom CSS to the relevant element within the table cell, e.g., `text-overflow: ellipsis; white-space: nowrap; overflow: hidden;`.
+
+```handlebars
+<Hds::AdvancedTable
+  @model={{this.model.myDemoData}}
+  @hasResizableColumns={{true}}
+  @columns={{array
+    (hash key="artist" label="Artist" isSortable=true)
+    (hash key="album" label="Album" isSortable=true)
+    (hash key="year" label="Release Year")
+  }}
+>
+  <:body as |B|>
+    <B.Tr>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.artist}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.album}}
+          </span>
+        </div>
+      </B.Td>
+      <B.Td>
+        <div class="doc-advanced-table-cell-content-div">
+          <span class="doc-advanced-table-text-truncate">
+            {{B.data.year}}
+          </span>
+        </div>
+      </B.Td>
+    </B.Tr>
+  </:body>
+</Hds::AdvancedTable>
+
+<style>
+  .doc-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .doc-advanced-table-text-truncate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+</style>
+```
 
 ### Sortable Advanced Table
 
@@ -340,12 +463,21 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td @align="right">
         <Hds::Dropdown @isInline={{true}} as |dd|>
-          <dd.ToggleIcon @icon="more-horizontal" @text="Overflow Options" @hasChevron={{false}} @size="small" />
+          <dd.ToggleIcon
+            @icon="more-horizontal"
+            @text="Overflow Options"
+            @hasChevron={{false}}
+            @size="small"
+          />
           <dd.Interactive @route="components">Create</dd.Interactive>
           <dd.Interactive @route="components">Read</dd.Interactive>
           <dd.Interactive @route="components">Update</dd.Interactive>
           <dd.Separator />
-          <dd.Interactive @route="components" @color="critical" @icon="trash">Delete</dd.Interactive>
+          <dd.Interactive
+            @route="components"
+            @color="critical"
+            @icon="trash"
+          >Delete</dd.Interactive>
         </Hds::Dropdown>
       </B.Td>
     </B.Tr>
@@ -362,8 +494,18 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   @model={{this.model.myDemoData}}
   @columns={{array
     (hash key="artist" label="Artist")
-    (hash key="album" label="Album" tooltip="Title of the album (in its first release)")
-    (hash key="vinyl-cost" label="Vinyl Cost (USD)" isSortable=true tooltip="Cost of the vinyl (adjusted for inflation)" align="right")
+    (hash
+      key="album"
+      label="Album"
+      tooltip="Title of the album (in its first release)"
+    )
+    (hash
+      key="vinyl-cost"
+      label="Vinyl Cost (USD)"
+      isSortable=true
+      tooltip="Cost of the vinyl (adjusted for inflation)"
+      align="right"
+    )
   }}
 >
   <:body as |B|>
@@ -375,6 +517,7 @@ To create a column that has right-aligned content, set `@align` to `right` on bo
   </:body>
 </Hds::AdvancedTable>
 ```
+
 ### Scrollable table
 
 Consuming a large amount of data in a tabular format can lead to an intense cognitive load for the user. As a general principle, care should be taken to simplify the information within a table as much as possible.
@@ -490,7 +633,10 @@ If you want the state of the checkboxes to persist after the model updates, you 
   }}
 >
   <:body as |B|>
-    <B.Tr @selectionKey={{B.data.id}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+    <B.Tr
+      @selectionKey={{B.data.id}}
+      @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+    >
       <B.Td>{{B.data.artist}}</B.Td>
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
@@ -578,7 +724,11 @@ In the demo below, we are persisting the selection in the data/model, so that wh
     }}
   >
     <:body as |B|>
-      <B.Tr @selectionKey={{B.data.id}} @isSelected={{B.data.isSelected}} @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}">
+      <B.Tr
+        @selectionKey={{B.data.id}}
+        @isSelected={{B.data.isSelected}}
+        @selectionAriaLabelSuffix="row {{B.data.artist}} / {{B.data.album}}"
+      >
         <B.Td>{{B.data.artist}}</B.Td>
         <B.Td>{{B.data.album}}</B.Td>
         <B.Td>{{B.data.year}}</B.Td>
@@ -619,7 +769,6 @@ demoOnSelectionChangeWithPagination({ selectableRowsStates }) {
 
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
-
 #### Usability and accessibility considerations
 
 Since the “selected” state of a row is communicated with the checkbox selection, there are some important considerations to keep in mind when implementing a multi-select Advanced Table.
@@ -655,7 +804,12 @@ In this example we’re visually hiding the label in the last column by passing 
     (hash key="artist" label="Artist" isSortable=true)
     (hash key="album" label="Album" isSortable=true)
     (hash key="year" label="Year" isSortable=true)
-    (hash key="other" label="Select an action from the menu" isVisuallyHidden=true width="60px")
+    (hash
+      key="other"
+      label="Select an action from the menu"
+      isVisuallyHidden=true
+      width="60px"
+    )
   }}
 >
   <:body as |B|>
@@ -664,20 +818,20 @@ In this example we’re visually hiding the label in the last column by passing 
       <B.Td>{{B.data.album}}</B.Td>
       <B.Td>{{B.data.year}}</B.Td>
       <B.Td>
-          <Hds::Dropdown as |D|>
-            <D.ToggleIcon
-              @icon="more-horizontal"
-              @text="Overflow Options"
-              @hasChevron={{false}}
-              @size="small"
-            />
-            <D.Interactive
-              @href="#"
-              @color="critical"
-              @icon="trash"
-            >Delete</D.Interactive>
-          </Hds::Dropdown>
-        </B.Td>
+        <Hds::Dropdown as |D|>
+          <D.ToggleIcon
+            @icon="more-horizontal"
+            @text="Overflow Options"
+            @hasChevron={{false}}
+            @size="small"
+          />
+          <D.Interactive
+            @href="#"
+            @color="critical"
+            @icon="trash"
+          >Delete</D.Interactive>
+        </Hds::Dropdown>
+      </B.Td>
     </B.Tr>
   </:body>
 </Hds::AdvancedTable>
@@ -723,4 +877,3 @@ Here’s an Advanced Table implementation that uses an array hash with strings f
   </:body>
 </Hds::AdvancedTable>
 ```
-

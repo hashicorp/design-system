@@ -52,6 +52,18 @@ The Advanced Table component itself is where most of the options will be applied
       <C.Property @name="width" @type="string" @valueNote="Any valid CSS">
         If set, determines the column’s width.
       </C.Property>
+      <C.Property @name="minWidth" @type="string" @default="150px">
+        If set, determines the column’s minimum width when resizing. Accepts any positive CSS pixel value (e.g., 1px).
+        <Doc::Banner @type="info">
+          Overriding the default `minWidth` requires the `width` property to be set.
+        </Doc::Banner>
+      </C.Property>
+      <C.Property @name="maxWidth" @type="string" @default="800px">
+        If set, determines the column’s maximum width when resizing. Accepts any positive CSS pixel value (e.g., 1px).
+        <Doc::Banner @type="info">
+          Overriding the default `maxWidth` requires the `width` property to be set.
+        </Doc::Banner>
+      </C.Property>
       <C.Property @name="isVisuallyHidden" @type="boolean" @default="false">
         If set to `true`, it visually hides the column’s text content (it will still be available to screen readers for accessibility). <em>Only available for non-sortable columns.</em>
       </C.Property>
@@ -65,6 +77,18 @@ The Advanced Table component itself is where most of the options will be applied
         If there are nested rows, an expand all button can be added in the header by adding `isExpandable: true` to the desired column.
       </C.Property>
     </Doc::ComponentApi>
+  </C.Property>
+  <C.Property @name="hasResizableColumns" @type="boolean" @default="false">
+    If set to `true`, allows users to resize columns either by clicking and dragging on the column border with a mouse, or by moving focus to the resize border with a keyboard and using the right and left arrow keys.
+  </C.Property>
+  <C.Property @name="onColumnResize" @type="function">
+    Use in conjunction with `hasResizableColumns` to pass a callback function to know the updated width of a resized column.
+    <br /><br />
+    When called, this function receives two positional arguments:
+    <ul>
+    <li>the `key` value of the resized column.</li>
+    <li>the new width of the resized columns as CSS pixel value (e.g., 1px).</li>
+    </ul>
   </C.Property>
   <C.Property @name="sortBy" @type="string">
     If defined, the value should be set to the key of the column that should be pre-sorted.
