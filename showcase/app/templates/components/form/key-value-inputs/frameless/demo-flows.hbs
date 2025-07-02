@@ -19,6 +19,11 @@
       </PH.Breadcrumb>
       <PH.IconTile @logo="vault" />
     </Hds::PageHeader>
+
+    <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit />
+
+    <Shw::Divider />
+
     <Hds::Form as |F|>
       <F.Section>
         <Mock::App::Main::GenericForm::Partials::AddOsArchitecture />
@@ -27,5 +32,6 @@
         <Hds::Button @text="Save" />
       </F.Footer>
     </Hds::Form>
+
   </:main>
 </Mock::App>
