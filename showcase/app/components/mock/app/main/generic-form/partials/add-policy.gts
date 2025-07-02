@@ -6,6 +6,7 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { on } from '@ember/modifier';
+import { array, hash } from '@ember/helper';
 
 // HDS components
 import {
@@ -15,6 +16,7 @@ import {
   HdsFormSeparator,
   HdsFormField,
   HdsFormFileInputBase,
+  HdsFormKeyValueInputs,
   HdsFormRadioCardGroup,
   HdsFormRadioGroup,
   HdsFormTextareaField,
@@ -222,6 +224,36 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       <HdsFormSectionHeader as |FSH|>
         <FSH.Title @tag="h3">Some more metadata</FSH.Title>
       </HdsFormSectionHeader>
+
+      <HdsFormKeyValueInputs
+        @data={{(array (hash name="prod" description="Production environment") (hash name="dev" description=""))}}
+      >
+        <:header as |H|>
+          <H.Legend>Tags applied to this policy</H.Legend>
+          <H.HelperText>
+            Use tags to correlate, organize or filter your policies using
+            key-only or key/value pairs. You can add up to 3 tags per policy.
+          </H.HelperText>
+        </:header>
+
+        <:row as |R|>
+          <R.Field @isRequired={{true}} as |F|>
+            <F.Label>Tag name</F.Label>
+            <F.HelperText>Lorem ipsum dolor sit amet.</F.HelperText>
+            <F.TextInput name="key" @value={{R.rowData.name}} />
+          </R.Field>
+          <R.Field @isOptional={{true}} as |F|>
+            <F.Label>Tag description</F.Label>
+            <F.TextInput name="value" @value={{R.rowData.description}} />
+          </R.Field>
+          <R.DeleteRowButton />
+        </:row>
+
+        <:footer as |F|>
+          <F.AddRowButton @text="Add tag" />
+        </:footer>
+      </HdsFormKeyValueInputs>
+
       <HdsFormToggleField as |F|>
         <F.Label>Allow admin users</F.Label>
         <F.HelperText>When enabled, allows admin users to view the policy. This
