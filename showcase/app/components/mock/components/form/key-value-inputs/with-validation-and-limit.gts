@@ -54,10 +54,32 @@ interface FormModel {
   };
 }
 
+const EMPTY_TAG_LIST: TagItem[] = [
+  {
+    id: 0,
+    'tag-name': 'EMPTY',
+    'tag-description': 'I am an empty tag row',
+  },
+];
+
 const EMPTY_MODEL: FormModel = {
   'entity-name': { value: '' },
   'entity-description': { value: '' },
-  'tags-list': { value: [] },
+  'tags-list': {
+    value: [
+      ...EMPTY_TAG_LIST,
+      {
+        id: 1,
+        'tag-name': 'ONE',
+        'tag-description': 'Tag 1',
+      },
+      {
+        id: 2,
+        'tag-name': 'TWO',
+        'tag-description': 'Tag 2',
+      },
+    ],
+  },
 };
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
@@ -71,8 +93,24 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     this.formElement = element;
   });
 
-  updateModel = (event: Event) => {
-    console.log('updateModel invoked');
+  get tagsListData() {
+    if (this.model['tags-list'].value.length > 0) {
+      return this.model['tags-list'].value;
+    } else {
+      return EMPTY_TAG_LIST;
+    }
+  }
+
+  get canDeleteRow() {
+    return true;
+  }
+
+  get canAddRow() {
+    return this.model['tags-list'].value.length < 5;
+  }
+
+  onInputUpdateModel = (event: Event) => {
+    console.log('onInputUpdateModel invoked');
     const target = event.target as
       | HTMLInputElement
       | HTMLTextAreaElement
@@ -87,14 +125,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     }
   };
 
-  canDeleteRow = () => {
-    return true;
-  };
-
-  canAddRow = () => {
-    return this.model['tags-list'].value.length < 5;
-  };
-
   onAddRowClick = () => {
     console.log('onAddRowClick invoked');
     const currTagsList = this.model['tags-list'].value;
@@ -106,11 +136,30 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     set(this.model, 'tags-list.value', currTagsList);
   };
 
-  onDeleteRowClick = (item) => {
-    console.log('onAddRowClick invoked');
-    this.model['tags-list'].value = this.model['tags-list'].value.filter(
-      (row) => row.id !== item.id,
-    );
+  onDeleteRowClick = (rowData: unknown, rowIndex: number) => {
+    console.log('onDeleteRowClick invoked', rowData, rowIndex);
+    if (rowIndex < 0 || rowIndex >= this.model['tags-list'].value.length) {
+      console.error(
+        'Trying to delete a row with index out of boundaries of the `@data` array',
+      );
+    } else {
+      console.log(
+        'BEFORE',
+        this.model['tags-list'].value,
+        this.model['tags-list'].value.length,
+      );
+      // this.model['tags-list'].value.splice(rowIndex, 1);
+      set(
+        this.model,
+        'tags-list.value',
+        this.model['tags-list'].value.filter((_, index) => index !== rowIndex),
+      );
+      console.log(
+        'AFTER',
+        this.model['tags-list'].value,
+        this.model['tags-list'].value.length,
+      );
+    }
   };
 
   onSubmitButtonClick = () => {
@@ -190,7 +239,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           @isRequired={{true}}
           name="entity-name"
           @value={{this.model.entity-name.value}}
-          {{on "input" this.updateModel}}
+          {{on "input" this.onInputUpdateModel}}
           as |F|
         >
           <F.Label>Name</F.Label>
@@ -203,7 +252,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           @isOptional={{true}}
           name="entity-description"
           @value={{this.model.entity-description.value}}
-          {{on "input" this.updateModel}}
+          {{on "input" this.onInputUpdateModel}}
           as |F|
         >
           <F.Label>Description</F.Label>
@@ -217,7 +266,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         </HdsFormTextareaField>
         <HdsFormKeyValueInputs
           @isRequired={{true}}
-          {{! this.model.tags-list.value }}
           @data={{this.model.tags-list.value}}
         >
           <:header as |H|>
@@ -232,7 +280,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
               <F.TextInput
                 name="tag-name-{{R.rowIndex}}"
                 @value={{R.rowData.tag-name}}
-                {{on "input" this.updateModel}}
+                {{on "input" this.onInputUpdateModel}}
               />
               {{#if true}}
                 <F.Error>TODO add here error message</F.Error>
@@ -243,7 +291,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
               <F.TextInput
                 name="tag-description-{{R.rowIndex}}"
                 @value={{R.rowData.tag-description}}
-                {{on "input" this.updateModel}}
+                {{on "input" this.onInputUpdateModel}}
               />
             </R.Field>
             {{#if (eq this.canDeleteRow true)}}
@@ -275,6 +323,11 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             @text="Cancel"
             @color="secondary"
             {{on "click" this.onCancelButtonClick}}
+          />
+          <HdsButton
+            @text="Toggle"
+            @color="tertiary"
+            @icon="circle"
           />
         </FF.ButtonSet>
       </FORM.Footer>
