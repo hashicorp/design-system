@@ -7,7 +7,7 @@ import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { set } from '@ember/object';
-import { tracked, TrackedObject, TrackedArray } from 'tracked-built-ins';
+import { deepTracked } from 'ember-deep-tracked';
 // import style from 'ember-style-modifier/modifiers/style';
 
 // HDS components
@@ -50,24 +50,16 @@ interface FormModel {
   };
 }
 
-const EMPTY_TAGS_LIST: TagItem[] = [
-  {
-    id: 0,
-    'tag-name': '',
-    'tag-description': '',
-  },
-];
+const EMPTY_TAG_ITEM: TagItem = {
+  id: 0,
+  'tag-name': '',
+  'tag-description': '',
+};
 
 const EMPTY_MODEL: FormModel = {
   'entity-name': { value: '' },
   'entity-description': { value: '' },
-  'tags-list': { value: [] },
-};
-
-const getInitialModel = (): FormModel => {
-  const model = new TrackedObject({ ...EMPTY_MODEL });
-  model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
-  return model;
+  'tags-list': { value: [ structuredClone(EMPTY_TAG_ITEM) ] },
 };
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
@@ -75,7 +67,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
 
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  @tracked model: FormModel = getInitialModel();
+  @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
 
   formElement: HdsFormSignature['Element'] | null = null;
   setFormElementRef = modifier((element: HdsFormSignature['Element']) => {
@@ -83,7 +75,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   });
 
   onInputUpdateModel = (event: Event) => {
-    console.log('onInputUpdateModel invoked');
+    // console.log('onInputUpdateModel invoked');
     const target = event.target as
       | HTMLInputElement
       | HTMLTextAreaElement
@@ -93,14 +85,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       if (field === 'entity-name' || field === 'entity-description') {
         set(this.model, `${field}.value`, target.value);
       } else {
-        // const EMPTY_TAGS_LIST: TagItem[] = [
-        //   {
-        //     id: 0,
-        //     'tag-name': 'EMPTY',
-        //     'tag-description': 'Empty row',
-        //   },
-        // ];
-        // tag-name-0
         const match = field.match(/^(tag-name|tag-description)-(\d+)$/);
         if (match) {
           const key = match[1] as 'tag-name' | 'tag-description';
@@ -114,7 +98,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             set(this.model['tags-list'].value[index], key, target.value);
           }
         }
-        console.log(target, field);
       }
     }
   };
@@ -124,7 +107,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   }
 
   onAddRowClick = () => {
-    console.log('onAddRowClick invoked');
+    // console.log('onAddRowClick invoked');
     this.model['tags-list'].value.push({
       id: this.model['tags-list'].value.length + 1,
       'tag-name': '',
@@ -137,22 +120,34 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   }
 
   onDeleteRowClick = (_rowData: unknown, rowIndex: number) => {
-    console.log('onDeleteRowClick invoked', rowIndex);
+    // console.log('onDeleteRowClick invoked', rowIndex);
     if (rowIndex < 0 || rowIndex >= this.model['tags-list'].value.length) {
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
     } else if (rowIndex === 0 && this.model['tags-list'].value.length == 1) {
+      // console.log('EMPTY_TAG_ITEM', EMPTY_TAG_ITEM);
+      // console.log('this.model[tags-list].value', this.model['tags-list'].value);
+      // console.log(
+      //   'this.model[tags-list].value.length',
+      //   this.model['tags-list'].value.length,
+      // );
       // we're deleting the last row, so we clear the array and return to the "empty state"
-      this.model['tags-list'].value.splice(
-        0,
-        this.model['tags-list'].value.length,
-        ...EMPTY_TAGS_LIST,
-      );
-      // this.model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
+      // this.model['tags-list'].value.splice(
+      //   0,
+      //   this.model['tags-list'].value.length,
+      //   structuredClone(EMPTY_TAG_ITEM),
+      // );
+      this.model['tags-list'].value = [ structuredClone(EMPTY_TAG_ITEM) ];
     } else {
       // Remove the item at the specific index
       this.model['tags-list'].value.splice(rowIndex, 1);
+      // console.log('EMPTY_TAG_ITEM', EMPTY_TAG_ITEM);
+      // console.log('this.model[tags-list].value', this.model['tags-list'].value);
+      // console.log(
+      //   'this.model[tags-list].value.length',
+      //   this.model['tags-list'].value.length,
+      // );
     }
   };
 
@@ -160,13 +155,12 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     // console.log('onSubmitButtonClick invoked');
     let isValid = true;
 
-    // VALIDATION VIA DOM STATUS
+    // VALIDATION VIA DOM QUERIES
 
     const inputEntityNameElement = this.formElement?.querySelector(
       'input[name="entity-name"]',
     ) as HTMLInputElement;
     if (inputEntityNameElement && inputEntityNameElement.value.trim() === '') {
-      // TODO not sure why `this.model['entity-name'].validationMessage =` doesn't work
       set(
         this.model,
         'entity-name.validationMessage',
@@ -240,11 +234,10 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   onCancelButtonClick = () => {
-    console.log('onCancelButtonClick');
+    // console.log('onCancelButtonClick');
     // this.formElement.reset();
     // TODO! understand why this does not work as one would imagine
-    this.model = getInitialModel();
-    console.log(this.model);
+    this.model = structuredClone(EMPTY_MODEL);
   };
 
   // =====================================================
@@ -291,7 +284,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             >{{this.model.entity-description.validationMessage}}</F.Error>
           {{/if}}
         </HdsFormTextareaField>
-        <pre>{{this.jsonModel}}</pre>
         <HdsFormKeyValueInputs
           @isRequired={{true}}
           @data={{this.model.tags-list.value}}
