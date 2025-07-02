@@ -12,6 +12,18 @@
 </p>
 
 
+### July 2nd, 2025
+
+This changelog corresponds with the [4.21](/whats-new/release-notes#4210) release.
+
+`KeyValueInputs` - Added new [Template] component.
+
+`Form / Layout` - Added new Form Layout [Template] component.
+
+`AppHeader` - Added `text` property to the home link.
+
+`AdvancedTable` - Added support for resizing columns, restructured the component to support functions within a context menu.
+
 ### June 4th, 2025
 
 This changelog corresponds with the [4.20](/whats-new/release-notes#4200) release.
@@ -158,10 +170,6 @@ _Updating the `StandaloneLink` to the secondary variant will revert any changes 
 - Updated the visual language of the sort button in `Header Column` by decoupling the sort functionality into a nested `Sort Button`
 
 _Adding support for a `Tooltip` and updates to the `Sort Button` result in a breaking change in sortable variants. While the `Label` in the `Header Column` should persist, we recommend annotating (with a comment or otherwise) work that is in-progress or still being referenced by engineering with the columns that are intended to be sortable._
-
-### January 24th, 2024
-
-`IconTile` - Added Vault Radar logo.
 
 
 ---
