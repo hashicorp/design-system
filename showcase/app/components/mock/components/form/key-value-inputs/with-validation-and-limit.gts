@@ -4,12 +4,14 @@
  */
 
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
-import { fn, array } from '@ember/helper';
+import { fn } from '@ember/helper';
+import { set } from '@ember/object';
+// import { tracked } from '@glimmer/tracking';
+import { tracked, TrackedObject } from 'tracked-built-ins';
 // import { eq } from 'ember-truth-helpers';
 // import style from 'ember-style-modifier/modifiers/style';
-import { modifier } from 'ember-modifier';
 
 // HDS components
 import {
@@ -20,9 +22,6 @@ import {
   HdsButton,
 } from '@hashicorp/design-system-components/components';
 
-// types
-// import type { HdsFormKeyValueInputsSignature } from '@hashicorp/design-system-components/components/hds/form/key-value-inputs/index';
-
 export interface MockComponentsFormKeyValueInputsWithValidationAndLimitSignature {
   Args: {
     showIntro?: boolean;
@@ -30,6 +29,7 @@ export interface MockComponentsFormKeyValueInputsWithValidationAndLimitSignature
 }
 
 interface TagItem {
+  id: number;
   'tag-name': string;
   'tag-description': string;
   validationMessage?: string | null;
@@ -58,8 +58,9 @@ const EMPTY_MODEL: FormModel = {
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
   showIntro = this.args.showIntro ?? true;
-  @tracked model: FormModel = EMPTY_MODEL;
-  @tracked validations = {};
+  // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
+  // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
+  @tracked model: FormModel = new TrackedObject({ ...EMPTY_MODEL });
   formElement: HTMLFormElement | null = null;
 
   formElementRef = modifier((element: HTMLFormElement) => {
@@ -68,9 +69,11 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
 
   updateValue = (field: string, event: KeyboardEvent) => {
     console.log('updateValue invoked');
-    this.model = { ...this.model };
     if (field === 'entity-name' || field === 'entity-description') {
-      this.model[field].value = event.target.value;
+      const target = event.target as HTMLInputElement | HTMLTextAreaElement | null;
+      if (target) {
+        set(this.model, `${field}.value`, target.value);
+      }
     }
   };
 
@@ -84,14 +87,11 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
 
   onAddRowClick = () => {
     console.log('onAddRowClick invoked', this.model['tags-list'].value.length);
-    this.model['tags-list'].value = [
-      ...this.model['tags-list'].value,
-      {
-        id: this.model['tags-list'].value.length + 1,
-        'tag-name': { value: '' },
-        'tag-description': { value: '' },
-      },
-    ];
+    this.model['tags-list'].value.push({
+      id: this.model['tags-list'].value.length + 1,
+      'tag-name': '',
+      'tag-description': '',
+    });
   };
 
   onDeleteRowClick = (item) => {
@@ -102,31 +102,49 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   onSubmitButtonClick = () => {
-    console.log('onSubmitButtonClick invoked');
-
-    this.model = { ...this.model };
+    // console.log('onSubmitButtonClick invoked');
+    let isValid = true;
 
     const inputEntityNameElement = this.formElement?.querySelector(
       'input[name="entity-name"]',
     ) as HTMLInputElement;
     if (inputEntityNameElement && inputEntityNameElement.value.trim() === '') {
-      this.model['entity-name'].validationMessage = 'The {entity} name is required';
+      // TODO not sure why `this.model['entity-name'].validationMessage =` doesn't work
+      set(
+        this.model,
+        'entity-name.validationMessage',
+        'The {entity} name is required',
+      );
+      isValid = false;
     } else {
-      this.model['entity-name'].validationMessage = null;
+      set(this.model, 'entity-name.validationMessage', null);
     }
 
     const inputEntityDescriptionElement = this.formElement?.querySelector(
       'textarea[name="entity-description"]',
     ) as HTMLTextAreaElement;
-    if (inputEntityDescriptionElement && inputEntityDescriptionElement.value.length > 256) {
-      this.model['entity-description'].validationMessage = 'The {entity} description is longer than allowed';
+    if (
+      inputEntityDescriptionElement &&
+      inputEntityDescriptionElement.value.length > 256
+    ) {
+      // TODO not sure why `this.model['entity-name'].validationMessage =` doesn't work
+      set(
+        this.model,
+        'entity-description.validationMessage',
+        'The {entity} description is longer than allowed',
+      );
+      isValid = false;
     } else {
-      this.model['entity-description'].validationMessage = null;
+      set(this.model, 'entity-description.validationMessage', null);
+    }
+
+    if (isValid) {
+      window.alert("Form submission succeeded!")
     }
   };
 
   onCancelButtonClick = () => {
-    console.log('onCancelButtonClick invoked', event);
+    // console.log('onCancelButtonClick invoked');
     // this.formElement.reset();
     this.model = { ...EMPTY_MODEL };
   };
@@ -167,7 +185,8 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             characters</F.HelperText>
           <F.CharacterCount @maxLength={{256}} />
           {{#if this.model.entity-description.validationMessage}}
-            <F.Error>{{this.model.entity-description.validationMessage}}</F.Error>
+            <F.Error
+            >{{this.model.entity-description.validationMessage}}</F.Error>
           {{/if}}
         </HdsFormTextareaField>
 
