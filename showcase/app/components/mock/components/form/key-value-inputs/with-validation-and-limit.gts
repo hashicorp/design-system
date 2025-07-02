@@ -9,7 +9,6 @@ import { on } from '@ember/modifier';
 import { set } from '@ember/object';
 import { tracked, TrackedObject, TrackedArray } from 'tracked-built-ins';
 // import style from 'ember-style-modifier/modifiers/style';
-import type Owner from '@ember/owner';
 
 // HDS components
 import {
@@ -54,15 +53,21 @@ interface FormModel {
 const EMPTY_TAGS_LIST: TagItem[] = [
   {
     id: 0,
-    'tag-name': 'EMPTY',
-    'tag-description': 'Empty row',
+    'tag-name': '',
+    'tag-description': '',
   },
 ];
 
 const EMPTY_MODEL: FormModel = {
-  'entity-name': { value: 'ENTITY' },
-  'entity-description': { value: 'DESC' },
+  'entity-name': { value: '' },
+  'entity-description': { value: '' },
   'tags-list': { value: [] },
+};
+
+const getInitialModel = (): FormModel => {
+  const model = new TrackedObject({ ...EMPTY_MODEL });
+  model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
+  return model;
 };
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
@@ -70,20 +75,12 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
 
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  // @tracked model: FormModel = new TrackedObject({ ...EMPTY_MODEL });
-  @tracked model: FormModel = this.initialModel;
+  @tracked model: FormModel = getInitialModel();
 
   formElement: HdsFormSignature['Element'] | null = null;
   setFormElementRef = modifier((element: HdsFormSignature['Element']) => {
     this.formElement = element;
   });
-
-  get initialModel() {
-    console.log('initialModel invoked');
-    const model = new TrackedObject({ ...EMPTY_MODEL });
-    model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
-    return model;
-  }
 
   onInputUpdateModel = (event: Event) => {
     console.log('onInputUpdateModel invoked');
@@ -96,6 +93,27 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       if (field === 'entity-name' || field === 'entity-description') {
         set(this.model, `${field}.value`, target.value);
       } else {
+        // const EMPTY_TAGS_LIST: TagItem[] = [
+        //   {
+        //     id: 0,
+        //     'tag-name': 'EMPTY',
+        //     'tag-description': 'Empty row',
+        //   },
+        // ];
+        // tag-name-0
+        const match = field.match(/^(tag-name|tag-description)-(\d+)$/);
+        if (match) {
+          const key = match[1] as 'tag-name' | 'tag-description';
+          const index = Number(match[2]);
+          if (
+            key &&
+            index !== undefined &&
+            this.model['tags-list'].value[index]
+          ) {
+            // we use `set` for the nested property or it will not trigger a mutation on the tracked model
+            set(this.model['tags-list'].value[index], key, target.value);
+          }
+        }
         console.log(target, field);
       }
     }
@@ -166,7 +184,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       inputEntityDescriptionElement &&
       inputEntityDescriptionElement.value.length > 256
     ) {
-      // TODO not sure why `this.model['entity-name'].validationMessage =` doesn't work
       set(
         this.model,
         'entity-description.validationMessage',
@@ -187,6 +204,33 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       );
       isValid = false;
     } else {
+      // count all the distinct tag names
+      const tagNameCounts: Record<string, number> = {};
+      this.model['tags-list'].value.forEach((row: TagItem) => {
+        const tagName = row['tag-name'].trim();
+        tagNameCounts[tagName] = (tagNameCounts[tagName] || 0) + 1;
+      });
+      // validate against empty tag names or duplicates
+      this.model['tags-list'].value.forEach((row: TagItem) => {
+        // [
+        //   {
+        //     id: 0,
+        //     'tag-name': 'EMPTY',
+        //     'tag-description': 'Empty row',
+        //   },
+        // ];
+        const tagName = row['tag-name'].trim();
+        if (row['tag-name'].trim() === '') {
+          // we use `set` for the nested property, to trigger a mutation on the tracked object
+          set(row, 'validationMessage', 'The tag name is required');
+          isValid = false;
+        } else if (tagNameCounts[tagName] && tagNameCounts[tagName] > 1) {
+          set(row, 'validationMessage', 'The tag name is duplicated');
+          isValid = false;
+        } else {
+          set(row, 'validationMessage', null);
+        }
+      });
       set(this.model, 'tags-list.validationMessage', null);
     }
 
@@ -198,9 +242,12 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   onCancelButtonClick = () => {
     console.log('onCancelButtonClick');
     // this.formElement.reset();
-    set(this, 'model', this.initialModel());
+    // TODO! understand why this does not work as one would imagine
+    this.model = getInitialModel();
     console.log(this.model);
   };
+
+  // =====================================================
 
   <template>
     {{#if this.showIntro}}
@@ -215,6 +262,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       <FORM.Section>
         <HdsFormTextInputField
           @isRequired={{true}}
+          @isInvalid={{if this.model.entity-name.validationMessage true}}
           name="entity-name"
           @value={{this.model.entity-name.value}}
           {{on "input" this.onInputUpdateModel}}
@@ -228,6 +276,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         </HdsFormTextInputField>
         <HdsFormTextareaField
           @isOptional={{true}}
+          @isInvalid={{if this.model.entity-description.validationMessage true}}
           name="entity-description"
           @value={{this.model.entity-description.value}}
           {{on "input" this.onInputUpdateModel}}
@@ -242,6 +291,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             >{{this.model.entity-description.validationMessage}}</F.Error>
           {{/if}}
         </HdsFormTextareaField>
+        <pre>{{this.jsonModel}}</pre>
         <HdsFormKeyValueInputs
           @isRequired={{true}}
           @data={{this.model.tags-list.value}}
@@ -253,7 +303,25 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           </:header>
 
           <:row as |R|>
-            <R.Field @isRequired={{true}} as |F|>
+            {{!-- <R.Generic>
+              <pre>R.rowIndex = {{R.rowIndex}}</pre>
+              <pre>R.rowData = {{R.rowData}}</pre>
+              {{! @glint-expect-error }}
+              <pre>R.rowData.tag-name = {{R.rowData.tag-name}}</pre>
+              {{! @glint-expect-error }}
+              <pre
+              >R.rowData.tag-description = {{R.rowData.tag-description}}</pre>
+              {{! @glint-expect-error }}
+              <pre
+              >R.rowData.validationMessage = {{R.rowData.validationMessage}}</pre>
+              {{! this.model['tags-list'].value[index][key] }}
+            </R.Generic> --}}
+            <R.Field
+              @isRequired={{true}}
+              {{! @glint-expect-error }}
+              @isInvalid={{if R.rowData.validationMessage true}}
+              as |F|
+            >
               <F.Label>Tag name</F.Label>
               <F.TextInput
                 name="tag-name-{{R.rowIndex}}"
