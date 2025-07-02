@@ -6,13 +6,10 @@
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
-import { eq } from 'ember-truth-helpers';
-import { fn } from '@ember/helper';
 import { set } from '@ember/object';
-// import { tracked } from '@glimmer/tracking';
-import { tracked, TrackedObject } from 'tracked-built-ins';
-// import { eq } from 'ember-truth-helpers';
+import { tracked, TrackedObject, TrackedArray } from 'tracked-built-ins';
 // import style from 'ember-style-modifier/modifiers/style';
+import type Owner from '@ember/owner';
 
 // HDS components
 import {
@@ -54,59 +51,38 @@ interface FormModel {
   };
 }
 
-const EMPTY_TAG_LIST: TagItem[] = [
+const EMPTY_TAGS_LIST: TagItem[] = [
   {
     id: 0,
     'tag-name': 'EMPTY',
-    'tag-description': 'I am an empty tag row',
+    'tag-description': 'Empty row',
   },
 ];
 
 const EMPTY_MODEL: FormModel = {
-  'entity-name': { value: '' },
-  'entity-description': { value: '' },
-  'tags-list': {
-    value: [
-      ...EMPTY_TAG_LIST,
-      {
-        id: 1,
-        'tag-name': 'ONE',
-        'tag-description': 'Tag 1',
-      },
-      {
-        id: 2,
-        'tag-name': 'TWO',
-        'tag-description': 'Tag 2',
-      },
-    ],
-  },
+  'entity-name': { value: 'ENTITY' },
+  'entity-description': { value: 'DESC' },
+  'tags-list': { value: [] },
 };
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
   showIntro = this.args.showIntro ?? true;
+
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
-  @tracked model: FormModel = new TrackedObject({ ...EMPTY_MODEL });
-  formElement: HdsFormSignature['Element'] | null = null;
+  // @tracked model: FormModel = new TrackedObject({ ...EMPTY_MODEL });
+  @tracked model: FormModel = this.initialModel;
 
-  formElementRef = modifier((element: HdsFormSignature['Element']) => {
+  formElement: HdsFormSignature['Element'] | null = null;
+  setFormElementRef = modifier((element: HdsFormSignature['Element']) => {
     this.formElement = element;
   });
 
-  get tagsListData() {
-    if (this.model['tags-list'].value.length > 0) {
-      return this.model['tags-list'].value;
-    } else {
-      return EMPTY_TAG_LIST;
-    }
-  }
-
-  get canDeleteRow() {
-    return true;
-  }
-
-  get canAddRow() {
-    return this.model['tags-list'].value.length < 5;
+  get initialModel() {
+    console.log('initialModel invoked');
+    const model = new TrackedObject({ ...EMPTY_MODEL });
+    model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
+    return model;
   }
 
   onInputUpdateModel = (event: Event) => {
@@ -125,40 +101,40 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     }
   };
 
+  get canAddRow() {
+    return this.model['tags-list'].value.length < 4;
+  }
+
   onAddRowClick = () => {
     console.log('onAddRowClick invoked');
-    const currTagsList = this.model['tags-list'].value;
-    currTagsList.push({
-      id: currTagsList.length + 1,
+    this.model['tags-list'].value.push({
+      id: this.model['tags-list'].value.length + 1,
       'tag-name': '',
       'tag-description': '',
     });
-    set(this.model, 'tags-list.value', currTagsList);
   };
 
-  onDeleteRowClick = (rowData: unknown, rowIndex: number) => {
-    console.log('onDeleteRowClick invoked', rowData, rowIndex);
+  get canDeleteRow() {
+    return true;
+  }
+
+  onDeleteRowClick = (_rowData: unknown, rowIndex: number) => {
+    console.log('onDeleteRowClick invoked', rowIndex);
     if (rowIndex < 0 || rowIndex >= this.model['tags-list'].value.length) {
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
+    } else if (rowIndex === 0 && this.model['tags-list'].value.length == 1) {
+      // we're deleting the last row, so we clear the array and return to the "empty state"
+      this.model['tags-list'].value.splice(
+        0,
+        this.model['tags-list'].value.length,
+        ...EMPTY_TAGS_LIST,
+      );
+      // this.model['tags-list'].value = new TrackedArray([...EMPTY_TAGS_LIST]);
     } else {
-      console.log(
-        'BEFORE',
-        this.model['tags-list'].value,
-        this.model['tags-list'].value.length,
-      );
-      // this.model['tags-list'].value.splice(rowIndex, 1);
-      set(
-        this.model,
-        'tags-list.value',
-        this.model['tags-list'].value.filter((_, index) => index !== rowIndex),
-      );
-      console.log(
-        'AFTER',
-        this.model['tags-list'].value,
-        this.model['tags-list'].value.length,
-      );
+      // Remove the item at the specific index
+      this.model['tags-list'].value.splice(rowIndex, 1);
     }
   };
 
@@ -220,15 +196,17 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   onCancelButtonClick = () => {
+    console.log('onCancelButtonClick');
     // this.formElement.reset();
-    this.model = { ...EMPTY_MODEL };
+    set(this, 'model', this.initialModel());
+    console.log(this.model);
   };
 
   <template>
     {{#if this.showIntro}}
       <pre>TODO add intro here</pre>
     {{/if}}
-    <HdsForm {{this.formElementRef}} as |FORM|>
+    <HdsForm {{this.setFormElementRef}} as |FORM|>
       <FORM.Header as |FH|>
         <FH.Title>Create a new {entity}</FH.Title>
         <FH.Description>You can create a new {entity} by providing a name, an
@@ -279,29 +257,31 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
               <F.Label>Tag name</F.Label>
               <F.TextInput
                 name="tag-name-{{R.rowIndex}}"
+                {{! @glint-expect-error }}
                 @value={{R.rowData.tag-name}}
                 {{on "input" this.onInputUpdateModel}}
               />
-              {{#if true}}
-                <F.Error>TODO add here error message</F.Error>
+              {{! @glint-expect-error }}
+              {{#if R.rowData.validationMessage}}
+                {{! @glint-expect-error }}
+                <F.Error>{{R.rowData.validationMessage}}</F.Error>
               {{/if}}
             </R.Field>
             <R.Field @isOptional={{true}} as |F|>
               <F.Label>Tag description</F.Label>
               <F.TextInput
                 name="tag-description-{{R.rowIndex}}"
+                {{! @glint-expect-error }}
                 @value={{R.rowData.tag-description}}
                 {{on "input" this.onInputUpdateModel}}
               />
             </R.Field>
-            {{#if (eq this.canDeleteRow true)}}
+            {{#if this.canDeleteRow}}
               <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
             {{/if}}
           </:row>
           <:footer as |F|>
-            <pre>this.canAddRow = {{this.canAddRow}}</pre>
             {{#if this.canAddRow}}
-              <pre>this.canAddRow = {{this.canAddRow}}</pre>
               <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
             {{else}}
               <F.Alert as |A|>
@@ -323,11 +303,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             @text="Cancel"
             @color="secondary"
             {{on "click" this.onCancelButtonClick}}
-          />
-          <HdsButton
-            @text="Toggle"
-            @color="tertiary"
-            @icon="circle"
           />
         </FF.ButtonSet>
       </FORM.Footer>
