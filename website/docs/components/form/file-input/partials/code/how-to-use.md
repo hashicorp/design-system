@@ -52,15 +52,19 @@ The `Label` and `HelperText` contextual components used in the Field component y
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::FileInput::Field @isRequired={{true}} name="demo-profile-photo" as |F|>
-  <F.Label>Upload a file</F.Label>
-  <F.HelperText>File size should be a maximum of 2 MB.</F.HelperText>
-</Hds::Form::FileInput::Field>
-<br />
-<Hds::Form::FileInput::Field @isOptional={{true}} name="demo-profile-photo" as |F|>
-  <F.Label>Upload a file</F.Label>
-  <F.HelperText>File size should be a maximum of 2 MB.</F.HelperText>
-</Hds::Form::FileInput::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::FileInput::Field @isRequired={{true}} name="demo-profile-photo" as |F|>
+      <F.Label>Upload a file</F.Label>
+      <F.HelperText>File size should be a maximum of 2 MB.</F.HelperText>
+    </Hds::Form::FileInput::Field>
+
+    <Hds::Form::FileInput::Field @isOptional={{true}} name="demo-profile-photo" as |F|>
+      <F.Label>Upload a file</F.Label>
+      <F.HelperText>File size should be a maximum of 2 MB.</F.HelperText>
+    </Hds::Form::FileInput::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Validation
