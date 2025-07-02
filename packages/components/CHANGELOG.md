@@ -20,8 +20,7 @@ Added `ember-math-helpers` dependency.
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`AppHeader` - Refactored the Home Link, removed the `@ariaLabel` argument, added
-`@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
+`AppHeader` - Refactored the Home Link, removed the `@ariaLabel` argument, added `@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
 
 <small class="doc-whats-new-changelog-metadata">[#2951](https://github.com/hashicorp/design-system/pull/2951)</small>
 
@@ -53,13 +52,13 @@ Added `ember-math-helpers` dependency.
 
 `Form::TextInput` - Added `@id` and `@ariaDescribedBy` arguments to `Form::TextInput::Base`.
 
-`Form::Textarea` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Texarea::Base`.
+`Form::Textarea` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Textarea::Base`.
 
 <small class="doc-whats-new-changelog-metadata">[#2911](https://github.com/hashicorp/design-system/pull/2911)</small>
 
 <div class="doc-whats-new-changelog-separator"></div>
 
-`Form::SuperSelect` - Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multple`
+`Form::SuperSelect` - Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multiple`
 
 <small class="doc-whats-new-changelog-metadata">[#2948](https://github.com/hashicorp/design-system/pull/2948)</small>
 
