@@ -124,7 +124,7 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
     }
   }
 
-  get classNames() {
+  get classNames(): string {
     const classes = ['hds-layout-flex'];
 
     // add a class based on the @direction argument

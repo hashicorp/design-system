@@ -8,20 +8,26 @@
 //
 
 .hds-layout-grid {
-  display: grid;
-  // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
+  // default values
+  --hds-layout-grid-row-gap: 0;
 
-  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
+  // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
+  --hds-layout-grid-column-gap: 0px;
+  --hds-layout-grid-column-min-width: 0px;
+
+  display: grid;
+
+  // The column gap value is subtracted from the column-min-width to prevent overflow & simplify API for consumers
   grid-template-columns: repeat(
     var(--hds-layout-grid-column-fill-type, auto-fit),
-    minmax(calc(var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)), 1fr)
+    minmax(calc(var(--hds-layout-grid-column-min-width) - var(--hds-layout-grid-column-gap)), 1fr)
   );
 
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
-  gap: var(--hds-layout-grid-row-gap, 0) var(--hds-layout-grid-column-gap, 0);
+  gap: var(--hds-layout-grid-row-gap) var(--hds-layout-grid-column-gap);
 }
 
 // align
@@ -45,6 +51,11 @@
 // gap
 
 // We set the values of the gap custom properties overriding the default value of 0
+
+// row
+.hds-layout-grid--row-gap-0 {
+  --hds-layout-grid-row-gap: 0px;
+}
 
 .hds-layout-grid--row-gap-4 {
   --hds-layout-grid-row-gap: 4px;
@@ -72,6 +83,11 @@
 
 .hds-layout-grid--row-gap-48 {
   --hds-layout-grid-row-gap: 48px;
+}
+
+// column
+.hds-layout-grid--column-gap-0 {
+  --hds-layout-grid-column-gap: 0px;
 }
 
 .hds-layout-grid--column-gap-4 {

@@ -155,7 +155,7 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
   });
   test('it should throw an assertion if an incorrect value for @gap is provided', async function (assert) {
     const errorMessage =
-      '@gap for "Hds::Layout::Flex" must be a single value or an array of two values of one of the following: 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
+      '@gap for "Hds::Layout::Flex" must be a single value or an array of two values of one of the following: 0, 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

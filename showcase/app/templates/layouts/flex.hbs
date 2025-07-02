@@ -129,10 +129,10 @@
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
   {{#each @model.DIRECTIONS as |direction|}}
-    <Shw::Grid @columns={{@model.GAPS.length}} @gap="2rem" as |SG|>
+    <Shw::Grid @columns="4" @gap="1rem 2rem" as |SG|>
       {{#each @model.GAPS as |gap|}}
         <SG.Item
-          @label="gap={{gap}}"
+          @label="gap={{gap}} {{if (eq gap '0') ' (default)'}}"
           class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
         >
           <Hds::Layout::Flex @direction={{direction}} @gap={{gap}}>
@@ -169,6 +169,36 @@
       {{/each}}
     {{/let}}
   </Shw::Flex>
+
+  <Shw::Text::H4 @tag="h3">Nested Flex</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} @gap="2rem 4rem" class="shw-layout-flex-example-tint-flex-items" as |SG|>
+    <SG.Item @label="Parent w/ gap=16, nested Flex w/ default 0 gap">
+      <Hds::Layout::Flex @gap="16" @wrap={{true}}>
+        <Hds::Layout::Flex @direction="column" @wrap={{true}}>
+          <Shw::Placeholder @text="nested item #1" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #2" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #3" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #4" @width="100px" @height="24" />
+        </Hds::Layout::Flex>
+
+        <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
+      </Hds::Layout::Flex>
+    </SG.Item>
+
+    <SG.Item @label="Parent w/ default 0 gap, nested Flex w/ gap=16">
+      <Hds::Layout::Flex @wrap={{true}}>
+        <Hds::Layout::Flex @gap="16" @direction="column" @wrap={{true}}>
+          <Shw::Placeholder @text="nested item #1" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #2" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #3" @width="100px" @height="24" />
+          <Shw::Placeholder @text="nested item #4" @width="100px" @height="24" />
+        </Hds::Layout::Flex>
+
+        <Shw::Placeholder @text="item #2" @width="100px" @height="24" />
+      </Hds::Layout::Flex>
+    </SG.Item>
+  </Shw::Grid>
 
   <br />
   <br />

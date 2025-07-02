@@ -138,7 +138,7 @@
 
   <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
-      <SG.Item @label="gap={{gap}}">
+      <SG.Item @label="gap={{gap}} {{if (eq gap '0') ' (default)'}}">
         <Shw::Outliner>
           <Hds::Layout::Grid @gap={{gap}} @columnMinWidth="50%">
             <Shw::Placeholder @text="#1" @height="24" />
@@ -173,6 +173,36 @@
         </SG.Item>
       {{/each}}
     {{/let}}
+  </Shw::Grid>
+
+  <Shw::Text::H4 @tag="h3">Nested Grids</Shw::Text::H4>
+
+  <Shw::Grid @columns={{2}} @gap="2rem 4rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+    <SG.Item @label="Parent w/ gap=16, nested Grid w/ default 0 gap">
+      <Hds::Layout::Grid @gap="16" @columnMinWidth="50%">
+        <Hds::Layout::Grid @columnMinWidth="50%">
+          <Shw::Placeholder @text="nested item #1" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #2" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #3" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #4" @width="auto" @height="24" />
+        </Hds::Layout::Grid>
+
+        <Shw::Placeholder @text="item #2" @width="auto" @height="24" />
+      </Hds::Layout::Grid>
+    </SG.Item>
+
+    <SG.Item @label="Parent w/ default 0 gap, nested Grid w/ gap=16">
+      <Hds::Layout::Grid @columnMinWidth="50%">
+        <Hds::Layout::Grid @gap="16" @columnMinWidth="50%">
+          <Shw::Placeholder @text="nested item #1" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #2" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #3" @width="auto" @height="24" />
+          <Shw::Placeholder @text="nested item #4" @width="auto" @height="24" />
+        </Hds::Layout::Grid>
+
+        <Shw::Placeholder @text="item #2" @width="auto" @height="24" />
+      </Hds::Layout::Grid>
+    </SG.Item>
   </Shw::Grid>
 </section>
 

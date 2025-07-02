@@ -8,12 +8,16 @@
 //
 
 .hds-layout-flex {
+  // default gap values
+  --hds-layout-flex-row-gap: 0;
+  --hds-layout-flex-column-gap: 0;
+
   display: flex;
 
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.
   // For the gap size variants, we override the value of the gap custom properties to set the desired sizes.
   // These variables can be used by the consumers as an escape hatch if they need to set non-standard gap values (but adds a bit of friction to it)
-  gap: var(--hds-layout-flex-row-gap, 0) var(--hds-layout-flex-column-gap, 0);
+  gap: var(--hds-layout-flex-row-gap) var(--hds-layout-flex-column-gap);
 }
 
 // inline
@@ -88,6 +92,11 @@
 
 // gap
 
+// row
+.hds-layout-flex--row-gap-0 {
+  --hds-layout-flex-row-gap: 0px;
+}
+
 .hds-layout-flex--row-gap-4 {
   --hds-layout-flex-row-gap: 4px;
 }
@@ -114,6 +123,11 @@
 
 .hds-layout-flex--row-gap-48 {
   --hds-layout-flex-row-gap: 48px;
+}
+
+// column
+.hds-layout-flex--column-gap-0 {
+  --hds-layout-flex-column-gap: 0px;
 }
 
 .hds-layout-flex--column-gap-4 {
