@@ -8,7 +8,6 @@ import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-import { set } from '@ember/object';
 import { or } from 'ember-truth-helpers';
 import style from 'ember-style-modifier/modifiers/style';
 
@@ -23,11 +22,8 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 // SHW components
-// import ShwTextH1 from '../../../../shw/text/h1';
-// import ShwTextH2 from '../../../../shw/text/h2';
-// import ShwTextH3 from '../../../../shw/text/h3';
+import ShwTextH3 from '../../../../shw/text/h3';
 import ShwTextH4 from '../../../../shw/text/h4';
-// import ShwTextBody from '../../../../shw/text/body';
 import ShwLabel from '../../../../shw/label';
 
 // types
@@ -94,7 +90,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     if (target) {
       const field = target.name;
       if (field === 'entity-name' || field === 'entity-description') {
-        set(this.model, `${field}.value`, target.value);
+        this.model[field].value = target.value;
       } else {
         const match = field.match(/^(tag-name|tag-description)-(\d+)$/);
         if (match) {
@@ -105,8 +101,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
             index !== undefined &&
             this.model['tags-list'].value[index]
           ) {
-            // we use `set` for the nested property or it will not trigger a mutation on the tracked model
-            set(this.model['tags-list'].value[index], key, target.value);
+            this.model['tags-list'].value[index][key] = target.value;
           }
         }
       }
@@ -151,14 +146,10 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       'input[name="entity-name"]',
     ) as HTMLInputElement;
     if (inputEntityNameElement && inputEntityNameElement.value.trim() === '') {
-      set(
-        this.model,
-        'entity-name.validationMessage',
-        'The {entity} name is required',
-      );
+      this.model['entity-name'].validationMessage = 'The {entity} name is required';
       isValid = false;
     } else {
-      set(this.model, 'entity-name.validationMessage', null);
+      this.model['entity-name'].validationMessage = null;
     }
 
     const inputEntityDescriptionElement = this.formElement?.querySelector(
@@ -168,26 +159,19 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       inputEntityDescriptionElement &&
       inputEntityDescriptionElement.value.length > 256
     ) {
-      set(
-        this.model,
-        'entity-description.validationMessage',
-        'The {entity} description is longer than allowed',
-      );
+      this.model['entity-description'].validationMessage = 'The {entity} description is longer than allowed';
       isValid = false;
     } else {
-      set(this.model, 'entity-description.validationMessage', null);
+      this.model['entity-description'].validationMessage = null;
     }
 
     // VALIDATION VIA MODEL
 
     if (this.model['tags-list'].value.length === 0) {
-      set(
-        this.model,
-        'tags-list.validationMessage',
-        'At least one tag needs to be assigned to the {entity}',
-      );
+      this.model['tags-list'].validationMessage = 'At least one tag needs to be assigned to the {entity}';
       isValid = false;
     } else {
+      this.model['tags-list'].validationMessage = null;
       // count all the distinct tag names
       const tagNameCounts: Record<string, number> = {};
       this.model['tags-list'].value.forEach((row: TagItem) => {
@@ -199,20 +183,19 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         const tagName = row['tag-name'].trim();
         if (row['tag-name'].trim() === '') {
           // we use `set` for the nested property, to trigger a mutation on the tracked object
-          set(row, 'validationMessage', 'The tag name is required');
+          row.validationMessage = 'The tag name is required';
           isValid = false;
         } else if (tagNameCounts[tagName] && tagNameCounts[tagName] > 1) {
-          set(row, 'validationMessage', 'The tag name is duplicated');
+          row.validationMessage = 'The tag name is duplicated';
           isValid = false;
         } else {
-          set(row, 'validationMessage', null);
+          row.validationMessage = null;
         }
       });
-      set(this.model, 'tags-list.validationMessage', null);
     }
 
     if (isValid) {
-      window.alert('Form submission succeeded!');
+      window.alert('✅ Form submission succeeded!');
     }
   };
 
@@ -228,10 +211,11 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
 
   <template>
     {{#if this.showIntro}}
-      <ShwTextH4 @tag="h2">Instructions</ShwTextH4>
+      <ShwTextH3 @tag="h2">Example of <code>KeyValueInputs</code> within a <code>Form</code>, with validation and rows limit</ShwTextH3>
+      <ShwTextH4 @tag="h3">Instructions</ShwTextH4>
       <ShwLabel {{style margin-bottom="32px"}}>
         You can use this example to test a few different things:
-        <ul>
+        <ul {{style line-height="1.5"}}>
           <li>Try to submit the form when all the fields are empty → Validation errors should appear on the "Name" and "List of tags" fields</li>
           <li>Fill in the "Name" and "Description" fields and submit → Validation errors should now only be on the "List of tags" field</li>
           <li>Fill in the first "Tag" row and submit → The form should be submitted (emulated with an alert)</li>
