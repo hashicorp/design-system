@@ -1,7 +1,7 @@
 ---
 title: Advanced Table
-description: 'Used to display complex, structured tabular data with advanced features.'
-caption: 'Used to display complex, structured tabular data with advanced features.'
+description: "Used to display complex, structured tabular data with advanced features."
+caption: "Used to display complex, structured tabular data with advanced features."
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
@@ -39,6 +39,7 @@ status:
   @include "partials/specifications/anatomy.md"
   @include "partials/specifications/states.md"
   @include "partials/specifications/sticky-column.md"
+  @include "partials/specifications/resizing-columns.md"
 </section>
 
 <section data-tab="Accessibility">
