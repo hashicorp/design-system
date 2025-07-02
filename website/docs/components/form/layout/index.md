@@ -1,6 +1,8 @@
 ---
 title: Form Layout
-description: Form layout components are used to create consistent structure and spacing for form elements.
+description: >-
+  Form layout components are used to create consistent structure and spacing for
+  form elements.
 caption: Components used to create consistent structure and spacing for form elements.
 links:
   figma: >-

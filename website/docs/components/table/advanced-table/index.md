@@ -1,7 +1,7 @@
 ---
 title: Advanced Table
-description: "Used to display complex, structured tabular data with advanced features."
-caption: "Used to display complex, structured tabular data with advanced features."
+description: 'Used to display complex, structured tabular data with advanced features.'
+caption: 'Used to display complex, structured tabular data with advanced features.'
 links:
   figma: >-
     https://www.figma.com/design/iweq3r2Pi8xiJfD9e6lOhF/HDS-Components-v2.0?node-id=67216-35163&t=w8xQlWxzH7bwXLe2-1
@@ -22,7 +22,7 @@ navigation:
     - list
   order: 101
 status:
-  updated: 4.20.1
+  updated: 4.21.0
 ---
 
 <section data-tab="Guidelines">

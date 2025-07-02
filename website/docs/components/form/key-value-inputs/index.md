@@ -1,7 +1,6 @@
 ---
 title: Key Value Inputs
-description: >-
-  Rows of related inputs that can be individually added & deleted.
+description: Rows of related inputs that can be individually added & deleted.
 caption: Rows of related inputs that can be individually added & deleted.
 links:
   figma: >-
@@ -21,6 +20,8 @@ navigation:
     - pair
     - input
     - form
+status:
+  added: 4.21.0
 ---
 
 <section data-tab="Guidelines">

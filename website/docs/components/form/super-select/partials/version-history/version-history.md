@@ -1,3 +1,7 @@
+## 4.21.0
+
+Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multiple`
+
 ## 4.19.0
 
 Updated the design to improve the experience when many items are selected.

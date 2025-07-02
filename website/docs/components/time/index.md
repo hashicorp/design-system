@@ -11,8 +11,6 @@ previewImage: assets/illustrations/components/time.jpg
 navigation:
   keywords:
     - time
-status:
-  updated: 4.20.0
 ---
 
 <section data-tab="Code">
