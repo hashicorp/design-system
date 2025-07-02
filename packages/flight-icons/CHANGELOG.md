@@ -1,5 +1,15 @@
 # @hashicorp/flight-icons
 
+## 3.12.0
+
+### Minor Changes
+
+`move-horizontal` and `resize-column` icons added.
+
+<small class="doc-whats-new-changelog-metadata">[#2972](https://github.com/hashicorp/design-system/pull/2972)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 3.11.1
 
 ### Patch Changes

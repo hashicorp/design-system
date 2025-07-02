@@ -1,3 +1,7 @@
+## 4.21.0
+
+Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
+
 ## 4.20.1
 
 Fixed a bug that prevented the `model` from updating when the argument changes

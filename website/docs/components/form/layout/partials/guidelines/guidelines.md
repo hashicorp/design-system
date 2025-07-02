@@ -8,7 +8,7 @@
 ### When not to use
 
 - To organize non-form content
-- To create a form for key-value pairs, use the [Key Value Inputs](/components/forms/key-value-inputs) component
+- To create a form for key-value pairs, use the [Key Value Inputs](/components/form/key-value-inputs) component
 
 ![The anatomy of the Form layout, indicating the header, sections, separator, and actions](/assets/components/form/layout/form-anatomy.png)
 

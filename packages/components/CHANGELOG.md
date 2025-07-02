@@ -1,5 +1,79 @@
 # @hashicorp/design-system-components
 
+## 4.21.0
+
+[4.21.0 documentation](https://hds-website-4-21-0.vercel.app/)
+
+### Minor Changes
+
+`Form` - Added `Form` component and related sub-components for form layout
+
+<small class="doc-whats-new-changelog-metadata">[#2898](https://github.com/hashicorp/design-system/pull/2898)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Added `ember-math-helpers` dependency.
+
+`AdvancedTable` - Added `hasResizableColumns` argument. When `true`, allows the table's columns to be resized with both a click-and-drag and a keyboard interface.
+
+<small class="doc-whats-new-changelog-metadata">[#2849](https://github.com/hashicorp/design-system/pull/2849)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`AppHeader` - Refactored the Home Link, removed the `@ariaLabel` argument, added `@text` (should replace `@ariaLabel`) and `@isIconOnly` arguments.
+
+<small class="doc-whats-new-changelog-metadata">[#2951](https://github.com/hashicorp/design-system/pull/2951)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::KeyValueInputs` - Added component and related sub-components.
+
+<small class="doc-whats-new-changelog-metadata">[#2911](https://github.com/hashicorp/design-system/pull/2911)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Layout::Grid` - Added @columnWidth to set "fixed" width for columns
+
+<small class="doc-whats-new-changelog-metadata">[#2976](https://github.com/hashicorp/design-system/pull/2976)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+### Patch Changes
+
+`Form::FileInput` - Added `@id` and `@ariaDescribedBy` arguments to `Form::FileInput::Base`.
+
+`Form::Legend` - Added `@id` argument.
+
+`Form::Label` - Added `@hiddenText` argument, which adds visually hidden text inside the label.
+
+`Form::MaskedInput` - Added `@ariaDescribedBy` argument to `Form::MaskedInput::Base`.
+
+`Form::Select` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Select::Base`.
+
+`Form::TextInput` - Added `@id` and `@ariaDescribedBy` arguments to `Form::TextInput::Base`.
+
+`Form::Textarea` - Added `@id` and `@ariaDescribedBy` arguments to `Form::Textarea::Base`.
+
+<small class="doc-whats-new-changelog-metadata">[#2911](https://github.com/hashicorp/design-system/pull/2911)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+`Form::SuperSelect` - Enhanced display of grouped options when only selected options are shown in the `SuperSelect::Multiple`
+
+<small class="doc-whats-new-changelog-metadata">[#2948](https://github.com/hashicorp/design-system/pull/2948)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+Upgraded: `@nullvoxpopuli/ember-composable-helpers` from 5.2.10 to 5.2.11
+
+<small class="doc-whats-new-changelog-metadata">[#2954](https://github.com/hashicorp/design-system/pull/2954) - Thanks [@aklkv](https://github.com/aklkv) for the contribution! 🙏</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
+**🔄 Updated dependencies:**
+
+- @hashicorp/flight-icons@3.12.0
+
 ## 4.20.2
 
 [4.20.2 documentation](https://hds-website-4-20-2.vercel.app/)
