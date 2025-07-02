@@ -6,9 +6,11 @@
 import Component from '@glimmer/component';
 import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
-import { set } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
-// import style from 'ember-style-modifier/modifiers/style';
+import { set } from '@ember/object';
+import { or } from 'ember-truth-helpers';
+import style from 'ember-style-modifier/modifiers/style';
 
 // HDS components
 import {
@@ -16,6 +18,7 @@ import {
   HdsFormTextInputField,
   HdsFormTextareaField,
   HdsFormKeyValueInputs,
+  HdsFormToggleField,
   HdsButton,
 } from '@hashicorp/design-system-components/components';
 
@@ -64,6 +67,7 @@ const EMPTY_MODEL: FormModel = {
 
 export default class MockComponentsFormKeyValueInputsWithValidationAndLimit extends Component<MockComponentsFormKeyValueInputsWithValidationAndLimitSignature> {
   showIntro = this.args.showIntro ?? true;
+  @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
@@ -75,7 +79,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   });
 
   onInputUpdateModel = (event: Event) => {
-    // console.log('onInputUpdateModel invoked');
     const target = event.target as
       | HTMLInputElement
       | HTMLTextAreaElement
@@ -116,7 +119,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   get canDeleteRow() {
-    return true;
+    return this.model['tags-list'].value.length > 1;
   }
 
   onDeleteRowClick = (_rowData: unknown, rowIndex: number) => {
@@ -126,28 +129,10 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
     } else if (rowIndex === 0 && this.model['tags-list'].value.length == 1) {
-      // console.log('EMPTY_TAG_ITEM', EMPTY_TAG_ITEM);
-      // console.log('this.model[tags-list].value', this.model['tags-list'].value);
-      // console.log(
-      //   'this.model[tags-list].value.length',
-      //   this.model['tags-list'].value.length,
-      // );
-      // we're deleting the last row, so we clear the array and return to the "empty state"
-      // this.model['tags-list'].value.splice(
-      //   0,
-      //   this.model['tags-list'].value.length,
-      //   structuredClone(EMPTY_TAG_ITEM),
-      // );
       this.model['tags-list'].value = [ structuredClone(EMPTY_TAG_ITEM) ];
     } else {
       // Remove the item at the specific index
       this.model['tags-list'].value.splice(rowIndex, 1);
-      // console.log('EMPTY_TAG_ITEM', EMPTY_TAG_ITEM);
-      // console.log('this.model[tags-list].value', this.model['tags-list'].value);
-      // console.log(
-      //   'this.model[tags-list].value.length',
-      //   this.model['tags-list'].value.length,
-      // );
     }
   };
 
@@ -206,13 +191,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       });
       // validate against empty tag names or duplicates
       this.model['tags-list'].value.forEach((row: TagItem) => {
-        // [
-        //   {
-        //     id: 0,
-        //     'tag-name': 'EMPTY',
-        //     'tag-description': 'Empty row',
-        //   },
-        // ];
         const tagName = row['tag-name'].trim();
         if (row['tag-name'].trim() === '') {
           // we use `set` for the nested property, to trigger a mutation on the tracked object
@@ -233,11 +211,12 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
     }
   };
 
-  onCancelButtonClick = () => {
-    // console.log('onCancelButtonClick');
-    // this.formElement.reset();
-    // TODO! understand why this does not work as one would imagine
+  onResetButtonClick = () => {
     this.model = structuredClone(EMPTY_MODEL);
+  };
+
+  onToggleAlwaysShowDeleteButtonClick = () => {
+    this.alwaysShowDeleteButtonOnFirstRow = !this.alwaysShowDeleteButtonOnFirstRow;
   };
 
   // =====================================================
@@ -295,19 +274,6 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
           </:header>
 
           <:row as |R|>
-            {{!-- <R.Generic>
-              <pre>R.rowIndex = {{R.rowIndex}}</pre>
-              <pre>R.rowData = {{R.rowData}}</pre>
-              {{! @glint-expect-error }}
-              <pre>R.rowData.tag-name = {{R.rowData.tag-name}}</pre>
-              {{! @glint-expect-error }}
-              <pre
-              >R.rowData.tag-description = {{R.rowData.tag-description}}</pre>
-              {{! @glint-expect-error }}
-              <pre
-              >R.rowData.validationMessage = {{R.rowData.validationMessage}}</pre>
-              {{! this.model['tags-list'].value[index][key] }}
-            </R.Generic> --}}
             <R.Field
               @isRequired={{true}}
               {{! @glint-expect-error }}
@@ -336,7 +302,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
                 {{on "input" this.onInputUpdateModel}}
               />
             </R.Field>
-            {{#if this.canDeleteRow}}
+            {{#if (or this.alwaysShowDeleteButtonOnFirstRow this.canDeleteRow)}}
               <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
             {{/if}}
           </:row>
@@ -357,14 +323,19 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         </HdsFormKeyValueInputs>
       </FORM.Section>
       <FORM.Footer as |FF|>
-        <FF.ButtonSet>
-          <HdsButton @text="Submit" {{on "click" this.onSubmitButtonClick}} />
-          <HdsButton
-            @text="Cancel"
-            @color="secondary"
-            {{on "click" this.onCancelButtonClick}}
-          />
-        </FF.ButtonSet>
+        <div {{style display="flex" align-items="center" justify-content="space-between"}}>
+          <FF.ButtonSet>
+            <HdsButton @text="Submit" {{on "click" this.onSubmitButtonClick}} />
+            <HdsButton
+              @text="Reset"
+              @color="secondary"
+              {{on "click" this.onResetButtonClick}}
+            />
+          </FF.ButtonSet>
+          <HdsFormToggleField checked={{this.alwaysShowDeleteButtonOnFirstRow}} {{on "click" this.onToggleAlwaysShowDeleteButtonClick}} as |F|>
+            <F.Label>Always show delete button on first row</F.Label>
+          </HdsFormToggleField>
+        </div>
       </FORM.Footer>
     </HdsForm>
   </template>
