@@ -59,7 +59,7 @@ The Section Multi Field Group organizes closely related form inputs in a single 
 
 ![Section Multi Field Group example depicting spacing between grouped fields](/assets/components/form/layout/form-section-fieldgroup.png)
 
-In narrower screens, such as mobile devices, form inputs contained in a Section Multi Field Group automatically stack at the [“md” breakpoint](/foundations/breakpoints). 
+When the viewport width falls below the [“md” breakpoint](/foundations/breakpoints), inputs contained in a Section Multi Field Group automatically stack. 
 
 
 !!! Do
