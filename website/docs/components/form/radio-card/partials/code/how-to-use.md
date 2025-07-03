@@ -75,6 +75,56 @@ Customizable options include:
 </Hds::Form::RadioCard::Group>
 ```
 
+#### Required vs. optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication next to the legend text that the field is “required” or “optional”.
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::RadioCard::Group
+      @isRequired={{true}}
+      @name="radio-card-layout-required"
+      as |G|
+    >
+      <G.Legend>Allow this source connect to the destination</G.Legend>
+      <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+        <R.Label>Admin</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Read</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Write</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+    </Hds::Form::RadioCard::Group>
+
+    <Hds::Form::RadioCard::Group
+      @isOptional={{true}}
+      @name="radio-card-layout-optional"
+      as |G|
+    >
+      <G.Legend>Allow this source connect to the destination</G.Legend>
+      <G.RadioCard @checked={{true}} {{on "change" this.onChange}} as |R|>
+        <R.Label>Admin</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Read</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+      <G.RadioCard {{on "change" this.onChange}} as |R|>
+        <R.Label>Write</R.Label>
+        <R.Description>Grants full admin capabilities for this project.</R.Description>
+      </G.RadioCard>
+    </Hds::Form::RadioCard::Group>
+  </FORM.Section>
+</Hds::Form>
+```
+
 ### Layout and control position
 
 To change how the cards are laid out in a group set the `@layout` argument to `vertical`. To change the position of the control elements within a card set the `@controlPosition` argument to `left`.
