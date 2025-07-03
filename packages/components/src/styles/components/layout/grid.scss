@@ -8,12 +8,8 @@
 //
 
 .hds-layout-grid {
-  // default values
-  --hds-layout-grid-row-gap: 0;
-
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
-  --hds-layout-grid-column-gap: 0px;
   --hds-layout-grid-column-min-width: 0px;
 
   display: grid;

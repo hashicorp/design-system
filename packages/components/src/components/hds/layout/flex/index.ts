@@ -30,6 +30,7 @@ export const DEFAULT_DIRECTION = HdsLayoutFlexDirectionValues.Row;
 export const DIRECTIONS: string[] = Object.values(HdsLayoutFlexDirectionValues);
 export const JUSTIFYS: string[] = Object.values(HdsLayoutFlexJustifyValues);
 export const ALIGNS: string[] = Object.values(HdsLayoutFlexAlignValues);
+export const DEFAULT_GAP = HdsLayoutFlexGapValues.Zero;
 export const GAPS: string[] = Object.values(HdsLayoutFlexGapValues);
 
 export interface HdsLayoutFlexSignature {
@@ -104,7 +105,7 @@ export default class HdsLayoutFlex extends Component<HdsLayoutFlexSignature> {
     | [HdsLayoutFlexGaps]
     | [HdsLayoutFlexGaps, HdsLayoutFlexGaps]
     | undefined {
-    const { gap } = this.args;
+    const { gap = DEFAULT_GAP } = this.args;
 
     if (gap) {
       assert(

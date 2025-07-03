@@ -108,15 +108,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // GAP
 
-  test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
+  test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
-    assert.dom('#test-layout-grid').doesNotHaveClass(/hds-layout-grid--gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--row-gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--column-gap-/);
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-0');
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-0');
   });
 
   test('it should render the correct CSS classes if the @gap prop is declared as a single value', async function (assert) {

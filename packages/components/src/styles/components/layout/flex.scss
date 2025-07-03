@@ -8,10 +8,6 @@
 //
 
 .hds-layout-flex {
-  // default gap values
-  --hds-layout-flex-row-gap: 0;
-  --hds-layout-flex-column-gap: 0;
-
   display: flex;
 
   // Note: The gap style is defined here to avoid setting it repeatedly for the gap size variants defined below.

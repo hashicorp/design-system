@@ -91,12 +91,12 @@ module('Integration | Component | hds/layout/flex/index', function (hooks) {
 
   // GAP
 
-  test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
+  test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" />`);
     assert
       .dom('#test-layout-flex')
-      .doesNotHaveClass(/hds-layout-flex--row-gap-/)
-      .doesNotHaveClass(/hds-layout-flex--column-gap-/);
+      .hasClass('hds-layout-flex--row-gap-0')
+      .hasClass('hds-layout-flex--column-gap-0');
   });
   test('it should render the correct CSS classes if the @gap prop is declared as single value', async function (assert) {
     await render(hbs`<Hds::Layout::Flex id="test-layout-flex" @gap="24" />`);
