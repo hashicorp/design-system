@@ -138,7 +138,7 @@
 
   <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
-      <SG.Item @label="gap={{gap}} {{if (eq gap '0') ' (default)'}}">
+      <SG.Item @label="gap={{if (eq gap '0') '0 (default)' gap}}">
         <Shw::Outliner>
           <Hds::Layout::Grid @gap={{gap}} @columnMinWidth="50%">
             <Shw::Placeholder @text="#1" @height="24" />

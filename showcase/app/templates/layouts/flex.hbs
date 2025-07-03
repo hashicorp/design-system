@@ -132,7 +132,7 @@
     <Shw::Grid @columns="4" @gap="1rem 2rem" as |SG|>
       {{#each @model.GAPS as |gap|}}
         <SG.Item
-          @label="gap={{gap}} {{if (eq gap '0') ' (default)'}}"
+          @label="gap={{if (eq gap '0') '0 (default)' gap}}"
           class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
         >
           <Hds::Layout::Flex @direction={{direction}} @gap={{gap}}>
