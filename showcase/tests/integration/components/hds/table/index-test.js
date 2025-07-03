@@ -196,9 +196,9 @@ module('Integration | Component | hds/table/index', function (hooks) {
 
     await render(hbs`
       <Hds::Table id="data-test-table" @model={{this.model}} @columns={{array
-        (hash key='artist' label='cp.table.headers.artist')
-        (hash key='album' label='cp.table.headers.album')
-        (hash key='year' label='cp.table.headers.year')
+        (hash key='artist' label='components.table.headers.artist')
+        (hash key='album' label='components.table.headers.album')
+        (hash key='year' label='components.table.headers.year')
       }}>
         <:body as |B|>
           <B.Tr id={{B.rowIndex}}>
