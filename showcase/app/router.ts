@@ -24,7 +24,7 @@ Router.map(function () {
       });
     });
   });
-  this.route('cp', { path: 'components' }, function () {
+  this.route('shw-components', { path: 'components' }, function () {
     this.route('accordion');
     this.route('advanced-table');
     this.route('alert');

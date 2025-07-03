@@ -42,7 +42,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
         <D.Generic>
           <div id="test-list-item-generic" />
         </D.Generic>
-        <D.Interactive @route="cp.dropdown" @text="interactive" id="test-list-item-interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" id="test-list-item-interactive" />
         <D.Separator id="test-list-item-separator" />
         <D.Title @text="title" id="test-list-item-title" />
       </Hds::Dropdown>
@@ -90,7 +90,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       <Hds::Dropdown id="test-dropdown" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
         <D.Header id="test-header">Header</D.Header>
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
         <D.Footer id="test-footer">Footer</D.Footer>
       </Hds::Dropdown>
     `);
@@ -108,7 +108,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
       <Hds::Dropdown id="test-dropdown" @preserveContentInDom={{true}} as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
         <D.Header id="test-header">Header</D.Header>
-        <D.Interactive id="test-list-item" @route="cp.dropdown" @text="interactive-always-rendered" />
+        <D.Interactive id="test-list-item" @route="shw-components.dropdown" @text="interactive-always-rendered" />
         <D.Footer id="test-footer">Footer</D.Footer>
       </Hds::Dropdown>
     `);
@@ -128,7 +128,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -140,7 +140,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" @listPosition="bottom-left" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -152,7 +152,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" @isInline={{true}} as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -165,7 +165,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown @width="248px" id="test-dropdown" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -176,7 +176,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" @matchToggleWidth={{true}} as |D|>
         <D.ToggleButton {{style width="200px"}} @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
@@ -191,7 +191,7 @@ module('Integration | Component | hds/dropdown/index', function (hooks) {
     await render(hbs`
       <Hds::Dropdown id="test-dropdown" as |D|>
         <D.ToggleButton @text="toggle button" id="test-toggle-button" />
-        <D.Interactive @route="cp.dropdown" id="test-list-item-interactive" @text="interactive" />
+        <D.Interactive @route="shw-components.dropdown" id="test-list-item-interactive" @text="interactive" />
       </Hds::Dropdown>
     `);
     await click('button#test-toggle-button');
