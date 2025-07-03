@@ -51,6 +51,7 @@ Form-level validation should be used for server-side errors that cannot be check
 For form-level validation that identifies multiple input-level errors, the alert should contain a message listing **all** errors with links to each invalid field. We recommend using an introductory sentence to give context before listing the errored items, e.g., “Please correct the following errors and resubmit the form”
 
 !!! Do
+
 Use form-level validation for overarching form submission errors or for a list of server-side validation errors that link to their respective errored fields.
 
 ![Sign in page with authentication error alert at the form level](/assets/patterns/form-patterns/do-form-level-error.png)
@@ -58,6 +59,7 @@ Use form-level validation for overarching form submission errors or for a list o
 !!!
 
 !!! Dont
+
 Never use form-level alerts for  field-specific, inline validations.
 
 ![Credit card info form with a single field-level error and duplicative form-level alert](assets/patterns/form-patterns/dont-form-level-error.png)
