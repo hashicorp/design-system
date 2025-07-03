@@ -47,3 +47,10 @@ export type AvailableTagNames = keyof HTMLElementTagNameMap;
 // A union of all types in the HTMLElementTagNameMap interface
 export type AvailableElements =
   HTMLElementTagNameMap[keyof HTMLElementTagNameMap];
+
+export default {
+  HdsLayoutFlexDirectionValues,
+  HdsLayoutFlexJustifyValues,
+  HdsLayoutFlexAlignValues,
+  HdsLayoutFlexGapValues,
+};

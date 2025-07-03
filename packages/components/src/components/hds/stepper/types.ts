@@ -81,3 +81,9 @@ export const HdsStepperNavStatusToSrOnlyText: Record<
 export type HdsStepperNavPanelIds = string[];
 
 export type HdsStepperListStepIds = string[];
+
+export default {
+  HdsStepperStatusesValues,
+  HdsStepperTitleTagValues,
+  HdsStepperNavStatusesValues,
+};

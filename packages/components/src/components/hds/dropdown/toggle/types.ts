@@ -22,3 +22,9 @@ export enum HdsDropdownToggleButtonColorValues {
 }
 export type HdsDropdownToggleButtonColors =
   `${HdsDropdownToggleButtonColorValues}`;
+
+export default {
+  HdsDropdownToggleIconSizeValues,
+  HdsDropdownToggleButtonSizeValues,
+  HdsDropdownToggleButtonColorValues,
+};

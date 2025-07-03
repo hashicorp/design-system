@@ -75,3 +75,9 @@ export const didInsertGridCell = (
     }
   }
 };
+
+export default {
+  onFocusTrapDeactivate,
+  updateTabbableChildren,
+  didInsertGridCell,
+};
