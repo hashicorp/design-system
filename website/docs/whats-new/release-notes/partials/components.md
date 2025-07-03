@@ -130,6 +130,24 @@ Upgraded the following dependencies:
 
 **Patch changes**
 
+<!-- START components/card -->
+`Card` - Test change multi-line
+- Change one
+- Change two
+<!-- END components/card -->
+
+<!-- START components/tag -->
+`Tag` - Test change
+<!-- END components/tag -->
+
+<!-- START components/card -->
+`Card` - Test change three
+<!-- END components/card -->
+
+<!-- START components/link/standalone -->
+`Link::Standalone` - Test change
+<!-- END components/link/standalone -->
+
 `AdvancedTable` - Fixed a bug that prevented the `model` from updating when the argument changes
 
 <small class="doc-whats-new-changelog-metadata">[#2919](https://github.com/hashicorp/design-system/pull/2919)</small>
