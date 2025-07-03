@@ -82,6 +82,30 @@ When helper text is added, the component automatically adds an `aria-describedby
 </Hds::Form::Toggle::Field>
 ```
 
+#### Required vs. optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication next to the legend text that the field is "required" or "optional".
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Toggle::Group @isRequired={{true}} as |G|>
+      <G.Legend>Visibility</G.Legend>
+      <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
+        <F.Label>Private</F.Label>
+      </G.ToggleField>
+    </Hds::Form::Toggle::Group>
+
+    <Hds::Form::Toggle::Group @isOptional={{true}} as |G|>
+      <G.Legend>Visibility</G.Legend>
+      <G.ToggleField name="demo-private" @id="visibility-private" as |F|>
+        <F.Label>Private</F.Label>
+      </G.ToggleField>
+    </Hds::Form::Toggle::Group>
+  </FORM.Section>
+</Hds::Form>
+```
+
 #### Validation
 
 To indicate a field is invalid, provide an error message using the `Error` contextual component.
