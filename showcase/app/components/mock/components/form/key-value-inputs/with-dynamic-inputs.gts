@@ -4,9 +4,7 @@
  */
 
 import Component from '@glimmer/component';
-import { modifier } from 'ember-modifier';
 import { on } from '@ember/modifier';
-import { fn } from '@ember/helper';
 import { tracked } from '@glimmer/tracking';
 import { deepTracked } from 'ember-deep-tracked';
 import { eq, or } from 'ember-truth-helpers';
@@ -23,15 +21,11 @@ import {
 } from '@hashicorp/design-system-components/components';
 
 // SHW components
-// import ShwTextH1 from '../../../../shw/text/h1';
-// import ShwTextH2 from '../../../../shw/text/h2';
 import ShwTextH3 from '../../../../shw/text/h3';
 import ShwTextH4 from '../../../../shw/text/h4';
-// import ShwTextBody from '../../../../shw/text/body';
 import ShwLabel from '../../../../shw/label';
 
-// types
-import type { HdsFormSignature } from '@hashicorp/design-system-components/components/hds/form/index';
+import type { PowerSelectSignature } from 'ember-power-select/components/power-select';
 
 export interface MockComponentsFormKeyValueInputsWithDynamicInputsSignature {
   Args: {
@@ -42,7 +36,7 @@ export interface MockComponentsFormKeyValueInputsWithDynamicInputsSignature {
 interface KvpItem {
   id: number;
   key: string;
-  value: string;
+  value: string | string[];
 }
 
 interface FormModel {
@@ -53,7 +47,6 @@ interface FormModel {
 }
 
 const SUPERSELECT_OPTIONS = ['Option 1', 'Option 2', 'Option 3'];
-const SUPERSELECT_SELECTED_OPTION = SUPERSELECT_OPTIONS[0];
 
 const EMPTY_KVP_ITEM: KvpItem = {
   id: 0,
@@ -75,14 +68,14 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
   @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
 
-  onDynamicInputChange = (event: Event) => {
-    console.log('onDynamicInputChange invoked', event.target.value);
-  };
-
+  // we use the same function on all the different kind of inputs
+  // except the SuperSelect, which returns a special set of arguments
+  // see callback `onPowerSelectChangeUpdateModel` below
   onInputUpdateModel = (event: Event) => {
     const target = event.target as
       | HTMLInputElement
       | HTMLTextAreaElement
+      | HTMLSelectElement
       | null;
     if (target) {
       const field = target.name;
@@ -95,9 +88,43 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
           const index = Number(match[2]);
           if (key && index !== undefined && this.model['kvp-list'][index]) {
             this.model['kvp-list'][index][key] = target.value;
+            if (key === 'key') {
+              // we reset the `value` field when the `key` is changed (via select)
+              if (this.model['kvp-list'][index]['key'] === 'select') {
+                this.model['kvp-list'][index]['value'] = [];
+              } else {
+                this.model['kvp-list'][index]['value'] = '';
+              }
+            }
           }
         }
       }
+    }
+  };
+
+  onPowerSelectChangeUpdateModel: PowerSelectSignature['Args']['onChange'] = (
+    selection: string,
+    select,
+  ) => {
+    // Unfortunately PowerSelect doesn't provide access to the "input" element via its APIs
+    // so we have to use a bit of DOM querying and rely on data attributes to get the name of the field
+    const triggerElement = document.querySelector(
+      `[data-ebd-id="${select.uniqueId}-trigger"]`,
+    );
+    const triggerName = triggerElement?.getAttribute('name');
+
+    if (triggerName) {
+      const match = triggerName.match(/^value-(\d+)$/);
+      if (match) {
+        const index = Number(match[1]);
+        if (index !== undefined && this.model['kvp-list'][index]) {
+          this.model['kvp-list'][index]['value'] = selection;
+        }
+      }
+    } else {
+      console.error(
+        'Could not retrive `name` attribute of PowerSelect trigger instance',
+      );
     }
   };
 
@@ -138,14 +165,18 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
     if (this.model['thing-name'].trim() === '') {
       this.model['validationMessage'] = 'The {thing} name is required';
       isValid = false;
+    } else {
+      this.model['validationMessage'] = null;
     }
 
     if (isValid) {
       const data = new FormData(formElement);
       const dataObject = Object.fromEntries(data.entries());
       const dataJson = JSON.stringify(dataObject, null, 2);
-      console.log('Form Data:', dataObject);
-      window.alert(`✅ Form submission succeeded with data:\n\n${dataJson}`);
+      const modelJson = JSON.stringify(this.model, null, 2);
+      window.alert(
+        `✅ Form submission succeeded with data:\n\nFORM DATA:\n${dataJson}\n\nMODEL:\n${modelJson}`,
+      );
     }
   };
 
@@ -170,12 +201,26 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
       <ShwLabel {{style margin-bottom="32px"}}>
         You can use this example to test a few different things:
         <ul {{style line-height="1.5"}}>
-          <li>TODO → Add instructions here</li>
+          <li>Try to submit the form when all the fields are empty → Validation error should appear on the "Name" field</li>
+          <li>Fill in the "Name" and "Description" fields and submit → The form should be submitted (emulated with an alert)</li>
+          <li>Fill in the first "Key Value Pair" row and submit → The form should be submitted (you can see the submitted data in the alert)</li>
+          <li>Add a second "Key Value Pair" and and use a different type of key and submit → The form should be submitted</li>
+          <li>Add a third "Key Value Pair" and and submit → The form should be submitted</li>
+          <li>Delete the remaining rows → The "delete button" should disappear when there is only one remaining row</li>
+          <li>Try to addd/delete rows → See how the "delete button" appears/disappears</li>
+          <li>Click the "Reset" button → The entire content of the form should return to its initial state</li>
+          <li>Now toggle the "Always show delete button on first row" → The "delete button" on the first row will always be visible</li>
+          <li>You can now repeat the previous steps about adding/deleting rows → See how the "delete button" works for the different rows, including when the last row has content and the "Key Value Pair" fields are filled in that row</li>
         </ul>
       </ShwLabel>
     {{/if}}
-    {{! We have added `novalidate` so we can handle validation ourselves }}
-    <HdsForm id="add-thing-form" novalidate {{on "submit" this.onSubmitForm}} as |FORM|>
+    <!-- we have added `novalidate` so we can handle validation ourselves -->
+    <HdsForm
+      id="add-thing-form"
+      novalidate
+      {{on "submit" this.onSubmitForm}}
+      as |FORM|
+    >
       <FORM.Header as |FH|>
         <FH.Title>Add a new {thing}</FH.Title>
         <FH.Description>You can create a new {thing} by providing a name, an
@@ -215,7 +260,10 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
           <:row as |R|>
             <R.Field as |F|>
               <F.Label>Key</F.Label>
-              <F.Select name="key-{{R.rowIndex}}" {{on "change" this.onDynamicInputChange}}>
+              <F.Select
+                name="key-{{R.rowIndex}}"
+                {{on "change" this.onInputUpdateModel}}
+              >
                 <option
                   value=""
                   {{! @glint-expect-error }}
@@ -232,10 +280,15 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
                   selected={{if (eq R.rowData.key "textarea") true}}
                 >Multiline</option>
                 <option
+                  value="maskedinput"
+                  {{! @glint-expect-error }}
+                  selected={{if (eq R.rowData.key "maskedinput") true}}
+                >Masked text</option>
+                <option
                   value="select"
                   {{! @glint-expect-error }}
                   selected={{if (eq R.rowData.key "select") true}}
-                >Tags</option>
+                >Select from list</option>
               </F.Select>
             </R.Field>
 
@@ -250,21 +303,26 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
                   {{on "input" this.onInputUpdateModel}}
                 />
                 {{! @glint-expect-error }}
-              {{else if (eq R.rowData.key "select")}}
-                <F.SuperSelectSingle
+              {{else if (eq R.rowData.key "maskedinput")}}
+                <F.MaskedInput
                   name="value-{{R.rowIndex}}"
-                  @options={{SUPERSELECT_OPTIONS}}
-                  @selected={{SUPERSELECT_SELECTED_OPTION}}
                   {{! @glint-expect-error }}
                   @value={{R.rowData.value}}
-                  {{! TODO! }}
                   {{on "input" this.onInputUpdateModel}}
-                  @onChange={{fn (mut SUPERSELECT_SELECTED_OPTION)}}
+                />
+                {{! @glint-expect-error }}
+              {{else if (eq R.rowData.key "select")}}
+                <F.SuperSelectMultiple
+                  name="value-{{R.rowIndex}}"
+                  @options={{SUPERSELECT_OPTIONS}}
+                  {{! @glint-expect-error }}
+                  @selected={{R.rowData.value}}
+                  @onChange={{this.onPowerSelectChangeUpdateModel}}
                   @ariaLabel="Label"
                   as |option|
                 >
                   {{option}}
-                </F.SuperSelectSingle>
+                </F.SuperSelectMultiple>
               {{else}}
                 <F.TextInput
                   name="value-{{R.rowIndex}}"
