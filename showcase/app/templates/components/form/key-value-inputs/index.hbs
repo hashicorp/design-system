@@ -9,77 +9,7 @@
 
 <section data-test-percy>
 
-  <Shw::Text::Body>
-    This is a functional example of the KeyValueInputs component, meant to show how a consumer could implement the
-    behavior.
-  </Shw::Text::Body>
-
-  <Hds::Form::KeyValueInputs id="functional-example-1" @data={{this.functionalExampleData}}>
-    <:header as |H|>
-      <H.Legend>Tags applied to this workspace</H.Legend>
-      <H.HelperText>
-        Use tags to correlate, organize or filter your resources using key-only or key/value pairs. You can add up to 3
-        tags per resource.
-      </H.HelperText>
-    </:header>
-
-    <:row as |R|>
-      {{#let (get this.functionalExampleErrors R.rowIndex) as |rowErrors|}}
-        {{#let (get rowErrors "key") as |keyError|}}
-          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq keyError undefined) true)}} as |F|>
-            <F.Label>Key</F.Label>
-            <F.HelperText>The key you enter should be a good key.</F.HelperText>
-            <F.TextInput
-              name="key"
-              @value={{R.rowData.key.text}}
-              {{on "change" this.onInputChange}}
-              {{on "blur" (fn this.onInputBlur R.rowData "key")}}
-            />
-
-            {{#if (not-eq keyError undefined)}}
-              <F.Error>
-                {{keyError}}
-              </F.Error>
-            {{/if}}
-          </R.Field>
-        {{/let}}
-
-        {{#let (get rowErrors "value") as |valueError|}}
-          <R.Field @isRequired={{true}} @isInvalid={{(if (not-eq valueError undefined) true)}} as |F|>
-            <F.Label>Value</F.Label>
-            <F.Textarea
-              name="value"
-              @value={{R.rowData.value.text}}
-              {{on "blur" (fn this.onInputBlur R.rowData "value")}}
-              {{on "change" this.onInputChange}}
-            />
-            {{#if (not-eq valueError undefined)}}
-              <F.Error>
-                {{valueError}}
-              </F.Error>
-            {{/if}}
-          </R.Field>
-        {{/let}}
-        {{#if this.canDeleteRow}}
-          <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
-        {{/if}}
-      {{/let}}
-    </:row>
-
-    <:footer as |F|>
-      {{#if (lt this.functionalExampleData.length 4)}}
-        <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
-      {{else}}
-        <F.Alert as |A|>
-          <A.Description>
-            You can only add up to 4 tags to this resource.
-          </A.Description>
-        </F.Alert>
-      {{/if}}
-    </:footer>
-  </Hds::Form::KeyValueInputs>
-
-  <Shw::Divider />
+  <Shw::Text::Body>Skip directly to the <a href="#demos">demos</a></Shw::Text::Body>
 
   <Shw::Text::H2>Containers</Shw::Text::H2>
 
@@ -822,70 +752,20 @@
 
   <Shw::Text::H2>Demos</Shw::Text::H2>
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Key input selection changes value input type">
-      <Hds::Form::KeyValueInputs @data={{this.dynamicInputExampleData}}>
-        <:row as |R|>
-          <R.Field as |F|>
-            <F.Label>Key</F.Label>
-            <F.Select {{on "change" (fn this.onDynamicInputChange R.rowData)}}>
-              <option value="textinput" selected={{if (eq R.rowData.key "textinput") true}}>Single line</option>
-              <option value="textarea" selected={{if (eq R.rowData.key "textarea") true}}>Multiline</option>
-              <option value="select" selected={{if (eq R.rowData.key "select") true}}>Tags</option>
-            </F.Select>
-          </R.Field>
+  <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit />
 
-          <R.Field as |F|>
-            <F.Label>Value</F.Label>
-            {{#if (eq R.rowData.key "textarea")}}
-              <F.Textarea @value={{R.rowData.value.text}} />
-            {{else if (eq R.rowData.key "select")}}
-              <F.SuperSelectSingle
-                @onChange={{fn (mut @model.SUPERSELECT_SELECTED_OPTION)}}
-                @options={{@model.SUPERSELECT_OPTIONS}}
-                @selected={{@model.SUPERSELECT_SELECTED_OPTION}}
-                @ariaLabel="Label"
-                as |option|
-              >
-                {{option}}
-              </F.SuperSelectSingle>
-            {{else}}
-              <F.TextInput @value={{R.rowData.value.text}} />
-            {{/if}}
-          </R.Field>
+  <Shw::Divider @level={{2}} />
 
-          <R.DeleteRowButton @onClick={{this.onDynamicExampleDeleteRowClick}} />
-        </:row>
+  <Mock::Components::Form::KeyValueInputs::WithDynamicInputs />
 
-        <:footer as |F|>
-          <F.AddRowButton @text="Add tag" @onClick={{this.onDynamicExampleAddRowClick}} />
-        </:footer>
-      </Hds::Form::KeyValueInputs>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Divider @level={{2}} />
 
-  <Shw::Flex as |SF|>
-    <SF.Item @label="Key input starts with an empty array">
-      <Hds::Form::KeyValueInputs @data={{this.startWithEmptyExampleData}} id="start-with-empty-example">
-        <:row as |R|>
-          <R.Field as |F|>
-            <F.Label>Key</F.Label>
-            <F.TextInput @value={{R.rowData.key}} name="key" />
-          </R.Field>
-
-          <R.Field as |F|>
-            <F.Label>Value</F.Label>
-            <F.TextInput @value={{R.rowData.value}} name="value" />
-          </R.Field>
-          <R.DeleteRowButton @onClick={{this.onStartWithEmptyDeleteRowClick}} />
-        </:row>
-
-        <:footer as |F|>
-          <F.AddRowButton @text="Add tag" @onClick={{this.onStartWithEmptyAddRowClick}} />
-        </:footer>
-      </Hds::Form::KeyValueInputs>
-    </SF.Item>
-  </Shw::Flex>
+  <Shw::Frame
+    @id="demo-key-value-inputs-flows"
+    @src="/components/form/key-value-inputs/frameless/demo-flows"
+    @height="600"
+    @label="Demo in context with different flows"
+  />
 
 </section>
 
