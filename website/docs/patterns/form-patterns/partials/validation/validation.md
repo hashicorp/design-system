@@ -60,9 +60,9 @@ Use form-level validation for overarching form submission errors or for a list o
 
 !!! Dont
 
-Never use form-level alerts for  field-specific, inline validations.
+Never use form-level alerts for  field-specific, inline validations. 
 
-![Credit card info form with a single field-level error and duplicative form-level alert](/assets/patterns/form-patterns/dont-form-level-error.png)
+![Credit card info form with a single field-level error and duplicative form-level alert](/assets/patterns/form-patterns/dont-form-level-error.png) 
 
 !!!
 
