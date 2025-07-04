@@ -788,6 +788,49 @@
     @label="Demo in context with different flows"
   />
 
+  <Shw::Divider @level={{2}} />
+
+  <Shw::Text::H3 @tag="h2">Static examples</Shw::Text::H3>
+
+  <Hds::Dropdown @listPosition="bottom-left" @preserveContentInDom={{true}} as |D|>
+    <D.ToggleButton @color="secondary" @text="Filter" />
+    <D.Generic>
+      <Hds::Form::KeyValueInputs @data={{this.kviDropdownFilterData}}>
+        <:header as |H|>
+          <H.Legend>Filter by tags</H.Legend>
+        </:header>
+        <:row as |R|>
+          <R.Field as |F|>
+            <F.Label>Tag key</F.Label>
+            <F.TextInput
+              @value={{R.rowData.key}}
+              {{on 'input' (fn this.onInputUpdateModel R.rowData 'key')}}
+            />
+          </R.Field>
+          <R.Field @isOptional={{true}} as |F|>
+            <F.Label>Tag value</F.Label>
+            <F.TextInput
+              @value={{R.rowData.value}}
+              {{on 'input' (fn this.onInputUpdateModel R.rowData 'model')}}
+            />
+          </R.Field>
+          {{#if this.kviDropdownFilterCanDeleteRow}}
+            <R.DeleteRowButton @onClick={{(fn this.kviDropdownFilterOnDeleteRowClick R.rowIndex)}} />
+          {{/if}}
+        </:row>
+        <:footer as |F|>
+          <F.AddRowButton @onClick={{this.kviDropdownFilterOnAddRowClick}} />
+        </:footer>
+      </Hds::Form::KeyValueInputs>
+    </D.Generic>
+    <D.Footer @hasDivider={{true}}>
+      <Hds::ButtonSet>
+        <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on 'click' this.kviDropdownFilterOnApply}} />
+        <Hds::Button @text="Reset" @color="secondary" @isFullWidth={{true}} @size="small" {{on 'click' this.kviDropdownFilterOnReset}} />
+      </Hds::ButtonSet>
+    </D.Footer>
+  </Hds::Dropdown>
+
 </section>
 
 <Shw::Divider />
