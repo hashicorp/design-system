@@ -163,10 +163,6 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
     return this.filterModel.length > 1;
   }
 
-  get filterJson() {
-    return JSON.stringify(this.filterModel, null, 2);
-  }
-
   onInputUpdateModel = (
     rowData: FilterItem,
     field: 'provider' | 'zone',
@@ -183,6 +179,12 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
   };
 
   onDeleteRowClick = (rowIndex: number) => {
+    // we need to return the focus to the "add" button or the focus moves to the `<body>` and this closes the dropdown
+    const addButton = document.getElementById('add-row-button');
+    if (addButton) {
+      addButton.focus();
+    }
+
     if (rowIndex < 0 || rowIndex >= this.filterModel.length) {
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
@@ -193,20 +195,58 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
       // Remove the item at the specific index
       this.filterModel.splice(rowIndex, 1);
     }
+
   };
 
   onApplyFilterButtonClick = () => {
-    const unfilteredTableData = structuredClone(TABLE_DATA)
-    console.log(this.filteredTableModel);
-    console.log(JSON.stringify(this.filteredTableModel, null, 2));
-    this.filteredTableModel = unfilteredTableData.filter((rowData) => {
-      console.log(rowData);
-      return Math.random() < 0.5;
-    });
+    const unfilteredTableData = structuredClone(TABLE_DATA);
+
+    // if no filters have any values, show the unfiltered data
+    const hasActiveFilters = this.filterModel.some(filter =>
+      (filter.provider.trim() !== '') ||
+      (filter.zone.trim() !== '')
+    );
+
+    if (!hasActiveFilters) {
+      this.filteredTableModel = unfilteredTableData
+    } else {
+      this.filteredTableModel = unfilteredTableData.filter((rowData) => {
+        return this.filterModel.some((filterItem) => {
+          const providerIsEmpty = filterItem.provider.trim() === '';
+          const zoneIsEmpty = filterItem.zone.trim() === '';
+
+          // if both are empty ignore this rowItem
+          if (providerIsEmpty && zoneIsEmpty) {
+            return false;
+          }
+
+          const providerMatches =
+            !providerIsEmpty &&
+            rowData.provider
+              .toLowerCase()
+              .includes(filterItem.provider.toLowerCase());
+
+          const zoneMatches =
+            !zoneIsEmpty &&
+            rowData.zone.toLowerCase().includes(filterItem.zone.toLowerCase());
+
+          return (
+            // both fields are not empty and match the filter
+            (providerIsEmpty && zoneMatches) ||
+            // at least one of the two fields matches and the other is empty
+            (providerMatches && zoneMatches) ||
+            (providerMatches && zoneIsEmpty)
+          );
+        });
+      });
+    }
+
   };
 
   onResetFilterButtonClick = () => {
     this.filterModel = this.emptyFilterModel;
+    // we re-apply the filter to reset the table model
+    this.onApplyFilterButtonClick();
   };
 
   // =====================================================
@@ -223,9 +263,11 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
     {{else}}
       <Instructions />
     {{/if}}
-    <div {{style width="100%"}}...attributes>
+    <div {{style width="100%"}} ...attributes>
 
-      <div {{style display="flex" justify-content="flex-end" margin-bottom="24px"}}>
+      <div
+        {{style display="flex" justify-content="flex-end" margin-bottom="24px"}}
+      >
         <HdsDropdown
           @listPosition="bottom-right"
           @preserveContentInDom={{true}}
@@ -233,19 +275,25 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
         >
           <D.ToggleButton @color="secondary" @text="Filter resources" />
           <D.Generic>
-            <HdsFormKeyValueInputs @data={{this.filterModel}} {{style margin="16px 0"}}>
+            <HdsFormKeyValueInputs
+              @data={{this.filterModel}}
+              {{style margin="16px 0"}}
+            >
               <:header as |H|>
                 <H.Legend>Filter by provider and zone</H.Legend>
               </:header>
               <:row as |R|>
-                <R.Field as |F|>
+                <R.Field @width="100px" as |F|>
                   <F.Label>Provider</F.Label>
                   <F.TextInput
                     @value={{R.rowData.provider}}
-                    {{on "input" (fn this.onInputUpdateModel R.rowData "provider")}}
+                    {{on
+                      "input"
+                      (fn this.onInputUpdateModel R.rowData "provider")
+                    }}
                   />
                 </R.Field>
-                <R.Field @isOptional={{true}} as |F|>
+                <R.Field @width="150px" as |F|>
                   <F.Label>Zone</F.Label>
                   <F.TextInput
                     @value={{R.rowData.zone}}
@@ -259,9 +307,7 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
                 {{/if}}
               </:row>
               <:footer as |F|>
-                <F.AddRowButton
-                  @onClick={{this.onAddRowClick}}
-                />
+                <F.AddRowButton id="add-row-button" @onClick={{this.onAddRowClick}} />
               </:footer>
             </HdsFormKeyValueInputs>
           </D.Generic>
@@ -285,8 +331,6 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
         </HdsDropdown>
       </div>
 
-      <pre>{{this.filterJson}}</pre>
-
       <HdsTable
         @model={{this.filteredTableModel}}
         @columns={{array
@@ -296,14 +340,17 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
           (hash key="ip-address" label="Address")
           (hash key="provider" label="Provider")
           (hash key="zone" label="Zone")
-
         }}
       >
         <:body as |B|>
           <B.Tr id={{B.rowIndex}}>
             <B.Td>{{B.data.id}}</B.Td>
             <B.Td>{{B.data.name}}</B.Td>
-            <B.Td><HdsBadge @text={{B.data.type}} @size="small" @type={{if (eq B.data.type 'Server') 'inverted' 'filled'}} /></B.Td>
+            <B.Td><HdsBadge
+                @text={{B.data.type}}
+                @size="small"
+                @type={{if (eq B.data.type "Server") "inverted" "filled"}}
+              /></B.Td>
             <B.Td>{{B.data.ip-address}}</B.Td>
             <B.Td>{{B.data.provider}}</B.Td>
             <B.Td>{{B.data.zone}}</B.Td>
