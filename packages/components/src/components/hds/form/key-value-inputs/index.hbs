@@ -66,7 +66,7 @@
     </div>
   {{/if}}
 
-  {{#each @data as |item index|}}
+  {{#each @data key=this.identityKey as |item index|}}
     <div class="hds-form-key-value-inputs__row {{if (eq index 0) 'hds-form-key-value-inputs__row--first'}}">
       {{yield
         (hash
