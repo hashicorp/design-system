@@ -60,4 +60,11 @@ body.page-components-form-key-value-inputs-index {
       content: "footer";
     }
   }
+
+  // used to frame some of the examples
+  .shw-component-form-key-value-inputs-frame-content {
+    width: fit-content;
+    padding: 48px;
+    outline: 1px dotted var(--shw-color-gray-400);
+  }
 }

@@ -18,10 +18,10 @@ import {
   HdsFormKeyValueInputs,
   HdsFormToggleField,
   HdsButton,
+  HdsReveal,
 } from '@hashicorp/design-system-components/components';
 
 // SHW components
-import ShwTextH3 from '../../../../shw/text/h3';
 import ShwTextH4 from '../../../../shw/text/h4';
 import ShwLabel from '../../../../shw/label';
 
@@ -29,8 +29,9 @@ import type { PowerSelectSignature } from 'ember-power-select/components/power-s
 
 export interface MockComponentsFormKeyValueInputsWithDynamicInputsSignature {
   Args: {
-    showIntro?: boolean;
+    collapseInstructions?: boolean;
   };
+  Element: HTMLDivElement;
 }
 
 interface KvpItem {
@@ -60,8 +61,39 @@ const EMPTY_MODEL: FormModel = {
   'kvp-list': [structuredClone(EMPTY_KVP_ITEM)],
 };
 
+const Instructions = <template>
+  <ShwTextH4 @tag="h3">Instructions</ShwTextH4>
+  <ShwLabel {{style margin-bottom="32px"}}>
+    You can use this example to test a few different things:
+    <ul {{style line-height="1.5"}}>
+      <li>Try to submit the form when all the fields are empty → Validation
+        error should appear on the "Name" field</li>
+      <li>Fill in the "Name" and "Description" fields and submit → The form
+        should be submitted (emulated with an alert)</li>
+      <li>Fill in the first "Key Value Pair" row and submit → The form should be
+        submitted (you can see the submitted data in the alert)</li>
+      <li>Add a second "Key Value Pair" and and use a different type of key and
+        submit → The form should be submitted</li>
+      <li>Add a third "Key Value Pair" and and submit → The form should be
+        submitted</li>
+      <li>Delete the remaining rows → The "delete button" should disappear when
+        there is only one remaining row</li>
+      <li>Try to addd/delete rows → See how the "delete button"
+        appears/disappears</li>
+      <li>Click the "Reset" button → The entire content of the form should
+        return to its initial state</li>
+      <li>Now toggle the "Always show delete button on first row" → The "delete
+        button" on the first row will always be visible</li>
+      <li>You can now repeat the previous steps about adding/deleting rows → See
+        how the "delete button" works for the different rows, including when the
+        last row has content and the "Key Value Pair" fields are filled in that
+        row</li>
+    </ul>
+  </ShwLabel>
+</template>;
+
 export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends Component<MockComponentsFormKeyValueInputsWithDynamicInputsSignature> {
-  showIntro = this.args.showIntro ?? true;
+  collapseInstructions = this.args.collapseInstructions ?? false;
   @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
   // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
@@ -192,180 +224,176 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   // =====================================================
 
   <template>
-    {{#if this.showIntro}}
-      <ShwTextH3 @tag="h2">Example of
-        <code>KeyValueInputs</code>
-        within a
-        <code>Form</code>, with dynamic inputs</ShwTextH3>
-      <ShwTextH4 @tag="h3">Instructions</ShwTextH4>
-      <ShwLabel {{style margin-bottom="32px"}}>
-        You can use this example to test a few different things:
-        <ul {{style line-height="1.5"}}>
-          <li>Try to submit the form when all the fields are empty → Validation error should appear on the "Name" field</li>
-          <li>Fill in the "Name" and "Description" fields and submit → The form should be submitted (emulated with an alert)</li>
-          <li>Fill in the first "Key Value Pair" row and submit → The form should be submitted (you can see the submitted data in the alert)</li>
-          <li>Add a second "Key Value Pair" and and use a different type of key and submit → The form should be submitted</li>
-          <li>Add a third "Key Value Pair" and and submit → The form should be submitted</li>
-          <li>Delete the remaining rows → The "delete button" should disappear when there is only one remaining row</li>
-          <li>Try to addd/delete rows → See how the "delete button" appears/disappears</li>
-          <li>Click the "Reset" button → The entire content of the form should return to its initial state</li>
-          <li>Now toggle the "Always show delete button on first row" → The "delete button" on the first row will always be visible</li>
-          <li>You can now repeat the previous steps about adding/deleting rows → See how the "delete button" works for the different rows, including when the last row has content and the "Key Value Pair" fields are filled in that row</li>
-        </ul>
-      </ShwLabel>
+    {{#if this.collapseInstructions}}
+      <HdsReveal
+        @text="Show instructions"
+        @textWhenOpen="Hide instructions"
+        {{style margin="24px 0"}}
+      >
+        <Instructions />
+      </HdsReveal>
+    {{else}}
+        <Instructions />
     {{/if}}
-    <!-- we have added `novalidate` so we can handle validation ourselves -->
-    <HdsForm
-      id="add-thing-form"
-      novalidate
-      {{on "submit" this.onSubmitForm}}
-      as |FORM|
-    >
-      <FORM.Header as |FH|>
-        <FH.Title>Add a new {thing}</FH.Title>
-        <FH.Description>You can create a new {thing} by providing a name, an
-          optional description, and unlimited number of key-value pairs.</FH.Description>
-      </FORM.Header>
-      <FORM.Section>
-        <HdsFormTextInputField
-          @isRequired={{true}}
-          @isInvalid={{if this.model.validationMessage true}}
-          name="thing-name"
-          @value={{this.model.thing-name}}
-          {{on "input" this.onInputUpdateModel}}
-          as |F|
-        >
-          <F.Label>Name</F.Label>
-          <F.HelperText>Provide a name for the {thing} you want to create.</F.HelperText>
-          {{#if this.model.validationMessage}}
-            <F.Error>{{this.model.validationMessage}}</F.Error>
-          {{/if}}
-        </HdsFormTextInputField>
-        <HdsFormTextareaField
-          @isOptional={{true}}
-          name="thing-description"
-          @value={{this.model.thing-description}}
-          {{on "input" this.onInputUpdateModel}}
-          as |F|
-        >
-          <F.Label>Description</F.Label>
-          <F.HelperText>A brief description of the {thing}</F.HelperText>
-        </HdsFormTextareaField>
-        <HdsFormKeyValueInputs @data={{this.model.kvp-list}}>
-          <:header as |H|>
-            <H.Legend>List of key-value pairs</H.Legend>
-            <H.HelperText>The key-value pairs associated with the {thing}.</H.HelperText>
-          </:header>
-
-          <:row as |R|>
-            <R.Field as |F|>
-              <F.Label>Key</F.Label>
-              <F.Select
-                name="key-{{R.rowIndex}}"
-                {{on "change" this.onInputUpdateModel}}
-              >
-                <option
-                  value=""
-                  {{! @glint-expect-error }}
-                  selected={{if (eq R.rowData.key "") true}}
-                ></option>
-                <option
-                  value="textinput"
-                  {{! @glint-expect-error }}
-                  selected={{if (eq R.rowData.key "textinput") true}}
-                >Single line</option>
-                <option
-                  value="textarea"
-                  {{! @glint-expect-error }}
-                  selected={{if (eq R.rowData.key "textarea") true}}
-                >Multiline</option>
-                <option
-                  value="maskedinput"
-                  {{! @glint-expect-error }}
-                  selected={{if (eq R.rowData.key "maskedinput") true}}
-                >Masked text</option>
-                <option
-                  value="select"
-                  {{! @glint-expect-error }}
-                  selected={{if (eq R.rowData.key "select") true}}
-                >Select from list</option>
-              </F.Select>
-            </R.Field>
-
-            <R.Field as |F|>
-              <F.Label>Value</F.Label>
-              {{! @glint-expect-error }}
-              {{#if (eq R.rowData.key "textarea")}}
-                <F.Textarea
-                  name="value-{{R.rowIndex}}"
-                  {{! @glint-expect-error }}
-                  @value={{R.rowData.value}}
-                  {{on "input" this.onInputUpdateModel}}
-                />
-                {{! @glint-expect-error }}
-              {{else if (eq R.rowData.key "maskedinput")}}
-                <F.MaskedInput
-                  name="value-{{R.rowIndex}}"
-                  {{! @glint-expect-error }}
-                  @value={{R.rowData.value}}
-                  {{on "input" this.onInputUpdateModel}}
-                />
-                {{! @glint-expect-error }}
-              {{else if (eq R.rowData.key "select")}}
-                <F.SuperSelectMultiple
-                  name="value-{{R.rowIndex}}"
-                  @options={{SUPERSELECT_OPTIONS}}
-                  {{! @glint-expect-error }}
-                  @selected={{R.rowData.value}}
-                  @onChange={{this.onPowerSelectChangeUpdateModel}}
-                  @ariaLabel="Label"
-                  as |option|
-                >
-                  {{option}}
-                </F.SuperSelectMultiple>
-              {{else}}
-                <F.TextInput
-                  name="value-{{R.rowIndex}}"
-                  {{! @glint-expect-error }}
-                  @value={{R.rowData.value}}
-                  {{on "input" this.onInputUpdateModel}}
-                />
-              {{/if}}
-            </R.Field>
-            {{#if (or this.alwaysShowDeleteButtonOnFirstRow this.canDeleteRow)}}
-              <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
-            {{/if}}
-          </:row>
-          <:footer as |F|>
-            <F.AddRowButton @text="Add pair" @onClick={{this.onAddRowClick}} />
-          </:footer>
-        </HdsFormKeyValueInputs>
-      </FORM.Section>
-      <FORM.Footer as |FF|>
-        <div
-          {{style
-            display="flex"
-            align-items="center"
-            justify-content="space-between"
-          }}
-        >
-          <FF.ButtonSet>
-            <HdsButton @text="Submit" type="submit" form="add-thing-form" />
-            <HdsButton
-              @text="Reset"
-              @color="secondary"
-              {{on "click" this.onResetButtonClick}}
-            />
-          </FF.ButtonSet>
-          <HdsFormToggleField
-            checked={{this.alwaysShowDeleteButtonOnFirstRow}}
-            {{on "click" this.onToggleAlwaysShowDeleteButtonClick}}
+    <div ...attributes>
+      <!-- we have added `novalidate` so we can handle validation ourselves -->
+      <HdsForm
+        id="add-thing-form"
+        novalidate
+        {{on "submit" this.onSubmitForm}}
+        as |FORM|
+      >
+        <FORM.Header as |FH|>
+          <FH.Title>Add a new {thing}</FH.Title>
+          <FH.Description>You can create a new {thing} by providing a name, an
+            optional description, and unlimited number of key-value pairs.</FH.Description>
+        </FORM.Header>
+        <FORM.Section>
+          <HdsFormTextInputField
+            @isRequired={{true}}
+            @isInvalid={{if this.model.validationMessage true}}
+            name="thing-name"
+            @value={{this.model.thing-name}}
+            {{on "input" this.onInputUpdateModel}}
             as |F|
           >
-            <F.Label>Always show delete button on first row</F.Label>
-          </HdsFormToggleField>
-        </div>
-      </FORM.Footer>
-    </HdsForm>
+            <F.Label>Name</F.Label>
+            <F.HelperText>Provide a name for the {thing} you want to create.</F.HelperText>
+            {{#if this.model.validationMessage}}
+              <F.Error>{{this.model.validationMessage}}</F.Error>
+            {{/if}}
+          </HdsFormTextInputField>
+          <HdsFormTextareaField
+            @isOptional={{true}}
+            name="thing-description"
+            @value={{this.model.thing-description}}
+            {{on "input" this.onInputUpdateModel}}
+            as |F|
+          >
+            <F.Label>Description</F.Label>
+            <F.HelperText>A brief description of the {thing}</F.HelperText>
+          </HdsFormTextareaField>
+          <HdsFormKeyValueInputs @data={{this.model.kvp-list}}>
+            <:header as |H|>
+              <H.Legend>List of key-value pairs</H.Legend>
+              <H.HelperText>The key-value pairs associated with the {thing}.</H.HelperText>
+            </:header>
+
+            <:row as |R|>
+              <R.Field as |F|>
+                <F.Label>Key</F.Label>
+                <F.Select
+                  name="key-{{R.rowIndex}}"
+                  {{on "change" this.onInputUpdateModel}}
+                >
+                  <option
+                    value=""
+                    {{! @glint-expect-error }}
+                    selected={{if (eq R.rowData.key "") true}}
+                  ></option>
+                  <option
+                    value="textinput"
+                    {{! @glint-expect-error }}
+                    selected={{if (eq R.rowData.key "textinput") true}}
+                  >Single line</option>
+                  <option
+                    value="textarea"
+                    {{! @glint-expect-error }}
+                    selected={{if (eq R.rowData.key "textarea") true}}
+                  >Multiline</option>
+                  <option
+                    value="maskedinput"
+                    {{! @glint-expect-error }}
+                    selected={{if (eq R.rowData.key "maskedinput") true}}
+                  >Masked text</option>
+                  <option
+                    value="select"
+                    {{! @glint-expect-error }}
+                    selected={{if (eq R.rowData.key "select") true}}
+                  >Select from list</option>
+                </F.Select>
+              </R.Field>
+
+              <R.Field as |F|>
+                <F.Label>Value</F.Label>
+                {{! @glint-expect-error }}
+                {{#if (eq R.rowData.key "textarea")}}
+                  <F.Textarea
+                    name="value-{{R.rowIndex}}"
+                    {{! @glint-expect-error }}
+                    @value={{R.rowData.value}}
+                    {{on "input" this.onInputUpdateModel}}
+                  />
+                  {{! @glint-expect-error }}
+                {{else if (eq R.rowData.key "maskedinput")}}
+                  <F.MaskedInput
+                    name="value-{{R.rowIndex}}"
+                    {{! @glint-expect-error }}
+                    @value={{R.rowData.value}}
+                    {{on "input" this.onInputUpdateModel}}
+                  />
+                  {{! @glint-expect-error }}
+                {{else if (eq R.rowData.key "select")}}
+                  <F.SuperSelectMultiple
+                    name="value-{{R.rowIndex}}"
+                    @options={{SUPERSELECT_OPTIONS}}
+                    {{! @glint-expect-error }}
+                    @selected={{R.rowData.value}}
+                    @onChange={{this.onPowerSelectChangeUpdateModel}}
+                    @ariaLabel="Label"
+                    as |option|
+                  >
+                    {{option}}
+                  </F.SuperSelectMultiple>
+                {{else}}
+                  <F.TextInput
+                    name="value-{{R.rowIndex}}"
+                    {{! @glint-expect-error }}
+                    @value={{R.rowData.value}}
+                    {{on "input" this.onInputUpdateModel}}
+                  />
+                {{/if}}
+              </R.Field>
+              {{#if
+                (or this.alwaysShowDeleteButtonOnFirstRow this.canDeleteRow)
+              }}
+                <R.DeleteRowButton @onClick={{this.onDeleteRowClick}} />
+              {{/if}}
+            </:row>
+            <:footer as |F|>
+              <F.AddRowButton
+                @text="Add pair"
+                @onClick={{this.onAddRowClick}}
+              />
+            </:footer>
+          </HdsFormKeyValueInputs>
+        </FORM.Section>
+        <FORM.Footer as |FF|>
+          <div
+            {{style
+              display="flex"
+              align-items="center"
+              justify-content="space-between"
+            }}
+          >
+            <FF.ButtonSet>
+              <HdsButton @text="Submit" type="submit" form="add-thing-form" />
+              <HdsButton
+                @text="Reset"
+                @color="secondary"
+                {{on "click" this.onResetButtonClick}}
+              />
+            </FF.ButtonSet>
+            <HdsFormToggleField
+              checked={{this.alwaysShowDeleteButtonOnFirstRow}}
+              {{on "click" this.onToggleAlwaysShowDeleteButtonClick}}
+              as |F|
+            >
+              <F.Label>Always show delete button on first row</F.Label>
+            </HdsFormToggleField>
+          </div>
+        </FORM.Footer>
+      </HdsForm>
+    </div>
   </template>
 }

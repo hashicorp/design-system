@@ -20,22 +20,16 @@
       <PH.IconTile @logo="vault" />
     </Hds::PageHeader>
 
-    <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit />
-
-    <Shw::Divider />
-
-    <Mock::Components::Form::KeyValueInputs::WithDynamicInputs />
-
-    {{!-- <Shw::Divider />
-
-    <Hds::Form as |F|>
-      <F.Section>
-        <Mock::App::Main::GenericForm::Partials::AddOsArchitecture />
-      </F.Section>
-      <F.Footer>
-        <Hds::Button @text="Save" />
-      </F.Footer>
-    </Hds::Form> --}}
+    <Hds::Tabs as |T|>
+      <T.Tab>With validation and limit</T.Tab>
+      <T.Tab>With dynamic inputs</T.Tab>
+      <T.Panel>
+        <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit @collapseInstructions={{true}} />
+      </T.Panel>
+      <T.Panel>
+        <Mock::Components::Form::KeyValueInputs::WithDynamicInputs @collapseInstructions={{true}} />
+      </T.Panel>
+    </Hds::Tabs>
 
   </:main>
 </Mock::App>
