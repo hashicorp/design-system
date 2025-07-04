@@ -143,7 +143,14 @@ const Instructions = <template>
   <ShwLabel {{style margin-bottom="32px"}}>
     You can use this example to test a few different things:
     <ul {{style line-height="1.5"}}>
-      <li>TODO → Add instructions</li>
+      <li>Open the "Filter table" dropdown and start to fill one or both the fields → Nothing happens</li>
+      <li>Click the "Apply" button → The table will be filtered based on the filtering values (it matches the provider or the zone, if the other is empty, or both if both the fields have values)</li>
+      <li>Add a second row and click "Apply" → The table remains the same (the row is ignored if both fields are empty)</li>
+      <li>Now fill the second row and click "Apply" → The table should update using an OR logic between the two rows</li>
+      <li>Try to addd/delete rows → See how the "delete button" appears/disappears</li>
+      <li>Try to addd/delete rows and click "Apply" → See how the table updates accordingly</li>
+      <li>Click the "Reset" button → The entire content of the filter should return to its initial state, and the table should contain the entire data set</li>
+      <li>Try also to close the dropdown (clicking outside or "esc") and then reopen it → See how the content of the filters remains the same</li>
     </ul>
   </ShwLabel>
 </template>;
@@ -179,12 +186,6 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
   };
 
   onDeleteRowClick = (rowIndex: number) => {
-    // we need to return the focus to the "add" button or the focus moves to the `<body>` and this closes the dropdown
-    const addButton = document.getElementById('add-row-button');
-    if (addButton) {
-      addButton.focus();
-    }
-
     if (rowIndex < 0 || rowIndex >= this.filterModel.length) {
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
@@ -196,12 +197,17 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
       this.filterModel.splice(rowIndex, 1);
     }
 
+    // we need to return the focus to the "add" button or the focus moves to the `<body>` and this closes the dropdown
+    const addButton = document.getElementById('add-row-button');
+    if (addButton) {
+      addButton.focus();
+    }
   };
 
   onApplyFilterButtonClick = () => {
     const unfilteredTableData = structuredClone(TABLE_DATA);
 
-    // if no filters have any values, show the unfiltered data
+    // if all the filters have empty values, show the unfiltered data
     const hasActiveFilters = this.filterModel.some(filter =>
       (filter.provider.trim() !== '') ||
       (filter.zone.trim() !== '')
@@ -214,12 +220,6 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
         return this.filterModel.some((filterItem) => {
           const providerIsEmpty = filterItem.provider.trim() === '';
           const zoneIsEmpty = filterItem.zone.trim() === '';
-
-          // if both are empty ignore this rowItem
-          if (providerIsEmpty && zoneIsEmpty) {
-            return false;
-          }
-
           const providerMatches =
             !providerIsEmpty &&
             rowData.provider
@@ -232,10 +232,10 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
 
           return (
             // both fields are not empty and match the filter
-            (providerIsEmpty && zoneMatches) ||
-            // at least one of the two fields matches and the other is empty
             (providerMatches && zoneMatches) ||
-            (providerMatches && zoneIsEmpty)
+            // at least one of the two fields matches and the other is empty
+            (providerMatches && zoneIsEmpty) ||
+            (providerIsEmpty && zoneMatches)
           );
         });
       });
