@@ -240,10 +240,12 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
           <R.Field @isRequired={{true}} as |F|>
             <F.Label>Tag name</F.Label>
             <F.HelperText>Lorem ipsum dolor sit amet.</F.HelperText>
+            {{! @glint-expect-error }}
             <F.TextInput name="key" @value={{R.rowData.name}} />
           </R.Field>
           <R.Field @isOptional={{true}} as |F|>
             <F.Label>Tag description</F.Label>
+            {{! @glint-expect-error }}
             <F.TextInput name="value" @value={{R.rowData.description}} />
           </R.Field>
           <R.DeleteRowButton />
