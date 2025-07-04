@@ -685,7 +685,6 @@
         (hash key="add+error" label="With add button and error")
         (hash key="alert+error" label="With alert and error")
         (hash key="alert+add+error" label="With alert and add button and error")
-        (hash key="add+generic" label="With add button and generic content")
       )
       as |combinations|
     }}
@@ -714,7 +713,6 @@
                   (eq combination.key "alert+add")
                   (eq combination.key "add+error")
                   (eq combination.key "alert+add+error")
-                  (eq combination.key "add+generic")
                 )
               }}
                 <F.AddRowButton />
@@ -740,9 +738,6 @@
                 )
               }}
                 <F.Error>This is the error message.</F.Error>
-              {{/if}}
-              {{#if (eq combination.key "add+generic")}}
-                <Shw::Placeholder @height="36px" @text="generic content" />
               {{/if}}
             </:footer>
           </Hds::Form::KeyValueInputs>
