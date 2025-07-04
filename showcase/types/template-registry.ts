@@ -33,6 +33,7 @@ import MockAppMainGenericFormPartialsAddPolicy from '../app/components/mock/app/
 import MockAppMainGenericFormPartialsActions from '../app/components/mock/app/main/generic-form/partials/actions';
 import MockAppMainGenericTextContent from '../app/components/mock/app/main/generic-text-content';
 import MockAppFooterAppFooter from '../app/components/mock/app/footer/app-footer';
+import MockComponentsFormKeyValueInputsAsFilterForTable from '../app/components/mock/components/form/key-value-inputs/as-filter-for-table';
 import MockComponentsFormKeyValueInputsWithValidationAndLimit from '../app/components/mock/components/form/key-value-inputs/with-validation-and-limit';
 import MockComponentsFormKeyValueInputsWithDynamicInputs from '../app/components/mock/components/form/key-value-inputs/with-dynamic-inputs';
 import MockDemoBreakpointsVisualization from '../app/components/mock/demo/breakpoints-visualization';
@@ -99,6 +100,8 @@ export default interface ShowcaseTemplateRegistry {
   'mock/app/main/generic-text-content': typeof MockAppMainGenericTextContent;
   'Mock::App::Footer::AppFooter': typeof MockAppFooterAppFooter;
   'mock/app/footer/app-footer': typeof MockAppFooterAppFooter;
+  'Mock::Components::Form::KeyValueInputs::AsFilterForTable': typeof MockComponentsFormKeyValueInputsAsFilterForTable;
+  'mock/components/form/key-value-inputs/as-filter-for-table': typeof MockComponentsFormKeyValueInputsAsFilterForTable;
   'Mock::Components::Form::KeyValueInputs::WithValidationAndLimit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
   'mock/components/form/key-value-inputs/with-validation-and-limit': typeof MockComponentsFormKeyValueInputsWithValidationAndLimit;
   'Mock::Components::Form::KeyValueInputs::WithDynamicInputs': typeof MockComponentsFormKeyValueInputsWithDynamicInputs;
