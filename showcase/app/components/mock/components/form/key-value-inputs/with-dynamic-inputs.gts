@@ -236,7 +236,7 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
         <Instructions />
     {{/if}}
     <div ...attributes>
-      <!-- we have added `novalidate` so we can handle validation ourselves -->
+      {{!-- we have added `novalidate` so we can handle validation ourselves --}}
       <HdsForm
         id="add-thing-form"
         novalidate

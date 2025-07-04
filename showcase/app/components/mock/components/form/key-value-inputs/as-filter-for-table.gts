@@ -160,7 +160,7 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
   @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
   @deepTracked filterModel: FilterItem[] = [structuredClone(EMPTY_FILTER_ITEM)];
-  @deepTracked filteredTableModel: TableItem[] = structuredClone(TABLE_DATA);
+  @deepTracked filteredTableModel = structuredClone(TABLE_DATA);
 
   get emptyFilterModel(): FilterItem[] {
     return [structuredClone(EMPTY_FILTER_ITEM)];
@@ -286,22 +286,24 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
                 <R.Field @width="100px" as |F|>
                   <F.Label>Provider</F.Label>
                   <F.TextInput
+                    {{! @glint-expect-error }}
                     @value={{R.rowData.provider}}
-                    {{on
-                      "input"
-                      (fn this.onInputUpdateModel R.rowData "provider")
-                    }}
+                    {{! @glint-expect-error }}
+                    {{on "input" (fn this.onInputUpdateModel R.rowData "provider")}}
                   />
                 </R.Field>
                 <R.Field @width="150px" as |F|>
                   <F.Label>Zone</F.Label>
                   <F.TextInput
+                    {{! @glint-expect-error }}
                     @value={{R.rowData.zone}}
+                    {{! @glint-expect-error }}
                     {{on "input" (fn this.onInputUpdateModel R.rowData "zone")}}
                   />
                 </R.Field>
                 {{#if this.canDeleteRow}}
                   <R.DeleteRowButton
+                    {{! @glint-expect-error }}
                     @onClick={{(fn this.onDeleteRowClick R.rowIndex)}}
                   />
                 {{/if}}
@@ -344,15 +346,22 @@ export default class MockComponentsFormKeyValueInputsAsFilterForTable extends Co
       >
         <:body as |B|>
           <B.Tr id={{B.rowIndex}}>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.id}}</B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.name}}</B.Td>
             <B.Td><HdsBadge
+              {{! @glint-expect-error }}
                 @text={{B.data.type}}
                 @size="small"
+                {{! @glint-expect-error }}
                 @type={{if (eq B.data.type "Server") "inverted" "filled"}}
               /></B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.ip-address}}</B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.provider}}</B.Td>
+            {{! @glint-expect-error }}
             <B.Td>{{B.data.zone}}</B.Td>
           </B.Tr>
         </:body>
