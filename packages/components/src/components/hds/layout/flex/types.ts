@@ -31,6 +31,7 @@ export enum HdsLayoutFlexAlignValues {
 export type HdsLayoutFlexAligns = `${HdsLayoutFlexAlignValues}`;
 
 export enum HdsLayoutFlexGapValues {
+  'Zero' = '0',
   'Four' = '4',
   'Eight' = '8',
   'Twelve' = '12',

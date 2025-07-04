@@ -138,7 +138,7 @@
 
   <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
-      <SG.Item @label="gap={{gap}}">
+      <SG.Item @label="gap={{if (eq gap '0') '0 (default)' gap}}">
         <Shw::Outliner>
           <Hds::Layout::Grid @gap={{gap}} @columnMinWidth="50%">
             <Shw::Placeholder @text="#1" @height="24" />
@@ -174,6 +174,85 @@
       {{/each}}
     {{/let}}
   </Shw::Grid>
+
+  <br />
+  <br />
+
+  <Shw::Text::H4 @tag="h3">Nested layouts</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" @direction="column" class="shw-layout-grid-example-nested-layouts" as |SF|>
+    <SF.Item @label="Parent Grid w/ @gap=16, nested Grid wo/ @gap (defaults to 0)">
+      <Hds::Layout::Grid @gap="16" @align="center" as |LG|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LG.Item>
+          <Hds::Layout::Grid>
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Grid>
+        </LG.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Grid>
+    </SF.Item>
+    <SF.Item @label="Parent Grid w/ @gap=16, nested Grid w/ @gap=0 (explicit)">
+      <Hds::Layout::Grid @gap="16" @align="center" as |LG|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LG.Item @columnWidth="25%">
+          <Hds::Layout::Grid @gap="0">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Grid>
+        </LG.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Grid>
+    </SF.Item>
+    <SF.Item @label="Parent Grid w/ @gap=48, nested Grid w/ @gap=16">
+      <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LG.Item @columnWidth="25%">
+          <Hds::Layout::Grid @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Grid>
+        </LG.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Grid>
+    </SF.Item>
+    <SF.Item @label="Parent Grid w/ @gap=48, nested Flex w/ @gap=16">
+      <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LG.Item @columnWidth="25%">
+          <Hds::Layout::Flex @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Flex>
+        </LG.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Grid>
+    </SF.Item>
+    <SF.Item @label="Parent Flex w/ @gap=48, nested Grid w/ @gap=16">
+      <Hds::Layout::Flex @gap="48" @align="center" as |LF|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LF.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Grid @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Grid>
+        </LF.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+  </Shw::Flex>
+
 </section>
 
 <Shw::Divider />

@@ -108,15 +108,10 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   // GAP
 
-  test('it should render the element without `gap` class if no @gap is declared', async function (assert) {
+  test('it should render the element with the default `gap` class if no @gap is declared', async function (assert) {
     await render(hbs`<Hds::Layout::Grid id="test-layout-grid" />`);
-    assert.dom('#test-layout-grid').doesNotHaveClass(/hds-layout-grid--gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--row-gap-/);
-    assert
-      .dom('#test-layout-grid')
-      .doesNotHaveClass(/hds-layout-grid--column-gap-/);
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--row-gap-0');
+    assert.dom('#test-layout-grid').hasClass('hds-layout-grid--column-gap-0');
   });
 
   test('it should render the correct CSS classes if the @gap prop is declared as a single value', async function (assert) {
@@ -152,7 +147,7 @@ module('Integration | Component | hds/layout/grid/index', function (hooks) {
 
   test('it should throw an assertion if an incorrect value for @gap is provided', async function (assert) {
     const errorMessage =
-      '@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
+      '@gap for "Hds::Layout::Grid" must be a single value or an array of two values of one of the following: 0, 4, 8, 12, 16, 24, 32, 48; received: 4,foo';
     assert.expect(2);
     setupOnerror(function (error) {
       assert.strictEqual(error.message, `Assertion Failed: ${errorMessage}`);

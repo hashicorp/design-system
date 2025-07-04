@@ -19,6 +19,7 @@ import type {
 } from './types.ts';
 
 export const ALIGNS: string[] = Object.values(HdsLayoutGridAlignValues);
+export const DEFAULT_GAP = HdsLayoutGridGapValues.Zero;
 export const GAPS: string[] = Object.values(HdsLayoutGridGapValues);
 
 export interface HdsLayoutGridSignature {
@@ -63,7 +64,7 @@ export default class HdsLayoutGrid extends Component<HdsLayoutGridSignature> {
     | [HdsLayoutGridGaps]
     | [HdsLayoutGridGaps, HdsLayoutGridGaps]
     | undefined {
-    const { gap } = this.args;
+    const { gap = DEFAULT_GAP } = this.args;
 
     if (gap) {
       assert(

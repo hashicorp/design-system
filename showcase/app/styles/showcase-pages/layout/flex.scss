@@ -5,6 +5,15 @@
 
 // LAYOUTS > FLEX
 
+@mixin shw-tint-children {
+  &:nth-child(6n+1) { background-color: #e4c5f3; }
+  &:nth-child(6n+2) { background-color: #e5ffd2; }
+  &:nth-child(6n+3) { background-color: #d2f4ff; }
+  &:nth-child(6n+4) { background-color: #fff8d2; }
+  &:nth-child(6n+5) { background-color: #f3d9c5; }
+  &:nth-child(6n+6) { background-color: #fee1ec; }
+}
+
 body.layouts-flex {
   .shw-layout-flex-example-outline-flex-container {
     .hds-layout-flex {
@@ -24,12 +33,7 @@ body.layouts-flex {
 
   .shw-layout-flex-example-tint-flex-items {
     .hds-layout-flex > * {
-      &:nth-child(6n+1) { background-color: #e4c5f3; }
-      &:nth-child(6n+2) { background-color: #e5ffd2; }
-      &:nth-child(6n+3) { background-color: #d2f4ff; }
-      &:nth-child(6n+4) { background-color: #fff8d2; }
-      &:nth-child(6n+5) { background-color: #f3d9c5; }
-      &:nth-child(6n+6) { background-color: #fee1ec; }
+      @include shw-tint-children();
     }
   }
 
@@ -37,6 +41,17 @@ body.layouts-flex {
     width: 50px;
     height: 50px;
     border-radius: 8px;
+  }
+
+  .shw-layout-flex-example-nested-layouts {
+    .hds-layout-flex,
+    .hds-layout-grid {
+      .shw-placeholder {
+        @include shw-tint-children();
+      }
+
+      outline: 1px dotted var(--shw-color-gray-400);
+    }
   }
 
   .shw-layout-flex-example-gap-override {

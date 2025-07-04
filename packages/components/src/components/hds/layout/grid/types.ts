@@ -13,6 +13,7 @@ export enum HdsLayoutGridAlignValues {
 export type HdsLayoutGridAligns = `${HdsLayoutGridAlignValues}`;
 
 export enum HdsLayoutGridGapValues {
+  'Zero' = '0',
   'Four' = '4',
   'Eight' = '8',
   'Twelve' = '12',
