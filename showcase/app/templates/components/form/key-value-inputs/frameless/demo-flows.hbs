@@ -23,11 +23,15 @@
     <Hds::Tabs as |T|>
       <T.Tab>With validation and limit</T.Tab>
       <T.Tab>With dynamic inputs</T.Tab>
+      <T.Tab>As filter for a table</T.Tab>
       <T.Panel>
         <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit @collapseInstructions={{true}} />
       </T.Panel>
       <T.Panel>
         <Mock::Components::Form::KeyValueInputs::WithDynamicInputs @collapseInstructions={{true}} />
+      </T.Panel>
+      <T.Panel>
+        <Mock::Components::Form::KeyValueInputs::AsFilterForTable @collapseInstructions={{true}} />
       </T.Panel>
     </Hds::Tabs>
 

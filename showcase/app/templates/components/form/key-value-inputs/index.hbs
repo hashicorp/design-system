@@ -781,6 +781,15 @@
 
   <Shw::Divider @level={{2}} />
 
+  <Shw::Text::H3 @tag="h2">Example of
+    <code>KeyValueInputs</code>
+    used inside a filter for a
+    <code>Table</code></Shw::Text::H3>
+
+  <Mock::Components::Form::KeyValueInputs::AsFilterForTable class="shw-component-form-key-value-inputs-frame-content" />
+
+  <Shw::Divider @level={{2}} />
+
   <Shw::Frame
     @id="demo-key-value-inputs-flows"
     @src="/components/form/key-value-inputs/frameless/demo-flows"
@@ -802,17 +811,11 @@
         <:row as |R|>
           <R.Field as |F|>
             <F.Label>Tag key</F.Label>
-            <F.TextInput
-              @value={{R.rowData.key}}
-              {{on 'input' (fn this.onInputUpdateModel R.rowData 'key')}}
-            />
+            <F.TextInput @value={{R.rowData.key}} {{on "input" (fn this.onInputUpdateModel R.rowData "key")}} />
           </R.Field>
           <R.Field @isOptional={{true}} as |F|>
             <F.Label>Tag value</F.Label>
-            <F.TextInput
-              @value={{R.rowData.value}}
-              {{on 'input' (fn this.onInputUpdateModel R.rowData 'model')}}
-            />
+            <F.TextInput @value={{R.rowData.value}} {{on "input" (fn this.onInputUpdateModel R.rowData "model")}} />
           </R.Field>
           {{#if this.kviDropdownFilterCanDeleteRow}}
             <R.DeleteRowButton @onClick={{(fn this.kviDropdownFilterOnDeleteRowClick R.rowIndex)}} />
@@ -825,8 +828,14 @@
     </D.Generic>
     <D.Footer @hasDivider={{true}}>
       <Hds::ButtonSet>
-        <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on 'click' this.kviDropdownFilterOnApply}} />
-        <Hds::Button @text="Reset" @color="secondary" @isFullWidth={{true}} @size="small" {{on 'click' this.kviDropdownFilterOnReset}} />
+        <Hds::Button @text="Apply" @isFullWidth={{true}} @size="small" {{on "click" this.kviDropdownFilterOnApply}} />
+        <Hds::Button
+          @text="Reset"
+          @color="secondary"
+          @isFullWidth={{true}}
+          @size="small"
+          {{on "click" this.kviDropdownFilterOnReset}}
+        />
       </Hds::ButtonSet>
     </D.Footer>
   </Hds::Dropdown>
