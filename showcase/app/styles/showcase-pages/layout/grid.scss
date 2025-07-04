@@ -15,15 +15,17 @@ body.layouts-grid {
   }
 
   .shw-layout-grid-example-tint-flex-items {
-    .hds-layout-grid  {
-      @include flex.shw-tint-placeholders();
+    .hds-layout-grid > * {
+      @include flex.shw-tint-children();
     }
   }
 
   .shw-layout-grid-example-nested-layouts {
     .hds-layout-grid,
     .hds-layout-flex {
-      @include flex.shw-tint-placeholders();
+      .shw-placeholder {
+        @include flex.shw-tint-children();
+      }
 
       outline: 1px dotted var(--shw-color-gray-400);
     }
