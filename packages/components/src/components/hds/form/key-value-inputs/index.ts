@@ -43,6 +43,7 @@ export interface HdsFormKeyValueInputsSignature {
     extraAriaDescribedBy?: string;
     isOptional?: boolean;
     isRequired?: boolean;
+    identityKey?: string;
   };
   Blocks: {
     header?: [
@@ -100,6 +101,15 @@ export default class HdsFormKeyValueInputs extends Component<HdsFormKeyValueInpu
   // different fieldsset-related elements (legend, helper text, error) with the fieldset itself
   get glueId(): string {
     return guidFor(this);
+  }
+
+  get identityKey(): string | undefined {
+    // we have to provide a way for the consumer to pass undefined because Ember tries to interpret undefined as missing an arg and therefore falls back to the default
+    if (this.args.identityKey === 'none') {
+      return undefined;
+    } else {
+      return this.args.identityKey ?? '@identity';
+    }
   }
 
   @action
