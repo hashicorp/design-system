@@ -81,7 +81,14 @@
 
   <Shw::Text::H3><code>@data</code> argument</Shw::Text::H3>
 
-  {{#let (array (array) (array (hash key="prod" value="production")) (array (hash key="prod" value="This is a production tag") (hash key="dev" value="This is a development tag"))) as |dataArrays|}}
+  {{#let
+    (array
+      (array)
+      (array (hash key="prod" value="production"))
+      (array (hash key="prod" value="This is a production tag") (hash key="dev" value="This is a development tag"))
+    )
+    as |dataArrays|
+  }}
     {{#each dataArrays as |dataArray|}}
       <Shw::Text::H4>
         {{#if (eq dataArray.length 0)}}
@@ -752,11 +759,25 @@
 
   <Shw::Text::H2>Demos</Shw::Text::H2>
 
-  <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit />
+  <Shw::Text::H3 @tag="h2">Example of
+    <code>KeyValueInputs</code>
+    within a
+    <code>Form</code>, with validation and rows limit</Shw::Text::H3>
+
+  <Mock::Components::Form::KeyValueInputs::WithValidationAndLimit
+    class="shw-component-form-key-value-inputs-frame-content"
+  />
 
   <Shw::Divider @level={{2}} />
 
-  <Mock::Components::Form::KeyValueInputs::WithDynamicInputs />
+  <Shw::Text::H3 @tag="h2">Example of
+    <code>KeyValueInputs</code>
+    within a
+    <code>Form</code>, with dynamic inputs</Shw::Text::H3>
+
+  <Mock::Components::Form::KeyValueInputs::WithDynamicInputs
+    class="shw-component-form-key-value-inputs-frame-content"
+  />
 
   <Shw::Divider @level={{2}} />
 
