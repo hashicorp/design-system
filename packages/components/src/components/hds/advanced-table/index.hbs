@@ -2,6 +2,9 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+{{! TODO: Remove this when ready }}
+{{! @glint-nocheck }}
+
 <div
   class="hds-advanced-table__container
     {{(if this.isStickyHeaderPinned 'hds-advanced-table__container--header-is-pinned')}}"
@@ -40,7 +43,7 @@
         @hasStickyColumn={{@hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each this._tableModel.columns as |column index|}}
+        {{#each this._tableModel.orderedColumns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @column={{column}}
@@ -48,6 +51,7 @@
               @onClickSort={{if column.key (fn this._tableModel.setSortBy column.key)}}
               @align={{column.align}}
               @tooltip={{column.tooltip}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isLastColumn={{eq index (sub this._tableModel.columns.length 1)}}
               @isStickyColumn={{if (and (eq index 0) @hasStickyFirstColumn) true}}
@@ -65,6 +69,7 @@
               @align={{column.align}}
               @column={{column}}
               @hasExpandAllButton={{this._tableModel.hasRowsWithChildren}}
+              @hasReorderableColumns={{@hasReorderableColumns}}
               @hasResizableColumns={{@hasResizableColumns}}
               @isExpanded={{this._tableModel.expandState}}
               @isExpandable={{column.isExpandable}}
@@ -78,6 +83,9 @@
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
+              @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
+              @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
+              @onReorderDrop={{this._tableModel.reorderColumn}}
               {{this._setColumnWidth column}}
             >
               {{column.label}}
@@ -110,6 +118,7 @@
                   isParentRow=T.isExpandable
                   depth=T.depth
                   displayRow=T.shouldDisplayChildRows
+                  data=T.data
                 )
                 Th=(component
                   "hds/advanced-table/th"
@@ -121,7 +130,7 @@
                   scope="row"
                   onClickToggle=T.onClickToggle
                 )
-                Td=(component "hds/advanced-table/td" align=@align)
+                Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
                 data=T.data
                 isOpen=T.isExpanded
                 rowIndex=T.rowIndex
@@ -143,6 +152,7 @@
                 selectionAriaLabelSuffix=@selectionAriaLabelSuffix
                 hasStickyColumn=@hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
+                data=record
               )
               Th=(component
                 "hds/advanced-table/th"
@@ -150,7 +160,7 @@
                 isStickyColumn=@hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
-              Td=(component "hds/advanced-table/td" align=@align)
+              Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
               data=record
               rowIndex=index
             )

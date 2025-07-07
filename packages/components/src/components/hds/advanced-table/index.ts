@@ -29,6 +29,7 @@ import type {
   HdsAdvancedTableVerticalAlignment,
   HdsAdvancedTableModel,
   HdsAdvancedTableExpandState,
+  HdsAdvancedTableColumnReorderCallback,
 } from './types.ts';
 import type HdsAdvancedTableColumnType from './models/column.ts';
 import type { HdsFormCheckboxBaseSignature } from '../form/checkbox/base.ts';
@@ -115,6 +116,7 @@ export interface HdsAdvancedTableSignature {
     align?: HdsAdvancedTableHorizontalAlignment;
     caption?: string;
     columns: HdsAdvancedTableColumn[];
+    columnOrder?: string[];
     density?: HdsAdvancedTableDensities;
     identityKey?: string;
     isSelectable?: boolean;
@@ -126,11 +128,13 @@ export interface HdsAdvancedTableSignature {
     sortedMessageText?: string;
     sortOrder?: HdsAdvancedTableThSortOrder;
     valign?: HdsAdvancedTableVerticalAlignment;
+    hasReorderableColumns?: boolean;
     hasResizableColumns?: boolean;
     hasStickyHeader?: boolean;
     hasStickyFirstColumn?: boolean;
     childrenKey?: string;
     maxHeight?: string;
+    onColumnReorder?: HdsAdvancedTableColumnReorderCallback;
     onColumnResize?: (columnKey: string, newWidth?: string) => void;
     onSelectionChange?: (
       selection: HdsAdvancedTableOnSelectionChangeSignature
@@ -205,6 +209,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     const {
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
@@ -216,6 +221,7 @@ export default class HdsAdvancedTable extends Component<HdsAdvancedTableSignatur
     this._tableModel = new HdsAdvancedTableTableModel({
       model,
       columns,
+      columnOrder,
       childrenKey,
       hasResizableColumns,
       sortBy,
