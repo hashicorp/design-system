@@ -61,8 +61,6 @@ Use filled Badges when displaying many on a single page or for subtle callouts.
 <Hds::Badge @color="critical" @text="Critical filled" />
 
 For example:
-
-- when listing statuses in a table
 - for successful or passive actions
 
 ### Inverted
