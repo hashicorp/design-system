@@ -1,30 +1,8 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
-
-{{! template-lint-disable no-unsupported-role-attributes require-presentational-children }}
+{{! template-lint-disable no-pointer-down-event-binding }}
 <div
-  role="button"
   draggable="true"
-  class="hds-advanced-table__th-reorder-handle"
-  tabindex="0"
-  aria-description={{hds-t
-    "hds.components.advanced-table.th-reorder-handle.aria-description"
-    default="Use left and right arrow keys while focused on this button to move the column to a new position."
-  }}
-  aria-label={{hds-t
-    "hds.components.advanced-table.th-reorder-handle.aria-label"
-    columnLabel=@column.label
-    default=(concat "Reorder " @column.label " column")
-  }}
-  {{this._registerElement}}
+  class={{this.classNames}}
   {{on "dragstart" this.handleDragStart}}
   {{on "dragend" this.handleDragEnd}}
-  {{on "keydown" this.handleKeydown}}
   ...attributes
->
-  <div class="hds-advanced-table__th-reorder-handle__inner">
-    <Hds::Icon @name="move-horizontal" />
-  </div>
-</div>
+/>

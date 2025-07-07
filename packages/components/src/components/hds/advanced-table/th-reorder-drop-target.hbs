@@ -1,14 +1,12 @@
-{{!
-  Copyright (c) HashiCorp, Inc.
-  SPDX-License-Identifier: MPL-2.0
-}}
-
 <div
   class={{this.classNames}}
   aria-hidden="true"
-  {{style height=this.height}}
+  role="presentation"
+  {{style height=(if @tableHeight (concat (sub @tableHeight 3.5) "px"))}}
   {{this._registerElement}}
   {{on "dragover" this.handleDragOver}}
+  {{on "dragenter" this.handleDragEnter}}
+  {{on "dragleave" this.handleDragLeave}}
   {{on "drop" this.handleDrop}}
   ...attributes
 />

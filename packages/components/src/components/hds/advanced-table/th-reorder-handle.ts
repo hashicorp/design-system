@@ -4,15 +4,14 @@
  */
 
 import Component from '@glimmer/component';
-import { action } from '@ember/object';
-import { modifier } from 'ember-modifier';
-import { scheduleOnce } from '@ember/runloop';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
+import { action } from '@ember/object';
 
 export interface HdsAdvancedTableThReorderHandleSignature {
   Args: {
     column: HdsAdvancedTableColumn;
+    columnWidth: number;
     tableHeight?: number;
     onReorderDragStart: (column: HdsAdvancedTableColumn) => void;
     onReorderDragEnd?: () => void;
@@ -40,35 +39,31 @@ function constructDragPreview(width: number, height?: number): HTMLDivElement {
 }
 
 export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvancedTableThReorderHandleSignature> {
-  private _registerElement = modifier((element: HTMLDivElement) => {
-    this.args.column.reorderHandleElement = element;
-  });
+  get classNames(): string {
+    const classes = ['hds-advanced-table__th-reorder-handle'];
+
+    return classes.join(' ');
+  }
 
   @action
   handleDragStart(event: DragEvent): void {
-    const { column, tableHeight, onReorderDragStart } = this.args;
-    const { key, thElement } = column;
+    const { column, columnWidth, tableHeight, onReorderDragStart } = this.args;
 
-    if (key === undefined || thElement === undefined) {
+    if (column.key === undefined || typeof onReorderDragStart !== 'function') {
       return;
     }
 
-    column.isBeingDragged = true;
-
-    const thElementWidth = thElement.offsetWidth;
-
-    event.dataTransfer?.setData('text/plain', key);
+    event.dataTransfer?.setData('text/plain', column.key);
 
     if (event.dataTransfer) {
       event.dataTransfer.effectAllowed = 'move';
     }
 
-    const dragPreview = constructDragPreview(thElementWidth, tableHeight);
+    const dragPreview = constructDragPreview(columnWidth, tableHeight);
 
     document.body.appendChild(dragPreview);
 
-    // set the drag image, center it, and offset it vertically by 10px
-    event.dataTransfer?.setDragImage(dragPreview, thElementWidth / 2, 10);
+    event.dataTransfer?.setDragImage(dragPreview, columnWidth / 2, 10);
 
     setTimeout(() => document.body.removeChild(dragPreview), 0);
 
@@ -83,37 +78,6 @@ export default class HdsAdvancedTableThReorderHandle extends Component<HdsAdvanc
 
     if (typeof onReorderDragEnd === 'function') {
       onReorderDragEnd();
-    }
-  }
-
-  @action
-  handleKeydown(event: KeyboardEvent): void {
-    switch (event.key) {
-      case 'ArrowLeft':
-      case 'ArrowRight': {
-        event.preventDefault();
-
-        const { column } = this.args;
-        const direction = event.key === 'ArrowLeft' ? -1 : 1;
-        column.table.stepColumn(column, direction);
-
-        // we need to wait for the next run loop to ensure that the element has been registered with the column after moving
-        // eslint-disable-next-line ember/no-runloop
-        scheduleOnce(
-          'afterRender',
-          this,
-          this.args.column.focusReorderHandle.bind(this)
-        );
-        break;
-      }
-
-      case ' ': {
-        event.preventDefault();
-        break;
-      }
-
-      default:
-        break;
     }
   }
 }
