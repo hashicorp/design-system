@@ -286,7 +286,7 @@
 
   <Shw::Text::H3>Collapsible</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" @gap="3rem" as |SG|>
+  <Shw::Grid @columns={{3}} @gap="3rem" as |SG|>
     <SG.Item @label="w/o special class used on content">
       <div class="shw-component-sim-side-nav-root-container">
         <Hds::SideNav @isResponsive={{true}} @hasA11yRefocus={{false}} @isCollapsible={{true}}>
@@ -1063,7 +1063,7 @@
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Grid @columns="6" class="shw-component-sidenav-dropdown-states-matrix" as |SG|>
+  <Shw::Grid @columns={{6}} class="shw-component-sidenav-dropdown-states-matrix" as |SG|>
     {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
 
     {{#each @model.DROPDOWN_TOGGLE_STATES as |state|}}

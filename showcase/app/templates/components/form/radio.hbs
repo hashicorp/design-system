@@ -71,7 +71,7 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Radio::Field as |F|>
         <F.Label>This is the label text</F.Label>
@@ -119,7 +119,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Disabled">
       <Hds::Form::Radio::Field disabled as |F|>
         <F.Label>This is the label text</F.Label>
@@ -140,7 +140,7 @@
 
   <Shw::Text::H3>Vertical layout</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend">
       <Hds::Form::Radio::Group @name="control-vertical-01" as |G|>
         <G.Legend>Legend of the group</G.Legend>

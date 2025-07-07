@@ -164,7 +164,7 @@
   {{#let (array "single" "multiple") as |types|}}
     {{#each types as |type|}}
       <Shw::Text::H4>{{capitalize type}}</Shw::Text::H4>
-      <Shw::Grid @columns="3" as |SG|>
+      <Shw::Grid @columns={{3}} as |SG|>
         <SG.Item @label="Only label">
           <Hds::Form::Select::Field multiple={{if (eq type "multiple") true null}} as |F|>
             <F.Label>Lorem ipsum dolor</F.Label>
@@ -238,7 +238,7 @@
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="With legend + Required">
       <Hds::Form::Select::Field @isRequired={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>
@@ -263,7 +263,7 @@
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Disabled">
       <Hds::Form::Select::Field disabled={{true}} as |F|>
         <F.Label>Lorem ipsum dolor</F.Label>

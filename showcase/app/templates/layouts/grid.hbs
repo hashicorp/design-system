@@ -78,7 +78,7 @@
 
   <Shw::Text::H3>Column width</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     <SG.Item @label="33.33% width columns">
       <Shw::Outliner>
         <Hds::Layout::Grid @gap="24" @columnWidth="33.33%">
@@ -136,7 +136,7 @@
 
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
-  <Shw::Grid @columns="4" @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
+  <Shw::Grid @columns={{4}} @gap="2rem" class="shw-layout-grid-example-tint-flex-items" as |SG|>
     {{#each @model.GAPS as |gap|}}
       <SG.Item @label="gap={{gap}}">
         <Shw::Outliner>
@@ -205,7 +205,7 @@
 
   <Shw::Text::H3>colspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="250px" @gap="12" as |HLG|>
@@ -268,7 +268,7 @@
 
   <Shw::Text::H3>rowspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ rowspan=2">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
@@ -312,7 +312,7 @@
 
   <Shw::Text::H3>colspan & rowspan</Shw::Text::H3>
 
-  <Shw::Grid @columns="1" @gap="1.5rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="1.5rem" as |SG|>
     <SG.Item @label="1st item w/ colspan=2 & rowspan=3">
       <Shw::Outliner>
         <Hds::Layout::Grid @columnMinWidth="33.33%" @gap="12" as |HLG|>
@@ -345,7 +345,7 @@
 <section data-test-percy>
   <Shw::Text::H2>Examples</Shw::Text::H2>
 
-  <Shw::Grid @columns="1" @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{1}} @gap="2rem" as |SG|>
     <SG.Item @label="3 column layout Card layout using columnWidth=33.33%">
       <Hds::Layout::Grid @columnWidth="33.33%" @gap="32">
         <Hds::Card::Container @level="mid" @hasBorder={{true}} {{style padding="24px"}}>

@@ -44,7 +44,7 @@
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
     <Shw::Text::H3>Content</Shw::Text::H3>
 
-    <Shw::Grid @columns="3" @gap="2rem" as |SG|>
+    <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
       <SG.Item @label="Only label">
         <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label text</F.Label>
@@ -91,7 +91,7 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Grid @columns="3" @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
     <SG.Item @label="Disabled">
       <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
         <F.Label>This is the label text</F.Label>

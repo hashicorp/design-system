@@ -132,7 +132,7 @@
 
   <Shw::Text::H3>Content</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::Textarea::Field @value="Ut enim ad minim veniam, quis nostrud exercitation ullamco" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -188,7 +188,7 @@
 
   <Shw::Text::H3>Character count</Shw::Text::H3>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::Textarea::Field @value={{this.defaultText}} {{on "input" (fn this.updateValue "defaultText")}} as |F|>
         <F.Label>This is the label text</F.Label>

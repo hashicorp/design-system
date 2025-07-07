@@ -265,7 +265,7 @@
 
   <Shw::Text::H4>Single line</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -318,7 +318,7 @@
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -381,7 +381,7 @@
 
   <Shw::Text::H4>Single line</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::MaskedInput::Field
         @value={{this.defaultText}}
@@ -428,7 +428,7 @@
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}

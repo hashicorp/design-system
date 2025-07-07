@@ -553,7 +553,7 @@ SPDX-License-Identifier: MPL-2.0
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SF|>
+  <Shw::Grid @columns={{6}} class="shw-component-dropdown-states-matrix" as |SF|>
     {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
     {{#each @model.TOGGLE_STATES as |state|}}
       <SF.Item>
