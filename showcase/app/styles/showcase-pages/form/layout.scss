@@ -1,0 +1,99 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM LAYOUT
+
+@use "../../typography" as *;
+
+body.components-form-layout {
+  // increase contrast
+  .shw-placeholder {
+    color: #000;
+  }
+
+  .shw-component-form-layout-button-highlight {
+    display: block;
+    margin: 24px 0;
+  }
+
+  .shw-component-form-layout-highlight-elements,
+  .shw-component-form-layout-highlight-elements-and-placeholders {
+    .hds-form {
+      background-color: #f6fcff;
+      outline: 1px dashed #78909c;
+    }
+
+    .hds-form__header,
+    .hds-form__section,
+    .hds-button-set {
+      outline: 1px dashed #78909c;
+    }
+
+    .hds-form__header,
+    .hds-form__section,
+    .hds-button-set {
+      background: #d2f4ff;
+    }
+
+    .hds-form__section-header {
+      background: #add8e6;
+    }
+
+    .hds-form__section {
+      background: #d2f4ff;
+
+      > *[class*="hds-form"] {
+        background: #bfecfb;
+      }
+    }
+
+    .hds-form__section-multi-field-group {
+      background: #bfecfb;
+
+      > * {
+        background: #add8e6;
+      }
+    }
+  }
+
+  .shw-component-form-layout-highlight-elements-and-placeholders {
+    .shw-placeholder {
+      background-color: #add8e6;
+    }
+  }
+
+  .shw-component-form-layout-examples-wrapper {
+    > .shw-label {
+      margin-bottom: 16px;
+    }
+  }
+}
+
+// FRAMELESS PAGES
+
+body.components-form.frameless {
+  .shw-component-form-layout-frameless-demo-complex-top-toolbar {
+    @include shw-font-family("system sans");
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 24px 0;
+    font-size: 0.9rem;
+
+    .shw-component-form-layout-button-highlight {
+      margin: 0;
+    }
+  }
+
+  .shw-component-form-layout-frameless-demo-complex-custom-component {
+    position: relative;
+    isolation: isolate;
+
+    .shw-component-form-layout-frameless-demo-complex-custom-component__toggle {
+      position: absolute;
+      top: 15px;
+      right: 0;
+    }
+  }
+}

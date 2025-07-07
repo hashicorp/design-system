@@ -71,17 +71,23 @@ When the Modal dialog contains information that might be lost on close, use a co
       Why do you want to leave the beta?
     </M.Header>
     <M.Body>
-      <form id="leaving-beta-form" {{on "submit" (fn this.submitForm)}}>
-        <Hds::Form::Select::Field autofocus @width="100%" as |F|>
-          <F.Label>Select the primary reason</F.Label>
-          <F.Options>
-            <option></option>
-          </F.Options>
-        </Hds::Form::Select::Field>
-        <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
-          <F.Label>Your feedback</F.Label>
-        </Hds::Form::Textarea::Field>
-      </form>
+      <Hds::Form
+        id="leaving-beta-form"
+        {{on "submit" (fn this.submitForm)}}
+        as |FORM|
+      >
+        <FORM.Section>
+          <Hds::Form::Select::Field autofocus @width="100%" as |F|>
+            <F.Label>Select the primary reason</F.Label>
+            <F.Options>
+              <option></option>
+            </F.Options>
+          </Hds::Form::Select::Field>
+          <Hds::Form::Textarea::Field @isOptional={{true}} as |F|>
+            <F.Label>Your feedback</F.Label>
+          </Hds::Form::Textarea::Field>
+        </FORM.Section>
+      </Hds::Form>
     </M.Body>
     <M.Footer as |F|>
       <Hds::ButtonSet>

@@ -25,6 +25,7 @@ export interface HdsFormMaskedInputBaseSignature {
     visibilityToggleAriaMessageText?: HdsFormVisibilityToggleSignature['Args']['ariaMessageText'];
     width?: string;
     height?: string;
+    ariaDescribedBy?: string;
   };
   Element: HTMLElement;
 }

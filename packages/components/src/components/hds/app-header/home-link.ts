@@ -12,21 +12,37 @@ import type { HdsInteractiveSignature } from '../interactive/';
 export interface HdsAppHeaderHomeLinkSignature {
   Args: HdsInteractiveSignature['Args'] & {
     icon: HdsIconSignature['Args']['name'];
+    isIconOnly?: boolean;
     color?: string;
-    ariaLabel: string;
+    text: string;
   };
   Element: HdsInteractiveSignature['Element'];
 }
 
 export default class HdsAppHeaderHomeLink extends Component<HdsAppHeaderHomeLinkSignature> {
-  get ariaLabel(): string {
-    const { ariaLabel } = this.args;
+  get text(): string {
+    const { text } = this.args;
 
     assert(
-      '@ariaLabel for "Hds::AppHeader::HomeLink" ("Logo") must have a valid value',
-      ariaLabel !== undefined
+      '@text for "Hds::AppHeader::HomeLink" must have a valid value',
+      text !== undefined
     );
 
-    return ariaLabel;
+    return text;
+  }
+
+  get icon(): HdsIconSignature['Args']['name'] {
+    const { icon } = this.args;
+
+    assert(
+      '@icon name for "Hds::AppHeader::HomeLink" must be provided',
+      icon !== undefined
+    );
+
+    return icon;
+  }
+
+  get isIconOnly(): boolean {
+    return this.args.isIconOnly ?? true;
   }
 }

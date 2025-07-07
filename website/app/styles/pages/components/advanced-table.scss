@@ -11,4 +11,17 @@
       margin-top: 16px;
     }
   }
+
+  .doc-advanced-table-cell-content-div {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+  }
+
+  .doc-advanced-table-text-truncate {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }

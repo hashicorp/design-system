@@ -13,6 +13,10 @@ import type HdsAdvancedTableThButtonExpandComponent from './components/hds/advan
 import type HdsAdvancedTableThButtonSortComponent from './components/hds/advanced-table/th-button-sort';
 import type HdsAdvancedTableThComponent from './components/hds/advanced-table/th';
 import type HdsAdvancedTableThButtonTooltipComponent from './components/hds/advanced-table/th-button-tooltip';
+import type HdsAdvancedTableThContextMenu from './components/hds/advanced-table/th-context-menu';
+import type HdsAdvancedTableThReorderDropTarget from './components/hds/advanced-table/th-reorder-drop-target';
+import type HdsAdvancedTableThReorderHandle from './components/hds/advanced-table/th-reorder-handle';
+import type HdsAdvancedTableThResizeHandle from './components/hds/advanced-table/th-resize-handle';
 import type HdsAdvancedTableThSortComponent from './components/hds/advanced-table/th-sort';
 import type HdsAdvancedTableThSelectableComponent from './components/hds/advanced-table/th-selectable';
 import type HdsAdvancedTableTrComponent from './components/hds/advanced-table/tr';
@@ -98,6 +102,8 @@ import type HdsFlyoutDescriptionComponent from './components/hds/flyout/descript
 import type HdsFlyoutFooterComponent from './components/hds/flyout/footer';
 import type HdsFlyoutHeaderComponent from './components/hds/flyout/header';
 import type HdsFlyoutComponent from './components/hds/flyout';
+
+import type HdsFormComponent from './components/hds/form';
 import type HdsFormCharacterCountComponent from './components/hds/form/character-count';
 import type HdsFormCheckboxBaseComponent from './components/hds/form/checkbox/base';
 import type HdsFormCheckboxFieldComponent from './components/hds/form/checkbox/field';
@@ -108,8 +114,17 @@ import type HdsFormFieldComponent from './components/hds/form/field';
 import type HdsFormFieldsetComponent from './components/hds/form/fieldset';
 import type HdsFormFileInputBaseComponent from './components/hds/form/file-input/base';
 import type HdsFormFileInputFieldComponent from './components/hds/form/file-input/field';
+import type HdsFormFooterComponent from './components/hds/form/footer';
+import type HdsFormHeaderComponent from './components/hds/form/header';
+import type HdsFormHeaderDescriptionComponent from './components/hds/form/header/description';
+import type HdsFormHeaderTitleComponent from './components/hds/form/header/title';
 import type HdsFormHelperTextComponent from './components/hds/form/helper-text';
 import type HdsFormIndicatorComponent from './components/hds/form/indicator';
+import type HdsFormKeyValueInputsComponent from './components/hds/form/key-value-inputs/index.ts';
+import type HdsFormKeyValueInputsAddRowButtonComponent from './components/hds/form/key-value-inputs/add-row-button.ts';
+import type HdsFormKeyValueInputsDeleteRowButtonComponent from './components/hds/form/key-value-inputs/delete-row-button.ts';
+import type HdsFormKeyValueInputsFieldComponent from './components/hds/form/key-value-inputs/field.ts';
+import type HdsFormKeyValueInputsGenericComponent from './components/hds/form/key-value-inputs/generic.ts';
 import type HdsFormLabelComponent from './components/hds/form/label';
 import type HdsFormLegendComponent from './components/hds/form/legend';
 import type HdsFormMaskedInputBaseComponent from './components/hds/form/masked-input/base';
@@ -121,8 +136,13 @@ import type HdsFormRadioCardComponent from './components/hds/form/radio-card';
 import type HdsFormRadioCardDescriptionComponent from './components/hds/form/radio-card/description';
 import type HdsFormRadioCardGroupComponent from './components/hds/form/radio-card/group';
 import type HdsFormRadioCardLabelComponent from './components/hds/form/radio-card/label';
+import type HdsFormSectionComponent from './components/hds/form/section';
+import type HdsFormSectionHeaderComponent from './components/hds/form/section/header.ts';
+import type HdsFormSectionMultiFieldGroupComponent from './components/hds/form/section/multi-field-group/index.ts';
+import type HdsFormSectionMultiFieldGroupItemComponent from './components/hds/form/section/multi-field-group/item.ts';
 import type HdsFormSelectBaseComponent from './components/hds/form/select/base';
 import type HdsFormSelectFieldComponent from './components/hds/form/select/field';
+import type HdsFormSeparatorComponent from './components/hds/form/separator';
 import type HdsFormSuperSelectAfterOptionsComponent from './components/hds/form/super-select/after-options';
 import type HdsFormSuperSelectOptionGroupComponent from './components/hds/form/super-select/option-group';
 import type HdsFormSuperSelectPlaceholderComponent from './components/hds/form/super-select/placeholder';
@@ -138,6 +158,7 @@ import type HdsFormToggleBaseComponent from './components/hds/form/toggle/base';
 import type HdsFormToggleFieldComponent from './components/hds/form/toggle/field';
 import type HdsFormToggleGroupComponent from './components/hds/form/toggle/group';
 import type HdsFormVisibilityToggleComponent from './components/hds/form/visibility-toggle';
+
 import type HdsIconComponent from './components/hds/icon';
 import type HdsIconTileComponent from './components/hds/icon-tile';
 import type HdsInteractiveComponent from './components/hds/interactive';
@@ -257,6 +278,14 @@ export default interface HdsComponentsRegistry {
   'Hds::AdvancedTable::ThButtonSort': typeof HdsAdvancedTableThButtonSortComponent;
   'hds/advanced-table/th-button-sort': typeof HdsAdvancedTableThButtonSortComponent;
   'Hds::AdvancedTable::ThButtonTooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
+  'Hds::AdvancedTable::ThContextMenu': typeof HdsAdvancedTableThContextMenu;
+  'hds/advanced-table/th-context-menu': typeof HdsAdvancedTableThContextMenu;
+  'Hds::AdvancedTable::ThReorderDropTarget': typeof HdsAdvancedTableThReorderDropTarget;
+  'hds/advanced-table/th-reorder-drop-target': typeof HdsAdvancedTableThReorderDropTarget;
+  'Hds::AdvancedTable::ThReorderHandle': typeof HdsAdvancedTableThReorderHandle;
+  'hds/advanced-table/th-reorder-handle': typeof HdsAdvancedTableThReorderHandle;
+  'Hds::AdvancedTable::ThResizeHandle': typeof HdsAdvancedTableThResizeHandle;
+  'hds/advanced-table/th-resize-handle': typeof HdsAdvancedTableThResizeHandle;
   'hds/advanced-table/th-button-tooltip': typeof HdsAdvancedTableThButtonTooltipComponent;
   'Hds::AdvancedTable::ThSort': typeof HdsAdvancedTableThSortComponent;
   'hds/advanced-table/th-sort': typeof HdsAdvancedTableThSortComponent;
@@ -550,6 +579,8 @@ export default interface HdsComponentsRegistry {
   'hds/flyout/header': typeof HdsFlyoutHeaderComponent;
 
   // FORM
+  'Hds::Form': typeof HdsFormComponent;
+  'hds/form': typeof HdsFormComponent;
 
   // Form CharacterCount
   'Hds::Form::CharacterCount': typeof HdsFormCharacterCountComponent;
@@ -588,6 +619,22 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::FileInput::Field': typeof HdsFormFileInputFieldComponent;
   'hds/form/file-input/field': typeof HdsFormFileInputFieldComponent;
 
+  // Form Footer
+  'Hds::Form::Footer': typeof HdsFormFooterComponent;
+  'hds/form/footer': typeof HdsFormFooterComponent;
+
+  // Form Header
+  'Hds::Form::Header': typeof HdsFormHeaderComponent;
+  'hds/form/header': typeof HdsFormHeaderComponent;
+
+  // Form Header Description
+  'Hds::Form::Header::Description': typeof HdsFormHeaderDescriptionComponent;
+  'hds/form/header/description': typeof HdsFormHeaderDescriptionComponent;
+
+  // Form Header Title
+  'Hds::Form::Header::Title': typeof HdsFormHeaderTitleComponent;
+  'hds/form/header/title': typeof HdsFormHeaderTitleComponent;
+
   // Form HelperText
   'Hds::Form::HelperText': typeof HdsFormHelperTextComponent;
   'hds/form/helper-text': typeof HdsFormHelperTextComponent;
@@ -595,6 +642,18 @@ export default interface HdsComponentsRegistry {
   // Form Indicator
   'Hds::Form::Indicator': typeof HdsFormIndicatorComponent;
   'hds/form/indicator': typeof HdsFormIndicatorComponent;
+
+  // Form KeyValueInputs
+  'Hds::Form::KeyValueInputs': typeof HdsFormKeyValueInputsComponent;
+  'hds/form/key-value-inputs': typeof HdsFormKeyValueInputsComponent;
+  'Hds::Form::KeyValueInputs::AddRowButton': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'hds/form/key-value-inputs/add-row-button': typeof HdsFormKeyValueInputsAddRowButtonComponent;
+  'Hds::Form::KeyValueInputs::DeleteRowButton': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/delete-row-button': typeof HdsFormKeyValueInputsDeleteRowButtonComponent;
+  'hds/form/key-value-inputs/field': typeof HdsFormKeyValueInputsFieldComponent;
+  'Hds::Form::KeyValueInputs::Field': typeof HdsFormKeyValueInputsFieldComponent;
+  'hds/form/key-value-inputs/generic': typeof HdsFormKeyValueInputsGenericComponent;
+  'Hds::Form::KeyValueInputs::Generic': typeof HdsFormKeyValueInputsGenericComponent;
 
   // Form Label
   'Hds::Form::Label': typeof HdsFormLabelComponent;
@@ -634,12 +693,32 @@ export default interface HdsComponentsRegistry {
   'Hds::Form::RadioCard::Label': typeof HdsFormRadioCardLabelComponent;
   'hds/form/radio-card/label': typeof HdsFormRadioCardLabelComponent;
 
+  // Form Section
+  'Hds::Form::Section': typeof HdsFormSectionComponent;
+  'hds/form/section': typeof HdsFormSectionComponent;
+
+  // Form Section Header
+  'Hds::Form::Section::Header': typeof HdsFormSectionHeaderComponent;
+  'hds/form/section/header': typeof HdsFormSectionHeaderComponent;
+
+  // Form Section MultiFieldGroup
+  'Hds::Form::Section::MultiFieldGroup': typeof HdsFormSectionMultiFieldGroupComponent;
+  'hds/form/section/multi-field-group': typeof HdsFormSectionMultiFieldGroupComponent;
+
+  // Form Section MultiFieldGroup Item
+  'Hds::Form::Section::MultiFieldGroup::Item': typeof HdsFormSectionMultiFieldGroupItemComponent;
+  'hds/form/section/multi-field-group/item': typeof HdsFormSectionMultiFieldGroupItemComponent;
+
   // Form Select
   'Hds::Form::Select::Base': typeof HdsFormSelectBaseComponent;
   'hds/form/select/base': typeof HdsFormSelectBaseComponent;
 
   'Hds::Form::Select::Field': typeof HdsFormSelectFieldComponent;
   'hds/form/select/field': typeof HdsFormSelectFieldComponent;
+
+  // Form Separator
+  'Hds::Form::Separator': typeof HdsFormSeparatorComponent;
+  'hds/form/separator': typeof HdsFormSeparatorComponent;
 
   // Form Super Select
   'Hds::Form::SuperSelect::AfterOptions': typeof HdsFormSuperSelectAfterOptionsComponent;

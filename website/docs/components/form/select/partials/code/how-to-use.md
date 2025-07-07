@@ -103,25 +103,29 @@ For example:
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
 
 ```handlebars
-<Hds::Form::Select::Field @isRequired={{true}} name="demo-target-infrastructure" as |F|>
-  <F.Label>Target infrastructure</F.Label>
-  <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
-  <F.Options>
-    <option value=""></option>
-    <option value="Kubernetes">Kubernetes</option>
-    <option value="Other">Other</option>
-  </F.Options>
-</Hds::Form::Select::Field>
-<br />
-<Hds::Form::Select::Field @isOptional={{true}} name="demo-target-infrastructure" as |F|>
-  <F.Label>Target infrastructure</F.Label>
-  <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
-  <F.Options>
-    <option value=""></option>
-    <option value="Kubernetes">Kubernetes</option>
-    <option value="Other">Other</option>
-  </F.Options>
-</Hds::Form::Select::Field>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Select::Field @isRequired={{true}} name="demo-target-infrastructure" as |F|>
+      <F.Label>Target infrastructure</F.Label>
+      <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
+      <F.Options>
+        <option value=""></option>
+        <option value="Kubernetes">Kubernetes</option>
+        <option value="Other">Other</option>
+      </F.Options>
+    </Hds::Form::Select::Field>
+
+    <Hds::Form::Select::Field @isOptional={{true}} name="demo-target-infrastructure" as |F|>
+      <F.Label>Target infrastructure</F.Label>
+      <F.HelperText>The target infrastructure is where you want to deploy your apps.</F.HelperText>
+      <F.Options>
+        <option value=""></option>
+        <option value="Kubernetes">Kubernetes</option>
+        <option value="Other">Other</option>
+      </F.Options>
+    </Hds::Form::Select::Field>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Validation

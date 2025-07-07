@@ -10,6 +10,7 @@
       @isInvalid={{@isInvalid}}
       @height={{@height}}
       id={{this.id}}
+      aria-describedby={{@ariaDescribedBy}}
       ...attributes
     />
   {{else}}
@@ -18,6 +19,7 @@
       @value={{@value}}
       @isInvalid={{@isInvalid}}
       id={{this.id}}
+      aria-describedby={{@ariaDescribedBy}}
       ...attributes
     />
   {{/if}}

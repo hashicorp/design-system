@@ -110,23 +110,25 @@ When helper text is added, the component automatically adds an `aria-describedby
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is “required” or “optional”.
 
 ```handlebars
-<Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="demo-methods" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
-  <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
-  <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
-</Hds::Form::Checkbox::Group>
-```
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Checkbox::Group @isRequired={{true}} @layout="horizontal" @name="demo-methods" as |G|>
+      <G.Legend>Methods</G.Legend>
+      <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
+      <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
+      <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
+      <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
+    </Hds::Form::Checkbox::Group>
 
-```handlebars
-<Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="demo-methods" as |G|>
-  <G.Legend>Methods</G.Legend>
-  <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
-  <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
-  <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
-  <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
-</Hds::Form::Checkbox::Group>
+    <Hds::Form::Checkbox::Group @isOptional={{true}} @layout="horizontal" @name="demo-methods" as |G|>
+      <G.Legend>Methods</G.Legend>
+      <G.HelperText>All methods are applied by default unless specified.</G.HelperText>
+      <G.CheckboxField checked as |F|><F.Label>POST</F.Label></G.CheckboxField>
+      <G.CheckboxField checked as |F|><F.Label>GET</F.Label></G.CheckboxField>
+      <G.CheckboxField checked as |F|><F.Label>PUT</F.Label></G.CheckboxField>
+    </Hds::Form::Checkbox::Group>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Validation

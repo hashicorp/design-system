@@ -22,7 +22,7 @@ navigation:
     - list
   order: 101
 status:
-  updated: 4.20.1
+  updated: 4.21.0
 ---
 
 <section data-tab="Guidelines">
@@ -39,6 +39,7 @@ status:
   @include "partials/specifications/anatomy.md"
   @include "partials/specifications/states.md"
   @include "partials/specifications/sticky-column.md"
+  @include "partials/specifications/resizing-columns.md"
 </section>
 
 <section data-tab="Accessibility">

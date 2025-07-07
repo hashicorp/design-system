@@ -108,21 +108,25 @@ When helper text is added, the component automatically adds an `aria-describedby
 Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is “required” or “optional”.
 
 ```handlebars
-<Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" @name="method-demo2" as |G|>
-  <G.Legend>Method</G.Legend>
-  <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-  <G.RadioField as |F|><F.Label>POST</F.Label></G.RadioField>
-  <G.RadioField as |F|><F.Label>GET</F.Label></G.RadioField>
-  <G.RadioField as |F|><F.Label>PUT</F.Label></G.RadioField>
-</Hds::Form::Radio::Group>
-<br />
-<Hds::Form::Radio::Group @isOptional={{true}} @layout="horizontal" @name="method-demo3" as |G|>
-  <G.Legend>Method</G.Legend>
-  <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
-  <G.RadioField as |F|><F.Label>POST</F.Label></G.RadioField>
-  <G.RadioField as |F|><F.Label>GET</F.Label></G.RadioField>
-  <G.RadioField as |F|><F.Label>PUT</F.Label></G.RadioField>
-</Hds::Form::Radio::Group>
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::Radio::Group @isRequired={{true}} @layout="horizontal" @name="method-demo2" as |G|>
+      <G.Legend>Method</G.Legend>
+      <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
+      <G.RadioField as |F|><F.Label>POST</F.Label></G.RadioField>
+      <G.RadioField as |F|><F.Label>GET</F.Label></G.RadioField>
+      <G.RadioField as |F|><F.Label>PUT</F.Label></G.RadioField>
+    </Hds::Form::Radio::Group>
+
+    <Hds::Form::Radio::Group @isOptional={{true}} @layout="horizontal" @name="method-demo3" as |G|>
+      <G.Legend>Method</G.Legend>
+      <G.HelperText>Choose which HTTP method to use for the communication channel.</G.HelperText>
+      <G.RadioField as |F|><F.Label>POST</F.Label></G.RadioField>
+      <G.RadioField as |F|><F.Label>GET</F.Label></G.RadioField>
+      <G.RadioField as |F|><F.Label>PUT</F.Label></G.RadioField>
+    </Hds::Form::Radio::Group>
+  </FORM.Section>
+</Hds::Form>
 ```
 
 #### Validation

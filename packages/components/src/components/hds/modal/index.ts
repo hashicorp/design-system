@@ -9,10 +9,8 @@ import { action } from '@ember/object';
 import { assert } from '@ember/debug';
 import { getElementId } from '../../../utils/hds-get-element-id.ts';
 import { buildWaiter } from '@ember/test-waiters';
-import { registerDestructor } from '@ember/destroyable';
 
 import type { WithBoundArgs } from '@glint/template';
-import type Owner from '@ember/owner';
 import type { HdsModalSizes, HdsModalColors } from './types.ts';
 
 import HdsDialogPrimitiveHeaderComponent from '../dialog-primitive/header.ts';
@@ -63,15 +61,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
   private _element!: HTMLDialogElement;
   private _body!: HTMLElement;
   private _bodyInitialOverflowValue = '';
-  private _clickHandler!: (event: MouseEvent) => void;
-
-  constructor(owner: Owner, args: HdsModalSignature['Args']) {
-    super(owner, args);
-
-    registerDestructor(this, (): void => {
-      document.removeEventListener('click', this._clickHandler, true);
-    });
-  }
 
   get isDismissDisabled(): boolean {
     return this.args.isDismissDisabled ?? false;
@@ -139,29 +128,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
       }
     } else {
       this._isOpen = false;
-
-      // Reset page `overflow` property
-      if (this._body) {
-        this._body.style.removeProperty('overflow');
-        if (this._bodyInitialOverflowValue === '') {
-          if (this._body.style.length === 0) {
-            this._body.removeAttribute('style');
-          }
-        } else {
-          this._body.style.setProperty(
-            'overflow',
-            this._bodyInitialOverflowValue
-          );
-        }
-      }
-
-      // Return focus to a specific element (if provided)
-      if (this.args.returnFocusTo) {
-        const initiator = document.getElementById(this.args.returnFocusTo);
-        if (initiator) {
-          initiator.focus();
-        }
-      }
     }
   }
 
@@ -185,20 +151,6 @@ export default class HdsModal extends Component<HdsModalSignature> {
     if (!this._element.open) {
       this.open();
     }
-
-    this._clickHandler = (event: MouseEvent) => {
-      // check if the click is outside the modal and the modal is open
-      if (!this._element.contains(event.target as Node) && this._isOpen) {
-        if (!this.isDismissDisabled) {
-          void this.onDismiss();
-        }
-      }
-    };
-
-    document.addEventListener('click', this._clickHandler, {
-      capture: true,
-      passive: false,
-    });
   }
 
   @action
@@ -233,6 +185,7 @@ export default class HdsModal extends Component<HdsModalSignature> {
   async onDismiss(): Promise<void> {
     // allow ember test helpers to be aware of when the `close` event fires
     // when using `click` or other helpers from '@ember/test-helpers'
+    // Notice: this code will get stripped out in production builds (DEBUG evaluates to `true` in dev/test builds, but `false` in prod builds)
     if (this._element.open) {
       const token = waiter.beginAsync();
       const listener = () => {
@@ -244,5 +197,28 @@ export default class HdsModal extends Component<HdsModalSignature> {
 
     // Make modal dialog invisible using the native `close` method
     this._element.close();
+
+    // Reset page `overflow` property
+    if (this._body) {
+      this._body.style.removeProperty('overflow');
+      if (this._bodyInitialOverflowValue === '') {
+        if (this._body.style.length === 0) {
+          this._body.removeAttribute('style');
+        }
+      } else {
+        this._body.style.setProperty(
+          'overflow',
+          this._bodyInitialOverflowValue
+        );
+      }
+    }
+
+    // Return focus to a specific element (if provided)
+    if (this.args.returnFocusTo) {
+      const initiator = document.getElementById(this.args.returnFocusTo);
+      if (initiator) {
+        initiator.focus();
+      }
+    }
   }
 }

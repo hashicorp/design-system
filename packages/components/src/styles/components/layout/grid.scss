@@ -14,7 +14,7 @@
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a fallback value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
   grid-template-columns: repeat(
-    auto-fit,
+    var(--hds-layout-grid-column-fill-type, auto-fit),
     minmax(calc(var(--hds-layout-grid-column-min-width, 0px) - var(--hds-layout-grid-column-gap, 0px)), 1fr)
   );
 

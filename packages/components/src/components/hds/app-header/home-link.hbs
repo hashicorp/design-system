@@ -14,7 +14,10 @@
   @href={{@href}}
   @isHrefExternal={{@isHrefExternal}}
   ...attributes
-  aria-label={{this.ariaLabel}}
+  aria-label={{if this.isIconOnly this.text null}}
 >
   <Hds::Icon @name={{@icon}} @color={{@color}} @stretched={{true}} />
+  {{#unless this.isIconOnly}}
+    <Hds::Text::Display @size="100" @color="foreground-high-contrast">{{this.text}}</Hds::Text::Display>
+  {{/unless}}
 </Hds::Interactive>

@@ -81,6 +81,8 @@ interface BaseHdsAdvancedTableColumn {
   sortingFunction?: HdsAdvancedTableSortingFunction<unknown>;
   tooltip?: string;
   width?: string;
+  minWidth?: `${number}px`;
+  maxWidth?: `${number}px`;
 }
 
 interface SortableHdsAdvancedTableColumn extends BaseHdsAdvancedTableColumn {
@@ -111,3 +113,17 @@ export interface HdsAdvancedTableOnSelectionChangeSignature {
 }
 
 export type HdsAdvancedTableModel = Array<Record<string, unknown>>;
+
+export type HdsAdvancedTableColumnResizeCallback = (
+  columnKey: string,
+  newWidth?: string
+) => void;
+
+export type HdsAdvancedTableColumnReorderCallback = (
+  columnOrder: string[]
+) => void;
+
+export interface HdsAdvancedTableCell {
+  columnKey: string;
+  content: unknown;
+}

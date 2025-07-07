@@ -63,8 +63,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
           # Token setup in hashibot-hds' account
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # Generate npm provenance statement
-          NPM_CONFIG_PROVENANCE: true
 
       - name: Compute new packages info
         id: packagesData
@@ -77,7 +75,7 @@ jobs:
           echo "::set-output name=packageList::$(echo ${{toJson(steps.changesets.outputs.publishedPackages)}} | jq 'reduce .[] as $item (""; . + "#### \($item.name)@\($item.version)\n```\nyarn up -C \($item.name)@rc\n```\n")')"
 
       - name: Comment
-        uses: marocchino/sticky-pull-request-comment@67d0dec7b07ed060a405f9b2a64b8ab319fdd7db # v2.9.2
+        uses: marocchino/sticky-pull-request-comment@d2ad0de260ae8b0235ce059e63f2949ba9e05943 # v2.9.3
         if: success() && steps.changesets.outputs.published == 'true'
         with:
           header: 'rc-release'
