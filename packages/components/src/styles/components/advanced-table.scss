@@ -23,6 +23,7 @@ $hds-advanced-table-cell-padding-medium: 14px 16px 13px 16px; // the 1px differe
 $hds-advanced-table-cell-padding-short: 6px 16px 5px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-cell-padding-tall: 22px 16px 21px 16px; // the 1px difference is to account for the bottom border
 $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown triggers in the header cell
+$hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
 
 // ADVANCED TABLE
 
@@ -111,6 +112,72 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
         z-index: 1;
         isolation: isolate;
       }
+    }
+
+    .hds-advanced-table__th-reorder-drop-target {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    // is being dragged
+    .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
+      background-color: var(--token-color-surface-strong);
+    }
+
+    // is dragging over
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: var(--token-color-palette-blue-300);
+        content: "";
+      }
+    }
+
+    // dragging over left
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
+      left: 0;
+      transform: translateX(-3px);
+    }
+
+    // dragging over left and is first
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left.hds-advanced-table__th-reorder-drop-target--is-first::after {
+      transform: translateX(0);
+    }
+
+    // dragging over right
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
+      right: 0;
+      transform: translateX(3px);
+    }
+
+    // dragging over right and is last
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
+      transform: translateX(0);
+    }
+
+    .hds-advanced-table__th-reorder-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 2;
+      width: 24px;
+      height: 24px;
+      background-color: var(--token-color-surface-primary);
+      border: 1px solid $hds-advanced-table-border-color;
+      border-radius: var(--token-border-radius-x-small);
+      transform: translateX(-50%);
     }
 
     .hds-advanced-table__th-resize-handle {
@@ -582,4 +649,13 @@ $hds-advanced-table-button-size: 24px; // the size of the buttons and dropdown t
   height: 8px;
   // the rgb value is equivalent to neutral/600, need to use rgba for the right opacity
   background: linear-gradient(to bottom, rgba(59, 61, 69, 0%) 0%, rgba(59, 61, 69, 8%) 100%);
+}
+
+.hds-advanced-table__th-reorder-drag-preview {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  background-color: $hds-advanced-table-drag-preview-background-color;
+  border: 5px solid var(--token-color-focus-action-external);
+  border-radius: var(--token-border-radius-medium);
 }
