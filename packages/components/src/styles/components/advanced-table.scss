@@ -184,6 +184,72 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       transform: translateX(0);
     }
 
+    .hds-advanced-table__th-reorder-drop-target {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    // is being dragged
+    .hds-advanced-table__th-reorder-drop-target--is-being-dragged {
+      background-color: var(--token-color-surface-strong);
+    }
+
+    // is dragging over
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
+
+      &::after {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background-color: var(--token-color-palette-blue-300);
+        content: "";
+      }
+    }
+
+    // dragging over left
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
+      left: 0;
+      transform: translateX(-3px);
+    }
+
+    // dragging over left and is first
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left.hds-advanced-table__th-reorder-drop-target--is-first::after {
+      transform: translateX(0);
+    }
+
+    // dragging over right
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
+      right: 0;
+      transform: translateX(3px);
+    }
+
+    // dragging over right and is last
+    .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
+      transform: translateX(0);
+    }
+
+    .hds-advanced-table__th-reorder-handle {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      z-index: 2;
+      width: 24px;
+      height: 24px;
+      background-color: var(--token-color-surface-primary);
+      border: 1px solid $hds-advanced-table-border-color;
+      border-radius: var(--token-border-radius-x-small);
+      transform: translateX(-50%);
+    }
+
     .hds-advanced-table__th-resize-handle {
       @include hds-focus-ring-with-pseudo-element($position: absolute);
 
@@ -743,5 +809,4 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   background-color: $hds-advanced-table-drag-preview-background-color;
   border: 5px solid var(--token-color-focus-action-external);
   border-radius: var(--token-border-radius-medium);
-  box-shadow: var(--token-elevation-mid-box-shadow);
 }
