@@ -119,25 +119,11 @@ export type HdsAdvancedTableColumnResizeCallback = (
   newWidth?: string
 ) => void;
 
-export type HdsAdvancedTableColumnReorderCallback = ({
-  column,
-  newOrder,
-  insertedAt,
-}: {
-  column: HdsAdvancedTableColumn;
-  newOrder: string[];
-  insertedAt: number;
-}) => void;
+export type HdsAdvancedTableColumnReorderCallback = (
+  columnOrder: string[]
+) => void;
 
 export interface HdsAdvancedTableCell {
   columnKey: string;
   content: unknown;
 }
-
-export enum HdsAdvancedTableColumnReorderSideValues {
-  Left = 'left',
-  Right = 'right',
-}
-
-export type HdsAdvancedTableColumnReorderSide =
-  `${HdsAdvancedTableColumnReorderSideValues}`;

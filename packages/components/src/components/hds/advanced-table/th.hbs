@@ -87,7 +87,17 @@
         />
       {{/if}}
 
-      {{#if (and @hasResizableColumns (not @column.isLast) (not @column.table.hasColumnBeingDragged))}}
+      {{#if @hasReorderableColumns}}
+        <Hds::AdvancedTable::ThReorderHandle
+          @column={{@column}}
+          @columnWidth={{this._element.clientWidth}}
+          @tableHeight={{@tableHeight}}
+          @onReorderDragStart={{this.handleDragStart}}
+          @onReorderDragEnd={{@onReorderDragEnd}}
+        />
+      {{/if}}
+
+      {{#if (and @hasResizableColumns (not @isLastColumn))}}
         <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
           @tableHeight={{@tableHeight}}
@@ -98,14 +108,11 @@
     {{/if}}
   </Hds::Layout::Flex>
 
-  {{#if @column}}
-    {{#if (and @column.table.hasColumnBeingDragged (not @isStickyColumn))}}
-      <Hds::AdvancedTable::ThReorderDropTarget
-        @column={{@column}}
-        @hasSelectableRows={{@hasSelectableRows}}
-        @tableHeight={{@tableHeight}}
-        @onReorderDrop={{@onReorderDrop}}
-      />
-    {{/if}}
+  {{#if @column.table.hasColumnBeingDragged}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+    />
   {{/if}}
 </div>

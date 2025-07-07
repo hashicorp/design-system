@@ -21,7 +21,6 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
-import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
@@ -37,9 +36,8 @@ export interface HdsAdvancedTableThSignature {
     colspan?: number;
     depth?: number;
     hasExpandAllButton?: boolean;
-    hasReorderableColumns?: HdsAdvancedTableSignature['Args']['hasReorderableColumns'];
-    hasResizableColumns?: HdsAdvancedTableSignature['Args']['hasResizableColumns'];
-    hasSelectableRows?: HdsAdvancedTableSignature['Args']['isSelectable'];
+    hasReorderableColumns?: boolean;
+    hasResizableColumns?: boolean;
     isExpanded?: HdsAdvancedTableExpandState;
     isExpandable?: boolean;
     isStickyColumn?: boolean;
@@ -54,12 +52,11 @@ export interface HdsAdvancedTableThSignature {
     didInsertExpandButton?: (button: HTMLButtonElement) => void;
     onClickToggle?: () => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
-    onPinFirstColumn?: () => void;
     onReorderDragEnd?: () => void;
     onReorderDragStart?: (column: HdsAdvancedTableColumn) => void;
     onReorderDrop?: (
       column: HdsAdvancedTableColumn,
-      side: HdsAdvancedTableColumnReorderSide
+      side: 'left' | 'right'
     ) => void;
     willDestroyExpandButton?: (button: HTMLButtonElement) => void;
   };
@@ -159,9 +156,29 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
     return classes.join(' ');
   }
 
+  get showContextMenu(): boolean {
+    const { hasResizableColumns, hasReorderableColumns } = this.args;
+
+    return (hasResizableColumns || hasReorderableColumns) ?? false;
+  }
+
   @action
   handleDragStart(column: HdsAdvancedTableColumn): void {
-    this.args.onReorderDragStart?.(column);
+    const { onReorderDragStart } = this.args;
+
+    if (
+      column === undefined ||
+      column.key === undefined ||
+      typeof onReorderDragStart !== 'function'
+    ) {
+      return;
+    }
+
+    // Set the local state that shows this column is being dragged
+    column.isBeingDragged = true;
+
+    // Call the main action from the parent table component
+    onReorderDragStart(column);
   }
 
   @action onFocusTrapDeactivate(): void {

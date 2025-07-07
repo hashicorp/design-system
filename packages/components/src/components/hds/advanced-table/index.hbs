@@ -2,6 +2,8 @@
   Copyright (c) HashiCorp, Inc.
   SPDX-License-Identifier: MPL-2.0
 }}
+{{! TODO: Remove this when ready }}
+{{! @glint-nocheck }}
 
 <div
   class="hds-advanced-table__container
@@ -49,7 +51,7 @@
         @hasStickyColumn={{this.hasStickyFirstColumn}}
         @isStickyColumnPinned={{this.isStickyColumnPinned}}
       >
-        {{#each this._tableModel.orderedColumns as |column|}}
+        {{#each this._tableModel.orderedColumns as |column index|}}
           {{#if column.isSortable}}
             <Hds::AdvancedTable::ThSort
               @column={{column}}
@@ -89,11 +91,10 @@
               @tooltip={{column.tooltip}}
               @onClickToggle={{this._tableModel.toggleAll}}
               @onColumnResize={{@onColumnResize}}
-              @onPinFirstColumn={{this._onPinFirstColumn}}
               @onReorderDragEnd={{fn (mut this._tableModel.reorderDraggedColumn) null}}
               @onReorderDragStart={{fn (mut this._tableModel.reorderDraggedColumn)}}
-              @onReorderDrop={{this._tableModel.moveColumnToDropTarget}}
-              {{this._registerThElement column}}
+              @onReorderDrop={{this._tableModel.reorderColumn}}
+              {{this._setColumnWidth column}}
             >
               {{column.label}}
             </Hds::AdvancedTable::Th>
@@ -141,7 +142,7 @@
                   scope="row"
                   onClickToggle=T.onClickToggle
                 )
-                Td=(component "hds/advanced-table/td" align=@align)
+                Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
                 data=T.data
                 isOpen=T.isExpanded
                 rowIndex=T.rowIndex
@@ -171,7 +172,7 @@
                 isStickyColumn=this.hasStickyFirstColumn
                 isStickyColumnPinned=this.isStickyColumnPinned
               )
-              Td=(component "hds/advanced-table/td" align=@align)
+              Td=(component "hds/advanced-table/td" align=@align columns=this._tableModel.columns)
               data=record
               rowIndex=index
             )

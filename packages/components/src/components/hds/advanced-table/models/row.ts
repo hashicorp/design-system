@@ -39,17 +39,15 @@ export default class HdsAdvancedTableRow {
   }
 
   get orderedCells(): HdsAdvancedTableCell[] {
-    return this.columnOrder.map((key) => {
+    return this.columnOrder.reduce((acc, key) => {
       const cell = this.cells.find((cell) => cell.columnKey === key);
 
-      if (cell === undefined) {
-        throw new Error(
-          `Cell in the column with key ${key} not found for the row.`
-        );
+      if (cell) {
+        acc.push(cell);
       }
 
-      return cell;
-    });
+      return acc;
+    }, [] as HdsAdvancedTableCell[]);
   }
 
   constructor(args: HdsAdvancedTableRowArgs) {
@@ -83,6 +81,15 @@ export default class HdsAdvancedTableRow {
             childrenKey: this.childrenKey,
           })
       );
+    }
+  }
+
+  @action
+  updateColumnOrder(columnOrder: string[]) {
+    this.columnOrder = columnOrder;
+
+    for (const child of this.children) {
+      child.updateColumnOrder(columnOrder);
     }
   }
 
