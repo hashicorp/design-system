@@ -426,8 +426,8 @@ export default interface HdsComponentsRegistry {
   'hds/button-set': typeof HdsButtonSetComponent;
 
   // Card
-  'Hds::Card': typeof HdsCardContainerComponent;
-  'hds/card': typeof HdsCardContainerComponent;
+  'Hds::Card::Container': typeof HdsCardContainerComponent;
+  'hds/card/container': typeof HdsCardContainerComponent;
 
   // Code Block
   'Hds::CodeBlock': typeof HdsCodeBlockComponent;
