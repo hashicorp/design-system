@@ -18,33 +18,33 @@ interface MusicEntity {
     album: string;
     year: number;
     quote: string;
-    "vinyl-cost": string;
+    'vinyl-cost': string;
     icon: string;
-    "badge-type": typeof BADGE_TYPES;
-    "badge-color": {
+    'badge-type': typeof BADGE_TYPES;
+    'badge-color': {
       name: typeof BADGE_COLORS;
       key: number;
-    }
+    };
     color: typeof BADGE_COLORS;
-  }
+  };
 }
 
 interface User {
   id: string;
   name: string;
   email: string;
-  role: "Owner" | "Admin" | "Contributor";
+  role: 'Owner' | 'Admin' | 'Contributor';
 }
 
 interface Cluster {
   id: string;
-  "peer-name": string;
-  "cluster-partition": string;
+  'peer-name': string;
+  'cluster-partition': string;
   status: string;
   services: {
     imported: number;
     exported: number;
-  }
+  };
 }
 
 interface SelectableItem {
@@ -56,8 +56,8 @@ interface SelectableItem {
 }
 
 interface UserWithMoreColumns {
-  "first_name": string;
-  "last_name": string;
+  first_name: string;
+  last_name: string;
   email: string;
   phone: string;
   age: string;
@@ -78,14 +78,21 @@ export default class ComponentsTableRoute extends Route {
     const responseMusic = await fetch('/api/folk.json');
     const responseClusters = await fetch('/api/mock-clusters-with-status.json');
     const responseManyColumns = await fetch('/api/mock-many-columns.json');
-    const responseSelectableData = await fetch('/api/mock-selectable-data.json');
+    const responseSelectableData = await fetch(
+      '/api/mock-selectable-data.json',
+    );
     const responseUserData = await fetch('/api/mock-users.json');
 
-    const {data: music} = await responseMusic.json() as Record<"data", MusicEntity[]>;
-    const userData = await responseUserData.json() as User[];
-    const clusters = await responseClusters.json() as Cluster[];
-    const selectableData = await responseSelectableData.json() as SelectableItem[];
-    const manyColumns = await responseManyColumns.json() as UserWithMoreColumns[];
+    const { data: music } = (await responseMusic.json()) as Record<
+      'data',
+      MusicEntity[]
+    >;
+    const userData = (await responseUserData.json()) as User[];
+    const clusters = (await responseClusters.json()) as Cluster[];
+    const selectableData =
+      (await responseSelectableData.json()) as SelectableItem[];
+    const manyColumns =
+      (await responseManyColumns.json()) as UserWithMoreColumns[];
 
     return {
       music: music.map((record) => ({ id: record.id, ...record.attributes })),

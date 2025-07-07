@@ -18,33 +18,33 @@ interface MusicEntity {
     album: string;
     year: number;
     quote: string;
-    "vinyl-cost": string;
+    'vinyl-cost': string;
     icon: string;
-    "badge-type": typeof BADGE_TYPES;
-    "badge-color": {
+    'badge-type': typeof BADGE_TYPES;
+    'badge-color': {
       name: typeof BADGE_COLORS;
       key: number;
-    }
+    };
     color: typeof BADGE_COLORS;
-  }
+  };
 }
 
 interface User {
   id: string;
   name: string;
   email: string;
-  role: "Owner" | "Admin" | "Contributor";
+  role: 'Owner' | 'Admin' | 'Contributor';
 }
 
 interface Cluster {
   id: string;
-  "peer-name": string;
-  "cluster-partition": string;
+  'peer-name': string;
+  'cluster-partition': string;
   status: string;
   services: {
     imported: number;
     exported: number;
-  }
+  };
 }
 
 interface SelectableItem {
@@ -56,8 +56,8 @@ interface SelectableItem {
 }
 
 interface UserWithMoreColumns {
-  "first_name": string;
-  "last_name": string;
+  first_name: string;
+  last_name: string;
   email: string;
   phone: string;
   age: string;
@@ -68,14 +68,18 @@ interface UserWithMoreColumns {
 
 interface SpanningEntity {
   id: string;
-  name?: {
-    text: string;
-    rowspan?: number
-  } | string;
-  service?: {
-    text: string;
-    colspan?: number;
-  } | string;
+  name?:
+    | {
+        text: string;
+        rowspan?: number;
+      }
+    | string;
+  service?:
+    | {
+        text: string;
+        colspan?: number;
+      }
+    | string;
   description?: string;
   email?: string;
 }
@@ -122,14 +126,21 @@ export default class ComponentsAdvancedTableRoute extends Route {
       '/api/mock-nested-rows-custom.json',
     );
 
-    const {data: music} = await responseMusic.json() as Record<"data", MusicEntity[]>;
-    const userData = await responseUserData.json() as User[];
-    const clusters = await responseClusters.json() as Cluster[];
-    const selectableData = await responseSelectableData.json() as SelectableItem[];
-    const manyColumns = await responseManyColumns.json() as UserWithMoreColumns[];
-    const spanningManualData = await responseSpanningManual.json() as SpanningEntity[];
-    const nestedData = await responseNested.json() as Policy[];
-    const nestedDataCustom = await responseNestedCustom.json() as PolicyCustom[];
+    const { data: music } = (await responseMusic.json()) as Record<
+      'data',
+      MusicEntity[]
+    >;
+    const userData = (await responseUserData.json()) as User[];
+    const clusters = (await responseClusters.json()) as Cluster[];
+    const selectableData =
+      (await responseSelectableData.json()) as SelectableItem[];
+    const manyColumns =
+      (await responseManyColumns.json()) as UserWithMoreColumns[];
+    const spanningManualData =
+      (await responseSpanningManual.json()) as SpanningEntity[];
+    const nestedData = (await responseNested.json()) as Policy[];
+    const nestedDataCustom =
+      (await responseNestedCustom.json()) as PolicyCustom[];
 
     return {
       music,
