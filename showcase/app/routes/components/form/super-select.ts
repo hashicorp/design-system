@@ -34,10 +34,10 @@ export default class ComponentsSuperSelectRoute extends Route {
         ],
       },
     ];
-    const SELECTED_GROUPED_OPTION = GROUPED_OPTIONS[0].options[0];
+    const SELECTED_GROUPED_OPTION = GROUPED_OPTIONS[0]?.options[0];
     const SELECTED_GROUPED_OPTIONS = [
-      GROUPED_OPTIONS[0].options[0],
-      GROUPED_OPTIONS[1].options[0],
+      GROUPED_OPTIONS[0]?.options[0],
+      GROUPED_OPTIONS[1]?.options[0],
     ];
 
     const PLACES_OPTIONS = [

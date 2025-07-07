@@ -8,7 +8,7 @@ import Route from '@ember/routing/route';
 import { STATUSES as STEP_STATUSES } from '@hashicorp/design-system-components/components/hds/stepper/step/indicator';
 
 // basic function that clones an array of objects (not deep)
-const clone = (arr) => {
+const clone = <T>(arr: T[]): T[] => {
   return arr.map((item) => ({ ...item }));
 };
 
