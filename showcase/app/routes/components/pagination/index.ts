@@ -5,10 +5,17 @@
 
 import Route from '@ember/routing/route';
 
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'Owner' | 'Admin' | 'Contributor';
+}
+
 export default class ComponentsPaginationRoute extends Route {
   async model() {
-    let response = await fetch('/api/mock-users.json');
-    let records = await response.json();
+    const response = await fetch('/api/mock-users.json');
+    const records = (await response.json()) as User[];
     return { records };
   }
 }
