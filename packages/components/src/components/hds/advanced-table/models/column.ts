@@ -8,6 +8,7 @@ import { action } from '@ember/object';
 
 import type HdsAdvancedTableModel from './table.ts';
 import type {
+  HdsAdvancedTableCell,
   HdsAdvancedTableHorizontalAlignment,
   HdsAdvancedTableColumn as HdsAdvancedTableColumnType,
 } from '../types';
@@ -31,7 +32,6 @@ export default class HdsAdvancedTableColumn {
   @tracked label: string = '';
   @tracked align?: HdsAdvancedTableHorizontalAlignment = 'left';
   @tracked isExpandable?: boolean = false;
-  @tracked isReorderable?: boolean = false;
   @tracked isSortable?: boolean = false;
   @tracked isVisuallyHidden?: boolean = false;
   @tracked key?: string = undefined;
@@ -42,9 +42,18 @@ export default class HdsAdvancedTableColumn {
   @tracked originalWidth?: string = undefined; // used to restore the width when resetting
   @tracked imposedWidthDelta: number = 0; // used to track the width change imposed by the previous column
 
+  @tracked isBeingDragged: boolean = false;
   @tracked sortingFunction?: (a: unknown, b: unknown) => number = undefined;
 
   table: HdsAdvancedTableModel;
+
+  get cells(): HdsAdvancedTableCell[] {
+    return this.table.flattenedVisibleRows.map((row) => {
+      const cell = row.cells.find((cell) => cell.columnKey === this.key);
+
+      return cell!;
+    });
+  }
 
   get pxWidth(): number | undefined {
     if (isPxSize(this.width)) {
@@ -65,6 +74,44 @@ export default class HdsAdvancedTableColumn {
     if (isPxSize(this.maxWidth)) {
       return pxToNumber(this.maxWidth!);
     }
+  }
+
+  get index(): number {
+    const { orderedColumns } = this.table;
+
+    if (orderedColumns.length === 0) {
+      return -1;
+    }
+
+    return orderedColumns.findIndex((column) => column.key === this.key);
+  }
+
+  get isFirst(): boolean {
+    return this.index === 0;
+  }
+
+  get isLast(): boolean {
+    return this.index === this.table.orderedColumns.length - 1;
+  }
+
+  get siblings(): {
+    previous?: HdsAdvancedTableColumn;
+    next?: HdsAdvancedTableColumn;
+  } {
+    const { index, table } = this;
+    const { orderedColumns } = table;
+
+    if (index === -1) {
+      return {};
+    }
+
+    return {
+      previous: index > 0 ? orderedColumns[index - 1] : undefined,
+      next:
+        index < orderedColumns.length - 1
+          ? orderedColumns[index + 1]
+          : undefined,
+    };
   }
 
   constructor(args: {
