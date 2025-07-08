@@ -282,6 +282,6 @@ if (isNotPatchVersion(version)) {
 // Update front matter for each updated component
 updateComponentFrontMatter(componentChangelogEntries, version);
 
-// // Clean the changelog entries for components
+// Clean the changelog entries for components
 cleanChangelogContent('./docs/whats-new/release-notes/partials/components.md');
 cleanChangelogContent('../packages/components/CHANGELOG.md');
