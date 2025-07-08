@@ -62,7 +62,6 @@ Use filled Badges when displaying many on a single page or for subtle callouts.
 
 For example:
 
-- when listing statuses in a table
 - for successful or passive actions
 
 ### Inverted
