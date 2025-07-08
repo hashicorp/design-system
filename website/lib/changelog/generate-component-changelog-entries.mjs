@@ -60,7 +60,7 @@ const extractComponentChangelogEntries = (components, lastVersionContent) => {
 
   components.forEach((componentName) => {
     const regex = new RegExp(
-      `^(<!-- START ${componentName})((.|\n)*?)(<!-- END ${componentName} -->)$`,
+      `^(<!-- START ${componentName})((.|\n)*?)(<!-- END -->)$`,
       'gm',
     );
     const matches = lastVersionContent.match(regex);
@@ -70,7 +70,7 @@ const extractComponentChangelogEntries = (components, lastVersionContent) => {
         // Remove the start and end comments to get the changelog entry
         const cleanMatch = match
           .replace(`<!-- START ${componentName} -->`, '')
-          .replace(`<!-- END ${componentName} -->`, '')
+          .replace(`<!-- END -->`, '')
           .trim();
         cleanedMatches.push(cleanMatch);
       });
@@ -78,7 +78,36 @@ const extractComponentChangelogEntries = (components, lastVersionContent) => {
     }
   });
 
+  checkUnknownComponentChangelogEntries(
+    componentChangelogEntries,
+    lastVersionContent,
+  );
+
   return componentChangelogEntries;
+};
+
+const checkUnknownComponentChangelogEntries = (
+  componentChangelogEntries,
+  lastVersionContent,
+) => {
+  const baseRegex = new RegExp(`^(<!-- START)((.|\n)*?)(<!-- END -->)$`, 'gm');
+
+  const matches = lastVersionContent.match(baseRegex);
+  if (matches) {
+    matches.forEach((match) => {
+      let componentNameFound = false;
+      Object.keys(componentChangelogEntries).forEach((componentName) => {
+        if (match.includes(`<!-- START ${componentName} -->`)) {
+          componentNameFound = true;
+        }
+      });
+      if (!componentNameFound) {
+        console.warn(
+          `No path found for changelog entry: ${match.substring(match.indexOf('<!-- START') + 11, match.indexOf(' -->'))}`,
+        );
+      }
+    });
+  }
 };
 
 const updateComponentVersionHistory = (componentChangelogEntries, version) => {
@@ -101,7 +130,10 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
       const newEntries = componentChangelogEntries[componentName]
         .map((entry) => {
           // If the component is a form primitive or layout, we want to keep the component name in the description
-          if (componentName === 'components/form/primitives' || componentName === 'components/form/layout') {
+          if (
+            componentName === 'components/form/primitives' ||
+            componentName === 'components/form/layout'
+          ) {
             return entry;
           } else {
             return entry.split(' - ')[1];
