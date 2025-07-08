@@ -10,10 +10,10 @@ import {
   ERROR_ICON,
 } from '@hashicorp/design-system-components/components/hds/copy/snippet/index';
 
-import type { HdsCopyButtonSizes } from '@hashicorp/design-system-components/components/hds/copy/button/types';
+import type { HdsCopySnippetColors } from '@hashicorp/design-system-components/components/hds/copy/snippet/types';
 
 export interface ComponentsCopySnippetModelSignature {
-  SIZES: HdsCopyButtonSizes[];
+  COLORS: HdsCopySnippetColors[];
   STATES: string[];
   SUCCESS_ICON: string;
   ERROR_ICON: string;
@@ -24,7 +24,7 @@ export default class ComponentsCopySnippetRoute extends Route {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
     return {
-      COLORS: COLORS as HdsCopyButtonSizes[],
+      COLORS: COLORS as HdsCopySnippetColors[],
       STATES,
       SUCCESS_ICON,
       ERROR_ICON,
