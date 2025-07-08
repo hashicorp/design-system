@@ -76,8 +76,7 @@
     }
   }
 
-  &--disabled,
-  &.mock-disabled {
+  &.hds-form-radio-card--disabled {
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
     box-shadow: none;
