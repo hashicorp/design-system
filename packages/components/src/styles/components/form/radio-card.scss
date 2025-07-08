@@ -76,6 +76,7 @@
     }
   }
 
+  // note: using full class name so it overrides the :hover styles
   &.hds-form-radio-card--disabled {
     background-color: var(--token-color-surface-interactive-disabled);
     border-color: var(--token-color-border-primary);
