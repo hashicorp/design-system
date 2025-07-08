@@ -71,7 +71,7 @@ Never use form-level alerts for  field-specific, inline validations.
 
 We recommend always using inline validation to provide immediate feedback, but for complex forms that require both client-side and server-side checks, a combined approach is best. 
 
-![Form with multiple field-level errors and a form-level alert with jump links to each](assets/patterns/form-patterns/dont-form-level-error.png)
+![Form with multiple field-level errors and a form-level alert with jump links to each](/assets/patterns/form-patterns/dont-form-level-error.png)
 
 
 ## Timing validation messages
