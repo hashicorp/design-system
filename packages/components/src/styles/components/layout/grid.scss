@@ -10,6 +10,7 @@
 .hds-layout-grid {
   // Note: "Unitless 0" <length>s aren’t supported in math functions so we use 0px as a default value within calc()
   // https://drafts.csswg.org/css-values/#calc-type-checking
+  // We initialize the variable here to prevent inheritance issues in nested grids
   --hds-layout-grid-column-min-width: 0px;
 
   display: grid;
