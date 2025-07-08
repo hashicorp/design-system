@@ -34,6 +34,9 @@ export default class CopyButtonController extends Controller {
   replaceMockCopyStatus() {
     document.querySelectorAll('[mock-copy-status]').forEach((element) => {
       const status = element.getAttribute('mock-copy-status');
+      element.classList.remove('hds-copy-button--status-idle');
+      element.classList.add(`hds-copy-button--status-${status}`);
+
       const icon = element.querySelector('svg use');
 
       if (icon) {
