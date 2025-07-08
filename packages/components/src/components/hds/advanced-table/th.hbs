@@ -66,34 +66,39 @@
     {{/if}}
 
     {{#if @column}}
-      <Hds::AdvancedTable::ThContextMenu
-        @column={{@column}}
-        @hasReorderableColumns={{@hasReorderableColumns}}
-        @hasResizableColumns={{@hasResizableColumns}}
-        @isStickyColumn={{@isStickyColumn}}
-        @reorderHandleElement={{this._reorderHandleElement}}
-        @resizeHandleElement={{this._resizeHandleElement}}
-        @onColumnResize={{@onColumnResize}}
-        @onPinFirstColumn={{@onPinFirstColumn}}
-      />
+      {{#if (or @hasReorderableColumns this.showContextMenu)}}
+        <Hds::Layout::Flex @justify="end" @align="center" @gap="8">
+          {{#if @hasReorderableColumns}}
+            <Hds::AdvancedTable::ThReorderHandle
+              @column={{@column}}
+              @columnWidth={{this._element.clientWidth}}
+              @tableHeight={{@tableHeight}}
+              @onReorderDragStart={{this.handleDragStart}}
+              @onReorderDragEnd={{@onReorderDragEnd}}
+            />
+          {{/if}}
 
-      {{#if (and @hasReorderableColumns (not @isStickyColumn))}}
-        <Hds::AdvancedTable::ThReorderHandle
-          @column={{@column}}
-          @tableHeight={{@tableHeight}}
-          @onReorderDragStart={{this.handleDragStart}}
-          @onReorderDragEnd={{@onReorderDragEnd}}
-          {{this._registerReorderHandleElement}}
-        />
+          {{#if this.showContextMenu}}
+            <Hds::AdvancedTable::ThContextMenu
+              @column={{@column}}
+              @previousColumn={{@previousColumn}}
+              @nextColumn={{@nextColumn}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @resizeHandleElement={{this._resizeHandleElement}}
+              @onColumnResize={{@onColumnResize}}
+            />
+          {{/if}}
+        </Hds::Layout::Flex>
       {{/if}}
 
-      {{#if @hasReorderableColumns}}
-        <Hds::AdvancedTable::ThReorderHandle
+      {{#if @hasResizableColumns}}
+        <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
-          @columnWidth={{this._element.clientWidth}}
+          @nextColumn={{@nextColumn}}
+          @hasResizableColumns={{@hasResizableColumns}}
           @tableHeight={{@tableHeight}}
-          @onReorderDragStart={{this.handleDragStart}}
-          @onReorderDragEnd={{@onReorderDragEnd}}
+          @onColumnResize={{@onColumnResize}}
+          {{this._registerResizeHandleElement}}
         />
       {{/if}}
 

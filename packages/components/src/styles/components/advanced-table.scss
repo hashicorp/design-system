@@ -247,7 +247,14 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       background-color: var(--token-color-surface-primary);
       border: 1px solid $hds-advanced-table-border-color;
       border-radius: var(--token-border-radius-x-small);
-      transform: translateX(-50%);
+
+      &:hover {
+        cursor: grab;
+      }
+
+      &:active {
+        cursor: grabbing;
+      }
     }
 
     .hds-advanced-table__th-resize-handle {
