@@ -95,28 +95,13 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
       );
     }
 
-    // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
-    const newEntries = componentChangelogEntries[componentName]
-      .map((entry) => {
-        // If the component is a form primitive, we want to keep the component name in the description
-        if (
-          allComponentPaths[componentName] ===
-            './docs/components/form/primitives' ||
-          allComponentPaths[componentName] === './docs/components/form/layout'
-        ) {
-          return entry;
-        } else {
-          return entry.split(' - ')[1];
-        }
-      })
-      .join('\n\n');
     // prevent duplicate sections if the script is called multiple times
     if (!versionHistoryContent.includes(`## ${version}`)) {
       // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
       const newEntries = componentChangelogEntries[componentName]
         .map((entry) => {
-          // If the component is a form primitive, we want to keep the component name in the description
-          if (componentName === 'components/form/primitives') {
+          // If the component is a form primitive or layout, we want to keep the component name in the description
+          if (componentName === 'components/form/primitives' || componentName === 'components/form/layout') {
             return entry;
           } else {
             return entry.split(' - ')[1];
@@ -131,7 +116,7 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
 
 const updateComponentFrontMatter = (componentChangelogEntries, version) => {
   Object.keys(componentChangelogEntries).forEach((componentName) => {
-    const indexPath = `${allComponentPaths[componentName]}/index.md`;
+    const indexPath = `${componentName}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
