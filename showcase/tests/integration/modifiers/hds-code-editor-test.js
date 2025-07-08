@@ -20,8 +20,38 @@ async function setupCodeEditor(hbsTemplate) {
   return waitFor('.cm-editor');
 }
 
+async function getStyleContentSha256(element) {
+  const styleContent = element.textContent;
+  const encoder = new TextEncoder();
+  const data = encoder.encode(styleContent);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashBase64 = btoa(String.fromCharCode.apply(null, hashArray));
+
+  return `'sha256-${hashBase64}'`;
+}
+
 module('Integration | Modifier | hds-code-editor', function (hooks) {
   setupRenderingTest(hooks);
+
+  test('it renders the style tag with the expected sha256 hash', async function (assert) {
+    await setupCodeEditor(
+      hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}} />`,
+    );
+    // can't use assert.dom to access elements in head
+    const styleTag = document.querySelector('style:first-of-type');
+    assert.ok(styleTag, 'style tag is rendered');
+
+    // if this test fails, it means the style tag content has changed and will need to be updated in consuming applications
+    const expectedSha256 =
+      "'sha256-Ce+v3wRkkd2iJpTxv7q0n91clpmYmEumS7xkL7pHVaY='"; // update this value to the new expected hash when the test fails
+    const styleSha256 = await getStyleContentSha256(styleTag);
+    assert.strictEqual(
+      expectedSha256,
+      styleSha256,
+      'style tag has the expected sha256 hash',
+    );
+  });
 
   test('it converts the element it is applied to into a CodeMirror editor', async function (assert) {
     await setupCodeEditor(
