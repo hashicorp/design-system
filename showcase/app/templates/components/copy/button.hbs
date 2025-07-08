@@ -167,7 +167,7 @@
 
   <Shw::Text::H4>Target types</Shw::Text::H4>
 
-  <Shw::Flex @columns={{3}} @gap="2rem" as |SF|>
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SF|>
     <SF.Item @label="Target as a CSS selector (`string`)">
       <div class="shw-component-copy-button-flex-container">
         <p class="shw-text-body" id="test-target-string">Lorem ipsum dolor</p>
@@ -188,13 +188,13 @@
         />
       </div>
     </SF.Item>
-  </Shw::Flex>
+  </Shw::Grid>
 
   <Shw::Text::H4>HDS components</Shw::Text::H4>
 
   <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
     <SG.Item @label="Input component" class="shw-component-copy-button-input-component">
-      <Hds::Form::TextInput::Field @value="036140285924" @name="test-input" @id="test-input" as |F|>
+      <Hds::Form::TextInput::Field @value="036140285924" name="test-input" @id="test-input" as |F|>
         <F.Label>Input Label</F.Label>
       </Hds::Form::TextInput::Field>
       <Hds::Copy::Button @text="Copy the input value" @targetToCopy="#test-input" />
@@ -203,7 +203,7 @@
       <Hds::Form::TextInput::Field
         readonly
         @value="036140285924-readonly"
-        @name="test-input-readonly"
+        name="test-input-readonly"
         @id="test-input-readonly"
         as |F|
       >
@@ -215,7 +215,7 @@
       <Hds::Form::TextInput::Field
         disabled
         @value="036140285924-disabled"
-        @name="test-input-disabled"
+        name="test-input-disabled"
         @id="test-input-disabled"
         as |F|
       >
@@ -229,7 +229,7 @@
           @value="This is a normal
 multiline text
 that should be copied"
-          @name="test-textarea"
+          name="test-textarea"
           aria-label="With Textarea::Base"
           id="test-textarea"
         />
@@ -243,7 +243,7 @@ that should be copied"
           @value="This is a redonly
 multiline text
 that should be copied"
-          @name="test-textarea-readonly"
+          name="test-textarea-readonly"
           aria-label="readonly"
           id="test-textarea-readonly"
         />
@@ -261,7 +261,7 @@ that should be copied"
           @value="This is a disabled
 multiline text
 that should be copied"
-          @name="test-textarea-disabled"
+          name="test-textarea-disabled"
           aria-label="Textarea disabled"
           id="test-textarea-disabled"
         />
@@ -274,7 +274,7 @@ that should be copied"
     </SG.Item>
     <SG.Item @label="Select component">
       <div class="shw-component-copy-button-flex-container">
-        <Hds::Form::Select::Base @name="test-select" id="test-select" aria-label="Select" as |C|>
+        <Hds::Form::Select::Base name="test-select" id="test-select" aria-label="Select" as |C|>
           <C.Options>
             <option>Lorem ipsum dolor</option>
             <option selected>Sit amet</option>
@@ -288,7 +288,7 @@ that should be copied"
       <div class="shw-component-copy-button-flex-container">
         <Hds::Form::Select::Base
           disabled
-          @name="test-select-disabled"
+          name="test-select-disabled"
           aria-label="Select disabled"
           id="test-select-disabled"
           as |C|
@@ -314,7 +314,7 @@ that should be copied"
             <p class="shw-text-body">Input</p>
             <div class="shw-component-copy-button-demo-flex-container">
               <Hds::Form::TextInput::Base
-                @name="test-dropdown-text-input"
+                name="test-dropdown-text-input"
                 id="test-dropdown-text-input"
                 @value="Lorem ipsum dolor"
               />
@@ -374,7 +374,7 @@ that should be copied"
               <p class="shw-text-body">Input</p>
               <div class="shw-component-copy-button-demo-flex-container">
                 <Hds::Form::TextInput::Base
-                  @name="test-modal-text-input"
+                  name="test-modal-text-input"
                   id="test-modal-text-input"
                   @value="Lorem ipsum dolor"
                 />
