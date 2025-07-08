@@ -129,10 +129,10 @@
   <Shw::Text::H4 @tag="h3">Single value</Shw::Text::H4>
 
   {{#each @model.DIRECTIONS as |direction|}}
-    <Shw::Grid @columns={{@model.GAPS.length}} @gap="2rem" as |SG|>
+    <Shw::Grid @columns="4" @gap="1rem 2rem" as |SG|>
       {{#each @model.GAPS as |gap|}}
         <SG.Item
-          @label="gap={{gap}}"
+          @label="gap={{if (eq gap '0') '0 (default)' gap}}"
           class="shw-layout-flex-example-outline-flex-container shw-layout-flex-example-tint-flex-items"
         >
           <Hds::Layout::Flex @direction={{direction}} @gap={{gap}}>
@@ -168,6 +168,84 @@
         </SF.Item>
       {{/each}}
     {{/let}}
+  </Shw::Flex>
+
+  <br />
+  <br />
+
+  <Shw::Text::H4 @tag="h3">Nested layouts</Shw::Text::H4>
+
+  <Shw::Flex @gap="2rem" @direction="column" class="shw-layout-flex-example-nested-layouts" as |SF|>
+    <SF.Item @label="Parent Flex w/ @gap=16, nested Flex without/ @gap (defaults to 0)">
+      <Hds::Layout::Flex @gap="16" @align="center" as |LF|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LF.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Flex>
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Flex>
+        </LF.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="Parent Flex w/ @gap=16, nested Flex wo/ @gap=0 (explicit)">
+      <Hds::Layout::Flex @gap="16" @align="center" as |LF|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LF.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Flex @gap="0">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Flex>
+        </LF.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="Parent Flex w/ @gap=48, nested Flex w/ @gap=16">
+      <Hds::Layout::Flex @gap="48" @align="center" as |LF|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LF.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Flex @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Flex>
+        </LF.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="Parent Flex w/ @gap=48, nested Grid w/ @gap=16">
+      <Hds::Layout::Flex @gap="48" @align="center" as |LF|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LF.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Grid @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Grid>
+        </LF.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Flex>
+    </SF.Item>
+    <SF.Item @label="Parent Grid w/ @gap=48, nested Flex w/ @gap=16">
+      <Hds::Layout::Grid @gap="48" @align="center" as |LG|>
+        <Shw::Placeholder @text="item #1" @height="48" />
+        <Shw::Placeholder @text="item #2" @height="48" />
+        <LG.Item @basis="25%" @grow="0" @shrink="0">
+          <Hds::Layout::Flex @gap="16">
+            <Shw::Placeholder @text="item #3A" @height="24" />
+            <Shw::Placeholder @text="item #3B" @height="24" />
+            <Shw::Placeholder @text="item #3C" @height="24" />
+          </Hds::Layout::Flex>
+        </LG.Item>
+        <Shw::Placeholder @text="item #4" @height="48" />
+      </Hds::Layout::Grid>
+    </SF.Item>
   </Shw::Flex>
 
   <br />
