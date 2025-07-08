@@ -1,8 +1,8 @@
 Form validation ensures that fields are correctly formatted, required fields are not empty, and the data being submitted matches the requirements for the application. A successful validation strategy relies on three key concepts:
 
-1. **Clear language** The validation message should be human readable and easy to understand.
-2. **Placement** The validation message should be displayed as soon as possible to when the error occurred.
-3. **Timing** The validation message should be noticeable and located where the error occurred.
+1. **Clear language:** The validation message should be human-readable and easy to understand.
+2. **Placement:** The validation message should be displayed as soon as possible after the error occurred.
+3. **Timing:** The validation message should be noticeable and located where the error occurred.
 
 !!! Warning
 
@@ -16,7 +16,7 @@ Error messages should clearly, but briefly communicate the issue for each impact
 ![Example of credit card information form with invalid expiration date](/assets/patterns/form-patterns/form-pattern-validation-error-message-example.png)
 
 
-## Validation types
+## Placement by validation type
 
 The location and styling of error messages may impact the cognitive load on the user. Carefully consider which type of validation would be most appropriate for a form based on:
 
@@ -27,7 +27,7 @@ The location and styling of error messages may impact the cognitive load on the 
 
 ### Field-level validation
 
-The best time to inform a user of an input error is as soon as it’s detected. For [**client-side validation**](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation), inline validation at the **field level** informs the user of an error where and when it happens. Inline validation allows users to correct errors without waiting until the data is submitted. For example, a user creating a password will need to know what requirements haven’t been met when seeing the error message. 
+The best time to inform a user of an input error is as soon as it’s detected. Using inline [client-side validation](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation) at the **field level** informs the user of an error where and when it happens. Inline validation enables users to correct errors without waiting until the data is submitted. For example, a user creating a password will need to know what requirements haven’t been met when seeing the error message. 
 
 Use the built-in [invalid input state](/components/form/text-input?tab=code#validation) and the accompanying `Error` contextual component to display field-level errors.
 
@@ -46,9 +46,9 @@ For this reason, we recommend creating your validation mechanism using our form 
 
 ### Form-level validation
 
-Form-level validation should be used for server-side errors that cannot be checked before data submission or requires additional checks after data submission. This error type should appear at the top of the form and use a Critical Inline [Alert](/components/alert). Using an Alert makes the message a focal point for users to see what occurred during the submission to result in an error. 
+Form-level validation should be used for server-side errors that cannot be checked before data submission or that require additional checks after data submission. This error type should appear at the top of the form and use a Critical Inline [Alert](/components/alert). Using an Alert makes the message a focal point so users can easily see what error(s) occurred during the submission. 
 
-For form-level validation that identifies multiple input-level errors, the alert should contain a message listing **all** errors with links to each invalid field. We recommend using an introductory sentence to give context before listing the errored items, e.g., “Please correct the following errors and resubmit the form”
+For form-level validation that identifies multiple input-level errors, the alert should contain a message listing **all** errors with links to each invalid field. We recommend using an introductory sentence to give context before listing the items, e.g., “Please correct the following errors and resubmit the form.”
 
 !!! Do
 
@@ -80,7 +80,7 @@ We recommend always using inline validation to provide immediate feedback, but f
 
 Client-side validation occurs when a user leaves the field via an [onblur](https://developer.mozilla.org/en-US/docs/Web/API/Element/blur_event) event. This immediate feedback communicates errors as they happen.
 
-Because this method minimizes interruption, use it **whenever possible** so users can resolve errors while still in the context of the form. This can limit the amount of context switching necessary to complete the form successfully and reduce the cognitive load on the user.
+Because this method minimizes interruption, use it whenever possible so users can resolve errors while still in the context of the form. This can limit the amount of context switching necessary to complete the form successfully and reduce the cognitive load on the user.
 
 <video controls loop width="100%">
   <source src="/assets/patterns/form-patterns/validation-on-focus-change.mp4" />
@@ -99,7 +99,7 @@ Validating a form on submission can occur on the client or server-side and can b
 
 ### Delayed validation
 
-Delayed validation occurs on the client side and refers to validating the field after a lapse in keystrokes or a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped input into the field or after the interval of time has expired, the field is validated without an `onblur` event occurring.
+Delayed validation occurs on the client-side and refers to validating the field after a lapse in keystrokes or a specific interval of time, e.g., `500ms` or 0.5 seconds. Once the user has stopped typing into the field or after the interval of time has expired, the field is validated without an `onblur` event occurring.
 
 This method can be invasive and result in unintended validation errors by assuming the user is done filling out a field. We don’t recommend implementing delayed validation for most forms.
 
