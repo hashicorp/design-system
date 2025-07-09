@@ -8,10 +8,10 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class PageUtilitiesDisclosurePrimitiveController extends Controller {
-  @tracked isOpen = false;
+  @tracked isOpen: boolean = false;
 
   @action
-  toggleState(state) {
+  toggleState(state: string) {
     if (state === 'open') {
       this.isOpen = true;
     } else if (state === 'close') {
@@ -22,7 +22,7 @@ export default class PageUtilitiesDisclosurePrimitiveController extends Controll
   }
 
   @action
-  onClickToggle(isOpenInternalState) {
+  onClickToggle(isOpenInternalState: boolean) {
     this.isOpen = isOpenInternalState;
   }
 }
