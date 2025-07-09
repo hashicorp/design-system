@@ -21,7 +21,9 @@ async function setupCodeEditor(hbsTemplate) {
 }
 
 async function getStyleContentSha256(element) {
-  const styleContent = element.textContent;
+  // Normalize the content by removing all whitespace and newlines
+  const styleContent = element.textContent.replace(/\s/g, '');
+
   const encoder = new TextEncoder();
   const data = encoder.encode(styleContent);
   const hashBuffer = await crypto.subtle.digest('SHA-256', data);
@@ -55,7 +57,7 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
 
     // if this test fails, it means the style tag content has changed and will need to be updated in consuming applications
     const expectedSha256 =
-      "'sha256-Ce+v3wRkkd2iJpTxv7q0n91clpmYmEumS7xkL7pHVaY='"; // update this value to the new expected hash when the test fails
+      "'sha256-0E9JTJYUU32AtmcMCPrzER0l25EQeFhc7+7yhnof8o8='"; // update this value to the new expected hash when the test fails
     assert.ok(
       sha256HashedStyleTags.includes(expectedSha256),
       'style tag has the expected sha256 hash',
