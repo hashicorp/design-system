@@ -14,7 +14,9 @@ import type { HdsClipboardModifierSignature } from '../../../../modifiers/hds-cl
 import type { HdsIconSignature } from '../../icon';
 
 export const DEFAULT_SIZE = HdsCopyButtonSizeValues.Medium;
-export const SIZES: string[] = Object.values(HdsCopyButtonSizeValues);
+export const SIZES: HdsCopyButtonSizes[] = Object.values(
+  HdsCopyButtonSizeValues
+);
 export const DEFAULT_ICON = 'clipboard-copy';
 export const SUCCESS_ICON = 'clipboard-checked';
 export const ERROR_ICON = 'clipboard-x';
