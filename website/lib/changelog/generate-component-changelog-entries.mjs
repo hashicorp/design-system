@@ -58,56 +58,56 @@ const extractVersion = (changelogContent, version) => {
 const extractComponentChangelogEntries = (components, lastVersionContent) => {
   const componentChangelogEntries = {};
 
-  components.forEach((componentPath) => {
-    const regex = new RegExp(
-      `^(<!-- START ${componentPath})((.|\n)*?)(<!-- END -->)$`,
-      'gm',
-    );
-    const matches = lastVersionContent.match(regex);
-    if (matches) {
-      const cleanedMatches = [];
-      matches.forEach((match) => {
-        // Remove the start and end comments to get the changelog entry
-        const cleanMatch = match
-          .replace(`<!-- START ${componentPath} -->`, '')
-          .replace(`<!-- END -->`, '')
-          .trim();
-        cleanedMatches.push(cleanMatch);
-      });
-      componentChangelogEntries[componentPath] = cleanedMatches;
-    }
-  });
-
-  checkUnknownComponentChangelogEntries(
-    componentChangelogEntries,
-    lastVersionContent,
+  // Regular expression to match and capture a block of text delimited by two HTML comments used as START/END markers:
+  // <!-- START ... -->
+  //   ... (any content, including newlines)
+  // <!-- END -->
+  //
+  // Captures the following groups:
+  // - $1 = The full opening comment line (e.g., <!-- START ... -->\n)
+  // - $2 = The component path identifier declared in the "START" marker
+  // - $3 = The content between the start and end comments (non-greedy)
+  // - $4 = The last character of the content
+  // - $4 = The full closing comment line (\n<!-- END -->)
+  //
+  // Flags:
+  // - 'g': global search (find all matches)
+  // - 'm': multiline mode (^ and $ match start/end of line)
+  //
+  // Explanation/demo: https://regex101.com/r/IDnaLU/1
+  //
+  const regex = new RegExp(
+    `^(<!-- START (.*) -->\n)((.|\n)*?)(\n<!-- END -->)$`,
+    'gm',
   );
 
-  return componentChangelogEntries;
-};
+  const matchesIterator = lastVersionContent.matchAll(regex);
+  const matches = Array.from(matchesIterator);
 
-const checkUnknownComponentChangelogEntries = (
-  componentChangelogEntries,
-  lastVersionContent,
-) => {
-  const baseRegex = new RegExp(`^(<!-- START)((.|\n)*?)(<!-- END -->)$`, 'gm');
-
-  const matches = lastVersionContent.match(baseRegex);
-  if (matches) {
+  if (matches.length > 0) {
     matches.forEach((match) => {
-      let componentPathFound = false;
-      Object.keys(componentChangelogEntries).forEach((componentPath) => {
-        if (match.includes(`<!-- START ${componentPath} -->`)) {
-          componentPathFound = true;
-        }
-      });
-      if (!componentPathFound) {
-        console.warn(
-          `No path found for changelog entry: ${match.substring(match.indexOf('<!-- START') + 11, match.indexOf(' -->'))}`,
-        );
+      const [
+        _fullString,
+        _startMarker,
+        componentPath,
+        cleanContent,
+        _entryLastChar,
+        _endMarker,
+      ] = match;
+      if (fs.existsSync(`./docs/${componentPath}`)) {
+        (componentChangelogEntries[componentPath] ??= []).push(cleanContent);
+      } else {
+        // If the path declared in the `START` marker is not present an error is thrown
+        throw new Error(`No path found for changelog entry: ${componentPath}`);
       }
     });
+  } else {
+    console.warn(
+      `No changelog entries found in last version content: ${lastVersionContent}`,
+    );
   }
+
+  return componentChangelogEntries;
 };
 
 const updateComponentVersionHistory = (componentChangelogEntries, version) => {
@@ -118,10 +118,9 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
     if (fs.existsSync(versionHistoryPath)) {
       versionHistoryContent = fs.readFileSync(versionHistoryPath, 'utf8');
     } else {
-      fs.mkdirSync(
-        `./docs/${componentPath}/partials/version-history`,
-        { recursive: true },
-      );
+      fs.mkdirSync(`./docs/${componentPath}/partials/version-history`, {
+        recursive: true,
+      });
     }
 
     // prevent duplicate sections if the script is called multiple times
