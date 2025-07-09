@@ -66,14 +66,39 @@
     {{/if}}
 
     {{#if @column}}
-      {{#if this.showContextMenu}}
-        <Hds::AdvancedTable::ThContextMenu
+      {{#if (or @hasReorderableColumns this.showContextMenu)}}
+        <Hds::Layout::Flex @justify="end" @align="center" @gap="8">
+          {{#if @hasReorderableColumns}}
+            <Hds::AdvancedTable::ThReorderHandle
+              @column={{@column}}
+              @columnWidth={{this._element.clientWidth}}
+              @tableHeight={{@tableHeight}}
+              @onReorderDragStart={{this.handleDragStart}}
+              @onReorderDragEnd={{@onReorderDragEnd}}
+            />
+          {{/if}}
+
+          {{#if this.showContextMenu}}
+            <Hds::AdvancedTable::ThContextMenu
+              @column={{@column}}
+              @previousColumn={{@previousColumn}}
+              @nextColumn={{@nextColumn}}
+              @hasResizableColumns={{@hasResizableColumns}}
+              @resizeHandleElement={{this._resizeHandleElement}}
+              @onColumnResize={{@onColumnResize}}
+            />
+          {{/if}}
+        </Hds::Layout::Flex>
+      {{/if}}
+
+      {{#if @hasResizableColumns}}
+        <Hds::AdvancedTable::ThResizeHandle
           @column={{@column}}
-          @previousColumn={{@previousColumn}}
           @nextColumn={{@nextColumn}}
           @hasResizableColumns={{@hasResizableColumns}}
-          @resizeHandleElement={{this._resizeHandleElement}}
+          @tableHeight={{@tableHeight}}
           @onColumnResize={{@onColumnResize}}
+          {{this._registerResizeHandleElement}}
         />
       {{/if}}
 
@@ -89,4 +114,12 @@
       {{/if}}
     {{/if}}
   </Hds::Layout::Flex>
+
+  {{#if @column.table.hasColumnBeingDragged}}
+    <Hds::AdvancedTable::ThReorderDropTarget
+      @column={{@column}}
+      @tableHeight={{@tableHeight}}
+      @onReorderDrop={{@onReorderDrop}}
+    />
+  {{/if}}
 </div>
