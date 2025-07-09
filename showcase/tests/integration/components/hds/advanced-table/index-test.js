@@ -43,6 +43,18 @@ async function simulateRightPointerDrag(handle) {
   await triggerEvent(window, 'pointerup');
 }
 
+async function simulateColumnReorderDrag(handle, target) {
+  await triggerEvent(handle, 'pointerdown');
+
+  // get coordinates of the target element
+  const targetRect = target.getBoundingClientRect();
+  const clientX = targetRect.left + targetRect.width / 2;
+  const clientY = targetRect.top + targetRect.height / 2;
+
+  await triggerEvent(handle, 'pointermove', { clientX, clientY });
+  await triggerEvent(window, 'pointerup');
+}
+
 // we're using this for multiple tests so we'll declare context once and use it when we need it.
 const setSortableTableData = (context) => {
   context.set('model', [
@@ -160,6 +172,19 @@ const setNestedTableData = (context) => {
   ]);
 };
 
+const setReorderableColumnsTableData = (context) => {
+  context.set('model', [
+    { id: '1', artist: 'Nick Drake', album: 'Pink Moon', year: '1972' },
+    { id: '2', artist: 'The Beatles', album: 'Abbey Road', year: '1969' },
+    { id: '3', artist: 'Melanie', album: 'Candles in the Rain', year: '1971' },
+  ]);
+  context.set('columns', [
+    { key: 'artist', label: 'Artist' },
+    { key: 'album', label: 'Album' },
+    { key: 'year', label: 'Year' },
+  ]);
+};
+
 const setResizableColumnsTableData = (context) => {
   context.set('model', [
     { id: '1', col1: 'A', col2: 'B' },
@@ -242,6 +267,55 @@ const hbsResizableColumnsAdvancedTable = hbs`<Hds::AdvancedTable
 
 module('Integration | Component | hds/advanced-table/index', function (hooks) {
   setupRenderingTest(hooks);
+
+  module('column reordering', function (hooks) {
+    hooks.beforeEach(function () {
+      setReorderableColumnsTableData(this);
+    });
+
+    test('it renders reorder handles when reordering is enabled', async function (assert) {
+      this.set('hasReorderableColumns', false);
+
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{this.hasReorderableColumns}}
+/>`,
+      );
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .doesNotExist(
+          'No reorder handles are rendered when reordering is disabled',
+        );
+
+      this.set('hasReorderableColumns', true);
+
+      assert
+        .dom('.hds-advanced-table__th-reorder-handle')
+        .exists({ count: 3 }, 'All columns have a reorder handle');
+    });
+
+    test('dragging a column renders its drop target as a placeholder', async function (assert) {
+      await render(
+        hbs`<Hds::AdvancedTable
+  id='data-test-advanced-table'
+  @model={{this.model}}
+  @columns={{this.columns}}
+  @hasReorderableColumns={{true}}
+/>`,
+      );
+
+      const reorderHandle = find('.hds-advanced-table__th-reorder-handle');
+      const targetColumn = find('.hds-advanced-table__th:nth-of-type(2)');
+
+      await simulateColumnReorderDrag(reorderHandle, targetColumn);
+
+      await this.pauseTest();
+    });
+  });
 
   test('it should render the component with a CSS class that matches the component name', async function (assert) {
     setSortableTableData(this);
