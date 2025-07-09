@@ -8,8 +8,6 @@ import Route from '@ember/routing/route';
 import { COLORS as DROPDOWN_TOGGLE_BUTTON_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/button';
 import { COLORS as DROPDOWN_ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/interactive';
 
-import type { HdsDropdownToggleButtonColors } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/types';
-import type { HdsDropdownListItemInteractiveColors } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/types';
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type ComponentsAppSideNavModel = ModelFrom<ComponentsAppSideNavRoute>;
@@ -27,11 +25,9 @@ export default class ComponentsAppSideNavRoute extends Route {
     const DROPDOWN_ITEM_STATES = ['default', 'hover', 'active', 'focus'];
 
     return {
-      DROPDOWN_TOGGLE_BUTTON_COLORS:
-        DROPDOWN_TOGGLE_BUTTON_COLORS as HdsDropdownToggleButtonColors[],
+      DROPDOWN_TOGGLE_BUTTON_COLORS,
       DROPDOWN_TOGGLE_STATES,
-      DROPDOWN_ITEM_INTERACTIVE_COLORS:
-        DROPDOWN_ITEM_INTERACTIVE_COLORS as HdsDropdownListItemInteractiveColors[],
+      DROPDOWN_ITEM_INTERACTIVE_COLORS,
       DROPDOWN_ITEM_STATES,
     };
   }

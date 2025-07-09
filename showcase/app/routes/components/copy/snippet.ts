@@ -10,7 +10,6 @@ import {
   ERROR_ICON,
 } from '@hashicorp/design-system-components/components/hds/copy/snippet/index';
 
-import type { HdsCopySnippetColors } from '@hashicorp/design-system-components/components/hds/copy/snippet/types';
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type ComponentsCopySnippetModel = ModelFrom<ComponentsCopySnippetRoute>;
@@ -20,7 +19,7 @@ export default class ComponentsCopySnippetRoute extends Route {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
     return {
-      COLORS: COLORS as HdsCopySnippetColors[],
+      COLORS,
       STATES,
       SUCCESS_ICON,
       ERROR_ICON,

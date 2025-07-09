@@ -10,7 +10,6 @@ import {
   ERROR_ICON,
 } from '@hashicorp/design-system-components/components/hds/copy/button/index';
 
-import type { HdsCopyButtonSizes } from '@hashicorp/design-system-components/components/hds/copy/button/types';
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 export type ComponentsCopyButtonModel = ModelFrom<ComponentsCopyButtonRoute>;
@@ -20,7 +19,7 @@ export default class ComponentsCopyButtonRoute extends Route {
     // these are used only for presentation purpose in the showcase
     const STATES = ['default', 'hover', 'active', 'focus'];
     return {
-      SIZES: SIZES as HdsCopyButtonSizes[],
+      SIZES,
       STATES,
       SUCCESS_ICON,
       ERROR_ICON,
