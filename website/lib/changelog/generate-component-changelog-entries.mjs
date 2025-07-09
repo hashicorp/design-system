@@ -58,9 +58,9 @@ const extractVersion = (changelogContent, version) => {
 const extractComponentChangelogEntries = (components, lastVersionContent) => {
   const componentChangelogEntries = {};
 
-  components.forEach((componentName) => {
+  components.forEach((componentPath) => {
     const regex = new RegExp(
-      `^(<!-- START ${componentName})((.|\n)*?)(<!-- END -->)$`,
+      `^(<!-- START ${componentPath})((.|\n)*?)(<!-- END -->)$`,
       'gm',
     );
     const matches = lastVersionContent.match(regex);
@@ -69,12 +69,12 @@ const extractComponentChangelogEntries = (components, lastVersionContent) => {
       matches.forEach((match) => {
         // Remove the start and end comments to get the changelog entry
         const cleanMatch = match
-          .replace(`<!-- START ${componentName} -->`, '')
+          .replace(`<!-- START ${componentPath} -->`, '')
           .replace(`<!-- END -->`, '')
           .trim();
         cleanedMatches.push(cleanMatch);
       });
-      componentChangelogEntries[componentName] = cleanedMatches;
+      componentChangelogEntries[componentPath] = cleanedMatches;
     }
   });
 
@@ -95,13 +95,13 @@ const checkUnknownComponentChangelogEntries = (
   const matches = lastVersionContent.match(baseRegex);
   if (matches) {
     matches.forEach((match) => {
-      let componentNameFound = false;
-      Object.keys(componentChangelogEntries).forEach((componentName) => {
-        if (match.includes(`<!-- START ${componentName} -->`)) {
-          componentNameFound = true;
+      let componentPathFound = false;
+      Object.keys(componentChangelogEntries).forEach((componentPath) => {
+        if (match.includes(`<!-- START ${componentPath} -->`)) {
+          componentPathFound = true;
         }
       });
-      if (!componentNameFound) {
+      if (!componentPathFound) {
         console.warn(
           `No path found for changelog entry: ${match.substring(match.indexOf('<!-- START') + 11, match.indexOf(' -->'))}`,
         );
@@ -111,15 +111,15 @@ const checkUnknownComponentChangelogEntries = (
 };
 
 const updateComponentVersionHistory = (componentChangelogEntries, version) => {
-  Object.keys(componentChangelogEntries).forEach((componentName) => {
-    const versionHistoryPath = `./docs/${componentName}/partials/version-history/version-history.md`;
+  Object.keys(componentChangelogEntries).forEach((componentPath) => {
+    const versionHistoryPath = `./docs/${componentPath}/partials/version-history/version-history.md`;
     let versionHistoryContent = '';
 
     if (fs.existsSync(versionHistoryPath)) {
       versionHistoryContent = fs.readFileSync(versionHistoryPath, 'utf8');
     } else {
       fs.mkdirSync(
-        `./docs/${componentName}/partials/version-history/version-history`,
+        `./docs/${componentPath}/partials/version-history`,
         { recursive: true },
       );
     }
@@ -127,12 +127,12 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
     // prevent duplicate sections if the script is called multiple times
     if (!versionHistoryContent.includes(`## ${version}`)) {
       // for each entry, remove the component name and keep only the description (assuming the "`ComponentName` - Description" format)
-      const newEntries = componentChangelogEntries[componentName]
+      const newEntries = componentChangelogEntries[componentPath]
         .map((entry) => {
           // If the component is a form primitive or layout, we want to keep the component name in the description
           if (
-            componentName === 'components/form/primitives' ||
-            componentName === 'components/form/layout'
+            componentPath === 'components/form/primitives' ||
+            componentPath === 'components/form/layout'
           ) {
             return entry;
           } else {
@@ -147,8 +147,8 @@ const updateComponentVersionHistory = (componentChangelogEntries, version) => {
 };
 
 const updateComponentFrontMatter = (componentChangelogEntries, version) => {
-  Object.keys(componentChangelogEntries).forEach((componentName) => {
-    const indexPath = `${componentName}/index.md`;
+  Object.keys(componentChangelogEntries).forEach((componentPath) => {
+    const indexPath = `${componentPath}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
@@ -183,8 +183,8 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
 };
 
 const cleanComponentFrontMatter = (components, version) => {
-  Object.keys(components).forEach((componentName) => {
-    const indexPath = `${components[componentName]}/index.md`;
+  Object.keys(components).forEach((componentPath) => {
+    const indexPath = `${components[componentPath]}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
