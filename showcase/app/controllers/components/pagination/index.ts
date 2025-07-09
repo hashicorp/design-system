@@ -8,22 +8,39 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
+import type { Registry as Services } from '@ember/service';
+
+import type { ComponentsPaginationModel } from 'showcase/routes/components/pagination/index';
+
+import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
+
+import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/components/hds/table/types';
+
 // uncomment this to override the `atob/btoa` functions for debugging
 // const atob = (s) => s;
 // const btoa = (s) => s;
 
-const getCursorParts = (cursor, records) => {
+const getCursorParts = (
+  cursor: string | null,
+  records: ComponentsPaginationModel['records'],
+) => {
+  if (!cursor) {
+    return { direction: 'next', cursorID: null, cursorIndex: -1 };
+  }
+
   const token = atob(cursor);
   const tokenParts = [...token.split('__')];
   const direction = tokenParts[0];
-  const cursorID = parseInt(tokenParts[1]);
-  const cursorIndex = records.findIndex(
-    (element) => element.id === parseInt(cursorID),
-  );
+  const cursorID = tokenParts[1];
+  const cursorIndex = records.findIndex((element) => element.id === cursorID);
   return { direction, cursorID, cursorIndex };
 };
 
-const getNewPrevNextCursors = (cursor, pageSize, records) => {
+const getNewPrevNextCursors = (
+  cursor: string | null,
+  pageSize: number,
+  records: ComponentsPaginationModel['records'],
+) => {
   const { direction, cursorIndex } = getCursorParts(cursor, records);
 
   let newPrevCursor;
@@ -32,7 +49,7 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
   const prevCursorIndex =
     direction === 'prev' ? cursorIndex - pageSize : cursorIndex;
   if (prevCursorIndex > 0) {
-    const newPrevRecordId = records[prevCursorIndex].id;
+    const newPrevRecordId = records[prevCursorIndex]?.id;
     newPrevCursor = btoa(`prev__${newPrevRecordId}`);
   } else {
     newPrevCursor = null;
@@ -41,7 +58,7 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
   const nextCursorIndex =
     direction === 'next' ? cursorIndex + pageSize : cursorIndex;
   if (nextCursorIndex < records.length) {
-    const newNextRecordId = records[nextCursorIndex].id;
+    const newNextRecordId = records[nextCursorIndex]?.id;
     newNextCursor = btoa(`next__${newNextRecordId}`);
   } else {
     newNextCursor = null;
@@ -54,6 +71,8 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
 };
 
 export default class PaginationController extends Controller {
+  declare model: ComponentsPaginationModel;
+
   queryParams = [
     'demoCurrentPage',
     'demoCurrentPageSize',
@@ -69,7 +88,7 @@ export default class PaginationController extends Controller {
     'currentPageSize_demo4',
   ];
 
-  @service router;
+  @service router!: Services['router'];
 
   @tracked showHighlight = false;
   // -----
@@ -84,73 +103,29 @@ export default class PaginationController extends Controller {
   // -----
   @tracked currentPage_demo2 = 1;
   @tracked currentPageSize_demo2 = 5;
-  @tracked currentSortBy_demo2;
-  @tracked currentSortOrder_demo2;
+  @tracked currentSortBy_demo2: string | undefined = undefined;
+  @tracked currentSortOrder_demo2: HdsTableThSortOrder | undefined = undefined;
   // -----
-  @tracked currentCursor_demo3 = btoa(`next__1`);
+  @tracked currentCursor_demo3: string | null = btoa(`next__1`);
   @tracked currentPageSize_demo3 = 5;
   // -----
   @tracked prevCursor_demo4 = null;
   @tracked nextCursor_demo4 = btoa(`next__1`);
   @tracked currentPageSize_demo4 = 5;
 
-  // =============================
-  // "HOW TO USE" SECTION
-  // =============================
+  noop() {}
 
   get demoRouteName() {
     // eg. 'components.pagination';
-    return this.router.currentRouteName;
+    const routeName = this.router.currentRouteName;
+
+    if (!routeName) return '';
+    return routeName;
   }
 
   get demoTotalItems() {
     return this.model.records.length;
   }
-
-  get demoQueryFunctionNumbered() {
-    return (page, pageSize) => {
-      return {
-        demoCurrentPage: page,
-        demoCurrentPageSize: pageSize,
-      };
-    };
-  }
-
-  get demoNewPrevNextCursors() {
-    let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
-      this.demoCurrentCursor,
-      this.demoCurrentPageSize,
-      this.model.records,
-    );
-    return {
-      newPrevCursor,
-      newNextCursor,
-    };
-  }
-
-  get demoQueryFunctionCompact() {
-    let { newPrevCursor, newNextCursor } = this.demoNewPrevNextCursors;
-    return (page) => {
-      return {
-        demoCurrentCursor: page === 'prev' ? newPrevCursor : newNextCursor,
-        demoExtraParam: 'hello',
-      };
-    };
-  }
-
-  get demoIsDisabledPrev() {
-    let { newPrevCursor } = this.demoNewPrevNextCursors;
-    return newPrevCursor === null;
-  }
-
-  get demoIsDisabledNext() {
-    let { newNextCursor } = this.demoNewPrevNextCursors;
-    return newNextCursor === null;
-  }
-
-  // =============================
-  // "SHOWCASE" SECTION
-  // =============================
 
   // DEMO #1
 
@@ -161,13 +136,13 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  onPageChange_demo1(page, pageSize) {
+  onPageChange_demo1(page: number, pageSize: number) {
     this.currentPage_demo1 = page;
     this.currentPageSize_demo1 = pageSize;
   }
 
   @action
-  onPageSizeChange_demo1(pageSize) {
+  onPageSizeChange_demo1(pageSize: number) {
     // we agreed to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     this.currentPage_demo1 = 1;
     this.currentPageSize_demo1 = pageSize;
@@ -176,7 +151,7 @@ export default class PaginationController extends Controller {
   // DEMO #2
 
   get consumerQueryFunction_demo2() {
-    return (page, pageSize) => {
+    return (page: number, pageSize: number) => {
       return {
         currentPage_demo2: page,
         currentPageSize_demo2: pageSize,
@@ -188,7 +163,7 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  onTableSort_demo2(sortBy, sortOrder) {
+  onTableSort_demo2(sortBy: string, sortOrder: HdsTableThSortOrder) {
     this.currentSortBy_demo2 = sortBy;
     this.currentSortOrder_demo2 = sortOrder;
     // should we reset the selected page?
@@ -202,7 +177,7 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  onPageSizeChange_demo2(pageSize) {
+  onPageSizeChange_demo2(pageSize: number) {
     // the sensible thing to do here is to reset the pagination to the first element (any alternative would result in an unpredictable UX)
     this.currentPage_demo2 = 1;
     this.currentPageSize_demo2 = pageSize;
@@ -211,7 +186,7 @@ export default class PaginationController extends Controller {
   // DEMO #3
 
   get newPrevNextCursors_demo3() {
-    let { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
+    const { newPrevCursor, newNextCursor } = getNewPrevNextCursors(
       this.currentCursor_demo3,
       this.currentPageSize_demo3,
       this.model.records,
@@ -223,19 +198,19 @@ export default class PaginationController extends Controller {
   }
 
   get isDisabledPrev_demo3() {
-    let { newPrevCursor } = this.newPrevNextCursors_demo3;
+    const { newPrevCursor } = this.newPrevNextCursors_demo3;
     return newPrevCursor === null;
   }
 
   get isDisabledNext_demo3() {
-    let { newNextCursor } = this.newPrevNextCursors_demo3;
+    const { newNextCursor } = this.newPrevNextCursors_demo3;
     return newNextCursor === null;
   }
 
   @action
-  onPageChange_demo3(page) {
+  onPageChange_demo3(page: HdsPaginationDirections) {
     // get the next/prev cursors
-    let { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo3;
+    const { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo3;
     // update the "current" cursor
     if (page === 'prev') {
       this.currentCursor_demo3 = newPrevCursor;
@@ -252,7 +227,7 @@ export default class PaginationController extends Controller {
 
     let start;
     let end;
-    let pageSize = this.currentPageSize_demo3;
+    const pageSize = this.currentPageSize_demo3;
     if (direction === 'prev') {
       end = cursorIndex;
       start = cursorIndex - pageSize;
@@ -266,7 +241,7 @@ export default class PaginationController extends Controller {
   // DEMO #4 (this emulates the current implementation in Cloud UI)
 
   get newPrevNextCursors_demo4() {
-    let cursor;
+    let cursor = '';
     // In cloud UI they use two distinct query params for the cursor depending if it's "prev" or "next"
     if (this.prevCursor_demo4) {
       cursor = this.prevCursor_demo4;
@@ -284,7 +259,7 @@ export default class PaginationController extends Controller {
     const { newPrevCursor, newNextCursor } = this.newPrevNextCursors_demo4;
     const currPrevCursor = this.prevCursor_demo4;
     const currNextCursor = this.nextCursor_demo4;
-    return (page, pageSize) => {
+    return (page: HdsPaginationDirections, pageSize: number) => {
       // for the "compact" pagination when the user changes the page size and the `onPageSizeChange` function is invoked
       // the callback function returns a `null` value for the `page` argument so the consumer can decide how to handle the cursors acordingly
       if (page === null) {
@@ -306,17 +281,17 @@ export default class PaginationController extends Controller {
   }
 
   get isDisabledPrev_demo4() {
-    let { newPrevCursor } = this.newPrevNextCursors_demo4;
+    const { newPrevCursor } = this.newPrevNextCursors_demo4;
     return newPrevCursor === null;
   }
 
   get isDisabledNext_demo4() {
-    let { newNextCursor } = this.newPrevNextCursors_demo4;
+    const { newNextCursor } = this.newPrevNextCursors_demo4;
     return newNextCursor === null;
   }
 
-  get paginatedData_demo4() {
-    let token;
+  get paginatedData_demo4(): ComponentsPaginationModel['records'] {
+    let token = '';
     if (this.prevCursor_demo4) {
       token = this.prevCursor_demo4;
     } else if (this.nextCursor_demo4) {
@@ -330,7 +305,7 @@ export default class PaginationController extends Controller {
 
     let start;
     let end;
-    let pageSize = this.currentPageSize_demo4;
+    const pageSize = this.currentPageSize_demo4;
     if (direction === 'prev') {
       end = cursorIndex;
       // we want to avoid having a negative `start` index for the `array.slide` method (it happens if the cursorIndex is smaller than the selected page size)
@@ -345,7 +320,7 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  onPageSizeChange_demo4(pageSize) {
+  onPageSizeChange_demo4(pageSize: number) {
     // notice: here we don't add specific logic for this, but because of how the cursor-base pagination works
     // there should be a better handling of how the "paginated" data list is computed and shown to the user to avoid some UX issues
     // for details see this thread: https://github.com/hashicorp/design-system/pull/1724#issuecomment-1768167782
@@ -362,15 +337,9 @@ export default class PaginationController extends Controller {
   }
 
   @action
-  genericHandlePageChange() {
-    console.log('genericHandlePageChange invoked with arguments', ...arguments);
-  }
-
-  @action
-  genericHandlePageSizeChange() {
-    console.log(
-      'genericHandlePageSizeChange invoked with arguments',
-      ...arguments,
-    );
+  genericHandlePageChange(page: number, pageSize: number) {
+    console.log('genericHandlePageChange invoked with arguments:');
+    console.log('page', page);
+    console.log('pageSize', pageSize);
   }
 }
