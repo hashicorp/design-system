@@ -1,12 +1,12 @@
-Form validation ensures that fields are correctly formatted, required fields are not empty, and the data being submitted matches the requirements for the application. A successful validation strategy relies on three key concepts:
+Form validation ensures required fields are not empty, field input is correctly formatted, and the data being submitted matches the requirements for the application. A successful validation strategy relies on three key concepts:
 
-1. **Clear language:** The validation message should be human-readable and easy to understand.
-2. **Placement:** The validation message should be displayed as soon as possible after the error occurred.
-3. **Timing:** The validation message should be noticeable and located where the error occurred.
+1. **Clear language:** Error messages should be human-readable and easy to understand.
+2. **Placement:** Error messages should be noticeable and display in close proximity to where the error was triggered.
+3. **Timing:** Error messages should display as soon as possible after an error occurs.
 
 !!! Warning
 
-While we provide the structure and visual consistency for validation, the messaging and functionality need to be implemented by the product teams.
+While we provide components and visual design patterns for form validation UI, the messaging and functionality need to be implemented by the product teams.
 !!!
 
 ## Clear validation language
@@ -88,7 +88,7 @@ Because this method minimizes interruption, use it whenever possible so users ca
 
 ### Validation on submission
 
-Validating a form on submission can occur on the client or server-side and can be used to display errors after the form has been submitted. This method can manifest in many use cases, including:
+Validating a form on submission can occur on the client or server-side and can be used to display errors after the form has been submitted. This method can applied to in many use cases, including:
 
 - Validating that each required field in a form is filled.
 - Validating that the input data matches the formatting expectations of the application and the server.
