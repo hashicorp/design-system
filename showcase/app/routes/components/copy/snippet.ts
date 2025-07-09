@@ -11,13 +11,9 @@ import {
 } from '@hashicorp/design-system-components/components/hds/copy/snippet/index';
 
 import type { HdsCopySnippetColors } from '@hashicorp/design-system-components/components/hds/copy/snippet/types';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export interface ComponentsCopySnippetModelSignature {
-  COLORS: HdsCopySnippetColors[];
-  STATES: string[];
-  SUCCESS_ICON: string;
-  ERROR_ICON: string;
-}
+export type ComponentsCopySnippetModel = ModelFrom<ComponentsCopySnippetRoute>;
 
 export default class ComponentsCopySnippetRoute extends Route {
   model() {

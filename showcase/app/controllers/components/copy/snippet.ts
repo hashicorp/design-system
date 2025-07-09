@@ -10,10 +10,10 @@ import { scheduleOnce } from '@ember/runloop';
 import type Owner from '@ember/owner';
 import type { Registry as Services } from '@ember/service';
 
-import type { ComponentsCopySnippetModelSignature } from 'showcase/routes/components/copy/snippet';
+import type { ComponentsCopySnippetModel } from 'showcase/routes/components/copy/snippet';
 
 export default class CopySnippetController extends Controller {
-  declare model: ComponentsCopySnippetModelSignature;
+  declare model: ComponentsCopySnippetModel;
   @service router!: Services['router'];
 
   constructor(owner: Owner) {

@@ -12,10 +12,10 @@ import { scheduleOnce } from '@ember/runloop';
 import type Owner from '@ember/owner';
 import type { Registry as Services } from '@ember/service';
 
-import type { ComponentsCopyButtonModelSignature } from 'showcase/routes/components/copy/button';
+import type { ComponentsCopyButtonModel } from 'showcase/routes/components/copy/button';
 
 export default class CopyButtonController extends Controller {
-  declare model: ComponentsCopyButtonModelSignature;
+  declare model: ComponentsCopyButtonModel;
   @service router!: Services['router'];
   @tracked isModalActive = false;
 

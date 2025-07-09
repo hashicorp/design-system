@@ -10,6 +10,9 @@ import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-comp
 
 import type { HdsDropdownToggleButtonColors } from '@hashicorp/design-system-components/components/hds/dropdown/toggle/types';
 import type { HdsDropdownListItemInteractiveColors } from '@hashicorp/design-system-components/components/hds/dropdown/list-item/types';
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type ComponentsAppHeaderModel = ModelFrom<ComponentsAppHeaderRoute>;
 
 export default class ComponentsAppHeaderRoute extends Route {
   model() {
