@@ -61,8 +61,7 @@
     box-shadow: 0 0 0 3px var(--token-color-focus-action-external);
   }
 
-  &--checked,
-  &.mock-checked {
+  &.hds-form-radio-card--checked {
     border-color: var(--token-color-palette-blue-300);
 
     .hds-form-radio-card__control-wrapper {
@@ -90,6 +89,11 @@
 
     .hds-form-radio-card__content {
       opacity: 0.5;
+    }
+
+    &:hover,
+    &.mock-hover {
+      border-color: var(--token-color-border-primary);
     }
   }
 }
