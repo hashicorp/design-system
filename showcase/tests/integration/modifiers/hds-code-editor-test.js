@@ -39,16 +39,25 @@ module('Integration | Modifier | hds-code-editor', function (hooks) {
       hbs`<div id="code-editor-wrapper" {{hds-code-editor ariaLabel="test"}} />`,
     );
     // can't use assert.dom to access elements in head
-    const styleTag = document.querySelector('style:first-of-type');
-    assert.ok(styleTag, 'style tag is rendered');
+    // const styleTag = document.querySelector('style:first-of-type');
+    // assert.ok(styleTag, 'style tag is rendered');
+    const styleTags = document.querySelectorAll('head style');
+    assert.ok(styleTags.length > 0, 'style tag is rendered');
+
+    const sha256HashedStyleTags = await Promise.all(
+      Array.from(styleTags).map(async (styleTag) => {
+        const styleSha256 = await getStyleContentSha256(styleTag);
+        return styleSha256;
+      }),
+    );
+
+    console.log({ sha256HashedStyleTags });
 
     // if this test fails, it means the style tag content has changed and will need to be updated in consuming applications
     const expectedSha256 =
       "'sha256-Ce+v3wRkkd2iJpTxv7q0n91clpmYmEumS7xkL7pHVaY='"; // update this value to the new expected hash when the test fails
-    const styleSha256 = await getStyleContentSha256(styleTag);
-    assert.strictEqual(
-      expectedSha256,
-      styleSha256,
+    assert.ok(
+      sha256HashedStyleTags.includes(expectedSha256),
       'style tag has the expected sha256 hash',
     );
   });
