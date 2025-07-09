@@ -34,7 +34,9 @@ import type { HdsDropdownPositions } from './types';
 import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
 
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
-export const POSITIONS: string[] = Object.values(HdsDropdownPositionValues);
+export const POSITIONS: HdsDropdownPositions[] = Object.values(
+  HdsDropdownPositionValues
+);
 
 export interface HdsDropdownSignature {
   Args: MenuPrimitiveSignature['Args'] & {

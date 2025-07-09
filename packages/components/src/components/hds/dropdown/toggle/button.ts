@@ -23,8 +23,10 @@ import type { SetupPrimitiveToggleModifier } from '../../popover-primitive/index
 
 export const DEFAULT_SIZE = HdsDropdownToggleButtonSizeValues.Medium;
 export const DEFAULT_COLOR = HdsDropdownToggleButtonColorValues.Primary;
-export const SIZES: string[] = Object.values(HdsDropdownToggleButtonSizeValues);
-export const COLORS: string[] = Object.values(
+export const SIZES: HdsDropdownToggleButtonSizes[] = Object.values(
+  HdsDropdownToggleButtonSizeValues
+);
+export const COLORS: HdsDropdownToggleButtonColors[] = Object.values(
   HdsDropdownToggleButtonColorValues
 );
 
