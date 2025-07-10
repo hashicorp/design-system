@@ -81,7 +81,7 @@ module(
 
     test('it should render a <a> link if @route is passed', async function (assert) {
       await render(
-        hbs`<Hds::AppSideNav::List::Link @route='utilities.interactive' />`,
+        hbs`<Hds::AppSideNav::List::Link @route='page-utilities.interactive' />`,
       );
       assert
         .dom('.hds-app-side-nav__list-item-link')
