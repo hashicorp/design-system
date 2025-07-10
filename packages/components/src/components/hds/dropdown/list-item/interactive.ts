@@ -16,7 +16,7 @@ import type { HdsBadgeSignature } from '../../badge/index.ts';
 import type Owner from '@ember/owner';
 
 export const DEFAULT_COLOR = HdsDropdownListItemInteractiveColorValues.Action;
-export const COLORS: string[] = Object.values(
+export const COLORS: HdsDropdownListItemInteractiveColors[] = Object.values(
   HdsDropdownListItemInteractiveColorValues
 );
 
