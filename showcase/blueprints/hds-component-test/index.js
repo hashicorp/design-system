@@ -86,9 +86,7 @@ const updateDummyAppIndexHBS = (options) => {
   newListItemHTML += '<!-- MOVE THIS HTML BLOCK IN THE RIGHT POSITION -->\n';
   newListItemHTML += '<!-- (adjust component name & route if necessary) -->\n';
   newListItemHTML += '<li>\n';
-  newListItemHTML += `  <LinkTo @route="components.${getRoutedModuleName(
-    name,
-  )}">\n`;
+  newListItemHTML += `  <LinkTo @route="page-components.${getRoutedModuleName(name)}">\n`;
   newListItemHTML += `    ${getColumnizedModuleName(name)}\n`;
   newListItemHTML += '  </LinkTo>\n';
   newListItemHTML += '</li>\n';

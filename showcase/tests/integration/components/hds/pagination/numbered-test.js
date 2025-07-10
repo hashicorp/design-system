@@ -393,7 +393,7 @@ module('Integration | Component | hds/pagination/numbered', function (hooks) {
   test('it should render links instead of buttons, with the correct "href" values, if it has routing', async function (assert) {
     this.set('myQueryFunction', (page, pageSize) => ({ page, pageSize }));
     await render(
-      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="components.pagination" @queryFunction={{this.myQueryFunction}} />`,
+      hbs`<Hds::Pagination::Numbered @totalItems={{30}} @currentPage={{2}} @currentPageSize={{10}} @route="page-components.pagination" @queryFunction={{this.myQueryFunction}} />`,
     );
     assert
       .dom('.hds-pagination-nav__arrow--direction-prev')
