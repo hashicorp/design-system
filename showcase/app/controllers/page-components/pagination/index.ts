@@ -8,13 +8,12 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-import type { Registry as Services } from '@ember/service';
-
-import type { PageComponentsPaginationModel } from 'showcase/routes/page-components/pagination/index';
+import type RouterService from '@ember/routing/router-service';
 
 import type { HdsPaginationDirections } from '@hashicorp/design-system-components/components/hds/pagination/types';
-
 import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/components/hds/table/types';
+
+import type { PageComponentsPaginationModel } from 'showcase/routes/page-components/pagination/index';
 
 // uncomment this to override the `atob/btoa` functions for debugging
 // const atob = (s) => s;
@@ -31,8 +30,9 @@ const getCursorParts = (
   const token = atob(cursor);
   const tokenParts = [...token.split('__')];
   const direction = tokenParts[0];
-  const cursorID = tokenParts[1];
+  const cursorID =  tokenParts[1] ? parseInt(tokenParts[1]) : undefined;
   const cursorIndex = records.findIndex((element) => element.id === cursorID);
+
   return { direction, cursorID, cursorIndex };
 };
 
@@ -87,7 +87,7 @@ export default class PagePaginationController extends Controller {
     'currentPageSize_demo4',
   ];
 
-  @service router!: Services['router'];
+  @service declare router: RouterService;
 
   @tracked showHighlight = false;
   // -----
@@ -262,6 +262,8 @@ export default class PagePaginationController extends Controller {
       // for the "compact" pagination when the user changes the page size and the `onPageSizeChange` function is invoked
       // the callback function returns a `null` value for the `page` argument so the consumer can decide how to handle the cursors acordingly
       if (page === null) {
+
+        console.log('page is null')
         return {
           prevCursor_demo4: currPrevCursor,
           nextCursor_demo4: currNextCursor,
@@ -289,6 +291,13 @@ export default class PagePaginationController extends Controller {
     return newNextCursor === null;
   }
 
+
+  //   get paginatedData_demo2() {
+  //   const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
+  //   const end = this.currentPage_demo2 * this.currentPageSize_demo2;
+  //   return this.model.records.slice(start, end);
+  // }
+
   get paginatedData_demo4(): PageComponentsPaginationModel['records'] {
     let token = '';
     if (this.prevCursor_demo4) {
@@ -313,6 +322,12 @@ export default class PagePaginationController extends Controller {
       start = cursorIndex;
       end = cursorIndex + pageSize;
     }
+
+    console.log('paginatedData_demo4 invoked with:');
+    console.log('direction', direction);
+    console.log('cursorIndex', cursorIndex);
+    console.log('start', start);
+    console.log('end', end);
 
     // return data
     return this.model.records.slice(start, end);

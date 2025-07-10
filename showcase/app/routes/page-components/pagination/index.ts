@@ -7,7 +7,7 @@ import Route from '@ember/routing/route';
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
 interface User {
-  id: string;
+  id: number;
   name: string;
   email: string;
   role: 'Owner' | 'Admin' | 'Contributor';
