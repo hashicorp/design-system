@@ -12,9 +12,9 @@ import {
   BODY_STYLES,
   CODE_STYLES,
   STYLES_COMBINATIONS,
-} from '../../routes/foundations/typography';
+} from '../../routes/page-foundations/typography';
 
-export default class TypographyController extends Controller {
+export default class PageTypographyController extends Controller {
   get families() {
     return [...FONT_FAMILIES];
   }

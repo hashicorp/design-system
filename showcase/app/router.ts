@@ -12,7 +12,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('foundations', function () {
+  this.route('page-foundations', {path: 'foundations'}, function () {
     this.route('typography');
     this.route('elevation');
     this.route('focus-ring');
@@ -106,7 +106,7 @@ Router.map(function () {
       this.route('snippet');
     });
   });
-  this.route('layouts', function () {
+  this.route('page-layouts', {path: 'layouts'}, function () {
     this.route('app-frame', function () {
       this.route('frameless', function () {
         this.route('demo-full-app-frame');
@@ -120,7 +120,7 @@ Router.map(function () {
     this.route('flex');
     this.route('grid');
   });
-  this.route('utilities', function () {
+  this.route('page-utilities', {path: 'utilities'}, function () {
     this.route('dialog-primitive');
     this.route('disclosure-primitive');
     this.route('dismiss-button');
@@ -128,7 +128,7 @@ Router.map(function () {
     this.route('menu-primitive');
     this.route('popover-primitive');
   });
-  this.route('overrides', function () {
+  this.route('page-overrides', {path: 'overrides'}, function () {
     this.route('power-select');
   });
 });
