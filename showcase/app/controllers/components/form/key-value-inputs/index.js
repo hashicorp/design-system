@@ -62,6 +62,7 @@ const DYNAMIC_INPUT_EXAMPLE_DATA = [
 ];
 
 export default class KeyValueInputsController extends Controller {
+  @tracked showHighlight = false;
   @tracked functionalExampleData = DEFAULT_DATA;
   @tracked canDeleteRow = true;
   @tracked canAddRow = this.functionalExampleData.length < 4;
@@ -93,6 +94,11 @@ export default class KeyValueInputsController extends Controller {
         this.canDeleteRow = true;
       }
     }
+  }
+
+  @action
+  toggleHighlight() {
+    this.showHighlight = !this.showHighlight;
   }
 
   @action onInputChange() {

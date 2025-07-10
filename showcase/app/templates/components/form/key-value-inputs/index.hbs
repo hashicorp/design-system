@@ -81,7 +81,48 @@
 
   <Shw::Divider />
 
-  <Shw::Text::H2>Not able to delete rows</Shw::Text::H2>
+  <Shw::Text::H2>Containers</Shw::Text::H2>
+
+  <button type="button" class="shw-component-form-key-value-inputs-button-highlight" {{on "click" this.toggleHighlight}}>
+    {{if this.showHighlight "Hide layout highlight" "Show layout highlight"}}
+  </button>
+
+  <div class="shw-component-form-key-value-inputs-containers {{if this.showHighlight 'shw-component-form-key-value-inputs-highlight-elements'}}">
+    <Hds::Form::KeyValueInputs @data={{array "row1" "row2"}}>
+      <:header as |H|>
+        <H.Legend><Shw::Placeholder @height="24px" @text="legend" @background="#e4c5f3" /></H.Legend>
+        <H.HelperText><Shw::Placeholder @height="24px" @text="helper text" @background="#e4c5f3" /></H.HelperText>
+        <H.Generic><Shw::Placeholder @height="24px" @text="generic" /></H.Generic>
+      </:header>
+
+      <:row as |R|>
+        <R.Field as |F|>
+          <F.Label><Shw::Placeholder @width="175px" @height="24px" @text="row {{R.rowIndex}} / field 1 / label" @background="#e5ffd2" /></F.Label>
+          <F.HelperText><Shw::Placeholder @height="24px" @text="row {{R.rowIndex}} / field 1 / helper text" @background="#e5ffd2" /></F.HelperText>
+          <Shw::Placeholder @height="36px" @text="row {{R.rowIndex}} / field 1 / input" @background="#add8e6" />
+        </R.Field>
+        <R.Field @width="2fr" as |F|>
+          <F.Label><Shw::Placeholder @width="175px" @height="24px" @text="row {{R.rowIndex}} / field 2 / label" @background="#e5ffd2" /></F.Label>
+          <F.HelperText><Shw::Placeholder @height="24px" @text="row {{R.rowIndex}} / field 2 / helper text" @background="#e5ffd2" /></F.HelperText>
+          <Shw::Placeholder @height="36px" @text="row {{R.rowIndex}} / field 2 / input" @background="#add8e6"/>
+        </R.Field>
+        <R.Generic>
+            <Shw::Placeholder @height="36px" @width="200px" @text="row {{R.rowIndex}} / generic" />
+        </R.Generic>
+        <R.DeleteRowButton />
+      </:row>
+
+      <:footer as |F|>
+        <F.AddRowButton />
+        <Shw::Placeholder @height="24px" @text="alert" @background="#fff8d2" />
+        <F.Error><Shw::Placeholder @height="16px" @text="Error message" @background="#fff8d2" /></F.Error>
+      </:footer>
+    </Hds::Form::KeyValueInputs>
+  </div>
+
+  <Shw::Divider />
+
+  <Shw::Text::H2>Content</Shw::Text::H2>
 
   <Shw::Text::H3>With empty <code>@data</code> argument</Shw::Text::H3>
 
@@ -110,6 +151,8 @@
     </:footer>
   </Hds::Form::KeyValueInputs>
 
+  <Shw::Divider @level={{2}} />
+
   <Shw::Text::H3>With 1 item in <code>@data</code> argument</Shw::Text::H3>
 
   <Hds::Form::KeyValueInputs @data={{this.sampleDataWith1Row}}>
@@ -136,6 +179,8 @@
       <F.AddRowButton />
     </:footer>
   </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider />
 
   <Shw::Text::H2>Columns</Shw::Text::H2>
 
@@ -166,6 +211,8 @@
       <F.AddRowButton />
     </:footer>
   </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>1 column</Shw::Text::H3>
 
@@ -233,6 +280,8 @@
       <F.AddRowButton @text="Add tag" @onClick={{this.onAddRowClick}} />
     </:footer>
   </Hds::Form::KeyValueInputs>
+
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>With components</Shw::Text::H3>
 
