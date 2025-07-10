@@ -30,7 +30,7 @@ const getCursorParts = (
   const token = atob(cursor);
   const tokenParts = [...token.split('__')];
   const direction = tokenParts[0];
-  const cursorID =  tokenParts[1] ? parseInt(tokenParts[1]) : undefined;
+  const cursorID = tokenParts[1] ? parseInt(tokenParts[1]) : undefined;
   const cursorIndex = records.findIndex((element) => element.id === cursorID);
 
   return { direction, cursorID, cursorIndex };
@@ -262,8 +262,7 @@ export default class PagePaginationController extends Controller {
       // for the "compact" pagination when the user changes the page size and the `onPageSizeChange` function is invoked
       // the callback function returns a `null` value for the `page` argument so the consumer can decide how to handle the cursors acordingly
       if (page === null) {
-
-        console.log('page is null')
+        console.log('page is null');
         return {
           prevCursor_demo4: currPrevCursor,
           nextCursor_demo4: currNextCursor,
@@ -290,7 +289,6 @@ export default class PagePaginationController extends Controller {
     const { newNextCursor } = this.newPrevNextCursors_demo4;
     return newNextCursor === null;
   }
-
 
   //   get paginatedData_demo2() {
   //   const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
