@@ -7,7 +7,7 @@
 
 @use "../typography" as *;
 
-body.shw-components-table {
+body.page-components-table {
   // we need to increase spacing between sections for this page because is too crowded
   .shw-divider:not(.shw-divider--level-2) {
     margin-top: 5rem;

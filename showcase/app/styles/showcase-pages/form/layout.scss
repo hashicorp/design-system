@@ -7,7 +7,7 @@
 
 @use "../../typography" as *;
 
-body.shw-components-form-layout {
+body.page-components-form-layout {
   // increase contrast
   .shw-placeholder {
     color: #000;
@@ -73,7 +73,7 @@ body.shw-components-form-layout {
 
 // FRAMELESS PAGES
 
-body.shw-components-form.frameless {
+body.page-components-form.frameless {
   .shw-component-form-layout-frameless-demo-complex-top-toolbar {
     @include shw-font-family("system sans");
     align-items: center;

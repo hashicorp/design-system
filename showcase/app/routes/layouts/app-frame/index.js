@@ -5,4 +5,4 @@
 
 import Route from '@ember/routing/route';
 
-export default class ShwComponentsAppFrameRoute extends Route {}
+export default class PageComponentsAppFrameRoute extends Route {}
