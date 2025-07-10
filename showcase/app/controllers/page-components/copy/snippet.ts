@@ -8,13 +8,13 @@ import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
 import type Owner from '@ember/owner';
-import type { Registry as Services } from '@ember/service';
+import type RouterService from '@ember/routing/router-service';
 
 import type { PageComponentsCopySnippetModel } from 'showcase/routes/page-components/copy/snippet';
 
 export default class CopySnippetController extends Controller {
   declare model: PageComponentsCopySnippetModel;
-  @service router!: Services['router'];
+  @service declare router: RouterService;
 
   constructor(owner: Owner) {
     super(owner);
