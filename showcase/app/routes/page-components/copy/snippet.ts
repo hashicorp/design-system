@@ -12,7 +12,8 @@ import {
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export type PageComponentsCopySnippetModel = ModelFrom<PageComponentsCopySnippetRoute>;
+export type PageComponentsCopySnippetModel =
+  ModelFrom<PageComponentsCopySnippetRoute>;
 
 export default class PageComponentsCopySnippetRoute extends Route {
   model() {

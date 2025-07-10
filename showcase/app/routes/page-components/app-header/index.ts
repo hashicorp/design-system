@@ -10,7 +10,8 @@ import { COLORS as ITEM_INTERACTIVE_COLORS } from '@hashicorp/design-system-comp
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export type PageComponentsAppHeaderModel = ModelFrom<PageComponentsAppHeaderRoute>;
+export type PageComponentsAppHeaderModel =
+  ModelFrom<PageComponentsAppHeaderRoute>;
 
 export default class PageComponentsAppHeaderRoute extends Route {
   model() {

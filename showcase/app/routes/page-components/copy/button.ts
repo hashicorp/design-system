@@ -12,7 +12,8 @@ import {
 
 import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
 
-export type PageComponentsCopyButtonModel = ModelFrom<PageComponentsCopyButtonRoute>;
+export type PageComponentsCopyButtonModel =
+  ModelFrom<PageComponentsCopyButtonRoute>;
 
 export default class PageComponentsCopyButtonRoute extends Route {
   model() {

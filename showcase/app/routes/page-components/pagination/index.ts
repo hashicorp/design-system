@@ -13,7 +13,8 @@ interface User {
   role: 'Owner' | 'Admin' | 'Contributor';
 }
 
-export type PageComponentsPaginationModel = ModelFrom<PageComponentsPaginationRoute>;
+export type PageComponentsPaginationModel =
+  ModelFrom<PageComponentsPaginationRoute>;
 
 export default class PageComponentsPaginationRoute extends Route {
   async model() {
