@@ -14,7 +14,7 @@ import { modifier } from 'ember-modifier';
 import registerEvent from '../../../modifiers/hds-register-event.ts';
 import anchoredPositionModifier from '../../../modifiers/hds-anchored-position.ts';
 
-import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 import type { ModifierLike } from '@glint/template';
 import type Owner from '@ember/owner';
 
@@ -55,7 +55,7 @@ export interface SetupPrimitivePopoverModifier {
   Element: HTMLElement;
   Args: {
     Positional: [];
-    Named: { anchoredPositionOptions: FloatingUIOptions };
+    Named: { anchoredPositionOptions: HdsAnchoredPositionOptions };
   };
 }
 
@@ -120,7 +120,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
     (
       element: HTMLElement,
       _positional,
-      named: { anchoredPositionOptions: FloatingUIOptions }
+      named: { anchoredPositionOptions: HdsAnchoredPositionOptions }
     ): void => {
       this._popoverElement = element;
 
@@ -167,7 +167,7 @@ export default class HdsPopoverPrimitive extends Component<HdsPopoverPrimitiveSi
       registerEvent(this._popoverElement, ['toggle', this.onTogglePopover]);
 
       // we need to spread the argument because if it's set via `{{ hash … }}` Ember complains when we overwrite one of its values
-      const anchoredPositionOptions: FloatingUIOptions = {
+      const anchoredPositionOptions: HdsAnchoredPositionOptions = {
         ...named.anchoredPositionOptions,
       };
 
