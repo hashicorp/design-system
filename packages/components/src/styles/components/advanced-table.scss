@@ -218,7 +218,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // dragging over left
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--left::after {
       left: 0;
-      transform: translateX(-3px);
+      transform: translateX(-2.5px);
     }
 
     // dragging over left and is first
@@ -229,7 +229,7 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // dragging over right
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right::after {
       right: 0;
-      transform: translateX(3px);
+      transform: translateX(2.5px);
     }
 
     // dragging over right and is last
