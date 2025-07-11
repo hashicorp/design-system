@@ -7,7 +7,11 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import type { PageComponentsFormModel } from 'showcase/routes/page-components/form/layout';
+
 export default class PageComponentsFormController extends Controller {
+  declare model: PageComponentsFormModel;
+
   @tracked showHighlight = false;
   @tracked showDemoCustomWidthsToggleContent = {};
   @tracked isModalActive = false;
@@ -16,16 +20,6 @@ export default class PageComponentsFormController extends Controller {
   @action
   toggleHighlight() {
     this.showHighlight = !this.showHighlight;
-  }
-
-  @action
-  toggleDemoCustomWidthsStatus(usecase) {
-    const current = this.showDemoCustomWidthsToggleContent[usecase] ?? false;
-    // re-assign to trigger tracking
-    this.showDemoCustomWidthsToggleContent = {
-      ...this.showDemoCustomWidthsToggleContent,
-    };
-    this.showDemoCustomWidthsToggleContent[usecase] = !current;
   }
 
   @action
