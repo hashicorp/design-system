@@ -22,7 +22,7 @@
 
 ### Tooltips
 
-Labels within the Table column should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label. Use tooltips sparingly and as a last resort.
+Labels within the Table column header should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label. Use tooltips sparingly and as a last resort.
 
 Some common examples where it may be useful to provide additional context in a tooltip include:
 
@@ -33,7 +33,7 @@ Some common examples where it may be useful to provide additional context in a t
 
 !!! Dont
 
-We recommend against using a tooltip in all or most columns in a table as this can add unnecessary visual clutter and increase the cognitive load on the user.
+We recommend against using a tooltip in all or most column labels in a table as this can add unnecessary visual clutter and increase the cognitive load on the user.
 
 ![Tooltips in every column in a table](/assets/components/table/table-tooltip-dont.png)
 !!!
