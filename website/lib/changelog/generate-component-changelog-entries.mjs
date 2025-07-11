@@ -5,6 +5,7 @@
 
 import fs from 'fs';
 import matter from 'gray-matter';
+import { glob } from 'glob';
 
 const readVersionFromPackageJson = (filePath) => {
   try {
@@ -17,26 +18,18 @@ const readVersionFromPackageJson = (filePath) => {
   }
 };
 
-const getComponentPaths = (baseDir) => {
-  const components = [];
-  try {
-    const folders = fs.readdirSync(baseDir, { withFileTypes: true });
-    folders.forEach((folder) => {
-      if (folder.isDirectory()) {
-        const componentPath = `${baseDir}/${folder.name}`;
-        const partialsPath = `${componentPath}/partials`;
-        if (fs.existsSync(partialsPath)) {
-          components.push(componentPath.replace('./docs/', ''));
-        } else {
-          // For component docs that are nested, we need to recursively get their paths
-          components.push(...getComponentPaths(componentPath));
-        }
-      }
-    });
-  } catch (err) {
-    console.error(`Error reading components from ${baseDir}:`, err);
-  }
-  return components;
+const getComponentPaths = async () => {
+  const componentPaths = await glob(
+    './docs/{components,layouts,overrides,utilities}/**/partials/',
+    { onlyDirectories: true },
+  );
+  const regex = new RegExp(
+    `(components|layouts|overrides|utilities)\/((?!\/partials).)*`,
+  );
+  const cleanedComponentPaths = componentPaths.map((path) => {
+    return path.match(regex)[0];
+  });
+  return cleanedComponentPaths;
 };
 
 const readChangelogContent = (filePath) => {
@@ -245,16 +238,7 @@ const version = readVersionFromPackageJson(
 );
 
 // Determine component paths
-const componentPaths = getComponentPaths('./docs/components');
-const layoutComponentPaths = getComponentPaths('./docs/layouts');
-const overrideComponentPaths = getComponentPaths('./docs/overrides');
-const utilityComponentPaths = getComponentPaths('./docs/utilities');
-const allComponentPaths = [
-  ...componentPaths,
-  ...layoutComponentPaths,
-  ...overrideComponentPaths,
-  ...utilityComponentPaths,
-];
+const allComponentPaths = await getComponentPaths();
 
 // Read the main changelog entry for components
 const changelogContent = readChangelogContent(
