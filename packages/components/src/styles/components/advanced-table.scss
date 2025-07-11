@@ -89,6 +89,27 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
   .hds-advanced-table__tr {
     display: contents;
 
+    .hds-advanced-table__th-reorder-handle {
+      z-index: 2;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      margin: -2px 0;
+      background-color: var(--token-color-surface-primary);
+      border: 1px solid $hds-advanced-table-border-color;
+      border-radius: var(--token-border-radius-x-small);
+
+      &:hover {
+        cursor: grab;
+      }
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
     .hds-advanced-table__th {
       position: relative;
       align-content: center;
@@ -97,6 +118,11 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       color: var(--token-color-foreground-strong);
       text-align: left;
       background-color: var(--token-color-surface-strong);
+
+      &:hover .hds-advanced-table__th-reorder-handle,
+      &.mock-hover .hds-advanced-table__th-reorder-handle {
+        display: flex;
+      }
 
       &:focus,
       &.mock-focus {
@@ -235,26 +261,6 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
     // dragging over right and is last
     .hds-advanced-table__th-reorder-drop-target--is-dragging-over--right.hds-advanced-table__th-reorder-drop-target--is-last::after {
       transform: translateX(0);
-    }
-
-    .hds-advanced-table__th-reorder-handle {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      z-index: 2;
-      width: 24px;
-      height: 24px;
-      background-color: var(--token-color-surface-primary);
-      border: 1px solid $hds-advanced-table-border-color;
-      border-radius: var(--token-border-radius-x-small);
-
-      &:hover {
-        cursor: grab;
-      }
-
-      &:active {
-        cursor: grabbing;
-      }
     }
 
     .hds-advanced-table__th-resize-handle {
