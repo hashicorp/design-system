@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PowerSelectController extends Controller {
+export default class PageOverridesPowerSelectController extends Controller {
   @action
   noop() {}
 }

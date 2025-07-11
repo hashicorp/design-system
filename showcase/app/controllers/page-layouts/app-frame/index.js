@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class AppFrameController extends Controller {
+export default class PageLayoutsAppFrameController extends Controller {
   @tracked show3DVisualization = false;
 
   @action

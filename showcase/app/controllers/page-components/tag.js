@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageTagController extends Controller {
+export default class PageComponentsTagController extends Controller {
   @action
   noop() {}
 }

@@ -5,4 +5,4 @@
 
 import Route from '@ember/routing/route';
 
-export default class UtilitiesRoute extends Route {}
+export default class PageUtilitiesRoute extends Route {}

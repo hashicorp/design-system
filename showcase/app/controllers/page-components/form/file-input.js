@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageFileInputController extends Controller {
+export default class PageComponentsFileInputController extends Controller {
   @tracked showHighlight = false;
 
   @action

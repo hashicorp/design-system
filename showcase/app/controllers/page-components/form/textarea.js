@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageFormTextareaController extends Controller {
+export default class PageComponentsFormTextareaController extends Controller {
   @tracked defaultText =
     'Ut enim ad minim veniam, quis nostrud exercitation ullamco';
   @tracked customText =

@@ -53,7 +53,7 @@ const getNewPrevNextCursors = (cursor, pageSize, records) => {
   };
 };
 
-export default class PagePaginationController extends Controller {
+export default class PageComponentsPaginationController extends Controller {
   queryParams = [
     'demoCurrentPage',
     'demoCurrentPageSize',

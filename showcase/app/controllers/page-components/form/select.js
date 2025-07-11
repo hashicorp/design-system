@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageFormSelectController extends Controller {
+export default class PageComponentsFormSelectController extends Controller {
   @action
   noop() {}
 }

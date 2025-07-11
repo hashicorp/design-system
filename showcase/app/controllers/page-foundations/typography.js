@@ -14,7 +14,7 @@ import {
   STYLES_COMBINATIONS,
 } from '../../routes/page-foundations/typography';
 
-export default class PageTypographyController extends Controller {
+export default class PageFoundationsTypographyController extends Controller {
   get families() {
     return [...FONT_FAMILIES];
   }

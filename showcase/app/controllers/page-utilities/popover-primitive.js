@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PopoverPrimitiveController extends Controller {
+export default class PageUtilitiesPopoverPrimitiveController extends Controller {
   @action
   noop() {}
 

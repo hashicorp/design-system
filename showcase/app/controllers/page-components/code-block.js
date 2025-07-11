@@ -26,7 +26,7 @@ function replaceMockCopyStatus() {
   });
 }
 
-export default class PageCodeBlockController extends Controller {
+export default class PageComponentsCodeBlockController extends Controller {
   @service router;
   @tracked isModalActive = false;
   @tracked declaration = 'let';

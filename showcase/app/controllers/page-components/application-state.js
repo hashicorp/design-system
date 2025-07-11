@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageApplicationStateController extends Controller {
+export default class PageComponentsApplicationStateController extends Controller {
   @tracked showHighlight = false;
 
   @action

@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageRichTooltipController extends Controller {
+export default class PageComponentsRichTooltipController extends Controller {
   @tracked isModalActive = false;
 
   @action

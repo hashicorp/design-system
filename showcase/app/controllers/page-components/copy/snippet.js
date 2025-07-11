@@ -24,7 +24,7 @@ function replaceMockCopyStatus() {
   });
 }
 
-export default class PageCopySnippetController extends Controller {
+export default class PageComponentsCopySnippetController extends Controller {
   @service router;
 
   constructor() {
