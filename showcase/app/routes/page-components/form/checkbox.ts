@@ -5,6 +5,11 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormCheckboxModel =
+  ModelFrom<PageComponentsFormCheckboxRoute>;
+
 export default class PageComponentsFormCheckboxRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
