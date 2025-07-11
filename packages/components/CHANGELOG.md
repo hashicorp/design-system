@@ -1,5 +1,17 @@
 # @hashicorp/design-system-components
 
+## 4.22.0
+
+### Minor Changes
+
+`Layout::Flex` - Fixed issue in which `gap` value was improperly inherited by nested `Flex` components, added "0" as a supported `gap` value.
+
+`Layout::Grid` - Fixed issue in which `gap` & `columnMinWidth` values were improperly inherited by nested `Grid` components, added "0" as a supported `gap` value.
+
+<small class="doc-whats-new-changelog-metadata">[#2987](https://github.com/hashicorp/design-system/pull/2987)</small>
+
+<div class="doc-whats-new-changelog-separator"></div>
+
 ## 4.21.0
 
 [4.21.0 documentation](https://hds-website-4-21-0.vercel.app/)
