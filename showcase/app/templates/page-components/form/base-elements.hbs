@@ -154,20 +154,20 @@
         type="text"
         aria-label="currentLength = 0"
         id="cc-cl-eq-0"
-        value={{this.value1}}
+        value={{get this.values "value1"}}
         {{on "input" (fn this.updateValue "value1")}}
       />
-      <Hds::Form::CharacterCount @value={{this.value1}} @controlId="cc-cl-eq-0" />
+      <Hds::Form::CharacterCount @value={{get this.values "value1"}} @controlId="cc-cl-eq-0" />
     </SG.Item>
     <SG.Item @label="currentLength > 0">
       <input
         type="text"
         aria-label="currentLength > 0"
         id="cc-cl-gt-0"
-        value={{this.value2}}
+        value={{get this.values "value2"}}
         {{on "input" (fn this.updateValue "value2")}}
       />
-      <Hds::Form::CharacterCount @value={{this.value2}} @controlId="cc-cl-gt-0" />
+      <Hds::Form::CharacterCount @value={{get this.values "value2"}} @controlId="cc-cl-gt-0" />
     </SG.Item>
   </Shw::Grid>
   {{! template-lint-enable require-input-label }}
@@ -182,10 +182,10 @@
           type="text"
           aria-label="currentLength = 0"
           id={{controlId}}
-          value={{this.value3}}
+          value={{get this.values "value3"}}
           {{on "input" (fn this.updateValue "value3")}}
         />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value3}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{get this.values "value3"}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength < maxLength">
@@ -194,10 +194,10 @@
           type="text"
           aria-label="currentLength < maxLength"
           id={{controlId}}
-          value={{this.value4}}
+          value={{get this.values "value4"}}
           {{on "input" (fn this.updateValue "value4")}}
         />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value4}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{get this.values "value4"}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength = maxLength">
@@ -206,10 +206,10 @@
           type="text"
           aria-label="currentLength = maxLength"
           id={{controlId}}
-          value={{this.value5}}
+          value={{get this.values "value5"}}
           {{on "input" (fn this.updateValue "value5")}}
         />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value5}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{get this.values "value5"}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength > maxLength">
@@ -218,10 +218,10 @@
           type="text"
           aria-label="currentLength > maxLength"
           id={{controlId}}
-          value={{this.value6}}
+          value={{get this.values "value6"}}
           {{on "input" (fn this.updateValue "value6")}}
         />
-        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{this.value6}} />
+        <Hds::Form::CharacterCount @maxLength={{25}} @controlId={{controlId}} @value={{get this.values "value6"}} />
       {{/let}}
     </SG.Item>
   </Shw::Grid>
@@ -237,10 +237,10 @@
           type="text"
           aria-label="currentLength = 0"
           id={{controlId}}
-          value={{this.value7}}
+          value={{get this.values "value7"}}
           {{on "input" (fn this.updateValue "value7")}}
         />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value7}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{get this.values "value7"}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength < maxLength">
@@ -249,10 +249,10 @@
           type="text"
           aria-label="currentLength < maxLength"
           id={{controlId}}
-          value={{this.value8}}
+          value={{get this.values "value8"}}
           {{on "input" (fn this.updateValue "value8")}}
         />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value8}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{get this.values "value8"}} />
       {{/let}}
     </SG.Item>
     <SG.Item @label="currentLength >= minLength">
@@ -261,10 +261,10 @@
           type="text"
           aria-label="currentLength >= minLength"
           id={{controlId}}
-          value={{this.value9}}
+          value={{get this.values "value9"}}
           {{on "input" (fn this.updateValue "value9")}}
         />
-        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{this.value9}} />
+        <Hds::Form::CharacterCount @minLength={{3}} @controlId={{controlId}} @value={{get this.values "value9"}} />
       {{/let}}
     </SG.Item>
     <SG.Item />
@@ -281,14 +281,14 @@
           type="text"
           aria-label="currentLength = 0"
           id={{controlId}}
-          value={{this.value10}}
+          value={{get this.values "value10"}}
           {{on "input" (fn this.updateValue "value10")}}
         />
         <Hds::Form::CharacterCount
           @minLength={{3}}
           @maxLength={{25}}
           @controlId={{controlId}}
-          @value={{this.value10}}
+          @value={{get this.values "value10"}}
         />
       {{/let}}
     </SG.Item>
@@ -298,14 +298,14 @@
           type="text"
           aria-label="currentLength < minLength"
           id={{controlId}}
-          value={{this.value11}}
+          value={{get this.values "value11"}}
           {{on "input" (fn this.updateValue "value11")}}
         />
         <Hds::Form::CharacterCount
           @minLength={{3}}
           @maxLength={{25}}
           @controlId={{controlId}}
-          @value={{this.value11}}
+          @value={{get this.values "value11"}}
         />
       {{/let}}
     </SG.Item>
@@ -315,14 +315,14 @@
           type="text"
           aria-label="minLength <= currentLength <= maxLength"
           id={{controlId}}
-          value={{this.value12}}
+          value={{get this.values "value12"}}
           {{on "input" (fn this.updateValue "value12")}}
         />
         <Hds::Form::CharacterCount
           @minLength={{3}}
           @maxLength={{25}}
           @controlId={{controlId}}
-          @value={{this.value12}}
+          @value={{get this.values "value12"}}
         />
       {{/let}}
     </SG.Item>
@@ -332,14 +332,14 @@
           type="text"
           aria-label="currentLength > maxLength"
           id={{controlId}}
-          value={{this.value13}}
+          value={{get this.values "value13"}}
           {{on "input" (fn this.updateValue "value13")}}
         />
         <Hds::Form::CharacterCount
           @minLength={{3}}
           @maxLength={{25}}
           @controlId={{controlId}}
-          @value={{this.value13}}
+          @value={{get this.values "value13"}}
         />
       {{/let}}
     </SG.Item>
@@ -358,14 +358,14 @@
           type="text"
           aria-label="with callback function"
           id={{controlId}}
-          value={{this.value14}}
+          value={{get this.values "value14"}}
           {{on "input" (fn this.updateValue "value14")}}
         />
         <Hds::Form::CharacterCount
           @minLength={{20}}
           @maxLength={{40}}
           @controlId={{controlId}}
-          @value={{this.value14}}
+          @value={{get this.values "value14"}}
           as |CC|
         >
           maxLength={{CC.maxLength}}; minLength={{CC.minLength}}; remaining={{CC.remaining}}; shortfall={{CC.shortfall}};
@@ -512,179 +512,173 @@
     <Shw::Text::H3>Layout</Shw::Text::H3>
 
     <Shw::Grid @columns={{3}} as |SG|>
-      {{#let (array "vertical" "flag") as |layouts|}}
-        {{#each layouts as |layout|}}
-          <SG.Item @label={{capitalize layout}}>
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Field>
-          </SG.Item>
-        {{/each}}
-      {{/let}}
+      {{#each @model.FIELD_LAYOUT_TYPES as |layout|}}
+        <SG.Item @label={{capitalize layout}}>
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Field>
+        </SG.Item>
+      {{/each}}
     </Shw::Grid>
 
-    {{#let (array "vertical" "flag") as |layouts|}}
-      {{#each layouts as |layout|}}
-        <Shw::Divider @level={{2}} />
-        <Shw::Text::H3>Content / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Grid @columns={{3}} as |SG|>
+    {{#each @model.FIELD_LAYOUT_TYPES as |layout|}}
+      <Shw::Divider @level={{2}} />
+      <Shw::Text::H3>Content / "{{layout}}" layout</Shw::Text::H3>
+      <Shw::Grid @columns={{3}} as |SG|>
 
-          <SG.Item @label="Only label">
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label text</F.Label>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-            </Hds::Form::Field>
-          </SG.Item>
-          <SG.Item @label="Label + Helper text">
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-            </Hds::Form::Field>
-          </SG.Item>
-          <SG.Item @label="Label + Helper text + Indicator">
-            <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
-              <F.Label>This is the label text</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-            </Hds::Form::Field>
-          </SG.Item>
-        </Shw::Grid>
+        <SG.Item @label="Only label">
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label text</F.Label>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+          </Hds::Form::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text">
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label text</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+          </Hds::Form::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Indicator">
+          <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
+            <F.Label>This is the label text</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+          </Hds::Form::Field>
+        </SG.Item>
+      </Shw::Grid>
 
-        <br />
+      <br />
 
-        <Shw::Grid @columns={{3}} as |SG|>
-          <SG.Item @albel="Label + Error">
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Field>
-          </SG.Item>
-          <SG.Item @albel="Label + Helper text + Error">
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Field>
-          </SG.Item>
-          <SG.Item @albel="Label + Helper text + Errors">
-            <Hds::Form::Field @layout={{layout}} as |F|>
-              <F.Label>This is the label</F.Label>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                {{#if (eq layout "vertical")}}
-                  <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                {{/if}}
-                {{#if (eq layout "flag")}}
-                  <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                {{/if}}
-              </F.Control>
-              <F.Error as |E|>
-                <E.Message>First error message</E.Message>
-                <E.Message>Second error message</E.Message>
-              </F.Error>
-            </Hds::Form::Field>
-          </SG.Item>
-        </Shw::Grid>
-      {{/each}}
-    {{/let}}
+      <Shw::Grid @columns={{3}} as |SG|>
+        <SG.Item @label="Label + Error">
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Error">
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Field>
+        </SG.Item>
+        <SG.Item @label="Label + Helper text + Errors">
+          <Hds::Form::Field @layout={{layout}} as |F|>
+            <F.Label>This is the label</F.Label>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              {{#if (eq layout "vertical")}}
+                <Shw::Placeholder @text="control" @width="100%" @height="32" />
+              {{/if}}
+              {{#if (eq layout "flag")}}
+                <Shw::Placeholder @text="✔" @width="16" @height="16" />
+              {{/if}}
+            </F.Control>
+            <F.Error as |E|>
+              <E.Message>First error message</E.Message>
+              <E.Message>Second error message</E.Message>
+            </F.Error>
+          </Hds::Form::Field>
+        </SG.Item>
+      </Shw::Grid>
+    {{/each}}
 
-    {{#let (array "vertical" "flag") as |layouts|}}
-      {{#each layouts as |layout|}}
-        <Shw::Divider @level={{2}} />
-        <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Grid @columns={{3}} as |SG|>
-          {{#let (array "block" "flex" "grid") as |displays|}}
-            {{#each displays as |display|}}
-              <SG.Item as |SGI|>
-                <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
-                <div {{style display=display}}>
-                  <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
-                    <F.Label>This is the label</F.Label>
-                    <F.HelperText>This is the helper text</F.HelperText>
-                    <F.Control>
-                      {{#if (eq layout "vertical")}}
-                        <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                      {{/if}}
-                      {{#if (eq layout "flag")}}
-                        <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                      {{/if}}
-                    </F.Control>
-                    <F.Error>This is the error</F.Error>
-                  </Hds::Form::Field>
-                </div>
-                <br />
-                <div {{style display=display}}>
-                  <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
-                    <F.Label>This is the label text that should go on multiple lines</F.Label>
-                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-                    <F.Control>
-                      {{#if (eq layout "vertical")}}
-                        <Shw::Placeholder @text="control" @width="100%" @height="32" />
-                      {{/if}}
-                      {{#if (eq layout "flag")}}
-                        <Shw::Placeholder @text="✔" @width="16" @height="16" />
-                      {{/if}}
-                    </F.Control>
-                    <F.Error as |E|>
-                      <E.Message>This is the first error text</E.Message>
-                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
-                    </F.Error>
-                  </Hds::Form::Field>
-                </div>
-              </SG.Item>
-            {{/each}}
-          {{/let}}
-        </Shw::Grid>
-      {{/each}}
-    {{/let}}
+    {{#each @model.FIELD_LAYOUT_TYPES as |layout|}}
+      <Shw::Divider @level={{2}} />
+      <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
+      <Shw::Grid @columns={{3}} as |SG|>
+        {{#let (array "block" "flex" "grid") as |displays|}}
+          {{#each displays as |display|}}
+            <SG.Item as |SGI|>
+              <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
+              <div {{style display=display}}>
+                <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
+                  <F.Label>This is the label</F.Label>
+                  <F.HelperText>This is the helper text</F.HelperText>
+                  <F.Control>
+                    {{#if (eq layout "vertical")}}
+                      <Shw::Placeholder @text="control" @width="100%" @height="32" />
+                    {{/if}}
+                    {{#if (eq layout "flag")}}
+                      <Shw::Placeholder @text="✔" @width="16" @height="16" />
+                    {{/if}}
+                  </F.Control>
+                  <F.Error>This is the error</F.Error>
+                </Hds::Form::Field>
+              </div>
+              <br />
+              <div {{style display=display}}>
+                <Hds::Form::Field @layout={{layout}} @isRequired={{true}} as |F|>
+                  <F.Label>This is the label text that should go on multiple lines</F.Label>
+                  <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                  <F.Control>
+                    {{#if (eq layout "vertical")}}
+                      <Shw::Placeholder @text="control" @width="100%" @height="32" />
+                    {{/if}}
+                    {{#if (eq layout "flag")}}
+                      <Shw::Placeholder @text="✔" @width="16" @height="16" />
+                    {{/if}}
+                  </F.Control>
+                  <F.Error as |E|>
+                    <E.Message>This is the first error text</E.Message>
+                    <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                  </F.Error>
+                </Hds::Form::Field>
+              </div>
+            </SG.Item>
+          {{/each}}
+        {{/let}}
+      </Shw::Grid>
+    {{/each}}
   </div>
 
   {{! ###################### }}
@@ -704,73 +698,69 @@
 
     <Shw::Text::H3>Layout</Shw::Text::H3>
     <Shw::Flex @gap="3rem" as |SF|>
-      {{#let (array "vertical" "horizontal") as |layouts|}}
-        {{#each layouts as |layout|}}
-          <SF.Item @label={{capitalize layout}}>
-            <Hds::Form::Fieldset @layout={{layout}} as |F|>
-              <F.Legend>This is the legend</F.Legend>
-              <F.HelperText>This is the helper text</F.HelperText>
-              <F.Control>
-                <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-              </F.Control>
-              <F.Control>
-                <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-              </F.Control>
-              <F.Control>
-                <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-              </F.Control>
-              <F.Error>This is the error</F.Error>
-            </Hds::Form::Fieldset>
-          </SF.Item>
-        {{/each}}
-      {{/let}}
+      {{#each @model.FIELDSET_LAYOUT_TYPES as |layout|}}
+        <SF.Item @label={{capitalize layout}}>
+          <Hds::Form::Fieldset @layout={{layout}} as |F|>
+            <F.Legend>This is the legend</F.Legend>
+            <F.HelperText>This is the helper text</F.HelperText>
+            <F.Control>
+              <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+            </F.Control>
+            <F.Control>
+              <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+            </F.Control>
+            <F.Control>
+              <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+            </F.Control>
+            <F.Error>This is the error</F.Error>
+          </Hds::Form::Fieldset>
+        </SF.Item>
+      {{/each}}
     </Shw::Flex>
 
-    {{#let (array "vertical" "horizontal") as |layouts|}}
-      {{#each layouts as |layout|}}
-        <Shw::Divider @level={{2}} />
-        <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
-        <Shw::Grid @columns={{3}} as |SG|>
-          {{#let (array "block" "flex" "grid") as |displays|}}
-            {{#each displays as |display|}}
-              <SG.Item as |SGI|>
-                <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
-                <div {{style display=display}}>
-                  <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
-                    <F.Legend>This is the legend</F.Legend>
-                    <F.HelperText>This is the helper text</F.HelperText>
-                    <F.Control>
-                      <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-                    </F.Control>
-                    <F.Control>
-                      <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-                    </F.Control>
-                    <F.Error>This is the error</F.Error>
-                  </Hds::Form::Fieldset>
-                </div>
-                <br />
-                <div {{style display=display}}>
-                  <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
-                    <F.Legend>This is the legend text that should go on multiple lines</F.Legend>
-                    <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
-                    <F.Control>
-                      <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-                    </F.Control>
-                    <F.Control>
-                      <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
-                    </F.Control>
-                    <F.Error as |E|>
-                      <E.Message>This is the first error text</E.Message>
-                      <E.Message>This is the second error text that should go on multiple lines</E.Message>
-                    </F.Error>
-                  </Hds::Form::Fieldset>
-                </div>
-              </SG.Item>
-            {{/each}}
-          {{/let}}
-        </Shw::Grid>
-      {{/each}}
-    {{/let}}
+    {{#each @model.FIELDSET_LAYOUT_TYPES as |layout|}}
+      <Shw::Divider @level={{2}} />
+      <Shw::Text::H3>Containers / "{{layout}}" layout</Shw::Text::H3>
+      <Shw::Grid @columns={{3}} as |SG|>
+        {{#let (array "block" "flex" "grid") as |displays|}}
+          {{#each displays as |display|}}
+            <SG.Item as |SGI|>
+              <SGI.Label>Parent with <code>display: {{display}}</code></SGI.Label>
+              <div {{style display=display}}>
+                <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
+                  <F.Legend>This is the legend</F.Legend>
+                  <F.HelperText>This is the helper text</F.HelperText>
+                  <F.Control>
+                    <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+                  </F.Control>
+                  <F.Control>
+                    <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+                  </F.Control>
+                  <F.Error>This is the error</F.Error>
+                </Hds::Form::Fieldset>
+              </div>
+              <br />
+              <div {{style display=display}}>
+                <Hds::Form::Fieldset @layout={{layout}} @isRequired={{true}} as |F|>
+                  <F.Legend>This is the legend text that should go on multiple lines</F.Legend>
+                  <F.HelperText>This is the helper text that should go on multiple lines</F.HelperText>
+                  <F.Control>
+                    <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+                  </F.Control>
+                  <F.Control>
+                    <Shw::Placeholder @text="field" @width="120" @height="32" class="hds-form-group__control-field" />
+                  </F.Control>
+                  <F.Error as |E|>
+                    <E.Message>This is the first error text</E.Message>
+                    <E.Message>This is the second error text that should go on multiple lines</E.Message>
+                  </F.Error>
+                </Hds::Form::Fieldset>
+              </div>
+            </SG.Item>
+          {{/each}}
+        {{/let}}
+      </Shw::Grid>
+    {{/each}}
   </div>
 
   {{! ###################### }}
