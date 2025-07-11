@@ -15,3 +15,7 @@ export enum HdsDialogPrimitiveHeaderTitleTagValues {
 
 export type HdsDialogPrimitiveHeaderTitleTags =
   `${HdsDialogPrimitiveHeaderTitleTagValues}`;
+
+export default {
+  HdsDialogPrimitiveHeaderTitleTagValues,
+};

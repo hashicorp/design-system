@@ -21,3 +21,8 @@ export enum HdsApplicationStateTitleTagValues {
 
 export type HdsApplicationStateTitleTags =
   `${HdsApplicationStateTitleTagValues}`;
+
+export default {
+  HdsApplicationStateAlignValues,
+  HdsApplicationStateTitleTagValues,
+};

@@ -33,3 +33,8 @@ export enum HdsIconColorValues {
   CriticalHighContrast = 'critical-high-contrast',
 }
 export type HdsIconColors = `${HdsIconColorValues}`;
+
+export default {
+  HdsIconSizeValues,
+  HdsIconColorValues,
+};
