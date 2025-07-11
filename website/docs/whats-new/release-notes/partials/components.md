@@ -18,6 +18,28 @@
 
 **Minor changes**
 
+<!-- START components/card -->
+`Card` - Test change multi-line
+- Change one
+- Change two
+<!-- END -->
+
+<!-- START components/tag -->
+`Tag` - Test change
+<!-- END -->
+
+<!-- START components/card -->
+`Card` - Test change three
+<!-- END -->
+
+<!-- START components/link/standalone -->
+`Link::Standalone` - Test change
+<!-- END -->
+
+<!-- START components/missing-path -->
+`Button` - Test change
+<!-- END -->
+
 `Form` - Added `Form` component and related sub-components for form layout
 
 <small class="doc-whats-new-changelog-metadata">[#2898](https://github.com/hashicorp/design-system/pull/2898)</small>
