@@ -55,7 +55,7 @@ const extractVersion = (changelogContent, version) => {
   return match ? match[0] : null;
 };
 
-const extractComponentChangelogEntries = (components, lastVersionContent) => {
+const extractComponentChangelogEntries = (lastVersionContent) => {
   const componentChangelogEntries = {};
 
   // Regular expression to match and capture a block of text delimited by two HTML comments used as START/END markers:
@@ -265,7 +265,6 @@ const currentVersionContent = extractVersion(changelogContent, version);
 
 // Extracts changelog entries for each components
 const componentChangelogEntries = extractComponentChangelogEntries(
-  allComponentPaths,
   currentVersionContent,
 );
 
