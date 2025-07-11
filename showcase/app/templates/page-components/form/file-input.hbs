@@ -44,40 +44,40 @@
   <div class="{{if this.showHighlight 'shw-component-form-file-input-layout-highlight'}}">
     <Shw::Text::H3>Content</Shw::Text::H3>
 
-    <Shw::Grid @columns="3" @gap="2rem" as |SG|>
+    <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
       <SG.Item @label="Only label">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label text</F.Label>
         </Hds::Form::FileInput::Field>
       </SG.Item>
       <SG.Item @label="Label + Helper text">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label text</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
         </Hds::Form::FileInput::Field>
       </SG.Item>
       <SG.Item @label="Label + Helper text with link">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label text</F.Label>
           <F.HelperText>This is the helper text
             <Hds::Link::Inline @route="index">with a link</Hds::Link::Inline></F.HelperText>
         </Hds::Form::FileInput::Field>
       </SG.Item>
       <SG.Item @label="Label + Error">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label</F.Label>
           <F.Error>This is the error</F.Error>
         </Hds::Form::FileInput::Field>
       </SG.Item>
       <SG.Item @label="Label + Helper text + Error">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error>This is the error</F.Error>
         </Hds::Form::FileInput::Field>
       </SG.Item>
       <SG.Item @label="Label + Helper text + Errors">
-        <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" @isInvalid={{true}} as |F|>
+        <Hds::Form::FileInput::Field value="Lorem ipsum dolor" as |F|>
           <F.Label>This is the label</F.Label>
           <F.HelperText>This is the helper text</F.HelperText>
           <F.Error as |E|>
@@ -91,9 +91,9 @@
 
   <Shw::Divider @level={{2}} />
 
-  <Shw::Grid @columns="3" @gap="2rem" as |SG|>
+  <Shw::Grid @columns={{3}} @gap="2rem" as |SG|>
     <SG.Item @label="Disabled">
-      <Hds::Form::FileInput::Field @value="Lorem ipsum dolor" disabled={{true}} as |F|>
+      <Hds::Form::FileInput::Field value="Lorem ipsum dolor" disabled={{true}} as |F|>
         <F.Label>This is the label text</F.Label>
         <F.HelperText>This is the helper text</F.HelperText>
       </Hds::Form::FileInput::Field>
