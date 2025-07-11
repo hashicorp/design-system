@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageFormCheckboxController extends Controller {
+export default class PageComponentsFormCheckboxController extends Controller {
   @action
   noop() {}
 }

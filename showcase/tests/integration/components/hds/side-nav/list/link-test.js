@@ -71,7 +71,7 @@ module('Integration | Component | hds/side-nav/list/link', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::List::Link @route="utilities.interactive" />`,
+      hbs`<Hds::SideNav::List::Link @route="page-utilities.interactive" />`,
     );
     assert
       .dom('.hds-side-nav__list-item-link')

@@ -14,7 +14,7 @@ import type RouterService from '@ember/routing/router-service';
 
 import type { PageComponentsCopyButtonModel } from 'showcase/routes/page-components/copy/button';
 
-export default class CopyButtonController extends Controller {
+export default class PageComponentsCopyButtonController extends Controller {
   declare model: PageComponentsCopyButtonModel;
   @service declare router: RouterService;
   @tracked isModalActive = false;

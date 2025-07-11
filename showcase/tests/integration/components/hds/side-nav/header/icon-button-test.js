@@ -54,7 +54,7 @@ module('Integration | Component | hds/side-nav/icon-button', function (hooks) {
 
   test('it should render a <a> link if @route is passed', async function (assert) {
     await render(
-      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @route="utilities.interactive" id="test-side-nav-button" />`,
+      hbs`<Hds::SideNav::Header::IconButton @icon="search" @ariaLabel="Search" @route="page-utilities.interactive" id="test-side-nav-button" />`,
     );
     assert
       .dom('#test-side-nav-button')

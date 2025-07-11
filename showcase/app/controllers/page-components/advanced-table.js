@@ -36,7 +36,7 @@ const updateModelWithSelectableRowsStates = (
   });
 };
 
-export default class PageComponentsTableController extends Controller {
+export default class PageComponentsAdvancedTableController extends Controller {
   @tracked customSortOrder = 'asc';
   @deepTracked multiSelectSelectableData = [...this.model.selectableData];
   @tracked multiSelectFilterRows__demo1 = 'all';

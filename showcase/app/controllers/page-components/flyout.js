@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageFlyoutController extends Controller {
+export default class PageComponentsFlyoutController extends Controller {
   @tracked mediumFlyoutActive = false;
   @tracked largeFlyoutActive = false;
   @tracked dropdownInitiatedFlyoutActive = false;

@@ -70,7 +70,7 @@ const getNewPrevNextCursors = (
   };
 };
 
-export default class PagePaginationController extends Controller {
+export default class PageComponentsPaginationController extends Controller {
   declare model: PageComponentsPaginationModel;
   queryParams = [
     'demoCurrentPage',

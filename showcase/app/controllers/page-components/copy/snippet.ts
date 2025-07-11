@@ -12,7 +12,7 @@ import type RouterService from '@ember/routing/router-service';
 
 import type { PageComponentsCopySnippetModel } from 'showcase/routes/page-components/copy/snippet';
 
-export default class CopySnippetController extends Controller {
+export default class PageComponentsCopySnippetController extends Controller {
   declare model: PageComponentsCopySnippetModel;
   @service declare router: RouterService;
 

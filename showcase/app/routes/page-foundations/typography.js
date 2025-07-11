@@ -31,7 +31,7 @@ export const STYLES_COMBINATIONS = {
   'code-100': ['regular', 'bold'],
 };
 
-export default class FoundationsElevationRoute extends Route {
+export default class PageFoundationsElevationRoute extends Route {
   model() {
     return {
       FONT_FAMILIES,

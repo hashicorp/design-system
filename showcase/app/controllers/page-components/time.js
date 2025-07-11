@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
-export default class PageTimeController extends Controller {
+export default class PageComponentsTimeController extends Controller {
   @service hdsTime;
 
   // Test relative times

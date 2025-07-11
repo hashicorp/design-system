@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageAlertController extends Controller {
+export default class PageComponentsAlertController extends Controller {
   @action
   noop() {}
 }

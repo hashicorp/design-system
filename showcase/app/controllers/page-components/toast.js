@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageToastController extends Controller {
+export default class PageComponentsToastController extends Controller {
   @action
   noop() {}
 }
