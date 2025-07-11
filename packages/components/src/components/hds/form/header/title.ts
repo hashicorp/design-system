@@ -13,7 +13,7 @@ import type { HdsTextDisplaySignature } from '../../text/display.ts';
 
 export const DEFAULT_SIZE = HdsTextSizeValues.FourHundred;
 export const DEFAULT_TAG = HdsFormHeaderTitleTagValues.Div;
-export const AVAILABLE_TAGS: string[] = Object.values(
+export const AVAILABLE_TAGS: HdsFormHeaderTitleTags[] = Object.values(
   HdsFormHeaderTitleTagValues
 );
 
