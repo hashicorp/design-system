@@ -8,10 +8,10 @@ import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
 
 import type Owner from '@ember/owner';
-import type { Registry as Services } from '@ember/service';
+import type RouterService from '@ember/routing/router-service';
 
 export default class PageUtilitiesController extends Controller {
-  @service router!: Services['router'];
+  @service declare readonly router: RouterService;
 
   constructor(owner: Owner) {
     super(owner);
