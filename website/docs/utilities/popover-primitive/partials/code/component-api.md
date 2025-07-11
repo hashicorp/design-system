@@ -90,7 +90,7 @@
         <br />
         For details see: [Floating UI > Arrow](https://floating-ui.com/docs/arrow)
       </C.Property>
-      <C.Property @name="anchoredPositionOptions.arrowElement" @type="string">
+      <C.Property @name="anchoredPositionOptions.arrowSelector" @type="string">
         A DOM selector for the "arrow", if it's not possible to provide a direct reference to the DOM element (internally it's then converted to the `arrowElement` option).
       </C.Property>
       <C.Property @name="anchoredPositionOptions.arrowPadding" @type="number">

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 
 export enum HdsDropdownPositionValues {
   BottomLeft = 'bottom-left',
@@ -17,7 +17,7 @@ export type HdsDropdownPositions = `${HdsDropdownPositionValues}`;
 export const HdsDropdownPositionToPlacementValues: Record<
   // Dropdown's `listPosition` values
   HdsDropdownPositionValues,
-  FloatingUIOptions['placement']
+  HdsAnchoredPositionOptions['placement']
 > = {
   [HdsDropdownPositionValues.BottomLeft]: 'bottom-start',
   [HdsDropdownPositionValues.BottomRight]: 'bottom-end',

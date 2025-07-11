@@ -31,7 +31,7 @@ import type { HdsDropdownToggleButtonSignature } from './toggle/button';
 import type { HdsDropdownToggleIconSignature } from './toggle/icon';
 import type { HdsDropdownPositions } from './types';
 
-import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 
 export const DEFAULT_POSITION = HdsDropdownPositionValues.BottomRight;
 export const POSITIONS: HdsDropdownPositions[] = Object.values(
@@ -45,7 +45,7 @@ export interface HdsDropdownSignature {
     isOpen?: boolean;
     listPosition?: HdsDropdownPositions;
     width?: string;
-    enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
+    enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     preserveContentInDom?: boolean;
     matchToggleWidth?: boolean;
   };
@@ -92,19 +92,19 @@ export default class HdsDropdown extends Component<HdsDropdownSignature> {
     return listPosition;
   }
 
-  get enableCollisionDetection(): FloatingUIOptions['enableCollisionDetection'] {
+  get enableCollisionDetection(): HdsAnchoredPositionOptions['enableCollisionDetection'] {
     return this.args.enableCollisionDetection ?? false;
   }
 
-  get matchToggleWidth(): FloatingUIOptions['matchToggleWidth'] {
+  get matchToggleWidth(): HdsAnchoredPositionOptions['matchToggleWidth'] {
     return this.args.matchToggleWidth ?? false;
   }
 
   get anchoredPositionOptions(): {
-    placement: FloatingUIOptions['placement'];
-    offsetOptions: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
-    matchToggleWidth: FloatingUIOptions['matchToggleWidth'];
+    placement: HdsAnchoredPositionOptions['placement'];
+    offsetOptions: HdsAnchoredPositionOptions['offsetOptions'];
+    enableCollisionDetection: HdsAnchoredPositionOptions['enableCollisionDetection'];
+    matchToggleWidth: HdsAnchoredPositionOptions['matchToggleWidth'];
   } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier

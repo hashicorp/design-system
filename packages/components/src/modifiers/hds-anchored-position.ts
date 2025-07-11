@@ -69,6 +69,10 @@ export type FloatingUIOptions = {
   matchToggleWidth?: boolean;
 };
 
+export type HdsAnchoredPositionOptions = FloatingUIOptions & {
+  arrowSelector?: string;
+};
+
 // we use this function to process all the options provided to the modifier in a single place,
 // in relation to the Floating UI APIs, and keep the modifier code more clean/simple
 export const getFloatingUIOptions = (
@@ -158,7 +162,7 @@ export interface HdsAnchoredPositionSignature {
   Element: HTMLElement;
   Args: {
     Positional: [HTMLElement | SVGElement];
-    Named: FloatingUIOptions & { arrowSelector?: string };
+    Named: HdsAnchoredPositionOptions;
   };
 }
 

@@ -8,7 +8,7 @@ import { assert } from '@ember/debug';
 
 import type { ModifierLike } from '@glint/template';
 import type { SetupPrimitivePopoverModifier } from '../popover-primitive';
-import type { FloatingUIOptions } from '../../../modifiers/hds-anchored-position.ts';
+import type { HdsAnchoredPositionOptions } from '../../../modifiers/hds-anchored-position.ts';
 import {
   DEFAULT_PLACEMENT,
   PLACEMENTS,
@@ -16,9 +16,9 @@ import {
 
 export interface HdsRichTooltipBubbleSignature {
   Args: {
-    placement?: FloatingUIOptions['placement'];
-    offset?: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection?: FloatingUIOptions['enableCollisionDetection'];
+    placement?: HdsAnchoredPositionOptions['placement'];
+    offset?: HdsAnchoredPositionOptions['offsetOptions'];
+    enableCollisionDetection?: HdsAnchoredPositionOptions['enableCollisionDetection'];
     width?: string;
     height?: string;
     isOpen?: boolean;
@@ -38,7 +38,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
    * @type {string}
    * @description Determines the position of the "popover"
    */
-  get placement(): FloatingUIOptions['placement'] {
+  get placement(): HdsAnchoredPositionOptions['placement'] {
     const { placement = DEFAULT_PLACEMENT } = this.args;
 
     assert(
@@ -51,7 +51,7 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
     return placement;
   }
 
-  get enableCollisionDetection(): FloatingUIOptions['enableCollisionDetection'] {
+  get enableCollisionDetection(): HdsAnchoredPositionOptions['enableCollisionDetection'] {
     return this.args.enableCollisionDetection ?? true;
   }
 
@@ -77,11 +77,11 @@ export default class HdsRichTooltipBubble extends Component<HdsRichTooltipBubble
   }
 
   get anchoredPositionOptions(): {
-    placement: FloatingUIOptions['placement'];
-    offsetOptions: FloatingUIOptions['offsetOptions'];
-    enableCollisionDetection: FloatingUIOptions['enableCollisionDetection'];
+    placement: HdsAnchoredPositionOptions['placement'];
+    offsetOptions: HdsAnchoredPositionOptions['offsetOptions'];
+    enableCollisionDetection: HdsAnchoredPositionOptions['enableCollisionDetection'];
     arrowSelector: string;
-    arrowPadding: FloatingUIOptions['arrowPadding'];
+    arrowPadding: HdsAnchoredPositionOptions['arrowPadding'];
   } {
     // custom options specific for the `RichTooltip` component
     // for details see the `hds-anchored-position` modifier
