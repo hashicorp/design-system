@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageFormRadioCardController extends Controller {
+export default class PageComponentsFormRadioCardController extends Controller {
   @action
   onChange(event) {
     const control = event.target;

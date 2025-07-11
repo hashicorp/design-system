@@ -32,7 +32,7 @@ const updateStepsProcessing = (steps, stepNumber) => {
   });
 };
 
-export default class PageStepperListController extends Controller {
+export default class PageComponentsStepperListController extends Controller {
   @tracked currentStep_demo1 = 1;
   @tracked currentStep_demo2 = 1;
 

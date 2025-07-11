@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageFormMaskedInputController extends Controller {
+export default class PageComponentsFormMaskedInputController extends Controller {
   @tracked defaultText = 'Lorem ipsum dolor';
   @tracked customText = 'Lorem ipsum dolor';
   @tracked withErrorMessage = 'Lorem ipsum dolor sit amet';

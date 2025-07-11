@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageModalController extends Controller {
+export default class PageComponentsModalController extends Controller {
   @tracked basicModalActive = false;
   @tracked longModalActive = false;
   @tracked formModalActive = false;

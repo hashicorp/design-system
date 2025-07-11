@@ -26,7 +26,7 @@ function replaceMockCopyStatus() {
   });
 }
 
-export default class PageCopyButtonController extends Controller {
+export default class PageComponentsCopyButtonController extends Controller {
   @service router;
   @tracked isModalActive = false;
 

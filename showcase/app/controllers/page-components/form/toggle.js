@@ -6,7 +6,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PageFormToggleController extends Controller {
+export default class PageComponentsFormToggleController extends Controller {
   @action
   noop() {}
 }

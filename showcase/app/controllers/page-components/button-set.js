@@ -7,7 +7,7 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PageButtonSetController extends Controller {
+export default class PageComponentsButtonSetController extends Controller {
   @tracked isLoading = false;
   @tracked timer;
 

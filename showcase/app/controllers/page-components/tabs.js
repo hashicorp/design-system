@@ -9,7 +9,7 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 const getRandomInteger = (max = 125) => Math.floor(Math.random() * max);
-export default class PageTabsController extends Controller {
+export default class PageComponentsTabsController extends Controller {
   queryParams = [
     'currentTab_demo1',
     'currentTab_demo2',

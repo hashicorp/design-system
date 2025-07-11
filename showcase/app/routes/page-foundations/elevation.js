@@ -15,7 +15,7 @@ export const SURFACES = [
   'higher',
   'overlay',
 ];
-export default class FoundationsElevationRoute extends Route {
+export default class PageFoundationsElevationRoute extends Route {
   model() {
     return { ELEVATIONS, SURFACES };
   }

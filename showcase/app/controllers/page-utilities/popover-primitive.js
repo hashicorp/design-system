@@ -6,7 +6,12 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
-export default class PowerSelectController extends Controller {
+export default class PageUtilitiesPopoverPrimitiveController extends Controller {
   @action
   noop() {}
+
+  @action
+  onClickButton() {
+    window.alert('The button has been clicked!');
+  }
 }

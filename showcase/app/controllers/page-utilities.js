@@ -24,7 +24,7 @@ function replaceMockStates() {
     });
   });
 }
-export default class UtilitiesController extends Controller {
+export default class PageUtilitiesController extends Controller {
   @service router;
 
   constructor() {
