@@ -21,7 +21,7 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 // Filter out reverse mappings from enum
 // https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
-export const AVAILABLE_SIZES  = Object.values(HdsTextSizeValues).filter(
+export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
   (v): boolean => typeof v === 'number'
 ) as HdsTextSizes[];
 
