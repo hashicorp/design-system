@@ -25,7 +25,7 @@ export default class PageComponentsCopyButtonController extends Controller {
   }
 
   routeDidChange() {
-    if (this.router.currentRoute?.name === 'components.copy.button') {
+    if (this.router.currentRoute?.name === 'page-components.copy.button') {
       // eslint-disable-next-line ember/no-runloop
       scheduleOnce('afterRender', this, this.replaceMockCopyStatus.bind(this));
     }

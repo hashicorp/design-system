@@ -22,7 +22,7 @@ export default class PageComponentsCopySnippetController extends Controller {
   }
 
   routeDidChange() {
-    if (this.router.currentRoute?.name === 'components.copy.snippet') {
+    if (this.router.currentRoute?.name === 'page-components.copy.snippet') {
       // eslint-disable-next-line ember/no-runloop
       scheduleOnce('afterRender', this, this.replaceMockCopyStatus.bind(this));
     }
@@ -31,8 +31,9 @@ export default class PageComponentsCopySnippetController extends Controller {
   replaceMockCopyStatus() {
     document.querySelectorAll('[mock-copy-status]').forEach((element) => {
       const status = element.getAttribute('mock-copy-status');
-      element.classList.remove('hds-copy-button--status-idle');
-      element.classList.add(`hds-copy-button--status-${status}`);
+
+      element.classList.remove('hds-copy-snippet--status-idle');
+      element.classList.add(`hds-copy-snippet--status-${status}`);
 
       const icon = element.querySelector('svg use');
 
