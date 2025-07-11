@@ -1,0 +1,70 @@
+/**
+ * Copyright (c) HashiCorp, Inc.
+ * SPDX-License-Identifier: MPL-2.0
+ */
+
+// FORM > KEY-VALUE-INPUTS
+
+@use "../../typography" as *;
+
+body.page-components-form-key-value-inputs-index {
+  // this is to handle the multiple yielded elements
+  .shw-component-form-key-value-inputs-containers {
+    .hds-form-key-value-inputs__field-header {
+      > .shw-placeholder {
+        display: none;
+      }
+    }
+
+    .hds-form-key-value-inputs__field-control {
+      > .shw-placeholder:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+
+  .shw-component-form-key-value-inputs-button-highlight {
+    display: block;
+    margin: 24px 0;
+  }
+
+  .shw-component-form-key-value-inputs-highlight-elements {
+    .hds-form-key-value-inputs__header,
+    .hds-form-key-value-inputs__row,
+    .hds-form-key-value-inputs__footer {
+      position: relative;
+      background-color: #f6fcff;
+      outline: 1px dashed #78909c;
+
+      &::after {
+        @include shw-font-family("system mono");
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 2px 4px;
+        font-weight: normal;
+        font-size: 0.65em;
+        background-color: var(--shw-color-gray-600);
+      }
+    }
+
+    .hds-form-key-value-inputs__header::after {
+      content: "header";
+    }
+
+    .hds-form-key-value-inputs__row::after {
+      content: "row";
+    }
+
+    .hds-form-key-value-inputs__footer::after {
+      content: "footer";
+    }
+  }
+
+  // used to frame some of the examples
+  .shw-component-form-key-value-inputs-frame-content {
+    width: fit-content;
+    padding: 48px;
+    outline: 1px dotted var(--shw-color-gray-400);
+  }
+}

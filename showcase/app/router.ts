@@ -59,6 +59,14 @@ Router.map(function () {
       this.route('base-elements');
       this.route('checkbox');
       this.route('file-input');
+      this.route('key-value-inputs', function () {
+        this.route('frameless', function () {
+          this.route('demo-responsiveness');
+          this.route('demo-responsiveness-custom-widths');
+          this.route('demo-in-form');
+          this.route('demo-flows');
+        });
+      });
       this.route('masked-input');
       this.route('radio');
       this.route('select');
