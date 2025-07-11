@@ -35,7 +35,7 @@ SPDX-License-Identifier: MPL-2.0
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>With typical child component content</Shw::Text::H3>
 
@@ -163,7 +163,7 @@ SPDX-License-Identifier: MPL-2.0
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>With long content</Shw::Text::H3>
 
@@ -241,7 +241,7 @@ SPDX-License-Identifier: MPL-2.0
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>With text</Shw::Text::H3>
 
@@ -451,25 +451,13 @@ SPDX-License-Identifier: MPL-2.0
   <Shw::Flex as |SF|>
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink
-          @icon="hashicorp"
-          @text="HashiCorp"
-          @isIconOnly={{false}}
-          @href="#"
-          @title="Admin UI"
-        />
+        <Hds::AppHeader::HomeLink @icon="hashicorp" @text="HashiCorp" @isIconOnly={{false}} @href="#" />
       </div>
     </SF.Item>
 
     <SF.Item>
       <div class="hds-app-header">
-        <Hds::AppHeader::HomeLink
-          @icon="terraform"
-          @text="Terraform"
-          @href="#"
-          @isIconOnly={{false}}
-          @title="Terraform Admin Console"
-        />
+        <Hds::AppHeader::HomeLink @icon="terraform" @text="Terraform" @href="#" @isIconOnly={{false}} />
       </div>
     </SF.Item>
   </Shw::Flex>
@@ -524,7 +512,7 @@ SPDX-License-Identifier: MPL-2.0
     {{/let}}
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Buttons within AppHeader</Shw::Text::H3>
 
@@ -547,13 +535,13 @@ SPDX-License-Identifier: MPL-2.0
     {{/each}}
   {{/let}}
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Dropdowns within AppHeader</Shw::Text::H3>
 
   <Shw::Text::H4>States</Shw::Text::H4>
 
-  <Shw::Grid @columns="6" class="shw-component-dropdown-states-matrix" as |SF|>
+  <Shw::Grid @columns={{6}} class="shw-component-dropdown-states-matrix" as |SF|>
     {{! Notice: we use a non-standard way to showcase the states to reduce the (visual) complexity of this matrix }}
     {{#each @model.TOGGLE_STATES as |state|}}
       <SF.Item>

@@ -45,9 +45,9 @@
   </Shw::Flex>
 
   <Hds::AppSideNav::Portal @targetName="sidenav-portal-demo-1" @ariaLabel="Primary on portal demo 1" as |Nav|>
-    <Nav.extraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.extraBefore>
+    <Nav.ExtraBefore><Shw::Placeholder @height="72px" @text="extraBefore" @background="#f3d9c5" /></Nav.ExtraBefore>
     <Nav.Item><Shw::Placeholder @height="200px" @text="portaled content" /></Nav.Item>
-    <Nav.extraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.extraAfter>
+    <Nav.ExtraAfter><Shw::Placeholder @height="72px" @text="extraAfter" @background="#f3d9c5" /></Nav.ExtraAfter>
   </Hds::AppSideNav::Portal>
 </section>
 
@@ -84,7 +84,7 @@
         <Nav.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
         <Nav.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
         <Nav.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-        <Nav.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+        <Nav.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
       </Hds::AppSideNav::Portal>
     </SG.Item>
 
@@ -117,7 +117,7 @@
                 <SNL.Link @text="Access control (IAM)" @icon="users" @href="#" @hasSubItems={{true}} />
                 <SNL.Link @text="Billing" @icon="credit-card" @href="#" @hasSubItems={{true}} />
                 <SNL.Link @text="Settings" @icon="settings" @href="#" @hasSubItems={{true}} />
-                <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="Documentation" />
+                <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="Documentation" />
               </Hds::AppSideNav::List>
             </Hds::AppSideNav>
           </div>
@@ -140,7 +140,7 @@
                 <SNL.Link @text="With a “count”" @icon="users" @count="12" @href="#" />
                 <SNL.Link @text="With a “badge” " @icon="credit-card" @badge="Beta" @href="#" />
                 <SNL.Link @text="With “sub items” indicator" @icon="settings" @hasSubItems={{true}} />
-                <SNL.Link @href="#" @isHrefExternal="true" @icon="guide" @text="As an “external” link" />
+                <SNL.Link @href="#" @isHrefExternal={{true}} @icon="guide" @text="As an “external” link" />
               </Hds::AppSideNav::List>
             </Hds::AppSideNav>
           </div>
