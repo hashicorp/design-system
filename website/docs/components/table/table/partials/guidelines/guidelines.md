@@ -2,27 +2,32 @@
 
 ### When to use
 
-- To display and organize tabular data.
 - When comparing, sorting, and filtering multi-dimensional data and objects.
+- For data that only requires simple sorting or pagination, and does not require features like nested rows, advanced keyboard navigation, or sticky headers.
 
 ### When not to use
 
-- As a layout mechanism.
-- As a replacement for a spreadsheet or similar application.
+- As a layout mechanism, instead use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
+- When data would best be displayed in a scrollable format, with more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table] (components/table/advanced-table)
 
 ## Columns
 
 ### Sorting
 
-- Sorting is not relevant for all content, so consider when to apply sorting thoughtfully.
-- Columns that do contain a sortable data type are interactive and therefore have corresponding hover, active, and focus states.
+- Sorting is not relevant for all content, consider when to apply sorting thoughtfully.
+- Columns that contain sortable data contain Button components with corresponding hover, active, and focus states.
 - A Table may only be sorted by a single value at a time.
 
 ![Header column sorting](/assets/components/table/table-sorting.png)
 
 ### Tooltips
 
-Labels within the Table column should be clear, concise, and straightforward. In the case that more context or details are necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label but should be used sparingly and as a last resort.
+Labels within the Table column should be clear, concise, and straightforward. When additional context is necessary, a [Tooltip](/components/tooltip) can be used in conjunction with the label. Use tooltips sparingly and as a last resort.
+
+Some common examples where it may be useful to provide additional context in a tooltip include:
+
+- When the label contains a product or HashiCorp-specific term.
+- When the label refers to a setting that can be changed elsewhere in the application.
 
 ![Tooltips in a Header Column](/assets/components/table/table-tooltip-example.png)
 
@@ -33,40 +38,28 @@ We recommend against using a tooltip in all or most columns in a table as this c
 ![Tooltips in every column in a table](/assets/components/table/table-tooltip-dont.png)
 !!!
 
-Some common examples where it may be useful to include additional context in a tooltip include:
-
-- When the label contains a product or HashiCorp-specific term.
-- When the label refers to a setting that can be changed elsewhere in the application.
-
 ### Width
 
-Column width is determined by manually resizing the header column and cells within Figma. As a best practice, column width should be adjusted to fit the longest data type within the cell.
+Columns use as much room as they need to use to fit their content unless a specific column width has been declared.
 
 ### Placement
 
 !!! Info
 
-The column placement property is only relevant within Figma and doesn’t exist as a property in code.
+The column placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
-Column placement determines the visual styling based on where the column is placed relative to other columns in the Table.
+The column placement property applies visual styling based on where the column is located relative to other columns in the Table.
 
 ![Table column placement example](/assets/components/table/table-col-placement.png)
 
 ### Alignment
 
-!!! Info
-
-While we don’t currently support internationalization in Helios, this documentation intentionally references alignment values in internationalized terms to make them more broadly applicable and future-proof.
-!!!
-
-The alignment of text and content within a table impacts the readability and speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
-
-#### Consistent alignment
-
-Use consistent alignment between the header label and the cell content.
+The alignment of text and content within a Table impacts readability and the speed at which users can effectively parse the information. The chosen alignment method depends on the content within the cell, purpose of the table, and relative position within the table.
 
 !!! Do
+
+Use consistent alignment between the header label and the cell content.
 
 ![Table column placement example](/assets/components/table/table-alignment-do.png)
 !!!
@@ -130,28 +123,27 @@ Don’t center header labels or cell content within a table.
 
 ### Striping
 
+!!! Info
+
+Striped rows use a subtle background color to differentiate from non-striped rows. Confirm that nested components within striped rows continue to meet contrast accessibility criteria.
+!!!
+
 While striping is not required, we recommend it for the added usability benefits.
 
-When using striping in a Table, start with the second row to allow the Table Header to be further differentiated from the the row directly beneath it.
+- Striping makes data within the Table easier to read by increasing differentiation between rows.
+- Striping increases scannability, especially for large datasets that result in many rows.
+- Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
+
+When using striping in a Table, the first tinted row will be the second row of the table. This allows the Table Header to be further differentiated from the row directly beneath it.
 
 ![Table striping examples](/assets/components/table/table-striping.png)
 
-#### Benefits of striping
-
-!!! Info
-
-Striped rows use a subtle background color to differentiate from non-striped rows. Ensure that nested components within striped rows continue to meet contrast accessibility criteria.
-!!!
-
-- Striping makes data within the Table easier to read by increasing differentiation between rows.
-- Striping increases ability to scan, especially for large datasets that result in many rows.
-- Striping increases legibility when the type of data is similar between columns; e.g., columns that catalog mostly text or numerical data benefit from more differentiation between rows.
 
 ### Placement
 
 !!! Info
 
-The row placement property is only relevant within Figma and doesn’t exist as a property within the code.
+The row placement property is only relevant in Figma and doesn’t exist as a property in code.
 !!!
 
 Row placement determines the visual styling based on where the row is placed relative to other rows within the Table. Only cells with a column placement that is either `start` or `end` utilize the row placement property; column position `middle` does not utilize this property.
@@ -161,10 +153,12 @@ Row placement determines the visual styling based on where the row is placed rel
 ## Headers
 
 - Headers should be clear, concise, and straightforward.
-- The headers should infer clearly what type (string, number, status, etc) of content is contained within the cell.
+- The text should be descriptive of the type of content contained within the cell, e.g. Created date, Email, Project name.
 - Headers should use sentence-case capitalization, not all-caps.
 
 ## Cells
+
+Cells are the core organizational container within a Table. In order for the user to be able to sort and read the table easily, each cell in a table should contain one piece of data. Having more than one piece of information inside a cell also makes it harder for users to navigate the relationships between headers and content. 
 
 ### Density
 
@@ -174,6 +168,11 @@ Row placement determines the visual styling based on where the row is placed rel
 - While denser content allows for more rows to be displayed within a single page, it also makes comprehension and scanning more difficult.
 
 ![Table cell density](/assets/components/table/table-density.png)
+
+## Horizontal scrolling
+Use horizontal scrolling when columns in a Table need to expand beyond the standard Table container. We recommend only implementing horizontal scrolling when data becomes difficult to read in a single view. Use the [Advanced Table](components/table/advanced-table), when keyboard navigation and sticky columns ease the reading experience for large data-sets.
+
+For more information on the types of approaches used to implement horizontal scrolling, refer to the [code tab](/components/table/table?tab=code#scrollable-table)
 
 ## Multi-select
 
