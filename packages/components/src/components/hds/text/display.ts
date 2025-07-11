@@ -23,7 +23,7 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 // https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
 export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
   (v): boolean => typeof v === 'number'
-);
+) as HdsTextSizes[];
 
 export type HdsTextDisplayWeight = Extract<
   HdsTextWeights,
