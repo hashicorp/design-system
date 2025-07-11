@@ -15,7 +15,6 @@
 ### Sorting
 
 - Sorting is not relevant for all content, consider when to apply sorting thoughtfully.
-- Columns that contain sortable data contain Button components with corresponding hover, active, and focus states.
 - A Table may only be sorted by a single value at a time.
 
 ![Header column sorting](/assets/components/table/table-sorting.png)
