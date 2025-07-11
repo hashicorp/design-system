@@ -303,6 +303,40 @@ For example:
 </Hds::Form::SuperSelect::Single::Field>
 ```
 
+#### Required vs. optional
+
+Use the `@isRequired` and `@isOptional` arguments to add a visual indication that the field is "required" or "optional".
+
+```handlebars
+<Hds::Form as |FORM|>
+  <FORM.Section>
+    <Hds::Form::SuperSelect::Single::Field
+      @isRequired={{true}}
+      @onChange={{fn (mut this.SELECTED_OPTION)}}
+      @selected={{this.SELECTED_OPTION}}
+      @options={{this.OPTIONS}}
+      @searchEnabled={{true}}
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.Options>{{F.options}}</F.Options>
+    </Hds::Form::SuperSelect::Single::Field>
+
+    <Hds::Form::SuperSelect::Single::Field
+      @isOptional={{true}}
+      @onChange={{fn (mut this.SELECTED_OPTION)}}
+      @selected={{this.SELECTED_OPTION}}
+      @options={{this.OPTIONS}}
+      @searchEnabled={{true}}
+      as |F|
+    >
+      <F.Label>This is the label</F.Label>
+      <F.Options>{{F.options}}</F.Options>
+    </Hds::Form::SuperSelect::Single::Field>
+  </FORM.Section>
+</Hds::Form>
+```
+
 ### Base components
 
 The Base components are intended for rare cases where the Field components can’t be used and a custom implementation is needed. Most of the details for the Field components also apply to the Base components, but see the [Component API](#component-api) for more details.
