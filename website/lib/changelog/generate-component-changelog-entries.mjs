@@ -174,9 +174,9 @@ const updateComponentFrontMatter = (componentChangelogEntries, version) => {
   });
 };
 
-const cleanComponentFrontMatter = (components, version) => {
-  Object.keys(components).forEach((componentPath) => {
-    const indexPath = `${components[componentPath]}/index.md`;
+const cleanComponentFrontMatter = (componentPaths, version) => {
+  componentPaths.forEach((componentPath) => {
+    const indexPath = `${componentPath}/index.md`;
 
     if (fs.existsSync(indexPath)) {
       // Fetch the index markdown file
