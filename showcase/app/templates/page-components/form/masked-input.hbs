@@ -109,7 +109,7 @@
     </SF.Item>
   </Shw::Flex>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
@@ -170,7 +170,7 @@
     {{/each}}
   {{/let}}
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Copy button</Shw::Text::H3>
 
@@ -233,7 +233,7 @@
     {{/each}}
   {{/let}}
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Externally controlled</Shw::Text::H3>
 
@@ -265,7 +265,7 @@
 
   <Shw::Text::H4>Single line</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::MaskedInput::Field @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -318,7 +318,7 @@
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Only label">
       <Hds::Form::MaskedInput::Field @isMultiline={{true}} @value="Lorem ipsum dolor" as |F|>
         <F.Label>This is the label text</F.Label>
@@ -375,16 +375,16 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Character count</Shw::Text::H3>
 
   <Shw::Text::H4>Single line</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::MaskedInput::Field
-        @value={{this.defaultText}}
+        @value={{this.fieldValues.defaultText}}
         {{on "input" (fn this.updateValue "defaultText")}}
         as |F|
       >
@@ -394,7 +394,7 @@
     </SG.Item>
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <Hds::Form::MaskedInput::Field
-        @value={{this.customText}}
+        @value={{this.fieldValues.customText}}
         {{on "input" (fn this.updateValue "customText")}}
         as |F|
       >
@@ -411,7 +411,7 @@
     </SG.Item>
     <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
-        @value={{this.withErrorMessage}}
+        @value={{this.fieldValues.withErrorMessage}}
         @isInvalid={{this.textInputFieldIsInvalid}}
         @hasCopyButton={{true}}
         {{on "input" (fn this.updateValue "withErrorMessage")}}
@@ -428,11 +428,11 @@
 
   <Shw::Text::H4>Multiline</Shw::Text::H4>
 
-  <Shw::Grid @columns="3" as |SG|>
+  <Shw::Grid @columns={{3}} as |SG|>
     <SG.Item @label="Label + Character count">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
-        @value={{this.multilineDefaultText}}
+        @value={{this.fieldValues.multilineDefaultText}}
         {{on "input" (fn this.updateValue "multilineDefaultText")}}
         as |F|
       >
@@ -443,7 +443,7 @@
     <SG.Item @label="Label + Helper text + Character count (custom)">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
-        @value={{this.multilineCustomText}}
+        @value={{this.fieldValues.multilineCustomText}}
         {{on "input" (fn this.updateValue "multilineCustomText")}}
         as |F|
       >
@@ -461,7 +461,7 @@
     <SG.Item @label="Label + Copy Button + Character count + Error">
       <Hds::Form::MaskedInput::Field
         @isMultiline={{true}}
-        @value={{this.multilineWithErrorMessage}}
+        @value={{this.fieldValues.multilineWithErrorMessage}}
         @isInvalid={{this.textareaFieldIsInvalid}}
         @hasCopyButton={{true}}
         {{on "input" (fn this.updateValue "multilineWithErrorMessage")}}
@@ -476,7 +476,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Required and optional</Shw::Text::H3>
 
@@ -510,7 +510,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>States</Shw::Text::H3>
 
@@ -544,7 +544,7 @@
     </SG.Item>
   </Shw::Grid>
 
-  <Shw::Divider @level="2" />
+  <Shw::Divider @level={{2}} />
 
   <Shw::Text::H3>Containers</Shw::Text::H3>
 
