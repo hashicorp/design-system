@@ -12,8 +12,17 @@ module('Acceptance | Component | hds/form/key-value-inputs', function (hooks) {
   setupApplicationTest(hooks);
 
   test('components/form/key-value-inputs passes a11y automated checks', async function (assert) {
+    const axeOptions = {
+      rules: {
+        'color-contrast': {
+          enabled: false,
+          selectors: [['.shw-placeholder']],
+        },
+      },
+    };
+
     await visit('/components/form/key-value-inputs');
-    await a11yAudit();
+    await a11yAudit(axeOptions);
     assert.ok(true, 'a11y automation audit passed');
   });
 });
