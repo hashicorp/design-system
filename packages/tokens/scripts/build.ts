@@ -24,6 +24,33 @@ const __filename = fileURLToPath(import.meta.url); // Get the file path of the c
 const __dirname = dirname(__filename); // Get the directory name of the current module
 const distFolder = path.resolve(__dirname, '../dist');
 
+// CUSTOM PREPROCESSORS
+
+StyleDictionary.registerPreprocessor({
+    name: 'use-default-theme-values',
+    preprocessor: (dictionary, _options) => {
+      // recursively traverse token objects and replace composite theme values with default ("light")
+      function useDefaultThemeValues(slice: DesignToken) {
+        if (slice.themed) {
+            if (slice.value && slice.value.light) {
+                slice.value = slice.value.light;
+                delete slice.themed;
+            } else {
+                console.error('ERROR - Found themed token without `light` value:', JSON.stringify(slice, null, 2));
+            }
+        } else {
+            Object.values(slice).forEach((value) => {
+              if (typeof value === 'object') {
+                useDefaultThemeValues(value);
+              }
+            });
+        }
+        return slice;
+      }
+      return useDefaultThemeValues(dictionary);
+    },
+});
+
 // CUSTOM TRANSFORMS
 
 const transformPxToRem: Transform['transform'] = (token, platform) => {
@@ -34,7 +61,9 @@ const transformPxToRem: Transform['transform'] = (token, platform) => {
 }
 
 StyleDictionary.registerTransform({
-    name: 'size/px',
+    // TODO! there is a bug in SD where registering a transform (more in general a "hook") with the same name as a default one doesn't work if another hook is registered before it (in this case, the 'preprocessor')
+    // TODO later when the bug is fixed, rename this transform to `size/px`
+    name: 'size/pixel',
     type: 'value',
     filter: function(token) {
         return token.type === 'size';
@@ -50,7 +79,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/rem',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: transformPxToRem
 });
@@ -59,7 +88,7 @@ StyleDictionary.registerTransform({
     name: 'font-size/px',
     type: 'value',
     filter: function(token) {
-        return token?.attributes?.category === 'typography' && token.type === 'font-size';
+        return token.type === 'font-size';
     },
     transform: function (token) {
         const val = parseFloat(token.value);
@@ -101,18 +130,18 @@ StyleDictionary.registerTransform({
 
 StyleDictionary.registerTransformGroup({
     name: 'products/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'products/email',
     // notice: for emails we need the font-size in `px` (not `rem`)
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/px', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerTransformGroup({
     name: 'marketing/web',
-    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/px', 'color/css', 'color/with-alpha', 'time/sec']
+    transforms: ['attribute/cti', 'name/kebab', 'font-size/rem', 'size/pixel', 'color/css', 'color/with-alpha', 'time/sec']
 });
 
 StyleDictionary.registerFormat({
@@ -145,55 +174,35 @@ StyleDictionary.registerAction({
 const targets: ConfigTargets = {
     'products': {
         'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`
+            `src/test/**/*.json`,
         ],
         'transformGroup': 'products/web',
         'platforms': ['web/css-variables', 'docs/json']
     },
     'devdot': {
         'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`,
-            // just uncomment the line below to include overrides for "devdot" tokens
-            `src/devdot/**/*.json`
+            `src/test/**/*.json`,
         ],
+        // this platform does not support theming (yet)
+        'preprocessors': ['use-default-theme-values'],
         'transformGroup': 'products/web',
-        'platforms': ['web/css-variables']
-    },
-    'marketing': {
-        'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/**/*.json`,
-        ],
-        'transformGroup': 'marketing/web',
-        'platforms': ['web/css-variables', 'json']
-    },
-    // these tokens will be consumed by the email templating system in https://github.com/hashicorp/cloud-email
-    'cloud-email': {
-        // we need only foundational tokens (colors, typography, etc)
-        'source': [
-            `src/global/**/*.json`,
-            `src/products/shared/color/**/*.json`,
-            `src/products/shared/typography.json`,
-        ],
-        'transformGroup': 'products/email',
-        'platforms': ['email/sass-variables']
+        'platforms': ['web/css-variables'],
     }
 };
 
 function getStyleDictionaryConfig({ target }: { target: string }): Config {
     // @ts-ignore safe to ignore, since we control the `targets` object, and the `getStyleDictionaryConfig` invocations
-    const { source, transformGroup, platforms } = targets[target];
+    const { source, transformGroup, platforms, preprocessors } = targets[target];
 
     // we need to explicitly initialize the `config` object this way to make TS happy
-    const config: Config = {};
+    const config: Config = {log: { verbosity: 'verbose' }};
     config.source = source;
     config.platforms = {};
 
     if (platforms.includes('web/css-variables')) {
         config.platforms['web/css-variables'] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/${target}/css/`,
             "prefix": "token",
             "basePxFontSize": 16,
@@ -213,6 +222,7 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
     if (platforms.includes("docs/json")) {
         config.platforms["docs/json"] = {
             transformGroup,
+            preprocessors,
             "buildPath": `dist/docs/${target}/`,
             "prefix": "token",
             "basePxFontSize": 16,
@@ -225,42 +235,6 @@ function getStyleDictionaryConfig({ target }: { target: string }): Config {
                     },
                 }
             ]
-        }
-    }
-
-    if (platforms.includes("json")) {
-        config.platforms["json"] = {
-            transformGroup,
-            "buildPath": `dist/${target}/`,
-            "prefix": "token",
-            "basePxFontSize": 16,
-            "files": [
-                {
-                    "destination": "tokens.json",
-                    "format": "json",
-                    "filter": function(token: DesignToken) {
-                        return !token.private;
-                    },
-                }
-            ]
-        }
-    }
-
-    if (platforms.includes("email/sass-variables")) {
-        config.platforms["email/sass-variables"] = {
-            transformGroup,
-            "buildPath": `dist/${target}/`,
-            "prefix": "token",
-            "files": [
-                {
-                    "destination": "tokens.scss",
-                    "format": "scss/variables",
-                    "filter": function(token: DesignToken) {
-                        return !token.private;
-                    },
-                }
-            ],
-            'actions': ['generate-css-helpers'],
         }
     }
 
