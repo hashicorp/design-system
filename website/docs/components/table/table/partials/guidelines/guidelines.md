@@ -7,14 +7,14 @@
 
 ### When not to use
 
-- As a layout mechanism, instead use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
+- As a layout mechanism. Instead, use [Flex](/layouts/flex) or [Grid](/layouts/grid) layout helpers.
 - When data would best be displayed in a scrollable format, with more levels of hierarchy, or when keyboard navigation is needed to achieve usability. Instead, use the [Advanced Table] (components/table/advanced-table)
 
 ## Columns
 
 ### Sorting
 
-- Sorting is not relevant for all content, consider when to apply sorting thoughtfully.
+- Sorting is not relevant for all content. Consider when to apply sorting thoughtfully.
 - A Table may only be sorted by a single value at a time.
 
 ![Header column sorting](/assets/components/table/table-sorting.png)
