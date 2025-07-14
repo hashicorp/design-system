@@ -110,7 +110,7 @@ export default class ShwFrameComponent extends Component<ShwFrameSignature> {
           class="shw-frame__browser-viewport"
           src={{this.src}}
           referrerpolicy="no-referrer"
-          sandbox="allow-same-origin allow-scripts"
+          sandbox="allow-same-origin allow-scripts allow-forms"
           loading="lazy"
           title={{this.title}}
           ...attributes
