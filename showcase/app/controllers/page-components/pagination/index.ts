@@ -16,8 +16,8 @@ import type { HdsTableThSortOrder } from '@hashicorp/design-system-components/co
 import type { PageComponentsPaginationModel } from 'showcase/routes/page-components/pagination/index';
 
 // uncomment this to override the `atob/btoa` functions for debugging
-// const atob = (s) => s;
-// const btoa = (s) => s;
+// const atob = (s: string) => s;
+// const btoa = (s: string) => s;
 
 const getCursorParts = (
   cursor: string | null,
@@ -262,7 +262,6 @@ export default class PageComponentsPaginationController extends Controller {
       // for the "compact" pagination when the user changes the page size and the `onPageSizeChange` function is invoked
       // the callback function returns a `null` value for the `page` argument so the consumer can decide how to handle the cursors acordingly
       if (page === null) {
-        console.log('page is null');
         return {
           prevCursor_demo4: currPrevCursor,
           nextCursor_demo4: currNextCursor,
@@ -290,12 +289,6 @@ export default class PageComponentsPaginationController extends Controller {
     return newNextCursor === null;
   }
 
-  //   get paginatedData_demo2() {
-  //   const start = (this.currentPage_demo2 - 1) * this.currentPageSize_demo2;
-  //   const end = this.currentPage_demo2 * this.currentPageSize_demo2;
-  //   return this.model.records.slice(start, end);
-  // }
-
   get paginatedData_demo4(): PageComponentsPaginationModel['records'] {
     let token = '';
     if (this.prevCursor_demo4) {
@@ -320,12 +313,6 @@ export default class PageComponentsPaginationController extends Controller {
       start = cursorIndex;
       end = cursorIndex + pageSize;
     }
-
-    console.log('paginatedData_demo4 invoked with:');
-    console.log('direction', direction);
-    console.log('cursorIndex', cursorIndex);
-    console.log('start', start);
-    console.log('end', end);
 
     // return data
     return this.model.records.slice(start, end);

@@ -78,12 +78,28 @@ export default class PageComponentsCopyButtonController extends Controller {
   // uncomment these if you need to debug the `onSuccess/onError` callback methods
 
   // @action
-  // onSuccess({ trigger, text, target }) {
+  // onSuccess({
+  //   trigger,
+  //   text,
+  //   target,
+  // }: {
+  //   trigger: HTMLElement;
+  //   text: string;
+  //   target: string;
+  // }) {
   //   console.log('onSuccess invoked in the controller', trigger, text, target);
   // }
 
   // @action
-  // onError({ trigger, text, target }) {
+  // onError({
+  //   trigger,
+  //   text,
+  //   target,
+  // }: {
+  //   trigger: HTMLElement;
+  //   text: string;
+  //   target: string;
+  // }) {
   //   console.log('onError invoked in the controller', trigger, text, target);
   // }
 }
