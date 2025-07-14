@@ -5,6 +5,11 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormSuperSelectModel =
+  ModelFrom<PageComponentsFormSuperSelectRoute>;
+
 export default class PageComponentsFormSuperSelectRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
@@ -34,10 +39,10 @@ export default class PageComponentsFormSuperSelectRoute extends Route {
         ],
       },
     ];
-    const SELECTED_GROUPED_OPTION = GROUPED_OPTIONS[0].options[0];
+    const SELECTED_GROUPED_OPTION = GROUPED_OPTIONS[0]?.options[0];
     const SELECTED_GROUPED_OPTIONS = [
-      GROUPED_OPTIONS[0].options[0],
-      GROUPED_OPTIONS[1].options[0],
+      GROUPED_OPTIONS[0]?.options[0],
+      GROUPED_OPTIONS[1]?.options[0],
     ];
 
     const PLACES_OPTIONS = [

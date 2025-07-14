@@ -16,6 +16,7 @@ import type RenderModifiersRegistry from '@ember/render-modifiers/template-regis
 import type ShowcaseTemplateRegistry from './template-registry';
 import type EmberComposableHelpersRegistry from '@nullvoxpopuli/ember-composable-helpers/template-registry';
 import type PowerSelectRegistry from 'ember-power-select/template-registry';
+import type BasicDropdownRegistry from 'ember-basic-dropdown/template-registry';
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry
@@ -27,5 +28,6 @@ declare module '@glint/environment-ember-loose/registry' {
       RenderModifiersRegistry,
       ShowcaseTemplateRegistry,
       EmberComposableHelpersRegistry,
-      PowerSelectRegistry {}
+      PowerSelectRegistry,
+      BasicDropdownRegistry {}
 }
