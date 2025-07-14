@@ -14,7 +14,7 @@ export default class PageComponentsFormBaseElementsController extends Controller
   declare model: PageComponentsFormBaseElementsModel;
 
   @tracked showHighlight = false;
-  @deepTracked values: Record<string, string> = {
+  @deepTracked values = {
     value1: '',
     value2: 'cl',
     value3: '',
@@ -36,7 +36,7 @@ export default class PageComponentsFormBaseElementsController extends Controller
     this.showHighlight = !this.showHighlight;
   }
 
-  @action updateValue(propName: string, event: Event) {
+  @action updateValue(propName: keyof typeof this.values, event: Event) {
     const { value } = event.target as HTMLInputElement;
     this.values[propName] = value;
   }
