@@ -6,7 +6,11 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 
+import type { PageUtilitiesPopoverPrimitiveModel } from 'showcase/routes/page-utilities/popover-primitive';
+
 export default class PageUtilitiesPopoverPrimitiveController extends Controller {
+  declare model: PageUtilitiesPopoverPrimitiveModel;
+
   @action
   noop() {}
 
