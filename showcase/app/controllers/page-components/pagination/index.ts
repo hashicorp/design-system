@@ -118,8 +118,7 @@ export default class PageComponentsPaginationController extends Controller {
     // eg. 'components.pagination';
     const routeName = this.router.currentRouteName;
 
-    if (!routeName) return '';
-    return routeName;
+    return routeName ?? '';
   }
 
   get demoTotalItems() {
