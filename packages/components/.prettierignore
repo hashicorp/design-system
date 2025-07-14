@@ -7,3 +7,6 @@
 
 # misc
 /coverage/
+
+# docs
+/CHANGELOG.md
