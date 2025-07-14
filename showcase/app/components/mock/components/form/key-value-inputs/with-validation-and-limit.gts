@@ -156,7 +156,16 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   };
 
   get canDeleteRow() {
-    return this.model['tags-list'].value.length > 1;
+    if (this.model['tags-list'].value.length === 1) {
+      const row = this.model['tags-list'].value[0];
+      if (row) {
+        return (
+          row['tag-name'].trim() !== '' || row['tag-description'].trim() !== ''
+        );
+      }
+    } else {
+      return this.model['tags-list'].value.length > 1;
+    }
   }
 
   onDeleteRowClick = (_rowData: unknown, rowIndex: number) => {
@@ -164,7 +173,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
-    } else if (rowIndex === 0 && this.model['tags-list'].value.length == 1) {
+    } else if (rowIndex === 0 && this.model['tags-list'].value.length === 1) {
       this.model['tags-list'].value = [structuredClone(EMPTY_TAG_ITEM)];
     } else {
       // Remove the item at the specific index

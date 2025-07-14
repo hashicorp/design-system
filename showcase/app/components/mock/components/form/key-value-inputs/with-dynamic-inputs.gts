@@ -170,7 +170,19 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   };
 
   get canDeleteRow() {
-    return this.model['kvp-list'].length > 1;
+    if (this.model['kvp-list'].length === 1) {
+      const row = this.model['kvp-list'][0];
+      if (row) {
+        const rowValue = row['value'];
+        if (Array.isArray(rowValue)) {
+          return rowValue.length > 0;
+        } else {
+          return rowValue.trim() !== '';
+        }
+      }
+    } else {
+      return this.model['kvp-list'].length > 1;
+    }
   }
 
   onDeleteRowClick = (_rowData: unknown, rowIndex: number) => {
@@ -178,7 +190,7 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
       console.error(
         'Trying to delete a row with index out of boundaries of the `@data` array',
       );
-    } else if (rowIndex === 0 && this.model['kvp-list'].length == 1) {
+    } else if (rowIndex === 0 && this.model['kvp-list'].length === 1) {
       this.model['kvp-list'] = [structuredClone(EMPTY_KVP_ITEM)];
     } else {
       // Remove the item at the specific index
