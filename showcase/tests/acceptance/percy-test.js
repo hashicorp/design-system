@@ -18,6 +18,10 @@ module('Acceptance | Percy test', function (hooks) {
   }
 
   test('Take percy snapshots', async function (assert) {
+    // we have a lot of tests to run and screenshots to take,
+    // so we need to increase the timeout for this specific test (default is 60000ms)
+    assert.timeout(180000);
+
     await visit('/foundations/typography');
     await percySnapshot('Typography');
 
@@ -103,6 +107,9 @@ module('Acceptance | Percy test', function (hooks) {
 
     await visit('/components/form/file-input');
     await percySnapshot('Form - FileInput');
+
+    await visit('/components/form/key-value-inputs');
+    await percySnapshot('Form - KeyValueInputs');
 
     await visit('/components/form/masked-input');
     await percySnapshot('Form - MaskedInput');
