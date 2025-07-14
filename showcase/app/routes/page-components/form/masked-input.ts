@@ -5,6 +5,11 @@
 
 import Route from '@ember/routing/route';
 
+import type { ModelFrom } from 'showcase/utils/ModelFromRoute';
+
+export type PageComponentsFormMaskedInputModel =
+  ModelFrom<PageComponentsFormMaskedInputRoute>;
+
 export default class PageComponentsFormMaskedInputRoute extends Route {
   model() {
     // these are used only for presentation purpose in the showcase
