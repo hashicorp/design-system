@@ -24,7 +24,7 @@ export default class PageUtilitiesController extends Controller {
   }
 
   willDestroy() {
-    this.router.off('routeDidChange', this.routeDidChange.bind(this));
+    this.router.off('routeDidChange', this, 'routeDidChange');
   }
 
   replaceMockStates() {
