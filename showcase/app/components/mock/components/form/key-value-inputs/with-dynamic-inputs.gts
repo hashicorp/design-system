@@ -96,8 +96,9 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
   collapseInstructions = this.args.collapseInstructions ?? false;
   @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
-  // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
-  // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
+  // Some examples of how the key-value pattern is implemented in the consumers' codebases:
+  // - https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
+  // - https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
   @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
 
   // we use the same function on all the different kind of inputs

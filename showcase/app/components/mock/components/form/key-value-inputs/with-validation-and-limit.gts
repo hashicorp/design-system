@@ -107,8 +107,9 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
   collapseInstructions = this.args.collapseInstructions ?? false;
   @tracked alwaysShowDeleteButtonOnFirstRow = false;
 
-  // https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
-  // https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
+  // Some examples of how the key-value pattern is implemented in the consumers' codebases:
+  // - https://github.com/hashicorp/cloud-ui/blob/main/engines/iam/addon/components/groups/form.gts
+  // - https://github.com/hashicorp/cloud-ui/blob/main/engines/role-assignments/addon/components/page/create.gts
   @deepTracked model: FormModel = structuredClone(EMPTY_MODEL);
 
   formElement: HdsFormSignature['Element'] | null = null;
