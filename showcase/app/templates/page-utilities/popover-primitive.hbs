@@ -20,7 +20,10 @@
             class="shw-utilities-popover-primitive-fake-toggle"
             {{PP.setupPrimitiveToggle}}
           >Toggle</button>
-          <div class="shw-utilities-popover-primitive-fake-popover" {{PP.setupPrimitivePopover}}>
+          <div
+            class="shw-utilities-popover-primitive-fake-popover"
+            {{PP.setupPrimitivePopover anchoredPositionOptions=(hash)}}
+          >
             <Shw::Placeholder @text="content" @width="80" @height="40" />
           </div>
         </div>
@@ -213,32 +216,30 @@
   <Shw::Text::H3>Strategy</Shw::Text::H3>
 
   <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="8rem"}} as |SF|>
-    {{#let (array "absolute" "fixed") as |strategies|}}
-      {{#each strategies as |strategy|}}
-        <SF.Item @label={{strategy}}>
-          <Hds::PopoverPrimitive @isOpen={{true}} @enableClickEvents={{true}} as |PP|>
-            <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
-              <button
-                type="button"
-                class="shw-utilities-popover-primitive-fake-toggle"
-                {{PP.setupPrimitiveToggle}}
-              >Toggle</button>
-              <div
-                class="shw-utilities-popover-primitive-fake-popover"
-                {{PP.setupPrimitivePopover
-                  anchoredPositionOptions=(hash
-                    strategy=strategy offsetOptions=16 arrowSelector=(concat "#" "arrow-strategy-" strategy)
-                  )
-                }}
-              >
-                <div id="arrow-strategy-{{strategy}}" class="shw-utilities-popover-primitive-fake-arrow" />
-                <Shw::Placeholder @text="content" @width="120" @height="40" />
-              </div>
+    {{#each @model.STRATEGIES as |strategy|}}
+      <SF.Item @label={{strategy}}>
+        <Hds::PopoverPrimitive @isOpen={{true}} @enableClickEvents={{true}} as |PP|>
+          <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
+            <button
+              type="button"
+              class="shw-utilities-popover-primitive-fake-toggle"
+              {{PP.setupPrimitiveToggle}}
+            >Toggle</button>
+            <div
+              class="shw-utilities-popover-primitive-fake-popover"
+              {{PP.setupPrimitivePopover
+                anchoredPositionOptions=(hash
+                  strategy=strategy offsetOptions=16 arrowSelector=(concat "#" "arrow-strategy-" strategy)
+                )
+              }}
+            >
+              <div id="arrow-strategy-{{strategy}}" class="shw-utilities-popover-primitive-fake-arrow" />
+              <Shw::Placeholder @text="content" @width="120" @height="40" />
             </div>
-          </Hds::PopoverPrimitive>
-        </SF.Item>
-      {{/each}}
-    {{/let}}
+          </div>
+        </Hds::PopoverPrimitive>
+      </SF.Item>
+    {{/each}}
   </Shw::Grid>
 
   <Shw::Divider @level={{2}} />
@@ -248,45 +249,45 @@
   <Shw::Text::Body>Scroll within the boxes to see the collision detection in action</Shw::Text::Body>
 
   <Shw::Grid @columns={{4}} @gap="2rem" {{style margin-bottom="6rem"}} as |SF|>
-    {{#let (array false true null null "flip" "shift" "auto" null) as |detections|}}
-      {{#each detections as |detection|}}
-        {{#if (eq detection null)}}
-          <SF.Item />
-        {{else}}
-          <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
-            <Shw::Autoscrollable @verticalShift={{20}}>
-              <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
-                <Hds::PopoverPrimitive @isOpen={{true}} @enableSoftEvents={{false}} @enableClickEvents={{true}} as |PP|>
-                  <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
-                    <button
-                      type="button"
-                      class="shw-utilities-popover-primitive-fake-toggle"
-                      {{PP.setupPrimitiveToggle}}
-                    >Toggle</button>
-                    <div
-                      class="shw-utilities-popover-primitive-fake-popover"
-                      {{PP.setupPrimitivePopover
-                        anchoredPositionOptions=(hash
-                          enableCollisionDetection=detection
-                          offsetOptions=16
-                          arrowSelector=(concat "#" "arrow-collision-detection-" detection)
-                        )
-                      }}
-                    >
-                      <div
-                        id="arrow-collision-detection-{{detection}}"
-                        class="shw-utilities-popover-primitive-fake-arrow"
-                      />
-                      <Shw::Placeholder @text="content" @width="120" @height="40" />
-                    </div>
-                  </div>
-                </Hds::PopoverPrimitive>
+    {{#each @model.DETECTIONS as |detection|}}
+      <SF.Item @forceMinWidth={{true}} @label={{concat "enableCollisionDetection=" detection}}>
+        <Shw::Autoscrollable @verticalShift={{20}}>
+          <div class="shw-utilities-popover-primitive-collision-detection-wrapper">
+            <Hds::PopoverPrimitive @isOpen={{true}} @enableSoftEvents={{false}} @enableClickEvents={{true}} as |PP|>
+              <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
+                <button
+                  type="button"
+                  class="shw-utilities-popover-primitive-fake-toggle"
+                  {{PP.setupPrimitiveToggle}}
+                >Toggle</button>
+                <div
+                  class="shw-utilities-popover-primitive-fake-popover"
+                  {{PP.setupPrimitivePopover
+                    anchoredPositionOptions=(hash
+                      enableCollisionDetection=detection
+                      offsetOptions=16
+                      arrowSelector=(concat "#" "arrow-collision-detection-" detection)
+                    )
+                  }}
+                >
+                  <div
+                    id="arrow-collision-detection-{{detection}}"
+                    class="shw-utilities-popover-primitive-fake-arrow"
+                  />
+                  <Shw::Placeholder @text="content" @width="120" @height="40" />
+                </div>
               </div>
-            </Shw::Autoscrollable>
-          </SF.Item>
-        {{/if}}
-      {{/each}}
-    {{/let}}
+            </Hds::PopoverPrimitive>
+          </div>
+        </Shw::Autoscrollable>
+      </SF.Item>
+      {{#if (eq detection true)}}
+        <SF.Item />
+        <SF.Item />
+      {{else if (eq detection "auto")}}
+        <SF.Item />
+      {{/if}}
+    {{/each}}
   </Shw::Grid>
 
   <Shw::Divider />
@@ -300,7 +301,6 @@
           <Hds::PopoverPrimitive
             @enableSoftEvents={{eq interaction "soft"}}
             @enableClickEvents={{eq interaction "click"}}
-            @enableCollisionDetection={{true}}
             as |PP|
           >
             <div class="shw-utilities-popover-primitive-fake-container" {{PP.setupPrimitiveContainer}}>
@@ -313,7 +313,9 @@
                 class="shw-utilities-popover-primitive-fake-popover"
                 {{PP.setupPrimitivePopover
                   anchoredPositionOptions=(hash
-                    offsetOptions=16 arrowSelector=(concat "#" "arrow-interaction-" interaction)
+                    enableCollisionDetection=true
+                    offsetOptions=16
+                    arrowSelector=(concat "#" "arrow-interaction-" interaction)
                   )
                 }}
               >
@@ -357,7 +359,6 @@
               <Hds::PopoverPrimitive
                 @enableSoftEvents={{eq interaction "soft"}}
                 @enableClickEvents={{eq interaction "click"}}
-                @enableCollisionDetection={{true}}
                 @isOpen={{isOpen}}
                 as |PP|
               >
@@ -371,7 +372,9 @@
                     class="shw-utilities-popover-primitive-fake-popover"
                     {{PP.setupPrimitivePopover
                       anchoredPositionOptions=(hash
-                        offsetOptions=16 arrowSelector=(concat "#" "arrow-interaction-isopen-" isOpen "-" interaction)
+                        enableCollisionDetection=true
+                        offsetOptions=16
+                        arrowSelector=(concat "#" "arrow-interaction-isopen-" isOpen "-" interaction)
                       )
                     }}
                   >
