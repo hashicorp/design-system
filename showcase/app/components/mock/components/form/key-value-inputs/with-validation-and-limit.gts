@@ -258,7 +258,7 @@ export default class MockComponentsFormKeyValueInputsWithValidationAndLimit exte
         <Instructions />
       </HdsReveal>
     {{else}}
-        <Instructions />
+      <Instructions />
     {{/if}}
     <div ...attributes>
       <HdsForm {{this.setFormElementRef}} as |FORM|>

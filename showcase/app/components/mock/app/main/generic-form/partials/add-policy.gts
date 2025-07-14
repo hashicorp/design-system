@@ -226,7 +226,10 @@ export default class MockAppMainGenericFormPartialsAddPolicy extends Component<M
       </HdsFormSectionHeader>
 
       <HdsFormKeyValueInputs
-        @data={{(array (hash name="prod" description="Production environment") (hash name="dev" description=""))}}
+        @data={{(array
+          (hash name="prod" description="Production environment")
+          (hash name="dev" description="")
+        )}}
       >
         <:header as |H|>
           <H.Legend>Tags applied to this policy</H.Legend>

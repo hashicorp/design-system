@@ -234,12 +234,12 @@ export default class MockComponentsFormKeyValueInputsWithDynamicInputs extends C
         <Instructions />
       </HdsReveal>
     {{else}}
-        <Instructions />
+      <Instructions />
     {{/if}}
     <div ...attributes>
       <HdsForm
         id="add-thing-form"
-        {{!-- we have added 'novalidate' so we can handle validation ourselves --}}
+        {{! we have added 'novalidate' so we can handle validation ourselves }}
         novalidate
         {{on "submit" this.onSubmitForm}}
         as |FORM|
