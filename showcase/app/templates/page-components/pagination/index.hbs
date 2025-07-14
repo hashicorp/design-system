@@ -227,11 +227,11 @@
   <Shw::Flex as |SF|>
     <SF.Item as |SFI|>
       <SFI.Label>Generic (default)</SFI.Label>
-      <Hds::Pagination::Nav::Number @page="1" />
+      <Hds::Pagination::Nav::Number @page={{1}} @isSelected={{false}} @onClick={{this.noop}} />
     </SF.Item>
     <SF.Item as |SFI|>
       <SFI.Label>Current (with <code>@isSelected=&lcub;&lcub;true&rcub;&rcub;</code>)</SFI.Label>
-      <Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} />
+      <Hds::Pagination::Nav::Number @page={{1}} @isSelected={{true}} @onClick={{this.noop}} />
     </SF.Item>
   </Shw::Flex>
 
@@ -244,22 +244,22 @@
         <SF.Item @label={{capitalize state}} mock-state-value={{state}} mock-state-selector="button,a">
           <Shw::Flex as |SF|>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="1" />
+              <Hds::Pagination::Nav::Number @page={{1}} @isSelected={{false}} @onClick={{this.noop}} />
             </SF.Item>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="12" />
+              <Hds::Pagination::Nav::Number @page={{12}} @isSelected={{false}} @onClick={{this.noop}} />
             </SF.Item>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="123" />
+              <Hds::Pagination::Nav::Number @page={{123}} @isSelected={{false}} @onClick={{this.noop}} />
             </SF.Item>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="1" @isSelected={{true}} />
+              <Hds::Pagination::Nav::Number @page={{1}} @isSelected={{true}} @onClick={{this.noop}} />
             </SF.Item>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="12" @isSelected={{true}} />
+              <Hds::Pagination::Nav::Number @page={{12}} @isSelected={{true}} @onClick={{this.noop}} />
             </SF.Item>
             <SF.Item>
-              <Hds::Pagination::Nav::Number @page="123" @isSelected={{true}} />
+              <Hds::Pagination::Nav::Number @page={{123}} @isSelected={{true}} @onClick={{this.noop}} />
             </SF.Item>
           </Shw::Flex>
         </SF.Item>
@@ -292,6 +292,7 @@
 
   <div class="shw-component-pagination-table-demo" id="demo1-numbered-with-events">
     <Hds::Table
+      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo1}}
       @columns={{array
         (hash key="id" label="ID")
@@ -303,9 +304,13 @@
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -330,6 +335,7 @@
 
   <div class="shw-component-pagination-table-demo" id="demo2-numbered-with-routing">
     <Hds::Table
+      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo2}}
       @columns={{array
         (hash key="id" label="ID" isSortable=true)
@@ -344,9 +350,13 @@
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -374,6 +384,7 @@
 
   <div class="shw-component-pagination-table-demo" id="demo3-compact-with-events">
     <Hds::Table
+      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo3}}
       @columns={{array
         (hash key="id" label="ID")
@@ -384,9 +395,13 @@
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
@@ -411,6 +426,7 @@
 
   <div class="shw-component-pagination-table-demo" id="demo4-compact-with-routing">
     <Hds::Table
+      {{! @glint-expect-error - the Table doesn't have a generic type for the model argument / rowData (https://hashicorp.atlassian.net/browse/HDS-5090)  }}
       @model={{this.paginatedData_demo4}}
       @columns={{array
         (hash key="id" label="ID")
@@ -421,13 +437,18 @@
     >
       <:body as |B|>
         <B.Tr>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.id}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.name}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.email}}</B.Td>
+          {{! @glint-expect-error }}
           <B.Td>{{B.data.role}}</B.Td>
         </B.Tr>
       </:body>
     </Hds::Table>
+    {{! @glint-expect-error }}
     <Hds::Pagination::Compact
       @showSizeSelector={{true}}
       @route={{this.demoRouteName}}
