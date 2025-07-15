@@ -2,20 +2,22 @@
 
 !!! Insight
 
+**Code tip**
+
 It's much easier to use this component if one is familiar with the CSS3 Flexible Box specifications.
 <br/>
 A good and quick introduction to flexbox can be found in [this MDN guide](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox).
-
 !!!
 
 The `Layout::Flex` and optional `Layout::Flex::Item` components provide a way to quickly build out flexbox-based layouts of components or elements without needing to write a lot of custom CSS code or understand all the intricacies of CSS flexbox styles.
 
 ### Basic usage
 
-!!! Info
+!!! Warning 
+
+**Code pitfalls**
 
 Note: there is no strict need to use the `Layout::Flex::Item` subcomponent; use it only when necessary to tweak the flex styles of an individual child item via the `@basis/@grow/@shrink` arguments. This avoids rendering extra Ember components.
-
 !!!
 
 The simplest way to implement a flexbox layout is by using the `Layout::Flex` component to wrap some content.
@@ -424,8 +426,9 @@ In this case, the outer container is a column-based flexbox layout, with three c
 
 !!! Insight
 
-Depending on the complexity and type of design you need to implement, you may want to consider using a [CSS `grid` layout](/layouts/grid), instead of a `flex` layout.
+**Code tip**
 
+Depending on the complexity and type of design you need to implement, you may want to consider using a [CSS `grid` layout](/layouts/grid), instead of a `flex` layout.
 !!!
 
 ---

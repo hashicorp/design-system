@@ -2,10 +2,11 @@
 
 !!! Insight
 
+**Code tip**
+
 While it’s not necessary to be familiar with CSS3 grid specifications to use this component, some knowledge may be helpful in achieving more complex layouts.
 
 A helpful reference with clear examples: [CSS Tricks: Complete grid layout guide](https://css-tricks.com/snippets/css/complete-guide-grid/).
-
 !!!
 
 The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to quickly build out flexible grid-based layouts of components or elements without needing to write a lot of custom CSS code or understand all the intricacies of CSS grid styles.
@@ -13,10 +14,11 @@ The `Layout::Grid` and optional `Layout::Grid::Item` components provide a way to
 ### Basic usage
 
 
-!!! Info
+!!! Warning
+
+**Code pitfalls**
 
 Note: there is no strict need to use the `Layout::Grid::Item` subcomponent as a direct child of `Layout::Grid`; use it only when necessary to tweak grid styles of an individual child item such as via the `@colspan/@rowspan` arguments (to avoid rendering an extra Ember component).
-
 !!!
 
 The simplest way to implement a grid layout is by using the `Layout::Grid` component to wrap content directly. A grid layout of equal width “columns” is created by default.

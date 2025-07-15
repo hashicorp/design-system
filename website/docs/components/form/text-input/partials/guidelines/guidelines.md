@@ -41,7 +41,9 @@ The `TextInput` component has a visibility toggle feature for password fields. B
 
 ### Date and time
 
-!!! Info
+!!! Warning
+
+**Code pitfalls**
 
 Date and time fields use the native browser functionality for the popovers. Some browsers do not display an icon or popover.
 !!!

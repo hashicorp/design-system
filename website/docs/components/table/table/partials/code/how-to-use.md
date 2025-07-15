@@ -120,10 +120,11 @@ For clarity, there are a couple of important points to note here:
 
 ### Sortable table
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 This component takes advantage of the `sort-by` helper provided by [@nullvoxpopuli/ember-composable-helpers](https://github.com/NullVoxPopuli/ember-composable-helpers).
-
 !!!
 
 Add `isSortable=true` to the hash for each column that should be sortable.
@@ -390,12 +391,13 @@ To indicate that the table’s content should have a middle vertical-align, use 
 
 #### Vertical alignment with additional cell content
 
-!!! Info
+!!! Insight
+
+**Code tip**
 
 Note that vertical-align only applies to inline, inline-block and table-cell elements: you can’t use it to vertically align block-level elements ([see MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)).
 
 If you have more than just text content in the table cell, you'll want to wrap that content in a flex box and style accordingly.
-
 !!!
 
 ```handlebars
@@ -576,10 +578,11 @@ Add `isSelectable=true` to create a multi-select table. The `onSelectionChange` 
 
 #### Multi-select table using a model
 
-!!! Info
+!!! Warning
+
+**Code pitfalls**
 
 If you want the state of the checkboxes to persist after the model updates, you will need to provide an `identityKey` value.
-
 !!!
 
 This is a simple example of a table with multi-selection. Notice the `@selectionKey` argument provided to the rows, used by the `@onSelectionChange` callback to provide the list of selected/deselected rows as argument(s) for the invoked function.
@@ -636,12 +639,11 @@ demoOnSelectionChange({
 For details about the arguments provided to the `@onSelectionChange` callback function, refer to the [Component API](#component-api) section.
 
 
-!!! Info
+!!! Warning
 
-**Multi-select table without a model**
+**Code pitfalls**
 
 While it’s technically possible to use the multi-select feature in a table implemented without using a model, we strongly suggest converting the code to provide a `@model` to the table using a local dataset (created using the information/data you need to display).
-
 !!!
 
 #### Multi-select table using a model with sorting by selection state
