@@ -27,7 +27,9 @@ export interface HdsFormSuperSelectMultipleBaseSignature {
   Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
     showAfterOptions?: boolean;
     afterOptionsContent?: string;
-    resultCountMessage?: string | ((resultCount: number) => string);
+    resultCountMessage?:
+      | string
+      | PowerSelectSignature['Args']['resultCountMessage'];
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
