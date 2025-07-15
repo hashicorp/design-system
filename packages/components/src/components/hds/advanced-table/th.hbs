@@ -73,6 +73,7 @@
           @tableHeight={{@tableHeight}}
           @onReorderDragStart={{this.handleDragStart}}
           @onReorderDragEnd={{@onReorderDragEnd}}
+          {{this._registerReorderHandleElement}}
         />
       {{/if}}
 
@@ -83,6 +84,7 @@
           @nextColumn={{@nextColumn}}
           @hasReorderableColumns={{@hasReorderableColumns}}
           @hasResizableColumns={{@hasResizableColumns}}
+          @reorderHandleElement={{this._reorderHandleElement}}
           @resizeHandleElement={{this._resizeHandleElement}}
           @onColumnResize={{@onColumnResize}}
         />

@@ -4,14 +4,15 @@
  */
 
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 import type HdsAdvancedTableColumn from './models/column.ts';
 import type { HdsDropdownSignature } from '../dropdown/index.ts';
 import type { HdsDropdownToggleIconSignature } from '../dropdown/toggle/icon.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
-import { tracked } from '@glimmer/tracking';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 
 interface HdsAdvancedTableThContextMenuOption {
   key: string;
@@ -32,7 +33,12 @@ export interface HdsAdvancedTableThContextMenuSignature {
     nextColumn?: HdsAdvancedTableColumn;
     hasResizableColumns?: boolean;
     hasReorderableColumns?: boolean;
+    reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
     resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
+    onMoveColumnToPosition?: (
+      column: HdsAdvancedTableColumn,
+      position: 'start' | 'end'
+    ) => void;
     onColumnResize?: HdsAdvancedTableSignature['Args']['onColumnResize'];
   };
   Element: HdsDropdownSignature['Element'];
@@ -74,7 +80,7 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
             key: 'reorder-column',
             label: 'Move column',
             icon: 'move-horizontal',
-            action: this.reorderColumn.bind(this),
+            action: this.moveColumn.bind(this),
           },
           {
             key: 'move-column-to-start',
@@ -104,14 +110,9 @@ export default class HdsAdvancedTableThContextMenu extends Component<HdsAdvanced
   }
 
   @action
-  reorderColumn(
-    _column: HdsAdvancedTableColumn,
-    _previousColumn?: HdsAdvancedTableColumn,
-    _nextColumn?: HdsAdvancedTableColumn,
-    dropdownCloseCallback?: () => void
-  ) {
-    console.log('Reorder column action triggered');
-    dropdownCloseCallback?.();
+  moveColumn() {
+    console.log(this.args.reorderHandleElement);
+    this.args.reorderHandleElement?.focus();
   }
 
   @action

@@ -20,6 +20,7 @@ import type {
   HdsAdvancedTableScope,
   HdsAdvancedTableExpandState,
 } from './types.ts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
@@ -73,6 +74,8 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   private _element!: HTMLDivElement;
 
   @tracked private _shouldTrapFocus = false;
+  @tracked
+  private _reorderHandleElement?: HdsAdvancedTableThReorderHandleSignature['Element'];
   @tracked
   private _resizeHandleElement?: HdsAdvancedTableThResizeHandleSignature['Element'];
 
@@ -194,6 +197,12 @@ export default class HdsAdvancedTableTh extends Component<HdsAdvancedTableThSign
   @action setElement(element: HTMLDivElement): void {
     this._element = element;
   }
+
+  private _registerReorderHandleElement = modifier(
+    (element: HdsAdvancedTableThReorderHandleSignature['Element']) => {
+      this._reorderHandleElement = element;
+    }
+  );
 
   private _registerResizeHandleElement = modifier(
     (element: HdsAdvancedTableThResizeHandleSignature['Element']) => {

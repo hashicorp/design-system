@@ -128,7 +128,9 @@ $hds-advanced-table-drag-preview-background-color: rgba(204, 227, 254, 30%);
       background-color: var(--token-color-surface-strong);
 
       &:hover .hds-advanced-table__th-reorder-handle,
-      &.mock-hover .hds-advanced-table__th-reorder-handle {
+      &.mock-hover .hds-advanced-table__th-reorder-handle,
+      .hds-advanced-table__th-reorder-handle:focus,
+      .hds-advanced-table__th-reorder-handle.mock-focus {
         display: flex;
       }
 

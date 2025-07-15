@@ -2,6 +2,8 @@
 <div
   draggable="true"
   class={{this.classNames}}
+  tabindex="0"
+  aria-label="Reorder {{@column.label}} column"
   {{on "dragstart" this.handleDragStart}}
   {{on "dragend" this.handleDragEnd}}
   ...attributes
