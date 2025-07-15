@@ -192,10 +192,11 @@ The Advanced Table supports any combination of expanded or collapsed rows on loa
 
 ### Striping 
 
-!!! Info
+!!! Warning
+
+**Accessibility pitfalls**
 
 Ensure that content within striped rows continue to maintain adequate color contrast with the striped background.
-
 !!!
 
 Striping enhances readability by alternating row colors, making it easier to scan tabular data.

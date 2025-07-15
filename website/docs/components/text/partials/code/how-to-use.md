@@ -28,13 +28,14 @@ To specify which HTML tag to use to render the element, use the `@tag` argument:
 <Hds::Text::Code @tag="pre">Code sample</Hds::Text::Code>
 ```
 
-!!! Insight
+!!! Warning
+
+**Accessibility pitfalls**
 
 While by default the component renders a `<span>`, we invite consumers to:
 
 - consider which semantic HTML tag is the correct one for the context in which the text is used
 - always set a `@tag` value accordingly, to make the semantic choice explicit
-
 !!!
 
 ### Size

@@ -36,10 +36,11 @@ Pass a `@value` argument to pre-populate the input.
 
 Pass a `@type` argument to change the type of input.
 
-!!! Info
+!!! Insight
+
+**Accessibility tips**
 
 `@type="number"` is not supported as it causes [accessibility and usability problems](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/). If you are looking for additional validation or to display a numeric keypad on devices with dynamic keypads we recommend using `inputmode="numeric" pattern="[0-9]*"`. For the list of supported types, see [Component API](#component-api).
-
 !!!
 
 ```handlebars

@@ -34,8 +34,9 @@ You can add extra information to the field using helper text. When helper text i
 
 !!! Warning
 
-If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be taken when considering this feature. If you do need to include a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
+**Accessibility pitfalls**
 
+If a link is used within a label, helper text, or error text, it will not be presented as a link to the user with a screen reader; only the text content is read out. As such, care should be taken when considering this feature. If you do need to include a link, include a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
 
 The `Label` and `HelperText` contextual components used in the Field component yield their content. This means you can also pass structured content.

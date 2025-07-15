@@ -30,6 +30,8 @@ If the label needs to contain more than just text, it’s possible to pass struc
 
 !!! Warning
 
+**Accessibility pitfalls**
+
 The `<label>` element is linked via `for` attribute to the `<input/select/textarea>` elements. Because this is an interactive element, it cannot have links inside of it, as nested interactive elements cannot be reached by a user with assistive technology.
 !!!
 
@@ -55,6 +57,8 @@ The `controlId` value is used to generate an ID, prefixed with `helper-text-`, s
 If the helper text needs to contain more than just text, use the block form of the component. While the correct styling is applied to the component itself, the nested components may need additional styling and are the responsibility of the product team.
 
 !!! Warning
+
+**Accessibility pitfalls**
 
 Interactive elements in text (associated with the input through `aria-describedby`) will not be read out as interactive elements to users with screen readers; only the text itself will be read. As such, we recommend including a screen reader-only message that informs the user that some help text includes links, and additional keyboard exploration may be required.
 !!!
