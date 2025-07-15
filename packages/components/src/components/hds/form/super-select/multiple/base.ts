@@ -24,10 +24,10 @@ export const HORIZONTAL_POSITION_MAPPING =
   HdsFormSuperSelectHorizontalPositionToPlacementValues;
 
 export interface HdsFormSuperSelectMultipleBaseSignature {
-  Args: PowerSelectSignature['Args'] & {
+  Args: Omit<PowerSelectSignature['Args'], 'resultCountMessage'> & {
     showAfterOptions?: boolean;
     afterOptionsContent?: string;
-    resultCountMessage?: string;
+    resultCountMessage?: string | ((resultCount: number) => string);
     dropdownMaxWidth?: string;
     matchTriggerWidth?: boolean;
     isInvalid?: boolean;
@@ -56,7 +56,19 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
   }
 
   get resultCountMessage(): string {
-    return this.args.resultCountMessage || `${this.optionsCount} total`;
+    if (typeof this.args.resultCountMessage === 'string') {
+      return this.args.resultCountMessage;
+    }
+
+    return `${this.optionsCount} total`;
+  }
+
+  get resultCountMessageFunction() {
+    if (typeof this.args.resultCountMessage === 'function') {
+      return this.args.resultCountMessage;
+    }
+
+    return undefined;
   }
 
   @action calculatePosition(
