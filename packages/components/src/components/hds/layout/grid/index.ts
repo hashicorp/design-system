@@ -18,9 +18,11 @@ import type {
   AvailableElements,
 } from './types.ts';
 
-export const ALIGNS: string[] = Object.values(HdsLayoutGridAlignValues);
+export const ALIGNS: HdsLayoutGridAligns[] = Object.values(
+  HdsLayoutGridAlignValues
+);
 export const DEFAULT_GAP = HdsLayoutGridGapValues.Zero;
-export const GAPS: string[] = Object.values(HdsLayoutGridGapValues);
+export const GAPS: HdsLayoutGridGaps[] = Object.values(HdsLayoutGridGapValues);
 
 export interface HdsLayoutGridSignature {
   Args: {
