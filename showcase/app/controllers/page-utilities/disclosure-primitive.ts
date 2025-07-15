@@ -11,12 +11,12 @@ export default class PageUtilitiesDisclosurePrimitiveController extends Controll
   @tracked isOpen: boolean = false;
 
   @action
-  toggleState(state?: string) {
+  toggleState(state: string) {
     if (state === 'open') {
       this.isOpen = true;
     } else if (state === 'close') {
       this.isOpen = false;
-    } else {
+    } else if (state === 'toggle') {
       this.isOpen = !this.isOpen;
     }
   }
