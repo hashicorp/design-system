@@ -16,7 +16,7 @@ export default class PageUtilitiesDisclosurePrimitiveController extends Controll
       this.isOpen = true;
     } else if (state === 'close') {
       this.isOpen = false;
-    } else {
+    } else if (state === 'toggle') {
       this.isOpen = !this.isOpen;
     }
   }
