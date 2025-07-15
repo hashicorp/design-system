@@ -81,20 +81,10 @@
           @column={{@column}}
           @previousColumn={{@previousColumn}}
           @nextColumn={{@nextColumn}}
+          @hasReorderableColumns={{@hasReorderableColumns}}
           @hasResizableColumns={{@hasResizableColumns}}
           @resizeHandleElement={{this._resizeHandleElement}}
           @onColumnResize={{@onColumnResize}}
-        />
-      {{/if}}
-
-      {{#if @hasResizableColumns}}
-        <Hds::AdvancedTable::ThResizeHandle
-          @column={{@column}}
-          @nextColumn={{@nextColumn}}
-          @hasResizableColumns={{@hasResizableColumns}}
-          @tableHeight={{@tableHeight}}
-          @onColumnResize={{@onColumnResize}}
-          {{this._registerResizeHandleElement}}
         />
       {{/if}}
 
