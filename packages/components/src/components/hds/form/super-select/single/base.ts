@@ -54,7 +54,7 @@ export default class HdsFormSuperSelectSingleBase extends Component<HdsFormSuper
     return `${this.powerSelectAPI?.resultsCount || 0} total`;
   }
 
-  get resultCountMessageFunction() {
+  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
     if (typeof this.args.resultCountMessage === 'function') {
       return this.args.resultCountMessage;
     }

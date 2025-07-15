@@ -65,7 +65,7 @@ export default class HdsFormSuperSelectMultipleBase extends Component<HdsFormSup
     return `${this.optionsCount} total`;
   }
 
-  get resultCountMessageFunction() {
+  get resultCountMessageFunction(): PowerSelectSignature['Args']['resultCountMessage'] {
     if (typeof this.args.resultCountMessage === 'function') {
       return this.args.resultCountMessage;
     }

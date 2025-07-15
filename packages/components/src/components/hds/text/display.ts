@@ -21,7 +21,7 @@ export const DEFAULT_SIZE = HdsTextSizeValues.TwoHundred;
 
 // Filter out reverse mappings from enum
 // https://www.typescriptlang.org/docs/handbook/enums.html#reverse-mappings
-export const AVAILABLE_SIZES = Object.values(HdsTextSizeValues).filter(
+export const SIZES = Object.values(HdsTextSizeValues).filter(
   (v): boolean => typeof v === 'number'
 ) as HdsTextSizes[];
 
@@ -95,10 +95,10 @@ export default class HdsTextDisplay extends Component<HdsTextDisplaySignature> {
     }
 
     assert(
-      `@size for "Hds::Text::Display" must be one of the following: ${AVAILABLE_SIZES.join(
+      `@size for "Hds::Text::Display" must be one of the following: ${SIZES.join(
         ', '
       )}; received: ${size}`,
-      AVAILABLE_SIZES.includes(size)
+      SIZES.includes(size)
     );
 
     return size;
