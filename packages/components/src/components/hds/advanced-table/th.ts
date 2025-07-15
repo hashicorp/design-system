@@ -21,6 +21,7 @@ import type {
   HdsAdvancedTableExpandState,
   HdsAdvancedTableColumnReorderSide,
 } from './types.ts';
+import type { HdsAdvancedTableThReorderHandleSignature } from './th-reorder-handle.ts';
 import type { HdsAdvancedTableThResizeHandleSignature } from './th-resize-handle.ts';
 import type { HdsAdvancedTableSignature } from './index.ts';
 
