@@ -11,12 +11,16 @@
   />
 
   {{#each this._options as |option|}}
-    <D.Interactive
-      @icon={{option.icon}}
-      data-test-context-option-key={{option.key}}
-      {{on "click" (fn option.action @column @previousColumn @nextColumn D.close)}}
-    >
-      {{option.label}}
-    </D.Interactive>
+    {{#if (eq option.key "separator")}}
+      <D.Separator />
+    {{else if option.action}}
+      <D.Interactive
+        @icon={{option.icon}}
+        data-test-context-option-key={{option.key}}
+        {{on "click" (fn option.action @column @previousColumn @nextColumn D.close)}}
+      >
+        {{option.label}}
+      </D.Interactive>
+    {{/if}}
   {{/each}}
 </Hds::Dropdown>
