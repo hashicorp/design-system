@@ -130,19 +130,11 @@ Badges can be used in radio cards to display additional information and context.
   </G.RadioCard>
 </Hds::Form::RadioCard::Group>
 
-## Legend style
+## Legend
 
-### Default style
-
-When placed along with other form components, we recommend using the default legend style provided by the component.
+The  legend is required to provide context for Radio Card.
 
 ![Default legend style](/assets/components/form/radio-card/radio-card-default-legend.png =600x*)
-
-### Display style
-
-When using the Radio Card Group as its own section, we recommend using `Display/400/Bold` for the legend.
-
-![Display/400/Bold legend style](/assets/components/form/radio-card/radio-card-heading.png =600x*)
 
 ## Error validation
 
