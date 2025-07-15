@@ -8,7 +8,7 @@ import { htmlSafe } from '@ember/template';
 
 import type { SafeString } from '@ember/template';
 
-interface ShwPlaceholderSignature {
+export interface ShwPlaceholderSignature {
   Args: {
     background?: string;
     flex?: string;
